@@ -1,0 +1,73 @@
+body {
+	background-image: url(./images/Backgound_1.jpg);
+	background-size: cover;
+}
+.redErrorText {
+	color: red;
+	padding: 2px;
+}
+.registerPage {
+	width: 380px;
+	padding: 8% 0 0;
+	margin: auto;
+}
+form {
+	border-radius: 25px;
+	border: 5px solid #202024;
+	position: relative;
+	z-index: 1;
+	background: #c9c9c9;
+	max-width: 460px;
+	margin: 30 auto 100px;
+	padding: 25px;
+	text-align: center;
+	color: black;
+}
+form input {
+	font-family: "Roboto", sans-serif;
+	outline: 1;
+	background: #ffffff;
+	width: 100%;
+	border: 0;
+	margin: 0 0 10px;
+	padding: 8px;
+	box-sizing: border-box;
+	font-size: 14px;
+	text-align: center;
+}
+form button {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #707070;
+	width: 100%;
+	border: 0;
+	padding: 10px;
+	color: #ffffff;
+	font-size: 14px;
+	cursor: pointer;
+	text-align: center;
+	margin-top: 10px;
+}
+form button:hover,
+form button:active {
+	background: green;
+}
+
+form .message {
+	margin: 15px 0 0;
+	font-size: 20px;
+	font-style: bold;
+}
+
+form .message a {
+	color: blue;
+	font-style: bold;
+	text-decoration: none;
+	font-size: 110%;
+	margin-left: 15px;
+}
+
+#registerLabel {
+	font-size: 200%;
+}

@@ -14,8 +14,6 @@ const validateEmailUpdateInput = require("../middleware/validation/updateEmailVa
 const validatePasswordUpdateInput = require("../middleware/validation/updatePasswordValidation");
 const passwordAuthentication = require("../middleware/passwordAuthentication");
 const tokenAuthorization = require("../middleware/tokenAuthorization");
-// Better alternative to the date object
-const moment = require("moment");
 
 //==================
 // Register account
@@ -104,14 +102,6 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 				});
 			}
 		);
-
-		// Used for creating a token
-		const daysTillExpires = 7;
-		const currentDate = moment();
-		const dateCreated = currentDate.format("YYYY-MM-DD");
-		const dateExpires = currentDate
-			.add(daysTillExpires, "days")
-			.format("YYYY-MM-DD");
 	} catch (err) {
 		console.error(err.message);
 	}

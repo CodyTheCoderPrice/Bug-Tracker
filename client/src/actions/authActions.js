@@ -7,7 +7,7 @@ import { SET_CURRENT_ACCOUNT, GET_INPUT_ERRORS } from "./types";
 // Register account
 export const registerAccount = (accountData, history) => (dispatch) => {
 	axios
-		.post("/api/account/register", userData)
+		.post("/api/account/register", accountData)
 		.then((res) => history.push("/login"))
 		.catch((err) =>
 			dispatch({
@@ -43,8 +43,8 @@ export const loginAccount = (accountData) => (dispatch) => {
 };
 
 // Update account info
-export const updateAccountInfo = (userData) => (dispatch) => {
-	axios.post("/api/account/update-info", userData).catch((err) =>
+export const updateAccountInfo = (accountData) => (dispatch) => {
+	axios.post("/api/account/update-info", accountData).catch((err) =>
 		dispatch({
 			type: GET_INPUT_ERRORS,
 			payload: err.response.data,
@@ -53,8 +53,8 @@ export const updateAccountInfo = (userData) => (dispatch) => {
 };
 
 // Update account email
-export const updateAccountEmail = (userData) => (dispatch) => {
-	axios.post("/api/account/update-email", userData).catch((err) =>
+export const updateAccountEmail = (accountData) => (dispatch) => {
+	axios.post("/api/account/update-email", accountData).catch((err) =>
 		dispatch({
 			type: GET_INPUT_ERRORS,
 			payload: err.response.data,
@@ -63,8 +63,8 @@ export const updateAccountEmail = (userData) => (dispatch) => {
 };
 
 // Update account password
-export const updateAccountPassword = (userData) => (dispatch) => {
-	axios.post("/api/account/update-password", userData).catch((err) =>
+export const updateAccountPassword = (accountData) => (dispatch) => {
+	axios.post("/api/account/update-password", accountData).catch((err) =>
 		dispatch({
 			type: GET_INPUT_ERRORS,
 			payload: err.response.data,
