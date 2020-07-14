@@ -4,7 +4,7 @@ const isEmpty = require("is-empty");
 module.exports = (req, res, next) => {
 	try {
 		let { email, password } = req.body;
-		let formInputErrors = {};
+		let inputErrors = {};
 
 		// Convert empty fields to an empty string so we can use validator functions
 		email = !isEmpty(email) ? email : "";
@@ -12,17 +12,17 @@ module.exports = (req, res, next) => {
 
 		// Email checks
 		if (Validator.isEmpty(email)) {
-			formInputErrors.email = "Email field is required";
+			inputErrors.email = "Email field is required";
 		} else if (!Validator.isEmail(email)) {
-			formInputErrors.email = "Email is invalid";
+			inputErrors.email = "Email is invalid";
 		}
 		// Password checks
 		if (Validator.isEmpty(password)) {
-			formInputErrors.password = "Password field is required";
+			inputErrors.password = "Password field is required";
 		}
 
-		if (!isEmpty(formInputErrors)) {
-			return res.status(400).json({ success: false, formInputErrors });
+		if (!isEmpty(inputErrors)) {
+			return res.status(400).json({ success: false, inputErrors });
 		}
 		
 		next();

@@ -14,6 +14,8 @@ const validateEmailUpdateInput = require("../middleware/validation/updateEmailVa
 const validatePasswordUpdateInput = require("../middleware/validation/updatePasswordValidation");
 const passwordAuthentication = require("../middleware/passwordAuthentication");
 const tokenAuthorization = require("../middleware/tokenAuthorization");
+// Used instead of the Date function
+const moment = require("moment");
 
 //==================
 // Register account
@@ -21,6 +23,7 @@ const tokenAuthorization = require("../middleware/tokenAuthorization");
 router.route("/register").post(validateRegisterInput, async (req, res) => {
 	try {
 		const { email, password, firstName, lastName } = req.body;
+		// Moment is easier to use than Date
 		const join_date = moment().format("YYYY-MM-DD");
 
 		// Verify that email does not already exist

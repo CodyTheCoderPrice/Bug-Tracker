@@ -8,11 +8,11 @@ import { SET_CURRENT_ACCOUNT, GET_INPUT_ERRORS } from "./types";
 export const registerAccount = (accountData, history) => (dispatch) => {
 	axios
 		.post("/api/account/register", accountData)
-		.then((res) => history.push("/login"))
+		//.then((res) => history.push("/login"))
 		.catch((err) =>
 			dispatch({
 				type: GET_INPUT_ERRORS,
-				payload: err.response.data,
+				payload: err.response.data.inputErrors,
 			})
 		);
 };

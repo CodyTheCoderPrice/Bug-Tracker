@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"server": "nodemon index.js",
+    "server": "nodemon index.js",
     "client": "npm start --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,7 @@
     "express": "^4.17.1",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
     "pg": "^8.2.1",
     "validator": "^13.1.1"
   }

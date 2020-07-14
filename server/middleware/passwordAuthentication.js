@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
 		// declared in the tokenAuthorization middleware
 		const { accountId } = req;
 		const { currentPassword } = req.body;
-		let formInputErrors = {};
+		let inputErrors = {};
 
 		const account = await pool.query(
 			"SELECT hash_pass FROM account WHERE account_id = $1",
@@ -26,8 +26,8 @@ module.exports = async (req, res, next) => {
 		);
 
 		if (!passwordMatch) {
-			formInputErrors.currentPassword = "Incorrect Password";
-			return res.status(400).json({ success: false, formInputErrors });
+			inputErrors.currentPassword = "Incorrect Password";
+			return res.status(400).json({ success: false, inputErrors });
 		}
 
 		req.passwordMatch = passwordMatch;

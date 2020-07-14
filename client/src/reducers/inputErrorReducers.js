@@ -5,7 +5,7 @@ const initialState = {};
 export default function (state = initialState, action) {
 	switch (action.type) {
 		case GET_INPUT_ERRORS:
-			return { inputErrors: action.payload};
+			return action.payload;
 		default:
 			return state;
 	}
