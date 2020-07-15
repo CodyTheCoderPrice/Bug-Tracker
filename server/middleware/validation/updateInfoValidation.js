@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
 			inputErrors.firstName = "First name field is required";
 		}
 		if (!Validator.isLength(firstName, { min: 1, max: 35 })) {
-			inputErrors.password = "First name can't be longer than 35 characters";
+			inputErrors.firstName = "First name can't be longer than 35 characters";
 		}
 
 
@@ -24,7 +24,7 @@ module.exports = (req, res, next) => {
 			inputErrors.lastName = "Last name field is required";
 		}
 		if (!Validator.isLength(lastName, { min: 1, max: 35 })) {
-			inputErrors.password = "Last name can't be longer than 35 characters";
+			inputErrors.lastName = "Last name can't be longer than 35 characters";
 		}
 
 		if (!isEmpty(inputErrors)) {

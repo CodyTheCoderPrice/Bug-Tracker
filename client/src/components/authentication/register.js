@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -28,9 +28,9 @@ export default function Register() {
 	};
 
 	return (
-		<div className="registerPage">
+		<div className="constainerDiv">
 			<form className="registerForm" noValidate onSubmit={handleSubmit}>
-				<label id="registerLabel">Register</label>
+				<label id="titleLabel">Register</label>
 				<br />
 				<span className="redErrorText">{inputErrors.firstName}</span>
 				<input
@@ -39,7 +39,7 @@ export default function Register() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.firstName}
 					placeholder="First name"
-					error={inputErrors.firstName}
+					//error={inputErrors.firstName}
 					id="firstNameInput"
 				/>
 				<span className="redErrorText">{inputErrors.lastName}</span>
@@ -49,7 +49,7 @@ export default function Register() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.lastName}
 					placeholder="Last name"
-					error={inputErrors.lastName}
+					//error={inputErrors.lastName}
 					id="lastNameInput"
 				/>
 				<span className="redErrorText">{inputErrors.email}</span>
@@ -59,7 +59,7 @@ export default function Register() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.email}
 					placeholder="Email"
-					error={inputErrors.email}
+					//error={inputErrors.email}
 					id="emailInput"
 				/>
 				<span className="redErrorText">{inputErrors.password}</span>
@@ -69,7 +69,7 @@ export default function Register() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.password}
 					placeholder="Password"
-					error={inputErrors.password}
+					//error={inputErrors.password}
 					id="passwordInput"
 				/>
 				<span className="redErrorText">{inputErrors.password2}</span>
@@ -79,10 +79,14 @@ export default function Register() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.password2}
 					placeholder="Confirm password"
-					error={inputErrors.password2}
+					//error={inputErrors.password2}
 					id="password2Input"
 				/>
 				<button type="submit">Register Account</button>
+				<p className="message">
+					<strong>Already a Member?</strong>
+					<Link to="/login">Login</Link>
+				</p>
 			</form>
 		</div>
 	);

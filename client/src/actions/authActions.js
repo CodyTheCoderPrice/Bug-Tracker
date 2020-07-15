@@ -37,7 +37,7 @@ export const loginAccount = (accountData) => (dispatch) => {
 		.catch((err) =>
 			dispatch({
 				type: GET_INPUT_ERRORS,
-				payload: err.response.data,
+				payload: err.response.data.inputErrors,
 			})
 		);
 };
@@ -47,7 +47,7 @@ export const updateAccountInfo = (accountData) => (dispatch) => {
 	axios.post("/api/account/update-info", accountData).catch((err) =>
 		dispatch({
 			type: GET_INPUT_ERRORS,
-			payload: err.response.data,
+			payload: err.response.data.inputErrors,
 		})
 	);
 };
@@ -57,7 +57,7 @@ export const updateAccountEmail = (accountData) => (dispatch) => {
 	axios.post("/api/account/update-email", accountData).catch((err) =>
 		dispatch({
 			type: GET_INPUT_ERRORS,
-			payload: err.response.data,
+			payload: err.response.data.inputErrors,
 		})
 	);
 };
@@ -67,7 +67,7 @@ export const updateAccountPassword = (accountData) => (dispatch) => {
 	axios.post("/api/account/update-password", accountData).catch((err) =>
 		dispatch({
 			type: GET_INPUT_ERRORS,
-			payload: err.response.data,
+			payload: err.response.data.inputErrors,
 		})
 	);
 };

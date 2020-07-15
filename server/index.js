@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
+//const cors = require("cors");
 const pool = require("./db");
 const accounts = require("./routes/accounts");
 
 // Middleware
-app.use(cors());
+//app.use(cors());
 app.use(express.json());
 
 // Use Routes

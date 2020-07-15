@@ -23,8 +23,9 @@ const moment = require("moment");
 router.route("/register").post(validateRegisterInput, async (req, res) => {
 	try {
 		const { email, password, firstName, lastName } = req.body;
-		// Moment is easier to use than Date
+		// Moment() is easier to use than Date()
 		const join_date = moment().format("YYYY-MM-DD");
+		let inputErrors = {};
 
 		// Verify that email does not already exist
 		const activeAccounts = await pool.query(
@@ -33,9 +34,10 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 		);
 
 		if (activeAccounts.rows.length > 0) {
+			inputErrors = {email: "Email already in use"};
 			return res
 				.status(400)
-				.json({ success: false, errorEmail: "Email already in use" });
+				.json({ success: false, inputErrors });
 		}
 
 		// Generate hashed password
@@ -62,6 +64,7 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 router.route("/login").post(validateLoginInput, async (req, res) => {
 	try {
 		const { email, password } = req.body;
+		let inputErrors = {};
 
 		// Verifies that an account with that email exisits
 		const account = await pool.query(
@@ -70,9 +73,10 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		);
 
 		if (account.rows.length === 0) {
+			inputErrors = {email: "Email unregistered"};
 			return res
 				.status(401)
-				.json({ success: false, errorEmail: "Email unregistered" });
+				.json({ success: false, inputErrors });
 		}
 
 		// Verfies that password is correct
@@ -82,9 +86,10 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		);
 
 		if (!passwordMatch) {
+			inputErrors = {password: "Incorrect password"};
 			return res
 				.status(401)
-				.json({ success: false, errorPassword: "Incorrect password" });
+				.json({ success: false, inputErrors });
 		}
 
 		const payload = {
