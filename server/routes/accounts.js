@@ -34,10 +34,8 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 		);
 
 		if (activeAccounts.rows.length > 0) {
-			inputErrors = {email: "Email already in use"};
-			return res
-				.status(400)
-				.json({ success: false, inputErrors });
+			inputErrors = { email: "Email already in use" };
+			return res.status(400).json({ success: false, inputErrors });
 		}
 
 		// Generate hashed password
@@ -68,15 +66,13 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 
 		// Verifies that an account with that email exisits
 		const account = await pool.query(
-			"SELECT account_id, hash_pass FROM account WHERE LOWER(email) = LOWER($1)",
+			"SELECT account_id, email, hash_pass, first_name, last_name, join_date FROM account WHERE LOWER(email) = LOWER($1)",
 			[email]
 		);
 
 		if (account.rows.length === 0) {
-			inputErrors = {email: "Email unregistered"};
-			return res
-				.status(401)
-				.json({ success: false, inputErrors });
+			inputErrors = { email: "Email unregistered" };
+			return res.status(401).json({ success: false, inputErrors });
 		}
 
 		// Verfies that password is correct
@@ -86,19 +82,25 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		);
 
 		if (!passwordMatch) {
-			inputErrors = {password: "Incorrect password"};
-			return res
-				.status(401)
-				.json({ success: false, inputErrors });
+			inputErrors = { password: "Incorrect password" };
+			return res.status(401).json({ success: false, inputErrors });
 		}
 
-		const payload = {
+		const accountPayload = {
+			accountId: account.rows[0].account_id,
+			email: account.rows[0].email,
+			firstName: account.rows[0].first_name,
+			lastName: account.rows[0].last_name,
+			joinDate: account.rows[0].join_date,
+		};
+
+		const tokenPayload = {
 			accountId: account.rows[0].account_id,
 		};
 
 		// Sign token
 		jwt.sign(
-			payload,
+			tokenPayload,
 			process.env.jwtSecret,
 			{
 				expiresIn: "15m",
@@ -107,6 +109,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 				res.json({
 					success: true,
 					token: token,
+					account: accountPayload,
 				});
 			}
 		);

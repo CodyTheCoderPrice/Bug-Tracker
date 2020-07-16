@@ -1,18 +1,18 @@
-import { SET_CURRENT_ACCOUNT } from "../actions/types";
+import { AUTHENTICATE_ACCOUNT } from "../actions/types";
 const isEmpty = require("is-empty");
 
 const initialState = {
 	isAuthenticated: false,
-	account: {},
+	info: {},
 };
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case SET_CURRENT_ACCOUNT:
+		case AUTHENTICATE_ACCOUNT:
 			return {
 				...state,
 				isAuthenticated: !isEmpty(action.payload),
-				account: action.payload,
+				info: action.payload,
 			};
 		default:
 			return state;

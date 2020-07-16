@@ -2,7 +2,11 @@ import axios from "axios";
 import setAuthorizationToken from "../utils/setAuthorizationToken";
 import jwt_decode from "jwt-decode";
 
-import { SET_CURRENT_ACCOUNT, GET_INPUT_ERRORS } from "./types";
+import {
+	AUTHENTICATE_ACCOUNT,
+	SET_INPUT_ERRORS,
+	SET_ACCOUNT_INFO,
+} from "./types";
 
 // Register account
 export const registerAccount = (accountData, history) => (dispatch) => {
@@ -11,7 +15,7 @@ export const registerAccount = (accountData, history) => (dispatch) => {
 		//.then((res) => history.push("/login"))
 		.catch((err) =>
 			dispatch({
-				type: GET_INPUT_ERRORS,
+				type: SET_INPUT_ERRORS,
 				payload: err.response.data.inputErrors,
 			})
 		);
@@ -22,7 +26,7 @@ export const loginAccount = (accountData) => (dispatch) => {
 	axios
 		.post("/api/account/login", accountData)
 		.then((res) => {
-			const { token } = res.data;
+			const { token, account } = res.data;
 			localStorage.setItem("jwtToken", token);
 
 			// Adds the token the header of all http requests
@@ -30,23 +34,45 @@ export const loginAccount = (accountData) => (dispatch) => {
 
 			const decodedToken = jwt_decode(token);
 			dispatch({
-				type: SET_CURRENT_ACCOUNT,
+				type: AUTHENTICATE_ACCOUNT,
 				payload: decodedToken,
 			});
-		})
-		.catch((err) =>
+
 			dispatch({
-				type: GET_INPUT_ERRORS,
-				payload: err.response.data.inputErrors,
+				type: SET_ACCOUNT_INFO,
+				payload: account,
+			}).catch((err) => {
+				console.log(err);
 			})
-		);
+		})
+		.catch((err) => {
+			if (err.response !== undefined) {
+				dispatch({
+					type: SET_INPUT_ERRORS,
+					payload: err.response.data.inputErrors,
+				})
+			}
+		});
+};
+
+// Retrieve account info
+export const retrieveAccount = (accountData) => (dispatch) => {
+	console.log("got here");
+	axios.get("/api/account/retrieve", accountData).then((res) =>
+		dispatch({
+			type: SET_ACCOUNT_INFO,
+			payload: res.data,
+		}).catch((err) => {
+			console.log(err);
+		})
+	);
 };
 
 // Update account info
 export const updateAccountInfo = (accountData) => (dispatch) => {
 	axios.post("/api/account/update-info", accountData).catch((err) =>
 		dispatch({
-			type: GET_INPUT_ERRORS,
+			type: SET_INPUT_ERRORS,
 			payload: err.response.data.inputErrors,
 		})
 	);
@@ -56,7 +82,7 @@ export const updateAccountInfo = (accountData) => (dispatch) => {
 export const updateAccountEmail = (accountData) => (dispatch) => {
 	axios.post("/api/account/update-email", accountData).catch((err) =>
 		dispatch({
-			type: GET_INPUT_ERRORS,
+			type: SET_INPUT_ERRORS,
 			payload: err.response.data.inputErrors,
 		})
 	);
@@ -66,7 +92,7 @@ export const updateAccountEmail = (accountData) => (dispatch) => {
 export const updateAccountPassword = (accountData) => (dispatch) => {
 	axios.post("/api/account/update-password", accountData).catch((err) =>
 		dispatch({
-			type: GET_INPUT_ERRORS,
+			type: SET_INPUT_ERRORS,
 			payload: err.response.data.inputErrors,
 		})
 	);
@@ -77,7 +103,7 @@ export const logoutAccount = () => (dispatch) => {
 	localStorage.removeItem("jwtToken");
 	setAuthorizationToken(false);
 	dispatch({
-		type: SET_CURRENT_ACCOUNT,
+		type: AUTHENTICATE_ACCOUNT,
 		payload: {},
 	});
 };
