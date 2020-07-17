@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { loginAccount, retrieveAccount } from "../../actions/accountActions";
+import { loginThenRetrieveAccount } from "../../actions/accountActions";
 
 import "../../SCSS/registerLogin.scss";
 
@@ -21,32 +21,32 @@ export default function Login() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(loginAccount(accountInfo));
+		dispatch(loginThenRetrieveAccount(accountInfo));
 	};
 
 	return (
-		<div className="constainerDiv">
-			<form className="loginForm" noValidate onSubmit={handleSubmit}>
-				<label id="titleLabel">Login</label>
+		<div>
+			<form className="registerLoginForm" noValidate onSubmit={handleSubmit}>
+				<label className="titleLabel">Login</label>
 				<br />
-				<span className="redErrorText">{reduxState.inputErrorsemail}</span>
+				<span className="redErrorText">{reduxState.inputErrors.email}</span>
 				<input
 					type="email"
 					name="email"
 					onChange={(e) => onChange(e)}
 					value={accountInfo.email}
 					placeholder="Email"
-					//error={reduxState.inputErrorsemail}
+					//error={reduxState.inputErrors.email}
 					id="emailInput"
 				/>
-				<span className="redErrorText">{reduxState.inputErrorspassword}</span>
+				<span className="redErrorText">{reduxState.inputErrors.password}</span>
 				<input
 					type="password"
 					name="password"
 					onChange={(e) => onChange(e)}
 					value={accountInfo.password}
 					placeholder="Password"
-					//error={reduxState.inputErrorspassword}
+					//error={reduxState.inputErrors.password}
 					id="passwordInput"
 				/>
 				<button type="submit">Login</button>

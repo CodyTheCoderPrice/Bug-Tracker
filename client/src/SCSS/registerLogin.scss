@@ -1,26 +1,17 @@
-body {
-	background-image: url(./images/BlueBackground_1920.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-.redErrorText {
-	color: red;
-	padding: 2px;
-}
-form {
+.registerLoginForm {
 	border-radius: 25px;
+	color: black;
 	border: 5px solid #202024;
 	background: #c9c9c9;
-	max-width: 460px;
 	padding: 25px;
+	width: 460px;
 	text-align: center;
-	color: black;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-form input {
+.registerLoginForm input {
 	font-family: "Roboto", sans-serif;
 	outline: 1;
 	background: #ffffff;
@@ -32,7 +23,7 @@ form input {
 	font-size: 14px;
 	text-align: center;
 }
-form button {
+.registerLoginForm button {
 	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
@@ -46,18 +37,18 @@ form button {
 	text-align: center;
 	margin-top: 10px;
 }
-form button:hover,
-form button:active {
+.registerLoginForm button:hover,
+.registerLoginForm button:active {
 	background: green;
 }
 
-form .message {
+.registerLoginForm .message {
 	margin: 15px 0 0;
 	font-size: 20px;
 	font-style: bold;
 }
 
-form .message a {
+.registerLoginForm .message a {
 	color: blue;
 	font-style: bold;
 	text-decoration: none;
@@ -65,6 +56,11 @@ form .message a {
 	margin-left: 15px;
 }
 
-#titleLabel {
+.titleLabel {
 	font-size: 200%;
+}
+
+.redErrorText {
+	color: red;
+	padding: 2px;
 }

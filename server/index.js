@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(function (req, res, next) {
 	if (req.secure) {
 		// request was via https, so do no special handling
-		console.log("Was https!");
+		console.log("Was secure!");
 		next();
 	} else {
 		// request was via http, so redirect to https

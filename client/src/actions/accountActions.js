@@ -21,8 +21,8 @@ export const registerAccount = (accountData, history) => (dispatch) => {
 		);
 };
 
-// Login account
-export const loginAccount = (accountData) => (dispatch) => {
+// Login and then retrieve account
+export const loginThenRetrieveAccount = (accountData) => (dispatch) => {
 	axios
 		.post("/api/account/login", accountData)
 		.then((res) => {
@@ -55,7 +55,7 @@ export const loginAccount = (accountData) => (dispatch) => {
 		});
 };
 
-// Retrieve account info
+// Retrieve account only
 export const retrieveAccount = (accountData) => (dispatch) => {
 	console.log("got here");
 	axios.get("/api/account/retrieve", accountData).then((res) =>

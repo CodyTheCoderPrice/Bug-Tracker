@@ -1,10 +1,10 @@
-import React from 'react'
-import Account from './Account'
+import React from "react";
+import Account from "./account/AccountSidebar";
 
 const Home = () => (
-  <div>
-    <Account />
-  </div>
-)
+	<div>
+		<Account />
+	</div>
+);
 
-export default Home
+export default Home;
