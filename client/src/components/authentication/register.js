@@ -82,6 +82,11 @@ export default function Register() {
 					//error={reduxState.inputErrors.password2}
 					id="password2Input"
 				/>
+				<span className="redErrorText">
+					{reduxState.inputErrors.validation}
+					{reduxState.inputErrors.account}
+					{reduxState.inputErrors.server}
+				</span>
 				<button type="submit">Register Account</button>
 				<p className="message">
 					<strong>Already a Member?</strong>

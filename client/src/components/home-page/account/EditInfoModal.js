@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateAccountInfo } from "../../../actions/accountActions";
+import { updateAccountInfo, retrieveAccount } from "../../../actions/accountActions";
+import { setModalComponent } from "../../../actions/modalActions.js";
 
-//import "../../../SCSS/account.scss";
+import "../../../SCSS/accountModals.scss";
 
-export default function EditAccountInfo() {
+export default function EditInfoModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -18,15 +19,22 @@ export default function EditAccountInfo() {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
+	const closEditInfoPopup = () => {
+		dispatch(setModalComponent({ editInfoComponent: null }));
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(updateAccountInfo(accountInfo));
+		dispatch(retrieveAccount());
 	};
 
 	return (
-		<div>
-			<form className="registerLoginForm" noValidate onSubmit={handleSubmit}>
-				<button className="exitButton">X</button>
+		<div className="containerDiv">
+			<button className="exitButton" onClick={closEditInfoPopup}>
+				X
+			</button>
+			<form className="editInfoForm" noValidate onSubmit={handleSubmit}>
 				<label className="titleLabel">Edit Account</label>
 				<br />
 				<span className="redErrorText">{reduxState.inputErrors.firstName}</span>
@@ -49,6 +57,11 @@ export default function EditAccountInfo() {
 					//error={reduxState.inputErrors.lastName}
 					id="lastNameInput"
 				/>
+				<span className="redErrorText">
+					{reduxState.inputErrors.validation}
+					{reduxState.inputErrors.account}
+					{reduxState.inputErrors.server}
+				</span>
 				<button type="submit">Update Account</button>
 			</form>
 		</div>

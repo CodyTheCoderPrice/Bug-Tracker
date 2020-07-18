@@ -1,12 +1,13 @@
-const pool = require("../db");
+const pool = require("../../db");
 const bcrypt = require("bcryptjs");
 
 module.exports = async (req, res, next) => {
+	let inputErrors = {};
+
 	try {
 		// declared in the tokenAuthorization middleware
 		const { accountId } = req;
 		const { currentPassword } = req.body;
-		let inputErrors = {};
 
 		const account = await pool.query(
 			"SELECT hash_pass FROM account WHERE account_id = $1",
@@ -14,9 +15,8 @@ module.exports = async (req, res, next) => {
 		);
 
 		if (account.rows.length === 0) {
-			return res
-				.status(403)
-				.json({ success: false, errorAuthorization: "Not Authorized" });
+			inputErrors.account = "Account not found";
+			return res.status(403).json({ success: false, inputErrors });
 		}
 
 		// Verfies that password is correct
@@ -26,7 +26,7 @@ module.exports = async (req, res, next) => {
 		);
 
 		if (!passwordMatch) {
-			inputErrors.currentPassword = "Incorrect Password";
+			inputErrors.currentPassword = "Incorrect password";
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
@@ -34,6 +34,7 @@ module.exports = async (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		return res.status(403).json("Validation Error");
+		inputErrors.authorization = "Authorization Error";
+		return res.status(403).json({ success: false, inputErrors });
 	}
 };

@@ -49,6 +49,10 @@ export default function Login() {
 					//error={reduxState.inputErrors.password}
 					id="passwordInput"
 				/>
+				<span className="redErrorText">
+					{reduxState.inputErrors.validation}
+					{reduxState.inputErrors.server}
+				</span>
 				<button type="submit">Login</button>
 				<p className="message">
 					<strong>Not a Member </strong>

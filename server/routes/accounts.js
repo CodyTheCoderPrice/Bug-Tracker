@@ -12,8 +12,8 @@ const validateLoginInput = require("../middleware/validation/loginValidation");
 const validateInfoUpdateInput = require("../middleware/validation/updateInfoValidation");
 const validateEmailUpdateInput = require("../middleware/validation/updateEmailValidation");
 const validatePasswordUpdateInput = require("../middleware/validation/updatePasswordValidation");
-const passwordAuthentication = require("../middleware/passwordAuthentication");
-const tokenAuthorization = require("../middleware/tokenAuthorization");
+const passwordAuthentication = require("../middleware/auth/passwordAuthentication");
+const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
 // Used instead of the Date function
 const moment = require("moment");
 
@@ -21,6 +21,8 @@ const moment = require("moment");
 // Register account
 //==================
 router.route("/register").post(validateRegisterInput, async (req, res) => {
+	let inputErrors = {};
+
 	try {
 		const { email, password, firstName, lastName } = req.body;
 		// Moment() is easier to use than Date()
@@ -48,11 +50,18 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 					[email, hash, firstName, lastName, join_date]
 				);
 
+				if (newAccount.rowCount === 0) {
+					inputErrors.account = "Could not create account";
+					return res.status(500).json({ success: false, inputErrors });
+				}
+
 				res.json({ success: true, message: "Account created" });
 			});
 		});
 	} catch (err) {
 		console.error(err.message);
+		inputErrors.server = "Server Error";
+		return res.status(500).json({ success: false, inputErrors });
 	}
 });
 
@@ -60,6 +69,8 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 // Login account
 //===============
 router.route("/login").post(validateLoginInput, async (req, res) => {
+	let inputErrors = {};
+
 	try {
 		const { email, password } = req.body;
 		let inputErrors = {};
@@ -103,37 +114,46 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			tokenPayload,
 			process.env.jwtSecret,
 			{
-				expiresIn: "15m",
+				expiresIn: "1m",
 			},
-			(err, token) => {
+			(err, jwToken) => {
 				res.json({
 					success: true,
-					token: token,
+					jwToken: jwToken,
 					account: accountPayload,
 				});
 			}
 		);
 	} catch (err) {
 		console.error(err.message);
+		inputErrors.server = "Server Error";
+		return res.status(500).json({ success: false, inputErrors });
 	}
 });
 
-//================
-// Verify account
-//================
-router.route("/verify").get(tokenAuthorization, async (req, res) => {
-	try {
-		return res.json(true);
-	} catch (err) {
-		console.error(err.message);
-		return res.status(403).json({ notAuthorizaed: "Not Authorized" });
-	}
-});
+//=====================
+// Check authorization
+//=====================
+router
+	.route("/check-authorization")
+	.get(tokenAuthorization, async (req, res) => {
+		let inputErrors = {};
+
+		try {
+			res.json(true);
+		} catch (err) {
+			console.error(err.message);
+			inputErrors.authorization = "Not authorized";
+			return res.status(403).json({ success: false, inputErrors });
+		}
+	});
 
 //===================
 //  Retrieve account
 //===================
 router.route("/retrieve").get(tokenAuthorization, async (req, res) => {
+	let inputErrors = {};
+
 	try {
 		// declared in the tokenAuthorization middleware
 		const { accountId } = req;
@@ -144,15 +164,23 @@ router.route("/retrieve").get(tokenAuthorization, async (req, res) => {
 		);
 
 		if (account.rows.length === 0) {
-			return res
-				.status(401)
-				.json({ success: false, errorAccount: "Account not found" });
+			inputErrors.account = "Account not found";
+			return res.status(401).json({ success: false, inputErrors });
 		}
 
-		return res.json(account.rows[0]);
+		const accountPayload = {
+			accountId: accountId,
+			email: account.rows[0].email,
+			firstName: account.rows[0].first_name,
+			lastName: account.rows[0].last_name,
+			joinDate: account.rows[0].join_date,
+		};
+
+		res.json(accountPayload);
 	} catch (err) {
 		console.error(err.message);
-		return res.status(403).json({ notAuthorizaed: "Not Authorized" });
+		inputErrors.server = "Server Error";
+		return res.status(500).json({ success: false, inputErrors });
 	}
 });
 
@@ -164,6 +192,8 @@ module.exports = router;
 router
 	.route("/update-info")
 	.post(tokenAuthorization, validateInfoUpdateInput, async (req, res) => {
+		let inputErrors = {};
+
 		try {
 			// declared in the tokenAuthorization middleware
 			const { accountId } = req;
@@ -176,17 +206,15 @@ router
 			);
 
 			if (updatedAccount.rowCount === 0) {
-				return res
-					.status(400)
-					.json({ success: false, errorUpdate: "Could not be updated" });
-			} else {
-				return res.json({ success: true, message: "Account Info Updated" });
+				inputErrors.account = "Could not be updated";
+				return res.status(500).json({ success: false, inputErrors });
 			}
+
+			res.json({ success: true, message: "Account Info Updated" });
 		} catch (err) {
 			console.error(err.message);
-			return res
-				.status(403)
-				.json({ success: false, errorAuthorization: "Not Authorized" });
+			inputErrors.server = "Server Error";
+			return res.status(500).json({ success: false, inputErrors });
 		}
 	});
 
@@ -200,6 +228,8 @@ router
 		validateEmailUpdateInput,
 		passwordAuthentication,
 		async (req, res) => {
+			let inputErrors = {};
+
 			try {
 				// declared in the tokenAuthorization middleware
 				const { accountId } = req;
@@ -212,17 +242,15 @@ router
 				);
 
 				if (updatedAccount.rowCount === 0) {
-					return res
-						.status(400)
-						.json({ success: false, errorUpdate: "Could not be updated" });
-				} else {
-					return res.json({ success: true, message: "Account Updated" });
+					inputErrors.account = "Could not be updated";
+					return res.status(500).json({ success: false, inputErrors });
 				}
+
+				res.json({ success: true, message: "Account Info Updated" });
 			} catch (err) {
 				console.error(err.message);
-				return res
-					.status(403)
-					.json({ success: false, errorAuthorization: "Not Authorized" });
+				inputErrors.server = "Server Error";
+				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
 	);
@@ -237,6 +265,8 @@ router
 		validatePasswordUpdateInput,
 		passwordAuthentication,
 		(req, res) => {
+			let inputErrors = {};
+
 			try {
 				// declared in the tokenAuthorization middleware
 				const { accountId } = req;
@@ -253,19 +283,17 @@ router
 						);
 
 						if (updatedAccount.rowCount === 0) {
-							return res
-								.status(400)
-								.json({ success: false, errorUpdate: "Could not be updated" });
-						} else {
-							return res.json({ success: true, message: "Account Updated" });
+							inputErrors.account = "Could not be updated";
+							return res.status(500).json({ success: false, inputErrors });
 						}
+
+						res.json({ success: true, message: "Account Info Updated" });
 					});
 				});
 			} catch (err) {
 				console.error(err.message);
-				return res
-					.status(403)
-					.json({ success: false, errorAuthorization: "Not Authorized" });
+				inputErrors.server = "Server Error";
+				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
 	);
@@ -276,6 +304,8 @@ router
 router
 	.route("/delete")
 	.post(tokenAuthorization, passwordAuthentication, async (req, res) => {
+		let inputErrors = {};
+
 		try {
 			// declared in the tokenAuthorization middleware
 			const { accountId } = req;
@@ -286,13 +316,14 @@ router
 			);
 
 			if (deletedAccount.rowCount === 0) {
-				return res
-					.status(400)
-					.json({ success: false, errorUpdate: "Could not be deleted" });
-			} else {
-				return res.json({ success: true, message: "Account Deleted" });
+				inputErrors.account = "Could not be deleted";
+				return res.status(500).json({ success: false, inputErrors });
 			}
+
+			return res.json({ success: true, message: "Account Deleted" });
 		} catch (err) {
 			console.error(err.message);
+			inputErrors.server = "Server Error";
+			return res.status(500).json({ success: false, inputErrors });
 		}
 	});

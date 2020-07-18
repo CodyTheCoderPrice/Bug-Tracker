@@ -2,31 +2,28 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
-// components for editing account
-import EditAccountInfo from "./EditAccountInfo";
-import "../../../SCSS/account.scss";
+// Modals components for editing account
+import EditInfoModal from "./EditInfoModal";
+
+import { logoutAccount } from "../../../actions/accountActions";
+import { setModalComponent } from "../../../actions/modalActions.js";
+
+import "../../../SCSS/accountSidebar.scss";
 
 export default function Account() {
-	const [componentVisibility, setComponentVisibility] = useState({
-		editAccountInfo: false,
-	});
-	const [component, setComponent] = useState({
-		editAccountInfo: null,
-	});
-
-	useEffect(() => {
-		if (componentVisibility.editAccountInfo) {
-			setComponent({ editAccountInfo: <EditAccountInfo /> });
-		}
+	const [modals, setModals] = useState({
+		editInfoModal: null,
 	});
 
 	const reduxState = useSelector((state) => state);
-	//const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-	const openEditAccountInfo = () => {
-		setComponentVisibility({
-			editAccountInfo: !componentVisibility.editAccountInfo,
-		});
+	const openEditInfoModals = () => {
+		dispatch(setModalComponent({ editInfoModal: <EditInfoModal /> }));
+	};
+
+	const handleLogoutAccount = () => {
+		dispatch(logoutAccount());
 	};
 
 	const logReduxState = () => {
@@ -45,10 +42,11 @@ export default function Account() {
 					Joined: {moment(reduxState.account.joinDate).format("MM-DD-YYYY")}
 				</label>
 				<br />
-				<button onClick={openEditAccountInfo}>Edit Info</button> <br />
+				<button onClick={openEditInfoModals}>Edit Info</button> <br />
+				<button onClick={handleLogoutAccount}>Logout</button> <br />
 				<button onClick={logReduxState}>Log Redux State</button>
 			</div>
-			{component.editAccountInfo}
+			{reduxState.modals.editInfoModal}
 		</div>
 	);
 }

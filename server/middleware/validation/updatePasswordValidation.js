@@ -2,9 +2,10 @@ const Validator = require("validator");
 const isEmpty = require("is-empty");
 
 module.exports = (req, res, next) => {
+	let inputErrors = {};
+
 	try {
 		let { newPassword, newPassword2, currentPassword } = req.body;
-		let inputErrors = {};
 
 		// Convert empty fields to an empty string so we can use validator functions
 		newPassword = !isEmpty(newPassword) ? newPassword : "";
@@ -38,6 +39,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		return res.status(403).json("Validation Error");
+		inputErrors.validation = "Validation Error";
+		return res.status(403).json({ success: false, inputErrors });
 	}
 };
