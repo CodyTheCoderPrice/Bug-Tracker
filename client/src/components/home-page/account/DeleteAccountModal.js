@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateAccountPassword } from "../../../actions/accountActions";
+import { deleteAccount } from "../../../actions/accountActions";
 import { setModalComponent } from "../../../actions/modalActions.js";
 
 import EditInfoModal from "./EditInfoModal";
 
 import "../../../SCSS/accountModals.scss";
 
-export default function EditPasswordModal() {
+export default function DeleteAccountModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		newPassword: "",
-		newPassword2: "",
+		deleteTypedOut: "",
 		currentPassword: "",
 	});
 
@@ -44,7 +43,7 @@ export default function EditPasswordModal() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(updateAccountPassword(accountInfo));
+		dispatch(deleteAccount(accountInfo));
 	};
 
 	return (
@@ -58,31 +57,23 @@ export default function EditPasswordModal() {
 					X
 				</button>
 				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Edit Password</label>
+					<label className="titleLabel">Delete Account</label>
 					<br />
+					<label className="warningMessage">
+						If you are sure, type{" "}
+						<label className="capitalDelete">DELETE</label> below.
+					</label>
 					<span className="redErrorText">
-						{reduxState.inputErrors.newPassword}
+						{reduxState.inputErrors.deleteTypedOut}
 					</span>
 					<input
-						type="password"
-						name="newPassword"
+						type="text"
+						name="deleteTypedOut"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.newPassword}
-						placeholder="New Password"
-						//error={reduxState.inputErrors.newPassword}
-						id="newPasswordInput"
-					/>
-					<span className="redErrorText">
-						{reduxState.inputErrors.newPassword2}
-					</span>
-					<input
-						type="password"
-						name="newPassword2"
-						onChange={(e) => onChange(e)}
-						value={accountInfo.newPassword2}
-						placeholder="Confirm New Password"
-						//error={reduxState.inputErrors.newPassword2}
-						id="newPassword2Input"
+						value={accountInfo.deleteTypedOut}
+						placeholder="Type here"
+						//error={reduxState.inputErrors.deleteTypedOut}
+						id="deleteTypedOutInput"
 					/>
 					<span className="redErrorText">
 						{reduxState.inputErrors.currentPassword}
@@ -102,7 +93,7 @@ export default function EditPasswordModal() {
 						{reduxState.inputErrors.server}
 					</span>
 					<button type="submit" className="submitButton">
-						Update
+						Delete
 					</button>
 				</form>
 			</div>

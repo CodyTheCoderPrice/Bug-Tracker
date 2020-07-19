@@ -4,9 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateAccountEmail } from "../../../actions/accountActions";
 import { setModalComponent } from "../../../actions/modalActions.js";
 
-// Modals components for editing account
 import EditInfoModal from "./EditInfoModal";
-import EditPasswordModal from "./EditPasswordModal";
 
 import "../../../SCSS/accountModals.scss";
 
@@ -23,17 +21,7 @@ export default function EditEmailModal() {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
-	const closeModals = () => {
-		dispatch(
-			setModalComponent({
-				editInfoModal: null,
-				editEmailModal: null,
-				editPasswordModal: null,
-			})
-		);
-	};
-
-	const openEditInfoModal = () => {
+	const backToEditInfo = () => {
 		dispatch(
 			setModalComponent({
 				editInfoModal: <EditInfoModal />,
@@ -43,12 +31,12 @@ export default function EditEmailModal() {
 		);
 	};
 
-	const openEditPasswordModal = () => {
+	const closeModals = () => {
 		dispatch(
 			setModalComponent({
 				editInfoModal: null,
 				editEmailModal: null,
-				editPasswordModal: <EditPasswordModal />,
+				editPasswordModal: null,
 			})
 		);
 	};
@@ -61,16 +49,17 @@ export default function EditEmailModal() {
 	return (
 		<div>
 			<div className="blurredBackground"></div>
-			<div className="editInfoContainerDiv">
+			<div className="editAccountContainerDiv">
+				<button className="backButton" onClick={backToEditInfo}>
+					➔
+				</button>
 				<button className="exitButton" onClick={closeModals}>
 					X
 				</button>
 				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
 					<label className="titleLabel">Edit Email</label>
 					<br />
-					<span className="redErrorText">
-						{reduxState.inputErrors.email}
-					</span>
+					<span className="redErrorText">{reduxState.inputErrors.email}</span>
 					<input
 						type="email"
 						name="email"
@@ -97,16 +86,9 @@ export default function EditEmailModal() {
 						{reduxState.inputErrors.account}
 						{reduxState.inputErrors.server}
 					</span>
-					<button type="submit" className="submitButton">Update</button>
-					<div className="otherModalsDiv">
-						<label className="openModalLabel" onClick={openEditInfoModal}>
-							Edit Personal
-						</label>
-						<label className="orLabel">|</label>
-						<label className="openModalLabel" onClick={openEditPasswordModal}>
-							Edit Password
-						</label>
-					</div>
+					<button type="submit" className="submitButton">
+						Update
+					</button>
 				</form>
 			</div>
 		</div>

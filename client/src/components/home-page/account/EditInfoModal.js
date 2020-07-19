@@ -7,6 +7,7 @@ import { setModalComponent } from "../../../actions/modalActions.js";
 // Modals components for editing account
 import EditEmailModal from "./EditEmailModal";
 import EditPasswordModal from "./EditPasswordModal";
+import DeleteAccountModal from "./DeleteAccountModal";
 
 import "../../../SCSS/accountModals.scss";
 
@@ -29,6 +30,7 @@ export default function EditInfoModal() {
 				editInfoModal: null,
 				editEmailModal: null,
 				editPasswordModal: null,
+				deleteAccountModal: null,
 			})
 		);
 	};
@@ -39,6 +41,7 @@ export default function EditInfoModal() {
 				editInfoModal: null,
 				editEmailModal: <EditEmailModal />,
 				editPasswordModal: null,
+				deleteAccountModal: null,
 			})
 		);
 	};
@@ -49,6 +52,18 @@ export default function EditInfoModal() {
 				editInfoModal: null,
 				editEmailModal: null,
 				editPasswordModal: <EditPasswordModal />,
+				deleteAccountModal: null,
+			})
+		);
+	};
+
+	const openDeleteAccountModal = () => {
+		dispatch(
+			setModalComponent({
+				editInfoModal: null,
+				editEmailModal: null,
+				editPasswordModal: null,
+				deleteAccountModal: <DeleteAccountModal />,
 			})
 		);
 	};
@@ -61,7 +76,7 @@ export default function EditInfoModal() {
 	return (
 		<div>
 			<div className="blurredBackground"></div>
-			<div className="editInfoContainerDiv">
+			<div className="editAccountContainerDiv">
 				<button className="exitButton" onClick={closeModals}>
 					X
 				</button>
@@ -100,13 +115,17 @@ export default function EditInfoModal() {
 					<button type="submit" className="submitButton">
 						Update
 					</button>
-					<div className="otherModalsDiv">
+					<div className="otherEditModalsDiv">
 						<label className="openModalLabel" onClick={openEditEmailModal}>
 							Edit Email
 						</label>
 						<label className="orLabel">|</label>
 						<label className="openModalLabel" onClick={openEditPasswordModal}>
 							Edit Password
+						</label>
+						<label className="orLabel">|</label>
+						<label className="openModalLabel" id="deleteLabel" onClick={openDeleteAccountModal}>
+							Delete Account
 						</label>
 					</div>
 				</form>

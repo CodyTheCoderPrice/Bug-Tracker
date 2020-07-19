@@ -56,6 +56,7 @@ export default function Account() {
 			{reduxState.modals.editInfoModal}
 			{reduxState.modals.editEmailModal}
 			{reduxState.modals.editPasswordModal}
+			{reduxState.modals.deleteAccountModal}
 		</div>
 	);
 }

@@ -12,6 +12,7 @@ const validateLoginInput = require("../middleware/validation/loginValidation");
 const validateInfoUpdateInput = require("../middleware/validation/updateInfoValidation");
 const validateEmailUpdateInput = require("../middleware/validation/updateEmailValidation");
 const validatePasswordUpdateInput = require("../middleware/validation/updatePasswordValidation");
+const validateDeleteAccountInput = require("../middleware/validation/deleteAccountValidation");
 const passwordAuthentication = require("../middleware/auth/passwordAuthentication");
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
 // Used instead of the Date function
@@ -303,27 +304,32 @@ router
 //================
 router
 	.route("/delete")
-	.post(tokenAuthorization, passwordAuthentication, async (req, res) => {
-		let inputErrors = {};
+	.post(
+		tokenAuthorization,
+		validateDeleteAccountInput,
+		passwordAuthentication,
+		async (req, res) => {
+			let inputErrors = {};
 
-		try {
-			// declared in the tokenAuthorization middleware
-			const { accountId } = req;
+			try {
+				// declared in the tokenAuthorization middleware
+				const { accountId } = req;
 
-			const deletedAccount = await pool.query(
-				"DELETE FROM account WHERE account_id = $1",
-				[accountId]
-			);
+				const deletedAccount = await pool.query(
+					"DELETE FROM account WHERE account_id = $1",
+					[accountId]
+				);
 
-			if (deletedAccount.rowCount === 0) {
-				inputErrors.account = "Could not be deleted";
+				if (deletedAccount.rowCount === 0) {
+					inputErrors.account = "Could not be deleted";
+					return res.status(500).json({ success: false, inputErrors });
+				}
+
+				return res.json({ success: true, message: "Account Deleted" });
+			} catch (err) {
+				console.error(err.message);
+				inputErrors.server = "Server error while deleting account";
 				return res.status(500).json({ success: false, inputErrors });
 			}
-
-			return res.json({ success: true, message: "Account Deleted" });
-		} catch (err) {
-			console.error(err.message);
-			inputErrors.server = "Server error while deleting account";
-			return res.status(500).json({ success: false, inputErrors });
 		}
-	});
+	);

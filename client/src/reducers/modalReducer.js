@@ -4,6 +4,7 @@ const initialState = {
 	editInfoModal: null,
 	editEmailModal: null,
 	editPasswordModal: null,
+	deleteAccountModal: null,
 };
 
 export default function (state = initialState, action) {
@@ -13,6 +14,7 @@ export default function (state = initialState, action) {
 				editInfoModal: action.component.editInfoModal,
 				editEmailModal: action.component.editEmailModal,
 				editPasswordModal: action.component.editPasswordModal,
+				deleteAccountModal: action.component.deleteAccountModal,
 			};
 		default:
 			return state;
