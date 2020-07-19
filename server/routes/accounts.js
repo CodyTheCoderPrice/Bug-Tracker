@@ -60,7 +60,7 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server Error";
+		inputErrors.server = "Server error while register account";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -114,7 +114,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			tokenPayload,
 			process.env.jwtSecret,
 			{
-				expiresIn: "1m",
+				expiresIn: "7d",
 			},
 			(err, jwToken) => {
 				res.json({
@@ -126,7 +126,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		);
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server Error";
+		inputErrors.server = "Server error while logging in";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -179,7 +179,7 @@ router.route("/retrieve").get(tokenAuthorization, async (req, res) => {
 		res.json(accountPayload);
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server Error";
+		inputErrors.server = "Server error while retrieving account";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -213,7 +213,7 @@ router
 			res.json({ success: true, message: "Account Info Updated" });
 		} catch (err) {
 			console.error(err.message);
-			inputErrors.server = "Server Error";
+			inputErrors.server = "Server error while updating account info";
 			return res.status(500).json({ success: false, inputErrors });
 		}
 	});
@@ -249,7 +249,7 @@ router
 				res.json({ success: true, message: "Account Info Updated" });
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server Error";
+				inputErrors.server = "Server error while updating account email";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
@@ -292,7 +292,7 @@ router
 				});
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server Error";
+				inputErrors.server = "Server error while updating account password";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
@@ -323,7 +323,7 @@ router
 			return res.json({ success: true, message: "Account Deleted" });
 		} catch (err) {
 			console.error(err.message);
-			inputErrors.server = "Server Error";
+			inputErrors.server = "Server error while deleting account";
 			return res.status(500).json({ success: false, inputErrors });
 		}
 	});

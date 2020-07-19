@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
 		}
 		// currentPassword checks
 		if (Validator.isEmpty(currentPassword)) {
-			inputErrors.currentPassword = "Current Password field is required";
+			inputErrors.currentPassword = "Current password field is required";
 		}
 
 		if (!isEmpty(inputErrors)) {

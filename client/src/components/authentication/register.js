@@ -28,7 +28,7 @@ export default function Register() {
 	};
 
 	return (
-		<div>
+		<div className="registerLoginContainerDiv">
 			<form className="registerLoginForm" noValidate onSubmit={handleSubmit}>
 				<label className="titleLabel">Register</label>
 				<br />
@@ -87,7 +87,7 @@ export default function Register() {
 					{reduxState.inputErrors.account}
 					{reduxState.inputErrors.server}
 				</span>
-				<button type="submit">Register Account</button>
+				<button type="submit" className="submitButton">Register Account</button>
 				<p className="message">
 					<strong>Already a Member?</strong>
 					<Link to="/login">Login</Link>

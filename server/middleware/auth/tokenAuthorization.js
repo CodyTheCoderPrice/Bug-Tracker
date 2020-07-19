@@ -8,8 +8,10 @@ module.exports = (req, res, next) => {
 	try {
 		const jwToken = req.header("jwToken");
 
+		console.log(jwToken);
+
 		if (!jwToken) {
-			inputErrors.authorization = "Not authorized";
+			inputErrors.jwToken = "No jwToken";
 			return res.status(403).json({ success: false, inputErrors });
 		}
 
@@ -19,7 +21,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.jwToken = "jwToken error";
+		inputErrors.jwToken = "jwToken verify error";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

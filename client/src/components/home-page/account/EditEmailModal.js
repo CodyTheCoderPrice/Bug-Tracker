@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateAccountInfo } from "../../../actions/accountActions";
+import { updateAccountEmail } from "../../../actions/accountActions";
 import { setModalComponent } from "../../../actions/modalActions.js";
 
 // Modals components for editing account
-import EditEmailModal from "./EditEmailModal";
+import EditInfoModal from "./EditInfoModal";
 import EditPasswordModal from "./EditPasswordModal";
 
 import "../../../SCSS/accountModals.scss";
 
-export default function EditInfoModal() {
+export default function EditEmailModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		firstName: reduxState.account.firstName,
-		lastName: reduxState.account.lastName,
+		email: reduxState.account.email,
+		currentPassword: "",
 	});
 
 	const onChange = (e) => {
@@ -33,11 +33,11 @@ export default function EditInfoModal() {
 		);
 	};
 
-	const openEditEmailModal = () => {
+	const openEditInfoModal = () => {
 		dispatch(
 			setModalComponent({
-				editInfoModal: null,
-				editEmailModal: <EditEmailModal />,
+				editInfoModal: <EditInfoModal />,
+				editEmailModal: null,
 				editPasswordModal: null,
 			})
 		);
@@ -55,7 +55,7 @@ export default function EditInfoModal() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(updateAccountInfo(accountInfo));
+		dispatch(updateAccountEmail(accountInfo));
 	};
 
 	return (
@@ -66,43 +66,41 @@ export default function EditInfoModal() {
 					X
 				</button>
 				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Edit Personal Info</label>
+					<label className="titleLabel">Edit Email</label>
 					<br />
 					<span className="redErrorText">
-						{reduxState.inputErrors.firstName}
+						{reduxState.inputErrors.email}
 					</span>
 					<input
-						type="text"
-						name="firstName"
+						type="email"
+						name="email"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.firstName}
-						placeholder="First name"
-						//error={reduxState.inputErrors.firstName}
-						id="firstNameInput"
+						value={accountInfo.email}
+						placeholder="Email"
+						//error={reduxState.inputErrors.email}
+						id="emailInput"
 					/>
 					<span className="redErrorText">
-						{reduxState.inputErrors.lastName}
+						{reduxState.inputErrors.currentPassword}
 					</span>
 					<input
-						type="text"
-						name="lastName"
+						type="password"
+						name="currentPassword"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.lastName}
-						placeholder="Last name"
-						//error={reduxState.inputErrors.lastName}
-						id="lastNameInput"
+						value={accountInfo.currentPassword}
+						placeholder="Current Password"
+						//error={reduxState.inputErrors.currentPassword}
+						id="currentPasswordInput"
 					/>
 					<span className="redErrorText">
 						{reduxState.inputErrors.validation}
 						{reduxState.inputErrors.account}
 						{reduxState.inputErrors.server}
 					</span>
-					<button type="submit" className="submitButton">
-						Update
-					</button>
+					<button type="submit" className="submitButton">Update</button>
 					<div className="otherModalsDiv">
-						<label className="openModalLabel" onClick={openEditEmailModal}>
-							Edit Email
+						<label className="openModalLabel" onClick={openEditInfoModal}>
+							Edit Personal
 						</label>
 						<label className="orLabel">|</label>
 						<label className="openModalLabel" onClick={openEditPasswordModal}>

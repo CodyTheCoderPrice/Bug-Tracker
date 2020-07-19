@@ -26,7 +26,7 @@ module.exports = async (req, res, next) => {
 		);
 
 		if (!passwordMatch) {
-			inputErrors.currentPassword = "Incorrect password";
+			inputErrors.currentPassword = "Incorrect current password";
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
@@ -34,7 +34,7 @@ module.exports = async (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.authorization = "Authorization Error";
+		inputErrors.authorization = "Authorization error while checking password";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

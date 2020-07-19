@@ -2,16 +2,19 @@ import axios from "axios";
 import setAuthorizationToken from "../utils/setAuthorizationToken";
 import jwt_decode from "jwt-decode";
 
-import {
-	AUTHENTICATE_ACCOUNT,
-	SET_INPUT_ERRORS,
-	SET_ACCOUNT_INFO,
-} from "./types";
+import { SET_AUTH_TOKEN, SET_INPUT_ERRORS, SET_ACCOUNT_INFO } from "./types";
 
 // Register account
 export const registerAccount = (accountData, history) => (dispatch) => {
 	axios
 		.post("/api/account/register", accountData)
+		.then(() => {
+			// clears any previous input errors (since evertrhing has worked)
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: {},
+			});
+		})
 		//.then((res) => history.push("/login"))
 		.catch((err) =>
 			dispatch({
@@ -31,10 +34,10 @@ export const loginThenRetrieveAccount = (accountData) => (dispatch) => {
 
 			// Adds the token the header of all http requests
 			setAuthorizationToken(jwToken);
-
 			const decodedToken = jwt_decode(jwToken);
+
 			dispatch({
-				type: AUTHENTICATE_ACCOUNT,
+				type: SET_AUTH_TOKEN,
 				payload: decodedToken,
 			});
 
@@ -43,6 +46,12 @@ export const loginThenRetrieveAccount = (accountData) => (dispatch) => {
 				payload: account,
 			}).catch((err) => {
 				console.log(err);
+			});
+
+			// clears any previous input errors (since evertrhing has worked)
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: {},
 			});
 		})
 		.catch((err) => {
@@ -57,7 +66,6 @@ export const loginThenRetrieveAccount = (accountData) => (dispatch) => {
 
 // Retrieve account only
 export const retrieveAccount = () => (dispatch) => {
-	console.log("You got here");
 	axios
 		.get("/api/account/retrieve")
 		.then((res) =>
@@ -67,8 +75,13 @@ export const retrieveAccount = () => (dispatch) => {
 			})
 		)
 		.catch((err) => {
-			console.log(err);
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: err.response.data.inputErrors,
+			});
+
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				dispatch(logoutAccount());
 			}
 		});
 };
@@ -78,7 +91,13 @@ export const updateAccountInfo = (accountData) => (dispatch) => {
 	axios
 		.post("/api/account/update-info", accountData)
 		.then((res) => {
-			retrieveAccount();
+			dispatch(retrieveAccount());
+
+			// clears any previous input errors (since evertrhing has worked)
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: {},
+			});
 		})
 		.catch((err) => {
 			dispatch({
@@ -87,39 +106,80 @@ export const updateAccountInfo = (accountData) => (dispatch) => {
 			});
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
-				console.log("Got here boi!");
+				dispatch(logoutAccount());
 			}
 		});
 };
 
 // Update account email
 export const updateAccountEmail = (accountData) => (dispatch) => {
-	axios.post("/api/account/update-email", accountData).catch((err) =>
-		dispatch({
-			type: SET_INPUT_ERRORS,
-			payload: err.response.data.inputErrors,
+	axios
+		.post("/api/account/update-email", accountData)
+		.then((res) => {
+			dispatch(retrieveAccount());
+
+			// clears any previous input errors (since evertrhing has worked)
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: {},
+			});
 		})
-	);
+		.catch((err) => {
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: err.response.data.inputErrors,
+			});
+
+			if (err.response.data.inputErrors.jwToken !== undefined) {
+				dispatch(logoutAccount());
+			}
+		});
 };
 
 // Update account password
 export const updateAccountPassword = (accountData) => (dispatch) => {
-	axios.post("/api/account/update-password", accountData).catch((err) =>
-		dispatch({
-			type: SET_INPUT_ERRORS,
-			payload: err.response.data.inputErrors,
+	axios
+		.post("/api/account/update-password", accountData)
+		.then((res) => {
+			dispatch(retrieveAccount());
+
+			// clears any previous input errors (since evertrhing has worked)
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: {},
+			});
 		})
-	);
+		.catch((err) => {
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: err.response.data.inputErrors,
+			});
+
+			if (err.response.data.inputErrors.jwToken !== undefined) {
+				dispatch(logoutAccount());
+			}
+		});
 };
 
 // Delete account
 export const deleteAccount = (accountData) => (dispatch) => {
-	axios.post("/api/account/delete", accountData).catch((err) =>
-		dispatch({
-			type: SET_INPUT_ERRORS,
-			payload: err.response.data.inputErrors,
+	axios
+		.post("/api/account/delete", accountData)
+		.then((res) => {
+			dispatch(logoutAccount());
+
+			// clears any previous input errors (since evertrhing has worked)
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: {},
+			});
 		})
-	);
+		.catch((err) =>
+			dispatch({
+				type: SET_INPUT_ERRORS,
+				payload: err.response.data.inputErrors,
+			})
+		);
 };
 
 // Logout accout
@@ -127,12 +187,19 @@ export const logoutAccount = () => (dispatch) => {
 	localStorage.removeItem("jwToken");
 	setAuthorizationToken(false);
 	dispatch({
-		type: AUTHENTICATE_ACCOUNT,
+		type: SET_AUTH_TOKEN,
 		payload: {},
 	});
 	dispatch({
 		type: SET_ACCOUNT_INFO,
 		payload: {},
 	});
-	console.log("Logged out");
+
+	// clears any previous input errors (since evertrhing has worked)
+	dispatch({
+		type: SET_INPUT_ERRORS,
+		payload: {},
+	});
+	
+	console.log("Message: logged out");
 };

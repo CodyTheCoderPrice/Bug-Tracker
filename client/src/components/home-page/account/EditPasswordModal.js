@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateAccountInfo } from "../../../actions/accountActions";
+import { updateAccountPassword } from "../../../actions/accountActions";
 import { setModalComponent } from "../../../actions/modalActions.js";
 
 // Modals components for editing account
+import EditInfoModal from "./EditInfoModal";
 import EditEmailModal from "./EditEmailModal";
-import EditPasswordModal from "./EditPasswordModal";
 
 import "../../../SCSS/accountModals.scss";
 
-export default function EditInfoModal() {
+export default function EditPasswordModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		firstName: reduxState.account.firstName,
-		lastName: reduxState.account.lastName,
+		newPassword: "",
+		newPassword2: "",
+		currentPassword: "",
 	});
 
 	const onChange = (e) => {
@@ -43,19 +44,19 @@ export default function EditInfoModal() {
 		);
 	};
 
-	const openEditPasswordModal = () => {
+	const openEditInfoModal = () => {
 		dispatch(
 			setModalComponent({
-				editInfoModal: null,
+				editInfoModal: <EditInfoModal />,
 				editEmailModal: null,
-				editPasswordModal: <EditPasswordModal />,
+				editPasswordModal: null,
 			})
 		);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(updateAccountInfo(accountInfo));
+		dispatch(updateAccountPassword(accountInfo));
 	};
 
 	return (
@@ -66,47 +67,57 @@ export default function EditInfoModal() {
 					X
 				</button>
 				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Edit Personal Info</label>
+					<label className="titleLabel">Edit Password</label>
 					<br />
 					<span className="redErrorText">
-						{reduxState.inputErrors.firstName}
+						{reduxState.inputErrors.newPassword}
 					</span>
 					<input
-						type="text"
-						name="firstName"
+						type="password"
+						name="newPassword"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.firstName}
-						placeholder="First name"
-						//error={reduxState.inputErrors.firstName}
-						id="firstNameInput"
+						value={accountInfo.newPassword}
+						placeholder="New Password"
+						//error={reduxState.inputErrors.newPassword}
+						id="newPasswordInput"
 					/>
 					<span className="redErrorText">
-						{reduxState.inputErrors.lastName}
+						{reduxState.inputErrors.newPassword2}
 					</span>
 					<input
-						type="text"
-						name="lastName"
+						type="password"
+						name="newPassword2"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.lastName}
-						placeholder="Last name"
-						//error={reduxState.inputErrors.lastName}
-						id="lastNameInput"
+						value={accountInfo.newPassword2}
+						placeholder="Confirm New Password"
+						//error={reduxState.inputErrors.newPassword2}
+						id="newPassword2Input"
+					/>
+					<span className="redErrorText">
+						{reduxState.inputErrors.currentPassword}
+					</span>
+					<input
+						type="password"
+						name="currentPassword"
+						onChange={(e) => onChange(e)}
+						value={accountInfo.currentPassword}
+						placeholder="Current Password"
+						//error={reduxState.inputErrors.currentPassword}
+						id="currentPasswordInput"
 					/>
 					<span className="redErrorText">
 						{reduxState.inputErrors.validation}
 						{reduxState.inputErrors.account}
 						{reduxState.inputErrors.server}
 					</span>
-					<button type="submit" className="submitButton">
-						Update
-					</button>
+					<button type="submit" className="submitButton">Update</button>
 					<div className="otherModalsDiv">
 						<label className="openModalLabel" onClick={openEditEmailModal}>
 							Edit Email
 						</label>
 						<label className="orLabel">|</label>
-						<label className="openModalLabel" onClick={openEditPasswordModal}>
-							Edit Password
+						<label className="openModalLabel" onClick={openEditInfoModal}>
+							Edit Personal
 						</label>
 					</div>
 				</form>

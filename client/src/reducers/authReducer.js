@@ -1,4 +1,4 @@
-import { AUTHENTICATE_ACCOUNT } from "../actions/types";
+import { SET_AUTH_TOKEN } from "../actions/types";
 const isEmpty = require("is-empty");
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case AUTHENTICATE_ACCOUNT:
+		case SET_AUTH_TOKEN:
 			return {
 				isAuthenticated: !isEmpty(action.payload),
 				info: action.payload,
