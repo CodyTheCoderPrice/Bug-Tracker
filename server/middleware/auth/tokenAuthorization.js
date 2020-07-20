@@ -8,8 +8,6 @@ module.exports = (req, res, next) => {
 	try {
 		const jwToken = req.header("jwToken");
 
-		console.log(jwToken);
-
 		if (!jwToken) {
 			inputErrors.jwToken = "No jwToken";
 			return res.status(403).json({ success: false, inputErrors });

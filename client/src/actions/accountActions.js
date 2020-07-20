@@ -1,5 +1,5 @@
 import axios from "axios";
-import setAuthorizationToken from "../utils/setAuthorizationToken";
+import setAuthorizationToken from "../utils/setAuthorizationToken"; // possibly delete
 import jwt_decode from "jwt-decode";
 
 import { SET_AUTH_TOKEN, SET_INPUT_ERRORS, SET_ACCOUNT_INFO } from "./types";
@@ -32,8 +32,6 @@ export const loginThenRetrieveAccount = (accountData) => (dispatch) => {
 			const { jwToken, account } = res.data;
 			localStorage.setItem("jwToken", jwToken);
 
-			// Adds the token the header of all http requests
-			setAuthorizationToken(jwToken);
 			const decodedToken = jwt_decode(jwToken);
 
 			dispatch({
@@ -66,8 +64,9 @@ export const loginThenRetrieveAccount = (accountData) => (dispatch) => {
 
 // Retrieve account only
 export const retrieveAccount = () => (dispatch) => {
+	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.get("/api/account/retrieve")
+		.get("/api/account/retrieve", headers)
 		.then((res) =>
 			dispatch({
 				type: SET_ACCOUNT_INFO,
@@ -88,8 +87,9 @@ export const retrieveAccount = () => (dispatch) => {
 
 // Update account info
 export const updateAccountInfo = (accountData) => (dispatch) => {
+	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/account/update-info", accountData)
+		.post("/api/account/update-info", accountData, headers)
 		.then((res) => {
 			dispatch(retrieveAccount());
 
@@ -113,8 +113,9 @@ export const updateAccountInfo = (accountData) => (dispatch) => {
 
 // Update account email
 export const updateAccountEmail = (accountData) => (dispatch) => {
+	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/account/update-email", accountData)
+		.post("/api/account/update-email", accountData, headers)
 		.then((res) => {
 			dispatch(retrieveAccount());
 
@@ -138,8 +139,9 @@ export const updateAccountEmail = (accountData) => (dispatch) => {
 
 // Update account password
 export const updateAccountPassword = (accountData) => (dispatch) => {
+	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/account/update-password", accountData)
+		.post("/api/account/update-password", accountData, headers)
 		.then((res) => {
 			dispatch(retrieveAccount());
 
@@ -163,8 +165,9 @@ export const updateAccountPassword = (accountData) => (dispatch) => {
 
 // Delete account
 export const deleteAccount = (accountData) => (dispatch) => {
+	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/account/delete", accountData)
+		.post("/api/account/delete", accountData, headers)
 		.then((res) => {
 			dispatch(logoutAccount());
 
@@ -185,7 +188,6 @@ export const deleteAccount = (accountData) => (dispatch) => {
 // Logout accout
 export const logoutAccount = () => (dispatch) => {
 	localStorage.removeItem("jwToken");
-	setAuthorizationToken(false);
 	dispatch({
 		type: SET_AUTH_TOKEN,
 		payload: {},
@@ -200,6 +202,6 @@ export const logoutAccount = () => (dispatch) => {
 		type: SET_INPUT_ERRORS,
 		payload: {},
 	});
-	
+
 	console.log("Message: logged out");
 };

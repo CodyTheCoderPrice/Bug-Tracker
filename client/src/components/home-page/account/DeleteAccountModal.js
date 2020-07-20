@@ -62,7 +62,7 @@ export default function DeleteAccountModal() {
 					<label className="warningMessage">
 						If you are sure, type{" "}
 						<label className="capitalDelete">DELETE</label> below.
-					</label>
+					</label> <br />
 					<span className="redErrorText">
 						{reduxState.inputErrors.deleteTypedOut}
 					</span>
@@ -71,7 +71,7 @@ export default function DeleteAccountModal() {
 						name="deleteTypedOut"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.deleteTypedOut}
-						placeholder="Type here"
+						placeholder="Type here..."
 						//error={reduxState.inputErrors.deleteTypedOut}
 						id="deleteTypedOutInput"
 					/>
