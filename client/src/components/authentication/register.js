@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { registerAccount } from "../../actions/accountActions";
+import { registerAccount, clearInputErrors  } from "../../actions";
 
 import "../../SCSS/registerLogin.scss";
 
 export default function Register() {
+	const reduxState = useSelector((state) => state);
+	const dispatch = useDispatch();
+
 	const [accountInfo, setAccountInfo] = useState({
 		firstName: "",
 		lastName: "",
@@ -15,8 +18,7 @@ export default function Register() {
 		password2: "",
 	});
 
-	const reduxState = useSelector((state) => state);
-	const dispatch = useDispatch();
+	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
@@ -24,7 +26,10 @@ export default function Register() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		// clears any prior input errors
+		dispatch(clearInputErrors());
 		dispatch(registerAccount(accountInfo));
+		setShouldShowAnyErrors(true);
 	};
 
 	return (
@@ -32,60 +37,55 @@ export default function Register() {
 			<form className="registerLoginForm" noValidate onSubmit={handleSubmit}>
 				<label className="titleLabel">Register</label>
 				<br />
-				<span className="redErrorText">{reduxState.inputErrors.firstName}</span>
+				<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}</span>
 				<input
 					type="text"
 					name="firstName"
 					onChange={(e) => onChange(e)}
 					value={accountInfo.firstName}
 					placeholder="First name"
-					//error={reduxState.inputErrors.firstName}
 					id="firstNameInput"
 				/>
-				<span className="redErrorText">{reduxState.inputErrors.lastName}</span>
+				<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}</span>
 				<input
 					type="text"
 					name="lastName"
 					onChange={(e) => onChange(e)}
 					value={accountInfo.lastName}
 					placeholder="Last name"
-					//error={reduxState.inputErrors.lastName}
 					id="lastNameInput"
 				/>
-				<span className="redErrorText">{reduxState.inputErrors.email}</span>
+				<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}</span>
 				<input
 					type="email"
 					name="email"
 					onChange={(e) => onChange(e)}
 					value={accountInfo.email}
 					placeholder="Email"
-					//error={reduxState.inputErrors.email}
 					id="emailInput"
 				/>
-				<span className="redErrorText">{reduxState.inputErrors.password}</span>
+				<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}</span>
 				<input
 					type="password"
 					name="password"
 					onChange={(e) => onChange(e)}
 					value={accountInfo.password}
 					placeholder="Password"
-					//error={reduxState.inputErrors.password}
 					id="passwordInput"
 				/>
-				<span className="redErrorText">{reduxState.inputErrors.password2}</span>
+				<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.password2 : ""}</span>
 				<input
 					type="password"
 					name="password2"
 					onChange={(e) => onChange(e)}
 					value={accountInfo.password2}
 					placeholder="Confirm password"
-					//error={reduxState.inputErrors.password2}
 					id="password2Input"
 				/>
 				<span className="redErrorText">
-					{reduxState.inputErrors.validation}
-					{reduxState.inputErrors.account}
-					{reduxState.inputErrors.server}
+					{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
+					{shouldShowAnyErrors ? reduxState.inputErrors.account : ""}
+					{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 				</span>
 				<button type="submit" className="submitButton">Register Account</button>
 				<p className="message">

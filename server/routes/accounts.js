@@ -15,7 +15,7 @@ const validatePasswordUpdateInput = require("../middleware/validation/updatePass
 const validateDeleteAccountInput = require("../middleware/validation/deleteAccountValidation");
 const passwordAuthentication = require("../middleware/auth/passwordAuthentication");
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
-// Used instead of the Date function
+// Used instead of the Date() function
 const moment = require("moment");
 
 //==================
@@ -77,12 +77,12 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		let inputErrors = {};
 
 		// Verifies that an account with that email exisits
-		const account = await pool.query(
+		const activeAccounts = await pool.query(
 			"SELECT account_id, email, hash_pass, first_name, last_name, join_date FROM account WHERE LOWER(email) = LOWER($1)",
 			[email]
 		);
 
-		if (account.rows.length === 0) {
+		if (activeAccounts.rowCount === 0) {
 			inputErrors = { email: "Email unregistered" };
 			return res.status(401).json({ success: false, inputErrors });
 		}
@@ -90,7 +90,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		// Verfies that password is correct
 		const passwordMatch = await bcrypt.compare(
 			password,
-			account.rows[0].hash_pass
+			activeAccounts.rows[0].hash_pass
 		);
 
 		if (!passwordMatch) {
@@ -98,16 +98,16 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			return res.status(401).json({ success: false, inputErrors });
 		}
 
-		const accountPayload = {
-			accountId: account.rows[0].account_id,
-			email: account.rows[0].email,
-			firstName: account.rows[0].first_name,
-			lastName: account.rows[0].last_name,
-			joinDate: account.rows[0].join_date,
+		const account = {
+			accountId: activeAccounts.rows[0].account_id,
+			email: activeAccounts.rows[0].email,
+			firstName: activeAccounts.rows[0].first_name,
+			lastName: activeAccounts.rows[0].last_name,
+			joinDate: activeAccounts.rows[0].join_date,
 		};
 
 		const tokenPayload = {
-			accountId: account.rows[0].account_id,
+			accountId: activeAccounts.rows[0].account_id,
 		};
 
 		// Sign token
@@ -121,7 +121,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 				res.json({
 					success: true,
 					jwToken: jwToken,
-					account: accountPayload,
+					account: account,
 				});
 			}
 		);
@@ -159,25 +159,25 @@ router.route("/retrieve").get(tokenAuthorization, async (req, res) => {
 		// declared in the tokenAuthorization middleware
 		const { accountId } = req;
 
-		const account = await pool.query(
+		const selectedAccount = await pool.query(
 			"SELECT email, first_name, last_name, join_date FROM account WHERE account_id = $1",
 			[accountId]
 		);
 
-		if (account.rows.length === 0) {
+		if (selectedAccount.rowCount === 0) {
 			inputErrors.account = "Account not found";
 			return res.status(401).json({ success: false, inputErrors });
 		}
 
-		const accountPayload = {
+		const account = {
 			accountId: accountId,
-			email: account.rows[0].email,
-			firstName: account.rows[0].first_name,
-			lastName: account.rows[0].last_name,
-			joinDate: account.rows[0].join_date,
+			email: selectedAccount.rows[0].email,
+			firstName: selectedAccount.rows[0].first_name,
+			lastName: selectedAccount.rows[0].last_name,
+			joinDate: selectedAccount.rows[0].join_date,
 		};
 
-		res.json(accountPayload);
+		res.json(account);
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.server = "Server error while retrieving account";
@@ -229,6 +229,7 @@ router
 		validateEmailUpdateInput,
 		passwordAuthentication,
 		async (req, res) => {
+
 			let inputErrors = {};
 
 			try {

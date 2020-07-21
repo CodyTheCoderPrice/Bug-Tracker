@@ -1,4 +1,4 @@
-import { SET_AUTH_TOKEN } from "../actions/types";
+import { SET_AUTHENTICATION } from "../actions/types";
 const isEmpty = require("is-empty");
 
 const initialState = {
@@ -8,10 +8,10 @@ const initialState = {
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case SET_AUTH_TOKEN:
+		case SET_AUTHENTICATION:
 			return {
 				isAuthenticated: !isEmpty(action.payload),
-				info: action.payload,
+				decodedToken: action.decodedToken,
 			};
 		default:
 			return state;

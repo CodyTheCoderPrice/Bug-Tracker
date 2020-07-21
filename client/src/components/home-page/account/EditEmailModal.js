@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateAccountEmail } from "../../../actions/accountActions";
-import { setModalComponent } from "../../../actions/modalActions.js";
+import { updateAccountEmail, setModalComponent, clearInputErrors  } from "../../../actions";
 
 import EditInfoModal from "./EditInfoModal";
 
@@ -16,6 +15,8 @@ export default function EditEmailModal() {
 		email: reduxState.account.email,
 		currentPassword: "",
 	});
+
+	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
@@ -43,7 +44,10 @@ export default function EditEmailModal() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		// clears any prior input errors
+		dispatch(clearInputErrors());
 		dispatch(updateAccountEmail(accountInfo));
+		setShouldShowAnyErrors(true);
 	};
 
 	return (
@@ -59,18 +63,17 @@ export default function EditEmailModal() {
 				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
 					<label className="titleLabel">Edit Email</label>
 					<br />
-					<span className="redErrorText">{reduxState.inputErrors.email}</span>
+					<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}</span>
 					<input
 						type="email"
 						name="email"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
 						placeholder="Email"
-						//error={reduxState.inputErrors.email}
 						id="emailInput"
 					/>
 					<span className="redErrorText">
-						{reduxState.inputErrors.currentPassword}
+						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
 					</span>
 					<input
 						type="password"
@@ -78,13 +81,13 @@ export default function EditEmailModal() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.currentPassword}
 						placeholder="Current Password"
-						//error={reduxState.inputErrors.currentPassword}
 						id="currentPasswordInput"
 					/>
 					<span className="redErrorText">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.account}
-						{reduxState.inputErrors.server}
+						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.authorization : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.account : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
 					<button type="submit" className="submitButton">
 						Update

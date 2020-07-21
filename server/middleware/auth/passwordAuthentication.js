@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
 			[accountId]
 		);
 
-		if (account.rows.length === 0) {
+		if (account.rowCount === 0) {
 			inputErrors.account = "Account not found";
 			return res.status(403).json({ success: false, inputErrors });
 		}

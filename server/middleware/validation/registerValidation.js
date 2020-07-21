@@ -22,18 +22,18 @@ module.exports = (req, res, next) => {
 		}
 
 		// Password checks
-		if (Validator.isEmpty(password)) {
-			inputErrors.password = "Password field is required";
-		}
-		if (Validator.isEmpty(password2)) {
-			inputErrors.password2 = "Confirm password field is required";
-		}
 		if (!Validator.isLength(password, { min: 6, max: 30 })) {
 			inputErrors.password = "Password must be 6-30 characters long";
 		}
 		if (!Validator.equals(password, password2)) {
 			inputErrors.password = "Passwords must match";
 			inputErrors.password2 = "Passwords must match";
+		}
+		if (Validator.isEmpty(password)) {
+			inputErrors.password = "Password field is required";
+		}
+		if (Validator.isEmpty(password2)) {
+			inputErrors.password2 = "Confirm password field is required";
 		}
 
 		// First name checks
@@ -53,13 +53,13 @@ module.exports = (req, res, next) => {
 		}
 
 		if (!isEmpty(inputErrors)) {
-			return res.status(400).json({ success: false, inputErrors });
+			return res.status(400).json({ success: true, inputErrors });
 		}
 
 		next();
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.validation = "Validation Error";
-		return res.status(403).json({ success: false, inputErrors });
+		return res.status(403).json({ success: true, inputErrors });
 	}
 };

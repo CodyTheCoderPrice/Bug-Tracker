@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
 
-import { logoutAccount } from "../../../actions/accountActions";
-import { setModalComponent } from "../../../actions/modalActions.js";
+import { logoutAccount, setModalComponent } from "../../../actions";
 
 // Modals components for editing account
 import EditInfoModal from "./EditInfoModal";
@@ -12,10 +11,6 @@ import EditInfoModal from "./EditInfoModal";
 import "../../../SCSS/accountSidebar.scss";
 
 export default function Account() {
-	const [modals, setModals] = useState({
-		editInfoModal: null,
-	});
-
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 

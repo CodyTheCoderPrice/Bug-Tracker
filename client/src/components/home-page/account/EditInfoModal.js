@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateAccountInfo } from "../../../actions/accountActions";
-import { setModalComponent } from "../../../actions/modalActions.js";
+import { updateAccountInfo, setModalComponent, clearInputErrors  } from "../../../actions";
 
 // Modals components for editing account
 import EditEmailModal from "./EditEmailModal";
@@ -19,6 +18,8 @@ export default function EditInfoModal() {
 		firstName: reduxState.account.firstName,
 		lastName: reduxState.account.lastName,
 	});
+
+	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
@@ -70,7 +71,10 @@ export default function EditInfoModal() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		// clears any prior input errors
+		dispatch(clearInputErrors());
 		dispatch(updateAccountInfo(accountInfo));
+		setShouldShowAnyErrors(true);
 	};
 
 	return (
@@ -84,7 +88,7 @@ export default function EditInfoModal() {
 					<label className="titleLabel">Edit Personal Info</label>
 					<br />
 					<span className="redErrorText">
-						{reduxState.inputErrors.firstName}
+						{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}
 					</span>
 					<input
 						type="text"
@@ -92,11 +96,10 @@ export default function EditInfoModal() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.firstName}
 						placeholder="First name"
-						//error={reduxState.inputErrors.firstName}
 						id="firstNameInput"
 					/>
 					<span className="redErrorText">
-						{reduxState.inputErrors.lastName}
+						{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}
 					</span>
 					<input
 						type="text"
@@ -104,13 +107,12 @@ export default function EditInfoModal() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.lastName}
 						placeholder="Last name"
-						//error={reduxState.inputErrors.lastName}
 						id="lastNameInput"
 					/>
 					<span className="redErrorText">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.account}
-						{reduxState.inputErrors.server}
+						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.account : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
 					<button type="submit" className="submitButton">
 						Update

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { deleteAccount } from "../../../actions/accountActions";
-import { setModalComponent } from "../../../actions/modalActions.js";
+import { deleteAccount, setModalComponent, clearInputErrors  } from "../../../actions";
 
 import EditInfoModal from "./EditInfoModal";
 
@@ -16,6 +15,8 @@ export default function DeleteAccountModal() {
 		deleteTypedOut: "",
 		currentPassword: "",
 	});
+
+	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
@@ -43,7 +44,10 @@ export default function DeleteAccountModal() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		// clears any prior input errors
+		dispatch(clearInputErrors());
 		dispatch(deleteAccount(accountInfo));
+		setShouldShowAnyErrors(true);
 	};
 
 	return (
@@ -64,7 +68,7 @@ export default function DeleteAccountModal() {
 						<label className="capitalDelete">DELETE</label> below.
 					</label> <br />
 					<span className="redErrorText">
-						{reduxState.inputErrors.deleteTypedOut}
+						{shouldShowAnyErrors ? reduxState.inputErrors.deleteTypedOut : ""}
 					</span>
 					<input
 						type="text"
@@ -72,11 +76,10 @@ export default function DeleteAccountModal() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.deleteTypedOut}
 						placeholder="Type here..."
-						//error={reduxState.inputErrors.deleteTypedOut}
 						id="deleteTypedOutInput"
 					/>
 					<span className="redErrorText">
-						{reduxState.inputErrors.currentPassword}
+						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
 					</span>
 					<input
 						type="password"
@@ -84,13 +87,13 @@ export default function DeleteAccountModal() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.currentPassword}
 						placeholder="Current Password"
-						//error={reduxState.inputErrors.currentPassword}
 						id="currentPasswordInput"
 					/>
 					<span className="redErrorText">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.account}
-						{reduxState.inputErrors.server}
+						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.authorization : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.account : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
 					<button type="submit" className="submitButton">
 						Delete
