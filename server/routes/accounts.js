@@ -78,7 +78,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 
 		// Verifies that an account with that email exisits
 		const activeAccounts = await pool.query(
-			"SELECT account_id, email, hash_pass, first_name, last_name, join_date FROM account WHERE LOWER(email) = LOWER($1)",
+			"SELECT * FROM account WHERE LOWER(email) = LOWER($1)",
 			[email]
 		);
 
@@ -160,7 +160,7 @@ router.route("/retrieve").get(tokenAuthorization, async (req, res) => {
 		const { accountId } = req;
 
 		const selectedAccount = await pool.query(
-			"SELECT email, first_name, last_name, join_date FROM account WHERE account_id = $1",
+			"SELECT * FROM account WHERE account_id = $1",
 			[accountId]
 		);
 
@@ -177,7 +177,7 @@ router.route("/retrieve").get(tokenAuthorization, async (req, res) => {
 			joinDate: selectedAccount.rows[0].join_date,
 		};
 
-		res.json(account);
+		res.json({ success: true, account });
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.server = "Server error while retrieving account";
@@ -202,7 +202,7 @@ router
 			const { firstName, lastName } = req.body;
 
 			const updatedAccount = await pool.query(
-				"UPDATE account SET first_name = $1, last_name = $2 WHERE account_id = $3",
+				"UPDATE account SET first_name = $1, last_name = $2 WHERE account_id = $3 RETURNING *",
 				[firstName, lastName, accountId]
 			);
 
@@ -211,7 +211,15 @@ router
 				return res.status(500).json({ success: false, inputErrors });
 			}
 
-			res.json({ success: true, message: "Account Info Updated" });
+			const account = {
+				accountId: accountId,
+				email: updatedAccount.rows[0].email,
+				firstName: updatedAccount.rows[0].first_name,
+				lastName: updatedAccount.rows[0].last_name,
+				joinDate: updatedAccount.rows[0].join_date,
+			};
+
+			res.json({ success: true, account });
 		} catch (err) {
 			console.error(err.message);
 			inputErrors.server = "Server error while updating account info";
@@ -239,7 +247,7 @@ router
 				const { email } = req.body;
 
 				const updatedAccount = await pool.query(
-					"UPDATE account SET email = $1 WHERE account_id = $2",
+					"UPDATE account SET email = $1 WHERE account_id = $2 RETURNING *",
 					[email, accountId]
 				);
 
@@ -248,7 +256,15 @@ router
 					return res.status(500).json({ success: false, inputErrors });
 				}
 
-				res.json({ success: true, message: "Account Info Updated" });
+				const account = {
+					accountId: accountId,
+					email: updatedAccount.rows[0].email,
+					firstName: updatedAccount.rows[0].first_name,
+					lastName: updatedAccount.rows[0].last_name,
+					joinDate: updatedAccount.rows[0].join_date,
+				};
+
+				res.json({ success: true, account });
 			} catch (err) {
 				console.error(err.message);
 				inputErrors.server = "Server error while updating account email";
@@ -280,7 +296,7 @@ router
 						if (err) throw err;
 
 						const updatedAccount = await pool.query(
-							"UPDATE account SET hash_pass = $1 WHERE account_id = $2",
+							"UPDATE account SET hash_pass = $1 WHERE account_id = $2 RETURNING *",
 							[hash, accountId]
 						);
 
@@ -289,7 +305,15 @@ router
 							return res.status(500).json({ success: false, inputErrors });
 						}
 
-						res.json({ success: true, message: "Account Info Updated" });
+						const account = {
+							accountId: accountId,
+							email: updatedAccount.rows[0].email,
+							firstName: updatedAccount.rows[0].first_name,
+							lastName: updatedAccount.rows[0].last_name,
+							joinDate: updatedAccount.rows[0].join_date,
+						};
+
+						res.json({ success: true, account });
 					});
 				});
 			} catch (err) {

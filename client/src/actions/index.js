@@ -4,7 +4,7 @@ import {
 	SET_INPUT_ERRORS,
 	SET_MODAL_COMPONENT,
 } from "./types";
-export * from "./accountActions";
+export * from "./accountAxiosActions";
 
 // Set authentication
 export const setAuthentication = (decodedToken) => (dispatch) => {

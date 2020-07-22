@@ -10,7 +10,7 @@ export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_AUTHENTICATION:
 			return {
-				isAuthenticated: !isEmpty(action.payload),
+				isAuthenticated: !isEmpty(action.decodedToken),
 				decodedToken: action.decodedToken,
 			};
 		default:

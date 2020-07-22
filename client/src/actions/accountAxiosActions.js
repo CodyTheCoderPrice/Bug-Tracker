@@ -40,7 +40,8 @@ export const retrieveAccount = () => (dispatch) => {
 	axios
 		.get("/api/account/retrieve", headers)
 		.then((res) => {
-			dispatch(setAccount(res.data));
+			const { account } = res.data;
+			dispatch(setAccount(account));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -57,7 +58,8 @@ export const updateAccountInfo = (accountData) => (dispatch) => {
 	axios
 		.post("/api/account/update-info", accountData, headers)
 		.then((res) => {
-			dispatch(retrieveAccount());
+			const { account } = res.data;
+			dispatch(setAccount(account));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -74,7 +76,8 @@ export const updateAccountEmail = (accountData) => (dispatch) => {
 	axios
 		.post("/api/account/update-email", accountData, headers)
 		.then((res) => {
-			dispatch(retrieveAccount());
+			const { account } = res.data;
+			dispatch(setAccount(account));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -91,7 +94,8 @@ export const updateAccountPassword = (accountData) => (dispatch) => {
 	axios
 		.post("/api/account/update-password", accountData, headers)
 		.then((res) => {
-			dispatch(retrieveAccount());
+			const { account } = res.data;
+			dispatch(setAccount(account));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
