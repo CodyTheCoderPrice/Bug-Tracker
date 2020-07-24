@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { deleteAccount, setModalComponent, clearInputErrors  } from "../../../actions";
+import {
+	deleteAccount,
+	setModalComponent,
+	clearInputErrors,
+} from "../../../actions";
 
 import EditInfoModal from "./EditInfoModal";
 
@@ -52,7 +56,7 @@ export default function DeleteAccountModal() {
 
 	return (
 		<div>
-			<div className="blurredBackground"></div>
+			<div className="blurredBackgroundDiv" />
 			<div className="editAccountContainerDiv">
 				<button className="backButton" onClick={backToEditInfo}>
 					➔
@@ -66,7 +70,8 @@ export default function DeleteAccountModal() {
 					<label className="warningMessage">
 						If you are sure, type{" "}
 						<label className="capitalDelete">DELETE</label> below.
-					</label> <br />
+					</label>{" "}
+					<br />
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.deleteTypedOut : ""}
 					</span>
@@ -77,6 +82,7 @@ export default function DeleteAccountModal() {
 						value={accountInfo.deleteTypedOut}
 						placeholder="Type here..."
 						id="deleteTypedOutInput"
+						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
@@ -88,6 +94,7 @@ export default function DeleteAccountModal() {
 						value={accountInfo.currentPassword}
 						placeholder="Current Password"
 						id="currentPasswordInput"
+						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
@@ -99,6 +106,11 @@ export default function DeleteAccountModal() {
 						Delete
 					</button>
 				</form>
+				<div className="openOtherModalsDiv">
+					<label className="openModalLabel" onClick={backToEditInfo}>
+						Back
+					</label>
+				</div>
 			</div>
 		</div>
 	);

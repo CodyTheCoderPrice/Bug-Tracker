@@ -45,6 +45,7 @@ export default function Register() {
 					value={accountInfo.firstName}
 					placeholder="First name"
 					id="firstNameInput"
+					className="formInput"
 				/>
 				<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}</span>
 				<input
@@ -54,6 +55,7 @@ export default function Register() {
 					value={accountInfo.lastName}
 					placeholder="Last name"
 					id="lastNameInput"
+					className="formInput"
 				/>
 				<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}</span>
 				<input
@@ -63,6 +65,7 @@ export default function Register() {
 					value={accountInfo.email}
 					placeholder="Email"
 					id="emailInput"
+					className="formInput"
 				/>
 				<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}</span>
 				<input
@@ -72,6 +75,7 @@ export default function Register() {
 					value={accountInfo.password}
 					placeholder="Password"
 					id="passwordInput"
+					className="formInput"
 				/>
 				<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.password2 : ""}</span>
 				<input
@@ -81,6 +85,7 @@ export default function Register() {
 					value={accountInfo.password2}
 					placeholder="Confirm password"
 					id="password2Input"
+					className="formInput"
 				/>
 				<span className="redErrorText">
 					{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
@@ -88,10 +93,10 @@ export default function Register() {
 					{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 				</span>
 				<button type="submit" className="submitButton">Register Account</button>
-				<p className="message">
+				<div className="linksDiv">
 					<strong>Already a Member?</strong>
 					<Link to="/login">Login</Link>
-				</p>
+				</div>
 			</form>
 		</div>
 	);

@@ -2,7 +2,7 @@
 const express = require("express");
 const pool = require("../db");
 const router = express.Router();
-// Security
+// Password security
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -26,39 +26,36 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 
 	try {
 		const { email, password, firstName, lastName } = req.body;
-		// Moment() is easier to use than Date()
 		const join_date = moment().format("YYYY-MM-DD");
-		let inputErrors = {};
 
 		// Verify that email does not already exist
 		const activeAccounts = await pool.query(
-			"SELECT * FROM account WHERE email = $1",
+			"SELECT * FROM account WHERE LOWER(email) = LOWER($1)",
 			[email]
 		);
 
-		if (activeAccounts.rows.length > 0) {
+		if (activeAccounts.rowCount > 0) {
 			inputErrors = { email: "Email already in use" };
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
 		// Generate hashed password
-		bcrypt.genSalt(10, (err, salt) => {
-			bcrypt.hash(password, salt, async (err, hash) => {
-				if (err) throw err;
+		bcrypt
+			.genSalt(10, (err, salt) => {
+				bcrypt.hash(password, salt, async (err, hash) => {
+					if (err) throw err;
 
-				const newAccount = await pool.query(
-					"INSERT INTO account (email, hash_pass, first_name, last_name, join_date) VALUES($1, $2, $3, $4, $5)",
-					[email, hash, firstName, lastName, join_date]
-				);
+					const newAccount = await pool.query(
+						"INSERT INTO account (emails, hash_pass, first_name, last_name, join_date) VALUES($1, $2, $3, $4, $5)",
+						[email, hash, firstName, lastName, join_date]
+					);
 
-				if (newAccount.rowCount === 0) {
-					inputErrors.account = "Could not create account";
-					return res.status(500).json({ success: false, inputErrors });
-				}
-
-				res.json({ success: true, message: "Account created" });
+					res.json({ success: true, message: "Account created" });
+				});
+			})
+			.catch((err) => {
+				throw err;
 			});
-		});
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.server = "Server error while register account";
@@ -74,7 +71,6 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 
 	try {
 		const { email, password } = req.body;
-		let inputErrors = {};
 
 		// Verifies that an account with that email exisits
 		const activeAccounts = await pool.query(
@@ -115,7 +111,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			tokenPayload,
 			process.env.jwtSecret,
 			{
-				expiresIn: "7d",
+				expiresIn: "1d",
 			},
 			(err, jwToken) => {
 				res.json({
@@ -164,11 +160,6 @@ router.route("/retrieve").get(tokenAuthorization, async (req, res) => {
 			[accountId]
 		);
 
-		if (selectedAccount.rowCount === 0) {
-			inputErrors.account = "Account not found";
-			return res.status(401).json({ success: false, inputErrors });
-		}
-
 		const account = {
 			accountId: accountId,
 			email: selectedAccount.rows[0].email,
@@ -206,11 +197,6 @@ router
 				[firstName, lastName, accountId]
 			);
 
-			if (updatedAccount.rowCount === 0) {
-				inputErrors.account = "Could not be updated";
-				return res.status(500).json({ success: false, inputErrors });
-			}
-
 			const account = {
 				accountId: accountId,
 				email: updatedAccount.rows[0].email,
@@ -237,7 +223,6 @@ router
 		validateEmailUpdateInput,
 		passwordAuthentication,
 		async (req, res) => {
-
 			let inputErrors = {};
 
 			try {
@@ -250,11 +235,6 @@ router
 					"UPDATE account SET email = $1 WHERE account_id = $2 RETURNING *",
 					[email, accountId]
 				);
-
-				if (updatedAccount.rowCount === 0) {
-					inputErrors.account = "Could not be updated";
-					return res.status(500).json({ success: false, inputErrors });
-				}
 
 				const account = {
 					accountId: accountId,
@@ -300,11 +280,6 @@ router
 							[hash, accountId]
 						);
 
-						if (updatedAccount.rowCount === 0) {
-							inputErrors.account = "Could not be updated";
-							return res.status(500).json({ success: false, inputErrors });
-						}
-
 						const account = {
 							accountId: accountId,
 							email: updatedAccount.rows[0].email,
@@ -345,11 +320,6 @@ router
 					[accountId]
 				);
 
-				if (deletedAccount.rowCount === 0) {
-					inputErrors.account = "Could not be deleted";
-					return res.status(500).json({ success: false, inputErrors });
-				}
-
 				return res.json({ success: true, message: "Account Deleted" });
 			} catch (err) {
 				console.error(err.message);
@@ -358,3 +328,5 @@ router
 			}
 		}
 	);
+
+module.exports = router;

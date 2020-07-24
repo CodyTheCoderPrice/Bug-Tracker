@@ -6,25 +6,24 @@ import { retrieveAccount } from "../actions";
 
 import Register from "./authentication/Register";
 import Login from "./authentication/Login";
-import Home from "./home-page/Home";
+import HomeNavBar from "./home-page/HomeNavBar";
 
 function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// used for useEffect optimization because of shallow comparison
+	// used because of shallow comparison issues with objects
 	const accountJsonString = JSON.stringify(reduxState.account)
 
 	useEffect(() => {
-		if (reduxState.auth.isAuthenticated) {
-			console.log(reduxState.account);
+		if (reduxState.auth.isAuthenticated && accountJsonString === "{}") {
 			dispatch(retrieveAccount());
 		}
 	}, [accountJsonString]);
 	
 	return (
 		<Router>
-			<Route path="/" exact component={Home} />
+			<Route path="/" exact component={HomeNavBar} />
 			<Route exact path="/register" component={Register} />
 			<Route exact path="/login" component={Login} />
 		</Router>

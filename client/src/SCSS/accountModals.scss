@@ -1,4 +1,10 @@
-.blurredBackground {
+$containerWdith:  540px;
+$lightTealBlue: #8ba8b3;
+$darkTealBlue: #50798b;
+$lightGray: #e5e5e5;
+
+
+.blurredBackgroundDiv {
 	z-index: 1;
 	position: absolute;
 	left: 0;
@@ -12,128 +18,126 @@
 .editAccountContainerDiv {
 	z-index: 2;
 	color: black;
-	border: 5px solid #202024;
+	border: 5px solid black;
 	background: white;
 	padding: 25px;
-	width: 540px;
+	height: 380px;
+	width: $containerWdith;
 	text-align: center;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+
+	.backButton {
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		font-size: 30px;
+		color: $lightTealBlue;
+		border: none;
+		background: none;
+		cursor: pointer;
+		transform: rotate(-180deg);
+	}
+	.backButton:hover {
+		color: $darkTealBlue;
+	}
+
+	.exitButton {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		font-size: 20px;
+		color: $lightTealBlue;
+		border: none;
+		background: none;
+		cursor: pointer;
+	}
+	.exitButton:hover {
+		color: $darkTealBlue;
+	}
 }
 
-.left {
-	width: 100px;
-	height: 100px;
-	transition: 0.5s;
-	float: left;
-	box-shadow: -2px 2px 0 black;
+.editAccountForm {
+	.titleLabel {
+		display: inline-block;
+		font-size: 200%;
+		margin-bottom: 25px;
+	}
+
+	.redErrorText {
+		color: red;
+		// Cause empty input errors to still take up space
+		padding: 1px;
+	}
+
+	.formInput {
+		font-family: "Roboto", sans-serif;
+		outline: 1;
+		background: $lightGray;
+		width: 100%;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		padding: 8px;
+		box-sizing: border-box;
+		font-size: 14px;
+		text-align: center;
+	}
+
+	.submitButton {
+		font-family: "Roboto", sans-serif;
+		text-transform: uppercase;
+		outline: 0;
+		background: $lightTealBlue;
+		width: 100%;
+		border: 0;
+		margin-top: 5px;
+		padding: 10px;
+		color: #ffffff;
+		font-size: 14px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.submitButton:hover,
+	.submitButton:active {
+		background: $darkTealBlue;
+	}
+
+	.warningMessage {
+		font-size: 20px;
+	}
+
+	.warningMessage .capitalDelete {
+		font-size: 16px;
+		color: red;
+		margin-left: 2px;
+		margin-right: 2px;
+	}
 }
 
-.editAccountContainerDiv .backButton {
+.openOtherModalsDiv {
+	width: $containerWdith;
 	position: absolute;
-	top: 5px;
-	left: 5px;
-	font-size: 30px;
-	color: #8ba8b3;
-	border: none;
-	background: none;
-	cursor: pointer;
-	transform: rotate(-180deg);
-}
-.editAccountContainerDiv .backButton:hover {
-	color: #50798b;
-}
-
-.editAccountContainerDiv .exitButton {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	font-size: 20px;
-	color: #8ba8b3;
-	border: none;
-	background: none;
-	cursor: pointer;
-}
-.editAccountContainerDiv .exitButton:hover {
-	color: #50798b;
-}
-
-.editAccountForm .titleLabel {
-	display: inline-block;
-	font-size: 200%;
-	margin-bottom: 25px;
-}
-
-.editAccountForm .redErrorText {
-	color: red;
-	padding: 1px; //cause even empty errors to take up space
-}
-
-.editAccountForm input {
-	font-family: "Roboto", sans-serif;
-	outline: 1;
-	background: #e5e5e5;
-	width: 100%;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	padding: 8px;
-	box-sizing: border-box;
-	font-size: 14px;
+	bottom: 30px;
 	text-align: center;
-}
+	.openModalLabel {
+		color: blue;
+		font-style: bold;
+		text-decoration: none;
+		font-size: 22px;
+		margin-left: 15px;
+		margin-right: 15px;
+		cursor: pointer;
+	}
 
-.editAccountForm .submitButton {
-	font-family: "Roboto", sans-serif;
-	text-transform: uppercase;
-	outline: 0;
-	background: #8ba8b3;
-	width: 100%;
-	border: 0;
-	margin-top: 5px;
-	padding: 10px;
-	color: #ffffff;
-	font-size: 14px;
-	text-align: center;
-	cursor: pointer;
-}
-.editAccountForm .submitButton:hover,
-.editAccountForm .submitButton:active {
-	background: #50798b;
-}
+	.orLabel {
+		font-size: 20px;
+		margin-left: 15px;
+		margin-right: 15px;
+	}
 
-.editAccountForm .otherEditModalsDiv {
-	margin-top: 40px;
-}
-
-.editAccountForm .otherEditModalsDiv .openModalLabel {
-	color: blue;
-	font-style: bold;
-	text-decoration: none;
-	font-size: 22px;
-	margin-left: 15px;
-	margin-right: 15px;
-	cursor: pointer;
-}
-
-#deleteLabel {
-	color: red;
-}
-
-.editAccountForm .otherEditModalsDiv .orLabel {
-	font-size: 20px;
-	margin-left: 15px;
-	margin-right: 15px;
-}
-
-.warningMessage {
-	font-size: 20px;
-}
-
-.warningMessage .capitalDelete {
-	font-size: 16px;
-	color: red;
-	margin-left: 2px;
-	margin-right: 2px;
+	#deleteLabel {
+		color: red;
+	}
 }

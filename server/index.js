@@ -12,6 +12,7 @@ var certificate = fs.readFileSync("./sslCertification/selfsigned.crt", "utf8");
 var credentials = { key: privateKey, cert: certificate };
 // routes
 const accounts = require("./routes/accounts");
+const projects = require("./routes/projects");
 
 // Middleware
 app.use(express.json());
@@ -30,6 +31,7 @@ app.use(function (req, res, next) {
 
 // set routes
 app.use("/api/account", accounts);
+app.use("/api/project", projects);
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);

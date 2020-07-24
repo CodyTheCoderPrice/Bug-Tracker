@@ -9,20 +9,15 @@ CREATE TABLE account(
     join_date DATE
 );
 
-CREATE TABLE token(
-    token_id SERIAL PRIMARY KEY,
-    account_id VARCHAR(255),
-    secret_code VARCHAR(255),
-    date_created DATE,
-    date_expires DATE
-);
-
 CREATE TABLE project(
     project_id SERIAL PRIMARY KEY,
-    account_id VARCHAR(255),
-    p_name VARCHAR(255),
-    P_description VARCHAR(255),
-    p_priority SMALLINT,
-    deadline DATE,
-    date_created DATE
+    account_id INTEGER,
+    name VARCHAR(255),
+    description TEXT,
+	status SMALLINT,
+    priority SMALLINT,
+	creation_date DATE,
+	start_date DATE,
+    due_date DATE,
+    completion_date DATE
 );

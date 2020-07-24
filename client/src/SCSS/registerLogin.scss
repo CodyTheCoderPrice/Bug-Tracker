@@ -11,60 +11,63 @@
 	transform: translate(-50%, -50%);
 }
 
+.registerLoginForm {
+	.titleLabel {
+		display: inline-block;
+		font-size: 200%;
+		margin-bottom: 25px;
+	}
 
-.registerLoginForm .titleLabel {
-	display: inline-block;
-	font-size: 200%;
-	margin-bottom: 25px;
-}
+	.redErrorText {
+		color: red;
+		// Cause empty input errors to still take up space
+		padding: 1px;
+	}
 
-.registerLoginForm .redErrorText {
-	color: red;
-	padding: 2px;
-}
+	.formInput {
+		font-family: "Roboto", sans-serif;
+		outline: 1;
+		background: #e5e5e5;
+		width: 100%;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		padding: 8px;
+		box-sizing: border-box;
+		font-size: 14px;
+		text-align: center;
+	}
 
-.registerLoginForm input {
-	font-family: "Roboto", sans-serif;
-	outline: 1;
-	background: #e5e5e5;
-	width: 100%;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	padding: 8px;
-	box-sizing: border-box;
-	font-size: 14px;
-	text-align: center;
-}
-.registerLoginForm .submitButton {
-	font-family: "Roboto", sans-serif;
-	text-transform: uppercase;
-	outline: 0;
-	background: #8ba8b3;
-	width: 100%;
-	border: 0;
-	margin-top: 5px;
-	padding: 10px;
-	color: #ffffff;
-	font-size: 14px;
-	cursor: pointer;
-	text-align: center;
-	margin-top: 10px;
-}
-.registerLoginForm .submitButton:hover,
-.registerLoginForm .submitButton:active {
-	background: #50798b;
-}
+	.submitButton {
+		font-family: "Roboto", sans-serif;
+		text-transform: uppercase;
+		outline: 0;
+		background: #8ba8b3;
+		width: 100%;
+		border: 0;
+		margin-top: 5px;
+		padding: 10px;
+		color: white;
+		font-size: 14px;
+		cursor: pointer;
+		text-align: center;
+		margin-top: 10px;
+	}
+	.submitButton:hover,
+	.submitButton:active {
+		background: #50798b;
+	}
 
-.registerLoginForm .message {
-	margin: 15px 0 0;
-	font-size: 20px;
-	font-style: bold;
-}
+	.linksDiv {
+		margin: 15px 0 0;
+		font-size: 20px;
+		font-style: bold;
 
-.registerLoginForm .message a {
-	color: blue;
-	font-style: bold;
-	text-decoration: none;
-	font-size: 110%;
-	margin-left: 15px;
+		a {
+			color: blue;
+			font-style: bold;
+			text-decoration: none;
+			font-size: 110%;
+			margin-left: 15px;
+		}
+	}
 }

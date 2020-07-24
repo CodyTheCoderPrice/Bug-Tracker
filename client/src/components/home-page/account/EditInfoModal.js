@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateAccountInfo, setModalComponent, clearInputErrors  } from "../../../actions";
+import {
+	updateAccountInfo,
+	setModalComponent,
+	clearInputErrors,
+} from "../../../actions";
 
 // Modals components for editing account
 import EditEmailModal from "./EditEmailModal";
@@ -79,7 +83,7 @@ export default function EditInfoModal() {
 
 	return (
 		<div>
-			<div className="blurredBackground"></div>
+			<div className="blurredBackgroundDiv" />
 			<div className="editAccountContainerDiv">
 				<button className="exitButton" onClick={closeModals}>
 					X
@@ -97,6 +101,7 @@ export default function EditInfoModal() {
 						value={accountInfo.firstName}
 						placeholder="First name"
 						id="firstNameInput"
+						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}
@@ -108,6 +113,7 @@ export default function EditInfoModal() {
 						value={accountInfo.lastName}
 						placeholder="Last name"
 						id="lastNameInput"
+						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
@@ -117,20 +123,24 @@ export default function EditInfoModal() {
 					<button type="submit" className="submitButton">
 						Update
 					</button>
-					<div className="otherEditModalsDiv">
-						<label className="openModalLabel" onClick={openEditEmailModal}>
-							Edit Email
-						</label>
-						<label className="orLabel">|</label>
-						<label className="openModalLabel" onClick={openEditPasswordModal}>
-							Edit Password
-						</label>
-						<label className="orLabel">|</label>
-						<label className="openModalLabel" id="deleteLabel" onClick={openDeleteAccountModal}>
-							Delete Account
-						</label>
-					</div>
 				</form>
+				<div className="openOtherModalsDiv">
+					<label className="openModalLabel" onClick={openEditEmailModal}>
+						Edit Email
+					</label>
+					<label className="orLabel">|</label>
+					<label className="openModalLabel" onClick={openEditPasswordModal}>
+						Edit Password
+					</label>
+					<label className="orLabel">|</label>
+					<label
+						className="openModalLabel"
+						id="deleteLabel"
+						onClick={openDeleteAccountModal}
+					>
+						Delete Account
+					</label>
+				</div>
 			</div>
 		</div>
 	);

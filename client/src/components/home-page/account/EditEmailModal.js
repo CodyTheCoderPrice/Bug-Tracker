@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateAccountEmail, setModalComponent, clearInputErrors  } from "../../../actions";
+import {
+	updateAccountEmail,
+	setModalComponent,
+	clearInputErrors,
+} from "../../../actions";
 
 import EditInfoModal from "./EditInfoModal";
 
@@ -52,7 +56,7 @@ export default function EditEmailModal() {
 
 	return (
 		<div>
-			<div className="blurredBackground"></div>
+			<div className="blurredBackgroundDiv" />
 			<div className="editAccountContainerDiv">
 				<button className="backButton" onClick={backToEditInfo}>
 					➔
@@ -63,7 +67,9 @@ export default function EditEmailModal() {
 				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
 					<label className="titleLabel">Edit Email</label>
 					<br />
-					<span className="redErrorText">{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}</span>
+					<span className="redErrorText">
+						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
+					</span>
 					<input
 						type="email"
 						name="email"
@@ -71,6 +77,7 @@ export default function EditEmailModal() {
 						value={accountInfo.email}
 						placeholder="Email"
 						id="emailInput"
+						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
@@ -82,6 +89,7 @@ export default function EditEmailModal() {
 						value={accountInfo.currentPassword}
 						placeholder="Current Password"
 						id="currentPasswordInput"
+						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
@@ -93,6 +101,11 @@ export default function EditEmailModal() {
 						Update
 					</button>
 				</form>
+				<div className="openOtherModalsDiv">
+					<label className="openModalLabel" onClick={backToEditInfo}>
+						Back
+					</label>
+				</div>
 			</div>
 		</div>
 	);

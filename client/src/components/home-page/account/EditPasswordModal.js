@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateAccountPassword, setModalComponent, clearInputErrors  } from "../../../actions";
+import {
+	updateAccountPassword,
+	setModalComponent,
+	clearInputErrors,
+} from "../../../actions";
 
 import EditInfoModal from "./EditInfoModal";
 
@@ -53,7 +57,7 @@ export default function EditPasswordModal() {
 
 	return (
 		<div>
-			<div className="blurredBackground"></div>
+			<div className="blurredBackgroundDiv" />
 			<div className="editAccountContainerDiv">
 				<button className="backButton" onClick={backToEditInfo}>
 					➔
@@ -74,6 +78,7 @@ export default function EditPasswordModal() {
 						value={accountInfo.newPassword}
 						placeholder="New Password"
 						id="newPasswordInput"
+						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword2 : ""}
@@ -85,6 +90,7 @@ export default function EditPasswordModal() {
 						value={accountInfo.newPassword2}
 						placeholder="Confirm New Password"
 						id="newPassword2Input"
+						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
@@ -96,6 +102,7 @@ export default function EditPasswordModal() {
 						value={accountInfo.currentPassword}
 						placeholder="Current Password"
 						id="currentPasswordInput"
+						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
@@ -107,6 +114,11 @@ export default function EditPasswordModal() {
 						Update
 					</button>
 				</form>
+				<div className="openOtherModalsDiv">
+					<label className="openModalLabel" onClick={backToEditInfo}>
+						Back
+					</label>
+				</div>
 			</div>
 		</div>
 	);

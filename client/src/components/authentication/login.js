@@ -44,6 +44,7 @@ export default function Login() {
 					value={accountInfo.email}
 					placeholder="Email"
 					id="emailInput"
+					className="formInput"
 				/>
 				<span className="redErrorText">
 					{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}
@@ -55,6 +56,7 @@ export default function Login() {
 					value={accountInfo.password}
 					placeholder="Password"
 					id="passwordInput"
+					className="formInput"
 				/>
 				<span className="redErrorText">
 					{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
@@ -63,11 +65,11 @@ export default function Login() {
 				<button type="submit" className="submitButton">
 					Login
 				</button>
-				<p className="message">
+				<div className="linksDiv">
 					<strong>Not a Member </strong>
 					<Link to="/register">Register</Link>
 					<Link to="/">Home</Link>
-				</p>
+				</div>
 			</form>
 		</div>
 	);
