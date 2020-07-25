@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
 
-import { logoutAccount, setModalComponent } from "../../../actions";
+import { logoutAccount, setAccountModalComponents } from "../../../actions";
 
 // Modals components for editing account
 import EditInfoModal from "./EditInfoModal";
 
-import "../../../SCSS/accountSidebar.scss";
+import "../../../SCSS/accountDropdown.scss";
 
-export default function Account() {
+export default function AccountDropdown() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const openEditInfoModals = () => {
 		dispatch(
-			setModalComponent({
+			setAccountModalComponents({
 				editInfoModal: <EditInfoModal />,
 				editEmailModal: null,
 				editPasswordModal: null,
@@ -48,10 +48,6 @@ export default function Account() {
 				<button onClick={handleLogoutAccount}>Logout</button> <br />
 				<button onClick={logReduxState}>Log Redux State</button>
 			</div>
-			{reduxState.modals.editInfoModal}
-			{reduxState.modals.editEmailModal}
-			{reduxState.modals.editPasswordModal}
-			{reduxState.modals.deleteAccountModal}
 		</div>
 	);
 }

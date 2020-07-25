@@ -7,12 +7,12 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 // Middleware
-const validateRegisterInput = require("../middleware/validation/registerValidation");
-const validateLoginInput = require("../middleware/validation/loginValidation");
-const validateInfoUpdateInput = require("../middleware/validation/updateInfoValidation");
-const validateEmailUpdateInput = require("../middleware/validation/updateEmailValidation");
-const validatePasswordUpdateInput = require("../middleware/validation/updatePasswordValidation");
-const validateDeleteAccountInput = require("../middleware/validation/deleteAccountValidation");
+const validateRegisterInput = require("../middleware/validation/account/registerValidation");
+const validateLoginInput = require("../middleware/validation/account/loginValidation");
+const validateInfoUpdateInput = require("../middleware/validation/account/updateInfoValidation");
+const validateEmailUpdateInput = require("../middleware/validation/account/updateEmailValidation");
+const validatePasswordUpdateInput = require("../middleware/validation/account/updatePasswordValidation");
+const validateDeleteAccountInput = require("../middleware/validation/account/deleteAccountValidation");
 const passwordAuthentication = require("../middleware/auth/passwordAuthentication");
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
 // Used instead of the Date() function

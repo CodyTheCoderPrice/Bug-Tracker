@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	deleteAccount,
-	setModalComponent,
+	setAccountModalComponents,
 	clearInputErrors,
 } from "../../../actions";
 
@@ -28,7 +28,7 @@ export default function DeleteAccountModal() {
 
 	const backToEditInfo = () => {
 		dispatch(
-			setModalComponent({
+			setAccountModalComponents({
 				editInfoModal: <EditInfoModal />,
 				editEmailModal: null,
 				editPasswordModal: null,
@@ -38,7 +38,7 @@ export default function DeleteAccountModal() {
 
 	const closeModals = () => {
 		dispatch(
-			setModalComponent({
+			setAccountModalComponents({
 				editInfoModal: null,
 				editEmailModal: null,
 				editPasswordModal: null,

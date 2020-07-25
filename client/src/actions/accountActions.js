@@ -1,7 +1,24 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-import { setAuthentication, setAccount, setInputErrors } from "./index";
+import { SET_AUTHENTICATION, SET_ACCOUNT } from "./types";
+import { setInputErrors } from "./index";
+
+// Set authentication
+export const setAuthentication = (decodedToken) => (dispatch) => {
+	dispatch({
+		type: SET_AUTHENTICATION,
+		decodedToken: decodedToken,
+	});
+};
+
+// Set account
+export const setAccount = (account) => (dispatch) => {
+	dispatch({
+		type: SET_ACCOUNT,
+		account: account,
+	});
+};
 
 // Register account
 export const registerAccount = (accountData, history) => (dispatch) => {

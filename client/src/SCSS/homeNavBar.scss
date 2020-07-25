@@ -1,5 +1,17 @@
+@mixin stopTextSelection() {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+							supported by Chrome, Edge, Opera and Firefox */
+}
+
 $navBarHeight: 60px;
-$darkGray: #2a3745;
+$lightBlueGray: #596f87;
+$blueGray: #50677f;
+$darkBlueGray: #2a3745;
 
 .navBarDiv {
 	position: absolute;
@@ -7,7 +19,11 @@ $darkGray: #2a3745;
 	left: 0;
 	height: $navBarHeight;
 	width: 100vw;
-	background-color: $darkGray;
+	background-color: $blueGray;
+}
+
+.textDiv {
+	@include stopTextSelection();
 }
 
 .accountDropDownDiv {
@@ -24,12 +40,12 @@ $darkGray: #2a3745;
 		.textDiv {
 			width: 200px;
 			position: absolute;
-			top: 20px;
-			left: 50%;
+			top: 16px;
+			left: 52%;
 			transform: translate(-50%);
 			color: white;
 			font-family: Consolas, monaco, monospace;
-			font-size: 125%;
+			font-size: 160%;
 		}
 	}
 }

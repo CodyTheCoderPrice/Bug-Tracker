@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	updateAccountPassword,
-	setModalComponent,
+	setAccountModalComponents,
 	clearInputErrors,
 } from "../../../actions";
 
@@ -29,7 +29,7 @@ export default function EditPasswordModal() {
 
 	const backToEditInfo = () => {
 		dispatch(
-			setModalComponent({
+			setAccountModalComponents({
 				editInfoModal: <EditInfoModal />,
 				editEmailModal: null,
 				editPasswordModal: null,
@@ -39,7 +39,7 @@ export default function EditPasswordModal() {
 
 	const closeModals = () => {
 		dispatch(
-			setModalComponent({
+			setAccountModalComponents({
 				editInfoModal: null,
 				editEmailModal: null,
 				editPasswordModal: null,

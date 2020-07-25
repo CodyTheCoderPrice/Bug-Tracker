@@ -6,7 +6,7 @@ import { retrieveAccount } from "../actions";
 
 import Register from "./authentication/Register";
 import Login from "./authentication/Login";
-import HomeNavBar from "./home-page/HomeNavBar";
+import HomeNavbar from "./home-page/HomeNavbar";
 
 function App() {
 	const reduxState = useSelector((state) => state);
@@ -23,7 +23,7 @@ function App() {
 	
 	return (
 		<Router>
-			<Route path="/" exact component={HomeNavBar} />
+			<Route path="/" exact component={HomeNavbar} />
 			<Route exact path="/register" component={Register} />
 			<Route exact path="/login" component={Login} />
 		</Router>
