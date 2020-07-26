@@ -10,6 +10,7 @@ module.exports = (req, res, next) => {
 
 		if (!jwToken) {
 			inputErrors.jwToken = "No jwToken";
+			console.log(inputErrors);
 			return res.status(403).json({ success: false, inputErrors });
 		}
 

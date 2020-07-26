@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { retrieveAccount } from "../actions";
+import { retrieveAccount, retrieveProjects } from "../actions";
 
 import Register from "./authentication/Register";
 import Login from "./authentication/Login";
@@ -18,6 +18,7 @@ function App() {
 	useEffect(() => {
 		if (reduxState.auth.isAuthenticated && accountJsonString === "{}") {
 			dispatch(retrieveAccount());
+			dispatch(retrieveProjects());
 		}
 	}, [accountJsonString]);
 	

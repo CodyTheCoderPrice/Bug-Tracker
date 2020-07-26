@@ -26,6 +26,30 @@ $darkBlueGray: #2a3745;
 	@include stopTextSelection();
 }
 
+.projectsDropDownDiv {
+	position: absolute;
+	left: 0;
+	width: 200px;
+	height: 300px;
+
+	.clickableDiv {
+		height: $navBarHeight;
+		width: 200px;
+		text-align: center;
+
+		.textDiv {
+			width: 200px;
+			position: absolute;
+			top: 16px;
+			left: 52%;
+			transform: translate(-50%);
+			color: white;
+			font-family: Consolas, monaco, monospace;
+			font-size: 160%;
+		}
+	}
+}
+
 .accountDropDownDiv {
 	position: absolute;
 	right: 0;

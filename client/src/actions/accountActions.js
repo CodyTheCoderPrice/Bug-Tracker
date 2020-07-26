@@ -55,7 +55,7 @@ export const loginThenRetrieveAccount = (accountData) => (dispatch) => {
 export const retrieveAccount = () => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.get("/api/account/retrieve", headers)
+		.post("/api/account/retrieve", null, headers)
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));

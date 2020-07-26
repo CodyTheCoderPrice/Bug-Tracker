@@ -133,7 +133,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 //=====================
 router
 	.route("/check-authorization")
-	.get(tokenAuthorization, async (req, res) => {
+	.post(tokenAuthorization, async (req, res) => {
 		let inputErrors = {};
 
 		try {
@@ -148,11 +148,11 @@ router
 //===================
 //  Retrieve account
 //===================
-router.route("/retrieve").get(tokenAuthorization, async (req, res) => {
+router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 	let inputErrors = {};
 
 	try {
-		// declared in the tokenAuthorization middleware
+		// Declared in the tokenAuthorization middleware
 		const { accountId } = req;
 
 		const selectedAccount = await pool.query(
@@ -160,6 +160,7 @@ router.route("/retrieve").get(tokenAuthorization, async (req, res) => {
 			[accountId]
 		);
 
+		// This will also catch if the querry didn't work since everything will be undefined
 		const account = {
 			accountId: accountId,
 			email: selectedAccount.rows[0].email,
@@ -187,9 +188,9 @@ router
 		let inputErrors = {};
 
 		try {
-			// declared in the tokenAuthorization middleware
+			// Declared in the tokenAuthorization middleware
 			const { accountId } = req;
-			// passed in the body
+			// Passed in the post body
 			const { firstName, lastName } = req.body;
 
 			const updatedAccount = await pool.query(
@@ -197,6 +198,7 @@ router
 				[firstName, lastName, accountId]
 			);
 
+			// This will also catch if the querry didn't work since everything will be undefined
 			const account = {
 				accountId: accountId,
 				email: updatedAccount.rows[0].email,
@@ -226,9 +228,9 @@ router
 			let inputErrors = {};
 
 			try {
-				// declared in the tokenAuthorization middleware
+				// Declared in the tokenAuthorization middleware
 				const { accountId } = req;
-				// passed in the body
+				// Passed in the post body
 				const { email } = req.body;
 
 				const updatedAccount = await pool.query(
@@ -236,6 +238,7 @@ router
 					[email, accountId]
 				);
 
+				// This will also catch if the querry didn't work since everything will be undefined
 				const account = {
 					accountId: accountId,
 					email: updatedAccount.rows[0].email,
@@ -266,9 +269,9 @@ router
 			let inputErrors = {};
 
 			try {
-				// declared in the tokenAuthorization middleware
+				// Declared in the tokenAuthorization middleware
 				const { accountId } = req;
-				// passed in the body
+				// Passed in the post body
 				const { newPassword } = req.body;
 
 				bcrypt.genSalt(10, (err, salt) => {
@@ -280,6 +283,7 @@ router
 							[hash, accountId]
 						);
 
+						// This will also catch if the querry didn't work since everything will be undefined
 						const account = {
 							accountId: accountId,
 							email: updatedAccount.rows[0].email,
@@ -312,13 +316,17 @@ router
 			let inputErrors = {};
 
 			try {
-				// declared in the tokenAuthorization middleware
+				// Declared in the tokenAuthorization middleware
 				const { accountId } = req;
 
 				const deletedAccount = await pool.query(
 					"DELETE FROM account WHERE account_id = $1",
 					[accountId]
 				);
+
+				if (deletedAccount.rowCount === 0) {
+					throw { message: "Account deletion failed" };
+				}
 
 				return res.json({ success: true, message: "Account Deleted" });
 			} catch (err) {
