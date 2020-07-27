@@ -1,7 +1,7 @@
-// express
+// Express
 const express = require("express");
 const app = express();
-// http & https
+// Http & https
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
@@ -10,7 +10,7 @@ const httpsPort = 8443;
 var privateKey = fs.readFileSync("./sslCertification/selfsigned.key", "utf8");
 var certificate = fs.readFileSync("./sslCertification/selfsigned.crt", "utf8");
 var credentials = { key: privateKey, cert: certificate };
-// routes
+// Routes
 const accounts = require("./routes/accounts");
 const projects = require("./routes/projects");
 
@@ -18,18 +18,18 @@ const projects = require("./routes/projects");
 app.use(express.json());
 app.use(function (req, res, next) {
 	if (req.secure) {
-		// request was via https, so do no special handling
+		// Request was via https, so do no special handling
 		console.log("Was secure!");
 		next();
 	} else {
-		// request was via http, so redirect to https
+		// Request was via http, so redirect to https
 		console.log("Switched to https");
 		next();
 		//res.redirect("https://" + req.headers.host + req.url);
 	}
 });
 
-// set routes
+// Set routes
 app.use("/api/account", accounts);
 app.use("/api/project", projects);
 

@@ -14,39 +14,33 @@ $blueGray: #50677f;
 $darkBlueGray: #2a3745;
 
 .navBarDiv {
-	position: absolute;
-	top: 0;
-	left: 0;
 	height: $navBarHeight;
 	width: 100vw;
 	background-color: $blueGray;
+	margin: 0;
+	padding: 0;
 }
 
 .textDiv {
 	@include stopTextSelection();
 }
 
-.projectsDropDownDiv {
+.clickableDiv {
 	position: absolute;
 	left: 0;
+	height: $navBarHeight;
 	width: 200px;
-	height: 300px;
+	text-align: center;
 
-	.clickableDiv {
-		height: $navBarHeight;
+	.textDiv {
 		width: 200px;
-		text-align: center;
-
-		.textDiv {
-			width: 200px;
-			position: absolute;
-			top: 16px;
-			left: 52%;
-			transform: translate(-50%);
-			color: white;
-			font-family: Consolas, monaco, monospace;
-			font-size: 160%;
-		}
+		position: absolute;
+		top: 16px;
+		left: 52%;
+		transform: translate(-50%);
+		color: white;
+		font-family: Consolas, monaco, monospace;
+		font-size: 160%;
 	}
 }
 
@@ -55,14 +49,18 @@ $darkBlueGray: #2a3745;
 	right: 0;
 	width: 200px;
 	height: 300px;
+	margin: 0;
+	border: 0;
+	padding: 0;
 
 	.clickableDiv {
+		position: relative;
 		height: $navBarHeight;
 		width: 200px;
 		text-align: center;
 
 		.textDiv {
-			width: 200px;
+			width: 150px;
 			position: absolute;
 			top: 16px;
 			left: 52%;

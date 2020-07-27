@@ -2,23 +2,25 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-	updateAccountPassword,
+	updateAccountInfo,
 	setAccountModalComponents,
 	clearInputErrors,
-} from "../../../actions";
+} from "../../actions";
 
-import EditInfoModal from "./EditInfoModal";
+// Modals components for editing account
+import EditEmailModal from "./EditEmailModal";
+import EditPasswordModal from "./EditPasswordModal";
+import DeleteAccountModal from "./DeleteAccountModal";
 
-import "../../../SCSS/accountModals.scss";
+import "../../SCSS/accountModals.scss";
 
-export default function EditPasswordModal() {
+export default function EditInfoModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		newPassword: "",
-		newPassword2: "",
-		currentPassword: "",
+		firstName: reduxState.account.firstName,
+		lastName: reduxState.account.lastName,
 	});
 
 	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
@@ -27,22 +29,30 @@ export default function EditPasswordModal() {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
-	const backToEditInfo = () => {
+	const closeModals = () => {
+		dispatch(setAccountModalComponents({}));
+	};
+
+	const openEditEmailModal = () => {
 		dispatch(
 			setAccountModalComponents({
-				editInfoModal: <EditInfoModal />,
-				editEmailModal: null,
-				editPasswordModal: null,
+				editEmailModal: <EditEmailModal />,
 			})
 		);
 	};
 
-	const closeModals = () => {
+	const openEditPasswordModal = () => {
 		dispatch(
 			setAccountModalComponents({
-				editInfoModal: null,
-				editEmailModal: null,
-				editPasswordModal: null,
+				editPasswordModal: <EditPasswordModal />,
+			})
+		);
+	};
+
+	const openDeleteAccountModal = () => {
+		dispatch(
+			setAccountModalComponents({
+				deleteAccountModal: <DeleteAccountModal />,
 			})
 		);
 	};
@@ -51,7 +61,7 @@ export default function EditPasswordModal() {
 		e.preventDefault();
 		// clears any prior input errors
 		dispatch(clearInputErrors());
-		dispatch(updateAccountPassword(accountInfo));
+		dispatch(updateAccountInfo(accountInfo));
 		setShouldShowAnyErrors(true);
 	};
 
@@ -59,54 +69,38 @@ export default function EditPasswordModal() {
 		<div>
 			<div className="blurredBackgroundDiv" />
 			<div className="editAccountContainerDiv">
-				<button className="backButton" onClick={backToEditInfo}>
-					➔
-				</button>
 				<button className="exitButton" onClick={closeModals}>
 					X
 				</button>
 				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Edit Password</label>
+					<label className="titleLabel">Edit Personal Info</label>
 					<br />
 					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}
 					</span>
 					<input
-						type="password"
-						name="newPassword"
+						type="text"
+						name="firstName"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.newPassword}
-						placeholder="New Password"
-						id="newPasswordInput"
+						value={accountInfo.firstName}
+						placeholder="First name"
+						id="firstNameInput"
 						className="formInput"
 					/>
 					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword2 : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}
 					</span>
 					<input
-						type="password"
-						name="newPassword2"
+						type="text"
+						name="lastName"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.newPassword2}
-						placeholder="Confirm New Password"
-						id="newPassword2Input"
-						className="formInput"
-					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
-					</span>
-					<input
-						type="password"
-						name="currentPassword"
-						onChange={(e) => onChange(e)}
-						value={accountInfo.currentPassword}
-						placeholder="Current Password"
-						id="currentPasswordInput"
+						value={accountInfo.lastName}
+						placeholder="Last name"
+						id="lastNameInput"
 						className="formInput"
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
-						{shouldShowAnyErrors ? reduxState.inputErrors.authorization : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.account : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
@@ -115,8 +109,20 @@ export default function EditPasswordModal() {
 					</button>
 				</form>
 				<div className="openOtherModalsDiv">
-					<label className="openModalLabel" onClick={backToEditInfo}>
-						Back
+					<label className="openModalLabel" onClick={openEditEmailModal}>
+						Edit Email
+					</label>
+					<label className="orLabel">|</label>
+					<label className="openModalLabel" onClick={openEditPasswordModal}>
+						Edit Password
+					</label>
+					<label className="orLabel">|</label>
+					<label
+						className="openModalLabel"
+						id="deleteLabel"
+						onClick={openDeleteAccountModal}
+					>
+						Delete Account
 					</label>
 				</div>
 			</div>

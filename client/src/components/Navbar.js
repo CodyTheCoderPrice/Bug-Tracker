@@ -1,15 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Components
-import ContractedProjectsDropdown from "./projects/ContractedProjectsDropdown";
 import AccountDropdown from "./account/AccountDropdown";
 
-import { setNavbarDropdownComponents } from "../../actions";
+import { setNavbarDropdownComponents } from "../actions";
 
-import "../../SCSS/homeNavBar.scss";
+import "../SCSS/navbar.scss";
 import "font-awesome/css/font-awesome.min.css";
 
-export default function HomeNavBar() {
+export default function Navbar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -43,18 +42,6 @@ export default function HomeNavBar() {
 	const openProjectsDropdown = () => {
 		const elem = document.getElementById("projectsClickableDiv");
 		changeBackgroundColor(elem, reduxState.navbarDropsdowns.projectsDropdown);
-
-		dispatch(
-			setNavbarDropdownComponents({
-				accountDropdown: reduxState.navbarDropsdowns.accountDropdown,
-				projectsDropdown:
-					reduxState.navbarDropsdowns.projectsDropdown === null ? (
-						<ContractedProjectsDropdown />
-					) : null,
-				bugsDropdown: reduxState.navbarDropsdowns.bugsDropdown,
-				currentBug: reduxState.navbarDropsdowns.currentBug,
-			})
-		);
 	};
 
 	return (
@@ -72,7 +59,6 @@ export default function HomeNavBar() {
 						</div>
 					</div>
 					<div className="componentDiv">
-						{reduxState.navbarDropsdowns.projectsDropdown}
 					</div>
 				</div>
 				<div className="accountDropDownDiv">
@@ -91,10 +77,10 @@ export default function HomeNavBar() {
 					</div>
 				</div>
 			</div>
-			{reduxState.editAccountModals.editInfoModal}
-			{reduxState.editAccountModals.editEmailModal}
-			{reduxState.editAccountModals.editPasswordModal}
-			{reduxState.editAccountModals.deleteAccountModal}
+			{reduxState.accountModals.editInfoModal}
+			{reduxState.accountModals.editEmailModal}
+			{reduxState.accountModals.editPasswordModal}
+			{reduxState.accountModals.deleteAccountModal}
 		</div>
 	);
 }

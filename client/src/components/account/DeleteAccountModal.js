@@ -5,11 +5,11 @@ import {
 	deleteAccount,
 	setAccountModalComponents,
 	clearInputErrors,
-} from "../../../actions";
+} from "../../actions";
 
 import EditInfoModal from "./EditInfoModal";
 
-import "../../../SCSS/accountModals.scss";
+import "../../SCSS/accountModals.scss";
 
 export default function DeleteAccountModal() {
 	const reduxState = useSelector((state) => state);
@@ -30,20 +30,12 @@ export default function DeleteAccountModal() {
 		dispatch(
 			setAccountModalComponents({
 				editInfoModal: <EditInfoModal />,
-				editEmailModal: null,
-				editPasswordModal: null,
 			})
 		);
 	};
 
 	const closeModals = () => {
-		dispatch(
-			setAccountModalComponents({
-				editInfoModal: null,
-				editEmailModal: null,
-				editPasswordModal: null,
-			})
-		);
+		dispatch(setAccountModalComponents({}));
 	};
 
 	const handleSubmit = (e) => {

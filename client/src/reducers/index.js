@@ -15,6 +15,6 @@ export default combineReducers({
 	account: accountReducer,
 	projects: projectsReducer,
 	inputErrors: inputErrorReducer,
-	editAccountModals: accountModalsReducer,
+	accountModals: accountModalsReducer,
 	navbarDropsdowns: navbarDropdownsReducer,
 });

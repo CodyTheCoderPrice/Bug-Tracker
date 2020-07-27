@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { retrieveAccount, retrieveProjects } from "../actions";
 
-import Register from "./authentication/Register";
-import Login from "./authentication/Login";
-import HomeNavbar from "./home-page/HomeNavbar";
+import RegisterPage from "./authentication/RegisterPage";
+import LoginPage from "./authentication/LoginPage";
+import ProjectsPage from "./ProjectsPage";
 
 function App() {
 	const reduxState = useSelector((state) => state);
@@ -24,9 +24,9 @@ function App() {
 	
 	return (
 		<Router>
-			<Route path="/" exact component={HomeNavbar} />
-			<Route exact path="/register" component={Register} />
-			<Route exact path="/login" component={Login} />
+			<Route path="/" exact component={ProjectsPage} />
+			<Route exact path="/register" component={RegisterPage} />
+			<Route exact path="/login" component={LoginPage} />
 		</Router>
 	);
 }

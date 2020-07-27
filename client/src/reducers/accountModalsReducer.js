@@ -11,10 +11,10 @@ export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_ACCOUNT_MODAL_COMPONENTS:
 			return {
-				editInfoModal: action.components.editInfoModal,
-				editEmailModal: action.components.editEmailModal,
-				editPasswordModal: action.components.editPasswordModal,
-				deleteAccountModal: action.components.deleteAccountModal,
+				editInfoModal: (action.components.editInfoModal !== undefined) ? action.components.editInfoModal : null,
+				editEmailModal: (action.components.editEmailModal !== undefined) ? action.components.editEmailModal : null,
+				editPasswordModal: (action.components.editPasswordModal !== undefined) ? action.components.editPasswordModal : null,
+				deleteAccountModal: (action.components.deleteAccountModal !== undefined) ? action.components.deleteAccountModal : null,
 			};
 		default:
 			return state;
