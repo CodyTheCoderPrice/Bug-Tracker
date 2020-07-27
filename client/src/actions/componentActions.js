@@ -1,17 +1,17 @@
-import { SET_NAVBAR_DROPDOWN_COMPONENTS, SET_ACCOUNT_MODAL_COMPONENTS } from "./types";
+import { SET_WHICH_NAVBAR_COMPONENTS_DISPLAY, SET_WHICH_ACCOUNT_MODALS_DISPLAY } from "./types";
 
 // Navbar dropdowns
-export const setNavbarDropdownComponents = (components) => (dispatch) => {
+export const setWhichNavbarComponentsDisplay = (components) => (dispatch) => {
 	dispatch({
-		type: SET_NAVBAR_DROPDOWN_COMPONENTS,
+		type: SET_WHICH_NAVBAR_COMPONENTS_DISPLAY,
 		components: components,
 	});
 };
 
 // Edit account modals
-export const setAccountModalComponents = (components) => (dispatch) => {
+export const setWhichAccountModalsDisplay = (modals) => (dispatch) => {
 	dispatch({
-		type: SET_ACCOUNT_MODAL_COMPONENTS,
-		components: components,
+		type: SET_WHICH_ACCOUNT_MODALS_DISPLAY,
+		modals: modals,
 	});
 };

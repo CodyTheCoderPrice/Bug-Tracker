@@ -26,8 +26,8 @@ $darkBlueGray: #2a3745;
 }
 
 .clickableDiv {
-	position: absolute;
-	left: 0;
+	position: relative;
+	float:left;
 	height: $navBarHeight;
 	width: 200px;
 	text-align: center;
@@ -39,13 +39,14 @@ $darkBlueGray: #2a3745;
 		left: 52%;
 		transform: translate(-50%);
 		color: white;
-		font-family: Consolas, monaco, monospace;
+		font-family: Verdana;
 		font-size: 160%;
 	}
 }
 
 .accountDropDownDiv {
-	position: absolute;
+	position: relative;
+	float: right;
 	right: 0;
 	width: 200px;
 	height: 300px;
@@ -54,7 +55,6 @@ $darkBlueGray: #2a3745;
 	padding: 0;
 
 	.clickableDiv {
-		position: relative;
 		height: $navBarHeight;
 		width: 200px;
 		text-align: center;
@@ -66,7 +66,7 @@ $darkBlueGray: #2a3745;
 			left: 52%;
 			transform: translate(-50%);
 			color: white;
-			font-family: Consolas, monaco, monospace;
+			font-family: Verdana;
 			font-size: 160%;
 		}
 	}

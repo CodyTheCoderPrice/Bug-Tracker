@@ -2,22 +2,19 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-	updateAccountPassword,
-	setAccountModalComponents,
+	updateAccountEmail,
+	setWhichAccountModalsDisplay,
 	clearInputErrors,
-} from "../../actions";
+} from "../../../actions";
 
-import EditInfoModal from "./EditInfoModal";
+import "../../../SCSS/accountModals.scss";
 
-import "../../SCSS/accountModals.scss";
-
-export default function EditPasswordModal() {
+export default function EditEmailModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		newPassword: "",
-		newPassword2: "",
+		email: reduxState.account.email,
 		currentPassword: "",
 	});
 
@@ -29,21 +26,21 @@ export default function EditPasswordModal() {
 
 	const backToEditInfo = () => {
 		dispatch(
-			setAccountModalComponents({
-				editInfoModal: <EditInfoModal />,
+			setWhichAccountModalsDisplay({
+				editInfoModal: true,
 			})
 		);
 	};
 
 	const closeModals = () => {
-		dispatch(setAccountModalComponents({}));
+		dispatch(setWhichAccountModalsDisplay({}));
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// clears any prior input errors
 		dispatch(clearInputErrors());
-		dispatch(updateAccountPassword(accountInfo));
+		dispatch(updateAccountEmail(accountInfo));
 		setShouldShowAnyErrors(true);
 	};
 
@@ -58,30 +55,18 @@ export default function EditPasswordModal() {
 					X
 				</button>
 				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Edit Password</label>
+					<label className="titleLabel">Edit Email</label>
 					<br />
 					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
 					</span>
 					<input
-						type="password"
-						name="newPassword"
+						type="email"
+						name="email"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.newPassword}
-						placeholder="New Password"
-						id="newPasswordInput"
-						className="formInput"
-					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword2 : ""}
-					</span>
-					<input
-						type="password"
-						name="newPassword2"
-						onChange={(e) => onChange(e)}
-						value={accountInfo.newPassword2}
-						placeholder="Confirm New Password"
-						id="newPassword2Input"
+						value={accountInfo.email}
+						placeholder="Email"
+						id="emailInput"
 						className="formInput"
 					/>
 					<span className="redErrorText">

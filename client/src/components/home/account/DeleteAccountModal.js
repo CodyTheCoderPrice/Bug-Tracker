@@ -3,13 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	deleteAccount,
-	setAccountModalComponents,
+	setWhichAccountModalsDisplay,
 	clearInputErrors,
-} from "../../actions";
+} from "../../../actions";
 
-import EditInfoModal from "./EditInfoModal";
-
-import "../../SCSS/accountModals.scss";
+import "../../../SCSS/accountModals.scss";
 
 export default function DeleteAccountModal() {
 	const reduxState = useSelector((state) => state);
@@ -28,14 +26,14 @@ export default function DeleteAccountModal() {
 
 	const backToEditInfo = () => {
 		dispatch(
-			setAccountModalComponents({
-				editInfoModal: <EditInfoModal />,
+			setWhichAccountModalsDisplay({
+				editInfoModal: true,
 			})
 		);
 	};
 
 	const closeModals = () => {
-		dispatch(setAccountModalComponents({}));
+		dispatch(setWhichAccountModalsDisplay({}));
 	};
 
 	const handleSubmit = (e) => {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { loginThenRetrieveAccount, clearInputErrors } from "../../actions";
+import { loginAccount, clearInputErrors } from "../../actions";
 
 import "../../SCSS/registerLoginPages.scss";
 
@@ -25,7 +25,7 @@ export default function LoginPage() {
 		e.preventDefault();
 		// clears any prior input errors
 		dispatch(clearInputErrors());
-		dispatch(loginThenRetrieveAccount(accountInfo));
+		dispatch(loginAccount(accountInfo));
 		setShouldShowAnyErrors(true);
 	};
 

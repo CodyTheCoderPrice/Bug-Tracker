@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 
 import { SET_AUTHENTICATION, SET_ACCOUNT } from "./types";
 import { setInputErrors } from "./index";
+import { retrieveProjects } from "./projectActions";
 
 // Set authentication
 export const setAuthentication = (decodedToken) => (dispatch) => {
@@ -31,7 +32,7 @@ export const registerAccount = (accountData, history) => (dispatch) => {
 };
 
 // Login and then retrieve account
-export const loginThenRetrieveAccount = (accountData) => (dispatch) => {
+export const loginAccount = (accountData) => (dispatch) => {
 	axios
 		.post("/api/account/login", accountData)
 		.then((res) => {
@@ -43,6 +44,7 @@ export const loginThenRetrieveAccount = (accountData) => (dispatch) => {
 			dispatch(setAuthentication(decodedToken));
 
 			dispatch(setAccount(account));
+			dispatch(retrieveProjects());
 		})
 		.catch((err) => {
 			if (err.response !== undefined) {

@@ -3,16 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	updateAccountInfo,
-	setAccountModalComponents,
+	setWhichAccountModalsDisplay,
 	clearInputErrors,
-} from "../../actions";
+} from "../../../actions";
 
-// Modals components for editing account
-import EditEmailModal from "./EditEmailModal";
-import EditPasswordModal from "./EditPasswordModal";
-import DeleteAccountModal from "./DeleteAccountModal";
-
-import "../../SCSS/accountModals.scss";
+import "../../../SCSS/accountModals.scss";
 
 export default function EditInfoModal() {
 	const reduxState = useSelector((state) => state);
@@ -30,29 +25,29 @@ export default function EditInfoModal() {
 	};
 
 	const closeModals = () => {
-		dispatch(setAccountModalComponents({}));
+		dispatch(setWhichAccountModalsDisplay({}));
 	};
 
 	const openEditEmailModal = () => {
 		dispatch(
-			setAccountModalComponents({
-				editEmailModal: <EditEmailModal />,
+			setWhichAccountModalsDisplay({
+				editEmailModal: true,
 			})
 		);
 	};
 
 	const openEditPasswordModal = () => {
 		dispatch(
-			setAccountModalComponents({
-				editPasswordModal: <EditPasswordModal />,
+			setWhichAccountModalsDisplay({
+				editPasswordModal: true,
 			})
 		);
 	};
 
 	const openDeleteAccountModal = () => {
 		dispatch(
-			setAccountModalComponents({
-				deleteAccountModal: <DeleteAccountModal />,
+			setWhichAccountModalsDisplay({
+				deleteAccountModal: true,
 			})
 		);
 	};

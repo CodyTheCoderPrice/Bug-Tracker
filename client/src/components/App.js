@@ -6,7 +6,7 @@ import { retrieveAccount, retrieveProjects } from "../actions";
 
 import RegisterPage from "./authentication/RegisterPage";
 import LoginPage from "./authentication/LoginPage";
-import ProjectsPage from "./ProjectsPage";
+import HomePage from "./home/HomePage";
 
 function App() {
 	const reduxState = useSelector((state) => state);
@@ -24,7 +24,7 @@ function App() {
 	
 	return (
 		<Router>
-			<Route path="/" exact component={ProjectsPage} />
+			<Route path="/" exact component={HomePage} />
 			<Route exact path="/register" component={RegisterPage} />
 			<Route exact path="/login" component={LoginPage} />
 		</Router>
