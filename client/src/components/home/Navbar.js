@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Components
+import CreateProjectSidebar from "./projects/CreateProjectSidebar";
 import AccountDropdown from "./account/AccountDropdown";
 
-import { setWhichNavbarComponentsDisplay } from "../../actions";
+import { setWhichNavbarComponentsDisplay, setWhichProjectModalsDisplay } from "../../actions";
 
 import "../../SCSS/navbar.scss";
 import "font-awesome/css/font-awesome.min.css";
@@ -52,13 +53,10 @@ export default function Navbar() {
 		);
 	}, [reduxState.navbarComponentsDisplay]);
 
-	const handleProjectsList = () => {
+	const openProjectsList = () => {
 		dispatch(
 			setWhichNavbarComponentsDisplay({
-				projectsList:
-					reduxState.navbarComponentsDisplay.projectsList === false
-						? true
-						: false,
+				projectsList: true,
 				accountDropdown: reduxState.navbarComponentsDisplay.accountDropdown,
 			})
 		);
@@ -76,13 +74,17 @@ export default function Navbar() {
 		);
 	};
 
+	const closeCreateProjectSidebar = () => {
+		dispatch(setWhichProjectModalsDisplay({}));
+	};
+
 	return (
 		<div>
-			<div className="navBarDiv">
+			<div className="navBarDiv" onClick={closeCreateProjectSidebar}>
 				<div
 					className="clickableDiv"
 					id="projectsClickableDiv"
-					onClick={handleProjectsList}
+					onClick={openProjectsList}
 				>
 					<div className="textDiv">
 						<i id="projectsIcon" aria-hidden="true"></i>
@@ -117,6 +119,9 @@ export default function Navbar() {
 					</div>
 				</div>
 			</div>
+			{reduxState.projectComponentsDisplay.createProjectSidbar ? (
+				<CreateProjectSidebar />
+			) : null}
 		</div>
 	);
 }

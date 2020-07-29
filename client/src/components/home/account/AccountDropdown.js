@@ -28,21 +28,19 @@ export default function AccountDropdown() {
 	};
 
 	return (
-		<div>
-			<div className="accountConstainerDiv">
-				<label className="nameLabel">
-					{reduxState.account.firstName} {reduxState.account.lastName}
-				</label>
-				<br />
-				<label className="emailLabel">{reduxState.account.email}</label> <br />
-				<label className="joinDateLabel">
-					Joined: {moment(reduxState.account.joinDate).format("MM-DD-YYYY")}
-				</label>
-				<br />
-				<button onClick={openEditInfoModals}>Edit Info</button> <br />
-				<button onClick={handleLogoutAccount}>Logout</button> <br />
-				<button onClick={logReduxState}>Log Redux State</button>
-			</div>
+		<div className="accountConstainerDiv">
+			<label className="nameLabel">
+				{reduxState.account.firstName} {reduxState.account.lastName}
+			</label>
+			<br />
+			<label className="emailLabel">{reduxState.account.email}</label> <br />
+			<label className="joinDateLabel">
+				Joined: {moment(reduxState.account.joinDate).format("MM-DD-YYYY")}
+			</label>
+			<br />
+			<button onClick={openEditInfoModals}>Edit Info</button> <br />
+			<button onClick={handleLogoutAccount}>Logout</button> <br />
+			<button onClick={logReduxState}>Log Redux State</button>
 		</div>
 	);
 }

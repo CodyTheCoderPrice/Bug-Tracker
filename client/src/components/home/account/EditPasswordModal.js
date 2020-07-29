@@ -47,7 +47,7 @@ export default function EditPasswordModal() {
 
 	return (
 		<div>
-			<div className="blurredBackgroundDiv" />
+			<div className="accountModalsBlurredBackgroundDiv" />
 			<div className="editAccountContainerDiv">
 				<button className="backButton" onClick={backToEditInfo}>
 					➔

@@ -39,7 +39,7 @@ var httpsServer = https.createServer(credentials, app);
 httpServer.listen(httpPort);
 httpsServer.listen(httpsPort);
 
-// Maybe delete
+// Maybe delete if un-needed
 /* app.listen(5000, () => {
 	console.log("Server has started on port 5000");
 }); */

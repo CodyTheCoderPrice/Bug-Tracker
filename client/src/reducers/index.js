@@ -7,14 +7,16 @@ import projectsReducer from "./projectsReducer";
 // Errors
 import inputErrorReducer from "./inputErrorReducer";
 // Components
-import accountModalDisplayReducer from "./accountModalDisplayReducer";
-import navbarComponentDisplayReducer from "./navbarComponentDisplayReducer";
+import accountModalsDisplayReducer from "./accountModalsDisplayReducer";
+import projectComponentsDisplayReducer from "./projectComponentsDisplayReducer";
+import navbarComponentsDisplayReducer from "./navbarComponentsDisplayReducer";
 
 export default combineReducers({
 	auth: authReducer,
 	account: accountReducer,
 	projects: projectsReducer,
 	inputErrors: inputErrorReducer,
-	accountModalsDisplay: accountModalDisplayReducer,
-	navbarComponentsDisplay: navbarComponentDisplayReducer,
+	navbarComponentsDisplay: navbarComponentsDisplayReducer,
+	projectComponentsDisplay: projectComponentsDisplayReducer,
+	accountModalsDisplay: accountModalsDisplayReducer,
 });

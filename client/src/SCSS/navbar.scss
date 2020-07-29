@@ -27,7 +27,7 @@ $darkBlueGray: #2a3745;
 
 .clickableDiv {
 	position: relative;
-	float:left;
+	float: left;
 	height: $navBarHeight;
 	width: 200px;
 	text-align: center;
@@ -39,13 +39,13 @@ $darkBlueGray: #2a3745;
 		left: 52%;
 		transform: translate(-50%);
 		color: white;
-		font-family: Verdana;
+		font-family: Verdana, Geneva, sans-serif;
 		font-size: 160%;
 	}
 }
 
 .accountDropDownDiv {
-	position: relative;
+	position: absolute;
 	float: right;
 	right: 0;
 	width: 200px;
@@ -66,7 +66,7 @@ $darkBlueGray: #2a3745;
 			left: 52%;
 			transform: translate(-50%);
 			color: white;
-			font-family: Verdana;
+			font-family: Verdana, Geneva, sans-serif;
 			font-size: 160%;
 		}
 	}

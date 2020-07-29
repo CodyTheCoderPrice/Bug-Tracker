@@ -19,18 +19,18 @@ module.exports = (req, res, next) => {
 		}
 
 		// Description checks
-		if (!Validator.isLength(description, { max: 2000 })) {
-			inputErrors.description = "Description can't be longer than 2000 characters";
+		if (!Validator.isLength(description, { max: 500 })) {
+			inputErrors.description = "Description can't be longer than 500 characters";
 		}
 
 		if (!isEmpty(inputErrors)) {
-			return res.status(400).json({ success: true, inputErrors });
+			return res.status(400).json({ success: false, inputErrors });
 		}
 
 		next();
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.validation = "Validation Error";
-		return res.status(403).json({ success: true, inputErrors });
+		return res.status(403).json({ success: false, inputErrors });
 	}
 };

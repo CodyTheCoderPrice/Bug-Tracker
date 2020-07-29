@@ -62,7 +62,7 @@ export default function EditInfoModal() {
 
 	return (
 		<div>
-			<div className="blurredBackgroundDiv" />
+			<div className="accountModalsBlurredBackgroundDiv" />
 			<div className="editAccountContainerDiv">
 				<button className="exitButton" onClick={closeModals}>
 					X

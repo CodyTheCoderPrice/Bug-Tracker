@@ -46,7 +46,7 @@ export default function DeleteAccountModal() {
 
 	return (
 		<div>
-			<div className="blurredBackgroundDiv" />
+			<div className="accountModalsBlurredBackgroundDiv" />
 			<div className="editAccountContainerDiv">
 				<button className="backButton" onClick={backToEditInfo}>
 					➔

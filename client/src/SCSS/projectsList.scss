@@ -1,5 +1,24 @@
-$blueGray: #50677f;
-$lightBlueGray: #596f87;
+
+
+.projectFilterBarDiv {
+	height: 60px;
+	width: 100vw;
+	background-color: #f2f2f2;
+	margin: 0;
+	padding: 0;
+
+	.newProjectClickableDiv {
+		float: left;
+		width: 90px;
+		padding: 5px;
+		margin-top: 12px;
+		margin-left: 10px;
+		border: 1px solid black;
+		background-color: white;
+		text-align: center;
+		cursor: pointer;
+	}
+}
 
 /* .projectsConstainerDiv {
 

@@ -53,13 +53,13 @@ module.exports = (req, res, next) => {
 		}
 
 		if (!isEmpty(inputErrors)) {
-			return res.status(400).json({ success: true, inputErrors });
+			return res.status(400).json({ success: false, inputErrors });
 		}
 
 		next();
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.validation = "Validation Error";
-		return res.status(403).json({ success: true, inputErrors });
+		return res.status(403).json({ success: false, inputErrors });
 	}
 };
