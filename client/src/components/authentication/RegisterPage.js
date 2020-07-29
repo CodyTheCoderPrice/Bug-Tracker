@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { registerAccount, clearInputErrors } from "../../actions";
 
-import "../../SCSS/registerLoginPages.scss";
+import "../../SCSS/authentication/registerLoginPages.scss";
 
 export default function RegisterPage() {
 	const reduxState = useSelector((state) => state);
@@ -100,7 +100,6 @@ export default function RegisterPage() {
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
-						{shouldShowAnyErrors ? reduxState.inputErrors.account : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
 					<button type="submit" className="submitButton">

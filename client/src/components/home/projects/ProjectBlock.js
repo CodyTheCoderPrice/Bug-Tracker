@@ -10,7 +10,7 @@ import Navbar from "../Navbar";
 
 import { shortenProjectDescription, getProjectStatusName, getProjectPriorityName } from "../../../utils/projectsUtils";
 
-import "../../../SCSS/projectBlocks.scss";
+import "../../../SCSS/projects/projectBlocks.scss";
 
 export default function ProjectsBlock(props) {
 	/* 	const reduxState = useSelector((state) => state);

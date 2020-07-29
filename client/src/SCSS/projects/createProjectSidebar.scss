@@ -1,0 +1,63 @@
+@import '../utils/variables';
+
+.createProjectBlurredBackgroundClickableDiv {
+	z-index: 1;
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	background-color: black;
+	opacity: 0.5;
+}
+
+.createProjectSidebarContainerDiv {
+	z-index: 2;
+	position: absolute;
+	border: 5px solid black;
+	border-top: none;
+	border-left: none;
+	background: white;
+	width: 500px;
+	height: 700px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.topDiv {
+	float: left;
+	height: 60px;
+	width: 100%;
+	border: 1px solid black;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	background-color: $lightGray;
+
+	.titleLabel {
+		float: left;
+		margin-top: 17px;
+		margin-left: 175px;
+		font-size: 150%;
+	}
+
+	.closeCreateProjectClickableDiv {
+		float: right;
+		margin-top: 5px;
+		margin-right: 10px;
+		font-size: 20px;
+		color: $mediumGray;
+		border: none;
+		background: none;
+		cursor: pointer;
+	}
+	.closeCreateProjectClickableDiv:hover {
+		color: black;
+	}
+}
+
+.createProjectForm {
+	.createProjectInputDiv{
+		.nameInput{
+			display: block;
+			width: 80%;
+		}
+	}
+}

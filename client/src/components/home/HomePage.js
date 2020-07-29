@@ -8,7 +8,7 @@ import EditEmailModal from "./account/EditEmailModal";
 import EditPasswordModal from "./account/EditPasswordModal";
 import DeleteAccountModal from "./account/DeleteAccountModal";
 
-import "../../SCSS/homePage.scss";
+import "../../SCSS/home/homePage.scss";
 /* import "font-awesome/css/font-awesome.min.css"; */
 
 export default function HomePage() {
@@ -17,11 +17,11 @@ export default function HomePage() {
 	return (
 		<div className="homePageBackgroundDiv">
 			<Navbar />
-			{(reduxState.navbarComponentsDisplay.projectsList) ? <ProjectsList /> : null}
-			{(reduxState.accountModalsDisplay.editInfoModal) ? <EditInfoModal /> : null}
-			{(reduxState.accountModalsDisplay.editEmailModal) ? <EditEmailModal /> : null}
-			{(reduxState.accountModalsDisplay.editPasswordModal) ? <EditPasswordModal />: null}
-			{(reduxState.accountModalsDisplay.deleteAccountModal) ? <DeleteAccountModal />: null}
+			{(reduxState.projectComponentsDisplay.projectsList) ? <ProjectsList /> : null}
+			{(reduxState.accountComponentsDisplay.editInfoModal) ? <EditInfoModal /> : null}
+			{(reduxState.accountComponentsDisplay.editEmailModal) ? <EditEmailModal /> : null}
+			{(reduxState.accountComponentsDisplay.editPasswordModal) ? <EditPasswordModal />: null}
+			{(reduxState.accountComponentsDisplay.deleteAccountModal) ? <DeleteAccountModal />: null}
 		</div>
 	);
 }

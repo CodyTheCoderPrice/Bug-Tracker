@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	updateAccountPassword,
-	setWhichAccountModalsDisplay,
+	setWhichAccountComponentsDisplay,
 	clearInputErrors,
 } from "../../../actions";
 
-import "../../../SCSS/accountModals.scss";
+import "../../../SCSS/account/accountModals.scss";
 
 export default function EditPasswordModal() {
 	const reduxState = useSelector((state) => state);
@@ -27,14 +27,17 @@ export default function EditPasswordModal() {
 
 	const backToEditInfo = () => {
 		dispatch(
-			setWhichAccountModalsDisplay({
+			setWhichAccountComponentsDisplay({
+				accountSidebar: true,
 				editInfoModal: true,
 			})
 		);
 	};
 
 	const closeModals = () => {
-		dispatch(setWhichAccountModalsDisplay({}));
+		dispatch(setWhichAccountComponentsDisplay({
+			accountSidebar: true,
+		}));
 	};
 
 	const handleSubmit = (e) => {
@@ -97,7 +100,6 @@ export default function EditPasswordModal() {
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.authorization : ""}
-						{shouldShowAnyErrors ? reduxState.inputErrors.account : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
 					<button type="submit" className="submitButton">

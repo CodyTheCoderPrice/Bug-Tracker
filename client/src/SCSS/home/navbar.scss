@@ -8,17 +8,16 @@
 							supported by Chrome, Edge, Opera and Firefox */
 }
 
-$navBarHeight: 60px;
-$lightBlueGray: #596f87;
-$blueGray: #50677f;
-$darkBlueGray: #2a3745;
+@import '../utils/variables';
 
 .navBarDiv {
 	height: $navBarHeight;
 	width: 100vw;
 	background-color: $blueGray;
-	margin: 0;
-	padding: 0;
+	border: 1px solid black;
+	border-top: none;
+	border-left: none;
+	border-right: none;
 }
 
 .textDiv {

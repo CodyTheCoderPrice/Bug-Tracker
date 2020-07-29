@@ -2,18 +2,21 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Components
 import CreateProjectSidebar from "./projects/CreateProjectSidebar";
-import AccountDropdown from "./account/AccountDropdown";
+import AccountSidebar from "./account/AccountSidebar";
 
-import { setWhichNavbarComponentsDisplay, setWhichProjectModalsDisplay } from "../../actions";
+import {
+	setWhichAccountComponentsDisplay,
+	setWhichProjectComponentsDisplay,
+} from "../../actions";
 
-import "../../SCSS/navbar.scss";
+import "../../SCSS/home/navbar.scss";
 import "font-awesome/css/font-awesome.min.css";
 
 export default function Navbar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const setNavbarButtonColor = (elem, component) => {
+	const setNavbarClickableDivColor = (elem, component) => {
 		if (!component) {
 			// When inactive
 			elem.style.backgroundColor = "#50677f";
@@ -23,7 +26,7 @@ export default function Navbar() {
 		}
 	};
 
-	const setProjectsNavbarButtonIcon = (component) => {
+	const setProjectsClickableDivColor = (component) => {
 		if (!component) {
 			// When inactive
 			document.getElementById("projectsIcon").className = "fa fa-folder";
@@ -34,53 +37,55 @@ export default function Navbar() {
 	};
 
 	useEffect(() => {
-		const projectsNavbarElem = document.getElementById("projectsClickableDiv");
 		const accountNavbarElem = document.getElementById("accountClickableDiv");
-
-		// Projects
-		setNavbarButtonColor(
-			projectsNavbarElem,
-			reduxState.navbarComponentsDisplay.projectsList
-		);
-		setProjectsNavbarButtonIcon(
-			reduxState.navbarComponentsDisplay.projectsList
-		);
+		const projectsNavbarElem = document.getElementById("projectsClickableDiv");
 
 		// Account
-		setNavbarButtonColor(
+		setNavbarClickableDivColor(
 			accountNavbarElem,
-			reduxState.navbarComponentsDisplay.accountDropdown
+			reduxState.accountComponentsDisplay.accountSidebar
 		);
-	}, [reduxState.navbarComponentsDisplay]);
+
+		// Projects
+		setNavbarClickableDivColor(
+			projectsNavbarElem,
+			reduxState.projectComponentsDisplay.projectsList
+		);
+		setProjectsClickableDivColor(
+			reduxState.projectComponentsDisplay.projectsList
+		);
+	}, [
+		reduxState.accountComponentsDisplay.accountSidebar,
+		reduxState.projectComponentsDisplay.projectsList,
+	]);
+
+	const openAccountSidebar = () => {
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountSidebar: !reduxState.accountComponentsDisplay.accountSidebar,
+			})
+		);
+	};
 
 	const openProjectsList = () => {
 		dispatch(
-			setWhichNavbarComponentsDisplay({
+			setWhichProjectComponentsDisplay({
 				projectsList: true,
-				accountDropdown: reduxState.navbarComponentsDisplay.accountDropdown,
+				createProjectSidbar: reduxState.projectComponentsDisplay.createProjectSidbar,
+				viewProjectModal: reduxState.projectComponentsDisplay.viewProjectModal,
+				editProjectModal: reduxState.projectComponentsDisplay.editProjectModal,
+				targetProject: reduxState.projectComponentsDisplay.targetProject,
 			})
 		);
 	};
 
-	const handleAccountDropdown = () => {
-		dispatch(
-			setWhichNavbarComponentsDisplay({
-				projectsList: reduxState.navbarComponentsDisplay.projectsList,
-				accountDropdown:
-					reduxState.navbarComponentsDisplay.accountDropdown === false
-						? true
-						: false,
-			})
-		);
-	};
-
-	const closeCreateProjectSidebar = () => {
-		dispatch(setWhichProjectModalsDisplay({}));
-	};
+/* 	const closeCreateProjectSidebar = () => {
+		dispatch(setWhichProjectComponentsDisplay({}));
+	}; */
 
 	return (
 		<div>
-			<div className="navBarDiv" onClick={closeCreateProjectSidebar}>
+			<div className="navBarDiv" /* onClick={closeCreateProjectSidebar} */>
 				<div
 					className="clickableDiv"
 					id="projectsClickableDiv"
@@ -105,7 +110,7 @@ export default function Navbar() {
 					<div
 						className="clickableDiv"
 						id="accountClickableDiv"
-						onClick={handleAccountDropdown}
+						onClick={openAccountSidebar}
 					>
 						<div className="textDiv">
 							<i className="fa fa-fw fa-user"></i>
@@ -113,8 +118,8 @@ export default function Navbar() {
 						</div>
 					</div>
 					<div className="componentDiv">
-						{reduxState.navbarComponentsDisplay.accountDropdown ? (
-							<AccountDropdown />
+						{reduxState.accountComponentsDisplay.accountSidebar ? (
+							<AccountSidebar />
 						) : null}
 					</div>
 				</div>

@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	updateAccountInfo,
-	setWhichAccountModalsDisplay,
+	setWhichAccountComponentsDisplay,
 	clearInputErrors,
 } from "../../../actions";
 
-import "../../../SCSS/accountModals.scss";
+import "../../../SCSS/account/accountModals.scss";
 
 export default function EditInfoModal() {
 	const reduxState = useSelector((state) => state);
@@ -25,12 +25,15 @@ export default function EditInfoModal() {
 	};
 
 	const closeModals = () => {
-		dispatch(setWhichAccountModalsDisplay({}));
+		dispatch(setWhichAccountComponentsDisplay({
+			accountSidebar: true,
+		}));
 	};
 
 	const openEditEmailModal = () => {
 		dispatch(
-			setWhichAccountModalsDisplay({
+			setWhichAccountComponentsDisplay({
+				accountSidebar: true,
 				editEmailModal: true,
 			})
 		);
@@ -38,7 +41,8 @@ export default function EditInfoModal() {
 
 	const openEditPasswordModal = () => {
 		dispatch(
-			setWhichAccountModalsDisplay({
+			setWhichAccountComponentsDisplay({
+				accountSidebar: true,
 				editPasswordModal: true,
 			})
 		);
@@ -46,7 +50,8 @@ export default function EditInfoModal() {
 
 	const openDeleteAccountModal = () => {
 		dispatch(
-			setWhichAccountModalsDisplay({
+			setWhichAccountComponentsDisplay({
+				accountSidebar: true,
 				deleteAccountModal: true,
 			})
 		);
@@ -96,7 +101,6 @@ export default function EditInfoModal() {
 					/>
 					<span className="redErrorText">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
-						{shouldShowAnyErrors ? reduxState.inputErrors.account : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
 					<button type="submit" className="submitButton">

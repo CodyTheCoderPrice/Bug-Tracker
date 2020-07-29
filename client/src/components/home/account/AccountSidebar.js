@@ -3,17 +3,18 @@ import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
 
-import { logoutAccount, setWhichAccountModalsDisplay } from "../../../actions";
+import { logoutAccount, setWhichAccountComponentsDisplay } from "../../../actions";
 
-import "../../../SCSS/accountDropdown.scss";
+import "../../../SCSS/account/accountSidebar.scss";
 
-export default function AccountDropdown() {
+export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const openEditInfoModals = () => {
 		dispatch(
-			setWhichAccountModalsDisplay({
+			setWhichAccountComponentsDisplay({
+				accountSidebar: true,
 				editInfoModal: true,
 			})
 		);

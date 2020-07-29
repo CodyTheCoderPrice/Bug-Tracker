@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
 
-import { setWhichProjectModalsDisplay } from "../../../actions";
+import { setWhichProjectComponentsDisplay } from "../../../actions";
 
 // Components
 import ProjectBlock from "./ProjectBlock";
 
-import "../../../SCSS/projectsList.scss";
+import "../../../SCSS/projects/projectsList.scss";
 
 export default function ProjectsList() {
 	const reduxState = useSelector((state) => state);
@@ -16,7 +16,8 @@ export default function ProjectsList() {
 
 	const openCreateProjectSidebar = () => {
 		dispatch(
-			setWhichProjectModalsDisplay({
+			setWhichProjectComponentsDisplay({
+				projectsList: true,
 				createProjectSidbar: true,
 			})
 		);

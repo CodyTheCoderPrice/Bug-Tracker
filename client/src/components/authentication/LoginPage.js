@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { loginAccount, clearInputErrors } from "../../actions";
 
-import "../../SCSS/registerLoginPages.scss";
+import "../../SCSS/authentication/registerLoginPages.scss";
 
 export default function LoginPage() {
 	const reduxState = useSelector((state) => state);

@@ -1,25 +1,17 @@
-import { SET_WHICH_NAVBAR_COMPONENTS_DISPLAY, SET_WHICH_PROJECT_COMPONENTS_DISPLAY, SET_WHICH_ACCOUNT_MODALS_DISPLAY } from "./types";
+import { SET_WHICH_PROJECT_COMPONENTS_DISPLAY, SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "./types";
 
-// Navbar component displays
-export const setWhichNavbarComponentsDisplay = (displays) => (dispatch) => {
+// Edit component displays
+export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
-		type: SET_WHICH_NAVBAR_COMPONENTS_DISPLAY,
+		type: SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY,
 		displays: displays,
 	});
 };
 
-// Project modal displays
-export const setWhichProjectModalsDisplay = (displays) => (dispatch) => {
+// Project component displays
+export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
 		type: SET_WHICH_PROJECT_COMPONENTS_DISPLAY,
-		displays: displays,
-	});
-};
-
-// Edit account modal displays
-export const setWhichAccountModalsDisplay = (displays) => (dispatch) => {
-	dispatch({
-		type: SET_WHICH_ACCOUNT_MODALS_DISPLAY,
 		displays: displays,
 	});
 };
