@@ -30,48 +30,51 @@ export default function LoginPage() {
 	};
 
 	return (
-		<div className="registerLoginBackgroundDiv">
-			<div className="registerLoginContainerDiv">
-				<form className="registerLoginForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Login</label>
-					<br />
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
-					</span>
+		<div className="register-login-background">
+			<div className="register-login-container">
+				<label className="title">Login</label>
+				<form className="form" noValidate onSubmit={handleSubmit}>
+					<label className="form__input-label">Email</label>
 					<input
+						className="form__input"
 						type="email"
 						name="email"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
-						placeholder="Email"
 						id="emailInput"
-						className="formInput"
 					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
 					</span>
+					<label className="form__input-label">Password</label>
 					<input
+						className="form__input"
 						type="password"
 						name="password"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
-						placeholder="Password"
 						id="passwordInput"
-						className="formInput"
 					/>
-					<span className="redErrorText">
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}
+					</span>
+					<button className="form__submit" type="submit">
+						LOGIN
+					</button>
+					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
-					<button type="submit" className="submitButton">
-						Login
-					</button>
-					<div className="linksDiv">
-						<strong>Not a Member </strong>
-						<Link to="/register">Register</Link>
-						<Link to="/">Home</Link>
-					</div>
 				</form>
+				<div className="footer">
+					<label>Not a Member? </label>
+					<Link className="footer__link" to="/register">
+						Register
+					</Link>
+					<Link className="footer__link" to="/">
+						Home
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

@@ -33,83 +33,77 @@ export default function RegisterPage() {
 	};
 
 	return (
-		<div className="registerLoginBackgroundDiv">
-			<div className="registerLoginContainerDiv">
-				<form className="registerLoginForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Register</label>
-					<br />
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}
-					</span>
+		<div className="register-login-background">
+			<div className="register-login-container">
+				<label className="title">Register</label>
+				<form className="form" noValidate onSubmit={handleSubmit}>
+					<label className="form__input-label">First Name</label>
 					<input
+						className="form__input"
 						type="text"
 						name="firstName"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.firstName}
-						placeholder="First name"
-						id="firstNameInput"
-						className="formInput"
 					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}
 					</span>
+					<label className="form__input-label">Last Name</label>
 					<input
+						className="form__input"
 						type="text"
 						name="lastName"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.lastName}
-						placeholder="Last name"
-						id="lastNameInput"
-						className="formInput"
 					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}
 					</span>
+					<label className="form__input-label">Email</label>
 					<input
+						className="form__input"
 						type="email"
 						name="email"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
-						placeholder="Email"
-						id="emailInput"
-						className="formInput"
 					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
 					</span>
+					<label className="form__input-label">Password</label>
 					<input
+						className="form__input"
 						type="password"
 						name="password"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
-						placeholder="Password"
-						id="passwordInput"
-						className="formInput"
 					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.password2 : ""}
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}
 					</span>
+					<label className="form__input-label">Confirm Password</label>
 					<input
+						className="form__input"
 						type="password"
 						name="password2"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password2}
-						placeholder="Confirm password"
-						id="password2Input"
-						className="formInput"
 					/>
-					<span className="redErrorText">
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.password2 : ""}
+					</span>
+					<button className="form__submit" type="submit">
+						REGISTER ACCOUNT
+					</button>
+					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
-					<button type="submit" className="submitButton">
-						Register Account
-					</button>
-					<div className="linksDiv">
-						<strong>Already a Member?</strong>
-						<Link to="/login">Login</Link>
-					</div>
 				</form>
+				<div className="footer">
+					<label>Already a Member?</label>
+					<Link className="footer__link" to="/login">Login</Link>
+				</div>
 			</div>
 		</div>
 	);
