@@ -30,35 +30,36 @@ export default function LoginPage() {
 	};
 
 	return (
-		<div className="register-login-background">
-			<div className="register-login-container">
-				<label className="title">Login</label>
+		<div className="register-login-components">
+			<div className="background" />
+			<div className="border-container">
+				<h1 className="title">Login</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
-					<label className="form__input-label">Email</label>
+					<label className="form__label">Email</label>
 					<input
-						className="form__input"
 						type="email"
 						name="email"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
 						id="emailInput"
+						className="form_text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
 					</span>
-					<label className="form__input-label">Password</label>
+					<label className="form__label">Password</label>
 					<input
-						className="form__input"
 						type="password"
 						name="password"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
 						id="passwordInput"
+						className="form_text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}
 					</span>
-					<button className="form__submit" type="submit">
+					<button type="submit" className="form__submit">
 						LOGIN
 					</button>
 					<span className="form__errors">
@@ -68,10 +69,10 @@ export default function LoginPage() {
 				</form>
 				<div className="footer">
 					<label>Not a Member? </label>
-					<Link className="footer__link" to="/register">
+					<Link to="/register" className="footer__link">
 						Register
 					</Link>
-					<Link className="footer__link" to="/">
+					<Link to="/" className="footer__link">
 						Home
 					</Link>
 				</div>

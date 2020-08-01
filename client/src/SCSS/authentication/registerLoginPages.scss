@@ -1,16 +1,17 @@
 @import '../utils/variables';
 
-.register-login-background {
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-image: url(../images/BlueBackground_1920.jpg);
-	height: 100vh;
-	width: 100vw;
-	font-family: Verdana, Geneva, sans-serif;
-
-	.register-login-container {
+.register-login-components {
+	.background {
 		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: url(../images/BlueBackground_1920.jpg);
+		height: 100vh;
+		width: 100vw;
+	}
+
+	.border-container {
+		position: fixed;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -20,25 +21,24 @@
 		padding: 25px;
 		width: 500px;
 		text-align: center;
-		
+		font-family: Verdana, Geneva, sans-serif;
 	}
 
 	.title {
-		display: inline-block;
 		margin-bottom: 25px;
-		font-size: 225%;
-		
 	}
 
-	.form__input-label {
+	.form__label {
 		float: left;
+		margin-top: 5px;
 		width: 100%;
 		text-align: left;
 	}
 
-	.form__input {
+	.form_text-input {
 		margin-top: 5px;
 		margin-bottom: 5px;
+		outline: none;
 		box-sizing: border-box;
 		background: #e5e5e5;
 		padding: 8px;
@@ -60,7 +60,7 @@
 		padding: 10px;
 		width: 100%;
 		color: white;
-		font-size: 14px;
+		font-size: 16px;
 		cursor: pointer;
 	}
 	.form__submit:hover,

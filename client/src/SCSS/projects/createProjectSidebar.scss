@@ -1,63 +1,135 @@
-@import '../utils/variables';
+@import "../utils/variables";
 
-.createProjectBlurredBackgroundClickableDiv {
-	z-index: 1;
-	position: absolute;
-	height: 100vh;
-	width: 100vw;
-	background-color: black;
-	opacity: 0.5;
-}
-
-.createProjectSidebarContainerDiv {
-	z-index: 2;
-	position: absolute;
-	border: 5px solid black;
-	border-top: none;
-	border-left: none;
-	background: white;
-	width: 500px;
-	height: 700px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-.topDiv {
-	float: left;
-	height: 60px;
-	width: 100%;
-	border: 1px solid black;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	background-color: $lightGray;
-
-	.titleLabel {
-		float: left;
-		margin-top: 17px;
-		margin-left: 175px;
-		font-size: 150%;
+.create-projects-component {
+	.blurred-background {
+		position: absolute;
+		background-color: black;
+		opacity: 0.5;
+		height: 100vh;
+		width: 100vw;
 	}
 
-	.closeCreateProjectClickableDiv {
+	.sidebar-container {
+		position: absolute;
+		border: 5px solid black;
+		border-top: none;
+		border-left: none;
+		background: white;
+		width: 500px;
+		height: 700px;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	.mostly-empty-top {
+		display: block;
+		float: left;
+		width: 100%;
+	}
+
+	.x-button {
 		float: right;
 		margin-top: 5px;
-		margin-right: 10px;
+		margin-right: 8px;
 		font-size: 20px;
 		color: $mediumGray;
 		border: none;
 		background: none;
 		cursor: pointer;
 	}
-	.closeCreateProjectClickableDiv:hover {
-		color: black;
+	.x-button:hover,
+	.x-button:active {
+		color: $black;
 	}
-}
 
-.createProjectForm {
-	.createProjectInputDiv{
-		.nameInput{
-			display: block;
-			width: 80%;
-		}
+	.padded-container {
+		padding: 0px 25px 25px 25px;
+	}
+
+	.title {
+		position: relative;
+		padding-top: 8px;
+		font-size: 150%;
+	}
+
+	.form__label,
+	.form__combo-box-container__label {
+		float: left;
+		margin-top: 5px;
+		// This width allows the character counter to fit in-line
+		// with this label, but not the above error message
+		text-align: left;
+	}
+
+	.form_text-input {
+		outline: none;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		box-sizing: border-box;
+		background: #e5e5e5;
+		padding: 8px;
+		width: 100%;
+		font-size: 14px;
+	}
+
+	.form__character-counter {
+		float: right;
+	}
+
+	.form__textarea {
+		outline: none;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		background: #e5e5e5;
+		padding: 4px;
+		height: 200px;
+		width: 100%;
+		// sizing
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+		resize: none;
+	}
+
+	.form__errors {
+		width: 100%;
+		color: red;
+	}
+
+	.form__combo-box-container {
+		width: 120px;
+	}
+
+	.form__combo-box-container--left {
+		float: left;
+	}
+
+	.form__combo-box-container--right {
+		float: right;
+	}
+
+	.form__combo-box-container__select {
+		margin-top: 2px;
+		margin-bottom: 5px;
+		// size of .form__combo-box-container
+		width: 100%;
+		// one pixel smaller than .form__combo-box-container__label
+		font-size: 13px;
+	}
+
+	.form__submit {
+		margin-top: 10px;
+		margin-bottom: 5px;
+		border: 0;
+		background: $lightBlueTeal;
+		padding: 10px;
+		width: 100%;
+		color: white;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	.form__submit:hover,
+	.form__submit:active {
+		background: $darkBlueTeal;
 	}
 }
