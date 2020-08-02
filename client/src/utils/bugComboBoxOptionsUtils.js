@@ -7,15 +7,7 @@ export const getbugStatusName = (index) => {
 	return bugStatusOptions[index];
 }
 
-export const getbugStatusIndex = (name) => {
-	return bugStatusOptions.indexOf(name);
-}
-
 // Bug priority
 export const getbugPriorityName = (index) => {
 	return bugPriorityOptions[index];
-}
-
-export const getbugPriorityIndex = (name) => {
-	return bugPriorityOptions.indexOf(name);
 }

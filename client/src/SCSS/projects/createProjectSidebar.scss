@@ -53,6 +53,7 @@
 	}
 
 	.form__label,
+	.form__date-container__label,
 	.form__combo-box-container__label {
 		float: left;
 		margin-top: 5px;
@@ -62,9 +63,9 @@
 	}
 
 	.form_text-input {
-		outline: none;
 		margin-top: 5px;
 		margin-bottom: 5px;
+		outline: none;
 		box-sizing: border-box;
 		background: #e5e5e5;
 		padding: 8px;
@@ -77,9 +78,9 @@
 	}
 
 	.form__textarea {
-		outline: none;
 		margin-top: 5px;
 		margin-bottom: 5px;
+		outline: none;
 		background: #e5e5e5;
 		padding: 4px;
 		height: 200px;
@@ -96,24 +97,40 @@
 		color: red;
 	}
 
-	.form__combo-box-container {
-		width: 120px;
+	.form__date-container {
+		position: relative;
+		width: 45%;
 	}
 
-	.form__combo-box-container--left {
+	.form__date-container--left {
 		float: left;
 	}
 
-	.form__combo-box-container--right {
+	.form__date-container--right {
 		float: right;
+	}
+
+	.form__date-container__date-input {
+		margin-top: 2px;
+		margin-bottom: 5px;
+		outline: none;
+		// Width is 97% since date boxes extend past conatiner
+		width: 97%;
+		// one pixel smaller than associated label
+		font-size: 13px;
+	}
+
+	.form__combo-box-container {
+		float: left;
+		width: 45%;
+		height: 150px;
 	}
 
 	.form__combo-box-container__select {
 		margin-top: 2px;
 		margin-bottom: 5px;
-		// size of .form__combo-box-container
 		width: 100%;
-		// one pixel smaller than .form__combo-box-container__label
+		// one pixel smaller than associated label
 		font-size: 13px;
 	}
 

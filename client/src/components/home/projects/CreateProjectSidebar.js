@@ -11,10 +11,10 @@ import {
 
 import {
 	getProjectStatusName,
-	getProjectStatusIndex,
 	getProjectPriorityName,
-	getProjectPriorityIndex,
-} from "../../../utils/projectsUtils";
+} from "../../../utils/projectComboBoxOptionsUtils";
+
+import { toggleCharCountElementColor, toggleCompletionDateElementsAndUpdateState } from "../../../utils/formUtils";
 
 import "../../../SCSS/projects/createProjectSidebar.scss";
 
@@ -27,26 +27,36 @@ export default function CreateProjectSidebar() {
 		description: "",
 		status: 0,
 		priority: 0,
-		startDate: null,
-		dueDate: "",
-		completionDate: "",
+		startDate: moment().format("YYYY-MM-DD"),
+		dueDate: null,
+		completionDate: null,
 	});
 
 	const [descriptionCharLimit, setDescriptionCharLimit] = useState(500);
 
 	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
+	// Runs only once at the beginning
 	useEffect(() => {
-		let descriptionCharCounter = document.getElementsByClassName(
-			"js-form__character-counter"
-		)[0];
+		document.getElementsByClassName(
+			"js-form__date-container__date-input"
+		)[0].value = projectInfo.startDate;
+	}, []);
 
-		if (projectInfo.description.length > descriptionCharLimit) {
-			descriptionCharCounter.style.color = "red";
-		} else {
-			descriptionCharCounter.style.color = "black";
-		}
-	}, [projectInfo.description]);
+	// Can run more than once
+	useEffect(() => {
+		toggleCharCountElementColor(
+			"js-form__character-counter",
+			projectInfo.description.length,
+			descriptionCharLimit
+		);
+
+		toggleCompletionDateElementsAndUpdateState(
+			"js-form__date-container",
+			projectInfo,
+			setProjectInfo
+		);
+	}, [projectInfo.description, projectInfo.status]);
 
 	const onChange = (e) => {
 		if (e.target.name === "status" || e.target.name === "priority") {
@@ -114,9 +124,22 @@ export default function CreateProjectSidebar() {
 						<span className="form__errors">
 							{shouldShowAnyErrors ? reduxState.inputErrors.description : ""}
 						</span>
-						<div className="form__combo-box-container form__combo-box-container--left">
+						<div className="form__combo-box-container">
 							<label className="form__combo-box-container__label">
-								Status:{" "}
+								Priority:
+							</label>
+							<select
+								name="priority"
+								onChange={(e) => onChange(e)}
+								className="form__combo-box-container__select"
+							>
+								<option value="0">{getProjectPriorityName(0)}</option>
+								<option value="1">{getProjectPriorityName(1)}</option>
+								<option value="2">{getProjectPriorityName(2)}</option>
+								<option value="3">{getProjectPriorityName(3)}</option>
+							</select>
+							<label className="form__combo-box-container__label">
+								Status:
 							</label>
 							<select
 								name="status"
@@ -131,18 +154,34 @@ export default function CreateProjectSidebar() {
 								<option value="5">{getProjectStatusName(5)}</option>
 							</select>
 						</div>
-						<div className="form__combo-box-container form__combo-box-container--right">
-							<label className="form__combo-box-container__label">Priority: </label>
-							<select
-								name="priority"
+						<div className="form__date-container form__date-container--right">
+							<label className="form__date-container__label">Start Date:</label>
+							<input
+								type="date"
+								name="startDate"
 								onChange={(e) => onChange(e)}
-								className="form__combo-box-container__select"
-							>
-								<option value="0">{getProjectPriorityName(0)}</option>
-								<option value="1">{getProjectPriorityName(1)}</option>
-								<option value="2">{getProjectPriorityName(2)}</option>
-								<option value="3">{getProjectPriorityName(3)}</option>
-							</select>
+								className="form__date-container__date-input js-form__date-container__date-input"
+							/>
+						</div>
+						<div className="form__date-container form__date-container--right">
+							<label className="form__date-container__label">Due Date:</label>
+							<input
+								type="date"
+								name="dueDate"
+								onChange={(e) => onChange(e)}
+								className="form__date-container__date-input"
+							/>
+						</div>
+						<div className="form__date-container form__date-container--right js-form__date-container">
+							<label className="form__date-container__label">
+								Completion Date:
+							</label>
+							<input
+								type="date"
+								name="completionDate"
+								onChange={(e) => onChange(e)}
+								className="form__date-container__date-input"
+							/>
 						</div>
 						<button type="submit" className="form__submit">
 							Create Project

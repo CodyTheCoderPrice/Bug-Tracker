@@ -8,7 +8,8 @@ import moment from "moment";
 // Components
 import Navbar from "../Navbar";
 
-import { shortenProjectDescription, getProjectStatusName, getProjectPriorityName } from "../../../utils/projectsUtils";
+import { getProjectStatusName, getProjectPriorityName } from "../../../utils/projectComboBoxOptionsUtils";
+import { shortenDescriptionForDisplay } from "../../../utils/componentUtils";
 
 import "../../../SCSS/projects/projectBlocks.scss";
 
@@ -18,7 +19,7 @@ export default function ProjectsBlock(props) {
 
 	const [project, setProject] = useState({
 		name: props.project.name,
-		description: shortenProjectDescription(props.project.description),
+		description: shortenDescriptionForDisplay(props.project.description),
 		status: getProjectStatusName(props.project.status),
 		priority: getProjectPriorityName(props.project.priority),
 		startDate: moment(props.project.start_date).format('YYYY-MM-DD'),
