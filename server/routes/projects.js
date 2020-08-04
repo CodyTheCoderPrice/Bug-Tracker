@@ -5,6 +5,7 @@ const router = express.Router();
 // Middleware
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
 const validateProjectInput = require("../middleware/validation/project/createOrUpdateProjectValidation");
+const correctDatesFormat = require("../middleware/correctDatesFormat"); 
 // Used instead of the Date() function
 const moment = require("moment");
 
@@ -13,7 +14,7 @@ const moment = require("moment");
 //================
 router
 	.route("/create")
-	.post(tokenAuthorization, validateProjectInput, async (req, res) => {
+	.post(tokenAuthorization, validateProjectInput, correctDatesFormat, async (req, res) => {
 		let inputErrors = {};
 
 		try {
@@ -90,7 +91,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 //================
 // Update project
 //================
-router.route("/update").post(tokenAuthorization, validateProjectInput, async (req, res) => {
+router.route("/update").post(tokenAuthorization, validateProjectInput, correctDatesFormat, async (req, res) => {
 	let inputErrors = {};
 
 	try {

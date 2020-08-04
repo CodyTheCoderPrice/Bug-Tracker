@@ -14,7 +14,11 @@ import {
 	getProjectPriorityName,
 } from "../../../utils/projectComboBoxOptionsUtils";
 
-import { toggleCharCountElementColor, toggleCompletionDateElementsAndUpdateState } from "../../../utils/formUtils";
+import {
+	toggleCharCountElementColor,
+	toggleDisableCompletionDateElements,
+	updateCompletionDateInState,
+} from "../../../utils/formUtils";
 
 import "../../../SCSS/projects/createProjectSidebar.scss";
 
@@ -43,7 +47,7 @@ export default function CreateProjectSidebar() {
 		)[0].value = projectInfo.startDate;
 	}, []);
 
-	// Can run more than once
+	// Runs when description or status changes
 	useEffect(() => {
 		toggleCharCountElementColor(
 			"js-form__character-counter",
@@ -51,7 +55,9 @@ export default function CreateProjectSidebar() {
 			descriptionCharLimit
 		);
 
-		toggleCompletionDateElementsAndUpdateState(
+		toggleDisableCompletionDateElements("js-form__date-container", projectInfo);
+
+		updateCompletionDateInState(
 			"js-form__date-container",
 			projectInfo,
 			setProjectInfo
@@ -171,6 +177,10 @@ export default function CreateProjectSidebar() {
 								onChange={(e) => onChange(e)}
 								className="form__date-container__date-input"
 							/>
+						</div>
+						<div className="form__message-bubble-container">
+							<div className="form__message-bubble-container__bubble">Status is not completed</div>
+							<div className="form__message-bubble-container__right-arrow"/>
 						</div>
 						<div className="form__date-container form__date-container--right js-form__date-container">
 							<label className="form__date-container__label">
