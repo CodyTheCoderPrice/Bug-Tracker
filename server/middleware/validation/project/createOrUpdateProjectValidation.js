@@ -5,11 +5,24 @@ module.exports = (req, res, next) => {
 	let inputErrors = {};
 
 	try {
-		let { name, description } = req.body;
+		let {
+			name,
+			description,
+			priority,
+			status,
+			startDate,
+			dueDate,
+			completionDate,
+		} = req.body;
 
 		// Convert empty fields to an empty string so we can use validator functions
 		name = !isEmpty(name) ? name : "";
 		description = !isEmpty(description) ? description : "";
+		priority = !isEmpty(priority) ? priority : "";
+		status = !isEmpty(status) ? status : "";
+		startDate = !isEmpty(startDate) ? startDate : "";
+		dueDate = !isEmpty(dueDate) ? dueDate : "";
+		completionDate = !isEmpty(completionDate) ? completionDate : "";
 
 		// Name checks
 		if (Validator.isEmpty(name)) {
@@ -20,7 +33,8 @@ module.exports = (req, res, next) => {
 
 		// Description checks
 		if (!Validator.isLength(description, { max: 500 })) {
-			inputErrors.description = "Description can't be longer than 500 characters";
+			inputErrors.description =
+				"Description can't be longer than 500 characters";
 		}
 
 		if (!isEmpty(inputErrors)) {

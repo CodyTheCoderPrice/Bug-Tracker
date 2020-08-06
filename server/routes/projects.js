@@ -24,8 +24,8 @@ router
 			const {
 				name,
 				description,
-				status,
 				priority,
+				status,
 				startDate,
 				dueDate,
 				completionDate,
@@ -33,13 +33,13 @@ router
 			const creationDate = moment().format("YYYY-MM-DD");
 
 			const createdProject = await pool.query(
-				"INSERT INTO project (account_id, name, description, status, priority, creation_date, start_date, due_date, completion_date) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)",
+				"INSERT INTO project (account_id, name, description, priority, status, creation_date, start_date, due_date, completion_date) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)",
 				[
 					accountId,
 					name,
 					description,
-					status,
 					priority,
+					status,
 					creationDate,
 					startDate,
 					dueDate,
@@ -102,20 +102,20 @@ router.route("/update").post(tokenAuthorization, validateProjectInput, correctDa
 			projectId,
 			name,
 			description,
-			status,
 			priority,
+			status,
 			startDate,
 			dueDate,
 			completionDate,
 		} = req.body;
 
 		const updatedProject = await pool.query(
-			"UPDATE project SET name = $1, description = $2, status = $3, priority = $4, start_date = $5, due_date = $6, completion_date = $7 WHERE account_id = $8 AND project_id = $9",
+			"UPDATE project SET name = $1, description = $2, priority = $4, status = $3, start_date = $5, due_date = $6, completion_date = $7 WHERE account_id = $8 AND project_id = $9",
 			[
 				name,
 				description,
-				status,
 				priority,
+				status,
 				startDate,
 				dueDate,
 				completionDate,

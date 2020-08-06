@@ -12,12 +12,11 @@ import {
 import {
 	getProjectStatusName,
 	getProjectPriorityName,
-} from "../../../utils/projectComboBoxOptionsUtils";
+} from "../../../utils/projectPriorityAndStatusOptions";
 
 import {
-	toggleCharCountElementColor,
-	toggleDisableCompletionDateElements,
-	updateCompletionDateInState,
+	toggleCharCountColor,
+	ToggleableDateInput,
 } from "../../../utils/formUtils";
 
 import "../../../SCSS/projects/createProjectSidebar.scss";
@@ -29,8 +28,8 @@ export default function CreateProjectSidebar() {
 	const [projectInfo, setProjectInfo] = useState({
 		name: "",
 		description: "",
-		status: 0,
 		priority: 0,
+		status: 0,
 		startDate: moment().format("YYYY-MM-DD"),
 		dueDate: null,
 		completionDate: null,
@@ -39,6 +38,13 @@ export default function CreateProjectSidebar() {
 	const [descriptionCharLimit, setDescriptionCharLimit] = useState(500);
 
 	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
+
+	let completionDateInput = new ToggleableDateInput(
+		projectInfo,
+		setProjectInfo,
+		"js-form__date-container",
+		"js-form__tooltip-container"
+	);
 
 	// Runs only once at the beginning
 	useEffect(() => {
@@ -49,19 +55,15 @@ export default function CreateProjectSidebar() {
 
 	// Runs when description or status changes
 	useEffect(() => {
-		toggleCharCountElementColor(
+		toggleCharCountColor(
 			"js-form__character-counter",
 			projectInfo.description.length,
 			descriptionCharLimit
 		);
 
-		toggleDisableCompletionDateElements("js-form__date-container", projectInfo);
-
-		updateCompletionDateInState(
-			"js-form__date-container",
-			projectInfo,
-			setProjectInfo
-		);
+		completionDateInput.toggleDisableElements();
+		completionDateInput.updateStateAfterToggle();
+		completionDateInput.toggleTooltipEventListener();
 	}, [projectInfo.description, projectInfo.status]);
 
 	const onChange = (e) => {
@@ -90,7 +92,7 @@ export default function CreateProjectSidebar() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(projectInfo);
-		// clears any prior input errors
+		// Clears any prior input errors
 		dispatch(clearInputErrors());
 		dispatch(createProject(projectInfo));
 		setShouldShowAnyErrors(true);
@@ -178,9 +180,11 @@ export default function CreateProjectSidebar() {
 								className="form__date-container__date-input"
 							/>
 						</div>
-						<div className="form__message-bubble-container">
-							<div className="form__message-bubble-container__bubble">Status is not completed</div>
-							<div className="form__message-bubble-container__right-arrow"/>
+						<div className="form__tooltip-container js-form__tooltip-container">
+							<div className="form__tooltip-container__text-box">
+								Status not set to "Completed"
+							</div>
+							<div className="form__tooltip-container__arrow-right" />
 						</div>
 						<div className="form__date-container form__date-container--right js-form__date-container">
 							<label className="form__date-container__label">

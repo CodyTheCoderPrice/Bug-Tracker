@@ -1,8 +1,6 @@
-import { getIndexOfCompleted } from "./projectComboBoxOptionsUtils";
+import { getIndexOfCompleted } from "./projectPriorityAndStatusOptions";
 
-const isEmpty = require("is-empty");
-
-export const toggleCharCountElementColor = (
+export const toggleCharCountColor = (
 	nameOfClass,
 	descriptionLength,
 	charLimit
@@ -11,38 +9,99 @@ export const toggleCharCountElementColor = (
 		descriptionLength > charLimit ? "red" : "black";
 };
 
-export const toggleDisableCompletionDateElements = (nameOfClass, state) => {
-	let completionDateContainer = document.getElementsByClassName(nameOfClass)[0];
-	let childElements = completionDateContainer.childNodes;
-
-	if (state.status === getIndexOfCompleted()) {
-		for (let child of childElements) {
-			child.style.color = "black";
-			child.disabled = false;
-		}
-	} else {
-		for (let child of childElements) {
-			child.style.color = "#bfbfbf";
-			child.disabled = true;
-		}
+export class ToggleableDateInput {
+	constructor(
+		state,
+		updateState,
+		dateContainerClassName,
+		tooltipContainerClassName
+	) {
+		this.state = state;
+		this.updateState = updateState;
+		this.dateContainerClassName = dateContainerClassName;
+		this.tooltipContainerClassName = tooltipContainerClassName;
+		this.handleMouseOver = this.handleMouseOver.bind(this);
+		this.handleMouseOut = this.handleMouseOut.bind(this);
 	}
-};
 
-export const updateCompletionDateInState = (
-	nameOfClass,
-	state,
-	updateState
-) => {
-	let completionDateContainer = document.getElementsByClassName(nameOfClass)[0];
-	let childElements = completionDateContainer.childNodes;
+	toggleDisableElements = () => {
+		let dateContainerElement = document.getElementsByClassName(
+			this.dateContainerClassName
+		)[0];
 
-	if (state.status === getIndexOfCompleted()) {
-		for (let child of childElements) {
-			if (child.type === "date") {
-				updateState({ ...state, completionDate: child.value });
+		if (this.state.status === getIndexOfCompleted()) {
+			for (let child of dateContainerElement.childNodes) {
+				child.style.color = "black";
+				child.disabled = false;
+			}
+		} else {
+			for (let child of dateContainerElement.childNodes) {
+				child.style.color = "#bfbfbf";
+				child.disabled = true;
 			}
 		}
-	} else {
-		updateState({ ...state, completionDate: null });
+	};
+
+	updateStateAfterToggle = () => {
+		let dateContainerElement = document.getElementsByClassName(
+			this.dateContainerClassName
+		)[0];
+
+		if (this.state.status === getIndexOfCompleted()) {
+			for (let child of dateContainerElement.childNodes) {
+				if (child.tagName === "INPUT") {
+					this.updateState({
+						...this.state,
+						completionDate: child.value,
+					});
+				}
+			}
+		} else {
+			this.updateState({ ...this.state, completionDate: null });
+		}
+	};
+	
+	handleMouseOver = () => {
+		let tooltipContainerElement = document.getElementsByClassName(
+			this.tooltipContainerClassName
+		)[0];
+
+		tooltipContainerElement.style.visibility = "visible";
 	}
-};
+
+	handleMouseOut = () => {
+		let tooltipContainerElement = document.getElementsByClassName(
+			this.tooltipContainerClassName
+		)[0];
+
+		tooltipContainerElement.style.visibility = "hidden";
+	}
+
+	toggleTooltipEventListener = () => {
+		if (this.state.status !== getIndexOfCompleted()){
+			this.addTooltipEventForMouseOverAndOut();
+		} else {
+			console.log("Beep");
+			this.removeTooltipEventForMouseOverAndOut();
+			console.log("Boop");
+		}
+	}
+
+	addTooltipEventForMouseOverAndOut = () => {
+		let dateContainerElement = document.getElementsByClassName(
+			this.dateContainerClassName
+		)[0];
+
+		dateContainerElement.addEventListener("mouseover", this.handleMouseOver);
+		dateContainerElement.addEventListener("mouseout", this.handleMouseOut);
+	};
+
+	removeTooltipEventForMouseOverAndOut = () => {
+		let dateContainerElement = document.getElementsByClassName(
+			this.dateContainerClassName
+		)[0];
+
+		dateContainerElement.removeEventListener("mouseover", this.handleMouseOver);
+		dateContainerElement.removeEventListener("mouseout", this.handleMouseOut);
+	};
+}

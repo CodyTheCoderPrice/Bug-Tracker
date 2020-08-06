@@ -6,9 +6,9 @@ module.exports = (req, res, next) => {
 	try {
 		let { startDate, dueDate, completionDate } = req.body;
 
-		startDate = isEmpty(startDate) ? null : startDate;
-		dueDate =  isEmpty(dueDate) ? null : dueDate;
-		completionDate = isEmpty(completionDate) ? null : completionDate;
+		startDate = !isEmpty(startDate) ? startDate : null;
+		dueDate =  !isEmpty(dueDate) ? dueDate  : null;
+		completionDate = !isEmpty(completionDate) ? completionDate  : null;
 
 		req.body.startDate = startDate;
 		req.body.dueDate = dueDate;

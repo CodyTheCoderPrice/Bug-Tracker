@@ -5,10 +5,7 @@ import moment from "moment";
 
 /* import { setNavbarDropdownComponents } from "../../../actions"; */
 
-// Components
-import Navbar from "../Navbar";
-
-import { getProjectStatusName, getProjectPriorityName } from "../../../utils/projectComboBoxOptionsUtils";
+import { getProjectStatusName, getProjectPriorityName } from "../../../utils/projectPriorityAndStatusOptions";
 import { shortenDescriptionForDisplay } from "../../../utils/componentUtils";
 
 import "../../../SCSS/projects/projectBlocks.scss";
@@ -20,8 +17,8 @@ export default function ProjectsBlock(props) {
 	const [project, setProject] = useState({
 		name: props.project.name,
 		description: shortenDescriptionForDisplay(props.project.description),
-		status: getProjectStatusName(props.project.status),
 		priority: getProjectPriorityName(props.project.priority),
+		status: getProjectStatusName(props.project.status),
 		startDate: moment(props.project.start_date).format('YYYY-MM-DD'),
 		dueDate: moment(props.project.due_date).format('YYYY-MM-DD'),
 		completionDate: moment(props.project.completion_date).format('YYYY-MM-DD'),
