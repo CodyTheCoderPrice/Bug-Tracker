@@ -1,6 +1,11 @@
 // Used with numeric values stored in project table
-const projectStatusOptions = ["", "Planning", "Developing", "Testing", "Completed", "On Hold"];
 const projectPriorityOptions = ["", "Low", "Medium", "High"];
+const projectStatusOptions = ["", "Planning", "Developing", "Testing", "Completed", "On Hold"];
+
+// Project priority
+export const getProjectPriorityName = (index) => {
+	return projectPriorityOptions[index];
+}
 
 // Project status
 export const getProjectStatusName = (index) => {
@@ -9,9 +14,4 @@ export const getProjectStatusName = (index) => {
 
 export const getIndexOfCompleted = () => {
 	return projectStatusOptions.indexOf("Completed");
-}
-
-// Project priority
-export const getProjectPriorityName = (index) => {
-	return projectPriorityOptions[index];
 }

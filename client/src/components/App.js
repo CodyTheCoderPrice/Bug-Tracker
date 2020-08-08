@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { retrieveAccount, retrieveProjects } from "../actions";
+import {
+	retrievePriorityStatusOptions,
+	retrieveAccount,
+	retrieveProjects,
+} from "../actions";
 
 import RegisterPage from "./authentication/RegisterPage";
 import LoginPage from "./authentication/LoginPage";
@@ -12,16 +16,23 @@ function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// used because of shallow comparison issues with objects
-	const accountJsonString = JSON.stringify(reduxState.account)
+	// Runs only once at the beginning
+	useEffect(() => {
+		dispatch(retrievePriorityStatusOptions());
+	}, []);
 
+	// Used because of shallow comparison issues with objects
+	const accountJsonString = JSON.stringify(reduxState.account);
+
+	// Re-fetches possibly changed data after a page refresh
 	useEffect(() => {
 		if (reduxState.auth.isAuthenticated && accountJsonString === "{}") {
 			dispatch(retrieveAccount());
 			dispatch(retrieveProjects());
+			dispatch(retrievePriorityStatusOptions());
 		}
 	}, [accountJsonString]);
-	
+
 	return (
 		<Router>
 			<Route path="/" exact component={HomePage} />

@@ -11,6 +11,7 @@ var privateKey = fs.readFileSync("./sslCertification/selfsigned.key", "utf8");
 var certificate = fs.readFileSync("./sslCertification/selfsigned.crt", "utf8");
 var credentials = { key: privateKey, cert: certificate };
 // Routes
+const priorityStatus = require("./routes/priorityStatus");
 const accounts = require("./routes/accounts");
 const projects = require("./routes/projects");
 
@@ -32,6 +33,7 @@ app.use(function (req, res, next) {
 // Set routes
 app.use("/api/account", accounts);
 app.use("/api/project", projects);
+app.use("/api/priority-status", priorityStatus);
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
