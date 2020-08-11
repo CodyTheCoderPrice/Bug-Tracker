@@ -1,24 +1,28 @@
 import axios from "axios";
-import { SET_PRIORITY_STATUS_OPTIONS, SET_INPUT_ERRORS } from "./types";
+import { SET_PRIORITY_STATUS_ARRAYS, SET_INPUT_ERRORS } from "./types";
 
 export * from "./accountActions";
 export * from "./projectActions";
 export * from "./componentActions";
 
-export const retrievePriorityStatusOptions = () => (dispatch) => {
+export const retrievePriorityStatusArrays = () => (dispatch) => {
 	axios.get("/api/priority-status/retrieve").then((res) => {
 		const {
-			projectPriorityOptions,
-			projectStatusOptions,
-			bugPriorityOptions,
-			bugStatusOptions,
+			projectPriority,
+			projectStatus,
+			projectStatusCompletionIndex,
+			bugPriority,
+			bugStatus,
+			bugStatusCompletionIndex
 		} = res.data;
 		dispatch({
-			type: SET_PRIORITY_STATUS_OPTIONS,
-			projectPriorityOptions: projectPriorityOptions,
-			projectStatusOptions: projectStatusOptions,
-			bugPriorityOptions: bugPriorityOptions,
-			bugStatusOptions: bugStatusOptions,
+			type: SET_PRIORITY_STATUS_ARRAYS,
+			projectPriority: projectPriority,
+			projectStatus: projectStatus,
+			projectStatusCompletionIndex: projectStatusCompletionIndex,
+			bugPriority: bugPriority,
+			bugStatus: bugStatus,
+			bugStatusCompletionIndex: bugStatusCompletionIndex,
 		});
 	});
 };

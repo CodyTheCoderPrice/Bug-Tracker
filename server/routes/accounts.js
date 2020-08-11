@@ -46,7 +46,7 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 					if (err) throw err;
 
 					const newAccount = await pool.query(
-						"INSERT INTO account (emails, hash_pass, first_name, last_name, join_date) VALUES($1, $2, $3, $4, $5)",
+						"INSERT INTO account (email, hash_pass, first_name, last_name, join_date) VALUES($1, $2, $3, $4, $5)",
 						[email, hash, firstName, lastName, join_date]
 					);
 

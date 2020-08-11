@@ -15,7 +15,7 @@ import inputErrorReducer from "./inputErrorReducer";
 export default combineReducers({
 	accountComponentsDisplay: accountComponentsDisplayReducer,
 	projectComponentsDisplay: projectComponentsDisplayReducer,
-	priorityStatusOptions: priorityStatusOptionsReducer,
+	priorityStatusArrays: priorityStatusOptionsReducer,
 	auth: authReducer,
 	account: accountReducer,
 	projects: projectsReducer,

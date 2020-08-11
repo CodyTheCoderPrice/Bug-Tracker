@@ -1,20 +1,24 @@
-import { SET_PRIORITY_STATUS_OPTIONS } from "../actions/types";
+import { SET_PRIORITY_STATUS_ARRAYS } from "../actions/types";
 
 const initialState = {
-	projectPriorityOptions: null,
-	projectStatusOptions: null,
-	bugPriorityOptions: null,
-	bugStatusOptions: null,
+	projectPriority: null,
+	projectStatus: null,
+	projectStatusCompletionIndex: null,
+	bugPriority: null,
+	bugStatus: null,
+	bugStatusCompletionIndex: null,
 };
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case SET_PRIORITY_STATUS_OPTIONS:
+		case SET_PRIORITY_STATUS_ARRAYS:
 			return {
-				projectPriorityOptions: action.projectPriorityOptions,
-				projectStatusOptions: action.projectStatusOptions,
-				bugPriorityOptions: action.bugPriorityOptions,
-				bugStatusOptions: action.bugStatusOptions,
+				projectPriority: action.projectPriority,
+				projectStatus: action.projectStatus,
+				projectStatusCompletionIndex: action.projectStatusCompletionIndex,
+				bugPriority: action.bugPriority,
+				bugStatus: action.bugStatus,
+				bugStatusCompletionIndex: action.bugStatusCompletionIndex,
 			};
 		default:
 			return state;

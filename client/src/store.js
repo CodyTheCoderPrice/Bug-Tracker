@@ -13,7 +13,7 @@ const middleware = [thunk];
 const persistConfig = {
 	key: "root",
 	storage,
-	whitelist: ["auth", "navbarComponentsDisplay", "accountModalsDisplay"],
+	whitelist: ["navbarComponentsDisplay", "accountModalsDisplay", "priorityStatusArrays", "auth"],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

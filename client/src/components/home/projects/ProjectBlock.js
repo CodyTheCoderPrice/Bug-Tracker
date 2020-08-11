@@ -5,20 +5,22 @@ import moment from "moment";
 
 /* import { setNavbarDropdownComponents } from "../../../actions"; */
 
-import { getProjectStatusName, getProjectPriorityName } from "../../../utils/projectPriorityAndStatusOptions";
 import { shortenDescriptionForDisplay } from "../../../utils/componentUtils";
 
 import "../../../SCSS/projects/projectBlocks.scss";
 
 export default function ProjectsBlock(props) {
-	/* 	const reduxState = useSelector((state) => state);
-	const dispatch = useDispatch(); */
+	const reduxState = useSelector((state) => state);
+	const dispatch = useDispatch();
 
 	const [project, setProject] = useState({
+		projectId: props.project.project_id,
 		name: props.project.name,
 		description: shortenDescriptionForDisplay(props.project.description),
-		priority: getProjectPriorityName(props.project.priority),
-		status: getProjectStatusName(props.project.status),
+		priorityId: props.project.p_priority_id,
+		priorityOption: props.project.p_priority_option,
+		statusId: props.project.p_status_id,
+		statusOption: props.project.p_status_option,
 		startDate: moment(props.project.start_date).format('YYYY-MM-DD'),
 		dueDate: moment(props.project.due_date).format('YYYY-MM-DD'),
 		completionDate: moment(props.project.completion_date).format('YYYY-MM-DD'),
@@ -35,7 +37,7 @@ export default function ProjectsBlock(props) {
 	}; */
 
 	const printProject = () => {
-		console.log(props);
+		console.log(project);
 	};
 
 	return (

@@ -1,4 +1,4 @@
-import { getIndexOfCompleted } from "./projectPriorityAndStatusOptions";
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 export const toggleCharCountColor = (
 	nameOfClass,
@@ -14,12 +14,14 @@ export class ToggleableDateInput {
 		state,
 		updateState,
 		dateContainerClassName,
-		tooltipContainerClassName
+		tooltipContainerClassName,
+		completedIndex
 	) {
 		this.state = state;
 		this.updateState = updateState;
 		this.dateContainerClassName = dateContainerClassName;
 		this.tooltipContainerClassName = tooltipContainerClassName;
+		this.completedIndex = completedIndex;
 		this.handleMouseOver = this.handleMouseOver.bind(this);
 		this.handleMouseOut = this.handleMouseOut.bind(this);
 	}
@@ -29,7 +31,7 @@ export class ToggleableDateInput {
 			this.dateContainerClassName
 		)[0];
 
-		if (this.state.status === getIndexOfCompleted()) {
+		if (this.state.status === this.completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				child.style.color = "black";
 				child.disabled = false;
@@ -47,7 +49,7 @@ export class ToggleableDateInput {
 			this.dateContainerClassName
 		)[0];
 
-		if (this.state.status === getIndexOfCompleted()) {
+		if (this.state.status === this.completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				if (child.tagName === "INPUT") {
 					this.updateState({
@@ -78,7 +80,7 @@ export class ToggleableDateInput {
 	}
 
 	toggleTooltipEventListener = () => {
-		if (this.state.status !== getIndexOfCompleted()){
+		if (this.state.status !== this.completedIndex){
 			this.addTooltipEventForMouseOverAndOut();
 		} else {
 			console.log("Beep");

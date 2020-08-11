@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import {
-	retrievePriorityStatusOptions,
+	retrievePriorityStatusArrays,
 	retrieveAccount,
 	retrieveProjects,
 } from "../actions";
@@ -16,20 +16,16 @@ function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Runs only once at the beginning
-	useEffect(() => {
-		dispatch(retrievePriorityStatusOptions());
-	}, []);
-
 	// Used because of shallow comparison issues with objects
 	const accountJsonString = JSON.stringify(reduxState.account);
 
 	// Re-fetches possibly changed data after a page refresh
 	useEffect(() => {
+		dispatch(retrievePriorityStatusArrays());
+
 		if (reduxState.auth.isAuthenticated && accountJsonString === "{}") {
 			dispatch(retrieveAccount());
 			dispatch(retrieveProjects());
-			dispatch(retrievePriorityStatusOptions());
 		}
 	}, [accountJsonString]);
 

@@ -43,5 +43,19 @@ CREATE TABLE project_priority(
 CREATE TABLE project_status(
 	p_status_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
+	option TEXT,
+	marks_completion BOOLEAN DEFAULT false
+);
+
+CREATE TABLE bug_priority(
+	b_priority_id SERIAL PRIMARY KEY,
+	order_number SMALLINT,
 	option TEXT
+);
+
+CREATE TABLE bug_status(
+	b_status_id SERIAL PRIMARY KEY,
+	order_number SMALLINT,
+	option TEXT,
+	marks_completion BOOLEAN DEFAULT false
 );

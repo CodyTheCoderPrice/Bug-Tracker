@@ -9,10 +9,7 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import {
-	getProjectStatusName,
-	getProjectPriorityName,
-} from "../../../utils/projectPriorityAndStatusOptions";
+import { populateComboBox } from "../../../utils/comboBoxUtils";
 
 import {
 	toggleCharCountColor,
@@ -43,11 +40,15 @@ export default function CreateProjectSidebar() {
 		projectInfo,
 		setProjectInfo,
 		"js-form__date-container",
-		"js-form__tooltip-container"
+		"js-form__tooltip-container",
+		reduxState.priorityStatusArrays.projectStatusCompletionIndex
 	);
 
 	// Runs only once at the beginning
 	useEffect(() => {
+		populateComboBox("js-priority-select", reduxState.priorityStatusArrays.projectPriority);
+		populateComboBox("js-status-select", reduxState.priorityStatusArrays.projectStatus);
+
 		document.getElementsByClassName(
 			"js-form__date-container__date-input"
 		)[0].value = projectInfo.startDate;
@@ -139,12 +140,12 @@ export default function CreateProjectSidebar() {
 							<select
 								name="priority"
 								onChange={(e) => onChange(e)}
-								className="form__combo-box-container__select"
+								className="form__combo-box-container__select js-priority-select"
 							>
-								<option value="0">{getProjectPriorityName(0)}</option>
-								<option value="1">{getProjectPriorityName(1)}</option>
-								<option value="2">{getProjectPriorityName(2)}</option>
-								<option value="3">{getProjectPriorityName(3)}</option>
+								{/* <option value="0">{getOptionForId(0)}</option>
+								<option value="1">{getOptionForId(1)}</option>
+								<option value="2">{getOptionForId(2)}</option>
+								<option value="3">{getOptionForId(3)}</option> */}
 							</select>
 							<label className="form__combo-box-container__label">
 								Status:
@@ -152,14 +153,14 @@ export default function CreateProjectSidebar() {
 							<select
 								name="status"
 								onChange={(e) => onChange(e)}
-								className="form__combo-box-container__select"
+								className="form__combo-box-container__select js-status-select"
 							>
-								<option value="0">{getProjectStatusName(0)}</option>
-								<option value="1">{getProjectStatusName(1)}</option>
-								<option value="2">{getProjectStatusName(2)}</option>
-								<option value="3">{getProjectStatusName(3)}</option>
-								<option value="4">{getProjectStatusName(4)}</option>
-								<option value="5">{getProjectStatusName(5)}</option>
+								{/* <option value="0">{getOptionForId(0)}</option>
+								<option value="1">{getOptionForId(1)}</option>
+								<option value="2">{getOptionForId(2)}</option>
+								<option value="3">{getOptionForId(3)}</option>
+								<option value="4">{getOptionForId(4)}</option>
+								<option value="5">{getOptionForId(5)}</option> */}
 							</select>
 						</div>
 						<div className="form__date-container form__date-container--right">

@@ -8,21 +8,21 @@ module.exports = (req, res, next) => {
 		let {
 			name,
 			description,
-			priority,
-			status,
+			/* priorityId,
+			statusId,
 			startDate,
 			dueDate,
-			completionDate,
+			completionDate, */
 		} = req.body;
 
 		// Convert empty fields to an empty string so we can use validator functions
 		name = !isEmpty(name) ? name : "";
 		description = !isEmpty(description) ? description : "";
-		priority = !isEmpty(priority) ? priority : "";
-		status = !isEmpty(status) ? status : "";
+		/* priorityId = !isEmpty(priorityId) ? priorityId : "";
+		statusId = !isEmpty(statusId) ? statusId : "";
 		startDate = !isEmpty(startDate) ? startDate : "";
 		dueDate = !isEmpty(dueDate) ? dueDate : "";
-		completionDate = !isEmpty(completionDate) ? completionDate : "";
+		completionDate = !isEmpty(completionDate) ? completionDate : ""; */
 
 		// Name checks
 		if (Validator.isEmpty(name)) {
