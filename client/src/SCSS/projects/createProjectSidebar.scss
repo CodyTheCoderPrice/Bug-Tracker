@@ -134,6 +134,9 @@
 	}
 
 	.form__tooltip-container {
+		// Set to relative so changing the z-index using js can be
+		// ...used to control if the tooltip is visible or not.
+		position: relative;
 		float: left;
 		margin-top: 13px;
 		// Becomes visible via a mouseover event added to the completionDate container

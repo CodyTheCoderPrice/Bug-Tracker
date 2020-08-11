@@ -1,5 +1,3 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
-
 export const toggleCharCountColor = (
 	nameOfClass,
 	descriptionLength,
@@ -9,101 +7,19 @@ export const toggleCharCountColor = (
 		descriptionLength > charLimit ? "red" : "black";
 };
 
-export class ToggleableDateInput {
-	constructor(
-		state,
-		updateState,
-		dateContainerClassName,
-		tooltipContainerClassName,
-		completedIndex
-	) {
-		this.state = state;
-		this.updateState = updateState;
-		this.dateContainerClassName = dateContainerClassName;
-		this.tooltipContainerClassName = tooltipContainerClassName;
-		this.completedIndex = completedIndex;
-		this.handleMouseOver = this.handleMouseOver.bind(this);
-		this.handleMouseOut = this.handleMouseOut.bind(this);
-	}
+export const populateComboBox = (selectElementClassName, array) => {
+	let selectElem = document.getElementsByClassName(selectElementClassName)[0];
 
-	toggleDisableElements = () => {
-		let dateContainerElement = document.getElementsByClassName(
-			this.dateContainerClassName
-		)[0];
+	for (let i = 0; i < array.length; i++) {
+		let optionElem = document.createElement("option");
 
-		if (this.state.status === this.completedIndex) {
-			for (let child of dateContainerElement.childNodes) {
-				child.style.color = "black";
-				child.disabled = false;
-			}
-		} else {
-			for (let child of dateContainerElement.childNodes) {
-				child.style.color = "#bfbfbf";
-				child.disabled = true;
-			}
+		// Makes the first item of the array the default selection
+		if (i === 0) {
+			optionElem.selected = "selected";
 		}
-	};
 
-	updateStateAfterToggle = () => {
-		let dateContainerElement = document.getElementsByClassName(
-			this.dateContainerClassName
-		)[0];
-
-		if (this.state.status === this.completedIndex) {
-			for (let child of dateContainerElement.childNodes) {
-				if (child.tagName === "INPUT") {
-					this.updateState({
-						...this.state,
-						completionDate: child.value,
-					});
-				}
-			}
-		} else {
-			this.updateState({ ...this.state, completionDate: null });
-		}
-	};
-	
-	handleMouseOver = () => {
-		let tooltipContainerElement = document.getElementsByClassName(
-			this.tooltipContainerClassName
-		)[0];
-
-		tooltipContainerElement.style.visibility = "visible";
+		optionElem.value = array[i].id;
+		optionElem.textContent = array[i].option;
+		selectElem.appendChild(optionElem);
 	}
-
-	handleMouseOut = () => {
-		let tooltipContainerElement = document.getElementsByClassName(
-			this.tooltipContainerClassName
-		)[0];
-
-		tooltipContainerElement.style.visibility = "hidden";
-	}
-
-	toggleTooltipEventListener = () => {
-		if (this.state.status !== this.completedIndex){
-			this.addTooltipEventForMouseOverAndOut();
-		} else {
-			console.log("Beep");
-			this.removeTooltipEventForMouseOverAndOut();
-			console.log("Boop");
-		}
-	}
-
-	addTooltipEventForMouseOverAndOut = () => {
-		let dateContainerElement = document.getElementsByClassName(
-			this.dateContainerClassName
-		)[0];
-
-		dateContainerElement.addEventListener("mouseover", this.handleMouseOver);
-		dateContainerElement.addEventListener("mouseout", this.handleMouseOut);
-	};
-
-	removeTooltipEventForMouseOverAndOut = () => {
-		let dateContainerElement = document.getElementsByClassName(
-			this.dateContainerClassName
-		)[0];
-
-		dateContainerElement.removeEventListener("mouseover", this.handleMouseOver);
-		dateContainerElement.removeEventListener("mouseout", this.handleMouseOut);
-	};
-}
+};

@@ -65,9 +65,6 @@ router
 									AND (p.p_priority_id = ps.p_status_id)`,
 				[accountId]
 			);
-
-			console.log(allProjectsForAccount.rows);
-
 			res.json({ success: true, projects: allProjectsForAccount.rows });
 		} catch (err) {
 			console.error(err.message);

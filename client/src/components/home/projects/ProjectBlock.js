@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// Easier to use than Date()
-import moment from "moment";
 
 /* import { setNavbarDropdownComponents } from "../../../actions"; */
 
 import { shortenDescriptionForDisplay } from "../../../utils/componentUtils";
+
+import { formatDateYYYYmmDD } from "../../../utils/dateUtils";
 
 import "../../../SCSS/projects/projectBlocks.scss";
 
@@ -21,9 +21,9 @@ export default function ProjectsBlock(props) {
 		priorityOption: props.project.p_priority_option,
 		statusId: props.project.p_status_id,
 		statusOption: props.project.p_status_option,
-		startDate: moment(props.project.start_date).format('YYYY-MM-DD'),
-		dueDate: moment(props.project.due_date).format('YYYY-MM-DD'),
-		completionDate: moment(props.project.completion_date).format('YYYY-MM-DD'),
+		startDate: formatDateYYYYmmDD(props.project.start_date),
+		dueDate: formatDateYYYYmmDD(props.project.due_date),
+		completionDate: formatDateYYYYmmDD(props.project.completion_date),
 	});
 
 	/* const openEditInfoModals = () => {

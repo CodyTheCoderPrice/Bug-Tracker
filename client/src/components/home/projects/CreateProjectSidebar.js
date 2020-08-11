@@ -9,12 +9,12 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import { populateComboBox } from "../../../utils/comboBoxUtils";
-
 import {
 	toggleCharCountColor,
-	ToggleableDateInput,
+	populateComboBox,
 } from "../../../utils/formUtils";
+
+import { useToggleableDateInputAndTooltip } from "../../../utils/formHookUtils";
 
 import "../../../SCSS/projects/createProjectSidebar.scss";
 
@@ -25,47 +25,60 @@ export default function CreateProjectSidebar() {
 	const [projectInfo, setProjectInfo] = useState({
 		name: "",
 		description: "",
-		priority: 0,
-		status: 0,
+		priorityId: reduxState.priorityStatusArrays.projectPriority[0].id,
+		statusId: reduxState.priorityStatusArrays.projectStatus[0].id,
 		startDate: moment().format("YYYY-MM-DD"),
 		dueDate: null,
 		completionDate: null,
 	});
 
+	// Used by custom hook for toggleimg completion date in order to seperate concerns
+	const [proxyCompletionDate, setProxyCompletionDate] = useState(projectInfo.completionDate);
+
 	const [descriptionCharLimit, setDescriptionCharLimit] = useState(500);
 
 	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
-	let completionDateInput = new ToggleableDateInput(
+	// This custom hook handles all functionality for toggling completion date, 
+	// ...making suring the project state for completion date is accurate after a toggle,
+	// ...toggling the display of the completion date tooltip,
+	// ...and adding the tooltips event listener
+	const [] = useToggleableDateInputAndTooltip(
 		projectInfo,
-		setProjectInfo,
+		setProxyCompletionDate,
 		"js-form__date-container",
 		"js-form__tooltip-container",
 		reduxState.priorityStatusArrays.projectStatusCompletionIndex
 	);
 
-	// Runs only once at the beginning
 	useEffect(() => {
-		populateComboBox("js-priority-select", reduxState.priorityStatusArrays.projectPriority);
-		populateComboBox("js-status-select", reduxState.priorityStatusArrays.projectStatus);
-
-		document.getElementsByClassName(
-			"js-form__date-container__date-input"
-		)[0].value = projectInfo.startDate;
+		populateComboBox(
+			"js-priority-select",
+			reduxState.priorityStatusArrays.projectPriority
+		);
+		populateComboBox(
+			"js-status-select",
+			reduxState.priorityStatusArrays.projectStatus
+		);
 	}, []);
 
-	// Runs when description or status changes
 	useEffect(() => {
 		toggleCharCountColor(
 			"js-form__character-counter",
 			projectInfo.description.length,
 			descriptionCharLimit
 		);
+	}, [projectInfo.description]);
 
-		completionDateInput.toggleDisableElements();
-		completionDateInput.updateStateAfterToggle();
-		completionDateInput.toggleTooltipEventListener();
-	}, [projectInfo.description, projectInfo.status]);
+	// Keeps the proxyCompletionDate in sync when the real completonDate has been changed 
+	useEffect(() => {
+		setProxyCompletionDate(projectInfo.completionDate);
+	}, [projectInfo.completionDate]);
+
+	// Updates the real completionDate to match the proxyCompletionDate after the compltionDate component has been toggled
+	useEffect(() => {
+		setProjectInfo({...projectInfo, completionDate: proxyCompletionDate});
+	}, [proxyCompletionDate]);
 
 	const onChange = (e) => {
 		if (e.target.name === "status" || e.target.name === "priority") {
@@ -92,7 +105,6 @@ export default function CreateProjectSidebar() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(projectInfo);
 		// Clears any prior input errors
 		dispatch(clearInputErrors());
 		dispatch(createProject(projectInfo));
@@ -142,10 +154,6 @@ export default function CreateProjectSidebar() {
 								onChange={(e) => onChange(e)}
 								className="form__combo-box-container__select js-priority-select"
 							>
-								{/* <option value="0">{getOptionForId(0)}</option>
-								<option value="1">{getOptionForId(1)}</option>
-								<option value="2">{getOptionForId(2)}</option>
-								<option value="3">{getOptionForId(3)}</option> */}
 							</select>
 							<label className="form__combo-box-container__label">
 								Status:
@@ -155,12 +163,6 @@ export default function CreateProjectSidebar() {
 								onChange={(e) => onChange(e)}
 								className="form__combo-box-container__select js-status-select"
 							>
-								{/* <option value="0">{getOptionForId(0)}</option>
-								<option value="1">{getOptionForId(1)}</option>
-								<option value="2">{getOptionForId(2)}</option>
-								<option value="3">{getOptionForId(3)}</option>
-								<option value="4">{getOptionForId(4)}</option>
-								<option value="5">{getOptionForId(5)}</option> */}
 							</select>
 						</div>
 						<div className="form__date-container form__date-container--right">
@@ -168,6 +170,7 @@ export default function CreateProjectSidebar() {
 							<input
 								type="date"
 								name="startDate"
+								value= {projectInfo.startDate}
 								onChange={(e) => onChange(e)}
 								className="form__date-container__date-input js-form__date-container__date-input"
 							/>
