@@ -1,6 +1,5 @@
 @import "../utils/variables";
-
-$inputMarginBottom: 10px;
+@import "../utils//mixins";
 
 .create-projects-component {
 	.blurred-background {
@@ -31,14 +30,8 @@ $inputMarginBottom: 10px;
 	}
 
 	.x-button {
-		float: right;
-		margin-top: 5px;
-		margin-right: 8px;
-		font-size: 20px;
-		color: $mediumGray;
-		border: none;
-		background: none;
-		cursor: pointer;
+		@include back-exit-buttons();
+		right: 15px;
 	}
 	.x-button:hover,
 	.x-button:active {
@@ -46,12 +39,13 @@ $inputMarginBottom: 10px;
 	}
 
 	.padded-container {
+		// No padding on the top because of the header
 		padding: 0px 25px 25px 25px;
 	}
 
 	.title {
 		position: relative;
-		padding-top: 8px;
+		padding-top: 24px;
 		font-size: 150%;
 	}
 
@@ -60,12 +54,14 @@ $inputMarginBottom: 10px;
 	.form__combo-box-container__label {
 		float: left;
 		margin-top: 5px;
-		// This width allows the character counter to fit in-line
-		// with this label, but not the above error message
-		text-align: left;
 	}
 
-	.form_text-input {
+	.form__character-counter {
+		float: right;
+		margin-top: 5px;
+	}
+
+	.form__text-input {
 		margin-top: 5px;
 		margin-bottom: $inputMarginBottom;
 		outline: none;
@@ -76,15 +72,11 @@ $inputMarginBottom: 10px;
 		font-size: 14px;
 	}
 
-	.form__character-counter {
-		float: right;
-	}
-
 	.form__textarea {
 		margin-top: 5px;
 		margin-bottom: $inputMarginBottom;
 		outline: none;
-		background: #e5e5e5;
+		background: $lightGray;
 		padding: 4px;
 		height: 200px;
 		width: 100%;
@@ -96,7 +88,7 @@ $inputMarginBottom: 10px;
 	}
 
 	.form__errors {
-		width: 100%;
+		display: block;
 		color: red;
 	}
 
@@ -108,6 +100,7 @@ $inputMarginBottom: 10px;
 	.form__combo-box-container__select {
 		margin-top: 2px;
 		margin-bottom: $inputMarginBottom;
+		background: $lightGray;
 		width: 100%;
 		// one pixel smaller than associated label
 		font-size: 13px;
@@ -130,6 +123,7 @@ $inputMarginBottom: 10px;
 		margin-top: 2px;
 		margin-bottom: $inputMarginBottom;
 		outline: none;
+		background: $lightGray;
 		// Width is 97% since date boxes extend past conatiner
 		width: 97%;
 		// one pixel smaller than associated label

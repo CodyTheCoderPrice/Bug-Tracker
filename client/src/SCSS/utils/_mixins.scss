@@ -1,0 +1,9 @@
+@mixin back-exit-buttons() {
+	position: absolute;
+	top: 12px;
+	font-size: 22px;
+	color: $mediumGray;
+	border: none;
+	background: none;
+	cursor: pointer;
+}

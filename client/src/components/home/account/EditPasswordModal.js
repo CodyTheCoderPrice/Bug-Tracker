@@ -7,7 +7,7 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import "../../../SCSS/account/accountModals.scss";
+import "../../../SCSS/account/editAccountModals.scss";
 
 export default function EditPasswordModal() {
 	const reduxState = useSelector((state) => state);
@@ -35,9 +35,11 @@ export default function EditPasswordModal() {
 	};
 
 	const closeModals = () => {
-		dispatch(setWhichAccountComponentsDisplay({
-			accountSidebar: true,
-		}));
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountSidebar: true,
+			})
+		);
 	};
 
 	const handleSubmit = (e) => {
@@ -49,67 +51,66 @@ export default function EditPasswordModal() {
 	};
 
 	return (
-		<div>
-			<div className="accountModalsBlurredBackgroundDiv" />
-			<div className="editAccountContainerDiv">
-				<button className="backButton" onClick={backToEditInfo}>
-					➔
-				</button>
-				<button className="exitButton" onClick={closeModals}>
-					X
-				</button>
-				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Edit Password</label>
-					<br />
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword : ""}
-					</span>
+		<div className="edit-account-modal-components">
+			<div className="blurred-background" />
+			<div className="edit-account-modal">
+				<div className="back-button" onClick={backToEditInfo}>
+					<i className="fa fa-arrow-left" aria-hidden="true"></i>
+				</div>
+				<div className="exit-button" onClick={closeModals}>
+					<i className="fa fa-times" aria-hidden="true"></i>
+				</div>
+				<h1 className="title">Edit Password</h1>
+				<form className="form" noValidate onSubmit={handleSubmit}>
+					<label className="form__label">New Password: </label>
 					<input
 						type="password"
 						name="newPassword"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.newPassword}
-						placeholder="New Password"
 						id="newPasswordInput"
-						className="formInput"
+						className="form__text-input"
 					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword2 : ""}
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword : ""}
 					</span>
+					<label className="form__label">Confirm New Password: </label>
 					<input
 						type="password"
 						name="newPassword2"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.newPassword2}
-						placeholder="Confirm New Password"
 						id="newPassword2Input"
-						className="formInput"
+						className="form__text-input"
 					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword2 : ""}
 					</span>
+					<label className="form__label">Current Password: </label>
 					<input
 						type="password"
 						name="currentPassword"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.currentPassword}
-						placeholder="Current Password"
 						id="currentPasswordInput"
-						className="formInput"
+						className="form__text-input"
 					/>
-					<span className="redErrorText">
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
+					</span>
+					<button type="submit" className="form__submit">
+						Update
+					</button>
+					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.authorization : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
-					<button type="submit" className="submitButton">
-						Update
-					</button>
 				</form>
-				<div className="openOtherModalsDiv">
-					<label className="openModalLabel" onClick={backToEditInfo}>
+				<div className="modal-links-container">
+					<span className="modal-link" onClick={backToEditInfo}>
 						Back
-					</label>
+					</span>
 				</div>
 			</div>
 		</div>

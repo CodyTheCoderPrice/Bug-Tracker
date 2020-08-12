@@ -31,11 +31,10 @@
 	.form__label {
 		float: left;
 		margin-top: 5px;
-		width: 100%;
 		text-align: left;
 	}
 
-	.form_text-input {
+	.form__text-input {
 		margin-top: 5px;
 		margin-bottom: 5px;
 		outline: none;
@@ -48,7 +47,7 @@
 	}
 	
 	.form__errors {
-		width: 100%;
+		display: block;
 		color: red;
 	}
 

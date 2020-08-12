@@ -42,7 +42,7 @@ export default function LoginPage() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
 						id="emailInput"
-						className="form_text-input"
+						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
@@ -54,7 +54,7 @@ export default function LoginPage() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
 						id="passwordInput"
-						className="form_text-input"
+						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}

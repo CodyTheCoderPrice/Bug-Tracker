@@ -7,7 +7,7 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import "../../../SCSS/account/accountModals.scss";
+import "../../../SCSS/account/editAccountModals.scss";
 
 export default function EditInfoModal() {
 	const reduxState = useSelector((state) => state);
@@ -25,9 +25,11 @@ export default function EditInfoModal() {
 	};
 
 	const closeModals = () => {
-		dispatch(setWhichAccountComponentsDisplay({
-			accountSidebar: true,
-		}));
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountSidebar: true,
+			})
+		);
 	};
 
 	const openEditEmailModal = () => {
@@ -66,63 +68,62 @@ export default function EditInfoModal() {
 	};
 
 	return (
-		<div>
-			<div className="accountModalsBlurredBackgroundDiv" />
-			<div className="editAccountContainerDiv">
-				<button className="exitButton" onClick={closeModals}>
-					X
-				</button>
-				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Edit Personal Info</label>
-					<br />
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}
-					</span>
+		<div className="edit-account-modal-components">
+			<div className="blurred-background" />
+			<div className="edit-account-modal">
+				<div className="exit-button" onClick={closeModals}>
+					<i className="fa fa-times" aria-hidden="true"></i>
+				</div>
+				<h1 className="title">Edit Personal Info</h1>
+				<form className="form" noValidate onSubmit={handleSubmit}>
+					<label className="form__label">First Name: </label>
 					<input
 						type="text"
 						name="firstName"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.firstName}
-						placeholder="First name"
 						id="firstNameInput"
-						className="formInput"
+						className="form__text-input"
 					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}
 					</span>
+					<label className="form__label">Last Name: </label>
 					<input
 						type="text"
 						name="lastName"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.lastName}
-						placeholder="Last name"
 						id="lastNameInput"
-						className="formInput"
+						className="form__text-input"
 					/>
-					<span className="redErrorText">
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}
+					</span>
+					<button type="submit" className="form__submit">
+						Update
+					</button>
+					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
-					<button type="submit" className="submitButton">
-						Update
-					</button>
 				</form>
-				<div className="openOtherModalsDiv">
-					<label className="openModalLabel" onClick={openEditEmailModal}>
+				<div className="modal-links-container">
+					<span className="modal-link" onClick={openEditEmailModal}>
 						Edit Email
-					</label>
-					<label className="orLabel">|</label>
-					<label className="openModalLabel" onClick={openEditPasswordModal}>
+					</span>
+					<span className="link-spacer">|</span>
+					<span className="modal-link" onClick={openEditPasswordModal}>
 						Edit Password
-					</label>
-					<label className="orLabel">|</label>
-					<label
-						className="openModalLabel"
-						id="deleteLabel"
+					</span>
+					<span className="link-spacer">|</span>
+					<span
+						className="modal-link"
+						id="deletespan"
 						onClick={openDeleteAccountModal}
 					>
 						Delete Account
-					</label>
+					</span>
 				</div>
 			</div>
 		</div>

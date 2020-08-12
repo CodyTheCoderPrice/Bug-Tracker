@@ -1,0 +1,120 @@
+@import "../utils/variables";
+@import "../utils//mixins";
+
+.edit-account-modal-components {
+	.blurred-background {
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: black;
+		opacity: 0.5;
+		height: 100vh;
+		width: 100vw;
+	}
+
+	.edit-account-modal {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border: 5px solid black;
+		background: white;
+		padding: 25px;
+		height: 480px;
+		width: $editAccountModalWidth;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	.back-button {
+		@include back-exit-buttons();
+		left: 15px;
+	}
+	.back-button:hover,
+	.back-button:active {
+		color: $black;
+	}
+
+	.exit-button {
+		@include back-exit-buttons();
+		right: 15px;
+	}
+	.exit-button:hover,
+	.exit-button:active {
+		color: $black;
+	}
+
+	.title {
+		position: relative;
+		padding-top: 8px;
+		font-size: 150%;
+	}
+
+	.form__label {
+		float: left;
+		margin-top: 5px;
+	}
+
+	.form__label__captial-delete {
+		font-size: 16px;
+		color: red;
+		margin-left: 2px;
+		margin-right: 2px;
+	}
+
+	.form__text-input {
+		margin-top: 5px;
+		margin-bottom: $inputMarginBottom;
+		outline: none;
+		box-sizing: border-box;
+		background: $lightGray;
+		padding: 8px;
+		width: 100%;
+		font-size: 14px;
+		text-align: center;
+	}
+
+	.form__errors {
+		display: block;
+		color: red;
+	}
+
+	.form__submit {
+		margin-top: 10px;
+		margin-bottom: 5px;
+		border: 0;
+		background: $lightBlueTeal;
+		padding: 10px;
+		width: 100%;
+		color: white;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	.form__submit:hover,
+	.form__submit:active {
+		background: $darkBlueTeal;
+	}
+
+	.modal-links-container {
+		width: $editAccountModalWidth;
+		position: absolute;
+		bottom: 30px;
+		text-align: center;
+	}
+
+	.modal-link {
+		color: blue;
+		font-style: bold;
+		text-decoration: none;
+		font-size: 22px;
+		margin-left: 15px;
+		margin-right: 15px;
+		cursor: pointer;
+	}
+
+	.link-spacer {
+		font-size: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}

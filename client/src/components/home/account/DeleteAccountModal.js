@@ -7,7 +7,7 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import "../../../SCSS/account/accountModals.scss";
+import "../../../SCSS/account/editAccountModals.scss";
 
 export default function DeleteAccountModal() {
 	const reduxState = useSelector((state) => state);
@@ -34,9 +34,11 @@ export default function DeleteAccountModal() {
 	};
 
 	const closeModals = () => {
-		dispatch(setWhichAccountComponentsDisplay({
-			accountSidebar: true,
-		}));
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountSidebar: true,
+			})
+		);
 	};
 
 	const handleSubmit = (e) => {
@@ -48,60 +50,57 @@ export default function DeleteAccountModal() {
 	};
 
 	return (
-		<div>
-			<div className="accountModalsBlurredBackgroundDiv" />
-			<div className="editAccountContainerDiv">
-				<button className="backButton" onClick={backToEditInfo}>
-					➔
-				</button>
-				<button className="exitButton" onClick={closeModals}>
-					X
-				</button>
-				<form className="editAccountForm" noValidate onSubmit={handleSubmit}>
-					<label className="titleLabel">Delete Account</label>
-					<br />
-					<label className="warningMessage">
-						If you are sure, type{" "}
-						<label className="capitalDelete">DELETE</label> below.
-					</label>{" "}
-					<br />
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.deleteTypedOut : ""}
-					</span>
+		<div className="edit-account-modal-components">
+			<div className="blurred-background" />
+			<div className="edit-account-modal">
+				<div className="back-button" onClick={backToEditInfo}>
+					<i className="fa fa-arrow-left" aria-hidden="true"></i>
+				</div>
+				<div className="exit-button" onClick={closeModals}>
+					<i className="fa fa-times" aria-hidden="true"></i>
+				</div>
+				<h1 className="title">Delete Account</h1>
+				<form className="form" noValidate onSubmit={handleSubmit}>
+					<label className="form__label">
+						Enter <span className="form__label__captial-delete">DELETE</span>{" "}
+						below.
+					</label>
 					<input
 						type="text"
 						name="deleteTypedOut"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.deleteTypedOut}
-						placeholder="Type here..."
 						id="deleteTypedOutInput"
-						className="formInput"
+						className="form__text-input"
 					/>
-					<span className="redErrorText">
-						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.deleteTypedOut : ""}
 					</span>
+					<label className="form__label">Current Password: </label>
 					<input
 						type="password"
 						name="currentPassword"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.currentPassword}
-						placeholder="Current Password"
 						id="currentPasswordInput"
-						className="formInput"
+						className="form__text-input"
 					/>
-					<span className="redErrorText">
+					<span className="form__errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
+					</span>
+					<button type="submit" className="form__submit">
+						Delete
+					</button>
+					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.authorization : ""}
 						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
 					</span>
-					<button type="submit" className="submitButton">
-						Delete
-					</button>
 				</form>
-				<div className="openOtherModalsDiv">
-					<label className="openModalLabel" onClick={backToEditInfo}>
+				<div className="modal-links-container">
+					<span className="modal-link" onClick={backToEditInfo}>
 						Back
-					</label>
+					</span>
 				</div>
 			</div>
 		</div>

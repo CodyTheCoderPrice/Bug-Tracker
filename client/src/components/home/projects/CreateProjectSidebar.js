@@ -123,7 +123,7 @@ export default function CreateProjectSidebar() {
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
 				<div className="padded-container">
-					<h2 className="title">New Project</h2>
+					<h1 className="title">New Project</h1>
 					<form className="form" noValidate onSubmit={handleSubmit}>
 						<label className="form__label">Name: </label>
 						<input
@@ -131,7 +131,7 @@ export default function CreateProjectSidebar() {
 							name="name"
 							onChange={(e) => onChange(e)}
 							value={projectInfo.name}
-							className="form_text-input"
+							className="form__text-input"
 						/>
 						<span className="form__errors">
 							{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}

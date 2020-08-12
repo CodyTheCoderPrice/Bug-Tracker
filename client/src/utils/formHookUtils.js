@@ -50,11 +50,19 @@ export function useToggleableDateInputAndTooltip(
 		if (state.statusId === completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				child.style.color = "black";
+				if (child.tagName === "INPUT"){
+					child.style.backgroundColor = "#e5e5e5";
+				}
+
 				child.disabled = false;
 			}
 		} else {
 			for (let child of dateContainerElement.childNodes) {
 				child.style.color = "#bfbfbf";
+				if (child.tagName === "INPUT"){
+					child.style.backgroundColor = "#f5f5f5";
+				}
+
 				child.disabled = true;
 			}
 		}

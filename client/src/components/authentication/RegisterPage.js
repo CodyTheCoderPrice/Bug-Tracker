@@ -44,7 +44,7 @@ export default function RegisterPage() {
 						name="firstName"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.firstName}
-						className="form_text-input"
+						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}
@@ -55,7 +55,7 @@ export default function RegisterPage() {
 						name="lastName"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.lastName}
-						className="form_text-input"
+						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}
@@ -66,7 +66,7 @@ export default function RegisterPage() {
 						name="email"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
-						className="form_text-input"
+						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
@@ -77,7 +77,7 @@ export default function RegisterPage() {
 						name="password"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
-						className="form_text-input"
+						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}
@@ -88,7 +88,7 @@ export default function RegisterPage() {
 						name="password2"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password2}
-						className="form_text-input"
+						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.password2 : ""}
