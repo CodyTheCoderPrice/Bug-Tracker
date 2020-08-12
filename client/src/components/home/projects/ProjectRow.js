@@ -7,9 +7,9 @@ import { shortenDescriptionForDisplay } from "../../../utils/componentUtils";
 
 import { formatDateYYYYmmDD } from "../../../utils/dateUtils";
 
-import "../../../SCSS/projects/projectBlocks.scss";
+import "../../../SCSS/projects/projectsTableAndRows.scss";
 
-export default function ProjectsBlock(props) {
+export default function ProjectRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -41,16 +41,33 @@ export default function ProjectsBlock(props) {
 	};
 
 	return (
-		<div className="projectsBlockDiv">
-			<div className="projectNameDiv">
-				<label className="projectNameLabel">{props.project.name}</label>
-				<div className="projectOptionsClickableDiv" onClick={printProject}>
-					<i className="fa fa-ellipsis-h" aria-hidden="true"></i>
-				</div>
-			</div>
-			<div className="projectDescriptionDiv">
-				<label className="projectDescriptionLabel">{project.description}</label>
-			</div>
-		</div>
+		<tr className="project-table__row">
+			<td className="project-table__data">
+				<span className="project-table__data__name">{project.name}</span>
+			</td>
+			<td className="project-table__data">
+				<span className="project-table__data__priority">
+					{project.priorityOption}
+				</span>
+			</td>
+			<td className="project-table__data">
+				<span className="project-table__data__status">
+					{project.statusOption}
+				</span>
+			</td>
+			<td className="project-table__data">
+				<span className="project-table__data__start-date">
+					{project.startDate}
+				</span>
+			</td>
+			<td className="project-table__data">
+				<span className="project-table__data__due-date">{project.dueDate}</span>
+			</td>
+			<td className="project-table__data">
+				<span className="project-table__data__info-link">More Info</span>
+			</td>
+			{/*Used to fill the remaining space of the screen (if needed)*/}
+			<td className="project-table__header"></td>
+		</tr>
 	);
 }

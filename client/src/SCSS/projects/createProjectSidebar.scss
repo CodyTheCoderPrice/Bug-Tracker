@@ -1,5 +1,7 @@
 @import "../utils/variables";
 
+$inputMarginBottom: 10px;
+
 .create-projects-component {
 	.blurred-background {
 		position: absolute;
@@ -7,6 +9,7 @@
 		opacity: 0.5;
 		height: 100vh;
 		width: 100vw;
+		overflow:auto;
 	}
 
 	.sidebar-container {
@@ -64,7 +67,7 @@
 
 	.form_text-input {
 		margin-top: 5px;
-		margin-bottom: 5px;
+		margin-bottom: $inputMarginBottom;
 		outline: none;
 		box-sizing: border-box;
 		background: #e5e5e5;
@@ -79,7 +82,7 @@
 
 	.form__textarea {
 		margin-top: 5px;
-		margin-bottom: 5px;
+		margin-bottom: $inputMarginBottom;
 		outline: none;
 		background: #e5e5e5;
 		padding: 4px;
@@ -104,7 +107,7 @@
 
 	.form__combo-box-container__select {
 		margin-top: 2px;
-		margin-bottom: 5px;
+		margin-bottom: $inputMarginBottom;
 		width: 100%;
 		// one pixel smaller than associated label
 		font-size: 13px;
@@ -125,7 +128,7 @@
 
 	.form__date-container__date-input {
 		margin-top: 2px;
-		margin-bottom: 5px;
+		margin-bottom: $inputMarginBottom;
 		outline: none;
 		// Width is 97% since date boxes extend past conatiner
 		width: 97%;
@@ -147,6 +150,8 @@
 		float: left;
 		padding: 12px;
 		background-color: black;
+		width: 180px;
+		text-align: left;
 		font-size: 14px;
 		color: white;
 	}

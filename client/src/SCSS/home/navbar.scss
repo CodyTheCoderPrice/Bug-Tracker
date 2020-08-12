@@ -10,63 +10,41 @@
 
 @import '../utils/variables';
 
-.navBarDiv {
-	height: $navBarHeight;
-	width: 100vw;
-	background-color: $blueGray;
+.navbar-component{
 	border: 1px solid black;
 	border-top: none;
 	border-left: none;
 	border-right: none;
-}
-
-.textDiv {
-	@include stopTextSelection();
-}
-
-.clickableDiv {
-	position: relative;
-	float: left;
+	background-color: $blueGray;
 	height: $navBarHeight;
-	width: 200px;
-	text-align: center;
-
-	.textDiv {
+	width: 100vw;
+	
+	.navbar-button {
+		position: relative;
+		float: left;
+		height: $navBarHeight;
 		width: 200px;
+		text-align: center;
+	}
+
+	.navbar-button__text-container {
+		@include stopTextSelection();
+
 		position: absolute;
 		top: 16px;
 		left: 52%;
 		transform: translate(-50%);
-		color: white;
+		width: 200px;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: 160%;
+		color: white;
 	}
-}
-
-.accountDropDownDiv {
-	position: absolute;
-	float: right;
-	right: 0;
-	width: 200px;
-	height: 300px;
-	margin: 0;
-	border: 0;
-	padding: 0;
-
-	.clickableDiv {
-		height: $navBarHeight;
+	
+	.account-dropdown {
+		// Must be absolute so it doesn't affect the postion of other components
+		position: absolute;
+		right: 0px;
 		width: 200px;
-		text-align: center;
-
-		.textDiv {
-			width: 150px;
-			position: absolute;
-			top: 16px;
-			left: 52%;
-			transform: translate(-50%);
-			color: white;
-			font-family: Verdana, Geneva, sans-serif;
-			font-size: 160%;
-		}
+		height: 300px;
 	}
 }

@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
 		newPassword2 = !isEmpty(newPassword2) ? newPassword2 : "";
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
-		// newPassword checks
+		// newPassword check
 		if (Validator.isEmpty(newPassword)) {
 			inputErrors.newPassword = "Password field is required";
 		}
@@ -27,7 +27,7 @@ module.exports = (req, res, next) => {
 			inputErrors.newPassword2 = "Passwords must match";
 		}
 
-		// currentPassword checks
+		// currentPassword check
 		if (Validator.isEmpty(currentPassword)) {
 			inputErrors.currentPassword = "Current password field is required";
 		}

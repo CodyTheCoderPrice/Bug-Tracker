@@ -11,13 +11,13 @@ module.exports = (req, res, next) => {
 		email = !isEmpty(email) ? email : "";
 		password = !isEmpty(password) ? password : "";
 
-		// Email checks
+		// Email check
 		if (Validator.isEmpty(email)) {
 			inputErrors.email = "Email field is required";
 		} else if (!Validator.isEmail(email)) {
 			inputErrors.email = "Email is invalid";
 		}
-		// Password checks
+		// Password check
 		if (Validator.isEmpty(password)) {
 			inputErrors.password = "Password field is required";
 		}

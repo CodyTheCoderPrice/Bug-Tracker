@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
 		firstName = !isEmpty(firstName) ? firstName : "";
 		lastName = !isEmpty(lastName) ? lastName : "";
 
-		// First name checks
+		// First name check
 		if (Validator.isEmpty(firstName)) {
 			inputErrors.firstName = "First name field is required";
 		}
@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
 		}
 
 
-		// Last name checks
+		// Last name check
 		if (Validator.isEmpty(lastName)) {
 			inputErrors.lastName = "Last name field is required";
 		}

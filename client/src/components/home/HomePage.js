@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Components
 import Navbar from "./Navbar";
-import ProjectsList from "./projects/ProjectsList";
+import ProjectsTable from "./projects/ProjectsTable";
 import EditInfoModal from "./account/EditInfoModal";
 import EditEmailModal from "./account/EditEmailModal";
 import EditPasswordModal from "./account/EditPasswordModal";
@@ -15,9 +15,9 @@ export default function HomePage() {
 	const reduxState = useSelector((state) => state);
 
 	return (
-		<div className="homePageBackgroundDiv">
+		<div className="home-page-background">
 			<Navbar />
-			{(reduxState.projectComponentsDisplay.projectsList) ? <ProjectsList /> : null}
+			{(reduxState.projectComponentsDisplay.projectsList) ? <ProjectsTable /> : null}
 			{(reduxState.accountComponentsDisplay.editInfoModal) ? <EditInfoModal /> : null}
 			{(reduxState.accountComponentsDisplay.editEmailModal) ? <EditEmailModal /> : null}
 			{(reduxState.accountComponentsDisplay.editPasswordModal) ? <EditPasswordModal />: null}

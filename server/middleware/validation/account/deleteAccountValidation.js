@@ -11,13 +11,13 @@ module.exports = (req, res, next) => {
 		deleteTypedOut = !isEmpty(deleteTypedOut) ? deleteTypedOut : "";
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
-		// Delete Typed Out checks
+		// Delete Typed Out check
 		if (Validator.isEmpty(deleteTypedOut)) {
 			inputErrors.deleteTypedOut = "This field is required";
 		} else if (deleteTypedOut !== "DELETE") {
 			inputErrors.deleteTypedOut = "Must type: DELETE";
 		}
-		// currentPassword checks
+		// currentPassword check
 		if (Validator.isEmpty(currentPassword)) {
 			inputErrors.currentPassword = "Current password field is required";
 		}

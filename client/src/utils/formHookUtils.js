@@ -15,7 +15,7 @@ export function useToggleableDateInputAndTooltip(
 		toggleDisableElements();
 		updateProxyDateStateAfterToggle();
 		toggleTooltipDisplay();
-	}, [state.status]);
+	}, [state.statusId]);
 
 	function handleMouseOver() {
 		let tooltipContainerElement = document.getElementsByClassName(
@@ -47,7 +47,7 @@ export function useToggleableDateInputAndTooltip(
 			dateContainerClassName
 		)[0];
 
-		if (state.status === completedIndex) {
+		if (state.statusId === completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				child.style.color = "black";
 				child.disabled = false;
@@ -65,7 +65,7 @@ export function useToggleableDateInputAndTooltip(
 			dateContainerClassName
 		)[0];
 
-		if (state.status === completedIndex) {
+		if (state.statusId === completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				if (child.tagName === "INPUT") {
 					updateProxyDateState(child.value);
@@ -81,7 +81,7 @@ export function useToggleableDateInputAndTooltip(
 			tooltipContainerClassName
 		)[0];
 
-		if (state.status !== completedIndex) {
+		if (state.statusId !== completedIndex) {
 			tooltipContainerElement.style.zIndex = "1";
 		} else {
 			tooltipContainerElement.style.zIndex = "-1";

@@ -8,9 +8,9 @@ module.exports = (req, res, next) => {
 		let {
 			name,
 			description,
-			/* priorityId,
+			priorityId,
 			statusId,
-			startDate,
+			/* startDate,
 			dueDate,
 			completionDate, */
 		} = req.body;
@@ -18,20 +18,20 @@ module.exports = (req, res, next) => {
 		// Convert empty fields to an empty string so we can use validator functions
 		name = !isEmpty(name) ? name : "";
 		description = !isEmpty(description) ? description : "";
-		/* priorityId = !isEmpty(priorityId) ? priorityId : "";
+		priorityId = !isEmpty(priorityId) ? priorityId : "";
 		statusId = !isEmpty(statusId) ? statusId : "";
-		startDate = !isEmpty(startDate) ? startDate : "";
+		/* startDate = !isEmpty(startDate) ? startDate : "";
 		dueDate = !isEmpty(dueDate) ? dueDate : "";
 		completionDate = !isEmpty(completionDate) ? completionDate : ""; */
 
-		// Name checks
+		// Name check
 		if (Validator.isEmpty(name)) {
 			inputErrors.name = "Name field is required";
 		} else if (!Validator.isLength(name, { max: 35 })) {
 			inputErrors.name = "Name can't be longer than 35 characters";
 		}
 
-		// Description checks
+		// Description check
 		if (!Validator.isLength(description, { max: 500 })) {
 			inputErrors.description =
 				"Description can't be longer than 500 characters";

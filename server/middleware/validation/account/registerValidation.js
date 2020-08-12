@@ -14,14 +14,14 @@ module.exports = (req, res, next) => {
 		firstName = !isEmpty(firstName) ? firstName : "";
 		lastName = !isEmpty(lastName) ? lastName : "";
 
-		// Email checks
+		// Email check
 		if (Validator.isEmpty(email)) {
 			inputErrors.email = "Email field is required";
 		} else if (!Validator.isEmail(email)) {
 			inputErrors.email = "Email is invalid";
 		}
 
-		// Password checks
+		// Password check
 		if (!Validator.isLength(password, { min: 6, max: 30 })) {
 			inputErrors.password = "Password must be 6-30 characters long";
 		}
@@ -36,7 +36,7 @@ module.exports = (req, res, next) => {
 			inputErrors.password2 = "Confirm password field is required";
 		}
 
-		// First name checks
+		// First name check
 		if (Validator.isEmpty(firstName)) {
 			inputErrors.firstName = "First name field is required";
 		}
@@ -44,7 +44,7 @@ module.exports = (req, res, next) => {
 			inputErrors.firstName= "First name can't be longer than 35 characters";
 		}
 
-		// Last name checks
+		// Last name check
 		if (Validator.isEmpty(lastName)) {
 			inputErrors.lastName = "Last name field is required";
 		}
