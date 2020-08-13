@@ -28,7 +28,7 @@ export default function EditPasswordModal() {
 	const backToEditInfo = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar: true,
+				accountDropdown: true,
 				editInfoModal: true,
 			})
 		);
@@ -37,7 +37,7 @@ export default function EditPasswordModal() {
 	const closeModals = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar: true,
+				accountDropdown: true,
 			})
 		);
 	};

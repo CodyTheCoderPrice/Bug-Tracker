@@ -1,7 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-// Easier to use than Date()
-import moment from "moment";
 
 import {
 	setWhichProjectComponentsDisplay,

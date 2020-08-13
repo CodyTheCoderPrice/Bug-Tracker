@@ -1,7 +1,7 @@
 import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../actions/types";
 
 const initialState = {
-	accountSidebar: false,
+	accountDropdown: false,
 	editInfoModal: false,
 	editEmailModal: false,
 	editPasswordModal: false,
@@ -15,9 +15,9 @@ export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY:
 			return {
-				accountSidebar:
-					action.displays.accountSidebar !== undefined
-						? action.displays.accountSidebar
+				accountDropdown:
+					action.displays.accountDropdown !== undefined
+						? action.displays.accountDropdown
 						: false,
 				editInfoModal:
 					action.displays.editInfoModal !== undefined

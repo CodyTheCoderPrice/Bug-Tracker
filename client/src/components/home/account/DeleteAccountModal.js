@@ -27,7 +27,7 @@ export default function DeleteAccountModal() {
 	const backToEditInfo = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar: true,
+				accountDropdown: true,
 				editInfoModal: true,
 			})
 		);
@@ -36,7 +36,7 @@ export default function DeleteAccountModal() {
 	const closeModals = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar: true,
+				accountDropdown: true,
 			})
 		);
 	};

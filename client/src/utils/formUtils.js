@@ -1,13 +1,13 @@
-export const toggleCharCountColor = (
+export function toggleCharCountColor(
 	nameOfClass,
 	descriptionLength,
 	charLimit
-) => {
+) {
 	document.getElementsByClassName(nameOfClass)[0].style.color =
 		descriptionLength > charLimit ? "red" : "black";
-};
+}
 
-export const populateComboBox = (selectElementClassName, array) => {
+export function populateComboBox(selectElementClassName, array) {
 	let selectElem = document.getElementsByClassName(selectElementClassName)[0];
 
 	for (let i = 0; i < array.length; i++) {
@@ -22,4 +22,4 @@ export const populateComboBox = (selectElementClassName, array) => {
 		optionElem.textContent = array[i].option;
 		selectElem.appendChild(optionElem);
 	}
-};
+}

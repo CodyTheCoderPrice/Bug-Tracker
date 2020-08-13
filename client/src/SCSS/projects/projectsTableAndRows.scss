@@ -5,6 +5,8 @@
 }
 
 .projects-table-component {
+	font-family: Arial, Helvetica, sans-serif;
+
 	.filter-search-bar {
 		border: 1px solid black;
 		border-top: none;
@@ -45,9 +47,10 @@
 
 	.project-table__data {
 		@include border-line();
+		padding: 0px 7px 0px 7px;
 	}
 
-	.project-table__data__info-link {
+	.project-table__data__info--blue-link {
 		color: blue;
 		cursor: pointer;
 	}

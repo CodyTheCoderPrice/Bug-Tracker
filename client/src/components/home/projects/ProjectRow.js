@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 /* import { setNavbarDropdownComponents } from "../../../actions"; */
 
-import { shortenDescriptionForDisplay } from "../../../utils/componentUtils";
-
-import { formatDateYYYYmmDD } from "../../../utils/dateUtils";
+import { formatDateMMddYYY } from "../../../utils/dateUtils";
 
 import "../../../SCSS/projects/projectsTableAndRows.scss";
 
@@ -16,14 +14,14 @@ export default function ProjectRow(props) {
 	const [project, setProject] = useState({
 		projectId: props.project.project_id,
 		name: props.project.name,
-		description: shortenDescriptionForDisplay(props.project.description),
+		description: props.project.description,
 		priorityId: props.project.p_priority_id,
 		priorityOption: props.project.p_priority_option,
 		statusId: props.project.p_status_id,
 		statusOption: props.project.p_status_option,
-		startDate: formatDateYYYYmmDD(props.project.start_date),
-		dueDate: formatDateYYYYmmDD(props.project.due_date),
-		completionDate: formatDateYYYYmmDD(props.project.completion_date),
+		startDate: formatDateMMddYYY(props.project.start_date),
+		dueDate: formatDateMMddYYY(props.project.due_date),
+		completionDate: formatDateMMddYYY(props.project.completion_date),
 	});
 
 	/* const openEditInfoModals = () => {
@@ -43,28 +41,28 @@ export default function ProjectRow(props) {
 	return (
 		<tr className="project-table__row">
 			<td className="project-table__data">
-				<span className="project-table__data__name">{project.name}</span>
+				<span className="project-table__data__info">{project.name}</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__priority">
+				<span className="project-table__data__info">
 					{project.priorityOption}
 				</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__status">
+				<span className="project-table__data__info">
 					{project.statusOption}
 				</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__start-date">
+				<span className="project-table__data__info">
 					{project.startDate}
 				</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__due-date">{project.dueDate}</span>
+				<span className="project-table__data__info">{project.dueDate}</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__info-link">More Info</span>
+				<span className="project-table__data__info project-table__data__info--blue-link">More Info</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}
 			<td className="project-table__header"></td>

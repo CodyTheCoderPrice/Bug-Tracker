@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Components
 import CreateProjectSidebar from "./projects/CreateProjectSidebar";
-import AccountSidebar from "./account/AccountSidebar";
+import AccountDropdown from "./account/AccountDropdown";
 
 import {
 	setWhichAccountComponentsDisplay,
@@ -21,7 +21,7 @@ export default function Navbar() {
 	useEffect(() => {
 		setNavbarButtonColor(
 			document.getElementsByClassName("js-account-button")[0],
-			reduxState.accountComponentsDisplay.accountSidebar
+			reduxState.accountComponentsDisplay.accountDropdown
 		);
 
 		setNavbarButtonColor(
@@ -30,14 +30,14 @@ export default function Navbar() {
 		);
 		setProjectsIcon(reduxState.projectComponentsDisplay.projectsList);
 	}, [
-		reduxState.accountComponentsDisplay.accountSidebar,
+		reduxState.accountComponentsDisplay.accountDropdown,
 		reduxState.projectComponentsDisplay.projectsList,
 	]);
 
-	const openAccountSidebar = () => {
+	const openAccountDropdown = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar: !reduxState.accountComponentsDisplay.accountSidebar,
+				accountDropdown: !reduxState.accountComponentsDisplay.accountDropdown,
 			})
 		);
 		dispatch(
@@ -85,26 +85,26 @@ export default function Navbar() {
 						<label className="choiceLabel"> Bugs</label>
 					</div>
 				</div>
-				<div className="account-dropdown">
-					<div
-						className="navbar-button js-account-button"
-						onClick={openAccountSidebar}
-					>
-						<div className="navbar-button__text-container">
-							<i className="fa fa-fw fa-user"></i>
-							<label className="choiceLabel">Account</label>
-						</div>
-					</div>
-					<div className="account-dropdown-component">
-						{reduxState.accountComponentsDisplay.accountSidebar ? (
-							<AccountSidebar />
-						) : null}
+				<div
+					className="navbar-button navbar-button--right navbar-button--large js-account-button"
+					onClick={openAccountDropdown}
+				>
+					<div className="navbar-button__text-container">
+						<i className="fa fa-fw fa-user"></i>
+						<label className="choiceLabel">Account</label>
 					</div>
 				</div>
 			</div>
-			{reduxState.projectComponentsDisplay.createProjectSidbar ? (
-				<CreateProjectSidebar />
-			) : null}
+			<div className="create-project-component-container">
+				{reduxState.projectComponentsDisplay.createProjectSidbar ? (
+					<CreateProjectSidebar />
+				) : null}
+			</div>
+			<div className="account-dropdown-component-container">
+				{reduxState.accountComponentsDisplay.accountDropdown ? (
+					<AccountDropdown />
+				) : null}
+			</div>
 		</div>
 	);
 }

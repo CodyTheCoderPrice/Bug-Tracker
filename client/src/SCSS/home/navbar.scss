@@ -27,6 +27,17 @@
 		text-align: center;
 	}
 
+	.navbar-button--right {
+		// Postion absolute instead of float right so that account button
+		// ...will always remain on screen during screen resizing
+		position: absolute;
+		right: 0;
+	}
+
+	.navbar-button--large {
+		width: 240px;
+	}
+
 	.navbar-button__text-container {
 		@include stopTextSelection();
 

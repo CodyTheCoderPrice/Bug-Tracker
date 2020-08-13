@@ -12,6 +12,8 @@ import RegisterPage from "./authentication/RegisterPage";
 import LoginPage from "./authentication/LoginPage";
 import HomePage from "./home/HomePage";
 
+import "../SCSS/app.scss";
+
 function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

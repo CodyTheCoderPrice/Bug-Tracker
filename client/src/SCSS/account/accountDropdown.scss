@@ -1,0 +1,47 @@
+@import '../utils/variables';
+
+.account-dropdown-component {
+	.dropdown-container {
+		position: absolute;
+		right: 0;
+		border: 5px solid $lightBlueGray;
+		border-top: none;
+		border-right: none;
+		background: white;
+		height: 700px;
+		width: 235px;
+		text-align: left;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	// Used so that the padding does not affect the size of the dropdown-container
+	.padded-container {
+		padding: 15px 5px 5px 10px;
+	}
+
+	.account-info {
+		display: block;
+		margin-bottom: 3px;
+	}
+
+	.account-info--bold {
+		font-weight: bold;
+	}
+
+	.underlined {
+		text-decoration: underline;
+	}
+
+	.account-link-container {
+		margin-top: 15px;
+	}
+
+	.account-link {
+		display: block;
+		margin-bottom: 3px;
+		color: blue;
+		font-style: bold;
+		text-decoration: none;
+		cursor: pointer;
+	}
+}
