@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import {
 	retrievePriorityStatusArrays,
 	retrieveAccount,
 	retrieveProjects,
+	setWhichAuthComponentsDisplay,
 } from "../actions";
 
-import RegisterPage from "./authentication/RegisterPage";
-import LoginPage from "./authentication/LoginPage";
-import HomePage from "./home/HomePage";
+import Register from "./authentication/Register";
+import Login from "./authentication/Login";
+import Home from "./home/Home";
 
 import "../SCSS/app.scss";
 
@@ -21,22 +21,41 @@ function App() {
 	// Used because of shallow comparison issues with objects
 	const accountJsonString = JSON.stringify(reduxState.account);
 
-	// Re-fetches possibly changed data after a page refresh
+	// Makes sure at least on Auth Component always displays
+	useEffect(() => {
+		if (
+			!reduxState.authComponentsDisplay.register &&
+			!reduxState.authComponentsDisplay.login &&
+			!reduxState.authComponentsDisplay.home
+		) {
+			console.log("Got here");
+			dispatch(setWhichAuthComponentsDisplay({ login: true }));
+		}
+	}, [reduxState.authComponentsDisplay]);
+
+	// Re-fetches data after a page refresh and makes sure the appropriate components display
 	useEffect(() => {
 		dispatch(retrievePriorityStatusArrays());
 
 		if (reduxState.auth.isAuthenticated && accountJsonString === "{}") {
 			dispatch(retrieveAccount());
 			dispatch(retrieveProjects());
+		} else {
+			// Makes sure unauthenticated users do not see home page
+			if (reduxState.authComponentsDisplay.home) {
+				dispatch(setWhichAuthComponentsDisplay({ login: true }));
+			} else { // Makes sure refreshes keep unauthenticated users on the same authentication page 
+				dispatch(setWhichAuthComponentsDisplay({ ...reduxState.authComponentsDisplay }));
+			}
 		}
-	}, [accountJsonString]);
+	}, []);
 
 	return (
-		<Router>
-			<Route path="/" exact component={HomePage} />
-			<Route exact path="/register" component={RegisterPage} />
-			<Route exact path="/login" component={LoginPage} />
-		</Router>
+		<div className="pageContainer">
+			{reduxState.authComponentsDisplay.register ? <Register /> : null}
+			{reduxState.authComponentsDisplay.login ? <Login /> : null}
+			{reduxState.authComponentsDisplay.home ? <Home /> : null}
+		</div>
 	);
 }
 

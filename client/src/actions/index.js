@@ -27,7 +27,6 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 	});
 };
 
-// Set input errors
 export const setInputErrors = (inputErrors) => (dispatch) => {
 	dispatch({
 		type: SET_INPUT_ERRORS,
@@ -35,7 +34,6 @@ export const setInputErrors = (inputErrors) => (dispatch) => {
 	});
 };
 
-// Clear input errors
 export const clearInputErrors = () => (dispatch) => {
 	dispatch({
 		type: SET_INPUT_ERRORS,

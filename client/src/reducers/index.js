@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
-// Components
+// Pages and Components
+import authComponentsDisplayReducer from "./authComponentsDisplayReducer";
 import accountComponentsDisplayReducer from "./accountComponentsDisplayReducer";
 import projectComponentsDisplayReducer from "./projectComponentsDisplayReducer";
 // Priority Status Options
@@ -13,6 +14,7 @@ import projectsReducer from "./projectsReducer";
 import inputErrorReducer from "./inputErrorReducer";
 
 export default combineReducers({
+	authComponentsDisplay: authComponentsDisplayReducer,
 	accountComponentsDisplay: accountComponentsDisplayReducer,
 	projectComponentsDisplay: projectComponentsDisplayReducer,
 	priorityStatusArrays: priorityStatusOptionsReducer,

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
-import { loginAccount, clearInputErrors } from "../../actions";
+import {
+	loginAccount,
+	clearInputErrors,
+	setWhichAuthComponentsDisplay,
+} from "../../actions";
 
-import "../../SCSS/authentication/registerLoginPages.scss";
+import "../../SCSS/authentication/registerLogin.scss";
 
-export default function LoginPage() {
+export default function Login() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -19,6 +22,10 @@ export default function LoginPage() {
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
+	};
+
+	const openRegister = () => {
+		dispatch(setWhichAuthComponentsDisplay({ register: true }));
 	};
 
 	const handleSubmit = (e) => {
@@ -69,12 +76,9 @@ export default function LoginPage() {
 				</form>
 				<div className="footer">
 					<label>Not a Member? </label>
-					<Link to="/register" className="footer__link">
+					<span className="footer__link" onClick={openRegister}>
 						Register
-					</Link>
-					<Link to="/" className="footer__link">
-						Home
-					</Link>
+					</span>
 				</div>
 			</div>
 		</div>

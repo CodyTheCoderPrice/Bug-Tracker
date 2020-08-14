@@ -8,10 +8,10 @@ import EditEmailModal from "./account/EditEmailModal";
 import EditPasswordModal from "./account/EditPasswordModal";
 import DeleteAccountModal from "./account/DeleteAccountModal";
 
-import "../../SCSS/home/homePage.scss";
+import "../../SCSS/home/home.scss";
 /* import "font-awesome/css/font-awesome.min.css"; */
 
-export default function HomePage() {
+export default function Home() {
 	const reduxState = useSelector((state) => state);
 
 	return (

@@ -8,6 +8,9 @@ const initialState = {
 	targetProject: null,
 };
 
+// Ternary operator is used to set undefined components to false since 
+// ...usually if one component is being set true, most others are being set false
+// ...this allows passing only the components you want to display
 export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_PROJECT_COMPONENTS_DISPLAY:

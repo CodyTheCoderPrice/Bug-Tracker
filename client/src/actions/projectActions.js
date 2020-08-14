@@ -4,7 +4,6 @@ import { SET_PROJECTS } from "./types";
 import { setInputErrors } from "./index";
 import { logoutAccount } from "./accountActions";
 
-// Set projects
 export const setProjects = (projects) => (dispatch) => {
 	dispatch({
 		type: SET_PROJECTS,
@@ -12,7 +11,6 @@ export const setProjects = (projects) => (dispatch) => {
 	});
 };
 
-// Create project
 export const createProject = (projectData) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
@@ -30,7 +28,6 @@ export const createProject = (projectData) => (dispatch) => {
 		});
 };
 
-// Retrieve projects
 export const retrieveProjects = () => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios

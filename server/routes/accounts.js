@@ -49,13 +49,11 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 						"INSERT INTO account (email, hash_pass, first_name, last_name, join_date) VALUES($1, $2, $3, $4, $5)",
 						[email, hash, firstName, lastName, join_date]
 					);
-
-					res.json({ success: true, message: "Account created" });
+					
+					return res.json({ success: true, message: "Account created" });
 				});
 			})
-			.catch((err) => {
-				throw err;
-			});
+
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.server = "Server error while register account";
@@ -114,7 +112,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 				expiresIn: "1d",
 			},
 			(err, jwToken) => {
-				res.json({
+				return res.json({
 					success: true,
 					jwToken: jwToken,
 					account: account,
@@ -169,7 +167,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 			joinDate: selectedAccount.rows[0].join_date,
 		};
 
-		res.json({ success: true, account });
+		return res.json({ success: true, account });
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.server = "Server error while retrieving account";
@@ -207,7 +205,7 @@ router
 				joinDate: updatedAccount.rows[0].join_date,
 			};
 
-			res.json({ success: true, account });
+			return res.json({ success: true, account });
 		} catch (err) {
 			console.error(err.message);
 			inputErrors.server = "Server error while updating account info";
@@ -247,7 +245,7 @@ router
 					joinDate: updatedAccount.rows[0].join_date,
 				};
 
-				res.json({ success: true, account });
+				return res.json({ success: true, account });
 			} catch (err) {
 				console.error(err.message);
 				inputErrors.server = "Server error while updating account email";
@@ -292,7 +290,7 @@ router
 							joinDate: updatedAccount.rows[0].join_date,
 						};
 
-						res.json({ success: true, account });
+						return res.json({ success: true, account });
 					});
 				});
 			} catch (err) {
