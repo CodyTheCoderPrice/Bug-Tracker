@@ -12,6 +12,8 @@ import Register from "./authentication/Register";
 import Login from "./authentication/Login";
 import Home from "./home/Home";
 
+// Allows font awesome icons
+import "font-awesome/css/font-awesome.min.css";
 import "../SCSS/app.scss";
 
 function App() {

@@ -38,6 +38,10 @@
 		width: 240px;
 	}
 
+	.navbar-button--selected {
+		background-color: $lightBlueGray;
+	}
+
 	.navbar-button__text-container {
 		@include stopTextSelection();
 

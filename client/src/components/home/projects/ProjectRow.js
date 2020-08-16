@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-/* import { setNavbarDropdownComponents } from "../../../actions"; */
+import { setWhichAccountComponentsDisplay, setWhichProjectComponentsDisplay } from "../../../actions";
 
 import { formatDateMMddYYY } from "../../../utils/dateUtils";
 
@@ -11,58 +11,42 @@ export default function ProjectRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [project, setProject] = useState({
-		projectId: props.project.project_id,
-		name: props.project.name,
-		description: props.project.description,
-		priorityId: props.project.p_priority_id,
-		priorityOption: props.project.p_priority_option,
-		statusId: props.project.p_status_id,
-		statusOption: props.project.p_status_option,
-		startDate: formatDateMMddYYY(props.project.start_date),
-		dueDate: formatDateMMddYYY(props.project.due_date),
-		completionDate: formatDateMMddYYY(props.project.completion_date),
-	});
-
-	/* const openEditInfoModals = () => {
+	const openViewProjectDashboard = () => {
+		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
-			setAccountModalComponents({
-				editInfoModal: <EditInfoModal />,
-				editEmailModal: null,
-				editPasswordModal: null,
+			setWhichProjectComponentsDisplay({
+				...reduxState.projectComponentsDisplay,
+				viewProjectDashboard: true,
+				targetProject: props.project,
 			})
 		);
-	}; */
-
-	const printProject = () => {
-		console.log(project);
 	};
 
 	return (
 		<tr className="project-table__row">
 			<td className="project-table__data">
-				<span className="project-table__data__info">{project.name}</span>
+				<span className="project-table__data__info">{props.project.name}</span>
 			</td>
 			<td className="project-table__data">
 				<span className="project-table__data__info">
-					{project.priorityOption}
+					{props.project.p_priority_option}
 				</span>
 			</td>
 			<td className="project-table__data">
 				<span className="project-table__data__info">
-					{project.statusOption}
+					{props.project.p_status_option}
 				</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__info">
-					{project.startDate}
+				<span className="project-table__data__info">{formatDateMMddYYY(props.project.start_date)}</span>
+			</td>
+			<td className="project-table__data">
+				<span className="project-table__data__info">{formatDateMMddYYY(props.project.due_date)}</span>
+			</td>
+			<td onClick={openViewProjectDashboard} className="project-table__data">
+				<span className="project-table__data__info project-table__data__info--blue-link">
+					More Info
 				</span>
-			</td>
-			<td className="project-table__data">
-				<span className="project-table__data__info">{project.dueDate}</span>
-			</td>
-			<td className="project-table__data">
-				<span className="project-table__data__info project-table__data__info--blue-link">More Info</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}
 			<td className="project-table__header"></td>

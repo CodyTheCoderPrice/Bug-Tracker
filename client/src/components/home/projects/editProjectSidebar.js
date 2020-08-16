@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// Easier to use than Date()
-import moment from "moment";
 
 import {
 	setWhichProjectComponentsDisplay,
-	createProject,
+	updateProject,
 	clearInputErrors,
 } from "../../../actions";
+
+import { formatDateYYYYmmDD } from "../../../utils/dateUtils";
 
 import {
 	toggleCharCountColor,
@@ -16,21 +16,23 @@ import {
 
 import { useToggleableDateInputAndTooltip } from "../../../utils/formHookUtils";
 
-import "../../../SCSS/projects/createProjectSidebar.scss";
+import "../../../SCSS/projects/editProjectSidebar.scss";
 
-export default function CreateProjectSidebar() {
+export default function EditProjectSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [projectInfo, setProjectInfo] = useState({
-		name: "",
-		description: "",
-		// Sets default to the first option
-		priorityId: reduxState.priorityStatusArrays.projectPriority[0].id,
-		statusId: reduxState.priorityStatusArrays.projectStatus[0].id,
-		startDate: moment().format("YYYY-MM-DD"),
-		dueDate: null,
-		completionDate: null,
+		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
+		name: reduxState.projectComponentsDisplay.targetProject.name,
+		description: reduxState.projectComponentsDisplay.targetProject.description,
+		priorityId: reduxState.projectComponentsDisplay.targetProject.p_priority_id,
+		priorityOption: reduxState.projectComponentsDisplay.targetProject.p_priority_option,
+		statusId: reduxState.projectComponentsDisplay.targetProject.p_status_id,
+		statusOption: reduxState.projectComponentsDisplay.targetProject.p_status_option,
+		startDate: formatDateYYYYmmDD(reduxState.projectComponentsDisplay.targetProject.start_date),
+		dueDate: formatDateYYYYmmDD(reduxState.projectComponentsDisplay.targetProject.due_date),
+		completionDate: formatDateYYYYmmDD(reduxState.projectComponentsDisplay.targetProject.completion_date),
 	});
 
 	const [descriptionCharLimit, setDescriptionCharLimit] = useState(500);
@@ -67,7 +69,7 @@ export default function CreateProjectSidebar() {
 
 	useEffect(() => {
 		toggleCharCountColor(
-			"js-character-counter",
+			"js-form__character-counter",
 			projectInfo.description.length,
 			descriptionCharLimit
 		);
@@ -97,97 +99,101 @@ export default function CreateProjectSidebar() {
 		}
 	};
 
-	const closeCreateProjectSidebar = () => {
+	const closeEditProjectSidebar = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectComponentsDisplay,
-				createProjectSidbar: false
+				editProjectSidebar: false
 			})
 		);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log(projectInfo);
 		// Clears any prior input errors
 		dispatch(clearInputErrors());
-		dispatch(createProject(projectInfo));
+		dispatch(updateProject(projectInfo));
 		setShouldShowAnyErrors(true);
 	};
 
 	return (
-		<div className="create-projects-component">
+		<div className="edit-projects-component">
 			<div className="blurred-background" />
-			<div className="create-project-sidebar">
-				<div className="x-button" onClick={closeCreateProjectSidebar}>
+			<div className="edit-project-sidebar">
+				<div className="x-button" onClick={closeEditProjectSidebar}>
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
 				<div className="padded-container">
-					<h1 className="title">New Project</h1>
+					<h1 className="title">Edit Project</h1>
 					<form className="form" noValidate onSubmit={handleSubmit}>
-						<label htmlFor="create-project-name" className="form__label">Name: </label>
+						<label htmlFor="edit-project-name" className="form__label">Name: </label>
 						<input
 							type="text"
 							name="name"
 							onChange={(e) => onChange(e)}
 							value={projectInfo.name}
-							id="create-project-name"
+							id="edit-project-name"
 							className="form__text-input"
 						/>
 						<span className="form__errors">
 							{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}
 						</span>
-						<label htmlFor="create-project-description" className="form__label">Description: </label>
-						<span className="form__character-counter js-character-counter">
+						<label htmlFor="edit-project-description" className="form__label">Description: </label>
+						<span className="form__character-counter js-form__character-counter">
 							{projectInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
 							name="description"
 							onChange={(e) => onChange(e)}
 							value={projectInfo.description}
-							id="create-project-description"
+							id="edit-project-description"
 							className="form__textarea"
 						/>
 						<span className="form__errors">
 							{shouldShowAnyErrors ? reduxState.inputErrors.description : ""}
 						</span>
 						<div className="form__combo-box-container">
-							<label htmlFor="create-project-priority" className="form__combo-box-container__label">
+							<label htmlFor="edit-project-priority" className="form__combo-box-container__label">
 								Priority:
 							</label>
 							<select
 								name="priorityId"
+								value={projectInfo.priorityId}
 								onChange={(e) => onChange(e)}
-								id="create-project-priority"
+								id="edit-project-priority"
 								className="form__combo-box-container__select js-priority-select"
 							></select>
-							<label htmlFor="create-project-status" className="form__combo-box-container__label">
+							<label htmlFor="edit-project-status" className="form__combo-box-container__label">
 								Status:
 							</label>
 							<select
 								name="statusId"
+								value={projectInfo.statusId}
 								onChange={(e) => onChange(e)}
-								id="create-project-status"
+								id="edit-project-status"
 								className="form__combo-box-container__select js-status-select"
 							></select>
 						</div>
 						<div className="form__date-container form__date-container--right">
-							<label htmlFor="create-project-start-date" className="form__date-container__label">Start Date:</label>
+							<label htmlFor="edit-project-start-date" className="form__date-container__label">Start Date:</label>
 							<input
 								type="date"
 								name="startDate"
 								value={projectInfo.startDate}
 								onChange={(e) => onChange(e)}
-								id="create-project-start-date"
+								id="edit-project-start-date"
 								className="form__date-container__date-input js-form__date-container__date-input"
 							/>
 						</div>
 						<div className="form__date-container form__date-container--right">
-							<label htmlFor="create-project-due-date" className="form__date-container__label">Due Date:</label>
+							<label htmlFor="edit-project-due-date" className="form__date-container__label">Due Date:</label>
 							<input
 								type="date"
 								name="dueDate"
+								value={projectInfo.dueDate}
 								onChange={(e) => onChange(e)}
-								id="create-project-due-date"
+								id="edit-project-due-date"
 								className="form__date-container__date-input"
 							/>
 						</div>
@@ -198,19 +204,20 @@ export default function CreateProjectSidebar() {
 							<div className="form__tooltip-container__arrow-right" />
 						</div>
 						<div className="form__date-container form__date-container--right js-form__date-container">
-							<label htmlFor="create-project-completion-date" className="form__date-container__label">
+							<label htmlFor="edit-project-completion-date" className="form__date-container__label">
 								Completion Date:
 							</label>
 							<input
 								type="date"
 								name="completionDate"
+								value={projectInfo.completionDate}
 								onChange={(e) => onChange(e)}
-								id="create-project-completion-date"
+								id="edit-project-completion-date"
 								className="form__date-container__date-input"
 							/>
 						</div>
 						<button type="submit" className="form__submit">
-							Create Project
+							Edit Project
 						</button>
 						<span className="form__errors">
 							{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}

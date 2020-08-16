@@ -9,12 +9,16 @@ export function useToggleableDateInputAndTooltip(
 ) {
 	useEffect(() => {
 		addTooltipEventForMouseOverAndOut();
+		// Below comment disables an unneeded warning in the console
+		// eslint-disable-next-line
 	}, []);
 
 	useEffect(() => {
 		toggleDisableElements();
 		updateProxyDateStateAfterToggle();
 		toggleTooltipDisplay();
+		// Below comment disables an unneeded warning in the console
+		// eslint-disable-next-line
 	}, [state.statusId]);
 
 	function handleMouseOver() {
@@ -40,7 +44,7 @@ export function useToggleableDateInputAndTooltip(
 
 		dateContainerElement.addEventListener("mouseover", handleMouseOver);
 		dateContainerElement.addEventListener("mouseout", handleMouseOut);
-	};
+	}
 
 	function toggleDisableElements() {
 		let dateContainerElement = document.getElementsByClassName(
@@ -50,7 +54,7 @@ export function useToggleableDateInputAndTooltip(
 		if (state.statusId === completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				child.style.color = "black";
-				if (child.tagName === "INPUT"){
+				if (child.tagName === "INPUT") {
 					child.style.backgroundColor = "#e5e5e5";
 				}
 
@@ -59,14 +63,14 @@ export function useToggleableDateInputAndTooltip(
 		} else {
 			for (let child of dateContainerElement.childNodes) {
 				child.style.color = "#bfbfbf";
-				if (child.tagName === "INPUT"){
+				if (child.tagName === "INPUT") {
 					child.style.backgroundColor = "#f5f5f5";
 				}
 
 				child.disabled = true;
 			}
 		}
-	};
+	}
 
 	function updateProxyDateStateAfterToggle() {
 		let dateContainerElement = document.getElementsByClassName(
@@ -82,7 +86,7 @@ export function useToggleableDateInputAndTooltip(
 		} else {
 			updateProxyDateState(null);
 		}
-	};
+	}
 
 	function toggleTooltipDisplay() {
 		let tooltipContainerElement = document.getElementsByClassName(

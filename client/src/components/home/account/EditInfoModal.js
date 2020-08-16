@@ -76,25 +76,29 @@ export default function EditInfoModal() {
 				</div>
 				<h1 className="title">Edit Personal Info</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
-					<label className="form__label">First Name: </label>
+					<label htmlFor="edit-account-info-first-name" className="form__label">
+						First Name:{" "}
+					</label>
 					<input
 						type="text"
 						name="firstName"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.firstName}
-						id="firstNameInput"
+						id="edit-account-info-first-name"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}
 					</span>
-					<label className="form__label">Last Name: </label>
+					<label htmlFor="edit-account-info-last-name" className="form__label">
+						Last Name:{" "}
+					</label>
 					<input
 						type="text"
 						name="lastName"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.lastName}
-						id="lastNameInput"
+						id="edit-account-info-last-name"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
@@ -109,19 +113,15 @@ export default function EditInfoModal() {
 					</span>
 				</form>
 				<div className="modal-links-container">
-					<span className="modal-link" onClick={openEditEmailModal}>
+					<span onClick={openEditEmailModal} className="modal-link">
 						Edit Email
 					</span>
 					<span className="link-spacer">|</span>
-					<span className="modal-link" onClick={openEditPasswordModal}>
+					<span onClick={openEditPasswordModal} className="modal-link">
 						Edit Password
 					</span>
 					<span className="link-spacer">|</span>
-					<span
-						className="modal-link"
-						id="deletespan"
-						onClick={openDeleteAccountModal}
-					>
+					<span onClick={openDeleteAccountModal} className="modal-link">
 						Delete Account
 					</span>
 				</div>

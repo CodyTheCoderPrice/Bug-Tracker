@@ -60,13 +60,13 @@ export default function AccountDropdown() {
 						<span className="account-info"><span className="underlined">Joined:</span> {accountInfo.joinDate}</span>
 					</div>
 					<div className="account-link-container">
-						<span className="account-link" onClick={openEditInfoModals}>
+						<span onClick={openEditInfoModals} className="account-link">
 							Edit Account
 						</span>
-						<span className="account-link" onClick={handleLogoutAccount}>
+						<span onClick={handleLogoutAccount} className="account-link">
 							Logout
 						</span>
-						<span className="account-link" onClick={logReduxState}>
+						<span onClick={logReduxState} className="account-link">
 							Console Log Redux State
 						</span>
 					</div>

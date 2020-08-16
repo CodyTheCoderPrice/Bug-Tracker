@@ -61,7 +61,7 @@ export default function DeleteAccountModal() {
 				</div>
 				<h1 className="title">Delete Account</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
-					<label className="form__label">
+					<label htmlFor="delete-account-type-out" className="form__label">
 						Enter <span className="form__label__captial-delete">DELETE</span>{" "}
 						below.
 					</label>
@@ -70,19 +70,19 @@ export default function DeleteAccountModal() {
 						name="deleteTypedOut"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.deleteTypedOut}
-						id="deleteTypedOutInput"
+						id="delete-account-type-out"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.deleteTypedOut : ""}
 					</span>
-					<label className="form__label">Current Password: </label>
+					<label htmlFor="delete-account-password" className="form__label">Current Password: </label>
 					<input
 						type="password"
 						name="currentPassword"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.currentPassword}
-						id="currentPasswordInput"
+						id="delete-account-password"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
@@ -98,7 +98,7 @@ export default function DeleteAccountModal() {
 					</span>
 				</form>
 				<div className="modal-links-container">
-					<span className="modal-link" onClick={backToEditInfo}>
+					<span onClick={backToEditInfo} className="modal-link">
 						Back
 					</span>
 				</div>

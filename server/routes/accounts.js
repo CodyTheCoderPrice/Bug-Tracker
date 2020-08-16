@@ -53,7 +53,6 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 					return res.json({ success: true, message: "Account created" });
 				});
 			})
-
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.server = "Server error while register account";

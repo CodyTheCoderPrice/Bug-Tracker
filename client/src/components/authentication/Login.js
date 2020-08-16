@@ -42,25 +42,25 @@ export default function Login() {
 			<div className="border-container">
 				<h1 className="title">Login</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
-					<label className="form__label">Email</label>
+					<label htmlFor="login-email" className="form__label">Email</label>
 					<input
 						type="email"
 						name="email"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
-						id="emailInput"
+						id="login-email"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
 					</span>
-					<label className="form__label">Password</label>
+					<label htmlFor="login-password" className="form__label">Password</label>
 					<input
 						type="password"
 						name="password"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
-						id="passwordInput"
+						id="login-password"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
@@ -76,7 +76,7 @@ export default function Login() {
 				</form>
 				<div className="footer">
 					<label>Not a Member? </label>
-					<span className="footer__link" onClick={openRegister}>
+					<span onClick={openRegister} className="footer__link">
 						Register
 					</span>
 				</div>

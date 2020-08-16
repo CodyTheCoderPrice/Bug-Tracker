@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// Components
-import CreateProjectSidebar from "./projects/CreateProjectSidebar";
-import AccountDropdown from "./account/AccountDropdown";
 
 import {
 	setWhichAccountComponentsDisplay,
@@ -11,8 +8,14 @@ import {
 
 import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
 
+// Components
+import CreateProjectSidebar from "./projects/CreateProjectSidebar";
+import viewProjectDashboard from "./projects/viewProjectDashboard";
+import EditProjectSidebar from "./projects/editProjectSidebar";
+import AccountDropdown from "./account/AccountDropdown";
+
 import "../../SCSS/home/navbar.scss";
-import "font-awesome/css/font-awesome.min.css";
+import ViewProjectDashboard from "./projects/viewProjectDashboard";
 
 export default function Navbar() {
 	const reduxState = useSelector((state) => state);
@@ -28,7 +31,10 @@ export default function Navbar() {
 			document.getElementsByClassName("js-project-button")[0],
 			reduxState.projectComponentsDisplay.projectsList
 		);
-		setProjectsIcon(reduxState.projectComponentsDisplay.projectsList);
+		setProjectsIcon(
+			document.getElementById("project-button-icon"),
+			reduxState.projectComponentsDisplay.projectsList
+		);
 	}, [
 		reduxState.accountComponentsDisplay.accountDropdown,
 		reduxState.projectComponentsDisplay.projectsList,
@@ -44,8 +50,8 @@ export default function Navbar() {
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectComponentsDisplay,
 				createProjectSidbar: false,
-				viewProjectModal: false,
-				editProjectModal: false,
+				viewProjectDashboard: false,
+				editProjectSidebar: false,
 			})
 		);
 	};
@@ -73,7 +79,7 @@ export default function Navbar() {
 					onClick={openProjectsList}
 				>
 					<div className="navbar-button__text-container">
-						<i id="projectsIcon" aria-hidden="true"></i> Projects
+						<i id="project-button-icon" aria-hidden="true"></i> Projects
 					</div>
 				</div>
 				<div
@@ -98,6 +104,16 @@ export default function Navbar() {
 			<div className="create-project-component-container">
 				{reduxState.projectComponentsDisplay.createProjectSidbar ? (
 					<CreateProjectSidebar />
+				) : null}
+			</div>
+			<div className="view-project-component-container">
+				{reduxState.projectComponentsDisplay.viewProjectDashboard ? (
+					<ViewProjectDashboard />
+				) : null}
+			</div>
+			<div className="edit-project-component-container">
+				{reduxState.projectComponentsDisplay.editProjectSidebar ? (
+					<EditProjectSidebar />
 				) : null}
 			</div>
 			<div className="account-dropdown-component-container">

@@ -1,7 +1,7 @@
 @import "../utils/variables";
 @import "../utils//mixins";
 
-.create-projects-component {
+.edit-projects-component {
 	.blurred-background {
 		position: absolute;
 		background-color: black;
@@ -11,7 +11,7 @@
 		overflow:auto;
 	}
 
-	.create-project-sidebar {
+	.edit-project-sidebar {
 		position: absolute;
 		border: 5px solid black;
 		border-top: none;

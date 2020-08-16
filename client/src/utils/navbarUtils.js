@@ -1,19 +1,26 @@
 export function setNavbarButtonColor(elem, component) {
 	if (!component) {
 		// When inactive
-		elem.style.backgroundColor = "#50677f";
+		// Space is needed before class name to keep from mergin with others
+		elem.className = elem.className.replace(
+			/(?:^|\s)navbar-button--selected(?!\S)/g,
+			""
+		);
 	} else {
 		// When active
-		elem.style.backgroundColor = "#596f87";
+		if (!elem.className.includes("navbar-button--selected")) {
+			// Space is needed before class name to keep from mergin with others
+			elem.className = elem.className + " navbar-button--selected";
+		}
 	}
-};
+}
 
-export function setProjectsIcon(component) {
+export function setProjectsIcon(elem, component) {
 	if (!component) {
 		// When inactive
-		document.getElementById("projectsIcon").className = "fa fa-folder";
+		elem.className = "fa fa-folder";
 	} else {
 		// When active
-		document.getElementById("projectsIcon").className = "fa fa-folder-open";
+		elem.className = "fa fa-folder-open";
 	}
-};
+}

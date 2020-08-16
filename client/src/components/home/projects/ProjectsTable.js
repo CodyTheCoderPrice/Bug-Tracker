@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
 	setWhichProjectComponentsDisplay,
 	setWhichAccountComponentsDisplay,
+	retrieveProjects
 } from "../../../actions";
 
 // Components
@@ -36,33 +37,37 @@ export default function ProjectsTable() {
 				</div>
 			</div>
 			<table className="projects-table">
-				<tr className="project-table__row">
-					<th className="project-table__header">
-						<span className="project-table__header__name">Name</span>
-					</th>
-					<th className="project-table__header">
-						<span className="project-table__header__priority">Priority</span>
-					</th>
-					<th className="project-table__header">
-						<span className="project-table__header__status">Status</span>
-					</th>
-					<th className="project-table__header">
-						<span className="project-table__header__start-date">
-							Start Date
-						</span>
-					</th>
-					<th className="project-table__header">
-						<span className="project-table__header__due-date">Due Date</span>
-					</th>
-					<th className="project-table__header">
-						<span className="project-table__header__more-info"></span>
-					</th>
-					{/*Used to fill the remaining space of the screen (if needed)*/}
-					<th className="project-table__header js-remaining-space"></th>
-				</tr>
-				{reduxState.projects.map((project, i) => {
-					return <ProjectRow key={i} project={project} />;
-				})}
+				<thead>
+					<tr className="project-table__row">
+						<th className="project-table__header">
+							<span className="project-table__header__name">Name</span>
+						</th>
+						<th className="project-table__header">
+							<span className="project-table__header__priority">Priority</span>
+						</th>
+						<th className="project-table__header">
+							<span className="project-table__header__status">Status</span>
+						</th>
+						<th className="project-table__header">
+							<span className="project-table__header__start-date">
+								Start Date
+							</span>
+						</th>
+						<th className="project-table__header">
+							<span className="project-table__header__due-date">Due Date</span>
+						</th>
+						<th className="project-table__header">
+							<span className="project-table__header__more-info"></span>
+						</th>
+						{/*Used to fill the remaining space of the screen (if needed)*/}
+						<th className="project-table__header js-remaining-space"></th>
+					</tr>
+				</thead>
+				<tbody>
+					{reduxState.projects.map((project, i) => {
+						return <ProjectRow key={i} project={project} />;
+					})}
+				</tbody>
 			</table>
 		</div>
 	);

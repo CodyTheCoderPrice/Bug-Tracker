@@ -11,10 +11,10 @@ export const setProjects = (projects) => (dispatch) => {
 	});
 };
 
-export const createProject = (projectData) => (dispatch) => {
+export const createProject = (projectInfo) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/project/create", projectData, headers)
+		.post("/api/project/create", projectInfo, headers)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
@@ -32,6 +32,23 @@ export const retrieveProjects = () => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
 		.post("/api/project/retrieve", null, headers)
+		.then((res) => {
+			const { projects } = res.data;
+			dispatch(setProjects(projects));
+		})
+		.catch((err) => {
+			dispatch(setInputErrors(err.response.data.inputErrors));
+
+			if (err.response.data.inputErrors.jwToken !== undefined) {
+				dispatch(logoutAccount());
+			}
+		});
+};
+
+export const updateProject = (projectInfo) => (dispatch) => {
+	const headers = { headers: { jwToken: localStorage.jwToken } };
+	axios
+		.post("/api/project/update", projectInfo, headers)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));

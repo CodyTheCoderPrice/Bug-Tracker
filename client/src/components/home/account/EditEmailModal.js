@@ -61,25 +61,25 @@ export default function EditEmailModal() {
 				</div>
 				<h1 className="title">Edit Email</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
-					<label className="form__label">Email: </label>
+					<label htmlFor="edit-account-email-email" className="form__label">Email: </label>
 					<input
 						type="email"
 						name="email"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
-						id="emailInput"
+						id="edit-account-email-email"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
 					</span>
-					<label className="form__label">Current Password: </label>
+					<label htmlFor="edit-account-email-password" className="form__label">Current Password: </label>
 					<input
 						type="password"
 						name="currentPassword"
 						onChange={(e) => onChange(e)}
 						value={accountInfo.currentPassword}
-						id="currentPasswordInput"
+						id="edit-account-email-password"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
@@ -95,7 +95,7 @@ export default function EditEmailModal() {
 					</span>
 				</form>
 				<div className="modal-links-container">
-					<span className="modal-link" onClick={backToEditInfo}>
+					<span onClick={backToEditInfo} className="modal-link">
 						Back
 					</span>
 				</div>
