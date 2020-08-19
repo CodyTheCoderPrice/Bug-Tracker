@@ -1,0 +1,84 @@
+@import "../utils/variables";
+@import "../utils//mixins";
+
+.view-project-component {
+	.blurred-background {
+		position: absolute;
+		background-color: black;
+		opacity: 0.5;
+		height: 100vh;
+		width: 100vw;
+		overflow: auto;
+	}
+
+	.view-project-modal {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+		margin-top: 5px;
+		border: 5px solid black;
+		background: #e6e9ee;
+		height: 500px;
+		width: 90vw;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	.x-button {
+		@include back-exit-buttons();
+		right: 15px;
+	}
+	.x-button:hover,
+	.x-button:active {
+		color: $black;
+	}
+
+	.padded-container {
+		// No padding on the top because of the header
+		padding: 40px 25px 25px 25px;
+	}
+
+	.view-project-table {
+		height: 100%;
+		width: 100%;
+	}
+
+	.view-project-table__data {
+		width: 33.33%;
+		text-overflow: ellipsis;
+	}
+
+	.first-container {
+		margin: 10px;
+		border: 2px solid black;
+		background-color: white;
+		padding: 10px;
+	}
+
+	.first-container__project-name {
+		display: block;
+		margin: 5px 0px 5px 0px;
+		font-size: 130%;
+		font-weight: bold;
+	}
+
+	.first-container__creation-info {
+		display: block;
+	}
+
+	.first-container__description-title {
+		display: block;
+		margin: 20px 0px 5px 0px;
+		font-weight: bold;
+	}
+
+	.first-container__description-title {
+		display: block;
+		margin-top: 15px;
+		font-weight: bold;
+	}
+
+	.first-container__description-info {
+		display: block;
+		margin-left: 10px;
+	}
+}

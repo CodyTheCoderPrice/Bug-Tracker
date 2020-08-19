@@ -12,7 +12,7 @@ import {
 import {
 	toggleCharCountColor,
 	populateComboBox,
-} from "../../../utils/formUtils";
+} from "../../../utils/elementUtils";
 
 import { useToggleableDateInputAndTooltip } from "../../../utils/formHookUtils";
 
@@ -33,7 +33,7 @@ export default function CreateProjectSidebar() {
 		completionDate: null,
 	});
 
-	const [descriptionCharLimit, setDescriptionCharLimit] = useState(500);
+	const [descriptionCharLimit] = useState(500);
 	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
 	// Used by custom hook useToggleableDateInputAndTooltip to update completionDate after a toggle.
@@ -63,6 +63,8 @@ export default function CreateProjectSidebar() {
 			"js-status-select",
 			reduxState.priorityStatusArrays.projectStatus
 		);
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, []);
 
 	useEffect(() => {
@@ -71,6 +73,8 @@ export default function CreateProjectSidebar() {
 			projectInfo.description.length,
 			descriptionCharLimit
 		);
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, [projectInfo.description]);
 
 	// Keeps the proxyCompletionDate in sync with
@@ -83,6 +87,8 @@ export default function CreateProjectSidebar() {
 	// ...after the compltionDate component has been toggled
 	useEffect(() => {
 		setProjectInfo({ ...projectInfo, completionDate: proxyCompletionDate });
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, [proxyCompletionDate]);
 
 	const onChange = (e) => {

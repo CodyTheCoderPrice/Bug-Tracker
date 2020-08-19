@@ -10,23 +10,17 @@ import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
 
 // Components
 import CreateProjectSidebar from "./projects/CreateProjectSidebar";
-import viewProjectDashboard from "./projects/viewProjectDashboard";
-import EditProjectSidebar from "./projects/editProjectSidebar";
+import ViewProjectModal from "./projects/ViewProjectModal";
+import EditProjectSidebar from "./projects/EditProjectSidebar";
 import AccountDropdown from "./account/AccountDropdown";
 
 import "../../SCSS/home/navbar.scss";
-import ViewProjectDashboard from "./projects/viewProjectDashboard";
 
 export default function Navbar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		setNavbarButtonColor(
-			document.getElementsByClassName("js-account-button")[0],
-			reduxState.accountComponentsDisplay.accountDropdown
-		);
-
 		setNavbarButtonColor(
 			document.getElementsByClassName("js-project-button")[0],
 			reduxState.projectComponentsDisplay.projectsList
@@ -35,6 +29,10 @@ export default function Navbar() {
 			document.getElementById("project-button-icon"),
 			reduxState.projectComponentsDisplay.projectsList
 		);
+		setNavbarButtonColor(
+			document.getElementsByClassName("js-account-button")[0],
+			reduxState.accountComponentsDisplay.accountDropdown
+		);
 	}, [
 		reduxState.accountComponentsDisplay.accountDropdown,
 		reduxState.projectComponentsDisplay.projectsList,
@@ -42,16 +40,16 @@ export default function Navbar() {
 
 	const openAccountDropdown = () => {
 		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountDropdown: !reduxState.accountComponentsDisplay.accountDropdown,
-			})
-		);
-		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectComponentsDisplay,
 				createProjectSidbar: false,
-				viewProjectDashboard: false,
+				viewProjectModal: false,
 				editProjectSidebar: false,
+			})
+		);
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountDropdown: !reduxState.accountComponentsDisplay.accountDropdown,
 			})
 		);
 	};
@@ -79,7 +77,7 @@ export default function Navbar() {
 					onClick={openProjectsList}
 				>
 					<div className="navbar-button__text-container">
-						<i id="project-button-icon" aria-hidden="true"></i> Projects
+						<i id="project-button-icon" aria-hidden="true" /> Projects
 					</div>
 				</div>
 				<div
@@ -87,8 +85,7 @@ export default function Navbar() {
 					/* onClick={} */
 				>
 					<div className="navbar-button__text-container">
-						<i className="fa fa-bug" aria-hidden="true"></i>
-						<label className="choiceLabel"> Bugs</label>
+						<i className="fa fa-bug" aria-hidden="true" /> Bugs
 					</div>
 				</div>
 				<div
@@ -96,8 +93,7 @@ export default function Navbar() {
 					onClick={openAccountDropdown}
 				>
 					<div className="navbar-button__text-container">
-						<i className="fa fa-fw fa-user"></i>
-						<label className="choiceLabel">Account</label>
+						<i className="fa fa-fw fa-user" />Account
 					</div>
 				</div>
 			</div>
@@ -107,8 +103,8 @@ export default function Navbar() {
 				) : null}
 			</div>
 			<div className="view-project-component-container">
-				{reduxState.projectComponentsDisplay.viewProjectDashboard ? (
-					<ViewProjectDashboard />
+				{reduxState.projectComponentsDisplay.viewProjectModal ? (
+					<ViewProjectModal />
 				) : null}
 			</div>
 			<div className="edit-project-component-container">

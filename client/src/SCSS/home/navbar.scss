@@ -11,10 +11,6 @@
 @import '../utils/variables';
 
 .navbar-component{
-	border: 1px solid black;
-	border-top: none;
-	border-left: none;
-	border-right: none;
 	background-color: $blueGray;
 	height: $navBarHeight;
 	width: 100vw;

@@ -1,4 +1,4 @@
-import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../actions/types";
+import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../../actions/types";
 
 const initialState = {
 	accountDropdown: false,

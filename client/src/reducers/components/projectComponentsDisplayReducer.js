@@ -1,9 +1,9 @@
-import { SET_WHICH_PROJECT_COMPONENTS_DISPLAY } from "../actions/types";
+import { SET_WHICH_PROJECT_COMPONENTS_DISPLAY } from "../../actions/types";
 
 const initialState = {
 	projectsList: true,
 	createProjectSidbar: false,
-	viewProjectDashboard: false,
+	viewProjectModal: false,
 	editProjectSidebar: false,
 	targetProject: null,
 };
@@ -26,9 +26,9 @@ export default function (state = initialState, action) {
 						action.displays.createProjectSidbar !== undefined
 							? action.displays.createProjectSidbar
 							: false,
-					viewProjectDashboard:
-						action.displays.viewProjectDashboard !== undefined
-							? action.displays.viewProjectDashboard
+					viewProjectModal:
+						action.displays.viewProjectModal !== undefined
+							? action.displays.viewProjectModal
 							: false,
 					editProjectSidebar:
 						action.displays.editProjectSidebar !== undefined

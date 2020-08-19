@@ -1,4 +1,4 @@
-import { SET_WHICH_AUTH_COMPONENTS_DISPLAY } from "../actions/types";
+import { SET_WHICH_AUTH_COMPONENTS_DISPLAY } from "../../actions/types";
 
 const initialState = {
 	register: false,

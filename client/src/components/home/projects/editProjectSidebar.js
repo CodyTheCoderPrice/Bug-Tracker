@@ -12,7 +12,7 @@ import { formatDateYYYYmmDD } from "../../../utils/dateUtils";
 import {
 	toggleCharCountColor,
 	populateComboBox,
-} from "../../../utils/formUtils";
+} from "../../../utils/elementUtils";
 
 import { useToggleableDateInputAndTooltip } from "../../../utils/formHookUtils";
 
@@ -35,7 +35,7 @@ export default function EditProjectSidebar() {
 		completionDate: formatDateYYYYmmDD(reduxState.projectComponentsDisplay.targetProject.completion_date),
 	});
 
-	const [descriptionCharLimit, setDescriptionCharLimit] = useState(500);
+	const [descriptionCharLimit] = useState(500);
 	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
 	// Used by custom hook useToggleableDateInputAndTooltip to update completionDate after a toggle.

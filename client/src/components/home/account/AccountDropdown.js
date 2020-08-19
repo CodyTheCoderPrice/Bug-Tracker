@@ -50,6 +50,7 @@ export default function AccountDropdown() {
 
 	return (
 		<div className="account-dropdown-component">
+			<div className="blurred-background" />
 			<div className="dropdown-container">
 				<div className="padded-container">
 					<div className="account-info-container">

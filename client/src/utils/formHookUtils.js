@@ -9,7 +9,7 @@ export function useToggleableDateInputAndTooltip(
 ) {
 	useEffect(() => {
 		addTooltipEventForMouseOverAndOut();
-		// Below comment disables an unneeded warning in the console
+		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -17,7 +17,7 @@ export function useToggleableDateInputAndTooltip(
 		toggleDisableElements();
 		updateProxyDateStateAfterToggle();
 		toggleTooltipDisplay();
-		// Below comment disables an unneeded warning in the console
+		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [state.statusId]);
 
