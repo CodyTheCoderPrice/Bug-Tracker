@@ -1,12 +1,17 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export function useToggleableDateInputAndTooltip(
 	state,
-	updateProxyDateState,
 	dateContainerClassName,
 	tooltipContainerClassName,
 	completedIndex
 ) {
+	// Used by custom hook useToggleableDateInputAndTooltip to update completionDate after a toggle.
+	// The reason a proxy is used is so hook can only update completionDate and not the rest of the state.
+	const [proxyCompletionDate, setProxyCompletionDate] = useState(
+		state.completionDate
+	);
+
 	useEffect(() => {
 		addTooltipEventForMouseOverAndOut();
 		// Below comment disables an unneeded warning about optimization
@@ -15,7 +20,7 @@ export function useToggleableDateInputAndTooltip(
 
 	useEffect(() => {
 		toggleDisableElements();
-		updateProxyDateStateAfterToggle();
+		setProxyCompletionDateAfterToggle();
 		toggleTooltipDisplay();
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
@@ -72,7 +77,7 @@ export function useToggleableDateInputAndTooltip(
 		}
 	}
 
-	function updateProxyDateStateAfterToggle() {
+	function setProxyCompletionDateAfterToggle() {
 		let dateContainerElement = document.getElementsByClassName(
 			dateContainerClassName
 		)[0];
@@ -80,11 +85,11 @@ export function useToggleableDateInputAndTooltip(
 		if (state.statusId === completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				if (child.tagName === "INPUT") {
-					updateProxyDateState(child.value);
+					setProxyCompletionDate(child.value);
 				}
 			}
 		} else {
-			updateProxyDateState(null);
+			setProxyCompletionDate(null);
 		}
 	}
 
@@ -100,5 +105,5 @@ export function useToggleableDateInputAndTooltip(
 		}
 	}
 
-	return [];
+	return [proxyCompletionDate, setProxyCompletionDate];
 }

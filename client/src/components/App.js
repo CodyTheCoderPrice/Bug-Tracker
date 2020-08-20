@@ -8,7 +8,7 @@ import {
 	setWhichAuthComponentsDisplay,
 } from "../actions";
 
-import { useTrackWindowSize } from "../utils/appUtils";
+import { getWindowSize } from "../utils/displaySizeUtils";
 
 import Register from "./authentication/Register";
 import Login from "./authentication/Login";
@@ -22,27 +22,11 @@ function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Custom hook is used to keep the current window size stored in Redux
-	const [] = useTrackWindowSize();
-
 	// Used because of shallow comparison issues with objects
 	const accountJsonString = JSON.stringify(reduxState.account);
-
-	// Makes sure at least on Auth Component always displays
-	useEffect(() => {
-		if (
-			!reduxState.authComponentsDisplay.register &&
-			!reduxState.authComponentsDisplay.login &&
-			!reduxState.authComponentsDisplay.home
-		) {
-			console.log("Got here");
-			dispatch(setWhichAuthComponentsDisplay({ login: true }));
-		}
-		// Below comment disables an unneeded warning about optimization
-		// eslint-disable-next-line
-	}, [reduxState.authComponentsDisplay]);
-
-	// Re-fetches data after a page refresh and makes sure the appropriate components display
+	
+	// Re-fetches user data after a page refresh,
+	// ... and makes sure the appropriate components are displayed
 	useEffect(() => {
 		dispatch(retrievePriorityStatusArrays());
 
@@ -63,6 +47,22 @@ function App() {
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
+
+	// Makes sure at least on Auth Component always displays
+	// ...Since login is set to display by default, this useEffect
+	// ...only needs to run when authComponentsDisplay changes
+	useEffect(() => {
+		if (
+			!reduxState.authComponentsDisplay.register &&
+			!reduxState.authComponentsDisplay.login &&
+			!reduxState.authComponentsDisplay.home
+		) {
+			console.log("Got here");
+			dispatch(setWhichAuthComponentsDisplay({ login: true }));
+		}
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
+	}, [reduxState.authComponentsDisplay]);
 
 	return (
 		<div className="pageContainer">

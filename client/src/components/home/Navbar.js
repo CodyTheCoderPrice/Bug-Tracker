@@ -2,11 +2,18 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
+	storeDisplaySizes,
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 } from "../../actions";
 
 import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
+
+import {
+	getWindowSize,
+	getElementSize,
+	getScrollbarWidth,
+} from "../../utils/displaySizeUtils";
 
 // Components
 import CreateProjectSidebar from "./projects/CreateProjectSidebar";
@@ -19,6 +26,31 @@ import "../../SCSS/home/navbar.scss";
 export default function Navbar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	// Makes sure the current size of the window and navbar are stored in redux,
+	useEffect(() => {
+		// Stores the initial navbar size
+		dispatch(
+			storeDisplaySizes({
+				window: getWindowSize(),
+				navbar: getElementSize("js-navbar"),
+				scrollbar: getScrollbarWidth(),
+			})
+		);
+
+		// Adds event to update navbar size on a resize
+		window.addEventListener("resize", () => {
+			dispatch(
+				storeDisplaySizes({
+					window: getWindowSize(),
+					navbar: getElementSize("js-navbar"),
+					scrollbar: getScrollbarWidth(),
+				})
+			);
+		});
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
+	}, []);
 
 	useEffect(() => {
 		setNavbarButtonColor(
@@ -68,9 +100,9 @@ export default function Navbar() {
 	}; */
 
 	return (
-		<div>
+		<div className="navbar-and-other-components-container">
 			<div
-				className="navbar-component" /* onClick={closeCreateProjectSidebar} */
+				className="navbar-component js-navbar" /* onClick={closeCreateProjectSidebar} */
 			>
 				<div
 					className="navbar-button js-project-button"
@@ -93,7 +125,8 @@ export default function Navbar() {
 					onClick={openAccountDropdown}
 				>
 					<div className="navbar-button__text-container">
-						<i className="fa fa-fw fa-user" />Account
+						<i className="fa fa-fw fa-user" />
+						Account
 					</div>
 				</div>
 			</div>

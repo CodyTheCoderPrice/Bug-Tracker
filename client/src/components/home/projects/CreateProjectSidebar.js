@@ -36,19 +36,12 @@ export default function CreateProjectSidebar() {
 	const [descriptionCharLimit] = useState(500);
 	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
-	// Used by custom hook useToggleableDateInputAndTooltip to update completionDate after a toggle.
-	// The reason a proxy is used is so hook can only update completionDate and not the rest of the state.
-	const [proxyCompletionDate, setProxyCompletionDate] = useState(
-		projectInfo.completionDate
-	);
-
-	// This custom hook handles all functionality for toggling completion date,
-	// ...making suring the project state for completion date is accurate after a toggle,
-	// ...toggling the display of the completion date tooltip,
-	// ...and adding the tooltips event listener
-	const [] = useToggleableDateInputAndTooltip(
+	// This custom hook toggles the display of the completion date input based on the project status,
+	// ...makes sure the projectInfo completion date is accurate after every toggle by using a proxy completion date,
+	// ...toggles when the completion date tooltip is able to be displayed based on the project status,
+	// ...adds an event listener to display the tooltip (based on status) when the completion date input element is hovered over.
+	const [proxyCompletionDate, setProxyCompletionDate] = useToggleableDateInputAndTooltip(
 		projectInfo,
-		setProxyCompletionDate,
 		"js-form__date-container",
 		"js-form__tooltip-container",
 		reduxState.priorityStatusArrays.projectStatusCompletionIndex
@@ -77,14 +70,16 @@ export default function CreateProjectSidebar() {
 		// eslint-disable-next-line
 	}, [projectInfo.description]);
 
-	// Keeps the proxyCompletionDate in sync with
-	// ...completonDate after the user selects a date
+	// Keeps the proxyCompletionDate in sync with projectInfo's completonDate 
+	// ...after anytime the user selects a completion date
 	useEffect(() => {
 		setProxyCompletionDate(projectInfo.completionDate);
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, [projectInfo.completionDate]);
 
-	// Updates completionDate to match the proxyCompletionDate
-	// ...after the compltionDate component has been toggled
+	// Updates projectInfo's completionDate to match the proxyCompletionDate
+	// ...after anytime the compltionDate input element has been toggled
 	useEffect(() => {
 		setProjectInfo({ ...projectInfo, completionDate: proxyCompletionDate });
 		// Below comment disables an unneeded warning about optimization

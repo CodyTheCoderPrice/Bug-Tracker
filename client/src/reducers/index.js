@@ -3,8 +3,8 @@ import { combineReducers } from "redux";
 import authComponentsDisplayReducer from "./components/authComponentsDisplayReducer";
 import accountComponentsDisplayReducer from "./components/accountComponentsDisplayReducer";
 import projectComponentsDisplayReducer from "./components/projectComponentsDisplayReducer";
-// Window Size
-import windowSizeReducer from "./windowSizeReducer";
+// Display Sizes
+import displaySizesReducer from "./displaySizesReducer";
 // Priority Status Options
 import priorityStatusOptionsReducer from "./priorityStatusOptionsReducer";
 // Account
@@ -19,7 +19,7 @@ export default combineReducers({
 	authComponentsDisplay: authComponentsDisplayReducer,
 	accountComponentsDisplay: accountComponentsDisplayReducer,
 	projectComponentsDisplay: projectComponentsDisplayReducer,
-	windowSize: windowSizeReducer,
+	displaySizes: displaySizesReducer,
 	priorityStatusArrays: priorityStatusOptionsReducer,
 	auth: authReducer,
 	account: accountReducer,

@@ -10,10 +10,10 @@ export function truncate(str, cutoff, useWordBoundary) {
 	);
 }
 
-export function formatDescription(description) {
+/* export function formatDescription(description) {
 	if (description.length < 1) {
 		return "...";
 	} else {
 		return description;
 	}
-}
+} */

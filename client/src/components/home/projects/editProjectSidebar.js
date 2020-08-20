@@ -27,30 +27,34 @@ export default function EditProjectSidebar() {
 		name: reduxState.projectComponentsDisplay.targetProject.name,
 		description: reduxState.projectComponentsDisplay.targetProject.description,
 		priorityId: reduxState.projectComponentsDisplay.targetProject.p_priority_id,
-		priorityOption: reduxState.projectComponentsDisplay.targetProject.p_priority_option,
+		priorityOption:
+			reduxState.projectComponentsDisplay.targetProject.p_priority_option,
 		statusId: reduxState.projectComponentsDisplay.targetProject.p_status_id,
-		statusOption: reduxState.projectComponentsDisplay.targetProject.p_status_option,
-		startDate: formatDateYYYYmmDD(reduxState.projectComponentsDisplay.targetProject.start_date),
-		dueDate: formatDateYYYYmmDD(reduxState.projectComponentsDisplay.targetProject.due_date),
-		completionDate: formatDateYYYYmmDD(reduxState.projectComponentsDisplay.targetProject.completion_date),
+		statusOption:
+			reduxState.projectComponentsDisplay.targetProject.p_status_option,
+		startDate: formatDateYYYYmmDD(
+			reduxState.projectComponentsDisplay.targetProject.start_date
+		),
+		dueDate: formatDateYYYYmmDD(
+			reduxState.projectComponentsDisplay.targetProject.due_date
+		),
+		completionDate: formatDateYYYYmmDD(
+			reduxState.projectComponentsDisplay.targetProject.completion_date
+		),
 	});
 
 	const [descriptionCharLimit] = useState(500);
 	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
 
-	// Used by custom hook useToggleableDateInputAndTooltip to update completionDate after a toggle.
-	// The reason a proxy is used is so hook can only update completionDate and not the rest of the state.
-	const [proxyCompletionDate, setProxyCompletionDate] = useState(
-		projectInfo.completionDate
-	);
-
-	// This custom hook handles all functionality for toggling completion date,
-	// ...making suring the project state for completion date is accurate after a toggle,
-	// ...toggling the display of the completion date tooltip,
-	// ...and adding the tooltips event listener
-	const [] = useToggleableDateInputAndTooltip(
-		projectInfo,
+	// This custom hook toggles the display of the completion date input based on the project status,
+	// ...makes sure the projectInfo completion date is accurate after every toggle by using a proxy completion date,
+	// ...toggles when the completion date tooltip is able to be displayed based on the project status,
+	// ...adds an event listener to display the tooltip (based on status) when the completion date input element is hovered over.
+	const [
+		proxyCompletionDate,
 		setProxyCompletionDate,
+	] = useToggleableDateInputAndTooltip(
+		projectInfo,
 		"js-form__date-container",
 		"js-form__tooltip-container",
 		reduxState.priorityStatusArrays.projectStatusCompletionIndex
@@ -65,6 +69,8 @@ export default function EditProjectSidebar() {
 			"js-status-select",
 			reduxState.priorityStatusArrays.projectStatus
 		);
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, []);
 
 	useEffect(() => {
@@ -73,18 +79,24 @@ export default function EditProjectSidebar() {
 			projectInfo.description.length,
 			descriptionCharLimit
 		);
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, [projectInfo.description]);
 
-	// Keeps the proxyCompletionDate in sync with
-	// ...completonDate after the user selects a date
+	// Keeps the proxyCompletionDate in sync with projectInfo's completonDate
+	// ...after anytime the user selects a completion date
 	useEffect(() => {
 		setProxyCompletionDate(projectInfo.completionDate);
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, [projectInfo.completionDate]);
 
-	// Updates completionDate to match the proxyCompletionDate
-	// ...after the compltionDate component has been toggled
+	// Updates projectInfo's completionDate to match the proxyCompletionDate
+	// ...after anytime the compltionDate input element has been toggled
 	useEffect(() => {
 		setProjectInfo({ ...projectInfo, completionDate: proxyCompletionDate });
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, [proxyCompletionDate]);
 
 	const onChange = (e) => {
@@ -103,7 +115,7 @@ export default function EditProjectSidebar() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectComponentsDisplay,
-				editProjectSidebar: false
+				editProjectSidebar: false,
 			})
 		);
 	};
@@ -127,7 +139,9 @@ export default function EditProjectSidebar() {
 				<div className="padded-container">
 					<h1 className="title">Edit Project</h1>
 					<form className="form" noValidate onSubmit={handleSubmit}>
-						<label htmlFor="edit-project-name" className="form__label">Name: </label>
+						<label htmlFor="edit-project-name" className="form__label">
+							Name:{" "}
+						</label>
 						<input
 							type="text"
 							name="name"
@@ -139,7 +153,9 @@ export default function EditProjectSidebar() {
 						<span className="form__errors">
 							{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}
 						</span>
-						<label htmlFor="edit-project-description" className="form__label">Description: </label>
+						<label htmlFor="edit-project-description" className="form__label">
+							Description:{" "}
+						</label>
 						<span className="form__character-counter js-form__character-counter">
 							{projectInfo.description.length + "/" + descriptionCharLimit}
 						</span>
@@ -154,7 +170,10 @@ export default function EditProjectSidebar() {
 							{shouldShowAnyErrors ? reduxState.inputErrors.description : ""}
 						</span>
 						<div className="form__combo-box-container">
-							<label htmlFor="edit-project-priority" className="form__combo-box-container__label">
+							<label
+								htmlFor="edit-project-priority"
+								className="form__combo-box-container__label"
+							>
 								Priority:
 							</label>
 							<select
@@ -164,7 +183,10 @@ export default function EditProjectSidebar() {
 								id="edit-project-priority"
 								className="form__combo-box-container__select js-priority-select"
 							></select>
-							<label htmlFor="edit-project-status" className="form__combo-box-container__label">
+							<label
+								htmlFor="edit-project-status"
+								className="form__combo-box-container__label"
+							>
 								Status:
 							</label>
 							<select
@@ -176,7 +198,12 @@ export default function EditProjectSidebar() {
 							></select>
 						</div>
 						<div className="form__date-container form__date-container--right">
-							<label htmlFor="edit-project-start-date" className="form__date-container__label">Start Date:</label>
+							<label
+								htmlFor="edit-project-start-date"
+								className="form__date-container__label"
+							>
+								Start Date:
+							</label>
 							<input
 								type="date"
 								name="startDate"
@@ -187,7 +214,12 @@ export default function EditProjectSidebar() {
 							/>
 						</div>
 						<div className="form__date-container form__date-container--right">
-							<label htmlFor="edit-project-due-date" className="form__date-container__label">Due Date:</label>
+							<label
+								htmlFor="edit-project-due-date"
+								className="form__date-container__label"
+							>
+								Due Date:
+							</label>
 							<input
 								type="date"
 								name="dueDate"
@@ -204,7 +236,10 @@ export default function EditProjectSidebar() {
 							<div className="form__tooltip-container__arrow-right" />
 						</div>
 						<div className="form__date-container form__date-container--right js-form__date-container">
-							<label htmlFor="edit-project-completion-date" className="form__date-container__label">
+							<label
+								htmlFor="edit-project-completion-date"
+								className="form__date-container__label"
+							>
 								Completion Date:
 							</label>
 							<input

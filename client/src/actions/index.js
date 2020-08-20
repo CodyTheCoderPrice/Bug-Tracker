@@ -1,14 +1,14 @@
 import axios from "axios";
-import { SET_PRIORITY_STATUS_ARRAYS, STORE_WINDOW_SIZE, SET_INPUT_ERRORS } from "./types";
+import {  STORE_DISPLAY_SIZES, SET_PRIORITY_STATUS_ARRAYS, SET_INPUT_ERRORS } from "./types";
 
 export * from "./accountActions";
 export * from "./projectActions";
 export * from "./componentActions";
 
-export const storeWindowSize = (size) => (dispatch) => {
+export const storeDisplaySizes = (sizes) => (dispatch) => {
 	dispatch({
-		type: STORE_WINDOW_SIZE,
-		size: size,
+		type: STORE_DISPLAY_SIZES,
+		sizes: sizes,
 	});
 };
 

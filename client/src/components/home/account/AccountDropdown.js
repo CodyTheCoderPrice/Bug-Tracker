@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { formatDateMMddYYY } from "../../../utils/dateUtils";
+import { formatDateMMddYYYY } from "../../../utils/dateUtils";
 
 import { truncate } from "../../../utils/displayUtils";
 
@@ -19,7 +19,7 @@ export default function AccountDropdown() {
 	const [accountInfo, setAccountInfo] = useState({
 		name: reduxState.account.firstName + " " + reduxState.account.lastName,
 		email: reduxState.account.email,
-		joinDate: formatDateMMddYYY(reduxState.account.joinDate),
+		joinDate: formatDateMMddYYYY(reduxState.account.joinDate),
 	});
 
 	// Keeps the accountInfo in sync with redux state after changes
@@ -27,7 +27,7 @@ export default function AccountDropdown() {
 		setAccountInfo({
 			name: reduxState.account.firstName + " " + reduxState.account.lastName,
 			email: reduxState.account.email,
-			joinDate: formatDateMMddYYY(reduxState.account.joinDate),
+			joinDate: formatDateMMddYYYY(reduxState.account.joinDate),
 		});
 	}, [reduxState.account]);
 

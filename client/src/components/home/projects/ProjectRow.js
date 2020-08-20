@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setWhichAccountComponentsDisplay, setWhichProjectComponentsDisplay } from "../../../actions";
 
-import { formatDateMMddYYY } from "../../../utils/dateUtils";
+import { formatDateMMddYYYY } from "../../../utils/dateUtils";
 
 import "../../../SCSS/projects/projectsTableAndRows.scss";
 
@@ -38,10 +38,10 @@ export default function ProjectRow(props) {
 				</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__info">{formatDateMMddYYY(props.project.start_date)}</span>
+				<span className="project-table__data__info">{formatDateMMddYYYY(props.project.start_date)}</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__info">{formatDateMMddYYY(props.project.due_date)}</span>
+				<span className="project-table__data__info">{formatDateMMddYYYY(props.project.due_date)}</span>
 			</td>
 			<td onClick={openViewProjectDashboard} className="project-table__data">
 				<span className="project-table__data__info project-table__data__info--blue-link">

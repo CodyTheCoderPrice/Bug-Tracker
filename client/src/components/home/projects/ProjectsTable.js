@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
 	setWhichProjectComponentsDisplay,
 	setWhichAccountComponentsDisplay,
-	retrieveProjects
 } from "../../../actions";
 
 // Components
