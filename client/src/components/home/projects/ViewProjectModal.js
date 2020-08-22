@@ -60,6 +60,20 @@ export default function ViewProjectModal() {
 		<div className="view-project-component">
 			<div className="blurred-background" />
 			<div className="view-project-modal js-view-project-modal">
+				<div className="project-options-container">
+					<div className="project-options-container__button" onClick={closeViewProjectDashboard}>
+						<i className="fa fa-ellipsis-h" aria-hidden="true"></i>
+					</div>
+					<div className="project-options-container__arrow-up" />
+					<div className="project-options-container__dropdown">
+						<span className="project-options-container__dropdown__option">
+							Edit Project
+						</span>
+						<span className="project-options-container__dropdown__option project-options-container__dropdown__option--no-border">
+							Delete Project
+						</span>
+					</div>
+				</div>
 				<div className="x-button" onClick={closeViewProjectDashboard}>
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
@@ -69,59 +83,71 @@ export default function ViewProjectModal() {
 						<tbody>
 							<tr>
 								<td className="view-project-table__data">
-									<div className="content-container">
-										<h2 className="content-container__title">Description</h2>
-										<span className="content-container__description-info">
+									<div className="project-box">
+										<h2 className="project-box__title">Description</h2>
+										<span className="project-box__description">
 											{projectInfo.description}
 										</span>
 									</div>
 								</td>
 								<td className="view-project-table__data">
-									<div className="content-container">
-										<h2 className="content-container__title">Info</h2>
-										<span className="content-container__content-prefix">
-											Priority:
-											<span className="content-container__content-info">
+									<div className="project-box">
+										<h2 className="project-box__title">Info</h2>
+										<div className="project-box__content">
+											<span className="project-box__content__type">
+												Priority:
+											</span>
+											<span className="project-box__content__info">
 												{projectInfo.priorityOption}
 											</span>
-										</span>
-										<span className="content-container__content-prefix">
-											Status:
-											<span className="content-container__content-info">
+										</div>
+										<div className="project-box__content">
+											<span className="project-box__content__type">
+												Status:
+											</span>
+											<span className="project-box__content__info">
 												{projectInfo.statusOption}
 											</span>
-										</span>
-										<span className="content-container__content-prefix content-container__content-prefix--margin-top">
-											Created on:
-											<span className="content-container__content-info">
+										</div>
+										<div className="project-box__content project-box__content--margin-top">
+											<span className="project-box__content__type">
+												Created on:
+											</span>
+											<span className="project-box__content__info">
 												{projectInfo.creationDate}
 											</span>
-										</span>
-										<span className="content-container__content-prefix">
-											Start Date:
-											<span className="content-container__content-info">
+										</div>
+										<div className="project-box__content">
+											<span className="project-box__content__type">
+												Start Date:
+											</span>
+											<span className="project-box__content__info">
 												{projectInfo.startDate}
 											</span>
-										</span>
-										<span className="content-container__content-prefix">
-											Due Date:
-											<span className="content-container__content-info">
+										</div>
+										<div className="project-box__content">
+											<span className="project-box__content__type">
+												Due Date:
+											</span>
+											<span className="project-box__content__info">
 												{projectInfo.dueDate}
 											</span>
-										</span>
+										</div>
 										{projectInfo.completionDate === null ? null : (
-											<span className="content-container__content-prefix">
-												Completed on:
-												<span className="content-container__content-info">
+											<div className="project-box__content">
+												<span className="project-box__content__type">
+													Completed on:
+												</span>
+												<span className="project-box__content__info">
 													{projectInfo.completionDate}
 												</span>
-											</span>
+											</div>
 										)}
 									</div>
 								</td>
 								<td className="view-project-table__data">
-									<div className="content-container">
-										<h2 className="content-container__title">Bugs</h2>
+									<div className="project-box">
+										<h2 className="project-box__title">Bugs</h2>
 									</div>
 								</td>
 							</tr>

@@ -46,7 +46,8 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 					if (err) throw err;
 
 					const newAccount = await pool.query(
-						"INSERT INTO account (email, hash_pass, first_name, last_name, join_date) VALUES($1, $2, $3, $4, $5)",
+						`INSERT INTO account (email, hash_pass, first_name, last_name, join_date) 
+							VALUES($1, $2, $3, $4, $5)`,
 						[email, hash, firstName, lastName, join_date]
 					);
 					
@@ -71,7 +72,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 
 		// Verifies that an account with that email exisits
 		const activeAccounts = await pool.query(
-			"SELECT * FROM account WHERE LOWER(email) = LOWER($1)",
+			`SELECT * FROM account 
+				WHERE LOWER(email) = LOWER($1)`,
 			[email]
 		);
 
@@ -153,7 +155,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		const { accountId } = req;
 
 		const selectedAccount = await pool.query(
-			"SELECT * FROM account WHERE account_id = $1",
+			`SELECT * FROM account 
+				WHERE account_id = $1`,
 			[accountId]
 		);
 
@@ -191,7 +194,8 @@ router
 			const { firstName, lastName } = req.body;
 
 			const updatedAccount = await pool.query(
-				"UPDATE account SET first_name = $1, last_name = $2 WHERE account_id = $3 RETURNING *",
+				`UPDATE account SET first_name = $1, last_name = $2 
+					WHERE account_id = $3 RETURNING *`,
 				[firstName, lastName, accountId]
 			);
 
@@ -231,7 +235,8 @@ router
 				const { email } = req.body;
 
 				const updatedAccount = await pool.query(
-					"UPDATE account SET email = $1 WHERE account_id = $2 RETURNING *",
+					`UPDATE account SET email = $1 
+						WHERE account_id = $2 RETURNING *`,
 					[email, accountId]
 				);
 
@@ -276,7 +281,8 @@ router
 						if (err) throw err;
 
 						const updatedAccount = await pool.query(
-							"UPDATE account SET hash_pass = $1 WHERE account_id = $2 RETURNING *",
+							`UPDATE account SET hash_pass = $1 
+								WHERE account_id = $2 RETURNING *`,
 							[hash, accountId]
 						);
 
@@ -317,7 +323,8 @@ router
 				const { accountId } = req;
 
 				const deletedAccount = await pool.query(
-					"DELETE FROM account WHERE account_id = $1",
+					`DELETE FROM account 
+						WHERE account_id = $1`,
 					[accountId]
 				);
 
