@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -18,7 +18,7 @@ export default function ProjectsTable() {
 	const openCreateProjectSidebar = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				projectsList: true,
+				projectsTable: true,
 				createProjectSidbar: true,
 			})
 		);
@@ -27,7 +27,7 @@ export default function ProjectsTable() {
 
 	return (
 		<div className="projects-table-component">
-			<div className="filter-search-bar">
+			<div className="filter-search-bar js-project-filter-search-bar">
 				<div
 					className="filter-search-bar__new-project-button"
 					onClick={openCreateProjectSidebar}
@@ -38,7 +38,7 @@ export default function ProjectsTable() {
 			<table className="projects-table">
 				<thead>
 					<tr className="project-table__row">
-						<th className="project-table__header">
+						<th className="project-table__header js-project-table__header">
 							<span className="project-table__header__name">Name</span>
 						</th>
 						<th className="project-table__header">

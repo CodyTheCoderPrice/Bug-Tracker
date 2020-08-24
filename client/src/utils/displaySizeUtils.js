@@ -13,10 +13,28 @@ export function getWindowSize() {
 export function getElementSize(nameOfClass) {
 	let elem = document.getElementsByClassName(nameOfClass)[0];
 
+	console.log(nameOfClass + ": " + elem.offsetHeight);
+
 	return { height: elem.offsetHeight, width: elem.offsetWidth };
 }
 
-// This function works because the body width = 100%
 export function getScrollbarWidth() {
-	return { width: (window.innerWidth - document.body.clientWidth) } ;
-  }
+	// Creating invisible container
+	const outer = document.createElement('div');
+	outer.style.visibility = 'hidden';
+	outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+	outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+	document.body.appendChild(outer);
+  
+	// Creating inner element and placing it in the container
+	const inner = document.createElement('div');
+	outer.appendChild(inner);
+  
+	// Calculating difference between container's full width and the child width
+	const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+  
+	// Removing temporary elements from the DOM
+	outer.parentNode.removeChild(outer);
+  
+	return scrollbarWidth;
+}

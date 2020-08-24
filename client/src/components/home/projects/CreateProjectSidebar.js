@@ -9,6 +9,8 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
+import { getElementSize } from "../../../utils/displaySizeUtils";
+
 import {
 	toggleCharCountColor,
 	populateComboBox,
@@ -46,6 +48,18 @@ export default function CreateProjectSidebar() {
 		"js-form__tooltip-container",
 		reduxState.priorityStatusArrays.projectStatusCompletionIndex
 	);
+
+	useEffect(() => {
+		let blurredBackgroundElement = document.getElementsByClassName(
+			"js-create-project-blurred-background"
+		)[0];
+		// Will equal the height of the projectTable
+		blurredBackgroundElement.style.height =
+			getElementSize("js-project-filter-search-bar").height +
+			getElementSize("js-project-table__header").height * 
+			(reduxState.projects.length + 1) +
+			"px";
+	}, [reduxState.projects]);
 
 	useEffect(() => {
 		populateComboBox(
@@ -117,7 +131,7 @@ export default function CreateProjectSidebar() {
 
 	return (
 		<div className="create-projects-component">
-			<div className="blurred-background" />
+			<div className="blurred-background js-create-project-blurred-background" />
 			<div className="create-project-sidebar">
 				<div className="x-button" onClick={closeCreateProjectSidebar}>
 					<i className="fa fa-times" aria-hidden="true"></i>

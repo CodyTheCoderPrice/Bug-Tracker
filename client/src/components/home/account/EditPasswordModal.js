@@ -7,7 +7,7 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import "../../../SCSS/account/editAccountModals.scss";
+import "../../../SCSS/account/accountModals.scss";
 
 export default function EditPasswordModal() {
 	const reduxState = useSelector((state) => state);
@@ -52,7 +52,6 @@ export default function EditPasswordModal() {
 
 	return (
 		<div className="edit-account-modal-components">
-			<div className="blurred-background" />
 			<div className="edit-account-modal">
 				<div className="back-button" onClick={backToEditInfo}>
 					<i className="fa fa-arrow-left" aria-hidden="true"></i>

@@ -11,13 +11,13 @@
 	}
 
 	.view-project-modal {
-		position: absolute;
-		margin: 10px;
+		position: fixed;
+		margin: 20px;
 		border: 5px solid black;
 		background: #e6e9ee;
 		// This width tends to have the least appearance of change
 		// ...when the width is calculated and overwritten using js
-		width: 97.5vw;
+		width: 96.5vw;
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
@@ -90,6 +90,10 @@
 		font-size: 150%;
 	}
 
+	.project-creation-date {
+		text-align: center;
+	}
+
 	.view-project-table {
 		width: 100%;
 	}
@@ -102,7 +106,7 @@
 		margin: 10px;
 		border: 2px solid black;
 		background-color: white;
-		padding: 0px 10px 20px 20px;
+		padding: 0px 20px 20px 20px;
 		min-height: 400px;
 		overflow-wrap: anywhere;
 	}
@@ -113,24 +117,24 @@
 		font-size: 140%;
 	}
 
-	.project-box__content {
-		margin-bottom: 10px;
-	}
-
-	.project-box__content--margin-top {
-		margin-top: 30px;
-	}
-
 	.project-box__description {
 		display: block;
 		margin-bottom: 20px;
 	}
 
-	.project-box__content__type {
+	.project-box__group__content {
+		margin-bottom: 25px;
+	}
+
+	.project-box__group__content--larger-bottom-space {
+		margin-bottom: 60px;
+	}
+
+	.project-box__group__content__type {
 		font-weight: bold;
 	}
 
-	.project-box__content__info {
+	.project-box__group__content__info {
 		margin-left: 7px;
 	}
 }

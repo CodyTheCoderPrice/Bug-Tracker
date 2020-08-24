@@ -1,7 +1,7 @@
 import { SET_WHICH_PROJECT_COMPONENTS_DISPLAY } from "../../actions/types";
 
 const initialState = {
-	projectsList: true,
+	projectsTable: true,
 	createProjectSidbar: false,
 	viewProjectModal: false,
 	editProjectSidebar: false,
@@ -18,9 +18,9 @@ export default function (state = initialState, action) {
 				return initialState;
 			} else {
 				return {
-					projectsList:
-						action.displays.projectsList !== undefined
-							? action.displays.projectsList
+					projectsTable:
+						action.displays.projectsTable !== undefined
+							? action.displays.projectsTable
 							: false,
 					createProjectSidbar:
 						action.displays.createProjectSidbar !== undefined

@@ -30,7 +30,7 @@ function App() {
 	useEffect(() => {
 		dispatch(retrievePriorityStatusArrays());
 
-		if (reduxState.auth.isAuthenticated && accountJsonString === "{}") {
+		if (reduxState.auth.isAuthenticated) {
 			dispatch(retrieveAccount());
 			dispatch(retrieveProjects());
 		} else {

@@ -7,7 +7,7 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import "../../../SCSS/account/editAccountModals.scss";
+import "../../../SCSS/account/accountModals.scss";
 
 export default function EditInfoModal() {
 	const reduxState = useSelector((state) => state);
@@ -69,7 +69,6 @@ export default function EditInfoModal() {
 
 	return (
 		<div className="edit-account-modal-components">
-			<div className="blurred-background" />
 			<div className="edit-account-modal">
 				<div className="exit-button" onClick={closeModals}>
 					<i className="fa fa-times" aria-hidden="true"></i>

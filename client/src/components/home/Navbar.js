@@ -7,13 +7,13 @@ import {
 	setWhichProjectComponentsDisplay,
 } from "../../actions";
 
-import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
-
 import {
 	getWindowSize,
 	getElementSize,
 	getScrollbarWidth,
 } from "../../utils/displaySizeUtils";
+
+import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
 
 // Components
 import CreateProjectSidebar from "./projects/CreateProjectSidebar";
@@ -37,7 +37,7 @@ export default function Navbar() {
 				scrollbar: getScrollbarWidth(),
 			})
 		);
-
+		
 		// Adds event to update navbar size on a resize
 		window.addEventListener("resize", () => {
 			dispatch(
@@ -55,11 +55,11 @@ export default function Navbar() {
 	useEffect(() => {
 		setNavbarButtonColor(
 			document.getElementsByClassName("js-project-button")[0],
-			reduxState.projectComponentsDisplay.projectsList
+			reduxState.projectComponentsDisplay.projectsTable
 		);
 		setProjectsIcon(
 			document.getElementById("project-button-icon"),
-			reduxState.projectComponentsDisplay.projectsList
+			reduxState.projectComponentsDisplay.projectsTable
 		);
 		setNavbarButtonColor(
 			document.getElementsByClassName("js-account-button")[0],
@@ -67,7 +67,7 @@ export default function Navbar() {
 		);
 	}, [
 		reduxState.accountComponentsDisplay.accountDropdown,
-		reduxState.projectComponentsDisplay.projectsList,
+		reduxState.projectComponentsDisplay.projectsTable,
 	]);
 
 	const openAccountDropdown = () => {
@@ -86,11 +86,11 @@ export default function Navbar() {
 		);
 	};
 
-	const openProjectsList = () => {
+	const openProjectsTable = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectComponentsDisplay,
-				projectsList: true,
+				projectsTable: true,
 			})
 		);
 	};
@@ -106,7 +106,7 @@ export default function Navbar() {
 			>
 				<div
 					className="navbar-button js-project-button"
-					onClick={openProjectsList}
+					onClick={openProjectsTable}
 				>
 					<div className="navbar-button__text-container">
 						<i id="project-button-icon" aria-hidden="true" /> Projects

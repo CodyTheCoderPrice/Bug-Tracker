@@ -19,6 +19,10 @@ const persistConfig = {
 		"projectComponentsDisplay",
 		"priorityStatusArrays",
 		"auth",
+		 // Theses are persisted despite being updated on page refresh
+		 // ...so they are not null while their data is being re-fetched
+		"account",
+		"projects",
 	],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);

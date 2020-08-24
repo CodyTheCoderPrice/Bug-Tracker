@@ -7,7 +7,7 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import "../../../SCSS/account/editAccountModals.scss";
+import "../../../SCSS/account/accountModals.scss";
 
 export default function DeleteAccountModal() {
 	const reduxState = useSelector((state) => state);
@@ -51,7 +51,6 @@ export default function DeleteAccountModal() {
 
 	return (
 		<div className="edit-account-modal-components">
-			<div className="blurred-background" />
 			<div className="edit-account-modal">
 				<div className="back-button" onClick={backToEditInfo}>
 					<i className="fa fa-arrow-left" aria-hidden="true"></i>

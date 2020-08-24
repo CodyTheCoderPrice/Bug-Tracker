@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
 
 		// Delete Typed Out check
 		if (deleteTypedOut !== "DELETE") {
-			inputErrors.deleteTypedOut = "Doesn't match: DELETE";
+			inputErrors.deleteTypedOut = "Must match: DELETE";
 		}
 		// currentPassword check
 		if (Validator.isEmpty(currentPassword)) {
