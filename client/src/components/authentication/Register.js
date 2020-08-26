@@ -114,8 +114,8 @@ export default function Register() {
 					</span>
 				</form>
 				<div className="footer">
-					<label>Already a Member?</label>
-					<span  onClick={openLogin} className="footer__link">
+					<span>Already a Member?</span>
+					<span className="footer__link" onClick={openLogin} >
 						Login
 					</span>
 				</div>

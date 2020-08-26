@@ -38,6 +38,7 @@
 		margin-top: 5px;
 		margin-bottom: 5px;
 		outline: none;
+		border: 1px solid gray;
 		box-sizing: border-box;
 		background: #e5e5e5;
 		padding: 8px;
@@ -68,14 +69,14 @@
 	}
 
 	.footer {
-		margin-top: 20px;
+		margin-top: 25px;
 		font-size: 20px;
 	}
 
 	.footer__link {
 		margin-left: 15px;
 		color: blue;
-		font-size: 120%;
+		font-size: 115%;
 		text-decoration: none;
 		cursor: pointer;
 	}

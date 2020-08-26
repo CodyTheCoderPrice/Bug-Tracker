@@ -1,5 +1,5 @@
-@import "../utils/variables";
-@import "../utils//mixins";
+@import "../../utils/variables";
+@import "../../utils//mixins";
 
 .view-project-component {
 	.blurred-background {
@@ -24,14 +24,21 @@
 	.project-options-container {
 		z-index: 2;
 		position: absolute;
-		top: 12px;
-		right: 70px;
+		top: 10px;
+		right: 50px;
+		width: 135px;
 	}
 
 	.project-options-container__button {
-		margin-left: 105px;
-		border: none;
+		z-index: 3;
+		position: absolute;
+		right: 7px;
+		border: 2px solid transparent;
+		border-bottom: none;
+		padding: 0px 3px 0px 5px;
 		background: none;
+		height: 29px;
+		width: 23px;
 		color: $mediumGray;
 		font-size: 26px;
 		cursor: pointer;
@@ -41,18 +48,19 @@
 		color: $black;
 	}
 
-	.project-options-container__arrow-up {
-		margin-left: 98px;
-		border-left: 15px solid transparent;
-		border-right: 15px solid transparent;
-		border-bottom: 15px solid black;
-		height: 0;
-		width: 0;
+	.project-options-container__button--selected {
+		border-color: black;
+		border-bottom-color: white;
+		background-color: white;
 	}
 
 	.project-options-container__dropdown {
+		position: absolute;
+		top: 29px;
 		border: 2px solid black;
 		background-color: white;
+		// Made visible using JS
+		visibility: hidden;
 	}
 
 	.project-options-container__dropdown__option {
@@ -64,6 +72,10 @@
 	.project-options-container__dropdown__option:hover,
 	.project-options-container__dropdown__option:active {
 		background-color: $lightGray;
+	}
+
+	.project-options-container__dropdown__option--no-display {
+		display: none;
 	}
 
 	.project-options-container__dropdown__option--no-border {
@@ -85,21 +97,24 @@
 	}
 
 	.project-name {
-		padding-top: 24px;
+		padding-top: 40px;
 		text-align: center;
 		font-size: 150%;
 	}
 
 	.project-creation-date {
+		margin: 5px;
 		text-align: center;
+		font-size: 105%;
 	}
 
-	.view-project-table {
+	.display-edit-project-table {
 		width: 100%;
 	}
 
-	.view-project-table__data {
+	.display-edit-project-table__data {
 		width: 33.33%;
+		min-width: 300px;
 	}
 
 	.project-box {
@@ -117,24 +132,23 @@
 		font-size: 140%;
 	}
 
-	.project-box__description {
-		display: block;
-		margin-bottom: 20px;
+	.project-box__title--no-bottom-margin {
+		margin-bottom: 0px;
 	}
 
-	.project-box__group__content {
+	.project-box__group--large-bottom-margin {
+		margin-bottom: 50px;
+	}
+
+	.project-box__group__field {
 		margin-bottom: 25px;
 	}
 
-	.project-box__group__content--larger-bottom-space {
-		margin-bottom: 60px;
+	.project-box__group__field--no-bottom-margin {
+		margin-bottom: 0px;
 	}
 
-	.project-box__group__content__type {
-		font-weight: bold;
-	}
-
-	.project-box__group__content__info {
-		margin-left: 7px;
+	.project-box__group__field--inline-flex {
+		display: inline-flex;
 	}
 }

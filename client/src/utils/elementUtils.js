@@ -7,7 +7,7 @@ export function toggleCharCountColor(
 		descriptionLength > charLimit ? "red" : "black";
 }
 
-export function populateComboBox(selectElementClassName, array) {
+export function populateComboBox(selectElementClassName, array, id) {
 	let selectElem = document.getElementsByClassName(selectElementClassName)[0];
 
 	for (let i = 0; i < array.length; i++) {
@@ -22,4 +22,6 @@ export function populateComboBox(selectElementClassName, array) {
 		optionElem.textContent = array[i].option;
 		selectElem.appendChild(optionElem);
 	}
+
+	selectElem.value = id;
 }

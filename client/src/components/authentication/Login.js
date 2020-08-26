@@ -75,8 +75,8 @@ export default function Login() {
 					</span>
 				</form>
 				<div className="footer">
-					<label>Not a Member? </label>
-					<span onClick={openRegister} className="footer__link">
+					<span>Not a Member? </span>
+					<span className="footer__link" onClick={openRegister}>
 						Register
 					</span>
 				</div>

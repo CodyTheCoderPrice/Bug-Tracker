@@ -42,6 +42,11 @@
 		font-size: 150%;
 	}
 
+	.form__errors {
+		display: block;
+		color: red;
+	}
+
 	.form__label,
 	.form__date-container__label,
 	.form__combo-box-container__label {
@@ -75,17 +80,13 @@
 		height: 200px;
 		width: 100%;
 		font-size: 14px;
+		line-height: $commonLineHeight;
 		font-family: Arial, Helvetica, sans-serif;
 		// sizing
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		-moz-box-sizing: border-box; /* Firefox, other Gecko */
 		box-sizing: border-box; /* Opera/IE 8+ */
 		resize: none;
-	}
-
-	.form__errors {
-		display: block;
-		color: red;
 	}
 
 	.form__combo-box-container {

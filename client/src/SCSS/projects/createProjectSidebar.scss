@@ -41,6 +41,11 @@
 		padding-top: 24px;
 		font-size: 150%;
 	}
+	
+	.form__errors {
+		display: block;
+		color: red;
+	}
 
 	.form__label,
 	.form__date-container__label,
@@ -51,13 +56,14 @@
 
 	.form__character-counter {
 		float: right;
-		margin-top: 5px;
+		margin: 5px 2px 2px 0px;
 	}
 
 	.form__text-input {
 		margin-top: 5px;
 		margin-bottom: $inputMarginBottom;
 		outline: none;
+		border: 1px solid gray;
 		box-sizing: border-box;
 		background: #e5e5e5;
 		padding: 8px;
@@ -70,22 +76,19 @@
 		margin-top: 5px;
 		margin-bottom: $inputMarginBottom;
 		outline: none;
+		border: 1px solid gray;
 		background: $lightGray;
 		padding: 4px 8px 4px 8px;
 		height: 200px;
 		width: 100%;
 		font-size: 14px;
+		line-height: $commonLineHeight;
 		font-family: Arial, Helvetica, sans-serif;
 		// sizing
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		-moz-box-sizing: border-box; /* Firefox, other Gecko */
 		box-sizing: border-box; /* Opera/IE 8+ */
 		resize: none;
-	}
-
-	.form__errors {
-		display: block;
-		color: red;
 	}
 
 	.form__combo-box-container {
@@ -96,6 +99,7 @@
 	.form__combo-box-container__select {
 		margin-top: 2px;
 		margin-bottom: $inputMarginBottom;
+		border: 1px solid gray;
 		background: $lightGray;
 		width: 100%;
 		// one pixel smaller than associated label
@@ -119,6 +123,7 @@
 		margin-top: 2px;
 		margin-bottom: $inputMarginBottom;
 		outline: none;
+		border: 1px solid gray;
 		background: $lightGray;
 		// Width is 97% since date boxes extend past conatiner
 		width: 97%;
@@ -138,8 +143,8 @@
 
 	.form__tooltip-container__text-box {
 		float: left;
-		padding: 12px;
 		background-color: black;
+		padding: 12px;
 		width: 180px;
 		text-align: left;
 		font-size: 14px;
@@ -148,12 +153,11 @@
 
 	.form__tooltip-container__arrow-right {
 		float: left;
-		margin-top: 10px;
-		width: 0;
 		height: 0;
-		border-top: 10px solid transparent;
-		border-bottom: 10px solid transparent;
-		border-left: 10px solid black;
+		width: 0;
+		border-top: 20px solid transparent;
+		border-bottom: 20px solid transparent;
+		border-left: 20px solid black;
 	}
 
 	.form__submit {
@@ -164,6 +168,7 @@
 		padding: 10px;
 		width: 100%;
 		color: white;
+		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16px;
 		cursor: pointer;
 	}

@@ -55,8 +55,8 @@ export default function EditProjectSidebar() {
 		setProxyCompletionDate,
 	] = useToggleableDateInputAndTooltip(
 		projectInfo,
-		"js-form__date-container",
-		"js-form__tooltip-container",
+		"js-completion-date-container",
+		"js-tooltip-container",
 		reduxState.priorityStatusArrays.projectStatusCompletionIndex
 	);
 
@@ -210,7 +210,7 @@ export default function EditProjectSidebar() {
 								value={projectInfo.startDate}
 								onChange={(e) => onChange(e)}
 								id="edit-project-start-date"
-								className="form__date-container__date-input js-form__date-container__date-input"
+								className="form__date-container__date-input"
 							/>
 						</div>
 						<div className="form__date-container form__date-container--right">
@@ -229,13 +229,13 @@ export default function EditProjectSidebar() {
 								className="form__date-container__date-input"
 							/>
 						</div>
-						<div className="form__tooltip-container js-form__tooltip-container">
+						<div className="form__tooltip-container js-tooltip-container">
 							<div className="form__tooltip-container__text-box">
 								Set status to "Completed"
 							</div>
 							<div className="form__tooltip-container__arrow-right" />
 						</div>
-						<div className="form__date-container form__date-container--right js-form__date-container">
+						<div className="form__date-container form__date-container--right js-completion-date-container">
 							<label
 								htmlFor="edit-project-completion-date"
 								className="form__date-container__label"

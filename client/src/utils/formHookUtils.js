@@ -6,11 +6,13 @@ export function useToggleableDateInputAndTooltip(
 	tooltipContainerClassName,
 	completedIndex
 ) {
-	// Used by custom hook useToggleableDateInputAndTooltip to update completionDate after a toggle.
-	// The reason a proxy is used is so hook can only update completionDate and not the rest of the state.
-	const [proxyCompletionDate, setProxyCompletionDate] = useState(
+	// perserves a record of the completionDate when the date input is toggled off.
+	const [preservedCompletionDate, setPerservedCompletionDate] = useState(
 		state.completionDate
 	);
+
+	// Tracks the pervious status to know when to update perservedCompletionDate
+	const [previousStatus, setPreviousStatus] = useState(state.status);
 
 	useEffect(() => {
 		addTooltipEventForMouseOverAndOut();
@@ -20,8 +22,11 @@ export function useToggleableDateInputAndTooltip(
 
 	useEffect(() => {
 		toggleDisableElements();
-		setProxyCompletionDateAfterToggle();
 		toggleTooltipDisplay();
+		if (previousStatus === completedIndex) {
+			updatePerservedCompletionDate();
+		}
+		setPreviousStatus(state.statusId);
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [state.statusId]);
@@ -77,19 +82,17 @@ export function useToggleableDateInputAndTooltip(
 		}
 	}
 
-	function setProxyCompletionDateAfterToggle() {
+	function updatePerservedCompletionDate() {
 		let dateContainerElement = document.getElementsByClassName(
 			dateContainerClassName
 		)[0];
 
-		if (state.statusId === completedIndex) {
+		if (state.statusId !== completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				if (child.tagName === "INPUT") {
-					setProxyCompletionDate(child.value);
+					setPerservedCompletionDate(child.value);
 				}
 			}
-		} else {
-			setProxyCompletionDate(null);
 		}
 	}
 
@@ -105,5 +108,5 @@ export function useToggleableDateInputAndTooltip(
 		}
 	}
 
-	return [proxyCompletionDate, setProxyCompletionDate];
+	return [preservedCompletionDate];
 }

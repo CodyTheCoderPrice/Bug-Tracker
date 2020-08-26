@@ -17,7 +17,7 @@ import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
 
 // Components
 import CreateProjectSidebar from "./projects/CreateProjectSidebar";
-import ViewProjectModal from "./projects/ViewProjectModal";
+import ViewProjectModal from "./projects/viewProject/ViewProjectModal";
 import EditProjectSidebar from "./projects/EditProjectSidebar";
 import AccountDropdown from "./account/AccountDropdown";
 

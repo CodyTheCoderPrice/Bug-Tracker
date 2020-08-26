@@ -12,9 +12,6 @@ export function getWindowSize() {
 
 export function getElementSize(nameOfClass) {
 	let elem = document.getElementsByClassName(nameOfClass)[0];
-
-	console.log(nameOfClass + ": " + elem.offsetHeight);
-
 	return { height: elem.offsetHeight, width: elem.offsetWidth };
 }
 

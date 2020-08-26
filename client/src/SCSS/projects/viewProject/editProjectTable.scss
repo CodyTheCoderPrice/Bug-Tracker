@@ -1,0 +1,146 @@
+// The EditProjectInfo component also uses shared SCSS in viewProjectModal.scss
+// This file is for SCSS used only by  the EditProjectInfo component
+@import "../../utils/variables";
+@import "../../utils//mixins";
+
+.view-project-component {
+	.form-errors {
+		display: block;
+		color: red;
+		text-align: center;
+	}
+
+	.project-box__form-character-counter {
+		float: right;
+		margin: 5px 2px 2px 0px;
+	}
+
+	.project-box__form-textarea {
+		outline: none;
+		margin-bottom: 10px;
+		border: 2px solid gray;
+		background: $lightGray;
+		padding: 4px 8px 4px 8px;
+		height: 300px;
+		width: 100%;
+		line-height: $commonLineHeight;
+		font-family: Arial, Helvetica, sans-serif;
+		// sizing
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+		resize: none;
+	}
+
+	.project-box__group__field__form-label {
+		// To make form-selects vertically parallel
+		display: inline-block;
+		// Width decides starting location of the following input element
+		width: 70px;
+		font-weight: bold;
+	}
+
+	.project-box__group__field__form-label--medium-width {
+		// Width decides starting location of the following input element
+		width: 90px;
+	}
+
+	.project-box__group__field__form-label--long-width {
+		// Width decides starting location of the following input element
+		width: 145px;
+	}
+
+	.project-box__group__field__form-select {
+		border: 1px solid gray;
+		width: 125px;
+	}
+
+	.project-box__group__field__form-date {
+		border: 1px solid gray;
+	}
+
+	.project-box__group__field__tooltip-container {
+		// Set to relative so changing the z-index using js can be
+		// ...used to control if the tooltip is visible or not.
+		position: relative;
+		margin-left: 105px;
+		// Becomes visible via a mouseover event added to the completionDate container
+		visibility: hidden;
+	}
+
+	.project-box__group__field__tooltip-container__arrow-up {
+		margin: 10px 0px 0px 65px;
+		height: 0;
+		width: 0;
+		border-right: 20px solid transparent;
+		border-left: 20px solid transparent;
+		border-bottom: 20px solid black;
+	}
+
+	.project-box__group__field__tooltip-container__text-box {
+		border-radius: 10px;
+		background-color: black;
+		padding: 12px;
+		width: 146px;
+		text-align: left;
+		font-size: 14px;
+		color: white;
+	}
+
+	.form-buttons-outer-container {
+		position: relative;
+		height: 75px;
+		width: 100%;
+	}
+
+	.form-buttons-centered-container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 265px;
+	}
+
+	.form-buttons-centered-container__submit {
+		float: left;
+		border: 1px solid black;
+		background: $lightBlueGray;
+		// Only top and bottom because of inconsistencies
+		// ...with button vs divs.
+		padding: 10px 0px 10px 0px;
+		// 2px bigger than cancel button because of inconsistencies
+		// ...with buttons vs divs.
+		width: 127px;
+		color: white;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	.form-buttons-centered-container__submit:hover,
+	.form-buttons-centered-container__submit:active {
+		background: $blueGray;
+	}
+
+	.form-buttons-centered-container__cancel {
+		float: right;
+		border: 1px solid black;
+		background: white;
+		// Only top and bottom because of inconisistencies
+		// ...with button and div padding.
+		padding: 10px 0px 10px 0px;
+		width: 125px;
+		color: red;
+		text-align: center;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	.form-buttons-centered-container__cancel:hover,
+	.form-buttons-centered-container__cancel:active {
+		background: #da5050;
+		color: white;
+	}
+
+	.bottom-form-errors-container {
+		height: 20px;
+	}
+}
