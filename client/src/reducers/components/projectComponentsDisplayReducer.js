@@ -1,4 +1,5 @@
 import { SET_WHICH_PROJECT_COMPONENTS_DISPLAY } from "../../actions/types";
+import { bindActionCreators } from "redux";
 
 const initialState = {
 	projectsTable: true,
@@ -6,6 +7,8 @@ const initialState = {
 	viewProjectModal: false,
 	editProjectSidebar: false,
 	targetProject: null,
+	editProjectInfo: false,
+	deleteProjectModal: false,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -38,6 +41,14 @@ export default function (state = initialState, action) {
 						action.displays.targetProject !== undefined
 							? action.displays.targetProject
 							: null,
+					editProjectInfo:
+						action.displays.editProjectInfo !== undefined
+							? action.displays.editProjectInfo
+							: false,
+					deleteProjectModal:
+						action.displays.deleteProjectModal !== undefined
+							? action.displays.deleteProjectModal
+							: false,
 				};
 			}
 		default:

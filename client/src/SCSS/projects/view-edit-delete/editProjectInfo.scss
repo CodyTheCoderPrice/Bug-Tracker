@@ -3,10 +3,38 @@
 @import "../../utils/variables";
 @import "../../utils//mixins";
 
-.view-project-component {
+.view-project-modal-component {
 	.form-errors {
 		display: block;
 		color: red;
+		text-align: center;
+	}
+
+	.top-form-errors-container {
+		margin: 20px 0px 25px 0px;
+		height: 5px;
+	}
+
+	.bottom-form-errors-container {
+		margin-top: 5px;
+		height: 5px;
+	}
+
+	.centering-container {
+		margin-bottom: 9px;
+		width: 100%;
+		text-align: center;
+	}
+
+	.centering-container__form-name-input {
+		border: 1px solid gray;
+		background: white;
+		padding: 2px;
+		height: 35px;
+		width: 500px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 24px;
+		font-weight: bold;
 		text-align: center;
 	}
 
@@ -25,6 +53,7 @@
 		width: 100%;
 		line-height: $commonLineHeight;
 		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
 		// sizing
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		-moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -47,16 +76,19 @@
 
 	.project-box__group__field__form-label--long-width {
 		// Width decides starting location of the following input element
-		width: 145px;
+		width: 125px;
 	}
 
 	.project-box__group__field__form-select {
 		border: 1px solid gray;
+		background-color: $lightGray;
 		width: 125px;
+		font-size: 14px;
 	}
 
 	.project-box__group__field__form-date {
 		border: 1px solid gray;
+		background-color: $lightGray;
 	}
 
 	.project-box__group__field__tooltip-container {
@@ -89,7 +121,7 @@
 
 	.form-buttons-outer-container {
 		position: relative;
-		height: 75px;
+		height: 55px;
 		width: 100%;
 	}
 
@@ -129,18 +161,13 @@
 		// ...with button and div padding.
 		padding: 10px 0px 10px 0px;
 		width: 125px;
-		color: red;
+		color: black;
 		text-align: center;
 		font-size: 16px;
 		cursor: pointer;
 	}
 	.form-buttons-centered-container__cancel:hover,
-	.form-buttons-centered-container__cancel:active {
-		background: #da5050;
-		color: white;
-	}
-
-	.bottom-form-errors-container {
-		height: 20px;
+	.centered-container__cancel-button:active {
+		background-color: #dddddd;
 	}
 }

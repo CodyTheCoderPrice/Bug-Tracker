@@ -182,7 +182,7 @@ router
 				res.json({ success: true, projects: allProjectsForAccount.rows });
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server error while updating account info";
+				inputErrors.server = "Server error while updating project";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}

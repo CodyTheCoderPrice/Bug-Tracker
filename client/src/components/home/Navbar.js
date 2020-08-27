@@ -10,14 +10,14 @@ import {
 import {
 	getWindowSize,
 	getElementSize,
-	getScrollbarWidth,
+	calcScrollbarWidth,
 } from "../../utils/displaySizeUtils";
 
 import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
 
 // Components
 import CreateProjectSidebar from "./projects/CreateProjectSidebar";
-import ViewProjectModal from "./projects/viewProject/ViewProjectModal";
+import ViewProjectModal from "./projects/view-edit-delete/ViewProjectModal";
 import EditProjectSidebar from "./projects/EditProjectSidebar";
 import AccountDropdown from "./account/AccountDropdown";
 
@@ -34,7 +34,7 @@ export default function Navbar() {
 			storeDisplaySizes({
 				window: getWindowSize(),
 				navbar: getElementSize("js-navbar"),
-				scrollbar: getScrollbarWidth(),
+				scrollbar: calcScrollbarWidth(),
 			})
 		);
 		
@@ -44,7 +44,7 @@ export default function Navbar() {
 				storeDisplaySizes({
 					window: getWindowSize(),
 					navbar: getElementSize("js-navbar"),
-					scrollbar: getScrollbarWidth(),
+					scrollbar: calcScrollbarWidth(),
 				})
 			);
 		});

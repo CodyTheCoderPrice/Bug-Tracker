@@ -1,7 +1,7 @@
 @import "../../utils/variables";
 @import "../../utils//mixins";
 
-.view-project-component {
+.view-project-modal-component {
 	.blurred-background {
 		position: absolute;
 		background-color: black;
@@ -12,12 +12,13 @@
 
 	.view-project-modal {
 		position: fixed;
-		margin: 20px;
-		border: 5px solid black;
+		margin: $viewProjectModalMargin;
+		border: $viewProjectModalBorderWidth solid black;
 		background: #e6e9ee;
 		// This width tends to have the least appearance of change
 		// ...when the width is calculated and overwritten using js
 		width: 96.5vw;
+		min-width: 1265px;
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
@@ -96,12 +97,6 @@
 		padding: 0px 25px 25px 25px;
 	}
 
-	.project-name {
-		padding-top: 40px;
-		text-align: center;
-		font-size: 150%;
-	}
-
 	.project-creation-date {
 		margin: 5px;
 		text-align: center;
@@ -114,7 +109,7 @@
 
 	.display-edit-project-table__data {
 		width: 33.33%;
-		min-width: 300px;
+		min-width: 400px;
 	}
 
 	.project-box {
@@ -136,8 +131,9 @@
 		margin-bottom: 0px;
 	}
 
-	.project-box__group--large-bottom-margin {
-		margin-bottom: 50px;
+	.horizontal-line {
+		margin-bottom: 25px;
+		border: 1px solid gray;
 	}
 
 	.project-box__group__field {
@@ -150,5 +146,9 @@
 
 	.project-box__group__field--inline-flex {
 		display: inline-flex;
+	}
+
+	.bottom-row-height-filler {
+		height: 65px;
 	}
 }

@@ -3,7 +3,14 @@
 @import "../../utils/variables";
 @import "../../utils//mixins";
 
-.view-project-component {
+.view-project-modal-component {
+
+	.project-name {
+		padding-top: 40px;
+		text-align: center;
+		font-size: 150%;
+	}
+
 	.project-box__description {
 		display: block;
 		margin-bottom: 10px;
@@ -16,6 +23,6 @@
 	}
 
 	.project-box__group__field_content {
-		margin-left: 7px;
+		margin-left: 11px;
 	}
 }

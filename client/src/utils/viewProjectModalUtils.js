@@ -13,18 +13,3 @@ export function toggleOptionsDropdownDisplay(shouldDisplay, buttonElem, dropdown
 		dropdownElem.style.visibility = "hidden";
 	}
 }
-
-export function toggleEditProjectDisplay(shouldDisplay, editOptionElem) {
-	if (shouldDisplay) {
-		if (!editOptionElem.className.includes("project-options-container__dropdown__option--no-display")) {
-			// Space is needed before class to keep it from merging with others
-			editOptionElem.className = editOptionElem.className + " project-options-container__dropdown__option--no-display";
-			console.log(editOptionElem.className);
-		}
-	} else {
-		editOptionElem.className = editOptionElem.className.replace(
-			/(?:^|\s)project-options-container__dropdown__option--no-display(?!\S)/g,
-			""
-		);
-	}
-}

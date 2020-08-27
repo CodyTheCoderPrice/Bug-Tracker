@@ -5,34 +5,22 @@ import { setWhichProjectComponentsDisplay } from "../../../../actions";
 
 import { getElementSize } from "../../../../utils/displaySizeUtils";
 
-import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
-
 import {
 	toggleOptionsDropdownDisplay,
-	toggleEditProjectDisplay,
 } from "../../../../utils/viewProjectModalUtils";
 
 // Components
-import DisplayProjectTable from "./DisplayProjectTable";
-import EditProjectTable from "./EditProjectTable";
+import DisplayProjectInfo from "./DisplayProjectInfo";
+import EditProjectInfo from "./EditProjectInfo";
+import DeleteProjectModal from "./DeleteProjectModal";
 
-import "../../../../SCSS/projects/viewProject/viewProjectModal.scss";
+import "../../../../SCSS/projects/view-edit-delete/viewProjectModal.scss";
 
 export default function ViewProjectModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [projectInfo, setProjectInfo] = useState({
-		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
-		name: reduxState.projectComponentsDisplay.targetProject.name,
-		creationDate: formatDateMMddYYYY(
-			reduxState.projectComponentsDisplay.targetProject.creation_content
-		),
-	});
-
 	const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
-
-	const [editProject, setEditProject] = useState(false);
 
 	// Set blurredBackground and viewProjectModal to the corect sizes
 	useEffect(() => {
@@ -54,8 +42,10 @@ export default function ViewProjectModal() {
 			projectModalElement.style.width =
 				reduxState.displaySizes.window.width -
 				reduxState.displaySizes.scrollbar.width -
-				50 +
+				30 +
 				"px";
+
+			console.log(projectModalElement.style.width);
 		}
 	}, [reduxState.displaySizes, reduxState.projects]);
 
@@ -67,13 +57,6 @@ export default function ViewProjectModal() {
 		);
 	}, [showOptionsDropdown]);
 
-	useEffect(() => {
-		toggleEditProjectDisplay(
-			editProject,
-			document.getElementsByClassName("js-edit-option")[0]
-		);
-	}, [editProject]);
-
 	const openOptionsDropdown = () => {
 		setShowOptionsDropdown(!showOptionsDropdown);
 	};
@@ -84,8 +67,22 @@ export default function ViewProjectModal() {
 		}
 	};
 
-	const switchToEditProject = () => {
-		setEditProject(true);
+	const switchBetweenDisplayAndEditProjectInfo = () => {
+		dispatch(
+			setWhichProjectComponentsDisplay({
+				...reduxState.projectComponentsDisplay,
+				editProjectInfo: !reduxState.projectComponentsDisplay.editProjectInfo,
+			})
+		);
+	};
+
+	const openDeleteProjectModal = () => {
+		dispatch(
+			setWhichProjectComponentsDisplay({
+				...reduxState.projectComponentsDisplay,
+				deleteProjectModal: true,
+			})
+		);
 	};
 
 	const closeViewProjectDashboard = () => {
@@ -98,7 +95,7 @@ export default function ViewProjectModal() {
 	};
 
 	return (
-		<div className="view-project-component">
+		<div className="view-project-modal-component">
 			<div className="blurred-background js-view-project-blurred-background" />
 			<div
 				className="view-project-modal js-view-project-modal"
@@ -114,11 +111,16 @@ export default function ViewProjectModal() {
 					<div className="project-options-container__dropdown js-project-options-dropdown">
 						<span
 							className="project-options-container__dropdown__option js-edit-option"
-							onClick={switchToEditProject}
+							onClick={switchBetweenDisplayAndEditProjectInfo}
 						>
-							Edit Project
+							{reduxState.projectComponentsDisplay.editProjectInfo
+								? "Cancel"
+								: "Edit Project"}
 						</span>
-						<span className="project-options-container__dropdown__option project-options-container__dropdown__option--no-border">
+						<span
+							className="project-options-container__dropdown__option project-options-container__dropdown__option--no-border"
+							onClick={openDeleteProjectModal}
+						>
 							Delete Project
 						</span>
 					</div>
@@ -127,11 +129,14 @@ export default function ViewProjectModal() {
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
 				<div className="padded-container">
-					<h1 className="project-name">{projectInfo.name}</h1>
-					<div className="project-creation-date">
-						Created on: {projectInfo.creationDate}
-					</div>
-					{editProject ? <EditProjectTable /> : <DisplayProjectTable />}
+					{reduxState.projectComponentsDisplay.editProjectInfo ? (
+						<EditProjectInfo />
+					) : (
+						<DisplayProjectInfo />
+					)}
+					{reduxState.projectComponentsDisplay.deleteProjectModal ? (
+						<DeleteProjectModal />
+					) : null}
 				</div>
 			</div>
 		</div>

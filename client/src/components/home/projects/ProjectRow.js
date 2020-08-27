@@ -15,7 +15,7 @@ export default function ProjectRow(props) {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState.projectComponentsDisplay,
+				projectsTable: true,
 				viewProjectModal: true,
 				targetProject: props.project,
 			})

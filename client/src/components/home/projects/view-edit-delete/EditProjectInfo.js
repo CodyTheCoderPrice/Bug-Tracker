@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import { setWhichProjectComponentsDisplay } from "../../../../actions";
+
 import { updateProject, clearInputErrors } from "../../../../actions";
 
-import { formatDateYYYYmmDD } from "../../../../utils/dateUtils";
+import {
+	formatDateMMddYYYY,
+	formatDateYYYYmmDD,
+} from "../../../../utils/dateUtils";
 
 import {
 	toggleCharCountColor,
@@ -12,7 +17,7 @@ import {
 
 import { useToggleableDateInputAndTooltip } from "../../../../utils/formHookUtils";
 
-import "../../../../SCSS/projects/viewProject/editProjectTable.scss";
+import "../../../../SCSS/projects/view-edit-delete/editProjectInfo.scss";
 
 export default function EditProjectInfo() {
 	const reduxState = useSelector((state) => state);
@@ -28,6 +33,9 @@ export default function EditProjectInfo() {
 		statusId: reduxState.projectComponentsDisplay.targetProject.p_status_id,
 		statusOption:
 			reduxState.projectComponentsDisplay.targetProject.p_status_option,
+		creationDate: formatDateMMddYYYY(
+			reduxState.projectComponentsDisplay.targetProject.creation_content
+		),
 		startDate: formatDateYYYYmmDD(
 			reduxState.projectComponentsDisplay.targetProject.start_date
 		),
@@ -109,12 +117,39 @@ export default function EditProjectInfo() {
 		console.log(projectInfo);
 		// Clears any prior input errors
 		dispatch(clearInputErrors());
-		dispatch(updateProject(projectInfo));
+		dispatch(updateProject(projectInfo, reduxState.projectComponentsDisplay));
 		setShouldShowAnyErrors(true);
+	};
+
+	const switchToDisplayProjectInfo = () => {
+		dispatch(
+			setWhichProjectComponentsDisplay({
+				...reduxState.projectComponentsDisplay,
+				editProjectInfo: false,
+			})
+		);
 	};
 
 	return (
 		<form noValidate onSubmit={handleSubmit}>
+			<div className="top-form-errors-container">
+				<span className="form-errors">
+					{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}
+				</span>
+			</div>
+			<div className="centering-container">
+				<input
+					type="text"
+					name="name"
+					onChange={(e) => onChange(e)}
+					value={projectInfo.name}
+					id="edit-project-name"
+					className="centering-container__form-name-input"
+				/>
+			</div>
+			<div className="project-creation-date">
+				Created on: {projectInfo.creationDate}
+			</div>
 			<table className="display-edit-project-table">
 				<tbody>
 					<tr>
@@ -145,7 +180,7 @@ export default function EditProjectInfo() {
 						<td className="display-edit-project-table__data">
 							<div className="project-box">
 								<h2 className="project-box__title">Info</h2>
-								<div className="project-box__group project-box__group--large-bottom-margin">
+								<div className="project-box__group">
 									<div className="project-box__group__field">
 										<label
 											htmlFor="edit-project-priority"
@@ -175,6 +210,7 @@ export default function EditProjectInfo() {
 										></select>
 									</div>
 								</div>
+								<div className="horizontal-line"/>
 								<div className="project-box__group">
 									<div className="project-box__group__field">
 										<label
@@ -213,7 +249,7 @@ export default function EditProjectInfo() {
 											htmlFor="edit-project-completion-date"
 											className="project-box__group__field__form-label project-box__group__field__form-label--long-width"
 										>
-											Completion Date:
+											Completed on:
 										</label>
 										<input
 											type="date"
@@ -240,7 +276,7 @@ export default function EditProjectInfo() {
 						</td>
 					</tr>
 					<tr>
-						<td></td>
+						<td>{/*Empty Column*/}</td>
 						<td>
 							<div className="form-buttons-outer-container">
 								<div className="form-buttons-centered-container">
@@ -250,7 +286,10 @@ export default function EditProjectInfo() {
 									>
 										Edit Project
 									</button>
-									<div className="form-buttons-centered-container__cancel">
+									<div
+										className="form-buttons-centered-container__cancel"
+										onClick={switchToDisplayProjectInfo}
+									>
 										Cancel
 									</div>
 								</div>
