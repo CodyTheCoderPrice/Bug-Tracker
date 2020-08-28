@@ -15,6 +15,11 @@ export function getElementSize(nameOfClass) {
 	return { height: elem.offsetHeight, width: elem.offsetWidth };
 }
 
+export function getElementLocation(nameOfClass) {
+	let rect = document.getElementsByClassName(nameOfClass)[0].getBoundingClientRect();
+	return {top: rect.top, right: rect.right, bottom: rect.bottom, left: rect.left};
+}
+
 export function calcScrollbarWidth() {
 	const outerElem = document.createElement('div');
 	outerElem.style.visibility = 'hidden';

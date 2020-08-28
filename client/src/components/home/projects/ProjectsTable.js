@@ -6,6 +6,8 @@ import {
 	setWhichAccountComponentsDisplay,
 } from "../../../actions";
 
+import { getElementLocation } from "../../../utils/displaySizeUtils";
+
 // Components
 import ProjectRow from "./ProjectRow";
 
@@ -14,6 +16,18 @@ import "../../../SCSS/projects/projectsTableAndRows.scss";
 export default function ProjectsTable() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (reduxState.displaySizes.window !== null) {
+			let remainingSpaceElem = document.getElementsByClassName(
+				"js-remaining-space"
+			)[0];
+			remainingSpaceElem.style.width =
+				reduxState.displaySizes.window.width -
+				getElementLocation("js-remaining-space").left +
+				"px";
+		}
+	}, [reduxState.displaySizes]);
 
 	const openCreateProjectSidebar = () => {
 		dispatch(
@@ -55,11 +69,10 @@ export default function ProjectsTable() {
 						<th className="project-table__header">
 							<span className="project-table__header__due-date">Due Date</span>
 						</th>
-						<th className="project-table__header">
-							<span className="project-table__header__more-info"></span>
+						<th className="project-table__header">{/*For more info link*/}</th>
+						<th className="project-table__header js-remaining-space">
+							{/*Fills remaining empty space*/}
 						</th>
-						{/*Used to fill the remaining space of the screen (if needed)*/}
-						<th className="project-table__header js-remaining-space"></th>
 					</tr>
 				</thead>
 				<tbody>
