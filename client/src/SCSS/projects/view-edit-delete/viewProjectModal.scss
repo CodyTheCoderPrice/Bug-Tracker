@@ -3,7 +3,7 @@
 
 .view-project-modal-component {
 	.blurred-background {
-		position: absolute;
+		position: fixed;
 		top: $navbar-height;
 		background-color: black;
 		opacity: 0.5;

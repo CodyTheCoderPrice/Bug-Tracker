@@ -12,7 +12,6 @@ import {
 import { toggleClassName } from "../../../utils/elementUtils";
 
 import {
-	getElementSize,
 	getElementStyle,
 	stripNonDigits,
 } from "../../../utils/displaySizeUtils";
@@ -74,36 +73,6 @@ export default function CreateProjectSidebar() {
 		};
 	}, []);
 
-	// Sets blurred background size to fill the screen without casuing overflow
-	useEffect(() => {
-		if (
-			reduxState.displaySizeVariables.window !== null &&
-			reduxState.displaySizeConstants.navbar !== null
-		) {
-			let blurredBackgroundElement = document.getElementsByClassName(
-				"js-create-project-blurred-background"
-			)[0];
-
-			const projectTableHeight =
-				getElementSize(
-					document.getElementsByClassName("js-project-filter-search-bar")[0]
-				).height +
-				getElementSize(
-					document.getElementsByClassName("js-project-table__header")[0]
-				).height *
-					(reduxState.projects.length + 1);
-
-			const windowMinusNavbarHeight =
-				reduxState.displaySizeVariables.window.height -
-				reduxState.displaySizeConstants.navbar.height;
-
-			blurredBackgroundElement.style.height =
-				projectTableHeight > windowMinusNavbarHeight
-					? projectTableHeight
-					: reduxState.displaySizeVariables.window.height + "px";
-		}
-	}, [reduxState.displaySizeVariables, reduxState.projects]);
-
 	// Adjusts the height of the sidebar to fit the screen
 	useEffect(() => {
 		if (
@@ -114,12 +83,13 @@ export default function CreateProjectSidebar() {
 				"js-create-project-sidebar"
 			)[0];
 
-			// Makes sure originalSidebarSizeAndStyle is set
+			// Makes sure originalSidebarSizeAndStyle gets set
 			if (originalSidebarSizeAndStyle === null) {
 				const sidebarStyle = getElementStyle(createProjectSidebarElement);
 				setOriginalSidebarHeight({
 					height: stripNonDigits(sidebarStyle.height),
 					marginBottom: stripNonDigits(sidebarStyle.marginBottom),
+					borderBottom: stripNonDigits(sidebarStyle.borderBottomWidth),
 				});
 
 				// Prevents crash since originalSidebarSizeAndStyle will still
@@ -127,13 +97,14 @@ export default function CreateProjectSidebar() {
 				return;
 			}
 
-			const adjustedWindowSize =
+			const adjustedWindowHeight =
 				reduxState.displaySizeVariables.window.height -
 				reduxState.displaySizeConstants.navbar.height -
-				originalSidebarSizeAndStyle.marginBottom;
+				originalSidebarSizeAndStyle.marginBottom -
+				originalSidebarSizeAndStyle.borderBottom;
 
-			if (originalSidebarSizeAndStyle.height > adjustedWindowSize) {
-				createProjectSidebarElement.style.height = adjustedWindowSize + "px";
+			if (originalSidebarSizeAndStyle.height > adjustedWindowHeight) {
+				createProjectSidebarElement.style.height = adjustedWindowHeight + "px";
 			} else {
 				createProjectSidebarElement.style.height =
 					originalSidebarSizeAndStyle.height + "px";

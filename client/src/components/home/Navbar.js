@@ -12,7 +12,6 @@ import {
 	getWindowSize,
 	getElementSize,
 	calcScrollbarWidth,
-	getConstantsForRedux,
 } from "../../utils/displaySizeUtils";
 
 import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
@@ -40,7 +39,6 @@ export default function Navbar() {
 				window: getWindowSize(),
 			})
 		);
-
 
 		// Adds event to update navbar size on a resize
 		window.addEventListener("resize", () => {

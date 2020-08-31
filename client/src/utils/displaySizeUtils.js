@@ -1,12 +1,13 @@
 export function getWindowSize() {
 	const height =
-		window.innerElemHeight ||
+		window.innerHeight ||
 		document.documentElement.clientHeight ||
 		document.body.clientHeight;
 	const width =
-		window.innerElemWidth ||
+		window.innerWidth ||
 		document.documentElement.clientWidth ||
 		document.body.clientWidth;
+	console.log(height);
 	return { height: height, width: width };
 }
 

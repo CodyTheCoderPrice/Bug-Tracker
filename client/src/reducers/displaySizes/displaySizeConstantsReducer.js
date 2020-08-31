@@ -12,8 +12,6 @@ export default function (state = initialState, action) {
 			return {
 				navbar: action.sizes.navbar,
 				scrollbar: action.sizes.scrollbar,
-				createProjectSidebar: action.sizes.createProjectSidebar,
-				viewProjectModal: action.sizes.viewProjectModal,
 			};
 		default:
 			return state;
