@@ -6,16 +6,16 @@
 .view-project-modal-component {
 
 	.project-name {
-		padding-top: 40px;
+		padding: 43px 0px 2px 0px;
 		text-align: center;
-		font-size: 150%;
+		font-size: 175%;
 	}
 
 	.project-box__description {
 		display: block;
 		margin-bottom: 10px;
 		padding: 5px;
-		line-height: $commonLineHeight;
+		line-height: $common-line-height;
 	}
 
 	.project-box__group__field__type {

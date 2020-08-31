@@ -4,7 +4,8 @@ import authComponentsDisplayReducer from "./components/authComponentsDisplayRedu
 import accountComponentsDisplayReducer from "./components/accountComponentsDisplayReducer";
 import projectComponentsDisplayReducer from "./components/projectComponentsDisplayReducer";
 // Display Sizes
-import displaySizesReducer from "./displaySizesReducer";
+import displaySizeConstantsReducer from "./displaySizes/displaySizeConstantsReducer";
+import displaySizeVariablesReducer from "./displaySizes/displaySizeVariablesReducer";
 // Priority Status Options
 import priorityStatusOptionsReducer from "./priorityStatusOptionsReducer";
 // Account
@@ -19,7 +20,8 @@ export default combineReducers({
 	authComponentsDisplay: authComponentsDisplayReducer,
 	accountComponentsDisplay: accountComponentsDisplayReducer,
 	projectComponentsDisplay: projectComponentsDisplayReducer,
-	displaySizes: displaySizesReducer,
+	displaySizeConstants: displaySizeConstantsReducer,
+	displaySizeVariables: displaySizeVariablesReducer,
 	priorityStatusArrays: priorityStatusOptionsReducer,
 	auth: authReducer,
 	account: accountReducer,

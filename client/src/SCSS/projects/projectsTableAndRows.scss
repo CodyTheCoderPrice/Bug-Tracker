@@ -1,7 +1,7 @@
 @import "../utils/variables";
 
 @mixin border-line() {
-	border-bottom: 1px solid $mediumGray;
+	border-bottom: 1px solid $medium-gray;
 }
 
 .projects-table-component {
@@ -11,7 +11,7 @@
 		border: 1px solid black;
 		border-left: none;
 		border-right: none;
-		background-color: $lightGray;
+		background-color: $light-gray;
 		height: 60px;
 		width: 100vw;
 	}
@@ -39,6 +39,11 @@
 		text-align: center;
 	}
 
+	.project-table__row--clickable:hover,
+	.project-table__row--clickable:active {
+		background-color: $very-light-gray;
+	}
+
 	.project-table__header {
 		@include border-line();
 		width: 250px;
@@ -51,6 +56,7 @@
 
 	.project-table__data__info--blue-link {
 		color: blue;
+		font-size: 105%;
 		cursor: pointer;
 	}
 }

@@ -8,17 +8,29 @@
 	left: 0;
 	height: 100vh;
 	width: 100vw;
+
+	.blurred-background {
+		z-index: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: black;
+		opacity: 0.5;
+		height: 100vh;
+		width: 100vw;
+	}
 	
 	.edit-account-modal {
+		z-index: 1;
 		position: fixed;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border: 5px solid black;
-		background: white;
+		background-color: white;
 		padding: 25px;
 		height: 480px;
-		width: $editAccountModalWidth;
+		width: $edit-account-modal-width;
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
 	}
@@ -61,11 +73,11 @@
 
 	.form__text-input {
 		margin-top: 5px;
-		margin-bottom: $inputMarginBottom;
+		margin-bottom: $form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
 		box-sizing: border-box;
-		background: $lightGray;
+		background: $light-gray;
 		padding: 8px;
 		width: 100%;
 		font-size: 14px;
@@ -81,7 +93,7 @@
 		margin-top: 10px;
 		margin-bottom: 5px;
 		border: 0;
-		background: $lightBlueGray;
+		background: $light-blue-gray;
 		padding: 10px;
 		width: 100%;
 		color: white;
@@ -90,13 +102,13 @@
 	}
 	.form__submit:hover,
 	.form__submit:active {
-		background: $blueGray;
+		background: $blue-gray;
 	}
 
 	.modal-links-container {
 		position: absolute;
 		bottom: 30px;
-		width: $editAccountModalWidth;
+		width: $edit-account-modal-width;
 		text-align: center;
 	}
 

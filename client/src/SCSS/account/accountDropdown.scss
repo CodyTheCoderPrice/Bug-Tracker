@@ -2,6 +2,7 @@
 
 .account-dropdown-component {
 	.blurred-background {
+		z-index: 1;
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -14,6 +15,7 @@
 	}
 
 	.dropdown-container {
+		z-index: 1;
 		position: absolute;
 		right: 0;
 		border: 5px solid black;

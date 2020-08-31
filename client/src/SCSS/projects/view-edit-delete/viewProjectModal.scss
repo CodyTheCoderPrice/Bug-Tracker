@@ -4,6 +4,7 @@
 .view-project-modal-component {
 	.blurred-background {
 		position: absolute;
+		top: $navbar-height;
 		background-color: black;
 		opacity: 0.5;
 		height: 100vh;
@@ -12,14 +13,18 @@
 
 	.view-project-modal {
 		position: fixed;
-		margin: $viewProjectModalMargin;
-		border: $viewProjectModalBorderWidth solid black;
-		background: #e6e9ee;
-		// This width tends to have the least appearance of change
-		// ...when the width is calculated and overwritten using js
+		top: $navbar-height;
+		margin: $view-project-bug-modal-margin;
+		border: $view-project-bug-modal-border-width solid black;
+		background-color: white;
+		height: 690px;
+		// This value makes modal width resize using JS look less jumpy
 		width: 96.5vw;
 		min-width: 1265px;
 		font-family: Arial, Helvetica, sans-serif;
+		// Gives modal scrolling when content goes beyond height
+		overflow-y: scroll !important;
+		overflow-x: hidden !important;
 	}
 
 	.project-options-container {
@@ -33,14 +38,14 @@
 	.project-options-container__button {
 		z-index: 3;
 		position: absolute;
-		right: 7px;
+		right: 6px;
 		border: 2px solid transparent;
 		border-bottom: none;
 		padding: 0px 3px 0px 5px;
 		background: none;
 		height: 29px;
 		width: 23px;
-		color: $mediumGray;
+		color: $medium-gray;
 		font-size: 26px;
 		cursor: pointer;
 	}
@@ -72,7 +77,7 @@
 	}
 	.project-options-container__dropdown__option:hover,
 	.project-options-container__dropdown__option:active {
-		background-color: $lightGray;
+		background-color: $light-gray;
 	}
 
 	.project-options-container__dropdown__option--no-display {
@@ -115,7 +120,7 @@
 	.project-box {
 		margin: 10px;
 		border: 2px solid black;
-		background-color: white;
+		background-color: $light-gray;
 		padding: 0px 20px 20px 20px;
 		min-height: 400px;
 		overflow-wrap: anywhere;

@@ -47,6 +47,32 @@ CREATE TABLE project_status(
 	marks_completion BOOLEAN DEFAULT false
 );
 
+CREATE TABLE bug(
+    bug_id SERIAL PRIMARY KEY,
+    project_id INTEGER,
+    name VARCHAR(255),
+    description TEXT,
+	b_priority_id SMALLINT NOT NULL,
+	b_status_id SMALLINT NOT NULL,
+	location TEXT,
+	creation_date DATE,
+	start_date DATE,
+    due_date DATE,
+    completion_date DATE,
+	CONSTRAINT fk_project
+    FOREIGN KEY(project_id) 
+	REFERENCES project(project_id)
+	ON DELETE CASCADE,
+	CONSTRAINT fk_project_priority
+	FOREIGN KEY(b_priority_id) 
+	REFERENCES bug_priority(b_priority_id)
+	ON DELETE SET NULL,
+	CONSTRAINT fk_project_status
+    FOREIGN KEY(b_status_id) 
+	REFERENCES bug_status(b_status_id)
+	ON DELETE SET NULL
+);
+
 CREATE TABLE bug_priority(
 	b_priority_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,

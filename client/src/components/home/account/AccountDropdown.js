@@ -23,6 +23,8 @@ export default function AccountDropdown() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	// Controls when blurred background is visible
+	// ...and sects it to the correct size.
 	useEffect(() => {
 		let blurredBackgroundElement = document.getElementsByClassName(
 			"js-account-modals-blurred-background"
@@ -33,10 +35,25 @@ export default function AccountDropdown() {
 		} else {
 			blurredBackgroundElement.style.visibility = "hidden";
 		}
-		// Will equal the height of the page
-		blurredBackgroundElement.style.height =
-			getElementSize("js-home-container").height + "px";
-	}, [reduxState.accountComponentsDisplay.accountModals, reduxState.projects]);
+
+		if (reduxState.projectComponentsDisplay.projectsTable) {
+			// Will equal the height of the entire page
+			blurredBackgroundElement.style.height =
+				(reduxState.displaySizeConstants.navbar !== null
+					? reduxState.displaySizeConstants.navbar.height
+					: 0) +
+				getElementSize(document.getElementsByClassName("js-project-filter-search-bar")[0]).height +
+				getElementSize(document.getElementsByClassName("js-project-table__header")[0]).height *
+					(reduxState.projects.length + 1) +
+				"px";
+		}
+	}, [
+		reduxState.accountComponentsDisplay.accountModals,
+		reduxState.projects,
+		// Possibly unneeded
+		/* reduxState.displaySizeConstants,
+		reduxState.displaySizeVariables, */
+	]);
 
 	const openEditInfoModals = () => {
 		dispatch(
@@ -88,21 +105,19 @@ export default function AccountDropdown() {
 					</div>
 				</div>
 			</div>
-			<div className="edit-account-modals-container">
-				<div className="blurred-background js-account-modals-blurred-background" />
-				{reduxState.accountComponentsDisplay.editInfoModal ? (
-					<EditInfoModal />
-				) : null}
-				{reduxState.accountComponentsDisplay.editEmailModal ? (
-					<EditEmailModal />
-				) : null}
-				{reduxState.accountComponentsDisplay.editPasswordModal ? (
-					<EditPasswordModal />
-				) : null}
-				{reduxState.accountComponentsDisplay.deleteAccountModal ? (
-					<DeleteAccountModal />
-				) : null}
-			</div>
+			<div className="blurred-background js-account-modals-blurred-background" />
+			{reduxState.accountComponentsDisplay.editInfoModal ? (
+				<EditInfoModal />
+			) : null}
+			{reduxState.accountComponentsDisplay.editEmailModal ? (
+				<EditEmailModal />
+			) : null}
+			{reduxState.accountComponentsDisplay.editPasswordModal ? (
+				<EditPasswordModal />
+			) : null}
+			{reduxState.accountComponentsDisplay.deleteAccountModal ? (
+				<DeleteAccountModal />
+			) : null}
 		</div>
 	);
 }

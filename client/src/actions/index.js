@@ -1,13 +1,20 @@
 import axios from "axios";
-import {  STORE_DISPLAY_SIZES, SET_PRIORITY_STATUS_ARRAYS, SET_INPUT_ERRORS } from "./types";
+import {  SET_DISPLAY_SIZE_CONSTANTS, SET_DISPLAY_SIZE_VARIABLES, SET_PRIORITY_STATUS_ARRAYS, SET_INPUT_ERRORS } from "./types";
 
 export * from "./accountActions";
 export * from "./projectActions";
 export * from "./componentActions";
 
-export const storeDisplaySizes = (sizes) => (dispatch) => {
+export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 	dispatch({
-		type: STORE_DISPLAY_SIZES,
+		type: SET_DISPLAY_SIZE_CONSTANTS,
+		sizes: sizes,
+	});
+};
+
+export const setDisplaySizeVariables = (sizes) => (dispatch) => {
+	dispatch({
+		type: SET_DISPLAY_SIZE_VARIABLES,
 		sizes: sizes,
 	});
 };

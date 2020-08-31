@@ -27,13 +27,13 @@
 	}
 
 	.centering-container__form-name-input {
-		border: 1px solid gray;
-		background: white;
-		padding: 2px;
-		height: 35px;
+		border: 2px solid black;
+		background-color: white;
+		padding: 4px;
+		height: 43px;
 		width: 500px;
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: 24px;
+		font-size: 28px;
 		font-weight: bold;
 		text-align: center;
 	}
@@ -46,12 +46,12 @@
 	.project-box__form-textarea {
 		outline: none;
 		margin-bottom: 10px;
-		border: 2px solid gray;
-		background: $lightGray;
+		border: 2px solid black;
+		background-color: white;
 		padding: 4px 8px 4px 8px;
 		height: 300px;
 		width: 100%;
-		line-height: $commonLineHeight;
+		line-height: $common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16px;
 		// sizing
@@ -80,15 +80,15 @@
 	}
 
 	.project-box__group__field__form-select {
-		border: 1px solid gray;
-		background-color: $lightGray;
+		border: 1px solid black;
+		background-color: white;
 		width: 125px;
 		font-size: 14px;
 	}
 
 	.project-box__group__field__form-date {
-		border: 1px solid gray;
-		background-color: $lightGray;
+		border: 1px solid black;
+		background-color: white;
 	}
 
 	.project-box__group__field__tooltip-container {
@@ -136,7 +136,7 @@
 	.form-buttons-centered-container__submit {
 		float: left;
 		border: 1px solid black;
-		background: $lightBlueGray;
+		background-color: $light-blue-gray;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
 		padding: 10px 0px 10px 0px;
@@ -150,24 +150,24 @@
 	}
 	.form-buttons-centered-container__submit:hover,
 	.form-buttons-centered-container__submit:active {
-		background: $blueGray;
+		background-color: $blue-gray;
 	}
 
 	.form-buttons-centered-container__cancel {
 		float: right;
 		border: 1px solid black;
-		background: white;
+		background-color: white;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.
 		padding: 10px 0px 10px 0px;
 		width: 125px;
-		color: black;
+		color: red;
 		text-align: center;
 		font-size: 16px;
 		cursor: pointer;
 	}
 	.form-buttons-centered-container__cancel:hover,
 	.centered-container__cancel-button:active {
-		background-color: #dddddd;
+		background-color: #f1f0f0;
 	}
 }

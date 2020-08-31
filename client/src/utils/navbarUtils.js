@@ -1,23 +1,15 @@
-export function setNavbarButtonColor(elem, component) {
-	if (component) {
-		if (!elem.className.includes("navbar-button--selected")) {
-			// Space is needed before class to keep it from merging with others
-			elem.className = elem.className + " navbar-button--selected";
-		}
-	} else {
-		elem.className = elem.className.replace(
-			/(?:^|\s)navbar-button--selected(?!\S)/g,
-			""
-		);
-	}
+import { toggleClassName } from "./elementUtils";
+
+export function setNavbarButtonColor(component, element, nameOfToggledClass) {
+	toggleClassName(component, element, nameOfToggledClass);
 }
 
-export function setProjectsIcon(elem, component) {
+export function setProjectsIcon(component, element) {
 	if (component) {
 		// Open folder icon
-		elem.className = "fa fa-folder-open";
+		element.className = "fa fa-folder-open";
 	} else {
 		// Closed folder icon
-		elem.className = "fa fa-folder";
+		element.className = "fa fa-folder";
 	}
 }

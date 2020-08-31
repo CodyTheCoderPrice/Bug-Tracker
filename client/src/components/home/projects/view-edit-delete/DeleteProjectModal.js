@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { setWhichProjectComponentsDisplay } from "../../../../actions";
+import {
+	setWhichProjectComponentsDisplay,
+	deleteProject,
+} from "../../../../actions";
 
-import { deleteProject } from "../../../../actions";
+import { getElementSize } from "../../../../utils/displaySizeUtils";
 
 import "../../../../SCSS/projects/view-edit-delete/deleteProjectModal.scss";
 
@@ -14,6 +17,18 @@ export default function DeleteProjectModal() {
 	const [projectInfo, setProjectInfo] = useState({
 		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
 	});
+
+	useEffect(() => {
+		let blurredBackgroundElement = document.getElementsByClassName(
+			"js-delete-project-modal-blurred-background"
+		)[0];
+		// Will equal the height of the projectTable
+		blurredBackgroundElement.style.height =
+			getElementSize(document.getElementsByClassName("js-project-filter-search-bar")[0]).height +
+			getElementSize(document.getElementsByClassName("js-project-table__header")[0]).height *
+				(reduxState.projects.length + 1) +
+			"px";
+	}, [reduxState.projects]);
 
 	const callDeleteProject = () => {
 		dispatch(deleteProject({ projectId: projectInfo.projectId }));

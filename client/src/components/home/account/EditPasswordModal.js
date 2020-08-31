@@ -61,7 +61,12 @@ export default function EditPasswordModal() {
 				</div>
 				<h1 className="title">Edit Password</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
-					<label htmlFor="edit-account-password-new-password" className="form__label">New Password: </label>
+					<label
+						htmlFor="edit-account-password-new-password"
+						className="form__label"
+					>
+						New Password:{" "}
+					</label>
 					<input
 						type="password"
 						name="newPassword"
@@ -73,7 +78,12 @@ export default function EditPasswordModal() {
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword : ""}
 					</span>
-					<label htmlFor="edit-account-password-new-password2" className="form__label">Confirm New Password: </label>
+					<label
+						htmlFor="edit-account-password-new-password2"
+						className="form__label"
+					>
+						Confirm New Password:{" "}
+					</label>
 					<input
 						type="password"
 						name="newPassword2"
@@ -85,7 +95,12 @@ export default function EditPasswordModal() {
 					<span className="form__errors">
 						{shouldShowAnyErrors ? reduxState.inputErrors.newPassword2 : ""}
 					</span>
-					<label htmlFor="edit-account-password-current-password" className="form__label">Current Password: </label>
+					<label
+						htmlFor="edit-account-password-current-password"
+						className="form__label"
+					>
+						Current Password:{" "}
+					</label>
 					<input
 						type="password"
 						name="currentPassword"

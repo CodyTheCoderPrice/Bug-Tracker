@@ -9,7 +9,13 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import { getElementSize } from "../../../utils/displaySizeUtils";
+import { toggleClassName } from "../../../utils/elementUtils";
+
+import {
+	getElementSize,
+	getElementStyle,
+	stripNonDigits,
+} from "../../../utils/displaySizeUtils";
 
 import {
 	toggleCharCountColor,
@@ -49,17 +55,96 @@ export default function CreateProjectSidebar() {
 		reduxState.priorityStatusArrays.projectStatusCompletionIndex
 	);
 
+	const [originalSidebarSizeAndStyle, setOriginalSidebarHeight] = useState(
+		null
+	);
+
+	// Move window to top of screen and disable scrolling for the HTML and body
 	useEffect(() => {
-		let blurredBackgroundElement = document.getElementsByClassName(
-			"js-create-project-blurred-background"
-		)[0];
-		// Will equal the height of the projectTable
-		blurredBackgroundElement.style.height =
-			getElementSize("js-project-filter-search-bar").height +
-			getElementSize("js-project-table__header").height *
-				(reduxState.projects.length + 1) +
-			"px";
-	}, [reduxState.projects]);
+		window.scrollTo(0, 0);
+		let html = document.getElementsByClassName("js-html")[0];
+		let body = document.getElementsByClassName("js-body")[0];
+
+		toggleClassName(true, html, "stop-scrolling");
+		toggleClassName(true, body, "stop-scrolling");
+
+		return () => {
+			toggleClassName(false, html, "stop-scrolling");
+			toggleClassName(false, body, "stop-scrolling");
+		};
+	}, []);
+
+	// Sets blurred background size to fill the screen without casuing overflow
+	useEffect(() => {
+		if (
+			reduxState.displaySizeVariables.window !== null &&
+			reduxState.displaySizeConstants.navbar !== null
+		) {
+			let blurredBackgroundElement = document.getElementsByClassName(
+				"js-create-project-blurred-background"
+			)[0];
+
+			const projectTableHeight =
+				getElementSize(
+					document.getElementsByClassName("js-project-filter-search-bar")[0]
+				).height +
+				getElementSize(
+					document.getElementsByClassName("js-project-table__header")[0]
+				).height *
+					(reduxState.projects.length + 1);
+
+			const windowMinusNavbarHeight =
+				reduxState.displaySizeVariables.window.height -
+				reduxState.displaySizeConstants.navbar.height;
+
+			blurredBackgroundElement.style.height =
+				projectTableHeight > windowMinusNavbarHeight
+					? projectTableHeight
+					: reduxState.displaySizeVariables.window.height + "px";
+		}
+	}, [reduxState.displaySizeVariables, reduxState.projects]);
+
+	// Adjusts the height of the sidebar to fit the screen
+	useEffect(() => {
+		if (
+			reduxState.displaySizeVariables.window !== null &&
+			reduxState.displaySizeConstants.navbar !== null
+		) {
+			let createProjectSidebarElement = document.getElementsByClassName(
+				"js-create-project-sidebar"
+			)[0];
+
+			// Makes sure originalSidebarSizeAndStyle is set
+			if (originalSidebarSizeAndStyle === null) {
+				const sidebarStyle = getElementStyle(createProjectSidebarElement);
+				setOriginalSidebarHeight({
+					height: stripNonDigits(sidebarStyle.height),
+					marginBottom: stripNonDigits(sidebarStyle.marginBottom),
+				});
+
+				// Prevents crash since originalSidebarSizeAndStyle will still
+				// ...be null for remainder of this useEfffect iteration
+				return;
+			}
+
+			const adjustedWindowSize =
+				reduxState.displaySizeVariables.window.height -
+				reduxState.displaySizeConstants.navbar.height -
+				originalSidebarSizeAndStyle.marginBottom;
+
+			if (originalSidebarSizeAndStyle.height > adjustedWindowSize) {
+				createProjectSidebarElement.style.height = adjustedWindowSize + "px";
+			} else {
+				createProjectSidebarElement.style.height =
+					originalSidebarSizeAndStyle.height + "px";
+			}
+		}
+	}, [
+		reduxState.displaySizeConstants,
+		reduxState.displaySizeVariables,
+		originalSidebarSizeAndStyle,
+		reduxState.projects,
+	]);
 
 	useEffect(() => {
 		populateComboBox(
@@ -132,7 +217,7 @@ export default function CreateProjectSidebar() {
 	return (
 		<div className="create-projects-component">
 			<div className="blurred-background js-create-project-blurred-background" />
-			<div className="create-project-sidebar">
+			<div className="create-project-sidebar js-create-project-sidebar">
 				<div className="x-button" onClick={closeCreateProjectSidebar}>
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>

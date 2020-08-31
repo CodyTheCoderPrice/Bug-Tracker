@@ -57,7 +57,6 @@ function App() {
 			!reduxState.authComponentsDisplay.login &&
 			!reduxState.authComponentsDisplay.home
 		) {
-			console.log("Got here");
 			dispatch(setWhichAuthComponentsDisplay({ login: true }));
 		}
 		// Below comment disables an unneeded warning about optimization

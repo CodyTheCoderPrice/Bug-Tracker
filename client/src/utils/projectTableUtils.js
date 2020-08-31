@@ -1,3 +1,3 @@
-export function setWidthTofillRemainingSpace(elem) {
+export function setWidthTofillRemainingSpace(element) {
 	
 }

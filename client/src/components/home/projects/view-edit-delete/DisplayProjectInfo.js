@@ -71,7 +71,6 @@ export default function DisplayProjectInfo() {
 										</span>
 									</div>
 								</div>
-								<div className="horizontal-line"/>
 								<div className="project-box__group">
 									<div className="project-box__group__field">
 										<span className="project-box__group__field__type">

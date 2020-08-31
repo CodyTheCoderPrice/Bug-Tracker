@@ -9,17 +9,21 @@
 }
 
 @import '../utils/variables';
-
+.navbar-and-other-components-container {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
 .navbar-component{
-	background-color: $blueGray;
-	height: $navBarHeight;
+	background-color: $blue-gray;
+	height: $navbar-height;
 	width: 100vw;
 	
 	.navbar-button {
 		position: relative;
 		float: left;
-		background-color: $blueGray;
-		height: $navBarHeight;
+		background-color: $blue-gray;
+		height: $navbar-height;
 		width: 200px;
 		text-align: center;
 	}
@@ -36,7 +40,7 @@
 	}
 
 	.navbar-button--selected {
-		background-color: $lightBlueGray;
+		background-color: $light-blue-gray;
 	}
 
 	.navbar-button__text-container {

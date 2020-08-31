@@ -3,11 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { setWhichProjectComponentsDisplay } from "../../../../actions";
 
-import { getElementSize } from "../../../../utils/displaySizeUtils";
+import { toggleClassName } from "../../../../utils/elementUtils";
 
 import {
-	toggleOptionsDropdownDisplay,
-} from "../../../../utils/viewProjectModalUtils";
+	getElementSize,
+	getElementStyle,
+	stripNonDigits,
+} from "../../../../utils/displaySizeUtils";
+
+import { toggleOptionsDropdownDisplay } from "../../../../utils/viewProjectModalUtils";
 
 // Components
 import DisplayProjectInfo from "./DisplayProjectInfo";
@@ -22,38 +26,93 @@ export default function ViewProjectModal() {
 
 	const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
 
+	const [originalModalSizeAndStyle, setOriginalModalHeight] = useState(null);
+
+	// Disable scrolling for the HTML and body
+	useEffect(() => {
+		let html = document.getElementsByClassName("js-html")[0];
+		let body = document.getElementsByClassName("js-body")[0];
+
+		toggleClassName(true, html, "stop-scrolling");
+		toggleClassName(true, body, "stop-scrolling");
+
+		return () => {
+			toggleClassName(false, html, "stop-scrolling");
+			toggleClassName(false, body, "stop-scrolling");
+		};
+	}, []);
+
 	// Set blurredBackground and viewProjectModal to the corect sizes
 	useEffect(() => {
 		let blurredBackgroundElement = document.getElementsByClassName(
 			"js-view-project-blurred-background"
 		)[0];
+
 		// Will equal the height of the projectTable
 		blurredBackgroundElement.style.height =
-			getElementSize("js-project-filter-search-bar").height +
-			getElementSize("js-project-table__header").height *
+			getElementSize(
+				document.getElementsByClassName("js-project-filter-search-bar")[0]
+			).height +
+			getElementSize(
+				document.getElementsByClassName("js-project-table__header")[0]
+			).height *
 				(reduxState.projects.length + 1) +
 			"px";
 
 		let projectModalElement = document.getElementsByClassName(
 			"js-view-project-modal"
 		)[0];
-		if (reduxState.displaySizes.window !== null) {
+
+		if (reduxState.displaySizeVariables.window !== null) {
 			// 30 pixels are subtracted at the end to correct for this modal's margin and border
 			projectModalElement.style.width =
-				reduxState.displaySizes.window.width -
-				reduxState.displaySizes.scrollbar.width -
+				reduxState.displaySizeVariables.window.width -
+				reduxState.displaySizeConstants.scrollbar.width -
 				30 +
 				"px";
-
-			console.log(projectModalElement.style.width);
 		}
-	}, [reduxState.displaySizes, reduxState.projects]);
+	}, [reduxState.displaySizeVariables, reduxState.projects]);
+
+	// Adjusts the height of the modal to fit the screen
+	useEffect(() => {
+		if (
+			reduxState.displaySizeVariables.window !== null &&
+			reduxState.displaySizeConstants.navbar !== null
+		) {
+			const windowMinusNavbarHeight =
+				reduxState.displaySizeVariables.window.height -
+				reduxState.displaySizeConstants.navbar.height;
+
+			let viewProjectModalElement = document.getElementsByClassName(
+				"js-view-project-modal"
+			)[0];
+
+			if (originalModalSizeAndStyle === null) {
+				setOriginalModalHeight(getElementSize(viewProjectModalElement).height);
+			}
+
+			const style = getElementStyle(viewProjectModalElement);
+			console.log(style.marginTop);
+
+			// Makes sure modal
+			if (originalModalSizeAndStyle > windowMinusNavbarHeight) {
+				viewProjectModalElement.style.height = windowMinusNavbarHeight + "px";
+			} else {
+				viewProjectModalElement.style.height = originalModalSizeAndStyle + "px";
+			}
+		}
+	}, [
+		reduxState.displaySizeConstants,
+		reduxState.displaySizeVariables,
+		reduxState.projects,
+	]);
 
 	useEffect(() => {
 		toggleOptionsDropdownDisplay(
 			showOptionsDropdown,
 			document.getElementsByClassName("js-project-options-button")[0],
-			document.getElementsByClassName("js-project-options-dropdown")[0]
+			document.getElementsByClassName("js-project-options-dropdown")[0],
+			"project-options-container__button--selected"
 		);
 	}, [showOptionsDropdown]);
 
@@ -129,10 +188,14 @@ export default function ViewProjectModal() {
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
 				<div className="padded-container">
-					{reduxState.projectComponentsDisplay.editProjectInfo ? (
-						<EditProjectInfo />
+					{!reduxState.projectComponentsDisplay.editProjectInfo ? (
+						<div>
+							<DisplayProjectInfo />
+						</div>
 					) : (
-						<DisplayProjectInfo />
+						<div>
+							<EditProjectInfo />
+						</div>
 					)}
 					{reduxState.projectComponentsDisplay.deleteProjectModal ? (
 						<DeleteProjectModal />

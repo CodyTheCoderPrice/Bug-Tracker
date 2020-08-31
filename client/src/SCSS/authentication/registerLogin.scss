@@ -17,7 +17,7 @@
 		transform: translate(-50%, -50%);
 		border-radius: 25px;
 		border: 5px solid #202024;
-		background: white;
+		background-color: white;
 		padding: 25px;
 		width: 500px;
 		text-align: center;
@@ -40,7 +40,7 @@
 		outline: none;
 		border: 1px solid gray;
 		box-sizing: border-box;
-		background: #e5e5e5;
+		background-color: #e5e5e5;
 		padding: 8px;
 		width: 100%;
 		text-align: center;
@@ -56,7 +56,7 @@
 		margin-top: 10px;
 		margin-bottom: 5px;
 		border: 0;
-		background: $lightBlueTeal;
+		background-color: $light-blue-teal;
 		padding: 10px;
 		width: 100%;
 		color: white;
@@ -65,7 +65,7 @@
 	}
 	.form__submit:hover,
 	.form__submit:active {
-		background: $darkBlueTeal;
+		background-color: $dark-blue-teal;
 	}
 
 	.footer {

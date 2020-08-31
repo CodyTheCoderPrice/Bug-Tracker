@@ -8,20 +8,36 @@ export function toggleCharCountColor(
 }
 
 export function populateComboBox(selectElementClassName, array, id) {
-	let selectElem = document.getElementsByClassName(selectElementClassName)[0];
+	let selectElement = document.getElementsByClassName(selectElementClassName)[0];
 
 	for (let i = 0; i < array.length; i++) {
-		let optionElem = document.createElement("option");
+		let optionElement = document.createElement("option");
 
 		// Makes the first item of the array the default selection
 		if (i === 0) {
-			optionElem.selected = "selected";
+			optionElement.selected = "selected";
 		}
 
-		optionElem.value = array[i].id;
-		optionElem.textContent = array[i].option;
-		selectElem.appendChild(optionElem);
+		optionElement.value = array[i].id;
+		optionElement.textContent = array[i].option;
+		selectElement.appendChild(optionElement);
 	}
 
-	selectElem.value = id;
+	selectElement.value = id;
+}
+
+export function toggleClassName(shouldHaveClassName, element, nameOfToggledClass) {
+	if (shouldHaveClassName) {
+		if (!element.className.includes(nameOfToggledClass)) {
+			// Space is needed for nameOfToggledClass
+			// ...to keep it from merging with other classNames
+			element.className = element.className + " " + nameOfToggledClass;
+		}
+	} else {
+		const regex = new RegExp("(?:^|\\s)"+nameOfToggledClass+"(?!\\S)", "g");
+		element.className = element.className.replace(
+			regex,
+			""
+		);
+	}
 }

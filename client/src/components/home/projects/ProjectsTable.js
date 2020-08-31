@@ -18,16 +18,18 @@ export default function ProjectsTable() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if (reduxState.displaySizes.window !== null) {
-			let remainingSpaceElem = document.getElementsByClassName(
+		if (reduxState.displaySizeVariables.window !== null) {
+			let remainingSpaceElement = document.getElementsByClassName(
 				"js-remaining-space"
 			)[0];
-			remainingSpaceElem.style.width =
-				reduxState.displaySizes.window.width -
-				getElementLocation("js-remaining-space").left +
+			remainingSpaceElement.style.width =
+				reduxState.displaySizeVariables.window.width -
+				getElementLocation(
+					document.getElementsByClassName("js-remaining-space")[0]
+				).left +
 				"px";
 		}
-	}, [reduxState.displaySizes]);
+	}, [reduxState.displaySizeVariables]);
 
 	const openCreateProjectSidebar = () => {
 		dispatch(

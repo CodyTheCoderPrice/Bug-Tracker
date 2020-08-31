@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { setWhichProjectComponentsDisplay } from "../../../../actions";
-
-import { updateProject, clearInputErrors } from "../../../../actions";
+import {
+	setWhichProjectComponentsDisplay,
+	updateProject,
+	clearInputErrors,
+} from "../../../../actions";
 
 import {
 	formatDateMMddYYYY,
@@ -114,7 +116,6 @@ export default function EditProjectInfo() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(projectInfo);
 		// Clears any prior input errors
 		dispatch(clearInputErrors());
 		dispatch(updateProject(projectInfo, reduxState.projectComponentsDisplay));
@@ -210,7 +211,6 @@ export default function EditProjectInfo() {
 										></select>
 									</div>
 								</div>
-								<div className="horizontal-line"/>
 								<div className="project-box__group">
 									<div className="project-box__group__field">
 										<label

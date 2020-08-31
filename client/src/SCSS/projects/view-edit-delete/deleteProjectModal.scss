@@ -6,8 +6,8 @@
 		position: absolute;
 		top: 0px;
 		left: 0px;
-		margin-top: -($navBarHeight + $viewProjectModalMargin + $viewProjectModalBorderWidth);
-		margin-left: -($viewProjectModalMargin + $viewProjectModalBorderWidth);
+		margin-top: -($navbar-height + $view-project-bug-modal-margin + $view-project-bug-modal-border-width);
+		margin-left: -($view-project-bug-modal-margin + $view-project-bug-modal-border-width);
 		background-color: black;
 		opacity: 0.5;
 		height: 100vh;
@@ -16,12 +16,12 @@
 
 	.delete-account-modal {
 		z-index: 4;
-		position: absolute;
+		position: fixed;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border: 5px solid black;
-		background: white;
+		background-color: white;
 		height: 150px;
 		width: 300px;
 		text-align: center;
@@ -50,7 +50,7 @@
 	.centered-buttons-container__delete {
 		float: left;
 		border: 1px solid black;
-		background: #d36464;
+		background-color: #d36464;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
 		padding: 10px 0px 10px 0px;
@@ -64,13 +64,13 @@
 	}
 	.centered-buttons-container__delete:hover,
 	.centered-buttons-container__delete:active {
-		background: #d84848;
+		background-color: #d84848;
 	}
 
 	.centered-buttons-container__cancel {
 		float: right;
 		border: 1px solid black;
-		background: #e7e7e7;
+		background-color: #e7e7e7;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.
 		padding: 10px 0px 10px 0px;
@@ -82,6 +82,6 @@
 	}
 	.centered-buttons-container__cancel:hover,
 	.centered-buttons-container__cancel:active {
-		background: #dad9d9;
+		background-color: #dad9d9;
 	}
 }

@@ -1,18 +1,14 @@
-import { STORE_DISPLAY_SIZES } from "../actions/types";
+import { SET_DISPLAY_SIZE_VARIABLES } from "../../actions/types";
 
 const initialState = {
 	window: null,
-	navbar: null,
-	scrollbar: null,
 };
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case STORE_DISPLAY_SIZES:
+		case SET_DISPLAY_SIZE_VARIABLES:
 			return {
 				window: action.sizes.window,
-				navbar: action.sizes.navbar,
-				scrollbar: action.sizes.scrollbar,
 			};
 		default:
 			return state;

@@ -10,31 +10,43 @@ export function getWindowSize() {
 	return { height: height, width: width };
 }
 
-export function getElementSize(nameOfClass) {
-	let elem = document.getElementsByClassName(nameOfClass)[0];
-	return { height: elem.offsetHeight, width: elem.offsetWidth };
+export function getElementSize(element) {
+	return { height: element.offsetHeight, width: element.offsetWidth };
 }
 
-export function getElementLocation(nameOfClass) {
-	let rect = document.getElementsByClassName(nameOfClass)[0].getBoundingClientRect();
-	return {top: rect.top, right: rect.right, bottom: rect.bottom, left: rect.left};
+export function getElementLocation(element) {
+	const rect = element.getBoundingClientRect();
+	return {
+		top: rect.top,
+		right: rect.right,
+		bottom: rect.bottom,
+		left: rect.left,
+	};
+}
+
+export function getElementStyle(element) {
+	return element.currentStyle || window.getComputedStyle(element);
+}
+
+export function stripNonDigits(stringValue) {
+	return Number(stringValue.replace(/[^\d.-]/g, ""));
 }
 
 export function calcScrollbarWidth() {
-	const outerElem = document.createElement('div');
-	outerElem.style.visibility = 'hidden';
+	const outerElement = document.createElement("div");
+	outerElement.style.visibility = "hidden";
 	// Adds scroll bar
-	outerElem.style.overflow = 'scroll';
+	outerElement.style.overflow = "scroll";
 	// For WinJS apps
-	outerElem.style.msOverflowStyle = 'scrollbar';
-	document.body.appendChild(outerElem);
-  
-	const innerElem = document.createElement('div');
-	outerElem.appendChild(innerElem);
-  
-	const scrollbarWidth = (outerElem.offsetWidth - innerElem.offsetWidth);
-  
-	outerElem.parentNode.removeChild(outerElem);
-  
-	return {width: scrollbarWidth};
+	outerElement.style.msOverflowStyle = "scrollbar";
+	document.body.appendChild(outerElement);
+
+	const innerElement = document.createElement("div");
+	outerElement.appendChild(innerElement);
+
+	const scrollbarWidth = outerElement.offsetWidth - innerElement.offsetWidth;
+
+	outerElement.parentNode.removeChild(outerElement);
+
+	return { width: scrollbarWidth };
 }

@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-	storeDisplaySizes,
+	setDisplaySizeConstants,
+	setDisplaySizeVariables,
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 } from "../../actions";
@@ -11,14 +12,12 @@ import {
 	getWindowSize,
 	getElementSize,
 	calcScrollbarWidth,
+	getConstantsForRedux,
 } from "../../utils/displaySizeUtils";
 
 import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
 
 // Components
-import CreateProjectSidebar from "./projects/CreateProjectSidebar";
-import ViewProjectModal from "./projects/view-edit-delete/ViewProjectModal";
-import EditProjectSidebar from "./projects/EditProjectSidebar";
 import AccountDropdown from "./account/AccountDropdown";
 
 import "../../SCSS/home/navbar.scss";
@@ -29,22 +28,25 @@ export default function Navbar() {
 
 	// Makes sure the current size of the window and navbar are stored in redux,
 	useEffect(() => {
-		// Stores the initial navbar size
 		dispatch(
-			storeDisplaySizes({
-				window: getWindowSize(),
-				navbar: getElementSize("js-navbar"),
+			setDisplaySizeConstants({
+				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 				scrollbar: calcScrollbarWidth(),
 			})
 		);
-		
+
+		dispatch(
+			setDisplaySizeVariables({
+				window: getWindowSize(),
+			})
+		);
+
+
 		// Adds event to update navbar size on a resize
 		window.addEventListener("resize", () => {
 			dispatch(
-				storeDisplaySizes({
+				setDisplaySizeVariables({
 					window: getWindowSize(),
-					navbar: getElementSize("js-navbar"),
-					scrollbar: calcScrollbarWidth(),
 				})
 			);
 		});
@@ -54,16 +56,18 @@ export default function Navbar() {
 
 	useEffect(() => {
 		setNavbarButtonColor(
+			reduxState.projectComponentsDisplay.projectsTable,
 			document.getElementsByClassName("js-project-button")[0],
-			reduxState.projectComponentsDisplay.projectsTable
+			"navbar-button--selected"
 		);
 		setProjectsIcon(
-			document.getElementById("project-button-icon"),
-			reduxState.projectComponentsDisplay.projectsTable
+			reduxState.projectComponentsDisplay.projectsTable,
+			document.getElementById("project-button-icon")
 		);
 		setNavbarButtonColor(
+			reduxState.accountComponentsDisplay.accountDropdown,
 			document.getElementsByClassName("js-account-button")[0],
-			reduxState.accountComponentsDisplay.accountDropdown
+			"navbar-button--selected"
 		);
 	}, [
 		reduxState.accountComponentsDisplay.accountDropdown,
@@ -129,21 +133,6 @@ export default function Navbar() {
 						Account
 					</div>
 				</div>
-			</div>
-			<div className="create-project-component-container">
-				{reduxState.projectComponentsDisplay.createProjectSidbar ? (
-					<CreateProjectSidebar />
-				) : null}
-			</div>
-			<div className="view-project-component-container">
-				{reduxState.projectComponentsDisplay.viewProjectModal ? (
-					<ViewProjectModal />
-				) : null}
-			</div>
-			<div className="edit-project-component-container">
-				{reduxState.projectComponentsDisplay.editProjectSidebar ? (
-					<EditProjectSidebar />
-				) : null}
 			</div>
 			<div className="account-dropdown-component-container">
 				{reduxState.accountComponentsDisplay.accountDropdown ? (

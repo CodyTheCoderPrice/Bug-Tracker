@@ -1,7 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { setWhichAccountComponentsDisplay, setWhichProjectComponentsDisplay } from "../../../actions";
+import {
+	setWhichAccountComponentsDisplay,
+	setWhichProjectComponentsDisplay,
+} from "../../../actions";
 
 import { formatDateMMddYYYY } from "../../../utils/dateUtils";
 
@@ -23,7 +26,7 @@ export default function ProjectRow(props) {
 	};
 
 	return (
-		<tr className="project-table__row">
+		<tr className="project-table__row project-table__row--clickable">
 			<td className="project-table__data">
 				<span className="project-table__data__info">{props.project.name}</span>
 			</td>
@@ -38,13 +41,20 @@ export default function ProjectRow(props) {
 				</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__info">{formatDateMMddYYYY(props.project.start_date)}</span>
+				<span className="project-table__data__info">
+					{formatDateMMddYYYY(props.project.start_date)}
+				</span>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__info">{formatDateMMddYYYY(props.project.due_date)}</span>
+				<span className="project-table__data__info">
+					{formatDateMMddYYYY(props.project.due_date)}
+				</span>
 			</td>
-			<td onClick={openViewProjectDashboard} className="project-table__data">
-				<span className="project-table__data__info project-table__data__info--blue-link">
+			<td className="project-table__data">
+				<span
+					className="project-table__data__info project-table__data__info--blue-link"
+					onClick={openViewProjectDashboard}
+				>
 					More Info
 				</span>
 			</td>

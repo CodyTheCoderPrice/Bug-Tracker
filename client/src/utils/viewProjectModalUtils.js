@@ -1,15 +1,13 @@
-export function toggleOptionsDropdownDisplay(shouldDisplay, buttonElem, dropdownElem) {
-	if (shouldDisplay) {
-		if (!buttonElem.className.includes("project-options-container__button--selected")) {
-			// Space is needed before class to keep it from merging with others
-			buttonElem.className = buttonElem.className + " project-options-container__button--selected";
-		}
-		dropdownElem.style.visibility = "visible";
-	} else {
-		buttonElem.className = buttonElem.className.replace(
-			/(?:^|\s)project-options-container__button--selected(?!\S)/g,
-			""
-		);
-		dropdownElem.style.visibility = "hidden";
-	}
+import { toggleClassName } from "./elementUtils";
+
+export function toggleOptionsDropdownDisplay(
+	shouldDisplay,
+	buttonElement,
+	dropdownElement,
+	nameOfToggledClass
+) {
+	toggleClassName(shouldDisplay, buttonElement, nameOfToggledClass);
+	shouldDisplay
+		? (dropdownElement.style.visibility = "visible")
+		: (dropdownElement.style.visibility = "hidden");
 }

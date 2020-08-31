@@ -4,6 +4,7 @@
 .create-projects-component {
 	.blurred-background {
 		position: absolute;
+		top: $navbar-height;
 		background-color: black;
 		opacity: 0.5;
 		height: 100vh;
@@ -12,14 +13,23 @@
 
 	.create-project-sidebar {
 		position: absolute;
+		top: $navbar-height;
+		margin-bottom: 20px;
 		border: 5px solid black;
 		border-top: none;
 		border-left: none;
-		background: white;
+		background-color: white;
 		height: 700px;
-		width: $createProjectSidebarWidth;
+		width: $create-project-bug-sidebar-width;
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
+		// Gives sidebar scrolling when content goes beyond height
+		overflow-y: scroll !important;
+		overflow-x: hidden !important;
+	}
+
+	.take-up-space {
+		height: 1000px
 	}
 
 	.x-button {
@@ -61,11 +71,11 @@
 
 	.form__text-input {
 		margin-top: 5px;
-		margin-bottom: $inputMarginBottom;
+		margin-bottom: $form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
 		box-sizing: border-box;
-		background: #e5e5e5;
+		background-color: #e5e5e5;
 		padding: 8px;
 		width: 100%;
 		font-size: 14px;
@@ -74,15 +84,15 @@
 
 	.form__textarea {
 		margin-top: 5px;
-		margin-bottom: $inputMarginBottom;
+		margin-bottom: $form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
-		background: $lightGray;
+		background-color: $light-gray;
 		padding: 4px 8px 4px 8px;
 		height: 200px;
 		width: 100%;
 		font-size: 14px;
-		line-height: $commonLineHeight;
+		line-height: $common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
 		// sizing
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -98,9 +108,9 @@
 
 	.form__combo-box-container__select {
 		margin-top: 2px;
-		margin-bottom: $inputMarginBottom;
+		margin-bottom: $form-input-margin-bottom;
 		border: 1px solid gray;
-		background: $lightGray;
+		background-color: $light-gray;
 		width: 100%;
 		// one pixel smaller than associated label
 		font-size: 13px;
@@ -121,10 +131,10 @@
 
 	.form__date-container__date-input {
 		margin-top: 2px;
-		margin-bottom: $inputMarginBottom;
+		margin-bottom: $form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
-		background: $lightGray;
+		background-color: $light-gray;
 		// Width is 97% since date boxes extend past conatiner
 		width: 97%;
 		// one pixel smaller than associated label
@@ -162,9 +172,9 @@
 
 	.form__submit {
 		margin-top: 10px;
-		margin-bottom: 5px;
+		margin-bottom: 20px;
 		border: 0;
-		background: $lightBlueGray;
+		background-color: $light-blue-gray;
 		padding: 10px;
 		width: 100%;
 		color: white;
@@ -174,6 +184,6 @@
 	}
 	.form__submit:hover,
 	.form__submit:active {
-		background: $blueGray;
+		background-color: $blue-gray;
 	}
 }
