@@ -3,15 +3,13 @@
 .account-dropdown-component {
 	.blurred-background {
 		z-index: 1;
-		position: absolute;
+		position: fixed;
 		left: 0;
 		top: 0;
 		background-color: black;
 		opacity: 0.5;
 		height: 100vh;
 		width: 100vw;
-		// Made visible using JS
-		visibility: hidden;
 	}
 
 	.dropdown-container {
