@@ -28,10 +28,17 @@
 		overflow-x: hidden !important;
 	}
 
+	.top-bar-buttons-container {
+		border-bottom: 1px solid black;
+		background-color: $light-gray;
+		height: 46px;
+		width: 100%;
+	}
+
 	.project-options-container {
 		z-index: 2;
 		position: absolute;
-		top: 10px;
+		top: 8px;
 		right: 50px;
 		width: 135px;
 	}
@@ -47,7 +54,7 @@
 		height: 29px;
 		width: 23px;
 		color: $medium-gray;
-		font-size: 26px;
+		font-size: 28px;
 		cursor: pointer;
 	}
 	.project-options-container__button:hover,

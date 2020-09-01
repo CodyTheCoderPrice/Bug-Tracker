@@ -176,44 +176,42 @@ export default function ViewProjectModal() {
 				onClick={closeOptionsDropdown}
 			>
 				<div className="js-all-content-container">
-					<div className="project-options-container js">
-						<div
-							className="project-options-container__button js-project-options-button"
-							onClick={openOptionsDropdown}
-						>
-							<i className="fa fa-ellipsis-h" aria-hidden="true"></i>
-						</div>
-						<div className="project-options-container__dropdown js-project-options-dropdown">
-							<span
-								className="project-options-container__dropdown__option js-edit-option"
-								onClick={switchBetweenDisplayAndEditProjectInfo}
+					<div className="top-bar-buttons-container">
+						<div className="project-options-container js">
+							<div
+								className="project-options-container__button js-project-options-button"
+								onClick={openOptionsDropdown}
 							>
-								{reduxState.projectComponentsDisplay.editProjectInfo
-									? "Cancel"
-									: "Edit Project"}
-							</span>
-							<span
-								className="project-options-container__dropdown__option project-options-container__dropdown__option--no-border"
-								onClick={openDeleteProjectModal}
-							>
-								Delete Project
-							</span>
+								<i className="fa fa-ellipsis-h" aria-hidden="true"></i>
+							</div>
+							<div className="project-options-container__dropdown js-project-options-dropdown">
+								<span
+									className="project-options-container__dropdown__option js-edit-option"
+									onClick={switchBetweenDisplayAndEditProjectInfo}
+								>
+									{reduxState.projectComponentsDisplay.editProjectInfo
+										? "Cancel"
+										: "Edit Project"}
+								</span>
+								<span
+									className="project-options-container__dropdown__option project-options-container__dropdown__option--no-border"
+									onClick={openDeleteProjectModal}
+								>
+									Delete Project
+								</span>
+							</div>
 						</div>
-					</div>
-					<div className="x-button" onClick={closeViewProjectDashboard}>
-						<i className="fa fa-times" aria-hidden="true"></i>
+						<div className="x-button" onClick={closeViewProjectDashboard}>
+							<i className="fa fa-times" aria-hidden="true"></i>
+						</div>
 					</div>
 					<div className="padded-container">
 						{!reduxState.projectComponentsDisplay.editProjectInfo ? (
 							<div>
 								<DisplayProjectInfo />
-								<DisplayProjectInfo />
-								<DisplayProjectInfo />
 							</div>
 						) : (
 							<div>
-								<EditProjectInfo />
-								<EditProjectInfo />
 								<EditProjectInfo />
 							</div>
 						)}
