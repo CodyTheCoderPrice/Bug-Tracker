@@ -54,6 +54,7 @@ export default function CreateProjectSidebar() {
 		reduxState.priorityStatusArrays.projectStatusCompletionIndex
 	);
 
+	// Used to decide when to resize the sidebar, and to reset its size
 	const [originalSidebarSizeAndStyle, setOriginalSidebarHeight] = useState(
 		null
 	);
@@ -293,7 +294,7 @@ export default function CreateProjectSidebar() {
 								htmlFor="create-project-completion-date"
 								className="form__date-container__label"
 							>
-								Completion Date:
+								Completed on:
 							</label>
 							<input
 								type="date"

@@ -7,7 +7,6 @@ export function getWindowSize() {
 		window.innerWidth ||
 		document.documentElement.clientWidth ||
 		document.body.clientWidth;
-	console.log(height);
 	return { height: height, width: width };
 }
 

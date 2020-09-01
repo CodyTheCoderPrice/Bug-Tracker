@@ -110,8 +110,8 @@
 	}
 
 	.project-box__group__field__tooltip-container__text-box {
-		border-radius: 10px;
 		background-color: black;
+		border-radius: 10px;
 		padding: 12px;
 		width: 146px;
 		text-align: left;
@@ -169,5 +169,16 @@
 	.form-buttons-centered-container__cancel:hover,
 	.centered-container__cancel-button:active {
 		background-color: #f1f0f0;
+	}
+
+	// These classes are used by the custom hook that handles appearance
+	// ...of completion date based of the status of the project
+	.grayed-out-label {
+		color: $medium-light-gray;
+	}
+
+	.grayed-out-date {
+		background-color: $light-gray;
+		color: $medium-light-gray;
 	}
 }

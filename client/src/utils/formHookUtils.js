@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import { toggleClassName } from "./elementUtils";
+
 export function useToggleableDateInputAndTooltip(
 	state,
 	dateContainerClassName,
@@ -61,24 +63,21 @@ export function useToggleableDateInputAndTooltip(
 			dateContainerClassName
 		)[0];
 
-		if (state.statusId === completedIndex) {
-			for (let child of dateContainerElement.childNodes) {
-				child.style.color = "black";
-				if (child.tagName === "INPUT") {
-					child.style.backgroundColor = "#e5e5e5";
-				}
-
-				child.disabled = false;
+		for (let child of dateContainerElement.childNodes) {
+			if (child.tagName === "LABEL") {
+				toggleClassName(
+					state.statusId !== completedIndex,
+					child,
+					"grayed-out-label"
+				);
+			} else if (child.tagName === "INPUT") {
+				toggleClassName(
+					state.statusId !== completedIndex,
+					child,
+					"grayed-out-date"
+				);
 			}
-		} else {
-			for (let child of dateContainerElement.childNodes) {
-				child.style.color = "#bfbfbf";
-				if (child.tagName === "INPUT") {
-					child.style.backgroundColor = "#f5f5f5";
-				}
-
-				child.disabled = true;
-			}
+			child.disabled = state.statusId !== completedIndex;
 		}
 	}
 

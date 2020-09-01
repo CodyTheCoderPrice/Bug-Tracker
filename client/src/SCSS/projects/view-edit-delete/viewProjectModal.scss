@@ -20,7 +20,8 @@
 		height: 690px;
 		// This value makes modal width resize using JS look less jumpy
 		width: 96.5vw;
-		min-width: 1265px;
+		// On resize, keeps right most project box margin from being intruded upon
+		min-width: 890px;
 		font-family: Arial, Helvetica, sans-serif;
 		// Gives modal scrolling when content goes beyond height
 		overflow-y: scroll !important;
@@ -114,7 +115,7 @@
 
 	.display-edit-project-table__data {
 		width: 33.33%;
-		min-width: 400px;
+		min-width: 270px;
 	}
 
 	.project-box {

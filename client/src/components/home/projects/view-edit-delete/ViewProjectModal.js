@@ -26,11 +26,13 @@ export default function ViewProjectModal() {
 
 	const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
 
+	// Used to decide when to resize the modal, and to reset its size
 	const [originalModalSizeAndStyles, setOriginalModalSizeAndStyles] = useState(
 		null
 	);
 
-	const [currentModalContentSize, setCurrentModalContentSize] = useState(
+	// Used to decide when to enlargen the modal
+	const [allContentInsideModalSize, setAllContentInsideModalSize] = useState(
 		null
 	);
 
@@ -72,11 +74,15 @@ export default function ViewProjectModal() {
 				return;
 			}
 
-			// Makes sure currentModalContentSize gets set
-			if (currentModalContentSize === null) {
-				setCurrentModalContentSize(getElementSize(document.getElementsByClassName("js-all-content-container")[0]))
+			// Makes sure allContentInsideModalSize gets set
+			if (allContentInsideModalSize === null) {
+				setAllContentInsideModalSize(
+					getElementSize(
+						document.getElementsByClassName("js-all-content-container")[0]
+					)
+				);
 
-				// Prevents crash since currentModalContentSize will still
+				// Prevents crash since allContentInsideModalSize will still
 				// ...be null for remainder of this useEfffect iteration
 				return;
 			}
@@ -98,10 +104,10 @@ export default function ViewProjectModal() {
 				originalModalSizeAndStyles.borderWidthOnOneSide * 2;
 
 			// Resize modal height
-			if (originalModalSizeAndStyles.height < currentModalContentSize.height) {
-				viewProjectModalElement.style.height = adjustedWindowHeight + "px";
-			}
-			else if (originalModalSizeAndStyles.height > adjustedWindowHeight) {
+			if (
+				originalModalSizeAndStyles.height < allContentInsideModalSize.height ||
+				originalModalSizeAndStyles.height > adjustedWindowHeight
+			) {
 				viewProjectModalElement.style.height = adjustedWindowHeight + "px";
 			} else {
 				viewProjectModalElement.style.height =
@@ -112,7 +118,7 @@ export default function ViewProjectModal() {
 		reduxState.displaySizeConstants,
 		reduxState.displaySizeVariables,
 		originalModalSizeAndStyles,
-		currentModalContentSize,
+		allContentInsideModalSize,
 		reduxState.projects,
 	]);
 
@@ -201,9 +207,13 @@ export default function ViewProjectModal() {
 						{!reduxState.projectComponentsDisplay.editProjectInfo ? (
 							<div>
 								<DisplayProjectInfo />
+								<DisplayProjectInfo />
+								<DisplayProjectInfo />
 							</div>
 						) : (
 							<div>
+								<EditProjectInfo />
+								<EditProjectInfo />
 								<EditProjectInfo />
 							</div>
 						)}

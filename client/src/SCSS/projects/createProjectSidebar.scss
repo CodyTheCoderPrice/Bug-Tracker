@@ -146,17 +146,20 @@
 		// ...used to control if the tooltip is visible or not.
 		position: relative;
 		float: left;
-		margin-top: 13px;
+		margin-top: 8px;
 		// Becomes visible via a mouseover event added to the completionDate container
 		visibility: hidden;
 	}
 
 	.form__tooltip-container__text-box {
 		float: left;
+		border: 1px solid black;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
 		background-color: black;
-		padding: 12px;
+		padding: 11px;
 		width: 180px;
-		text-align: left;
+		text-align: center;
 		font-size: 14px;
 		color: white;
 	}
@@ -185,5 +188,16 @@
 	.form__submit:hover,
 	.form__submit:active {
 		background-color: $blue-gray;
+	}
+
+	// These classes are used by the custom hook that handles appearance
+	// ...of completion date based of the status of the project
+	.grayed-out-label {
+		color: $medium-light-gray;
+	}
+
+	.grayed-out-date {
+		background-color: white;
+		color: $medium-light-gray;
 	}
 }
