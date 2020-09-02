@@ -120,16 +120,14 @@
 		font-size: 105%;
 	}
 
-	.display-edit-project-table {
+	.outer-dividing-container {
+		float: left;
 		width: 100%;
 	}
 
-	.display-edit-project-table__data--one-half {
-		width: 50%;
-	}
-
-	.display-edit-project-table__data--one-third {
+	.outer-dividing-container-one-third {
 		width: 33.33%;
+		min-width: 300px;
 	}
 
 	.project-box {

@@ -35,91 +35,75 @@ export default function DisplayProjectInfo() {
 
 	return (
 		<div>
-			<h1 className="project-name">{projectInfo.name}</h1>
-			<div className="project-creation-date">
-				Created on: {projectInfo.creationDate}
+			<div className="outer-dividing-container">
+				<h1 className="project-name">{projectInfo.name}</h1>
+				<div className="project-creation-date">
+					Created on: {projectInfo.creationDate}
+				</div>
 			</div>
-			<table className="display-edit-project-table">
-				<tbody>
-					<tr>
-						<td className="display-edit-project-table__data">
-							<div className="project-box">
-								<h2 className="project-box__title">Description</h2>
-								<span className="project-box__description">
-									{projectInfo.description}
+			<div className="outer-dividing-container">
+				<div className="project-box">
+					<h2 className="project-box__title">Description</h2>
+					<span className="project-box__description">
+						{projectInfo.description}
+					</span>
+				</div>
+			</div>
+			<div className="outer-dividing-container outer-dividing-container-one-third">
+				<div className="project-box">
+					<h2 className="project-box__title">Info</h2>
+					<div className="project-box__group">
+						<div className="project-box__group__field">
+							<span className="project-box__group__field__type">Priority:</span>
+							<span className="project-box__group__field_content">
+								{projectInfo.priorityOption}
+							</span>
+						</div>
+						<div className="project-box__group__field">
+							<span className="project-box__group__field__type">Status:</span>
+							<span className="project-box__group__field_content">
+								{projectInfo.statusOption}
+							</span>
+						</div>
+					</div>
+					<div className="project-box__group">
+						<div className="project-box__group__field">
+							<span className="project-box__group__field__type">
+								Start Date:
+							</span>
+							<span className="project-box__group__field_content">
+								{projectInfo.startDate}
+							</span>
+						</div>
+						<div className="project-box__group__field">
+							<span className="project-box__group__field__type">Due Date:</span>
+							<span className="project-box__group__field_content">
+								{projectInfo.dueDate}
+							</span>
+						</div>
+						{projectInfo.completionDate === null ? null : (
+							<div className="project-box__group__field">
+								<span className="project-box__group__field__type">
+									Completed on:
+								</span>
+								<span className="project-box__group__field_content">
+									{projectInfo.completionDate}
 								</span>
 							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<table className="display-edit-project-table">
-				<tbody>
-					<tr>
-						<td className="display-edit-project-table__data display-edit-project-table__data--one-half">
-							<div className="project-box">
-								<h2 className="project-box__title">Info</h2>
-								<div className="project-box__group">
-									<div className="project-box__group__field">
-										<span className="project-box__group__field__type">
-											Priority:
-										</span>
-										<span className="project-box__group__field_content">
-											{projectInfo.priorityOption}
-										</span>
-									</div>
-									<div className="project-box__group__field">
-										<span className="project-box__group__field__type">
-											Status:
-										</span>
-										<span className="project-box__group__field_content">
-											{projectInfo.statusOption}
-										</span>
-									</div>
-								</div>
-								<div className="project-box__group">
-									<div className="project-box__group__field">
-										<span className="project-box__group__field__type">
-											Start Date:
-										</span>
-										<span className="project-box__group__field_content">
-											{projectInfo.startDate}
-										</span>
-									</div>
-									<div className="project-box__group__field">
-										<span className="project-box__group__field__type">
-											Due Date:
-										</span>
-										<span className="project-box__group__field_content">
-											{projectInfo.dueDate}
-										</span>
-									</div>
-									{projectInfo.completionDate === null ? null : (
-										<div className="project-box__group__field">
-											<span className="project-box__group__field__type">
-												Completed on:
-											</span>
-											<span className="project-box__group__field_content">
-												{projectInfo.completionDate}
-											</span>
-										</div>
-									)}
-								</div>
-							</div>
-						</td>
-						<td className="display-edit-project-table__data display-edit-project-table__data--one-half">
-							<div className="project-box">
-								<h2 className="project-box__title">Bugs</h2>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div className="bottom-row-height-filler"></div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+						)}
+					</div>
+				</div>
+			</div>
+			<div className="outer-dividing-container outer-dividing-container-one-third">
+				<div className="project-box">
+					<h2 className="project-box__title">Status of Bugs</h2>
+				</div>
+			</div>
+			<div className="outer-dividing-container outer-dividing-container-one-third">
+				<div className="project-box">
+					<h2 className="project-box__title">Last Five Bugs</h2>
+				</div>
+			</div>
 		</div>
 	);
 }

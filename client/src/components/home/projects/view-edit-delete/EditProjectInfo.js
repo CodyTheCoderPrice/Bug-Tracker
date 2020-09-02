@@ -133,175 +133,171 @@ export default function EditProjectInfo() {
 
 	return (
 		<form noValidate onSubmit={handleSubmit}>
-			<div className="centering-container">
-				<input
-					type="text"
-					name="name"
-					onChange={(e) => onChange(e)}
-					value={projectInfo.name}
-					id="edit-project-name"
-					className="centering-container__form-name-input"
-				/>
-				<span className="form-errors form-errors--test">
-					{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}
-				</span>
+			<div className="outer-dividing-container">
+				<div className="centering-container">
+					<input
+						type="text"
+						name="name"
+						onChange={(e) => onChange(e)}
+						value={projectInfo.name}
+						id="edit-project-name"
+						className="centering-container__form-name-input"
+					/>
+					<span className="form-errors form-errors--test">
+						{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}
+					</span>
+				</div>
+				<div className="project-creation-date">
+					Created on: {projectInfo.creationDate}
+				</div>
 			</div>
-			<div className="project-creation-date">
-				Created on: {projectInfo.creationDate}
+			<div className="outer-dividing-container">
+				<div className="project-box project-box--smaller-padding">
+					<label htmlFor="edit-project-description">
+						<h2 className="project-box__title project-box__title--no-bottom-margin">
+							Description
+						</h2>
+					</label>
+					<span className="project-box__form-character-counter js-project-character-counter">
+						{projectInfo.description.length + "/" + descriptionCharLimit}
+					</span>
+					<textarea
+						name="description"
+						onChange={(e) => onChange(e)}
+						value={projectInfo.description}
+						id="edit-project-description"
+						className="project-box__form-textarea"
+					/>
+					<span className="form-errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.description : ""}
+					</span>
+				</div>
 			</div>
-			<table className="display-edit-project-table">
-				<tbody>
-					<tr>
-						<td className="display-edit-project-table__data">
-							<div className="project-box project-box--smaller-padding">
-								<label htmlFor="edit-project-description">
-									<h2 className="project-box__title project-box__title--no-bottom-margin">
-										Description
-									</h2>
-								</label>
-								<span className="project-box__form-character-counter js-project-character-counter">
-									{projectInfo.description.length + "/" + descriptionCharLimit}
-								</span>
-								<textarea
-									name="description"
-									onChange={(e) => onChange(e)}
-									value={projectInfo.description}
-									id="edit-project-description"
-									className="project-box__form-textarea"
-								/>
-								<span className="form-errors">
-									{shouldShowAnyErrors
-										? reduxState.inputErrors.description
-										: ""}
-								</span>
+			<div className="outer-dividing-container outer-dividing-container-one-third">
+				<div className="project-box">
+					<h2 className="project-box__title">Info</h2>
+					<div className="project-box__group">
+						<div className="project-box__group__field">
+							<label
+								htmlFor="edit-project-priority"
+								className="project-box__group__field__form-label"
+							>
+								Priority:
+							</label>
+							<select
+								name="priorityId"
+								onChange={(e) => onChange(e)}
+								id="edit-project-priority"
+								className="project-box__group__field__form-select js-project-priority-select"
+							></select>
+						</div>
+						<div className="project-box__group__field">
+							<label
+								htmlFor="edit-project-status"
+								className="project-box__group__field__form-label"
+							>
+								Status:
+							</label>
+							<select
+								name="statusId"
+								onChange={(e) => onChange(e)}
+								id="edit-project-status"
+								className="project-box__group__field__form-select js-project-status-select"
+							></select>
+						</div>
+					</div>
+					<div className="project-box__group">
+						<div className="project-box__group__field">
+							<label
+								htmlFor="edit-project-start-date"
+								className="project-box__group__field__form-label project-box__group__field__form-label--medium-width"
+							>
+								Start Date:
+							</label>
+							<input
+								type="date"
+								name="startDate"
+								value={projectInfo.startDate}
+								onChange={(e) => onChange(e)}
+								id="edit-project-start-date"
+								className="project-box__group__field__form-date"
+							/>
+						</div>
+						<div className="project-box__group__field">
+							<label
+								htmlFor="edit-project-due-date"
+								className="project-box__group__field__form-label project-box__group__field__form-label--medium-width"
+							>
+								Due Date:
+							</label>
+							<input
+								type="date"
+								name="dueDate"
+								value={projectInfo.dueDate}
+								onChange={(e) => onChange(e)}
+								id="edit-project-due-date"
+								className="project-box__group__field__form-date"
+							/>
+						</div>
+						<div className="project-box__group__field project-box__group__field--no-bottom-margin project-box__group__field--inline-flex js-completion-date-container">
+							<label
+								htmlFor="edit-project-completion-date"
+								className="project-box__group__field__form-label project-box__group__field__form-label--long-width"
+							>
+								Completed on:
+							</label>
+							<input
+								type="date"
+								name="completionDate"
+								value={projectInfo.completionDate}
+								onChange={(e) => onChange(e)}
+								id="edit-project-completion-date"
+								className="project-box__group__field__form-date"
+							/>
+						</div>
+						<div className="project-box__group__field__tooltip-container js-tooltip-container">
+							<div className="project-box__group__field__tooltip-container__arrow-up" />
+							<div className="project-box__group__field__tooltip-container__text-box">
+								Status not "Completed"
 							</div>
-						</td>
-						<td className="display-edit-project-table__data">
-							<div className="project-box">
-								<h2 className="project-box__title">Info</h2>
-								<div className="project-box__group">
-									<div className="project-box__group__field">
-										<label
-											htmlFor="edit-project-priority"
-											className="project-box__group__field__form-label"
-										>
-											Priority:
-										</label>
-										<select
-											name="priorityId"
-											onChange={(e) => onChange(e)}
-											id="edit-project-priority"
-											className="project-box__group__field__form-select js-project-priority-select"
-										></select>
-									</div>
-									<div className="project-box__group__field">
-										<label
-											htmlFor="edit-project-status"
-											className="project-box__group__field__form-label"
-										>
-											Status:
-										</label>
-										<select
-											name="statusId"
-											onChange={(e) => onChange(e)}
-											id="edit-project-status"
-											className="project-box__group__field__form-select js-project-status-select"
-										></select>
-									</div>
-								</div>
-								<div className="project-box__group">
-									<div className="project-box__group__field">
-										<label
-											htmlFor="edit-project-start-date"
-											className="project-box__group__field__form-label project-box__group__field__form-label--medium-width"
-										>
-											Start Date:
-										</label>
-										<input
-											type="date"
-											name="startDate"
-											value={projectInfo.startDate}
-											onChange={(e) => onChange(e)}
-											id="edit-project-start-date"
-											className="project-box__group__field__form-date"
-										/>
-									</div>
-									<div className="project-box__group__field">
-										<label
-											htmlFor="edit-project-due-date"
-											className="project-box__group__field__form-label project-box__group__field__form-label--medium-width"
-										>
-											Due Date:
-										</label>
-										<input
-											type="date"
-											name="dueDate"
-											value={projectInfo.dueDate}
-											onChange={(e) => onChange(e)}
-											id="edit-project-due-date"
-											className="project-box__group__field__form-date"
-										/>
-									</div>
-									<div className="project-box__group__field project-box__group__field--no-bottom-margin project-box__group__field--inline-flex js-completion-date-container">
-										<label
-											htmlFor="edit-project-completion-date"
-											className="project-box__group__field__form-label project-box__group__field__form-label--long-width"
-										>
-											Completed on:
-										</label>
-										<input
-											type="date"
-											name="completionDate"
-											value={projectInfo.completionDate}
-											onChange={(e) => onChange(e)}
-											id="edit-project-completion-date"
-											className="project-box__group__field__form-date"
-										/>
-									</div>
-									<div className="project-box__group__field__tooltip-container js-tooltip-container">
-										<div className="project-box__group__field__tooltip-container__arrow-up" />
-										<div className="project-box__group__field__tooltip-container__text-box">
-											Status not "Completed"
-										</div>
-									</div>
-								</div>
-							</div>
-						</td>
-						<td className="display-edit-project-table__data">
-							<div className="project-box">
-								<h2 className="project-box__title">Bugs</h2>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>{/*Empty Column*/}</td>
-						<td>
-							<div className="form-buttons-outer-container">
-								<div className="form-buttons-centered-container">
-									<button
-										type="submit"
-										className="form-buttons-centered-container__submit"
-									>
-										Edit Project
-									</button>
-									<div
-										className="form-buttons-centered-container__cancel"
-										onClick={switchToDisplayProjectInfo}
-									>
-										Cancel
-									</div>
-								</div>
-							</div>
-							<div className="bottom-form-errors-container">
-								<span className="form-errors">
-									{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
-									{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
-								</span>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="outer-dividing-container outer-dividing-container-one-third">
+				<div className="project-box">
+					<h2 className="project-box__title">Status of Bugs</h2>
+				</div>
+			</div>
+			<div className="outer-dividing-container outer-dividing-container-one-third">
+				<div className="project-box">
+					<h2 className="project-box__title">Last Five Bugs</h2>
+				</div>
+			</div>
+			<div className="outer-dividing-container">
+				<div className="form-buttons-outer-container">
+					<div className="form-buttons-centered-container">
+						<button
+							type="submit"
+							className="form-buttons-centered-container__submit"
+						>
+							Edit Project
+						</button>
+						<div
+							className="form-buttons-centered-container__cancel"
+							onClick={switchToDisplayProjectInfo}
+						>
+							Cancel
+						</div>
+					</div>
+				</div>
+				<div className="bottom-form-errors-container">
+					<span className="form-errors">
+						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
+						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
+					</span>
+				</div>
+			</div>
 		</form>
 	);
 }
