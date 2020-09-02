@@ -133,11 +133,6 @@ export default function EditProjectInfo() {
 
 	return (
 		<form noValidate onSubmit={handleSubmit}>
-			<div className="top-form-errors-container">
-				<span className="form-errors">
-					{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}
-				</span>
-			</div>
 			<div className="centering-container">
 				<input
 					type="text"
@@ -147,6 +142,9 @@ export default function EditProjectInfo() {
 					id="edit-project-name"
 					className="centering-container__form-name-input"
 				/>
+				<span className="form-errors form-errors--test">
+					{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}
+				</span>
 			</div>
 			<div className="project-creation-date">
 				Created on: {projectInfo.creationDate}
@@ -155,7 +153,7 @@ export default function EditProjectInfo() {
 				<tbody>
 					<tr>
 						<td className="display-edit-project-table__data">
-							<div className="project-box">
+							<div className="project-box project-box--smaller-padding">
 								<label htmlFor="edit-project-description">
 									<h2 className="project-box__title project-box__title--no-bottom-margin">
 										Description

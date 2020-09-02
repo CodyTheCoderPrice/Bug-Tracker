@@ -26,15 +26,11 @@ export default function ViewProjectModal() {
 
 	const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
 
-	// Used to decide when to resize the modal, and to reset its size
-	const [originalModalSizeAndStyles, setOriginalModalSizeAndStyles] = useState(
-		null
-	);
-
-	// Used to decide when to enlargen the modal
-	const [allContentInsideModalSize, setAllContentInsideModalSize] = useState(
-		null
-	);
+	// Used for optimization in calculating modal resizes
+	const [
+		regularlyUsedModalSizesAndStyles,
+		setRegularlyUsedModalSizesAndStyles,
+	] = useState(null);
 
 	// Disable scrolling for the HTML and body
 	useEffect(() => {
@@ -60,65 +56,50 @@ export default function ViewProjectModal() {
 				"js-view-project-modal"
 			)[0];
 
-			// Makes sure originalModalSizeAndStyles gets set
-			if (originalModalSizeAndStyles === null) {
+			// Makes sure regularlyUsedModalSizesAndStyles gets set
+			if (regularlyUsedModalSizesAndStyles === null) {
 				const sidebarStyle = getElementStyle(viewProjectModalElement);
-				setOriginalModalSizeAndStyles({
-					height: stripNonDigits(sidebarStyle.height),
-					marginOnOneSide: stripNonDigits(sidebarStyle.marginTop),
-					borderWidthOnOneSide: stripNonDigits(sidebarStyle.borderTopWidth),
+				setRegularlyUsedModalSizesAndStyles({
+					topButttonsBarSize: getElementSize(
+						document.getElementsByClassName("js-top-buttons-bar")[0]
+					),
+					modalMarginOnOneSide: stripNonDigits(sidebarStyle.marginTop),
+					modalBorderWidthOnOneSide: stripNonDigits(
+						sidebarStyle.borderTopWidth
+					),
 				});
 
-				// Prevents crash since originalModalSizeAndStyles will still
+				// Prevents crash since regularlyUsedModalSizesAndStyles will still
 				// ...be null for remainder of this useEfffect iteration
 				return;
 			}
 
-			// Makes sure allContentInsideModalSize gets set
-			if (allContentInsideModalSize === null) {
-				setAllContentInsideModalSize(
-					getElementSize(
-						document.getElementsByClassName("js-all-content-container")[0]
-					)
-				);
+			viewProjectModalElement.style.width =
+				reduxState.displaySizeVariables.window.width -
+				reduxState.displaySizeConstants.scrollbar.width -
+				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide -
+				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2 +
+				"px";
 
-				// Prevents crash since allContentInsideModalSize will still
-				// ...be null for remainder of this useEfffect iteration
-				return;
-			}
-
-			// Resize modal width
-			if (reduxState.displaySizeVariables.window !== null) {
-				viewProjectModalElement.style.width =
-					reduxState.displaySizeVariables.window.width -
-					reduxState.displaySizeConstants.scrollbar.width -
-					originalModalSizeAndStyles.marginOnOneSide -
-					originalModalSizeAndStyles.borderWidthOnOneSide * 2 +
-					"px";
-			}
-
-			const adjustedWindowHeight =
+			const adjustedModalHeight =
 				reduxState.displaySizeVariables.window.height -
 				reduxState.displaySizeConstants.navbar.height -
-				originalModalSizeAndStyles.marginOnOneSide * 2 -
-				originalModalSizeAndStyles.borderWidthOnOneSide * 2;
+				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -
+				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2;
 
-			// Resize modal height
-			if (
-				originalModalSizeAndStyles.height < allContentInsideModalSize.height ||
-				originalModalSizeAndStyles.height > adjustedWindowHeight
-			) {
-				viewProjectModalElement.style.height = adjustedWindowHeight + "px";
-			} else {
-				viewProjectModalElement.style.height =
-					originalModalSizeAndStyles.height + "px";
-			}
+			viewProjectModalElement.style.height = adjustedModalHeight + "px";
+
+			document.getElementsByClassName(
+				"js-project-content-container"
+			)[0].style.height =
+				adjustedModalHeight -
+				regularlyUsedModalSizesAndStyles.topButttonsBarSize.height  +
+				"px";
 		}
 	}, [
 		reduxState.displaySizeConstants,
 		reduxState.displaySizeVariables,
-		originalModalSizeAndStyles,
-		allContentInsideModalSize,
+		regularlyUsedModalSizesAndStyles,
 		reduxState.projects,
 	]);
 
@@ -175,37 +156,37 @@ export default function ViewProjectModal() {
 				className="view-project-modal js-view-project-modal"
 				onClick={closeOptionsDropdown}
 			>
-				<div className="js-all-content-container">
-					<div className="top-bar-buttons-container">
-						<div className="project-options-container js">
-							<div
-								className="project-options-container__button js-project-options-button"
-								onClick={openOptionsDropdown}
-							>
-								<i className="fa fa-ellipsis-h" aria-hidden="true"></i>
-							</div>
-							<div className="project-options-container__dropdown js-project-options-dropdown">
-								<span
-									className="project-options-container__dropdown__option js-edit-option"
-									onClick={switchBetweenDisplayAndEditProjectInfo}
-								>
-									{reduxState.projectComponentsDisplay.editProjectInfo
-										? "Cancel"
-										: "Edit Project"}
-								</span>
-								<span
-									className="project-options-container__dropdown__option project-options-container__dropdown__option--no-border"
-									onClick={openDeleteProjectModal}
-								>
-									Delete Project
-								</span>
-							</div>
+				<div className="top-buttons-bar js-top-buttons-bar">
+					<div className="project-options-container js">
+						<div
+							className="project-options-container__button js-project-options-button"
+							onClick={openOptionsDropdown}
+						>
+							<i className="fa fa-ellipsis-h" aria-hidden="true"></i>
 						</div>
-						<div className="x-button" onClick={closeViewProjectDashboard}>
-							<i className="fa fa-times" aria-hidden="true"></i>
+						<div className="project-options-container__dropdown js-project-options-dropdown">
+							<span
+								className="project-options-container__dropdown__option js-edit-option"
+								onClick={switchBetweenDisplayAndEditProjectInfo}
+							>
+								{reduxState.projectComponentsDisplay.editProjectInfo
+									? "Cancel"
+									: "Edit Project"}
+							</span>
+							<span
+								className="project-options-container__dropdown__option project-options-container__dropdown__option--no-border"
+								onClick={openDeleteProjectModal}
+							>
+								Delete Project
+							</span>
 						</div>
 					</div>
-					<div className="padded-container">
+					<div className="x-button" onClick={closeViewProjectDashboard}>
+						<i className="fa fa-times" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div className="project-content-container js-project-content-container">
+					<div className="padding-container">
 						{!reduxState.projectComponentsDisplay.editProjectInfo ? (
 							<div>
 								<DisplayProjectInfo />

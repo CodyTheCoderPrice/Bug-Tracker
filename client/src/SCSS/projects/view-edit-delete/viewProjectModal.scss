@@ -17,20 +17,18 @@
 		margin: $view-project-bug-modal-margin;
 		border: $view-project-bug-modal-border-width solid black;
 		background-color: white;
-		height: 690px;
-		// This value makes modal width resize using JS look less jumpy
-		width: 96.5vw;
+		// Height and width values were found through trial and error
+		// ...to make modal resize (using js) look less jumpy
+		height: 88.5vh;
+		width: 97vw;
 		// On resize, keeps right most project box margin from being intruded upon
 		min-width: 890px;
 		font-family: Arial, Helvetica, sans-serif;
-		// Gives modal scrolling when content goes beyond height
-		overflow-y: scroll !important;
-		overflow-x: hidden !important;
 	}
 
-	.top-bar-buttons-container {
+	.top-buttons-bar {
 		border-bottom: 1px solid black;
-		background-color: $light-gray;
+		background-color: silver;
 		height: 46px;
 		width: 100%;
 	}
@@ -53,7 +51,7 @@
 		background: none;
 		height: 29px;
 		width: 23px;
-		color: $medium-gray;
+		color: $dark-gray;
 		font-size: 28px;
 		cursor: pointer;
 	}
@@ -99,14 +97,22 @@
 	.x-button {
 		@include back-exit-buttons();
 		right: 20px;
+		color: $dark-gray;
 	}
 	.x-button:hover,
 	.x-button:active {
 		color: $black;
 	}
 
-	.padded-container {
-		// No padding on the top because of the header
+	.project-content-container {
+		// Gives modal scrolling when content goes beyond modal height
+		overflow-y: scroll !important;
+		overflow-x: hidden !important;
+	}
+
+	// Must be a seperate div inside .project-content-container so the padding
+	// ...does not affect the resize so it goes beyond the modal 
+	.padding-container {
 		padding: 0px 25px 25px 25px;
 	}
 
@@ -132,6 +138,10 @@
 		padding: 0px 20px 20px 20px;
 		min-height: 400px;
 		overflow-wrap: anywhere;
+	}
+
+	.project-box--smaller-padding {
+		padding: 0px 15px 20px 15px;
 	}
 
 	.project-box__title {
