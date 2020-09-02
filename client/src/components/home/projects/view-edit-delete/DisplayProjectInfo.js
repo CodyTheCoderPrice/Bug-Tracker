@@ -50,7 +50,13 @@ export default function DisplayProjectInfo() {
 								</span>
 							</div>
 						</td>
-						<td className="display-edit-project-table__data">
+					</tr>
+				</tbody>
+			</table>
+			<table className="display-edit-project-table">
+				<tbody>
+					<tr>
+						<td className="display-edit-project-table__data display-edit-project-table__data--one-half">
 							<div className="project-box">
 								<h2 className="project-box__title">Info</h2>
 								<div className="project-box__group">
@@ -101,7 +107,7 @@ export default function DisplayProjectInfo() {
 								</div>
 							</div>
 						</td>
-						<td className="display-edit-project-table__data">
+						<td className="display-edit-project-table__data display-edit-project-table__data--one-half">
 							<div className="project-box">
 								<h2 className="project-box__title">Bugs</h2>
 							</div>
