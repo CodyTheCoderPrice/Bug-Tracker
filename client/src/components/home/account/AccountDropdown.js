@@ -10,12 +10,6 @@ import { formatDateMMddYYYY } from "../../../utils/dateUtils";
 
 import { truncate } from "../../../utils/displayUtils";
 
-import AccountBlurredBackground from "./AccountBlurredBackground";
-import EditInfoModal from "./EditInfoModal";
-import EditEmailModal from "./EditEmailModal";
-import EditPasswordModal from "./EditPasswordModal";
-import DeleteAccountModal from "./DeleteAccountModal";
-
 import "../../../SCSS/account/accountDropdown.scss";
 
 export default function AccountDropdown() {
@@ -72,24 +66,6 @@ export default function AccountDropdown() {
 					</div>
 				</div>
 			</div>
-			{reduxState.accountComponentsDisplay.editInfoModal ||
-			reduxState.accountComponentsDisplay.editEmailModal ||
-			reduxState.accountComponentsDisplay.editPasswordModal ||
-			reduxState.accountComponentsDisplay.deleteAccountModal ? (
-				<AccountBlurredBackground />
-			) : null}
-			{reduxState.accountComponentsDisplay.editInfoModal ? (
-				<EditInfoModal />
-			) : null}
-			{reduxState.accountComponentsDisplay.editEmailModal ? (
-				<EditEmailModal />
-			) : null}
-			{reduxState.accountComponentsDisplay.editPasswordModal ? (
-				<EditPasswordModal />
-			) : null}
-			{reduxState.accountComponentsDisplay.deleteAccountModal ? (
-				<DeleteAccountModal />
-			) : null}
 		</div>
 	);
 }

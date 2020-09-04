@@ -29,9 +29,9 @@
 		margin-top: 20px;
 		border: 2px solid black;
 		background-color: white;
-		padding: 4px 16px 4px 16px;
+		padding: 4px;
 		height: 43px;
-		width: 500px;
+		width: 550px;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 28px;
 		font-weight: bold;
@@ -133,9 +133,10 @@
 		width: 265px;
 	}
 
-	.form-buttons-centered-container__submit {
+	.form-buttons-centered-container__submit-button {
 		float: left;
 		border: 1px solid black;
+		border-radius: 10px;
 		background-color: $light-blue-gray;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
@@ -148,14 +149,17 @@
 		font-size: 16px;
 		cursor: pointer;
 	}
-	.form-buttons-centered-container__submit:hover,
-	.form-buttons-centered-container__submit:active {
+	.form-buttons-centered-container__submit-button:hover,
+	.form-buttons-centered-container__submit-button:active {
 		background-color: $blue-gray;
 	}
 
-	.form-buttons-centered-container__cancel {
+	.form-buttons-centered-container__cancel-button {
+		@include stop-text-selection();
+
 		float: right;
 		border: 1px solid black;
+		border-radius: 10px;
 		background-color: white;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.
@@ -166,8 +170,8 @@
 		font-size: 16px;
 		cursor: pointer;
 	}
-	.form-buttons-centered-container__cancel:hover,
-	.centered-container__cancel-button:active {
+	.form-buttons-centered-container__cancel-button:hover,
+	.form-buttons-centered-container__cancel-button:active {
 		background-color: #f1f0f0;
 	}
 

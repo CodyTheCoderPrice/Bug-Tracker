@@ -32,12 +32,7 @@ export default function ProjectRow(props) {
 			</td>
 			<td className="project-table__data">
 				<span className="project-table__data__info">
-					{props.project.p_priority_option}
-				</span>
-			</td>
-			<td className="project-table__data">
-				<span className="project-table__data__info">
-					{props.project.p_status_option}
+					{formatDateMMddYYYY(props.project.creation_date)}
 				</span>
 			</td>
 			<td className="project-table__data">
@@ -51,6 +46,16 @@ export default function ProjectRow(props) {
 				</span>
 			</td>
 			<td className="project-table__data">
+				<span className="project-table__data__info">
+					{props.project.p_priority_option}
+				</span>
+			</td>
+			<td className="project-table__data">
+				<span className="project-table__data__info">
+					{props.project.p_status_option}
+				</span>
+			</td>
+			<td className="project-table__data">
 				<span
 					className="project-table__data__info project-table__data__info--blue-link"
 					onClick={openViewProjectDashboard}
@@ -59,7 +64,7 @@ export default function ProjectRow(props) {
 				</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}
-			<td className="project-table__header"></td>
+			<td className="project-table__data"></td>
 		</tr>
 	);
 }

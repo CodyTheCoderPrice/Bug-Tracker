@@ -1,6 +1,17 @@
 @import "../utils/variables";
 @import "../utils//mixins";
 
+.account-modals-blurred-background {
+	z-index: 1;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: black;
+	opacity: 0.5;
+	height: 100vh;
+	width: 100vw;
+}
+
 .edit-account-modal-components {
 	// These rules allow the account modals to appear in the middle of the screen
 	position: absolute;
@@ -8,17 +19,6 @@
 	left: 0;
 	height: 100vh;
 	width: 100vw;
-
-	.blurred-background {
-		z-index: 1;
-		position: absolute;
-		left: 0;
-		top: 0;
-		background-color: black;
-		opacity: 0.5;
-		height: 100vh;
-		width: 100vw;
-	}
 	
 	.edit-account-modal {
 		z-index: 1;
@@ -93,6 +93,7 @@
 		margin-top: 10px;
 		margin-bottom: 5px;
 		border: 0;
+		border-radius: 10px;
 		background: $light-blue-gray;
 		padding: 10px;
 		width: 100%;

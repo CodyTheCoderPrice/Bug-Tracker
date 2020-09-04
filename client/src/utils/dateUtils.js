@@ -8,3 +8,7 @@ export function formatDateYYYYmmDD(date) {
 export function formatDateMMddYYYY(date) {
 	return (date !== null) ? moment(date).format('MM-DD-YYYY') : "";
 }
+
+export function dateToInt(date) {
+	return (date !== null) ? Number(moment(date)) : 0;
+}

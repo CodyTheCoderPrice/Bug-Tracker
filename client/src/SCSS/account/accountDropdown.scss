@@ -1,17 +1,6 @@
 @import '../utils/variables';
 
 .account-dropdown-component {
-	.blurred-background {
-		z-index: 1;
-		position: fixed;
-		left: 0;
-		top: 0;
-		background-color: black;
-		opacity: 0.5;
-		height: 100vh;
-		width: 100vw;
-	}
-
 	.dropdown-container {
 		z-index: 1;
 		position: absolute;

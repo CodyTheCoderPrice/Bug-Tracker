@@ -24,16 +24,16 @@ export default function Login() {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
-	const openRegister = () => {
-		dispatch(setWhichAuthComponentsDisplay({ register: true }));
-	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// clears any prior input errors
 		dispatch(clearInputErrors());
 		dispatch(loginAccount(accountInfo));
 		setShouldShowAnyErrors(true);
+	};
+
+	const openRegister = () => {
+		dispatch(setWhichAuthComponentsDisplay({ register: true }));
 	};
 
 	return (

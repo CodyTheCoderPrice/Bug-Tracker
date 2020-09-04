@@ -21,6 +21,6 @@ export default function AccountBlurredBackground() {
 	}, []);
 
 	return (
-		<div className="blurred-background js-account-modals-blurred-background" />
+		<div className="account-modals-blurred-background" />
 	);
 }

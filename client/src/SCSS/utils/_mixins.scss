@@ -1,3 +1,20 @@
+@mixin stop-text-selection() {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+							supported by Chrome, Edge, Opera and Firefox */
+}
+
+@mixin dead-center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 @mixin back-exit-buttons() {
 	// Makes sure other elements don't cover over
 	z-index: 3;
@@ -8,4 +25,8 @@
 	color: $medium-gray;
 	font-size: 26px;
 	cursor: pointer;
+}
+
+@mixin border-line() {
+	border-bottom: 1px solid $medium-gray;
 }

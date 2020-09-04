@@ -279,12 +279,12 @@ export default function EditProjectInfo() {
 					<div className="form-buttons-centered-container">
 						<button
 							type="submit"
-							className="form-buttons-centered-container__submit"
+							className="form-buttons-centered-container__submit-button"
 						>
 							Edit Project
 						</button>
 						<div
-							className="form-buttons-centered-container__cancel"
+							className="form-buttons-centered-container__cancel-button"
 							onClick={switchToDisplayProjectInfo}
 						>
 							Cancel

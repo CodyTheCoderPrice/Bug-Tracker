@@ -1,24 +1,18 @@
-@mixin stopTextSelection() {
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-khtml-user-select: none; /* Konqueror HTML */
-	-moz-user-select: none; /* Old versions of Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently
-							supported by Chrome, Edge, Opera and Firefox */
-}
+@import "../utils/variables";
+@import "../utils//mixins";
 
-@import '../utils/variables';
 .navbar-and-other-components-container {
+	z-index: 2;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-}
-.navbar-component{
-	background-color: $blue-gray;
-	height: $navbar-height;
-	width: 100vw;
-	
+
+	.navbar-component {
+		background-color: $blue-gray;
+		height: $navbar-height;
+		width: 100%;
+	}
+
 	.navbar-button {
 		position: relative;
 		float: left;
@@ -44,18 +38,18 @@
 	}
 
 	.navbar-button__text-container {
-		@include stopTextSelection();
+		@include stop-text-selection();
 
 		position: absolute;
-		top: 16px;
+		top: 50%;
 		left: 52%;
-		transform: translate(-50%);
+		transform: translate(-50%, -50%);
 		width: 200px;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: 160%;
 		color: white;
 	}
-	
+
 	.account-dropdown {
 		// Must be absolute so it doesn't affect the postion of other components
 		position: absolute;
