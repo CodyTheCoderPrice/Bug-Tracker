@@ -106,7 +106,7 @@
 	}
 
 	.form__combo-box-container {
-		float: left;
+		float: right;
 		width: 45%;
 	}
 
@@ -121,12 +121,8 @@
 	}
 
 	.form__date-container {
-		position: relative;
-		width: 45%;
-	}
-
-	.form__date-container--left {
 		float: left;
+		width: 45%;
 	}
 
 	.form__date-container--right {
@@ -149,32 +145,32 @@
 		// Set to relative so changing the z-index using js can be
 		// ...used to control if the tooltip is visible or not.
 		position: relative;
-		float: left;
+		float: right;
 		margin-top: 8px;
 		// Becomes visible via a mouseover event added to the completionDate container
 		visibility: hidden;
 	}
 
+	.form__tooltip-container__arrow-left {
+		float: left;
+		height: 0;
+		width: 0;
+		border-top: 20px solid transparent;
+		border-bottom: 20px solid transparent;
+		border-right: 20px solid black;
+	}
+
 	.form__tooltip-container__text-box {
 		float: left;
 		border: 1px solid black;
-		border-top-left-radius: 10px;
-		border-bottom-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
 		background-color: black;
 		padding: 11px;
 		width: 180px;
 		text-align: center;
 		font-size: 14px;
 		color: white;
-	}
-
-	.form__tooltip-container__arrow-right {
-		float: left;
-		height: 0;
-		width: 0;
-		border-top: 20px solid transparent;
-		border-bottom: 20px solid transparent;
-		border-left: 20px solid black;
 	}
 
 	.form__submit {

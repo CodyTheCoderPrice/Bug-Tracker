@@ -48,7 +48,7 @@
 		// ...can be covered to make containers look in unison
 		z-index: 4;
 		position: absolute;
-		right: 4px;
+		right: 0px;
 		// Border given color through JS
 		border: 3px solid transparent;
 		border-bottom: none;
@@ -70,7 +70,7 @@
 		width: $options-button-width;
 	}
 
-	.project-options-container__button--selected {
+	.project-options-container__button--clicked {
 		border-color: black;
 		border-bottom-color: white;
 		background-color: white;
@@ -79,8 +79,10 @@
 	.project-options-container__dropdown {
 		position: absolute;
 		top: 29px;
+		right: 0;
 		border: 3px solid black;
 		background-color: white;
+		width: 129px;
 		// Made visible using JS
 		visibility: hidden;
 	}
@@ -137,9 +139,13 @@
 		width: 100%;
 	}
 
-	.outer-dividing-container-one-third {
+	.outer-dividing-container--one-third {
 		width: 33.33%;
 		min-width: 300px;
+	}
+
+	.outer-dividing-container--fixed-width-for-info {
+		width: 600px;
 	}
 
 	.project-box {
@@ -152,6 +158,14 @@
 
 	.project-box--smaller-padding {
 		padding: 0px 15px 20px 15px;
+	}
+
+	.project-box__group {
+		display: inline-block;
+	}
+
+	.project-box__group--right {
+		float: right;
 	}
 
 	.project-box__title {

@@ -10,6 +10,8 @@ const httpsPort = 8443;
 var privateKey = fs.readFileSync("./sslCertification/selfsigned.key", "utf8");
 var certificate = fs.readFileSync("./sslCertification/selfsigned.crt", "utf8");
 var credentials = { key: privateKey, cert: certificate };
+// URL
+const url = require("url");
 // Routes
 const priorityStatus = require("./routes/priorityStatus");
 const accounts = require("./routes/accounts");
@@ -20,7 +22,14 @@ app.use(express.json());
 app.use(function (req, res, next) {
 	if (req.secure) {
 		// Request was via https, so do no special handling
-		console.log("Was secure!");
+		console.log(
+			"Was secure --> " +
+				url.format({
+					protocol: req.protocol,
+					host: req.get("host"),
+					pathname: req.originalUrl,
+				})
+		);
 		next();
 	} else {
 		// Request was via http, so redirect to https

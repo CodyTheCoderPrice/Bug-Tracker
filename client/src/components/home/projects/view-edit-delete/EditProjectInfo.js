@@ -50,7 +50,7 @@ export default function EditProjectInfo() {
 	});
 
 	const [descriptionCharLimit] = useState(500);
-	
+
 	// clears prior input errors when closing the component
 	useEffect(() => {
 		return () => {
@@ -178,39 +178,9 @@ export default function EditProjectInfo() {
 					</span>
 				</div>
 			</div>
-			<div className="outer-dividing-container outer-dividing-container-one-third">
+			<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
 				<div className="project-box">
 					<h2 className="project-box__title">Info</h2>
-					<div className="project-box__group">
-						<div className="project-box__group__field">
-							<label
-								htmlFor="edit-project-priority"
-								className="project-box__group__field__form-label"
-							>
-								Priority:
-							</label>
-							<select
-								name="priorityId"
-								onChange={(e) => onChange(e)}
-								id="edit-project-priority"
-								className="project-box__group__field__form-select js-project-priority-select"
-							></select>
-						</div>
-						<div className="project-box__group__field">
-							<label
-								htmlFor="edit-project-status"
-								className="project-box__group__field__form-label"
-							>
-								Status:
-							</label>
-							<select
-								name="statusId"
-								onChange={(e) => onChange(e)}
-								id="edit-project-status"
-								className="project-box__group__field__form-select js-project-status-select"
-							></select>
-						</div>
-					</div>
 					<div className="project-box__group">
 						<div className="project-box__group__field">
 							<label
@@ -260,21 +230,51 @@ export default function EditProjectInfo() {
 								className="project-box__group__field__form-date"
 							/>
 						</div>
-						<div className="project-box__group__field__tooltip-container js-tooltip-container">
-							<div className="project-box__group__field__tooltip-container__arrow-up" />
-							<div className="project-box__group__field__tooltip-container__text-box">
-								Status not "Completed"
-							</div>
+					</div>
+					<div className="project-box__group project-box__group--right">
+						<div className="project-box__group__field">
+							<label
+								htmlFor="edit-project-priority"
+								className="project-box__group__field__form-label"
+							>
+								Priority:
+							</label>
+							<select
+								name="priorityId"
+								onChange={(e) => onChange(e)}
+								id="edit-project-priority"
+								className="project-box__group__field__form-select js-project-priority-select"
+							></select>
+						</div>
+						<div className="project-box__group__field">
+							<label
+								htmlFor="edit-project-status"
+								className="project-box__group__field__form-label"
+							>
+								Status:
+							</label>
+							<select
+								name="statusId"
+								onChange={(e) => onChange(e)}
+								id="edit-project-status"
+								className="project-box__group__field__form-select js-project-status-select"
+							></select>
+						</div>
+					</div>
+					<div className="project-box__group__field__tooltip-container js-tooltip-container">
+						<div className="project-box__group__field__tooltip-container__arrow-left" />
+						<div className="project-box__group__field__tooltip-container__text-box">
+							Status not "Completed"
 						</div>
 					</div>
 				</div>
 			</div>
-			<div className="outer-dividing-container outer-dividing-container-one-third">
+			<div className="outer-dividing-container outer-dividing-container--one-third">
 				<div className="project-box">
 					<h2 className="project-box__title">Status of Bugs</h2>
 				</div>
 			</div>
-			<div className="outer-dividing-container outer-dividing-container-one-third">
+			<div className="outer-dividing-container outer-dividing-container--one-third">
 				<div className="project-box">
 					<h2 className="project-box__title">Last Five Bugs</h2>
 				</div>

@@ -49,23 +49,9 @@ export default function DisplayProjectInfo() {
 					</span>
 				</div>
 			</div>
-			<div className="outer-dividing-container outer-dividing-container-one-third">
+			<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
 				<div className="project-box">
 					<h2 className="project-box__title">Info</h2>
-					<div className="project-box__group">
-						<div className="project-box__group__field">
-							<span className="project-box__group__field__type">Priority:</span>
-							<span className="project-box__group__field_content">
-								{projectInfo.priorityOption}
-							</span>
-						</div>
-						<div className="project-box__group__field">
-							<span className="project-box__group__field__type">Status:</span>
-							<span className="project-box__group__field_content">
-								{projectInfo.statusOption}
-							</span>
-						</div>
-					</div>
 					<div className="project-box__group">
 						<div className="project-box__group__field">
 							<span className="project-box__group__field__type">
@@ -92,14 +78,28 @@ export default function DisplayProjectInfo() {
 							</div>
 						)}
 					</div>
+					<div className="project-box__group project-box__group--right">
+						<div className="project-box__group__field">
+							<span className="project-box__group__field__type">Priority:</span>
+							<span className="project-box__group__field_content">
+								{projectInfo.priorityOption}
+							</span>
+						</div>
+						<div className="project-box__group__field">
+							<span className="project-box__group__field__type">Status:</span>
+							<span className="project-box__group__field_content">
+								{projectInfo.statusOption}
+							</span>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div className="outer-dividing-container outer-dividing-container-one-third">
+			<div className="outer-dividing-container outer-dividing-container--one-third">
 				<div className="project-box">
 					<h2 className="project-box__title">Status of Bugs</h2>
 				</div>
 			</div>
-			<div className="outer-dividing-container outer-dividing-container-one-third">
+			<div className="outer-dividing-container outer-dividing-container--one-third">
 				<div className="project-box">
 					<h2 className="project-box__title">Last Five Bugs</h2>
 				</div>

@@ -15,6 +15,12 @@
 	transform: translate(-50%, -50%);
 }
 
+@mixin vertical-center() {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+}
+
 @mixin back-exit-buttons() {
 	// Makes sure other elements don't cover over
 	z-index: 4;

@@ -29,7 +29,6 @@ export default function Navbar() {
 	useEffect(() => {
 		dispatch(
 			setDisplaySizeConstants({
-				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 				scrollbar: calcScrollbarWidth(),
 			})
 		);
@@ -37,6 +36,7 @@ export default function Navbar() {
 		dispatch(
 			setDisplaySizeVariables({
 				window: getWindowSize(),
+				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 			})
 		);
 
@@ -45,6 +45,7 @@ export default function Navbar() {
 			dispatch(
 				setDisplaySizeVariables({
 					window: getWindowSize(),
+					navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 				})
 			);
 		});
@@ -54,6 +55,7 @@ export default function Navbar() {
 				dispatch(
 					setDisplaySizeVariables({
 						window: getWindowSize(),
+						navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 					})
 				);
 			});

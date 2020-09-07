@@ -1,0 +1,20 @@
+@import "../utils/variables";
+@import "../utils//mixins";
+
+.sort-buttons-component {
+	display: inline-block;
+	height: $project-bug-table-row-height - 30;
+
+	.buttons-container {
+	}
+
+	.buttons-container__button-ascending {
+		position: relative;
+		font-size: 24px;
+	}
+
+	.buttons-container__button-descending {
+		position: relative;
+		font-size: 24px;
+	}
+}

@@ -41,7 +41,7 @@ export default function CreateProjectSidebar() {
 	});
 
 	const [descriptionCharLimit] = useState(500);
-	
+
 	// clears prior input errors when closing the component
 	useEffect(() => {
 		return () => {
@@ -84,7 +84,7 @@ export default function CreateProjectSidebar() {
 	useEffect(() => {
 		if (
 			reduxState.displaySizeVariables.window !== null &&
-			reduxState.displaySizeConstants.navbar !== null
+			reduxState.displaySizeVariables.navbar !== null
 		) {
 			let createProjectSidebarElement = document.getElementsByClassName(
 				"js-create-project-sidebar"
@@ -106,7 +106,7 @@ export default function CreateProjectSidebar() {
 
 			const adjustedWindowHeight =
 				reduxState.displaySizeVariables.window.height -
-				reduxState.displaySizeConstants.navbar.height -
+				reduxState.displaySizeVariables.navbar.height -
 				originalSidebarSizeAndStyle.marginBottom -
 				originalSidebarSizeAndStyle.borderBottom;
 
@@ -118,7 +118,6 @@ export default function CreateProjectSidebar() {
 			}
 		}
 	}, [
-		reduxState.displaySizeConstants,
 		reduxState.displaySizeVariables,
 		originalSidebarSizeAndStyle,
 		reduxState.projects,
@@ -212,9 +211,7 @@ export default function CreateProjectSidebar() {
 							id="create-project-name"
 							className="form__text-input"
 						/>
-						<span className="form__errors">
-							{reduxState.inputErrors.name}
-						</span>
+						<span className="form__errors">{reduxState.inputErrors.name}</span>
 						<label htmlFor="create-project-description" className="form__label">
 							Description:{" "}
 						</label>
@@ -257,7 +254,7 @@ export default function CreateProjectSidebar() {
 								className="form__combo-box-container__select js-status-select"
 							></select>
 						</div>
-						<div className="form__date-container form__date-container--right">
+						<div className="form__date-container">
 							<label
 								htmlFor="create-project-start-date"
 								className="form__date-container__label"
@@ -273,7 +270,7 @@ export default function CreateProjectSidebar() {
 								className="form__date-container__date-input"
 							/>
 						</div>
-						<div className="form__date-container form__date-container--right">
+						<div className="form__date-container">
 							<label
 								htmlFor="create-project-due-date"
 								className="form__date-container__label"
@@ -288,13 +285,7 @@ export default function CreateProjectSidebar() {
 								className="form__date-container__date-input"
 							/>
 						</div>
-						<div className="form__tooltip-container js-tooltip-container">
-							<div className="form__tooltip-container__text-box">
-								Status not "Completed"
-							</div>
-							<div className="form__tooltip-container__arrow-right" />
-						</div>
-						<div className="form__date-container form__date-container--right js-completion-date-container">
+						<div className="form__date-container js-completion-date-container">
 							<label
 								htmlFor="create-project-completion-date"
 								className="form__date-container__label"
@@ -308,6 +299,12 @@ export default function CreateProjectSidebar() {
 								id="create-project-completion-date"
 								className="form__date-container__date-input"
 							/>
+						</div>
+						<div className="form__tooltip-container js-tooltip-container">
+							<div className="form__tooltip-container__arrow-left" />
+							<div className="form__tooltip-container__text-box">
+								Status not "Completed"
+							</div>
 						</div>
 						<button type="submit" className="form__submit">
 							Create Project

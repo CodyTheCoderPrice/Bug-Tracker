@@ -49,7 +49,7 @@
 		border: 2px solid black;
 		background-color: white;
 		padding: 4px 8px 4px 8px;
-		height: 100px;
+		height: 150px;
 		width: 100%;
 		line-height: $common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
@@ -95,12 +95,35 @@
 		// Set to relative so changing the z-index using js can be
 		// ...used to control if the tooltip is visible or not.
 		position: relative;
-		margin-left: 105px;
+		float: right;
+		margin: -32px 80px 0px 0px;
 		// Becomes visible via a mouseover event added to the completionDate container
 		visibility: hidden;
 	}
 
-	.project-box__group__field__tooltip-container__arrow-up {
+	.project-box__group__field__tooltip-container__arrow-left {
+		float: left;
+		height: 0;
+		width: 0;
+		border-top: 20px solid transparent;
+		border-bottom: 20px solid transparent;
+		border-right: 20px solid black;
+	}
+
+	.project-box__group__field__tooltip-container__text-box {
+		float: left;
+		border: 1px solid black;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		background-color: black;
+		padding: 11px;
+		width: 150px;
+		text-align: center;
+		font-size: 14px;
+		color: white;
+	}
+
+	/* .project-box__group__field__tooltip-container__arrow-up {
 		margin: 10px 0px 0px 65px;
 		height: 0;
 		width: 0;
@@ -117,7 +140,7 @@
 		text-align: left;
 		font-size: 14px;
 		color: white;
-	}
+	} */
 
 	.form-buttons-outer-container {
 		position: relative;

@@ -11,7 +11,7 @@ import {
 	stripNonDigits,
 } from "../../../../utils/displaySizeUtils";
 
-import { toggleOptionsDropdownDisplay } from "../../../../utils/viewProjectModalUtils";
+import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
 // Components
 import DisplayProjectInfo from "./DisplayProjectInfo";
@@ -26,7 +26,7 @@ export default function ViewProjectModal() {
 
 	const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
 
-	// Used for optimization in calculating modal resizes
+	// Used for optimization in modal resizes
 	const [
 		regularlyUsedModalSizesAndStyles,
 		setRegularlyUsedModalSizesAndStyles,
@@ -50,7 +50,7 @@ export default function ViewProjectModal() {
 	useEffect(() => {
 		if (
 			reduxState.displaySizeVariables.window !== null &&
-			reduxState.displaySizeConstants.navbar !== null
+			reduxState.displaySizeVariables.navbar !== null
 		) {
 			let viewProjectModalElement = document.getElementsByClassName(
 				"js-view-project-modal"
@@ -81,9 +81,11 @@ export default function ViewProjectModal() {
 				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2 +
 				"px";
 
+			// Didn't add "px" since it would get in the way when 
+			// ...resizing js-project-content-container
 			const adjustedModalHeight =
 				reduxState.displaySizeVariables.window.height -
-				reduxState.displaySizeConstants.navbar.height -
+				reduxState.displaySizeVariables.navbar.height -
 				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -
 				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2;
 
@@ -97,29 +99,22 @@ export default function ViewProjectModal() {
 				"px";
 		}
 	}, [
-		reduxState.displaySizeConstants,
 		reduxState.displaySizeVariables,
 		regularlyUsedModalSizesAndStyles,
 		reduxState.projects,
 	]);
 
 	useEffect(() => {
-		toggleOptionsDropdownDisplay(
+		toggleDropdownButtonDisplay(
 			showOptionsDropdown,
 			document.getElementsByClassName("js-project-options-button")[0],
 			document.getElementsByClassName("js-project-options-dropdown")[0],
-			"project-options-container__button--selected"
+			"project-options-container__button--clicked"
 		);
 	}, [showOptionsDropdown]);
 
-	const openOptionsDropdown = () => {
+	const toggleOptionsDropdown = () => {
 		setShowOptionsDropdown(!showOptionsDropdown);
-	};
-
-	const closeOptionsDropdown = () => {
-		if (showOptionsDropdown) {
-			setShowOptionsDropdown(false);
-		}
 	};
 
 	const switchBetweenDisplayAndEditProjectInfo = () => {
@@ -152,15 +147,12 @@ export default function ViewProjectModal() {
 	return (
 		<div className="view-project-modal-component">
 			<div className="blurred-background js-view-project-blurred-background" />
-			<div
-				className="view-project-modal js-view-project-modal"
-				onClick={closeOptionsDropdown}
-			>
+			<div className="view-project-modal js-view-project-modal">
 				<div className="top-buttons-bar js-top-buttons-bar">
 					<div className="project-options-container js">
 						<div
 							className="project-options-container__button js-project-options-button"
-							onClick={openOptionsDropdown}
+							onClick={toggleOptionsDropdown}
 						>
 							<span className="project-options-container__button__text">
 								<i className="fa fa-ellipsis-h" aria-hidden="true" />

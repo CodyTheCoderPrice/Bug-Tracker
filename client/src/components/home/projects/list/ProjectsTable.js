@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-	setWhichProjectComponentsDisplay,
-	setWhichAccountComponentsDisplay,
-} from "../../../../actions";
-
 import { getElementLocation } from "../../../../utils/displaySizeUtils";
 
 import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
 
 // Components
+import SortButtons from "./SortButtons";
 import ProjectRow from "./ProjectRow";
 
 import "../../../../SCSS/projects/projectsTableAndRows.scss";
@@ -38,26 +34,26 @@ export default function ProjectsTable() {
 				<thead className="">
 					<tr className="project-table__row project-table__row--sticky">
 						<th className="project-table__header js-project-table__header">
-							<span className="project-table__header__name">Name</span>
+							<span className="project-table__header__span">Name <SortButtons /></span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__start-date">
+							<span className="project-table__header__span">
 								Created on
 							</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__start-date">
+							<span className="project-table__header__span">
 								Start Date
 							</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__due-date">Due Date</span>
+							<span className="project-table__header__span">Due Date</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__priority">Priority</span>
+							<span className="project-table__header__span">Priority</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__status">Status</span>
+							<span className="project-table__header__span">Status</span>
 						</th>
 						<th className="project-table__header">{/*For more info link*/}</th>
 						<th className="project-table__header js-remaining-space">
