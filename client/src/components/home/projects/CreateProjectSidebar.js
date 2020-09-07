@@ -41,7 +41,13 @@ export default function CreateProjectSidebar() {
 	});
 
 	const [descriptionCharLimit] = useState(500);
-	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
+	
+	// clears prior input errors when closing the component
+	useEffect(() => {
+		return () => {
+			dispatch(clearInputErrors());
+		};
+	}, []);
 
 	// This custom hook toggles the display of the completion date input based on the project status,
 	// ...makes sure the projectInfo completion date is accurate after every toggle,
@@ -155,6 +161,8 @@ export default function CreateProjectSidebar() {
 				completionDate: preservedCompletionDate,
 			});
 		}
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, [projectInfo.statusId]);
 
 	const onChange = (e) => {
@@ -180,10 +188,7 @@ export default function CreateProjectSidebar() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// Clears any prior input errors
-		dispatch(clearInputErrors());
 		dispatch(createProject(projectInfo));
-		setShouldShowAnyErrors(true);
 	};
 
 	return (
@@ -208,7 +213,7 @@ export default function CreateProjectSidebar() {
 							className="form__text-input"
 						/>
 						<span className="form__errors">
-							{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}
+							{reduxState.inputErrors.name}
 						</span>
 						<label htmlFor="create-project-description" className="form__label">
 							Description:{" "}
@@ -224,7 +229,7 @@ export default function CreateProjectSidebar() {
 							className="form__textarea"
 						/>
 						<span className="form__errors">
-							{shouldShowAnyErrors ? reduxState.inputErrors.description : ""}
+							{reduxState.inputErrors.description}
 						</span>
 						<div className="form__combo-box-container">
 							<label
@@ -308,8 +313,8 @@ export default function CreateProjectSidebar() {
 							Create Project
 						</button>
 						<span className="form__errors">
-							{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
-							{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
+							{reduxState.inputErrors.validation}
+							{reduxState.inputErrors.server}
 						</span>
 					</form>
 				</div>

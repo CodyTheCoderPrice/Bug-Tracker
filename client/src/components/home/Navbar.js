@@ -48,6 +48,16 @@ export default function Navbar() {
 				})
 			);
 		});
+
+		return () => {
+			window.removeEventListener("resize", () => {
+				dispatch(
+					setDisplaySizeVariables({
+						window: getWindowSize(),
+					})
+				);
+			});
+		};
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);

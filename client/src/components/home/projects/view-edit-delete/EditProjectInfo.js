@@ -29,12 +29,12 @@ export default function EditProjectInfo() {
 		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
 		name: reduxState.projectComponentsDisplay.targetProject.name,
 		description: reduxState.projectComponentsDisplay.targetProject.description,
-		priorityId: reduxState.projectComponentsDisplay.targetProject.p_priority_id,
+		priorityId: reduxState.projectComponentsDisplay.targetProject.priority_id,
 		priorityOption:
-			reduxState.projectComponentsDisplay.targetProject.p_priority_option,
-		statusId: reduxState.projectComponentsDisplay.targetProject.p_status_id,
+			reduxState.projectComponentsDisplay.targetProject.priority_option,
+		statusId: reduxState.projectComponentsDisplay.targetProject.status_id,
 		statusOption:
-			reduxState.projectComponentsDisplay.targetProject.p_status_option,
+			reduxState.projectComponentsDisplay.targetProject.status_option,
 		creationDate: formatDateMMddYYYY(
 			reduxState.projectComponentsDisplay.targetProject.creation_content
 		),
@@ -50,7 +50,13 @@ export default function EditProjectInfo() {
 	});
 
 	const [descriptionCharLimit] = useState(500);
-	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
+	
+	// clears prior input errors when closing the component
+	useEffect(() => {
+		return () => {
+			dispatch(clearInputErrors());
+		};
+	}, []);
 
 	// This custom hook toggles the display of the completion date input based on the project status,
 	// ...makes sure the projectInfo completion date is accurate after every toggle,
@@ -100,6 +106,8 @@ export default function EditProjectInfo() {
 				completionDate: preservedCompletionDate,
 			});
 		}
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, [projectInfo.statusId]);
 
 	const onChange = (e) => {
@@ -116,10 +124,7 @@ export default function EditProjectInfo() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// Clears any prior input errors
-		dispatch(clearInputErrors());
 		dispatch(updateProject(projectInfo, reduxState.projectComponentsDisplay));
-		setShouldShowAnyErrors(true);
 	};
 
 	const switchToDisplayProjectInfo = () => {
@@ -144,7 +149,7 @@ export default function EditProjectInfo() {
 						className="centering-container__form-name-input"
 					/>
 					<span className="form-errors form-errors--test">
-						{shouldShowAnyErrors ? reduxState.inputErrors.name : ""}
+						{reduxState.inputErrors.name}
 					</span>
 				</div>
 				<div className="project-creation-date">
@@ -169,7 +174,7 @@ export default function EditProjectInfo() {
 						className="project-box__form-textarea"
 					/>
 					<span className="form-errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.description : ""}
+						{reduxState.inputErrors.description}
 					</span>
 				</div>
 			</div>
@@ -293,8 +298,8 @@ export default function EditProjectInfo() {
 				</div>
 				<div className="bottom-form-errors-container">
 					<span className="form-errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
-						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
+						{reduxState.inputErrors.validation}
+						{reduxState.inputErrors.server}
 					</span>
 				</div>
 			</div>

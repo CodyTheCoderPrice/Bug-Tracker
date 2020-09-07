@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
 
 		const payload = jwt.verify(jwToken, process.env.jwtSecret);
 
-		req.accountId = payload.accountId;
+		req.account_id = payload.account_id;
 		next();
 	} catch (err) {
 		console.error(err.message);

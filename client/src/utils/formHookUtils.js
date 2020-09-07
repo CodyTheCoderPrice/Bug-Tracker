@@ -17,7 +17,17 @@ export function useToggleableDateInputAndTooltip(
 	const [previousStatus, setPreviousStatus] = useState(state.status);
 
 	useEffect(() => {
-		addTooltipEventForMouseOverAndOut();
+		let dateContainerElement = document.getElementsByClassName(
+			dateContainerClassName
+		)[0];
+
+		dateContainerElement.addEventListener("mouseover", handleMouseOver);
+		dateContainerElement.addEventListener("mouseout", handleMouseOut);
+
+		return () => {
+			dateContainerElement.removeEventListener("mouseover", handleMouseOver);
+			dateContainerElement.removeEventListener("mouseout", handleMouseOut);
+		};
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
@@ -47,15 +57,6 @@ export function useToggleableDateInputAndTooltip(
 		)[0];
 
 		tooltipContainerElement.style.visibility = "hidden";
-	}
-
-	function addTooltipEventForMouseOverAndOut() {
-		let dateContainerElement = document.getElementsByClassName(
-			dateContainerClassName
-		)[0];
-
-		dateContainerElement.addEventListener("mouseover", handleMouseOver);
-		dateContainerElement.addEventListener("mouseout", handleMouseOut);
 	}
 
 	function toggleDisableElements() {

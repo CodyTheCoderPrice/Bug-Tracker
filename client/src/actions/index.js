@@ -1,5 +1,11 @@
 import axios from "axios";
-import {  SET_DISPLAY_SIZE_CONSTANTS, SET_DISPLAY_SIZE_VARIABLES, SET_PRIORITY_STATUS_ARRAYS, SET_INPUT_ERRORS } from "./types";
+import {
+	SET_DISPLAY_SIZE_CONSTANTS,
+	SET_DISPLAY_SIZE_VARIABLES,
+	SET_PRIORITY_STATUS_ARRAYS,
+	SET_PROJECTS_SEARCH_FILTER_SORT,
+	SET_INPUT_ERRORS,
+} from "./types";
 
 export * from "./accountActions";
 export * from "./projectActions";
@@ -27,7 +33,7 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 			projectStatusCompletionIndex,
 			bugPriority,
 			bugStatus,
-			bugStatusCompletionIndex
+			bugStatusCompletionIndex,
 		} = res.data;
 		dispatch({
 			type: SET_PRIORITY_STATUS_ARRAYS,
@@ -40,6 +46,13 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 		});
 	});
 };
+
+export const setProjectsSearchFilterSort = (searchFilterSort) => (dispatch) => {
+	dispatch({
+		type: SET_PROJECTS_SEARCH_FILTER_SORT,
+		searchFilterSort: searchFilterSort,
+	});
+}
 
 export const setInputErrors = (inputErrors) => (dispatch) => {
 	dispatch({

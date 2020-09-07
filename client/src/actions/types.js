@@ -12,5 +12,7 @@ export const SET_AUTHENTICATION = "SET_AUTHENTICATION";
 export const SET_ACCOUNT = "SET_ACCOUNT";
 // Projects
 export const SET_PROJECTS = "SET_PROJECTS";
+// searchSortFilter
+export const SET_PROJECTS_SEARCH_FILTER_SORT = "SET_PROJECTS_SEARCH_FILTER_SORT";
 // Errors
 export const SET_INPUT_ERRORS = "SET_INPUT_ERRORS";

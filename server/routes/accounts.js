@@ -25,7 +25,7 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 	let inputErrors = {};
 
 	try {
-		const { email, password, firstName, lastName } = req.body;
+		const { email, password, first_name, last_name } = req.body;
 		const join_date = moment().format("YYYY-MM-DD");
 
 		// Verify that email does not already exist
@@ -48,7 +48,7 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 					const newAccount = await pool.query(
 						`INSERT INTO account (email, hash_pass, first_name, last_name, join_date) 
 							VALUES($1, $2, $3, $4, $5)`,
-						[email, hash, firstName, lastName, join_date]
+						[email, hash, first_name, last_name, join_date]
 					);
 					
 					return res.json({ success: true, message: "Account created" });
@@ -70,14 +70,14 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 	try {
 		const { email, password } = req.body;
 
-		// Verifies that an account with that email exisits
-		const activeAccounts = await pool.query(
-			`SELECT * FROM account 
+		const account = await pool.query(
+			`SELECT account_id, email, hash_pass, first_name, last_name, join_date
+				FROM account 
 				WHERE LOWER(email) = LOWER($1)`,
 			[email]
 		);
 
-		if (activeAccounts.rowCount === 0) {
+		if (account.rowCount === 0) {
 			inputErrors = { email: "Email unregistered" };
 			return res.status(401).json({ success: false, inputErrors });
 		}
@@ -85,7 +85,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		// Verfies that password is correct
 		const passwordMatch = await bcrypt.compare(
 			password,
-			activeAccounts.rows[0].hash_pass
+			account.rows[0].hash_pass
 		);
 
 		if (!passwordMatch) {
@@ -93,16 +93,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			return res.status(401).json({ success: false, inputErrors });
 		}
 
-		const account = {
-			accountId: activeAccounts.rows[0].account_id,
-			email: activeAccounts.rows[0].email,
-			firstName: activeAccounts.rows[0].first_name,
-			lastName: activeAccounts.rows[0].last_name,
-			joinDate: activeAccounts.rows[0].join_date,
-		};
-
 		const tokenPayload = {
-			accountId: activeAccounts.rows[0].account_id,
+			account_id: account.rows[0].account_id,
 		};
 
 		// Sign token
@@ -116,7 +108,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 				return res.json({
 					success: true,
 					jwToken: jwToken,
-					account: account,
+					account: account.rows[0],
 				});
 			}
 		);
@@ -152,24 +144,16 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 
 	try {
 		// Declared in the tokenAuthorization middleware
-		const { accountId } = req;
+		const { account_id } = req;
 
-		const selectedAccount = await pool.query(
-			`SELECT * FROM account 
+		const account = await pool.query(
+			`SELECT account_id, email, first_name, last_name, join_date
+				FROM account 
 				WHERE account_id = $1`,
-			[accountId]
+			[account_id]
 		);
 
-		// This will also catch if the querry didn't work since everything will be undefined
-		const account = {
-			accountId: accountId,
-			email: selectedAccount.rows[0].email,
-			firstName: selectedAccount.rows[0].first_name,
-			lastName: selectedAccount.rows[0].last_name,
-			joinDate: selectedAccount.rows[0].join_date,
-		};
-
-		return res.json({ success: true, account });
+		return res.json({ success: true, account: account.rows[0] });
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.server = "Server error while retrieving account";
@@ -189,26 +173,18 @@ router
 
 		try {
 			// Declared in the tokenAuthorization middleware
-			const { accountId } = req;
+			const { account_id } = req;
 			// Passed in the post body
-			const { firstName, lastName } = req.body;
+			const { first_name, last_name } = req.body;
 
 			const updatedAccount = await pool.query(
 				`UPDATE account SET first_name = $1, last_name = $2 
-					WHERE account_id = $3 RETURNING *`,
-				[firstName, lastName, accountId]
+					WHERE account_id = $3 
+					RETURNING account_id, email, first_name, last_name, join_date`,
+				[first_name, last_name, account_id]
 			);
 
-			// This will also catch if the querry didn't work since everything will be undefined
-			const account = {
-				accountId: accountId,
-				email: updatedAccount.rows[0].email,
-				firstName: updatedAccount.rows[0].first_name,
-				lastName: updatedAccount.rows[0].last_name,
-				joinDate: updatedAccount.rows[0].join_date,
-			};
-
-			return res.json({ success: true, account });
+			return res.json({ success: true, account: updatedAccount.rows[0] });
 		} catch (err) {
 			console.error(err.message);
 			inputErrors.server = "Server error while updating account info";
@@ -230,26 +206,18 @@ router
 
 			try {
 				// Declared in the tokenAuthorization middleware
-				const { accountId } = req;
+				const { account_id } = req;
 				// Passed in the post body
 				const { email } = req.body;
 
 				const updatedAccount = await pool.query(
 					`UPDATE account SET email = $1 
-						WHERE account_id = $2 RETURNING *`,
-					[email, accountId]
+						WHERE account_id = $2 
+						RETURNING account_id, email, first_name, last_name, join_date`,
+					[email, account_id]
 				);
 
-				// This will also catch if the querry didn't work since everything will be undefined
-				const account = {
-					accountId: accountId,
-					email: updatedAccount.rows[0].email,
-					firstName: updatedAccount.rows[0].first_name,
-					lastName: updatedAccount.rows[0].last_name,
-					joinDate: updatedAccount.rows[0].join_date,
-				};
-
-				return res.json({ success: true, account });
+				return res.json({ success: true, account: updatedAccount.rows[0] });
 			} catch (err) {
 				console.error(err.message);
 				inputErrors.server = "Server error while updating account email";
@@ -272,7 +240,7 @@ router
 
 			try {
 				// Declared in the tokenAuthorization middleware
-				const { accountId } = req;
+				const { account_id } = req;
 				// Passed in the post body
 				const { newPassword } = req.body;
 
@@ -282,20 +250,12 @@ router
 
 						const updatedAccount = await pool.query(
 							`UPDATE account SET hash_pass = $1 
-								WHERE account_id = $2 RETURNING *`,
-							[hash, accountId]
+								WHERE account_id = $2 
+								RETURNING account_id, email, first_name, last_name, join_date`,
+							[hash, account_id]
 						);
 
-						// This will also catch if the querry didn't work since everything will be undefined
-						const account = {
-							accountId: accountId,
-							email: updatedAccount.rows[0].email,
-							firstName: updatedAccount.rows[0].first_name,
-							lastName: updatedAccount.rows[0].last_name,
-							joinDate: updatedAccount.rows[0].join_date,
-						};
-
-						return res.json({ success: true, account });
+						return res.json({ success: true, account: updatedAccount.rows[0] });
 					});
 				});
 			} catch (err) {
@@ -320,17 +280,19 @@ router
 
 			try {
 				// Declared in the tokenAuthorization middleware
-				const { accountId } = req;
+				const { account_id } = req;
 
 				const deletedAccount = await pool.query(
 					`DELETE FROM account 
 						WHERE account_id = $1`,
-					[accountId]
+					[account_id]
 				);
 
-				if (deletedAccount.rowCount === 0) {
-					throw { message: "Account deletion failed" };
-				}
+				const deletedProjects = await pool.query(
+					`DELETE FROM project 
+						WHERE account_id = $1`,
+					[account_id]
+				);
 
 				return res.json({ success: true, message: "Account Deleted" });
 			} catch (err) {

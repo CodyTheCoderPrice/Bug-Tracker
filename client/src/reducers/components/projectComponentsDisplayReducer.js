@@ -1,5 +1,4 @@
 import { SET_WHICH_PROJECT_COMPONENTS_DISPLAY } from "../../actions/types";
-import { bindActionCreators } from "redux";
 
 const initialState = {
 	projectsTable: true,

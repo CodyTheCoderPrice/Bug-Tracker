@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -18,7 +18,12 @@ export default function DeleteAccountModal() {
 		currentPassword: "",
 	});
 
-	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
+	// clears prior input errors when closing the component
+	useEffect(() => {
+		return () => {
+			dispatch(clearInputErrors());
+		};
+	}, []);
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
@@ -43,10 +48,7 @@ export default function DeleteAccountModal() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// clears any prior input errors
-		dispatch(clearInputErrors());
 		dispatch(deleteAccount(accountInfo));
-		setShouldShowAnyErrors(true);
 	};
 
 	return (
@@ -73,7 +75,7 @@ export default function DeleteAccountModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.deleteTypedOut : ""}
+						{reduxState.inputErrors.deleteTypedOut}
 					</span>
 					<label htmlFor="delete-account-password" className="form__label">Current Password: </label>
 					<input
@@ -85,15 +87,15 @@ export default function DeleteAccountModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.currentPassword : ""}
+						{reduxState.inputErrors.currentPassword}
 					</span>
 					<button type="submit" className="form__submit">
 						Delete
 					</button>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
-						{shouldShowAnyErrors ? reduxState.inputErrors.authorization : ""}
-						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
+						{reduxState.inputErrors.validation}
+						{reduxState.inputErrors.authorization}
+						{reduxState.inputErrors.server}
 					</span>
 				</form>
 				<div className="modal-links-container">

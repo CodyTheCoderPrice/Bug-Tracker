@@ -5,95 +5,6 @@
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: $project-table-background-color;
 
-	.search-sort-filter-bar {
-		position: -webkit-sticky;
-		position: sticky;
-		top: $navbar-height;
-		border: 1px solid black;
-		border-left: none;
-		border-right: none;
-		background-color: $light-gray;
-		height: $search-sort-filter-bar-height;
-		width: 100%;
-	}
-
-	.search-sort-filter-bar__centering-container {
-		position: relative;
-		float: left;
-		height: $search-sort-filter-bar-height;
-	}
-
-	.search-sort-filter-bar__centering-container--for-new-project-button {
-		width: 140px;
-	}
-
-	.search-sort-filter-bar__centering-container--for-search-bar {
-		margin-left: 10px;
-		width: 300px;
-	}
-
-	.search-sort-filter-bar__centering-container--for-sort-by-type {
-		width: 200px;
-	}
-
-	.search-sort-filter-bar__centering-container--for-sort-by-ascending {
-		width: 200px;
-	}
-
-	.search-sort-filter-bar__centering-container__new-project-button {
-		@include stop-text-selection();
-		@include dead-center();
-
-		border: 1px solid black;
-		border-radius: 10px;
-		background-color: white;
-		padding: 7px;
-		width: 120px;
-		text-align: center;
-		cursor: pointer;
-	}
-
-	.search-sort-filter-bar__centering-container__search-bar {
-		@include dead-center();
-
-		border: 2px solid $light-blue-gray;
-		padding: 5px;
-		width: 100%;
-		font-size: 14px;
-	}
-	.search-sort-filter-bar__centering-container__search-bar:focus {
-		border: 3px solid $blue-gray;
-	}
-
-	.search-sort-filter-bar__centering-container__inner-container {
-		@include dead-center();
-	}
-
-	// Used by sort-by-ascending to allows radio buttons to be next to their labels
-	.search-sort-filter-bar__centering-container__inner-container--full-width {
-		width: 100%;
-	}
-
-	.search-sort-filter-bar__centering-container__inner-container__order-by-type-label {
-		display: block;
-		margin-bottom: 2px;
-	}
-
-	.search-sort-filter-bar__centering-container__inner-container__order-by-type-select {
-		border: 1px solid black;
-		background-color: white;
-		width: 125px;
-		font-size: 14px;
-	}
-
-	.search-sort-filter-bar__centering-container__inner-container__block {
-		display: block;
-	}
-
-	.search-sort-filter-bar__centering-container__inner-container__block--bottom-margin {
-		margin-bottom: 5px;
-	}
-
 	.projects-table {
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
@@ -108,7 +19,7 @@
 	.project-table__row--sticky {
 		position: -webkit-sticky;
 		position: sticky;
-		top: $navbar-height + $search-sort-filter-bar-height + 2;
+		top: $navbar-height + $search-filter-sort-bar-height + 2;
 		background-color: $project-table-background-color;
 	}
 

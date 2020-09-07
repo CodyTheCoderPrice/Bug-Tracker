@@ -13,6 +13,8 @@ import authReducer from "./authReducer";
 import accountReducer from "./accountReducer";
 // Projects
 import projectsReducer from "./projectsReducer";
+// SearchSortFilter
+import projectsSearchFilterSortReducer from "./search-filter-sort/projectsSearchFilterSortReducer";
 // Errors
 import inputErrorReducer from "./inputErrorReducer";
 
@@ -26,5 +28,6 @@ export default combineReducers({
 	auth: authReducer,
 	account: accountReducer,
 	projects: projectsReducer,
+	projectsSearchFilterSort: projectsSearchFilterSortReducer,
 	inputErrors: inputErrorReducer,
 });

@@ -2,7 +2,7 @@
 
 .delete-project-modal-component {
 	.blurred-background {
-		z-index: 4;
+		z-index: 5;
 		position: absolute;
 		top: 0px;
 		left: 0px;
@@ -13,7 +13,7 @@
 	}
 
 	.delete-account-modal {
-		z-index: 4;
+		z-index: 5;
 		position: fixed;
 		top: 50%;
 		left: 50%;

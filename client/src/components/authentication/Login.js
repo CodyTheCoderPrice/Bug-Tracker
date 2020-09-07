@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -18,7 +18,12 @@ export default function Login() {
 		password: "",
 	});
 
-	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
+	// clears prior input errors when closing the component
+	useEffect(() => {
+		return () => {
+			dispatch(clearInputErrors());
+		};
+	}, []);
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
@@ -26,10 +31,7 @@ export default function Login() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// clears any prior input errors
-		dispatch(clearInputErrors());
 		dispatch(loginAccount(accountInfo));
-		setShouldShowAnyErrors(true);
 	};
 
 	const openRegister = () => {
@@ -42,7 +44,9 @@ export default function Login() {
 			<div className="border-container">
 				<h1 className="title">Login</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
-					<label htmlFor="login-email" className="form__label">Email</label>
+					<label htmlFor="login-email" className="form__label">
+						Email
+					</label>
 					<input
 						type="email"
 						name="email"
@@ -52,9 +56,11 @@ export default function Login() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
+						{reduxState.inputErrors.email}
 					</span>
-					<label htmlFor="login-password" className="form__label">Password</label>
+					<label htmlFor="login-password" className="form__label">
+						Password
+					</label>
 					<input
 						type="password"
 						name="password"
@@ -64,14 +70,14 @@ export default function Login() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}
+						{reduxState.inputErrors.password}
 					</span>
 					<button type="submit" className="form__submit">
 						LOGIN
 					</button>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
-						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
+						{reduxState.inputErrors.validation}
+						{reduxState.inputErrors.server}
 					</span>
 				</form>
 				<div className="footer">

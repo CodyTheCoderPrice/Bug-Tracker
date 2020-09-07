@@ -13,14 +13,14 @@ export default function DisplayProjectInfo() {
 		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
 		name: reduxState.projectComponentsDisplay.targetProject.name,
 		description: reduxState.projectComponentsDisplay.targetProject.description,
-		priorityId: reduxState.projectComponentsDisplay.targetProject.p_priority_id,
+		priorityId: reduxState.projectComponentsDisplay.targetProject.priority_id,
 		priorityOption:
-			reduxState.projectComponentsDisplay.targetProject.p_priority_option,
-		statusId: reduxState.projectComponentsDisplay.targetProject.p_status_id,
+			reduxState.projectComponentsDisplay.targetProject.priority_option,
+		statusId: reduxState.projectComponentsDisplay.targetProject.status_id,
 		statusOption:
-			reduxState.projectComponentsDisplay.targetProject.p_status_option,
+			reduxState.projectComponentsDisplay.targetProject.status_option,
 		creationDate: formatDateMMddYYYY(
-			reduxState.projectComponentsDisplay.targetProject.creation_content
+			reduxState.projectComponentsDisplay.targetProject.creation_date
 		),
 		startDate: formatDateMMddYYYY(
 			reduxState.projectComponentsDisplay.targetProject.start_date

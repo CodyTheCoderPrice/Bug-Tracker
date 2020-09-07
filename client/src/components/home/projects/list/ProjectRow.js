@@ -4,11 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
-} from "../../../actions";
+} from "../../../../actions";
 
-import { formatDateMMddYYYY } from "../../../utils/dateUtils";
+import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
-import "../../../SCSS/projects/projectsTableAndRows.scss";
+import "../../../../SCSS/projects/projectsTableAndRows.scss";
 
 export default function ProjectRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -47,12 +47,12 @@ export default function ProjectRow(props) {
 			</td>
 			<td className="project-table__data">
 				<span className="project-table__data__info">
-					{props.project.p_priority_option}
+					{props.project.priority_option}
 				</span>
 			</td>
 			<td className="project-table__data">
 				<span className="project-table__data__info">
-					{props.project.p_status_option}
+					{props.project.status_option}
 				</span>
 			</td>
 			<td className="project-table__data">

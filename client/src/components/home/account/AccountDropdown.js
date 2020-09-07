@@ -40,9 +40,9 @@ export default function AccountDropdown() {
 					<div className="account-info-container">
 						<span className="account-info account-info--bold">
 							{truncate(
-								reduxState.account.firstName +
+								reduxState.account.first_name +
 									" " +
-									reduxState.account.lastName,
+									reduxState.account.last_name,
 								40,
 								false
 							)}

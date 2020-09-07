@@ -5,14 +5,14 @@ module.exports = (req, res, next) => {
 	let inputErrors = {};
 
 	try {
-		let { email, password, password2, firstName, lastName } = req.body;
+		let { email, password, password2, first_name, last_name } = req.body;
 
 		// Convert empty fields to an empty string so we can use validator functions
 		email = !isEmpty(email) ? email : "";
 		password = !isEmpty(password) ? password : "";
 		password2 = !isEmpty(password2) ? password2 : "";
-		firstName = !isEmpty(firstName) ? firstName : "";
-		lastName = !isEmpty(lastName) ? lastName : "";
+		first_name = !isEmpty(first_name) ? first_name : "";
+		last_name = !isEmpty(last_name) ? last_name : "";
 
 		// Email check
 		if (Validator.isEmpty(email)) {
@@ -37,19 +37,19 @@ module.exports = (req, res, next) => {
 		}
 
 		// First name check
-		if (Validator.isEmpty(firstName)) {
-			inputErrors.firstName = "First name field is required";
+		if (Validator.isEmpty(first_name)) {
+			inputErrors.first_name = "First name field is required";
 		}
-		if (!Validator.isLength(firstName, { max: 35 })) {
-			inputErrors.firstName= "First name can't be longer than 35 characters";
+		if (!Validator.isLength(first_name, { max: 35 })) {
+			inputErrors.first_name= "First name can't be longer than 35 characters";
 		}
 
 		// Last name check
-		if (Validator.isEmpty(lastName)) {
-			inputErrors.lastName = "Last name field is required";
+		if (Validator.isEmpty(last_name)) {
+			inputErrors.last_name = "Last name field is required";
 		}
-		if (!Validator.isLength(lastName, { max: 35 })) {
-			inputErrors.lastName = "Last name can't be longer than 35 characters";
+		if (!Validator.isLength(last_name, { max: 35 })) {
+			inputErrors.last_name = "Last name can't be longer than 35 characters";
 		}
 
 		if (!isEmpty(inputErrors)) {

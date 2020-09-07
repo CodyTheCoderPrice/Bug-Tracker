@@ -23,7 +23,7 @@ router
 
 			try {
 				// Declared in the tokenAuthorization middleware
-				const { accountId } = req;
+				const { account_id } = req;
 				// Passed in the post body
 				const {
 					name,
@@ -41,7 +41,7 @@ router
 					creation_date, start_date, due_date, completion_date) 
 						VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
 					[
-						accountId,
+						account_id,
 						name,
 						description,
 						priorityId,
@@ -62,16 +62,16 @@ router
 					`WITH p AS (
 					SELECT * FROM project WHERE account_id = $1
 				)
-				SELECT p.project_id, p.account_id, p.name, p.description, 
-						p.p_priority_id, p.p_status_id, p.creation_date, 
-						p.start_date, p.due_date, p.completion_date, 
-						pp.option AS p_priority_option, 
-						ps.option AS p_status_option
+				SELECT p.project_id, p.account_id, p.name, p.description,
+						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
+						p.creation_date, p.start_date, p.due_date,
+						p.completion_date, pp.option AS priority_option, 
+						ps.option AS status_option
 							FROM p, project_priority pp, project_status ps 
 								WHERE (p.p_priority_id = pp.p_priority_id) 
 									AND (p.p_status_id = ps.p_status_id)
 										ORDER BY p.project_id`,
-					[accountId]
+					[account_id]
 				);
 
 				res.json({ success: true, projects: allProjectsForAccount.rows });
@@ -91,22 +91,22 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 
 	try {
 		// Declared in the tokenAuthorization middleware
-		const { accountId } = req;
+		const { account_id } = req;
 
 		const allProjectsForAccount = await pool.query(
 			`WITH p AS (
-				SELECT * FROM project WHERE account_id = $1
-			)
-			SELECT p.project_id, p.account_id, p.name, p.description, 
-					p.p_priority_id, p.p_status_id, p.creation_date, 
-					p.start_date, p.due_date, p.completion_date, 
-					pp.option AS p_priority_option, 
-					ps.option AS p_status_option
-						FROM p, project_priority pp, project_status ps 
-							WHERE (p.p_priority_id = pp.p_priority_id) 
-								AND (p.p_status_id = ps.p_status_id)
-									ORDER BY p.project_id`,
-			[accountId]
+			SELECT * FROM project WHERE account_id = $1
+		)
+		SELECT p.project_id, p.account_id, p.name, p.description,
+				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
+				p.creation_date, p.start_date, p.due_date,
+				p.completion_date, pp.option AS priority_option, 
+				ps.option AS status_option
+					FROM p, project_priority pp, project_status ps 
+						WHERE (p.p_priority_id = pp.p_priority_id) 
+							AND (p.p_status_id = ps.p_status_id)
+								ORDER BY p.project_id`,
+			[account_id]
 		);
 
 		res.json({ success: true, projects: allProjectsForAccount.rows });
@@ -131,7 +131,7 @@ router
 
 			try {
 				// Declared in the tokenAuthorization middleware
-				const { accountId } = req;
+				const { account_id } = req;
 				// Passed in the post body
 				const {
 					projectId,
@@ -156,7 +156,7 @@ router
 						startDate,
 						dueDate,
 						completionDate,
-						accountId,
+						account_id,
 						projectId,
 					]
 				);
@@ -168,15 +168,18 @@ router
 
 				const allProjectsForAccount = await pool.query(
 					`WITH p AS (
-				SELECT * FROM project WHERE account_id = $1
-			)
-			SELECT p.project_id, p.account_id, p.name, p.description, p.p_priority_id, p.p_status_id, p.creation_date, 
-					p.start_date, p.due_date, p.completion_date, pp.option AS p_priority_option, ps.option AS p_status_option 
-						FROM p, project_priority pp, project_status ps 
-							WHERE (p.p_priority_id = pp.p_priority_id) 
-								AND (p.p_status_id = ps.p_status_id)
-									ORDER BY p.project_id`,
-					[accountId]
+					SELECT * FROM project WHERE account_id = $1
+				)
+				SELECT p.project_id, p.account_id, p.name, p.description,
+						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
+						p.creation_date, p.start_date, p.due_date,
+						p.completion_date, pp.option AS priority_option, 
+						ps.option AS status_option
+							FROM p, project_priority pp, project_status ps 
+								WHERE (p.p_priority_id = pp.p_priority_id) 
+									AND (p.p_status_id = ps.p_status_id)
+										ORDER BY p.project_id`,
+					[account_id]
 				);
 
 				res.json({ success: true, projects: allProjectsForAccount.rows });
@@ -196,30 +199,29 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 
 	try {
 		// Declared in the tokenAuthorization middleware
-		const { accountId } = req;
+		const { account_id } = req;
 		// Passed in the post body
 		const { projectId } = req.body;
 
 		const deletedProject = await pool.query(
 			`DELETE FROM project WHERE account_id = $1 AND project_id = $2`,
-			[accountId, projectId]
+			[account_id, projectId]
 		);
-
-		if (deletedProject.rowCount === 0) {
-			throw { message: "Project deletion failed" };
-		}
 
 		const allProjectsForAccount = await pool.query(
 			`WITH p AS (
-				SELECT * FROM project WHERE account_id = $1
-			)
-			SELECT p.project_id, p.account_id, p.name, p.description, p.p_priority_id, p.p_status_id, p.creation_date, 
-					p.start_date, p.due_date, p.completion_date, pp.option AS p_priority_option, ps.option AS p_status_option 
-						FROM p, project_priority pp, project_status ps 
-							WHERE (p.p_priority_id = pp.p_priority_id) 
-								AND (p.p_status_id = ps.p_status_id)
-									ORDER BY p.project_id`,
-			[accountId]
+			SELECT * FROM project WHERE account_id = $1
+		)
+		SELECT p.project_id, p.account_id, p.name, p.description,
+				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
+				p.creation_date, p.start_date, p.due_date,
+				p.completion_date, pp.option AS priority_option, 
+				ps.option AS status_option
+					FROM p, project_priority pp, project_status ps 
+						WHERE (p.p_priority_id = pp.p_priority_id) 
+							AND (p.p_status_id = ps.p_status_id)
+								ORDER BY p.project_id`,
+			[account_id]
 		);
 
 		res.json({ success: true, projects: allProjectsForAccount.rows });

@@ -1,16 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
-// Components
-import Navbar from "./Navbar";
-import ProjectsTable from "./projects/ProjectsTable";
-import CreateProjectSidebar from "./projects/CreateProjectSidebar";
-import ViewProjectModal from "./projects/view-edit-delete/ViewProjectModal";
 
+// Components
+// Navbar
+import Navbar from "./Navbar";
+// Account
 import AccountBlurredBackground from "./account/AccountBlurredBackground";
 import EditInfoModal from "./account/EditInfoModal";
 import EditEmailModal from "./account/EditEmailModal";
 import EditPasswordModal from "./account/EditPasswordModal";
 import DeleteAccountModal from "./account/DeleteAccountModal";
+// Projects
+import ProjectsList from "./projects/list/ProjectsList";
+import CreateProjectSidebar from "./projects/CreateProjectSidebar";
+import ViewProjectModal from "./projects/view-edit-delete/ViewProjectModal";
 
 import "../../SCSS/home/home.scss";
 
@@ -41,7 +44,7 @@ export default function Home() {
 			) : null}
 			{/*Project components*/}
 			{reduxState.projectComponentsDisplay.projectsTable ? (
-				<ProjectsTable />
+				<ProjectsList />
 			) : null}
 			{reduxState.projectComponentsDisplay.createProjectSidbar ? (
 				<CreateProjectSidebar />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -14,14 +14,19 @@ export default function Register() {
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		firstName: "",
-		lastName: "",
+		first_name: "",
+		last_name: "",
 		email: "",
 		password: "",
 		password2: "",
 	});
 
-	const [shouldShowAnyErrors, setShouldShowAnyErrors] = useState(false);
+	// clears prior input errors when closing the component
+	useEffect(() => {
+		return () => {
+			dispatch(clearInputErrors());
+		};
+	}, []);
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
@@ -29,10 +34,7 @@ export default function Register() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// clears any prior input errors
-		dispatch(clearInputErrors());
 		dispatch(registerAccount(accountInfo));
-		setShouldShowAnyErrors(true);
 	};
 
 	const openLogin = () => {
@@ -48,26 +50,26 @@ export default function Register() {
 					<label htmlFor="register-first-name" className="form__label">First Name</label>
 					<input
 						type="text"
-						name="firstName"
+						name="first_name"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.firstName}
+						value={accountInfo.first_name}
 						id="register-first-name"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.firstName : ""}
+						{reduxState.inputErrors.first_name}
 					</span>
 					<label htmlFor="register-last-name" className="form__label">Last Name</label>
 					<input
 						type="text"
-						name="lastName"
+						name="last_name"
 						onChange={(e) => onChange(e)}
-						value={accountInfo.lastName}
+						value={accountInfo.last_name}
 						id="register-last-name"
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.lastName : ""}
+						{reduxState.inputErrors.last_name}
 					</span>
 					<label htmlFor="register-email" className="form__label">Email</label>
 					<input
@@ -79,7 +81,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.email : ""}
+						{reduxState.inputErrors.email}
 					</span>
 					<label htmlFor="register-password" className="form__label">Password</label>
 					<input
@@ -91,7 +93,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.password : ""}
+						{reduxState.inputErrors.password}
 					</span>
 					<label htmlFor="register-password2" className="form__label">Confirm Password</label>
 					<input
@@ -103,14 +105,14 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.password2 : ""}
+						{reduxState.inputErrors.password2}
 					</span>
 					<button type="submit" className="form__submit">
 						REGISTER
 					</button>
 					<span className="form__errors">
-						{shouldShowAnyErrors ? reduxState.inputErrors.validation : ""}
-						{shouldShowAnyErrors ? reduxState.inputErrors.server : ""}
+						{reduxState.inputErrors.validation}
+						{reduxState.inputErrors.server}
 					</span>
 				</form>
 				<div className="footer">

@@ -3,7 +3,11 @@ import jwt_decode from "jwt-decode";
 
 import { SET_AUTHENTICATION, SET_ACCOUNT } from "./types";
 import { setInputErrors } from "./index";
-import { setWhichAuthComponentsDisplay, resetAccountComponentsDisplay } from "./componentActions";
+import {
+	setWhichAuthComponentsDisplay,
+	setWhichAccountComponentsDisplay,
+	resetAccountComponentsDisplay,
+} from "./componentActions";
 import { retrieveProjects } from "./projectActions";
 
 export const setAuthentication = (decodedToken) => (dispatch) => {
@@ -78,6 +82,7 @@ export const updateAccountInfo = (accountInfo) => (dispatch) => {
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));
+			dispatch(setWhichAccountComponentsDisplay({ accountDropdown: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -95,6 +100,7 @@ export const updateAccountEmail = (accountInfo) => (dispatch) => {
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));
+			dispatch(setWhichAccountComponentsDisplay({ accountDropdown: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -112,6 +118,7 @@ export const updateAccountPassword = (accountInfo) => (dispatch) => {
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));
+			dispatch(setWhichAccountComponentsDisplay({ accountDropdown: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));

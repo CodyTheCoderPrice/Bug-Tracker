@@ -6,8 +6,6 @@ import {
 	deleteProject,
 } from "../../../../actions";
 
-import { getElementSize } from "../../../../utils/displaySizeUtils";
-
 import "../../../../SCSS/projects/view-edit-delete/deleteProjectModal.scss";
 
 export default function DeleteProjectModal() {

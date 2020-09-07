@@ -1,5 +1,4 @@
 import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../../actions/types";
-import EditEmailModal from "../../components/home/account/EditEmailModal";
 
 const initialState = {
 	accountDropdown: false,

@@ -6,12 +6,12 @@ module.exports = async (req, res, next) => {
 
 	try {
 		// declared in the tokenAuthorization middleware
-		const { accountId } = req;
+		const { account_id } = req;
 		const { currentPassword } = req.body;
 
 		const account = await pool.query(
 			"SELECT hash_pass FROM account WHERE account_id = $1",
-			[accountId]
+			[account_id]
 		);
 
 		if (account.rowCount === 0) {

@@ -93,7 +93,7 @@ export default function ViewProjectModal() {
 				"js-project-content-container"
 			)[0].style.height =
 				adjustedModalHeight -
-				regularlyUsedModalSizesAndStyles.topButttonsBarSize.height  +
+				regularlyUsedModalSizesAndStyles.topButttonsBarSize.height +
 				"px";
 		}
 	}, [
@@ -162,7 +162,9 @@ export default function ViewProjectModal() {
 							className="project-options-container__button js-project-options-button"
 							onClick={openOptionsDropdown}
 						>
-							<i className="fa fa-ellipsis-h" aria-hidden="true"></i>
+							<span className="project-options-container__button__text">
+								<i className="fa fa-ellipsis-h" aria-hidden="true" />
+							</span>
 						</div>
 						<div className="project-options-container__dropdown js-project-options-dropdown">
 							<span
