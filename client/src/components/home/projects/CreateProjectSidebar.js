@@ -21,7 +21,7 @@ import {
 	populateComboBox,
 } from "../../../utils/elementUtils";
 
-import { useToggleableDateInputAndTooltip } from "../../../utils/formHookUtils";
+import { useToggleableDateInput } from "../../../utils/formHookUtils";
 
 import "../../../SCSS/projects/createProjectSidebar.scss";
 
@@ -55,10 +55,9 @@ export default function CreateProjectSidebar() {
 	// ...makes sure the projectInfo completion date is accurate after every toggle,
 	// ...toggles when the completion date tooltip is able to be displayed based on the project status,
 	// ...adds an event listener to display the tooltip (based on status) when the completion date input element is hovered over.
-	const [preservedCompletionDate] = useToggleableDateInputAndTooltip(
+	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
-		"js-completion-date-container",
-		"js-tooltip-container",
+		"js-completion-input-container",
 		reduxState.priorityStatusArrays.projectStatusCompletionIndex
 	);
 
@@ -70,14 +69,11 @@ export default function CreateProjectSidebar() {
 	// Move window to top of screen and disable scrolling for the HTML and body
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		let html = document.getElementsByClassName("js-html")[0];
 		let body = document.getElementsByClassName("js-body")[0];
 
-		toggleClassName(true, html, "stop-scrolling");
 		toggleClassName(true, body, "stop-scrolling");
 
 		return () => {
-			toggleClassName(false, html, "stop-scrolling");
 			toggleClassName(false, body, "stop-scrolling");
 		};
 	}, []);
@@ -230,82 +226,82 @@ export default function CreateProjectSidebar() {
 						<span className="form__errors">
 							{reduxState.inputErrors.description}
 						</span>
-						<div className="form__combo-box-container">
-							<label
-								htmlFor="create-project-priority"
-								className="form__combo-box-container__label"
-							>
-								Priority:
-							</label>
-							<select
-								name="priorityId"
-								onChange={(e) => onChange(e)}
-								id="create-project-priority"
-								className="form__combo-box-container__select js-priority-select"
-							></select>
-							<label
-								htmlFor="create-project-status"
-								className="form__combo-box-container__label"
-							>
-								Status:
-							</label>
-							<select
-								name="statusId"
-								onChange={(e) => onChange(e)}
-								id="create-project-status"
-								className="form__combo-box-container__select js-status-select"
-							></select>
+						<div className="form__group-container">
+							<div className="form__group-container__input-container">
+								<label
+									htmlFor="create-project-start-date"
+									className="form__group-container__input-container__label"
+								>
+									Start Date:
+								</label>
+								<input
+									type="date"
+									name="startDate"
+									value={projectInfo.startDate}
+									onChange={(e) => onChange(e)}
+									id="create-project-start-date"
+									className="form__group-container__input-container__date"
+								/>
+							</div>
+							<div className="form__group-container__input-container">
+								<label
+									htmlFor="create-project-due-date"
+									className="form__group-container__input-container__label"
+								>
+									Due Date:
+								</label>
+								<input
+									type="date"
+									name="dueDate"
+									onChange={(e) => onChange(e)}
+									id="create-project-due-date"
+									className="form__group-container__input-container__date"
+								/>
+							</div>
+							<div className="form__group-container__input-container js-completion-input-container">
+								<label
+									htmlFor="create-project-completion-date"
+									className="form__group-container__input-container__label"
+								>
+									Completed on:
+								</label>
+								<input
+									type="date"
+									name="completionDate"
+									onChange={(e) => onChange(e)}
+									id="create-project-completion-date"
+									className="form__group-container__input-container__date"
+								/>
+							</div>
 						</div>
-						<div className="form__date-container">
-							<label
-								htmlFor="create-project-start-date"
-								className="form__date-container__label"
-							>
-								Start Date:
-							</label>
-							<input
-								type="date"
-								name="startDate"
-								value={projectInfo.startDate}
-								onChange={(e) => onChange(e)}
-								id="create-project-start-date"
-								className="form__date-container__date-input"
-							/>
-						</div>
-						<div className="form__date-container">
-							<label
-								htmlFor="create-project-due-date"
-								className="form__date-container__label"
-							>
-								Due Date:
-							</label>
-							<input
-								type="date"
-								name="dueDate"
-								onChange={(e) => onChange(e)}
-								id="create-project-due-date"
-								className="form__date-container__date-input"
-							/>
-						</div>
-						<div className="form__date-container js-completion-date-container">
-							<label
-								htmlFor="create-project-completion-date"
-								className="form__date-container__label"
-							>
-								Completed on:
-							</label>
-							<input
-								type="date"
-								name="completionDate"
-								onChange={(e) => onChange(e)}
-								id="create-project-completion-date"
-								className="form__date-container__date-input"
-							/>
-						</div>
-						<div className="form__tooltip-container js-tooltip-container">
-							<div className="form__tooltip-container__arrow-left" />
-							<div className="form__tooltip-container__text-box">
-								Status not "Completed"
+						<div className="form__group-container form__group-container--right">
+							<div className="form__group-container__input-container">
+								<label
+									htmlFor="create-project-priority"
+									className="form__group-container__input-container__label"
+								>
+									Priority:
+								</label>
+								<select
+									name="priorityId"
+									onChange={(e) => onChange(e)}
+									id="create-project-priority"
+									className="form__group-container__input-container__select js-priority-select"
+								></select>
+							</div>
+							<div className="form__group-container__input-container">
+								<label
+									htmlFor="create-project-status"
+									className="form__group-container__input-container__label"
+								>
+									Status:
+								</label>
+								<select
+									name="statusId"
+									onChange={(e) => onChange(e)}
+									id="create-project-status"
+									className="form__group-container__input-container__select js-status-select"
+								></select>
 							</div>
 						</div>
 						<button type="submit" className="form__submit">

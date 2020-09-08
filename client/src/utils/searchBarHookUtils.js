@@ -50,20 +50,6 @@ export function useSearchBarResizeAndBorderEventListener(
 			toggleContainerBorder(false);
 		});
 
-		searchBarButton.addEventListener("mousedown", (e) => {
-			// Checks if left click
-			if (e.button === 0) {
-				toggleContainerBorder(true);
-			}
-		});
-
-		searchBarButton.addEventListener("mouseup", (e) => {
-			// Checks if left click
-			if (e.button === 0) {
-				toggleContainerBorder(false);
-			}
-		});
-
 		return () => {
 			searchBar.removeEventListener("focus", () => {
 				toggleContainerBorder(true);
@@ -71,20 +57,6 @@ export function useSearchBarResizeAndBorderEventListener(
 
 			searchBar.removeEventListener("blur", () => {
 				toggleContainerBorder(false);
-			});
-
-			searchBarButton.removeEventListener("mousedown", (e) => {
-				// Checks if left click
-				if (e.button === 0) {
-					toggleContainerBorder(true);
-				}
-			});
-	
-			searchBarButton.removeEventListener("mouseup", (e) => {
-				// Checks if left click
-				if (e.button === 0) {
-					toggleContainerBorder(false);
-				}
 			});
 		};
 		// Below comment disables an unneeded warning about optimization
@@ -152,7 +124,7 @@ export function useSearchBarResizeAndBorderEventListener(
 			// Because of css centering, this element is given equal empty space
 			// ...on both sides equal to the subtracted value divided by 2
 			const searchBarInnercontainerWidth =
-				remainingSearchFilterSortBarWidth - 100;
+				remainingSearchFilterSortBarWidth - 60;
 
 			searchBarCenteringContainer.style.width =
 				remainingSearchFilterSortBarWidth + "px";

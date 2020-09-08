@@ -62,8 +62,8 @@
 	}
 
 	.form__label,
-	.form__date-container__label,
-	.form__combo-box-container__label {
+	.form__group-container__input-container__label,
+	.form__group-container__input-container__label {
 		float: left;
 		margin-top: 5px;
 	}
@@ -105,31 +105,20 @@
 		resize: none;
 	}
 
-	.form__combo-box-container {
-		float: right;
-		width: 45%;
-	}
-
-	.form__combo-box-container__select {
-		margin-top: 2px;
-		margin-bottom: $form-input-margin-bottom;
-		border: 1px solid gray;
-		background-color: $light-gray;
-		width: 100%;
-		// one pixel smaller than associated label
-		font-size: 13px;
-	}
-
-	.form__date-container {
+	.form__group-container {
 		float: left;
 		width: 45%;
 	}
 
-	.form__date-container--right {
+	.form__group-container--right {
 		float: right;
 	}
 
-	.form__date-container__date-input {
+	.form__group-container__input-container {
+		display: block;
+	}
+
+	.form__group-container__input-container__date {
 		margin-top: 2px;
 		margin-bottom: $form-input-margin-bottom;
 		outline: none;
@@ -141,36 +130,14 @@
 		font-size: 13px;
 	}
 
-	.form__tooltip-container {
-		// Set to relative so changing the z-index using js can be
-		// ...used to control if the tooltip is visible or not.
-		position: relative;
-		float: right;
-		margin-top: 8px;
-		// Becomes visible via a mouseover event added to the completionDate container
-		visibility: hidden;
-	}
-
-	.form__tooltip-container__arrow-left {
-		float: left;
-		height: 0;
-		width: 0;
-		border-top: 20px solid transparent;
-		border-bottom: 20px solid transparent;
-		border-right: 20px solid black;
-	}
-
-	.form__tooltip-container__text-box {
-		float: left;
-		border: 1px solid black;
-		border-top-right-radius: 10px;
-		border-bottom-right-radius: 10px;
-		background-color: black;
-		padding: 11px;
-		width: 180px;
-		text-align: center;
-		font-size: 14px;
-		color: white;
+	.form__group-container__input-container__select {
+		margin-top: 2px;
+		margin-bottom: $form-input-margin-bottom;
+		border: 1px solid gray;
+		background-color: $light-gray;
+		width: 100%;
+		// one pixel smaller than associated label
+		font-size: 13px;
 	}
 
 	.form__submit {

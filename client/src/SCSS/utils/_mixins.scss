@@ -15,10 +15,16 @@
 	transform: translate(-50%, -50%);
 }
 
-@mixin vertical-center() {
+@mixin horizontal-center() {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%);
+}
+
+@mixin vertical-center() {
+	position: absolute;
+	top: 50%;
+	transform: translate(0%, -50%);
 }
 
 @mixin back-exit-buttons() {

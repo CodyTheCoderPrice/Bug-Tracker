@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 
 import { toggleClassName } from "./elementUtils";
 
-export function useToggleableDateInputAndTooltip(
+export function useToggleableDateInput(
 	state,
 	dateContainerClassName,
-	tooltipContainerClassName,
 	completedIndex
 ) {
 	// perserves a record of the completionDate when the date input is toggled off.
@@ -17,24 +16,7 @@ export function useToggleableDateInputAndTooltip(
 	const [previousStatus, setPreviousStatus] = useState(state.status);
 
 	useEffect(() => {
-		let dateContainerElement = document.getElementsByClassName(
-			dateContainerClassName
-		)[0];
-
-		dateContainerElement.addEventListener("mouseover", handleMouseOver);
-		dateContainerElement.addEventListener("mouseout", handleMouseOut);
-
-		return () => {
-			dateContainerElement.removeEventListener("mouseover", handleMouseOver);
-			dateContainerElement.removeEventListener("mouseout", handleMouseOut);
-		};
-		// Below comment disables an unneeded warning about optimization
-		// eslint-disable-next-line
-	}, []);
-
-	useEffect(() => {
 		toggleDisableElements();
-		toggleTooltipDisplay();
 		if (previousStatus === completedIndex) {
 			updatePerservedCompletionDate();
 		}
@@ -42,22 +24,6 @@ export function useToggleableDateInputAndTooltip(
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [state.statusId]);
-
-	function handleMouseOver() {
-		let tooltipContainerElement = document.getElementsByClassName(
-			tooltipContainerClassName
-		)[0];
-
-		tooltipContainerElement.style.visibility = "visible";
-	}
-
-	function handleMouseOut() {
-		let tooltipContainerElement = document.getElementsByClassName(
-			tooltipContainerClassName
-		)[0];
-
-		tooltipContainerElement.style.visibility = "hidden";
-	}
 
 	function toggleDisableElements() {
 		let dateContainerElement = document.getElementsByClassName(
@@ -93,18 +59,6 @@ export function useToggleableDateInputAndTooltip(
 					setPerservedCompletionDate(child.value);
 				}
 			}
-		}
-	}
-
-	function toggleTooltipDisplay() {
-		let tooltipContainerElement = document.getElementsByClassName(
-			tooltipContainerClassName
-		)[0];
-
-		if (state.statusId !== completedIndex) {
-			tooltipContainerElement.style.zIndex = "1";
-		} else {
-			tooltipContainerElement.style.zIndex = "-1";
 		}
 	}
 

@@ -21,8 +21,9 @@ export default function SearchFilterSortBar() {
 
 	const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
-	// Below comment disables an unneeded warning about empty array pattern
-	// eslint-disable-next-line
+	// This custom hook resizes the searchbar to take up the space
+	// ...in the middle of the search-sort-filter-bar. Also adds
+	// ... an event listener to highlight the searchbar
 	const [] = useSearchBarResizeAndBorderEventListener(
 		reduxState,
 		"js-projects-search-bar",

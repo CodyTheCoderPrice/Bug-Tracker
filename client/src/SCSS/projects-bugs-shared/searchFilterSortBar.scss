@@ -24,6 +24,7 @@
 	.search-filter-sort-bar__sort-filter-group-container {
 		position: absolute;
 		right: 0px;
+		width: 400px;
 	}
 
 	.search-filter-sort-bar__centering-container {
@@ -33,7 +34,7 @@
 	}
 
 	.search-filter-sort-bar__centering-container--for-new-project-button {
-		width: 160px;
+		width: 152px;
 	}
 
 	.search-filter-sort-bar__centering-container--for-search-bar {
@@ -42,19 +43,19 @@
 	}
 
 	.search-filter-sort-bar__centering-container--for-sort-by-type {
-		margin-right: 20px;
+		margin: 0px 10px 0px 10px;
 		width: 140px;
 	}
 
 	.search-filter-sort-bar__centering-container--for-sort-by-ascending {
-		margin-right: 70px;
 		width: 120px;
 	}
 
 	.search-filter-sort-bar__centering-container__new-project-button {
 		@include stop-text-selection();
-		@include dead-center();
+		@include vertical-center();
 
+		margin-left: 15px;
 		border: 1px solid black;
 		border-radius: 10px;
 		background-color: white;
@@ -160,8 +161,8 @@
 	}
 
 	.search-filter-sort-bar__filter-container__button__text {
-		// Used vertical-center since resize would move the text
-		@include vertical-center();
+		// Used horizontal-center since resize would move the text
+		@include horizontal-center();
 		top: 4px;
 		width: $filter-button-width;
 	}

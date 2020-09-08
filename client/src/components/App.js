@@ -19,11 +19,6 @@ import "../SCSS/app.scss";
 function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
-
-	// MAY NOT BE NEEDED******************************************
-	/* // Used because of shallow comparison issues with objects
-	const accountJsonString = JSON.stringify(reduxState.account); */
-	//*************************************************************
 	
 	// Re-fetches user data after a page refresh,
 	// ... and makes sure the appropriate components are displayed

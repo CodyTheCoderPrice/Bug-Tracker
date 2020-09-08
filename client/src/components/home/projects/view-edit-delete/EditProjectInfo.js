@@ -17,7 +17,7 @@ import {
 	populateComboBox,
 } from "../../../../utils/elementUtils";
 
-import { useToggleableDateInputAndTooltip } from "../../../../utils/formHookUtils";
+import { useToggleableDateInput } from "../../../../utils/formHookUtils";
 
 import "../../../../SCSS/projects/view-edit-delete/editProjectInfo.scss";
 
@@ -64,10 +64,9 @@ export default function EditProjectInfo() {
 	// ...makes sure the projectInfo completion date is accurate after every toggle,
 	// ...toggles when the completion date tooltip is able to be displayed based on the project status,
 	// ...adds an event listener to display the tooltip (based on status) when the completion date input element is hovered over.
-	const [preservedCompletionDate] = useToggleableDateInputAndTooltip(
+	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
 		"js-completion-date-container",
-		"js-tooltip-container",
 		reduxState.priorityStatusArrays.projectStatusCompletionIndex
 	);
 
@@ -261,12 +260,6 @@ export default function EditProjectInfo() {
 								id="edit-project-status"
 								className="project-box__group__field__form-select js-project-status-select"
 							></select>
-						</div>
-					</div>
-					<div className="project-box__group__field__tooltip-container js-tooltip-container">
-						<div className="project-box__group__field__tooltip-container__arrow-left" />
-						<div className="project-box__group__field__tooltip-container__text-box">
-							Status not "Completed"
 						</div>
 					</div>
 				</div>
