@@ -37,15 +37,18 @@
 	}
 
 	.search-filter-sort-bar__centering-container--for-search-bar {
-		width: 300px;
+		// Width gets changed by JS
+		width: 100px;
 	}
 
 	.search-filter-sort-bar__centering-container--for-sort-by-type {
-		width: 200px;
+		margin-right: 20px;
+		width: 140px;
 	}
 
 	.search-filter-sort-bar__centering-container--for-sort-by-ascending {
-		width: 200px;
+		margin-right: 70px;
+		width: 120px;
 	}
 
 	.search-filter-sort-bar__centering-container__new-project-button {
@@ -61,26 +64,47 @@
 		cursor: pointer;
 	}
 
-	.search-filter-sort-bar__centering-container__search-bar {
-		@include dead-center();
-
-		border: 2px solid $light-blue-gray;
-		padding: 5px 8px 5px 8px;
-		// Not 100% since padding and border would extend past the container
-		width: 95%;
-		font-size: 14px;
-	}
-	.search-filter-sort-bar__centering-container__search-bar:focus {
-		border: 3px solid $blue-gray;
-	}
-
 	.search-filter-sort-bar__centering-container__inner-container {
 		@include dead-center();
+		width: 100%;
+	}
+
+	.search-filter-sort-bar__centering-container__inner-container--search-bar-border {
+		border: 2px solid $blue-gray;
 	}
 
 	// Used by sort-by-ascending to allows radio buttons to be next to their labels
 	.search-filter-sort-bar__centering-container__inner-container--full-width {
 		width: 100%;
+	}
+
+	.search-filter-sort-bar__centering-container__inner-container__search-bar {
+		display: inline-block;
+		border: $search-bar-border-width solid $light-blue-gray;
+		padding: 0px 8px 0px 8px;
+		height: $search-bar-height;
+		// Width changed by JS
+		width: 100%;
+		font-size: 14px;
+	}
+
+	.search-filter-sort-bar__centering-container__inner-container__search-bar-button {
+		display: inline-block;
+		// Instead of relative to make sure the button always stays next to the search-bar
+		position: absolute;
+		background-color: $light-blue-gray;
+		height: $search-bar-button-height-width;
+		width: $search-bar-button-height-width;
+		cursor: pointer;
+	}
+	.search-filter-sort-bar__centering-container__inner-container__search-bar-button:hover,
+	.search-filter-sort-bar__centering-container__inner-container__search-bar-button:active {
+		background-color: $blue-gray;
+	}
+
+	.search-filter-sort-bar__centering-container__inner-container__search-bar-button__icon {
+		@include dead-center();
+		color: white;
 	}
 
 	.search-filter-sort-bar__centering-container__inner-container__order-by-type-label {

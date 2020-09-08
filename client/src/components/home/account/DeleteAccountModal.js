@@ -23,6 +23,8 @@ export default function DeleteAccountModal() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, []);
 
 	const onChange = (e) => {

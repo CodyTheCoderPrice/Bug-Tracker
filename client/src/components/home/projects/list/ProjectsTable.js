@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { getElementLocation } from "../../../../utils/displaySizeUtils";
 
 import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
 
 // Components
-import SortButtons from "./SortButtons";
+/* import SortButtons from "./SortButtons"; */
 import ProjectRow from "./ProjectRow";
 
 import "../../../../SCSS/projects/projectsTableAndRows.scss";
@@ -34,7 +34,7 @@ export default function ProjectsTable() {
 				<thead className="">
 					<tr className="project-table__row project-table__row--sticky">
 						<th className="project-table__header js-project-table__header">
-							<span className="project-table__header__span">Name <SortButtons /></span>
+							<span className="project-table__header__span">Name</span>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">

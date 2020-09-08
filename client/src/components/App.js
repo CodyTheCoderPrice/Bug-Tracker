@@ -8,8 +8,6 @@ import {
 	setWhichAuthComponentsDisplay,
 } from "../actions";
 
-import { getWindowSize } from "../utils/displaySizeUtils";
-
 import Register from "./authentication/Register";
 import Login from "./authentication/Login";
 import Home from "./home/Home";
@@ -22,8 +20,10 @@ function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Used because of shallow comparison issues with objects
-	const accountJsonString = JSON.stringify(reduxState.account);
+	// MAY NOT BE NEEDED******************************************
+	/* // Used because of shallow comparison issues with objects
+	const accountJsonString = JSON.stringify(reduxState.account); */
+	//*************************************************************
 	
 	// Re-fetches user data after a page refresh,
 	// ... and makes sure the appropriate components are displayed

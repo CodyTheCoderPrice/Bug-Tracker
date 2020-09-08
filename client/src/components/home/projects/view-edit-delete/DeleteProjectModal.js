@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -12,7 +12,7 @@ export default function DeleteProjectModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [projectInfo, setProjectInfo] = useState({
+	const [projectInfo] = useState({
 		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
 	});
 

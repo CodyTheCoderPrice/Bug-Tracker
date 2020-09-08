@@ -56,6 +56,8 @@ export default function EditProjectInfo() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, []);
 
 	// This custom hook toggles the display of the completion date input based on the project status,

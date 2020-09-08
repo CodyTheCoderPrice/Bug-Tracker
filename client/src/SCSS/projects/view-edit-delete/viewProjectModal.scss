@@ -24,7 +24,7 @@
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
 		height: 88.5vh;
-		width: 97vw;
+		width: 99vw;
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
@@ -67,7 +67,6 @@
 
 	.project-options-container__button__text {
 		@include dead-center();
-		width: $options-button-width;
 	}
 
 	.project-options-container__button--clicked {

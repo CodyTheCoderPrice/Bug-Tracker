@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 import { toggleClassName } from "../../../utils/elementUtils";
 
 export default function AccountBlurredBackground() {
-	const reduxState = useSelector((state) => state);
 
 	// Move window to top of screen and disable scrolling for the HTML and body
 	useEffect(() => {

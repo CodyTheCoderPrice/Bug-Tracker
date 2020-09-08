@@ -11,6 +11,8 @@ import {
 import {
 	getWindowSize,
 	getElementSize,
+	getElementStyle,
+	stripNonDigits,
 	calcScrollbarWidth,
 } from "../../utils/displaySizeUtils";
 
@@ -29,6 +31,13 @@ export default function Navbar() {
 	useEffect(() => {
 		dispatch(
 			setDisplaySizeConstants({
+				home: {
+					minWidth: stripNonDigits(
+						getElementStyle(
+							document.getElementsByClassName("js-home-container")[0]
+						).minWidth
+					),
+				},
 				scrollbar: calcScrollbarWidth(),
 			})
 		);
@@ -45,7 +54,9 @@ export default function Navbar() {
 			dispatch(
 				setDisplaySizeVariables({
 					window: getWindowSize(),
-					navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
+					navbar: getElementSize(
+						document.getElementsByClassName("js-navbar")[0]
+					),
 				})
 			);
 		});
@@ -55,7 +66,9 @@ export default function Navbar() {
 				dispatch(
 					setDisplaySizeVariables({
 						window: getWindowSize(),
-						navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
+						navbar: getElementSize(
+							document.getElementsByClassName("js-navbar")[0]
+						),
 					})
 				);
 			});

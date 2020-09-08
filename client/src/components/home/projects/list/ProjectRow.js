@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { /* useSelector, */ useDispatch } from "react-redux";
 
 import {
 	setWhichAccountComponentsDisplay,
@@ -11,7 +11,7 @@ import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import "../../../../SCSS/projects/projectsTableAndRows.scss";
 
 export default function ProjectRow(props) {
-	const reduxState = useSelector((state) => state);
+	/* const reduxState = useSelector((state) => state); */
 	const dispatch = useDispatch();
 
 	const openViewProjectDashboard = () => {

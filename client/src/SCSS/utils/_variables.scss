@@ -23,28 +23,36 @@ $project-table-background-color: #ffffff;
 //==========
 $navbar-height: 60px;
 $search-filter-sort-bar-height:  60px;
+$search-bar-height: 28px;
 $project-bug-table-row-height: 50px;
 
 //=========
 // Widths
 //=========
+$home-min-width: 900px;
 $edit-account-modal-width:  540px;
 $create-project-bug-sidebar-width: 500px;
 $filter-button-width: 90px;
 $options-button-width: 36px;
 
-//===========
-// Components
-//===========
-$view-project-bug-modal-margin: 20px;
-$view-project-bug-modal-border-width: 5px;
-
-//=======
-// Forms
-//=======
+//=========
+// Margins
+//=========
+$view-project-bug-modal-margin: 5px;
 $form-input-margin-bottom: 10px;
+
+//==========
+// Borders
+//==========
+$search-bar-border-width: 1px;
+$view-project-bug-modal-border-width: 5px;
 
 //======
 // Text
 //======
 $common-line-height: 20px;
+
+//============
+// Arithmetic
+//============
+$search-bar-button-height-width: $search-bar-height + $search-bar-border-width * 2;

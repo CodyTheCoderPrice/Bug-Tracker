@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
@@ -7,9 +7,8 @@ import "../../../../SCSS/projects/view-edit-delete/displayProjectInfo.scss";
 
 export default function DisplayProjectInfo() {
 	const reduxState = useSelector((state) => state);
-	const dispatch = useDispatch();
 
-	const [projectInfo, setProjectInfo] = useState({
+	const [projectInfo] = useState({
 		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
 		name: reduxState.projectComponentsDisplay.targetProject.name,
 		description: reduxState.projectComponentsDisplay.targetProject.description,

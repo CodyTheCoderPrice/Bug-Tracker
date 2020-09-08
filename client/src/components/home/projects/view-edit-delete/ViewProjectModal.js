@@ -73,15 +73,13 @@ export default function ViewProjectModal() {
 				// ...be null for remainder of this useEfffect iteration
 				return;
 			}
-
 			viewProjectModalElement.style.width =
 				reduxState.displaySizeVariables.window.width -
-				reduxState.displaySizeConstants.scrollbar.width -
-				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide -
+				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -
 				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2 +
 				"px";
 
-			// Didn't add "px" since it would get in the way when 
+			// Didn't add "px" since it would get in the way when
 			// ...resizing js-project-content-container
 			const adjustedModalHeight =
 				reduxState.displaySizeVariables.window.height -
@@ -114,7 +112,17 @@ export default function ViewProjectModal() {
 	}, [showOptionsDropdown]);
 
 	const toggleOptionsDropdown = () => {
+		// Toggle logic is unnessesary since this onClick will only be reached
+		// ...if showOptionsDropdown === false becasue of closeOptionsDropdown
 		setShowOptionsDropdown(!showOptionsDropdown);
+	};
+
+	// Closes options dropdown when clicking outside of dropdown
+	const closeOptionsDropdown = () => {
+		// This allows toggleOptionsDropdown to work
+		if (showOptionsDropdown) {
+			setShowOptionsDropdown(false);
+		}
 	};
 
 	const switchBetweenDisplayAndEditProjectInfo = () => {
@@ -147,7 +155,10 @@ export default function ViewProjectModal() {
 	return (
 		<div className="view-project-modal-component">
 			<div className="blurred-background js-view-project-blurred-background" />
-			<div className="view-project-modal js-view-project-modal">
+			<div
+				className="view-project-modal js-view-project-modal"
+				onClick={closeOptionsDropdown}
+			>
 				<div className="top-buttons-bar js-top-buttons-bar">
 					<div className="project-options-container js">
 						<div

@@ -23,6 +23,8 @@ export default function EditInfoModal() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
 	}, []);
 
 	const onChange = (e) => {

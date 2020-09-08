@@ -7,7 +7,7 @@ import {
 	setProjectsSearchFilterSort,
 } from "../../../../actions";
 
-import { getElementSize } from "../../../../utils/displaySizeUtils";
+import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/searchBarHookUtils";
 
 import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
@@ -21,51 +21,18 @@ export default function SearchFilterSortBar() {
 
 	const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
-	// Used for optimization in search-bar resizes
-	const [
-		regularlyUsedContainerSizes,
-		setRegularlyUsedContainerSizes,
-	] = useState(null);
-
-	// Resize search-bar to fit search-filter-sort-bar width
-	useEffect(() => {
-		if (reduxState.displaySizeVariables.navbar !== null) {
-			// Makes sure regularlyUsedContainerSizes gets set
-			if (regularlyUsedContainerSizes === null) {
-				setRegularlyUsedContainerSizes({
-					newProjectsButtonContainer: getElementSize(
-						document.getElementsByClassName(
-							"js-new-project-button-container"
-						)[0]
-					),
-					sortAndFilterContainer: getElementSize(
-						document.getElementsByClassName("js-sort-filter-group-container")[0]
-					),
-				});
-
-				// Prevents crash since regularlyUsedContainerSizes will still
-				// ...be null for remainder of this useEfffect iteration
-				return;
-			}
-
-			let searchBarContainer = document.getElementsByClassName(
-				"js-search-bar-container"
-			)[0];
-
-			console.log("-----");
-			console.log(reduxState.displaySizeVariables.navbar.width);
-			console.log(regularlyUsedContainerSizes.newProjectsButtonContainer.width);
-			console.log(regularlyUsedContainerSizes.sortAndFilterContainer.width);
-
-			searchBarContainer.style.width =
-				reduxState.displaySizeVariables.navbar.width -
-				regularlyUsedContainerSizes.newProjectsButtonContainer.width -
-				regularlyUsedContainerSizes.sortAndFilterContainer.width +
-				"px";
-
-			console.log(searchBarContainer.style.width);
-		}
-	}, [reduxState.displaySizeVariables, regularlyUsedContainerSizes]);
+	// Below comment disables an unneeded warning about empty array pattern
+	// eslint-disable-next-line
+	const [] = useSearchBarResizeAndBorderEventListener(
+		reduxState,
+		"js-projects-search-bar",
+		"js-projects-search-bar-button",
+		"js-projects-search-bar-and-button-inner-container",
+		"search-filter-sort-bar__centering-container__inner-container--search-bar-border",
+		"js-new-project-button-centering-container",
+		"js-projects-sort-filter-group-container",
+		"js-projects-search-bar-centering-container"
+	);
 
 	useEffect(() => {
 		toggleDropdownButtonDisplay(
@@ -96,16 +63,20 @@ export default function SearchFilterSortBar() {
 		setSearchBarText(e.target.value);
 	};
 
+	const updateSearchKeyWordString = () => {
+		dispatch(
+			setProjectsSearchFilterSort({
+				...reduxState.projectsSearchFilterSort,
+				// Converts string to boolean by setting equal
+				// ...to whether the value == true
+				searchKeyWordString: searchBarText,
+			})
+		);
+	};
+
 	const searchBarKeyDown = (event) => {
 		if (event.keyCode === 13) {
-			dispatch(
-				setProjectsSearchFilterSort({
-					...reduxState.projectsSearchFilterSort,
-					// Converts string to boolean by setting equal
-					// ...to whether the value == true
-					searchKeyWordString: searchBarText,
-				})
-			);
+			updateSearchKeyWordString();
 		}
 	};
 
@@ -123,8 +94,8 @@ export default function SearchFilterSortBar() {
 			setProjectsSearchFilterSort({
 				...reduxState.projectsSearchFilterSort,
 				// Converts string to boolean by setting equal
-				// ...to whether the value == true
-				[e.target.name]: e.target.value == "true",
+				// ...to whether the value === true
+				[e.target.name]: e.target.value === "true",
 			})
 		);
 	};
@@ -155,7 +126,7 @@ export default function SearchFilterSortBar() {
 	return (
 		<div className="search-filter-sort-component">
 			<div className="search-filter-sort-bar js-project-search-filter-sort-bar">
-				<div className="search-filter-sort-bar__centering-container search-filter-sort-bar__centering-container--for-new-project-button js-new-project-button-container">
+				<div className="search-filter-sort-bar__centering-container search-filter-sort-bar__centering-container--for-new-project-button js-new-project-button-centering-container">
 					<div
 						className="search-filter-sort-bar__centering-container__new-project-button"
 						onClick={openCreateProjectSidebar}
@@ -163,17 +134,27 @@ export default function SearchFilterSortBar() {
 						<i className="fa fa-plus" aria-hidden="true" /> New Project
 					</div>
 				</div>
-				<div className="search-filter-sort-bar__centering-container search-filter-sort-bar__centering-container--for-search-bar js-search-bar-container">
-					<input
-						type="text"
-						name="searchBarText"
-						onChange={(e) => onChangeSearchBar(e)}
-						onKeyDown={(e) => searchBarKeyDown(e)}
-						value={searchBarText.searchBarText}
-						className="search-filter-sort-bar__centering-container__search-bar"
-					/>
+				<div className="search-filter-sort-bar__centering-container search-filter-sort-bar__centering-container--for-search-bar js-projects-search-bar-centering-container">
+					<div className="search-filter-sort-bar__centering-container__inner-container js-projects-search-bar-and-button-inner-container">
+						<input
+							type="text"
+							name="searchBarText"
+							onChange={(e) => onChangeSearchBar(e)}
+							onKeyDown={(e) => searchBarKeyDown(e)}
+							value={searchBarText.searchBarText}
+							className="search-filter-sort-bar__centering-container__inner-container__search-bar js-projects-search-bar"
+						/>
+						<div
+							className="search-filter-sort-bar__centering-container__inner-container__search-bar-button js-projects-search-bar-button"
+							onClick={updateSearchKeyWordString}
+						>
+							<span className="search-filter-sort-bar__centering-container__inner-container__search-bar-button__icon">
+								<i className="fa fa-search" aria-hidden="true" />
+							</span>
+						</div>
+					</div>
 				</div>
-				<div className="search-filter-sort-bar__sort-filter-group-container js-sort-filter-group-container">
+				<div className="search-filter-sort-bar__sort-filter-group-container js-projects-sort-filter-group-container">
 					<div className="search-filter-sort-bar__centering-container search-filter-sort-bar__centering-container--for-sort-by-type">
 						<div className="search-filter-sort-bar__centering-container__inner-container">
 							<label
