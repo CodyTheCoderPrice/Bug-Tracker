@@ -60,10 +60,9 @@ export default function EditProjectInfo() {
 		// eslint-disable-next-line
 	}, []);
 
-	// This custom hook toggles the display of the completion date input based on the project status,
-	// ...makes sure the projectInfo completion date is accurate after every toggle,
-	// ...toggles when the completion date tooltip is able to be displayed based on the project status,
-	// ...adds an event listener to display the tooltip (based on status) when the completion date input element is hovered over.
+	// Custom hook toggles the display of the date input for completion date
+	// ...based on status and makes sure projectInfo contains accurate 
+	// ...completion date info after every toggle
 	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
 		"js-completion-date-container",

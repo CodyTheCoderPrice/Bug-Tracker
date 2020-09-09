@@ -114,8 +114,6 @@ export default function SearchFilterSortBar() {
 			deepCopyFilterArray.splice(index, 1);
 		}
 
-		console.log(e.target.name + " --> " + deepCopyFilterArray);
-
 		dispatch(
 			setProjectsSearchFilterSort({
 				...reduxState.projectsSearchFilterSort,
@@ -220,201 +218,65 @@ export default function SearchFilterSortBar() {
 								<span className="search-filter-sort-bar__filter-container__content-dropdown__content__title">
 									Priority
 								</span>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="priorityFilter"
-										value="1"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.priorityFilter.includes(
-											1
-										)}
-										id="projects-priority-filter-1"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-priority-filter-1"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										Not Assigned
-									</label>
-								</div>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="priorityFilter"
-										value="2"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.priorityFilter.includes(
-											2
-										)}
-										id="projects-priority-filter-2"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-priority-filter-2"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										Low
-									</label>
-								</div>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="priorityFilter"
-										value="3"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.priorityFilter.includes(
-											3
-										)}
-										id="projects-priority-filter-3"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-priority-filter-3"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										Medium
-									</label>
-								</div>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="priorityFilter"
-										value="4"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.priorityFilter.includes(
-											4
-										)}
-										id="projects-priority-filter-4"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-priority-filter-4"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										High
-									</label>
-								</div>
+								{reduxState.priorityStatusArrays.projectPriority.map(
+									(obj, i) => {
+										return (
+											<div
+												key={i}
+												className="search-filter-sort-bar__filter-container__content-dropdown__content__block"
+											>
+												<input
+													type="checkbox"
+													name="priorityFilter"
+													value={obj.id}
+													onChange={(e) => onChangeFilter(e)}
+													checked={reduxState.projectsSearchFilterSort.priorityFilter.includes(
+														obj.id
+													)}
+													id={"projects-priority-filter-" + obj.id}
+													className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
+												/>
+												<label
+													htmlFor={"projects-priority-filter-" + obj.id}
+													className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
+												>
+													{obj.option !== "" ? obj.option : "Not Assigned"}
+												</label>
+											</div>
+										);
+									}
+								)}
 							</div>
 							<div className="search-filter-sort-bar__filter-container__content-dropdown__content search-filter-sort-bar__filter-container__content-dropdown__content--right">
 								<span className="search-filter-sort-bar__filter-container__content-dropdown__content__title">
 									Status
 								</span>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="statusFilter"
-										value="1"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.statusFilter.includes(
-											1
-										)}
-										id="projects-status-filter-1"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-status-filter-1"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										Not Assigned
-									</label>
-								</div>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="statusFilter"
-										value="2"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.statusFilter.includes(
-											2
-										)}
-										id="projects-status-filter-2"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-status-filter-2"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										Planning
-									</label>
-								</div>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="statusFilter"
-										value="3"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.statusFilter.includes(
-											3
-										)}
-										id="projects-status-filter-3"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-status-filter-3"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										Developing
-									</label>
-								</div>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="statusFilter"
-										value="4"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.statusFilter.includes(
-											4
-										)}
-										id="projects-status-filter-4"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-status-filter-4"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										Testing
-									</label>
-								</div>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="statusFilter"
-										value="5"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.statusFilter.includes(
-											5
-										)}
-										id="projects-status-filter-5"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-status-filter-5"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										Completed
-									</label>
-								</div>
-								<div className="search-filter-sort-bar__filter-container__content-dropdown__content__block">
-									<input
-										type="checkbox"
-										name="statusFilter"
-										value="6"
-										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState.projectsSearchFilterSort.statusFilter.includes(
-											6
-										)}
-										id="projects-status-filter-6"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor="projects-status-filter-6"
-										className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
-									>
-										On Hold
-									</label>
-								</div>
+								{reduxState.priorityStatusArrays.projectStatus.map((obj, i) => {
+									return (
+										<div
+											key={i}
+											className="search-filter-sort-bar__filter-container__content-dropdown__content__block"
+										>
+											<input
+												type="checkbox"
+												name="statusFilter"
+												value={obj.id}
+												onChange={(e) => onChangeFilter(e)}
+												checked={reduxState.projectsSearchFilterSort.statusFilter.includes(
+													obj.id
+												)}
+												id={"projects-status-filter-" + obj.id}
+												className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
+											/>
+											<label
+												htmlFor={"projects-status-filter-" + obj.id}
+												className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
+											>
+												{obj.option !== "" ? obj.option : "Not Assigned"}
+											</label>
+										</div>
+									);
+								})}
 							</div>
 						</div>
 					</div>
