@@ -70,6 +70,7 @@ export default function ViewProjectModal() {
 				// ...be null for remainder of this useEfffect iteration
 				return;
 			}
+			
 			viewProjectModalElement.style.width =
 				reduxState.displaySizeVariables.window.width -
 				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -

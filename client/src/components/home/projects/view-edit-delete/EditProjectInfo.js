@@ -13,6 +13,12 @@ import {
 } from "../../../../utils/dateUtils";
 
 import {
+	getElementSize,
+	getElementStyle,
+	stripNonDigits,
+} from "../../../../utils/displaySizeUtils";
+
+import {
 	toggleCharCountColor,
 	populateComboBox,
 } from "../../../../utils/elementUtils";
@@ -36,7 +42,7 @@ export default function EditProjectInfo() {
 		statusOption:
 			reduxState.projectComponentsDisplay.targetProject.status_option,
 		creationDate: formatDateMMddYYYY(
-			reduxState.projectComponentsDisplay.targetProject.creation_content
+			reduxState.projectComponentsDisplay.targetProject.creation_date
 		),
 		startDate: formatDateYYYYmmDD(
 			reduxState.projectComponentsDisplay.targetProject.start_date
@@ -61,7 +67,7 @@ export default function EditProjectInfo() {
 	}, []);
 
 	// Custom hook toggles the display of the date input for completion date
-	// ...based on status and makes sure projectInfo contains accurate 
+	// ...based on status and makes sure projectInfo contains accurate
 	// ...completion date info after every toggle
 	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
@@ -83,6 +89,20 @@ export default function EditProjectInfo() {
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
+
+	// Adjust description text area size to match DisplayProjectInfo's description
+	useEffect(() => {
+		let editDescriptionTextArea = document.getElementsByClassName(
+			"js-projects-description-text-area"
+		)[0];
+
+		// Causes scrollHeight to become the height of the content
+		editDescriptionTextArea.style.height = "0px";
+		editDescriptionTextArea.style.height =
+			editDescriptionTextArea.scrollHeight + 10 + "px";
+		// Below comment disables an unneeded warning about optimization
+		// eslint-disable-next-line
+	}, [reduxState.displaySizeVariables]);
 
 	useEffect(() => {
 		toggleCharCountColor(
@@ -137,7 +157,7 @@ export default function EditProjectInfo() {
 	};
 
 	return (
-		<form noValidate onSubmit={handleSubmit}>
+		<form noValidate onSubmit={handleSubmit} className="js-edit-project-form">
 			<div className="outer-dividing-container">
 				<div className="centering-container">
 					<input
@@ -157,7 +177,7 @@ export default function EditProjectInfo() {
 				</div>
 			</div>
 			<div className="outer-dividing-container">
-				<div className="project-box project-box--smaller-padding">
+				<div className="project-box js-projects-description-project-box">
 					<label htmlFor="edit-project-description">
 						<h2 className="project-box__title project-box__title--no-bottom-margin">
 							Description
@@ -171,7 +191,7 @@ export default function EditProjectInfo() {
 						onChange={(e) => onChange(e)}
 						value={projectInfo.description}
 						id="edit-project-description"
-						className="project-box__form-textarea"
+						className="project-box__form-textarea js-projects-description-text-area"
 					/>
 					<span className="form-errors">
 						{reduxState.inputErrors.description}

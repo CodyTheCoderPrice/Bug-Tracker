@@ -69,7 +69,7 @@ export default function Login() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
 						id="login-password"
-						className="form__text-input"
+						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
 						{reduxState.inputErrors.password}

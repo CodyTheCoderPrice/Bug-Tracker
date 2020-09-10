@@ -92,7 +92,7 @@ export default function Register() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
 						id="register-password"
-						className="form__text-input"
+						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
 						{reduxState.inputErrors.password}
@@ -104,7 +104,7 @@ export default function Register() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password2}
 						id="register-password2"
-						className="form__text-input"
+						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
 						{reduxState.inputErrors.password2}

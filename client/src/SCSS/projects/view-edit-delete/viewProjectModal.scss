@@ -155,8 +155,17 @@
 		overflow-wrap: anywhere;
 	}
 
-	.project-box--smaller-padding {
-		padding: 0px 15px 20px 15px;
+	// Used in EditProjectInfo to calculate description size using JS
+	.project-box--invisible {
+		position: absolute;
+		visibility: hidden;
+	}
+
+	// Located here since both display and edit components use it
+	.project-box__description {
+		display: block;
+		padding: 13px 5px 13px 5px;
+		line-height: $common-line-height;
 	}
 
 	.project-box__group {
