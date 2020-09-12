@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { setMassDelete, deleteProject } from "../../../../actions";
+import { setMassDelete, setWhichAccountComponentsDisplay, setWhichProjectComponentsDisplay, setWhichMassDeleteComponentsDisplay } from "../../../../actions";
 
 import { getElementLocation } from "../../../../utils/displaySizeUtils";
 
@@ -12,8 +12,8 @@ import { toggleDisableButtons } from "../../../../utils/massDeleteUtils";
 // Components
 /* import SortButtons from "./SortButtons"; */
 import ProjectRow from "./ProjectRow";
+import SortArrowsButton from "./SortArrowsButton";
 
-import sortArrowsBothEmpty from "../../../../images/sort-arrows-both-empty.svg";
 import "../../../../SCSS/projects/projectsTableAndRows.scss";
 
 export default function ProjectsTable() {
@@ -62,10 +62,19 @@ export default function ProjectsTable() {
 		);
 	};
 
-	const deleteCheckedProjects = () => {
-		for (let project_id of reduxState.massDelete.projects) {
-			dispatch(deleteProject({ project_id: project_id }));
-		}
+	const openMassDeleteProjectsModal = () => {
+		dispatch(setWhichAccountComponentsDisplay({}));
+
+		dispatch(
+			setWhichProjectComponentsDisplay({
+				...reduxState.projectComponentsDisplay,
+				createProjectSidbar: false,
+			})
+		);
+
+		dispatch(setWhichMassDeleteComponentsDisplay({
+			massDeleteProjectsModal: true,
+		}))
 	};
 
 	return (
@@ -73,7 +82,7 @@ export default function ProjectsTable() {
 			<table className="projects-table">
 				<thead className="">
 					<tr className="project-table__row project-table__row--sticky">
-						<th className="project-table__header project-table__header__checkbox">
+						<th className="project-table__header project-table__header--for-mass-delete">
 							<div className="project-table__header__mass-delete-options">
 								<div
 									className="project-table__header__mass-delete-options__button"
@@ -89,7 +98,7 @@ export default function ProjectsTable() {
 								</div>
 								<div
 									className="project-table__header__mass-delete-options__button"
-									onClick={deleteCheckedProjects}
+									onClick={openMassDeleteProjectsModal}
 								>
 									<i className="fa fa-trash-o" aria-hidden="true" />
 								</div>
@@ -100,37 +109,48 @@ export default function ProjectsTable() {
 								<span className="project-table__header__centering-container__span">
 									Name
 								</span>
-								<img
-									className="project-table__header__centering-container__sort-arrows"
-									src={sortArrowsBothEmpty}
-								/>
+								<SortArrowsButton sortId={1} />
 							</div>
 						</th>
 						<th className="project-table__header">
-							<div className="project-table__header__centering-container"></div>
-							<span className="project-table__header__centering-container__span">
-								Created on
-							</span>
+							<div className="project-table__header__centering-container">
+								<span className="project-table__header__centering-container__span">
+									Created on
+								</span>
+								<SortArrowsButton sortId={2} />
+							</div>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__centering-container__span">
-								Start Date
-							</span>
+							<div className="project-table__header__centering-container">
+								<span className="project-table__header__centering-container__span">
+									Start Date
+								</span>
+								<SortArrowsButton sortId={3} />
+							</div>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__centering-container__span">
-								Due Date
-							</span>
+							<div className="project-table__header__centering-container">
+								<span className="project-table__header__centering-container__span">
+									Due Date
+								</span>
+								<SortArrowsButton sortId={4} />
+							</div>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__centering-container__span">
-								Priority
-							</span>
+							<div className="project-table__header__centering-container">
+								<span className="project-table__header__centering-container__span">
+									Priority
+								</span>
+								<SortArrowsButton sortId={5} />
+							</div>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__centering-container__span">
-								Status
-							</span>
+							<div className="project-table__header__centering-container">
+								<span className="project-table__header__centering-container__span">
+									Status
+								</span>
+								<SortArrowsButton sortId={6} />
+							</div>
 						</th>
 						<th className="project-table__header">{/*For more info link*/}</th>
 						<th className="project-table__header js-remaining-space">

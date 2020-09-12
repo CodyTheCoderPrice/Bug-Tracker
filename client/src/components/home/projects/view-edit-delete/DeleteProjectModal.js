@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -12,12 +12,18 @@ export default function DeleteProjectModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [projectInfo] = useState({
-		project_id: reduxState.projectComponentsDisplay.targetProject.project_id,
-	});
-
-	const callDeleteProject = () => {
-		dispatch(deleteProject({ project_id: projectInfo.project_id }));
+	const deleteThisProject = () => {
+		dispatch(
+			deleteProject({
+				project_id:
+					reduxState.projectComponentsDisplay.targetProject.project_id,
+			})
+		);
+		dispatch(
+			setWhichProjectComponentsDisplay({
+				projectsTable: true,
+			})
+		);
 	};
 
 	const closeDeleteProjectModal = () => {
@@ -34,13 +40,13 @@ export default function DeleteProjectModal() {
 			<div className="blurred-background js-delete-project-modal-blurred-background" />
 			<div className="delete-account-modal">
 				<div className="outer-container">
-					<span className="warning-message">Delete Project?</span>
+					<span className="warning-message">Are you sure?</span>
 				</div>
 				<div className="outer-container">
 					<div className="centered-buttons-container">
 						<div
 							className="centered-buttons-container__delete"
-							onClick={callDeleteProject}
+							onClick={deleteThisProject}
 						>
 							Delete
 						</div>

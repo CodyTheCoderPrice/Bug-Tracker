@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 
 import { toggleClassName } from "../../../utils/elementUtils";
 
+// This blurred background is its own functional component for optimization
+// ...reasons so every account modal
 export default function AccountBlurredBackground() {
 
-	// Move window to top of screen and disable scrolling for the HTML and body
+	// Disable scrolling for the HTML and body
 	useEffect(() => {
 		let body = document.getElementsByClassName("js-body")[0];
 

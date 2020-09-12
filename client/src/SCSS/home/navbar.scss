@@ -33,21 +33,23 @@
 		width: 240px;
 	}
 
+	// Being used temporarily for coming soon bug functionality
+	.navbar-button--largest {
+		width: 350px;
+	}
+
 	.navbar-button--selected {
 		background-color: $light-blue-gray;
 	}
 
 	.navbar-button__text-container {
+		@include vertical-center();
 		@include stop-text-selection();
-
-		position: absolute;
-		top: 50%;
-		left: 52%;
-		transform: translate(-50%, -50%);
-		width: 200px;
+		width: 100%;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: 160%;
 		color: white;
+		text-align: center;
 	}
 
 	.account-dropdown {

@@ -140,11 +140,11 @@ export default function Navbar() {
 					</div>
 				</div>
 				<div
-					className="navbar-button"
+					className="navbar-button navbar-button--largest"
 					/* onClick={} */
 				>
 					<div className="navbar-button__text-container">
-						<i className="fa fa-bug" aria-hidden="true" /> Bugs
+						<i className="fa fa-bug" aria-hidden="true" /> Bugs (Coming soon)
 					</div>
 				</div>
 				<div

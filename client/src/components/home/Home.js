@@ -14,6 +14,7 @@ import DeleteAccountModal from "./account/DeleteAccountModal";
 import ProjectsList from "./projects/list/ProjectsList";
 import CreateProjectSidebar from "./projects/CreateProjectSidebar";
 import ViewProjectModal from "./projects/view-edit-delete/ViewProjectModal";
+import MassDeleteProjectsModal from "./projects/list/MassDeleteProjectsModal";
 
 import "../../SCSS/home/home.scss";
 
@@ -51,6 +52,9 @@ export default function Home() {
 			) : null}
 			{reduxState.projectComponentsDisplay.viewProjectModal ? (
 				<ViewProjectModal />
+			) : null}
+			{reduxState.massDeleteComponentsDisplay.massDeleteProjectsModal ? (
+				<MassDeleteProjectsModal />
 			) : null}
 		</div>
 	);

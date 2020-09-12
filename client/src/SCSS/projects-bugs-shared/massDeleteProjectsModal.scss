@@ -1,10 +1,11 @@
-@import "../../utils/variables";
+@import "../utils/variables";
 
-.delete-project-modal-component {
+.mass-delete-projects-modal-component {
 	.blurred-background {
-		z-index: 5;
-		position: absolute;
-		top: 0px;
+		// Must be the same or more than searchFilterSortBar.scss
+		z-index: 1;
+		position: fixed;
+		top: $navbar-height;
 		left: 0px;
 		background-color: black;
 		opacity: 0.5;
