@@ -33,11 +33,11 @@ export default function CreateProjectSidebar() {
 		name: "",
 		description: "",
 		// Sets default to the first option
-		priorityId: reduxState.priorityStatusArrays.projectPriority[0].id,
-		statusId: reduxState.priorityStatusArrays.projectStatus[0].id,
-		startDate: moment().format("YYYY-MM-DD"),
-		dueDate: null,
-		completionDate: null,
+		priority_id: reduxState.priorityStatusArrays.projectPriority[0].id,
+		status_id: reduxState.priorityStatusArrays.projectStatus[0].id,
+		start_date: moment().format("YYYY-MM-DD"),
+		due_date: null,
+		completion_date: null,
 	});
 
 	const [descriptionCharLimit] = useState(500);
@@ -147,23 +147,23 @@ export default function CreateProjectSidebar() {
 
 	useEffect(() => {
 		if (
-			projectInfo.statusId !==
+			projectInfo.status_id !==
 			reduxState.priorityStatusArrays.projectStatusCompletionIndex
 		) {
-			setProjectInfo({ ...projectInfo, completionDate: "" });
+			setProjectInfo({ ...projectInfo, completion_date: "" });
 		} else {
 			setProjectInfo({
 				...projectInfo,
-				completionDate: preservedCompletionDate,
+				completion_date: preservedCompletionDate,
 			});
 		}
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
-	}, [projectInfo.statusId]);
+	}, [projectInfo.status_id]);
 
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers
-		if (e.target.name === "statusId" || e.target.name === "priorityId") {
+		if (e.target.name === "status_id" || e.target.name === "priority_id") {
 			setProjectInfo({
 				...projectInfo,
 				[e.target.name]: Number(e.target.value),
@@ -235,8 +235,8 @@ export default function CreateProjectSidebar() {
 								</label>
 								<input
 									type="date"
-									name="startDate"
-									value={projectInfo.startDate}
+									name="start_date"
+									value={projectInfo.start_date}
 									onChange={(e) => onChange(e)}
 									id="create-project-start-date"
 									className="form__group-container__input-container__date"
@@ -251,7 +251,7 @@ export default function CreateProjectSidebar() {
 								</label>
 								<input
 									type="date"
-									name="dueDate"
+									name="due_date"
 									onChange={(e) => onChange(e)}
 									id="create-project-due-date"
 									className="form__group-container__input-container__date"
@@ -266,7 +266,7 @@ export default function CreateProjectSidebar() {
 								</label>
 								<input
 									type="date"
-									name="completionDate"
+									name="completion_date"
 									onChange={(e) => onChange(e)}
 									id="create-project-completion-date"
 									className="form__group-container__input-container__date"
@@ -282,7 +282,7 @@ export default function CreateProjectSidebar() {
 									Priority:
 								</label>
 								<select
-									name="priorityId"
+									name="priority_id"
 									onChange={(e) => onChange(e)}
 									id="create-project-priority"
 									className="form__group-container__input-container__select js-priority-select"
@@ -296,7 +296,7 @@ export default function CreateProjectSidebar() {
 									Status:
 								</label>
 								<select
-									name="statusId"
+									name="status_id"
 									onChange={(e) => onChange(e)}
 									id="create-project-status"
 									className="form__group-container__input-container__select js-status-select"

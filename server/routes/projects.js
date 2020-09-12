@@ -28,13 +28,13 @@ router
 				const {
 					name,
 					description,
-					priorityId,
-					statusId,
-					startDate,
-					dueDate,
-					completionDate,
+					priority_id,
+					status_id,
+					start_date,
+					due_date,
+					completion_date,
 				} = req.body;
-				const creationDate = moment().format("YYYY-MM-DD");
+				const creation_date = moment().format("YYYY-MM-DD");
 
 				const createdProject = await pool.query(
 					`INSERT INTO project (account_id, name, description, p_priority_id, p_status_id, 
@@ -44,12 +44,12 @@ router
 						account_id,
 						name,
 						description,
-						priorityId,
-						statusId,
-						creationDate,
-						startDate,
-						dueDate,
-						completionDate,
+						priority_id,
+						status_id,
+						creation_date,
+						start_date,
+						due_date,
+						completion_date,
 					]
 				);
 
@@ -134,14 +134,14 @@ router
 				const { account_id } = req;
 				// Passed in the post body
 				const {
-					projectId,
+					project_id,
 					name,
 					description,
-					priorityId,
-					statusId,
-					startDate,
-					dueDate,
-					completionDate,
+					priority_id,
+					status_id,
+					start_date,
+					due_date,
+					completion_date,
 				} = req.body;
 
 				const updatedProject = await pool.query(
@@ -151,13 +151,13 @@ router
 					[
 						name,
 						description,
-						priorityId,
-						statusId,
-						startDate,
-						dueDate,
-						completionDate,
+						priority_id,
+						status_id,
+						start_date,
+						due_date,
+						completion_date,
 						account_id,
-						projectId,
+						project_id,
 					]
 				);
 
@@ -201,11 +201,11 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		// Declared in the tokenAuthorization middleware
 		const { account_id } = req;
 		// Passed in the post body
-		const { projectId } = req.body;
+		const { project_id } = req.body;
 
 		const deletedProject = await pool.query(
 			`DELETE FROM project WHERE account_id = $1 AND project_id = $2`,
-			[account_id, projectId]
+			[account_id, project_id]
 		);
 
 		const allProjectsForAccount = await pool.query(

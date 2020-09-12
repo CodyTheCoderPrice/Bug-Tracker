@@ -7,9 +7,9 @@ export function useToggleableDateInput(
 	dateContainerClassName,
 	completedIndex
 ) {
-	// perserves a record of the completionDate when the date input is toggled off.
+	// perserves a record of the completion_date when the date input is toggled off.
 	const [preservedCompletionDate, setPerservedCompletionDate] = useState(
-		state.completionDate
+		state.completion_date
 	);
 
 	// Tracks the pervious status to know when to update perservedCompletionDate
@@ -20,10 +20,10 @@ export function useToggleableDateInput(
 		if (previousStatus === completedIndex) {
 			updatePerservedCompletionDate();
 		}
-		setPreviousStatus(state.statusId);
+		setPreviousStatus(state.status_id);
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
-	}, [state.statusId]);
+	}, [state.status_id]);
 
 	function toggleDisableElements() {
 		let dateContainerElement = document.getElementsByClassName(
@@ -33,18 +33,18 @@ export function useToggleableDateInput(
 		for (let child of dateContainerElement.childNodes) {
 			if (child.tagName === "LABEL") {
 				toggleClassName(
-					state.statusId !== completedIndex,
+					state.status_id !== completedIndex,
 					child,
 					"grayed-out-label"
 				);
 			} else if (child.tagName === "INPUT") {
 				toggleClassName(
-					state.statusId !== completedIndex,
+					state.status_id !== completedIndex,
 					child,
 					"grayed-out-date"
 				);
 			}
-			/* child.disabled = state.statusId !== completedIndex; */
+			/* child.disabled = state.status_id !== completedIndex; */
 		}
 	}
 
@@ -53,7 +53,7 @@ export function useToggleableDateInput(
 			dateContainerClassName
 		)[0];
 
-		if (state.statusId !== completedIndex) {
+		if (state.status_id !== completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				if (child.tagName === "INPUT") {
 					setPerservedCompletionDate(child.value);

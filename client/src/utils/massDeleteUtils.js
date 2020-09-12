@@ -11,7 +11,5 @@ export function toggleDisableButtons(shouldDisable, buttonsContainer) {
 			child,
 			"project-table__header__mass-delete-options__button--disabled"
 		);
-		child.disabled = shouldDisable;
-		console.log(child.disabled);
 	}
 }

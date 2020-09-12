@@ -59,7 +59,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
 					targetProject: projects.filter((project) => {
-						return project.project_id === projectInfo.projectId;
+						return project.project_id === projectInfo.project_id;
 					})[0],
 					editProjectInfo: false,
 				})
@@ -74,10 +74,10 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 		});
 };
 
-export const deleteProject = (projectId) => (dispatch) => {
+export const deleteProject = (project_id) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/project/delete", projectId, headers)
+		.post("/api/project/delete", project_id, headers)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));

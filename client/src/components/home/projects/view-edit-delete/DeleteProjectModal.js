@@ -13,11 +13,11 @@ export default function DeleteProjectModal() {
 	const dispatch = useDispatch();
 
 	const [projectInfo] = useState({
-		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
+		project_id: reduxState.projectComponentsDisplay.targetProject.project_id,
 	});
 
 	const callDeleteProject = () => {
-		dispatch(deleteProject({ projectId: projectInfo.projectId }));
+		dispatch(deleteProject({ project_id: projectInfo.project_id }));
 	};
 
 	const closeDeleteProjectModal = () => {

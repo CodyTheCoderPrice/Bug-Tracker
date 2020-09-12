@@ -32,25 +32,25 @@ export default function EditProjectInfo() {
 	const dispatch = useDispatch();
 
 	const [projectInfo, setProjectInfo] = useState({
-		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
+		project_id: reduxState.projectComponentsDisplay.targetProject.project_id,
 		name: reduxState.projectComponentsDisplay.targetProject.name,
 		description: reduxState.projectComponentsDisplay.targetProject.description,
-		priorityId: reduxState.projectComponentsDisplay.targetProject.priority_id,
+		priority_id: reduxState.projectComponentsDisplay.targetProject.priority_id,
 		priorityOption:
 			reduxState.projectComponentsDisplay.targetProject.priority_option,
-		statusId: reduxState.projectComponentsDisplay.targetProject.status_id,
+		status_id: reduxState.projectComponentsDisplay.targetProject.status_id,
 		statusOption:
 			reduxState.projectComponentsDisplay.targetProject.status_option,
-		creationDate: formatDateMMddYYYY(
+		creation_date: formatDateMMddYYYY(
 			reduxState.projectComponentsDisplay.targetProject.creation_date
 		),
-		startDate: formatDateYYYYmmDD(
+		start_date: formatDateYYYYmmDD(
 			reduxState.projectComponentsDisplay.targetProject.start_date
 		),
-		dueDate: formatDateYYYYmmDD(
+		due_date: formatDateYYYYmmDD(
 			reduxState.projectComponentsDisplay.targetProject.due_date
 		),
-		completionDate: formatDateYYYYmmDD(
+		completion_date: formatDateYYYYmmDD(
 			reduxState.projectComponentsDisplay.targetProject.completion_date
 		),
 	});
@@ -79,12 +79,12 @@ export default function EditProjectInfo() {
 		populateComboBox(
 			"js-project-priority-select",
 			reduxState.priorityStatusArrays.projectPriority,
-			projectInfo.priorityId
+			projectInfo.priority_id
 		);
 		populateComboBox(
 			"js-project-status-select",
 			reduxState.priorityStatusArrays.projectStatus,
-			projectInfo.statusId
+			projectInfo.status_id
 		);
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
@@ -116,23 +116,23 @@ export default function EditProjectInfo() {
 
 	useEffect(() => {
 		if (
-			projectInfo.statusId !==
+			projectInfo.status_id !==
 			reduxState.priorityStatusArrays.projectStatusCompletionIndex
 		) {
-			setProjectInfo({ ...projectInfo, completionDate: "" });
+			setProjectInfo({ ...projectInfo, completion_date: "" });
 		} else {
 			setProjectInfo({
 				...projectInfo,
-				completionDate: preservedCompletionDate,
+				completion_date: preservedCompletionDate,
 			});
 		}
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
-	}, [projectInfo.statusId]);
+	}, [projectInfo.status_id]);
 
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers
-		if (e.target.name === "statusId" || e.target.name === "priorityId") {
+		if (e.target.name === "status_id" || e.target.name === "priority_id") {
 			setProjectInfo({
 				...projectInfo,
 				[e.target.name]: Number(e.target.value),
@@ -173,7 +173,7 @@ export default function EditProjectInfo() {
 					</span>
 				</div>
 				<div className="project-creation-date">
-					Created on: {projectInfo.creationDate}
+					Created on: {projectInfo.creation_date}
 				</div>
 			</div>
 			<div className="outer-dividing-container">
@@ -211,8 +211,8 @@ export default function EditProjectInfo() {
 							</label>
 							<input
 								type="date"
-								name="startDate"
-								value={projectInfo.startDate}
+								name="start_date"
+								value={projectInfo.start_date}
 								onChange={(e) => onChange(e)}
 								id="edit-project-start-date"
 								className="project-box__group__field__form-date"
@@ -227,8 +227,8 @@ export default function EditProjectInfo() {
 							</label>
 							<input
 								type="date"
-								name="dueDate"
-								value={projectInfo.dueDate}
+								name="due_date"
+								value={projectInfo.due_date}
 								onChange={(e) => onChange(e)}
 								id="edit-project-due-date"
 								className="project-box__group__field__form-date"
@@ -243,8 +243,8 @@ export default function EditProjectInfo() {
 							</label>
 							<input
 								type="date"
-								name="completionDate"
-								value={projectInfo.completionDate}
+								name="completion_date"
+								value={projectInfo.completion_date}
 								onChange={(e) => onChange(e)}
 								id="edit-project-completion-date"
 								className="project-box__group__field__form-date"
@@ -260,7 +260,7 @@ export default function EditProjectInfo() {
 								Priority:
 							</label>
 							<select
-								name="priorityId"
+								name="priority_id"
 								onChange={(e) => onChange(e)}
 								id="edit-project-priority"
 								className="project-box__group__field__form-select js-project-priority-select"
@@ -274,7 +274,7 @@ export default function EditProjectInfo() {
 								Status:
 							</label>
 							<select
-								name="statusId"
+								name="status_id"
 								onChange={(e) => onChange(e)}
 								id="edit-project-status"
 								className="project-box__group__field__form-select js-project-status-select"

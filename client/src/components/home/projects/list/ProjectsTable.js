@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-	setMassDelete,
-} from "../../../../actions";
+import { setMassDelete, deleteProject } from "../../../../actions";
 
 import { getElementLocation } from "../../../../utils/displaySizeUtils";
 
@@ -15,6 +13,7 @@ import { toggleDisableButtons } from "../../../../utils/massDeleteUtils";
 /* import SortButtons from "./SortButtons"; */
 import ProjectRow from "./ProjectRow";
 
+import sortArrowsBothEmpty from "../../../../images/sort-arrows-both-empty.svg";
 import "../../../../SCSS/projects/projectsTableAndRows.scss";
 
 export default function ProjectsTable() {
@@ -63,6 +62,12 @@ export default function ProjectsTable() {
 		);
 	};
 
+	const deleteCheckedProjects = () => {
+		for (let project_id of reduxState.massDelete.projects) {
+			dispatch(deleteProject({ project_id: project_id }));
+		}
+	};
+
 	return (
 		<div className="projects-table-component">
 			<table className="projects-table">
@@ -70,34 +75,62 @@ export default function ProjectsTable() {
 					<tr className="project-table__row project-table__row--sticky">
 						<th className="project-table__header project-table__header__checkbox">
 							<div className="project-table__header__mass-delete-options">
-								<div className="project-table__header__mass-delete-options__button" onClick={checkAllProjects}>
+								<div
+									className="project-table__header__mass-delete-options__button"
+									onClick={checkAllProjects}
+								>
 									<i className="fa fa-check-square-o" aria-hidden="true" />
 								</div>
-								<div className="project-table__header__mass-delete-options__button" onClick={uncheckAllProjects}>
+								<div
+									className="project-table__header__mass-delete-options__button"
+									onClick={uncheckAllProjects}
+								>
 									<i className="fa fa-square-o" aria-hidden="true" />
 								</div>
-								<div className="project-table__header__mass-delete-options__button">
+								<div
+									className="project-table__header__mass-delete-options__button"
+									onClick={deleteCheckedProjects}
+								>
 									<i className="fa fa-trash-o" aria-hidden="true" />
 								</div>
 							</div>
 						</th>
 						<th className="project-table__header js-project-table__header">
-							<span className="project-table__header__span">Name</span>
+							<div className="project-table__header__centering-container">
+								<span className="project-table__header__centering-container__span">
+									Name
+								</span>
+								<img
+									className="project-table__header__centering-container__sort-arrows"
+									src={sortArrowsBothEmpty}
+								/>
+							</div>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">Created on</span>
+							<div className="project-table__header__centering-container"></div>
+							<span className="project-table__header__centering-container__span">
+								Created on
+							</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">Start Date</span>
+							<span className="project-table__header__centering-container__span">
+								Start Date
+							</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">Due Date</span>
+							<span className="project-table__header__centering-container__span">
+								Due Date
+							</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">Priority</span>
+							<span className="project-table__header__centering-container__span">
+								Priority
+							</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">Status</span>
+							<span className="project-table__header__centering-container__span">
+								Status
+							</span>
 						</th>
 						<th className="project-table__header">{/*For more info link*/}</th>
 						<th className="project-table__header js-remaining-space">

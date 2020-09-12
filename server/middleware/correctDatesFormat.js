@@ -4,15 +4,15 @@ module.exports = (req, res, next) => {
 	let inputErrors = {};
 
 	try {
-		let { startDate, dueDate, completionDate } = req.body;
+		let { start_date, due_date, completion_date } = req.body;
 
-		startDate = !isEmpty(startDate) ? startDate : null;
-		dueDate =  !isEmpty(dueDate) ? dueDate  : null;
-		completionDate = !isEmpty(completionDate) ? completionDate  : null;
+		start_date = !isEmpty(start_date) ? start_date : null;
+		due_date =  !isEmpty(due_date) ? due_date  : null;
+		completion_date = !isEmpty(completion_date) ? completion_date  : null;
 
-		req.body.startDate = startDate;
-		req.body.dueDate = dueDate;
-		req.body.completionDate = completionDate;
+		req.body.start_date = start_date;
+		req.body.due_date = due_date;
+		req.body.completion_date = completion_date;
 
 		next();
 	} catch (err) {

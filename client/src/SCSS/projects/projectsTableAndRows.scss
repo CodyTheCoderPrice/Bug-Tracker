@@ -33,10 +33,21 @@
 	}
 
 	.project-table__header {
+		position: relative;
 		// Used box shadow since the header row being sticky with 
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: 0 1px 0 $medium-gray;
 		width: 250px;
+	}
+
+	.project-table__header__centering-container {
+		display: inline-block;
+	}
+
+	.project-table__header__centering-container__sort-arrows {
+		@include vertical-center();
+		margin-left: 5px;
+		cursor: pointer;
 	}
 
 	.project-table__header__checkbox {
@@ -62,7 +73,7 @@
 	.project-table__header__mass-delete-options__button--disabled {
 		color: lightgray;
 		cursor: default;
-		pointer-events: none
+		pointer-events: none;
 	}
 
 	.project-table__data {

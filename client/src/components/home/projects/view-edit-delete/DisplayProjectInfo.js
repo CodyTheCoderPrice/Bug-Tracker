@@ -9,25 +9,25 @@ export default function DisplayProjectInfo() {
 	const reduxState = useSelector((state) => state);
 
 	const [projectInfo] = useState({
-		projectId: reduxState.projectComponentsDisplay.targetProject.project_id,
+		project_id: reduxState.projectComponentsDisplay.targetProject.project_id,
 		name: reduxState.projectComponentsDisplay.targetProject.name,
 		description: reduxState.projectComponentsDisplay.targetProject.description,
-		priorityId: reduxState.projectComponentsDisplay.targetProject.priority_id,
+		priority_id: reduxState.projectComponentsDisplay.targetProject.priority_id,
 		priorityOption:
 			reduxState.projectComponentsDisplay.targetProject.priority_option,
-		statusId: reduxState.projectComponentsDisplay.targetProject.status_id,
+		status_id: reduxState.projectComponentsDisplay.targetProject.status_id,
 		statusOption:
 			reduxState.projectComponentsDisplay.targetProject.status_option,
-		creationDate: formatDateMMddYYYY(
+		creation_date: formatDateMMddYYYY(
 			reduxState.projectComponentsDisplay.targetProject.creation_date
 		),
-		startDate: formatDateMMddYYYY(
+		start_date: formatDateMMddYYYY(
 			reduxState.projectComponentsDisplay.targetProject.start_date
 		),
-		dueDate: formatDateMMddYYYY(
+		due_date: formatDateMMddYYYY(
 			reduxState.projectComponentsDisplay.targetProject.due_date
 		),
-		completionDate: formatDateMMddYYYY(
+		completion_date: formatDateMMddYYYY(
 			reduxState.projectComponentsDisplay.targetProject.completion_date
 		),
 	});
@@ -37,7 +37,7 @@ export default function DisplayProjectInfo() {
 			<div className="outer-dividing-container">
 				<h1 className="project-name">{projectInfo.name}</h1>
 				<div className="project-creation-date">
-					Created on: {projectInfo.creationDate}
+					Created on: {projectInfo.creation_date}
 				</div>
 			</div>
 			<div className="outer-dividing-container">
@@ -57,22 +57,22 @@ export default function DisplayProjectInfo() {
 								Start Date:
 							</span>
 							<span className="project-box__group__field_content">
-								{projectInfo.startDate}
+								{projectInfo.start_date}
 							</span>
 						</div>
 						<div className="project-box__group__field">
 							<span className="project-box__group__field__type">Due Date:</span>
 							<span className="project-box__group__field_content">
-								{projectInfo.dueDate}
+								{projectInfo.due_date}
 							</span>
 						</div>
-						{projectInfo.completionDate === null ? null : (
+						{projectInfo.completion_date === null ? null : (
 							<div className="project-box__group__field">
 								<span className="project-box__group__field__type">
 									Completed on:
 								</span>
 								<span className="project-box__group__field_content">
-									{projectInfo.completionDate}
+									{projectInfo.completion_date}
 								</span>
 							</div>
 						)}
