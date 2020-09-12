@@ -75,8 +75,8 @@ export default function SearchFilterSortBar() {
 		);
 	};
 
-	const searchBarKeyDown = (event) => {
-		if (event.keyCode === 13) {
+	const searchBarKeyDown = (e) => {
+		if (e.keyCode === 13) {
 			updateSearchKeyWordString();
 		}
 	};

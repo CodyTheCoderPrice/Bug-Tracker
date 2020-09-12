@@ -4,6 +4,7 @@ import {
 	SET_DISPLAY_SIZE_VARIABLES,
 	SET_PRIORITY_STATUS_ARRAYS,
 	SET_PROJECTS_SEARCH_FILTER_SORT,
+	SET_MASS_DELETE,
 	SET_INPUT_ERRORS,
 } from "./types";
 
@@ -51,6 +52,13 @@ export const setProjectsSearchFilterSort = (searchFilterSort) => (dispatch) => {
 	dispatch({
 		type: SET_PROJECTS_SEARCH_FILTER_SORT,
 		searchFilterSort: searchFilterSort,
+	});
+}
+
+export const setMassDelete = (projectsOrBugsArrays) => (dispatch) => {
+	dispatch({
+		type: SET_MASS_DELETE,
+		projectsOrBugsArrays: projectsOrBugsArrays
 	});
 }
 

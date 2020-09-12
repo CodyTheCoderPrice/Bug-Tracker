@@ -38,10 +38,6 @@ export function useSearchBarResizeAndBorderEventListener(
 
 		let searchBar = document.getElementsByClassName(searchBarClassName)[0];
 
-		let searchBarButton = document.getElementsByClassName(
-			searchBarButtonClassName
-		)[0];
-
 		searchBar.addEventListener("focus", () => {
 			toggleContainerBorder(true);
 		});

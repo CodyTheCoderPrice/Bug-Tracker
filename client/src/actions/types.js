@@ -14,5 +14,7 @@ export const SET_ACCOUNT = "SET_ACCOUNT";
 export const SET_PROJECTS = "SET_PROJECTS";
 // searchSortFilter
 export const SET_PROJECTS_SEARCH_FILTER_SORT = "SET_PROJECTS_SEARCH_FILTER_SORT";
+// Mass delete
+export const SET_MASS_DELETE = "SET_MASS_DELETE";
 // Errors
 export const SET_INPUT_ERRORS = "SET_INPUT_ERRORS";

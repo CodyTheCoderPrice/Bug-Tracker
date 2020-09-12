@@ -44,7 +44,7 @@ export function useToggleableDateInput(
 					"grayed-out-date"
 				);
 			}
-			child.disabled = state.statusId !== completedIndex;
+			/* child.disabled = state.statusId !== completedIndex; */
 		}
 	}
 

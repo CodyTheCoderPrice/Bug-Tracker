@@ -39,9 +39,31 @@
 		width: 250px;
 	}
 
-	/* .project-table__header__span {
+	.project-table__header__checkbox {
+		position: relative;
+		width: 80px;
+		min-width: 80px;
+	}
+
+	.project-table__header__mass-delete-options {
+		@include dead-center();
+		width: 100%;
+	}
+
+	.project-table__header__mass-delete-options__button {
 		display: inline-block;
-	} */
+		margin: 4px;
+		padding: 2px;
+		text-align: center;
+		color: black;
+		cursor: pointer;
+	}
+
+	.project-table__header__mass-delete-options__button--disabled {
+		color: lightgray;
+		cursor: default;
+		pointer-events: none
+	}
 
 	.project-table__data {
 		@include border-line();

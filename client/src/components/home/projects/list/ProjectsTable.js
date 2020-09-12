@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+	setMassDelete,
+} from "../../../../actions";
 
 import { getElementLocation } from "../../../../utils/displaySizeUtils";
 
 import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
+
+import { toggleDisableButtons } from "../../../../utils/massDeleteUtils";
 
 // Components
 /* import SortButtons from "./SortButtons"; */
@@ -13,6 +19,7 @@ import "../../../../SCSS/projects/projectsTableAndRows.scss";
 
 export default function ProjectsTable() {
 	const reduxState = useSelector((state) => state);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		if (reduxState.displaySizeVariables.window !== null) {
@@ -28,23 +35,60 @@ export default function ProjectsTable() {
 		}
 	}, [reduxState.displaySizeVariables]);
 
+	useEffect(() => {
+		toggleDisableButtons(
+			reduxState.massDelete.projects.length === 0,
+			"project-table__header__mass-delete-options"
+		);
+	}, [reduxState.massDelete.projects]);
+
+	const checkAllProjects = () => {
+		let allProjects = [];
+		for (let project of reduxState.projects) {
+			allProjects.push(project.project_id);
+		}
+
+		dispatch(
+			setMassDelete({
+				projects: allProjects,
+			})
+		);
+	};
+
+	const uncheckAllProjects = () => {
+		dispatch(
+			setMassDelete({
+				projects: [],
+			})
+		);
+	};
+
 	return (
 		<div className="projects-table-component">
 			<table className="projects-table">
 				<thead className="">
 					<tr className="project-table__row project-table__row--sticky">
+						<th className="project-table__header project-table__header__checkbox">
+							<div className="project-table__header__mass-delete-options">
+								<div className="project-table__header__mass-delete-options__button" onClick={checkAllProjects}>
+									<i className="fa fa-check-square-o" aria-hidden="true" />
+								</div>
+								<div className="project-table__header__mass-delete-options__button" onClick={uncheckAllProjects}>
+									<i className="fa fa-square-o" aria-hidden="true" />
+								</div>
+								<div className="project-table__header__mass-delete-options__button">
+									<i className="fa fa-trash-o" aria-hidden="true" />
+								</div>
+							</div>
+						</th>
 						<th className="project-table__header js-project-table__header">
 							<span className="project-table__header__span">Name</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">
-								Created on
-							</span>
+							<span className="project-table__header__span">Created on</span>
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">
-								Start Date
-							</span>
+							<span className="project-table__header__span">Start Date</span>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Due Date</span>

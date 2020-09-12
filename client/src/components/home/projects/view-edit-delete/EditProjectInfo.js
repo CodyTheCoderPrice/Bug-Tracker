@@ -12,11 +12,11 @@ import {
 	formatDateYYYYmmDD,
 } from "../../../../utils/dateUtils";
 
-import {
+/* import {
 	getElementSize,
 	getElementStyle,
 	stripNonDigits,
-} from "../../../../utils/displaySizeUtils";
+} from "../../../../utils/displaySizeUtils"; */
 
 import {
 	toggleCharCountColor,

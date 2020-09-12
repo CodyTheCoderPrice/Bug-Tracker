@@ -15,6 +15,8 @@ import accountReducer from "./accountReducer";
 import projectsReducer from "./projectsReducer";
 // SearchSortFilter
 import projectsSearchFilterSortReducer from "./search-filter-sort/projectsSearchFilterSortReducer";
+// Mass delete
+import massDeleteReducer from "./massDeleteReducer";
 // Errors
 import inputErrorReducer from "./inputErrorReducer";
 
@@ -29,5 +31,6 @@ export default combineReducers({
 	account: accountReducer,
 	projects: projectsReducer,
 	projectsSearchFilterSort: projectsSearchFilterSortReducer,
+	massDelete: massDeleteReducer,
 	inputErrors: inputErrorReducer,
 });
