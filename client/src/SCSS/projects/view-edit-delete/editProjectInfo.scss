@@ -135,7 +135,6 @@
 
 	.project-box__group__field__tooltip-container__text-box {
 		background-color: black;
-		border-radius: 10px;
 		padding: 12px;
 		width: 146px;
 		text-align: left;
@@ -160,7 +159,6 @@
 	.form-buttons-centered-container__submit-button {
 		float: left;
 		border: 1px solid black;
-		border-radius: 10px;
 		background-color: $light-blue-gray;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
@@ -183,7 +181,6 @@
 
 		float: right;
 		border: 1px solid black;
-		border-radius: 10px;
 		background-color: white;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.

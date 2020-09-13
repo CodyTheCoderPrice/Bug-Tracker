@@ -120,7 +120,7 @@ export function useSearchBarResizeAndBorderEventListener(
 			// Because of css centering, this element is given equal empty space
 			// ...on both sides equal to the subtracted value divided by 2
 			const searchBarInnercontainerWidth =
-				remainingSearchFilterSortBarWidth - 60;
+				remainingSearchFilterSortBarWidth - 80;
 
 			searchBarCenteringContainer.style.width =
 				remainingSearchFilterSortBarWidth + "px";

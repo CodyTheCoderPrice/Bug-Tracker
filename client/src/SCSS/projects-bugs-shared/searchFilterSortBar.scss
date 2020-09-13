@@ -19,14 +19,6 @@
 		width: 100%;
 	}
 
-	// Moves sort-by dropdown-list, sort-by-ascending radio buttons,
-	// ...and filter dropdown button to the right of the bar
-	.search-filter-sort-bar__sort-filter-group-container {
-		position: absolute;
-		right: 0px;
-		width: 400px;
-	}
-
 	.search-filter-sort-bar__centering-container {
 		position: relative;
 		float: left;
@@ -42,22 +34,12 @@
 		width: 100px;
 	}
 
-	.search-filter-sort-bar__centering-container--for-sort-by-type {
-		margin: 0px 10px 0px 10px;
-		width: 140px;
-	}
-
-	.search-filter-sort-bar__centering-container--for-sort-by-ascending {
-		width: 120px;
-	}
-
 	.search-filter-sort-bar__centering-container__new-project-button {
 		@include stop-text-selection();
 		@include vertical-center();
 
 		margin-left: 15px;
 		border: 1px solid black;
-		border-radius: 10px;
 		background-color: white;
 		padding: 7px;
 		width: 120px;
@@ -72,11 +54,6 @@
 
 	.search-filter-sort-bar__centering-container__inner-container--search-bar-border {
 		border: 2px solid $blue-gray;
-	}
-
-	// Used by sort-by-ascending to allows radio buttons to be next to their labels
-	.search-filter-sort-bar__centering-container__inner-container--full-width {
-		width: 100%;
 	}
 
 	.search-filter-sort-bar__centering-container__inner-container__search-bar {
@@ -94,8 +71,8 @@
 		// Instead of relative to make sure the button always stays next to the search-bar
 		position: absolute;
 		background-color: $light-blue-gray;
-		height: $search-bar-button-height-width;
-		width: $search-bar-button-height-width;
+		height: $search-bar-button-height;
+		width: $search-bar-button-width;
 		cursor: pointer;
 	}
 	.search-filter-sort-bar__centering-container__inner-container__search-bar-button:hover,
@@ -108,24 +85,12 @@
 		color: white;
 	}
 
-	.search-filter-sort-bar__centering-container__inner-container__order-by-type-label {
-		display: block;
-		margin-bottom: 2px;
-	}
-
-	.search-filter-sort-bar__centering-container__inner-container__order-by-type-select {
-		border: 1px solid black;
-		background-color: white;
-		width: 125px;
-		font-size: 14px;
-	}
-
-	.search-filter-sort-bar__centering-container__inner-container__block {
-		display: block;
-	}
-
-	.search-filter-sort-bar__centering-container__inner-container__block--bottom-margin {
-		margin-bottom: 3px;
+	// Moves sort-by dropdown-list, sort-by-ascending radio buttons,
+	// ...and filter dropdown button to the right of the bar
+	.search-filter-sort-bar__sort-filter-group-container {
+		position: absolute;
+		right: 0px;
+		width: 109px;
 	}
 
 	.search-filter-sort-bar__filter-container {

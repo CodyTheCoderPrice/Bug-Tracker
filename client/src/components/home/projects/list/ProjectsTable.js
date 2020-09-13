@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { setMassDelete, setWhichAccountComponentsDisplay, setWhichProjectComponentsDisplay, setWhichMassDeleteComponentsDisplay } from "../../../../actions";
+import {
+	setMassDelete,
+	setWhichAccountComponentsDisplay,
+	setWhichProjectComponentsDisplay,
+	setWhichMassDeleteComponentsDisplay,
+} from "../../../../actions";
 
 import { getElementLocation } from "../../../../utils/displaySizeUtils";
 
@@ -72,9 +77,11 @@ export default function ProjectsTable() {
 			})
 		);
 
-		dispatch(setWhichMassDeleteComponentsDisplay({
-			massDeleteProjectsModal: true,
-		}))
+		dispatch(
+			setWhichMassDeleteComponentsDisplay({
+				massDeleteProjectsModal: true,
+			})
+		);
 	};
 
 	return (
@@ -105,54 +112,41 @@ export default function ProjectsTable() {
 							</div>
 						</th>
 						<th className="project-table__header js-project-table__header">
-							<div className="project-table__header__centering-container">
-								<span className="project-table__header__centering-container__span">
-									Name
-								</span>
-								<SortArrowsButton sortId={1} />
-							</div>
+							<span className="project-table__header__span">
+								Name
+							</span>
+							<SortArrowsButton sortId={1} />
 						</th>
 						<th className="project-table__header">
-							<div className="project-table__header__centering-container">
-								<span className="project-table__header__centering-container__span">
-									Created on
-								</span>
-								<SortArrowsButton sortId={2} />
-							</div>
+							<span className="project-table__header__span">
+								Created on
+							</span>
+							<SortArrowsButton sortId={2} />
 						</th>
 						<th className="project-table__header">
-							<div className="project-table__header__centering-container">
-								<span className="project-table__header__centering-container__span">
-									Start Date
-								</span>
-								<SortArrowsButton sortId={3} />
-							</div>
+							<span className="project-table__header__span">
+								Start Date
+							</span>
+							<SortArrowsButton sortId={3} />
 						</th>
 						<th className="project-table__header">
-							<div className="project-table__header__centering-container">
-								<span className="project-table__header__centering-container__span">
-									Due Date
-								</span>
-								<SortArrowsButton sortId={4} />
-							</div>
+							<span className="project-table__header__span">
+								Due Date
+							</span>
+							<SortArrowsButton sortId={4} />
 						</th>
 						<th className="project-table__header">
-							<div className="project-table__header__centering-container">
-								<span className="project-table__header__centering-container__span">
-									Priority
-								</span>
-								<SortArrowsButton sortId={5} />
-							</div>
+							<span className="project-table__header__span">
+								Priority
+							</span>
+							<SortArrowsButton sortId={5} />
 						</th>
 						<th className="project-table__header">
-							<div className="project-table__header__centering-container">
-								<span className="project-table__header__centering-container__span">
-									Status
-								</span>
-								<SortArrowsButton sortId={6} />
-							</div>
+							<span className="project-table__header__span">
+								Status
+							</span>
+							<SortArrowsButton sortId={6} />
 						</th>
-						<th className="project-table__header">{/*For more info link*/}</th>
 						<th className="project-table__header js-remaining-space">
 							{/*Fills remaining empty space*/}
 						</th>

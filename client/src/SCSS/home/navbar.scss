@@ -42,6 +42,10 @@
 		background-color: $light-blue-gray;
 	}
 
+	.navbar-button--account-selected {
+		background-color: $account-dropdown-button-color;
+	}
+
 	.navbar-button__text-container {
 		@include vertical-center();
 		@include stop-text-selection();

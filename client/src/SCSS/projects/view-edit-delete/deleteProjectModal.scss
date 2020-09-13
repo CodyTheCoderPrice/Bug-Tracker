@@ -47,7 +47,6 @@
 	.centered-buttons-container__delete {
 		float: left;
 		border: 1px solid black;
-		border-radius: 10px;
 		background-color: #d36464;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
@@ -68,7 +67,6 @@
 	.centered-buttons-container__cancel {
 		float: right;
 		border: 1px solid black;
-		border-radius: 10px;
 		background-color: #e7e7e7;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.

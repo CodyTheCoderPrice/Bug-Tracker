@@ -90,7 +90,7 @@ export default function Navbar() {
 		setNavbarButtonColor(
 			reduxState.accountComponentsDisplay.accountDropdown,
 			document.getElementsByClassName("js-account-button")[0],
-			"navbar-button--selected"
+			"navbar-button--account-selected"
 		);
 	}, [
 		reduxState.accountComponentsDisplay.accountDropdown,
@@ -144,7 +144,7 @@ export default function Navbar() {
 					/* onClick={} */
 				>
 					<div className="navbar-button__text-container">
-						<i className="fa fa-bug" aria-hidden="true" /> Bugs (Coming soon)
+						<i className="fa fa-bug" aria-hidden="true" /> Bugs (coming soon)
 					</div>
 				</div>
 				<div

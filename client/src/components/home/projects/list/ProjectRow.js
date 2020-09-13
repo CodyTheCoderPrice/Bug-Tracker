@@ -28,9 +28,7 @@ export default function ProjectRow(props) {
 
 	const onChangeMassDelete = (e) => {
 		const value = Number(e.target.value);
-		let deepCopyMassDeleteArray = [
-			...reduxState.massDelete[e.target.name],
-		];
+		let deepCopyMassDeleteArray = [...reduxState.massDelete[e.target.name]];
 		const index = deepCopyMassDeleteArray.indexOf(value);
 
 		if (index === -1) {
@@ -61,7 +59,12 @@ export default function ProjectRow(props) {
 				/>
 			</td>
 			<td className="project-table__data">
-				<span className="project-table__data__info">{props.project.name}</span>
+				<span
+					className="project-table__data__info project-table__data__info--blue-link"
+					onClick={openViewProjectDashboard}
+				>
+					{props.project.name}
+				</span>
 			</td>
 			<td className="project-table__data">
 				<span className="project-table__data__info">
@@ -86,14 +89,6 @@ export default function ProjectRow(props) {
 			<td className="project-table__data">
 				<span className="project-table__data__info">
 					{props.project.status_option}
-				</span>
-			</td>
-			<td className="project-table__data">
-				<span
-					className="project-table__data__info project-table__data__info--blue-link"
-					onClick={openViewProjectDashboard}
-				>
-					More Info
 				</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}

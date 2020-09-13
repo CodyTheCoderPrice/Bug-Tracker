@@ -6,9 +6,9 @@ import { setProjectsSearchFilterSort } from "../../../../actions";
 import sortArrowsBothEmpty from "../../../../images/sort-arrows-both-empty.svg";
 import sortArrowsTopFilled from "../../../../images/sort-arrows-top-filled.svg";
 import sortArrowsBottomFilled from "../../../../images/sort-arrows-bottom-filled.svg";
-import "../../../../SCSS/projects-bugs-shared/sortButtons.scss";
+import "../../../../SCSS/projects-bugs-shared/sortArrowsButton.scss";
 
-export default function SortButtons(props) {
+export default function SortArrowsButton(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -33,7 +33,7 @@ export default function SortButtons(props) {
 
 	return (
 		<img
-			className="project-table__header__centering-container__sort-arrows"
+			className="sort-arrows"
 			src={
 				reduxState.projectsSearchFilterSort.sortByType !== props.sortId
 					? sortArrowsBothEmpty

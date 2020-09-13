@@ -4,11 +4,12 @@
 	.dropdown-container {
 		position: absolute;
 		right: 0;
-		border: 5px solid $light-blue-gray;
+		border: 5px solid $account-dropdown-button-color;
 		border-top: none;
 		border-right: none;
 		background: white;
 		height: 300px;
+		/* width: 235px; */
 		width: 235px;
 		text-align: left;
 		font-family: Arial, Helvetica, sans-serif;

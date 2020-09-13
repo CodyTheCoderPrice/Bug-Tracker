@@ -37,23 +37,13 @@
 		// Used box shadow since the header row being sticky with 
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: 0 1px 0 $medium-gray;
-		width: 250px;
+		width: 300px;
 	}
 
 	.project-table__header--for-mass-delete {
 		position: relative;
 		width: 80px;
 		min-width: 80px;
-	}
-
-	.project-table__header__centering-container {
-		display: inline-block;
-	}
-
-	.project-table__header__centering-container__sort-arrows {
-		@include vertical-center();
-		margin-left: 8px;
-		cursor: pointer;
 	}
 
 	.project-table__header__mass-delete-options {
@@ -82,8 +72,7 @@
 	}
 
 	.project-table__data__info--blue-link {
-		color: blue;
-		font-size: 105%;
+		color: $blue-link;
 		cursor: pointer;
 	}
 

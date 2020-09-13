@@ -154,56 +154,6 @@ export default function SearchFilterSortBar() {
 					</div>
 				</div>
 				<div className="search-filter-sort-bar__sort-filter-group-container js-projects-sort-filter-group-container">
-					<div className="search-filter-sort-bar__centering-container search-filter-sort-bar__centering-container--for-sort-by-type">
-						<div className="search-filter-sort-bar__centering-container__inner-container">
-							<label
-								htmlFor="projects-sort-by-type"
-								className="search-filter-sort-bar__centering-container__inner-container__order-by-type-label"
-							>
-								Sort by:
-							</label>
-							<select
-								name="sortByType"
-								value={reduxState.projectsSearchFilterSort.sortByType}
-								onChange={(e) => onChangeSortByType(e)}
-								id="projects-sort-by-type"
-								className="search-filter-sort-bar__centering-container__inner-container__order-by-type-select"
-							>
-								<option value="1">Name</option>
-								<option value="2">Created on</option>
-								<option value="3">Start Date</option>
-								<option value="4">Due Date</option>
-								<option value="5">Priority</option>
-								<option value="6">Status</option>
-							</select>
-						</div>
-					</div>
-					<div className="search-filter-sort-bar__centering-container search-filter-sort-bar__centering-container--for-sort-by-ascending">
-						<div className="search-filter-sort-bar__centering-container__inner-container search-filter-sort-bar__centering-container__inner-container--full-width">
-							<div className="search-filter-sort-bar__centering-container__inner-container__block search-filter-sort-bar__centering-container__inner-container__block--bottom-margin">
-								<input
-									type="radio"
-									name="sortByAscending"
-									value="true"
-									onChange={(e) => onChangeSortByAscending(e)}
-									id="projects-radio-ascending"
-									checked={reduxState.projectsSearchFilterSort.sortByAscending}
-								/>
-								<label htmlFor="projects-radio-ascending">Ascending</label>
-							</div>
-							<div className="search-filter-sort-bar__centering-container__inner-container__block">
-								<input
-									type="radio"
-									name="sortByAscending"
-									value="false"
-									onChange={(e) => onChangeSortByAscending(e)}
-									id="projects-radio-descending"
-									checked={!reduxState.projectsSearchFilterSort.sortByAscending}
-								/>
-								<label htmlFor="projects-radio-descending">Descending</label>
-							</div>
-						</div>
-					</div>
 					<div className="search-filter-sort-bar__filter-container">
 						<div
 							className="search-filter-sort-bar__filter-container__button js-projects-filter-button"
