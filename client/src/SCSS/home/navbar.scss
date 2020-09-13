@@ -2,7 +2,6 @@
 @import "../utils//mixins";
 
 .navbar-and-other-components-container {
-	z-index: 3;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
@@ -27,10 +26,6 @@
 		// ...will always remain on screen during screen resizing
 		position: absolute;
 		right: 0;
-	}
-
-	.navbar-button--large {
-		width: 240px;
 	}
 
 	// Being used temporarily for coming soon bug functionality

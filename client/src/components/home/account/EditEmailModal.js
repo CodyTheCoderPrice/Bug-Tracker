@@ -34,18 +34,15 @@ export default function EditEmailModal() {
 	const backToEditInfo = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
 				editInfoModal: true,
 			})
 		);
 	};
 
 	const closeModals = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
-			})
-		);
+		dispatch(setWhichAccountComponentsDisplay({
+			accountDropdown: true,
+		}));
 	};
 
 	const handleSubmit = (e) => {
@@ -64,7 +61,9 @@ export default function EditEmailModal() {
 				</div>
 				<h1 className="title">Edit Email</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
-					<label htmlFor="edit-account-email-email" className="form__label">Email: </label>
+					<label htmlFor="edit-account-email-email" className="form__label">
+						Email:{" "}
+					</label>
 					<input
 						type="email"
 						name="email"
@@ -73,10 +72,10 @@ export default function EditEmailModal() {
 						id="edit-account-email-email"
 						className="form__text-input"
 					/>
-					<span className="form__errors">
-						{reduxState.inputErrors.email}
-					</span>
-					<label htmlFor="edit-account-email-password" className="form__label">Current Password: </label>
+					<span className="form__errors">{reduxState.inputErrors.email}</span>
+					<label htmlFor="edit-account-email-password" className="form__label">
+						Current Password:{" "}
+					</label>
 					<input
 						type="password"
 						name="currentPassword"

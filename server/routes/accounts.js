@@ -97,6 +97,9 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			account_id: account.rows[0].account_id,
 		};
 
+		// Removes hash_pass so it is not passed to the front end
+		delete account.rows[0].hash_pass;
+
 		// Sign token
 		jwt.sign(
 			tokenPayload,

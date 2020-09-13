@@ -18,9 +18,6 @@ import {
 
 import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
 
-// Components
-import AccountDropdown from "./account/AccountDropdown";
-
 import "../../SCSS/home/navbar.scss";
 
 export default function Navbar() {
@@ -87,11 +84,11 @@ export default function Navbar() {
 			reduxState.projectComponentsDisplay.projectsTable,
 			document.getElementById("project-button-icon")
 		);
-		setNavbarButtonColor(
+		/* setNavbarButtonColor(
 			reduxState.accountComponentsDisplay.accountDropdown,
 			document.getElementsByClassName("js-account-button")[0],
 			"navbar-button--account-selected"
-		);
+		); */
 	}, [
 		reduxState.accountComponentsDisplay.accountDropdown,
 		reduxState.projectComponentsDisplay.projectsTable,
@@ -148,7 +145,7 @@ export default function Navbar() {
 					</div>
 				</div>
 				<div
-					className="navbar-button navbar-button--right navbar-button--large js-account-button"
+					className="navbar-button navbar-button--right js-account-button"
 					onClick={openAccountDropdown}
 				>
 					<div className="navbar-button__text-container">
@@ -156,11 +153,6 @@ export default function Navbar() {
 						Account
 					</div>
 				</div>
-			</div>
-			<div className="account-dropdown-component-container">
-				{reduxState.accountComponentsDisplay.accountDropdown ? (
-					<AccountDropdown />
-				) : null}
 			</div>
 		</div>
 	);

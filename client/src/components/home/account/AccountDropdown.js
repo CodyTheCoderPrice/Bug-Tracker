@@ -19,7 +19,6 @@ export default function AccountDropdown() {
 	const openEditInfoModals = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
 				editInfoModal: true,
 			})
 		);
@@ -38,7 +37,7 @@ export default function AccountDropdown() {
 			<div className="dropdown-container">
 				<div className="padded-container">
 					<div className="account-info-container">
-						<span className="account-info account-info--bold">
+						<span className="account-info account-info--large-bold">
 							{truncate(
 								reduxState.account.first_name +
 									" " +
@@ -49,8 +48,7 @@ export default function AccountDropdown() {
 						</span>
 						<span className="account-info">{reduxState.account.email}</span>
 						<span className="account-info">
-							<span className="underlined">Joined:</span>{" "}
-							{formatDateMMddYYYY(reduxState.account.joinDate)}
+							Joined: {formatDateMMddYYYY(reduxState.account.joinDate)}
 						</span>
 					</div>
 					<div className="account-link-container">

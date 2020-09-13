@@ -2,47 +2,52 @@
 
 .account-dropdown-component {
 	.dropdown-container {
-		position: absolute;
+		// Must be more than searchFilterSortBar.scss
+		z-index: 2;
+		position: fixed;
+		top: $navbar-height;
 		right: 0;
-		border: 5px solid $account-dropdown-button-color;
+		border: 5px solid black;
 		border-top: none;
 		border-right: none;
 		background: white;
-		height: 300px;
+		height: 250px;
 		/* width: 235px; */
-		width: 235px;
+		width: 350px;
 		text-align: left;
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
 	// Used so that the padding does not affect the size of the dropdown-container
 	.padded-container {
-		padding: 15px 5px 5px 10px;
+		padding: 20px 10px 10px 15px;
 	}
 
 	.account-info {
 		display: block;
-		margin-bottom: 3px;
+		margin-bottom: 8px;
+		font-size: 16px;
 	}
 
-	.account-info--bold {
+	.account-info--large-bold {
+		font-size: 19px;
 		font-weight: bold;
 	}
 
-	.underlined {
-		text-decoration: underline;
-	}
-
 	.account-link-container {
-		margin-top: 15px;
+		margin-top: 30px;
 	}
 
 	.account-link {
 		display: block;
-		margin-bottom: 3px;
-		color: blue;
+		margin-bottom: 8px;
+		color: $blue-link;
 		font-style: bold;
 		text-decoration: none;
 		cursor: pointer;
+	}
+	.account-link:active,
+	.account-link:hover {
+		text-decoration: underline;
 	}
 }

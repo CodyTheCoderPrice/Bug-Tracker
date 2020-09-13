@@ -32,17 +32,14 @@ export default function EditInfoModal() {
 	};
 
 	const closeModals = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
-			})
-		);
+		dispatch(setWhichAccountComponentsDisplay({
+			accountDropdown: true,
+		}));
 	};
 
 	const openEditEmailModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
 				editEmailModal: true,
 			})
 		);
@@ -51,7 +48,6 @@ export default function EditInfoModal() {
 	const openEditPasswordModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
 				editPasswordModal: true,
 			})
 		);
@@ -60,7 +56,6 @@ export default function EditInfoModal() {
 	const openDeleteAccountModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
 				deleteAccountModal: true,
 			})
 		);

@@ -35,18 +35,15 @@ export default function EditPasswordModal() {
 	const backToEditInfo = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
 				editInfoModal: true,
 			})
 		);
 	};
 
 	const closeModals = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
-			})
-		);
+		dispatch(setWhichAccountComponentsDisplay({
+			accountDropdown: true,
+		}));
 	};
 
 	const handleSubmit = (e) => {

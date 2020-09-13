@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 // Navbar
 import Navbar from "./Navbar";
 // Account
+import AccountDropdown from "./account/AccountDropdown";
 import AccountBlurredBackground from "./account/AccountBlurredBackground";
 import EditInfoModal from "./account/EditInfoModal";
 import EditEmailModal from "./account/EditEmailModal";
@@ -25,11 +26,11 @@ export default function Home() {
 		<div className="home-container js-home-container">
 			<Navbar />
 			{/*Account components*/}
-			{reduxState.accountComponentsDisplay.editInfoModal ||
-			reduxState.accountComponentsDisplay.editEmailModal ||
-			reduxState.accountComponentsDisplay.editPasswordModal ||
-			reduxState.accountComponentsDisplay.deleteAccountModal ? (
+			{Object.values(reduxState.accountComponentsDisplay).indexOf(true) > -1 ? (
 				<AccountBlurredBackground />
+			) : null}
+			{reduxState.accountComponentsDisplay.accountDropdown ? (
+				<AccountDropdown />
 			) : null}
 			{reduxState.accountComponentsDisplay.editInfoModal ? (
 				<EditInfoModal />

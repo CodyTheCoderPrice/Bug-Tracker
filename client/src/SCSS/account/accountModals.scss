@@ -3,11 +3,10 @@
 
 .account-modals-blurred-background {
 	// Must be more than searchSortFilter bar and table headers
-	// ...but less than the navbar
 	z-index: 2;
 	position: fixed;
 	left: 0;
-	top: 0;
+	top: $navbar-height;
 	background-color: black;
 	opacity: 0.5;
 	height: 100vh;

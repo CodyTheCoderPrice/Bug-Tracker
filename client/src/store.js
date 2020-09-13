@@ -15,7 +15,6 @@ const persistConfig = {
 	storage,
 	whitelist: [
 		"authComponentsDisplay",
-		"accountComponentsDisplay",
 		"projectComponentsDisplay",
 		"priorityStatusArrays",
 		"auth",

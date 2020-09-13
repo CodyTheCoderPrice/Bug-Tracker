@@ -6,7 +6,6 @@ const initialState = {
 	editEmailModal: false,
 	editPasswordModal: false,
 	deleteAccountModal: false,
-	accountModals: false,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -39,11 +38,6 @@ export default function (state = initialState, action) {
 						action.displays.deleteAccountModal !== undefined
 							? action.displays.deleteAccountModal
 							: false,
-					accountModals:
-						action.displays.editInfoModal ||
-						action.displays.editEmailModal ||
-						action.displays.editPasswordModal ||
-						action.displays.deleteAccountModal,
 				};
 			}
 		default:

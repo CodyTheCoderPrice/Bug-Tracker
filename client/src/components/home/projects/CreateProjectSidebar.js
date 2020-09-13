@@ -189,7 +189,7 @@ export default function CreateProjectSidebar() {
 
 	return (
 		<div className="create-projects-component">
-			<div className="blurred-background js-create-project-blurred-background" />
+			<div className="blurred-background" />
 			<div className="create-project-sidebar js-create-project-sidebar">
 				<div className="x-button" onClick={closeCreateProjectSidebar}>
 					<i className="fa fa-times" aria-hidden="true"></i>
