@@ -28,10 +28,10 @@ export default function SearchFilterSortBar() {
 		reduxState,
 		"js-projects-search-bar",
 		"js-projects-search-bar-button",
-		"js-projects-search-bar-and-button-inner-container",
-		"search-filter-sort-bar__centering-container__inner-container--search-bar-border",
+		"js-projects-search-bar-and-button-search-group-container",
+		"search-filter-sort-bar__centering-container__search-group-container--with-border",
 		"js-new-project-button-centering-container",
-		"js-projects-sort-filter-group-container",
+		"js-projects-filter-area-container",
 		"js-projects-search-bar-centering-container"
 	);
 
@@ -42,7 +42,7 @@ export default function SearchFilterSortBar() {
 			document.getElementsByClassName(
 				"js-projects-filter-content-container"
 			)[0],
-			"search-filter-sort-bar__filter-container__button--clicked"
+			"search-filter-sort-bar__filter-area-container__dropdown-container__button--clicked"
 		);
 	}, [showFilterDropdown]);
 
@@ -125,7 +125,7 @@ export default function SearchFilterSortBar() {
 	return (
 		<div className="search-filter-sort-component">
 			<div className="search-filter-sort-bar js-project-search-filter-sort-bar">
-				<div className="search-filter-sort-bar__centering-container search-filter-sort-bar__centering-container--for-new-project-button js-new-project-button-centering-container">
+				<div className="search-filter-sort-bar__centering-container js-new-project-button-centering-container">
 					<div
 						className="search-filter-sort-bar__centering-container__new-project-button"
 						onClick={openCreateProjectSidebar}
@@ -133,39 +133,39 @@ export default function SearchFilterSortBar() {
 						<i className="fa fa-plus" aria-hidden="true" /> New Project
 					</div>
 				</div>
-				<div className="search-filter-sort-bar__centering-container search-filter-sort-bar__centering-container--for-search-bar js-projects-search-bar-centering-container">
-					<div className="search-filter-sort-bar__centering-container__inner-container js-projects-search-bar-and-button-inner-container">
+				<div className="search-filter-sort-bar__centering-container js-projects-search-bar-centering-container">
+					<div className="search-filter-sort-bar__centering-container__search-group-container js-projects-search-bar-and-button-search-group-container">
 						<input
 							type="text"
 							name="searchBarText"
 							onChange={(e) => onChangeSearchBar(e)}
 							onKeyDown={(e) => searchBarKeyDown(e)}
 							value={searchBarText.searchBarText}
-							className="search-filter-sort-bar__centering-container__inner-container__search-bar js-projects-search-bar"
+							className="search-filter-sort-bar__centering-container__search-group-container__search-bar js-projects-search-bar"
 						/>
 						<div
-							className="search-filter-sort-bar__centering-container__inner-container__search-bar-button js-projects-search-bar-button"
+							className="search-filter-sort-bar__centering-container__search-group-container__search-bar-button js-projects-search-bar-button"
 							onClick={updateSearchKeyWordString}
 						>
-							<span className="search-filter-sort-bar__centering-container__inner-container__search-bar-button__icon">
+							<span className="search-filter-sort-bar__centering-container__search-group-container__search-bar-button__icon">
 								<i className="fa fa-search" aria-hidden="true" />
 							</span>
 						</div>
 					</div>
 				</div>
-				<div className="search-filter-sort-bar__sort-filter-group-container js-projects-sort-filter-group-container">
-					<div className="search-filter-sort-bar__filter-container">
+				<div className="search-filter-sort-bar__filter-area-container js-projects-filter-area-container">
+					<div className="search-filter-sort-bar__filter-area-container__dropdown-container">
 						<div
-							className="search-filter-sort-bar__filter-container__button js-projects-filter-button"
+							className="search-filter-sort-bar__filter-area-container__dropdown-container__button js-projects-filter-button"
 							onClick={toggleFilterDropdown}
 						>
-							<span className="search-filter-sort-bar__filter-container__button__text">
+							<span className="search-filter-sort-bar__filter-area-container__dropdown-container__button__text">
 								<i className="fa fa-filter" aria-hidden="true" /> Filter
 							</span>
 						</div>
-						<div className="search-filter-sort-bar__filter-container__content-dropdown js-projects-filter-content-container">
-							<div className="search-filter-sort-bar__filter-container__content-dropdown__content">
-								<span className="search-filter-sort-bar__filter-container__content-dropdown__content__title">
+						<div className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown js-projects-filter-content-container">
+							<div className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content">
+								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Priority
 								</span>
 								{reduxState.priorityStatusArrays.projectPriority.map(
@@ -173,7 +173,7 @@ export default function SearchFilterSortBar() {
 										return (
 											<div
 												key={i}
-												className="search-filter-sort-bar__filter-container__content-dropdown__content__block"
+												className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block"
 											>
 												<input
 													type="checkbox"
@@ -184,11 +184,11 @@ export default function SearchFilterSortBar() {
 														obj.id
 													)}
 													id={"projects-priority-filter-" + obj.id}
-													className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
+													className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__checkbox"
 												/>
 												<label
 													htmlFor={"projects-priority-filter-" + obj.id}
-													className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
+													className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__label"
 												>
 													{obj.option !== "" ? obj.option : "Not Assigned"}
 												</label>
@@ -197,15 +197,15 @@ export default function SearchFilterSortBar() {
 									}
 								)}
 							</div>
-							<div className="search-filter-sort-bar__filter-container__content-dropdown__content search-filter-sort-bar__filter-container__content-dropdown__content--right">
-								<span className="search-filter-sort-bar__filter-container__content-dropdown__content__title">
+							<div className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content--right">
+								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Status
 								</span>
 								{reduxState.priorityStatusArrays.projectStatus.map((obj, i) => {
 									return (
 										<div
 											key={i}
-											className="search-filter-sort-bar__filter-container__content-dropdown__content__block"
+											className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block"
 										>
 											<input
 												type="checkbox"
@@ -216,11 +216,11 @@ export default function SearchFilterSortBar() {
 													obj.id
 												)}
 												id={"projects-status-filter-" + obj.id}
-												className="search-filter-sort-bar__filter-container__content-dropdown__content__block__checkbox"
+												className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__checkbox"
 											/>
 											<label
 												htmlFor={"projects-status-filter-" + obj.id}
-												className="search-filter-sort-bar__filter-container__content-dropdown__content__block__label"
+												className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__label"
 											>
 												{obj.option !== "" ? obj.option : "Not Assigned"}
 											</label>
