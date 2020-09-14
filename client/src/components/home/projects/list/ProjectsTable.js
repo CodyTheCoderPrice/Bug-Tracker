@@ -88,7 +88,7 @@ export default function ProjectsTable() {
 		<div className="projects-table-component">
 			<table className="projects-table">
 				<thead className="">
-					<tr className="project-table__row project-table__row--sticky">
+					<tr className="project-table__row">
 						<th className="project-table__header project-table__header--for-mass-delete">
 							<div className="project-table__header__mass-delete-options">
 								<div

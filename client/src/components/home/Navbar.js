@@ -85,16 +85,16 @@ export default function Navbar() {
 			document.getElementById("project-button-icon")
 		);
 		/* setNavbarButtonColor(
-			reduxState.accountComponentsDisplay.accountDropdown,
+			reduxState.accountComponentsDisplay.accountSidebar,
 			document.getElementsByClassName("js-account-button")[0],
 			"navbar-button--account-selected"
 		); */
 	}, [
-		reduxState.accountComponentsDisplay.accountDropdown,
+		reduxState.accountComponentsDisplay.accountSidebar,
 		reduxState.projectComponentsDisplay.projectsTable,
 	]);
 
-	const openAccountDropdown = () => {
+	const openAccountSidebar = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectComponentsDisplay,
@@ -105,7 +105,7 @@ export default function Navbar() {
 		);
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountDropdown: !reduxState.accountComponentsDisplay.accountDropdown,
+				accountSidebar: !reduxState.accountComponentsDisplay.accountSidebar,
 			})
 		);
 	};
@@ -146,7 +146,7 @@ export default function Navbar() {
 				</div>
 				<div
 					className="navbar-button navbar-button--right js-account-button"
-					onClick={openAccountDropdown}
+					onClick={openAccountSidebar}
 				>
 					<div className="navbar-button__text-container">
 						<i className="fa fa-fw fa-user" />

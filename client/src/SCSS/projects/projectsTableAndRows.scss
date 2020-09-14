@@ -16,12 +16,12 @@
 		text-align: center;
 	}
 
-	.project-table__row--sticky {
+	/* .project-table__row--sticky {
 		position: -webkit-sticky;
 		position: sticky;
 		top: $navbar-height + $search-filter-sort-bar-height + 2;
 		background-color: $project-table-background-color;
-	}
+	} */
 
 	.project-table__row--empty {
 		height: $project-bug-table-row-height + ($project-bug-table-row-height * 0.5);
@@ -33,7 +33,10 @@
 	}
 
 	.project-table__header {
-		position: relative;
+		position: -webkit-sticky;
+		position: sticky;
+		top: $navbar-height + $search-filter-sort-bar-height + 2;
+		background-color: $project-table-background-color;
 		// Used box shadow since the header row being sticky with 
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: 0 1px 0 $medium-gray;
@@ -41,7 +44,6 @@
 	}
 
 	.project-table__header--for-mass-delete {
-		position: relative;
 		width: 80px;
 		min-width: 80px;
 	}

@@ -31,10 +31,8 @@ export default function EditInfoModal() {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
-	const closeModals = () => {
-		dispatch(setWhichAccountComponentsDisplay({
-			accountDropdown: true,
-		}));
+	const closeAccountComponents = () => {
+		dispatch(setWhichAccountComponentsDisplay({}));
 	};
 
 	const openEditEmailModal = () => {
@@ -69,7 +67,7 @@ export default function EditInfoModal() {
 	return (
 		<div className="edit-account-modal-components">
 			<div className="edit-account-modal">
-				<div className="exit-button" onClick={closeModals}>
+				<div className="exit-button" onClick={closeAccountComponents}>
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
 				<h1 className="title">Edit Personal Info</h1>

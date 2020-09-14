@@ -15,14 +15,14 @@ export default function MassDeleteProjectsModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Disable scrolling for the HTML and body
+	// Disable scrolling for the body
 	useEffect(() => {
 		let body = document.getElementsByClassName("js-body")[0];
 
-		toggleClassName(true, body, "stop-scrolling");
+		toggleClassName(true, body, "stop-x-y-scrolling");
 
 		return () => {
-			toggleClassName(false, body, "stop-scrolling");
+			toggleClassName(false, body, "stop-x-y-scrolling");
 		};
 	}, []);
 

@@ -40,10 +40,8 @@ export default function EditPasswordModal() {
 		);
 	};
 
-	const closeModals = () => {
-		dispatch(setWhichAccountComponentsDisplay({
-			accountDropdown: true,
-		}));
+	const closeAccountComponents = () => {
+		dispatch(setWhichAccountComponentsDisplay({}));
 	};
 
 	const handleSubmit = (e) => {
@@ -57,7 +55,7 @@ export default function EditPasswordModal() {
 				<div className="back-button" onClick={backToEditInfo}>
 					<i className="fa fa-arrow-left" aria-hidden="true"></i>
 				</div>
-				<div className="exit-button" onClick={closeModals}>
+				<div className="exit-button" onClick={closeAccountComponents}>
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
 				<h1 className="title">Edit Password</h1>

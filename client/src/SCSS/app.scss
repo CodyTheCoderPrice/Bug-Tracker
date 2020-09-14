@@ -2,7 +2,11 @@ html, body {
 	width: 100%;
 }
 
-// Used to disable scrolling using JS
-.stop-scrolling {
+// Bellow classes are used by JS
+.stop-x-y-scrolling {
 	overflow: hidden;
-  }
+}
+
+.stop-x-scrolling {
+	overflow-x: hidden;
+}

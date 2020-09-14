@@ -39,12 +39,8 @@ export default function DeleteAccountModal() {
 		);
 	};
 
-	const closeModals = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountDropdown: true,
-			})
-		);
+	const closeAccountComponents = () => {
+		dispatch(setWhichAccountComponentsDisplay({}));
 	};
 
 	const handleSubmit = (e) => {
@@ -58,7 +54,7 @@ export default function DeleteAccountModal() {
 				<div className="back-button" onClick={backToEditInfo}>
 					<i className="fa fa-arrow-left" aria-hidden="true"></i>
 				</div>
-				<div className="exit-button" onClick={closeModals}>
+				<div className="exit-button" onClick={closeAccountComponents}>
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
 				<h1 className="title">Delete Account</h1>
@@ -78,7 +74,9 @@ export default function DeleteAccountModal() {
 					<span className="form__errors">
 						{reduxState.inputErrors.deleteTypedOut}
 					</span>
-					<label htmlFor="delete-account-password" className="form__label">Current Password: </label>
+					<label htmlFor="delete-account-password" className="form__label">
+						Current Password:{" "}
+					</label>
 					<input
 						type="password"
 						name="currentPassword"

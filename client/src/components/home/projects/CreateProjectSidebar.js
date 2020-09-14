@@ -12,16 +12,13 @@ import {
 import { toggleClassName } from "../../../utils/elementUtils";
 
 import {
-	getElementStyle,
-	stripNonDigits,
-} from "../../../utils/displaySizeUtils";
-
-import {
 	toggleCharCountColor,
 	populateComboBox,
 } from "../../../utils/elementUtils";
 
 import { useToggleableDateInput } from "../../../utils/formHookUtils";
+
+import { useSidebarResize } from "../../../utils/sidebarResizeHookUtils";
 
 import "../../../SCSS/projects/createProjectSidebar.scss";
 
@@ -42,6 +39,21 @@ export default function CreateProjectSidebar() {
 
 	const [descriptionCharLimit] = useState(500);
 
+	// Custom hook toggles the display of the date input for completion date
+	// ...based on status and makes sure projectInfo contains accurate
+	// ...completion date info after every toggle
+	const [preservedCompletionDate] = useToggleableDateInput(
+		projectInfo,
+		"js-completion-input-container",
+		reduxState.priorityStatusArrays.projectStatusCompletionIndex
+	);
+
+	// Custom hook resizes the sidebar so that the overflow functionality works
+	const [] = useSidebarResize(
+		reduxState,
+		"js-create-project-sidebar",
+	);
+
 	// clears prior input errors when closing the component
 	useEffect(() => {
 		return () => {
@@ -50,75 +62,19 @@ export default function CreateProjectSidebar() {
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
+	
 
-	// Custom hook toggles the display of the date input for completion date
-	// ...based on status and makes sure projectInfo contains accurate 
-	// ...completion date info after every toggle
-	const [preservedCompletionDate] = useToggleableDateInput(
-		projectInfo,
-		"js-completion-input-container",
-		reduxState.priorityStatusArrays.projectStatusCompletionIndex
-	);
-
-	// Used to decide when to resize the sidebar, and to reset its size
-	const [originalSidebarSizeAndStyle, setOriginalSidebarHeight] = useState(
-		null
-	);
-
-	// Move window to top of screen and disable scrolling for the HTML and body
+	// Move window to top of screen and disable scrolling for the body
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		let body = document.getElementsByClassName("js-body")[0];
 
-		toggleClassName(true, body, "stop-scrolling");
+		toggleClassName(true, body, "stop-x-y-scrolling");
 
 		return () => {
-			toggleClassName(false, body, "stop-scrolling");
+			toggleClassName(false, body, "stop-x-y-scrolling");
 		};
 	}, []);
-
-	// Adjusts the height of the sidebar to fit the screen
-	useEffect(() => {
-		if (
-			reduxState.displaySizeVariables.window !== null &&
-			reduxState.displaySizeVariables.navbar !== null
-		) {
-			let createProjectSidebarElement = document.getElementsByClassName(
-				"js-create-project-sidebar"
-			)[0];
-
-			// Makes sure originalSidebarSizeAndStyle gets set
-			if (originalSidebarSizeAndStyle === null) {
-				const sidebarStyle = getElementStyle(createProjectSidebarElement);
-				setOriginalSidebarHeight({
-					height: stripNonDigits(sidebarStyle.height),
-					marginBottom: stripNonDigits(sidebarStyle.marginBottom),
-					borderBottom: stripNonDigits(sidebarStyle.borderBottomWidth),
-				});
-
-				// Prevents crash since originalSidebarSizeAndStyle will still
-				// ...be null for remainder of this useEfffect iteration
-				return;
-			}
-
-			const adjustedWindowHeight =
-				reduxState.displaySizeVariables.window.height -
-				reduxState.displaySizeVariables.navbar.height -
-				originalSidebarSizeAndStyle.marginBottom -
-				originalSidebarSizeAndStyle.borderBottom;
-
-			if (originalSidebarSizeAndStyle.height > adjustedWindowHeight) {
-				createProjectSidebarElement.style.height = adjustedWindowHeight + "px";
-			} else {
-				createProjectSidebarElement.style.height =
-					originalSidebarSizeAndStyle.height + "px";
-			}
-		}
-	}, [
-		reduxState.displaySizeVariables,
-		originalSidebarSizeAndStyle,
-		reduxState.projects,
-	]);
 
 	useEffect(() => {
 		populateComboBox(
@@ -189,7 +145,7 @@ export default function CreateProjectSidebar() {
 
 	return (
 		<div className="create-projects-component">
-			<div className="blurred-background" />
+			<div className="blurred-background" onClick={closeCreateProjectSidebar} />
 			<div className="create-project-sidebar js-create-project-sidebar">
 				<div className="x-button" onClick={closeCreateProjectSidebar}>
 					<i className="fa fa-times" aria-hidden="true"></i>

@@ -82,7 +82,7 @@ export const updateAccountInfo = (accountInfo) => (dispatch) => {
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));
-			dispatch(setWhichAccountComponentsDisplay({ accountDropdown: true }));
+			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -100,7 +100,7 @@ export const updateAccountEmail = (accountInfo) => (dispatch) => {
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));
-			dispatch(setWhichAccountComponentsDisplay({ accountDropdown: true }));
+			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -118,7 +118,7 @@ export const updateAccountPassword = (accountInfo) => (dispatch) => {
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));
-			dispatch(setWhichAccountComponentsDisplay({ accountDropdown: true }));
+			dispatch(setWhichAccountComponentsDisplay({}));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));

@@ -19,6 +19,7 @@ export const createProject = (projectInfo) => (dispatch) => {
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
+			dispatch(setWhichProjectComponentsDisplay({ projectsTable: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));

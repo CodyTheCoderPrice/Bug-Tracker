@@ -1,26 +1,7 @@
 @import "../utils/variables";
 @import "../utils//mixins";
 
-.account-modals-blurred-background {
-	// Must be more than searchSortFilter bar and table headers
-	z-index: 2;
-	position: fixed;
-	left: 0;
-	top: $navbar-height;
-	background-color: black;
-	opacity: 0.5;
-	height: 100vh;
-	width: 100vw;
-}
-
 .edit-account-modal-components {
-	// These rules allow the account modals to appear in the middle of the screen
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100vh;
-	width: 100vw;
-
 	.edit-account-modal {
 		// Must be the same as account-modals-blurred-background
 		z-index: 2;
@@ -30,8 +11,8 @@
 		transform: translate(-50%, -50%);
 		border: 5px solid black;
 		background-color: white;
-		padding: 25px;
-		height: 480px;
+		padding: 30px;
+		height: $edit-account-modal-height;
 		width: $edit-account-modal-width;
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;

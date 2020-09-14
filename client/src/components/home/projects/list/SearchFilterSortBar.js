@@ -21,7 +21,7 @@ export default function SearchFilterSortBar() {
 
 	const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
-	// This custom hook resizes the searchbar to take up the space
+	// Custom hook resizes the searchbar to take up the space
 	// ...in the middle of the search-sort-filter-bar. Also adds
 	// ... an event listener to highlight the searchbar
 	const [] = useSearchBarResizeAndBorderEventListener(

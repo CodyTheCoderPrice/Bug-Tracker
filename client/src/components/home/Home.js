@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 // Navbar
 import Navbar from "./Navbar";
 // Account
-import AccountDropdown from "./account/AccountDropdown";
+import AccountSidebar from "./account/AccountSidebar";
 import AccountBlurredBackground from "./account/AccountBlurredBackground";
 import EditInfoModal from "./account/EditInfoModal";
 import EditEmailModal from "./account/EditEmailModal";
@@ -29,8 +29,8 @@ export default function Home() {
 			{Object.values(reduxState.accountComponentsDisplay).indexOf(true) > -1 ? (
 				<AccountBlurredBackground />
 			) : null}
-			{reduxState.accountComponentsDisplay.accountDropdown ? (
-				<AccountDropdown />
+			{reduxState.accountComponentsDisplay.accountSidebar ? (
+				<AccountSidebar />
 			) : null}
 			{reduxState.accountComponentsDisplay.editInfoModal ? (
 				<EditInfoModal />

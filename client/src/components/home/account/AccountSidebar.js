@@ -8,13 +8,19 @@ import {
 
 import { formatDateMMddYYYY } from "../../../utils/dateUtils";
 
-import { truncate } from "../../../utils/displayUtils";
+import { useSidebarResize } from "../../../utils/sidebarResizeHookUtils";
 
-import "../../../SCSS/account/accountDropdown.scss";
+import "../../../SCSS/account/accountSidebar.scss";
 
-export default function AccountDropdown() {
+export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	// Custom hook resizes the sidebar so that the overflow functionality works
+	const [] = useSidebarResize(
+		reduxState,
+		"js-account-sidebar",
+	);
 
 	const openEditInfoModals = () => {
 		dispatch(
@@ -33,23 +39,19 @@ export default function AccountDropdown() {
 	};
 
 	return (
-		<div className="account-dropdown-component">
-			<div className="dropdown-container">
+		<div className="account-sidebar-component">
+			<div className="sidebar-container js-account-sidebar">
 				<div className="padded-container">
 					<div className="account-info-container">
-						<span className="account-info account-info--large-bold">
-							{truncate(
-								reduxState.account.first_name +
-									" " +
-									reduxState.account.last_name,
-								40,
-								false
-							)}
-						</span>
-						<span className="account-info">{reduxState.account.email}</span>
-						<span className="account-info">
+						<div className="account-info account-info--large-bold">
+							{reduxState.account.first_name +
+								" " +
+								reduxState.account.last_name}
+						</div>
+						<div className="account-info">{reduxState.account.email}</div>
+						<div className="account-info">
 							Joined: {formatDateMMddYYYY(reduxState.account.joinDate)}
-						</span>
+						</div>
 					</div>
 					<div className="account-link-container">
 						<span onClick={openEditInfoModals} className="account-link">
