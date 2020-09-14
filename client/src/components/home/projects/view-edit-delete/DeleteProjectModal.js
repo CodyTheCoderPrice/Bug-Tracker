@@ -6,7 +6,7 @@ import {
 	deleteProject,
 } from "../../../../actions";
 
-import "../../../../SCSS/projects/view-edit-delete/deleteProjectModal.scss";
+import "../../../../SCSS/projects-bugs-shared/deleteProjectModal.scss";
 
 export default function DeleteProjectModal() {
 	const reduxState = useSelector((state) => state);

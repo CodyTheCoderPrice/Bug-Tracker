@@ -9,7 +9,7 @@ import {
 
 import { toggleClassName } from "../../../../utils/elementUtils";
 
-import "../../../../SCSS/projects-bugs-shared/massDeleteProjectsModal.scss";
+import "../../../../SCSS/projects-bugs-shared/deleteProjectModal.scss";
 
 export default function MassDeleteProjectsModal() {
 	const reduxState = useSelector((state) => state);
@@ -40,7 +40,7 @@ export default function MassDeleteProjectsModal() {
 	};
 
 	return (
-		<div className="mass-delete-projects-modal-component">
+		<div className="delete-project-modal-component">
 			<div className="blurred-background js-delete-project-modal-blurred-background" />
 			<div className="delete-account-modal">
 				<div className="outer-container">
