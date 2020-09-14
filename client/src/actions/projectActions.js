@@ -90,3 +90,20 @@ export const deleteProject = (project_id) => (dispatch) => {
 			}
 		});
 };
+
+export const deleteMultipleProjects = (projectsArray) => (dispatch) => {
+	const headers = { headers: { jwToken: localStorage.jwToken } };
+	axios
+		.post("/api/project/delete-multiple", projectsArray, headers)
+		.then((res) => {
+			const { projects } = res.data;
+			dispatch(setProjects(projects));
+		})
+		.catch((err) => {
+			dispatch(setInputErrors(err.response.data.inputErrors));
+
+			if (err.response.data.inputErrors.jwToken !== undefined) {
+				dispatch(logoutAccount());
+			}
+		});
+};

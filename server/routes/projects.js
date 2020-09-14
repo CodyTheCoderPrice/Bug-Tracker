@@ -232,4 +232,58 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 	}
 });
 
+//==========================
+// Delete multiple projects
+//==========================
+router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
+	let inputErrors = {};
+
+	try {
+		// Declared in the tokenAuthorization middleware
+		const { account_id } = req;
+		// Passed in the post body
+		const { projectsArray } = req.body;
+
+		let queryString = "DELETE FROM project WHERE account_id = $1 AND project_id IN (";
+
+		// Starts at 2 since $1 corresponds to account id
+		for (let i=2; i < projectsArray.length+2; i++) {
+			queryString += "$" + i;
+			if (i < projectsArray.length+1) {
+				queryString += ", "
+			} else {
+				queryString += ")"
+			}
+		}
+
+		const deletedProject = await pool.query(
+			queryString,
+			[account_id, ...projectsArray]
+		);
+
+		const allProjectsForAccount = await pool.query(
+			`WITH p AS (
+			SELECT * FROM project WHERE account_id = $1
+		)
+		SELECT p.project_id, p.account_id, p.name, p.description,
+				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
+				p.creation_date, p.start_date, p.due_date,
+				p.completion_date, pp.option AS priority_option, 
+				ps.option AS status_option
+					FROM p, project_priority pp, project_status ps 
+						WHERE (p.p_priority_id = pp.p_priority_id) 
+							AND (p.p_status_id = ps.p_status_id)
+								ORDER BY p.project_id`,
+			[account_id]
+		);
+
+		res.json({ success: true, projects: allProjectsForAccount.rows });
+	} catch (err) {
+		console.error(err.message);
+		inputErrors.server = "Server error while deleting project";
+		return res.status(500).json({ success: false, inputErrors });
+	}
+});
+
 module.exports = router;
+

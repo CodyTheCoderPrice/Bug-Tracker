@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	setWhichMassDeleteComponentsDisplay,
-	deleteProject,
+	deleteMultipleProjects,
 	setMassDelete,
 } from "../../../../actions";
 
@@ -27,9 +27,9 @@ export default function MassDeleteProjectsModal() {
 	}, []);
 
 	const deleteCheckedProjects = () => {
-		for (let project_id of reduxState.massDelete.projects) {
-			dispatch(deleteProject({ project_id: project_id }));
-		}
+		dispatch(
+			deleteMultipleProjects({ projectsArray: reduxState.massDelete.projects })
+		);
 
 		dispatch(setMassDelete({ projects: [] }));
 		dispatch(setWhichMassDeleteComponentsDisplay({}));
