@@ -84,11 +84,6 @@ export default function Navbar() {
 			reduxState.projectComponentsDisplay.projectsTable,
 			document.getElementById("project-button-icon")
 		);
-		/* setNavbarButtonColor(
-			reduxState.accountComponentsDisplay.accountSidebar,
-			document.getElementsByClassName("js-account-button")[0],
-			"navbar-button--account-selected"
-		); */
 	}, [
 		reduxState.accountComponentsDisplay.accountSidebar,
 		reduxState.projectComponentsDisplay.projectsTable,

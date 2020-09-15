@@ -117,7 +117,7 @@
 
 	.project-content-container {
 		// Gives modal scrolling when content goes beyond modal height
-		overflow-y: scroll !important;
+		overflow-y: auto !important;
 		overflow-x: hidden !important;
 	}
 

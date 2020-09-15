@@ -96,13 +96,14 @@ export default function EditProjectInfo() {
 			"js-projects-description-text-area"
 		)[0];
 
-		// Causes scrollHeight to become the height of the content
-		editDescriptionTextArea.style.height = "0px";
-		editDescriptionTextArea.style.height =
-			editDescriptionTextArea.scrollHeight + 10 + "px";
-		// Below comment disables an unneeded warning about optimization
-		// eslint-disable-next-line
-	}, [reduxState.displaySizeVariables]);
+		const myObserver = new ResizeObserver(() => {
+			editDescriptionTextArea.style.height = "0px";
+			editDescriptionTextArea.style.height =
+				editDescriptionTextArea.scrollHeight + 10 + "px";
+		});
+
+		myObserver.observe(document.getElementsByClassName("js-projects-description-project-box")[0]);
+	}, []);
 
 	useEffect(() => {
 		toggleCharCountColor(
