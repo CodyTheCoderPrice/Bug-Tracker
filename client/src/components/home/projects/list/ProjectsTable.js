@@ -25,6 +25,7 @@ export default function ProjectsTable() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	// Fills remaining space in a table row after status
 	useEffect(() => {
 		if (reduxState.displaySizeVariables.window !== null) {
 			let remainingSpaceElement = document.getElementsByClassName(
@@ -39,6 +40,7 @@ export default function ProjectsTable() {
 		}
 	}, [reduxState.displaySizeVariables]);
 
+	// Disables mass delete options buttons when no checkboxes are selected
 	useEffect(() => {
 		toggleDisableButtons(
 			reduxState.massDelete.projects.length === 0,

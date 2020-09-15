@@ -291,12 +291,6 @@ router
 					[account_id]
 				);
 
-				const deletedProjects = await pool.query(
-					`DELETE FROM project 
-						WHERE account_id = $1`,
-					[account_id]
-				);
-
 				return res.json({ success: true, message: "Account Deleted" });
 			} catch (err) {
 				console.error(err.message);

@@ -22,7 +22,7 @@ router.route("/retrieve").get( async (req, res) => {
 					ORDER BY order_number`
 		);
 
-		const projectStatusCompletionIndex = await pool.query(
+		const projectStatusCompletionId = await pool.query(
 			`SELECT p_status_id AS id 
 				FROM project_status 
 					WHERE marks_completion = true`
@@ -40,7 +40,7 @@ router.route("/retrieve").get( async (req, res) => {
 					ORDER BY order_number`
 		);
 
-		const bugStatusCompletionIndex = await pool.query(
+		const bugStatusCompletionId = await pool.query(
 			`SELECT b_status_id AS id, option 
 				FROM bug_status 
 					WHERE marks_completion = true`
@@ -49,10 +49,10 @@ router.route("/retrieve").get( async (req, res) => {
 		res.json({ success: true, 
 			projectPriority: projectPriority.rows, 
 			projectStatus: projectStatus.rows,
-			projectStatusCompletionIndex: projectStatusCompletionIndex.rows[0].id,
+			projectStatusCompletionId: projectStatusCompletionId.rows[0].id,
 			bugPriority: bugPriority.rows, 
 			bugStatus: bugStatus.rows,
-			bugStatusCompletionIndex: bugStatusCompletionIndex.rows[0].id,
+			bugStatusCompletionId: bugStatusCompletionId.rows[0].id,
 		});
 	} catch (err) {
 		console.error(err.message);

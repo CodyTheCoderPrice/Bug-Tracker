@@ -45,7 +45,7 @@ export default function CreateProjectSidebar() {
 	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
 		"js-completion-input-container",
-		reduxState.priorityStatusArrays.projectStatusCompletionIndex
+		reduxState.priorityStatusArrays.projectStatusCompletionId
 	);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
@@ -104,7 +104,7 @@ export default function CreateProjectSidebar() {
 	useEffect(() => {
 		if (
 			projectInfo.status_id !==
-			reduxState.priorityStatusArrays.projectStatusCompletionIndex
+			reduxState.priorityStatusArrays.projectStatusCompletionId
 		) {
 			setProjectInfo({ ...projectInfo, completion_date: "" });
 		} else {

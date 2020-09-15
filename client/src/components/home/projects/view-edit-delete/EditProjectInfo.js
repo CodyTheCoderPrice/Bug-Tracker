@@ -72,7 +72,7 @@ export default function EditProjectInfo() {
 	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
 		"js-completion-date-container",
-		reduxState.priorityStatusArrays.projectStatusCompletionIndex
+		reduxState.priorityStatusArrays.projectStatusCompletionId
 	);
 
 	useEffect(() => {
@@ -118,7 +118,7 @@ export default function EditProjectInfo() {
 	useEffect(() => {
 		if (
 			projectInfo.status_id !==
-			reduxState.priorityStatusArrays.projectStatusCompletionIndex
+			reduxState.priorityStatusArrays.projectStatusCompletionId
 		) {
 			setProjectInfo({ ...projectInfo, completion_date: "" });
 		} else {

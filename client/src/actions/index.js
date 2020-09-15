@@ -31,19 +31,19 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 		const {
 			projectPriority,
 			projectStatus,
-			projectStatusCompletionIndex,
+			projectStatusCompletionId,
 			bugPriority,
 			bugStatus,
-			bugStatusCompletionIndex,
+			bugStatusCompletionId,
 		} = res.data;
 		dispatch({
 			type: SET_PRIORITY_STATUS_ARRAYS,
 			projectPriority: projectPriority,
 			projectStatus: projectStatus,
-			projectStatusCompletionIndex: projectStatusCompletionIndex,
+			projectStatusCompletionId: projectStatusCompletionId,
 			bugPriority: bugPriority,
 			bugStatus: bugStatus,
-			bugStatusCompletionIndex: bugStatusCompletionIndex,
+			bugStatusCompletionId: bugStatusCompletionId,
 		});
 	});
 };

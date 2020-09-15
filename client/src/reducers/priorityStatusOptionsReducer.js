@@ -3,10 +3,10 @@ import { SET_PRIORITY_STATUS_ARRAYS } from "../actions/types";
 const initialState = {
 	projectPriority: null,
 	projectStatus: null,
-	projectStatusCompletionIndex: null,
+	projectStatusCompletionId: null,
 	bugPriority: null,
 	bugStatus: null,
-	bugStatusCompletionIndex: null,
+	bugStatusCompletionId: null,
 };
 
 export default function (state = initialState, action) {
@@ -15,10 +15,10 @@ export default function (state = initialState, action) {
 			return {
 				projectPriority: action.projectPriority,
 				projectStatus: action.projectStatus,
-				projectStatusCompletionIndex: action.projectStatusCompletionIndex,
+				projectStatusCompletionId: action.projectStatusCompletionId,
 				bugPriority: action.bugPriority,
 				bugStatus: action.bugStatus,
-				bugStatusCompletionIndex: action.bugStatusCompletionIndex,
+				bugStatusCompletionId: action.bugStatusCompletionId,
 			};
 		default:
 			return state;

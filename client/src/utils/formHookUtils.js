@@ -13,14 +13,14 @@ export function useToggleableDateInput(
 	);
 
 	// Tracks the pervious status to know when to update perservedCompletionDate
-	const [previousStatus, setPreviousStatus] = useState(state.status);
+	const [previousStatusId, setPreviousStatusId] = useState(state.status);
 
 	useEffect(() => {
 		toggleDisableElements();
-		if (previousStatus === completedIndex) {
+		if (previousStatusId === completedIndex) {
 			updatePerservedCompletionDate();
 		}
-		setPreviousStatus(state.status_id);
+		setPreviousStatusId(state.status_id);
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [state.status_id]);
