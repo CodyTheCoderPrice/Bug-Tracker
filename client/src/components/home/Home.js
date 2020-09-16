@@ -54,7 +54,7 @@ export default function Home() {
 			{reduxState.projectComponentsDisplay.viewProjectModal ? (
 				<ViewProjectModal />
 			) : null}
-			{reduxState.massDeleteComponentsDisplay.massDeleteProjectsModal ? (
+			{reduxState.projectComponentsDisplay.massDeleteProjectsModal ? (
 				<MassDeleteProjectsModal />
 			) : null}
 		</div>

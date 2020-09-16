@@ -8,6 +8,7 @@ const initialState = {
 	targetProject: null,
 	editProjectInfo: false,
 	deleteProjectModal: false,
+	massDeleteProjectsModal: false,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -16,6 +17,7 @@ const initialState = {
 export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_PROJECT_COMPONENTS_DISPLAY:
+			console.log(action.displays);
 			if (action.reset === true) {
 				return initialState;
 			} else {
@@ -47,6 +49,10 @@ export default function (state = initialState, action) {
 					deleteProjectModal:
 						action.displays.deleteProjectModal !== undefined
 							? action.displays.deleteProjectModal
+							: false,
+					massDeleteProjectsModal:
+						action.displays.massDeleteProjectsModal !== undefined
+							? action.displays.massDeleteProjectsModal
 							: false,
 				};
 			}

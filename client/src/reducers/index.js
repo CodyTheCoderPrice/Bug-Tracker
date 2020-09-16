@@ -3,7 +3,6 @@ import { combineReducers } from "redux";
 import authComponentsDisplayReducer from "./components/authComponentsDisplayReducer";
 import accountComponentsDisplayReducer from "./components/accountComponentsDisplayReducer";
 import projectComponentsDisplayReducer from "./components/projectComponentsDisplayReducer";
-import massDeleteComponentsDisplayReducer from "./components/massDeleteComponentsDisplayReducer";
 // Display Sizes
 import displaySizeConstantsReducer from "./displaySizes/displaySizeConstantsReducer";
 import displaySizeVariablesReducer from "./displaySizes/displaySizeVariablesReducer";
@@ -25,7 +24,6 @@ export default combineReducers({
 	authComponentsDisplay: authComponentsDisplayReducer,
 	accountComponentsDisplay: accountComponentsDisplayReducer,
 	projectComponentsDisplay: projectComponentsDisplayReducer,
-	massDeleteComponentsDisplay: massDeleteComponentsDisplayReducer,
 	displaySizeConstants: displaySizeConstantsReducer,
 	displaySizeVariables: displaySizeVariablesReducer,
 	priorityStatusArrays: priorityStatusOptionsReducer,
