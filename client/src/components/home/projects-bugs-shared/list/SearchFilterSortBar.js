@@ -67,7 +67,7 @@ export default function SearchFilterSortBar() {
 	const updateSearchKeyWordString = () => {
 		dispatch(
 			setProjectsSearchFilterSort({
-				...reduxState.projectsSearchFilterSort,
+				...reduxState.projectContainer.searchFilterSort,
 				// Converts string to boolean by setting equal
 				// ...to whether the value == true
 				searchKeyWordString: searchBarText,
@@ -81,30 +81,10 @@ export default function SearchFilterSortBar() {
 		}
 	};
 
-	const onChangeSortByType = (e) => {
-		dispatch(
-			setProjectsSearchFilterSort({
-				...reduxState.projectsSearchFilterSort,
-				[e.target.name]: Number(e.target.value),
-			})
-		);
-	};
-
-	const onChangeSortByAscending = (e) => {
-		dispatch(
-			setProjectsSearchFilterSort({
-				...reduxState.projectsSearchFilterSort,
-				// Converts string to boolean by setting equal
-				// ...to whether the value === true
-				[e.target.name]: e.target.value === "true",
-			})
-		);
-	};
-
 	const onChangeFilter = (e) => {
 		const value = Number(e.target.value);
 		let deepCopyFilterArray = [
-			...reduxState.projectsSearchFilterSort[e.target.name],
+			...reduxState.projectContainer.searchFilterSort[e.target.name],
 		];
 		const index = deepCopyFilterArray.indexOf(value);
 
@@ -116,7 +96,7 @@ export default function SearchFilterSortBar() {
 
 		dispatch(
 			setProjectsSearchFilterSort({
-				...reduxState.projectsSearchFilterSort,
+				...reduxState.projectContainer.searchFilterSort,
 				[e.target.name]: deepCopyFilterArray,
 			})
 		);
@@ -180,7 +160,7 @@ export default function SearchFilterSortBar() {
 													name="priorityFilter"
 													value={obj.id}
 													onChange={(e) => onChangeFilter(e)}
-													checked={reduxState.projectsSearchFilterSort.priorityFilter.includes(
+													checked={reduxState.projectContainer.searchFilterSort.priorityFilter.includes(
 														obj.id
 													)}
 													id={"projects-priority-filter-" + obj.id}
@@ -212,7 +192,7 @@ export default function SearchFilterSortBar() {
 												name="statusFilter"
 												value={obj.id}
 												onChange={(e) => onChangeFilter(e)}
-												checked={reduxState.projectsSearchFilterSort.statusFilter.includes(
+												checked={reduxState.projectContainer.searchFilterSort.statusFilter.includes(
 													obj.id
 												)}
 												id={"projects-status-filter-" + obj.id}

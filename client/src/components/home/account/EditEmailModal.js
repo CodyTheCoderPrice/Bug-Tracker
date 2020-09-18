@@ -14,7 +14,7 @@ export default function EditEmailModal() {
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		email: reduxState.account.email,
+		email: reduxState.accountContainer.info.email,
 		currentPassword: "",
 	});
 

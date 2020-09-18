@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-	setMassDelete,
+	setMassDeleteList,
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 } from "../../../../actions";
@@ -42,42 +42,33 @@ export default function ProjectsTable() {
 	// Disables mass delete options buttons when no checkboxes are selected
 	useEffect(() => {
 		toggleDisableButtons(
-			reduxState.massDelete.projects.length === 0,
+			reduxState.projectContainer.massDeleteList.length === 0,
 			"project-table__header__mass-delete-options"
 		);
-	}, [reduxState.massDelete.projects]);
+	}, [reduxState.projectContainer.massDeleteList]);
 
 	const checkAllProjects = () => {
 		let allProjects = [];
-		for (let project of reduxState.projects) {
+		for (let project of reduxState.projectContainer.list) {
 			allProjects.push(project.project_id);
 		}
 
-		dispatch(
-			setMassDelete({
-				projects: allProjects,
-			})
-		);
+		dispatch(setMassDeleteList("project", allProjects));
 	};
 
 	const uncheckAllProjects = () => {
-		dispatch(
-			setMassDelete({
-				projects: [],
-			})
-		);
+		dispatch(setMassDeleteList("project", []));
 	};
 
 	const openMassDeleteProjectsModal = () => {
-		console.log("Beep Boop");
-		/* dispatch(setWhichAccountComponentsDisplay({}));
+		dispatch(setWhichAccountComponentsDisplay({}));
 
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				projectsTable: false,
+				projectsTable: true,
 				massDeleteProjectsModal: true,
 			})
-		); */
+		);
 	};
 
 	return (
@@ -108,39 +99,27 @@ export default function ProjectsTable() {
 							</div>
 						</th>
 						<th className="project-table__header js-project-table__header">
-							<span className="project-table__header__span">
-								Name
-							</span>
+							<span className="project-table__header__span">Name</span>
 							<SortArrowsButton sortId={1} />
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">
-								Created on
-							</span>
+							<span className="project-table__header__span">Created on</span>
 							<SortArrowsButton sortId={2} />
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">
-								Start Date
-							</span>
+							<span className="project-table__header__span">Start Date</span>
 							<SortArrowsButton sortId={3} />
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">
-								Due Date
-							</span>
+							<span className="project-table__header__span">Due Date</span>
 							<SortArrowsButton sortId={4} />
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">
-								Priority
-							</span>
+							<span className="project-table__header__span">Priority</span>
 							<SortArrowsButton sortId={5} />
 						</th>
 						<th className="project-table__header">
-							<span className="project-table__header__span">
-								Status
-							</span>
+							<span className="project-table__header__span">Status</span>
 							<SortArrowsButton sortId={6} />
 						</th>
 						<th className="project-table__header js-remaining-space">
@@ -152,8 +131,8 @@ export default function ProjectsTable() {
 					{/*Spread operator used for deep copy so 
 					  ...original projects array is unaffected*/}
 					{searchFilterSort(
-						[...reduxState.projects],
-						reduxState.projectsSearchFilterSort
+						[...reduxState.projectContainer.list],
+						reduxState.projectContainer.searchFilterSort
 					).map((project, i) => {
 						return <ProjectRow key={i} project={project} />;
 					})}

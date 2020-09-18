@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
-	setMassDelete,
+	setMassDeleteList,
 } from "../../../../actions";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
@@ -28,7 +28,7 @@ export default function ProjectRow(props) {
 
 	const onChangeMassDelete = (e) => {
 		const value = Number(e.target.value);
-		let deepCopyMassDeleteArray = [...reduxState.massDelete[e.target.name]];
+		let deepCopyMassDeleteArray = [...reduxState.projectContainer.massDeleteList];
 		const index = deepCopyMassDeleteArray.indexOf(value);
 
 		if (index === -1) {
@@ -37,11 +37,7 @@ export default function ProjectRow(props) {
 			deepCopyMassDeleteArray.splice(index, 1);
 		}
 
-		dispatch(
-			setMassDelete({
-				[e.target.name]: deepCopyMassDeleteArray,
-			})
-		);
+		dispatch(setMassDeleteList("project", deepCopyMassDeleteArray));
 	};
 
 	return (
@@ -52,7 +48,7 @@ export default function ProjectRow(props) {
 					name="projects"
 					value={props.project.project_id}
 					onChange={(e) => onChangeMassDelete(e)}
-					checked={reduxState.massDelete.projects.includes(
+					checked={reduxState.projectContainer.massDeleteList.includes(
 						props.project.project_id
 					)}
 					className="project-table__data__checkbox"

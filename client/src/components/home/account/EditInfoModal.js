@@ -14,8 +14,8 @@ export default function EditInfoModal() {
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		first_name: reduxState.account.first_name,
-		last_name: reduxState.account.last_name,
+		first_name: reduxState.accountContainer.info.first_name,
+		last_name: reduxState.accountContainer.info.last_name,
 	});
 
 	// clears prior input errors when closing the component

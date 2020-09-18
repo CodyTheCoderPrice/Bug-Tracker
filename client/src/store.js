@@ -15,13 +15,12 @@ const persistConfig = {
 	storage,
 	whitelist: [
 		"authComponentsDisplay",
-		"projectComponentsDisplay",
 		"priorityStatusArrays",
 		"auth",
-		 // Theses are persisted despite being updated on page refresh
-		 // ...so they are not null while their data is being re-fetched
-		"account",
-		"projects",
+		 // Theses are persisted despite being re-fetched on page refresh
+		 // ...so they are not null while their data is being retrieved
+		"accountContainer",
+		"projectContainer",
 	],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -9,26 +9,26 @@ export default function DisplayProjectInfo() {
 	const reduxState = useSelector((state) => state);
 
 	const [projectInfo] = useState({
-		project_id: reduxState.projectComponentsDisplay.targetProject.project_id,
-		name: reduxState.projectComponentsDisplay.targetProject.name,
-		description: reduxState.projectComponentsDisplay.targetProject.description,
-		priority_id: reduxState.projectComponentsDisplay.targetProject.priority_id,
+		project_id: reduxState.projectContainer.componentsDisplay.targetProject.project_id,
+		name: reduxState.projectContainer.componentsDisplay.targetProject.name,
+		description: reduxState.projectContainer.componentsDisplay.targetProject.description,
+		priority_id: reduxState.projectContainer.componentsDisplay.targetProject.priority_id,
 		priorityOption:
-			reduxState.projectComponentsDisplay.targetProject.priority_option,
-		status_id: reduxState.projectComponentsDisplay.targetProject.status_id,
+			reduxState.projectContainer.componentsDisplay.targetProject.priority_option,
+		status_id: reduxState.projectContainer.componentsDisplay.targetProject.status_id,
 		statusOption:
-			reduxState.projectComponentsDisplay.targetProject.status_option,
+			reduxState.projectContainer.componentsDisplay.targetProject.status_option,
 		creation_date: formatDateMMddYYYY(
-			reduxState.projectComponentsDisplay.targetProject.creation_date
+			reduxState.projectContainer.componentsDisplay.targetProject.creation_date
 		),
 		start_date: formatDateMMddYYYY(
-			reduxState.projectComponentsDisplay.targetProject.start_date
+			reduxState.projectContainer.componentsDisplay.targetProject.start_date
 		),
 		due_date: formatDateMMddYYYY(
-			reduxState.projectComponentsDisplay.targetProject.due_date
+			reduxState.projectContainer.componentsDisplay.targetProject.due_date
 		),
 		completion_date: formatDateMMddYYYY(
-			reduxState.projectComponentsDisplay.targetProject.completion_date
+			reduxState.projectContainer.componentsDisplay.targetProject.completion_date
 		),
 	});
 

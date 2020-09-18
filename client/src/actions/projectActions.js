@@ -1,4 +1,5 @@
 import axios from "axios";
+import { PROJECT_CONTAINER } from "./typeContainer";
 import { SET_PROJECTS } from "./types";
 import { setInputErrors } from "./index";
 import { logoutAccount } from "./accountActions";
@@ -7,6 +8,7 @@ import { setWhichProjectComponentsDisplay } from "./componentActions";
 
 export const setProjects = (projects) => (dispatch) => {
 	dispatch({
+		container: PROJECT_CONTAINER,
 		type: SET_PROJECTS,
 		projects: projects,
 	});

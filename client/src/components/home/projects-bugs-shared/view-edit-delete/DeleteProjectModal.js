@@ -16,7 +16,7 @@ export default function DeleteProjectModal() {
 		dispatch(
 			deleteProject({
 				project_id:
-					reduxState.projectComponentsDisplay.targetProject.project_id,
+					reduxState.projectContainer.componentsDisplay.targetProject.project_id,
 			})
 		);
 		dispatch(
@@ -29,7 +29,7 @@ export default function DeleteProjectModal() {
 	const closeDeleteProjectModal = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState.projectComponentsDisplay,
+				...reduxState.projectContainer.componentsDisplay,
 				deleteProjectModal: false,
 			})
 		);

@@ -17,7 +17,6 @@ const initialState = {
 export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_PROJECT_COMPONENTS_DISPLAY:
-			console.log(action.displays);
 			if (action.reset === true) {
 				return initialState;
 			} else {

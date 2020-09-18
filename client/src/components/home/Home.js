@@ -12,10 +12,10 @@ import EditEmailModal from "./account/EditEmailModal";
 import EditPasswordModal from "./account/EditPasswordModal";
 import DeleteAccountModal from "./account/DeleteAccountModal";
 // Projects
-import ProjectsList from "./projects/list/ProjectsList";
-import CreateProjectSidebar from "./projects/CreateProjectSidebar";
-import ViewProjectModal from "./projects/view-edit-delete/ViewProjectModal";
-import MassDeleteProjectsModal from "./projects/list/MassDeleteProjectsModal";
+import ProjectsList from "./projects-bugs-shared/list/ProjectsList";
+import CreateProjectSidebar from "./projects-bugs-shared/list/CreateProjectSidebar";
+import ViewProjectModal from "./projects-bugs-shared/view-edit-delete/ViewProjectModal";
+import MassDeleteProjectsModal from "./projects-bugs-shared/list/MassDeleteProjectsModal";
 
 import "../../SCSS/home/home.scss";
 
@@ -26,35 +26,35 @@ export default function Home() {
 		<div className="home-container js-home-container">
 			<Navbar />
 			{/*Account components*/}
-			{Object.values(reduxState.accountComponentsDisplay).indexOf(true) > -1 ? (
+			{Object.values(reduxState.accountContainer.componentsDisplay).indexOf(true) > -1 ? (
 				<AccountBlurredBackground />
 			) : null}
-			{reduxState.accountComponentsDisplay.accountSidebar ? (
+			{reduxState.accountContainer.componentsDisplay.accountSidebar ? (
 				<AccountSidebar />
 			) : null}
-			{reduxState.accountComponentsDisplay.editInfoModal ? (
+			{reduxState.accountContainer.componentsDisplay.editInfoModal ? (
 				<EditInfoModal />
 			) : null}
-			{reduxState.accountComponentsDisplay.editEmailModal ? (
+			{reduxState.accountContainer.componentsDisplay.editEmailModal ? (
 				<EditEmailModal />
 			) : null}
-			{reduxState.accountComponentsDisplay.editPasswordModal ? (
+			{reduxState.accountContainer.componentsDisplay.editPasswordModal ? (
 				<EditPasswordModal />
 			) : null}
-			{reduxState.accountComponentsDisplay.deleteAccountModal ? (
+			{reduxState.accountContainer.componentsDisplay.deleteAccountModal ? (
 				<DeleteAccountModal />
 			) : null}
 			{/*Project components*/}
-			{reduxState.projectComponentsDisplay.projectsTable ? (
+			{reduxState.projectContainer.componentsDisplay.projectsTable ? (
 				<ProjectsList />
 			) : null}
-			{reduxState.projectComponentsDisplay.createProjectSidbar ? (
+			{reduxState.projectContainer.componentsDisplay.createProjectSidbar ? (
 				<CreateProjectSidebar />
 			) : null}
-			{reduxState.projectComponentsDisplay.viewProjectModal ? (
+			{reduxState.projectContainer.componentsDisplay.viewProjectModal ? (
 				<ViewProjectModal />
 			) : null}
-			{reduxState.projectComponentsDisplay.massDeleteProjectsModal ? (
+			{reduxState.projectContainer.componentsDisplay.massDeleteProjectsModal ? (
 				<MassDeleteProjectsModal />
 			) : null}
 		</div>

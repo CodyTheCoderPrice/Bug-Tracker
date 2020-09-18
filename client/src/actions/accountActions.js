@@ -1,10 +1,11 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
+import { ACCOUNT_CONTAINER } from "./typeContainer";
 import { SET_AUTHENTICATION, SET_ACCOUNT } from "./types";
 import { setInputErrors } from "./index";
 import {
-	setWhichAuthComponentsDisplay,
+	setWhichCoreComponentsDisplay,
 	setWhichAccountComponentsDisplay,
 	resetAccountComponentsDisplay,
 } from "./componentActions";
@@ -12,6 +13,7 @@ import { retrieveProjects } from "./projectActions";
 
 export const setAuthentication = (decodedToken) => (dispatch) => {
 	dispatch({
+		container: ACCOUNT_CONTAINER,
 		type: SET_AUTHENTICATION,
 		decodedToken: decodedToken,
 	});
@@ -19,6 +21,7 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 
 export const setAccount = (account) => (dispatch) => {
 	dispatch({
+		container: ACCOUNT_CONTAINER,
 		type: SET_ACCOUNT,
 		account: account,
 	});
@@ -28,7 +31,7 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 	axios
 		.post("/api/account/register", accountInfo)
 		.then(() => {
-			dispatch(setWhichAuthComponentsDisplay({ login: true }));
+			dispatch(setWhichCoreComponentsDisplay({ login: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -48,7 +51,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 
 			dispatch(setAccount(account));
 			dispatch(retrieveProjects());
-			dispatch(setWhichAuthComponentsDisplay({ home: true }));
+			dispatch(setWhichCoreComponentsDisplay({ home: true }));
 		})
 		.catch((err) => {
 			if (err.response !== undefined) {
@@ -64,7 +67,7 @@ export const retrieveAccount = () => (dispatch) => {
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));
-			dispatch(setWhichAuthComponentsDisplay({ home: true }));
+			dispatch(setWhichCoreComponentsDisplay({ home: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -147,7 +150,7 @@ export const logoutAccount = () => (dispatch) => {
 	// clear auth and account
 	dispatch(setAuthentication({}));
 	dispatch(setAccount({}));
-	dispatch(setWhichAuthComponentsDisplay({ login: true }));
+	dispatch(setWhichCoreComponentsDisplay({ login: true }));
 	dispatch(resetAccountComponentsDisplay());
 
 	console.log("Message: logged out");

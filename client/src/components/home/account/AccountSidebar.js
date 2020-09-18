@@ -44,13 +44,13 @@ export default function AccountSidebar() {
 				<div className="padded-container">
 					<div className="account-info-container">
 						<div className="account-info account-info--large-bold">
-							{reduxState.account.first_name +
+							{reduxState.accountContainer.info.first_name +
 								" " +
-								reduxState.account.last_name}
+								reduxState.accountContainer.info.last_name}
 						</div>
-						<div className="account-info">{reduxState.account.email}</div>
+						<div className="account-info">{reduxState.accountContainer.info.email}</div>
 						<div className="account-info">
-							Joined: {formatDateMMddYYYY(reduxState.account.joinDate)}
+							Joined: {formatDateMMddYYYY(reduxState.accountContainer.info.joinDate)}
 						</div>
 					</div>
 					<div className="account-link-container">

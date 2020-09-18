@@ -132,7 +132,7 @@ export default function CreateProjectSidebar() {
 	const closeCreateProjectSidebar = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState.projectComponentsDisplay,
+				...reduxState.projectContainer.componentsDisplay,
 				createProjectSidbar: false,
 			})
 		);

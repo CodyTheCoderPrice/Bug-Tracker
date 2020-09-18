@@ -1,4 +1,4 @@
-import { SET_WHICH_AUTH_COMPONENTS_DISPLAY } from "../../actions/types";
+import { SET_WHICH_CORE_COMPONENTS_DISPLAY } from "../../actions/types";
 
 const initialState = {
 	register: false,
@@ -11,7 +11,7 @@ const initialState = {
 // ...this allows passing only the components you want to display
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case SET_WHICH_AUTH_COMPONENTS_DISPLAY:
+		case SET_WHICH_CORE_COMPONENTS_DISPLAY:
 			return {
 				register:
 					action.displays.register !== undefined

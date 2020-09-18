@@ -13,10 +13,10 @@ export default function SortArrowsButton(props) {
 	const dispatch = useDispatch();
 
 	const changeSorting = () => {
-		if (reduxState.projectsSearchFilterSort.sortByType !== props.sortId) {
+		if (reduxState.projectContainer.searchFilterSort.sortByType !== props.sortId) {
 			dispatch(
 				setProjectsSearchFilterSort({
-					...reduxState.projectsSearchFilterSort,
+					...reduxState.projectContainer.searchFilterSort,
 					sortByAscending: true,
 					sortByType: props.sortId,
 				})
@@ -24,8 +24,8 @@ export default function SortArrowsButton(props) {
 		} else {
 			dispatch(
 				setProjectsSearchFilterSort({
-					...reduxState.projectsSearchFilterSort,
-					sortByAscending: !reduxState.projectsSearchFilterSort.sortByAscending,
+					...reduxState.projectContainer.searchFilterSort,
+					sortByAscending: !reduxState.projectContainer.searchFilterSort.sortByAscending,
 				})
 			);
 		}
@@ -35,9 +35,9 @@ export default function SortArrowsButton(props) {
 		<img
 			className="sort-arrows"
 			src={
-				reduxState.projectsSearchFilterSort.sortByType !== props.sortId
+				reduxState.projectContainer.searchFilterSort.sortByType !== props.sortId
 					? sortArrowsBothEmpty
-					: reduxState.projectsSearchFilterSort.sortByAscending
+					: reduxState.projectContainer.searchFilterSort.sortByAscending
 					? sortArrowsTopFilled
 					: sortArrowsBottomFilled
 			}

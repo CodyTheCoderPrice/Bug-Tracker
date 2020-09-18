@@ -1,10 +1,11 @@
 import axios from "axios";
+import { PROJECT_CONTAINER } from "./typeContainer";
 import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES,
 	SET_PRIORITY_STATUS_ARRAYS,
 	SET_PROJECTS_SEARCH_FILTER_SORT,
-	SET_MASS_DELETE,
+	SET_MASS_DELETE_LIST,
 	SET_INPUT_ERRORS,
 } from "./types";
 
@@ -50,17 +51,25 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 
 export const setProjectsSearchFilterSort = (searchFilterSort) => (dispatch) => {
 	dispatch({
+		container: PROJECT_CONTAINER,
 		type: SET_PROJECTS_SEARCH_FILTER_SORT,
 		searchFilterSort: searchFilterSort,
 	});
-}
+};
 
-export const setMassDelete = (projectsOrBugsArrays) => (dispatch) => {
+export const setMassDeleteList = (containerName, massDeleteList) => (dispatch) => {
+	if (containerName === "project"){
+		containerName = PROJECT_CONTAINER;
+	} /* else if (containerName === "bug"){
+		containerName = 
+	} */
+	
 	dispatch({
-		type: SET_MASS_DELETE,
-		projectsOrBugsArrays: projectsOrBugsArrays
+		container: containerName,
+		type: SET_MASS_DELETE_LIST,
+		list: massDeleteList,
 	});
-}
+};
 
 export const setInputErrors = (inputErrors) => (dispatch) => {
 	dispatch({

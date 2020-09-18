@@ -1,26 +1,11 @@
-import { SET_MASS_DELETE } from "../actions/types";
+import { SET_MASS_DELETE_LIST } from "../actions/types";
 
-const initialState = {
-	projects: [],
-	bugs: [],
-};
+const initialState = [];
 
-// Ternary operator is used to set undefined components to false since
-// ...usually if one component is being set true, most others are being set false
-// ...this allows passing only the components you want to display
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case SET_MASS_DELETE:
-			return {
-				projects:
-					action.projectsOrBugsArrays.projects !== undefined
-						? action.projectsOrBugsArrays.projects
-						: [],
-				bugs:
-					action.projectsOrBugsArrays.bugs !== undefined
-						? action.projectsOrBugsArrays.bugs
-						: [],
-			};
+		case SET_MASS_DELETE_LIST:
+			return action.list;
 		default:
 			return state;
 	}

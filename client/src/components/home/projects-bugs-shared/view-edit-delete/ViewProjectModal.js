@@ -125,8 +125,8 @@ export default function ViewProjectModal() {
 	const switchBetweenDisplayAndEditProjectInfo = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState.projectComponentsDisplay,
-				editProjectInfo: !reduxState.projectComponentsDisplay.editProjectInfo,
+				...reduxState.projectContainer.componentsDisplay,
+				editProjectInfo: !reduxState.projectContainer.componentsDisplay.editProjectInfo,
 			})
 		);
 	};
@@ -134,7 +134,7 @@ export default function ViewProjectModal() {
 	const openDeleteProjectModal = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState.projectComponentsDisplay,
+				...reduxState.projectContainer.componentsDisplay,
 				deleteProjectModal: true,
 			})
 		);
@@ -143,7 +143,7 @@ export default function ViewProjectModal() {
 	const closeViewProjectDashboard = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState.projectComponentsDisplay,
+				...reduxState.projectContainer.componentsDisplay,
 				viewProjectModal: false,
 			})
 		);
@@ -171,7 +171,7 @@ export default function ViewProjectModal() {
 								className="project-options-container__dropdown__option js-edit-option"
 								onClick={switchBetweenDisplayAndEditProjectInfo}
 							>
-								{reduxState.projectComponentsDisplay.editProjectInfo
+								{reduxState.projectContainer.componentsDisplay.editProjectInfo
 									? "Cancel"
 									: "Edit Project"}
 							</span>
@@ -189,7 +189,7 @@ export default function ViewProjectModal() {
 				</div>
 				<div className="project-content-container js-project-content-container">
 					<div className="padding-container">
-						{!reduxState.projectComponentsDisplay.editProjectInfo ? (
+						{!reduxState.projectContainer.componentsDisplay.editProjectInfo ? (
 							<div>
 								<DisplayProjectInfo />
 							</div>
@@ -198,7 +198,7 @@ export default function ViewProjectModal() {
 								<EditProjectInfo />
 							</div>
 						)}
-						{reduxState.projectComponentsDisplay.deleteProjectModal ? (
+						{reduxState.projectContainer.componentsDisplay.deleteProjectModal ? (
 							<DeleteProjectModal />
 						) : null}
 					</div>

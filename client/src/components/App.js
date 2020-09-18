@@ -5,7 +5,7 @@ import {
 	retrievePriorityStatusArrays,
 	retrieveAccount,
 	retrieveProjects,
-	setWhichAuthComponentsDisplay,
+	setWhichCoreComponentsDisplay,
 } from "../actions";
 
 import Register from "./authentication/Register";
@@ -25,17 +25,17 @@ function App() {
 	useEffect(() => {
 		dispatch(retrievePriorityStatusArrays());
 
-		if (reduxState.auth.isAuthenticated) {
+		if (reduxState.accountContainer.auth.isAuthenticated) {
 			dispatch(retrieveAccount());
 			dispatch(retrieveProjects());
 		} else {
 			// Makes sure unauthenticated users do not see home page
-			if (reduxState.authComponentsDisplay.home) {
-				dispatch(setWhichAuthComponentsDisplay({ login: true }));
+			if (reduxState.coreComponentsDisplay.home) {
+				dispatch(setWhichCoreComponentsDisplay({ login: true }));
 			} else {
 				// Makes sure refreshes keep unauthenticated users on the same authentication page
 				dispatch(
-					setWhichAuthComponentsDisplay({ ...reduxState.authComponentsDisplay })
+					setWhichCoreComponentsDisplay({ ...reduxState.coreComponentsDisplay })
 				);
 			}
 		}
@@ -48,21 +48,21 @@ function App() {
 	// ...only needs to run when authComponentsDisplay changes
 	useEffect(() => {
 		if (
-			!reduxState.authComponentsDisplay.register &&
-			!reduxState.authComponentsDisplay.login &&
-			!reduxState.authComponentsDisplay.home
+			!reduxState.coreComponentsDisplay.register &&
+			!reduxState.coreComponentsDisplay.login &&
+			!reduxState.coreComponentsDisplay.home
 		) {
-			dispatch(setWhichAuthComponentsDisplay({ login: true }));
+			dispatch(setWhichCoreComponentsDisplay({ login: true }));
 		}
 		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
-	}, [reduxState.authComponentsDisplay]);
+	}, [reduxState.coreComponentsDisplay]);
 
 	return (
 		<div className="pageContainer">
-			{reduxState.authComponentsDisplay.register ? <Register /> : null}
-			{reduxState.authComponentsDisplay.login ? <Login /> : null}
-			{reduxState.authComponentsDisplay.home ? <Home /> : null}
+			{reduxState.coreComponentsDisplay.register ? <Register /> : null}
+			{reduxState.coreComponentsDisplay.login ? <Login /> : null}
+			{reduxState.coreComponentsDisplay.home ? <Home /> : null}
 		</div>
 	);
 }
