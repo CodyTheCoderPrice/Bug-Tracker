@@ -3,7 +3,6 @@ import { PROJECT_CONTAINER } from "./typeContainer";
 import { SET_PROJECTS } from "./types";
 import { setInputErrors } from "./index";
 import { logoutAccount } from "./accountActions";
-
 import { setWhichProjectComponentsDisplay } from "./componentActions";
 
 export const setProjects = (projects) => (dispatch) => {

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	setWhichProjectComponentsDisplay,
 	deleteProject,
+	setMassDeleteList,
 } from "../../../../actions";
 
 import "../../../../SCSS/projects-bugs-shared/deleteProjectModal.scss";
@@ -16,9 +17,20 @@ export default function DeleteProjectModal() {
 		dispatch(
 			deleteProject({
 				project_id:
-					reduxState.projectContainer.componentsDisplay.targetProject.project_id,
+					reduxState.projectContainer.componentsDisplay.targetProject
+						.project_id,
 			})
 		);
+		let copyMassDeleteList = [...reduxState.projectContainer.massDeleteList];
+		const indexOfId = copyMassDeleteList.indexOf(
+			reduxState.projectContainer.componentsDisplay.targetProject.project_id
+		);
+		if (indexOfId > -1) {
+			copyMassDeleteList.splice(indexOfId, 1);
+			dispatch(
+				setMassDeleteList("project", copyMassDeleteList)
+			);
+		}
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				projectsTable: true,
