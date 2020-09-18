@@ -15,8 +15,8 @@ export function useSidebarResize(
 	// Adjusts the height of the sidebar to fit the screen
 	useEffect(() => {
 		if (
-			state.displaySizeVariables.window !== null &&
-			state.displaySizeVariables.navbar !== null
+			state.sizeContainer.variables.window !== null &&
+			state.sizeContainer.variables.navbar !== null
 		) {
 			let sidebarElement = document.getElementsByClassName(sidebarClassName)[0];
 
@@ -35,8 +35,8 @@ export function useSidebarResize(
 			}
 
 			const adjustedWindowHeight =
-				state.displaySizeVariables.window.height -
-				state.displaySizeVariables.navbar.height -
+				state.sizeContainer.variables.window.height -
+				state.sizeContainer.variables.navbar.height -
 				originalSidebarSizeAndStyle.marginBottom -
 				originalSidebarSizeAndStyle.borderBottom;
 
@@ -46,7 +46,7 @@ export function useSidebarResize(
 				sidebarElement.style.height = originalSidebarSizeAndStyle.height + "px";
 			}
 		}
-	}, [state.displaySizeVariables, originalSidebarSizeAndStyle]);
+	}, [state.sizeContainer.variables, originalSidebarSizeAndStyle]);
 
 	return [];
 }

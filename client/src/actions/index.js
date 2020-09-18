@@ -1,5 +1,5 @@
 import axios from "axios";
-import { PROJECT_CONTAINER } from "./typeContainer";
+import { GENERAL_CONTAINER, PROJECT_CONTAINER, SIZE_CONTAINER } from "./typeContainer";
 import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES,
@@ -15,6 +15,7 @@ export * from "./componentActions";
 
 export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 	dispatch({
+		container: SIZE_CONTAINER,
 		type: SET_DISPLAY_SIZE_CONSTANTS,
 		sizes: sizes,
 	});
@@ -22,6 +23,7 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 
 export const setDisplaySizeVariables = (sizes) => (dispatch) => {
 	dispatch({
+		container: SIZE_CONTAINER,
 		type: SET_DISPLAY_SIZE_VARIABLES,
 		sizes: sizes,
 	});
@@ -38,6 +40,7 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 			bugStatusCompletionId,
 		} = res.data;
 		dispatch({
+			container: GENERAL_CONTAINER,
 			type: SET_PRIORITY_STATUS_ARRAYS,
 			projectPriority: projectPriority,
 			projectStatus: projectStatus,
@@ -73,6 +76,7 @@ export const setMassDeleteList = (containerName, massDeleteList) => (dispatch) =
 
 export const setInputErrors = (inputErrors) => (dispatch) => {
 	dispatch({
+		container: GENERAL_CONTAINER,
 		type: SET_INPUT_ERRORS,
 		inputErrors: inputErrors,
 	});
@@ -80,6 +84,7 @@ export const setInputErrors = (inputErrors) => (dispatch) => {
 
 export const clearInputErrors = () => (dispatch) => {
 	dispatch({
+		container: GENERAL_CONTAINER,
 		type: SET_INPUT_ERRORS,
 		inputErrors: {},
 	});

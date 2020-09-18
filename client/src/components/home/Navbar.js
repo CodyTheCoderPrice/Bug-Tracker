@@ -70,7 +70,6 @@ export default function Navbar() {
 				);
 			});
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 

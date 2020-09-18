@@ -23,7 +23,6 @@ export default function EditEmailModal() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -70,7 +69,7 @@ export default function EditEmailModal() {
 						id="edit-account-email-email"
 						className="form__text-input"
 					/>
-					<span className="form__errors">{reduxState.inputErrors.email}</span>
+					<span className="form__errors">{reduxState.generalContainer.inputErrors.email}</span>
 					<label htmlFor="edit-account-email-password" className="form__label">
 						Current Password:{" "}
 					</label>
@@ -83,15 +82,15 @@ export default function EditEmailModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.currentPassword}
+						{reduxState.generalContainer.inputErrors.currentPassword}
 					</span>
 					<button type="submit" className="form__submit">
 						Update
 					</button>
 					<span className="form__errors">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.authorization}
-						{reduxState.inputErrors.server}
+						{reduxState.generalContainer.inputErrors.validation}
+						{reduxState.generalContainer.inputErrors.authorization}
+						{reduxState.generalContainer.inputErrors.server}
 					</span>
 				</form>
 				<div className="modal-links-container">

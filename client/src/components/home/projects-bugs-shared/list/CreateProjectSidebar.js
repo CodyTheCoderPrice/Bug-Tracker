@@ -30,8 +30,8 @@ export default function CreateProjectSidebar() {
 		name: "",
 		description: "",
 		// Sets default to the first option
-		priority_id: reduxState.priorityStatusArrays.projectPriority[0].id,
-		status_id: reduxState.priorityStatusArrays.projectStatus[0].id,
+		priority_id: reduxState.generalContainer.priorityStatusArrays.projectPriority[0].id,
+		status_id: reduxState.generalContainer.priorityStatusArrays.projectStatus[0].id,
 		start_date: moment().format("YYYY-MM-DD"),
 		due_date: null,
 		completion_date: null,
@@ -45,7 +45,7 @@ export default function CreateProjectSidebar() {
 	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
 		"js-completion-input-container",
-		reduxState.priorityStatusArrays.projectStatusCompletionId
+		reduxState.generalContainer.priorityStatusArrays.projectStatusCompletionId
 	);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
@@ -59,7 +59,6 @@ export default function CreateProjectSidebar() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 	
@@ -79,15 +78,14 @@ export default function CreateProjectSidebar() {
 	useEffect(() => {
 		populateComboBox(
 			"js-priority-select",
-			reduxState.priorityStatusArrays.projectPriority,
+			reduxState.generalContainer.priorityStatusArrays.projectPriority,
 			1
 		);
 		populateComboBox(
 			"js-status-select",
-			reduxState.priorityStatusArrays.projectStatus,
+			reduxState.generalContainer.priorityStatusArrays.projectStatus,
 			1
 		);
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -97,14 +95,13 @@ export default function CreateProjectSidebar() {
 			projectInfo.description.length,
 			descriptionCharLimit
 		);
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [projectInfo.description]);
 
 	useEffect(() => {
 		if (
 			projectInfo.status_id !==
-			reduxState.priorityStatusArrays.projectStatusCompletionId
+			reduxState.generalContainer.priorityStatusArrays.projectStatusCompletionId
 		) {
 			setProjectInfo({ ...projectInfo, completion_date: "" });
 		} else {
@@ -113,7 +110,6 @@ export default function CreateProjectSidebar() {
 				completion_date: preservedCompletionDate,
 			});
 		}
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [projectInfo.status_id]);
 
@@ -164,7 +160,7 @@ export default function CreateProjectSidebar() {
 							id="create-project-name"
 							className="form__text-input"
 						/>
-						<span className="form__errors">{reduxState.inputErrors.name}</span>
+						<span className="form__errors">{reduxState.generalContainer.inputErrors.name}</span>
 						<label htmlFor="create-project-description" className="form__label">
 							Description:{" "}
 						</label>
@@ -179,7 +175,7 @@ export default function CreateProjectSidebar() {
 							className="form__textarea"
 						/>
 						<span className="form__errors">
-							{reduxState.inputErrors.description}
+							{reduxState.generalContainer.inputErrors.description}
 						</span>
 						<div className="form__group-container">
 							<div className="form__group-container__input-container">
@@ -263,8 +259,8 @@ export default function CreateProjectSidebar() {
 							Create Project
 						</button>
 						<span className="form__errors">
-							{reduxState.inputErrors.validation}
-							{reduxState.inputErrors.server}
+							{reduxState.generalContainer.inputErrors.validation}
+							{reduxState.generalContainer.inputErrors.server}
 						</span>
 					</form>
 				</div>

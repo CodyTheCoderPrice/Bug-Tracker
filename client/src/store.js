@@ -14,9 +14,7 @@ const persistConfig = {
 	key: "root",
 	storage,
 	whitelist: [
-		"authComponentsDisplay",
-		"priorityStatusArrays",
-		"auth",
+		"generalContainer",
 		 // Theses are persisted despite being re-fetched on page refresh
 		 // ...so they are not null while their data is being retrieved
 		"accountContainer",

@@ -13,7 +13,9 @@ export default function SortArrowsButton(props) {
 	const dispatch = useDispatch();
 
 	const changeSorting = () => {
-		if (reduxState.projectContainer.searchFilterSort.sortByType !== props.sortId) {
+		if (
+			reduxState.projectContainer.searchFilterSort.sortByType !== props.sortId
+		) {
 			dispatch(
 				setProjectsSearchFilterSort({
 					...reduxState.projectContainer.searchFilterSort,
@@ -25,7 +27,8 @@ export default function SortArrowsButton(props) {
 			dispatch(
 				setProjectsSearchFilterSort({
 					...reduxState.projectContainer.searchFilterSort,
-					sortByAscending: !reduxState.projectContainer.searchFilterSort.sortByAscending,
+					sortByAscending: !reduxState.projectContainer.searchFilterSort
+						.sortByAscending,
 				})
 			);
 		}
@@ -40,6 +43,16 @@ export default function SortArrowsButton(props) {
 					: reduxState.projectContainer.searchFilterSort.sortByAscending
 					? sortArrowsTopFilled
 					: sortArrowsBottomFilled
+			}
+			alt={
+				(reduxState.projectContainer.searchFilterSort.sortByType !==
+				props.sortId
+					? "No"
+					: reduxState.projectContainer.searchFilterSort.sortByAscending
+					? "Ascending"
+					: "Descending") +
+				" sorting for " +
+				props.sortFor + " column."
 			}
 			onClick={changeSorting}
 		/>

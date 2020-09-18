@@ -1,4 +1,4 @@
-import { SET_PRIORITY_STATUS_ARRAYS } from "../actions/types";
+import { SET_PRIORITY_STATUS_ARRAYS } from "../../actions/types";
 
 const initialState = {
 	projectPriority: null,

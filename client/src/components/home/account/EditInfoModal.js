@@ -23,7 +23,6 @@ export default function EditInfoModal() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -84,7 +83,7 @@ export default function EditInfoModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.first_name}
+						{reduxState.generalContainer.inputErrors.first_name}
 					</span>
 					<label htmlFor="edit-account-info-last-name" className="form__label">
 						Last Name:{" "}
@@ -98,14 +97,14 @@ export default function EditInfoModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.last_name}
+						{reduxState.generalContainer.inputErrors.last_name}
 					</span>
 					<button type="submit" className="form__submit">
 						Update
 					</button>
 					<span className="form__errors">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.server}
+						{reduxState.generalContainer.inputErrors.validation}
+						{reduxState.generalContainer.inputErrors.server}
 					</span>
 				</form>
 				<div className="modal-links-container">

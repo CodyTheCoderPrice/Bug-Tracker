@@ -1,6 +1,6 @@
-import accountComponentsDisplayReducer from "../components/accountComponentsDisplayReducer";
-import authReducer from "../authReducer";
-import accountReducer from "../accountReducer";
+import accountComponentsDisplayReducer from "./accountComponentsDisplayReducer";
+import authReducer from "./authReducer";
+import accountReducer from "./accountReducer";
 
 import { ACCOUNT_CONTAINER } from "../../actions/typeContainer";
 
@@ -12,9 +12,6 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-	if (action.container === undefined) {
-		return state;
-	}
 	switch (action.container) {
 		case ACCOUNT_CONTAINER:
 			return {

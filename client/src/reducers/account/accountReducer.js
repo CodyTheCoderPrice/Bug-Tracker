@@ -1,4 +1,4 @@
-import { SET_ACCOUNT } from "../actions/types";
+import { SET_ACCOUNT } from "../../actions/types";
 
 const initialState = {}
 

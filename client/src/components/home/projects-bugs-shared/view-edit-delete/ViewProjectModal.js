@@ -46,8 +46,8 @@ export default function ViewProjectModal() {
 	// Adjusts the height of the modal to fit the screen
 	useEffect(() => {
 		if (
-			reduxState.displaySizeVariables.window !== null &&
-			reduxState.displaySizeVariables.navbar !== null
+			reduxState.sizeContainer.variables.window !== null &&
+			reduxState.sizeContainer.variables.navbar !== null
 		) {
 			let viewProjectModalElement = document.getElementsByClassName(
 				"js-view-project-modal"
@@ -72,7 +72,7 @@ export default function ViewProjectModal() {
 			}
 			
 			viewProjectModalElement.style.width =
-				reduxState.displaySizeVariables.window.width -
+				reduxState.sizeContainer.variables.window.width -
 				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -
 				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2 +
 				"px";
@@ -80,8 +80,8 @@ export default function ViewProjectModal() {
 			// Didn't add "px" since it would get in the way when
 			// ...resizing js-project-content-container
 			const adjustedModalHeight =
-				reduxState.displaySizeVariables.window.height -
-				reduxState.displaySizeVariables.navbar.height -
+				reduxState.sizeContainer.variables.window.height -
+				reduxState.sizeContainer.variables.navbar.height -
 				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -
 				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2;
 
@@ -95,7 +95,7 @@ export default function ViewProjectModal() {
 				"px";
 		}
 	}, [
-		reduxState.displaySizeVariables,
+		reduxState.sizeContainer.variables,
 		regularlyUsedModalSizesAndStyles,
 	]);
 

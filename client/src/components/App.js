@@ -30,16 +30,15 @@ function App() {
 			dispatch(retrieveProjects());
 		} else {
 			// Makes sure unauthenticated users do not see home page
-			if (reduxState.coreComponentsDisplay.home) {
+			if (reduxState.generalContainer.coreComponentsDisplay.home) {
 				dispatch(setWhichCoreComponentsDisplay({ login: true }));
 			} else {
 				// Makes sure refreshes keep unauthenticated users on the same authentication page
 				dispatch(
-					setWhichCoreComponentsDisplay({ ...reduxState.coreComponentsDisplay })
+					setWhichCoreComponentsDisplay({ ...reduxState.generalContainer.coreComponentsDisplay })
 				);
 			}
 		}
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -48,21 +47,20 @@ function App() {
 	// ...only needs to run when authComponentsDisplay changes
 	useEffect(() => {
 		if (
-			!reduxState.coreComponentsDisplay.register &&
-			!reduxState.coreComponentsDisplay.login &&
-			!reduxState.coreComponentsDisplay.home
+			!reduxState.generalContainer.coreComponentsDisplay.register &&
+			!reduxState.generalContainer.coreComponentsDisplay.login &&
+			!reduxState.generalContainer.coreComponentsDisplay.home
 		) {
 			dispatch(setWhichCoreComponentsDisplay({ login: true }));
 		}
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
-	}, [reduxState.coreComponentsDisplay]);
+	}, [reduxState.generalContainer.coreComponentsDisplay]);
 
 	return (
 		<div className="pageContainer">
-			{reduxState.coreComponentsDisplay.register ? <Register /> : null}
-			{reduxState.coreComponentsDisplay.login ? <Login /> : null}
-			{reduxState.coreComponentsDisplay.home ? <Home /> : null}
+			{reduxState.generalContainer.coreComponentsDisplay.register ? <Register /> : null}
+			{reduxState.generalContainer.coreComponentsDisplay.login ? <Login /> : null}
+			{reduxState.generalContainer.coreComponentsDisplay.home ? <Home /> : null}
 		</div>
 	);
 }

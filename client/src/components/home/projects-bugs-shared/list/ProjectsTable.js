@@ -26,18 +26,18 @@ export default function ProjectsTable() {
 
 	// Fills remaining space in a table row after status
 	useEffect(() => {
-		if (reduxState.displaySizeVariables.window !== null) {
+		if (reduxState.sizeContainer.variables.window !== null) {
 			let remainingSpaceElement = document.getElementsByClassName(
 				"js-remaining-space"
 			)[0];
 			remainingSpaceElement.style.width =
-				reduxState.displaySizeVariables.window.width -
+				reduxState.sizeContainer.variables.window.width -
 				getElementLocation(
 					document.getElementsByClassName("js-remaining-space")[0]
 				).left +
 				"px";
 		}
-	}, [reduxState.displaySizeVariables]);
+	}, [reduxState.sizeContainer.variables]);
 
 	// Disables mass delete options buttons when no checkboxes are selected
 	useEffect(() => {
@@ -100,27 +100,27 @@ export default function ProjectsTable() {
 						</th>
 						<th className="project-table__header js-project-table__header">
 							<span className="project-table__header__span">Name</span>
-							<SortArrowsButton sortId={1} />
+							<SortArrowsButton sortId={1} sortFor="Name" />
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Created on</span>
-							<SortArrowsButton sortId={2} />
+							<SortArrowsButton sortId={2} sortFor="Created on"/>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Start Date</span>
-							<SortArrowsButton sortId={3} />
+							<SortArrowsButton sortId={3} sortFor="Start Date"/>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Due Date</span>
-							<SortArrowsButton sortId={4} />
+							<SortArrowsButton sortId={4} sortFor="Due Date"/>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Priority</span>
-							<SortArrowsButton sortId={5} />
+							<SortArrowsButton sortId={5} sortFor="Priority"/>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Status</span>
-							<SortArrowsButton sortId={6} />
+							<SortArrowsButton sortId={6} sortFor="Status"/>
 						</th>
 						<th className="project-table__header js-remaining-space">
 							{/*Fills remaining empty space*/}

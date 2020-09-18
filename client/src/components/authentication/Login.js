@@ -23,7 +23,6 @@ export default function Login() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -58,7 +57,7 @@ export default function Login() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.email}
+						{reduxState.generalContainer.inputErrors.email}
 					</span>
 					<label htmlFor="login-password" className="form__label">
 						Password
@@ -72,14 +71,14 @@ export default function Login() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.password}
+						{reduxState.generalContainer.inputErrors.password}
 					</span>
 					<button type="submit" className="form__submit">
 						LOGIN
 					</button>
 					<span className="form__errors">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.server}
+						{reduxState.generalContainer.inputErrors.validation}
+						{reduxState.generalContainer.inputErrors.server}
 					</span>
 				</form>
 				<div className="footer">

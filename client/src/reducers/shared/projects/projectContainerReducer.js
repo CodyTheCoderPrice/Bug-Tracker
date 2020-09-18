@@ -1,9 +1,9 @@
-import projectComponentsDisplayReducer from "../components/projectComponentsDisplayReducer";
+import projectComponentsDisplayReducer from "./projectComponentsDisplayReducer";
 import projectsReducer from "../projectsReducer";
-import projectsSearchFilterSortReducer from "../search-filter-sort/projectsSearchFilterSortReducer";
+import projectsSearchFilterSortReducer from "../projectsSearchFilterSortReducer";
 import massDeleteReducer from "../massDeleteReducer";
 
-import { PROJECT_CONTAINER } from "../../actions/typeContainer";
+import { PROJECT_CONTAINER } from "../../../actions/typeContainer";
 
 const initialState = {
 	// (undefined, {type: null}) will cause each function to return their initial state
@@ -14,9 +14,6 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-	if (action.container === undefined) {
-		return state;
-	}
 	switch (action.container) {
 		case PROJECT_CONTAINER:
 			return {

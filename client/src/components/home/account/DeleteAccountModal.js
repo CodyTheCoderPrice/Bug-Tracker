@@ -23,7 +23,6 @@ export default function DeleteAccountModal() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -72,7 +71,7 @@ export default function DeleteAccountModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.deleteTypedOut}
+						{reduxState.generalContainer.inputErrors.deleteTypedOut}
 					</span>
 					<label htmlFor="delete-account-password" className="form__label">
 						Current Password:{" "}
@@ -86,15 +85,15 @@ export default function DeleteAccountModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.currentPassword}
+						{reduxState.generalContainer.inputErrors.currentPassword}
 					</span>
 					<button type="submit" className="form__submit">
 						Delete
 					</button>
 					<span className="form__errors">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.authorization}
-						{reduxState.inputErrors.server}
+						{reduxState.generalContainer.inputErrors.validation}
+						{reduxState.generalContainer.inputErrors.authorization}
+						{reduxState.generalContainer.inputErrors.server}
 					</span>
 				</form>
 				<div className="modal-links-container">

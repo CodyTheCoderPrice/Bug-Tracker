@@ -62,7 +62,6 @@ export default function EditProjectInfo() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -72,21 +71,20 @@ export default function EditProjectInfo() {
 	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
 		"js-completion-date-container",
-		reduxState.priorityStatusArrays.projectStatusCompletionId
+		reduxState.generalContainer.priorityStatusArrays.projectStatusCompletionId
 	);
 
 	useEffect(() => {
 		populateComboBox(
 			"js-project-priority-select",
-			reduxState.priorityStatusArrays.projectPriority,
+			reduxState.generalContainer.priorityStatusArrays.projectPriority,
 			projectInfo.priority_id
 		);
 		populateComboBox(
 			"js-project-status-select",
-			reduxState.priorityStatusArrays.projectStatus,
+			reduxState.generalContainer.priorityStatusArrays.projectStatus,
 			projectInfo.status_id
 		);
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -111,14 +109,13 @@ export default function EditProjectInfo() {
 			projectInfo.description.length,
 			descriptionCharLimit
 		);
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [projectInfo.description]);
 
 	useEffect(() => {
 		if (
 			projectInfo.status_id !==
-			reduxState.priorityStatusArrays.projectStatusCompletionId
+			reduxState.generalContainer.priorityStatusArrays.projectStatusCompletionId
 		) {
 			setProjectInfo({ ...projectInfo, completion_date: "" });
 		} else {
@@ -127,7 +124,6 @@ export default function EditProjectInfo() {
 				completion_date: preservedCompletionDate,
 			});
 		}
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [projectInfo.status_id]);
 
@@ -170,7 +166,7 @@ export default function EditProjectInfo() {
 						className="centering-container__form-name-input"
 					/>
 					<span className="form-errors form-errors--test">
-						{reduxState.inputErrors.name}
+						{reduxState.generalContainer.inputErrors.name}
 					</span>
 				</div>
 				<div className="project-creation-date">
@@ -195,7 +191,7 @@ export default function EditProjectInfo() {
 						className="project-box__form-textarea js-projects-description-text-area"
 					/>
 					<span className="form-errors">
-						{reduxState.inputErrors.description}
+						{reduxState.generalContainer.inputErrors.description}
 					</span>
 				</div>
 			</div>
@@ -313,8 +309,8 @@ export default function EditProjectInfo() {
 				</div>
 				<div className="bottom-form-errors-container">
 					<span className="form-errors">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.server}
+						{reduxState.generalContainer.inputErrors.validation}
+						{reduxState.generalContainer.inputErrors.server}
 					</span>
 				</div>
 			</div>

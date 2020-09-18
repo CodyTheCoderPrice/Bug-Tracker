@@ -55,15 +55,14 @@ export function useSearchBarResizeAndBorderEventListener(
 				toggleContainerBorder(false);
 			});
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
 	// Resize search-bar to fit search-filter-sort-bar width
 	useEffect(() => {
 		if (
-			state.displaySizeVariables.window !== null &&
-			state.displaySizeConstants.home !== null
+			state.sizeContainer.variables.window !== null &&
+			state.sizeContainer.constants.home !== null
 		) {
 			let searchBar = document.getElementsByClassName(searchBarClassName)[0];
 
@@ -107,14 +106,14 @@ export function useSearchBarResizeAndBorderEventListener(
 			)[0];
 
 			const windowWidth =
-				state.displaySizeVariables.window.width -
-				state.displaySizeConstants.scrollbar.width;
+				state.sizeContainer.variables.window.width -
+				state.sizeContainer.constants.scrollbar.width;
 
 			// Used to make the searchBar take up remaining space
 			const remainingSearchFilterSortBarWidth =
-				(windowWidth > state.displaySizeConstants.home.minWidth
+				(windowWidth > state.sizeContainer.constants.home.minWidth
 					? windowWidth
-					: state.displaySizeConstants.home.minWidth) -
+					: state.sizeContainer.constants.home.minWidth) -
 				regularlyUsedSizesAndStyles.newProjectsButtonContainer.width -
 				regularlyUsedSizesAndStyles.sortAndFilterContainer.width;
 			// Because of css centering, this element is given equal empty space
@@ -133,11 +132,10 @@ export function useSearchBarResizeAndBorderEventListener(
 				regularlyUsedSizesAndStyles.searchBar.paddingOnOneSide * 2 +
 				"px";
 		}
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [
-		state.displaySizeVariables,
-		state.displaySizeConstants,
+		state.sizeContainer.variables,
+		state.sizeContainer.constants,
 		regularlyUsedSizesAndStyles,
 	]);
 

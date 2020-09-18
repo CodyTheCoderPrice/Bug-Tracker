@@ -1,4 +1,4 @@
-import { SET_PROJECTS } from "../actions/types";
+import { SET_PROJECTS } from "../../actions/types";
 
 const initialState = []
 

@@ -24,7 +24,6 @@ export default function EditPasswordModal() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -75,7 +74,7 @@ export default function EditPasswordModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.newPassword}
+						{reduxState.generalContainer.inputErrors.newPassword}
 					</span>
 					<label
 						htmlFor="edit-account-password-new-password2"
@@ -92,7 +91,7 @@ export default function EditPasswordModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.newPassword2}
+						{reduxState.generalContainer.inputErrors.newPassword2}
 					</span>
 					<label
 						htmlFor="edit-account-password-current-password"
@@ -109,15 +108,15 @@ export default function EditPasswordModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.currentPassword}
+						{reduxState.generalContainer.inputErrors.currentPassword}
 					</span>
 					<button type="submit" className="form__submit">
 						Update
 					</button>
 					<span className="form__errors">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.authorization}
-						{reduxState.inputErrors.server}
+						{reduxState.generalContainer.inputErrors.validation}
+						{reduxState.generalContainer.inputErrors.authorization}
+						{reduxState.generalContainer.inputErrors.server}
 					</span>
 				</form>
 				<div className="modal-links-container">

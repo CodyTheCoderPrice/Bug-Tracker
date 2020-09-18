@@ -1,4 +1,4 @@
-import { SET_MASS_DELETE_LIST } from "../actions/types";
+import { SET_MASS_DELETE_LIST } from "../../actions/types";
 
 const initialState = [];
 

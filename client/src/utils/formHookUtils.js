@@ -21,7 +21,6 @@ export function useToggleableDateInput(
 			updatePerservedCompletionDate();
 		}
 		setPreviousStatusId(state.status_id);
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, [state.status_id]);
 

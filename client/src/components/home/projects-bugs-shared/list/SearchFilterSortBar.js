@@ -148,7 +148,7 @@ export default function SearchFilterSortBar() {
 								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Priority
 								</span>
-								{reduxState.priorityStatusArrays.projectPriority.map(
+								{reduxState.generalContainer.priorityStatusArrays.projectPriority.map(
 									(obj, i) => {
 										return (
 											<div
@@ -181,7 +181,7 @@ export default function SearchFilterSortBar() {
 								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Status
 								</span>
-								{reduxState.priorityStatusArrays.projectStatus.map((obj, i) => {
+								{reduxState.generalContainer.priorityStatusArrays.projectStatus.map((obj, i) => {
 									return (
 										<div
 											key={i}

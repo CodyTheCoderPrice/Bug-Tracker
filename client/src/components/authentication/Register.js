@@ -26,7 +26,6 @@ export default function Register() {
 		return () => {
 			dispatch(clearInputErrors());
 		};
-		// Below comment disables an unneeded warning about optimization
 		// eslint-disable-next-line
 	}, []);
 
@@ -59,7 +58,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.first_name}
+						{reduxState.generalContainer.inputErrors.first_name}
 					</span>
 					<label htmlFor="register-last-name" className="form__label">Last Name</label>
 					<input
@@ -71,7 +70,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.last_name}
+						{reduxState.generalContainer.inputErrors.last_name}
 					</span>
 					<label htmlFor="register-email" className="form__label">Email</label>
 					<input
@@ -83,7 +82,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.email}
+						{reduxState.generalContainer.inputErrors.email}
 					</span>
 					<label htmlFor="register-password" className="form__label">Password</label>
 					<input
@@ -95,7 +94,7 @@ export default function Register() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.password}
+						{reduxState.generalContainer.inputErrors.password}
 					</span>
 					<label htmlFor="register-password2" className="form__label">Confirm Password</label>
 					<input
@@ -107,14 +106,14 @@ export default function Register() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.inputErrors.password2}
+						{reduxState.generalContainer.inputErrors.password2}
 					</span>
 					<button type="submit" className="form__submit">
 						REGISTER
 					</button>
 					<span className="form__errors">
-						{reduxState.inputErrors.validation}
-						{reduxState.inputErrors.server}
+						{reduxState.generalContainer.inputErrors.validation}
+						{reduxState.generalContainer.inputErrors.server}
 					</span>
 				</form>
 				<div className="footer">

@@ -1,4 +1,4 @@
-import { ACCOUNT_CONTAINER, PROJECT_CONTAINER } from "./typeContainer";
+import { GENERAL_CONTAINER, ACCOUNT_CONTAINER, PROJECT_CONTAINER } from "./typeContainer";
 import {
 	SET_WHICH_CORE_COMPONENTS_DISPLAY,
 	SET_WHICH_PROJECT_COMPONENTS_DISPLAY,
@@ -7,6 +7,7 @@ import {
 
 export const setWhichCoreComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
+		container: GENERAL_CONTAINER,
 		type: SET_WHICH_CORE_COMPONENTS_DISPLAY,
 		displays: displays,
 	});
