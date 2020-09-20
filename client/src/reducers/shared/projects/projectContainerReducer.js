@@ -1,7 +1,8 @@
-import projectComponentsDisplayReducer from "./projectComponentsDisplayReducer";
+import projectComponentsDisplayReducer from "../projectComponentsDisplayReducer";
 import projectsReducer from "../projectsReducer";
 import projectsSearchFilterSortReducer from "../projectsSearchFilterSortReducer";
 import massDeleteReducer from "../massDeleteReducer";
+import priorityStatusOptionsReducer from "../priorityStatusOptionsReducer";
 
 import { PROJECT_CONTAINER } from "../../../actions/typeContainer";
 
@@ -11,6 +12,7 @@ const initialState = {
 	list: projectsReducer(undefined, { type: null }),
 	searchFilterSort: projectsSearchFilterSortReducer(undefined, { type: null }),
 	massDeleteList: massDeleteReducer(undefined, { type: null }),
+	priorityStatusOptions: priorityStatusOptionsReducer(undefined, { type: null }),
 };
 
 export default function (state = initialState, action) {
@@ -27,6 +29,10 @@ export default function (state = initialState, action) {
 					action
 				),
 				massDeleteList: massDeleteReducer(state.massDeleteList, action),
+				priorityStatusOptions: priorityStatusOptionsReducer(
+					state.priorityStatusOptions,
+					action
+				),
 			};
 		default:
 			return state;

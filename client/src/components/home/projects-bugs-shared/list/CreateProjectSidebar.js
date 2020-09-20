@@ -30,8 +30,8 @@ export default function CreateProjectSidebar() {
 		name: "",
 		description: "",
 		// Sets default to the first option
-		priority_id: reduxState.generalContainer.priorityStatusArrays.projectPriority[0].id,
-		status_id: reduxState.generalContainer.priorityStatusArrays.projectStatus[0].id,
+		priority_id: reduxState.projectContainer.priorityStatusOptions.priorityOptions[0].id,
+		status_id: reduxState.projectContainer.priorityStatusOptions.statusOptions[0].id,
 		start_date: moment().format("YYYY-MM-DD"),
 		due_date: null,
 		completion_date: null,
@@ -45,7 +45,7 @@ export default function CreateProjectSidebar() {
 	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
 		"js-completion-input-container",
-		reduxState.generalContainer.priorityStatusArrays.projectStatusCompletionId
+		reduxState.projectContainer.priorityStatusOptions.statusCompletionId
 	);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
@@ -78,12 +78,12 @@ export default function CreateProjectSidebar() {
 	useEffect(() => {
 		populateComboBox(
 			"js-priority-select",
-			reduxState.generalContainer.priorityStatusArrays.projectPriority,
+			reduxState.projectContainer.priorityStatusOptions.priorityOptions,
 			1
 		);
 		populateComboBox(
 			"js-status-select",
-			reduxState.generalContainer.priorityStatusArrays.projectStatus,
+			reduxState.projectContainer.priorityStatusOptions.statusOptions,
 			1
 		);
 		// eslint-disable-next-line
@@ -101,7 +101,7 @@ export default function CreateProjectSidebar() {
 	useEffect(() => {
 		if (
 			projectInfo.status_id !==
-			reduxState.generalContainer.priorityStatusArrays.projectStatusCompletionId
+			reduxState.projectContainer.priorityStatusOptions.statusCompletionId
 		) {
 			setProjectInfo({ ...projectInfo, completion_date: "" });
 		} else {

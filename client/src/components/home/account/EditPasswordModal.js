@@ -95,7 +95,7 @@ export default function EditPasswordModal() {
 					</span>
 					<label
 						htmlFor="edit-account-password-current-password"
-						className="form__label"
+						className="form__label form__label--top-margin"
 					>
 						Current Password:{" "}
 					</label>

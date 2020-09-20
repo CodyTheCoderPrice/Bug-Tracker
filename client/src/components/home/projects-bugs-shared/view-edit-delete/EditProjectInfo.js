@@ -71,18 +71,18 @@ export default function EditProjectInfo() {
 	const [preservedCompletionDate] = useToggleableDateInput(
 		projectInfo,
 		"js-completion-date-container",
-		reduxState.generalContainer.priorityStatusArrays.projectStatusCompletionId
+		reduxState.projectContainer.priorityStatusOptions.statusCompletionId
 	);
 
 	useEffect(() => {
 		populateComboBox(
 			"js-project-priority-select",
-			reduxState.generalContainer.priorityStatusArrays.projectPriority,
+			reduxState.projectContainer.priorityStatusOptions.priorityOptions,
 			projectInfo.priority_id
 		);
 		populateComboBox(
 			"js-project-status-select",
-			reduxState.generalContainer.priorityStatusArrays.projectStatus,
+			reduxState.projectContainer.priorityStatusOptions.statusOptions,
 			projectInfo.status_id
 		);
 		// eslint-disable-next-line
@@ -115,7 +115,7 @@ export default function EditProjectInfo() {
 	useEffect(() => {
 		if (
 			projectInfo.status_id !==
-			reduxState.generalContainer.priorityStatusArrays.projectStatusCompletionId
+			reduxState.projectContainer.priorityStatusOptions.statusCompletionId
 		) {
 			setProjectInfo({ ...projectInfo, completion_date: "" });
 		} else {

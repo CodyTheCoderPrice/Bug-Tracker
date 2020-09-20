@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
-	setMassDeleteList,
+	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
@@ -37,7 +37,7 @@ export default function ProjectRow(props) {
 			deepCopyMassDeleteArray.splice(index, 1);
 		}
 
-		dispatch(setMassDeleteList("project", deepCopyMassDeleteArray));
+		dispatch(setProjectOrBugMassDeleteList("projectContainer", deepCopyMassDeleteArray));
 	};
 
 	return (

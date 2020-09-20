@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	setWhichProjectComponentsDisplay,
 	setWhichAccountComponentsDisplay,
-	setProjectsSearchFilterSort,
+	setProjectOrBugSearchFilterSort,
 } from "../../../../actions";
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/searchBarHookUtils";
@@ -66,10 +66,8 @@ export default function SearchFilterSortBar() {
 
 	const updateSearchKeyWordString = () => {
 		dispatch(
-			setProjectsSearchFilterSort({
+			setProjectOrBugSearchFilterSort("projectContainer", {
 				...reduxState.projectContainer.searchFilterSort,
-				// Converts string to boolean by setting equal
-				// ...to whether the value == true
 				searchKeyWordString: searchBarText,
 			})
 		);
@@ -95,7 +93,7 @@ export default function SearchFilterSortBar() {
 		}
 
 		dispatch(
-			setProjectsSearchFilterSort({
+			setProjectOrBugSearchFilterSort("projectContainer", {
 				...reduxState.projectContainer.searchFilterSort,
 				[e.target.name]: deepCopyFilterArray,
 			})
@@ -148,7 +146,7 @@ export default function SearchFilterSortBar() {
 								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Priority
 								</span>
-								{reduxState.generalContainer.priorityStatusArrays.projectPriority.map(
+								{reduxState.projectContainer.priorityStatusOptions.priorityOptions.map(
 									(obj, i) => {
 										return (
 											<div
@@ -181,7 +179,7 @@ export default function SearchFilterSortBar() {
 								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Status
 								</span>
-								{reduxState.generalContainer.priorityStatusArrays.projectStatus.map((obj, i) => {
+								{reduxState.projectContainer.priorityStatusOptions.statusOptions.map((obj, i) => {
 									return (
 										<div
 											key={i}

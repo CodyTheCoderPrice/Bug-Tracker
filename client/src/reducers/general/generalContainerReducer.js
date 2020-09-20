@@ -1,5 +1,4 @@
 import coreComponentsDisplayReducer from "./coreComponentsDisplayReducer";
-import priorityStatusOptionsReducer from "./priorityStatusOptionsReducer";
 import inputErrorReducer from "./inputErrorReducer";
 
 import { GENERAL_CONTAINER } from "../../actions/typeContainer";
@@ -9,7 +8,6 @@ const initialState = {
 	coreComponentsDisplay: coreComponentsDisplayReducer(undefined, {
 		type: null,
 	}),
-	priorityStatusArrays: priorityStatusOptionsReducer(undefined, { type: null }),
 	inputErrors: inputErrorReducer(undefined, { type: null }),
 };
 
@@ -19,10 +17,6 @@ export default function (state = initialState, action) {
 			return {
 				coreComponentsDisplay: coreComponentsDisplayReducer(
 					state.coreComponentsDisplay,
-					action
-				),
-				priorityStatusArrays: priorityStatusOptionsReducer(
-					state.priorityStatusArrays,
 					action
 				),
 				inputErrors: inputErrorReducer(state.inputErrors, action),

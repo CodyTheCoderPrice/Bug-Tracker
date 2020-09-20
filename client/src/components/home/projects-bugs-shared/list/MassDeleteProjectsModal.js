@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	setWhichProjectComponentsDisplay,
 	deleteMultipleProjects,
-	setMassDeleteList,
+	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
 import { toggleClassName } from "../../../../utils/elementUtils";
@@ -31,7 +31,7 @@ export default function MassDeleteProjectsModal() {
 			deleteMultipleProjects({ projectsArray: reduxState.projectContainer.massDeleteList })
 		);
 
-		dispatch(setMassDeleteList("project", []));
+		dispatch(setProjectOrBugMassDeleteList("projectContainer", []));
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { setProjectsSearchFilterSort } from "../../../../actions";
+import { setProjectOrBugSearchFilterSort } from "../../../../actions";
 
 import sortArrowsBothEmpty from "../../../../images/sort-arrows-both-empty.svg";
 import sortArrowsTopFilled from "../../../../images/sort-arrows-top-filled.svg";
@@ -17,7 +17,7 @@ export default function SortArrowsButton(props) {
 			reduxState.projectContainer.searchFilterSort.sortByType !== props.sortId
 		) {
 			dispatch(
-				setProjectsSearchFilterSort({
+				setProjectOrBugSearchFilterSort("projectContainer", {
 					...reduxState.projectContainer.searchFilterSort,
 					sortByAscending: true,
 					sortByType: props.sortId,
@@ -25,7 +25,7 @@ export default function SortArrowsButton(props) {
 			);
 		} else {
 			dispatch(
-				setProjectsSearchFilterSort({
+				setProjectOrBugSearchFilterSort("projectContainer", {
 					...reduxState.projectContainer.searchFilterSort,
 					sortByAscending: !reduxState.projectContainer.searchFilterSort
 						.sortByAscending,

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-	setMassDeleteList,
+	setProjectOrBugMassDeleteList,
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 } from "../../../../actions";
@@ -53,11 +53,11 @@ export default function ProjectsTable() {
 			allProjects.push(project.project_id);
 		}
 
-		dispatch(setMassDeleteList("project", allProjects));
+		dispatch(setProjectOrBugMassDeleteList("projectContainer", allProjects));
 	};
 
 	const uncheckAllProjects = () => {
-		dispatch(setMassDeleteList("project", []));
+		dispatch(setProjectOrBugMassDeleteList("projectContainer", []));
 	};
 
 	const openMassDeleteProjectsModal = () => {
