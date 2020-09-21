@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	setWhichProjectComponentsDisplay,
-	deleteMultipleProjects,
+	deleteMultipleProjectsOrBugs,
 	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
@@ -28,15 +28,11 @@ export default function MassDeleteProjectsModal() {
 
 	const deleteCheckedProjects = () => {
 		dispatch(
-			deleteMultipleProjects({ projectsArray: reduxState.projectContainer.massDeleteList })
-		);
-
-		dispatch(setProjectOrBugMassDeleteList("projectContainer", []));
-		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
-				massDeleteProjectsModal: false,
-			})
+			deleteMultipleProjectsOrBugs(
+				"projectContainer",
+				{ projectsArray: reduxState.projectContainer.massDeleteList },
+				reduxState.projectContainer.componentsDisplay
+			)
 		);
 	};
 

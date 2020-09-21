@@ -4,6 +4,7 @@ import { SET_PROJECTS } from "./types";
 import { setInputErrors } from "./index";
 import { logoutAccount } from "./accountActions";
 import { setWhichProjectComponentsDisplay } from "./componentActions";
+import { setProjectOrBugMassDeleteList } from "./switchActions";
 
 export const setProjects = (projects) => (dispatch) => {
 	dispatch({
@@ -57,9 +58,11 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
+			// Done here so components only changes when update is succesful
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
+					// Set redux target project to match project update on server side
 					targetProject: projects.filter((project) => {
 						return project.project_id === projectInfo.project_id;
 					})[0],
@@ -76,13 +79,29 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 		});
 };
 
-export const deleteProject = (project_id) => (dispatch) => {
+export const deleteProject = (
+	project_id,
+	massDeleteList,
+	indexOfTargetProjectId
+) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
 		.post("/api/project/delete", project_id, headers)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
+			// Done here so following code only runs if deletion is succesful
+			if (indexOfTargetProjectId > -1) {
+				massDeleteList.splice(indexOfTargetProjectId, 1);
+				dispatch(
+					setProjectOrBugMassDeleteList("projectContainer", massDeleteList)
+				);
+			}
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					projectsTable: true,
+				})
+			);
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -93,13 +112,21 @@ export const deleteProject = (project_id) => (dispatch) => {
 		});
 };
 
-export const deleteMultipleProjects = (projectsArray) => (dispatch) => {
+export const deleteMultipleProjects = (projectsArray, projectComponentsDisplay) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
 		.post("/api/project/delete-multiple", projectsArray, headers)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
+			// Done here so following code only runs if deletion is succesful
+			dispatch(setProjectOrBugMassDeleteList("projectContainer", []));
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					...projectComponentsDisplay,
+					massDeleteProjectsModal: false,
+				})
+			);
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));

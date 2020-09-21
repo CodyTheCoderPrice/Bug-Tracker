@@ -5,7 +5,7 @@ import moment from "moment";
 
 import {
 	setWhichProjectComponentsDisplay,
-	createProject,
+	createProjectOrBug,
 	clearInputErrors,
 } from "../../../../actions";
 
@@ -136,7 +136,7 @@ export default function CreateProjectSidebar() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(createProject(projectInfo));
+		dispatch(createProjectOrBug("projectContainer", projectInfo));
 	};
 
 	return (

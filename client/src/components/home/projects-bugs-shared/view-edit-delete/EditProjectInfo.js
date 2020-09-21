@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	setWhichProjectComponentsDisplay,
-	updateProject,
+	updateProjectOrBug,
 	clearInputErrors,
 } from "../../../../actions";
 
@@ -141,7 +141,7 @@ export default function EditProjectInfo() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(updateProject(projectInfo, reduxState.projectContainer.componentsDisplay));
+		dispatch(updateProjectOrBug("projectContainer", projectInfo, reduxState.projectContainer.componentsDisplay));
 	};
 
 	const switchToDisplayProjectInfo = () => {

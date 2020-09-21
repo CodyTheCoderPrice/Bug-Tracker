@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	setWhichProjectComponentsDisplay,
-	deleteProject,
+	deleteProjectOrBug,
 	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
@@ -14,27 +14,22 @@ export default function DeleteProjectModal() {
 	const dispatch = useDispatch();
 
 	const deleteThisProject = () => {
-		dispatch(
-			deleteProject({
-				project_id:
-					reduxState.projectContainer.componentsDisplay.targetProject
-						.project_id,
-			})
-		);
 		let copyMassDeleteList = [...reduxState.projectContainer.massDeleteList];
-		const indexOfId = copyMassDeleteList.indexOf(
+		const indexOfTargetProjectId = copyMassDeleteList.indexOf(
 			reduxState.projectContainer.componentsDisplay.targetProject.project_id
 		);
-		if (indexOfId > -1) {
-			copyMassDeleteList.splice(indexOfId, 1);
-			dispatch(
-				setProjectOrBugMassDeleteList("projectContainer", copyMassDeleteList)
-			);
-		}
+
 		dispatch(
-			setWhichProjectComponentsDisplay({
-				projectsTable: true,
-			})
+			deleteProjectOrBug(
+				"projectContainer",
+				{
+					project_id:
+						reduxState.projectContainer.componentsDisplay.targetProject
+							.project_id,
+				},
+				copyMassDeleteList,
+				indexOfTargetProjectId
+			)
 		);
 	};
 
