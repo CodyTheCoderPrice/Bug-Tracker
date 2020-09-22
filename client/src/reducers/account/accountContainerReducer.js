@@ -11,7 +11,7 @@ const initialState = {
 	info: accountReducer(undefined, { type: null }),
 };
 
-export default function (state = initialState, action) {
+export function accountContainerReducer(state = initialState, action) {
 	switch (action.container) {
 		case ACCOUNT_CONTAINER:
 			return {

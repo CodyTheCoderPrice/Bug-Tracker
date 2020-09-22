@@ -11,7 +11,7 @@ const initialState = {
 	inputErrors: inputErrorReducer(undefined, { type: null }),
 };
 
-export default function (state = initialState, action) {
+export function generalContainerReducer(state = initialState, action) {
 	switch (action.container) {
 		case GENERAL_CONTAINER:
 			return {

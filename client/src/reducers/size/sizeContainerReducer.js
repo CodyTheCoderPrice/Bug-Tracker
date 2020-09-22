@@ -9,7 +9,7 @@ const initialState = {
 	variables: displaySizeVariablesReducer(undefined, { type: null }),
 };
 
-export default function (state = initialState, action) {
+export function sizeContainerReducer(state = initialState, action) {
 	switch (action.container) {
 		case SIZE_CONTAINER:
 			return {

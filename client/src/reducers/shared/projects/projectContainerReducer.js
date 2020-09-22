@@ -15,7 +15,7 @@ const initialState = {
 	priorityStatusOptions: priorityStatusOptionsReducer(undefined, { type: null }),
 };
 
-export default function (state = initialState, action) {
+export function projectContainerReducer(state = initialState, action) {
 	switch (action.container) {
 		case PROJECT_CONTAINER:
 			return {

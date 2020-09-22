@@ -1,15 +1,8 @@
-import { combineReducers } from "redux";
+// Combined in store.js
+export *  from "./general/generalContainerReducer";
+export *  from "./size/sizeContainerReducer";
+export *  from "./account/accountContainerReducer";
+export *  from "./shared/projects/projectContainerReducer";
+export *  from "./shared/bugs/bugContainerReducer";
 
-import generalContainerReducer from "./general/generalContainerReducer";
-import sizeContainerReducer from "./size/sizeContainerReducer";
-import accountContainerReducer from "./account/accountContainerReducer";
-import projectContainerReducer from "./shared/projects/projectContainerReducer";
-import bugContainerReducer from "./shared/bugs/bugContainerReducer";
 
-export default combineReducers({
-	generalContainer: generalContainerReducer,
-	sizeContainer: sizeContainerReducer,
-	accountContainer: accountContainerReducer,
-	projectContainer: projectContainerReducer,
-	bugContainer: bugContainerReducer,
-});
