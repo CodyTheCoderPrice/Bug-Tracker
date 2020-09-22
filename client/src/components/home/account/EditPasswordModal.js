@@ -7,7 +7,7 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import "../../../SCSS/account/accountModals.scss";
+import "../../../SCSS/home/account/accountModals.scss";
 
 export default function EditPasswordModal() {
 	const reduxState = useSelector((state) => state);

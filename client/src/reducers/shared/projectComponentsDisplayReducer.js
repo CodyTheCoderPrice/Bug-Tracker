@@ -1,14 +1,13 @@
 import { SET_WHICH_PROJECT_COMPONENTS_DISPLAY } from "../../actions/types";
 
 const initialState = {
-	projectsTable: true,
-	createProjectSidbar: false,
-	viewProjectModal: false,
-	editProjectSidebar: false,
-	targetProject: null,
-	editProjectInfo: false,
-	deleteProjectModal: false,
-	massDeleteProjectsModal: false,
+	listTable: true,
+	listTableMassDeleteItemsModal: false,
+	createItemSidbar: false,
+	targetItem: null,
+	viewItemModal: false,
+	viewItemModalEditInfo: false,
+	viewItemModalDelete: false,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -21,37 +20,33 @@ export default function (state = initialState, action) {
 				return initialState;
 			} else {
 				return {
-					projectsTable:
-						action.displays.projectsTable !== undefined
-							? action.displays.projectsTable
+					listTable:
+						action.displays.listTable !== undefined
+							? action.displays.listTable
 							: false,
-					createProjectSidbar:
-						action.displays.createProjectSidbar !== undefined
-							? action.displays.createProjectSidbar
+					listTableMassDeleteItemsModal:
+						action.displays.listTableMassDeleteItemsModal !== undefined
+							? action.displays.listTableMassDeleteItemsModal
 							: false,
-					viewProjectModal:
-						action.displays.viewProjectModal !== undefined
-							? action.displays.viewProjectModal
+					createItemSidbar:
+						action.displays.createItemSidbar !== undefined
+							? action.displays.createItemSidbar
 							: false,
-					editProjectSidebar:
-						action.displays.editProjectSidebar !== undefined
-							? action.displays.editProjectSidebar
-							: false,
-					targetProject:
-						action.displays.targetProject !== undefined
-							? action.displays.targetProject
+					targetItem:
+						action.displays.targetItem !== undefined
+							? action.displays.targetItem
 							: null,
-					editProjectInfo:
-						action.displays.editProjectInfo !== undefined
-							? action.displays.editProjectInfo
+					viewItemModal:
+						action.displays.viewItemModal !== undefined
+							? action.displays.viewItemModal
 							: false,
-					deleteProjectModal:
-						action.displays.deleteProjectModal !== undefined
-							? action.displays.deleteProjectModal
+					viewItemModalEditInfo:
+						action.displays.viewItemModalEditInfo !== undefined
+							? action.displays.viewItemModalEditInfo
 							: false,
-					massDeleteProjectsModal:
-						action.displays.massDeleteProjectsModal !== undefined
-							? action.displays.massDeleteProjectsModal
+					viewItemModalDelete:
+						action.displays.viewItemModalDelete !== undefined
+							? action.displays.viewItemModalDelete
 							: false,
 				};
 			}

@@ -3,32 +3,32 @@ import { useSelector } from "react-redux";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
-import "../../../../SCSS/projects/view-edit-delete/displayProjectInfo.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModalDisplayInfo.scss";
 
-export default function DisplayProjectInfo() {
+export default function ViewItemModalDisplayInfo() {
 	const reduxState = useSelector((state) => state);
 
 	const [projectInfo] = useState({
-		project_id: reduxState.projectContainer.componentsDisplay.targetProject.project_id,
-		name: reduxState.projectContainer.componentsDisplay.targetProject.name,
-		description: reduxState.projectContainer.componentsDisplay.targetProject.description,
-		priority_id: reduxState.projectContainer.componentsDisplay.targetProject.priority_id,
+		project_id: reduxState.projectContainer.componentsDisplay.targetItem.project_id,
+		name: reduxState.projectContainer.componentsDisplay.targetItem.name,
+		description: reduxState.projectContainer.componentsDisplay.targetItem.description,
+		priority_id: reduxState.projectContainer.componentsDisplay.targetItem.priority_id,
 		priorityOption:
-			reduxState.projectContainer.componentsDisplay.targetProject.priority_option,
-		status_id: reduxState.projectContainer.componentsDisplay.targetProject.status_id,
+			reduxState.projectContainer.componentsDisplay.targetItem.priority_option,
+		status_id: reduxState.projectContainer.componentsDisplay.targetItem.status_id,
 		statusOption:
-			reduxState.projectContainer.componentsDisplay.targetProject.status_option,
+			reduxState.projectContainer.componentsDisplay.targetItem.status_option,
 		creation_date: formatDateMMddYYYY(
-			reduxState.projectContainer.componentsDisplay.targetProject.creation_date
+			reduxState.projectContainer.componentsDisplay.targetItem.creation_date
 		),
 		start_date: formatDateMMddYYYY(
-			reduxState.projectContainer.componentsDisplay.targetProject.start_date
+			reduxState.projectContainer.componentsDisplay.targetItem.start_date
 		),
 		due_date: formatDateMMddYYYY(
-			reduxState.projectContainer.componentsDisplay.targetProject.due_date
+			reduxState.projectContainer.componentsDisplay.targetItem.due_date
 		),
 		completion_date: formatDateMMddYYYY(
-			reduxState.projectContainer.componentsDisplay.targetProject.completion_date
+			reduxState.projectContainer.componentsDisplay.targetItem.completion_date
 		),
 	});
 

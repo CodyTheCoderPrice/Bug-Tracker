@@ -4,19 +4,18 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	setWhichProjectComponentsDisplay,
 	deleteProjectOrBug,
-	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
-import "../../../../SCSS/projects-bugs-shared/deleteProjectModal.scss";
+import "../../../../SCSS/home/projects-bugs-shared/deleteItemsModal.scss";
 
-export default function DeleteProjectModal() {
+export default function ViewItemModalDelete() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const deleteThisProject = () => {
 		let copyMassDeleteList = [...reduxState.projectContainer.massDeleteList];
 		const indexOfTargetProjectId = copyMassDeleteList.indexOf(
-			reduxState.projectContainer.componentsDisplay.targetProject.project_id
+			reduxState.projectContainer.componentsDisplay.targetItem.project_id
 		);
 
 		dispatch(
@@ -24,7 +23,7 @@ export default function DeleteProjectModal() {
 				"projectContainer",
 				{
 					project_id:
-						reduxState.projectContainer.componentsDisplay.targetProject
+						reduxState.projectContainer.componentsDisplay.targetItem
 							.project_id,
 				},
 				copyMassDeleteList,
@@ -37,7 +36,7 @@ export default function DeleteProjectModal() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,
-				deleteProjectModal: false,
+				viewItemModalDelete: false,
 			})
 		);
 	};

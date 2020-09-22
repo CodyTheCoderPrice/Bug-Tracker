@@ -25,33 +25,33 @@ import {
 
 import { useToggleableDateInput } from "../../../../utils/formHookUtils";
 
-import "../../../../SCSS/projects/view-edit-delete/editProjectInfo.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModalEditInfo.scss";
 
-export default function EditProjectInfo() {
+export default function ViewItemModalEditInfo() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [projectInfo, setProjectInfo] = useState({
-		project_id: reduxState.projectContainer.componentsDisplay.targetProject.project_id,
-		name: reduxState.projectContainer.componentsDisplay.targetProject.name,
-		description: reduxState.projectContainer.componentsDisplay.targetProject.description,
-		priority_id: reduxState.projectContainer.componentsDisplay.targetProject.priority_id,
+		project_id: reduxState.projectContainer.componentsDisplay.targetItem.project_id,
+		name: reduxState.projectContainer.componentsDisplay.targetItem.name,
+		description: reduxState.projectContainer.componentsDisplay.targetItem.description,
+		priority_id: reduxState.projectContainer.componentsDisplay.targetItem.priority_id,
 		priorityOption:
-			reduxState.projectContainer.componentsDisplay.targetProject.priority_option,
-		status_id: reduxState.projectContainer.componentsDisplay.targetProject.status_id,
+			reduxState.projectContainer.componentsDisplay.targetItem.priority_option,
+		status_id: reduxState.projectContainer.componentsDisplay.targetItem.status_id,
 		statusOption:
-			reduxState.projectContainer.componentsDisplay.targetProject.status_option,
+			reduxState.projectContainer.componentsDisplay.targetItem.status_option,
 		creation_date: formatDateMMddYYYY(
-			reduxState.projectContainer.componentsDisplay.targetProject.creation_date
+			reduxState.projectContainer.componentsDisplay.targetItem.creation_date
 		),
 		start_date: formatDateYYYYmmDD(
-			reduxState.projectContainer.componentsDisplay.targetProject.start_date
+			reduxState.projectContainer.componentsDisplay.targetItem.start_date
 		),
 		due_date: formatDateYYYYmmDD(
-			reduxState.projectContainer.componentsDisplay.targetProject.due_date
+			reduxState.projectContainer.componentsDisplay.targetItem.due_date
 		),
 		completion_date: formatDateYYYYmmDD(
-			reduxState.projectContainer.componentsDisplay.targetProject.completion_date
+			reduxState.projectContainer.componentsDisplay.targetItem.completion_date
 		),
 	});
 
@@ -88,7 +88,7 @@ export default function EditProjectInfo() {
 		// eslint-disable-next-line
 	}, []);
 
-	// Adjust description text area size to match DisplayProjectInfo's description
+	// Adjust description text area size to match ViewItemModalDisplayInfo's description
 	useEffect(() => {
 		let editDescriptionTextArea = document.getElementsByClassName(
 			"js-projects-description-text-area"
@@ -148,7 +148,7 @@ export default function EditProjectInfo() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,
-				editProjectInfo: false,
+				viewItemModalEditInfo: false,
 			})
 		);
 	};

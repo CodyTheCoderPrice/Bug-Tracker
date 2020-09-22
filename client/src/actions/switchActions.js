@@ -26,6 +26,8 @@ export const setProjectOrBugSearchFilterSort = (
 				searchFilterSort: searchFilterSort,
 			});
 			break;
+		default:
+			break;
 	}
 };
 
@@ -48,6 +50,8 @@ export const setProjectOrBugMassDeleteList = (
 				list: massDeleteList,
 			});
 			break;
+		default:
+			break;
 	}
 };
 
@@ -61,6 +65,8 @@ export const createProjectOrBug = (containerName, projectInfo) => (
 		/* case "bugContainer":
 			dispatch(createProject(projectInfo));
 			break; */
+		default:
+			break;
 	}
 };
 
@@ -76,21 +82,26 @@ export const updateProjectOrBug = (
 		/* case "bugContainer":
 			dispatch(updateProject(projectInfo, projectComponentsDisplay));
 			break; */
+		default:
+			break;
 	}
 };
 
 export const deleteProjectOrBug = (
 	containerName,
 	project_id,
-	massDeleteList
+	massDeleteList,
+	indexOfTargetProjectId
 ) => (dispatch) => {
 	switch (containerName) {
 		case "projectContainer":
-			dispatch(deleteProject(project_id, massDeleteList));
+			dispatch(deleteProject(project_id, massDeleteList, indexOfTargetProjectId));
 			break;
 		/* case "bugContainer":
-			dispatch(deleteProject(project_id));
+			dispatch(deleteProject(project_id, massDeleteList, indexOfTargetProjectId));
 			break; */
+		default:
+			break;
 	}
 };
 
@@ -110,5 +121,7 @@ export const deleteMultipleProjectsOrBugs = (
 				deleteMultipleProjects(projectOrBugArray, projectOrBugComponentsDisplay)
 			);
 			break; */
+		default:
+			break;
 	}
 };

@@ -5,7 +5,7 @@ import { setWhichAccountComponentsDisplay } from "../../../actions";
 
 import { toggleClassName } from "../../../utils/elementUtils";
 
-import "../../../SCSS/account/accountBlurredBackground.scss";
+import "../../../SCSS/home/account/accountBlurredBackground.scss";
 
 // This blurred background is its own functional component for optimization
 // ...reasons so every account modal

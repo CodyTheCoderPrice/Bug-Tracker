@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 
 import { getElementStyle, stripNonDigits } from "./displaySizeUtils";
 
-export function useSidebarResize(
-	state,
-	sidebarClassName,
-) {
+export function useSidebarResize(state, sidebarClassName) {
 	// Used to decide when to resize the sidebar, and to reset its size
 	const [
 		originalSidebarSizeAndStyle,
@@ -46,6 +43,7 @@ export function useSidebarResize(
 				sidebarElement.style.height = originalSidebarSizeAndStyle.height + "px";
 			}
 		}
+		// eslint-disable-next-line
 	}, [state.sizeContainer.variables, originalSidebarSizeAndStyle]);
 
 	return [];

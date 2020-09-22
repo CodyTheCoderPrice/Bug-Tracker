@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setProjectOrBugSearchFilterSort } from "../../../../actions";
@@ -6,9 +6,9 @@ import { setProjectOrBugSearchFilterSort } from "../../../../actions";
 import sortArrowsBothEmpty from "../../../../images/sort-arrows-both-empty.svg";
 import sortArrowsTopFilled from "../../../../images/sort-arrows-top-filled.svg";
 import sortArrowsBottomFilled from "../../../../images/sort-arrows-bottom-filled.svg";
-import "../../../../SCSS/projects-bugs-shared/sortArrowsButton.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listTableRowSortArrowsButton.scss";
 
-export default function SortArrowsButton(props) {
+export default function ListTableRowSortArrowsButton(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 

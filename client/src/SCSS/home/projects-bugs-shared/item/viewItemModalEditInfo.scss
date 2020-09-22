@@ -1,7 +1,7 @@
-// The EditProjectInfo component also uses shared SCSS in viewProjectModal.scss
-// This file is for SCSS used only by  the EditProjectInfo component
-@import "../../utils/variables";
-@import "../../utils//mixins";
+// The ViewItemModalEditInfo component also uses shared SCSS in viewItemModal.scss
+// This file is for SCSS used only by  the ViewItemModalEditInfo component
+@import "../../../utils/variables";
+@import "../../../utils//mixins";
 
 .view-project-modal-component {
 	.form-errors {

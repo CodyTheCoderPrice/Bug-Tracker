@@ -1,5 +1,5 @@
-@import "../../utils/variables";
-@import "../../utils//mixins";
+@import "../../../utils/variables";
+@import "../../../utils//mixins";
 
 .view-project-modal-component {
 	.blurred-background {
@@ -155,7 +155,7 @@
 		overflow-wrap: anywhere;
 	}
 
-	// Used in EditProjectInfo to calculate description size using JS
+	// Used in ViewItemModalEditInfo to calculate description size using JS
 	.project-box--invisible {
 		position: absolute;
 		visibility: hidden;

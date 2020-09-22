@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
-// using redux-persist to persist the redux state
+// Used to persist the redux state
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
@@ -9,10 +9,10 @@ const initialState = {};
 
 const middleware = [thunk];
 
-// used to persist redux state
-const persistConfig = {
+// Used by redux-persist to persist the redux state
+const rootPersistConfig = {
 	key: "root",
-	storage,
+	storage: storage,
 	whitelist: [
 		"generalContainer",
 		 // Theses are persisted despite being re-fetched on page refresh
@@ -21,7 +21,8 @@ const persistConfig = {
 		"projectContainer",
 	],
 };
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
 const store = createStore(
 	persistedReducer,

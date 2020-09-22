@@ -20,9 +20,9 @@ import { useToggleableDateInput } from "../../../../utils/formHookUtils";
 
 import { useSidebarResize } from "../../../../utils/sidebarResizeHookUtils";
 
-import "../../../../SCSS/projects/createProjectSidebar.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/createItemSidebar.scss";
 
-export default function CreateProjectSidebar() {
+export default function CreateItemSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -49,7 +49,7 @@ export default function CreateProjectSidebar() {
 	);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
-	const [] = useSidebarResize(
+	useSidebarResize(
 		reduxState,
 		"js-create-project-sidebar",
 	);
@@ -129,7 +129,7 @@ export default function CreateProjectSidebar() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,
-				createProjectSidbar: false,
+				createItemSidbar: false,
 			})
 		);
 	};

@@ -75,26 +75,25 @@ export default function Navbar() {
 
 	useEffect(() => {
 		setNavbarButtonColor(
-			reduxState.projectContainer.componentsDisplay.projectsTable,
+			reduxState.projectContainer.componentsDisplay.listTable,
 			document.getElementsByClassName("js-project-button")[0],
 			"navbar-button--selected"
 		);
 		setProjectsIcon(
-			reduxState.projectContainer.componentsDisplay.projectsTable,
+			reduxState.projectContainer.componentsDisplay.listTable,
 			document.getElementById("project-button-icon")
 		);
 	}, [
 		reduxState.accountContainer.componentsDisplay.accountSidebar,
-		reduxState.projectContainer.componentsDisplay.projectsTable,
+		reduxState.projectContainer.componentsDisplay.listTable,
 	]);
 
 	const openAccountSidebar = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,
-				createProjectSidbar: false,
-				viewProjectModal: false,
-				editProjectSidebar: false,
+				createItemSidbar: false,
+				viewItemModal: false,
 			})
 		);
 		dispatch(
@@ -108,7 +107,7 @@ export default function Navbar() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,
-				projectsTable: true,
+				listTable: true,
 			})
 		);
 	};

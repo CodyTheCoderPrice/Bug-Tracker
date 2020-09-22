@@ -10,14 +10,14 @@ import { formatDateMMddYYYY } from "../../../utils/dateUtils";
 
 import { useSidebarResize } from "../../../utils/sidebarResizeHookUtils";
 
-import "../../../SCSS/account/accountSidebar.scss";
+import "../../../SCSS/home/account/accountSidebar.scss";
 
 export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
-	const [] = useSidebarResize(
+	useSidebarResize(
 		reduxState,
 		"js-account-sidebar",
 	);

@@ -14,13 +14,13 @@ import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
 import { toggleDisableButtons } from "../../../../utils/massDeleteUtils";
 
 // Components
-/* import SortButtons from "./SortButtons"; */
-import ProjectRow from "./ProjectRow";
-import SortArrowsButton from "./SortArrowsButton";
+import ListTableSearchFilterSortBar from "./ListTableSearchFilterSortBar"
+import ListTableRow from "./ListTableRow";
+import ListTableRowSortArrowsButton from "./ListTableRowSortArrowsButton";
 
-import "../../../../SCSS/projects/projectsTableAndRows.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listTableAndRows.scss";
 
-export default function ProjectsTable() {
+export default function ListTable() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -65,14 +65,15 @@ export default function ProjectsTable() {
 
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				projectsTable: true,
-				massDeleteProjectsModal: true,
+				listTable: true,
+				listTableMassDeleteItemsModal: true,
 			})
 		);
 	};
 
 	return (
 		<div className="projects-table-component">
+			<ListTableSearchFilterSortBar />
 			<table className="projects-table">
 				<thead className="">
 					<tr className="project-table__row">
@@ -100,27 +101,27 @@ export default function ProjectsTable() {
 						</th>
 						<th className="project-table__header js-project-table__header">
 							<span className="project-table__header__span">Name</span>
-							<SortArrowsButton sortId={1} sortFor="Name" />
+							<ListTableRowSortArrowsButton sortId={1} sortFor="Name" />
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Created on</span>
-							<SortArrowsButton sortId={2} sortFor="Created on"/>
+							<ListTableRowSortArrowsButton sortId={2} sortFor="Created on"/>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Start Date</span>
-							<SortArrowsButton sortId={3} sortFor="Start Date"/>
+							<ListTableRowSortArrowsButton sortId={3} sortFor="Start Date"/>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Due Date</span>
-							<SortArrowsButton sortId={4} sortFor="Due Date"/>
+							<ListTableRowSortArrowsButton sortId={4} sortFor="Due Date"/>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Priority</span>
-							<SortArrowsButton sortId={5} sortFor="Priority"/>
+							<ListTableRowSortArrowsButton sortId={5} sortFor="Priority"/>
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Status</span>
-							<SortArrowsButton sortId={6} sortFor="Status"/>
+							<ListTableRowSortArrowsButton sortId={6} sortFor="Status"/>
 						</th>
 						<th className="project-table__header js-remaining-space">
 							{/*Fills remaining empty space*/}
@@ -134,7 +135,7 @@ export default function ProjectsTable() {
 						[...reduxState.projectContainer.list],
 						reduxState.projectContainer.searchFilterSort
 					).map((project, i) => {
-						return <ProjectRow key={i} project={project} />;
+						return <ListTableRow key={i} project={project} />;
 					})}
 					{/*Creates an empty space at the bottom*/}
 					<tr className="project-table__row--empty" />

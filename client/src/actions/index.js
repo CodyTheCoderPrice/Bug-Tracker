@@ -9,6 +9,7 @@ import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES,
 	SET_PRIORITY_STATUS_OPTIONS,
+	SET_MASS_DELETE_LIST,
 	SET_INPUT_ERRORS,
 } from "./types";
 
@@ -50,6 +51,20 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 			statusOptions: bugPriorityStatusOptions.statusOptions,
 			statusCompletionId: bugPriorityStatusOptions.statusCompletionId,
 		});
+	});
+};
+
+export const setProjectsMassDeleteList = (containerName, massDeleteList) => (dispatch) => {
+	if (containerName === "project"){
+		containerName = PROJECT_CONTAINER;
+	} /* else if (containerName === "bug"){
+		containerName = 
+	} */
+	
+	dispatch({
+		container: containerName,
+		type: SET_MASS_DELETE_LIST,
+		list: massDeleteList,
 	});
 };
 

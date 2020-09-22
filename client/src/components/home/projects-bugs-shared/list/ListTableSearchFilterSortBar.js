@@ -11,9 +11,9 @@ import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/sear
 
 import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
-import "../../../../SCSS/projects-bugs-shared/searchFilterSortBar.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listTableSearchFilterSortBar.scss";
 
-export default function SearchFilterSortBar() {
+export default function ListTableSearchFilterSortBar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ export default function SearchFilterSortBar() {
 	// Custom hook resizes the searchbar to take up the space
 	// ...in the middle of the search-sort-filter-bar. Also adds
 	// ... an event listener to highlight the searchbar
-	const [] = useSearchBarResizeAndBorderEventListener(
+	useSearchBarResizeAndBorderEventListener(
 		reduxState,
 		"js-projects-search-bar",
 		"js-projects-search-bar-button",
@@ -53,8 +53,8 @@ export default function SearchFilterSortBar() {
 	const openCreateProjectSidebar = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				projectsTable: true,
-				createProjectSidbar: true,
+				listTable: true,
+				createItemSidbar: true,
 			})
 		);
 		dispatch(setWhichAccountComponentsDisplay({}));

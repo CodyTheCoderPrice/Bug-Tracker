@@ -4,14 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	setWhichProjectComponentsDisplay,
 	deleteMultipleProjectsOrBugs,
-	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
 import { toggleClassName } from "../../../../utils/elementUtils";
 
-import "../../../../SCSS/projects-bugs-shared/deleteProjectModal.scss";
+import "../../../../SCSS/home/projects-bugs-shared/deleteItemsModal.scss";
 
-export default function MassDeleteProjectsModal() {
+export default function ListTableMassDeleteItemsModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -40,7 +39,7 @@ export default function MassDeleteProjectsModal() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,
-				massDeleteProjectsModal: false,
+				listTableMassDeleteItemsModal: false,
 			})
 		);
 	};

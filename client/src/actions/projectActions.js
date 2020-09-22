@@ -21,7 +21,7 @@ export const createProject = (projectInfo) => (dispatch) => {
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
-			dispatch(setWhichProjectComponentsDisplay({ projectsTable: true }));
+			dispatch(setWhichProjectComponentsDisplay({ listTable: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -63,10 +63,10 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
 					// Set redux target project to match project update on server side
-					targetProject: projects.filter((project) => {
+					targetItem: projects.filter((project) => {
 						return project.project_id === projectInfo.project_id;
 					})[0],
-					editProjectInfo: false,
+					viewItemModalEditInfo: false,
 				})
 			);
 		})
@@ -91,15 +91,18 @@ export const deleteProject = (
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
 			// Done here so following code only runs if deletion is succesful
+			console.log(indexOfTargetProjectId);
 			if (indexOfTargetProjectId > -1) {
+				console.log(massDeleteList);
 				massDeleteList.splice(indexOfTargetProjectId, 1);
+				console.log(massDeleteList);
 				dispatch(
 					setProjectOrBugMassDeleteList("projectContainer", massDeleteList)
 				);
 			}
 			dispatch(
 				setWhichProjectComponentsDisplay({
-					projectsTable: true,
+					listTable: true,
 				})
 			);
 		})
@@ -124,7 +127,7 @@ export const deleteMultipleProjects = (projectsArray, projectComponentsDisplay) 
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
-					massDeleteProjectsModal: false,
+					listTableMassDeleteItemsModal: false,
 				})
 			);
 		})

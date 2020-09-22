@@ -14,13 +14,13 @@ import {
 import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
 // Components
-import DisplayProjectInfo from "./DisplayProjectInfo";
-import EditProjectInfo from "./EditProjectInfo";
-import DeleteProjectModal from "./DeleteProjectModal";
+import ViewItemModalDisplayInfo from "./ViewItemModalDisplayInfo";
+import ViewItemModalEditInfo from "./ViewItemModalEditInfo";
+import ViewItemModalDelete from "./ViewItemModalDelete";
 
-import "../../../../SCSS/projects/view-edit-delete/viewProjectModal.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModal.scss";
 
-export default function ViewProjectModal() {
+export default function ViewItemModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -126,7 +126,7 @@ export default function ViewProjectModal() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,
-				editProjectInfo: !reduxState.projectContainer.componentsDisplay.editProjectInfo,
+				viewItemModalEditInfo: !reduxState.projectContainer.componentsDisplay.viewItemModalEditInfo,
 			})
 		);
 	};
@@ -135,7 +135,7 @@ export default function ViewProjectModal() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,
-				deleteProjectModal: true,
+				viewItemModalDelete: true,
 			})
 		);
 	};
@@ -144,7 +144,7 @@ export default function ViewProjectModal() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState.projectContainer.componentsDisplay,
-				viewProjectModal: false,
+				viewItemModal: false,
 			})
 		);
 	};
@@ -171,7 +171,7 @@ export default function ViewProjectModal() {
 								className="project-options-container__dropdown__option js-edit-option"
 								onClick={switchBetweenDisplayAndEditProjectInfo}
 							>
-								{reduxState.projectContainer.componentsDisplay.editProjectInfo
+								{reduxState.projectContainer.componentsDisplay.viewItemModalEditInfo
 									? "Cancel"
 									: "Edit Project"}
 							</span>
@@ -189,17 +189,17 @@ export default function ViewProjectModal() {
 				</div>
 				<div className="project-content-container js-project-content-container">
 					<div className="padding-container">
-						{!reduxState.projectContainer.componentsDisplay.editProjectInfo ? (
+						{!reduxState.projectContainer.componentsDisplay.viewItemModalEditInfo ? (
 							<div>
-								<DisplayProjectInfo />
+								<ViewItemModalDisplayInfo />
 							</div>
 						) : (
 							<div>
-								<EditProjectInfo />
+								<ViewItemModalEditInfo />
 							</div>
 						)}
-						{reduxState.projectContainer.componentsDisplay.deleteProjectModal ? (
-							<DeleteProjectModal />
+						{reduxState.projectContainer.componentsDisplay.viewItemModalDelete ? (
+							<ViewItemModalDelete />
 						) : null}
 					</div>
 				</div>

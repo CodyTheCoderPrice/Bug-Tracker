@@ -9,9 +9,9 @@ import {
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
-import "../../../../SCSS/projects/projectsTableAndRows.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listTableAndRows.scss";
 
-export default function ProjectRow(props) {
+export default function ListTableRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -19,9 +19,9 @@ export default function ProjectRow(props) {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				projectsTable: true,
-				viewProjectModal: true,
-				targetProject: props.project,
+				listTable: true,
+				viewItemModal: true,
+				targetItem: props.project,
 			})
 		);
 	};
