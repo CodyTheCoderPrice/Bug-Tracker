@@ -1,7 +1,7 @@
 import { GENERAL_CONTAINER, ACCOUNT_CONTAINER, PROJECT_CONTAINER } from "./typeContainer";
 import {
 	SET_WHICH_CORE_COMPONENTS_DISPLAY,
-	SET_WHICH_PROJECT_COMPONENTS_DISPLAY,
+	SET_WHICH_LIST_COMPONENTS_DISPLAY,
 	SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY,
 } from "./types";
 
@@ -33,16 +33,7 @@ export const resetAccountComponentsDisplay = () => (dispatch) => {
 export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
 		container: PROJECT_CONTAINER,
-		type: SET_WHICH_PROJECT_COMPONENTS_DISPLAY,
-		reset: false,
+		type: SET_WHICH_LIST_COMPONENTS_DISPLAY,
 		displays: displays,
-	});
-};
-
-export const resetProjectComponentsDisplay = () => (dispatch) => {
-	dispatch({
-		container: PROJECT_CONTAINER,
-		type: SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY,
-		reset: true,
 	});
 };

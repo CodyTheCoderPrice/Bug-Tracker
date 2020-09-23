@@ -2,48 +2,50 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-	setWhichProjectComponentsDisplay,
+	setWhichProjectOrBugComponentsDisplay,
 	deleteProjectOrBug,
 } from "../../../../actions";
 
 import "../../../../SCSS/home/projects-bugs-shared/deleteItemsModal.scss";
 
-export default function ViewItemModalDelete() {
+export default function ViewItemModalDelete(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const deleteThisProject = () => {
-		let copyMassDeleteList = [...reduxState.projectContainer.massDeleteList];
-		const indexOfTargetProjectId = copyMassDeleteList.indexOf(
-			reduxState.projectContainer.componentsDisplay.targetItem.project_id
+	const deleteItem = () => {
+		let copyMassDeleteList = [
+			...reduxState[props.reduxContainerName].massDeleteList,
+		];
+		const indexOfTargetItemId = copyMassDeleteList.indexOf(
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id
 		);
 
 		dispatch(
 			deleteProjectOrBug(
-				"projectContainer",
+				props.reduxContainerName,
 				{
-					project_id:
-						reduxState.projectContainer.componentsDisplay.targetItem
-							.project_id,
+					id:
+						reduxState[props.reduxContainerName].componentsDisplay.targetItem
+							.id,
 				},
 				copyMassDeleteList,
-				indexOfTargetProjectId
+				indexOfTargetItemId
 			)
 		);
 	};
 
-	const closeDeleteProjectModal = () => {
+	const closeDeleteItemModal = () => {
 		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
 				viewItemModalDelete: false,
 			})
 		);
 	};
 
 	return (
-		<div className="delete-project-modal-component">
-			<div className="blurred-background js-delete-project-modal-blurred-background" />
+		<div className="delete-item-modal-component">
+			<div className="blurred-background" />
 			<div className="delete-account-modal">
 				<div className="outer-container">
 					<span className="warning-message">Are you sure?</span>
@@ -52,13 +54,13 @@ export default function ViewItemModalDelete() {
 					<div className="centered-buttons-container">
 						<div
 							className="centered-buttons-container__delete"
-							onClick={deleteThisProject}
+							onClick={deleteItem}
 						>
 							Delete
 						</div>
 						<div
 							className="centered-buttons-container__cancel"
-							onClick={closeDeleteProjectModal}
+							onClick={closeDeleteItemModal}
 						>
 							Cancel
 						</div>

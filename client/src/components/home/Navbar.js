@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {
+	projectContainerName,
+	bugContainerName,
+} from "../../reducers/containerNames";
 
 import {
 	setDisplaySizeConstants,
@@ -75,23 +79,23 @@ export default function Navbar() {
 
 	useEffect(() => {
 		setNavbarButtonColor(
-			reduxState.projectContainer.componentsDisplay.listTable,
+			reduxState[projectContainerName].componentsDisplay.listTable,
 			document.getElementsByClassName("js-project-button")[0],
 			"navbar-button--selected"
 		);
 		setProjectsIcon(
-			reduxState.projectContainer.componentsDisplay.listTable,
+			reduxState[projectContainerName].componentsDisplay.listTable,
 			document.getElementById("project-button-icon")
 		);
 	}, [
 		reduxState.accountContainer.componentsDisplay.accountSidebar,
-		reduxState.projectContainer.componentsDisplay.listTable,
+		reduxState[projectContainerName].componentsDisplay.listTable,
 	]);
 
 	const openAccountSidebar = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
+				...reduxState[projectContainerName].componentsDisplay,
 				createItemSidbar: false,
 				viewItemModal: false,
 			})
@@ -106,7 +110,7 @@ export default function Navbar() {
 	const openProjectsTable = () => {
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
+				...reduxState[projectContainerName].componentsDisplay,
 				listTable: true,
 			})
 		);

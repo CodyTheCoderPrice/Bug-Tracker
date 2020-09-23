@@ -1,6 +1,6 @@
-import projectComponentsDisplayReducer from "../projectComponentsDisplayReducer";
-import projectsReducer from "../projectsReducer";
-import projectsSearchFilterSortReducer from "../projectsSearchFilterSortReducer";
+import listComponentsDisplayReducer from "../listComponentsDisplayReducer";
+import listReducer from "../listReducer";
+import searchFilterSortReducer from "../searchFilterSortReducer";
 import massDeleteReducer from "../massDeleteReducer";
 import priorityStatusOptionsReducer from "../priorityStatusOptionsReducer";
 
@@ -8,9 +8,9 @@ import { PROJECT_CONTAINER } from "../../../actions/typeContainer";
 
 const initialState = {
 	// (undefined, {type: null}) will cause each function to return their initial state
-	componentsDisplay: projectComponentsDisplayReducer(undefined, { type: null }),
-	list: projectsReducer(undefined, { type: null }),
-	searchFilterSort: projectsSearchFilterSortReducer(undefined, { type: null }),
+	componentsDisplay: listComponentsDisplayReducer(undefined, { type: null }),
+	list: listReducer(undefined, { type: null }),
+	searchFilterSort: searchFilterSortReducer(undefined, { type: null }),
 	massDeleteList: massDeleteReducer(undefined, { type: null }),
 	priorityStatusOptions: priorityStatusOptionsReducer(undefined, { type: null }),
 };
@@ -19,12 +19,12 @@ export function projectContainerReducer(state = initialState, action) {
 	switch (action.container) {
 		case PROJECT_CONTAINER:
 			return {
-				componentsDisplay: projectComponentsDisplayReducer(
+				componentsDisplay: listComponentsDisplayReducer(
 					state.componentsDisplay,
 					action
 				),
-				list: projectsReducer(state.list, action),
-				searchFilterSort: projectsSearchFilterSortReducer(
+				list: listReducer(state.list, action),
+				searchFilterSort: searchFilterSortReducer(
 					state.searchFilterSort,
 					action
 				),

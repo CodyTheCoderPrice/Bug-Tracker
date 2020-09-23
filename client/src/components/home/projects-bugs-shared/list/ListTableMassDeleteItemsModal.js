@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-	setWhichProjectComponentsDisplay,
+	setWhichProjectOrBugComponentsDisplay,
 	deleteMultipleProjectsOrBugs,
 } from "../../../../actions";
 
@@ -10,7 +10,7 @@ import { toggleClassName } from "../../../../utils/elementUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/deleteItemsModal.scss";
 
-export default function ListTableMassDeleteItemsModal() {
+export default function ListTableMassDeleteItemsModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -29,24 +29,24 @@ export default function ListTableMassDeleteItemsModal() {
 		dispatch(
 			deleteMultipleProjectsOrBugs(
 				"projectContainer",
-				{ projectsArray: reduxState.projectContainer.massDeleteList },
-				reduxState.projectContainer.componentsDisplay
+				{ projectsArray: reduxState[props.reduxContainerName].massDeleteList },
+				reduxState[props.reduxContainerName].componentsDisplay
 			)
 		);
 	};
 
 	const closeMassDeleteProjectsModal = () => {
 		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
 				listTableMassDeleteItemsModal: false,
 			})
 		);
 	};
 
 	return (
-		<div className="delete-project-modal-component">
-			<div className="blurred-background js-delete-project-modal-blurred-background" />
+		<div className="delete-item-modal-component">
+			<div className="blurred-background" />
 			<div className="delete-account-modal">
 				<div className="outer-container">
 					<span className="warning-message">Are you sure?</span>

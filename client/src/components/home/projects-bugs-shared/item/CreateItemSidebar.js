@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
+import { projectContainerName } from "../../../../reducers/containerNames";
 
 import {
-	setWhichProjectComponentsDisplay,
+	setWhichProjectOrBugComponentsDisplay,
 	createProjectOrBug,
 	clearInputErrors,
 } from "../../../../actions";
@@ -22,16 +23,20 @@ import { useSidebarResize } from "../../../../utils/sidebarResizeHookUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/createItemSidebar.scss";
 
-export default function CreateItemSidebar() {
+export default function CreateItemSidebar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [projectInfo, setProjectInfo] = useState({
+	const [itemInfo, setItemInfo] = useState({
 		name: "",
 		description: "",
 		// Sets default to the first option
-		priority_id: reduxState.projectContainer.priorityStatusOptions.priorityOptions[0].id,
-		status_id: reduxState.projectContainer.priorityStatusOptions.statusOptions[0].id,
+		priority_id:
+			reduxState[props.reduxContainerName].priorityStatusOptions
+				.priorityOptions[0].id,
+		status_id:
+			reduxState[props.reduxContainerName].priorityStatusOptions
+				.statusOptions[0].id,
 		start_date: moment().format("YYYY-MM-DD"),
 		due_date: null,
 		completion_date: null,
@@ -40,19 +45,17 @@ export default function CreateItemSidebar() {
 	const [descriptionCharLimit] = useState(500);
 
 	// Custom hook toggles the display of the date input for completion date
-	// ...based on status and makes sure projectInfo contains accurate
+	// ...based on status and makes sure itemInfo contains accurate
 	// ...completion date info after every toggle
 	const [preservedCompletionDate] = useToggleableDateInput(
-		projectInfo,
+		itemInfo,
 		"js-completion-input-container",
-		reduxState.projectContainer.priorityStatusOptions.statusCompletionId
+		reduxState[props.reduxContainerName].priorityStatusOptions
+			.statusCompletionId
 	);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
-	useSidebarResize(
-		reduxState,
-		"js-create-project-sidebar",
-	);
+	useSidebarResize(reduxState, "js-create-item-sidebar");
 
 	// clears prior input errors when closing the component
 	useEffect(() => {
@@ -61,7 +64,6 @@ export default function CreateItemSidebar() {
 		};
 		// eslint-disable-next-line
 	}, []);
-	
 
 	// Move window to top of screen and disable scrolling for the body
 	useEffect(() => {
@@ -78,12 +80,13 @@ export default function CreateItemSidebar() {
 	useEffect(() => {
 		populateComboBox(
 			"js-priority-select",
-			reduxState.projectContainer.priorityStatusOptions.priorityOptions,
+			reduxState[props.reduxContainerName].priorityStatusOptions
+				.priorityOptions,
 			1
 		);
 		populateComboBox(
 			"js-status-select",
-			reduxState.projectContainer.priorityStatusOptions.statusOptions,
+			reduxState[props.reduxContainerName].priorityStatusOptions.statusOptions,
 			1
 		);
 		// eslint-disable-next-line
@@ -92,43 +95,44 @@ export default function CreateItemSidebar() {
 	useEffect(() => {
 		toggleCharCountColor(
 			"js-character-counter",
-			projectInfo.description.length,
+			itemInfo.description.length,
 			descriptionCharLimit
 		);
 		// eslint-disable-next-line
-	}, [projectInfo.description]);
+	}, [itemInfo.description]);
 
 	useEffect(() => {
 		if (
-			projectInfo.status_id !==
-			reduxState.projectContainer.priorityStatusOptions.statusCompletionId
+			itemInfo.status_id !==
+			reduxState[props.reduxContainerName].priorityStatusOptions
+				.statusCompletionId
 		) {
-			setProjectInfo({ ...projectInfo, completion_date: "" });
+			setItemInfo({ ...itemInfo, completion_date: "" });
 		} else {
-			setProjectInfo({
-				...projectInfo,
+			setItemInfo({
+				...itemInfo,
 				completion_date: preservedCompletionDate,
 			});
 		}
 		// eslint-disable-next-line
-	}, [projectInfo.status_id]);
+	}, [itemInfo.status_id]);
 
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers
 		if (e.target.name === "status_id" || e.target.name === "priority_id") {
-			setProjectInfo({
-				...projectInfo,
+			setItemInfo({
+				...itemInfo,
 				[e.target.name]: Number(e.target.value),
 			});
 		} else {
-			setProjectInfo({ ...projectInfo, [e.target.name]: e.target.value });
+			setItemInfo({ ...itemInfo, [e.target.name]: e.target.value });
 		}
 	};
 
-	const closeCreateProjectSidebar = () => {
+	const closeCreateItemSidebar = () => {
 		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
 				createItemSidbar: false,
 			})
 		);
@@ -136,42 +140,48 @@ export default function CreateItemSidebar() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(createProjectOrBug("projectContainer", projectInfo));
+		dispatch(createProjectOrBug(props.reduxContainerName, itemInfo));
 	};
 
 	return (
-		<div className="create-projects-component">
-			<div className="blurred-background" onClick={closeCreateProjectSidebar} />
-			<div className="create-project-sidebar js-create-project-sidebar">
-				<div className="x-button" onClick={closeCreateProjectSidebar}>
+		<div className="create-item-component">
+			<div className="blurred-background" onClick={closeCreateItemSidebar} />
+			<div className="create-item-sidebar js-create-item-sidebar">
+				<div className="x-button" onClick={closeCreateItemSidebar}>
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
 				<div className="padded-container">
-					<h1 className="title">New Project</h1>
+					<h1 className="title">
+						{props.reduxContainerName === projectContainerName
+							? "New Project"
+							: "New Bug"}
+					</h1>
 					<form className="form" noValidate onSubmit={handleSubmit}>
-						<label htmlFor="create-project-name" className="form__label">
+						<label htmlFor="create-item-name" className="form__label">
 							Name:{" "}
 						</label>
 						<input
 							type="text"
 							name="name"
 							onChange={(e) => onChange(e)}
-							value={projectInfo.name}
-							id="create-project-name"
+							value={itemInfo.name}
+							id="create-item-name"
 							className="form__text-input"
 						/>
-						<span className="form__errors">{reduxState.generalContainer.inputErrors.name}</span>
-						<label htmlFor="create-project-description" className="form__label">
+						<span className="form__errors">
+							{reduxState.generalContainer.inputErrors.name}
+						</span>
+						<label htmlFor="create-item-description" className="form__label">
 							Description:{" "}
 						</label>
 						<span className="form__character-counter js-character-counter">
-							{projectInfo.description.length + "/" + descriptionCharLimit}
+							{itemInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
 							name="description"
 							onChange={(e) => onChange(e)}
-							value={projectInfo.description}
-							id="create-project-description"
+							value={itemInfo.description}
+							id="create-item-description"
 							className="form__textarea"
 						/>
 						<span className="form__errors">
@@ -180,7 +190,7 @@ export default function CreateItemSidebar() {
 						<div className="form__group-container">
 							<div className="form__group-container__input-container">
 								<label
-									htmlFor="create-project-start-date"
+									htmlFor="create-item-start-date"
 									className="form__group-container__input-container__label"
 								>
 									Start Date:
@@ -188,15 +198,15 @@ export default function CreateItemSidebar() {
 								<input
 									type="date"
 									name="start_date"
-									value={projectInfo.start_date}
+									value={itemInfo.start_date}
 									onChange={(e) => onChange(e)}
-									id="create-project-start-date"
+									id="create-item-start-date"
 									className="form__group-container__input-container__date"
 								/>
 							</div>
 							<div className="form__group-container__input-container">
 								<label
-									htmlFor="create-project-due-date"
+									htmlFor="create-item-due-date"
 									className="form__group-container__input-container__label"
 								>
 									Due Date:
@@ -205,13 +215,13 @@ export default function CreateItemSidebar() {
 									type="date"
 									name="due_date"
 									onChange={(e) => onChange(e)}
-									id="create-project-due-date"
+									id="create-item-due-date"
 									className="form__group-container__input-container__date"
 								/>
 							</div>
 							<div className="form__group-container__input-container js-completion-input-container">
 								<label
-									htmlFor="create-project-completion-date"
+									htmlFor="create-item-completion-date"
 									className="form__group-container__input-container__label"
 								>
 									Completed on:
@@ -220,7 +230,7 @@ export default function CreateItemSidebar() {
 									type="date"
 									name="completion_date"
 									onChange={(e) => onChange(e)}
-									id="create-project-completion-date"
+									id="create-item-completion-date"
 									className="form__group-container__input-container__date"
 								/>
 							</div>
@@ -228,7 +238,7 @@ export default function CreateItemSidebar() {
 						<div className="form__group-container form__group-container--right">
 							<div className="form__group-container__input-container">
 								<label
-									htmlFor="create-project-priority"
+									htmlFor="create-item-priority"
 									className="form__group-container__input-container__label"
 								>
 									Priority:
@@ -236,13 +246,13 @@ export default function CreateItemSidebar() {
 								<select
 									name="priority_id"
 									onChange={(e) => onChange(e)}
-									id="create-project-priority"
+									id="create-item-priority"
 									className="form__group-container__input-container__select js-priority-select"
 								></select>
 							</div>
 							<div className="form__group-container__input-container">
 								<label
-									htmlFor="create-project-status"
+									htmlFor="create-item-status"
 									className="form__group-container__input-container__label"
 								>
 									Status:
@@ -250,13 +260,15 @@ export default function CreateItemSidebar() {
 								<select
 									name="status_id"
 									onChange={(e) => onChange(e)}
-									id="create-project-status"
+									id="create-item-status"
 									className="form__group-container__input-container__select js-status-select"
 								></select>
 							</div>
 						</div>
 						<button type="submit" className="form__submit">
-							Create Project
+						{props.reduxContainerName === projectContainerName
+							? "Create Project"
+							: "Create Bug"}
 						</button>
 						<span className="form__errors">
 							{reduxState.generalContainer.inputErrors.validation}

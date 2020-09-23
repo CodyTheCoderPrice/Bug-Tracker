@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { projectContainerName } from "../../../../reducers/containerNames";
 
-import { setWhichProjectComponentsDisplay } from "../../../../actions";
+import { setWhichProjectOrBugComponentsDisplay } from "../../../../actions";
 
 import { toggleClassName } from "../../../../utils/elementUtils";
 
@@ -20,7 +21,7 @@ import ViewItemModalDelete from "./ViewItemModalDelete";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModal.scss";
 
-export default function ViewItemModal() {
+export default function ViewItemModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -49,13 +50,13 @@ export default function ViewItemModal() {
 			reduxState.sizeContainer.variables.window !== null &&
 			reduxState.sizeContainer.variables.navbar !== null
 		) {
-			let viewProjectModalElement = document.getElementsByClassName(
-				"js-view-project-modal"
+			let viewItemModalElement = document.getElementsByClassName(
+				"js-view-item-modal"
 			)[0];
 
 			// Makes sure regularlyUsedModalSizesAndStyles gets set
 			if (regularlyUsedModalSizesAndStyles === null) {
-				const sidebarStyle = getElementStyle(viewProjectModalElement);
+				const sidebarStyle = getElementStyle(viewItemModalElement);
 				setRegularlyUsedModalSizesAndStyles({
 					topButttonsBarSize: getElementSize(
 						document.getElementsByClassName("js-top-buttons-bar")[0]
@@ -70,41 +71,38 @@ export default function ViewItemModal() {
 				// ...be null for remainder of this useEfffect iteration
 				return;
 			}
-			
-			viewProjectModalElement.style.width =
+
+			viewItemModalElement.style.width =
 				reduxState.sizeContainer.variables.window.width -
 				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -
 				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2 +
 				"px";
 
 			// Didn't add "px" since it would get in the way when
-			// ...resizing js-project-content-container
+			// ...resizing js-item-content-container
 			const adjustedModalHeight =
 				reduxState.sizeContainer.variables.window.height -
 				reduxState.sizeContainer.variables.navbar.height -
 				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -
 				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2;
 
-			viewProjectModalElement.style.height = adjustedModalHeight + "px";
+			viewItemModalElement.style.height = adjustedModalHeight + "px";
 
 			document.getElementsByClassName(
-				"js-project-content-container"
+				"js-item-content-container"
 			)[0].style.height =
 				adjustedModalHeight -
 				regularlyUsedModalSizesAndStyles.topButttonsBarSize.height +
 				"px";
 		}
-	}, [
-		reduxState.sizeContainer.variables,
-		regularlyUsedModalSizesAndStyles,
-	]);
+	}, [reduxState.sizeContainer.variables, regularlyUsedModalSizesAndStyles]);
 
 	useEffect(() => {
 		toggleDropdownButtonDisplay(
 			showOptionsDropdown,
-			document.getElementsByClassName("js-project-options-button")[0],
-			document.getElementsByClassName("js-project-options-dropdown")[0],
-			"project-options-container__button--clicked"
+			document.getElementsByClassName("js-item-options-button")[0],
+			document.getElementsByClassName("js-item-options-dropdown")[0],
+			"item-options-container__button--clicked"
 		);
 	}, [showOptionsDropdown]);
 
@@ -122,84 +120,98 @@ export default function ViewItemModal() {
 		}
 	};
 
-	const switchBetweenDisplayAndEditProjectInfo = () => {
+	const switchBetweenDisplayAndEditInfo = () => {
 		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
-				viewItemModalEditInfo: !reduxState.projectContainer.componentsDisplay.viewItemModalEditInfo,
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
+				viewItemModalEditInfo: !reduxState[props.reduxContainerName]
+					.componentsDisplay.viewItemModalEditInfo,
 			})
 		);
 	};
 
-	const openDeleteProjectModal = () => {
+	const openDeleteItemModal = () => {
 		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
 				viewItemModalDelete: true,
 			})
 		);
 	};
 
-	const closeViewProjectDashboard = () => {
+	const closeViewItemModal = () => {
 		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
 				viewItemModal: false,
 			})
 		);
 	};
 
 	return (
-		<div className="view-project-modal-component">
-			<div className="blurred-background js-view-project-blurred-background" />
+		<div className="view-item-modal-component">
+			<div className="blurred-background js-view-item-blurred-background" />
 			<div
-				className="view-project-modal js-view-project-modal"
+				className="view-item-modal js-view-item-modal"
 				onClick={closeOptionsDropdown}
 			>
 				<div className="top-buttons-bar js-top-buttons-bar">
-					<div className="project-options-container js">
+					<div className="item-options-container js">
 						<div
-							className="project-options-container__button js-project-options-button"
+							className="item-options-container__button js-item-options-button"
 							onClick={toggleOptionsDropdown}
 						>
-							<span className="project-options-container__button__text">
+							<span className="item-options-container__button__text">
 								<i className="fa fa-ellipsis-h" aria-hidden="true" />
 							</span>
 						</div>
-						<div className="project-options-container__dropdown js-project-options-dropdown">
+						<div className="item-options-container__dropdown js-item-options-dropdown">
 							<span
-								className="project-options-container__dropdown__option js-edit-option"
-								onClick={switchBetweenDisplayAndEditProjectInfo}
+								className="item-options-container__dropdown__option js-edit-option"
+								onClick={switchBetweenDisplayAndEditInfo}
 							>
-								{reduxState.projectContainer.componentsDisplay.viewItemModalEditInfo
+								{reduxState[props.reduxContainerName].componentsDisplay
+									.viewItemModalEditInfo
 									? "Cancel"
-									: "Edit Project"}
+									: props.reduxContainerName === projectContainerName
+									? "Edit Project"
+									: "Edit Bug"}
 							</span>
 							<span
-								className="project-options-container__dropdown__option project-options-container__dropdown__option--no-border"
-								onClick={openDeleteProjectModal}
+								className="item-options-container__dropdown__option item-options-container__dropdown__option--no-border"
+								onClick={openDeleteItemModal}
 							>
-								Delete Project
+								{props.reduxContainerName === projectContainerName
+									? "Delete Project"
+									: "Delete Bug"}
 							</span>
 						</div>
 					</div>
-					<div className="x-button" onClick={closeViewProjectDashboard}>
+					<div className="x-button" onClick={closeViewItemModal}>
 						<i className="fa fa-times" aria-hidden="true"></i>
 					</div>
 				</div>
-				<div className="project-content-container js-project-content-container">
+				<div className="item-content-container js-item-content-container">
 					<div className="padding-container">
-						{!reduxState.projectContainer.componentsDisplay.viewItemModalEditInfo ? (
+						{!reduxState[props.reduxContainerName].componentsDisplay
+							.viewItemModalEditInfo ? (
 							<div>
-								<ViewItemModalDisplayInfo />
+								<ViewItemModalDisplayInfo
+									reduxContainerName={props.reduxContainerName}
+								/>
 							</div>
 						) : (
 							<div>
-								<ViewItemModalEditInfo />
+								<ViewItemModalEditInfo
+									reduxContainerName={props.reduxContainerName}
+								/>
 							</div>
 						)}
-						{reduxState.projectContainer.componentsDisplay.viewItemModalDelete ? (
-							<ViewItemModalDelete />
+						{reduxState[props.reduxContainerName].componentsDisplay
+							.viewItemModalDelete ? (
+							<ViewItemModalDelete
+								reduxContainerName={props.reduxContainerName}
+							/>
 						) : null}
 					</div>
 				</div>

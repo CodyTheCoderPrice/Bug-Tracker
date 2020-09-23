@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	setProjectOrBugMassDeleteList,
-	setWhichAccountComponentsDisplay,
-	setWhichProjectComponentsDisplay,
+	setWhichProjectOrBugComponentsDisplay,
 } from "../../../../actions";
 
 import { getElementLocation } from "../../../../utils/displaySizeUtils";
@@ -16,11 +15,11 @@ import { toggleDisableButtons } from "../../../../utils/massDeleteUtils";
 // Components
 import ListTableSearchFilterSortBar from "./ListTableSearchFilterSortBar"
 import ListTableRow from "./ListTableRow";
-import ListTableRowSortArrowsButton from "./ListTableRowSortArrowsButton";
+import ListTableSortArrowsButton from "./ListTableSortArrowsButton";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listTableAndRows.scss";
 
-export default function ListTable() {
+export default function ListTable(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -42,29 +41,27 @@ export default function ListTable() {
 	// Disables mass delete options buttons when no checkboxes are selected
 	useEffect(() => {
 		toggleDisableButtons(
-			reduxState.projectContainer.massDeleteList.length === 0,
+			reduxState[props.reduxContainerName].massDeleteList.length === 0,
 			"project-table__header__mass-delete-options"
 		);
-	}, [reduxState.projectContainer.massDeleteList]);
+	}, [reduxState[props.reduxContainerName].massDeleteList]);
 
 	const checkAllProjects = () => {
 		let allProjects = [];
-		for (let project of reduxState.projectContainer.list) {
-			allProjects.push(project.project_id);
+		for (let project of reduxState[props.reduxContainerName].list) {
+			allProjects.push(project.id);
 		}
 
-		dispatch(setProjectOrBugMassDeleteList("projectContainer", allProjects));
+		dispatch(setProjectOrBugMassDeleteList(props.reduxContainerName, allProjects));
 	};
 
 	const uncheckAllProjects = () => {
-		dispatch(setProjectOrBugMassDeleteList("projectContainer", []));
+		dispatch(setProjectOrBugMassDeleteList(props.reduxContainerName, []));
 	};
 
 	const openMassDeleteProjectsModal = () => {
-		dispatch(setWhichAccountComponentsDisplay({}));
-
 		dispatch(
-			setWhichProjectComponentsDisplay({
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listTable: true,
 				listTableMassDeleteItemsModal: true,
 			})
@@ -73,7 +70,7 @@ export default function ListTable() {
 
 	return (
 		<div className="projects-table-component">
-			<ListTableSearchFilterSortBar />
+			<ListTableSearchFilterSortBar reduxContainerName={props.reduxContainerName} />
 			<table className="projects-table">
 				<thead className="">
 					<tr className="project-table__row">
@@ -101,27 +98,27 @@ export default function ListTable() {
 						</th>
 						<th className="project-table__header js-project-table__header">
 							<span className="project-table__header__span">Name</span>
-							<ListTableRowSortArrowsButton sortId={1} sortFor="Name" />
+							<ListTableSortArrowsButton sortId={1} sortFor="Name" reduxContainerName={props.reduxContainerName} />
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Created on</span>
-							<ListTableRowSortArrowsButton sortId={2} sortFor="Created on"/>
+							<ListTableSortArrowsButton sortId={2} sortFor="Created on" reduxContainerName={props.reduxContainerName} />
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Start Date</span>
-							<ListTableRowSortArrowsButton sortId={3} sortFor="Start Date"/>
+							<ListTableSortArrowsButton sortId={3} sortFor="Start Date" reduxContainerName={props.reduxContainerName} />
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Due Date</span>
-							<ListTableRowSortArrowsButton sortId={4} sortFor="Due Date"/>
+							<ListTableSortArrowsButton sortId={4} sortFor="Due Date" reduxContainerName={props.reduxContainerName} />
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Priority</span>
-							<ListTableRowSortArrowsButton sortId={5} sortFor="Priority"/>
+							<ListTableSortArrowsButton sortId={5} sortFor="Priority" reduxContainerName={props.reduxContainerName} />
 						</th>
 						<th className="project-table__header">
 							<span className="project-table__header__span">Status</span>
-							<ListTableRowSortArrowsButton sortId={6} sortFor="Status"/>
+							<ListTableSortArrowsButton sortId={6} sortFor="Status" reduxContainerName={props.reduxContainerName} />
 						</th>
 						<th className="project-table__header js-remaining-space">
 							{/*Fills remaining empty space*/}
@@ -132,10 +129,10 @@ export default function ListTable() {
 					{/*Spread operator used for deep copy so 
 					  ...original projects array is unaffected*/}
 					{searchFilterSort(
-						[...reduxState.projectContainer.list],
-						reduxState.projectContainer.searchFilterSort
+						[...reduxState[props.reduxContainerName].list],
+						reduxState[props.reduxContainerName].searchFilterSort
 					).map((project, i) => {
-						return <ListTableRow key={i} project={project} />;
+						return <ListTableRow key={i} project={project} reduxContainerName={props.reduxContainerName} />;
 					})}
 					{/*Creates an empty space at the bottom*/}
 					<tr className="project-table__row--empty" />

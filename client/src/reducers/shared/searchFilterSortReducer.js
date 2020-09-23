@@ -1,4 +1,4 @@
-import { SET_PROJECTS_SEARCH_FILTER_SORT } from "../../actions/types";
+import { SET_SEARCH_FILTER_SORT } from "../../actions/types";
 
 const initialState = {
 	searchKeyWordString: "",
@@ -10,7 +10,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case SET_PROJECTS_SEARCH_FILTER_SORT:
+		case SET_SEARCH_FILTER_SORT:
 			return {
 				searchKeyWordString: action.searchFilterSort.searchKeyWordString,
 				sortByAscending: action.searchFilterSort.sortByAscending,

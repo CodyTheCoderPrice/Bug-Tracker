@@ -3,19 +3,19 @@
 @import "../../../utils/variables";
 @import "../../../utils//mixins";
 
-.view-project-modal-component {
+.view-item-modal-component {
 
-	.project-name {
+	.item-name {
 		padding: 13px 0px 6px 0px;
 		text-align: center;
 		font-size: 175%;
 	}
 
-	.project-box__group__field__type {
+	.item-box__group__field__type {
 		font-weight: bold;
 	}
 
-	.project-box__group__field_content {
+	.item-box__group__field_content {
 		margin-left: 11px;
 	}
 }

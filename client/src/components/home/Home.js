@@ -1,5 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import {
+	projectContainerName,
+	bugContainerName,
+} from "../../reducers/containerNames";
 
 // Components
 // Navbar
@@ -45,17 +49,17 @@ export default function Home() {
 				<DeleteAccountModal />
 			) : null}
 			{/*Project components*/}
-			{reduxState.projectContainer.componentsDisplay.listTable ? (
-				<ListTable />
+			{reduxState[projectContainerName].componentsDisplay.listTable ? (
+				<ListTable reduxContainerName={projectContainerName} />
 			) : null}
-			{reduxState.projectContainer.componentsDisplay.createItemSidbar ? (
-				<CreateItemSidebar />
+			{reduxState[projectContainerName].componentsDisplay.createItemSidbar ? (
+				<CreateItemSidebar reduxContainerName={projectContainerName} />
 			) : null}
-			{reduxState.projectContainer.componentsDisplay.viewItemModal ? (
-				<ViewItemModal />
+			{reduxState[projectContainerName].componentsDisplay.viewItemModal ? (
+				<ViewItemModal reduxContainerName={projectContainerName} />
 			) : null}
-			{reduxState.projectContainer.componentsDisplay.listTableMassDeleteItemsModal ? (
-				<ListTableMassDeleteItemsModal />
+			{reduxState[projectContainerName].componentsDisplay.listTableMassDeleteItemsModal ? (
+				<ListTableMassDeleteItemsModal reduxContainerName={projectContainerName} />
 			) : null}
 		</div>
 	);

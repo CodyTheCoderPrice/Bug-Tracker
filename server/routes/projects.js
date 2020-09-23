@@ -62,7 +62,7 @@ router
 					`WITH p AS (
 					SELECT * FROM project WHERE account_id = $1
 				)
-				SELECT p.project_id, p.account_id, p.name, p.description,
+				SELECT p.project_id AS id, p.account_id, p.name, p.description,
 						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 						p.creation_date, p.start_date, p.due_date,
 						p.completion_date, pp.option AS priority_option, 
@@ -97,7 +97,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 			`WITH p AS (
 			SELECT * FROM project WHERE account_id = $1
 		)
-		SELECT p.project_id, p.account_id, p.name, p.description,
+		SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
 				p.completion_date, pp.option AS priority_option, 
@@ -134,7 +134,7 @@ router
 				const { account_id } = req;
 				// Passed in the post body
 				const {
-					project_id,
+					id,
 					name,
 					description,
 					priority_id,
@@ -157,7 +157,7 @@ router
 						due_date,
 						completion_date,
 						account_id,
-						project_id,
+						id,
 					]
 				);
 
@@ -170,7 +170,7 @@ router
 					`WITH p AS (
 					SELECT * FROM project WHERE account_id = $1
 				)
-				SELECT p.project_id, p.account_id, p.name, p.description,
+				SELECT p.project_id AS id, p.account_id, p.name, p.description,
 						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 						p.creation_date, p.start_date, p.due_date,
 						p.completion_date, pp.option AS priority_option, 
@@ -201,18 +201,18 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		// Declared in the tokenAuthorization middleware
 		const { account_id } = req;
 		// Passed in the post body
-		const { project_id } = req.body;
+		const { id } = req.body;
 
 		const deletedProject = await pool.query(
 			`DELETE FROM project WHERE account_id = $1 AND project_id = $2`,
-			[account_id, project_id]
+			[account_id, id]
 		);
 
 		const allProjectsForAccount = await pool.query(
 			`WITH p AS (
 			SELECT * FROM project WHERE account_id = $1
 		)
-		SELECT p.project_id, p.account_id, p.name, p.description,
+		SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
 				p.completion_date, pp.option AS priority_option, 
@@ -265,7 +265,7 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			`WITH p AS (
 			SELECT * FROM project WHERE account_id = $1
 		)
-		SELECT p.project_id, p.account_id, p.name, p.description,
+		SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
 				p.completion_date, pp.option AS priority_option, 

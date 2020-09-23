@@ -1,11 +1,11 @@
-import { SET_PROJECTS } from "../../actions/types";
+import { SET_LIST } from "../../actions/types";
 
 const initialState = []
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case SET_PROJECTS:
-			return action.projects;
+		case SET_LIST:
+			return action.list;
 		default:
 			return state;
 	}

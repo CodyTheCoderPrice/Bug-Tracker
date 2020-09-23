@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-	setWhichProjectComponentsDisplay,
+	setWhichProjectOrBugComponentsDisplay,
 	setWhichAccountComponentsDisplay,
 	setProjectOrBugSearchFilterSort,
 } from "../../../../actions";
@@ -13,7 +13,7 @@ import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listTableSearchFilterSortBar.scss";
 
-export default function ListTableSearchFilterSortBar() {
+export default function ListTableSearchFilterSortBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ export default function ListTableSearchFilterSortBar() {
 
 	const openCreateProjectSidebar = () => {
 		dispatch(
-			setWhichProjectComponentsDisplay({
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listTable: true,
 				createItemSidbar: true,
 			})
@@ -66,8 +66,8 @@ export default function ListTableSearchFilterSortBar() {
 
 	const updateSearchKeyWordString = () => {
 		dispatch(
-			setProjectOrBugSearchFilterSort("projectContainer", {
-				...reduxState.projectContainer.searchFilterSort,
+			setProjectOrBugSearchFilterSort(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].searchFilterSort,
 				searchKeyWordString: searchBarText,
 			})
 		);
@@ -82,7 +82,7 @@ export default function ListTableSearchFilterSortBar() {
 	const onChangeFilter = (e) => {
 		const value = Number(e.target.value);
 		let deepCopyFilterArray = [
-			...reduxState.projectContainer.searchFilterSort[e.target.name],
+			...reduxState[props.reduxContainerName].searchFilterSort[e.target.name],
 		];
 		const index = deepCopyFilterArray.indexOf(value);
 
@@ -93,8 +93,8 @@ export default function ListTableSearchFilterSortBar() {
 		}
 
 		dispatch(
-			setProjectOrBugSearchFilterSort("projectContainer", {
-				...reduxState.projectContainer.searchFilterSort,
+			setProjectOrBugSearchFilterSort(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].searchFilterSort,
 				[e.target.name]: deepCopyFilterArray,
 			})
 		);
@@ -146,7 +146,7 @@ export default function ListTableSearchFilterSortBar() {
 								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Priority
 								</span>
-								{reduxState.projectContainer.priorityStatusOptions.priorityOptions.map(
+								{reduxState[props.reduxContainerName].priorityStatusOptions.priorityOptions.map(
 									(obj, i) => {
 										return (
 											<div
@@ -158,7 +158,7 @@ export default function ListTableSearchFilterSortBar() {
 													name="priorityFilter"
 													value={obj.id}
 													onChange={(e) => onChangeFilter(e)}
-													checked={reduxState.projectContainer.searchFilterSort.priorityFilter.includes(
+													checked={reduxState[props.reduxContainerName].searchFilterSort.priorityFilter.includes(
 														obj.id
 													)}
 													id={"projects-priority-filter-" + obj.id}
@@ -179,7 +179,7 @@ export default function ListTableSearchFilterSortBar() {
 								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Status
 								</span>
-								{reduxState.projectContainer.priorityStatusOptions.statusOptions.map((obj, i) => {
+								{reduxState[props.reduxContainerName].priorityStatusOptions.statusOptions.map((obj, i) => {
 									return (
 										<div
 											key={i}
@@ -190,7 +190,7 @@ export default function ListTableSearchFilterSortBar() {
 												name="statusFilter"
 												value={obj.id}
 												onChange={(e) => onChangeFilter(e)}
-												checked={reduxState.projectContainer.searchFilterSort.statusFilter.includes(
+												checked={reduxState[props.reduxContainerName].searchFilterSort.statusFilter.includes(
 													obj.id
 												)}
 												id={"projects-status-filter-" + obj.id}

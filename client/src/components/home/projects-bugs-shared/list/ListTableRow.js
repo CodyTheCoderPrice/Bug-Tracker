@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
 	setWhichAccountComponentsDisplay,
-	setWhichProjectComponentsDisplay,
+	setWhichProjectOrBugComponentsDisplay,
 	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
@@ -18,7 +18,7 @@ export default function ListTableRow(props) {
 	const openViewProjectDashboard = () => {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
-			setWhichProjectComponentsDisplay({
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listTable: true,
 				viewItemModal: true,
 				targetItem: props.project,
@@ -28,7 +28,7 @@ export default function ListTableRow(props) {
 
 	const onChangeMassDelete = (e) => {
 		const value = Number(e.target.value);
-		let deepCopyMassDeleteArray = [...reduxState.projectContainer.massDeleteList];
+		let deepCopyMassDeleteArray = [...reduxState[props.reduxContainerName].massDeleteList];
 		const index = deepCopyMassDeleteArray.indexOf(value);
 
 		if (index === -1) {
@@ -37,7 +37,7 @@ export default function ListTableRow(props) {
 			deepCopyMassDeleteArray.splice(index, 1);
 		}
 
-		dispatch(setProjectOrBugMassDeleteList("projectContainer", deepCopyMassDeleteArray));
+		dispatch(setProjectOrBugMassDeleteList(props.reduxContainerName, deepCopyMassDeleteArray));
 	};
 
 	return (
@@ -46,10 +46,10 @@ export default function ListTableRow(props) {
 				<input
 					type="checkbox"
 					name="projects"
-					value={props.project.project_id}
+					value={props.project.id}
 					onChange={(e) => onChangeMassDelete(e)}
-					checked={reduxState.projectContainer.massDeleteList.includes(
-						props.project.project_id
+					checked={reduxState[props.reduxContainerName].massDeleteList.includes(
+						props.project.id
 					)}
 					className="project-table__data__checkbox"
 				/>

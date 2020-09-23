@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { projectContainerName } from "../../../../reducers/containerNames";
 
 import {
-	setWhichProjectComponentsDisplay,
+	setWhichProjectOrBugComponentsDisplay,
 	updateProjectOrBug,
 	clearInputErrors,
 } from "../../../../actions";
@@ -27,31 +28,31 @@ import { useToggleableDateInput } from "../../../../utils/formHookUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModalEditInfo.scss";
 
-export default function ViewItemModalEditInfo() {
+export default function ViewItemModalEditInfo(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [projectInfo, setProjectInfo] = useState({
-		project_id: reduxState.projectContainer.componentsDisplay.targetItem.project_id,
-		name: reduxState.projectContainer.componentsDisplay.targetItem.name,
-		description: reduxState.projectContainer.componentsDisplay.targetItem.description,
-		priority_id: reduxState.projectContainer.componentsDisplay.targetItem.priority_id,
+	const [itemInfo, setItemInfo] = useState({
+		id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
+		name: reduxState[props.reduxContainerName].componentsDisplay.targetItem.name,
+		description: reduxState[props.reduxContainerName].componentsDisplay.targetItem.description,
+		priority_id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.priority_id,
 		priorityOption:
-			reduxState.projectContainer.componentsDisplay.targetItem.priority_option,
-		status_id: reduxState.projectContainer.componentsDisplay.targetItem.status_id,
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.priority_option,
+		status_id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.status_id,
 		statusOption:
-			reduxState.projectContainer.componentsDisplay.targetItem.status_option,
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.status_option,
 		creation_date: formatDateMMddYYYY(
-			reduxState.projectContainer.componentsDisplay.targetItem.creation_date
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.creation_date
 		),
 		start_date: formatDateYYYYmmDD(
-			reduxState.projectContainer.componentsDisplay.targetItem.start_date
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.start_date
 		),
 		due_date: formatDateYYYYmmDD(
-			reduxState.projectContainer.componentsDisplay.targetItem.due_date
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.due_date
 		),
 		completion_date: formatDateYYYYmmDD(
-			reduxState.projectContainer.componentsDisplay.targetItem.completion_date
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.completion_date
 		),
 	});
 
@@ -66,24 +67,24 @@ export default function ViewItemModalEditInfo() {
 	}, []);
 
 	// Custom hook toggles the display of the date input for completion date
-	// ...based on status and makes sure projectInfo contains accurate
+	// ...based on status and makes sure itemInfo contains accurate
 	// ...completion date info after every toggle
 	const [preservedCompletionDate] = useToggleableDateInput(
-		projectInfo,
+		itemInfo,
 		"js-completion-date-container",
-		reduxState.projectContainer.priorityStatusOptions.statusCompletionId
+		reduxState[props.reduxContainerName].priorityStatusOptions.statusCompletionId
 	);
 
 	useEffect(() => {
 		populateComboBox(
-			"js-project-priority-select",
-			reduxState.projectContainer.priorityStatusOptions.priorityOptions,
-			projectInfo.priority_id
+			"js-item-priority-select",
+			reduxState[props.reduxContainerName].priorityStatusOptions.priorityOptions,
+			itemInfo.priority_id
 		);
 		populateComboBox(
-			"js-project-status-select",
-			reduxState.projectContainer.priorityStatusOptions.statusOptions,
-			projectInfo.status_id
+			"js-item-status-select",
+			reduxState[props.reduxContainerName].priorityStatusOptions.statusOptions,
+			itemInfo.status_id
 		);
 		// eslint-disable-next-line
 	}, []);
@@ -91,7 +92,7 @@ export default function ViewItemModalEditInfo() {
 	// Adjust description text area size to match ViewItemModalDisplayInfo's description
 	useEffect(() => {
 		let editDescriptionTextArea = document.getElementsByClassName(
-			"js-projects-description-text-area"
+			"js-item-description-text-area"
 		)[0];
 
 		const myObserver = new ResizeObserver(() => {
@@ -100,95 +101,95 @@ export default function ViewItemModalEditInfo() {
 				editDescriptionTextArea.scrollHeight + 10 + "px";
 		});
 
-		myObserver.observe(document.getElementsByClassName("js-projects-description-project-box")[0]);
+		myObserver.observe(document.getElementsByClassName("js-item-description-item-box")[0]);
 	}, []);
 
 	useEffect(() => {
 		toggleCharCountColor(
-			"js-project-character-counter",
-			projectInfo.description.length,
+			"js-item-character-counter",
+			itemInfo.description.length,
 			descriptionCharLimit
 		);
 		// eslint-disable-next-line
-	}, [projectInfo.description]);
+	}, [itemInfo.description]);
 
 	useEffect(() => {
 		if (
-			projectInfo.status_id !==
-			reduxState.projectContainer.priorityStatusOptions.statusCompletionId
+			itemInfo.status_id !==
+			reduxState[props.reduxContainerName].priorityStatusOptions.statusCompletionId
 		) {
-			setProjectInfo({ ...projectInfo, completion_date: "" });
+			setItemInfo({ ...itemInfo, completion_date: "" });
 		} else {
-			setProjectInfo({
-				...projectInfo,
+			setItemInfo({
+				...itemInfo,
 				completion_date: preservedCompletionDate,
 			});
 		}
 		// eslint-disable-next-line
-	}, [projectInfo.status_id]);
+	}, [itemInfo.status_id]);
 
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers
 		if (e.target.name === "status_id" || e.target.name === "priority_id") {
-			setProjectInfo({
-				...projectInfo,
+			setItemInfo({
+				...itemInfo,
 				[e.target.name]: Number(e.target.value),
 			});
 		} else {
-			setProjectInfo({ ...projectInfo, [e.target.name]: e.target.value });
+			setItemInfo({ ...itemInfo, [e.target.name]: e.target.value });
 		}
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(updateProjectOrBug("projectContainer", projectInfo, reduxState.projectContainer.componentsDisplay));
+		dispatch(updateProjectOrBug(props.reduxContainerName, itemInfo, reduxState[props.reduxContainerName].componentsDisplay));
 	};
 
-	const switchToDisplayProjectInfo = () => {
+	const switchToDisplayItemInfo = () => {
 		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState.projectContainer.componentsDisplay,
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
 				viewItemModalEditInfo: false,
 			})
 		);
 	};
 
 	return (
-		<form noValidate onSubmit={handleSubmit} className="js-edit-project-form">
+		<form noValidate onSubmit={handleSubmit} className="js-edit-item-form">
 			<div className="outer-dividing-container">
 				<div className="centering-container">
 					<input
 						type="text"
 						name="name"
 						onChange={(e) => onChange(e)}
-						value={projectInfo.name}
-						id="edit-project-name"
+						value={itemInfo.name}
+						id="edit-item-name"
 						className="centering-container__form-name-input"
 					/>
 					<span className="form-errors form-errors--test">
 						{reduxState.generalContainer.inputErrors.name}
 					</span>
 				</div>
-				<div className="project-creation-date">
-					Created on: {projectInfo.creation_date}
+				<div className="item-creation-date">
+					Created on: {itemInfo.creation_date}
 				</div>
 			</div>
 			<div className="outer-dividing-container">
-				<div className="project-box js-projects-description-project-box">
-					<label htmlFor="edit-project-description">
-						<h2 className="project-box__title project-box__title--no-bottom-margin">
+				<div className="item-box js-item-description-item-box">
+					<label htmlFor="edit-item-description">
+						<h2 className="item-box__title item-box__title--no-bottom-margin">
 							Description
 						</h2>
 					</label>
-					<span className="project-box__form-character-counter js-project-character-counter">
-						{projectInfo.description.length + "/" + descriptionCharLimit}
+					<span className="item-box__form-character-counter js-item-character-counter">
+						{itemInfo.description.length + "/" + descriptionCharLimit}
 					</span>
 					<textarea
 						name="description"
 						onChange={(e) => onChange(e)}
-						value={projectInfo.description}
-						id="edit-project-description"
-						className="project-box__form-textarea js-projects-description-text-area"
+						value={itemInfo.description}
+						id="edit-item-description"
+						className="item-box__form-textarea js-item-description-text-area"
 					/>
 					<span className="form-errors">
 						{reduxState.generalContainer.inputErrors.description}
@@ -196,98 +197,98 @@ export default function ViewItemModalEditInfo() {
 				</div>
 			</div>
 			<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
-				<div className="project-box">
-					<h2 className="project-box__title">Info</h2>
-					<div className="project-box__group">
-						<div className="project-box__group__field">
+				<div className="item-box">
+					<h2 className="item-box__title">Info</h2>
+					<div className="item-box__group">
+						<div className="item-box__group__field">
 							<label
-								htmlFor="edit-project-start-date"
-								className="project-box__group__field__form-label project-box__group__field__form-label--medium-width"
+								htmlFor="edit-item-start-date"
+								className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
 							>
 								Start Date:
 							</label>
 							<input
 								type="date"
 								name="start_date"
-								value={projectInfo.start_date}
+								value={itemInfo.start_date}
 								onChange={(e) => onChange(e)}
-								id="edit-project-start-date"
-								className="project-box__group__field__form-date"
+								id="edit-item-start-date"
+								className="item-box__group__field__form-date"
 							/>
 						</div>
-						<div className="project-box__group__field">
+						<div className="item-box__group__field">
 							<label
-								htmlFor="edit-project-due-date"
-								className="project-box__group__field__form-label project-box__group__field__form-label--medium-width"
+								htmlFor="edit-item-due-date"
+								className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
 							>
 								Due Date:
 							</label>
 							<input
 								type="date"
 								name="due_date"
-								value={projectInfo.due_date}
+								value={itemInfo.due_date}
 								onChange={(e) => onChange(e)}
-								id="edit-project-due-date"
-								className="project-box__group__field__form-date"
+								id="edit-item-due-date"
+								className="item-box__group__field__form-date"
 							/>
 						</div>
-						<div className="project-box__group__field project-box__group__field--no-bottom-margin project-box__group__field--inline-flex js-completion-date-container">
+						<div className="item-box__group__field item-box__group__field--no-bottom-margin item-box__group__field--inline-flex js-completion-date-container">
 							<label
-								htmlFor="edit-project-completion-date"
-								className="project-box__group__field__form-label project-box__group__field__form-label--long-width"
+								htmlFor="edit-item-completion-date"
+								className="item-box__group__field__form-label item-box__group__field__form-label--long-width"
 							>
 								Completed on:
 							</label>
 							<input
 								type="date"
 								name="completion_date"
-								value={projectInfo.completion_date}
+								value={itemInfo.completion_date}
 								onChange={(e) => onChange(e)}
-								id="edit-project-completion-date"
-								className="project-box__group__field__form-date"
+								id="edit-item-completion-date"
+								className="item-box__group__field__form-date"
 							/>
 						</div>
 					</div>
-					<div className="project-box__group project-box__group--right">
-						<div className="project-box__group__field">
+					<div className="item-box__group item-box__group--right">
+						<div className="item-box__group__field">
 							<label
-								htmlFor="edit-project-priority"
-								className="project-box__group__field__form-label"
+								htmlFor="edit-item-priority"
+								className="item-box__group__field__form-label"
 							>
 								Priority:
 							</label>
 							<select
 								name="priority_id"
 								onChange={(e) => onChange(e)}
-								id="edit-project-priority"
-								className="project-box__group__field__form-select js-project-priority-select"
+								id="edit-item-priority"
+								className="item-box__group__field__form-select js-item-priority-select"
 							></select>
 						</div>
-						<div className="project-box__group__field">
+						<div className="item-box__group__field">
 							<label
-								htmlFor="edit-project-status"
-								className="project-box__group__field__form-label"
+								htmlFor="edit-item-status"
+								className="item-box__group__field__form-label"
 							>
 								Status:
 							</label>
 							<select
 								name="status_id"
 								onChange={(e) => onChange(e)}
-								id="edit-project-status"
-								className="project-box__group__field__form-select js-project-status-select"
+								id="edit-item-status"
+								className="item-box__group__field__form-select js-item-status-select"
 							></select>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="outer-dividing-container outer-dividing-container--one-third">
-				<div className="project-box">
-					<h2 className="project-box__title">Status of Bugs</h2>
+				<div className="item-box">
+					<h2 className="item-box__title">Status of Bugs</h2>
 				</div>
 			</div>
 			<div className="outer-dividing-container outer-dividing-container--one-third">
-				<div className="project-box">
-					<h2 className="project-box__title">Last Five Bugs</h2>
+				<div className="item-box">
+					<h2 className="item-box__title">Last Five Bugs</h2>
 				</div>
 			</div>
 			<div className="outer-dividing-container">
@@ -297,11 +298,13 @@ export default function ViewItemModalEditInfo() {
 							type="submit"
 							className="form-buttons-centered-container__submit-button"
 						>
-							Edit Project
+							{props.reduxContainerName === projectContainerName
+							? "Edit Project"
+							: "Edit Bug"}
 						</button>
 						<div
 							className="form-buttons-centered-container__cancel-button"
-							onClick={switchToDisplayProjectInfo}
+							onClick={switchToDisplayItemInfo}
 						>
 							Cancel
 						</div>

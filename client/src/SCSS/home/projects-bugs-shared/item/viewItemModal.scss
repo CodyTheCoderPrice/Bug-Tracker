@@ -1,7 +1,7 @@
 @import "../../../utils/variables";
 @import "../../../utils//mixins";
 
-.view-project-modal-component {
+.view-item-modal-component {
 	.blurred-background {
 		// Must be more than searchFilterSortBar
 		z-index: 2;
@@ -13,13 +13,13 @@
 		width: 100vw;
 	}
 
-	.view-project-modal {
+	.view-item-modal {
 		// Must be more than searchFilterSortBar
 		z-index: 2;
 		position: fixed;
 		top: $navbar-height;
-		margin: $view-project-bug-modal-margin;
-		border: $view-project-bug-modal-border-width solid black;
+		margin: $view-item-bug-modal-margin;
+		border: $view-item-bug-modal-border-width solid black;
 		background-color: white;
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
@@ -35,7 +35,7 @@
 		width: 100%;
 	}
 
-	.project-options-container {
+	.item-options-container {
 		z-index: 3;
 		position: absolute;
 		top: 8px;
@@ -43,8 +43,8 @@
 		width: 135px;
 	}
 
-	.project-options-container__button {
-		// Must be more than project-options-conatiner so its top border 
+	.item-options-container__button {
+		// Must be more than item-options-conatiner so its top border 
 		// ...can be covered to make containers look in unison
 		z-index: 4;
 		position: absolute;
@@ -60,22 +60,22 @@
 		text-align: center;
 		cursor: pointer;
 	}
-	.project-options-container__button:hover,
-	.project-options-container__button:active {
+	.item-options-container__button:hover,
+	.item-options-container__button:active {
 		color: $black;
 	}
 
-	.project-options-container__button__text {
+	.item-options-container__button__text {
 		@include dead-center();
 	}
 
-	.project-options-container__button--clicked {
+	.item-options-container__button--clicked {
 		border-color: black;
 		border-bottom-color: white;
 		background-color: white;
 	}
 
-	.project-options-container__dropdown {
+	.item-options-container__dropdown {
 		position: absolute;
 		top: 29px;
 		right: 0;
@@ -86,22 +86,22 @@
 		visibility: hidden;
 	}
 
-	.project-options-container__dropdown__option {
+	.item-options-container__dropdown__option {
 		display: block;
 		border-bottom: 1px solid gray;
 		padding: 12px;
 		cursor: pointer;
 	}
-	.project-options-container__dropdown__option:hover,
-	.project-options-container__dropdown__option:active {
+	.item-options-container__dropdown__option:hover,
+	.item-options-container__dropdown__option:active {
 		background-color: $light-gray;
 	}
 
-	.project-options-container__dropdown__option--no-display {
+	.item-options-container__dropdown__option--no-display {
 		display: none;
 	}
 
-	.project-options-container__dropdown__option--no-border {
+	.item-options-container__dropdown__option--no-border {
 		border-bottom: none;
 	}
 
@@ -115,19 +115,19 @@
 		color: $black;
 	}
 
-	.project-content-container {
+	.item-content-container {
 		// Gives modal scrolling when content goes beyond modal height
 		overflow-y: auto !important;
 		overflow-x: hidden !important;
 	}
 
-	// Must be a seperate div inside .project-content-container so the padding
+	// Must be a seperate div inside .item-content-container so the padding
 	// ...does not affect the resize so it goes beyond the modal 
 	.padding-container {
 		padding: 0px 25px 25px 25px;
 	}
 
-	.project-creation-date {
+	.item-creation-date {
 		margin: 5px;
 		text-align: center;
 		font-size: 115%;
@@ -147,7 +147,7 @@
 		width: 600px;
 	}
 
-	.project-box {
+	.item-box {
 		margin: 10px;
 		border: 2px solid black;
 		background-color: $light-gray;
@@ -156,33 +156,33 @@
 	}
 
 	// Used in ViewItemModalEditInfo to calculate description size using JS
-	.project-box--invisible {
+	.item-box--invisible {
 		position: absolute;
 		visibility: hidden;
 	}
 
 	// Located here since both display and edit components use it
-	.project-box__description {
+	.item-box__description {
 		display: block;
 		padding: 13px 5px 13px 5px;
 		line-height: $common-line-height;
 	}
 
-	.project-box__group {
+	.item-box__group {
 		display: inline-block;
 	}
 
-	.project-box__group--right {
+	.item-box__group--right {
 		float: right;
 	}
 
-	.project-box__title {
+	.item-box__title {
 		position: relative;
 		text-align: center;
 		font-size: 140%;
 	}
 
-	.project-box__title--no-bottom-margin {
+	.item-box__title--no-bottom-margin {
 		margin-bottom: 0px;
 	}
 
@@ -191,15 +191,15 @@
 		border: 1px solid gray;
 	}
 
-	.project-box__group__field {
+	.item-box__group__field {
 		margin-bottom: 25px;
 	}
 
-	.project-box__group__field--no-bottom-margin {
+	.item-box__group__field--no-bottom-margin {
 		margin-bottom: 0px;
 	}
 
-	.project-box__group__field--inline-flex {
+	.item-box__group__field--inline-flex {
 		display: inline-flex;
 	}
 

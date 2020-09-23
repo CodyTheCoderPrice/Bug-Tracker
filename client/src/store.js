@@ -7,6 +7,13 @@ import {
 	projectContainerReducer,
 	bugContainerReducer,
 } from "./reducers";
+import {
+	generalContainerName,
+	sizeContainerName,
+	accountContainerName,
+	projectContainerName,
+	bugContainerName,
+} from "./reducers/containerNames";
 // Used to persist the redux state
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -28,13 +35,13 @@ const rootPersistConfig = {
 
 // Following two are used for nested redux persist, one level deeper
 const coreComponentsPersistConfig = {
-	key: "generalContainer",
+	key: generalContainerName,
 	storage: storage,
 	whitelist: ["coreComponentsDisplay"],
 };
 
 const projectContainerPersistConfig = {
-	key: "projectContainer",
+	key: projectContainerName,
 	storage: storage,
 	// Projects and priorityStatusOptions are persisted despite being re-fetched
 	// ...on page refresh so they are not null while data is retrieved from server
@@ -44,11 +51,11 @@ const projectContainerPersistConfig = {
 // rootReducer is combined here instead of in the reducer index.js 
 // ...so nested persist can be used
 const rootReducer = combineReducers({
-	generalContainer: persistReducer(coreComponentsPersistConfig, generalContainerReducer),
-	sizeContainer: sizeContainerReducer,
-	accountContainer: accountContainerReducer,
-	projectContainer: persistReducer(projectContainerPersistConfig, projectContainerReducer),
-	bugContainer: bugContainerReducer,
+	[generalContainerName]: persistReducer(coreComponentsPersistConfig, generalContainerReducer),
+	[sizeContainerName]: sizeContainerReducer,
+	[accountContainerName]: accountContainerReducer,
+	[projectContainerName]: persistReducer(projectContainerPersistConfig, projectContainerReducer),
+	[bugContainerName]: bugContainerReducer,
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);

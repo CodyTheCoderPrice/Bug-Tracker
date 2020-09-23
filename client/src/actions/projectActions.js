@@ -1,18 +1,9 @@
 import axios from "axios";
-import { PROJECT_CONTAINER } from "./typeContainer";
-import { SET_PROJECTS } from "./types";
-import { setInputErrors } from "./index";
+import { setList, setInputErrors } from "./index";
 import { logoutAccount } from "./accountActions";
 import { setWhichProjectComponentsDisplay } from "./componentActions";
 import { setProjectOrBugMassDeleteList } from "./switchActions";
-
-export const setProjects = (projects) => (dispatch) => {
-	dispatch({
-		container: PROJECT_CONTAINER,
-		type: SET_PROJECTS,
-		projects: projects,
-	});
-};
+import { projectContainerName } from "../reducers/containerNames";
 
 export const createProject = (projectInfo) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
@@ -20,7 +11,7 @@ export const createProject = (projectInfo) => (dispatch) => {
 		.post("/api/project/create", projectInfo, headers)
 		.then((res) => {
 			const { projects } = res.data;
-			dispatch(setProjects(projects));
+			dispatch(setList(projects));
 			dispatch(setWhichProjectComponentsDisplay({ listTable: true }));
 		})
 		.catch((err) => {
@@ -38,7 +29,7 @@ export const retrieveProjects = () => (dispatch) => {
 		.post("/api/project/retrieve", null, headers)
 		.then((res) => {
 			const { projects } = res.data;
-			dispatch(setProjects(projects));
+			dispatch(setList(projects));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -57,14 +48,14 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 		.post("/api/project/update", projectInfo, headers)
 		.then((res) => {
 			const { projects } = res.data;
-			dispatch(setProjects(projects));
+			dispatch(setList(projects));
 			// Done here so components only changes when update is succesful
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
 					// Set redux target project to match project update on server side
 					targetItem: projects.filter((project) => {
-						return project.project_id === projectInfo.project_id;
+						return project.id === projectInfo.id;
 					})[0],
 					viewItemModalEditInfo: false,
 				})
@@ -80,24 +71,23 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 };
 
 export const deleteProject = (
-	project_id,
+	id,
 	massDeleteList,
 	indexOfTargetProjectId
 ) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/project/delete", project_id, headers)
+		.post("/api/project/delete", id, headers)
 		.then((res) => {
 			const { projects } = res.data;
-			dispatch(setProjects(projects));
+			dispatch(setList(projects));
 			// Done here so following code only runs if deletion is succesful
-			console.log(indexOfTargetProjectId);
 			if (indexOfTargetProjectId > -1) {
 				console.log(massDeleteList);
 				massDeleteList.splice(indexOfTargetProjectId, 1);
 				console.log(massDeleteList);
 				dispatch(
-					setProjectOrBugMassDeleteList("projectContainer", massDeleteList)
+					setProjectOrBugMassDeleteList(projectContainerName, massDeleteList)
 				);
 			}
 			dispatch(
@@ -121,9 +111,9 @@ export const deleteMultipleProjects = (projectsArray, projectComponentsDisplay) 
 		.post("/api/project/delete-multiple", projectsArray, headers)
 		.then((res) => {
 			const { projects } = res.data;
-			dispatch(setProjects(projects));
+			dispatch(setList(projects));
 			// Done here so following code only runs if deletion is succesful
-			dispatch(setProjectOrBugMassDeleteList("projectContainer", []));
+			dispatch(setProjectOrBugMassDeleteList(projectContainerName, []));
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,

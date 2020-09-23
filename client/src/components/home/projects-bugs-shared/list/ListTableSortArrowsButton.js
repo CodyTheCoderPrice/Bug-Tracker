@@ -6,28 +6,28 @@ import { setProjectOrBugSearchFilterSort } from "../../../../actions";
 import sortArrowsBothEmpty from "../../../../images/sort-arrows-both-empty.svg";
 import sortArrowsTopFilled from "../../../../images/sort-arrows-top-filled.svg";
 import sortArrowsBottomFilled from "../../../../images/sort-arrows-bottom-filled.svg";
-import "../../../../SCSS/home/projects-bugs-shared/list/listTableRowSortArrowsButton.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listTableSortArrowsButton.scss";
 
-export default function ListTableRowSortArrowsButton(props) {
+export default function ListTableSortArrowsButton(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const changeSorting = () => {
 		if (
-			reduxState.projectContainer.searchFilterSort.sortByType !== props.sortId
+			reduxState[props.reduxContainerName].searchFilterSort.sortByType !== props.sortId
 		) {
 			dispatch(
-				setProjectOrBugSearchFilterSort("projectContainer", {
-					...reduxState.projectContainer.searchFilterSort,
+				setProjectOrBugSearchFilterSort(props.reduxContainerName, {
+					...reduxState[props.reduxContainerName].searchFilterSort,
 					sortByAscending: true,
 					sortByType: props.sortId,
 				})
 			);
 		} else {
 			dispatch(
-				setProjectOrBugSearchFilterSort("projectContainer", {
-					...reduxState.projectContainer.searchFilterSort,
-					sortByAscending: !reduxState.projectContainer.searchFilterSort
+				setProjectOrBugSearchFilterSort(props.reduxContainerName, {
+					...reduxState[props.reduxContainerName].searchFilterSort,
+					sortByAscending: !reduxState[props.reduxContainerName].searchFilterSort
 						.sortByAscending,
 				})
 			);
@@ -38,17 +38,17 @@ export default function ListTableRowSortArrowsButton(props) {
 		<img
 			className="sort-arrows"
 			src={
-				reduxState.projectContainer.searchFilterSort.sortByType !== props.sortId
+				reduxState[props.reduxContainerName].searchFilterSort.sortByType !== props.sortId
 					? sortArrowsBothEmpty
-					: reduxState.projectContainer.searchFilterSort.sortByAscending
+					: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
 					? sortArrowsTopFilled
 					: sortArrowsBottomFilled
 			}
 			alt={
-				(reduxState.projectContainer.searchFilterSort.sortByType !==
+				(reduxState[props.reduxContainerName].searchFilterSort.sortByType !==
 				props.sortId
 					? "No"
-					: reduxState.projectContainer.searchFilterSort.sortByAscending
+					: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
 					? "Ascending"
 					: "Descending") +
 				" sorting for " +
