@@ -14,32 +14,28 @@ const initialState = {
 export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY:
-			if (action.reset === true) {
-				return initialState;
-			} else {
-				return {
-					accountSidebar:
-						action.displays.accountSidebar !== undefined
-							? action.displays.accountSidebar
-							: false,
-					editInfoModal:
-						action.displays.editInfoModal !== undefined
-							? action.displays.editInfoModal
-							: false,
-					editEmailModal:
-						action.displays.editEmailModal !== undefined
-							? action.displays.editEmailModal
-							: false,
-					editPasswordModal:
-						action.displays.editPasswordModal !== undefined
-							? action.displays.editPasswordModal
-							: false,
-					deleteAccountModal:
-						action.displays.deleteAccountModal !== undefined
-							? action.displays.deleteAccountModal
-							: false,
-				};
-			}
+			return {
+				accountSidebar:
+					action.displays.accountSidebar !== undefined
+						? action.displays.accountSidebar
+						: false,
+				editInfoModal:
+					action.displays.editInfoModal !== undefined
+						? action.displays.editInfoModal
+						: false,
+				editEmailModal:
+					action.displays.editEmailModal !== undefined
+						? action.displays.editEmailModal
+						: false,
+				editPasswordModal:
+					action.displays.editPasswordModal !== undefined
+						? action.displays.editPasswordModal
+						: false,
+				deleteAccountModal:
+					action.displays.deleteAccountModal !== undefined
+						? action.displays.deleteAccountModal
+						: false,
+			};
 		default:
 			return state;
 	}

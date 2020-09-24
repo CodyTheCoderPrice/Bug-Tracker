@@ -12,6 +12,7 @@ import {
 	SET_LIST,
 	SET_MASS_DELETE_LIST,
 	SET_INPUT_ERRORS,
+	RESET_REDUX,
 } from "./types";
 
 export * from "./accountActions";
@@ -92,3 +93,9 @@ export const clearInputErrors = () => (dispatch) => {
 		inputErrors: {},
 	});
 };
+
+export const resetRedux = () => (dispatch) => {
+	dispatch({
+		type: RESET_REDUX
+	});
+}

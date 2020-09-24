@@ -5,10 +5,10 @@ import accountReducer from "./accountReducer";
 import { ACCOUNT_CONTAINER } from "../../actions/typeContainer";
 
 const initialState = {
-	// (undefined, {type: null}) will cause each function to return their initial state
-	componentsDisplay: accountComponentsDisplayReducer(undefined, { type: null }),
-	auth: authReducer(undefined, { type: null }),
-	info: accountReducer(undefined, { type: null }),
+	// (undefined, {}) will cause each function to return their initial state
+	componentsDisplay: accountComponentsDisplayReducer(undefined, {}),
+	auth: authReducer(undefined, {}),
+	info: accountReducer(undefined, {}),
 };
 
 export function accountContainerReducer(state = initialState, action) {

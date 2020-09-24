@@ -116,10 +116,6 @@ export default function Navbar() {
 		);
 	};
 
-	/* 	const closeCreateProjectSidebar = () => {
-		dispatch(setWhichProjectComponentsDisplay({}));
-	}; */
-
 	return (
 		<div className="navbar-and-other-components-container">
 			<div

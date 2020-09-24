@@ -17,16 +17,7 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
 		container: ACCOUNT_CONTAINER,
 		type: SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY,
-		reset: false,
 		displays: displays,
-	});
-};
-
-export const resetAccountComponentsDisplay = () => (dispatch) => {
-	dispatch({
-		container: ACCOUNT_CONTAINER,
-		type: SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY,
-		reset: true,
 	});
 };
 

@@ -15,13 +15,13 @@ export default function ListTableRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const openViewProjectDashboard = () => {
+	const openViewItemModal = () => {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listTable: true,
 				viewItemModal: true,
-				targetItem: props.project,
+				targetItem: props.item,
 			})
 		);
 	};
@@ -41,54 +41,54 @@ export default function ListTableRow(props) {
 	};
 
 	return (
-		<tr className="project-table__row project-table__row--clickable">
-			<td className="project-table__data">
+		<tr className="list-table__row list-table__row--clickable">
+			<td className="list-table__data">
 				<input
 					type="checkbox"
-					name="projects"
-					value={props.project.id}
+					name="item"
+					value={props.item.id}
 					onChange={(e) => onChangeMassDelete(e)}
 					checked={reduxState[props.reduxContainerName].massDeleteList.includes(
-						props.project.id
+						props.item.id
 					)}
-					className="project-table__data__checkbox"
+					className="list-table__data__checkbox"
 				/>
 			</td>
-			<td className="project-table__data">
+			<td className="list-table__data">
 				<span
-					className="project-table__data__info project-table__data__info--blue-link"
-					onClick={openViewProjectDashboard}
+					className="list-table__data__info list-table__data__info--blue-link"
+					onClick={openViewItemModal}
 				>
-					{props.project.name}
+					{props.item.name}
 				</span>
 			</td>
-			<td className="project-table__data">
-				<span className="project-table__data__info">
-					{formatDateMMddYYYY(props.project.creation_date)}
+			<td className="list-table__data">
+				<span className="list-table__data__info">
+					{formatDateMMddYYYY(props.item.creation_date)}
 				</span>
 			</td>
-			<td className="project-table__data">
-				<span className="project-table__data__info">
-					{formatDateMMddYYYY(props.project.start_date)}
+			<td className="list-table__data">
+				<span className="list-table__data__info">
+					{formatDateMMddYYYY(props.item.start_date)}
 				</span>
 			</td>
-			<td className="project-table__data">
-				<span className="project-table__data__info">
-					{formatDateMMddYYYY(props.project.due_date)}
+			<td className="list-table__data">
+				<span className="list-table__data__info">
+					{formatDateMMddYYYY(props.item.due_date)}
 				</span>
 			</td>
-			<td className="project-table__data">
-				<span className="project-table__data__info">
-					{props.project.priority_option}
+			<td className="list-table__data">
+				<span className="list-table__data__info">
+					{props.item.priority_option}
 				</span>
 			</td>
-			<td className="project-table__data">
-				<span className="project-table__data__info">
-					{props.project.status_option}
+			<td className="list-table__data">
+				<span className="list-table__data__info">
+					{props.item.status_option}
 				</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}
-			<td className="project-table__data"></td>
+			<td className="list-table__data"></td>
 		</tr>
 	);
 }

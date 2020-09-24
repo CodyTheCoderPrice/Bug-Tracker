@@ -4,11 +4,9 @@ import inputErrorReducer from "./inputErrorReducer";
 import { GENERAL_CONTAINER } from "../../actions/typeContainer";
 
 const initialState = {
-	// (undefined, {type: null}) will cause each function to return their initial state
-	coreComponentsDisplay: coreComponentsDisplayReducer(undefined, {
-		type: null,
-	}),
-	inputErrors: inputErrorReducer(undefined, { type: null }),
+	// (undefined, {}) will cause each function to return their initial state
+	coreComponentsDisplay: coreComponentsDisplayReducer(undefined, {}),
+	inputErrors: inputErrorReducer(undefined, {}),
 };
 
 export function generalContainerReducer(state = initialState, action) {

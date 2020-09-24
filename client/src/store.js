@@ -14,6 +14,7 @@ import {
 	projectContainerName,
 	bugContainerName,
 } from "./reducers/containerNames";
+import { RESET_REDUX } from "./actions/types";
 // Used to persist the redux state
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -45,18 +46,39 @@ const projectContainerPersistConfig = {
 	storage: storage,
 	// Projects and priorityStatusOptions are persisted despite being re-fetched
 	// ...on page refresh so they are not null while data is retrieved from server
-	blacklist: ["massDeleteList"],
+	blacklist: ["massDeleteList", "searchFilterSort"],
 };
 
-// rootReducer is combined here instead of in the reducer index.js 
+// containersReducer is combined here instead of in the reducer index.js
 // ...so nested persist can be used
-const rootReducer = combineReducers({
-	[generalContainerName]: persistReducer(coreComponentsPersistConfig, generalContainerReducer),
+const containersReducer = combineReducers({
+	[generalContainerName]: persistReducer(
+		coreComponentsPersistConfig,
+		generalContainerReducer
+	),
 	[sizeContainerName]: sizeContainerReducer,
 	[accountContainerName]: accountContainerReducer,
-	[projectContainerName]: persistReducer(projectContainerPersistConfig, projectContainerReducer),
+	[projectContainerName]: persistReducer(
+		projectContainerPersistConfig,
+		projectContainerReducer
+	),
 	[bugContainerName]: bugContainerReducer,
 });
+
+const rootReducer = (state, action) => {
+	if (action.type === RESET_REDUX) {
+		// May not be needed
+		// Removes keys from redux persist engine
+		/* storage.removeItem("persist:root");
+		storage.removeItem("persist:" + generalContainerName);
+		storage.removeItem("persist:root" + projectContainerName); */
+
+		// State being undefined will trigger the inital states of all containers
+		state = undefined;
+	}
+
+	return containersReducer(state, action);
+};
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 

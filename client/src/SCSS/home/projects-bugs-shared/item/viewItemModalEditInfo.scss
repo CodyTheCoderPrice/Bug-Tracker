@@ -159,6 +159,7 @@
 	.form-buttons-centered-container__submit-button {
 		float: left;
 		border: 1px solid black;
+		outline: none;
 		background-color: $light-blue-gray;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.

@@ -4,9 +4,9 @@ import displaySizeVariablesReducer from "./displaySizeVariablesReducer";
 import { SIZE_CONTAINER } from "../../actions/typeContainer";
 
 const initialState = {
-	// (undefined, {type: null}) will cause each function to return their initial state
-	constants: displaySizeConstantsReducer(undefined, { type: null }),
-	variables: displaySizeVariablesReducer(undefined, { type: null }),
+	// (undefined, {}) will cause each function to return their initial state
+	constants: displaySizeConstantsReducer(undefined, {}),
+	variables: displaySizeVariablesReducer(undefined, {}),
 };
 
 export function sizeContainerReducer(state = initialState, action) {

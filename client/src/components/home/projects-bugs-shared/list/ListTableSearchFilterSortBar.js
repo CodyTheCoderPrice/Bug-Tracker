@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { projectContainerName } from "../../../../reducers/containerNames";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,
@@ -26,22 +27,20 @@ export default function ListTableSearchFilterSortBar(props) {
 	// ... an event listener to highlight the searchbar
 	useSearchBarResizeAndBorderEventListener(
 		reduxState,
-		"js-projects-search-bar",
-		"js-projects-search-bar-button",
-		"js-projects-search-bar-and-button-search-group-container",
+		"js-list-search-bar",
+		"js-list-search-bar-button",
+		"js-list-search-bar-and-button-search-group-container",
 		"search-filter-sort-bar__centering-container__search-group-container--with-border",
-		"js-new-project-button-centering-container",
-		"js-projects-filter-area-container",
-		"js-projects-search-bar-centering-container"
+		"js-new-item-button-centering-container",
+		"js-list-filter-area-container",
+		"js-list-search-bar-centering-container"
 	);
 
 	useEffect(() => {
 		toggleDropdownButtonDisplay(
 			showFilterDropdown,
-			document.getElementsByClassName("js-projects-filter-button")[0],
-			document.getElementsByClassName(
-				"js-projects-filter-content-container"
-			)[0],
+			document.getElementsByClassName("js-list-filter-button")[0],
+			document.getElementsByClassName("js-list-filter-content-container")[0],
 			"search-filter-sort-bar__filter-area-container__dropdown-container__button--clicked"
 		);
 	}, [showFilterDropdown]);
@@ -50,7 +49,7 @@ export default function ListTableSearchFilterSortBar(props) {
 		setShowFilterDropdown(!showFilterDropdown);
 	};
 
-	const openCreateProjectSidebar = () => {
+	const openCreateItemSidebar = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listTable: true,
@@ -102,27 +101,30 @@ export default function ListTableSearchFilterSortBar(props) {
 
 	return (
 		<div className="search-filter-sort-component">
-			<div className="search-filter-sort-bar js-project-search-filter-sort-bar">
-				<div className="search-filter-sort-bar__centering-container js-new-project-button-centering-container">
+			<div className="search-filter-sort-bar js-item-search-filter-sort-bar">
+				<div className="search-filter-sort-bar__centering-container js-new-item-button-centering-container">
 					<div
-						className="search-filter-sort-bar__centering-container__new-project-button"
-						onClick={openCreateProjectSidebar}
+						className="search-filter-sort-bar__centering-container__new-item-button"
+						onClick={openCreateItemSidebar}
 					>
-						<i className="fa fa-plus" aria-hidden="true" /> New Project
+						<i className="fa fa-plus" aria-hidden="true" />{"  "}
+						{props.reduxContainerName === projectContainerName
+							? "New Project"
+							: "New Bug"}
 					</div>
 				</div>
-				<div className="search-filter-sort-bar__centering-container js-projects-search-bar-centering-container">
-					<div className="search-filter-sort-bar__centering-container__search-group-container js-projects-search-bar-and-button-search-group-container">
+				<div className="search-filter-sort-bar__centering-container js-list-search-bar-centering-container">
+					<div className="search-filter-sort-bar__centering-container__search-group-container js-list-search-bar-and-button-search-group-container">
 						<input
 							type="text"
 							name="searchBarText"
 							onChange={(e) => onChangeSearchBar(e)}
 							onKeyDown={(e) => searchBarKeyDown(e)}
 							value={searchBarText.searchBarText}
-							className="search-filter-sort-bar__centering-container__search-group-container__search-bar js-projects-search-bar"
+							className="search-filter-sort-bar__centering-container__search-group-container__search-bar js-list-search-bar"
 						/>
 						<div
-							className="search-filter-sort-bar__centering-container__search-group-container__search-bar-button js-projects-search-bar-button"
+							className="search-filter-sort-bar__centering-container__search-group-container__search-bar-button js-list-search-bar-button"
 							onClick={updateSearchKeyWordString}
 						>
 							<span className="search-filter-sort-bar__centering-container__search-group-container__search-bar-button__icon">
@@ -131,55 +133,57 @@ export default function ListTableSearchFilterSortBar(props) {
 						</div>
 					</div>
 				</div>
-				<div className="search-filter-sort-bar__filter-area-container js-projects-filter-area-container">
+				<div className="search-filter-sort-bar__filter-area-container js-list-filter-area-container">
 					<div className="search-filter-sort-bar__filter-area-container__dropdown-container">
 						<div
-							className="search-filter-sort-bar__filter-area-container__dropdown-container__button js-projects-filter-button"
+							className="search-filter-sort-bar__filter-area-container__dropdown-container__button js-list-filter-button"
 							onClick={toggleFilterDropdown}
 						>
 							<span className="search-filter-sort-bar__filter-area-container__dropdown-container__button__text">
 								<i className="fa fa-filter" aria-hidden="true" /> Filter
 							</span>
 						</div>
-						<div className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown js-projects-filter-content-container">
+						<div className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown js-list-filter-content-container">
 							<div className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content">
 								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Priority
 								</span>
-								{reduxState[props.reduxContainerName].priorityStatusOptions.priorityOptions.map(
-									(obj, i) => {
-										return (
-											<div
-												key={i}
-												className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block"
+								{reduxState[
+									props.reduxContainerName
+								].priorityStatusOptions.priorityOptions.map((obj, i) => {
+									return (
+										<div
+											key={i}
+											className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block"
+										>
+											<input
+												type="checkbox"
+												name="priorityFilter"
+												value={obj.id}
+												onChange={(e) => onChangeFilter(e)}
+												checked={reduxState[
+													props.reduxContainerName
+												].searchFilterSort.priorityFilter.includes(obj.id)}
+												id={"list-priority-filter-" + obj.id}
+												className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__checkbox"
+											/>
+											<label
+												htmlFor={"list-priority-filter-" + obj.id}
+												className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__label"
 											>
-												<input
-													type="checkbox"
-													name="priorityFilter"
-													value={obj.id}
-													onChange={(e) => onChangeFilter(e)}
-													checked={reduxState[props.reduxContainerName].searchFilterSort.priorityFilter.includes(
-														obj.id
-													)}
-													id={"projects-priority-filter-" + obj.id}
-													className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__checkbox"
-												/>
-												<label
-													htmlFor={"projects-priority-filter-" + obj.id}
-													className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__label"
-												>
-													{obj.option !== "" ? obj.option : "Not Assigned"}
-												</label>
-											</div>
-										);
-									}
-								)}
+												{obj.option !== "" ? obj.option : "Not Assigned"}
+											</label>
+										</div>
+									);
+								})}
 							</div>
 							<div className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content--right">
 								<span className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title">
 									Status
 								</span>
-								{reduxState[props.reduxContainerName].priorityStatusOptions.statusOptions.map((obj, i) => {
+								{reduxState[
+									props.reduxContainerName
+								].priorityStatusOptions.statusOptions.map((obj, i) => {
 									return (
 										<div
 											key={i}
@@ -190,14 +194,14 @@ export default function ListTableSearchFilterSortBar(props) {
 												name="statusFilter"
 												value={obj.id}
 												onChange={(e) => onChangeFilter(e)}
-												checked={reduxState[props.reduxContainerName].searchFilterSort.statusFilter.includes(
-													obj.id
-												)}
-												id={"projects-status-filter-" + obj.id}
+												checked={reduxState[
+													props.reduxContainerName
+												].searchFilterSort.statusFilter.includes(obj.id)}
+												id={"list-status-filter-" + obj.id}
 												className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__checkbox"
 											/>
 											<label
-												htmlFor={"projects-status-filter-" + obj.id}
+												htmlFor={"list-status-filter-" + obj.id}
 												className="search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__label"
 											>
 												{obj.option !== "" ? obj.option : "Not Assigned"}

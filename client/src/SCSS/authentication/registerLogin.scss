@@ -1,4 +1,4 @@
-@import '../utils/variables';
+@import "../utils/variables";
 
 .register-login-components {
 	.background {
@@ -48,9 +48,11 @@
 	}
 
 	.form__text-input--password {
+		// Tries to help with password size disparity between browsers
 		font: small-caption;
+		font-size: 16px;
 	}
-	
+
 	.form__errors {
 		display: block;
 		color: red;
@@ -59,6 +61,7 @@
 	.form__submit {
 		margin-top: 10px;
 		margin-bottom: 5px;
+		outline: none;
 		border: 0;
 		background-color: $light-blue-teal;
 		padding: 10px;

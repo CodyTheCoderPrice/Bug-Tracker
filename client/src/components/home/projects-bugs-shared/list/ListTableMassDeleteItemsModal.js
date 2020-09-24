@@ -25,17 +25,17 @@ export default function ListTableMassDeleteItemsModal(props) {
 		};
 	}, []);
 
-	const deleteCheckedProjects = () => {
+	const deleteCheckedItems = () => {
 		dispatch(
 			deleteMultipleProjectsOrBugs(
-				"projectContainer",
-				{ projectsArray: reduxState[props.reduxContainerName].massDeleteList },
+				props.reduxContainerName,
+				reduxState[props.reduxContainerName].massDeleteList,
 				reduxState[props.reduxContainerName].componentsDisplay
 			)
 		);
 	};
 
-	const closeMassDeleteProjectsModal = () => {
+	const closeMassDeleteItemsModal = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
@@ -55,13 +55,13 @@ export default function ListTableMassDeleteItemsModal(props) {
 					<div className="centered-buttons-container">
 						<div
 							className="centered-buttons-container__delete"
-							onClick={deleteCheckedProjects}
+							onClick={deleteCheckedItems}
 						>
 							Delete
 						</div>
 						<div
 							className="centered-buttons-container__cancel"
-							onClick={closeMassDeleteProjectsModal}
+							onClick={closeMassDeleteItemsModal}
 						>
 							Cancel
 						</div>

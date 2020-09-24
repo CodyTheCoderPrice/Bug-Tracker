@@ -1,59 +1,59 @@
 @import "../../../utils/variables";
 @import "../../../utils//mixins";
 
-.projects-table-component {
+.list-table-component {
 	font-family: Arial, Helvetica, sans-serif;
-	background-color: $project-table-background-color;
+	background-color: $list-table-background-color;
 
-	.projects-table {
+	.list-table {
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
 	}
 
-	.project-table__row {
+	.list-table__row {
 		padding: 5px;
-		height: $project-bug-table-row-height;
+		height: $list-table-row-height;
 		text-align: center;
 	}
 
-	/* .project-table__row--sticky {
+	/* .list-table__row--sticky {
 		position: -webkit-sticky;
 		position: sticky;
 		top: $navbar-height + $search-filter-sort-bar-height + 2;
-		background-color: $project-table-background-color;
+		background-color: $list-table-background-color;
 	} */
 
-	.project-table__row--empty {
-		height: $project-bug-table-row-height + ($project-bug-table-row-height * 0.5);
+	.list-table__row--empty {
+		height: $list-table-row-height + ($list-table-row-height * 0.5);
 	}
 
-	.project-table__row--clickable:hover,
-	.project-table__row--clickable:active {
+	.list-table__row--clickable:hover,
+	.list-table__row--clickable:active {
 		background-color: $very-light-gray;
 	}
 
-	.project-table__header {
+	.list-table__header {
 		position: -webkit-sticky;
 		position: sticky;
 		top: $navbar-height + $search-filter-sort-bar-height + 2;
-		background-color: $project-table-background-color;
+		background-color: $list-table-background-color;
 		// Used box shadow since the header row being sticky with 
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: 0 1px 0 $medium-gray;
 		width: 300px;
 	}
 
-	.project-table__header--for-mass-delete {
+	.list-table__header--for-mass-delete {
 		width: 80px;
 		min-width: 80px;
 	}
 
-	.project-table__header__mass-delete-options {
+	.list-table__header__mass-delete-options-container {
 		@include dead-center();
 		width: 100%;
 	}
 
-	.project-table__header__mass-delete-options__button {
+	.list-table__header__mass-delete-options-container__button {
 		display: inline-block;
 		margin: 4px;
 		padding: 2px;
@@ -62,23 +62,23 @@
 		cursor: pointer;
 	}
 
-	.project-table__header__mass-delete-options__button--disabled {
+	.list-table__header__mass-delete-options-container__button--disabled {
 		color: lightgray;
 		cursor: default;
 		pointer-events: none;
 	}
 
-	.project-table__data {
+	.list-table__data {
 		@include border-line();
 		padding: 0px 7px 0px 7px;
 	}
 
-	.project-table__data__info--blue-link {
+	.list-table__data__info--blue-link {
 		color: $blue-link;
 		cursor: pointer;
 	}
 
-	.project-table__data__checkbox {
+	.list-table__data__checkbox {
 		cursor: pointer;
 	}
 }

@@ -71,7 +71,7 @@ export default function EditPasswordModal() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.newPassword}
 						id="edit-account-password-new-password"
-						className="form__text-input"
+						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
 						{reduxState.generalContainer.inputErrors.newPassword}
@@ -88,7 +88,7 @@ export default function EditPasswordModal() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.newPassword2}
 						id="edit-account-password-new-password2"
-						className="form__text-input"
+						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
 						{reduxState.generalContainer.inputErrors.newPassword2}
@@ -105,7 +105,7 @@ export default function EditPasswordModal() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.currentPassword}
 						id="edit-account-password-current-password"
-						className="form__text-input"
+						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
 						{reduxState.generalContainer.inputErrors.currentPassword}

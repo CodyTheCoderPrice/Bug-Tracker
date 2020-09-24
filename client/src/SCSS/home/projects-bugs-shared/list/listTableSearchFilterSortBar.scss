@@ -8,7 +8,7 @@
 	position: sticky;
 	top: $navbar-height;
 	font-family: Arial, Helvetica, sans-serif;
-	background-color: $project-table-background-color;
+	background-color: $list-table-background-color;
 
 	.search-filter-sort-bar {
 		border: 1px solid black;
@@ -23,11 +23,11 @@
 		position: relative;
 		float: left;
 		height: $search-filter-sort-bar-height;
-		// This width is for the new project button. Searchbars width is changed by JS
+		// This width is for the new item button. Searchbars width is changed by JS
 		width: 152px;
 	}
 
-	.search-filter-sort-bar__centering-container__new-project-button {
+	.search-filter-sort-bar__centering-container__new-item-button {
 		@include stop-text-selection();
 		@include vertical-center();
 
@@ -51,6 +51,7 @@
 
 	.search-filter-sort-bar__centering-container__search-group-container__search-bar {
 		display: inline-block;
+		outline: none;
 		border: $search-bar-border-width solid $light-blue-gray;
 		padding: 0px 8px 0px 8px;
 		height: $search-bar-height;

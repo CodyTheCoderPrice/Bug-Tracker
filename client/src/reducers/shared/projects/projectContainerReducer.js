@@ -7,12 +7,12 @@ import priorityStatusOptionsReducer from "../priorityStatusOptionsReducer";
 import { PROJECT_CONTAINER } from "../../../actions/typeContainer";
 
 const initialState = {
-	// (undefined, {type: null}) will cause each function to return their initial state
-	componentsDisplay: listComponentsDisplayReducer(undefined, { type: null }),
-	list: listReducer(undefined, { type: null }),
-	searchFilterSort: searchFilterSortReducer(undefined, { type: null }),
-	massDeleteList: massDeleteReducer(undefined, { type: null }),
-	priorityStatusOptions: priorityStatusOptionsReducer(undefined, { type: null }),
+	// (undefined, {}) will cause each function to return their initial state
+	componentsDisplay: listComponentsDisplayReducer(undefined, {}),
+	list: listReducer(undefined, {}),
+	searchFilterSort: searchFilterSortReducer(undefined, {}),
+	massDeleteList: massDeleteReducer(undefined, {}),
+	priorityStatusOptions: priorityStatusOptionsReducer(undefined, {}),
 };
 
 export function projectContainerReducer(state = initialState, action) {

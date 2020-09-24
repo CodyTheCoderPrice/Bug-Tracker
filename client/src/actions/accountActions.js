@@ -3,11 +3,10 @@ import jwt_decode from "jwt-decode";
 
 import { ACCOUNT_CONTAINER } from "./typeContainer";
 import { SET_AUTHENTICATION, SET_ACCOUNT } from "./types";
-import { setInputErrors } from "./index";
+import { retrievePriorityStatusArrays, setInputErrors, resetRedux } from "./index";
 import {
 	setWhichCoreComponentsDisplay,
 	setWhichAccountComponentsDisplay,
-	resetAccountComponentsDisplay,
 } from "./componentActions";
 import { retrieveProjects } from "./projectActions";
 
@@ -147,11 +146,10 @@ export const deleteAccount = (accountInfo) => (dispatch) => {
 export const logoutAccount = () => (dispatch) => {
 	localStorage.removeItem("jwToken");
 
-	// clear auth and account
-	dispatch(setAuthentication({}));
-	dispatch(setAccount({}));
-	dispatch(setWhichCoreComponentsDisplay({ login: true }));
-	dispatch(resetAccountComponentsDisplay());
+	// Reset redux
+	dispatch(resetRedux());
+	// Refetch priority and status options encase logging back ing
+	dispatch(retrievePriorityStatusArrays());
 
 	console.log("Message: logged out");
 };

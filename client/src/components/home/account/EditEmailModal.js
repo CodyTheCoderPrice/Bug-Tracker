@@ -79,7 +79,7 @@ export default function EditEmailModal() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.currentPassword}
 						id="edit-account-email-password"
-						className="form__text-input"
+						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
 						{reduxState.generalContainer.inputErrors.currentPassword}

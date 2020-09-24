@@ -18,7 +18,7 @@ $dark-blue-teal: #50798b;
 // Blue for links
 $blue-link: #005ed8;
 // Components
-$project-table-background-color: #ffffff;
+$list-table-background-color: #ffffff;
 $account-dropdown-button-color: $light-blue-gray;
 
 //==========
@@ -28,21 +28,21 @@ $navbar-height: 60px;
 $search-filter-sort-bar-height:  60px;
 $search-bar-height: 28px;
 $edit-account-modal-height: 480px;
-$project-bug-table-row-height: 50px;
+$list-table-row-height: 50px;
 
 //=========
 // Widths
 //=========
 $home-min-width: 1000px;
 $edit-account-modal-width:  540px;
-$create-project-bug-sidebar-width: 500px;
+$create-item-sidebar-width: 500px;
 $filter-button-width: 90px;
 $options-button-width: 36px;
 
 //=========
 // Margins
 //=========
-$view-item-bug-modal-margin: 15px;
+$view-item-bug-modal-margin: 20px;
 $form-input-margin-bottom: 10px;
 
 //==========
@@ -55,6 +55,11 @@ $view-item-bug-modal-border-width: 5px;
 // Text
 //======
 $common-line-height: 20px;
+
+//=========
+// Opacity
+//=========
+$blurred-background-opacity: 0.7;
 
 //============
 // Arithmetic

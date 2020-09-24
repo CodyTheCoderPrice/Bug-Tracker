@@ -105,10 +105,10 @@ export const deleteProject = (
 		});
 };
 
-export const deleteMultipleProjects = (projectsArray, projectComponentsDisplay) => (dispatch) => {
+export const deleteMultipleProjects = (massDeleteList, projectComponentsDisplay) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/project/delete-multiple", projectsArray, headers)
+		.post("/api/project/delete-multiple", {projectsArray: massDeleteList }, headers)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setList(projects));
