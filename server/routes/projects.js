@@ -4,7 +4,7 @@ const pool = require("../db");
 const router = express.Router();
 // Middleware
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
-const validateProjectInput = require("../middleware/validation/project/createOrUpdateProjectValidation");
+const validateProjectInput = require("../middleware/validation/project-bug-shared/createOrUpdateValidation");
 const correctDatesFormat = require("../middleware/correctDatesFormat");
 // Used instead of the Date() function
 const moment = require("moment");

@@ -5,6 +5,7 @@ import {
 	retrievePriorityStatusArrays,
 	retrieveAccount,
 	retrieveProjects,
+	retrieveBugs,
 	setWhichCoreComponentsDisplay,
 } from "../actions";
 
@@ -28,6 +29,7 @@ function App() {
 		if (reduxState.accountContainer.auth.isAuthenticated) {
 			dispatch(retrieveAccount());
 			dispatch(retrieveProjects());
+			dispatch(retrieveBugs());
 		} else {
 			// Makes sure unauthenticated users do not see home page
 			if (reduxState.generalContainer.coreComponentsDisplay.home) {

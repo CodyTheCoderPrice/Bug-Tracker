@@ -54,6 +54,16 @@ export default function CreateItemSidebar(props) {
 			.statusCompletionId
 	);
 
+	// Adds project_id for bugs
+	useEffect(() => {
+		if (props.reduxContainerName === projectContainerName) {
+			setItemInfo({
+				...itemInfo,
+				priority_id: reduxState[projectContainerName].componentsDisplay.targetItem.id,
+			});
+		}
+	}, []);
+
 	// Custom hook resizes the sidebar so that the overflow functionality works
 	useSidebarResize(reduxState, "js-create-item-sidebar");
 

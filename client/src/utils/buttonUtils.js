@@ -13,16 +13,3 @@ export function toggleDropdownButtonDisplay(
 		? (dropdownElement.style.visibility = "visible")
 		: (dropdownElement.style.visibility = "hidden");
 }
-
-/* // Custom Hook
-export function useToggleSortButtons(
-	dispatchFunction,
-	reduxProperty,
-	activeButtonClassName,
-	clickedClassNameAppendix,
-) {
-	const reduxState = useSelector((state) => state);
-	const dispatch = useDispatch();
-
-	return [previousButtonElement, setPreviousButtonElement];
-} */

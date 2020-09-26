@@ -8,7 +8,11 @@ import { PROJECT_CONTAINER } from "../../../actions/typeContainer";
 
 const initialState = {
 	// (undefined, {}) will cause each function to return their initial state
-	componentsDisplay: listComponentsDisplayReducer(undefined, {}),
+	componentsDisplay: {
+		...listComponentsDisplayReducer(undefined, {}),
+		// Overrides listTable since inital state is false for bugContainerReducer
+		listTable: true,
+	},
 	list: listReducer(undefined, {}),
 	searchFilterSort: searchFilterSortReducer(undefined, {}),
 	massDeleteList: massDeleteReducer(undefined, {}),

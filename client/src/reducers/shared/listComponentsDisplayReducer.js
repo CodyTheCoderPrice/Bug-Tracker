@@ -1,7 +1,7 @@
 import { SET_WHICH_LIST_COMPONENTS_DISPLAY } from "../../actions/types";
 
 const initialState = {
-	listTable: true,
+	listTable: false,
 	listTableMassDeleteItemsModal: false,
 	createItemSidbar: false,
 	targetItem: null,

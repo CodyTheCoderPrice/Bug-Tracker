@@ -9,6 +9,7 @@ import {
 	setWhichAccountComponentsDisplay,
 } from "./componentActions";
 import { retrieveProjects } from "./projectActions";
+import { retrieveBugs } from "./bugActions";
 
 export const setAuthentication = (decodedToken) => (dispatch) => {
 	dispatch({
@@ -50,6 +51,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 
 			dispatch(setAccount(account));
 			dispatch(retrieveProjects());
+			dispatch(retrieveBugs());
 			dispatch(setWhichCoreComponentsDisplay({ home: true }));
 		})
 		.catch((err) => {

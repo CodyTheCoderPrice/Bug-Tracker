@@ -16,6 +16,7 @@ const url = require("url");
 const priorityStatus = require("./routes/priorityStatus");
 const accounts = require("./routes/accounts");
 const projects = require("./routes/projects");
+const bugs = require("./routes/bugs");
 
 // Middleware
 app.use(express.json());
@@ -40,9 +41,10 @@ app.use(function (req, res, next) {
 });
 
 // Set routes
+app.use("/api/priority-status", priorityStatus);
 app.use("/api/account", accounts);
 app.use("/api/project", projects);
-app.use("/api/priority-status", priorityStatus);
+app.use("/api/bug", bugs);
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);

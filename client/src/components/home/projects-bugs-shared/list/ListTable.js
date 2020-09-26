@@ -13,11 +13,12 @@ import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
 import { toggleDisableButtons } from "../../../../utils/massDeleteUtils";
 
 // Components
-import ListTableSearchFilterSortBar from "./ListTableSearchFilterSortBar"
+import ListTableSearchFilterSortBar from "./ListTableSearchFilterSortBar";
 import ListTableRow from "./ListTableRow";
 import ListTableSortArrowsButton from "./ListTableSortArrowsButton";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listTableAndRows.scss";
+import { projectContainerName } from "../../../../reducers/containerNames";
 
 export default function ListTable(props) {
 	const reduxState = useSelector((state) => state);
@@ -45,6 +46,7 @@ export default function ListTable(props) {
 			"js-mass-delete-buttons-container",
 			"list-table__header__mass-delete-options-container__button--disabled"
 		);
+		// eslint-disable-next-line
 	}, [reduxState[props.reduxContainerName].massDeleteList]);
 
 	const checkAllItems = () => {
@@ -71,7 +73,9 @@ export default function ListTable(props) {
 
 	return (
 		<div className="list-table-component">
-			<ListTableSearchFilterSortBar reduxContainerName={props.reduxContainerName} />
+			<ListTableSearchFilterSortBar
+				reduxContainerName={props.reduxContainerName}
+			/>
 			<table className="list-table">
 				<thead className="">
 					<tr className="list-table__row">
@@ -99,27 +103,51 @@ export default function ListTable(props) {
 						</th>
 						<th className="list-table__header js-list-table__header">
 							<span className="list-table__header__span">Name</span>
-							<ListTableSortArrowsButton sortId={1} sortFor="Name" reduxContainerName={props.reduxContainerName} />
+							<ListTableSortArrowsButton
+								sortId={1}
+								sortFor="Name"
+								reduxContainerName={props.reduxContainerName}
+							/>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Created on</span>
-							<ListTableSortArrowsButton sortId={2} sortFor="Created on" reduxContainerName={props.reduxContainerName} />
+							<ListTableSortArrowsButton
+								sortId={2}
+								sortFor="Created on"
+								reduxContainerName={props.reduxContainerName}
+							/>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Start Date</span>
-							<ListTableSortArrowsButton sortId={3} sortFor="Start Date" reduxContainerName={props.reduxContainerName} />
+							<ListTableSortArrowsButton
+								sortId={3}
+								sortFor="Start Date"
+								reduxContainerName={props.reduxContainerName}
+							/>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Due Date</span>
-							<ListTableSortArrowsButton sortId={4} sortFor="Due Date" reduxContainerName={props.reduxContainerName} />
+							<ListTableSortArrowsButton
+								sortId={4}
+								sortFor="Due Date"
+								reduxContainerName={props.reduxContainerName}
+							/>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Priority</span>
-							<ListTableSortArrowsButton sortId={5} sortFor="Priority" reduxContainerName={props.reduxContainerName} />
+							<ListTableSortArrowsButton
+								sortId={5}
+								sortFor="Priority"
+								reduxContainerName={props.reduxContainerName}
+							/>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Status</span>
-							<ListTableSortArrowsButton sortId={6} sortFor="Status" reduxContainerName={props.reduxContainerName} />
+							<ListTableSortArrowsButton
+								sortId={6}
+								sortFor="Status"
+								reduxContainerName={props.reduxContainerName}
+							/>
 						</th>
 						<th className="list-table__header js-remaining-space">
 							{/*Fills remaining empty space*/}
@@ -130,10 +158,25 @@ export default function ListTable(props) {
 					{/*Spread operator used for deep copy so 
 					  ...original list array is unaffected*/}
 					{searchFilterSort(
-						[...reduxState[props.reduxContainerName].list],
+						props.reduxContainerName === projectContainerName
+							? [...reduxState[props.reduxContainerName].list]
+							: [
+									...reduxState[props.reduxContainerName].list.filter(
+										(item) =>
+											item.project_id ===
+											reduxState[projectContainerName].componentsDisplay
+												.targetItem.id
+									),
+							  ],
 						reduxState[props.reduxContainerName].searchFilterSort
 					).map((item, idx) => {
-						return <ListTableRow key={idx} item={item} reduxContainerName={props.reduxContainerName} />;
+						return (
+							<ListTableRow
+								key={idx}
+								item={item}
+								reduxContainerName={props.reduxContainerName}
+							/>
+						);
 					})}
 					{/*Creates an empty space at the bottom*/}
 					<tr className="list-table__row--empty" />

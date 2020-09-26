@@ -32,6 +32,10 @@
 		background-color: $very-light-gray;
 	}
 
+	.list-table__row--selected {
+		background-color: $medium-lighter-gray;
+	} 
+
 	.list-table__header {
 		position: -webkit-sticky;
 		position: sticky;

@@ -9,7 +9,6 @@ import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES,
 	SET_PRIORITY_STATUS_OPTIONS,
-	SET_LIST,
 	SET_MASS_DELETE_LIST,
 	SET_INPUT_ERRORS,
 	RESET_REDUX,
@@ -17,6 +16,7 @@ import {
 
 export * from "./accountActions";
 export * from "./projectActions";
+export * from "./bugActions";
 export * from "./componentActions";
 export * from "./switchActions";
 
@@ -53,14 +53,6 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 			statusOptions: bugPriorityStatusOptions.statusOptions,
 			statusCompletionId: bugPriorityStatusOptions.statusCompletionId,
 		});
-	});
-};
-
-export const setList = (list) => (dispatch) => {
-	dispatch({
-		container: PROJECT_CONTAINER,
-		type: SET_LIST,
-		list: list,
 	});
 };
 

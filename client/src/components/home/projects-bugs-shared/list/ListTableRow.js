@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {
+	projectContainerName,
+	bugContainerName,
+} from "../../../../reducers/containerNames";
 
 import {
 	setWhichAccountComponentsDisplay,
@@ -9,13 +13,34 @@ import {
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
+import { toggleTableRowSelected } from "../../../../utils/listTableRowUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/list/listTableAndRows.scss";
 
 export default function ListTableRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const openViewItemModal = () => {
+	useEffect(() => {
+		if (props.reduxContainerName === projectContainerName) {
+			const shouldBeSelected =
+				reduxState[projectContainerName].componentsDisplay.targetItem !==
+					null &&
+				reduxState[projectContainerName].componentsDisplay.targetItem.id ===
+					props.item.id;
+			toggleTableRowSelected(
+				document.getElementsByClassName(
+					"js-list-table-row-" + props.item.id
+				)[0],
+				shouldBeSelected,
+				"list-table__row--clickable",
+				"list-table__row--selected"
+			);
+		}
+	}, [reduxState[projectContainerName].componentsDisplay.targetItem]);
+
+	const openViewItemModal = (e) => {
+		e.stopPropagation();
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
@@ -26,9 +51,11 @@ export default function ListTableRow(props) {
 		);
 	};
 
-	const onChangeMassDelete = (e) => {
+	const onChangeMassDeleteCheckbox = (e) => {
 		const value = Number(e.target.value);
-		let deepCopyMassDeleteArray = [...reduxState[props.reduxContainerName].massDeleteList];
+		let deepCopyMassDeleteArray = [
+			...reduxState[props.reduxContainerName].massDeleteList,
+		];
 		const index = deepCopyMassDeleteArray.indexOf(value);
 
 		if (index === -1) {
@@ -37,17 +64,59 @@ export default function ListTableRow(props) {
 			deepCopyMassDeleteArray.splice(index, 1);
 		}
 
-		dispatch(setProjectOrBugMassDeleteList(props.reduxContainerName, deepCopyMassDeleteArray));
+		dispatch(
+			setProjectOrBugMassDeleteList(
+				props.reduxContainerName,
+				deepCopyMassDeleteArray
+			)
+		);
+	};
+
+	// This funcitonality is only for the projects list
+	const toggleRowSelected = () => {
+		if (props.reduxContainerName === projectContainerName) {
+			if (
+				reduxState[projectContainerName].componentsDisplay.targetItem ===
+					null ||
+				reduxState[projectContainerName].componentsDisplay.targetItem.id !==
+					props.item.id
+			) {
+				dispatch(
+					setWhichProjectOrBugComponentsDisplay(projectContainerName, {
+						listTable: true,
+						targetItem: props.item,
+					})
+				);
+			} else {
+				dispatch(
+					setWhichProjectOrBugComponentsDisplay(projectContainerName, {
+						listTable: true,
+						targetItem: null,
+					})
+				);
+			}
+		}
 	};
 
 	return (
-		<tr className="list-table__row list-table__row--clickable">
+		<tr
+			className={
+				"list-table__row list-table__row--clickable " +
+				"js-list-table-row-" +
+				props.item.id
+			}
+			onClick={
+				props.reduxContainerName === projectContainerName
+					? (e) => toggleRowSelected(e)
+					: null
+			}
+		>
 			<td className="list-table__data">
 				<input
 					type="checkbox"
 					name="item"
 					value={props.item.id}
-					onChange={(e) => onChangeMassDelete(e)}
+					onChange={onChangeMassDeleteCheckbox}
 					checked={reduxState[props.reduxContainerName].massDeleteList.includes(
 						props.item.id
 					)}
@@ -57,7 +126,7 @@ export default function ListTableRow(props) {
 			<td className="list-table__data">
 				<span
 					className="list-table__data__info list-table__data__info--blue-link"
-					onClick={openViewItemModal}
+					onClick={(e) => openViewItemModal(e)}
 				>
 					{props.item.name}
 				</span>

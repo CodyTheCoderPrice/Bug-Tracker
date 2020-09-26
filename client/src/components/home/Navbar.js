@@ -10,6 +10,7 @@ import {
 	setDisplaySizeVariables,
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
+	setWhichBugComponentsDisplay,
 } from "../../actions";
 
 import {
@@ -87,9 +88,18 @@ export default function Navbar() {
 			reduxState[projectContainerName].componentsDisplay.listTable,
 			document.getElementById("project-button-icon")
 		);
+		setNavbarButtonColor(
+			reduxState[bugContainerName].componentsDisplay.listTable,
+			document.getElementsByClassName("js-bug-button")[0],
+			"navbar-button--selected"
+		);
+		// eslint-disable-next-line
 	}, [
 		reduxState.accountContainer.componentsDisplay.accountSidebar,
+		// eslint-disable-next-line
 		reduxState[projectContainerName].componentsDisplay.listTable,
+		// eslint-disable-next-line
+		reduxState[bugContainerName].componentsDisplay.listTable,
 	]);
 
 	const openAccountSidebar = () => {
@@ -102,12 +112,14 @@ export default function Navbar() {
 		);
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar: !reduxState.accountContainer.componentsDisplay.accountSidebar,
+				accountSidebar: !reduxState.accountContainer.componentsDisplay
+					.accountSidebar,
 			})
 		);
 	};
 
 	const openProjectsTable = () => {
+		dispatch(setWhichBugComponentsDisplay({}));
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState[projectContainerName].componentsDisplay,
@@ -116,10 +128,22 @@ export default function Navbar() {
 		);
 	};
 
+	const openBugsTable = () => {
+		dispatch(setWhichProjectComponentsDisplay({
+			targetItem: reduxState[projectContainerName].componentsDisplay.targetItem
+		}));
+		dispatch(
+			setWhichBugComponentsDisplay({
+				...reduxState[bugContainerName].componentsDisplay,
+				listTable: true,
+			})
+		);
+	};
+
 	return (
 		<div className="navbar-and-other-components-container">
 			<div
-				className="navbar-component js-navbar" /* onClick={closeCreateProjectSidebar} */
+				className="navbar-component js-navbar"
 			>
 				<div
 					className="navbar-button js-project-button"
@@ -129,14 +153,21 @@ export default function Navbar() {
 						<i id="project-button-icon" aria-hidden="true" /> Projects
 					</div>
 				</div>
-				<div
-					className="navbar-button navbar-button--largest"
-					/* onClick={} */
-				>
-					<div className="navbar-button__text-container">
-						<i className="fa fa-bug" aria-hidden="true" /> Bugs (coming soon)
+				{reduxState[projectContainerName].componentsDisplay.targetItem !==
+				null ? (
+					<div
+						className="navbar-button navbar-button--largest js-bug-button"
+						onClick={openBugsTable}
+					>
+						<div className="navbar-button__text-container">
+							<i className="fa fa-bug" aria-hidden="true" />{" "}
+							{
+								reduxState[projectContainerName].componentsDisplay.targetItem
+									.name
+							}
+						</div>
 					</div>
-				</div>
+				) : null}
 				<div
 					className="navbar-button navbar-button--right js-account-button"
 					onClick={openAccountSidebar}

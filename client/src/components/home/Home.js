@@ -61,6 +61,13 @@ export default function Home() {
 			{reduxState[projectContainerName].componentsDisplay.listTableMassDeleteItemsModal ? (
 				<ListTableMassDeleteItemsModal reduxContainerName={projectContainerName} />
 			) : null}
+			{/*Bug components*/}
+			{reduxState[bugContainerName].componentsDisplay.listTable ? (
+				<ListTable reduxContainerName={bugContainerName} />
+			) : null}
+			{reduxState[bugContainerName].componentsDisplay.createItemSidbar ? (
+				<CreateItemSidebar reduxContainerName={bugContainerName} />
+			) : null}
 		</div>
 	);
 }

@@ -3,26 +3,26 @@ import { useState, useEffect } from "react";
 import { toggleClassName } from "./elementUtils";
 
 export function useToggleableDateInput(
-	state,
+	itemInfo,
 	dateContainerClassName,
 	completedIndex
 ) {
 	// perserves a record of the completion_date when the date input is toggled off.
 	const [preservedCompletionDate, setPerservedCompletionDate] = useState(
-		state.completion_date
+		itemInfo.completion_date
 	);
 
 	// Tracks the pervious status to know when to update perservedCompletionDate
-	const [previousStatusId, setPreviousStatusId] = useState(state.status);
+	const [previousStatusId, setPreviousStatusId] = useState(itemInfo.status);
 
 	useEffect(() => {
 		toggleDisableElements();
 		if (previousStatusId === completedIndex) {
 			updatePerservedCompletionDate();
 		}
-		setPreviousStatusId(state.status_id);
+		setPreviousStatusId(itemInfo.status_id);
 		// eslint-disable-next-line
-	}, [state.status_id]);
+	}, [itemInfo.status_id]);
 
 	function toggleDisableElements() {
 		let dateContainerElement = document.getElementsByClassName(
@@ -32,18 +32,18 @@ export function useToggleableDateInput(
 		for (let child of dateContainerElement.childNodes) {
 			if (child.tagName === "LABEL") {
 				toggleClassName(
-					state.status_id !== completedIndex,
+					itemInfo.status_id !== completedIndex,
 					child,
 					"grayed-out-label"
 				);
 			} else if (child.tagName === "INPUT") {
 				toggleClassName(
-					state.status_id !== completedIndex,
+					itemInfo.status_id !== completedIndex,
 					child,
 					"grayed-out-date"
 				);
 			}
-			/* child.disabled = state.status_id !== completedIndex; */
+			/* child.disabled = itemInfo.status_id !== completedIndex; */
 		}
 	}
 
@@ -52,7 +52,7 @@ export function useToggleableDateInput(
 			dateContainerClassName
 		)[0];
 
-		if (state.status_id !== completedIndex) {
+		if (itemInfo.status_id !== completedIndex) {
 			for (let child of dateContainerElement.childNodes) {
 				if (child.tagName === "INPUT") {
 					setPerservedCompletionDate(child.value);
