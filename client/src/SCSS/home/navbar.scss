@@ -1,6 +1,13 @@
 @import "../utils/variables";
 @import "../utils//mixins";
 
+@mixin navbar-button-text() {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 160%;
+	color: white;
+	text-align: center;
+}
+
 .navbar-and-other-components-container {
 	position: -webkit-sticky;
 	position: sticky;
@@ -28,11 +35,6 @@
 		right: 0;
 	}
 
-	// Being used temporarily for coming soon bug functionality
-	.navbar-button--largest {
-		width: 350px;
-	}
-
 	.navbar-button--selected {
 		background-color: $light-blue-gray;
 	}
@@ -40,11 +42,16 @@
 	.navbar-button__text-container {
 		@include vertical-center();
 		@include stop-text-selection();
+		@include navbar-button-text();
+		// Width was not included in navabar-button-text since
+		// ...it would interfere with the size measurment class
 		width: 100%;
-		font-family: Verdana, Geneva, sans-serif;
-		font-size: 160%;
-		color: white;
-		text-align: center;
+	}
+
+	.navbar-button-text-for-measruement {
+		@include vertical-center();
+		@include navbar-button-text();
+		visibility: hidden;
 	}
 
 	.account-dropdown {

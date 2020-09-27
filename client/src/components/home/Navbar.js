@@ -21,7 +21,11 @@ import {
 	calcScrollbarWidth,
 } from "../../utils/displaySizeUtils";
 
-import { setNavbarButtonColor, setProjectsIcon } from "../../utils/navbarUtils";
+import {
+	setNavbarButtonColor,
+	setProjectsIcon,
+	nabvarButtonResize,
+} from "../../utils/navbarUtils";
 
 import "../../SCSS/home/navbar.scss";
 
@@ -88,11 +92,15 @@ export default function Navbar() {
 			reduxState[projectContainerName].componentsDisplay.listTable,
 			document.getElementById("project-button-icon")
 		);
-		setNavbarButtonColor(
-			reduxState[bugContainerName].componentsDisplay.listTable,
-			document.getElementsByClassName("js-bug-button")[0],
-			"navbar-button--selected"
-		);
+		if (
+			reduxState[projectContainerName].componentsDisplay.targetItem !== null
+		) {
+			setNavbarButtonColor(
+				reduxState[bugContainerName].componentsDisplay.listTable,
+				document.getElementsByClassName("js-bug-button")[0],
+				"navbar-button--selected"
+			);
+		}
 		// eslint-disable-next-line
 	}, [
 		reduxState.accountContainer.componentsDisplay.accountSidebar,
@@ -101,6 +109,18 @@ export default function Navbar() {
 		// eslint-disable-next-line
 		reduxState[bugContainerName].componentsDisplay.listTable,
 	]);
+
+	useEffect(() => {
+		if (
+			reduxState[projectContainerName].componentsDisplay.targetItem !== null
+		) {
+			nabvarButtonResize(
+				document.getElementsByClassName("js-bug-button")[0],
+				document.getElementsByClassName("js-bug-button-text")[0],
+				"navbar-button-text-for-measruement"
+			);
+		}
+	}, [reduxState[projectContainerName].componentsDisplay.targetItem]);
 
 	const openAccountSidebar = () => {
 		dispatch(
@@ -129,9 +149,12 @@ export default function Navbar() {
 	};
 
 	const openBugsTable = () => {
-		dispatch(setWhichProjectComponentsDisplay({
-			targetItem: reduxState[projectContainerName].componentsDisplay.targetItem
-		}));
+		dispatch(
+			setWhichProjectComponentsDisplay({
+				targetItem:
+					reduxState[projectContainerName].componentsDisplay.targetItem,
+			})
+		);
 		dispatch(
 			setWhichBugComponentsDisplay({
 				...reduxState[bugContainerName].componentsDisplay,
@@ -142,9 +165,7 @@ export default function Navbar() {
 
 	return (
 		<div className="navbar-and-other-components-container">
-			<div
-				className="navbar-component js-navbar"
-			>
+			<div className="navbar-component js-navbar">
 				<div
 					className="navbar-button js-project-button"
 					onClick={openProjectsTable}
@@ -155,11 +176,8 @@ export default function Navbar() {
 				</div>
 				{reduxState[projectContainerName].componentsDisplay.targetItem !==
 				null ? (
-					<div
-						className="navbar-button navbar-button--largest js-bug-button"
-						onClick={openBugsTable}
-					>
-						<div className="navbar-button__text-container">
+					<div className="navbar-button js-bug-button" onClick={openBugsTable}>
+						<div className="navbar-button__text-container js-bug-button-text">
 							<i className="fa fa-bug" aria-hidden="true" />{" "}
 							{
 								reduxState[projectContainerName].componentsDisplay.targetItem

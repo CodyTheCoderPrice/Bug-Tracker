@@ -49,6 +49,14 @@ const projectContainerPersistConfig = {
 	blacklist: ["massDeleteList", "searchFilterSort"],
 };
 
+const bugContainerPersistConfig = {
+	key: bugContainerName,
+	storage: storage,
+	// Projects and priorityStatusOptions are persisted despite being re-fetched
+	// ...on page refresh so they are not null while data is retrieved from server
+	blacklist: ["massDeleteList", "searchFilterSort"],
+};
+
 // containersReducer is combined here instead of in the reducer index.js
 // ...so nested persist can be used
 const containersReducer = combineReducers({
@@ -62,7 +70,10 @@ const containersReducer = combineReducers({
 		projectContainerPersistConfig,
 		projectContainerReducer
 	),
-	[bugContainerName]: bugContainerReducer,
+	[bugContainerName]: persistReducer(
+		bugContainerPersistConfig,
+		bugContainerReducer
+	),
 });
 
 const rootReducer = (state, action) => {

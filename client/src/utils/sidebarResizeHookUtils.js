@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { getElementStyle, stripNonDigits } from "./displaySizeUtils";
 
-export function useSidebarResize(state, sidebarClassName) {
+export function useSidebarResize(state, nameOfSidebarClass) {
 	// Used to decide when to resize the sidebar, and to reset its size
 	const [
 		originalSidebarSizeAndStyle,
@@ -15,7 +15,7 @@ export function useSidebarResize(state, sidebarClassName) {
 			state.sizeContainer.variables.window !== null &&
 			state.sizeContainer.variables.navbar !== null
 		) {
-			let sidebarElement = document.getElementsByClassName(sidebarClassName)[0];
+			let sidebarElement = document.getElementsByClassName(nameOfSidebarClass)[0];
 
 			// Makes sure originalSidebarSizeAndStyle gets set
 			if (originalSidebarSizeAndStyle === null) {

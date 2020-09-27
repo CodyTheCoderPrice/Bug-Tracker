@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
-import { projectContainerName } from "../../../../reducers/containerNames";
+import { projectContainerName, bugContainerName } from "../../../../reducers/containerNames";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,
@@ -56,7 +56,7 @@ export default function CreateItemSidebar(props) {
 
 	// Adds project_id for bugs
 	useEffect(() => {
-		if (props.reduxContainerName === projectContainerName) {
+		if (props.reduxContainerName === bugContainerName) {
 			setItemInfo({
 				...itemInfo,
 				priority_id: reduxState[projectContainerName].componentsDisplay.targetItem.id,
