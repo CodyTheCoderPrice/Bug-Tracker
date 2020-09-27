@@ -1,13 +1,6 @@
 @import "../utils/variables";
 @import "../utils//mixins";
 
-@mixin navbar-button-text() {
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 160%;
-	color: white;
-	text-align: center;
-}
-
 .navbar-and-other-components-container {
 	position: -webkit-sticky;
 	position: sticky;
@@ -24,7 +17,6 @@
 		float: left;
 		background-color: $blue-gray;
 		height: $navbar-height;
-		width: 200px;
 		text-align: center;
 	}
 
@@ -40,18 +32,13 @@
 	}
 
 	.navbar-button__text-container {
-		@include vertical-center();
 		@include stop-text-selection();
-		@include navbar-button-text();
-		// Width was not included in navabar-button-text since
-		// ...it would interfere with the size measurment class
-		width: 100%;
-	}
 
-	.navbar-button-text-for-measruement {
-		@include vertical-center();
-		@include navbar-button-text();
-		visibility: hidden;
+		margin: 14px 30px 0px 30px;
+		font-family: Verdana, Geneva, sans-serif;
+		font-size: 160%;
+		color: white;
+		text-align: center;
 	}
 
 	.account-dropdown {

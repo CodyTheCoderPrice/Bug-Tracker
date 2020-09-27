@@ -21,11 +21,7 @@ import {
 	calcScrollbarWidth,
 } from "../../utils/displaySizeUtils";
 
-import {
-	setNavbarButtonColor,
-	setProjectsIcon,
-	nabvarButtonResize,
-} from "../../utils/navbarUtils";
+import { setNavbarButtonColor } from "../../utils/navbarUtils";
 
 import "../../SCSS/home/navbar.scss";
 
@@ -88,10 +84,6 @@ export default function Navbar() {
 			document.getElementsByClassName("js-project-button")[0],
 			"navbar-button--selected"
 		);
-		setProjectsIcon(
-			reduxState[projectContainerName].componentsDisplay.listTable,
-			document.getElementById("project-button-icon")
-		);
 		if (
 			reduxState[projectContainerName].componentsDisplay.targetItem !== null
 		) {
@@ -109,18 +101,6 @@ export default function Navbar() {
 		// eslint-disable-next-line
 		reduxState[bugContainerName].componentsDisplay.listTable,
 	]);
-
-	useEffect(() => {
-		if (
-			reduxState[projectContainerName].componentsDisplay.targetItem !== null
-		) {
-			nabvarButtonResize(
-				document.getElementsByClassName("js-bug-button")[0],
-				document.getElementsByClassName("js-bug-button-text")[0],
-				"navbar-button-text-for-measruement"
-			);
-		}
-	}, [reduxState[projectContainerName].componentsDisplay.targetItem]);
 
 	const openAccountSidebar = () => {
 		dispatch(
@@ -171,7 +151,7 @@ export default function Navbar() {
 					onClick={openProjectsTable}
 				>
 					<div className="navbar-button__text-container">
-						<i id="project-button-icon" aria-hidden="true" /> Projects
+						<i className="fa fa-folder" aria-hidden="true" /> Projects
 					</div>
 				</div>
 				{reduxState[projectContainerName].componentsDisplay.targetItem !==
