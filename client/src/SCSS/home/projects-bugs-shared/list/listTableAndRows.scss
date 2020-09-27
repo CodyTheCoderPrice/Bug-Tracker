@@ -27,8 +27,7 @@
 		height: $list-table-row-height + ($list-table-row-height * 0.5);
 	}
 
-	.list-table__row--clickable:hover,
-	.list-table__row--clickable:active {
+	.list-table__row--highlight:hover {
 		background-color: $very-light-gray;
 	}
 

@@ -23,17 +23,13 @@ export default function ListTableRow(props) {
 
 	useEffect(() => {
 		if (props.reduxContainerName === projectContainerName) {
-			const shouldBeSelected =
-				reduxState[projectContainerName].componentsDisplay.targetItem !==
-					null &&
-				reduxState[projectContainerName].componentsDisplay.targetItem.id ===
-					props.item.id;
 			toggleTableRowSelected(
+				reduxState[projectContainerName].componentsDisplay.targetItem,
+				props.item,
 				document.getElementsByClassName(
 					"js-list-table-row-" + props.item.id
 				)[0],
-				shouldBeSelected,
-				"list-table__row--clickable",
+				"list-table__row--highlight",
 				"list-table__row--selected"
 			);
 		}
