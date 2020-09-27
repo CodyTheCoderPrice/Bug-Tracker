@@ -1,7 +1,7 @@
 import { PROJECT_CONTAINER, BUG_CONTAINER } from "./typeContainer";
 import { SET_SEARCH_FILTER_SORT, SET_MASS_DELETE_LIST } from "./types";
 import {
-	setWhichProjectComponentsDisplay,
+	setWhichProjectComponentsDisplay, setWhichBugComponentsDisplay
 } from "./componentActions";
 import {
 	createProject,
@@ -9,6 +9,12 @@ import {
 	deleteProject,
 	deleteMultipleProjects,
 } from "./projectActions";
+import {
+	createBug,
+	updateBug,
+	deleteBug,
+	deleteMultipleBugs,
+} from "./bugActions";
 import { projectContainerName, bugContainerName } from "../reducers/containerNames";
 
 export const setWhichProjectOrBugComponentsDisplay = (containerName, displays) => (dispatch) => {
@@ -16,9 +22,9 @@ export const setWhichProjectOrBugComponentsDisplay = (containerName, displays) =
 		case projectContainerName:
 			dispatch(setWhichProjectComponentsDisplay(displays));
 			break;
-		/* case bugContainerName:
-			dispatch(setWhichProjectComponentsDisplay(displays));
-			break; */
+		case bugContainerName:
+			dispatch(setWhichBugComponentsDisplay(displays));
+			break;
 		default:
 			break;
 	}
@@ -72,16 +78,16 @@ export const setProjectOrBugMassDeleteList = (
 	}
 };
 
-export const createProjectOrBug = (containerName, projectInfo) => (
+export const createProjectOrBug = (containerName, itemInfo) => (
 	dispatch
 ) => {
 	switch (containerName) {
 		case projectContainerName:
-			dispatch(createProject(projectInfo));
+			dispatch(createProject(itemInfo));
 			break;
-		/* case bugContainerName:
-			dispatch(createProject(projectInfo));
-			break; */
+		case bugContainerName:
+			dispatch(createBug(itemInfo));
+			break;
 		default:
 			break;
 	}

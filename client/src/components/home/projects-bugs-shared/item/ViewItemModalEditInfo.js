@@ -118,7 +118,7 @@ export default function ViewItemModalEditInfo(props) {
 			itemInfo.status_id !==
 			reduxState[props.reduxContainerName].priorityStatusOptions.statusCompletionId
 		) {
-			setItemInfo({ ...itemInfo, completion_date: "" });
+			setItemInfo({ ...itemInfo, completion_date: null });
 		} else {
 			setItemInfo({
 				...itemInfo,

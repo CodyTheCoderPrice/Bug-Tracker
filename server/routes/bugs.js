@@ -47,7 +47,7 @@ router
 				}
 
 				const createdBug = await pool.query(
-					`INSERT INTO bug (project_id, name, description, p_priority_id, p_status_id, 
+					`INSERT INTO bug (project_id, name, description, b_priority_id, b_status_id, 
 					creation_date, start_date, due_date, completion_date) 
 						VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
 					[
@@ -167,8 +167,8 @@ router
 				}
 
 				const updatedBug = await pool.query(
-					`UPDATE bug SET name = $1, description = $2, p_priority_id = $3, 
-				p_status_id = $4, start_date = $5, due_date = $6, completion_date = $7
+					`UPDATE bug SET name = $1, description = $2, b_priority_id = $3, 
+				b_status_id = $4, start_date = $5, due_date = $6, completion_date = $7
 				WHERE project_id = $8 AND bug_id = $9`,
 					[
 						name,

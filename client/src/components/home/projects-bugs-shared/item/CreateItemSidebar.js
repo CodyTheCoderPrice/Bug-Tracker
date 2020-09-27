@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
-import { projectContainerName, bugContainerName } from "../../../../reducers/containerNames";
+import {
+	projectContainerName,
+	bugContainerName,
+} from "../../../../reducers/containerNames";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,
@@ -53,16 +56,6 @@ export default function CreateItemSidebar(props) {
 		reduxState[props.reduxContainerName].priorityStatusOptions
 			.statusCompletionId
 	);
-
-	// Adds project_id for bugs
-	useEffect(() => {
-		if (props.reduxContainerName === bugContainerName) {
-			setItemInfo({
-				...itemInfo,
-				priority_id: reduxState[projectContainerName].componentsDisplay.targetItem.id,
-			});
-		}
-	}, []);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
 	useSidebarResize(reduxState, "js-create-item-sidebar");
@@ -117,7 +110,7 @@ export default function CreateItemSidebar(props) {
 			reduxState[props.reduxContainerName].priorityStatusOptions
 				.statusCompletionId
 		) {
-			setItemInfo({ ...itemInfo, completion_date: "" });
+			setItemInfo({ ...itemInfo, completion_date: null });
 		} else {
 			setItemInfo({
 				...itemInfo,
@@ -150,7 +143,12 @@ export default function CreateItemSidebar(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(createProjectOrBug(props.reduxContainerName, itemInfo));
+		let proxyItemInfo = itemInfo;
+		if (props.reduxContainerName === bugContainerName) {
+			proxyItemInfo["project_id"] =
+				reduxState[projectContainerName].componentsDisplay.targetItem.id;
+		}
+		dispatch(createProjectOrBug(props.reduxContainerName, proxyItemInfo));
 	};
 
 	return (
@@ -276,9 +274,9 @@ export default function CreateItemSidebar(props) {
 							</div>
 						</div>
 						<button type="submit" className="form__submit">
-						{props.reduxContainerName === projectContainerName
-							? "Create Project"
-							: "Create Bug"}
+							{props.reduxContainerName === projectContainerName
+								? "Create Project"
+								: "Create Bug"}
 						</button>
 						<span className="form__errors">
 							{reduxState.generalContainer.inputErrors.validation}

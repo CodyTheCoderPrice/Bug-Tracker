@@ -15,7 +15,7 @@ import EditInfoModal from "./account/EditInfoModal";
 import EditEmailModal from "./account/EditEmailModal";
 import EditPasswordModal from "./account/EditPasswordModal";
 import DeleteAccountModal from "./account/DeleteAccountModal";
-// Projects
+// Projects & Bugs
 import ListTable from "./projects-bugs-shared/list/ListTable";
 import CreateItemSidebar from "./projects-bugs-shared/item/CreateItemSidebar";
 import ViewItemModal from "./projects-bugs-shared/item/ViewItemModal";
