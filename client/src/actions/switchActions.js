@@ -95,16 +95,16 @@ export const createProjectOrBug = (containerName, itemInfo) => (
 
 export const updateProjectOrBug = (
 	containerName,
-	projectInfo,
-	projectComponentsDisplay
+	itemInfo,
+	componentsDisplay
 ) => (dispatch) => {
 	switch (containerName) {
 		case projectContainerName:
-			dispatch(updateProject(projectInfo, projectComponentsDisplay));
+			dispatch(updateProject(itemInfo, componentsDisplay));
 			break;
-		/* case bugContainerName:
-			dispatch(updateProject(projectInfo, projectComponentsDisplay));
-			break; */
+		case bugContainerName:
+			dispatch(updateBug(itemInfo, componentsDisplay));
+			break;
 		default:
 			break;
 	}
@@ -114,17 +114,17 @@ export const deleteProjectOrBug = (
 	containerName,
 	id,
 	massDeleteList,
-	indexOfTargetProjectId
+	indexOfTargetItemId
 ) => (dispatch) => {
 	switch (containerName) {
 		case projectContainerName:
 			dispatch(
-				deleteProject(id, massDeleteList, indexOfTargetProjectId)
+				deleteProject(id, massDeleteList, indexOfTargetItemId)
 			);
 			break;
-		/* case bugContainerName:
-			dispatch(deleteProject(id, massDeleteList, indexOfTargetProjectId));
-			break; */
+		case bugContainerName:
+			dispatch(deleteBug(id, massDeleteList, indexOfTargetItemId));
+			break;
 		default:
 			break;
 	}
@@ -141,11 +141,11 @@ export const deleteMultipleProjectsOrBugs = (
 				deleteMultipleProjects(projectOrBugArray, projectOrBugComponentsDisplay)
 			);
 			break;
-		/* case bugContainerName:
+		case bugContainerName:
 			dispatch(
-				deleteMultipleProjects(projectOrBugArray, projectOrBugComponentsDisplay)
+				deleteMultipleBugs(projectOrBugArray, projectOrBugComponentsDisplay)
 			);
-			break; */
+			break;
 		default:
 			break;
 	}
