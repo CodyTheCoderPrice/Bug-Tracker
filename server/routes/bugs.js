@@ -69,11 +69,11 @@ router
 				}
 
 				const allBugsForAccount = await pool.query(
-					`WITH b AS (
-					SELECT * FROM bug WHERE project_id IN 
-						(SELECT project_id FROM project WHERE account_id = $1)
-				)
-				SELECT b.bug_id AS id, b.project_id, b.name, b.description,
+					`WITH b AS 
+						(SELECT * FROM bug WHERE project_id IN 
+							(SELECT project_id FROM project WHERE account_id = $1)
+						)
+					SELECT b.bug_id AS id, b.project_id, b.name, b.description,
 						b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 						b.creation_date, b.start_date, b.due_date,
 						b.completion_date, bp.option AS priority_option, 
@@ -105,11 +105,11 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		const { account_id } = req;
 
 		const allBugsForAccount = await pool.query(
-			`WITH b AS (
-			SELECT * FROM bug WHERE project_id IN 
-				(SELECT project_id FROM project WHERE account_id = $1)
-		)
-		SELECT b.bug_id AS id, b.project_id, b.name, b.description,
+			`WITH b AS 
+				(SELECT * FROM bug WHERE project_id IN 
+					(SELECT project_id FROM project WHERE account_id = $1)
+				)
+			SELECT b.bug_id AS id, b.project_id, b.name, b.description,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 				b.creation_date, b.start_date, b.due_date,
 				b.completion_date, bp.option AS priority_option, 
@@ -163,7 +163,7 @@ router
 				);
 
 				if (projectBelongsToAccountCheck.rowCount === 0) {
-					throw { message: "Project does not belong to account" };
+					throw { message: "Bug does not belong to account" };
 				}
 
 				const updatedBug = await pool.query(
@@ -189,11 +189,11 @@ router
 				}
 
 				const allBugsForAccount = await pool.query(
-					`WITH b AS (
-					SELECT * FROM bug WHERE project_id IN 
-						(SELECT project_id FROM project WHERE account_id = $1)
-				)
-				SELECT b.bug_id AS id, b.project_id, b.name, b.description,
+					`WITH b AS 
+						(SELECT * FROM bug WHERE project_id IN 
+							(SELECT project_id FROM project WHERE account_id = $1)
+						)
+					SELECT b.bug_id AS id, b.project_id, b.name, b.description,
 						b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 						b.creation_date, b.start_date, b.due_date,
 						b.completion_date, bp.option AS priority_option, 
@@ -232,7 +232,7 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		);
 
 		if (projectBelongsToAccountCheck.rowCount === 0) {
-			throw { message: "Project does not belong to account" };
+			throw { message: "Bug does not belong to account" };
 		}
 
 		const deletedBug = await pool.query(
@@ -241,11 +241,11 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		);
 
 		const allBugsForAccount = await pool.query(
-			`WITH b AS (
-			SELECT * FROM bug WHERE project_id IN 
-				(SELECT project_id FROM project WHERE account_id = $1)
-		)
-		SELECT b.bug_id AS id, b.project_id, b.name, b.description,
+			`WITH b AS 
+				(SELECT * FROM bug WHERE project_id IN 
+					(SELECT project_id FROM project WHERE account_id = $1)
+				)
+			SELECT b.bug_id AS id, b.project_id, b.name, b.description,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 				b.creation_date, b.start_date, b.due_date,
 				b.completion_date, bp.option AS priority_option, 
@@ -277,37 +277,27 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		// Passed in the post body
 		const { bugsArray } = req.body;
 
-		let bugArrayQueryEndingString = "";
+		let bugArrayQueryString = "";
 
-		// Starts at 2 since $1 corresponds to account id
 		for (let i = 1; i < bugsArray.length + 1; i++) {
-			bugArrayQueryEndingString += "$" + i;
+			bugArrayQueryString += "$" + i;
 			if (i < bugsArray.length) {
-				bugArrayQueryEndingString += ", ";
-			} else {
-				bugArrayQueryEndingString += ")";
+				bugArrayQueryString += ", ";
 			}
 		}
 
-		console.log(
-			"SELECT * FROM project WHERE project_id IN (SELECT project_id FROM bug WHERE bug_id IN (" +
-				bugArrayQueryEndingString +
-				") AND account_id = $" + (bugsArray.length + 1)
-		);
-
 		const projectBelongsToAccountCheck = await pool.query(
-			"SELECT * FROM project WHERE project_id IN (SELECT project_id FROM bug WHERE bug_id IN (" +
-				bugArrayQueryEndingString +
-				") AND account_id = $" + (bugsArray.length + 1),
-			[...bugsArray, account_id]
+			`WITH p AS (SELECT project_id FROM bug WHERE bug_id IN (${bugArrayQueryString}))
+			SELECT account_id FROM project WHERE project_id IN (SELECT project_id FROM p)`,
+			[...bugsArray]
 		);
 
-		if (projectBelongsToAccountCheck.rowCount === (bugsArray.length + 10)) {
-			throw { message: "Project does not belong to account" };
+		if (projectBelongsToAccountCheck.rowCount !== 1 || projectBelongsToAccountCheck.rows[0].account_id !== account_id) {
+			throw { message: "Bug does not belong to account" };
 		}
 
 		const deletedBug = await pool.query(
-			"DELETE FROM bug WHERE bug_id IN (" + bugArrayQueryEndingString,
+			`DELETE FROM bug WHERE bug_id IN (${bugArrayQueryString})`,
 			[...bugsArray]
 		);
 

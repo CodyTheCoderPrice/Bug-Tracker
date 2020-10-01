@@ -59,10 +59,9 @@ router
 				}
 
 				const allProjectsForAccount = await pool.query(
-					`WITH p AS (
-					SELECT * FROM project WHERE account_id = $1
-				)
-				SELECT p.project_id AS id, p.account_id, p.name, p.description,
+					`WITH p AS 
+					(SELECT * FROM project WHERE account_id = $1)
+					SELECT p.project_id AS id, p.account_id, p.name, p.description,
 						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 						p.creation_date, p.start_date, p.due_date,
 						p.completion_date, pp.option AS priority_option, 
@@ -94,10 +93,9 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		const { account_id } = req;
 
 		const allProjectsForAccount = await pool.query(
-			`WITH p AS (
-			SELECT * FROM project WHERE account_id = $1
-		)
-		SELECT p.project_id AS id, p.account_id, p.name, p.description,
+			`WITH p AS 
+			(SELECT * FROM project WHERE account_id = $1)
+			SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
 				p.completion_date, pp.option AS priority_option, 
@@ -167,10 +165,9 @@ router
 				}
 
 				const allProjectsForAccount = await pool.query(
-					`WITH p AS (
-					SELECT * FROM project WHERE account_id = $1
-				)
-				SELECT p.project_id AS id, p.account_id, p.name, p.description,
+					`WITH p AS 
+					(SELECT * FROM project WHERE account_id = $1)
+					SELECT p.project_id AS id, p.account_id, p.name, p.description,
 						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 						p.creation_date, p.start_date, p.due_date,
 						p.completion_date, pp.option AS priority_option, 
@@ -209,10 +206,9 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		);
 
 		const allProjectsForAccount = await pool.query(
-			`WITH p AS (
-			SELECT * FROM project WHERE account_id = $1
-		)
-		SELECT p.project_id AS id, p.account_id, p.name, p.description,
+			`WITH p AS 
+			(SELECT * FROM project WHERE account_id = $1)
+			SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
 				p.completion_date, pp.option AS priority_option, 
@@ -244,28 +240,25 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		// Passed in the post body
 		const { projectsArray } = req.body;
 
-		let queryString = "DELETE FROM project WHERE account_id = $1 AND project_id IN (";
+		let projectArrayQueryString = "";
 
-		// Starts at 2 since $1 corresponds to account id
-		for (let i=2; i < projectsArray.length+2; i++) {
-			queryString += "$" + i;
-			if (i < projectsArray.length+1) {
-				queryString += ", "
-			} else {
-				queryString += ")"
+		for (let i = 1; i < projectsArray.length + 1; i++) {
+			projectArrayQueryString += "$" + i;
+			if (i < projectsArray.length) {
+				projectArrayQueryString += ", ";
 			}
 		}
 
 		const deletedProject = await pool.query(
-			queryString,
-			[account_id, ...projectsArray]
+			`DELETE FROM project WHERE project_id IN (${projectArrayQueryString}) 
+			AND account_id = $${projectsArray.length + 1}`,
+			[...projectsArray, account_id, ]
 		);
 
 		const allProjectsForAccount = await pool.query(
-			`WITH p AS (
-			SELECT * FROM project WHERE account_id = $1
-		)
-		SELECT p.project_id AS id, p.account_id, p.name, p.description,
+			`WITH p AS 
+			(SELECT * FROM project WHERE account_id = $1)
+			SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
 				p.completion_date, pp.option AS priority_option, 
@@ -286,4 +279,3 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 });
 
 module.exports = router;
-

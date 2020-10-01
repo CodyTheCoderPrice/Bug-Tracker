@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
+	clearInputErrors,
 	setWhichProjectOrBugComponentsDisplay,
 	deleteProjectOrBug,
 } from "../../../../actions";
@@ -11,6 +12,14 @@ import "../../../../SCSS/home/projects-bugs-shared/deleteItemsModal.scss";
 export default function ViewItemModalDelete(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	// clears prior input errors when closing the component
+	useEffect(() => {
+		return () => {
+			dispatch(clearInputErrors());
+		};
+		// eslint-disable-next-line
+	}, []);
 
 	const deleteItem = () => {
 		let copyMassDeleteList = [
@@ -47,23 +56,21 @@ export default function ViewItemModalDelete(props) {
 		<div className="delete-item-modal-component">
 			<div className="blurred-background" />
 			<div className="delete-account-modal">
-				<div className="outer-container">
-					<span className="warning-message">Are you sure?</span>
+				<div className="warning-container">
+					<span className="warning-container__message">Are you sure?</span>
 				</div>
-				<div className="outer-container">
-					<div className="centered-buttons-container">
-						<div
-							className="centered-buttons-container__delete"
-							onClick={deleteItem}
-						>
-							Delete
-						</div>
-						<div
-							className="centered-buttons-container__cancel"
-							onClick={closeDeleteItemModal}
-						>
-							Cancel
-						</div>
+				<div className="centered-buttons-container">
+					<div
+						className="centered-buttons-container__delete"
+						onClick={deleteItem}
+					>
+						Delete
+					</div>
+					<div
+						className="centered-buttons-container__cancel"
+						onClick={closeDeleteItemModal}
+					>
+						Cancel
 					</div>
 				</div>
 			</div>
