@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { projectContainerName } from "../../../../reducers/containerNames";
+import {
+	projectContainerName,
+	bugContainerName,
+} from "../../../../reducers/containerNames";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,
@@ -34,25 +37,37 @@ export default function ViewItemModalEditInfo(props) {
 
 	const [itemInfo, setItemInfo] = useState({
 		id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
-		name: reduxState[props.reduxContainerName].componentsDisplay.targetItem.name,
-		description: reduxState[props.reduxContainerName].componentsDisplay.targetItem.description,
-		priority_id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.priority_id,
+		name:
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.name,
+		description:
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				.description,
+		priority_id:
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				.priority_id,
 		priorityOption:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.priority_option,
-		status_id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.status_id,
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				.priority_option,
+		status_id:
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				.status_id,
 		statusOption:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.status_option,
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				.status_option,
 		creation_date: formatDateMMddYYYY(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.creation_date
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				.creation_date
 		),
 		start_date: formatDateYYYYmmDD(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.start_date
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				.start_date
 		),
 		due_date: formatDateYYYYmmDD(
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem.due_date
 		),
 		completion_date: formatDateYYYYmmDD(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.completion_date
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				.completion_date
 		),
 	});
 
@@ -72,13 +87,15 @@ export default function ViewItemModalEditInfo(props) {
 	const [preservedCompletionDate] = useToggleableDateInput(
 		itemInfo,
 		"js-completion-date-container",
-		reduxState[props.reduxContainerName].priorityStatusOptions.statusCompletionId
+		reduxState[props.reduxContainerName].priorityStatusOptions
+			.statusCompletionId
 	);
 
 	useEffect(() => {
 		populateComboBox(
 			"js-item-priority-select",
-			reduxState[props.reduxContainerName].priorityStatusOptions.priorityOptions,
+			reduxState[props.reduxContainerName].priorityStatusOptions
+				.priorityOptions,
 			itemInfo.priority_id
 		);
 		populateComboBox(
@@ -101,7 +118,9 @@ export default function ViewItemModalEditInfo(props) {
 				editDescriptionTextArea.scrollHeight + 10 + "px";
 		});
 
-		myObserver.observe(document.getElementsByClassName("js-item-description-item-box")[0]);
+		myObserver.observe(
+			document.getElementsByClassName("js-item-description-item-box")[0]
+		);
 	}, []);
 
 	useEffect(() => {
@@ -116,7 +135,8 @@ export default function ViewItemModalEditInfo(props) {
 	useEffect(() => {
 		if (
 			itemInfo.status_id !==
-			reduxState[props.reduxContainerName].priorityStatusOptions.statusCompletionId
+			reduxState[props.reduxContainerName].priorityStatusOptions
+				.statusCompletionId
 		) {
 			setItemInfo({ ...itemInfo, completion_date: null });
 		} else {
@@ -142,7 +162,19 @@ export default function ViewItemModalEditInfo(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(updateProjectOrBug(props.reduxContainerName, itemInfo, reduxState[props.reduxContainerName].componentsDisplay));
+		let itemInfoDeepCopy = { ...itemInfo };
+		// Adds project_id when updating bugs
+		if (props.reduxContainerName === bugContainerName) {
+			itemInfoDeepCopy["project_id"] =
+				reduxState[projectContainerName].componentsDisplay.targetItem.id;
+		}
+		dispatch(
+			updateProjectOrBug(
+				props.reduxContainerName,
+				itemInfoDeepCopy,
+				reduxState[props.reduxContainerName].componentsDisplay
+			)
+		);
 	};
 
 	const switchToDisplayItemInfo = () => {
@@ -299,8 +331,8 @@ export default function ViewItemModalEditInfo(props) {
 							className="form-buttons-centered-container__submit-button"
 						>
 							{props.reduxContainerName === projectContainerName
-							? "Edit Project"
-							: "Edit Bug"}
+								? "Edit Project"
+								: "Edit Bug"}
 						</button>
 						<div
 							className="form-buttons-centered-container__cancel-button"

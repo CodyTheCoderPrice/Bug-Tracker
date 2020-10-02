@@ -143,12 +143,13 @@ export default function CreateItemSidebar(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		let proxyItemInfo = itemInfo;
+		let itemInfoDeepCopy = { ...itemInfo };
+		// Adds project_id when creating bugs
 		if (props.reduxContainerName === bugContainerName) {
-			proxyItemInfo["project_id"] =
+			itemInfoDeepCopy["project_id"] =
 				reduxState[projectContainerName].componentsDisplay.targetItem.id;
 		}
-		dispatch(createProjectOrBug(props.reduxContainerName, proxyItemInfo));
+		dispatch(createProjectOrBug(props.reduxContainerName, itemInfoDeepCopy));
 	};
 
 	return (

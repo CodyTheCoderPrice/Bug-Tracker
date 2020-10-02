@@ -1,5 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {
+	projectContainerName,
+	bugContainerName,
+} from "../../../../reducers/containerNames";
 
 import {
 	clearInputErrors,
@@ -12,6 +16,10 @@ import "../../../../SCSS/home/projects-bugs-shared/deleteItemsModal.scss";
 export default function ViewItemModalDelete(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	const [itemInfo, setItemInfo] = useState({
+		id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
+	});
 
 	// clears prior input errors when closing the component
 	useEffect(() => {
@@ -29,14 +37,16 @@ export default function ViewItemModalDelete(props) {
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id
 		);
 
+		let itemInfoDeepCopy = { ...itemInfo };
+		// Adds project_id when updating bugs
+		if (props.reduxContainerName === bugContainerName) {
+			itemInfoDeepCopy["project_id"] =
+				reduxState[projectContainerName].componentsDisplay.targetItem.id;
+		}
 		dispatch(
 			deleteProjectOrBug(
 				props.reduxContainerName,
-				{
-					id:
-						reduxState[props.reduxContainerName].componentsDisplay.targetItem
-							.id,
-				},
+				itemInfoDeepCopy,
 				copyMassDeleteList,
 				indexOfTargetItemId
 			)
@@ -59,6 +69,9 @@ export default function ViewItemModalDelete(props) {
 				<div className="warning-container">
 					<span className="warning-container__message">Are you sure?</span>
 				</div>
+				<span className="backend__errors">
+					{reduxState.generalContainer.inputErrors.server}
+				</span>
 				<div className="centered-buttons-container">
 					<div
 						className="centered-buttons-container__delete"
