@@ -158,11 +158,11 @@ export default function Navbar() {
 				null ? (
 					<div className="navbar-button js-bug-button" onClick={openBugsTable}>
 						<div className="navbar-button__text-container js-bug-button-text">
-							<i className="fa fa-bug" aria-hidden="true" />{" "}
-							{
+							<i className="fa fa-bug" aria-hidden="true" /> Bugs
+							{/* {
 								reduxState[projectContainerName].componentsDisplay.targetItem
 									.name
-							}
+							} */}
 						</div>
 					</div>
 				) : null}

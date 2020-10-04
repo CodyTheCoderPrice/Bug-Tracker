@@ -2,8 +2,8 @@
 @import "../../../utils//mixins";
 
 .list-table-component {
-	font-family: Arial, Helvetica, sans-serif;
 	background-color: $list-table-background-color;
+	font-family: Arial, Helvetica, sans-serif;
 
 	.list-table {
 		// Allows td borders to look like they are a single line
@@ -15,13 +15,6 @@
 		height: $list-table-row-height;
 		text-align: center;
 	}
-
-	/* .list-table__row--sticky {
-		position: -webkit-sticky;
-		position: sticky;
-		top: $navbar-height + $search-filter-sort-bar-height + 2;
-		background-color: $list-table-background-color;
-	} */
 
 	.list-table__row--empty {
 		height: $list-table-row-height + ($list-table-row-height * 0.5);
@@ -73,6 +66,7 @@
 
 	.list-table__data {
 		@include border-line();
+		background-color: $list-table-background-color;
 		padding: 0px 7px 0px 7px;
 	}
 

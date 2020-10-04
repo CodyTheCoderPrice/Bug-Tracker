@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { projectContainerName } from "../../../../reducers/containerNames";
 
 import {
 	setProjectOrBugMassDeleteList,
@@ -18,7 +19,6 @@ import ListTableRow from "./ListTableRow";
 import ListTableSortArrowsButton from "./ListTableSortArrowsButton";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listTableAndRows.scss";
-import { projectContainerName } from "../../../../reducers/containerNames";
 
 export default function ListTable(props) {
 	const reduxState = useSelector((state) => state);

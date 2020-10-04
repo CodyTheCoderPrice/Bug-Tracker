@@ -8,43 +8,31 @@ import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModalDisplayInfo
 export default function ViewItemModalDisplayInfo(props) {
 	const reduxState = useSelector((state) => state);
 
-	const [itemInfo] = useState({
-		id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
-		name: reduxState[props.reduxContainerName].componentsDisplay.targetItem.name,
-		description: reduxState[props.reduxContainerName].componentsDisplay.targetItem.description,
-		priority_id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.priority_id,
-		priorityOption:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.priority_option,
-		status_id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.status_id,
-		statusOption:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.status_option,
-		creation_date: formatDateMMddYYYY(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.creation_date
-		),
-		start_date: formatDateMMddYYYY(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.start_date
-		),
-		due_date: formatDateMMddYYYY(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.due_date
-		),
-		completion_date: formatDateMMddYYYY(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.completion_date
-		),
-	});
-
 	return (
 		<div>
 			<div className="outer-dividing-container">
-				<h1 className="item-name">{itemInfo.name}</h1>
+				<h1 className="item-name">
+					{
+						reduxState[props.reduxContainerName].componentsDisplay.targetItem
+							.name
+					}
+				</h1>
 				<div className="item-creation-date">
-					Created on: {itemInfo.creation_date}
+					Created on:{" "}
+					{formatDateMMddYYYY(
+						reduxState[props.reduxContainerName].componentsDisplay.targetItem
+							.creation_date
+					)}
 				</div>
 			</div>
 			<div className="outer-dividing-container">
 				<div className="item-box">
 					<h2 className="item-box__title">Description</h2>
 					<span className="item-box__description">
-						{itemInfo.description}
+						{
+							reduxState[props.reduxContainerName].componentsDisplay.targetItem
+								.description
+						}
 					</span>
 				</div>
 			</div>
@@ -53,26 +41,34 @@ export default function ViewItemModalDisplayInfo(props) {
 					<h2 className="item-box__title">Info</h2>
 					<div className="item-box__group">
 						<div className="item-box__group__field">
-							<span className="item-box__group__field__type">
-								Start Date:
-							</span>
+							<span className="item-box__group__field__type">Start Date:</span>
 							<span className="item-box__group__field_content">
-								{itemInfo.start_date}
+								{formatDateMMddYYYY(
+									reduxState[props.reduxContainerName].componentsDisplay
+										.targetItem.start_date
+								)}
 							</span>
 						</div>
 						<div className="item-box__group__field">
 							<span className="item-box__group__field__type">Due Date:</span>
 							<span className="item-box__group__field_content">
-								{itemInfo.due_date}
+								{formatDateMMddYYYY(
+									reduxState[props.reduxContainerName].componentsDisplay
+										.targetItem.due_date
+								)}
 							</span>
 						</div>
-						{itemInfo.completion_date === null ? null : (
+						{reduxState[props.reduxContainerName].componentsDisplay.targetItem
+							.completion_date === null ? null : (
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">
 									Completed on:
 								</span>
 								<span className="item-box__group__field_content">
-									{itemInfo.completion_date}
+									{formatDateMMddYYYY(
+										reduxState[props.reduxContainerName].componentsDisplay
+											.targetItem.completion_date
+									)}
 								</span>
 							</div>
 						)}
@@ -81,13 +77,19 @@ export default function ViewItemModalDisplayInfo(props) {
 						<div className="item-box__group__field">
 							<span className="item-box__group__field__type">Priority:</span>
 							<span className="item-box__group__field_content">
-								{itemInfo.priorityOption}
+								{
+									reduxState[props.reduxContainerName].componentsDisplay
+										.targetItem.priorityOption
+								}
 							</span>
 						</div>
 						<div className="item-box__group__field">
 							<span className="item-box__group__field__type">Status:</span>
 							<span className="item-box__group__field_content">
-								{itemInfo.statusOption}
+								{
+									reduxState[props.reduxContainerName].componentsDisplay
+										.targetItem.statusOption
+								}
 							</span>
 						</div>
 					</div>

@@ -15,6 +15,7 @@ import {
 import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
 // Components
+import MiniListTable from "../list/MiniListTable";
 import ViewItemModalDisplayInfo from "./ViewItemModalDisplayInfo";
 import ViewItemModalEditInfo from "./ViewItemModalEditInfo";
 import ViewItemModalDelete from "./ViewItemModalDelete";
@@ -29,8 +30,8 @@ export default function ViewItemModal(props) {
 
 	// Used for optimization in modal resizes
 	const [
-		regularlyUsedModalSizesAndStyles,
-		setRegularlyUsedModalSizesAndStyles,
+		regularlyUsedSizesAndStyles,
+		setRegularlyUsedSizesAndStyles,
 	] = useState(null);
 
 	// Disable scrolling for the body
@@ -44,7 +45,7 @@ export default function ViewItemModal(props) {
 		};
 	}, []);
 
-	// Adjusts the height of the modal to fit the screen
+	// Adjusts the height and width of the modal to fit the screen
 	useEffect(() => {
 		if (
 			reduxState.sizeContainer.variables.window !== null &&
@@ -54,28 +55,32 @@ export default function ViewItemModal(props) {
 				"js-view-item-modal"
 			)[0];
 
-			// Makes sure regularlyUsedModalSizesAndStyles gets set
-			if (regularlyUsedModalSizesAndStyles === null) {
+			// Makes sure regularlyUsedSizesAndStyles gets set
+			if (regularlyUsedSizesAndStyles === null) {
 				const sidebarStyle = getElementStyle(viewItemModalElement);
-				setRegularlyUsedModalSizesAndStyles({
+				setRegularlyUsedSizesAndStyles({
 					topButttonsBarSize: getElementSize(
 						document.getElementsByClassName("js-top-buttons-bar")[0]
 					),
+					miniListTableWidth: getElementSize(
+						document.getElementsByClassName("js-mini-list-table-component")[0]
+					).width,
 					modalMarginOnOneSide: stripNonDigits(sidebarStyle.marginTop),
 					modalBorderWidthOnOneSide: stripNonDigits(
 						sidebarStyle.borderTopWidth
 					),
 				});
 
-				// Prevents crash since regularlyUsedModalSizesAndStyles will still
+				// Prevents crash since regularlyUsedSizesAndStyles will still
 				// ...be null for remainder of this useEfffect iteration
 				return;
 			}
 
 			viewItemModalElement.style.width =
 				reduxState.sizeContainer.variables.window.width -
-				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -
-				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2 +
+				regularlyUsedSizesAndStyles.miniListTableWidth -
+				regularlyUsedSizesAndStyles.modalMarginOnOneSide * 2 -
+				regularlyUsedSizesAndStyles.modalBorderWidthOnOneSide * 2 +
 				"px";
 
 			// Didn't add "px" since it would get in the way when
@@ -83,8 +88,8 @@ export default function ViewItemModal(props) {
 			const adjustedModalHeight =
 				reduxState.sizeContainer.variables.window.height -
 				reduxState.sizeContainer.variables.navbar.height -
-				regularlyUsedModalSizesAndStyles.modalMarginOnOneSide * 2 -
-				regularlyUsedModalSizesAndStyles.modalBorderWidthOnOneSide * 2;
+				regularlyUsedSizesAndStyles.modalMarginOnOneSide * 2 -
+				regularlyUsedSizesAndStyles.modalBorderWidthOnOneSide * 2;
 
 			viewItemModalElement.style.height = adjustedModalHeight + "px";
 
@@ -92,10 +97,10 @@ export default function ViewItemModal(props) {
 				"js-item-content-container"
 			)[0].style.height =
 				adjustedModalHeight -
-				regularlyUsedModalSizesAndStyles.topButttonsBarSize.height +
+				regularlyUsedSizesAndStyles.topButttonsBarSize.height +
 				"px";
 		}
-	}, [reduxState.sizeContainer.variables, regularlyUsedModalSizesAndStyles]);
+	}, [reduxState.sizeContainer.variables, regularlyUsedSizesAndStyles]);
 
 	useEffect(() => {
 		toggleDropdownButtonDisplay(
@@ -149,70 +154,73 @@ export default function ViewItemModal(props) {
 	};
 
 	return (
-		<div className="view-item-modal-component">
-			<div className="blurred-background js-view-item-blurred-background" />
-			<div
-				className="view-item-modal js-view-item-modal"
-				onClick={closeOptionsDropdown}
-			>
-				<div className="top-buttons-bar js-top-buttons-bar">
-					<div className="item-options-container js">
-						<div
-							className="item-options-container__button js-item-options-button"
-							onClick={toggleOptionsDropdown}
-						>
-							<span className="item-options-container__button__text">
-								<i className="fa fa-ellipsis-h" aria-hidden="true" />
-							</span>
+		<div>
+			<MiniListTable reduxContainerName={props.reduxContainerName} />
+			<div className="view-item-modal-component">
+				{/* <div className="blurred-background" /> */}
+				<div
+					className="view-item-modal js-view-item-modal"
+					onClick={closeOptionsDropdown}
+				>
+					<div className="top-buttons-bar js-top-buttons-bar">
+						<div className="item-options-container js">
+							<div
+								className="item-options-container__button js-item-options-button"
+								onClick={toggleOptionsDropdown}
+							>
+								<span className="item-options-container__button__text">
+									<i className="fa fa-ellipsis-h" aria-hidden="true" />
+								</span>
+							</div>
+							<div className="item-options-container__dropdown js-item-options-dropdown">
+								<span
+									className="item-options-container__dropdown__option js-edit-option"
+									onClick={switchBetweenDisplayAndEditInfo}
+								>
+									{reduxState[props.reduxContainerName].componentsDisplay
+										.viewItemModalEditInfo
+										? "Cancel"
+										: props.reduxContainerName === projectContainerName
+										? "Edit Project"
+										: "Edit Bug"}
+								</span>
+								<span
+									className="item-options-container__dropdown__option item-options-container__dropdown__option--no-border"
+									onClick={openDeleteItemModal}
+								>
+									{props.reduxContainerName === projectContainerName
+										? "Delete Project"
+										: "Delete Bug"}
+								</span>
+							</div>
 						</div>
-						<div className="item-options-container__dropdown js-item-options-dropdown">
-							<span
-								className="item-options-container__dropdown__option js-edit-option"
-								onClick={switchBetweenDisplayAndEditInfo}
-							>
-								{reduxState[props.reduxContainerName].componentsDisplay
-									.viewItemModalEditInfo
-									? "Cancel"
-									: props.reduxContainerName === projectContainerName
-									? "Edit Project"
-									: "Edit Bug"}
-							</span>
-							<span
-								className="item-options-container__dropdown__option item-options-container__dropdown__option--no-border"
-								onClick={openDeleteItemModal}
-							>
-								{props.reduxContainerName === projectContainerName
-									? "Delete Project"
-									: "Delete Bug"}
-							</span>
+						<div className="x-button" onClick={closeViewItemModal}>
+							<i className="fa fa-times" aria-hidden="true"></i>
 						</div>
 					</div>
-					<div className="x-button" onClick={closeViewItemModal}>
-						<i className="fa fa-times" aria-hidden="true"></i>
-					</div>
-				</div>
-				<div className="item-content-container js-item-content-container">
-					<div className="padding-container">
-						{!reduxState[props.reduxContainerName].componentsDisplay
-							.viewItemModalEditInfo ? (
-							<div>
-								<ViewItemModalDisplayInfo
+					<div className="item-content-container js-item-content-container">
+						<div className="padding-container">
+							{!reduxState[props.reduxContainerName].componentsDisplay
+								.viewItemModalEditInfo ? (
+								<div>
+									<ViewItemModalDisplayInfo
+										reduxContainerName={props.reduxContainerName}
+									/>
+								</div>
+							) : (
+								<div>
+									<ViewItemModalEditInfo
+										reduxContainerName={props.reduxContainerName}
+									/>
+								</div>
+							)}
+							{reduxState[props.reduxContainerName].componentsDisplay
+								.viewItemModalDelete ? (
+								<ViewItemModalDelete
 									reduxContainerName={props.reduxContainerName}
 								/>
-							</div>
-						) : (
-							<div>
-								<ViewItemModalEditInfo
-									reduxContainerName={props.reduxContainerName}
-								/>
-							</div>
-						)}
-						{reduxState[props.reduxContainerName].componentsDisplay
-							.viewItemModalDelete ? (
-							<ViewItemModalDelete
-								reduxContainerName={props.reduxContainerName}
-							/>
-						) : null}
+							) : null}
+						</div>
 					</div>
 				</div>
 			</div>

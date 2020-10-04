@@ -1,0 +1,59 @@
+@import "../../../utils/variables";
+@import "../../../utils//mixins";
+
+.mini-list-table-component {
+	// Must be more than searchFilterSortBar
+	z-index: 2;
+	position: fixed;
+	top: $navbar-height;
+	border-right: $mini-list-table-border-width solid black;
+	background-color: $list-table-background-color;
+	width: $mini-list-table-width;
+	font-family: Arial, Helvetica, sans-serif;
+
+	.mini-list-table {
+		// Allows td borders to look like they are a single line
+		border-collapse: collapse;
+	}
+
+	.mini-list-table__row {
+		@include border-line();
+		background-color: $list-table-background-color;
+		padding: 5px;
+		height: $list-table-row-height;
+		text-align: center;
+	}
+
+	.mini-list-table__row--empty {
+		height: $list-table-row-height + ($list-table-row-height * 0.5);
+	}
+
+	.mini-list-table__row--highlight:hover {
+		background-color: $very-light-gray;
+	}
+
+	.mini-list-table__row--selected {
+		background-color: $medium-lighter-gray;
+	} 
+
+	/* .mini-list-table__header {
+		background-color: $list-table-background-color;
+		// Used box shadow since the header row being sticky with 
+		// ...background-color applied keeps the bottom-border from appearing
+		box-shadow: 0 1px 0 $medium-gray;
+	} */
+
+	.mini-list-table__data {
+		padding: 0px 7px 0px 7px;
+		width: $mini-list-table-width - 14;
+		max-width: $mini-list-table-width - 14;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.mini-list-table__data__info--blue-link {
+		color: $blue-link;
+		cursor: pointer;
+	}
+}

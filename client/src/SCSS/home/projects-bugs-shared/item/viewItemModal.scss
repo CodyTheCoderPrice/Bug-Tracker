@@ -18,6 +18,7 @@
 		z-index: 2;
 		position: fixed;
 		top: $navbar-height;
+		left: $mini-list-table-width + $mini-list-table-border-width;
 		margin: $view-item-bug-modal-margin;
 		border: $view-item-bug-modal-border-width solid black;
 		background-color: white;
@@ -118,7 +119,7 @@
 	.item-content-container {
 		// Gives modal scrolling when content goes beyond modal height
 		overflow-y: auto !important;
-		overflow-x: hidden !important;
+		overflow-x: auto !important;
 	}
 
 	// Must be a seperate div inside .item-content-container so the padding

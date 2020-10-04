@@ -35,18 +35,6 @@ export default function ListTableRow(props) {
 		}
 	}, [reduxState[projectContainerName].componentsDisplay.targetItem]);
 
-	const openViewItemModal = (e) => {
-		e.stopPropagation();
-		dispatch(setWhichAccountComponentsDisplay({}));
-		dispatch(
-			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listTable: true,
-				viewItemModal: true,
-				targetItem: props.item,
-			})
-		);
-	};
-
 	const onChangeMassDeleteCheckbox = (e) => {
 		const value = Number(e.target.value);
 		let deepCopyMassDeleteArray = [
@@ -92,6 +80,18 @@ export default function ListTableRow(props) {
 				);
 			}
 		}
+	};
+
+	const openViewItemModal = (e) => {
+		e.stopPropagation();
+		dispatch(setWhichAccountComponentsDisplay({}));
+		dispatch(
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				listTable: true,
+				viewItemModal: true,
+				targetItem: props.item,
+			})
+		);
 	};
 
 	return (
