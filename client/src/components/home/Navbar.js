@@ -85,6 +85,7 @@ export default function Navbar() {
 			document.getElementsByClassName("js-project-button")[0],
 			"navbar-button--selected"
 		);
+		// Prevents error of js-bug-button not exisiting
 		if (
 			reduxState[projectContainerName].componentsDisplay.targetItem !== null
 		) {
@@ -97,11 +98,11 @@ export default function Navbar() {
 		}
 		// eslint-disable-next-line
 	}, [
-		reduxState.accountContainer.componentsDisplay.accountSidebar,
+		reduxState.accountContainer.componentsDisplay,
 		// eslint-disable-next-line
-		reduxState[projectContainerName].componentsDisplay.listTable,
+		reduxState[projectContainerName].componentsDisplay,
 		// eslint-disable-next-line
-		reduxState[bugContainerName].componentsDisplay.listTable,
+		reduxState[bugContainerName].componentsDisplay,
 	]);
 
 	const openAccountSidebar = () => {
@@ -109,12 +110,16 @@ export default function Navbar() {
 			setWhichProjectComponentsDisplay({
 				...reduxState[projectContainerName].componentsDisplay,
 				createItemSidbar: false,
+				viewItemModalDelete: false,
+				listTableMassDeleteItemsModal: false,
 			})
 		);
 		dispatch(
 			setWhichBugComponentsDisplay({
 				...reduxState[bugContainerName].componentsDisplay,
 				createItemSidbar: false,
+				viewItemModalDelete: false,
+				listTableMassDeleteItemsModal: false,
 			})
 		);
 		dispatch(
@@ -126,28 +131,75 @@ export default function Navbar() {
 	};
 
 	const openProjectsTable = () => {
-		dispatch(setWhichBugComponentsDisplay({}));
-		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState[projectContainerName].componentsDisplay,
-				listTable: true,
-			})
-		);
+		if (
+			reduxState[projectContainerName].componentsDisplay.listTable !== true &&
+			reduxState[projectContainerName].componentsDisplay.viewItemModal !== true
+		) {
+			dispatch(
+				setWhichBugComponentsDisplay({
+					previousState:
+						reduxState[bugContainerName].componentsDisplay.listTable === true ||
+						reduxState[bugContainerName].componentsDisplay.viewItemModal ===
+							true
+							? reduxState[bugContainerName].componentsDisplay
+							: null,
+				})
+			);
+			if (
+				reduxState[projectContainerName].componentsDisplay.previousState !==
+				null
+			) {
+				dispatch(
+					setWhichProjectComponentsDisplay({
+						...reduxState[projectContainerName].componentsDisplay.previousState,
+					})
+				);
+			} else {
+				dispatch(
+					setWhichProjectComponentsDisplay({
+						listTable: true,
+						targetItem:
+							reduxState[projectContainerName].componentsDisplay.targetItem,
+					})
+				);
+			}
+		}
 	};
 
 	const openBugsTable = () => {
-		dispatch(
-			setWhichProjectComponentsDisplay({
-				targetItem:
-					reduxState[projectContainerName].componentsDisplay.targetItem,
-			})
-		);
-		dispatch(
-			setWhichBugComponentsDisplay({
-				...reduxState[bugContainerName].componentsDisplay,
-				listTable: true,
-			})
-		);
+		if (
+			reduxState[bugContainerName].componentsDisplay.listTable !== true &&
+			reduxState[bugContainerName].componentsDisplay.viewItemModal !== true
+		) {
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					targetItem:
+						reduxState[projectContainerName].componentsDisplay.targetItem,
+					previousState:
+						reduxState[projectContainerName].componentsDisplay.listTable ===
+							true ||
+						reduxState[projectContainerName].componentsDisplay.viewItemModal ===
+							true
+							? reduxState[projectContainerName].componentsDisplay
+							: null,
+				})
+			);
+			if (
+				reduxState[bugContainerName].componentsDisplay.previousState !== null
+			) {
+				dispatch(
+					setWhichBugComponentsDisplay({
+						...reduxState[bugContainerName].componentsDisplay.previousState,
+					})
+				);
+			} else {
+				dispatch(
+					setWhichBugComponentsDisplay({
+						listTable: true,
+					})
+				);
+			}
+		}
 	};
 
 	return (

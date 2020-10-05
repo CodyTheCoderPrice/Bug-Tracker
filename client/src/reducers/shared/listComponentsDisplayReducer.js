@@ -8,6 +8,8 @@ const initialState = {
 	viewItemModal: false,
 	viewItemModalEditInfo: false,
 	viewItemModalDelete: false,
+	// Used to restore componentsDisplay back to it's prior state
+	previousState: null,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -45,6 +47,10 @@ export default function (state = initialState, action) {
 					action.displays.viewItemModalDelete !== undefined
 						? action.displays.viewItemModalDelete
 						: false,
+				previousState:
+					action.displays.previousState !== undefined
+						? action.displays.previousState
+						: null,
 			};
 		default:
 			return state;

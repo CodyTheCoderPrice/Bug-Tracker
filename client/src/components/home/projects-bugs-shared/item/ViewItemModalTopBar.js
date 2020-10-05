@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { projectContainerName } from "../../../../reducers/containerNames";
 
-import { setWhichProjectOrBugComponentsDisplay } from "../../../../actions";
+import {
+	setWhichProjectOrBugComponentsDisplay,
+	setWhichBugComponentsDisplay,
+} from "../../../../actions";
 
 import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
@@ -62,8 +65,14 @@ export default function ViewItemModalTopBar(props) {
 				...reduxState[props.reduxContainerName].componentsDisplay,
 				listTable: true,
 				viewItemModal: false,
+				targetItem: null,
 			})
 		);
+
+		// Resets bug components display if project viewItemModal is closed
+		if (props.reduxContainerName === projectContainerName) {
+			dispatch(setWhichBugComponentsDisplay({}));
+		}
 	};
 
 	return (

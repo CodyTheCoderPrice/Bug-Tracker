@@ -8,6 +8,7 @@ import {
 import {
 	setWhichAccountComponentsDisplay,
 	setWhichProjectOrBugComponentsDisplay,
+	setWhichBugComponentsDisplay,
 	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
@@ -40,16 +41,33 @@ export default function ListTableRow(props) {
 		);
 	};
 
-	const openViewItemModal = (e) => {
-		e.stopPropagation();
-		dispatch(setWhichAccountComponentsDisplay({}));
-		dispatch(
-			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listTable: false,
-				viewItemModal: true,
-				targetItem: props.item,
-			})
-		);
+	// Keeps clicking checkbox from propogating parent elements onclick
+	const dontPropogateParentOnclick = (e) => {
+		e.stopPropagation()
+	}
+
+	const openViewItemModal = () => {
+		if (
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem ===
+				null ||
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
+				props.item.id
+		) {
+			dispatch(setWhichAccountComponentsDisplay({}));
+			dispatch(
+				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+					listTable: false,
+					viewItemModal: true,
+					targetItem: props.item,
+				})
+			);
+
+			// Resets bug components display when a different project is opened
+			// ...to prevent erros with bug targetItem not belonging to project
+			if (props.reduxContainerName === projectContainerName) {
+				dispatch(setWhichBugComponentsDisplay({}));
+			}
+		}
 	};
 
 	return (
@@ -59,14 +77,15 @@ export default function ListTableRow(props) {
 				"js-list-table-row-" +
 				props.item.id
 			}
-			onClick={(e) => openViewItemModal(e)}
+			onClick={openViewItemModal}
 		>
 			<td className="list-table__data">
 				<input
 					type="checkbox"
 					name="item"
 					value={props.item.id}
-					onChange={onChangeMassDeleteCheckbox}
+					onChange={(e) => onChangeMassDeleteCheckbox(e)}
+					onClick={(e) => dontPropogateParentOnclick(e)}
 					checked={reduxState[props.reduxContainerName].massDeleteList.includes(
 						props.item.id
 					)}
@@ -74,9 +93,7 @@ export default function ListTableRow(props) {
 				/>
 			</td>
 			<td className="list-table__data">
-				<span
-					className="list-table__data__info list-table__data__info--blue-link"
-				>
+				<span className="list-table__data__info list-table__data__info--blue-link">
 					{props.item.name}
 				</span>
 			</td>

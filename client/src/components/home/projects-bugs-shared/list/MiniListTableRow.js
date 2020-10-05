@@ -8,6 +8,7 @@ import {
 import {
 	setWhichAccountComponentsDisplay,
 	setWhichProjectOrBugComponentsDisplay,
+	setWhichBugComponentsDisplay,
 } from "../../../../actions";
 
 import { toggleClassName } from "../../../../utils/elementUtils";
@@ -36,16 +37,28 @@ export default function MiniListTableRow(props) {
 		reduxState[bugContainerName].componentsDisplay.targetItem,
 	]);
 
-	const openViewItemModal = (e) => {
-		e.stopPropagation();
-		dispatch(setWhichAccountComponentsDisplay({}));
-		dispatch(
-			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listTable: false,
-				viewItemModal: true,
-				targetItem: props.item,
-			})
-		);
+	const openViewItemModal = () => {
+		if (
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem ===
+				null ||
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
+				props.item.id
+		) {
+			dispatch(setWhichAccountComponentsDisplay({}));
+			dispatch(
+				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+					listTable: false,
+					viewItemModal: true,
+					targetItem: props.item,
+				})
+			);
+
+			// Resets bug components display when a different project is opened
+			// ...to prevent erros with bug targetItem not belonging to project
+			if (props.reduxContainerName === projectContainerName) {
+				dispatch(setWhichBugComponentsDisplay({}));
+			}
+		}
 	};
 
 	return (
@@ -55,7 +68,7 @@ export default function MiniListTableRow(props) {
 				"js-mini-list-table-row-" +
 				props.item.id
 			}
-			onClick={(e) => openViewItemModal(e)}
+			onClick={openViewItemModal}
 		>
 			<td className="mini-list-table__data">
 				<span className="mini-list-table__data__info mini-list-table__data__info--blue-link">

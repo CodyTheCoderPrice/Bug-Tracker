@@ -63,6 +63,7 @@
 	.list-table__data {
 		@include border-line();
 		padding: 0px 7px 0px 7px;
+		cursor: default;
 	}
 
 	.list-table__data__info--blue-link {

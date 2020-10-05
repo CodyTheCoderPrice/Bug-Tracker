@@ -1,18 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { projectContainerName } from "../../../../reducers/containerNames";
-
-import { setWhichProjectOrBugComponentsDisplay } from "../../../../actions";
-
-import { toggleClassName } from "../../../../utils/elementUtils";
-
-import {
-	getElementSize,
-	getElementStyle,
-	stripNonDigits,
-} from "../../../../utils/displaySizeUtils";
-
-import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
 // Components
 import ViewItemModalTopBar from "./ViewItemModalTopBar";
