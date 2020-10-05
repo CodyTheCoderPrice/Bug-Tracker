@@ -2,118 +2,15 @@
 @import "../../../utils//mixins";
 
 .view-item-modal-component {
-	.blurred-background {
-		// Must be more than searchFilterSortBar
-		z-index: 2;
-		position: fixed;
-		top: $navbar-height;
-		background-color: black;
-		opacity: $blurred-background-opacity;
-		height: 100vh;
-		width: 100vw;
-	}
-
 	.view-item-modal {
 		// Must be more than searchFilterSortBar
 		z-index: 2;
-		position: fixed;
-		top: $navbar-height;
-		left: $mini-list-table-width + $mini-list-table-border-width;
-		margin: $view-item-bug-modal-margin;
-		border: $view-item-bug-modal-border-width solid black;
+		/* left: $mini-list-table-width + $mini-list-table-border-width; */
 		background-color: white;
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
-		height: 88.5vh;
-		width: 99vw;
-		font-family: Arial, Helvetica, sans-serif;
-	}
-
-	.top-buttons-bar {
-		border-bottom: 1px solid black;
-		background-color: silver;
-		height: 46px;
 		width: 100%;
-	}
-
-	.item-options-container {
-		z-index: 3;
-		position: absolute;
-		top: 8px;
-		right: 50px;
-		width: 135px;
-	}
-
-	.item-options-container__button {
-		// Must be more than item-options-conatiner so its top border 
-		// ...can be covered to make containers look in unison
-		z-index: 4;
-		position: absolute;
-		right: 0px;
-		// Border given color through JS
-		border: 3px solid transparent;
-		border-bottom: none;
-		background: none;
-		height: 29px;
-		width: $options-button-width;
-		color: $dark-gray;
-		font-size: 28px;
-		text-align: center;
-		cursor: pointer;
-	}
-	.item-options-container__button:hover,
-	.item-options-container__button:active {
-		color: $black;
-	}
-
-	.item-options-container__button__text {
-		@include dead-center();
-	}
-
-	.item-options-container__button--clicked {
-		border-color: black;
-		border-bottom-color: white;
-		background-color: white;
-	}
-
-	.item-options-container__dropdown {
-		position: absolute;
-		top: 29px;
-		right: 0;
-		border: 3px solid black;
-		background-color: white;
-		width: 129px;
-		// Made visible using JS
-		visibility: hidden;
-	}
-
-	.item-options-container__dropdown__option {
-		display: block;
-		border-bottom: 1px solid gray;
-		padding: 12px;
-		cursor: pointer;
-	}
-	.item-options-container__dropdown__option:hover,
-	.item-options-container__dropdown__option:active {
-		background-color: $light-gray;
-	}
-
-	.item-options-container__dropdown__option--no-display {
-		display: none;
-	}
-
-	.item-options-container__dropdown__option--no-border {
-		border-bottom: none;
-	}
-
-	.x-button {
-		@include back-exit-buttons();
-		right: 20px;
-		color: $dark-gray;
-	}
-	.x-button:hover,
-	.x-button:active {
-		color: $black;
+		font-family: Arial, Helvetica, sans-serif;
 	}
 
 	.item-content-container {
@@ -123,7 +20,7 @@
 	}
 
 	// Must be a seperate div inside .item-content-container so the padding
-	// ...does not affect the resize so it goes beyond the modal 
+	// ...does not affect the resize so it goes beyond the modal
 	.padding-container {
 		padding: 0px 25px 25px 25px;
 	}
@@ -178,7 +75,6 @@
 	}
 
 	.item-box__title {
-		position: relative;
 		text-align: center;
 		font-size: 140%;
 	}

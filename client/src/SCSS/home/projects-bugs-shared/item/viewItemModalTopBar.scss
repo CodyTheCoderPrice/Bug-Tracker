@@ -1,0 +1,95 @@
+@import "../../../utils/variables";
+@import "../../../utils//mixins";
+
+.top-bar-component {
+	// Sticky instead of fixed for positioning of other components
+	position: -webkit-sticky;
+	position: sticky;
+	top: $navbar-height;
+	border-bottom: $top-bar-border-width solid black;
+	background-color: $search-filter-sort-bar-color;
+	height: $top-bar-height;
+	/* height: $search-filter-sort-bar-height; */
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+
+	.item-options-container {
+		z-index: 3;
+		position: absolute;
+		top: 8px;
+		right: 50px;
+		width: 135px;
+	}
+
+	.item-options-container__button {
+		// Must be more than item-options-conatiner so its top border
+		// ...can be covered to make containers look in unison
+		z-index: 4;
+		position: absolute;
+		right: 0px;
+		// Border given color through JS
+		border: 3px solid transparent;
+		border-bottom: none;
+		background: none;
+		height: 29px;
+		width: $options-button-width;
+		color: $dark-gray;
+		font-size: 28px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.item-options-container__button:hover,
+	.item-options-container__button:active {
+		color: $black;
+	}
+
+	.item-options-container__button__text {
+		@include dead-center();
+	}
+
+	.item-options-container__button--clicked {
+		border-color: black;
+		border-bottom-color: white;
+		background-color: white;
+	}
+
+	.item-options-container__dropdown {
+		position: absolute;
+		top: 29px;
+		right: 0;
+		border: 3px solid black;
+		background-color: white;
+		width: 129px;
+		// Made visible using JS
+		visibility: hidden;
+	}
+
+	.item-options-container__dropdown__option {
+		display: block;
+		border-bottom: 1px solid gray;
+		padding: 12px;
+		cursor: pointer;
+	}
+	.item-options-container__dropdown__option:hover,
+	.item-options-container__dropdown__option:active {
+		background-color: $light-gray;
+	}
+
+	.item-options-container__dropdown__option--no-display {
+		display: none;
+	}
+
+	.item-options-container__dropdown__option--no-border {
+		border-bottom: none;
+	}
+
+	.x-button {
+		@include back-exit-buttons();
+		right: 20px;
+		color: $dark-gray;
+	}
+	.x-button:hover,
+	.x-button:active {
+		color: $black;
+	}
+}

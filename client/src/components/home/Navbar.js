@@ -80,7 +80,8 @@ export default function Navbar() {
 
 	useEffect(() => {
 		setNavbarButtonColor(
-			reduxState[projectContainerName].componentsDisplay.listTable,
+			reduxState[projectContainerName].componentsDisplay.listTable ||
+				reduxState[projectContainerName].componentsDisplay.viewItemModal,
 			document.getElementsByClassName("js-project-button")[0],
 			"navbar-button--selected"
 		);
@@ -88,7 +89,8 @@ export default function Navbar() {
 			reduxState[projectContainerName].componentsDisplay.targetItem !== null
 		) {
 			setNavbarButtonColor(
-				reduxState[bugContainerName].componentsDisplay.listTable,
+				reduxState[bugContainerName].componentsDisplay.listTable ||
+					reduxState[bugContainerName].componentsDisplay.viewItemModal,
 				document.getElementsByClassName("js-bug-button")[0],
 				"navbar-button--selected"
 			);
@@ -107,7 +109,12 @@ export default function Navbar() {
 			setWhichProjectComponentsDisplay({
 				...reduxState[projectContainerName].componentsDisplay,
 				createItemSidbar: false,
-				viewItemModal: false,
+			})
+		);
+		dispatch(
+			setWhichBugComponentsDisplay({
+				...reduxState[bugContainerName].componentsDisplay,
+				createItemSidbar: false,
 			})
 		);
 		dispatch(
@@ -159,10 +166,6 @@ export default function Navbar() {
 					<div className="navbar-button js-bug-button" onClick={openBugsTable}>
 						<div className="navbar-button__text-container js-bug-button-text">
 							<i className="fa fa-bug" aria-hidden="true" /> Bugs
-							{/* {
-								reduxState[projectContainerName].componentsDisplay.targetItem
-									.name
-							} */}
 						</div>
 					</div>
 				) : null}

@@ -16,17 +16,13 @@
 		text-align: center;
 	}
 
+	.list-table__row--hover-highlight:hover {
+		background-color: $very-light-gray;
+	}
+	
 	.list-table__row--empty {
 		height: $list-table-row-height + ($list-table-row-height * 0.5);
 	}
-
-	.list-table__row--highlight:hover {
-		background-color: $very-light-gray;
-	}
-
-	.list-table__row--selected {
-		background-color: $medium-lighter-gray;
-	} 
 
 	.list-table__header {
 		position: -webkit-sticky;
@@ -66,13 +62,12 @@
 
 	.list-table__data {
 		@include border-line();
-		background-color: $list-table-background-color;
 		padding: 0px 7px 0px 7px;
 	}
 
 	.list-table__data__info--blue-link {
 		color: $blue-link;
-		cursor: pointer;
+		/* cursor: pointer; */
 	}
 
 	.list-table__data__checkbox {

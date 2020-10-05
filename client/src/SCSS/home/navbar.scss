@@ -2,6 +2,7 @@
 @import "../utils//mixins";
 
 .navbar-and-other-components-container {
+	// Sticky instead of fixed for positioning of other components
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;

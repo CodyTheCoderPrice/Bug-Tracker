@@ -20,17 +20,20 @@ $dark-blue-teal: #50798b;
 // Blue for links
 $blue-link: #005ed8;
 // Components
+$search-filter-sort-bar-color: $light-gray;
 $list-table-background-color: #ffffff;
-$account-dropdown-button-color: $light-blue-gray;
+
+
 
 //==========
 // Heights
 //==========
 $navbar-height: 60px;
+$edit-account-modal-height: 480px;
 $search-filter-sort-bar-height:  60px;
 $search-bar-height: 28px;
-$edit-account-modal-height: 480px;
 $list-table-row-height: 50px;
+$top-bar-height: 46px;
 
 //=========
 // Widths
@@ -45,14 +48,13 @@ $options-button-width: 36px;
 //=========
 // Margins
 //=========
-$view-item-bug-modal-margin: 0px;
 $form-input-margin-bottom: 10px;
 
 //==========
 // Borders
 //==========
 $search-bar-border-width: 1px;
-$view-item-bug-modal-border-width: 0px;
+$top-bar-border-width: 1px;
 $mini-list-table-border-width: 2px;
 
 //======

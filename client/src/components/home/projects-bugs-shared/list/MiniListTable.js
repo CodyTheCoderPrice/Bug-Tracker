@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { projectContainerName } from "../../../../reducers/containerNames";
 
-import {
-	setWhichProjectOrBugComponentsDisplay,
-} from "../../../../actions";
-
 import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
 
 // Components
@@ -23,7 +19,11 @@ export default function MiniListTable(props) {
 				<thead className="">
 					<tr className="mini-list-table__row">
 						<th className="mini-list-table__header js-mini-list-table__header">
-							<span className="mini-list-table__header__span">Name</span>
+							<span className="mini-list-table__header__span">
+								{props.reduxContainerName === projectContainerName
+									? "Projects"
+									: "Bugs"}
+							</span>
 						</th>
 					</tr>
 				</thead>

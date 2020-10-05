@@ -30,6 +30,7 @@ export default function Home() {
 		<div className="home-container js-home-container">
 			<Navbar />
 			{/*Account components*/}
+			{/*Displays bullered background when an account component is open*/}
 			{Object.values(reduxState.accountContainer.componentsDisplay).indexOf(true) > -1 ? (
 				<AccountBlurredBackground />
 			) : null}

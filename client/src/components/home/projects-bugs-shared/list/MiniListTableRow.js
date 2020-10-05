@@ -10,7 +10,7 @@ import {
 	setWhichProjectOrBugComponentsDisplay,
 } from "../../../../actions";
 
-import { toggleTableRowSelected } from "../../../../utils/listTableRowUtils";
+import { toggleClassName } from "../../../../utils/elementUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/miniListTableAndRows.scss";
 
@@ -19,51 +19,29 @@ export default function MiniListTableRow(props) {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if (props.reduxContainerName === projectContainerName) {
-			toggleTableRowSelected(
-				reduxState[projectContainerName].componentsDisplay.targetItem,
-				props.item,
+		if (
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem !== null
+		) {
+			toggleClassName(
+				reduxState[props.reduxContainerName].componentsDisplay.targetItem.id ===
+					props.item.id,
 				document.getElementsByClassName(
 					"js-mini-list-table-row-" + props.item.id
 				)[0],
-				"mini-list-table__row--highlight",
 				"mini-list-table__row--selected"
 			);
 		}
-	}, [reduxState[projectContainerName].componentsDisplay.targetItem]);
-
-	// This funcitonality is only for the projects list
-	const toggleRowSelected = () => {
-		if (props.reduxContainerName === projectContainerName) {
-			if (
-				reduxState[projectContainerName].componentsDisplay.targetItem ===
-					null ||
-				reduxState[projectContainerName].componentsDisplay.targetItem.id !==
-					props.item.id
-			) {
-				dispatch(
-					setWhichProjectOrBugComponentsDisplay(projectContainerName, {
-						listTable: true,
-						targetItem: props.item,
-					})
-				);
-			} else {
-				dispatch(
-					setWhichProjectOrBugComponentsDisplay(projectContainerName, {
-						listTable: true,
-						targetItem: null,
-					})
-				);
-			}
-		}
-	};
+	}, [
+		reduxState[projectContainerName].componentsDisplay.targetItem,
+		reduxState[bugContainerName].componentsDisplay.targetItem,
+	]);
 
 	const openViewItemModal = (e) => {
 		e.stopPropagation();
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listTable: true,
+				listTable: false,
 				viewItemModal: true,
 				targetItem: props.item,
 			})
@@ -77,17 +55,10 @@ export default function MiniListTableRow(props) {
 				"js-mini-list-table-row-" +
 				props.item.id
 			}
-			onClick={
-				props.reduxContainerName === projectContainerName
-					? (e) => toggleRowSelected(e)
-					: null
-			}
+			onClick={(e) => openViewItemModal(e)}
 		>
 			<td className="mini-list-table__data">
-				<span
-					className="mini-list-table__data__info mini-list-table__data__info--blue-link"
-					onClick={(e) => openViewItemModal(e)}
-				>
+				<span className="mini-list-table__data__info mini-list-table__data__info--blue-link">
 					{props.item.name}
 				</span>
 			</td>
