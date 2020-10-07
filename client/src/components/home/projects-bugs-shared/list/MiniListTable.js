@@ -41,6 +41,8 @@ export default function MiniListTable(props) {
 				return;
 			}
 
+			
+
 			const topBarHeight = getElementSize(document.getElementsByClassName("js-top-bar")[0]).height;
 
 			const adjustedWindowHeight =

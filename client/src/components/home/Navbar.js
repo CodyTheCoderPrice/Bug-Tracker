@@ -19,6 +19,8 @@ import {
 	getElementStyle,
 	stripNonDigits,
 	calcScrollbarWidth,
+	calcViewItemTopBarHeight,
+	calcMiniListTableWidth,
 } from "../../utils/displaySizeUtils";
 
 import { setNavbarButtonColor } from "../../utils/navbarUtils";
@@ -41,6 +43,8 @@ export default function Navbar() {
 					),
 				},
 				scrollbar: calcScrollbarWidth(),
+				viewItemTopBar: calcViewItemTopBarHeight(),
+				miniListTable: calcMiniListTableWidth(),
 			})
 		);
 

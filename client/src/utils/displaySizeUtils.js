@@ -50,3 +50,27 @@ export function calcScrollbarWidth() {
 
 	return { width: scrollbarWidth };
 }
+
+export function calcViewItemTopBarHeight() {
+	const invisibleTopBarElement = document.createElement("div");
+	invisibleTopBarElement.className = "top-bar-component";
+	invisibleTopBarElement.visibility = "hidden";
+	document.body.appendChild(invisibleTopBarElement);
+
+	const height = getElementSize(invisibleTopBarElement).height;
+	invisibleTopBarElement.parentNode.removeChild(invisibleTopBarElement);
+
+	return { height: height };
+}
+
+export function calcMiniListTableWidth() {
+	const invisibleMiniListTableElement = document.createElement("div");
+	invisibleMiniListTableElement.className = "mini-list-table-component";
+	invisibleMiniListTableElement.visibility = "hidden";
+	document.body.appendChild(invisibleMiniListTableElement);
+
+	const width = getElementSize(invisibleMiniListTableElement).width;
+	invisibleMiniListTableElement.parentNode.removeChild(invisibleMiniListTableElement);
+
+	return { width: width };
+}
