@@ -83,6 +83,7 @@ export default function Navbar() {
 	}, []);
 
 	useEffect(() => {
+		
 		setNavbarButtonColor(
 			reduxState[projectContainerName].componentsDisplay.listTable ||
 				reduxState[projectContainerName].componentsDisplay.viewItemModal,

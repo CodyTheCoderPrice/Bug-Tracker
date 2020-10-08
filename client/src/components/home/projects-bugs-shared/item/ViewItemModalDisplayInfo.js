@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModalDisplayInfo.scss";
+import { projectContainerName } from "../../../../reducers/containerNames";
 
 export default function ViewItemModalDisplayInfo(props) {
 	const reduxState = useSelector((state) => state);
@@ -95,16 +96,31 @@ export default function ViewItemModalDisplayInfo(props) {
 					</div>
 				</div>
 			</div>
-			<div className="outer-dividing-container outer-dividing-container--one-third">
-				<div className="item-box">
-					<h2 className="item-box__title">Status of Bugs</h2>
+			{props.reduxContainerName === projectContainerName ? (
+				<div>
+					<div className="outer-dividing-container outer-dividing-container--one-third">
+						<div className="item-box">
+							<h2 className="item-box__title">Status of Bugs</h2>
+							<span>Comming soon!</span>
+						</div>
+					</div>
+					<div className="outer-dividing-container outer-dividing-container--one-third">
+						<div className="item-box">
+							<h2 className="item-box__title">Last Five Bugs</h2>
+							<span>Comming soon!</span>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div className="outer-dividing-container outer-dividing-container--one-third">
-				<div className="item-box">
-					<h2 className="item-box__title">Last Five Bugs</h2>
+			) : (
+				<div> 
+					<div className="outer-dividing-container outer-dividing-container--one-third">
+						<div className="item-box">
+							<h2 className="item-box__title">Comments</h2>
+							<span>Comming soon!</span>
+						</div>
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 }

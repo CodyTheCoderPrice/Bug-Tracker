@@ -45,10 +45,10 @@ export default function ViewItemModal(props) {
 	useEffect(() => {
 		let body = document.getElementsByClassName("js-body")[0];
 
-		toggleClassName(true, body, "stop-x-y-scrolling");
+		toggleClassName(true, body, "stop-y-scrolling");
 
 		return () => {
-			toggleClassName(false, body, "stop-x-y-scrolling");
+			toggleClassName(false, body, "stop-y-scrolling");
 		};
 	}, []);
 
@@ -63,12 +63,6 @@ export default function ViewItemModal(props) {
 							{!reduxState[props.reduxContainerName].componentsDisplay
 								.viewItemModalEditInfo ? (
 								<div>
-									<ViewItemModalDisplayInfo
-										reduxContainerName={props.reduxContainerName}
-									/>
-									<ViewItemModalDisplayInfo
-										reduxContainerName={props.reduxContainerName}
-									/>
 									<ViewItemModalDisplayInfo
 										reduxContainerName={props.reduxContainerName}
 									/>

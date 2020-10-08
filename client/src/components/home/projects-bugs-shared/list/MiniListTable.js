@@ -3,7 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { projectContainerName } from "../../../../reducers/containerNames";
 
 import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
-import { getElementSize, getElementStyle, stripNonDigits } from "../../../../utils/displaySizeUtils";
+import {
+	getElementSize,
+	getElementStyle,
+	stripNonDigits,
+} from "../../../../utils/displaySizeUtils";
 
 // Components
 import MiniListTableRow from "./MiniListTableRow";
@@ -23,7 +27,8 @@ export default function MiniListTable(props) {
 	useEffect(() => {
 		if (
 			reduxState.sizeContainer.variables.window !== null &&
-			reduxState.sizeContainer.variables.navbar !== null
+			reduxState.sizeContainer.variables.navbar !== null &&
+			reduxState.sizeContainer.constants.viewItemTopBar !== null
 		) {
 			let miniListTableElement = document.getElementsByClassName(
 				"js-mini-list-table-component"
@@ -31,9 +36,8 @@ export default function MiniListTable(props) {
 
 			// Makes sure originalMiniListTableHeight gets set
 			if (originalMiniListTableHeight === null) {
-				const sidebarStyle = getElementStyle(miniListTableElement);
 				setOriginalMiniListTableHeight({
-					height: stripNonDigits(sidebarStyle.height),
+					height: stripNonDigits(getElementStyle(miniListTableElement).height),
 				});
 
 				// Prevents crash since originalMiniListTableHeight will still
@@ -41,20 +45,12 @@ export default function MiniListTable(props) {
 				return;
 			}
 
-			
-
-			const topBarHeight = getElementSize(document.getElementsByClassName("js-top-bar")[0]).height;
-
 			const adjustedWindowHeight =
 				reduxState.sizeContainer.variables.window.height -
 				reduxState.sizeContainer.variables.navbar.height -
-				topBarHeight;
+				reduxState.sizeContainer.constants.viewItemTopBar.height;
 
-			if (originalMiniListTableHeight.height < adjustedWindowHeight) {
-				miniListTableElement.style.height = adjustedWindowHeight + "px";
-			} else {
-				miniListTableElement.style.height = originalMiniListTableHeight.height + "px";
-			}
+			miniListTableElement.style.height = adjustedWindowHeight + "px";
 		}
 		// eslint-disable-next-line
 	}, [reduxState.sizeContainer.variables, originalMiniListTableHeight]);

@@ -77,6 +77,10 @@ export default function ViewItemModalTopBar(props) {
 
 	return (
 		<div className="top-bar-component js-top-bar">
+			<div className="back-button" onClick={closeViewItemModal}>
+				<i className="fa fa-arrow-left" aria-hidden="true" />
+				<span className="back-button__text">Back</span>
+			</div>
 			<div className="item-options-container js">
 				<div
 					className="item-options-container__button js-item-options-button"

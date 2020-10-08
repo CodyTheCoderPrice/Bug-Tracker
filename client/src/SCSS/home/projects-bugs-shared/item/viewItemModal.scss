@@ -3,8 +3,8 @@
 
 .view-item-modal-component {
 	.view-item-modal {
-		// Must be more than searchFilterSortBar
-		z-index: 2;
+		// EDIT Must be more than searchFilterSortBar
+		z-index: 1;
 		position: fixed;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width;
 		left: $mini-list-table-width + $mini-list-table-border-width;
@@ -12,7 +12,7 @@
 		background-color: white;
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
-		height: 10vh;
+		height: 90vh;
 		width: 1000px;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto !important;

@@ -313,16 +313,31 @@ export default function ViewItemModalEditInfo(props) {
 					</div>
 				</div>
 			</div>
-			<div className="outer-dividing-container outer-dividing-container--one-third">
-				<div className="item-box">
-					<h2 className="item-box__title">Status of Bugs</h2>
+			{props.reduxContainerName === projectContainerName ? (
+				<div>
+					<div className="outer-dividing-container outer-dividing-container--one-third">
+						<div className="item-box">
+							<h2 className="item-box__title">Status of Bugs</h2>
+							<span>Comming soon!</span>
+						</div>
+					</div>
+					<div className="outer-dividing-container outer-dividing-container--one-third">
+						<div className="item-box">
+							<h2 className="item-box__title">Last Five Bugs</h2>
+							<span>Comming soon!</span>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div className="outer-dividing-container outer-dividing-container--one-third">
-				<div className="item-box">
-					<h2 className="item-box__title">Last Five Bugs</h2>
+			) : (
+				<div> 
+					<div className="outer-dividing-container outer-dividing-container--one-third">
+						<div className="item-box">
+							<h2 className="item-box__title">Comments</h2>
+							<span>Comming soon!</span>
+						</div>
+					</div>
 				</div>
-			</div>
+			)}
 			<div className="outer-dividing-container">
 				<div className="form-buttons-outer-container">
 					<div className="form-buttons-centered-container">

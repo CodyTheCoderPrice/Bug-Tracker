@@ -2,13 +2,18 @@
 @import "../../../utils//mixins";
 
 .mini-list-table-component {
-	// Must be more than searchFilterSortBar
-	z-index: 2;
-	float: left;
+	// EDIT Must be more than searchFilterSortBar
+	z-index: 1;
+	position: fixed;
+	top: $navbar-height + $top-bar-height + $top-bar-border-width;
+	left: 0px;
 	border-right: $mini-list-table-border-width solid black;
 	background-color: $list-table-background-color;
+	height: 90vh;
 	width: $mini-list-table-width;
 	font-family: Arial, Helvetica, sans-serif;
+	overflow-y: auto !important;
+	overflow-x: hidden !important;
 
 	.mini-list-table {
 		// Allows td borders to look like they are a single line
@@ -29,22 +34,21 @@
 
 	.mini-list-table__row--selected {
 		background-color: $medium-lighter-gray;
-	} 
+	}
 
 	.mini-list-table__header {
 		position: -webkit-sticky;
 		position: sticky;
-		top: $navbar-height + $top-bar-height + $top-bar-border-width;
 		background-color: $list-table-background-color;
-		// Used box shadow since the header row being sticky with 
+		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: 0 1px 0 $medium-gray;
 	}
 
 	.mini-list-table__data {
 		padding: 0px 7px 0px 7px;
-		width: $mini-list-table-width - 14;
-		max-width: $mini-list-table-width - 14;
+		width: $mini-list-table-width;
+		max-width: $mini-list-table-width;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;

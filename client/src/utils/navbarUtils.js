@@ -1,6 +1,6 @@
 import { toggleClassName } from "./elementUtils";
 import { getElementSize } from "./displaySizeUtils";
 
-export function setNavbarButtonColor(component, element, nameOfToggledClass) {
-	toggleClassName(component, element, nameOfToggledClass);
+export function setNavbarButtonColor(shouldDisplay, element, nameOfToggledClass) {
+	toggleClassName(shouldDisplay, element, nameOfToggledClass);
 }
