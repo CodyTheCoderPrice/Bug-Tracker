@@ -66,9 +66,12 @@
 		cursor: default;
 	}
 
-	.list-table__data__info--blue-link {
+	.list-table__data__info--blue {
 		color: $blue-link;
-		/* cursor: pointer; */
+	}
+
+	.list-table__data__info--red {
+		color: $red-link;
 	}
 
 	.list-table__data__checkbox {

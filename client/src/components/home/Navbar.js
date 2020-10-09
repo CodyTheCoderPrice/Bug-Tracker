@@ -83,7 +83,6 @@ export default function Navbar() {
 	}, []);
 
 	useEffect(() => {
-		
 		setNavbarButtonColor(
 			reduxState[projectContainerName].componentsDisplay.listTable ||
 				reduxState[projectContainerName].componentsDisplay.viewItemModal,
@@ -142,6 +141,7 @@ export default function Navbar() {
 		) {
 			dispatch(
 				setWhichBugComponentsDisplay({
+					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
 					previousState:
 						reduxState[bugContainerName].componentsDisplay.listTable === true ||
 						reduxState[bugContainerName].componentsDisplay.viewItemModal ===
@@ -215,14 +215,24 @@ export default function Navbar() {
 					onClick={openProjectsTable}
 				>
 					<div className="navbar-button__text-container">
-						<i className="fa fa-folder" aria-hidden="true" /> Projects
+						<i className="fa fa-folder" aria-hidden="true" />{" "}
+						{reduxState[projectContainerName].componentsDisplay.targetItem ===
+						null
+							? "Projects"
+							: reduxState[projectContainerName].componentsDisplay.targetItem
+									.name}
 					</div>
 				</div>
 				{reduxState[projectContainerName].componentsDisplay.targetItem !==
 				null ? (
 					<div className="navbar-button js-bug-button" onClick={openBugsTable}>
 						<div className="navbar-button__text-container js-bug-button-text">
-							<i className="fa fa-bug" aria-hidden="true" /> Bugs
+							<i className="fa fa-bug" aria-hidden="true" />{" "}
+							{reduxState[bugContainerName].componentsDisplay.targetItem ===
+							null
+								? "Bugs"
+								: reduxState[bugContainerName].componentsDisplay.targetItem
+										.name}
 						</div>
 					</div>
 				) : null}

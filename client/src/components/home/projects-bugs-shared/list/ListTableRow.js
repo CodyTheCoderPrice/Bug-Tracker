@@ -43,8 +43,8 @@ export default function ListTableRow(props) {
 
 	// Keeps clicking checkbox from propogating parent elements onclick
 	const dontPropogateParentOnclick = (e) => {
-		e.stopPropagation()
-	}
+		e.stopPropagation();
+	};
 
 	const openViewItemModal = () => {
 		if (
@@ -93,7 +93,14 @@ export default function ListTableRow(props) {
 				/>
 			</td>
 			<td className="list-table__data">
-				<span className="list-table__data__info list-table__data__info--blue-link">
+				<span
+					className={
+						"list-table__data__info" + (props.reduxContainerName ===
+						projectContainerName
+							? " list-table__data__info--blue"
+							: " list-table__data__info--red")
+					}
+				>
 					{props.item.name}
 				</span>
 			</td>

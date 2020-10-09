@@ -71,7 +71,14 @@ export default function MiniListTableRow(props) {
 			onClick={openViewItemModal}
 		>
 			<td className="mini-list-table__data">
-				<span className="mini-list-table__data__info mini-list-table__data__info--blue-link">
+			<span
+					className={
+						"list-table__data__info" + (props.reduxContainerName ===
+						projectContainerName
+							? " list-table__data__info--blue"
+							: " list-table__data__info--red")
+					}
+				>
 					{props.item.name}
 				</span>
 			</td>

@@ -55,7 +55,11 @@
 		cursor: default;
 	}
 
-	.mini-list-table__data__info--blue-link {
+	.list-table__data__info {
 		color: $blue-link;
+	}
+
+	.list-table__data__info--red {
+		color: $red-link;
 	}
 }
