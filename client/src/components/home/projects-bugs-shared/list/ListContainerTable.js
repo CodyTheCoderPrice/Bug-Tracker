@@ -14,13 +14,12 @@ import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
 import { toggleDisableButtons } from "../../../../utils/massDeleteUtils";
 
 // Components
-import ListTableSearchFilterSortBar from "./ListTableSearchFilterSortBar";
-import ListTableRow from "./ListTableRow";
-import ListTableSortArrowsButton from "./ListTableSortArrowsButton";
+import ListTableRow from "./ListContainerTableRow";
+import ListTableSortArrowsButton from "./ListContainerTableSortArrowsButton";
 
-import "../../../../SCSS/home/projects-bugs-shared/list/listTableAndRows.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
 
-export default function ListTable(props) {
+export default function ListContainerTable(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -65,17 +64,18 @@ export default function ListTable(props) {
 	const openMassDeleteItemsModal = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listTable: true,
-				listTableMassDeleteItemsModal: true,
+				listContainer: true,
+				listContainerMassDeleteItemsModal: true,
 			})
 		);
 	};
 
+	useEffect(() => {
+		console.log(reduxState[props.reduxContainerName].componentsDisplay);
+	}, [reduxState.projectContainer.componentsDisplay])
+
 	return (
 		<div className="list-table-component">
-			<ListTableSearchFilterSortBar
-				reduxContainerName={props.reduxContainerName}
-			/>
 			<table className="list-table">
 				<thead className="">
 					<tr className="list-table__row">

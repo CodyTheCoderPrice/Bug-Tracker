@@ -20,7 +20,7 @@ import {
 	stripNonDigits,
 	calcScrollbarWidth,
 	calcViewItemTopBarHeight,
-	calcMiniListTableWidth,
+	calcItemContainerListSidebarWidth,
 } from "../../utils/displaySizeUtils";
 
 import { setNavbarButtonColor } from "../../utils/navbarUtils";
@@ -44,7 +44,7 @@ export default function Navbar() {
 				},
 				scrollbar: calcScrollbarWidth(),
 				viewItemTopBar: calcViewItemTopBarHeight(),
-				miniListTable: calcMiniListTableWidth(),
+				miniListTable: calcItemContainerListSidebarWidth(),
 			})
 		);
 
@@ -84,8 +84,8 @@ export default function Navbar() {
 
 	useEffect(() => {
 		setNavbarButtonColor(
-			reduxState[projectContainerName].componentsDisplay.listTable ||
-				reduxState[projectContainerName].componentsDisplay.viewItemModal,
+			reduxState[projectContainerName].componentsDisplay.listContainer ||
+				reduxState[projectContainerName].componentsDisplay.itemContainer,
 			document.getElementsByClassName("js-project-button")[0],
 			"navbar-button--selected"
 		);
@@ -94,8 +94,8 @@ export default function Navbar() {
 			reduxState[projectContainerName].componentsDisplay.targetItem !== null
 		) {
 			setNavbarButtonColor(
-				reduxState[bugContainerName].componentsDisplay.listTable ||
-					reduxState[bugContainerName].componentsDisplay.viewItemModal,
+				reduxState[bugContainerName].componentsDisplay.listContainer ||
+					reduxState[bugContainerName].componentsDisplay.itemContainer,
 				document.getElementsByClassName("js-bug-button")[0],
 				"navbar-button--selected"
 			);
@@ -113,17 +113,17 @@ export default function Navbar() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState[projectContainerName].componentsDisplay,
-				createItemSidbar: false,
-				viewItemModalDelete: false,
-				listTableMassDeleteItemsModal: false,
+				listContainerCreateItemSidbar: false,
+				itemContainerDeleteModal: false,
+				listContainerMassDeleteItemsModal: false,
 			})
 		);
 		dispatch(
 			setWhichBugComponentsDisplay({
 				...reduxState[bugContainerName].componentsDisplay,
-				createItemSidbar: false,
-				viewItemModalDelete: false,
-				listTableMassDeleteItemsModal: false,
+				listContainerCreateItemSidbar: false,
+				itemContainerDeleteModal: false,
+				listContainerMassDeleteItemsModal: false,
 			})
 		);
 		dispatch(
@@ -136,15 +136,15 @@ export default function Navbar() {
 
 	const openProjectsTable = () => {
 		if (
-			reduxState[projectContainerName].componentsDisplay.listTable !== true &&
-			reduxState[projectContainerName].componentsDisplay.viewItemModal !== true
+			reduxState[projectContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[projectContainerName].componentsDisplay.itemContainer !== true
 		) {
 			dispatch(
 				setWhichBugComponentsDisplay({
 					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
 					previousState:
-						reduxState[bugContainerName].componentsDisplay.listTable === true ||
-						reduxState[bugContainerName].componentsDisplay.viewItemModal ===
+						reduxState[bugContainerName].componentsDisplay.listContainer === true ||
+						reduxState[bugContainerName].componentsDisplay.itemContainer ===
 							true
 							? reduxState[bugContainerName].componentsDisplay
 							: null,
@@ -162,7 +162,7 @@ export default function Navbar() {
 			} else {
 				dispatch(
 					setWhichProjectComponentsDisplay({
-						listTable: true,
+						listContainer: true,
 						targetItem:
 							reduxState[projectContainerName].componentsDisplay.targetItem,
 					})
@@ -173,17 +173,17 @@ export default function Navbar() {
 
 	const openBugsTable = () => {
 		if (
-			reduxState[bugContainerName].componentsDisplay.listTable !== true &&
-			reduxState[bugContainerName].componentsDisplay.viewItemModal !== true
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
 		) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					targetItem:
 						reduxState[projectContainerName].componentsDisplay.targetItem,
 					previousState:
-						reduxState[projectContainerName].componentsDisplay.listTable ===
+						reduxState[projectContainerName].componentsDisplay.listContainer ===
 							true ||
-						reduxState[projectContainerName].componentsDisplay.viewItemModal ===
+						reduxState[projectContainerName].componentsDisplay.itemContainer ===
 							true
 							? reduxState[projectContainerName].componentsDisplay
 							: null,
@@ -200,7 +200,7 @@ export default function Navbar() {
 			} else {
 				dispatch(
 					setWhichBugComponentsDisplay({
-						listTable: true,
+						listContainer: true,
 					})
 				);
 			}

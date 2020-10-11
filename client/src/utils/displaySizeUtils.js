@@ -63,14 +63,14 @@ export function calcViewItemTopBarHeight() {
 	return { height: height };
 }
 
-export function calcMiniListTableWidth() {
-	const invisibleMiniListTableElement = document.createElement("div");
-	invisibleMiniListTableElement.className = "mini-list-table-component";
-	invisibleMiniListTableElement.visibility = "hidden";
-	document.body.appendChild(invisibleMiniListTableElement);
+export function calcItemContainerListSidebarWidth() {
+	const invisibleItemContainerListSidebarElement = document.createElement("div");
+	invisibleItemContainerListSidebarElement.className = "mini-list-table-component";
+	invisibleItemContainerListSidebarElement.visibility = "hidden";
+	document.body.appendChild(invisibleItemContainerListSidebarElement);
 
-	const width = getElementSize(invisibleMiniListTableElement).width;
-	invisibleMiniListTableElement.parentNode.removeChild(invisibleMiniListTableElement);
+	const width = getElementSize(invisibleItemContainerListSidebarElement).width;
+	invisibleItemContainerListSidebarElement.parentNode.removeChild(invisibleItemContainerListSidebarElement);
 
 	return { width: width };
 }

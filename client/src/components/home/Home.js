@@ -16,10 +16,8 @@ import EditEmailModal from "./account/EditEmailModal";
 import EditPasswordModal from "./account/EditPasswordModal";
 import DeleteAccountModal from "./account/DeleteAccountModal";
 // Projects & Bugs
-import ListTable from "./projects-bugs-shared/list/ListTable";
-import CreateItemSidebar from "./projects-bugs-shared/item/CreateItemSidebar";
-import ViewItemModal from "./projects-bugs-shared/item/ViewItemModal";
-import ListTableMassDeleteItemsModal from "./projects-bugs-shared/list/ListTableMassDeleteItemsModal";
+import ListContainer from "./projects-bugs-shared/list/ListContainer";
+import ItemContainer from "./projects-bugs-shared/item/ItemContainer";
 
 import "../../SCSS/home/home.scss";
 
@@ -50,30 +48,18 @@ export default function Home() {
 				<DeleteAccountModal />
 			) : null}
 			{/*Project components*/}
-			{reduxState[projectContainerName].componentsDisplay.listTable ? (
-				<ListTable reduxContainerName={projectContainerName} />
+			{reduxState[projectContainerName].componentsDisplay.listContainer ? (
+				<ListContainer reduxContainerName={projectContainerName} />
 			) : null}
-			{reduxState[projectContainerName].componentsDisplay.createItemSidbar ? (
-				<CreateItemSidebar reduxContainerName={projectContainerName} />
-			) : null}
-			{reduxState[projectContainerName].componentsDisplay.viewItemModal ? (
-				<ViewItemModal reduxContainerName={projectContainerName} />
-			) : null}
-			{reduxState[projectContainerName].componentsDisplay.listTableMassDeleteItemsModal ? (
-				<ListTableMassDeleteItemsModal reduxContainerName={projectContainerName} />
+			{reduxState[projectContainerName].componentsDisplay.itemContainer ? (
+				<ItemContainer reduxContainerName={projectContainerName} />
 			) : null}
 			{/*Bug components*/}
-			{reduxState[bugContainerName].componentsDisplay.listTable ? (
-				<ListTable reduxContainerName={bugContainerName} />
+			{reduxState[bugContainerName].componentsDisplay.listContainer ? (
+				<ListContainer reduxContainerName={bugContainerName} />
 			) : null}
-			{reduxState[bugContainerName].componentsDisplay.createItemSidbar ? (
-				<CreateItemSidebar reduxContainerName={bugContainerName} />
-			) : null}
-			{reduxState[bugContainerName].componentsDisplay.viewItemModal ? (
-				<ViewItemModal reduxContainerName={bugContainerName} />
-			) : null}
-			{reduxState[bugContainerName].componentsDisplay.listTableMassDeleteItemsModal ? (
-				<ListTableMassDeleteItemsModal reduxContainerName={bugContainerName} />
+			{reduxState[bugContainerName].componentsDisplay.itemContainer ? (
+				<ItemContainer reduxContainerName={bugContainerName} />
 			) : null}
 		</div>
 	);

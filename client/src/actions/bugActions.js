@@ -22,7 +22,7 @@ export const createBug = (bugInfo) => (dispatch) => {
 		.then((res) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
-			dispatch(setWhichBugComponentsDisplay({ listTable: true }));
+			dispatch(setWhichBugComponentsDisplay({ listContainer: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -65,7 +65,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 					targetItem: bugs.filter((bug) => {
 						return bug.id === bugInfo.id;
 					})[0],
-					viewItemModalEditInfo: false,
+					itemContainerEditInfo: false,
 				})
 			);
 		})
@@ -98,7 +98,7 @@ export const deleteBug = (id, massDeleteList, indexOfTargetBugId) => (
 			}
 			dispatch(
 				setWhichBugComponentsDisplay({
-					listTable: true,
+					listContainer: true,
 				})
 			);
 		})
@@ -125,7 +125,7 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
-					listTableMassDeleteItemsModal: false,
+					listContainerMassDeleteItemsModal: false,
 				})
 			);
 		})

@@ -24,9 +24,9 @@ import { useToggleableDateInput } from "../../../../utils/formHookUtils";
 
 import { useSidebarResize } from "../../../../utils/sidebarResizeHookUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/createItemSidebar.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listContainerCreateItemSidebar.scss";
 
-export default function CreateItemSidebar(props) {
+export default function ListContainerCreateItemSidebar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -136,7 +136,7 @@ export default function CreateItemSidebar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				createItemSidbar: false,
+				listContainerCreateItemSidbar: false,
 			})
 		);
 	};

@@ -12,9 +12,9 @@ import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/sear
 
 import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/list/listTableSearchFilterSortBar.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listContainerSearchFilterSortBar.scss";
 
-export default function ListTableSearchFilterSortBar(props) {
+export default function ListContainerSearchFilterSortBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -52,8 +52,8 @@ export default function ListTableSearchFilterSortBar(props) {
 	const openCreateItemSidebar = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listTable: true,
-				createItemSidbar: true,
+				listContainer: true,
+				listContainerCreateItemSidbar: true,
 			})
 		);
 		dispatch(setWhichAccountComponentsDisplay({}));

@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModalDisplayInfo.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayInfo.scss";
 import { projectContainerName } from "../../../../reducers/containerNames";
 
-export default function ViewItemModalDisplayInfo(props) {
+export default function ItemContainerDisplayInfo(props) {
 	const reduxState = useSelector((state) => state);
 
 	return (

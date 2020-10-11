@@ -10,17 +10,17 @@ import {
 } from "../../../../utils/displaySizeUtils";
 
 // Components
-import MiniListTableRow from "./MiniListTableRow";
+import ItemContainerListSidebarRow from "./ItemContainerListSidebarRow";
 
-import "../../../../SCSS/home/projects-bugs-shared/list/miniListTableAndRows.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerSidebarTableAndRows.scss";
 
-export default function MiniListTable(props) {
+export default function ItemContainerListSidebar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [
-		originalMiniListTableHeight,
-		setOriginalMiniListTableHeight,
+		originalItemContainerListSidebarHeight,
+		setOriginalItemContainerListSidebarHeight,
 	] = useState(null);
 
 	// Resize mini-list-table-component height to fit window when smaller than it
@@ -34,13 +34,13 @@ export default function MiniListTable(props) {
 				"js-mini-list-table-component"
 			)[0];
 
-			// Makes sure originalMiniListTableHeight gets set
-			if (originalMiniListTableHeight === null) {
-				setOriginalMiniListTableHeight({
+			// Makes sure originalItemContainerListSidebarHeight gets set
+			if (originalItemContainerListSidebarHeight === null) {
+				setOriginalItemContainerListSidebarHeight({
 					height: stripNonDigits(getElementStyle(miniListTableElement).height),
 				});
 
-				// Prevents crash since originalMiniListTableHeight will still
+				// Prevents crash since originalItemContainerListSidebarHeight will still
 				// ...be null for remainder of this useEfffect iteration
 				return;
 			}
@@ -53,7 +53,7 @@ export default function MiniListTable(props) {
 			miniListTableElement.style.height = adjustedWindowHeight + "px";
 		}
 		// eslint-disable-next-line
-	}, [reduxState.sizeContainer.variables, originalMiniListTableHeight]);
+	}, [reduxState.sizeContainer.variables, originalItemContainerListSidebarHeight]);
 
 	return (
 		<div className="mini-list-table-component js-mini-list-table-component">
@@ -86,7 +86,7 @@ export default function MiniListTable(props) {
 						reduxState[props.reduxContainerName].searchFilterSort
 					).map((item, idx) => {
 						return (
-							<MiniListTableRow
+							<ItemContainerListSidebarRow
 								key={idx}
 								item={item}
 								reduxContainerName={props.reduxContainerName}

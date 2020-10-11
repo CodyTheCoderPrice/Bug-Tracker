@@ -29,9 +29,9 @@ import {
 
 import { useToggleableDateInput } from "../../../../utils/formHookUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModalEditInfo.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditInfo.scss";
 
-export default function ViewItemModalEditInfo(props) {
+export default function ItemContainerEditInfo(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -106,7 +106,7 @@ export default function ViewItemModalEditInfo(props) {
 		// eslint-disable-next-line
 	}, []);
 
-	// Adjust description text area size to match ViewItemModalDisplayInfo's description
+	// Adjust description text area size to match ItemContainerDisplayInfo's description
 	useEffect(() => {
 		let editDescriptionTextArea = document.getElementsByClassName(
 			"js-item-description-text-area"
@@ -181,7 +181,7 @@ export default function ViewItemModalEditInfo(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				viewItemModalEditInfo: false,
+				itemContainerEditInfo: false,
 			})
 		);
 	};

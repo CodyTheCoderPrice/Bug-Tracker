@@ -6,9 +6,9 @@ import { setProjectOrBugSearchFilterSort } from "../../../../actions";
 import sortArrowsBothEmpty from "../../../../images/sort-arrows-both-empty.svg";
 import sortArrowsTopFilled from "../../../../images/sort-arrows-top-filled.svg";
 import sortArrowsBottomFilled from "../../../../images/sort-arrows-bottom-filled.svg";
-import "../../../../SCSS/home/projects-bugs-shared/list/listTableSortArrowsButton.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableSortArrowsButton.scss";
 
-export default function ListTableSortArrowsButton(props) {
+export default function ListContainerTableSortArrowsButton(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 

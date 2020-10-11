@@ -1,8 +1,8 @@
-// The ViewItemModalDisplayInfo component also uses shared SCSS in viewItemModal.scss
-// This file is for SCSS used only by  the ViewItemModalDisplayInfo component
 @import "../../../utils/variables";
 @import "../../../utils//mixins";
 
+// The ItemContainerDisplayInfo component also uses shared SCSS in itemContainer.scss
+// This file is for SCSS used only by  the ItemContainerDisplayInfo component
 .view-item-modal-component {
 	.item-name {
 		padding: 13px 0px 6px 0px;

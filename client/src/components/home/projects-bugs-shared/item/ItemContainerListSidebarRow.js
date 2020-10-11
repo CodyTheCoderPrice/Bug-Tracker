@@ -13,9 +13,9 @@ import {
 
 import { toggleClassName } from "../../../../utils/elementUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/list/miniListTableAndRows.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerSidebarTableAndRows.scss";
 
-export default function MiniListTableRow(props) {
+export default function ItemContainerListSidebarRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -37,7 +37,7 @@ export default function MiniListTableRow(props) {
 		reduxState[bugContainerName].componentsDisplay.targetItem,
 	]);
 
-	const openViewItemModal = () => {
+	const openItemContainer = () => {
 		if (
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem ===
 				null ||
@@ -47,8 +47,8 @@ export default function MiniListTableRow(props) {
 			dispatch(setWhichAccountComponentsDisplay({}));
 			dispatch(
 				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-					listTable: false,
-					viewItemModal: true,
+					listContainer: false,
+					itemContainer: true,
 					targetItem: props.item,
 				})
 			);
@@ -68,7 +68,7 @@ export default function MiniListTableRow(props) {
 				"js-mini-list-table-row-" +
 				props.item.id
 			}
-			onClick={openViewItemModal}
+			onClick={openItemContainer}
 		>
 			<td className="mini-list-table__data">
 			<span

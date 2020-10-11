@@ -1,25 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-	projectContainerName,
-	bugContainerName,
-} from "../../../../reducers/containerNames";
 
 import {
 	clearInputErrors,
 	setWhichProjectOrBugComponentsDisplay,
-	deleteProjectOrBug,
+	deleteMultipleProjectsOrBugs,
 } from "../../../../actions";
+
+import { toggleClassName } from "../../../../utils/elementUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/deleteItemsModal.scss";
 
-export default function ViewItemModalDelete(props) {
+export default function ListContainerMassDeleteItemsModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [itemInfo, setItemInfo] = useState({
-		id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
-	});
+	// Disable scrolling for the body
+	useEffect(() => {
+		let body = document.getElementsByClassName("js-body")[0];
+
+		toggleClassName(true, body, "stop-x-y-scrolling");
+
+		return () => {
+			toggleClassName(false, body, "stop-x-y-scrolling");
+		};
+	}, []);
 
 	// clears prior input errors when closing the component
 	useEffect(() => {
@@ -29,35 +34,21 @@ export default function ViewItemModalDelete(props) {
 		// eslint-disable-next-line
 	}, []);
 
-	const deleteItem = () => {
-		let copyMassDeleteList = [
-			...reduxState[props.reduxContainerName].massDeleteList,
-		];
-		const indexOfTargetItemId = copyMassDeleteList.indexOf(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id
-		);
-
-		let itemInfoDeepCopy = { ...itemInfo };
-		// Adds project_id when updating bugs
-		if (props.reduxContainerName === bugContainerName) {
-			itemInfoDeepCopy["project_id"] =
-				reduxState[projectContainerName].componentsDisplay.targetItem.id;
-		}
+	const deleteCheckedItems = () => {
 		dispatch(
-			deleteProjectOrBug(
+			deleteMultipleProjectsOrBugs(
 				props.reduxContainerName,
-				itemInfoDeepCopy,
-				copyMassDeleteList,
-				indexOfTargetItemId
+				reduxState[props.reduxContainerName].massDeleteList,
+				reduxState[props.reduxContainerName].componentsDisplay
 			)
 		);
 	};
 
-	const closeDeleteItemModal = () => {
+	const closeMassDeleteItemsModal = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				viewItemModalDelete: false,
+				listContainerMassDeleteItemsModal: false,
 			})
 		);
 	};
@@ -75,13 +66,13 @@ export default function ViewItemModalDelete(props) {
 				<div className="centered-buttons-container">
 					<div
 						className="centered-buttons-container__delete"
-						onClick={deleteItem}
+						onClick={deleteCheckedItems}
 					>
 						Delete
 					</div>
 					<div
 						className="centered-buttons-container__cancel"
-						onClick={closeDeleteItemModal}
+						onClick={closeMassDeleteItemsModal}
 					>
 						Cancel
 					</div>

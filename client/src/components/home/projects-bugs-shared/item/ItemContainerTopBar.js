@@ -9,9 +9,9 @@ import {
 
 import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModalTopBar.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerTopBar.scss";
 
-export default function ViewItemModalTopBar(props) {
+export default function ItemContainerTopBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -44,8 +44,8 @@ export default function ViewItemModalTopBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				viewItemModalEditInfo: !reduxState[props.reduxContainerName]
-					.componentsDisplay.viewItemModalEditInfo,
+				itemContainerEditInfo: !reduxState[props.reduxContainerName]
+					.componentsDisplay.itemContainerEditInfo,
 			})
 		);
 	};
@@ -54,22 +54,22 @@ export default function ViewItemModalTopBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				viewItemModalDelete: true,
+				itemContainerDeleteModal: true,
 			})
 		);
 	};
 
-	const closeViewItemModal = () => {
+	const closeItemContainer = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listTable: true,
-				viewItemModal: false,
+				listContainer: true,
+				itemContainer: false,
 				targetItem: null,
 			})
 		);
 
-		// Resets bug components display if project viewItemModal is closed
+		// Resets bug components display if project itemContainer is closed
 		if (props.reduxContainerName === projectContainerName) {
 			dispatch(setWhichBugComponentsDisplay({}));
 		}
@@ -77,7 +77,7 @@ export default function ViewItemModalTopBar(props) {
 
 	return (
 		<div className="top-bar-component js-top-bar">
-			<div className="back-button" onClick={closeViewItemModal}>
+			<div className="back-button" onClick={closeItemContainer}>
 				<i className="fa fa-arrow-left" aria-hidden="true" />
 				<span className="back-button__text">Back</span>
 			</div>
@@ -96,7 +96,7 @@ export default function ViewItemModalTopBar(props) {
 						onClick={switchBetweenDisplayAndEditInfo}
 					>
 						{reduxState[props.reduxContainerName].componentsDisplay
-							.viewItemModalEditInfo
+							.itemContainerEditInfo
 							? "Cancel"
 							: props.reduxContainerName === projectContainerName
 							? "Edit Project"
@@ -112,7 +112,7 @@ export default function ViewItemModalTopBar(props) {
 					</span>
 				</div>
 			</div>
-			<div className="x-button" onClick={closeViewItemModal}>
+			<div className="x-button" onClick={closeItemContainer}>
 				<i className="fa fa-times" aria-hidden="true"></i>
 			</div>
 		</div>

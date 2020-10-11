@@ -4,15 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleClassName } from "../../../../utils/elementUtils";
 
 // Components
-import ViewItemModalTopBar from "./ViewItemModalTopBar";
-import MiniListTable from "../list/MiniListTable";
-import ViewItemModalDisplayInfo from "./ViewItemModalDisplayInfo";
-import ViewItemModalEditInfo from "./ViewItemModalEditInfo";
-import ViewItemModalDelete from "./ViewItemModalDelete";
+import ItemContainerTopBar from "./ItemContainerTopBar";
+import ItemContainerListSidebar from "./ItemContainerListSidebar";
+import ItemContainerDisplayInfo from "./ItemContainerDisplayInfo";
+import ItemContainerEditInfo from "./ItemContainerEditInfo";
+import ItemContainerDeleteModal from "./ItemContainerDeleteModal";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/viewItemModal.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/itemContainer.scss";
 
-export default function ViewItemModal(props) {
+export default function ItemContainer(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -24,17 +24,17 @@ export default function ViewItemModal(props) {
 			reduxState.sizeContainer.constants.viewItemTopBar !== null &&
 			reduxState.sizeContainer.constants.miniListTable !== null
 		) {
-			const viewItemModalElement = document.getElementsByClassName(
+			const itemContainerElement = document.getElementsByClassName(
 				"js-view-item-modal"
 			)[0];
 
-			viewItemModalElement.style.height =
+			itemContainerElement.style.height =
 				reduxState.sizeContainer.variables.window.height -
 				reduxState.sizeContainer.variables.navbar.height -
 				reduxState.sizeContainer.constants.viewItemTopBar.height +
 				"px";
 
-			viewItemModalElement.style.width =
+			itemContainerElement.style.width =
 				reduxState.sizeContainer.variables.window.width -
 				reduxState.sizeContainer.constants.miniListTable.width +
 				"px";
@@ -54,29 +54,29 @@ export default function ViewItemModal(props) {
 
 	return (
 		<div>
-			<ViewItemModalTopBar reduxContainerName={props.reduxContainerName} />
-			<MiniListTable reduxContainerName={props.reduxContainerName} />
+			<ItemContainerTopBar reduxContainerName={props.reduxContainerName} />
+			<ItemContainerListSidebar reduxContainerName={props.reduxContainerName} />
 			<div className="view-item-modal-component">
 				<div className="view-item-modal js-view-item-modal">
 					<div className="item-content-container js-item-content-container">
 						<div className="padding-container">
 							{!reduxState[props.reduxContainerName].componentsDisplay
-								.viewItemModalEditInfo ? (
+								.itemContainerEditInfo ? (
 								<div>
-									<ViewItemModalDisplayInfo
+									<ItemContainerDisplayInfo
 										reduxContainerName={props.reduxContainerName}
 									/>
 								</div>
 							) : (
 								<div>
-									<ViewItemModalEditInfo
+									<ItemContainerEditInfo
 										reduxContainerName={props.reduxContainerName}
 									/>
 								</div>
 							)}
 							{reduxState[props.reduxContainerName].componentsDisplay
-								.viewItemModalDelete ? (
-								<ViewItemModalDelete
+								.itemContainerDeleteModal ? (
+								<ItemContainerDeleteModal
 									reduxContainerName={props.reduxContainerName}
 								/>
 							) : null}

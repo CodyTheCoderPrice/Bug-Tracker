@@ -14,9 +14,9 @@ import {
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/list/listTableAndRows.scss";
+import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
 
-export default function ListTableRow(props) {
+export default function ListContainerTableRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -46,7 +46,7 @@ export default function ListTableRow(props) {
 		e.stopPropagation();
 	};
 
-	const openViewItemModal = () => {
+	const openItemContainer = () => {
 		if (
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem ===
 				null ||
@@ -56,8 +56,8 @@ export default function ListTableRow(props) {
 			dispatch(setWhichAccountComponentsDisplay({}));
 			dispatch(
 				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-					listTable: false,
-					viewItemModal: true,
+					listContainer: false,
+					itemContainer: true,
 					targetItem: props.item,
 				})
 			);
@@ -77,7 +77,7 @@ export default function ListTableRow(props) {
 				"js-list-table-row-" +
 				props.item.id
 			}
-			onClick={openViewItemModal}
+			onClick={openItemContainer}
 		>
 			<td className="list-table__data">
 				<input

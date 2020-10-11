@@ -2,7 +2,7 @@
 @import "../../../utils//mixins";
 
 .top-bar-component {
-	// Must be more than viewItemModal
+	// Must be more than itemContainer
 	z-index: 2;
 	// Sticky instead of fixed for positioning of other components
 	position: -webkit-sticky;

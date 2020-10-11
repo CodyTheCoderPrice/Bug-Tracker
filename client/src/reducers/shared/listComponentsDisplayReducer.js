@@ -1,13 +1,13 @@
 import { SET_WHICH_LIST_COMPONENTS_DISPLAY } from "../../actions/types";
 
 const initialState = {
-	listTable: false,
-	listTableMassDeleteItemsModal: false,
-	createItemSidbar: false,
+	listContainer: false,
+	listContainerMassDeleteItemsModal: false,
+	listContainerCreateItemSidbar: false,
 	targetItem: null,
-	viewItemModal: false,
-	viewItemModalEditInfo: false,
-	viewItemModalDelete: false,
+	itemContainer: false,
+	itemContainerEditInfo: false,
+	itemContainerDeleteModal: false,
 	// Used to restore componentsDisplay back to it's prior state
 	previousState: null,
 };
@@ -19,33 +19,33 @@ export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_LIST_COMPONENTS_DISPLAY:
 			return {
-				listTable:
-					action.displays.listTable !== undefined
-						? action.displays.listTable
+				listContainer:
+					action.displays.listContainer !== undefined
+						? action.displays.listContainer
 						: false,
-				listTableMassDeleteItemsModal:
-					action.displays.listTableMassDeleteItemsModal !== undefined
-						? action.displays.listTableMassDeleteItemsModal
+				listContainerMassDeleteItemsModal:
+					action.displays.listContainerMassDeleteItemsModal !== undefined
+						? action.displays.listContainerMassDeleteItemsModal
 						: false,
-				createItemSidbar:
-					action.displays.createItemSidbar !== undefined
-						? action.displays.createItemSidbar
+				listContainerCreateItemSidbar:
+					action.displays.listContainerCreateItemSidbar !== undefined
+						? action.displays.listContainerCreateItemSidbar
 						: false,
 				targetItem:
 					action.displays.targetItem !== undefined
 						? action.displays.targetItem
 						: null,
-				viewItemModal:
-					action.displays.viewItemModal !== undefined
-						? action.displays.viewItemModal
+				itemContainer:
+					action.displays.itemContainer !== undefined
+						? action.displays.itemContainer
 						: false,
-				viewItemModalEditInfo:
-					action.displays.viewItemModalEditInfo !== undefined
-						? action.displays.viewItemModalEditInfo
+				itemContainerEditInfo:
+					action.displays.itemContainerEditInfo !== undefined
+						? action.displays.itemContainerEditInfo
 						: false,
-				viewItemModalDelete:
-					action.displays.viewItemModalDelete !== undefined
-						? action.displays.viewItemModalDelete
+				itemContainerDeleteModal:
+					action.displays.itemContainerDeleteModal !== undefined
+						? action.displays.itemContainerDeleteModal
 						: false,
 				previousState:
 					action.displays.previousState !== undefined

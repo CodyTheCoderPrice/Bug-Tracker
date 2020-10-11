@@ -22,7 +22,7 @@ export const createProject = (projectInfo) => (dispatch) => {
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
-			dispatch(setWhichProjectComponentsDisplay({ listTable: true }));
+			dispatch(setWhichProjectComponentsDisplay({ listContainer: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -67,7 +67,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 					targetItem: projects.filter((project) => {
 						return project.id === projectInfo.id;
 					})[0],
-					viewItemModalEditInfo: false,
+					itemContainerEditInfo: false,
 				})
 			);
 		})
@@ -100,7 +100,7 @@ export const deleteProject = (id, massDeleteList, indexOfTargetProjectId) => (
 			}
 			dispatch(
 				setWhichProjectComponentsDisplay({
-					listTable: true,
+					listContainer: true,
 				})
 			);
 		})
@@ -132,7 +132,7 @@ export const deleteMultipleProjects = (
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
-					listTableMassDeleteItemsModal: false,
+					listContainerMassDeleteItemsModal: false,
 				})
 			);
 		})
