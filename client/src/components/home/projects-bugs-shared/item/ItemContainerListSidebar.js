@@ -23,21 +23,21 @@ export default function ItemContainerListSidebar(props) {
 		setOriginalItemContainerListSidebarHeight,
 	] = useState(null);
 
-	// Resize mini-list-table-component height to fit window when smaller than it
+	// Resize list-sidebar-component height to fit window when smaller than it
 	useEffect(() => {
 		if (
 			reduxState.sizeContainer.variables.window !== null &&
 			reduxState.sizeContainer.variables.navbar !== null &&
-			reduxState.sizeContainer.constants.viewItemTopBar !== null
+			reduxState.sizeContainer.constants.itemContainerTopBar !== null
 		) {
-			let miniListTableElement = document.getElementsByClassName(
-				"js-mini-list-table-component"
+			let itemContainerListSidebarElement = document.getElementsByClassName(
+				"js-list-sidebar-component"
 			)[0];
 
 			// Makes sure originalItemContainerListSidebarHeight gets set
 			if (originalItemContainerListSidebarHeight === null) {
 				setOriginalItemContainerListSidebarHeight({
-					height: stripNonDigits(getElementStyle(miniListTableElement).height),
+					height: stripNonDigits(getElementStyle(itemContainerListSidebarElement).height),
 				});
 
 				// Prevents crash since originalItemContainerListSidebarHeight will still
@@ -48,20 +48,20 @@ export default function ItemContainerListSidebar(props) {
 			const adjustedWindowHeight =
 				reduxState.sizeContainer.variables.window.height -
 				reduxState.sizeContainer.variables.navbar.height -
-				reduxState.sizeContainer.constants.viewItemTopBar.height;
+				reduxState.sizeContainer.constants.itemContainerTopBar.height;
 
-			miniListTableElement.style.height = adjustedWindowHeight + "px";
+			itemContainerListSidebarElement.style.height = adjustedWindowHeight + "px";
 		}
 		// eslint-disable-next-line
 	}, [reduxState.sizeContainer.variables, originalItemContainerListSidebarHeight]);
 
 	return (
-		<div className="mini-list-table-component js-mini-list-table-component">
-			<table className="mini-list-table">
+		<div className="list-sidebar-component js-list-sidebar-component">
+			<table className="list-sidebar">
 				<thead className="">
-					<tr className="mini-list-table__row">
-						<th className="mini-list-table__header js-mini-list-table__header">
-							<span className="mini-list-table__header__span">
+					<tr className="list-sidebar__row">
+						<th className="list-sidebar__header js-list-sidebar__header">
+							<span className="list-sidebar__header__span">
 								{props.reduxContainerName === projectContainerName
 									? "Projects"
 									: "Bugs"}
@@ -94,7 +94,7 @@ export default function ItemContainerListSidebar(props) {
 						);
 					})}
 					{/*Creates an empty space at the bottom*/}
-					<tr className="mini-list-table__row--empty" />
+					<tr className="list-sidebar__row--empty" />
 				</tbody>
 			</table>
 		</div>

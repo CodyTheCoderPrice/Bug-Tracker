@@ -80,9 +80,10 @@ const rootReducer = (state, action) => {
 	if (action.type === RESET_REDUX) {
 		// May not be needed
 		// Removes keys from redux persist engine
-		/* storage.removeItem("persist:root");
+		storage.removeItem("persist:root");
 		storage.removeItem("persist:" + generalContainerName);
-		storage.removeItem("persist:root" + projectContainerName); */
+		storage.removeItem("persist:root" + projectContainerName);
+		storage.removeItem("persist:root" + bugContainerName);
 
 		// State being undefined will trigger the inital states of all containers
 		state = undefined;

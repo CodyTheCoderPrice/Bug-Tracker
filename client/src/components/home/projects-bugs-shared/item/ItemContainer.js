@@ -21,22 +21,22 @@ export default function ItemContainer(props) {
 		if (
 			reduxState.sizeContainer.variables.window !== null &&
 			reduxState.sizeContainer.variables.navbar !== null &&
-			reduxState.sizeContainer.constants.viewItemTopBar !== null &&
-			reduxState.sizeContainer.constants.miniListTable !== null
+			reduxState.sizeContainer.constants.itemContainerTopBar !== null &&
+			reduxState.sizeContainer.constants.itemContainerListSidebar !== null
 		) {
 			const itemContainerElement = document.getElementsByClassName(
-				"js-view-item-modal"
+				"js-item-container"
 			)[0];
 
 			itemContainerElement.style.height =
 				reduxState.sizeContainer.variables.window.height -
 				reduxState.sizeContainer.variables.navbar.height -
-				reduxState.sizeContainer.constants.viewItemTopBar.height +
+				reduxState.sizeContainer.constants.itemContainerTopBar.height +
 				"px";
 
 			itemContainerElement.style.width =
 				reduxState.sizeContainer.variables.window.width -
-				reduxState.sizeContainer.constants.miniListTable.width +
+				reduxState.sizeContainer.constants.itemContainerListSidebar.width +
 				"px";
 		}
 	}, [reduxState.sizeContainer]);
@@ -56,8 +56,15 @@ export default function ItemContainer(props) {
 		<div>
 			<ItemContainerTopBar reduxContainerName={props.reduxContainerName} />
 			<ItemContainerListSidebar reduxContainerName={props.reduxContainerName} />
-			<div className="view-item-modal-component">
-				<div className="view-item-modal js-view-item-modal">
+			{/* Located outside item-container-component so topBar doesn't cover it */}
+			{reduxState[props.reduxContainerName].componentsDisplay
+				.itemContainerDeleteModal ? (
+				<ItemContainerDeleteModal
+					reduxContainerName={props.reduxContainerName}
+				/>
+			) : null}
+			<div className="item-container-component">
+				<div className="item-container js-item-container">
 					<div className="item-content-container js-item-content-container">
 						<div className="padding-container">
 							{!reduxState[props.reduxContainerName].componentsDisplay
@@ -74,12 +81,6 @@ export default function ItemContainer(props) {
 									/>
 								</div>
 							)}
-							{reduxState[props.reduxContainerName].componentsDisplay
-								.itemContainerDeleteModal ? (
-								<ItemContainerDeleteModal
-									reduxContainerName={props.reduxContainerName}
-								/>
-							) : null}
 						</div>
 					</div>
 				</div>

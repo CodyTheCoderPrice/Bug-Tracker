@@ -1,26 +1,26 @@
 @import "../../../utils/variables";
 @import "../../../utils//mixins";
 
-.mini-list-table-component {
+.list-sidebar-component {
 	// EDIT Must be more than searchFilterSortBar
 	z-index: 1;
 	position: fixed;
 	top: $navbar-height + $top-bar-height + $top-bar-border-width;
 	left: 0px;
-	border-right: $mini-list-table-border-width solid black;
+	border-right: $list-sidebar-border-width solid black;
 	background-color: $list-table-background-color;
 	height: 90vh;
-	width: $mini-list-table-width;
+	width: $list-sidebar-width;
 	font-family: Arial, Helvetica, sans-serif;
 	overflow-y: auto !important;
 	overflow-x: hidden !important;
 
-	.mini-list-table {
+	.list-sidebar {
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
 	}
 
-	.mini-list-table__row {
+	.list-sidebar__row {
 		@include border-line();
 		background-color: $list-table-background-color;
 		padding: 5px;
@@ -28,15 +28,15 @@
 		text-align: center;
 	}
 
-	.mini-list-table__row--empty {
+	.list-sidebar__row--empty {
 		height: $list-table-row-height + ($list-table-row-height * 0.5);
 	}
 
-	.mini-list-table__row--selected {
+	.list-sidebar__row--selected {
 		background-color: $medium-lighter-gray;
 	}
 
-	.mini-list-table__header {
+	.list-sidebar__header {
 		position: -webkit-sticky;
 		position: sticky;
 		background-color: $list-table-background-color;
@@ -45,10 +45,10 @@
 		box-shadow: 0 1px 0 $medium-gray;
 	}
 
-	.mini-list-table__data {
+	.list-sidebar__data {
 		padding: 0px 7px 0px 7px;
-		width: $mini-list-table-width;
-		max-width: $mini-list-table-width;
+		width: $list-sidebar-width;
+		max-width: $list-sidebar-width;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;

@@ -43,8 +43,8 @@ export default function Navbar() {
 					),
 				},
 				scrollbar: calcScrollbarWidth(),
-				viewItemTopBar: calcViewItemTopBarHeight(),
-				miniListTable: calcItemContainerListSidebarWidth(),
+				itemContainerTopBar: calcViewItemTopBarHeight(),
+				itemContainerListSidebar: calcItemContainerListSidebarWidth(),
 			})
 		);
 

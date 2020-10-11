@@ -3,7 +3,7 @@
 .delete-item-modal-component {
 	.blurred-background {
 		// Must be the same or more than searchFilterSortBar.scss
-		z-index: 1;
+		z-index: 5;
 		position: fixed;
 		top: $navbar-height;
 		left: 0px;

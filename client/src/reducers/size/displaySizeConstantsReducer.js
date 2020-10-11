@@ -3,8 +3,8 @@ import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/types";
 const initialState = {
 	home: null,
 	scrollbar: null,
-	viewItemTopBar: null,
-	miniListTable: null,
+	itemContainerTopBar: null,
+	itemContainerListSidebar: null,
 };
 
 export default function (state = initialState, action) {
@@ -13,8 +13,8 @@ export default function (state = initialState, action) {
 			return {
 				home: action.sizes.home,
 				scrollbar: action.sizes.scrollbar,
-				viewItemTopBar: action.sizes.viewItemTopBar,
-				miniListTable: action.sizes.miniListTable,
+				itemContainerTopBar: action.sizes.itemContainerTopBar,
+				itemContainerListSidebar: action.sizes.itemContainerListSidebar,
 			};
 		default:
 			return state;

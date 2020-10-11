@@ -2,8 +2,8 @@
 
 .account-sidebar-component {
 	.sidebar-container {
-		// Must be more than searchFilterSortBar.scss
-		z-index: 2;
+		// Must be the same as account-modals-blurred-background
+		z-index: 10;
 		position: fixed;
 		top: $navbar-height;
 		right: 0;

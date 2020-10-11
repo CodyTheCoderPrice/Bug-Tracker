@@ -1,14 +1,13 @@
 @import "../../../utils/variables";
 @import "../../../utils//mixins";
 
-.view-item-modal-component {
-	.view-item-modal {
+.item-container-component {
+	.item-container {
 		// EDIT Must be more than searchFilterSortBar
 		z-index: 1;
 		position: fixed;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width;
-		left: $mini-list-table-width + $mini-list-table-border-width;
-		/* left: $mini-list-table-width + $mini-list-table-border-width; */
+		left: $list-sidebar-width + $list-sidebar-border-width;
 		background-color: white;
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy

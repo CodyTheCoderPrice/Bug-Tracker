@@ -27,9 +27,9 @@ export default function ItemContainerListSidebarRow(props) {
 				reduxState[props.reduxContainerName].componentsDisplay.targetItem.id ===
 					props.item.id,
 				document.getElementsByClassName(
-					"js-mini-list-table-row-" + props.item.id
+					"js-list-sidebar-row-" + props.item.id
 				)[0],
-				"mini-list-table__row--selected"
+				"list-sidebar__row--selected"
 			);
 		}
 	}, [
@@ -64,13 +64,13 @@ export default function ItemContainerListSidebarRow(props) {
 	return (
 		<tr
 			className={
-				"mini-list-table__row mini-list-table__row--clickable " +
-				"js-mini-list-table-row-" +
+				"list-sidebar__row list-sidebar__row--clickable " +
+				"js-list-sidebar-row-" +
 				props.item.id
 			}
 			onClick={openItemContainer}
 		>
-			<td className="mini-list-table__data">
+			<td className="list-sidebar__data">
 			<span
 					className={
 						"list-table__data__info" + (props.reduxContainerName ===

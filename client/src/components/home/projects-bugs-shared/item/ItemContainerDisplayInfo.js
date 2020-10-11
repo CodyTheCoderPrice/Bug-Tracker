@@ -80,7 +80,7 @@ export default function ItemContainerDisplayInfo(props) {
 							<span className="item-box__group__field_content">
 								{
 									reduxState[props.reduxContainerName].componentsDisplay
-										.targetItem.priorityOption
+										.targetItem.priority_option
 								}
 							</span>
 						</div>
@@ -89,7 +89,7 @@ export default function ItemContainerDisplayInfo(props) {
 							<span className="item-box__group__field_content">
 								{
 									reduxState[props.reduxContainerName].componentsDisplay
-										.targetItem.statusOption
+										.targetItem.status_option
 								}
 							</span>
 						</div>

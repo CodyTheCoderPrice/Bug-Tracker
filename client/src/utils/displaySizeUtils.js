@@ -65,7 +65,7 @@ export function calcViewItemTopBarHeight() {
 
 export function calcItemContainerListSidebarWidth() {
 	const invisibleItemContainerListSidebarElement = document.createElement("div");
-	invisibleItemContainerListSidebarElement.className = "mini-list-table-component";
+	invisibleItemContainerListSidebarElement.className = "list-sidebar-component";
 	invisibleItemContainerListSidebarElement.visibility = "hidden";
 	document.body.appendChild(invisibleItemContainerListSidebarElement);
 
