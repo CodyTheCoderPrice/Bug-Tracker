@@ -2,25 +2,45 @@
 @import "../../../utils//mixins";
 
 .list-sidebar-component {
-	// EDIT Must be more than searchFilterSortBar
-	z-index: 1;
-	position: fixed;
-	top: $navbar-height + $top-bar-height + $top-bar-border-width;
-	left: 0px;
-	border-right: $list-sidebar-border-width solid black;
-	background-color: $list-table-background-color;
-	height: 90vh;
+	// Width must be set here so width can be calculated and stored in redux
 	width: $list-sidebar-width;
-	font-family: Arial, Helvetica, sans-serif;
-	overflow-y: auto !important;
-	overflow-x: hidden !important;
+
+	.expand-minimize-container {
+		// EDIT Must be more than searchFilterSortBar and displayInfo/editInfo
+		z-index: 2;
+		position: absolute;
+		top: $navbar-height + $top-bar-height + $top-bar-border-width + 10;
+		left: $list-sidebar-width + $list-sidebar-border-width;
+		border: $list-sidebar-border-width solid black;
+		border-left: none;
+	}
+
+	.expand-minimize-container__button {
+		margin: 5px 5px 5px 3px;
+	}
 
 	.list-sidebar {
+		// EDIT Must be more than searchFilterSortBar
+		z-index: 2;
+		position: fixed;
+		top: $navbar-height + $top-bar-height + $top-bar-border-width;
+		left: 0px;
+		border-right: $list-sidebar-border-width solid black;
+		background-color: $list-table-background-color;
+		height: 90vh;
+		// Width must be set here again to not go beyond
+		width: $list-sidebar-width;
+		font-family: Arial, Helvetica, sans-serif;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
+	}
+
+	.list-sidebar__table {
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
 	}
 
-	.list-sidebar__row {
+	.list-sidebar__table__row {
 		@include border-line();
 		background-color: $list-table-background-color;
 		padding: 5px;
@@ -28,15 +48,15 @@
 		text-align: center;
 	}
 
-	.list-sidebar__row--empty {
+	.list-sidebar__table__row--empty {
 		height: $list-table-row-height + ($list-table-row-height * 0.5);
 	}
 
-	.list-sidebar__row--selected {
+	.list-sidebar__table__row--selected {
 		background-color: $medium-lighter-gray;
 	}
 
-	.list-sidebar__header {
+	.list-sidebar__table__header {
 		position: -webkit-sticky;
 		position: sticky;
 		background-color: $list-table-background-color;
@@ -45,21 +65,18 @@
 		box-shadow: 0 1px 0 $medium-gray;
 	}
 
-	.list-sidebar__data {
+	.list-sidebar__table__data {
 		padding: 0px 7px 0px 7px;
 		width: $list-sidebar-width;
 		max-width: $list-sidebar-width;
+		color: $blue-link;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		cursor: default;
 	}
 
-	.list-table__data__info {
-		color: $blue-link;
-	}
-
-	.list-table__data__info--red {
+	.list-sidebar__table__data--red {
 		color: $red-link;
 	}
 }

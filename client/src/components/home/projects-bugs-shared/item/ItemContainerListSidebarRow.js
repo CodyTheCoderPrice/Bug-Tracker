@@ -27,9 +27,9 @@ export default function ItemContainerListSidebarRow(props) {
 				reduxState[props.reduxContainerName].componentsDisplay.targetItem.id ===
 					props.item.id,
 				document.getElementsByClassName(
-					"js-list-sidebar-row-" + props.item.id
+					"js-list-sidebar__table-row-" + props.item.id
 				)[0],
-				"list-sidebar__row--selected"
+				"list-sidebar__table__row--selected"
 			);
 		}
 	}, [
@@ -64,20 +64,20 @@ export default function ItemContainerListSidebarRow(props) {
 	return (
 		<tr
 			className={
-				"list-sidebar__row list-sidebar__row--clickable " +
-				"js-list-sidebar-row-" +
+				"list-sidebar__table__row list-sidebar__table__row--clickable " +
+				"js-list-sidebar__table-row-" +
 				props.item.id
 			}
 			onClick={openItemContainer}
 		>
-			<td className="list-sidebar__data">
+			<td className={
+						"list-sidebar__table__data" + (props.reduxContainerName ===
+						bugContainerName
+							? " list-sidebar__table__data--red"
+							: "")
+					}>
 			<span
-					className={
-						"list-table__data__info" + (props.reduxContainerName ===
-						projectContainerName
-							? " list-table__data__info--blue"
-							: " list-table__data__info--red")
-					}
+					
 				>
 					{props.item.name}
 				</span>

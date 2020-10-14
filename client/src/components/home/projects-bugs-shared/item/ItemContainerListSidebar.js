@@ -37,7 +37,9 @@ export default function ItemContainerListSidebar(props) {
 			// Makes sure originalItemContainerListSidebarHeight gets set
 			if (originalItemContainerListSidebarHeight === null) {
 				setOriginalItemContainerListSidebarHeight({
-					height: stripNonDigits(getElementStyle(itemContainerListSidebarElement).height),
+					height: stripNonDigits(
+						getElementStyle(itemContainerListSidebarElement).height
+					),
 				});
 
 				// Prevents crash since originalItemContainerListSidebarHeight will still
@@ -50,53 +52,66 @@ export default function ItemContainerListSidebar(props) {
 				reduxState.sizeContainer.variables.navbar.height -
 				reduxState.sizeContainer.constants.itemContainerTopBar.height;
 
-			itemContainerListSidebarElement.style.height = adjustedWindowHeight + "px";
+			itemContainerListSidebarElement.style.height =
+				adjustedWindowHeight + "px";
 		}
 		// eslint-disable-next-line
-	}, [reduxState.sizeContainer.variables, originalItemContainerListSidebarHeight]);
+	}, [
+		reduxState.sizeContainer.variables,
+		originalItemContainerListSidebarHeight,
+	]);
 
 	return (
+		/*Changing classname of list-sidebar-component will 
+		affect util function for calculating sidebar width*/
 		<div className="list-sidebar-component js-list-sidebar-component">
-			<table className="list-sidebar">
-				<thead className="">
-					<tr className="list-sidebar__row">
-						<th className="list-sidebar__header js-list-sidebar__header">
-							<span className="list-sidebar__header__span">
-								{props.reduxContainerName === projectContainerName
-									? "Projects"
-									: "Bugs"}
-							</span>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					{/*Spread operator used for deep copy so 
+			<div className="expand-minimize-container">
+				<div className="expand-minimize-container__button">
+					<i className="fa fa-chevron-left" aria-hidden="true" />
+				</div>
+			</div>
+			<div className="list-sidebar">
+				<table className="list-sidebar__table">
+					<thead className="">
+						<tr className="list-sidebar__table__row">
+							<th className="list-sidebar__table__header js-list-sidebar__table__header">
+								<span className="list-sidebar__table__header__span">
+									{props.reduxContainerName === projectContainerName
+										? "Projects"
+										: "Bugs"}
+								</span>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{/*Spread operator used for deep copy so 
 					  ...original list array is unaffected*/}
-					{searchFilterSort(
-						props.reduxContainerName === projectContainerName
-							? [...reduxState[props.reduxContainerName].list]
-							: [
-									...reduxState[props.reduxContainerName].list.filter(
-										(item) =>
-											item.project_id ===
-											reduxState[projectContainerName].componentsDisplay
-												.targetItem.id
-									),
-							  ],
-						reduxState[props.reduxContainerName].searchFilterSort
-					).map((item, idx) => {
-						return (
-							<ItemContainerListSidebarRow
-								key={idx}
-								item={item}
-								reduxContainerName={props.reduxContainerName}
-							/>
-						);
-					})}
-					{/*Creates an empty space at the bottom*/}
-					<tr className="list-sidebar__row--empty" />
-				</tbody>
-			</table>
+						{searchFilterSort(
+							props.reduxContainerName === projectContainerName
+								? [...reduxState[props.reduxContainerName].list]
+								: [
+										...reduxState[props.reduxContainerName].list.filter(
+											(item) =>
+												item.project_id ===
+												reduxState[projectContainerName].componentsDisplay
+													.targetItem.id
+										),
+								  ],
+							reduxState[props.reduxContainerName].searchFilterSort
+						).map((item, idx) => {
+							return (
+								<ItemContainerListSidebarRow
+									key={idx}
+									item={item}
+									reduxContainerName={props.reduxContainerName}
+								/>
+							);
+						})}
+						{/*Creates an empty space at the bottom*/}
+						<tr className="list-sidebar__table__row--empty" />
+					</tbody>
+				</table>
+			</div>
 		</div>
 	);
 }

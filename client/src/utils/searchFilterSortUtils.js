@@ -7,13 +7,11 @@ export function searchFilterSort(projectsOrBugsArray, state) {
 		if (/\S/.test(state.searchKeyWordString)) {
 			const keyWords = state.searchKeyWordString.toLowerCase().split(/\s+/);
 			return projectsOrBugsArray.filter((projectOrBug) => {
-				let includesAllKeyWords = true;
 				for (let word of keyWords) {
-					if (!projectOrBug.name.toLowerCase().includes(word)) {
-						includesAllKeyWords = false;
+					if (projectOrBug.name.toLowerCase().includes(word)) {
+						return true
 					}
 				}
-				return includesAllKeyWords;
 			});
 		} else {
 			return projectsOrBugsArray;
