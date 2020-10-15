@@ -65,12 +65,14 @@ export default function ItemContainerListSidebar(props) {
 		/*Changing classname of list-sidebar-component will 
 		affect util function for calculating sidebar width*/
 		<div className="list-sidebar-component js-list-sidebar-component">
-			<div className="expand-minimize-container">
-				<div className="expand-minimize-container__button">
-					<i className="fa fa-chevron-left" aria-hidden="true" />
+			<div className="expand-minimize-button expand-minimize-button--minimized">
+				<div className="expand-minimize-button__centering-container">
+					<div className="expand-minimize-button__centering-container__icon-container">
+						<i className="fa fa-chevron-left" aria-hidden="true" />
+					</div>
 				</div>
 			</div>
-			<div className="list-sidebar">
+			<div className="list-sidebar list-sidebar--minimized">
 				<table className="list-sidebar__table">
 					<thead className="">
 						<tr className="list-sidebar__table__row">

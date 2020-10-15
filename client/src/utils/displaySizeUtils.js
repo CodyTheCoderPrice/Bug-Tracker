@@ -64,13 +64,13 @@ export function calcViewItemTopBarHeight() {
 }
 
 export function calcItemContainerListSidebarWidth() {
-	const invisibleItemContainerListSidebarElement = document.createElement("div");
-	invisibleItemContainerListSidebarElement.className = "list-sidebar-component";
-	invisibleItemContainerListSidebarElement.visibility = "hidden";
-	document.body.appendChild(invisibleItemContainerListSidebarElement);
+	const listSidebarComponentElement = document.createElement("div");
+	listSidebarComponentElement.className = "list-sidebar-component";
+	listSidebarComponentElement.visibility = "hidden";
+	document.body.appendChild(listSidebarComponentElement);
 
-	const width = getElementSize(invisibleItemContainerListSidebarElement).width;
-	invisibleItemContainerListSidebarElement.parentNode.removeChild(invisibleItemContainerListSidebarElement);
+	const width = getElementSize(listSidebarComponentElement).width;
+	listSidebarComponentElement.parentNode.removeChild(listSidebarComponentElement);
 
 	return { width: width };
 }

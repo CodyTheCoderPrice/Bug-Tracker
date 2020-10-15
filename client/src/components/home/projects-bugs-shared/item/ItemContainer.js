@@ -64,7 +64,7 @@ export default function ItemContainer(props) {
 				/>
 			) : null}
 			<div className="item-container-component">
-				<div className="item-container js-item-container">
+				<div className="item-container item-container--expanded js-item-container">
 					<div className="item-content-container js-item-content-container">
 						<div className="padding-container">
 							{!reduxState[props.reduxContainerName].componentsDisplay

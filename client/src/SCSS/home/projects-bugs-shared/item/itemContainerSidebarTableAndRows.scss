@@ -5,18 +5,35 @@
 	// Width must be set here so width can be calculated and stored in redux
 	width: $list-sidebar-width;
 
-	.expand-minimize-container {
+	.expand-minimize-button {
 		// EDIT Must be more than searchFilterSortBar and displayInfo/editInfo
 		z-index: 2;
 		position: absolute;
-		top: $navbar-height + $top-bar-height + $top-bar-border-width + 10;
+		top: $navbar-height + $top-bar-height + $top-bar-border-width + 15;
 		left: $list-sidebar-width + $list-sidebar-border-width;
 		border: $list-sidebar-border-width solid black;
 		border-left: none;
+		background-color: $medium-lighter-gray;
+		height: 80px;
+		width: 17px;
+		cursor: pointer;
+	}
+	.expand-minimize-button:hover,
+	.expand-minimize-button:active {
+		background-color: $medium-light-gray;
 	}
 
-	.expand-minimize-container__button {
-		margin: 5px 5px 5px 3px;
+	.expand-minimize-button--minimized {
+		left: $list-sidebar-border-width;
+	}
+
+	.expand-minimize-button__centering-container {
+		height: 100%;
+		width: 100%;
+	}
+
+	.expand-minimize-button__centering-container__icon-container {
+		@include dead-center();
 	}
 
 	.list-sidebar {
@@ -33,6 +50,10 @@
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto !important;
 		overflow-x: hidden !important;
+	}
+
+	.list-sidebar--minimized {
+		width: 0px;
 	}
 
 	.list-sidebar__table {
