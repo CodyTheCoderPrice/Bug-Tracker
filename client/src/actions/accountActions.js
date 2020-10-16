@@ -5,7 +5,7 @@ import { ACCOUNT_CONTAINER } from "./typeContainer";
 import { SET_AUTHENTICATION, SET_ACCOUNT } from "./types";
 import { retrievePriorityStatusArrays, setInputErrors, resetRedux } from "./index";
 import {
-	setWhichCoreComponentsDisplay,
+	setWhichGeneralComponentsDisplay,
 	setWhichAccountComponentsDisplay,
 } from "./componentActions";
 import { retrieveProjects } from "./projectActions";
@@ -31,7 +31,7 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 	axios
 		.post("/api/account/register", accountInfo)
 		.then(() => {
-			dispatch(setWhichCoreComponentsDisplay({ login: true }));
+			dispatch(setWhichGeneralComponentsDisplay({ login: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
@@ -52,7 +52,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setAccount(account));
 			dispatch(retrieveProjects());
 			dispatch(retrieveBugs());
-			dispatch(setWhichCoreComponentsDisplay({ home: true }));
+			dispatch(setWhichGeneralComponentsDisplay({ home: true }));
 		})
 		.catch((err) => {
 			if (err.response !== undefined) {
@@ -68,7 +68,6 @@ export const retrieveAccount = () => (dispatch) => {
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));
-			dispatch(setWhichCoreComponentsDisplay({ home: true }));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));

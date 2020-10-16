@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	registerAccount,
 	clearInputErrors,
-	setWhichCoreComponentsDisplay,
+	setWhichGeneralComponentsDisplay,
 } from "../../actions";
 
 import "../../SCSS/authentication/registerLogin.scss";
@@ -39,7 +39,7 @@ export default function Register() {
 	};
 
 	const openLogin = () => {
-		dispatch(setWhichCoreComponentsDisplay({ login: true }));
+		dispatch(setWhichGeneralComponentsDisplay({ login: true }));
 	};
 
 	return (

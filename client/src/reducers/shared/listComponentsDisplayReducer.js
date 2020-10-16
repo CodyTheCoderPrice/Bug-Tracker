@@ -4,10 +4,10 @@ const initialState = {
 	listContainer: false,
 	listContainerMassDeleteItemsModal: false,
 	listContainerCreateItemSidbar: false,
-	targetItem: null,
 	itemContainer: false,
 	itemContainerEditInfo: false,
 	itemContainerDeleteModal: false,
+	targetItem: null,
 	// Used to restore componentsDisplay back to it's prior state
 	previousState: null,
 };
@@ -31,10 +31,6 @@ export default function (state = initialState, action) {
 					action.displays.listContainerCreateItemSidbar !== undefined
 						? action.displays.listContainerCreateItemSidbar
 						: false,
-				targetItem:
-					action.displays.targetItem !== undefined
-						? action.displays.targetItem
-						: null,
 				itemContainer:
 					action.displays.itemContainer !== undefined
 						? action.displays.itemContainer
@@ -47,6 +43,10 @@ export default function (state = initialState, action) {
 					action.displays.itemContainerDeleteModal !== undefined
 						? action.displays.itemContainerDeleteModal
 						: false,
+				targetItem:
+					action.displays.targetItem !== undefined
+						? action.displays.targetItem
+						: null,
 				previousState:
 					action.displays.previousState !== undefined
 						? action.displays.previousState

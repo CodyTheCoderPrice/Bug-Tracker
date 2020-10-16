@@ -35,10 +35,10 @@ const rootPersistConfig = {
 };
 
 // Following two are used for nested redux persist, one level deeper
-const coreComponentsPersistConfig = {
+const generalComponentsPersistConfig = {
 	key: generalContainerName,
 	storage: storage,
-	whitelist: ["coreComponentsDisplay"],
+	whitelist: ["componentsDisplay"],
 };
 
 const projectContainerPersistConfig = {
@@ -61,7 +61,7 @@ const bugContainerPersistConfig = {
 // ...so nested persist can be used
 const containersReducer = combineReducers({
 	[generalContainerName]: persistReducer(
-		coreComponentsPersistConfig,
+		generalComponentsPersistConfig,
 		generalContainerReducer
 	),
 	[sizeContainerName]: sizeContainerReducer,

@@ -7,20 +7,20 @@
 		z-index: 1;
 		position: fixed;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width;
-		left: $list-sidebar-width + $list-sidebar-border-width;
+		left: 0px;
 		background-color: white;
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
 		height: 90vh;
-		width: 80vw;
+		width: 95vw;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto !important;
 		overflow-x: auto !important;
 	}
 
-	.item-container--expanded {
-		left: 0px;
-		width: 95vh;
+	.item-container--shifted-right {
+		left: $list-sidebar-width + $list-sidebar-border-width;
+		width: 80vw;
 	}
 
 	.item-content-container {

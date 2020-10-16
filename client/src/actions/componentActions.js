@@ -1,14 +1,14 @@
 import { GENERAL_CONTAINER, ACCOUNT_CONTAINER, PROJECT_CONTAINER, BUG_CONTAINER } from "./typeContainer";
 import {
-	SET_WHICH_CORE_COMPONENTS_DISPLAY,
+	SET_WHICH_GENERAL_COMPONENTS_DISPLAY,
 	SET_WHICH_LIST_COMPONENTS_DISPLAY,
 	SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY,
 } from "./types";
 
-export const setWhichCoreComponentsDisplay = (displays) => (dispatch) => {
+export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
 		container: GENERAL_CONTAINER,
-		type: SET_WHICH_CORE_COMPONENTS_DISPLAY,
+		type: SET_WHICH_GENERAL_COMPONENTS_DISPLAY,
 		displays: displays,
 	});
 };

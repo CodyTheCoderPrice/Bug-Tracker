@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { generalContainerName } from "../../../../reducers/containerNames";
 
 import { toggleClassName } from "../../../../utils/elementUtils";
 
@@ -16,7 +17,7 @@ export default function ItemContainer(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Adjusts the height of the modal to fit the screen
+	// Adjusts the height and width of the modal to fit the screen
 	useEffect(() => {
 		if (
 			reduxState.sizeContainer.variables.window !== null &&
@@ -34,12 +35,24 @@ export default function ItemContainer(props) {
 				reduxState.sizeContainer.constants.itemContainerTopBar.height +
 				"px";
 
-			itemContainerElement.style.width =
-				reduxState.sizeContainer.variables.window.width -
-				reduxState.sizeContainer.constants.itemContainerListSidebar.width +
-				"px";
+			if (
+				!reduxState[generalContainerName].componentsDisplay
+					.itemContainerListSidebar
+			) {
+				itemContainerElement.style.width =
+					reduxState.sizeContainer.variables.window.width -
+					reduxState.sizeContainer.constants.itemContainerListSidebar.width +
+					"px";
+			} else {
+				itemContainerElement.style.width =
+					reduxState.sizeContainer.variables.window.width + "px";
+			}
 		}
-	}, [reduxState.sizeContainer]);
+	}, [
+		reduxState.sizeContainer,
+		reduxState[generalContainerName].componentsDisplay
+			.itemContainerListSidebar,
+	]);
 
 	// Disable scrolling for the body
 	useEffect(() => {
@@ -64,7 +77,7 @@ export default function ItemContainer(props) {
 				/>
 			) : null}
 			<div className="item-container-component">
-				<div className="item-container item-container--expanded js-item-container">
+				<div className="item-container item-container--shifted-right js-item-container">
 					<div className="item-content-container js-item-content-container">
 						<div className="padding-container">
 							{!reduxState[props.reduxContainerName].componentsDisplay
