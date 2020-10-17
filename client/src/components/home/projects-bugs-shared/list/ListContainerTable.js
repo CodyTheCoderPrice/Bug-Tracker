@@ -70,10 +70,6 @@ export default function ListContainerTable(props) {
 		);
 	};
 
-	useEffect(() => {
-		console.log(reduxState[props.reduxContainerName].componentsDisplay);
-	}, [reduxState.projectContainer.componentsDisplay])
-
 	return (
 		<div className="list-table-component">
 			<table className="list-table">

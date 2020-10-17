@@ -56,31 +56,24 @@ export default function Navbar() {
 		);
 
 		// Adds event to update navbar size on a resize
-		window.addEventListener("resize", () => {
-			dispatch(
-				setDisplaySizeVariables({
-					window: getWindowSize(),
-					navbar: getElementSize(
-						document.getElementsByClassName("js-navbar")[0]
-					),
-				})
-			);
-		});
+		window.addEventListener("resize", displaySizeHandler);
 
 		return () => {
-			window.removeEventListener("resize", () => {
-				dispatch(
-					setDisplaySizeVariables({
-						window: getWindowSize(),
-						navbar: getElementSize(
-							document.getElementsByClassName("js-navbar")[0]
-						),
-					})
-				);
-			});
+			console.log("Got here");
+			window.removeEventListener("resize", displaySizeHandler);
 		};
 		// eslint-disable-next-line
 	}, []);
+
+	// Declared outside of the eventListener so removing will working on cleanup
+	function displaySizeHandler() {
+		dispatch(
+			setDisplaySizeVariables({
+				window: getWindowSize(),
+				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
+			})
+		);
+	}
 
 	useEffect(() => {
 		setNavbarButtonColor(
@@ -136,14 +129,16 @@ export default function Navbar() {
 
 	const openProjectsTable = () => {
 		if (
-			reduxState[projectContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[projectContainerName].componentsDisplay.listContainer !==
+				true &&
 			reduxState[projectContainerName].componentsDisplay.itemContainer !== true
 		) {
 			dispatch(
 				setWhichBugComponentsDisplay({
 					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
 					previousState:
-						reduxState[bugContainerName].componentsDisplay.listContainer === true ||
+						reduxState[bugContainerName].componentsDisplay.listContainer ===
+							true ||
 						reduxState[bugContainerName].componentsDisplay.itemContainer ===
 							true
 							? reduxState[bugContainerName].componentsDisplay

@@ -149,7 +149,7 @@ export const logoutAccount = () => (dispatch) => {
 
 	// Reset redux
 	dispatch(resetRedux());
-	// Refetch priority and status options encase logging back ing
+	// Refetch priority and status options encase logging back in
 	dispatch(retrievePriorityStatusArrays());
 
 	console.log("Message: logged out");
