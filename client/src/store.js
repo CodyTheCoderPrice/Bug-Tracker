@@ -14,7 +14,6 @@ import {
 	projectContainerName,
 	bugContainerName,
 } from "./reducers/containerNames";
-import { RESET_REDUX } from "./actions/types";
 // Used to persist the redux state
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -57,9 +56,9 @@ const bugContainerPersistConfig = {
 	blacklist: ["massDeleteList", "searchFilterSort"],
 };
 
-// containersReducer is combined here instead of in the reducer index.js
+// rootReducer is created here instead of in the reducer index.js
 // ...so nested persist can be used
-const containersReducer = combineReducers({
+const rootReducer = combineReducers({
 	[generalContainerName]: persistReducer(
 		generalComponentsPersistConfig,
 		generalContainerReducer
@@ -75,22 +74,6 @@ const containersReducer = combineReducers({
 		bugContainerReducer
 	),
 });
-
-const rootReducer = (state, action) => {
-	if (action.type === RESET_REDUX) {
-		// May not be needed
-		// Removes keys from redux persist engine
-		/* storage.removeItem("persist:root");
-		storage.removeItem("persist:" + generalContainerName);
-		storage.removeItem("persist:root" + projectContainerName);
-		storage.removeItem("persist:root" + bugContainerName); */
-
-		// State being undefined will trigger the inital states of all containers
-		state = undefined;
-	}
-
-	return containersReducer(state, action);
-};
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 

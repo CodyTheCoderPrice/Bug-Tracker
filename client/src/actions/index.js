@@ -19,6 +19,7 @@ export * from "./projectActions";
 export * from "./bugActions";
 export * from "./componentActions";
 export * from "./switchActions";
+export * from "./resetActions";
 
 export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 	dispatch({
@@ -85,9 +86,3 @@ export const clearInputErrors = () => (dispatch) => {
 		inputErrors: {},
 	});
 };
-
-export const resetRedux = () => (dispatch) => {
-	dispatch({
-		type: RESET_REDUX
-	});
-}

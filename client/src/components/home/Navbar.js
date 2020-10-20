@@ -59,7 +59,6 @@ export default function Navbar() {
 		window.addEventListener("resize", displaySizeHandler);
 
 		return () => {
-			console.log("Got here");
 			window.removeEventListener("resize", displaySizeHandler);
 		};
 		// eslint-disable-next-line

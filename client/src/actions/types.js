@@ -19,4 +19,4 @@ export const SET_MASS_DELETE_LIST = "SET_MASS_DELETE_LIST";
 // Errors
 export const SET_INPUT_ERRORS = "SET_INPUT_ERRORS";
 // Reset Redux
-export const RESET_REDUX = "RESET_REDUX";
+export const RESET_CONTAINER = "RESET_CONTAINER";

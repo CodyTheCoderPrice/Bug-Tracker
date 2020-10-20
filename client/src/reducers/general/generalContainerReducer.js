@@ -2,6 +2,7 @@ import generalComponentsDisplayReducer from "./generalComponentsDisplayReducer";
 import inputErrorReducer from "./inputErrorReducer";
 
 import { GENERAL_CONTAINER } from "../../actions/typeContainer";
+import { RESET_CONTAINER } from "../../actions/types";
 
 const initialState = {
 	// (undefined, {}) will cause each function to return their initial state
@@ -12,13 +13,17 @@ const initialState = {
 export function generalContainerReducer(state = initialState, action) {
 	switch (action.container) {
 		case GENERAL_CONTAINER:
-			return {
-				componentsDisplay: generalComponentsDisplayReducer(
-					state.componentsDisplay,
-					action
-				),
-				inputErrors: inputErrorReducer(state.inputErrors, action),
-			};
+			if(action.type === RESET_CONTAINER) {
+				return initialState
+			} else {
+				return {
+					componentsDisplay: generalComponentsDisplayReducer(
+						state.componentsDisplay,
+						action
+					),
+					inputErrors: inputErrorReducer(state.inputErrors, action),
+				};
+			}
 		default:
 			return state;
 	}
