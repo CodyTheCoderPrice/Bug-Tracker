@@ -2,8 +2,8 @@
 
 .account-sidebar-component {
 	.sidebar-container {
-		// Must be the same as account-modals-blurred-background
-		z-index: 10;
+		// Must be the same as accountBlurredBackground.scss
+		z-index: 2;
 		position: fixed;
 		top: $navbar-height;
 		right: 0;

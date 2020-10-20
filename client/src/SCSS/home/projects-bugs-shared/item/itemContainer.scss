@@ -3,8 +3,6 @@
 
 .item-container-component {
 	.item-container {
-		// EDIT Must be more than searchFilterSortBar
-		z-index: 1;
 		position: fixed;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width;
 		left: 0px;

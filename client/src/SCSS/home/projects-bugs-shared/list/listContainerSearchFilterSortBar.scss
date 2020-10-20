@@ -96,7 +96,7 @@
 		@include stop-text-selection();
 
 		// Must be more than search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown
-		// ...so its top border can be covered to make containers look in unison
+		// ...so its top border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
 		top: 13px;

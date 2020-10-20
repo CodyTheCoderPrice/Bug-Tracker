@@ -1,8 +1,9 @@
 @import "../../utils/variables";
 
 .account-modals-blurred-background {
-	// Must be more than itemContainerTopBar
-	z-index: 10;
+	// Must be more than listContainerSearchFilterSortBar.scss,
+	// ...itemContainerTopBar.scss, and itemContainerSidebarTablesAndRows.scss
+	z-index: 2;
 	position: fixed;
 	left: 0;
 	top: $navbar-height;

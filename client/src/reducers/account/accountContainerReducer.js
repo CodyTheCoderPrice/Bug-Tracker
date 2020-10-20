@@ -3,7 +3,7 @@ import authReducer from "./authReducer";
 import accountReducer from "./accountReducer";
 
 import { ACCOUNT_CONTAINER } from "../../actions/typeContainer";
-import { RESET_CONTAINER } from "../../actions/types"
+import { RESET_CONTAINER } from "../../actions/types";
 
 const initialState = {
 	// (undefined, {}) will cause each function to return their initial state

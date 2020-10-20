@@ -2,8 +2,8 @@
 @import "../../../utils//mixins";
 
 .top-bar-component {
-	// Must be more than itemContainer
-	z-index: 2;
+	// Must be more than the item-container in item-container.scss
+	z-index: 1;
 	// Sticky instead of fixed for positioning of other components
 	position: -webkit-sticky;
 	position: sticky;
@@ -32,7 +32,6 @@
 	}
 
 	.item-options-container {
-		z-index: 3;
 		position: absolute;
 		top: 8px;
 		right: 50px;
@@ -40,9 +39,9 @@
 	}
 
 	.item-options-container__button {
-		// Must be more than item-options-conatiner so its top border
-		// ...can be covered to make containers look in unison
-		z-index: 4;
+		// Must be more than item-options-container__dropdown so the two
+		// ...containers can look like one
+		z-index: 1;
 		position: absolute;
 		right: 0px;
 		// Border given color through JS

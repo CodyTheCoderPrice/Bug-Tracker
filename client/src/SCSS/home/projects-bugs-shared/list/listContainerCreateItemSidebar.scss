@@ -3,8 +3,8 @@
 
 .create-item-component {
 	.blurred-background {
-		// Must be more than searchFilterSortBar.scss
-		z-index: 2;
+		// Must be more than listContainerSearchFilterSortBar.scss
+		z-index: 1;
 		position: absolute;
 		top: $navbar-height;
 		background-color: black;
@@ -14,8 +14,8 @@
 	}
 
 	.create-item-sidebar {
-		// Must be more than searchFilterSortBar.scss
-		z-index: 2;
+		// Must be more than listContainerSearchFilterSortBar.scss
+		z-index: 1;
 		position: fixed;
 		top: $navbar-height;
 		// Used by JS during resize to give margin to bottom

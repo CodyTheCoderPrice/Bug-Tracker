@@ -6,8 +6,8 @@
 	width: $list-sidebar-width;
 
 	.expand-minimize-button {
-		// EDIT Must be more than searchFilterSortBar and displayInfo/editInfo
-		z-index: 2;
+		// Must be more than the item-container in item-container.scss
+		z-index: 1;
 		position: absolute;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width + 15;
 		left: $list-sidebar-width + $list-sidebar-border-width;
@@ -37,8 +37,8 @@
 	}
 
 	.list-sidebar {
-		// EDIT Must be more than searchFilterSortBar
-		z-index: 2;
+		// Must be more than the item-container in item-container.scss
+		z-index: 1;
 		position: fixed;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width;
 		left: 0px;

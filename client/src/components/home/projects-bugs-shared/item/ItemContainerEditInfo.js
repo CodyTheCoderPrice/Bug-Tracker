@@ -16,12 +16,6 @@ import {
 	formatDateYYYYmmDD,
 } from "../../../../utils/dateUtils";
 
-/* import {
-	getElementSize,
-	getElementStyle,
-	stripNonDigits,
-} from "../../../../utils/displaySizeUtils"; */
-
 import {
 	toggleCharCountColor,
 	populateComboBox,
@@ -148,6 +142,15 @@ export default function ItemContainerEditInfo(props) {
 		// eslint-disable-next-line
 	}, [itemInfo.status_id]);
 
+	const switchToDisplayItemInfo = () => {
+		dispatch(
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
+				itemContainerEditInfo: false,
+			})
+		);
+	};
+
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers
 		if (e.target.name === "status_id" || e.target.name === "priority_id") {
@@ -174,15 +177,6 @@ export default function ItemContainerEditInfo(props) {
 				itemInfoDeepCopy,
 				reduxState[props.reduxContainerName].componentsDisplay
 			)
-		);
-	};
-
-	const switchToDisplayItemInfo = () => {
-		dispatch(
-			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemContainerEditInfo: false,
-			})
 		);
 	};
 

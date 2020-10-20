@@ -28,8 +28,6 @@
 }
 
 @mixin back-exit-buttons() {
-	// Makes sure other elements don't cover over
-	z-index: 4;
 	position: absolute;
 	top: 7px;
 	border: none;
