@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import {
+	bugContainerName,
+} from "../../../../reducers/containerNames";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
@@ -40,6 +43,17 @@ export default function ItemContainerDisplayInfo(props) {
 			<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
 				<div className="item-box">
 					<h2 className="item-box__title">Info</h2>
+					{props.reduxContainerName === bugContainerName ? (
+						<div className="item-box__group__field">
+							<span className="item-box__group__field__type">Location:</span>
+							<span className="item-box__group__field_content">
+								{
+									reduxState[props.reduxContainerName].componentsDisplay
+										.targetItem.location
+								}
+							</span>
+						</div>
+					) : null}
 					<div className="item-box__group">
 						<div className="item-box__group__field">
 							<span className="item-box__group__field__type">Start Date:</span>
@@ -112,7 +126,7 @@ export default function ItemContainerDisplayInfo(props) {
 					</div>
 				</div>
 			) : (
-				<div> 
+				<div>
 					<div className="outer-dividing-container outer-dividing-container--one-third">
 						<div className="item-box">
 							<h2 className="item-box__title">Comments</h2>

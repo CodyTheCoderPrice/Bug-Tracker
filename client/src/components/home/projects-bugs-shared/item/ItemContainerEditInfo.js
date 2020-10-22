@@ -36,6 +36,12 @@ export default function ItemContainerEditInfo(props) {
 		description:
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem
 				.description,
+		// Only used for bugs (backend will ignore this property for projects)
+		location:
+			props.reduxContainerName === bugContainerName
+				? reduxState[props.reduxContainerName].componentsDisplay.targetItem
+						.location
+				: null,
 		priority_id:
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem
 				.priority_id,
@@ -225,6 +231,27 @@ export default function ItemContainerEditInfo(props) {
 			<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
 				<div className="item-box">
 					<h2 className="item-box__title">Info</h2>
+					{props.reduxContainerName === bugContainerName ? (
+						<div className="item-box__group__field">
+							<label
+								htmlFor="edit-item-location"
+								className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
+							>
+								Location:{" "}
+							</label>
+							<input
+								type="text"
+								name="location"
+								onChange={(e) => onChange(e)}
+								value={itemInfo.location}
+								id="edit-item-location"
+								className="item-box__group__field__form-text"
+							/>
+							<span className="form__errors">
+								{reduxState.generalContainer.inputErrors.location}
+							</span>
+						</div>
+					) : null}
 					<div className="item-box__group">
 						<div className="item-box__group__field">
 							<label
@@ -323,7 +350,7 @@ export default function ItemContainerEditInfo(props) {
 					</div>
 				</div>
 			) : (
-				<div> 
+				<div>
 					<div className="outer-dividing-container outer-dividing-container--one-third">
 						<div className="item-box">
 							<h2 className="item-box__title">Comments</h2>

@@ -33,6 +33,8 @@ export default function ListContainerCreateItemSidebar(props) {
 	const [itemInfo, setItemInfo] = useState({
 		name: "",
 		description: "",
+		// Only used for bugs (backend will ignore this property for projects)
+		location: "",
 		// Sets default to the first option
 		priority_id:
 			reduxState[props.reduxContainerName].priorityStatusOptions
@@ -144,7 +146,7 @@ export default function ListContainerCreateItemSidebar(props) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		let itemInfoDeepCopy = { ...itemInfo };
-		// Adds project_id when creating bugs
+		// Gives bugs (not projects) a project_id for backend table relations
 		if (props.reduxContainerName === bugContainerName) {
 			itemInfoDeepCopy["project_id"] =
 				reduxState[projectContainerName].componentsDisplay.targetItem.id;
@@ -155,7 +157,14 @@ export default function ListContainerCreateItemSidebar(props) {
 	return (
 		<div className="create-item-component">
 			<div className="blurred-background" onClick={closeCreateItemSidebar} />
-			<div className="create-item-sidebar js-create-item-sidebar">
+			<div
+				className={
+					"create-item-sidebar js-create-item-sidebar" +
+					(props.reduxContainerName === bugContainerName
+						? " create-item-sidebar--taller"
+						: "")
+				}
+			>
 				<div className="x-button" onClick={closeCreateItemSidebar}>
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
@@ -196,6 +205,24 @@ export default function ListContainerCreateItemSidebar(props) {
 						<span className="form__errors">
 							{reduxState.generalContainer.inputErrors.description}
 						</span>
+						{props.reduxContainerName === bugContainerName ? (
+							<div>
+								<label htmlFor="create-item-location" className="form__label">
+									Location:{" "}
+								</label>
+								<input
+									type="text"
+									name="location"
+									onChange={(e) => onChange(e)}
+									value={itemInfo.location}
+									id="create-item-location"
+									className="form__text-input"
+								/>
+								<span className="form__errors">
+									{reduxState.generalContainer.inputErrors.location}
+								</span>
+							</div>
+						) : null}
 						<div className="form__group-container">
 							<div className="form__group-container__input-container">
 								<label

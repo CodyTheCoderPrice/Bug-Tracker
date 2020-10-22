@@ -80,6 +80,17 @@
 		width: 125px;
 	}
 
+	.item-box__group__field__form-text {
+		outline: none;
+		border: 1px solid black;
+		box-sizing: border-box;
+		background-color: #ffffff;
+		padding: 8px;
+		width: $edit-item-info-box-width - 160;
+		font-size: 14px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
 	.item-box__group__field__form-select {
 		border: 1px solid black;
 		background-color: white;
@@ -91,56 +102,6 @@
 		border: 1px solid black;
 		background-color: white;
 	}
-
-	.item-box__group__field__tooltip-container {
-		// Set to relative so changing the z-index using js can be
-		// ...used to control if the tooltip is visible or not.
-		position: relative;
-		float: right;
-		margin: -32px 80px 0px 0px;
-		// Becomes visible via a mouseover event added to the completion_date container
-		visibility: hidden;
-	}
-
-	.item-box__group__field__tooltip-container__arrow-left {
-		float: left;
-		height: 0;
-		width: 0;
-		border-top: 20px solid transparent;
-		border-bottom: 20px solid transparent;
-		border-right: 20px solid black;
-	}
-
-	.item-box__group__field__tooltip-container__text-box {
-		float: left;
-		border: 1px solid black;
-		border-top-right-radius: 10px;
-		border-bottom-right-radius: 10px;
-		background-color: black;
-		padding: 11px;
-		width: 150px;
-		text-align: center;
-		font-size: 14px;
-		color: white;
-	}
-
-	/* .item-box__group__field__tooltip-container__arrow-up {
-		margin: 10px 0px 0px 65px;
-		height: 0;
-		width: 0;
-		border-right: 20px solid transparent;
-		border-left: 20px solid transparent;
-		border-bottom: 20px solid black;
-	}
-
-	.item-box__group__field__tooltip-container__text-box {
-		background-color: black;
-		padding: 12px;
-		width: 146px;
-		text-align: left;
-		font-size: 14px;
-		color: white;
-	} */
 
 	.form-buttons-outer-container {
 		position: relative;
@@ -206,5 +167,13 @@
 	.grayed-out-date {
 		background-color: $light-gray;
 		color: $medium-light-gray;
+	}
+
+	.form__errors {
+		display: block;
+		// Gives top space for location but not description
+		margin-top: 10px;
+		color: red;
+		text-align: center;
 	}
 }

@@ -4,7 +4,7 @@ const pool = require("../db");
 const router = express.Router();
 // Middleware
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
-const validateBugInput = require("../middleware/validation/project-bug-shared/createOrUpdateValidation");
+const validateBugInput = require("../middleware/validation/bug/createOrUpdateBugValidation");
 const correctDatesFormat = require("../middleware/correctDatesFormat");
 // Used instead of the Date() function
 const moment = require("moment");
@@ -29,6 +29,7 @@ router
 					name,
 					project_id,
 					description,
+					location,
 					priority_id,
 					status_id,
 					start_date,
@@ -47,13 +48,15 @@ router
 				}
 
 				const createdBug = await pool.query(
-					`INSERT INTO bug (project_id, name, description, b_priority_id, b_status_id, 
-					creation_date, start_date, due_date, completion_date) 
-						VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+					`INSERT INTO bug (project_id, name, description, location, 
+					b_priority_id, b_status_id, creation_date, start_date, 
+					due_date, completion_date) 
+						VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
 					[
 						project_id,
 						name,
 						description,
+						location,
 						priority_id,
 						status_id,
 						creation_date,
@@ -73,9 +76,9 @@ router
 						(SELECT * FROM bug WHERE project_id IN 
 							(SELECT project_id FROM project WHERE account_id = $1)
 						)
-					SELECT b.bug_id AS id, b.project_id, b.name, b.description,
+					SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 						b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-						b.creation_date, b.start_date, b.due_date,
+					 	b.creation_date, b.start_date, b.due_date,
 						b.completion_date, bp.option AS priority_option, 
 						bs.option AS status_option
 							FROM b, bug_priority bp, bug_status bs 
@@ -109,9 +112,9 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 				(SELECT * FROM bug WHERE project_id IN 
 					(SELECT project_id FROM project WHERE account_id = $1)
 				)
-			SELECT b.bug_id AS id, b.project_id, b.name, b.description,
+			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-				b.creation_date, b.start_date, b.due_date,
+				 b.creation_date, b.start_date, b.due_date,
 				b.completion_date, bp.option AS priority_option, 
 				bs.option AS status_option
 					FROM b, bug_priority bp, bug_status bs 
@@ -150,6 +153,7 @@ router
 					project_id,
 					name,
 					description,
+					location,
 					priority_id,
 					status_id,
 					start_date,
@@ -167,12 +171,14 @@ router
 				}
 
 				const updatedBug = await pool.query(
-					`UPDATE bug SET name = $1, description = $2, b_priority_id = $3, 
-				b_status_id = $4, start_date = $5, due_date = $6, completion_date = $7
-				WHERE project_id = $8 AND bug_id = $9`,
+					`UPDATE bug SET name = $1, description = $2, location = $3,
+					b_priority_id = $4, b_status_id = $5, start_date = $6,
+					due_date = $7, completion_date = $8
+						WHERE project_id = $9 AND bug_id = $10`,
 					[
 						name,
 						description,
+						location,
 						priority_id,
 						status_id,
 						start_date,
@@ -193,9 +199,9 @@ router
 						(SELECT * FROM bug WHERE project_id IN 
 							(SELECT project_id FROM project WHERE account_id = $1)
 						)
-					SELECT b.bug_id AS id, b.project_id, b.name, b.description,
+					SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 						b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-						b.creation_date, b.start_date, b.due_date,
+					 	b.creation_date, b.start_date, b.due_date,
 						b.completion_date, bp.option AS priority_option, 
 						bs.option AS status_option
 							FROM b, bug_priority bp, bug_status bs 
@@ -245,9 +251,9 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 				(SELECT * FROM bug WHERE project_id IN 
 					(SELECT project_id FROM project WHERE account_id = $1)
 				)
-			SELECT b.bug_id AS id, b.project_id, b.name, b.description,
+			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-				b.creation_date, b.start_date, b.due_date,
+				 b.creation_date, b.start_date, b.due_date,
 				b.completion_date, bp.option AS priority_option, 
 				bs.option AS status_option
 					FROM b, bug_priority bp, bug_status bs 
@@ -292,7 +298,10 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			[...bugsArray]
 		);
 
-		if (projectBelongsToAccountCheck.rowCount !== 1 || projectBelongsToAccountCheck.rows[0].account_id !== account_id) {
+		if (
+			projectBelongsToAccountCheck.rowCount !== 1 ||
+			projectBelongsToAccountCheck.rows[0].account_id !== account_id
+		) {
 			throw { message: "Bug does not belong to account" };
 		}
 
@@ -302,13 +311,13 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		);
 
 		const allBugsForAccount = await pool.query(
-			`WITH b AS (
-			SELECT * FROM bug WHERE project_id IN 
-				(SELECT project_id FROM project WHERE account_id = $1)
-		)
-		SELECT b.bug_id AS id, b.project_id, b.name, b.description,
+			`WITH b AS 
+				(SELECT * FROM bug WHERE project_id IN 
+					(SELECT project_id FROM project WHERE account_id = $1)
+				)
+			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-				b.creation_date, b.start_date, b.due_date,
+				 b.creation_date, b.start_date, b.due_date,
 				b.completion_date, bp.option AS priority_option, 
 				bs.option AS status_option
 					FROM b, bug_priority bp, bug_status bs 
