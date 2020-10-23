@@ -14,7 +14,7 @@ export default function ItemContainerDisplayInfo(props) {
 
 	return (
 		<div>
-			<div className="outer-dividing-container">
+			<div className="outer-dividing-container outer-dividing-container--full">
 				<h1 className="item-name">
 					{
 						reduxState[props.reduxContainerName].componentsDisplay.targetItem

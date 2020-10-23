@@ -6,6 +6,8 @@
 	font-family: Arial, Helvetica, sans-serif;
 
 	.list-table {
+		position: absolute;
+		top: $navbar-height + $search-filter-sort-bar-height + 2;
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
 	}

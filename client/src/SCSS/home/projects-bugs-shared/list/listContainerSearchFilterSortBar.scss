@@ -4,8 +4,10 @@
 .search-filter-sort-component {
 	// Must be more than table header so filter button can overlap
 	z-index: 1;
-	position: -webkit-sticky;
-	position: sticky;
+	/* position: -webkit-sticky;
+	position: sticky; */
+	position: fixed;
+	width: 100%;
 	top: $navbar-height;
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: $list-table-background-color;
