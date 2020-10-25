@@ -21,6 +21,7 @@ import {
 	calcScrollbarWidth,
 	calcViewItemTopBarHeight,
 	calcItemContainerListSidebarWidth,
+	calcItemContainerOuterDividingContainerMinWidth,
 } from "../../utils/displaySizeUtils";
 
 import { setNavbarButtonColor } from "../../utils/navbarUtils";
@@ -48,6 +49,7 @@ export default function Navbar() {
 				),
 				itemContainerTopBar: calcViewItemTopBarHeight(),
 				itemContainerListSidebar: calcItemContainerListSidebarWidth(),
+				itemContainerOuterDividingContainerMinWidth: calcItemContainerOuterDividingContainerMinWidth(),
 			})
 		);
 
@@ -87,7 +89,7 @@ export default function Navbar() {
 				reduxState.sizeContainer.variables.navbar.width -
 				reduxState.sizeContainer.constants.accountNavbarButton.width;
 
-			// If bug navbar button is present 
+			// If bug navbar button is present
 			if (
 				reduxState[projectContainerName].componentsDisplay.targetItem !== null
 			) {

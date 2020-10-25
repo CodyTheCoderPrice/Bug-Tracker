@@ -16,12 +16,15 @@ import {
 	formatDateYYYYmmDD,
 } from "../../../../utils/dateUtils";
 
+import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
+
 import {
 	toggleCharCountColor,
 	populateComboBox,
 } from "../../../../utils/elementUtils";
 
 import { useToggleableDateInput } from "../../../../utils/formHookUtils";
+import { useDescriptionTextAreaResize } from "../../../../utils/descriptionTextAreaHookUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditInfo.scss";
 
@@ -83,12 +86,35 @@ export default function ItemContainerEditInfo(props) {
 			.statusCompletionId
 	);
 
+	// Custome hook resizes the textArea for description size to match the size
+	// ...of its content (though will not exceed max-height).
+	useDescriptionTextAreaResize(
+		"js-item-description-text-area",
+		"js-item-description-item-box",
+		itemInfo
+	);
+
 	// clears prior input errors when closing the component
 	useEffect(() => {
 		return () => {
 			dispatch(clearInputErrors());
 		};
 		// eslint-disable-next-line
+	}, []);
+
+	useEffect(() => {
+		manageSizeOfItemBoxsInPairContainer(
+			document.getElementsByClassName("js-description-info-pair")[0],
+			"outer-dividing-container--full-height",
+			"outer-dividing-container--half-width"
+		);
+		if (props.reduxContainerName === projectContainerName) {
+			manageSizeOfItemBoxsInPairContainer(
+				document.getElementsByClassName("js-bug-info-pair")[0],
+				"outer-dividing-container--full-height",
+				"outer-dividing-container--half-width"
+			);
+		}
 	}, []);
 
 	useEffect(() => {
@@ -105,32 +131,6 @@ export default function ItemContainerEditInfo(props) {
 		);
 		// eslint-disable-next-line
 	}, []);
-
-	// Adjust description text area size to match ItemContainerDisplayInfo's description
-	useEffect(() => {
-		let editDescriptionTextArea = document.getElementsByClassName(
-			"js-item-description-text-area"
-		)[0];
-
-		const myObserver = new ResizeObserver(() => {
-			editDescriptionTextArea.style.height = "0px";
-			editDescriptionTextArea.style.height =
-				editDescriptionTextArea.scrollHeight + 10 + "px";
-		});
-
-		myObserver.observe(
-			document.getElementsByClassName("js-item-description-item-box")[0]
-		);
-	}, []);
-
-	useEffect(() => {
-		toggleCharCountColor(
-			"js-item-character-counter",
-			itemInfo.description.length,
-			descriptionCharLimit
-		);
-		// eslint-disable-next-line
-	}, [itemInfo.description]);
 
 	useEffect(() => {
 		if (
@@ -166,9 +166,11 @@ export default function ItemContainerEditInfo(props) {
 			});
 		} else if (e.target.name === "description") {
 			// Doesn't allow line breaks
-			setItemInfo({ ...itemInfo, [e.target.name]: e.target.value.replace(/(\r\n|\n|\r)/gm,"") });
-		} 
-		else {
+			setItemInfo({
+				...itemInfo,
+				[e.target.name]: e.target.value.replace(/(\r\n|\n|\r)/gm, ""),
+			});
+		} else {
 			setItemInfo({ ...itemInfo, [e.target.name]: e.target.value });
 		}
 	};
@@ -210,136 +212,138 @@ export default function ItemContainerEditInfo(props) {
 					Created on: {itemInfo.creation_date}
 				</div>
 			</div>
-			<div className="outer-dividing-container">
-				<div className="item-box js-item-description-item-box">
-					<label htmlFor="edit-item-description">
-						<h2 className="item-box__title item-box__title--no-bottom-margin">
-							Description
-						</h2>
-					</label>
-					<span className="item-box__form-character-counter js-item-character-counter">
-						{itemInfo.description.length + "/" + descriptionCharLimit}
-					</span>
-					<textarea
-						name="description"
-						onChange={(e) => onChange(e)}
-						value={itemInfo.description}
-						id="edit-item-description"
-						className="item-box__form-textarea js-item-description-text-area"
-					/>
-					<span className="form-errors">
-						{reduxState.generalContainer.inputErrors.description}
-					</span>
-				</div>
-			</div>
-			<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
-				<div className="item-box">
-					<h2 className="item-box__title">Info</h2>
-					{props.reduxContainerName === bugContainerName ? (
-						<div className="item-box__group__field">
-							<label
-								htmlFor="edit-item-location"
-								className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
-							>
-								Location:{" "}
-							</label>
-							<input
-								type="text"
-								name="location"
-								onChange={(e) => onChange(e)}
-								value={itemInfo.location}
-								id="edit-item-location"
-								className="item-box__group__field__form-text"
-							/>
-							<span className="form__errors">
-								{reduxState.generalContainer.inputErrors.location}
-							</span>
-						</div>
-					) : null}
-					<div className="item-box__group">
-						<div className="item-box__group__field">
-							<label
-								htmlFor="edit-item-start-date"
-								className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
-							>
-								Start Date:
-							</label>
-							<input
-								type="date"
-								name="start_date"
-								value={itemInfo.start_date}
-								onChange={(e) => onChange(e)}
-								id="edit-item-start-date"
-								className="item-box__group__field__form-date"
-							/>
-						</div>
-						<div className="item-box__group__field">
-							<label
-								htmlFor="edit-item-due-date"
-								className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
-							>
-								Due Date:
-							</label>
-							<input
-								type="date"
-								name="due_date"
-								value={itemInfo.due_date}
-								onChange={(e) => onChange(e)}
-								id="edit-item-due-date"
-								className="item-box__group__field__form-date"
-							/>
-						</div>
-						<div className="item-box__group__field item-box__group__field--no-bottom-margin item-box__group__field--inline-flex js-completion-date-container">
-							<label
-								htmlFor="edit-item-completion-date"
-								className="item-box__group__field__form-label item-box__group__field__form-label--long-width"
-							>
-								Completed on:
-							</label>
-							<input
-								type="date"
-								name="completion_date"
-								value={itemInfo.completion_date}
-								onChange={(e) => onChange(e)}
-								id="edit-item-completion-date"
-								className="item-box__group__field__form-date"
-							/>
-						</div>
+			<div className="pair-container js-description-info-pair">
+				<div className="outer-dividing-container">
+					<div className="item-box js-item-description-item-box">
+						<label htmlFor="edit-item-description">
+							<h2 className="item-box__title item-box__title--no-bottom-margin">
+								Description
+							</h2>
+						</label>
+						<span className="item-box__form-character-counter js-item-character-counter">
+							{itemInfo.description.length + "/" + descriptionCharLimit}
+						</span>
+						<textarea
+							name="description"
+							onChange={(e) => onChange(e)}
+							value={itemInfo.description}
+							id="edit-item-description"
+							className="item-box__form-textarea js-item-description-text-area"
+						/>
+						<span className="form-errors">
+							{reduxState.generalContainer.inputErrors.description}
+						</span>
 					</div>
-					<div className="item-box__group item-box__group--right">
-						<div className="item-box__group__field">
-							<label
-								htmlFor="edit-item-priority"
-								className="item-box__group__field__form-label"
-							>
-								Priority:
-							</label>
-							<select
-								name="priority_id"
-								onChange={(e) => onChange(e)}
-								id="edit-item-priority"
-								className="item-box__group__field__form-select js-item-priority-select"
-							></select>
+				</div>
+				<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
+					<div className="item-box">
+						<h2 className="item-box__title">Info</h2>
+						{props.reduxContainerName === bugContainerName ? (
+							<div className="item-box__group__field">
+								<label
+									htmlFor="edit-item-location"
+									className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
+								>
+									Location:{" "}
+								</label>
+								<input
+									type="text"
+									name="location"
+									onChange={(e) => onChange(e)}
+									value={itemInfo.location}
+									id="edit-item-location"
+									className="item-box__group__field__form-text"
+								/>
+								<span className="form__errors">
+									{reduxState.generalContainer.inputErrors.location}
+								</span>
+							</div>
+						) : null}
+						<div className="item-box__group">
+							<div className="item-box__group__field">
+								<label
+									htmlFor="edit-item-start-date"
+									className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
+								>
+									Start Date:
+								</label>
+								<input
+									type="date"
+									name="start_date"
+									value={itemInfo.start_date}
+									onChange={(e) => onChange(e)}
+									id="edit-item-start-date"
+									className="item-box__group__field__form-date"
+								/>
+							</div>
+							<div className="item-box__group__field">
+								<label
+									htmlFor="edit-item-due-date"
+									className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
+								>
+									Due Date:
+								</label>
+								<input
+									type="date"
+									name="due_date"
+									value={itemInfo.due_date}
+									onChange={(e) => onChange(e)}
+									id="edit-item-due-date"
+									className="item-box__group__field__form-date"
+								/>
+							</div>
+							<div className="item-box__group__field item-box__group__field--no-bottom-margin item-box__group__field--inline-flex js-completion-date-container">
+								<label
+									htmlFor="edit-item-completion-date"
+									className="item-box__group__field__form-label item-box__group__field__form-label--long-width"
+								>
+									Completed on:
+								</label>
+								<input
+									type="date"
+									name="completion_date"
+									value={itemInfo.completion_date}
+									onChange={(e) => onChange(e)}
+									id="edit-item-completion-date"
+									className="item-box__group__field__form-date"
+								/>
+							</div>
 						</div>
-						<div className="item-box__group__field">
-							<label
-								htmlFor="edit-item-status"
-								className="item-box__group__field__form-label"
-							>
-								Status:
-							</label>
-							<select
-								name="status_id"
-								onChange={(e) => onChange(e)}
-								id="edit-item-status"
-								className="item-box__group__field__form-select js-item-status-select"
-							></select>
+						<div className="item-box__group item-box__group--right">
+							<div className="item-box__group__field">
+								<label
+									htmlFor="edit-item-priority"
+									className="item-box__group__field__form-label"
+								>
+									Priority:
+								</label>
+								<select
+									name="priority_id"
+									onChange={(e) => onChange(e)}
+									id="edit-item-priority"
+									className="item-box__group__field__form-select js-item-priority-select"
+								></select>
+							</div>
+							<div className="item-box__group__field">
+								<label
+									htmlFor="edit-item-status"
+									className="item-box__group__field__form-label"
+								>
+									Status:
+								</label>
+								<select
+									name="status_id"
+									onChange={(e) => onChange(e)}
+									id="edit-item-status"
+									className="item-box__group__field__form-select js-item-status-select"
+								></select>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			{props.reduxContainerName === projectContainerName ? (
-				<div>
+				<div className="pair-container js-bug-info-pair">
 					<div className="outer-dividing-container outer-dividing-container--one-third">
 						<div className="item-box">
 							<h2 className="item-box__title">Status of Bugs</h2>

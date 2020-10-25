@@ -33,18 +33,25 @@
 		font-size: 115%;
 	}
 
-	.outer-dividing-container {
+	// Pairs item-boxs together
+	.pair-container {
 		float: left;
 		width: 100%;
 	}
 
-	.outer-dividing-container--one-third {
-		width: 33.33%;
-		min-width: 300px;
+	// Seperates item-boxs
+	.outer-dividing-container {
+		float: left;
+		width: 100%;
+		min-width: $item-outer-dividing-container-min-width;
 	}
 
-	.outer-dividing-container--fixed-width-for-info {
-		width: $edit-item-info-box-width;
+	.outer-dividing-container--half-width {
+		width: 50%;
+	}
+
+	.outer-dividing-container--full-height {
+		height: 100%;
 	}
 
 	.item-box {

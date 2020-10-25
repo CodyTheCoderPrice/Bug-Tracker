@@ -6,6 +6,7 @@ const initialState = {
 	accountNavbarButton: null,
 	itemContainerTopBar: null,
 	itemContainerListSidebar: null,
+	itemContainerOuterDividingContainerMinWidth: null,
 };
 
 export default function (state = initialState, action) {
@@ -17,6 +18,8 @@ export default function (state = initialState, action) {
 				accountNavbarButton: action.sizes.accountNavbarButton,
 				itemContainerTopBar: action.sizes.itemContainerTopBar,
 				itemContainerListSidebar: action.sizes.itemContainerListSidebar,
+				itemContainerOuterDividingContainerMinWidth:
+					action.sizes.itemContainerOuterDividingContainerMinWidth,
 			};
 		default:
 			return state;

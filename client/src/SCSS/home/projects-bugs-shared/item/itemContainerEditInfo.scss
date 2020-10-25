@@ -51,6 +51,7 @@
 		padding: 4px 8px 4px 8px;
 		// Correct height is applied using JS
 		height: 0px;
+		max-height: 300px;
 		width: 100%;
 		line-height: $common-line-height;
 		font-family: Arial, Helvetica, sans-serif;

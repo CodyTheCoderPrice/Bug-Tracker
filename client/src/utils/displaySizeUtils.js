@@ -64,13 +64,33 @@ export function calcViewItemTopBarHeight() {
 }
 
 export function calcItemContainerListSidebarWidth() {
-	const listSidebarComponentElement = document.createElement("div");
-	listSidebarComponentElement.className = "list-sidebar-component";
-	listSidebarComponentElement.visibility = "hidden";
-	document.body.appendChild(listSidebarComponentElement);
+	const outerDividingContainerElement = document.createElement("div");
+	outerDividingContainerElement.className = "list-sidebar-component";
+	outerDividingContainerElement.visibility = "hidden";
+	document.body.appendChild(outerDividingContainerElement);
 
-	const width = getElementSize(listSidebarComponentElement).width;
-	listSidebarComponentElement.parentNode.removeChild(listSidebarComponentElement);
+	const width = getElementSize(outerDividingContainerElement).width;
+	outerDividingContainerElement.parentNode.removeChild(
+		outerDividingContainerElement
+	);
 
 	return { width: width };
+}
+
+export function calcItemContainerOuterDividingContainerMinWidth() {
+	const itemContainerComponentElement = document.createElement("div");
+	itemContainerComponentElement.className = "item-container-component";
+	itemContainerComponentElement.visibility = "hidden";
+	const outerDividingContainerElement = document.createElement("div");
+	outerDividingContainerElement.className = "outer-dividing-container";
+	outerDividingContainerElement.visibility = "hidden";
+	document.body.appendChild(itemContainerComponentElement);
+	itemContainerComponentElement.appendChild(outerDividingContainerElement);
+
+	const minWidth = getElementStyle(outerDividingContainerElement).minWidth;
+	itemContainerComponentElement.parentNode.removeChild(
+		itemContainerComponentElement
+	);
+
+	return stripNonDigits(minWidth);
 }

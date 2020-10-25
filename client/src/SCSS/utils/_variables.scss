@@ -25,14 +25,12 @@ $red-link: #f34242;
 $search-filter-sort-bar-color: $light-gray;
 $list-table-background-color: #ffffff;
 
-
-
 //==========
 // Heights
 //==========
 $navbar-height: 60px;
 $edit-account-modal-height: 480px;
-$search-filter-sort-bar-height:  60px;
+$search-filter-sort-bar-height: 60px;
 $search-bar-height: 28px;
 $list-table-row-height: 50px;
 $top-bar-height: 46px;
@@ -42,12 +40,14 @@ $create-item-sidebar-height: 700px;
 // Widths
 //=========
 $list-table-min-width: 1100px;
-$edit-account-modal-width:  540px;
+$edit-account-modal-width: 540px;
 $create-item-sidebar-width: 500px;
 $list-sidebar-width: 300px;
 $filter-button-width: 90px;
 $options-button-width: 36px;
+//.................To be deleted
 $edit-item-info-box-width: 600px;
+$item-outer-dividing-container-min-width: 600px;
 
 //=========
 // Margins
