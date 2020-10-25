@@ -164,7 +164,11 @@ export default function ItemContainerEditInfo(props) {
 				...itemInfo,
 				[e.target.name]: Number(e.target.value),
 			});
-		} else {
+		} else if (e.target.name === "description") {
+			// Doesn't allow line breaks
+			setItemInfo({ ...itemInfo, [e.target.name]: e.target.value.replace(/(\r\n|\n|\r)/gm,"") });
+		} 
+		else {
 			setItemInfo({ ...itemInfo, [e.target.name]: e.target.value });
 		}
 	};
@@ -351,7 +355,7 @@ export default function ItemContainerEditInfo(props) {
 				</div>
 			) : (
 				<div>
-					<div className="outer-dividing-container outer-dividing-container--one-third">
+					<div className="outer-dividing-container">
 						<div className="item-box">
 							<h2 className="item-box__title">Comments</h2>
 							<span>Comming soon!</span>

@@ -77,29 +77,33 @@ export default function Navbar() {
 		);
 	}
 
-	// If both project and bug navbar button will appear,
-	// ...then sets max-width depending on navbar width
+	// Sets max-width for navbar buttons depending on navbar width
 	useEffect(() => {
 		if (
 			reduxState.sizeContainer.variables.navbar !== null &&
-			reduxState.sizeContainer.constants.accountNavbarButton !== null &&
-			// Determins if both buttons will appear
-			reduxState[projectContainerName].componentsDisplay.targetItem !== null
+			reduxState.sizeContainer.constants.accountNavbarButton !== null
 		) {
 			let buttonMaxWidth =
-				(reduxState.sizeContainer.variables.navbar.width -
-					reduxState.sizeContainer.constants.accountNavbarButton.width) /
-					2 +
-				"px";
+				reduxState.sizeContainer.variables.navbar.width -
+				reduxState.sizeContainer.constants.accountNavbarButton.width;
 
-			document.getElementsByClassName(
-				"js-project-button"
-			)[0].style.maxWidth = buttonMaxWidth;
-			document.getElementsByClassName(
-				"js-bug-button"
-			)[0].style.maxWidth = buttonMaxWidth;
+			// If bug navbar button is present 
+			if (
+				reduxState[projectContainerName].componentsDisplay.targetItem !== null
+			) {
+				buttonMaxWidth = buttonMaxWidth / 2;
+
+				document.getElementsByClassName("js-bug-button")[0].style.maxWidth =
+					buttonMaxWidth + "px";
+			}
+
+			document.getElementsByClassName("js-project-button")[0].style.maxWidth =
+				buttonMaxWidth + "px";
 		}
-	}, [reduxState.sizeContainer, reduxState[projectContainerName].componentsDisplay.targetItem]);
+	}, [
+		reduxState.sizeContainer,
+		reduxState[projectContainerName].componentsDisplay.targetItem,
+	]);
 
 	useEffect(() => {
 		setNavbarButtonColor(

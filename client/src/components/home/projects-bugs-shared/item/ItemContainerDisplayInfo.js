@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import {
-	bugContainerName,
-} from "../../../../reducers/containerNames";
+import { bugContainerName } from "../../../../reducers/containerNames";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
@@ -73,20 +71,17 @@ export default function ItemContainerDisplayInfo(props) {
 								)}
 							</span>
 						</div>
-						{reduxState[props.reduxContainerName].componentsDisplay.targetItem
-							.completion_date === null ? null : (
-							<div className="item-box__group__field">
-								<span className="item-box__group__field__type">
-									Completed on:
-								</span>
-								<span className="item-box__group__field_content">
-									{formatDateMMddYYYY(
-										reduxState[props.reduxContainerName].componentsDisplay
-											.targetItem.completion_date
-									)}
-								</span>
-							</div>
-						)}
+						<div className="item-box__group__field">
+							<span className="item-box__group__field__type">
+								Completed on:
+							</span>
+							<span className="item-box__group__field_content">
+								{formatDateMMddYYYY(
+									reduxState[props.reduxContainerName].componentsDisplay
+										.targetItem.completion_date
+								)}
+							</span>
+						</div>
 					</div>
 					<div className="item-box__group item-box__group--right">
 						<div className="item-box__group__field">
@@ -127,7 +122,7 @@ export default function ItemContainerDisplayInfo(props) {
 				</div>
 			) : (
 				<div>
-					<div className="outer-dividing-container outer-dividing-container--one-third">
+					<div className="outer-dividing-container">
 						<div className="item-box">
 							<h2 className="item-box__title">Comments</h2>
 							<span>Comming soon!</span>
