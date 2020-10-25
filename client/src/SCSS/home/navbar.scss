@@ -22,7 +22,6 @@
 		float: left;
 		background-color: $blue-gray;
 		height: $navbar-height;
-		text-align: center;
 	}
 
 	.navbar-button--right {
@@ -44,6 +43,10 @@
 		font-size: 160%;
 		color: white;
 		text-align: center;
+		// Text cutoff with ellipise only takes place when max-width is added by JS
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	.account-dropdown {

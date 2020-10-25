@@ -73,14 +73,6 @@ export default function ItemContainerEditInfo(props) {
 
 	const [descriptionCharLimit] = useState(500);
 
-	// clears prior input errors when closing the component
-	useEffect(() => {
-		return () => {
-			dispatch(clearInputErrors());
-		};
-		// eslint-disable-next-line
-	}, []);
-
 	// Custom hook toggles the display of the date input for completion date
 	// ...based on status and makes sure itemInfo contains accurate
 	// ...completion date info after every toggle
@@ -90,6 +82,14 @@ export default function ItemContainerEditInfo(props) {
 		reduxState[props.reduxContainerName].priorityStatusOptions
 			.statusCompletionId
 	);
+
+	// clears prior input errors when closing the component
+	useEffect(() => {
+		return () => {
+			dispatch(clearInputErrors());
+		};
+		// eslint-disable-next-line
+	}, []);
 
 	useEffect(() => {
 		populateComboBox(

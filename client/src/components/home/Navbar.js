@@ -31,7 +31,7 @@ export default function Navbar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Makes sure the current size of the window and navbar are stored in redux,
+	// Makes sure the current size of the window and navbar are stored in redux
 	useEffect(() => {
 		dispatch(
 			setDisplaySizeConstants({
@@ -43,6 +43,9 @@ export default function Navbar() {
 					),
 				},
 				scrollbar: calcScrollbarWidth(),
+				accountNavbarButton: getElementSize(
+					document.getElementsByClassName("js-account-button")[0]
+				),
 				itemContainerTopBar: calcViewItemTopBarHeight(),
 				itemContainerListSidebar: calcItemContainerListSidebarWidth(),
 			})
@@ -73,6 +76,30 @@ export default function Navbar() {
 			})
 		);
 	}
+
+	// If both project and bug navbar button will appear,
+	// ...then sets max-width depending on navbar width
+	useEffect(() => {
+		if (
+			reduxState.sizeContainer.variables.navbar !== null &&
+			reduxState.sizeContainer.constants.accountNavbarButton !== null &&
+			// Determins if both buttons will appear
+			reduxState[projectContainerName].componentsDisplay.targetItem !== null
+		) {
+			let buttonMaxWidth =
+				(reduxState.sizeContainer.variables.navbar.width -
+					reduxState.sizeContainer.constants.accountNavbarButton.width) /
+					2 +
+				"px";
+
+			document.getElementsByClassName(
+				"js-project-button"
+			)[0].style.maxWidth = buttonMaxWidth;
+			document.getElementsByClassName(
+				"js-bug-button"
+			)[0].style.maxWidth = buttonMaxWidth;
+		}
+	}, [reduxState.sizeContainer, reduxState[projectContainerName].componentsDisplay.targetItem]);
 
 	useEffect(() => {
 		setNavbarButtonColor(

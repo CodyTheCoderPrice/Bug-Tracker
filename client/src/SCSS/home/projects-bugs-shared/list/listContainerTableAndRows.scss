@@ -10,6 +10,7 @@
 		top: $navbar-height + $search-filter-sort-bar-height + 2;
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
+		min-width: $list-table-min-width;
 	}
 
 	.list-table__row {

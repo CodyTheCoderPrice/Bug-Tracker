@@ -4,9 +4,7 @@
 .top-bar-component {
 	// Must be more than the item-container in item-container.scss
 	z-index: 1;
-	// Sticky instead of fixed for positioning of other components
-	position: -webkit-sticky;
-	position: sticky;
+	position: fixed;
 	top: $navbar-height;
 	border-bottom: $top-bar-border-width solid black;
 	background-color: $search-filter-sort-bar-color;

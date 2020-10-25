@@ -21,12 +21,6 @@
 		width: 80vw;
 	}
 
-	.item-content-container {
-		// Gives modal scrolling when content goes beyond modal height
-		overflow-y: auto !important;
-		overflow-x: auto !important;
-	}
-
 	// Must be a seperate div inside .item-content-container so the padding
 	// ...does not affect the resize so it goes beyond the modal
 	.padding-container {
