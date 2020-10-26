@@ -59,6 +59,23 @@ export default function ListContainerCreateItemSidebar(props) {
 			.statusCompletionId
 	);
 
+	// Update completion_date with the preservedCompletionDate
+	useEffect(() => {
+		if (
+			itemInfo.status_id !==
+			reduxState[props.reduxContainerName].priorityStatusOptions
+				.statusCompletionId
+		) {
+			setItemInfo({ ...itemInfo, completion_date: null });
+		} else {
+			setItemInfo({
+				...itemInfo,
+				completion_date: preservedCompletionDate,
+			});
+		}
+		// eslint-disable-next-line
+	}, [itemInfo.status_id]);
+
 	// Custom hook resizes the sidebar so that the overflow functionality works
 	useSidebarResize(reduxState, "js-create-item-sidebar");
 
@@ -105,22 +122,6 @@ export default function ListContainerCreateItemSidebar(props) {
 		);
 		// eslint-disable-next-line
 	}, [itemInfo.description]);
-
-	useEffect(() => {
-		if (
-			itemInfo.status_id !==
-			reduxState[props.reduxContainerName].priorityStatusOptions
-				.statusCompletionId
-		) {
-			setItemInfo({ ...itemInfo, completion_date: null });
-		} else {
-			setItemInfo({
-				...itemInfo,
-				completion_date: preservedCompletionDate,
-			});
-		}
-		// eslint-disable-next-line
-	}, [itemInfo.status_id]);
 
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers

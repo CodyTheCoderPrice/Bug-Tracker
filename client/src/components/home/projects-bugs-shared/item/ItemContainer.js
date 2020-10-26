@@ -17,6 +17,17 @@ export default function ItemContainer(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	// Disable scrolling for the body
+	useEffect(() => {
+		let body = document.getElementsByClassName("js-body")[0];
+
+		toggleClassName(true, body, "stop-x-y-scrolling");
+
+		return () => {
+			toggleClassName(false, body, "stop-x-y-scrolling");
+		};
+	}, []);
+
 	// Adjusts the height and width of the modal to fit the screen
 	useEffect(() => {
 		if (
@@ -50,20 +61,8 @@ export default function ItemContainer(props) {
 		}
 	}, [
 		reduxState.sizeContainer,
-		reduxState[generalContainerName].componentsDisplay
-			.itemContainerListSidebar,
+		reduxState[generalContainerName].componentsDisplay.itemContainerListSidebar,
 	]);
-
-	// Disable scrolling for the body
-	useEffect(() => {
-		let body = document.getElementsByClassName("js-body")[0];
-
-		toggleClassName(true, body, "stop-y-scrolling");
-
-		return () => {
-			toggleClassName(false, body, "stop-y-scrolling");
-		};
-	}, []);
 
 	return (
 		<div>

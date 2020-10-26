@@ -8,7 +8,7 @@
 	.expand-minimize-button {
 		// Must be more than the item-container in item-container.scss
 		z-index: 1;
-		position: absolute;
+		position: fixed;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width + 15;
 		left: $list-sidebar-width + $list-sidebar-border-width;
 		border: $list-sidebar-border-width solid black;

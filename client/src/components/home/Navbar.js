@@ -21,7 +21,6 @@ import {
 	calcScrollbarWidth,
 	calcViewItemTopBarHeight,
 	calcItemContainerListSidebarWidth,
-	calcItemContainerOuterDividingContainerMinWidth,
 } from "../../utils/displaySizeUtils";
 
 import { setNavbarButtonColor } from "../../utils/navbarUtils";
@@ -49,7 +48,6 @@ export default function Navbar() {
 				),
 				itemContainerTopBar: calcViewItemTopBarHeight(),
 				itemContainerListSidebar: calcItemContainerListSidebarWidth(),
-				itemContainerOuterDividingContainerMinWidth: calcItemContainerOuterDividingContainerMinWidth(),
 			})
 		);
 

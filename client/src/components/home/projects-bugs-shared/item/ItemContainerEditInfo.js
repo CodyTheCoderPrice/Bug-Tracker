@@ -86,13 +86,22 @@ export default function ItemContainerEditInfo(props) {
 			.statusCompletionId
 	);
 
-	// Custome hook resizes the textArea for description size to match the size
-	// ...of its content (though will not exceed max-height).
-	useDescriptionTextAreaResize(
-		"js-item-description-text-area",
-		"js-item-description-item-box",
-		itemInfo
-	);
+	// Update completion_Date with the preservedCompletionDate
+	useEffect(() => {
+		if (
+			itemInfo.status_id !==
+			reduxState[props.reduxContainerName].priorityStatusOptions
+				.statusCompletionId
+		) {
+			setItemInfo({ ...itemInfo, completion_date: null });
+		} else {
+			setItemInfo({
+				...itemInfo,
+				completion_date: preservedCompletionDate,
+			});
+		}
+		// eslint-disable-next-line
+	}, [itemInfo.status_id]);
 
 	// clears prior input errors when closing the component
 	useEffect(() => {
@@ -105,13 +114,11 @@ export default function ItemContainerEditInfo(props) {
 	useEffect(() => {
 		manageSizeOfItemBoxsInPairContainer(
 			document.getElementsByClassName("js-description-info-pair")[0],
-			"outer-dividing-container--full-height",
 			"outer-dividing-container--half-width"
 		);
 		if (props.reduxContainerName === projectContainerName) {
 			manageSizeOfItemBoxsInPairContainer(
 				document.getElementsByClassName("js-bug-info-pair")[0],
-				"outer-dividing-container--full-height",
 				"outer-dividing-container--half-width"
 			);
 		}
@@ -133,20 +140,13 @@ export default function ItemContainerEditInfo(props) {
 	}, []);
 
 	useEffect(() => {
-		if (
-			itemInfo.status_id !==
-			reduxState[props.reduxContainerName].priorityStatusOptions
-				.statusCompletionId
-		) {
-			setItemInfo({ ...itemInfo, completion_date: null });
-		} else {
-			setItemInfo({
-				...itemInfo,
-				completion_date: preservedCompletionDate,
-			});
-		}
+		toggleCharCountColor(
+			"js-item-character-counter",
+			itemInfo.description.length,
+			descriptionCharLimit
+		);
 		// eslint-disable-next-line
-	}, [itemInfo.status_id]);
+	}, [itemInfo.description]);
 
 	const switchToDisplayItemInfo = () => {
 		dispatch(
@@ -214,7 +214,7 @@ export default function ItemContainerEditInfo(props) {
 			</div>
 			<div className="pair-container js-description-info-pair">
 				<div className="outer-dividing-container">
-					<div className="item-box js-item-description-item-box">
+					<div className="item-box item--desciption-info-height">
 						<label htmlFor="edit-item-description">
 							<h2 className="item-box__title item-box__title--no-bottom-margin">
 								Description
@@ -228,7 +228,7 @@ export default function ItemContainerEditInfo(props) {
 							onChange={(e) => onChange(e)}
 							value={itemInfo.description}
 							id="edit-item-description"
-							className="item-box__form-textarea js-item-description-text-area"
+							className="item-box__form-textarea"
 						/>
 						<span className="form-errors">
 							{reduxState.generalContainer.inputErrors.description}
@@ -236,7 +236,7 @@ export default function ItemContainerEditInfo(props) {
 					</div>
 				</div>
 				<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
-					<div className="item-box">
+					<div className="item-box item--desciption-info-height">
 						<h2 className="item-box__title">Info</h2>
 						{props.reduxContainerName === bugContainerName ? (
 							<div className="item-box__group__field">

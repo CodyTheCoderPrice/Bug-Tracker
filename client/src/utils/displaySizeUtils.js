@@ -76,21 +76,3 @@ export function calcItemContainerListSidebarWidth() {
 
 	return { width: width };
 }
-
-export function calcItemContainerOuterDividingContainerMinWidth() {
-	const itemContainerComponentElement = document.createElement("div");
-	itemContainerComponentElement.className = "item-container-component";
-	itemContainerComponentElement.visibility = "hidden";
-	const outerDividingContainerElement = document.createElement("div");
-	outerDividingContainerElement.className = "outer-dividing-container";
-	outerDividingContainerElement.visibility = "hidden";
-	document.body.appendChild(itemContainerComponentElement);
-	itemContainerComponentElement.appendChild(outerDividingContainerElement);
-
-	const minWidth = getElementStyle(outerDividingContainerElement).minWidth;
-	itemContainerComponentElement.parentNode.removeChild(
-		itemContainerComponentElement
-	);
-
-	return stripNonDigits(minWidth);
-}

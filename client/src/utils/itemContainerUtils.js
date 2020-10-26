@@ -3,7 +3,6 @@ import { toggleClassName } from "./elementUtils";
 
 export function manageSizeOfItemBoxsInPairContainer(
 	pairElement,
-	toggledClassNameForHeight,
 	toggledClassNameForWidth,
 ) {
 	const childNodes = pairElement.childNodes;

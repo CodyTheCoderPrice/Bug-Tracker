@@ -14,13 +14,11 @@ export default function ItemContainerDisplayInfo(props) {
 	useEffect(() => {
 		manageSizeOfItemBoxsInPairContainer(
 			document.getElementsByClassName("js-description-info-pair")[0],
-			"outer-dividing-container--full-height",
 			"outer-dividing-container--half-width"
 		);
 		if (props.reduxContainerName === projectContainerName) {
 			manageSizeOfItemBoxsInPairContainer(
 				document.getElementsByClassName("js-bug-info-pair")[0],
-				"outer-dividing-container--full-height",
 				"outer-dividing-container--half-width"
 			);
 		}
@@ -44,8 +42,8 @@ export default function ItemContainerDisplayInfo(props) {
 				</div>
 			</div>
 			<div className="pair-container js-description-info-pair">
-				<div className="outer-dividing-container outer-dividing-container--half-width">
-					<div className="item-box">
+				<div className="outer-dividing-container">
+					<div className="item-box item--desciption-info-height">
 						<h2 className="item-box__title">Description</h2>
 						<span className="item-box__description">
 							{
@@ -55,8 +53,8 @@ export default function ItemContainerDisplayInfo(props) {
 						</span>
 					</div>
 				</div>
-				<div className="outer-dividing-container outer-dividing-container--half-width">
-					<div className="item-box">
+				<div className="outer-dividing-container">
+					<div className="item-box item--desciption-info-height">
 						<h2 className="item-box__title">Info</h2>
 						{props.reduxContainerName === bugContainerName ? (
 							<div className="item-box__group__field">

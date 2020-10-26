@@ -49,9 +49,7 @@
 		border: 2px solid black;
 		background-color: white;
 		padding: 4px 8px 4px 8px;
-		// Correct height is applied using JS
-		height: 0px;
-		max-height: 300px;
+		height: 180px;
 		width: 100%;
 		line-height: $common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
@@ -83,12 +81,13 @@
 
 	.item-box__group__field__form-text {
 		outline: none;
+		margin-top: 3px;
 		border: 1px solid black;
 		box-sizing: border-box;
 		background-color: #ffffff;
-		padding: 8px;
-		width: $edit-item-info-box-width - 160;
-		font-size: 14px;
+		padding: 6px;
+		width: 100%;
+		font-size: 12px;
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
