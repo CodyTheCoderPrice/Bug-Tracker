@@ -49,6 +49,31 @@
 		text-overflow: ellipsis;
 	}
 
+	.navbar-button__close-button {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		background-color: $light-red;
+		border-radius: 100%;
+		height: 16px;
+		width: 16px;
+		opacity: 0.4;
+		cursor: pointer;
+	}
+	.navbar-button__close-button:hover,
+	.navbar-button__close-button:active {
+		background-color: $bright-red;
+		opacity: 1;
+	}
+
+	.navbar-button__close-button__icon {
+		@include stop-text-selection();
+		@include dead-center();
+
+		color: white;
+		font-size: 12px;
+	}
+
 	.account-dropdown {
 		// Must be absolute so it doesn't affect the postion of other components
 		position: absolute;

@@ -232,6 +232,32 @@ export default function Navbar() {
 		}
 	};
 
+	const closeProjectItemContainer = (e) => {
+		e.stopPropagation();
+		dispatch(
+			setWhichProjectComponentsDisplay({
+				...reduxState[projectContainerName].componentsDisplay,
+				listContainer: true,
+				itemContainer: false,
+				targetItem: null,
+			})
+		);
+		dispatch(setWhichBugComponentsDisplay({}));
+	};
+
+	const closeBugItemContainer = (e) => {
+		e.stopPropagation();
+		dispatch(
+			setWhichBugComponentsDisplay({
+				...reduxState[bugContainerName].componentsDisplay,
+				// Keeps the user on their current tab (since the user can close a bug from the project tab)
+				listContainer: (reduxState[bugContainerName].componentsDisplay.itemContainer === true ? true : false),
+				itemContainer: false,
+				targetItem: null,
+			})
+		);
+	};
+
 	return (
 		<div className="navbar-and-other-components-container">
 			<div className="navbar-component js-navbar">
@@ -247,6 +273,18 @@ export default function Navbar() {
 							: reduxState[projectContainerName].componentsDisplay.targetItem
 									.name}
 					</div>
+					{reduxState[projectContainerName].componentsDisplay.targetItem ===
+					null ? null : (
+						<div
+							className="navbar-button__close-button"
+							onClick={(e) => closeProjectItemContainer(e)}
+						>
+							<i
+								className="fa fa-times navbar-button__close-button__icon"
+								aria-hidden="true"
+							/>
+						</div>
+					)}
 				</div>
 				{reduxState[projectContainerName].componentsDisplay.targetItem !==
 				null ? (
@@ -259,6 +297,18 @@ export default function Navbar() {
 								: reduxState[bugContainerName].componentsDisplay.targetItem
 										.name}
 						</div>
+						{reduxState[bugContainerName].componentsDisplay.targetItem ===
+						null ? null : (
+							<div
+								className="navbar-button__close-button"
+								onClick={(e) => closeBugItemContainer(e)}
+							>
+								<i
+									className="fa fa-times navbar-button__close-button__icon"
+									aria-hidden="true"
+								/>
+							</div>
+						)}
 					</div>
 				) : null}
 				<div
