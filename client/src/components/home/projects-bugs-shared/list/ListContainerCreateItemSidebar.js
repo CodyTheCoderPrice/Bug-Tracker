@@ -48,6 +48,7 @@ export default function ListContainerCreateItemSidebar(props) {
 	});
 
 	const [descriptionCharLimit] = useState(500);
+	const [locationCharLimit] = useState(100);
 
 	// Custom hook toggles the display of the date input for completion date
 	// ...based on status and makes sure itemInfo contains accurate
@@ -116,12 +117,24 @@ export default function ListContainerCreateItemSidebar(props) {
 
 	useEffect(() => {
 		toggleCharCountColor(
-			"js-character-counter",
+			"js-create-description-char-counter",
 			itemInfo.description.length,
 			descriptionCharLimit
 		);
 		// eslint-disable-next-line
 	}, [itemInfo.description]);
+
+	useEffect(() => {
+		// Prevents error for projects (which don't have location)
+		if (itemInfo.location.length > 0) {
+			toggleCharCountColor(
+				"js-create-location-char-counter",
+				itemInfo.location.length,
+				locationCharLimit
+			);
+		}
+		// eslint-disable-next-line
+	}, [itemInfo.location]);
 
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers
@@ -193,7 +206,7 @@ export default function ListContainerCreateItemSidebar(props) {
 						<label htmlFor="create-item-description" className="form__label">
 							Description:{" "}
 						</label>
-						<span className="form__character-counter js-character-counter">
+						<span className="form__character-counter js-create-description-char-counter">
 							{itemInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
@@ -211,6 +224,9 @@ export default function ListContainerCreateItemSidebar(props) {
 								<label htmlFor="create-item-location" className="form__label">
 									Location:{" "}
 								</label>
+								<span className="form__character-counter js-create-location-char-counter">
+									{itemInfo.location.length + "/" + locationCharLimit}
+								</span>
 								<input
 									type="text"
 									name="location"

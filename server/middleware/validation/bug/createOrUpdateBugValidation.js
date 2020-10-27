@@ -27,7 +27,7 @@ module.exports = (req, res, next) => {
 			inputErrors.name = "Name can't be longer than 35 characters";
 		}
 
-		// Description check
+		// Location check
 		if (!Validator.isLength(location, { max: 100 })) {
 			inputErrors.location =
 				"Location can't be longer than 100 characters";

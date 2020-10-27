@@ -75,6 +75,7 @@ export default function ItemContainerEditInfo(props) {
 	});
 
 	const [descriptionCharLimit] = useState(500);
+	const [locationCharLimit] = useState(100);
 
 	// Custom hook toggles the display of the date input for completion date
 	// ...based on status and makes sure itemInfo contains accurate
@@ -141,12 +142,21 @@ export default function ItemContainerEditInfo(props) {
 
 	useEffect(() => {
 		toggleCharCountColor(
-			"js-item-character-counter",
+			"js-edit-description-char-counter",
 			itemInfo.description.length,
 			descriptionCharLimit
 		);
 		// eslint-disable-next-line
 	}, [itemInfo.description]);
+
+	useEffect(() => {
+		toggleCharCountColor(
+			"js-edit-location-char-counter",
+			itemInfo.location.length,
+			locationCharLimit
+		);
+		// eslint-disable-next-line
+	}, [itemInfo.location]);
 
 	const switchToDisplayItemInfo = () => {
 		dispatch(
@@ -220,7 +230,7 @@ export default function ItemContainerEditInfo(props) {
 								Description
 							</h2>
 						</label>
-						<span className="item-box__form-character-counter js-item-character-counter">
+						<span className="item-box__form-character-counter js-edit-description-char-counter">
 							{itemInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
@@ -246,6 +256,9 @@ export default function ItemContainerEditInfo(props) {
 								>
 									Location:{" "}
 								</label>
+								<span className="item-box__form-character-counter js-edit-location-char-counter">
+									{itemInfo.location.length + "/" + locationCharLimit}
+								</span>
 								<input
 									type="text"
 									name="location"
