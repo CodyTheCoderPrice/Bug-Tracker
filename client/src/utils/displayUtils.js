@@ -9,11 +9,3 @@ export function truncate(str, cutoff, useWordBoundary) {
 			: subString) + "..."
 	);
 }
-
-/* export function formatDescription(description) {
-	if (description.length < 1) {
-		return "...";
-	} else {
-		return description;
-	}
-} */

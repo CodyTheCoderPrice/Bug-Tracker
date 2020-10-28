@@ -4,6 +4,7 @@ import { bugContainerName } from "../../../../reducers/containerNames";
 
 import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
+import { isEmpty } from "../../../../utils/basicUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayInfo.scss";
 import { projectContainerName } from "../../../../reducers/containerNames";
@@ -23,6 +24,14 @@ export default function ItemContainerDisplayInfo(props) {
 			);
 		}
 	}, []);
+
+	const displayNoneIfEmpty = (itemValue) => {
+		if (isEmpty(itemValue)) {
+			return <span className="grayed-out-none">none</span>;
+		} else {
+			return itemValue;
+		}
+	};
 
 	return (
 		<div>
@@ -60,10 +69,10 @@ export default function ItemContainerDisplayInfo(props) {
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Location:</span>
 								<span className="item-box__group__field_content">
-									{
+									{displayNoneIfEmpty(
 										reduxState[props.reduxContainerName].componentsDisplay
 											.targetItem.location
-									}
+									)}
 								</span>
 							</div>
 						) : null}
@@ -73,18 +82,22 @@ export default function ItemContainerDisplayInfo(props) {
 									Start Date:
 								</span>
 								<span className="item-box__group__field_content">
-									{formatDateMMddYYYY(
-										reduxState[props.reduxContainerName].componentsDisplay
-											.targetItem.start_date
+									{displayNoneIfEmpty(
+										formatDateMMddYYYY(
+											reduxState[props.reduxContainerName].componentsDisplay
+												.targetItem.start_date
+										)
 									)}
 								</span>
 							</div>
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Due Date:</span>
 								<span className="item-box__group__field_content">
-									{formatDateMMddYYYY(
-										reduxState[props.reduxContainerName].componentsDisplay
-											.targetItem.due_date
+									{displayNoneIfEmpty(
+										formatDateMMddYYYY(
+											reduxState[props.reduxContainerName].componentsDisplay
+												.targetItem.due_date
+										)
 									)}
 								</span>
 							</div>
@@ -93,9 +106,11 @@ export default function ItemContainerDisplayInfo(props) {
 									Completed on:
 								</span>
 								<span className="item-box__group__field_content">
-									{formatDateMMddYYYY(
-										reduxState[props.reduxContainerName].componentsDisplay
-											.targetItem.completion_date
+									{displayNoneIfEmpty(
+										formatDateMMddYYYY(
+											reduxState[props.reduxContainerName].componentsDisplay
+												.targetItem.completion_date
+										)
 									)}
 								</span>
 							</div>
@@ -104,19 +119,19 @@ export default function ItemContainerDisplayInfo(props) {
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Priority:</span>
 								<span className="item-box__group__field_content">
-									{
+									{displayNoneIfEmpty(
 										reduxState[props.reduxContainerName].componentsDisplay
 											.targetItem.priority_option
-									}
+									)}
 								</span>
 							</div>
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Status:</span>
 								<span className="item-box__group__field_content">
-									{
+									{displayNoneIfEmpty(
 										reduxState[props.reduxContainerName].componentsDisplay
 											.targetItem.status_option
-									}
+									)}
 								</span>
 							</div>
 						</div>

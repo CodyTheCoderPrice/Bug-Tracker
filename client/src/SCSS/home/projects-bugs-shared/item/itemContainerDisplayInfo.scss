@@ -17,4 +17,11 @@
 	.item-box__group__field_content {
 		margin-left: 11px;
 	}
+
+	.grayed-out-none {
+		@include stop-text-selection();
+
+		color: gray;
+		opacity: 0.7;
+	}
 }

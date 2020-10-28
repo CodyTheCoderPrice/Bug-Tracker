@@ -44,7 +44,7 @@ export default function ItemContainerEditInfo(props) {
 			props.reduxContainerName === bugContainerName
 				? reduxState[props.reduxContainerName].componentsDisplay.targetItem
 						.location
-				: null,
+				: "",
 		priority_id:
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem
 				.priority_id,
@@ -150,11 +150,14 @@ export default function ItemContainerEditInfo(props) {
 	}, [itemInfo.description]);
 
 	useEffect(() => {
-		toggleCharCountColor(
-			"js-edit-location-char-counter",
-			itemInfo.location.length,
-			locationCharLimit
-		);
+		// Prevents error for projects (which don't have location)
+		if (itemInfo.location.length > 0) {
+			toggleCharCountColor(
+				"js-edit-location-char-counter",
+				itemInfo.location.length,
+				locationCharLimit
+			);
+		}
 		// eslint-disable-next-line
 	}, [itemInfo.location]);
 

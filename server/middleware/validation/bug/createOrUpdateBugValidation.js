@@ -5,13 +5,7 @@ module.exports = (req, res, next) => {
 	let inputErrors = {};
 
 	try {
-		let {
-			name,
-			description,
-			location,
-			priority_id,
-			status_id,
-		} = req.body;
+		let { name, description, location, priority_id, status_id } = req.body;
 
 		// Convert empty fields to an empty string so we can use validator functions
 		name = !isEmpty(name) ? name : "";
@@ -29,8 +23,7 @@ module.exports = (req, res, next) => {
 
 		// Location check
 		if (!Validator.isLength(location, { max: 100 })) {
-			inputErrors.location =
-				"Location can't be longer than 100 characters";
+			inputErrors.location = "Location can't be longer than 100 characters";
 		}
 
 		// Description check
