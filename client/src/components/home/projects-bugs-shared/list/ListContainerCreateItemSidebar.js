@@ -20,7 +20,7 @@ import {
 	populateComboBox,
 } from "../../../../utils/elementUtils";
 
-import { useToggleableDateInput } from "../../../../utils/formHookUtils";
+import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
 
 import { useSidebarResize } from "../../../../utils/sidebarResizeHookUtils";
 

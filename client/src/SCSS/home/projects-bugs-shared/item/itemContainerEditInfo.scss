@@ -162,11 +162,13 @@
 	// ...of completion date based of the status of the project
 	.grayed-out-label {
 		color: $medium-light-gray;
+		pointer-events: none;
 	}
 
 	.grayed-out-date {
 		background-color: $light-gray;
 		color: $medium-light-gray;
+		pointer-events: none;
 	}
 
 	.form__errors {

@@ -23,8 +23,7 @@ import {
 	populateComboBox,
 } from "../../../../utils/elementUtils";
 
-import { useToggleableDateInput } from "../../../../utils/formHookUtils";
-import { useDescriptionTextAreaResize } from "../../../../utils/descriptionTextAreaHookUtils";
+import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditInfo.scss";
 
