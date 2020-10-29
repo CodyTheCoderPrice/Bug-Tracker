@@ -52,7 +52,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 	const openCreateItemSidebar = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listContainer: true,
+				...reduxState[props.reduxContainerName].componentsDisplay,
 				listContainerCreateItemSidbar: true,
 			})
 		);

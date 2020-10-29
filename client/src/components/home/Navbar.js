@@ -168,78 +168,82 @@ export default function Navbar() {
 		);
 	};
 
-	const openProjectsTable = () => {
+	const openProjectsListContainer = () => {
 		if (
 			reduxState[projectContainerName].componentsDisplay.listContainer !==
-				true &&
-			reduxState[projectContainerName].componentsDisplay.itemContainer !== true
+				true
 		) {
 			dispatch(
 				setWhichBugComponentsDisplay({
 					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
-					previousState:
-						reduxState[bugContainerName].componentsDisplay.listContainer ===
-							true ||
-						reduxState[bugContainerName].componentsDisplay.itemContainer ===
-							true
-							? reduxState[bugContainerName].componentsDisplay
-							: null,
 				})
 			);
-			if (
-				reduxState[projectContainerName].componentsDisplay.previousState !==
-				null
-			) {
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					listContainer: true,
+					targetItem:
+						reduxState[projectContainerName].componentsDisplay.targetItem,
+				})
+			);
+		}
+	};
+
+	const openProjectsItemContainer = () => {
+		if (
+			reduxState[projectContainerName].componentsDisplay.itemsContainer !== true
+		) {
+			dispatch(
+				setWhichBugComponentsDisplay({
+					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
+				})
+			);
 				dispatch(
 					setWhichProjectComponentsDisplay({
-						...reduxState[projectContainerName].componentsDisplay.previousState,
-					})
-				);
-			} else {
-				dispatch(
-					setWhichProjectComponentsDisplay({
-						listContainer: true,
+						itemContainer: true,
 						targetItem:
 							reduxState[projectContainerName].componentsDisplay.targetItem,
 					})
 				);
-			}
 		}
 	};
 
-	const openBugsTable = () => {
+	const openBugsListContainer = () => {
 		if (
-			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true
+		) {
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					targetItem:
+						reduxState[projectContainerName].componentsDisplay.targetItem,
+				})
+			);
+			dispatch(
+				setWhichBugComponentsDisplay({
+					listContainer: true,
+					targetItem:
+							reduxState[bugContainerName].componentsDisplay.targetItem,
+				})
+			);
+		}
+	};
+
+	const openBugsItemContainer = () => {
+		if (
 			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
 		) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					targetItem:
 						reduxState[projectContainerName].componentsDisplay.targetItem,
-					previousState:
-						reduxState[projectContainerName].componentsDisplay.listContainer ===
-							true ||
-						reduxState[projectContainerName].componentsDisplay.itemContainer ===
-							true
-							? reduxState[projectContainerName].componentsDisplay
-							: null,
 				})
 			);
-			if (
-				reduxState[bugContainerName].componentsDisplay.previousState !== null
-			) {
-				dispatch(
-					setWhichBugComponentsDisplay({
-						...reduxState[bugContainerName].componentsDisplay.previousState,
-					})
-				);
-			} else {
-				dispatch(
-					setWhichBugComponentsDisplay({
-						listContainer: true,
-					})
-				);
-			}
+			dispatch(
+				setWhichBugComponentsDisplay({
+					itemContainer: true,
+					targetItem:
+							reduxState[bugContainerName].componentsDisplay.targetItem,
+				})
+			);
 		}
 	};
 
@@ -277,7 +281,7 @@ export default function Navbar() {
 			<div className="navbar-component js-navbar">
 				<div
 					className="navbar-button js-project-list-button"
-					onClick={openProjectsTable}
+					onClick={openProjectsListContainer}
 				>
 					<div className="navbar-button__text-container">
 						<i className="fa fa-folder" aria-hidden="true" />{" "}
@@ -286,8 +290,9 @@ export default function Navbar() {
 							"Projects"
 						) : (
 							<span>
-								Projects{" "}
-								<i className="fa fa-angle-double-right" aria-hidden="true" />
+								Projects:
+								{/* {" "}
+								<i className="fa fa-angle-double-right" aria-hidden="true" /> */}
 							</span>
 						)}
 					</div>
@@ -296,14 +301,15 @@ export default function Navbar() {
 				null ? null : (
 					<div
 						className="navbar-button js-project-item-button"
-						onClick={openProjectsTable}
+						onClick={openProjectsItemContainer}
 					>
 						<div className="navbar-button__text-container">
 							{
 								reduxState[projectContainerName].componentsDisplay.targetItem
 									.name
-							}{" "}
-							<i className="fa fa-angle-double-right" aria-hidden="true" />
+							}
+							{/* {" "}
+							<i className="fa fa-angle-double-right" aria-hidden="true" /> */}
 						</div>
 						{reduxState[projectContainerName].componentsDisplay.targetItem ===
 						null ? null : (
@@ -323,7 +329,7 @@ export default function Navbar() {
 				null ? null : (
 					<div
 						className="navbar-button js-bug-list-button"
-						onClick={openBugsTable}
+						onClick={openBugsListContainer}
 					>
 						<div className="navbar-button__text-container js-bug-button-text">
 							<i className="fa fa-bug" aria-hidden="true" />{" "}
@@ -332,8 +338,9 @@ export default function Navbar() {
 								"Bugs"
 							) : (
 								<span>
-									Bugs{" "}
-									<i className="fa fa-angle-double-right" aria-hidden="true" />
+									Bugs:
+									{/* {" "}
+									<i className="fa fa-angle-double-right" aria-hidden="true" /> */}
 								</span>
 							)}
 						</div>
@@ -343,7 +350,7 @@ export default function Navbar() {
 				null ? null : (
 					<div
 						className="navbar-button js-bug-item-button"
-						onClick={openBugsTable}
+						onClick={openBugsItemContainer}
 					>
 						<div className="navbar-button__text-container">
 							{reduxState[bugContainerName].componentsDisplay.targetItem.name}
