@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	projectContainerName,
@@ -43,8 +43,14 @@ export default function Navbar() {
 					),
 				},
 				scrollbar: calcScrollbarWidth(),
-				accountNavbarButton: getElementSize(
+				navbarAccountButton: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
+				),
+				navbarProjectsButton: getElementSize(
+					document.getElementsByClassName("js-project-list-button")[0]
+				),
+				navbarBugsButton: getElementSize(
+					document.getElementsByClassName("js-bug-list-button")[0]
 				),
 				itemContainerTopBar: calcViewItemTopBarHeight(),
 				itemContainerListSidebar: calcItemContainerListSidebarWidth(),
@@ -77,33 +83,54 @@ export default function Navbar() {
 		);
 	}
 
-	/* // Sets max-width for navbar buttons depending on navbar width
+	// Sets max-width for navbar buttons depending on navbar width
 	useEffect(() => {
 		if (
 			reduxState.sizeContainer.variables.navbar !== null &&
-			reduxState.sizeContainer.constants.accountNavbarButton !== null
+			// If navbarAccountButton is set, then projects and bugs button should also be set
+			reduxState.sizeContainer.constants.navbarAccountButton !== null &&
+			reduxState[projectContainerName].componentsDisplay.targetItem !== null
 		) {
-			let buttonMaxWidth =
+			let navbarAvailableSpace =
 				reduxState.sizeContainer.variables.navbar.width -
-				reduxState.sizeContainer.constants.accountNavbarButton.width;
+				reduxState.sizeContainer.constants.navbarAccountButton.width -
+				reduxState.sizeContainer.constants.navbarProjectsButton.width -
+				reduxState.sizeContainer.constants.navbarBugsButton.width;
+
+			const projectButtonElement = document.getElementsByClassName(
+				"js-project-item-button"
+			)[0];
+			// Reset maxWidth so will not interferre with measuring the new width
+			projectButtonElement.style.maxWidth = null;
 
 			// If bug navbar button is present
 			if (
-				reduxState[projectContainerName].componentsDisplay.targetItem !== null
+				reduxState[bugContainerName].componentsDisplay.targetItem !== null
 			) {
-				buttonMaxWidth = buttonMaxWidth / 2;
+				const bugButtonElement = document.getElementsByClassName(
+					"js-bug-item-button"
+				)[0];
+				// Reset maxWidth so will not interferre with measuring the new width
+				bugButtonElement.style.maxWidth = null;
 
-				document.getElementsByClassName("js-bug-button")[0].style.maxWidth =
-					buttonMaxWidth + "px";
+				const bugButtonElementWidth = getElementSize(bugButtonElement).width;
+				if (bugButtonElementWidth > navbarAvailableSpace / 2) {
+					bugButtonElement.style.maxWidth = navbarAvailableSpace / 2 + "px";
+					navbarAvailableSpace = navbarAvailableSpace / 2;
+				} else {
+					navbarAvailableSpace -= bugButtonElementWidth;
+				}
 			}
 
-			document.getElementsByClassName("js-project-button")[0].style.maxWidth =
-				buttonMaxWidth + "px";
+			if (getElementSize(projectButtonElement).width > navbarAvailableSpace) {
+				projectButtonElement.style.maxWidth = navbarAvailableSpace + "px";
+			}
 		}
 	}, [
 		reduxState.sizeContainer,
 		reduxState[projectContainerName].componentsDisplay.targetItem,
-	]); */
+		reduxState[bugContainerName].componentsDisplay.targetItem,
+	]);
 
 	useEffect(() => {
 		setNavbarButtonColor(
@@ -170,8 +197,7 @@ export default function Navbar() {
 
 	const openProjectsListContainer = () => {
 		if (
-			reduxState[projectContainerName].componentsDisplay.listContainer !==
-				true
+			reduxState[projectContainerName].componentsDisplay.listContainer !== true
 		) {
 			dispatch(
 				setWhichBugComponentsDisplay({
@@ -197,20 +223,18 @@ export default function Navbar() {
 					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
 				})
 			);
-				dispatch(
-					setWhichProjectComponentsDisplay({
-						itemContainer: true,
-						targetItem:
-							reduxState[projectContainerName].componentsDisplay.targetItem,
-					})
-				);
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					itemContainer: true,
+					targetItem:
+						reduxState[projectContainerName].componentsDisplay.targetItem,
+				})
+			);
 		}
 	};
 
 	const openBugsListContainer = () => {
-		if (
-			reduxState[bugContainerName].componentsDisplay.listContainer !== true
-		) {
+		if (reduxState[bugContainerName].componentsDisplay.listContainer !== true) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					targetItem:
@@ -220,17 +244,14 @@ export default function Navbar() {
 			dispatch(
 				setWhichBugComponentsDisplay({
 					listContainer: true,
-					targetItem:
-							reduxState[bugContainerName].componentsDisplay.targetItem,
+					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
 				})
 			);
 		}
 	};
 
 	const openBugsItemContainer = () => {
-		if (
-			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
-		) {
+		if (reduxState[bugContainerName].componentsDisplay.itemContainer !== true) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					targetItem:
@@ -240,8 +261,7 @@ export default function Navbar() {
 			dispatch(
 				setWhichBugComponentsDisplay({
 					itemContainer: true,
-					targetItem:
-							reduxState[bugContainerName].componentsDisplay.targetItem,
+					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
 				})
 			);
 		}
@@ -284,17 +304,18 @@ export default function Navbar() {
 					onClick={openProjectsListContainer}
 				>
 					<div className="navbar-button__text-container">
-						<i className="fa fa-folder" aria-hidden="true" />{" "}
-						{reduxState[projectContainerName].componentsDisplay.targetItem ===
-						null ? (
-							"Projects"
-						) : (
-							<span>
-								Projects:
-								{/* {" "}
-								<i className="fa fa-angle-double-right" aria-hidden="true" /> */}
-							</span>
-						)}
+						<i className="fa fa-folder" aria-hidden="true" /> Projects
+						{/* Colon is always present (but not always visible) so button always remains the same size*/}
+						<span
+							className={
+								reduxState[projectContainerName].componentsDisplay
+									.targetItem === null
+									? "navbar-button__text-container--invisible"
+									: ""
+							}
+						>
+							:
+						</span>
 					</div>
 				</div>
 				{reduxState[projectContainerName].componentsDisplay.targetItem ===
@@ -303,13 +324,11 @@ export default function Navbar() {
 						className="navbar-button js-project-item-button"
 						onClick={openProjectsItemContainer}
 					>
-						<div className="navbar-button__text-container">
+						<div className="navbar-button__text-container navbar-button__text-container--item">
 							{
 								reduxState[projectContainerName].componentsDisplay.targetItem
 									.name
 							}
-							{/* {" "}
-							<i className="fa fa-angle-double-right" aria-hidden="true" /> */}
 						</div>
 						{reduxState[projectContainerName].componentsDisplay.targetItem ===
 						null ? null : (
@@ -325,34 +344,37 @@ export default function Navbar() {
 						)}
 					</div>
 				)}
-				{reduxState[projectContainerName].componentsDisplay.targetItem ===
-				null ? null : (
-					<div
-						className="navbar-button js-bug-list-button"
-						onClick={openBugsListContainer}
-					>
-						<div className="navbar-button__text-container js-bug-button-text">
-							<i className="fa fa-bug" aria-hidden="true" />{" "}
-							{reduxState[bugContainerName].componentsDisplay.targetItem ===
-							null ? (
-								"Bugs"
-							) : (
-								<span>
-									Bugs:
-									{/* {" "}
-									<i className="fa fa-angle-double-right" aria-hidden="true" /> */}
-								</span>
-							)}
-						</div>
+				<div
+					className={
+						"navbar-button js-bug-list-button" +
+						(reduxState[projectContainerName].componentsDisplay.targetItem === null
+							? " navbar-button--invisible"
+							: "")
+					}
+					onClick={openBugsListContainer}
+				>
+					<div className="navbar-button__text-container">
+						<i className="fa fa-bug" aria-hidden="true" /> Bugs
+						{/* Colon is always present (but not always visible) so button always remains the same size*/}
+						<span
+							className={
+								reduxState[bugContainerName].componentsDisplay.targetItem ===
+								null
+									? "navbar-button__text-container--invisible"
+									: ""
+							}
+						>
+							:
+						</span>
 					</div>
-				)}
+				</div>
 				{reduxState[bugContainerName].componentsDisplay.targetItem ===
 				null ? null : (
 					<div
 						className="navbar-button js-bug-item-button"
 						onClick={openBugsItemContainer}
 					>
-						<div className="navbar-button__text-container">
+						<div className="navbar-button__text-container navbar-button__text-container--item">
 							{reduxState[bugContainerName].componentsDisplay.targetItem.name}
 						</div>
 						{reduxState[bugContainerName].componentsDisplay.targetItem ===

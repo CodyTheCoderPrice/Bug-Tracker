@@ -47,26 +47,24 @@ export default function ListContainerTableRow(props) {
 	};
 
 	const openItemContainer = () => {
+		dispatch(setWhichAccountComponentsDisplay({}));
+		dispatch(
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				listContainer: false,
+				itemContainer: true,
+				targetItem: props.item,
+			})
+		);
+
+		// Resets bug components display when a different project is opened
+		// ...to prevent erros with bug targetItem not belonging to project
 		if (
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem ===
-				null ||
+			props.reduxContainerName === projectContainerName &&
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem !== null &&
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
 				props.item.id
 		) {
-			dispatch(setWhichAccountComponentsDisplay({}));
-			dispatch(
-				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-					listContainer: false,
-					itemContainer: true,
-					targetItem: props.item,
-				})
-			);
-
-			// Resets bug components display when a different project is opened
-			// ...to prevent erros with bug targetItem not belonging to project
-			if (props.reduxContainerName === projectContainerName) {
-				dispatch(setWhichBugComponentsDisplay({}));
-			}
+			dispatch(setWhichBugComponentsDisplay({}));
 		}
 	};
 
@@ -95,8 +93,8 @@ export default function ListContainerTableRow(props) {
 			<td className="list-table__data">
 				<span
 					className={
-						"list-table__data__info" + (props.reduxContainerName ===
-						projectContainerName
+						"list-table__data__info" +
+						(props.reduxContainerName === projectContainerName
 							? " list-table__data__info--blue"
 							: " list-table__data__info--red")
 					}
