@@ -3,7 +3,9 @@ import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/types";
 const initialState = {
 	home: null,
 	scrollbar: null,
-	accountNavbarButton: null,
+	navbarAccountButton: null,
+	navbarProjectsButton: null,
+	navbarBugsButton: null,
 	itemContainerTopBar: null,
 	itemContainerListSidebar: null,
 };
@@ -14,7 +16,9 @@ export default function (state = initialState, action) {
 			return {
 				home: action.sizes.home,
 				scrollbar: action.sizes.scrollbar,
-				accountNavbarButton: action.sizes.accountNavbarButton,
+				navbarAccountButton: action.sizes.navbarAccountButton,
+				navbarProjectsButton: action.sizes.navbarProjectsButton,
+				navbarBugsButton: action.sizes.navbarBugsButton,
 				itemContainerTopBar: action.sizes.itemContainerTopBar,
 				itemContainerListSidebar: action.sizes.itemContainerListSidebar,
 			};

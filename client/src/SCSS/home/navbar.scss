@@ -24,6 +24,10 @@
 		height: $navbar-height;
 	}
 
+	.navbar-button--invisible {
+		visibility: hidden;
+	}
+
 	.navbar-button--right {
 		// Postion absolute instead of float right so that account button
 		// ...will always remain on screen during screen resizing
@@ -38,7 +42,7 @@
 	.navbar-button__text-container {
 		@include stop-text-selection();
 
-		margin: 18px 15px 0px 15px;
+		margin: 17px 10px 0px 10px;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: 20px;
 		color: white;
@@ -49,8 +53,13 @@
 		text-overflow: ellipsis;
 	}
 
-	.navbar-button__text-container__name {
+	.navbar-button__text-container--item {
+		color: #ffff00;
 		font-style: italic;
+	}
+
+	.navbar-button__text-container--invisible {
+		visibility: hidden;
 	}
 
 	.navbar-button__close-button {

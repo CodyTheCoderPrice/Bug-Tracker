@@ -8,8 +8,6 @@ const initialState = {
 	itemContainerEditInfo: false,
 	itemContainerDeleteModal: false,
 	targetItem: null,
-	// Used to restore componentsDisplay back to it's prior state
-	previousState: null,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -46,10 +44,6 @@ export default function (state = initialState, action) {
 				targetItem:
 					action.displays.targetItem !== undefined
 						? action.displays.targetItem
-						: null,
-				previousState:
-					action.displays.previousState !== undefined
-						? action.displays.previousState
 						: null,
 			};
 		default:
