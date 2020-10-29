@@ -83,26 +83,43 @@ export default function Navbar() {
 			reduxState.sizeContainer.variables.navbar !== null &&
 			reduxState.sizeContainer.constants.accountNavbarButton !== null
 		) {
-			let buttonMaxWidth =
+			let navbarAvailableSpace =
 				reduxState.sizeContainer.variables.navbar.width -
 				reduxState.sizeContainer.constants.accountNavbarButton.width;
+
+			const projectButtonElement = document.getElementsByClassName(
+				"js-project-button"
+			)[0];
+			// Reset maxWidth so will not interferre with measuring the new width
+			projectButtonElement.style.maxWidth = null;
 
 			// If bug navbar button is present
 			if (
 				reduxState[projectContainerName].componentsDisplay.targetItem !== null
 			) {
-				buttonMaxWidth = buttonMaxWidth / 2;
+				const bugButtonElement = document.getElementsByClassName(
+					"js-bug-button"
+				)[0];
+				// Reset maxWidth so will not interferre with measuring the new width
+				bugButtonElement.style.maxWidth = null;
 
-				document.getElementsByClassName("js-bug-button")[0].style.maxWidth =
-					buttonMaxWidth + "px";
+				const bugButtonElementWidth = getElementSize(bugButtonElement).width;
+				if (bugButtonElementWidth > navbarAvailableSpace / 2) {
+					bugButtonElement.style.maxWidth = navbarAvailableSpace / 2 + "px";
+					navbarAvailableSpace = navbarAvailableSpace / 2;
+				} else {
+					navbarAvailableSpace -= bugButtonElementWidth;
+				}
 			}
 
-			document.getElementsByClassName("js-project-button")[0].style.maxWidth =
-				buttonMaxWidth + "px";
+			if (getElementSize(projectButtonElement).width > navbarAvailableSpace) {
+				projectButtonElement.style.maxWidth = navbarAvailableSpace + "px";
+			}
 		}
 	}, [
 		reduxState.sizeContainer,
 		reduxState[projectContainerName].componentsDisplay.targetItem,
+		reduxState[bugContainerName].componentsDisplay.targetItem,
 	]);
 
 	useEffect(() => {
@@ -251,7 +268,10 @@ export default function Navbar() {
 			setWhichBugComponentsDisplay({
 				...reduxState[bugContainerName].componentsDisplay,
 				// Keeps the user on their current tab (since the user can close a bug from the project tab)
-				listContainer: (reduxState[bugContainerName].componentsDisplay.itemContainer === true ? true : false),
+				listContainer:
+					reduxState[bugContainerName].componentsDisplay.itemContainer === true
+						? true
+						: false,
 				itemContainer: false,
 				targetItem: null,
 			})
@@ -268,10 +288,19 @@ export default function Navbar() {
 					<div className="navbar-button__text-container">
 						<i className="fa fa-folder" aria-hidden="true" />{" "}
 						{reduxState[projectContainerName].componentsDisplay.targetItem ===
-						null
-							? "Projects"
-							: reduxState[projectContainerName].componentsDisplay.targetItem
-									.name}
+						null ? (
+							"Projects"
+						) : (
+							<span>
+								Project:{" "}
+								<span className="navbar-button__text-container__name">
+									{
+										reduxState[projectContainerName].componentsDisplay
+											.targetItem.name
+									}
+								</span>
+							</span>
+						)}
 					</div>
 					{reduxState[projectContainerName].componentsDisplay.targetItem ===
 					null ? null : (
@@ -292,10 +321,19 @@ export default function Navbar() {
 						<div className="navbar-button__text-container js-bug-button-text">
 							<i className="fa fa-bug" aria-hidden="true" />{" "}
 							{reduxState[bugContainerName].componentsDisplay.targetItem ===
-							null
-								? "Bugs"
-								: reduxState[bugContainerName].componentsDisplay.targetItem
-										.name}
+							null ? (
+								"Bugs"
+							) : (
+								<span>
+									Bug:{" "}
+									<span className="navbar-button__text-container__name">
+										{
+											reduxState[bugContainerName].componentsDisplay.targetItem
+												.name
+										}
+									</span>
+								</span>
+							)}
 						</div>
 						{reduxState[bugContainerName].componentsDisplay.targetItem ===
 						null ? null : (
