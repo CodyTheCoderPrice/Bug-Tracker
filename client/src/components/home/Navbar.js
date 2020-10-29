@@ -77,7 +77,7 @@ export default function Navbar() {
 		);
 	}
 
-	// Sets max-width for navbar buttons depending on navbar width
+	/* // Sets max-width for navbar buttons depending on navbar width
 	useEffect(() => {
 		if (
 			reduxState.sizeContainer.variables.navbar !== null &&
@@ -103,25 +103,36 @@ export default function Navbar() {
 	}, [
 		reduxState.sizeContainer,
 		reduxState[projectContainerName].componentsDisplay.targetItem,
-	]);
+	]); */
 
 	useEffect(() => {
 		setNavbarButtonColor(
-			reduxState[projectContainerName].componentsDisplay.listContainer ||
-				reduxState[projectContainerName].componentsDisplay.itemContainer,
-			document.getElementsByClassName("js-project-button")[0],
+			reduxState[projectContainerName].componentsDisplay.listContainer,
+			document.getElementsByClassName("js-project-list-button")[0],
 			"navbar-button--selected"
 		);
-		// Prevents error of js-bug-button not exisiting
+		// Prevents error of js-project-item-button, js-bug-list-button,
+		// ...and js-bug-item-button not exisiting
 		if (
 			reduxState[projectContainerName].componentsDisplay.targetItem !== null
 		) {
 			setNavbarButtonColor(
-				reduxState[bugContainerName].componentsDisplay.listContainer ||
-					reduxState[bugContainerName].componentsDisplay.itemContainer,
-				document.getElementsByClassName("js-bug-button")[0],
+				reduxState[projectContainerName].componentsDisplay.itemContainer,
+				document.getElementsByClassName("js-project-item-button")[0],
 				"navbar-button--selected"
 			);
+			setNavbarButtonColor(
+				reduxState[bugContainerName].componentsDisplay.listContainer,
+				document.getElementsByClassName("js-bug-list-button")[0],
+				"navbar-button--selected"
+			);
+			if (reduxState[bugContainerName].componentsDisplay.targetItem !== null) {
+				setNavbarButtonColor(
+					reduxState[bugContainerName].componentsDisplay.itemContainer,
+					document.getElementsByClassName("js-bug-item-button")[0],
+					"navbar-button--selected"
+				);
+			}
 		}
 		// eslint-disable-next-line
 	}, [
@@ -251,7 +262,10 @@ export default function Navbar() {
 			setWhichBugComponentsDisplay({
 				...reduxState[bugContainerName].componentsDisplay,
 				// Keeps the user on their current tab (since the user can close a bug from the project tab)
-				listContainer: (reduxState[bugContainerName].componentsDisplay.itemContainer === true ? true : false),
+				listContainer:
+					reduxState[bugContainerName].componentsDisplay.itemContainer === true
+						? true
+						: false,
 				itemContainer: false,
 				targetItem: null,
 			})
@@ -262,40 +276,77 @@ export default function Navbar() {
 		<div className="navbar-and-other-components-container">
 			<div className="navbar-component js-navbar">
 				<div
-					className="navbar-button js-project-button"
+					className="navbar-button js-project-list-button"
 					onClick={openProjectsTable}
 				>
 					<div className="navbar-button__text-container">
 						<i className="fa fa-folder" aria-hidden="true" />{" "}
 						{reduxState[projectContainerName].componentsDisplay.targetItem ===
-						null
-							? "Projects"
-							: reduxState[projectContainerName].componentsDisplay.targetItem
-									.name}
+						null ? (
+							"Projects"
+						) : (
+							<span>
+								Projects{" "}
+								<i className="fa fa-angle-double-right" aria-hidden="true" />
+							</span>
+						)}
 					</div>
-					{reduxState[projectContainerName].componentsDisplay.targetItem ===
-					null ? null : (
-						<div
-							className="navbar-button__close-button"
-							onClick={(e) => closeProjectItemContainer(e)}
-						>
-							<i
-								className="fa fa-times navbar-button__close-button__icon"
-								aria-hidden="true"
-							/>
-						</div>
-					)}
 				</div>
-				{reduxState[projectContainerName].componentsDisplay.targetItem !==
-				null ? (
-					<div className="navbar-button js-bug-button" onClick={openBugsTable}>
+				{reduxState[projectContainerName].componentsDisplay.targetItem ===
+				null ? null : (
+					<div
+						className="navbar-button js-project-item-button"
+						onClick={openProjectsTable}
+					>
+						<div className="navbar-button__text-container">
+							{
+								reduxState[projectContainerName].componentsDisplay.targetItem
+									.name
+							}{" "}
+							<i className="fa fa-angle-double-right" aria-hidden="true" />
+						</div>
+						{reduxState[projectContainerName].componentsDisplay.targetItem ===
+						null ? null : (
+							<div
+								className="navbar-button__close-button"
+								onClick={(e) => closeProjectItemContainer(e)}
+							>
+								<i
+									className="fa fa-times navbar-button__close-button__icon"
+									aria-hidden="true"
+								/>
+							</div>
+						)}
+					</div>
+				)}
+				{reduxState[projectContainerName].componentsDisplay.targetItem ===
+				null ? null : (
+					<div
+						className="navbar-button js-bug-list-button"
+						onClick={openBugsTable}
+					>
 						<div className="navbar-button__text-container js-bug-button-text">
 							<i className="fa fa-bug" aria-hidden="true" />{" "}
 							{reduxState[bugContainerName].componentsDisplay.targetItem ===
-							null
-								? "Bugs"
-								: reduxState[bugContainerName].componentsDisplay.targetItem
-										.name}
+							null ? (
+								"Bugs"
+							) : (
+								<span>
+									Bugs{" "}
+									<i className="fa fa-angle-double-right" aria-hidden="true" />
+								</span>
+							)}
+						</div>
+					</div>
+				)}
+				{reduxState[bugContainerName].componentsDisplay.targetItem ===
+				null ? null : (
+					<div
+						className="navbar-button js-bug-item-button"
+						onClick={openBugsTable}
+					>
+						<div className="navbar-button__text-container">
+							{reduxState[bugContainerName].componentsDisplay.targetItem.name}
 						</div>
 						{reduxState[bugContainerName].componentsDisplay.targetItem ===
 						null ? null : (
@@ -310,7 +361,7 @@ export default function Navbar() {
 							</div>
 						)}
 					</div>
-				) : null}
+				)}
 				<div
 					className="navbar-button navbar-button--right js-account-button"
 					onClick={openAccountSidebar}

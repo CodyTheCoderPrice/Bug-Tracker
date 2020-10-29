@@ -38,15 +38,19 @@
 	.navbar-button__text-container {
 		@include stop-text-selection();
 
-		margin: 14px 30px 0px 30px;
+		margin: 18px 10px 0px 10px;
 		font-family: Verdana, Geneva, sans-serif;
-		font-size: 160%;
+		font-size: 20px;
 		color: white;
 		text-align: center;
 		// Text cutoff with ellipise only takes place when max-width is added by JS
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+
+	.navbar-button__text-container--main {
+		color: yellow;
 	}
 
 	.navbar-button__close-button {
