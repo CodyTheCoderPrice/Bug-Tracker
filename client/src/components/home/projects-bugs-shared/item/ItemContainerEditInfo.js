@@ -205,7 +205,7 @@ export default function ItemContainerEditInfo(props) {
 	};
 
 	return (
-		<form noValidate onSubmit={handleSubmit} className="js-edit-item-form">
+		<form noValidate onSubmit={handleSubmit}>
 			<div className="outer-dividing-container">
 				<div className="centering-container">
 					<input
@@ -357,31 +357,6 @@ export default function ItemContainerEditInfo(props) {
 					</div>
 				</div>
 			</div>
-			{props.reduxContainerName === projectContainerName ? (
-				<div className="pair-container js-bug-info-pair">
-					<div className="outer-dividing-container outer-dividing-container--one-third">
-						<div className="item-box">
-							<h2 className="item-box__title">Status of Bugs</h2>
-							<span>Comming soon!</span>
-						</div>
-					</div>
-					<div className="outer-dividing-container outer-dividing-container--one-third">
-						<div className="item-box">
-							<h2 className="item-box__title">Last Five Bugs</h2>
-							<span>Comming soon!</span>
-						</div>
-					</div>
-				</div>
-			) : (
-				<div>
-					<div className="outer-dividing-container">
-						<div className="item-box">
-							<h2 className="item-box__title">Comments</h2>
-							<span>Comming soon!</span>
-						</div>
-					</div>
-				</div>
-			)}
 			<div className="outer-dividing-container">
 				<div className="form-buttons-outer-container">
 					<div className="form-buttons-centered-container">
@@ -408,6 +383,22 @@ export default function ItemContainerEditInfo(props) {
 					</span>
 				</div>
 			</div>
+			{props.reduxContainerName !== projectContainerName ? null : (
+				<div className="pair-container js-bug-info-pair">
+					<div className="outer-dividing-container outer-dividing-container--one-third">
+						<div className="item-box">
+							<h2 className="item-box__title">Status of Bugs</h2>
+							<span>Comming soon!</span>
+						</div>
+					</div>
+					<div className="outer-dividing-container outer-dividing-container--one-third">
+						<div className="item-box">
+							<h2 className="item-box__title">Last Five Bugs</h2>
+							<span>Comming soon!</span>
+						</div>
+					</div>
+				</div>
+			)}
 		</form>
 	);
 }

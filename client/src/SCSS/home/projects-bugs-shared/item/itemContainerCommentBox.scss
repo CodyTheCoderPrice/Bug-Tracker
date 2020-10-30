@@ -1,0 +1,33 @@
+@import "../../../utils/variables";
+@import "../../../utils//mixins";
+
+// This file is for SCSS used only by the ItemContainerCommentBox component
+// ...SCSS shared with other components is in itemContainer.scss
+.item-container-component {
+	.form-submit-centering-container {
+		position: relative;
+		height: 40px;
+		width: 100%;
+	}
+
+	.form-submit-centering-container__button {
+		@include dead-center();
+		border: 1px solid black;
+		outline: none;
+		background-color: $light-blue-gray;
+		// Only top and bottom because of inconsistencies
+		// ...with button vs divs.
+		padding: 10px 0px 10px 0px;
+		// 2px bigger than cancel button because of inconsistencies
+		// ...with buttons vs divs.
+		width: 127px;
+		color: white;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	.form-submit-centering-container__button:hover,
+	.form-submit-centering-container__button:active {
+		background-color: $blue-gray;
+	}
+}

@@ -138,7 +138,7 @@ export default function ItemContainerDisplayInfo(props) {
 					</div>
 				</div>
 			</div>
-			{props.reduxContainerName === projectContainerName ? (
+			{props.reduxContainerName !== projectContainerName ? null : (
 				<div className="pair-container js-bug-info-pair">
 					<div className="outer-dividing-container outer-dividing-container--half-width">
 						<div className="item-box">
@@ -149,15 +149,6 @@ export default function ItemContainerDisplayInfo(props) {
 					<div className="outer-dividing-container outer-dividing-container--half-width">
 						<div className="item-box">
 							<h2 className="item-box__title">Last Five Bugs</h2>
-							<span>Comming soon!</span>
-						</div>
-					</div>
-				</div>
-			) : (
-				<div>
-					<div className="outer-dividing-container">
-						<div className="item-box">
-							<h2 className="item-box__title">Comments</h2>
 							<span>Comming soon!</span>
 						</div>
 					</div>

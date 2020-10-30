@@ -125,5 +125,5 @@ CREATE TABLE comment(
 	CONSTRAINT fk_bug
     FOREIGN KEY(bug_id) 
 	REFERENCES bug(bug_id)
-	ON DELETE CASCADE,
+	ON DELETE CASCADE
 );

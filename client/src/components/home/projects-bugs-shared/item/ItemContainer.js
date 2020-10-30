@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { generalContainerName } from "../../../../reducers/containerNames";
+import { generalContainerName, projectContainerName } from "../../../../reducers/containerNames";
 
 import { toggleClassName } from "../../../../utils/elementUtils";
 
@@ -10,6 +10,7 @@ import ItemContainerListSidebar from "./ItemContainerListSidebar";
 import ItemContainerDisplayInfo from "./ItemContainerDisplayInfo";
 import ItemContainerEditInfo from "./ItemContainerEditInfo";
 import ItemContainerDeleteModal from "./ItemContainerDeleteModal";
+import ItemContainerCommentBox from "./ItemContainerCommentBox";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainer.scss";
 
@@ -92,6 +93,9 @@ export default function ItemContainer(props) {
 										reduxContainerName={props.reduxContainerName}
 									/>
 								</div>
+							)}
+							{props.reduxContainerName === projectContainerName ? null : (
+								<ItemContainerCommentBox />
 							)}
 						</div>
 					</div>
