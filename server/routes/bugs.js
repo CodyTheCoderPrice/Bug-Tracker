@@ -71,6 +71,8 @@ router
 					throw { message: "Bug creation failed" };
 				}
 
+				// Since not all requests have access to project_id,
+				// ...this querry gets it using account_id
 				const allBugsForAccount = await pool.query(
 					`WITH b AS 
 						(SELECT * FROM bug WHERE project_id IN 
@@ -107,6 +109,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		// Declared in the tokenAuthorization middleware
 		const { account_id } = req;
 
+		// Since not all requests have access to project_id,
+		// ...this querry gets it using account_id
 		const allBugsForAccount = await pool.query(
 			`WITH b AS 
 				(SELECT * FROM bug WHERE project_id IN 
@@ -194,6 +198,8 @@ router
 					throw { message: "Bug update failed" };
 				}
 
+				// Since not all requests have access to project_id,
+				// ...this querry gets it using account_id
 				const allBugsForAccount = await pool.query(
 					`WITH b AS 
 						(SELECT * FROM bug WHERE project_id IN 
@@ -246,6 +252,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			[project_id, id]
 		);
 
+		// Since not all requests have access to project_id,
+		// ...this querry gets it using account_id
 		const allBugsForAccount = await pool.query(
 			`WITH b AS 
 				(SELECT * FROM bug WHERE project_id IN 
@@ -310,6 +318,8 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			[...bugsArray]
 		);
 
+		// Since not all requests have access to project_id,
+		// ...this querry gets it using account_id
 		const allBugsForAccount = await pool.query(
 			`WITH b AS 
 				(SELECT * FROM bug WHERE project_id IN 

@@ -93,7 +93,7 @@ export default function ItemContainerEditInfo(props) {
 			reduxState[props.reduxContainerName].priorityStatusOptions
 				.statusCompletionId
 		) {
-			setItemInfo({ ...itemInfo, completion_date: null });
+			setItemInfo({ ...itemInfo, completion_date: "" });
 		} else {
 			setItemInfo({
 				...itemInfo,

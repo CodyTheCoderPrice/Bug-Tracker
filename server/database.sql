@@ -116,3 +116,14 @@ INSERT INTO bug_status (order_number, option, marks_completion)
 		(1, 'In Progress', false),
 		(2, 'Testing', false),
 		(3, 'Closed', true);
+
+CREATE TABLE comment(
+    comment_id SERIAL PRIMARY KEY,
+    bug_id INTEGER,
+    description TEXT,
+	creation_date DATE,
+	CONSTRAINT fk_bug
+    FOREIGN KEY(bug_id) 
+	REFERENCES bug(bug_id)
+	ON DELETE CASCADE,
+);
