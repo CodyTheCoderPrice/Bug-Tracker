@@ -40,20 +40,19 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 		}
 
 		// Generate hashed password
-		bcrypt
-			.genSalt(10, (err, salt) => {
-				bcrypt.hash(password, salt, async (err, hash) => {
-					if (err) throw err;
+		bcrypt.genSalt(10, (err, salt) => {
+			bcrypt.hash(password, salt, async (err, hash) => {
+				if (err) throw err;
 
-					const newAccount = await pool.query(
-						`INSERT INTO account (email, hash_pass, first_name, last_name, join_date) 
+				const newAccount = await pool.query(
+					`INSERT INTO account (email, hash_pass, first_name, last_name, join_date) 
 							VALUES($1, $2, $3, $4, $5)`,
-						[email, hash, first_name, last_name, join_date]
-					);
-					
-					return res.json({ success: true, message: "Account created" });
-				});
-			})
+					[email, hash, first_name, last_name, join_date]
+				);
+
+				return res.json({ success: true, message: "Account created" });
+			});
+		});
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.server = "Server error while register account";
@@ -212,6 +211,17 @@ router
 				const { account_id } = req;
 				// Passed in the post body
 				const { email } = req.body;
+
+				// Verify that email does not already exist
+				const activeAccounts = await pool.query(
+					"SELECT * FROM account WHERE LOWER(email) = LOWER($1)",
+					[email]
+				);
+
+				if (activeAccounts.rowCount > 0) {
+					inputErrors = { email: "Email already in use" };
+					return res.status(400).json({ success: false, inputErrors });
+				}
 
 				const updatedAccount = await pool.query(
 					`UPDATE account SET email = $1 
