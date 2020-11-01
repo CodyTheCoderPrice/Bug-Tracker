@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	projectContainerName,
 	bugContainerName,
+	commentContainerName,
+	projectContainerName,
 } from "../../../../reducers/containerNames";
 
-import { updateProjectOrBug, clearInputErrors } from "../../../../actions";
+import { createComment, clearInputErrors } from "../../../../actions";
 
 import { toggleCharCountColor } from "../../../../utils/elementUtils";
 
+import ItemContainerCommentsBoxIndividualComment from "./ItemContainerCommentsBoxIndividualComment";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerCommentBox.scss";
 
-export default function ItemContainerCommentBox(props) {
+export default function ItemContainerCommentsBox() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [commentInfo, setCommentInfo] = useState({
 		description: "",
+		// Following ids are used by the backend to ensure
+		// ...the comment will belong to the correct account
+		project_id:
+			reduxState[projectContainerName].componentsDisplay.targetItem.id,
+		bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
 	});
 
 	const [descriptionCharLimit] = useState(500);
@@ -53,19 +61,13 @@ export default function ItemContainerCommentBox(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		/* dispatch(
-			updateProjectOrBug(
-				props.reduxContainerName,
-				commentInfoDeepCopy,
-				reduxState[props.reduxContainerName].componentsDisplay
-			)
-		); */
+		dispatch(createComment(commentInfo));
 	};
 
 	return (
-		<form noValidate onSubmit={handleSubmit}>
-			<div className="outer-dividing-container">
-				<div className="item-box">
+		<div className="outer-dividing-container">
+			<div className="item-box">
+				<form noValidate onSubmit={handleSubmit}>
 					<label htmlFor="create-comment-description">
 						<h2 className="item-box__title item-box__title--no-bottom-margin">
 							Comments
@@ -81,9 +83,6 @@ export default function ItemContainerCommentBox(props) {
 						id="create-comment-description"
 						className="item-box__form-textarea item-box__form-textarea--shorter"
 					/>
-					<span className="form-errors">
-						{reduxState.generalContainer.inputErrors.description}
-					</span>
 					<div className="form-submit-centering-container">
 						<button
 							type="submit"
@@ -92,14 +91,39 @@ export default function ItemContainerCommentBox(props) {
 							Add Comment
 						</button>
 					</div>
-				</div>
+					<div className="bottom-form-errors-container">
+						<span className="form-errors">
+							{reduxState.generalContainer.inputErrors.description}
+							{reduxState.generalContainer.inputErrors.validation}
+							{reduxState.generalContainer.inputErrors.server}
+						</span>
+					</div>
+				</form>
+				{[...reduxState[commentContainerName].list]
+					.filter(
+						(item) =>
+							item.bug_id ===
+							reduxState[bugContainerName].componentsDisplay.targetItem.id
+					)
+					/* .sort((a, b) => {
+						return a - b;
+					}) */
+					.map((comment, idx) => {
+						return (
+							<ItemContainerCommentsBoxIndividualComment
+								key={idx}
+								comment={comment}
+								project_id={
+									reduxState[projectContainerName].componentsDisplay.targetItem
+										.id
+								}
+								bug_id={
+									reduxState[bugContainerName].componentsDisplay.targetItem.id
+								}
+							/>
+						);
+					})}
 			</div>
-			<div className="bottom-form-errors-container">
-				<span className="form-errors">
-					{reduxState.generalContainer.inputErrors.validation}
-					{reduxState.generalContainer.inputErrors.server}
-				</span>
-			</div>
-		</form>
+		</div>
 	);
 }

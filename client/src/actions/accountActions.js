@@ -10,6 +10,7 @@ import {
 } from "./componentActions";
 import { retrieveProjects } from "./projectActions";
 import { retrieveBugs } from "./bugActions";
+import { retrieveComments } from "./commentActions";
 
 export const setAuthentication = (decodedToken) => (dispatch) => {
 	dispatch({
@@ -52,6 +53,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setAccount(account));
 			dispatch(retrieveProjects());
 			dispatch(retrieveBugs());
+			dispatch(retrieveComments());
 			dispatch(setWhichGeneralComponentsDisplay({ home: true }));
 		})
 		.catch((err) => {

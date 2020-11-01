@@ -1,0 +1,32 @@
+@import "../../../utils/variables";
+@import "../../../utils//mixins";
+
+.item-container-component {
+	.comment-divider {
+		margin: 30px 0px 30px 0px;
+		border-bottom: 1px solid silver;
+	}
+
+	.comment__block {
+		margin: 10px 0px 10px 0px;
+	}
+
+	.comment__block__description {
+		color: $dark-blue-gray;	
+	}
+
+	.comment__block__date {
+		
+	}
+
+	.comment_block__icon-button {
+		display: inline;
+		margin-left: 15px;
+		color: gray;
+		cursor: pointer;
+	}
+	.comment_block__icon-button:hover,
+	.comment_block__icon-button:active {
+		color: black;
+	}
+}

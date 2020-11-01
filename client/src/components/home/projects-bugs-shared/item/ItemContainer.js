@@ -10,7 +10,7 @@ import ItemContainerListSidebar from "./ItemContainerListSidebar";
 import ItemContainerDisplayInfo from "./ItemContainerDisplayInfo";
 import ItemContainerEditInfo from "./ItemContainerEditInfo";
 import ItemContainerDeleteModal from "./ItemContainerDeleteModal";
-import ItemContainerCommentBox from "./ItemContainerCommentBox";
+import ItemContainerCommentsBox from "./ItemContainerCommentsBox";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainer.scss";
 
@@ -95,7 +95,7 @@ export default function ItemContainer(props) {
 								</div>
 							)}
 							{props.reduxContainerName === projectContainerName ? null : (
-								<ItemContainerCommentBox />
+								<ItemContainerCommentsBox />
 							)}
 						</div>
 					</div>
