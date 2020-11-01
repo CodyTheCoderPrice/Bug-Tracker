@@ -4,3 +4,4 @@ export const sizeContainerName = "sizeContainer";
 export const accountContainerName = "accountContainer";
 export const projectContainerName = "projectContainer";
 export const bugContainerName = "bugContainer";
+export const commentContainerName = "commentContainer";

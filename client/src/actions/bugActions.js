@@ -89,9 +89,7 @@ export const deleteBug = (id, massDeleteList, indexOfTargetBugId) => (
 			dispatch(setBugs(bugs));
 			// Done here so following code only runs if deletion is succesful
 			if (indexOfTargetBugId > -1) {
-				console.log(massDeleteList);
 				massDeleteList.splice(indexOfTargetBugId, 1);
-				console.log(massDeleteList);
 				dispatch(
 					setProjectOrBugMassDeleteList(bugContainerName, massDeleteList)
 				);

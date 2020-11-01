@@ -4,6 +4,7 @@ import {
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
+	COMMENT_CONTAINER,
 } from "./constants/containers";
 import { RESET_CONTAINER } from "./constants/types";
 
@@ -13,6 +14,7 @@ export const resetRedux = () => (dispatch) => {
 	dispatch(resetAccountContainer());
 	dispatch(resetProjectContainer());
 	dispatch(resetBugContainer());
+	dispatch(resetCommentContainer());
 };
 
 export const resetSizeContainer = () => (dispatch) => {
@@ -46,6 +48,13 @@ export const resetProjectContainer = () => (dispatch) => {
 export const resetBugContainer = () => (dispatch) => {
 	dispatch({
 		container: BUG_CONTAINER,
+		type: RESET_CONTAINER,
+	});
+};
+
+export const resetCommentContainer = () => (dispatch) => {
+	dispatch({
+		container: COMMENT_CONTAINER,
 		type: RESET_CONTAINER,
 	});
 };

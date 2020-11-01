@@ -6,6 +6,7 @@ import {
 	accountContainerReducer,
 	projectContainerReducer,
 	bugContainerReducer,
+	commentContainerReducer,
 } from "./reducers";
 import {
 	generalContainerName,
@@ -13,6 +14,7 @@ import {
 	accountContainerName,
 	projectContainerName,
 	bugContainerName,
+	commentContainerName,
 } from "./reducers/containerNames";
 // Used to persist the redux state
 import { persistStore, persistReducer } from "redux-persist";
@@ -27,13 +29,16 @@ const rootPersistConfig = {
 	key: "root",
 	storage: storage,
 	whitelist: [
-		// Persisted despite account info being re-fetched on page refresh
-		// ...so it is not null while data is retrieved from server
+		// Persisted despite account info and comments being re-fetched on
+		// ...page refresh so it is not null while data is retrieved from server
 		"accountContainer",
+		"commentContainer"
 	],
 };
 
-// Following two are used for nested redux persist, one level deeper
+//==============================================================================
+// Following persistConfigs are used for nested redux persist, one level deeper
+//==============================================================================
 const generalComponentsPersistConfig = {
 	key: generalContainerName,
 	storage: storage,
@@ -65,6 +70,7 @@ const rootReducer = combineReducers({
 	),
 	[sizeContainerName]: sizeContainerReducer,
 	[accountContainerName]: accountContainerReducer,
+	[commentContainerName]: commentContainerReducer,
 	[projectContainerName]: persistReducer(
 		projectContainerPersistConfig,
 		projectContainerReducer

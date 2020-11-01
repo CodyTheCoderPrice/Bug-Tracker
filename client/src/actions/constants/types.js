@@ -12,6 +12,8 @@ export const SET_AUTHENTICATION = "SET_AUTHENTICATION";
 export const SET_ACCOUNT = "SET_ACCOUNT";
 // Projects/Bugs list
 export const SET_LIST = "SET_LIST";
+// Comments
+export const SET_COMMENTS = "SET_COMMENTS";
 // searchSortFilter
 export const SET_SEARCH_FILTER_SORT = "SET_SEARCH_FILTER_SORT";
 // Mass delete

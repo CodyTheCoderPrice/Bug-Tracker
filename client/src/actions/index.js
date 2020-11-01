@@ -17,6 +17,7 @@ import {
 export * from "./accountActions";
 export * from "./projectActions";
 export * from "./bugActions";
+export * from "./commentActions";
 export * from "./componentActions";
 export * from "./switchActions";
 export * from "./resetActions";

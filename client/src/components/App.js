@@ -6,6 +6,7 @@ import {
 	retrieveAccount,
 	retrieveProjects,
 	retrieveBugs,
+	retrieveComments,
 	setWhichGeneralComponentsDisplay,
 } from "../actions";
 
@@ -30,6 +31,7 @@ function App() {
 			dispatch(retrieveAccount());
 			dispatch(retrieveProjects());
 			dispatch(retrieveBugs());
+			dispatch(retrieveComments());
 		} else {
 			// Makes sure unauthenticated users do not see home page
 			if (reduxState.generalContainer.componentsDisplay.home) {
