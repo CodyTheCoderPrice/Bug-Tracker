@@ -4,8 +4,8 @@ import { logoutAccount } from "./accountActions";
 import { setWhichProjectComponentsDisplay } from "./componentActions";
 import { setProjectOrBugMassDeleteList } from "./switchActions";
 import { projectContainerName } from "../reducers/containerNames";
-import { PROJECT_CONTAINER } from "./typeContainer";
-import { SET_LIST } from "./types";
+import { PROJECT_CONTAINER } from "./constants/containers";
+import { SET_LIST } from "./constants/types";
 
 export const setProjects = (list) => (dispatch) => {
 	dispatch({

@@ -1,4 +1,4 @@
-import { SET_LIST } from "../../actions/types";
+import { SET_LIST } from "../../actions/constants/types";
 
 const initialState = []
 

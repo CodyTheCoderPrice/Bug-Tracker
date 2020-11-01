@@ -1,4 +1,4 @@
-import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/types";
+import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 
 const initialState = {
 	home: null,

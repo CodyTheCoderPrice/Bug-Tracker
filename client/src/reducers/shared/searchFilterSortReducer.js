@@ -1,4 +1,4 @@
-import { SET_SEARCH_FILTER_SORT } from "../../actions/types";
+import { SET_SEARCH_FILTER_SORT } from "../../actions/constants/types";
 
 const initialState = {
 	searchKeyWordString: "",

@@ -1,8 +1,8 @@
 import generalComponentsDisplayReducer from "./generalComponentsDisplayReducer";
 import inputErrorReducer from "./inputErrorReducer";
 
-import { GENERAL_CONTAINER } from "../../actions/typeContainer";
-import { RESET_CONTAINER } from "../../actions/types";
+import { GENERAL_CONTAINER } from "../../actions/constants/containers";
+import { RESET_CONTAINER } from "../../actions/constants/types";
 
 const initialState = {
 	// (undefined, {}) will cause each function to return their initial state

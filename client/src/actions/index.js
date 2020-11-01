@@ -4,7 +4,7 @@ import {
 	GENERAL_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
-} from "./typeContainer";
+} from "./constants/containers";
 import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES,
@@ -12,7 +12,7 @@ import {
 	SET_MASS_DELETE_LIST,
 	SET_INPUT_ERRORS,
 	RESET_REDUX,
-} from "./types";
+} from "./constants/types";
 
 export * from "./accountActions";
 export * from "./projectActions";

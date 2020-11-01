@@ -1,8 +1,8 @@
 import displaySizeConstantsReducer from "./displaySizeConstantsReducer";
 import displaySizeVariablesReducer from "./displaySizeVariablesReducer";
 
-import { SIZE_CONTAINER } from "../../actions/typeContainer";
-import { RESET_CONTAINER } from "../../actions/types";
+import { SIZE_CONTAINER } from "../../actions/constants/containers";
+import { RESET_CONTAINER } from "../../actions/constants/types";
 
 const initialState = {
 	// (undefined, {}) will cause each function to return their initial state

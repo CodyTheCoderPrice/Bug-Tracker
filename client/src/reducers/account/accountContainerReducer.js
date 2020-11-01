@@ -2,8 +2,8 @@ import accountComponentsDisplayReducer from "./accountComponentsDisplayReducer";
 import authReducer from "./authReducer";
 import accountReducer from "./accountReducer";
 
-import { ACCOUNT_CONTAINER } from "../../actions/typeContainer";
-import { RESET_CONTAINER } from "../../actions/types";
+import { ACCOUNT_CONTAINER } from "../../actions/constants/containers";
+import { RESET_CONTAINER } from "../../actions/constants/types";
 
 const initialState = {
 	// (undefined, {}) will cause each function to return their initial state

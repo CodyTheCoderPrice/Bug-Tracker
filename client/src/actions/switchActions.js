@@ -1,5 +1,5 @@
-import { PROJECT_CONTAINER, BUG_CONTAINER } from "./typeContainer";
-import { SET_SEARCH_FILTER_SORT, SET_MASS_DELETE_LIST } from "./types";
+import { PROJECT_CONTAINER, BUG_CONTAINER } from "./constants/containers";
+import { SET_SEARCH_FILTER_SORT, SET_MASS_DELETE_LIST } from "./constants/types";
 import {
 	setWhichProjectComponentsDisplay, setWhichBugComponentsDisplay
 } from "./componentActions";

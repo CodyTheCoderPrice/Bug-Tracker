@@ -1,4 +1,4 @@
-import { SET_WHICH_GENERAL_COMPONENTS_DISPLAY } from "../../actions/types";
+import { SET_WHICH_GENERAL_COMPONENTS_DISPLAY } from "../../actions/constants/types";
 
 const initialState = {
 	register: false,

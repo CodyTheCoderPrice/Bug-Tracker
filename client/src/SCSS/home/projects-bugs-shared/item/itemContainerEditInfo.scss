@@ -61,6 +61,10 @@
 		resize: none;
 	}
 
+	.item-box__form-textarea--shorter {
+		height: 100px;
+	}
+
 	.item-box__group__field__form-label {
 		// To make form-selects vertically parallel
 		display: inline-block;

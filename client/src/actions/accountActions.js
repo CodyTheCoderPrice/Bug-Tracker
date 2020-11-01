@@ -1,8 +1,8 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-import { ACCOUNT_CONTAINER } from "./typeContainer";
-import { SET_AUTHENTICATION, SET_ACCOUNT } from "./types";
+import { ACCOUNT_CONTAINER } from "./constants/containers";
+import { SET_AUTHENTICATION, SET_ACCOUNT } from "./constants/types";
 import { retrievePriorityStatusArrays, setInputErrors, resetRedux } from "./index";
 import {
 	setWhichGeneralComponentsDisplay,

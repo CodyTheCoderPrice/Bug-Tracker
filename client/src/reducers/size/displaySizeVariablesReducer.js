@@ -1,4 +1,4 @@
-import { SET_DISPLAY_SIZE_VARIABLES } from "../../actions/types";
+import { SET_DISPLAY_SIZE_VARIABLES } from "../../actions/constants/types";
 
 const initialState = {
 	window: null,

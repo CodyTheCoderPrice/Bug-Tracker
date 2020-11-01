@@ -1,4 +1,4 @@
-import { SET_AUTHENTICATION } from "../../actions/types";
+import { SET_AUTHENTICATION } from "../../actions/constants/types";
 const isEmpty = require("is-empty");
 
 const initialState = {

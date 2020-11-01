@@ -1,4 +1,4 @@
-import { SET_PRIORITY_STATUS_OPTIONS } from "../../actions/types";
+import { SET_PRIORITY_STATUS_OPTIONS } from "../../actions/constants/types";
 
 const initialState = {
 	priorityOptions: null,

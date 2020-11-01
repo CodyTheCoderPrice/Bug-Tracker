@@ -4,8 +4,8 @@ import { logoutAccount } from "./accountActions";
 import { setWhichBugComponentsDisplay } from "./componentActions";
 import { setProjectOrBugMassDeleteList } from "./switchActions";
 import { bugContainerName } from "../reducers/containerNames";
-import { BUG_CONTAINER } from "./typeContainer";
-import { SET_LIST } from "./types";
+import { BUG_CONTAINER } from "./constants/containers";
+import { SET_LIST } from "./constants/types";
 
 export const setBugs = (list) => (dispatch) => {
 	dispatch({

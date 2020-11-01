@@ -226,7 +226,7 @@ export default function ItemContainerEditInfo(props) {
 			</div>
 			<div className="pair-container js-description-info-pair">
 				<div className="outer-dividing-container">
-					<div className="item-box item--desciption-info-height">
+					<div className="item-box item-box--desciption-info-height">
 						<label htmlFor="edit-item-description">
 							<h2 className="item-box__title item-box__title--no-bottom-margin">
 								Description
@@ -248,7 +248,7 @@ export default function ItemContainerEditInfo(props) {
 					</div>
 				</div>
 				<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
-					<div className="item-box item--desciption-info-height">
+					<div className="item-box item-box--desciption-info-height">
 						<h2 className="item-box__title">Info</h2>
 						{props.reduxContainerName === bugContainerName ? (
 							<div className="item-box__group__field">

@@ -79,7 +79,7 @@ export default function ItemContainerCommentBox(props) {
 						onChange={(e) => onChange(e)}
 						value={commentInfo.description}
 						id="create-comment-description"
-						className="item-box__form-textarea"
+						className="item-box__form-textarea item-box__form-textarea--shorter"
 					/>
 					<span className="form-errors">
 						{reduxState.generalContainer.inputErrors.description}
