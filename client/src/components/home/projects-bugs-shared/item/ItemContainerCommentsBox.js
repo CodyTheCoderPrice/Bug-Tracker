@@ -99,15 +99,16 @@ export default function ItemContainerCommentsBox() {
 						</span>
 					</div>
 				</form>
+
 				{[...reduxState[commentContainerName].list]
 					.filter(
 						(item) =>
 							item.bug_id ===
 							reduxState[bugContainerName].componentsDisplay.targetItem.id
 					)
-					/* .sort((a, b) => {
+					.sort((a, b) => {
 						return a - b;
-					}) */
+					})
 					.map((comment, idx) => {
 						return (
 							<ItemContainerCommentsBoxIndividualComment

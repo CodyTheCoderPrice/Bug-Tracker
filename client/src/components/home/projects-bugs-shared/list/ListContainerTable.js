@@ -64,7 +64,7 @@ export default function ListContainerTable(props) {
 	const openMassDeleteItemsModal = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listContainer: true,
+				...reduxState[props.reduxContainerName].componentsDisplay,
 				listContainerMassDeleteItemsModal: true,
 			})
 		);

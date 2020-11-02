@@ -18,7 +18,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 
 	const [commentInfo, setCommentInfo] = useState({
 		description: props.comment.description,
-		// Following ids are used by the backend to ensure 
+		// Following ids are used by the backend to ensure
 		// ...the comment will belong to the correct account
 		project_id: props.preventDefault,
 		bug_id: props.bug_id,
@@ -75,10 +75,14 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 				{editingComment === false ? (
 					<div>
 						<div className="comment__block">
-						<span className="comment__block__description">{commentInfo.description}</span>
+							<span className="comment__block__description">
+								{props.comment.description}
+							</span>
 						</div>
 						<div className="comment__block">
-							<span className="comment__block__date">{formatDateMMddYYYY(props.comment.creation_date)}</span>
+							<span className="comment__block__date">
+								{formatDateMMddYYYY(props.comment.creation_date)}
+							</span>
 							<div className="comment_block__icon-button">
 								<i className="fa fa-pencil-square-o" aria-hidden="true" />
 							</div>
