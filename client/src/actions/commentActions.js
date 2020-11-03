@@ -1,6 +1,8 @@
 import axios from "axios";
 import { setInputErrors } from "./index";
 import { logoutAccount } from "./accountActions";
+import { setWhichCommentComponentsDisplay } from "./componentActions";
+
 import { COMMENT_CONTAINER } from "./constants/containers";
 import { SET_COMMENTS } from "./constants/types";
 
@@ -63,15 +65,14 @@ export const updateComment = (commentInfo) => (dispatch) => {
 		});
 };
 
-export const deleteComment = (id) => (
-	dispatch
-) => {
+export const deleteComment = (id) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
 		.post("/api/comment/delete", id, headers)
 		.then((res) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));
+			dispatch(setWhichCommentComponentsDisplay({}));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));

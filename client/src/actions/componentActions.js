@@ -1,8 +1,15 @@
-import { GENERAL_CONTAINER, ACCOUNT_CONTAINER, PROJECT_CONTAINER, BUG_CONTAINER } from "./constants/containers";
+import {
+	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	COMMENT_CONTAINER,
+} from "./constants/containers";
 import {
 	SET_WHICH_GENERAL_COMPONENTS_DISPLAY,
 	SET_WHICH_LIST_COMPONENTS_DISPLAY,
 	SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY,
+	SET_WHICH_COMMENT_COMPONENTS_DISPLAY,
 } from "./constants/types";
 
 export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
@@ -33,6 +40,14 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
 		container: BUG_CONTAINER,
 		type: SET_WHICH_LIST_COMPONENTS_DISPLAY,
+		displays: displays,
+	});
+};
+
+export const setWhichCommentComponentsDisplay = (displays) => (dispatch) => {
+	dispatch({
+		container: COMMENT_CONTAINER,
+		type: SET_WHICH_COMMENT_COMPONENTS_DISPLAY,
 		displays: displays,
 	});
 };

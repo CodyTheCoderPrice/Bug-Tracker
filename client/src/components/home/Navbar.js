@@ -11,6 +11,7 @@ import {
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 	setWhichBugComponentsDisplay,
+	setWhichCommentComponentsDisplay,
 } from "../../actions";
 
 import {
@@ -104,9 +105,7 @@ export default function Navbar() {
 			projectButtonElement.style.maxWidth = null;
 
 			// If bug navbar button is present
-			if (
-				reduxState[bugContainerName].componentsDisplay.targetItem !== null
-			) {
+			if (reduxState[bugContainerName].componentsDisplay.targetItem !== null) {
 				const bugButtonElement = document.getElementsByClassName(
 					"js-bug-item-button"
 				)[0];
@@ -172,6 +171,12 @@ export default function Navbar() {
 
 	const openAccountSidebar = () => {
 		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountSidebar: !reduxState.accountContainer.componentsDisplay
+					.accountSidebar,
+			})
+		);
+		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState[projectContainerName].componentsDisplay,
 				listContainerCreateItemSidbar: false,
@@ -187,12 +192,7 @@ export default function Navbar() {
 				listContainerMassDeleteItemsModal: false,
 			})
 		);
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountSidebar: !reduxState.accountContainer.componentsDisplay
-					.accountSidebar,
-			})
-		);
+		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
 	const openProjectsListContainer = () => {
@@ -200,17 +200,19 @@ export default function Navbar() {
 			reduxState[projectContainerName].componentsDisplay.listContainer !== true
 		) {
 			dispatch(
-				setWhichBugComponentsDisplay({
-					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(
 				setWhichProjectComponentsDisplay({
 					listContainer: true,
 					targetItem:
 						reduxState[projectContainerName].componentsDisplay.targetItem,
 				})
 			);
+			dispatch(setWhichAccountComponentsDisplay({}));
+			dispatch(
+				setWhichBugComponentsDisplay({
+					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
+				})
+			);
+			dispatch(setWhichCommentComponentsDisplay({}));
 		}
 	};
 
@@ -219,51 +221,57 @@ export default function Navbar() {
 			reduxState[projectContainerName].componentsDisplay.itemsContainer !== true
 		) {
 			dispatch(
-				setWhichBugComponentsDisplay({
-					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(
 				setWhichProjectComponentsDisplay({
 					itemContainer: true,
 					targetItem:
 						reduxState[projectContainerName].componentsDisplay.targetItem,
 				})
 			);
+			dispatch(setWhichAccountComponentsDisplay({}));
+			dispatch(
+				setWhichBugComponentsDisplay({
+					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
+				})
+			);
+			dispatch(setWhichCommentComponentsDisplay({}));
 		}
 	};
 
 	const openBugsListContainer = () => {
 		if (reduxState[bugContainerName].componentsDisplay.listContainer !== true) {
 			dispatch(
-				setWhichProjectComponentsDisplay({
-					targetItem:
-						reduxState[projectContainerName].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(
 				setWhichBugComponentsDisplay({
 					listContainer: true,
 					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
 				})
 			);
+			dispatch(setWhichAccountComponentsDisplay({}));
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					targetItem:
+						reduxState[projectContainerName].componentsDisplay.targetItem,
+				})
+			);
+			dispatch(setWhichCommentComponentsDisplay({}));
 		}
 	};
 
 	const openBugsItemContainer = () => {
 		if (reduxState[bugContainerName].componentsDisplay.itemContainer !== true) {
 			dispatch(
-				setWhichProjectComponentsDisplay({
-					targetItem:
-						reduxState[projectContainerName].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(
 				setWhichBugComponentsDisplay({
 					itemContainer: true,
 					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
 				})
 			);
+			dispatch(setWhichAccountComponentsDisplay({}));
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					targetItem:
+						reduxState[projectContainerName].componentsDisplay.targetItem,
+				})
+			);
+			dispatch(setWhichCommentComponentsDisplay({}));
 		}
 	};
 
@@ -277,7 +285,9 @@ export default function Navbar() {
 				targetItem: null,
 			})
 		);
+		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(setWhichBugComponentsDisplay({}));
+		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
 	const closeBugItemContainer = (e) => {
@@ -294,6 +304,9 @@ export default function Navbar() {
 				targetItem: null,
 			})
 		);
+		dispatch(setWhichAccountComponentsDisplay({}));
+		// projectComponentsDisplay is not cleared here on purpose
+		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
 	return (
@@ -347,7 +360,8 @@ export default function Navbar() {
 				<div
 					className={
 						"navbar-button js-bug-list-button" +
-						(reduxState[projectContainerName].componentsDisplay.targetItem === null
+						(reduxState[projectContainerName].componentsDisplay.targetItem ===
+						null
 							? " navbar-button--invisible"
 							: "")
 					}

@@ -77,13 +77,12 @@ export default function ListContainerTableRow(props) {
 			}
 			onClick={openItemContainer}
 		>
-			<td className="list-table__data">
+			<td className="list-table__data" onClick={(e) => dontPropogateParentOnclick(e)}>
 				<input
 					type="checkbox"
 					name="item"
 					value={props.item.id}
 					onChange={(e) => onChangeMassDeleteCheckbox(e)}
-					onClick={(e) => dontPropogateParentOnclick(e)}
 					checked={reduxState[props.reduxContainerName].massDeleteList.includes(
 						props.item.id
 					)}

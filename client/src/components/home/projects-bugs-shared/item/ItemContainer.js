@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { generalContainerName, projectContainerName } from "../../../../reducers/containerNames";
+import {
+	generalContainerName,
+	projectContainerName,
+	bugContainerName,
+	commentContainerName,
+} from "../../../../reducers/containerNames";
 
 import { toggleClassName } from "../../../../utils/elementUtils";
 
@@ -11,6 +16,7 @@ import ItemContainerDisplayInfo from "./ItemContainerDisplayInfo";
 import ItemContainerEditInfo from "./ItemContainerEditInfo";
 import ItemContainerDeleteModal from "./ItemContainerDeleteModal";
 import ItemContainerCommentsBox from "./ItemContainerCommentsBox";
+import ItemContainerCommentsBoxIndividualCommentDeleteModal from "./ItemContainerCommentsBoxIndividualCommentDeleteModal";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainer.scss";
 
@@ -75,6 +81,11 @@ export default function ItemContainer(props) {
 				<ItemContainerDeleteModal
 					reduxContainerName={props.reduxContainerName}
 				/>
+			) : null}
+			{reduxState[bugContainerName].componentsDisplay.itemContainer === true &&
+			reduxState[commentContainerName].componentsDisplay.commentDeleteModal ===
+				true ? (
+				<ItemContainerCommentsBoxIndividualCommentDeleteModal />
 			) : null}
 			<div className="item-container-component">
 				<div className="item-container item-container--shifted-right js-item-container">

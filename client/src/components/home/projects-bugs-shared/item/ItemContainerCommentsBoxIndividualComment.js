@@ -5,7 +5,7 @@ import {
 	bugContainerName,
 } from "../../../../reducers/containerNames";
 
-import { updateProjectOrBug, clearInputErrors } from "../../../../actions";
+import { updateProjectOrBug, clearInputErrors, setWhichCommentComponentsDisplay } from "../../../../actions";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { toggleCharCountColor } from "../../../../utils/elementUtils";
@@ -69,6 +69,15 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		); */
 	};
 
+	const openDeleteCommentModal = () => {
+		dispatch(
+			setWhichCommentComponentsDisplay({
+				commentDeleteModal: true,
+				targetComment: props.comment,
+			})
+		);
+	};
+
 	return (
 		<form noValidate onSubmit={handleSubmit}>
 			<div className="comment-divider">
@@ -86,7 +95,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 							<div className="comment_block__icon-button">
 								<i className="fa fa-pencil-square-o" aria-hidden="true" />
 							</div>
-							<div className="comment_block__icon-button">
+							<div className="comment_block__icon-button" onClick={openDeleteCommentModal}>
 								<i className="fa fa-trash-o" aria-hidden="true" />
 							</div>
 						</div>

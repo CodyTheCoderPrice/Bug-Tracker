@@ -9,7 +9,7 @@ import {
 
 import { toggleClassName } from "../../../../utils/elementUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/deleteItemsModal.scss";
+import "../../../../SCSS/home/projects-bugs-shared/deleteModal.scss";
 
 export default function ListContainerMassDeleteItemsModal(props) {
 	const reduxState = useSelector((state) => state);
@@ -54,7 +54,7 @@ export default function ListContainerMassDeleteItemsModal(props) {
 	};
 
 	return (
-		<div className="delete-item-modal-component">
+		<div className="delete-modal-component">
 			<div className="blurred-background" />
 			<div className="delete-account-modal">
 				<div className="warning-container">
