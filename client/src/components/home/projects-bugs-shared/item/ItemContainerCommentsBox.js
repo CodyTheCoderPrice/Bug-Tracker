@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	generalContainerName,
+	projectContainerName,
 	bugContainerName,
 	commentContainerName,
-	projectContainerName,
 } from "../../../../reducers/containerNames";
 
 import { createComment, clearInputErrors } from "../../../../actions";
@@ -93,9 +94,9 @@ export default function ItemContainerCommentsBox() {
 					</div>
 					<div className="bottom-form-errors-container">
 						<span className="form-errors">
-							{reduxState.generalContainer.inputErrors.description}
-							{reduxState.generalContainer.inputErrors.validation}
-							{reduxState.generalContainer.inputErrors.server}
+							{reduxState[generalContainerName].inputErrors.description}
+							{reduxState[generalContainerName].inputErrors.validation}
+							{reduxState[generalContainerName].inputErrors.server}
 						</span>
 					</div>
 				</form>

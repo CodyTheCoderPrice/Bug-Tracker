@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	generalContainerName,
 	projectContainerName,
 	bugContainerName,
 } from "../../../../reducers/containerNames";
@@ -217,7 +218,7 @@ export default function ItemContainerEditInfo(props) {
 						className="centering-container__form-name-input"
 					/>
 					<span className="form-errors form-errors--test">
-						{reduxState.generalContainer.inputErrors.name}
+						{reduxState[generalContainerName].inputErrors.name}
 					</span>
 				</div>
 				<div className="item-creation-date">
@@ -243,7 +244,7 @@ export default function ItemContainerEditInfo(props) {
 							className="item-box__form-textarea"
 						/>
 						<span className="form-errors">
-							{reduxState.generalContainer.inputErrors.description}
+							{reduxState[generalContainerName].inputErrors.description}
 						</span>
 					</div>
 				</div>
@@ -270,7 +271,7 @@ export default function ItemContainerEditInfo(props) {
 									className="item-box__group__field__form-text"
 								/>
 								<span className="form__errors">
-									{reduxState.generalContainer.inputErrors.location}
+									{reduxState[generalContainerName].inputErrors.location}
 								</span>
 							</div>
 						) : null}
@@ -378,8 +379,8 @@ export default function ItemContainerEditInfo(props) {
 				</div>
 				<div className="bottom-form-errors-container">
 					<span className="form-errors">
-						{reduxState.generalContainer.inputErrors.validation}
-						{reduxState.generalContainer.inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.validation}
+						{reduxState[generalContainerName].inputErrors.server}
 					</span>
 				</div>
 			</div>

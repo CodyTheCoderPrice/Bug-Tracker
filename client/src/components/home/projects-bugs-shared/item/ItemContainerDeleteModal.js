@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	generalContainerName,
 	projectContainerName,
 	bugContainerName,
 } from "../../../../reducers/containerNames";
@@ -70,7 +71,7 @@ export default function ItemContainerDeleteModal(props) {
 					<span className="warning-container__message">Are you sure?</span>
 				</div>
 				<span className="backend__errors">
-					{reduxState.generalContainer.inputErrors.server}
+					{reduxState[generalContainerName].inputErrors.server}
 				</span>
 				<div className="centered-buttons-container">
 					<div

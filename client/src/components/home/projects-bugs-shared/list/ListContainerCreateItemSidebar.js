@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
 import {
+	generalContainerName,
 	projectContainerName,
 	bugContainerName,
 } from "../../../../reducers/containerNames";
@@ -201,7 +202,7 @@ export default function ListContainerCreateItemSidebar(props) {
 							className="form__text-input"
 						/>
 						<span className="form__errors">
-							{reduxState.generalContainer.inputErrors.name}
+							{reduxState[generalContainerName].inputErrors.name}
 						</span>
 						<label htmlFor="create-item-description" className="form__label">
 							Description:{" "}
@@ -217,7 +218,7 @@ export default function ListContainerCreateItemSidebar(props) {
 							className="form__textarea"
 						/>
 						<span className="form__errors">
-							{reduxState.generalContainer.inputErrors.description}
+							{reduxState[generalContainerName].inputErrors.description}
 						</span>
 						{props.reduxContainerName === bugContainerName ? (
 							<div>
@@ -236,7 +237,7 @@ export default function ListContainerCreateItemSidebar(props) {
 									className="form__text-input"
 								/>
 								<span className="form__errors">
-									{reduxState.generalContainer.inputErrors.location}
+									{reduxState[generalContainerName].inputErrors.location}
 								</span>
 							</div>
 						) : null}
@@ -324,8 +325,8 @@ export default function ListContainerCreateItemSidebar(props) {
 								: "Create Bug"}
 						</button>
 						<span className="form__errors">
-							{reduxState.generalContainer.inputErrors.validation}
-							{reduxState.generalContainer.inputErrors.server}
+							{reduxState[generalContainerName].inputErrors.validation}
+							{reduxState[generalContainerName].inputErrors.server}
 						</span>
 					</form>
 				</div>

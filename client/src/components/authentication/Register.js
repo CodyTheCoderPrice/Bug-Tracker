@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { generalContainerName } from "../../reducers/containerNames";
 
 import {
 	registerAccount,
@@ -58,7 +59,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.first_name}
+						{reduxState[generalContainerName].inputErrors.first_name}
 					</span>
 					<label htmlFor="register-last-name" className="form__label">Last Name</label>
 					<input
@@ -70,7 +71,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.last_name}
+						{reduxState[generalContainerName].inputErrors.last_name}
 					</span>
 					<label htmlFor="register-email" className="form__label">Email</label>
 					<input
@@ -82,7 +83,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.email}
+						{reduxState[generalContainerName].inputErrors.email}
 					</span>
 					<label htmlFor="register-password" className="form__label">Password</label>
 					<input
@@ -94,7 +95,7 @@ export default function Register() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.password}
+						{reduxState[generalContainerName].inputErrors.password}
 					</span>
 					<label htmlFor="register-password2" className="form__label">Confirm Password</label>
 					<input
@@ -106,14 +107,14 @@ export default function Register() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.password2}
+						{reduxState[generalContainerName].inputErrors.password2}
 					</span>
 					<button type="submit" className="form__submit">
 						REGISTER
 					</button>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.validation}
-						{reduxState.generalContainer.inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.validation}
+						{reduxState[generalContainerName].inputErrors.server}
 					</span>
 				</form>
 				<div className="footer">

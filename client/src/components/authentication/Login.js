@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { generalContainerName } from "../../reducers/containerNames";
 
 import {
 	loginAccount,
@@ -57,7 +58,7 @@ export default function Login() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.email}
+						{reduxState[generalContainerName].inputErrors.email}
 					</span>
 					<label htmlFor="login-password" className="form__label">
 						Password
@@ -71,14 +72,14 @@ export default function Login() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.password}
+						{reduxState[generalContainerName].inputErrors.password}
 					</span>
 					<button type="submit" className="form__submit">
 						LOGIN
 					</button>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.validation}
-						{reduxState.generalContainer.inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.validation}
+						{reduxState[generalContainerName].inputErrors.server}
 					</span>
 				</form>
 				<div className="footer">

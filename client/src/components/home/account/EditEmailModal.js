@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { generalContainerName } from "../../../reducers/containerNames";
 
 import {
 	updateAccountEmail,
@@ -69,7 +70,7 @@ export default function EditEmailModal() {
 						id="edit-account-email-email"
 						className="form__text-input"
 					/>
-					<span className="form__errors">{reduxState.generalContainer.inputErrors.email}</span>
+					<span className="form__errors">{reduxState[generalContainerName].inputErrors.email}</span>
 					<label htmlFor="edit-account-email-password" className="form__label">
 						Current Password:{" "}
 					</label>
@@ -82,15 +83,15 @@ export default function EditEmailModal() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.currentPassword}
+						{reduxState[generalContainerName].inputErrors.currentPassword}
 					</span>
 					<button type="submit" className="form__submit">
 						Update
 					</button>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.validation}
-						{reduxState.generalContainer.inputErrors.authorization}
-						{reduxState.generalContainer.inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.validation}
+						{reduxState[generalContainerName].inputErrors.authorization}
+						{reduxState[generalContainerName].inputErrors.server}
 					</span>
 				</form>
 				<div className="modal-links-container">

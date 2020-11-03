@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	generalContainerName,
 	projectContainerName,
 	bugContainerName,
 } from "../../../../reducers/containerNames";
@@ -113,9 +114,9 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 							className="item-box__form-textarea item-box__form-textarea--shorter"
 						/>
 						<span className="form-errors">
-							{reduxState.generalContainer.inputErrors.description}
-							{reduxState.generalContainer.inputErrors.validation}
-							{reduxState.generalContainer.inputErrors.server}
+							{reduxState[generalContainerName].inputErrors.description}
+							{reduxState[generalContainerName].inputErrors.validation}
+							{reduxState[generalContainerName].inputErrors.server}
 						</span>
 						<div className="form-submit-centering-container">
 							<button

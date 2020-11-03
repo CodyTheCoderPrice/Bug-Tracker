@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { generalContainerName } from "../reducers/containerNames";
 
 import {
 	retrievePriorityStatusArrays,
@@ -21,7 +22,7 @@ import "../SCSS/app.scss";
 function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
-	
+
 	// Re-fetches user data after a page refresh,
 	// ... and makes sure the appropriate components are displayed
 	useEffect(() => {
@@ -34,9 +35,9 @@ function App() {
 			dispatch(retrieveComments());
 		} else {
 			// Makes sure unauthenticated users do not see home page
-			if (reduxState.generalContainer.componentsDisplay.home) {
+			if (reduxState[generalContainerName].componentsDisplay.home) {
 				dispatch(setWhichGeneralComponentsDisplay({ login: true }));
-			} 
+			}
 		}
 		// eslint-disable-next-line
 	}, []);
@@ -46,20 +47,22 @@ function App() {
 	// ...only needs to run when authComponentsDisplay changes
 	useEffect(() => {
 		if (
-			!reduxState.generalContainer.componentsDisplay.register &&
-			!reduxState.generalContainer.componentsDisplay.login &&
-			!reduxState.generalContainer.componentsDisplay.home
+			!reduxState[generalContainerName].componentsDisplay.register &&
+			!reduxState[generalContainerName].componentsDisplay.login &&
+			!reduxState[generalContainerName].componentsDisplay.home
 		) {
 			dispatch(setWhichGeneralComponentsDisplay({ login: true }));
 		}
 		// eslint-disable-next-line
-	}, [reduxState.generalContainer.componentsDisplay]);
+	}, [reduxState[generalContainerName].componentsDisplay]);
 
 	return (
 		<div className="pageContainer">
-			{reduxState.generalContainer.componentsDisplay.register ? <Register /> : null}
-			{reduxState.generalContainer.componentsDisplay.login ? <Login /> : null}
-			{reduxState.generalContainer.componentsDisplay.home ? <Home /> : null}
+			{reduxState[generalContainerName].componentsDisplay.register ? (
+				<Register />
+			) : null}
+			{reduxState[generalContainerName].componentsDisplay.login ? <Login /> : null}
+			{reduxState[generalContainerName].componentsDisplay.home ? <Home /> : null}
 		</div>
 	);
 }

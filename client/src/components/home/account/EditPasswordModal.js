@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { generalContainerName } from "../../../reducers/containerNames";
 
 import {
 	updateAccountPassword,
@@ -74,7 +75,7 @@ export default function EditPasswordModal() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.newPassword}
+						{reduxState[generalContainerName].inputErrors.newPassword}
 					</span>
 					<label
 						htmlFor="edit-account-password-new-password2"
@@ -91,7 +92,7 @@ export default function EditPasswordModal() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.newPassword2}
+						{reduxState[generalContainerName].inputErrors.newPassword2}
 					</span>
 					<label
 						htmlFor="edit-account-password-current-password"
@@ -108,15 +109,15 @@ export default function EditPasswordModal() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.currentPassword}
+						{reduxState[generalContainerName].inputErrors.currentPassword}
 					</span>
 					<button type="submit" className="form__submit">
 						Update
 					</button>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.validation}
-						{reduxState.generalContainer.inputErrors.authorization}
-						{reduxState.generalContainer.inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.validation}
+						{reduxState[generalContainerName].inputErrors.authorization}
+						{reduxState[generalContainerName].inputErrors.server}
 					</span>
 				</form>
 				<div className="modal-links-container">

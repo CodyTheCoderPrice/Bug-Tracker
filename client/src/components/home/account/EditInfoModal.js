@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { generalContainerName } from "../../../reducers/containerNames";
 
 import {
 	updateAccountInfo,
@@ -83,7 +84,7 @@ export default function EditInfoModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.first_name}
+						{reduxState[generalContainerName].inputErrors.first_name}
 					</span>
 					<label htmlFor="edit-account-info-last-name" className="form__label">
 						Last Name:{" "}
@@ -97,14 +98,14 @@ export default function EditInfoModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.last_name}
+						{reduxState[generalContainerName].inputErrors.last_name}
 					</span>
 					<button type="submit" className="form__submit">
 						Update
 					</button>
 					<span className="form__errors">
-						{reduxState.generalContainer.inputErrors.validation}
-						{reduxState.generalContainer.inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.validation}
+						{reduxState[generalContainerName].inputErrors.server}
 					</span>
 				</form>
 				<div className="modal-links-container">
