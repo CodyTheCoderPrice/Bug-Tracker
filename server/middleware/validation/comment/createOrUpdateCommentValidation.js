@@ -11,9 +11,12 @@ module.exports = (req, res, next) => {
 		description = !isEmpty(description) ? description : "";
 
 		// Description check
-		if (!Validator.isLength(description, { max: 500 })) {
+		if (!Validator.isLength(description, { min: 1 })) {
 			inputErrors.description =
-				"Description can't be longer than 500 characters";
+				"Comment can't be empty";
+		} else if (!Validator.isLength(description, { max: 500 })) {
+			inputErrors.description =
+				"Comment can't be longer than 500 characters";
 		}
 
 		if (!isEmpty(inputErrors)) {

@@ -114,14 +114,15 @@ router
 			// Passed in the post body
 			const { id, project_id, bug_id, description } = req.body;
 
-			const bugAndProjectBelongsToAccountCheck = await pool.query(
+			const belongsToAccountCheck = await pool.query(
 				`SELECT * FROM project WHERE account_id = $1 AND project_id IN 
-						(SELECT project_id FROM bug WHERE project_id = $2 AND bug_id = $3)`,
-				[account_id, project_id, bug_id]
+						(SELECT project_id FROM bug WHERE project_id = $2 AND bug_id IN
+							(SELECT bug_id FROM comment WHERE bug_id = $3 AND comment_id = $4))`,
+				[account_id, project_id, bug_id, id]
 			);
-
-			if (bugAndProjectBelongsToAccountCheck.rowCount === 0) {
-				throw { message: "Bug and/or project does not belong to account" };
+	
+			if (belongsToAccountCheck.rowCount === 0) {
+				throw { message: "Comment, bug and/or project does not belong to account" };
 			}
 
 			const updatedComment = await pool.query(
@@ -170,16 +171,14 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		// Passed in the post body
 		const { id, project_id, bug_id } = req.body;
 
-		console.log(account_id + ", " + project_id + ", " + bug_id + ", " + id);
-
-		const commentBugAndProjectBelongsToAccountCheck = await pool.query(
+		const belongsToAccountCheck = await pool.query(
 			`SELECT * FROM project WHERE account_id = $1 AND project_id IN 
 					(SELECT project_id FROM bug WHERE project_id = $2 AND bug_id IN
 						(SELECT bug_id FROM comment WHERE bug_id = $3 AND comment_id = $4))`,
 			[account_id, project_id, bug_id, id]
 		);
 
-		if (commentBugAndProjectBelongsToAccountCheck.rowCount === 0) {
+		if (belongsToAccountCheck.rowCount === 0) {
 			throw { message: "Comment, bug and/or project does not belong to account" };
 		}
 
@@ -187,8 +186,6 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			`DELETE FROM comment WHERE bug_id = $1 AND comment_id = $2`,
 			[bug_id, id]
 		);
-
-		console.log(deletedComment);
 
 		// Since not all requests have access to bug_id,
 		// ...this querry gets it using account_id
