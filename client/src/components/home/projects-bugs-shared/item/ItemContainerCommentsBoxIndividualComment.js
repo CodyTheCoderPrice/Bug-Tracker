@@ -4,9 +4,14 @@ import {
 	generalContainerName,
 	projectContainerName,
 	bugContainerName,
+	commentContainerName,
 } from "../../../../reducers/containerNames";
 
-import { updateProjectOrBug, clearInputErrors, setWhichCommentComponentsDisplay } from "../../../../actions";
+import {
+	updateComment,
+	clearInputErrors,
+	setWhichCommentComponentsDisplay,
+} from "../../../../actions";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { toggleCharCountColor } from "../../../../utils/elementUtils";
@@ -21,8 +26,9 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		description: props.comment.description,
 		// Following ids are used by the backend to ensure
 		// ...the comment will belong to the correct account
-		project_id: props.preventDefault,
-		bug_id: props.bug_id,
+		project_id:
+			reduxState[projectContainerName].componentsDisplay.targetItem.id,
+		bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
 	});
 
 	const [descriptionCharLimit] = useState(500);
@@ -37,12 +43,27 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		// eslint-disable-next-line
 	}, []);
 
+	// Resets commentInfo whenever the comment list size changes since components
+	// ...will not belond to the correct comment anymore
 	useEffect(() => {
-		toggleCharCountColor(
-			"js-create-comment-char-counter",
-			commentInfo.description.length,
-			descriptionCharLimit
-		);
+		setCommentInfo({
+			description: props.comment.description,
+			// Following ids are used by the backend to ensure
+			// ...the comment will belong to the correct account
+			project_id:
+				reduxState[projectContainerName].componentsDisplay.targetItem.id,
+			bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
+		});
+	}, [reduxState[commentContainerName].list.length]);
+
+	useEffect(() => {
+		if (editingComment) {
+			toggleCharCountColor(
+				document.getElementsByClassName("js-edit-comment-char-counter")[0],
+				commentInfo.description.length,
+				descriptionCharLimit
+			);
+		}
 		// eslint-disable-next-line
 	}, [commentInfo.description]);
 
@@ -61,20 +82,36 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		/* dispatch(
-			updateProjectOrBug(
-				props.reduxContainerName,
-				commentInfoDeepCopy,
-				reduxState[props.reduxContainerName].componentsDisplay
-			)
-		); */
+
+		dispatch(
+			updateComment({
+				...commentInfo,
+				id:
+					reduxState[commentContainerName].componentsDisplay.commentBeingEdited
+						.id,
+			})
+		);
+		setEditingComment(false);
+	};
+
+	const switchToEditingComment = () => {
+		setEditingComment(true);
+		dispatch(
+			setWhichCommentComponentsDisplay({
+				commentBeingEdited: props.comment,
+			})
+		);
+	};
+
+	const cancelEditingComment = () => {
+		setEditingComment(false);
 	};
 
 	const openDeleteCommentModal = () => {
 		dispatch(
 			setWhichCommentComponentsDisplay({
 				commentDeleteModal: true,
-				targetComment: props.comment,
+				commentToBeDeleted: props.comment,
 			})
 		);
 	};
@@ -93,38 +130,59 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 							<span className="comment__block__date">
 								{formatDateMMddYYYY(props.comment.creation_date)}
 							</span>
-							<div className="comment_block__icon-button">
+							<div
+								className="comment__block__icon-button"
+								onClick={switchToEditingComment}
+							>
 								<i className="fa fa-pencil-square-o" aria-hidden="true" />
 							</div>
-							<div className="comment_block__icon-button" onClick={openDeleteCommentModal}>
+							<div
+								className="comment__block__icon-button"
+								onClick={openDeleteCommentModal}
+							>
 								<i className="fa fa-trash-o" aria-hidden="true" />
 							</div>
 						</div>
 					</div>
 				) : (
 					<div>
-						<span className="item-box__form-character-counter js-create-comment-char-counter">
-							{commentInfo.description.length + "/" + descriptionCharLimit}
-						</span>
-						<textarea
-							name="description"
-							onChange={(e) => onChange(e)}
-							value={commentInfo.description}
-							id="create-comment-description"
-							className="item-box__form-textarea item-box__form-textarea--shorter"
-						/>
-						<span className="form-errors">
-							{reduxState[generalContainerName].inputErrors.description}
-							{reduxState[generalContainerName].inputErrors.validation}
-							{reduxState[generalContainerName].inputErrors.server}
-						</span>
-						<div className="form-submit-centering-container">
-							<button
-								type="submit"
-								className="form-submit-centering-container__button"
-							>
-								Add Comment
-							</button>
+						<div className="">
+							<span className="item-box__form-character-counter js-edit-comment-char-counter">
+								{commentInfo.description.length + "/" + descriptionCharLimit}
+							</span>
+							<textarea
+								name="description"
+								onChange={(e) => onChange(e)}
+								value={commentInfo.description}
+								id="edit-comment-description"
+								className="item-box__form-textarea item-box__form-textarea--shorter"
+							/>
+						</div>
+						<div className="comment__block">
+							<span className="comment__block__date">
+								{formatDateMMddYYYY(props.comment.creation_date)}
+							</span>
+							<div className="comment__block__centered-buttons-container">
+								<div
+									className="comment__block__centered-buttons-container__submit-edit-button"
+									onClick={handleSubmit}
+								>
+									Edit Comment
+								</div>
+								<div
+									className="comment__block__centered-buttons-container__cancel-button"
+									onClick={cancelEditingComment}
+								>
+									Cancel
+								</div>
+							</div>
+							<div className="bottom-form-errors-container">
+								<span className="form-errors">
+									{reduxState[generalContainerName].inputErrors.description}
+									{reduxState[generalContainerName].inputErrors.validation}
+									{reduxState[generalContainerName].inputErrors.server}
+								</span>
+							</div>
 						</div>
 					</div>
 				)}

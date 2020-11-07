@@ -1,10 +1,9 @@
 export function toggleCharCountColor(
-	nameOfClass,
+	charCounterElement,
 	descriptionLength,
 	charLimit
 ) {
-	document.getElementsByClassName(nameOfClass)[0].style.color =
-		descriptionLength > charLimit ? "red" : "black";
+	toggleClassName(descriptionLength > charLimit, charCounterElement, "text-red");
 }
 
 export function populateComboBox(selectElementClassName, array, id) {

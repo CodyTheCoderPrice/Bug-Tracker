@@ -2,7 +2,8 @@ import { SET_WHICH_COMMENT_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 
 const initialState = {
 	commentDeleteModal: false,
-	targetComment: null,
+	commentToBeDeleted: null,
+	commentBeingEdited: null,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -16,9 +17,13 @@ export default function (state = initialState, action) {
 					action.displays.commentDeleteModal !== undefined
 						? action.displays.commentDeleteModal
 						: false,
-				targetComment:
-					action.displays.targetComment !== undefined
-						? action.displays.targetComment
+				commentToBeDeleted:
+					action.displays.commentToBeDeleted !== undefined
+						? action.displays.commentToBeDeleted
+						: null,
+				commentBeingEdited:
+					action.displays.commentBeingEdited !== undefined
+						? action.displays.commentBeingEdited
 						: null,
 			};
 		default:

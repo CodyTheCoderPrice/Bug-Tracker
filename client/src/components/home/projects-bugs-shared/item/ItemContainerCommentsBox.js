@@ -40,7 +40,7 @@ export default function ItemContainerCommentsBox() {
 
 	useEffect(() => {
 		toggleCharCountColor(
-			"js-create-comment-char-counter",
+			document.getElementsByClassName("js-create-comment-char-counter")[0],
 			commentInfo.description.length,
 			descriptionCharLimit
 		);

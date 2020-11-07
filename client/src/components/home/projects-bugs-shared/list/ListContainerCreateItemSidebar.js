@@ -118,7 +118,7 @@ export default function ListContainerCreateItemSidebar(props) {
 
 	useEffect(() => {
 		toggleCharCountColor(
-			"js-create-description-char-counter",
+			document.getElementsByClassName("js-create-description-char-counter")[0],
 			itemInfo.description.length,
 			descriptionCharLimit
 		);
@@ -129,7 +129,7 @@ export default function ListContainerCreateItemSidebar(props) {
 		// Prevents error for projects (which don't have location)
 		if (itemInfo.location.length > 0) {
 			toggleCharCountColor(
-				"js-create-location-char-counter",
+				document.getElementsByClassName("js-create-location-char-counter")[0],
 				itemInfo.location.length,
 				locationCharLimit
 			);

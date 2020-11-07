@@ -25,7 +25,7 @@ export default function ItemContainerCommentsBoxIndividualCommentDeleteModal() {
 	const deleteThisComment = () => {
 		dispatch(
 			deleteComment({
-				id: reduxState[commentContainerName].componentsDisplay.targetComment.id,
+				id: reduxState[commentContainerName].componentsDisplay.commentToBeDeleted.id,
 				project_id: reduxState[projectContainerName].componentsDisplay.targetItem.id,
 				bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
 			})

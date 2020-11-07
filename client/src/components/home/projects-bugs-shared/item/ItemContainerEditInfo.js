@@ -142,7 +142,7 @@ export default function ItemContainerEditInfo(props) {
 
 	useEffect(() => {
 		toggleCharCountColor(
-			"js-edit-description-char-counter",
+			document.getElementsByClassName("js-edit-description-char-counter")[0],
 			itemInfo.description.length,
 			descriptionCharLimit
 		);
@@ -153,7 +153,7 @@ export default function ItemContainerEditInfo(props) {
 		// Prevents error for projects (which don't have location)
 		if (itemInfo.location.length > 0) {
 			toggleCharCountColor(
-				"js-edit-location-char-counter",
+				document.getElementsByClassName("js-edit-location-char-counter")[0],
 				itemInfo.location.length,
 				locationCharLimit
 			);

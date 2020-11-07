@@ -1,4 +1,5 @@
 @import "../../utils/variables";
+@import "../../utils/mixins";
 
 .delete-modal-component {
 	.blurred-background {
@@ -47,10 +48,9 @@
 	}
 
 	.centered-buttons-container {
-		position: absolute;
+		@include horizontal-center();
+
 		top: 110px;
-		left: 50%;
-		transform: translate(-50%);
 		width: 265px;
 	}
 
