@@ -14,16 +14,15 @@ import {
 	clearInputErrors,
 } from "../../../../actions";
 
-import { toggleClassName } from "../../../../utils/elementUtils";
-
 import {
+	toggleClassName,
 	toggleCharCountColor,
 	populateComboBox,
 } from "../../../../utils/elementUtils";
 
 import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
-
 import { useSidebarResize } from "../../../../utils/sidebarResizeHookUtils";
+import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerCreateItemSidebar.scss";
 
@@ -80,6 +79,9 @@ export default function ListContainerCreateItemSidebar(props) {
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
 	useSidebarResize(reduxState, "js-create-item-sidebar");
+
+	// Custome hook will cause form to submit whenever the enter key is pressed
+	useSubmitFormOnEnter("js-create-item-form");
 
 	// clears prior input errors when closing the component
 	useEffect(() => {
@@ -144,18 +146,15 @@ export default function ListContainerCreateItemSidebar(props) {
 				...itemInfo,
 				[e.target.name]: Number(e.target.value),
 			});
+		} else if (e.target.name === "description") {
+			// Doesn't allow line breaks
+			setItemInfo({
+				...itemInfo,
+				[e.target.name]: e.target.value.replace(/(\r\n|\n|\r)/gm, ""),
+			});
 		} else {
 			setItemInfo({ ...itemInfo, [e.target.name]: e.target.value });
 		}
-	};
-
-	const closeCreateItemSidebar = () => {
-		dispatch(
-			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				...reduxState[props.reduxContainerName].componentsDisplay,
-				listContainerCreateItemSidbar: false,
-			})
-		);
 	};
 
 	const handleSubmit = (e) => {
@@ -167,6 +166,15 @@ export default function ListContainerCreateItemSidebar(props) {
 				reduxState[projectContainerName].componentsDisplay.targetItem.id;
 		}
 		dispatch(createProjectOrBug(props.reduxContainerName, itemInfoDeepCopy));
+	};
+
+	const closeCreateItemSidebar = () => {
+		dispatch(
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
+				listContainerCreateItemSidbar: false,
+			})
+		);
 	};
 
 	return (
@@ -189,7 +197,7 @@ export default function ListContainerCreateItemSidebar(props) {
 							? "New Project"
 							: "New Bug"}
 					</h1>
-					<form className="form" noValidate onSubmit={handleSubmit}>
+					<form className="form js-create-item-form" noValidate onSubmit={handleSubmit}>
 						<label htmlFor="create-item-name" className="form__label">
 							Name:{" "}
 						</label>

@@ -16,6 +16,8 @@ import {
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { toggleCharCountColor } from "../../../../utils/elementUtils";
 
+import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerCommentsBoxIndividualComment.scss";
 
 export default function ItemContainerCommentsBoxIndividualComment(props) {
@@ -33,6 +35,9 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 
 	const [descriptionCharLimit] = useState(500);
 
+	// Custome hook will cause form to submit whenever the enter key is pressed
+	useSubmitFormOnEnter("js-edit-comment-form");
+
 	// clears prior input errors when closing the component
 	useEffect(() => {
 		return () => {
@@ -42,7 +47,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 	}, []);
 
 	// Resets commentInfo when commentBeingEdited changes so changed
-	// ...descriptions don't persist when cancel button is clicked 
+	// ...descriptions don't persist when cancel button is clicked
 	// ...and when the comment list size changes since components
 	// ...will not belond to the correct comment anymore
 	useEffect(() => {
@@ -122,7 +127,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 	};
 
 	return (
-		<form noValidate onSubmit={handleSubmit}>
+		<form className="js-edit-comment-form" noValidate onSubmit={handleSubmit}>
 			<div className="comment-divider">
 				{reduxState[commentContainerName].componentsDisplay
 					.commentBeingEdited === null ||

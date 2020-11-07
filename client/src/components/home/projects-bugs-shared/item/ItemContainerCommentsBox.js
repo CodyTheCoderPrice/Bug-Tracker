@@ -13,6 +13,8 @@ import { toggleCharCountColor } from "../../../../utils/elementUtils";
 
 import ItemContainerCommentsBoxIndividualComment from "./ItemContainerCommentsBoxIndividualComment";
 
+import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerCommentBox.scss";
 
 export default function ItemContainerCommentsBox() {
@@ -35,6 +37,9 @@ export default function ItemContainerCommentsBox() {
 	const [previousCommmentsListSize, setPreviousCommentsListSize] = useState(
 		reduxState[commentContainerName].list.length
 	);
+
+	// Custome hook will cause form to submit whenever the enter key is pressed
+	useSubmitFormOnEnter("js-create-comment-form");
 
 	// clears prior input errors when closing the component
 	useEffect(() => {
@@ -89,7 +94,7 @@ export default function ItemContainerCommentsBox() {
 	return (
 		<div className="outer-dividing-container">
 			<div className="item-box">
-				<form noValidate onSubmit={handleSubmit}>
+				<form className="js-create-comment-form" noValidate onSubmit={handleSubmit}>
 					<label htmlFor="create-comment-description">
 						<h2 className="item-box__title item-box__title--no-bottom-margin">
 							Comments

@@ -25,6 +25,7 @@ import {
 } from "../../../../utils/elementUtils";
 
 import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
+import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditInfo.scss";
 
@@ -103,6 +104,9 @@ export default function ItemContainerEditInfo(props) {
 		}
 		// eslint-disable-next-line
 	}, [itemInfo.status_id]);
+
+	// Custome hook will cause form to submit whenever the enter key is pressed
+	useSubmitFormOnEnter("js-edit-item-form");
 
 	// clears prior input errors when closing the component
 	useEffect(() => {
@@ -206,7 +210,7 @@ export default function ItemContainerEditInfo(props) {
 	};
 
 	return (
-		<form noValidate onSubmit={handleSubmit}>
+		<form className="js-edit-item-form" noValidate onSubmit={handleSubmit}>
 			<div className="outer-dividing-container">
 				<div className="centering-container">
 					<input
