@@ -210,7 +210,7 @@ export default function ListContainerCreateItemSidebar(props) {
 							className="form__text-input"
 						/>
 						<span className="form__errors">
-							{reduxState[generalContainerName].inputErrors.name}
+							{reduxState[generalContainerName].inputErrors.validationItemName}
 						</span>
 						<label htmlFor="create-item-description" className="form__label">
 							Description:{" "}
@@ -226,7 +226,7 @@ export default function ListContainerCreateItemSidebar(props) {
 							className="form__textarea"
 						/>
 						<span className="form__errors">
-							{reduxState[generalContainerName].inputErrors.description}
+							{reduxState[generalContainerName].inputErrors.validationItemDescription}
 						</span>
 						{props.reduxContainerName === bugContainerName ? (
 							<div>
@@ -245,7 +245,7 @@ export default function ListContainerCreateItemSidebar(props) {
 									className="form__text-input"
 								/>
 								<span className="form__errors">
-									{reduxState[generalContainerName].inputErrors.location}
+									{reduxState[generalContainerName].inputErrors.validationItemLocation}
 								</span>
 							</div>
 						) : null}
@@ -333,8 +333,8 @@ export default function ListContainerCreateItemSidebar(props) {
 								: "Create Bug"}
 						</button>
 						<span className="form__errors">
-							{reduxState[generalContainerName].inputErrors.validation}
-							{reduxState[generalContainerName].inputErrors.server}
+							{reduxState[generalContainerName].inputErrors.validationItem}
+							{reduxState[generalContainerName].inputErrors.serverItem}
 						</span>
 					</form>
 				</div>

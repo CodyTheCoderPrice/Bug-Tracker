@@ -93,7 +93,7 @@ router
 				res.json({ success: true, bugs: allBugsForAccount.rows });
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server error while creating bug";
+				inputErrors.serverItem = "Server error while creating bug";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
@@ -131,7 +131,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, bugs: allBugsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while retrieving bugs";
+		inputErrors.serverItem = "Server error while retrieving bugs";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -220,7 +220,7 @@ router
 				res.json({ success: true, bugs: allBugsForAccount.rows });
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server error while updating bug";
+				inputErrors.serverItem = "Server error while updating bug";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
@@ -274,7 +274,7 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, bugs: allBugsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while deleting bug";
+		inputErrors.serverItem = "Server error while deleting bug";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -340,7 +340,7 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, bugs: allBugsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while deleting bug";
+		inputErrors.serverItem = "Server error while deleting bug";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });

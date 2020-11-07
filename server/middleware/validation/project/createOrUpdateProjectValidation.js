@@ -20,14 +20,14 @@ module.exports = (req, res, next) => {
 
 		// Name check
 		if (Validator.isEmpty(name)) {
-			inputErrors.name = "Name field is required";
+			inputErrors.validationItemName = "Name field is required";
 		} else if (!Validator.isLength(name, { max: 35 })) {
-			inputErrors.name = "Name can't be longer than 35 characters";
+			inputErrors.validationItemName = "Name can't be longer than 35 characters";
 		}
 
 		// Description check
 		if (!Validator.isLength(description, { max: 500 })) {
-			inputErrors.description =
+			inputErrors.validationItemDescription =
 				"Description can't be longer than 500 characters";
 		}
 
@@ -38,7 +38,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validation = "Validation Error";
+		inputErrors.validationItem = "Validation Error";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

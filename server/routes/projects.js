@@ -76,7 +76,7 @@ router
 				res.json({ success: true, projects: allProjectsForAccount.rows });
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server error while creating project";
+				inputErrors.serverItem = "Server error while creating project";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
@@ -110,7 +110,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, projects: allProjectsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while retrieving projects";
+		inputErrors.serverItem = "Server error while retrieving projects";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -182,7 +182,7 @@ router
 				res.json({ success: true, projects: allProjectsForAccount.rows });
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server error while updating project";
+				inputErrors.serverItem = "Server error while updating project";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
@@ -223,7 +223,7 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, projects: allProjectsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while deleting project";
+		inputErrors.serverItem = "Server error while deleting project";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -273,7 +273,7 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, projects: allProjectsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while deleting project";
+		inputErrors.serverItem = "Server error while deleting project";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });

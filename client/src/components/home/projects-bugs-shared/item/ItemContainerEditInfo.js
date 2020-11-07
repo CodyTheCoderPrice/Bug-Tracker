@@ -222,7 +222,7 @@ export default function ItemContainerEditInfo(props) {
 						className="centering-container__form-name-input"
 					/>
 					<span className="form-errors">
-						{reduxState[generalContainerName].inputErrors.name}
+						{reduxState[generalContainerName].inputErrors.validationItemName}
 					</span>
 				</div>
 				<div className="item-creation-date">
@@ -248,7 +248,7 @@ export default function ItemContainerEditInfo(props) {
 							className="item-box__form-textarea"
 						/>
 						<span className="form-errors">
-							{reduxState[generalContainerName].inputErrors.description}
+							{reduxState[generalContainerName].inputErrors.validationItemDescription}
 						</span>
 					</div>
 				</div>
@@ -275,7 +275,7 @@ export default function ItemContainerEditInfo(props) {
 									className="item-box__group__field__form-text"
 								/>
 								<span className="form-errors">
-									{reduxState[generalContainerName].inputErrors.location}
+									{reduxState[generalContainerName].inputErrors.validationItemLocation}
 								</span>
 							</div>
 						) : null}
@@ -383,8 +383,8 @@ export default function ItemContainerEditInfo(props) {
 				</div>
 				<div className="bottom-form-errors-container">
 					<span className="form-errors">
-						{reduxState[generalContainerName].inputErrors.validation}
-						{reduxState[generalContainerName].inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.validationItem}
+						{reduxState[generalContainerName].inputErrors.serverItem}
 					</span>
 				</div>
 			</div>
