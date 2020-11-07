@@ -33,8 +33,6 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 
 	const [descriptionCharLimit] = useState(500);
 
-	const [editingComment, setEditingComment] = useState(false);
-
 	// clears prior input errors when closing the component
 	useEffect(() => {
 		return () => {
@@ -43,21 +41,30 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		// eslint-disable-next-line
 	}, []);
 
-	// Resets commentInfo whenever the comment list size changes since components
+	// Resets commentInfo when commentBeingEdited changes so changed
+	// ...descriptions don't persist when cancel button is clicked 
+	// ...and when the comment list size changes since components
 	// ...will not belond to the correct comment anymore
 	useEffect(() => {
 		setCommentInfo({
+			// Default commentInfo values
 			description: props.comment.description,
-			// Following ids are used by the backend to ensure
-			// ...the comment will belong to the correct account
 			project_id:
 				reduxState[projectContainerName].componentsDisplay.targetItem.id,
 			bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
 		});
-	}, [reduxState[commentContainerName].list.length]);
+	}, [
+		reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
+		reduxState[commentContainerName].list.length,
+	]);
 
 	useEffect(() => {
-		if (editingComment) {
+		if (
+			reduxState[commentContainerName].componentsDisplay.commentBeingEdited !==
+				null &&
+			reduxState[commentContainerName].componentsDisplay.commentBeingEdited
+				.id === props.comment.id
+		) {
 			toggleCharCountColor(
 				document.getElementsByClassName("js-edit-comment-char-counter")[0],
 				commentInfo.description.length,
@@ -91,11 +98,9 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 						.id,
 			})
 		);
-		setEditingComment(false);
 	};
 
 	const switchToEditingComment = () => {
-		setEditingComment(true);
 		dispatch(
 			setWhichCommentComponentsDisplay({
 				commentBeingEdited: props.comment,
@@ -104,7 +109,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 	};
 
 	const cancelEditingComment = () => {
-		setEditingComment(false);
+		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
 	const openDeleteCommentModal = () => {
@@ -119,7 +124,10 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 	return (
 		<form noValidate onSubmit={handleSubmit}>
 			<div className="comment-divider">
-				{editingComment === false ? (
+				{reduxState[commentContainerName].componentsDisplay
+					.commentBeingEdited === null ||
+				reduxState[commentContainerName].componentsDisplay.commentBeingEdited
+					.id !== props.comment.id ? (
 					<div>
 						<div className="comment__block">
 							<span className="comment__block__description">
@@ -127,9 +135,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 							</span>
 						</div>
 						<div className="comment__block">
-							<span className="comment__block__date">
-								{formatDateMMddYYYY(props.comment.creation_date)}
-							</span>
+							<span>{formatDateMMddYYYY(props.comment.creation_date)}</span>
 							<div
 								className="comment__block__icon-button"
 								onClick={switchToEditingComment}
@@ -146,43 +152,39 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 					</div>
 				) : (
 					<div>
-						<div className="">
-							<span className="item-box__form-character-counter js-edit-comment-char-counter">
-								{commentInfo.description.length + "/" + descriptionCharLimit}
-							</span>
-							<textarea
-								name="description"
-								onChange={(e) => onChange(e)}
-								value={commentInfo.description}
-								id="edit-comment-description"
-								className="item-box__form-textarea item-box__form-textarea--shorter"
-							/>
-						</div>
-						<div className="comment__block">
-							<span className="comment__block__date">
-								{formatDateMMddYYYY(props.comment.creation_date)}
-							</span>
-							<div className="comment__block__centered-buttons-container">
+						<span className="item-box__form-character-counter js-edit-comment-char-counter">
+							{commentInfo.description.length + "/" + descriptionCharLimit}
+						</span>
+						<textarea
+							name="description"
+							onChange={(e) => onChange(e)}
+							value={commentInfo.description}
+							id="edit-comment-description"
+							className="item-box__form-textarea item-box__form-textarea--shorter"
+						/>
+						<span>{formatDateMMddYYYY(props.comment.creation_date)}</span>
+						<div className="comment__centering-container">
+							<div className="comment__centering-container__pair-container">
 								<div
-									className="comment__block__centered-buttons-container__submit-edit-button"
+									className="comment__centering-container__pair-container__submit-edit-button"
 									onClick={handleSubmit}
 								>
 									Edit Comment
 								</div>
 								<div
-									className="comment__block__centered-buttons-container__cancel-button"
+									className="comment__centering-container__pair-container__cancel-button"
 									onClick={cancelEditingComment}
 								>
 									Cancel
 								</div>
 							</div>
-							<div className="bottom-form-errors-container">
-								<span className="form-errors">
-									{reduxState[generalContainerName].inputErrors.description}
-									{reduxState[generalContainerName].inputErrors.validation}
-									{reduxState[generalContainerName].inputErrors.server}
-								</span>
-							</div>
+						</div>
+						<div className="edit-comment-form-errors-container">
+							<span className="form-errors">
+								{reduxState[generalContainerName].inputErrors.description}
+								{reduxState[generalContainerName].inputErrors.validation}
+								{reduxState[generalContainerName].inputErrors.server}
+							</span>
 						</div>
 					</div>
 				)}

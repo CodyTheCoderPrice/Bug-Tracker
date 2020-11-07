@@ -30,6 +30,12 @@ export default function ItemContainerCommentsBox() {
 
 	const [descriptionCharLimit] = useState(500);
 
+	// Keeps track of the current comment list size so componet can tell
+	// ...when a new comment has been added in order to reset commentInfo
+	const [previousCommmentsListSize, setPreviousCommentsListSize] = useState(
+		reduxState[commentContainerName].list.length
+	);
+
 	// clears prior input errors when closing the component
 	useEffect(() => {
 		return () => {
@@ -37,6 +43,21 @@ export default function ItemContainerCommentsBox() {
 		};
 		// eslint-disable-next-line
 	}, []);
+
+	// Resets commentInfo when the comment list size increases (meaning comment was created)
+	// ...since the description should then be reset to empty
+	useEffect(() => {
+		if (reduxState[commentContainerName].list.length > previousCommmentsListSize) {
+			setCommentInfo({
+				// Default commentInfo values
+				description: "",
+				project_id:
+					reduxState[projectContainerName].componentsDisplay.targetItem.id,
+				bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
+			});
+		}
+		setPreviousCommentsListSize(reduxState[commentContainerName].list.length);
+	}, [reduxState[commentContainerName].list.length]);
 
 	useEffect(() => {
 		toggleCharCountColor(

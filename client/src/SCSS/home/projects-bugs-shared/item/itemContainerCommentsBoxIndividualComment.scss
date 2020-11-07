@@ -8,7 +8,7 @@
 	}
 
 	.comment__block {
-		// Must be realtive so setting comment__block__centered-buttons-container
+		// Must be realtive so setting comment__centering-container__pair-container
 		// ...top moves it within the context of comment_block 
 		position: relative;
 		margin: 10px 0px 10px 0px;
@@ -18,13 +18,9 @@
 		color: $dark-blue-gray;	
 	}
 
-	/* .comment__block__date {
-		
-	} */
-
 	.comment__block__icon-button {
 		display: inline;
-		margin-left: 15px;
+		margin-left: 10px;
 		color: gray;
 		cursor: pointer;
 	}
@@ -33,16 +29,22 @@
 		color: black;
 	}
 
-	.comment__block__centered-buttons-container {
+	.comment__centering-container {
+		position: relative;
+		height: 40px;
+		width: 100%;
+	}
+
+	.comment__centering-container__pair-container {
 		@include horizontal-center();
 		top: 0px;
 		width: 265px;
 	}
 
-	.comment__block__centered-buttons-container__submit-edit-button {
+	.comment__centering-container__pair-container__submit-edit-button {
 		float: left;
 		border: 1px solid black;
-		background-color: $dark-red;
+		background-color: $light-blue-gray;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
 		padding: 10px 0px 10px 0px;
@@ -55,12 +57,12 @@
 		text-align: center;
 		cursor: pointer;
 	}
-	.comment__block__centered-buttons-container__submit-edit-button:hover,
-	.comment__block__centered-buttons-container__submit-edit-button:active {
-		background-color: $darker-red;
+	.comment__centering-container__pair-container__submit-edit-button:hover,
+	.comment__centering-container__pair-container__submit-edit-button:active {
+		background-color: $blue-gray;
 	}
 
-	.comment__block__centered-buttons-container__cancel-button {
+	.comment__centering-container__pair-container__cancel-button {
 		float: right;
 		border: 1px solid black;
 		background-color: #e7e7e7;
@@ -73,8 +75,13 @@
 		font-size: 16px;
 		cursor: pointer;
 	}
-	.comment__block__centered-buttons-container__cancel-button:hover,
-	.comment__block__centered-buttons-container__cancel-button:active {
+	.comment__centering-container__pair-container__cancel-button:hover,
+	.comment__centering-container__pair-container__cancel-button:active {
 		background-color: #dad9d9;
+	}
+
+	.edit-comment-form-errors-container {
+		display: relative;
+		margin: 15px 0px 20px 0px;
 	}
 }

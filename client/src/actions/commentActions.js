@@ -55,6 +55,7 @@ export const updateComment = (commentInfo) => (dispatch) => {
 		.then((res) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));
+			dispatch(setWhichCommentComponentsDisplay({}));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));

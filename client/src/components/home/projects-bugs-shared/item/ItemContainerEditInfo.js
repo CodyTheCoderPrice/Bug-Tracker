@@ -217,7 +217,7 @@ export default function ItemContainerEditInfo(props) {
 						id="edit-item-name"
 						className="centering-container__form-name-input"
 					/>
-					<span className="form-errors form-errors--test">
+					<span className="form-errors">
 						{reduxState[generalContainerName].inputErrors.name}
 					</span>
 				</div>
@@ -270,7 +270,7 @@ export default function ItemContainerEditInfo(props) {
 									id="edit-item-location"
 									className="item-box__group__field__form-text"
 								/>
-								<span className="form__errors">
+								<span className="form-errors">
 									{reduxState[generalContainerName].inputErrors.location}
 								</span>
 							</div>

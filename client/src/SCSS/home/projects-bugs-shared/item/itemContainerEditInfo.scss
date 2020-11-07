@@ -4,21 +4,6 @@
 // This file is for SCSS used only by the ItemContainerEditInfo component
 // ...SCSS shared with other components is in itemContainer.scss 
 .item-container-component {
-	.form-errors {
-		display: block;
-		color: red;
-		text-align: center;
-	}
-
-	.form-errors--test{
-		margin-top: 13px;
-	}
-
-	.bottom-form-errors-container {
-		margin-top: 5px;
-		height: 5px;
-	}
-
 	.centering-container {
 		margin-bottom: 9px;
 		width: 100%;
@@ -175,11 +160,19 @@
 		pointer-events: none;
 	}
 
-	.form__errors {
+	.bottom-form-errors-container {
+		margin-top: 5px;
+		height: 5px;
+	}
+
+	.form-errors {
 		display: block;
-		// Gives top space for location but not description
 		margin-top: 10px;
 		color: red;
 		text-align: center;
+	}
+
+	.form-errors--test{
+		margin-top: 13px;
 	}
 }
