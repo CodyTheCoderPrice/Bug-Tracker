@@ -5,18 +5,24 @@ module.exports = (req, res, next) => {
 	let inputErrors = {};
 
 	try {
-		let { description } = req.body;
+		let { description, isEditing } = req.body;
 
 		// Convert empty fields to an empty string so we can use validator functions
 		description = !isEmpty(description) ? description : "";
 
 		// Description check
 		if (!Validator.isLength(description, { min: 1 })) {
-			inputErrors.description =
-				"Comment can't be empty";
+			inputErrors[
+				isEditing === false
+					? "validationCreateCommentDescription"
+					: "validationEditCommentDescription"
+			] = "Comment can't be empty";
 		} else if (!Validator.isLength(description, { max: 500 })) {
-			inputErrors.description =
-				"Comment can't be longer than 500 characters";
+			inputErrors[
+				isEditing === false
+					? "validationCreateCommentDescription"
+					: "validationEditCommentDescription"
+			] = "Comment can't be longer than 500 characters";
 		}
 
 		if (!isEmpty(inputErrors)) {
@@ -26,7 +32,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validation = "Validation Error";
+		inputErrors.validationComment = "Validation Error";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

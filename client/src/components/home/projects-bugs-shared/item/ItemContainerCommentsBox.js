@@ -120,9 +120,9 @@ export default function ItemContainerCommentsBox() {
 					</div>
 					<div className="bottom-form-errors-container">
 						<span className="form-errors">
-							{reduxState[generalContainerName].inputErrors.description}
-							{reduxState[generalContainerName].inputErrors.validation}
-							{reduxState[generalContainerName].inputErrors.server}
+							{reduxState[generalContainerName].inputErrors.validationCreateCommentDescription}
+							{reduxState[generalContainerName].inputErrors.validationComment}
+							{reduxState[generalContainerName].inputErrors.serverItem}
 						</span>
 					</div>
 				</form>

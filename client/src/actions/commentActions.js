@@ -17,7 +17,7 @@ export const setComments = (list) => (dispatch) => {
 export const createComment = (commentInfo) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/comment/create", commentInfo, headers)
+		.post("/api/comment/create", { ...commentInfo, isEditing: false }, headers)
 		.then((res) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));
@@ -51,7 +51,7 @@ export const retrieveComments = () => (dispatch) => {
 export const updateComment = (commentInfo) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/comment/update", commentInfo, headers)
+		.post("/api/comment/update", { ...commentInfo, isEditing: true }, headers)
 		.then((res) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));

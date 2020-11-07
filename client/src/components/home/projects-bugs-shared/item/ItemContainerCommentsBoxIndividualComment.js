@@ -186,9 +186,9 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 						</div>
 						<div className="edit-comment-form-errors-container">
 							<span className="form-errors">
-								{reduxState[generalContainerName].inputErrors.description}
-								{reduxState[generalContainerName].inputErrors.validation}
-								{reduxState[generalContainerName].inputErrors.server}
+								{reduxState[generalContainerName].inputErrors.validationEditCommentDescription}
+								{reduxState[generalContainerName].inputErrors.validationComment}
+								{reduxState[generalContainerName].inputErrors.serverItem}
 							</span>
 						</div>
 					</div>

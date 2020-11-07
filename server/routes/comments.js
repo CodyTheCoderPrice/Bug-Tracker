@@ -62,7 +62,7 @@ router
 			res.json({ success: true, comments: allCommentsForAccount.rows });
 		} catch (err) {
 			console.error(err.message);
-			inputErrors.server = "Server error while creating comment";
+			inputErrors.serverItem = "Server error while creating comment";
 			return res.status(500).json({ success: false, inputErrors });
 		}
 	});
@@ -95,7 +95,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, comments: allCommentsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while retrieving comments";
+		inputErrors.serverItem = "Server error while retrieving comments";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -154,7 +154,7 @@ router
 			res.json({ success: true, comments: allCommentsForAccount.rows });
 		} catch (err) {
 			console.error(err.message);
-			inputErrors.server = "Server error while updating comment";
+			inputErrors.serverItem = "Server error while updating comment";
 			return res.status(500).json({ success: false, inputErrors });
 		}
 	});
@@ -205,7 +205,7 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, comments: allCommentsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while deleting comment";
+		inputErrors.serverItem = "Server error while deleting comment";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
