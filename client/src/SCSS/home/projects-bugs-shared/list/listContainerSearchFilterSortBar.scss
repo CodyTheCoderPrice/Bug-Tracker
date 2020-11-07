@@ -4,24 +4,17 @@
 .search-filter-sort-component {
 	// Must be more than table header so filter button can overlap
 	z-index: 1;
-	/* position: -webkit-sticky;
-	position: sticky; */
 	position: fixed;
-	width: 100%;
 	top: $navbar-height;
+	border: $search-filter-sort-bar-border-width solid black;
+	border-left: none;
+	border-right: none;
+	background-color: $search-filter-sort-bar-color;
+	height: $search-filter-sort-bar-height;
+	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
-	background-color: $list-table-background-color;
 
-	.search-filter-sort-bar {
-		border: 1px solid black;
-		border-left: none;
-		border-right: none;
-		background-color: $search-filter-sort-bar-color;
-		height: $search-filter-sort-bar-height;
-		width: 100%;
-	}
-
-	.search-filter-sort-bar__centering-container {
+	.centering-container {
 		position: relative;
 		float: left;
 		height: $search-filter-sort-bar-height;
@@ -29,7 +22,7 @@
 		width: 152px;
 	}
 
-	.search-filter-sort-bar__centering-container__new-item-button {
+	.centering-container__new-item-button {
 		@include stop-text-selection();
 		@include vertical-center();
 
@@ -42,16 +35,16 @@
 		cursor: pointer;
 	}
 
-	.search-filter-sort-bar__centering-container__search-group-container {
+	.centering-container__search-group-container {
 		@include dead-center();
 		width: 100%;
 	}
 
-	.search-filter-sort-bar__centering-container__search-group-container--with-border {
+	.centering-container__search-group-container--with-border {
 		border: 1px solid $blue-gray;
 	}
 
-	.search-filter-sort-bar__centering-container__search-group-container__search-bar {
+	.centering-container__search-group-container__search-bar {
 		display: inline-block;
 		outline: none;
 		border: $search-bar-border-width solid $light-blue-gray;
@@ -62,7 +55,7 @@
 		font-size: 14px;
 	}
 
-	.search-filter-sort-bar__centering-container__search-group-container__search-bar-button {
+	.centering-container__search-group-container__search-bar-button {
 		display: inline-block;
 		// Instead of relative to make sure the button always stays next to the search-bar
 		position: absolute;
@@ -71,33 +64,33 @@
 		width: $search-bar-button-width;
 		cursor: pointer;
 	}
-	.search-filter-sort-bar__centering-container__search-group-container__search-bar-button:hover,
-	.search-filter-sort-bar__centering-container__search-group-container__search-bar-button:active {
+	.centering-container__search-group-container__search-bar-button:hover,
+	.centering-container__search-group-container__search-bar-button:active {
 		background-color: $blue-gray;
 	}
 
-	.search-filter-sort-bar__centering-container__search-group-container__search-bar-button__icon {
+	.centering-container__search-group-container__search-bar-button__icon {
 		@include dead-center();
 		color: white;
 	}
 
-	// Lets the searchbar resize know when to stop 
+	// Lets the searchbar resize know when to stop
 	// ...and positons filter dropdown to the right
-	.search-filter-sort-bar__filter-area-container {
+	.filter-area-container {
 		position: absolute;
 		right: 0px;
 		width: 109px;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container {
+	.filter-area-container__dropdown-container {
 		float: right;
 		margin-left: 50px;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container__button {
+	.filter-area-container__dropdown-container__button {
 		@include stop-text-selection();
 
-		// Must be more than search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown
+		// Must be more than filter-area-container__dropdown-container__content-dropdown
 		// ...so its top border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
@@ -112,7 +105,7 @@
 		cursor: pointer;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container__button--clicked {
+	.filter-area-container__dropdown-container__button--clicked {
 		// Negative margin because border resize moves the element
 		margin: -2px -2px 0px;
 		border: 3px solid black;
@@ -120,14 +113,14 @@
 		height: 54px;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container__button__text {
+	.filter-area-container__dropdown-container__button__text {
 		// Used horizontal-center since resize would move the text
 		@include horizontal-center();
 		top: 4px;
 		width: $filter-button-width;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown {
+	.filter-area-container__dropdown-container__content-dropdown {
 		position: absolute;
 		/* top: 41px; */
 		top: 65px;
@@ -142,18 +135,18 @@
 		visibility: hidden;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content {
+	.filter-area-container__dropdown-container__content-dropdown__content {
 		float: left;
 		margin: 15px 0px 5px 20px;
 		text-align: center;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content--right {
+	.filter-area-container__dropdown-container__content-dropdown__content--right {
 		float: right;
 		margin: 15px 20px 5px 0px;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__title {
+	.filter-area-container__dropdown-container__content-dropdown__content__title {
 		display: block;
 		margin: 2px 0px 5px 0px;
 		border-bottom: 1px solid gray;
@@ -161,12 +154,12 @@
 		font-weight: bold;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block {
+	.filter-area-container__dropdown-container__content-dropdown__content__block {
 		text-align: left;
 	}
 
-	.search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__checkbox,
-	.search-filter-sort-bar__filter-area-container__dropdown-container__content-dropdown__content__block__label {
+	.filter-area-container__dropdown-container__content-dropdown__content__block__checkbox,
+	.filter-area-container__dropdown-container__content-dropdown__content__block__label {
 		margin: 5px 3px 5px 3px;
 	}
 }

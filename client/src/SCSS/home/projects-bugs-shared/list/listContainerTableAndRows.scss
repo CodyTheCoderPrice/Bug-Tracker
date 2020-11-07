@@ -2,12 +2,20 @@
 @import "../../../utils//mixins";
 
 .list-table-component {
+	position: fixed;
+	top: $navbar-height + $search-filter-sort-bar-height + $search-filter-sort-bar-border-width;
+	left: 0px;
 	background-color: $list-table-background-color;
+	// Height and width values were found through trial and error
+	// ...to make modal resize (using js) look less jumpy
+	height: 90vh;
+	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
+	overflow-y: auto !important;
+	overflow-x: auto !important;
 
 	.list-table {
 		position: absolute;
-		top: $navbar-height + $search-filter-sort-bar-height + 2;
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
 		min-width: $list-table-min-width;
@@ -22,7 +30,7 @@
 	.list-table__row--hover-highlight:hover {
 		background-color: $very-light-gray;
 	}
-	
+
 	.list-table__row--empty {
 		height: $list-table-row-height + ($list-table-row-height * 0.5);
 	}
@@ -30,9 +38,8 @@
 	.list-table__header {
 		position: -webkit-sticky;
 		position: sticky;
-		top: $navbar-height + $search-filter-sort-bar-height + 2;
 		background-color: $list-table-background-color;
-		// Used box shadow since the header row being sticky with 
+		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: 0 1px 0 $medium-gray;
 		width: 300px;

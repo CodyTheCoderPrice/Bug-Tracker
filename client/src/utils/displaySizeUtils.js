@@ -51,6 +51,18 @@ export function calcScrollbarWidth() {
 	return { width: scrollbarWidth };
 }
 
+export function calcSearchFilterSortBarHeight() {
+	const invisibleSearchFilterSortBarElement = document.createElement("div");
+	invisibleSearchFilterSortBarElement.className = "search-filter-sort-component";
+	invisibleSearchFilterSortBarElement.visibility = "hidden";
+	document.body.appendChild(invisibleSearchFilterSortBarElement);
+
+	const height = getElementSize(invisibleSearchFilterSortBarElement).height;
+	invisibleSearchFilterSortBarElement.parentNode.removeChild(invisibleSearchFilterSortBarElement);
+
+	return { height: height };
+}
+
 export function calcViewItemTopBarHeight() {
 	const invisibleTopBarElement = document.createElement("div");
 	invisibleTopBarElement.className = "top-bar-component";

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { sizeContainerName } from "../reducers/containerNames";
 
 import { toggleClassName } from "./elementUtils";
 
@@ -9,7 +10,7 @@ import {
 } from "./displaySizeUtils";
 
 export function useSearchBarResizeAndBorderEventListener(
-	state,
+	passedReduxState,
 	searchBarClassName,
 	searchBarButtonClassName,
 	searchBarAndButtonInnerContainerClassName,
@@ -60,10 +61,7 @@ export function useSearchBarResizeAndBorderEventListener(
 
 	// Resize search-bar to fit search-filter-sort-bar width
 	useEffect(() => {
-		if (
-			state.sizeContainer.variables.window !== null &&
-			state.sizeContainer.constants.home !== null
-		) {
+		if (passedReduxState[sizeContainerName].variables.window !== null) {
 			let searchBar = document.getElementsByClassName(searchBarClassName)[0];
 
 			// Makes sure regularlyUsedSizesAndStyles gets set
@@ -106,14 +104,12 @@ export function useSearchBarResizeAndBorderEventListener(
 			)[0];
 
 			const windowWidth =
-				state.sizeContainer.variables.window.width -
-				state.sizeContainer.constants.scrollbar.width;
+				passedReduxState[sizeContainerName].variables.window.width -
+				passedReduxState[sizeContainerName].constants.scrollbar.width;
 
 			// Used to make the searchBar take up remaining space
 			const remainingSearchFilterSortBarWidth =
-				(windowWidth > state.sizeContainer.constants.home.minWidth
-					? windowWidth
-					: state.sizeContainer.constants.home.minWidth) -
+				windowWidth -
 				regularlyUsedSizesAndStyles.newProjectsButtonContainer.width -
 				regularlyUsedSizesAndStyles.sortAndFilterContainer.width;
 			// Because of css centering, this element is given equal empty space
@@ -134,8 +130,8 @@ export function useSearchBarResizeAndBorderEventListener(
 		}
 		// eslint-disable-next-line
 	}, [
-		state.sizeContainer.variables,
-		state.sizeContainer.constants,
+		passedReduxState[sizeContainerName].variables,
+		passedReduxState[sizeContainerName].constants,
 		regularlyUsedSizesAndStyles,
 	]);
 

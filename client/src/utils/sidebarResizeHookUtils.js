@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { sizeContainerName } from "../reducers/containerNames";
 
 import { getElementStyle, stripNonDigits } from "./displaySizeUtils";
 
-export function useSidebarResize(state, nameOfSidebarClass) {
+export function useSidebarResize(passedReduxState, nameOfSidebarClass) {
 	// Used to decide when to resize the sidebar, and to reset its size
 	const [
 		originalSidebarSizeAndStyle,
@@ -12,8 +13,8 @@ export function useSidebarResize(state, nameOfSidebarClass) {
 	// Adjusts the height of the sidebar to fit the screen
 	useEffect(() => {
 		if (
-			state.sizeContainer.variables.window !== null &&
-			state.sizeContainer.variables.navbar !== null
+			passedReduxState[sizeContainerName].variables.window !== null &&
+			passedReduxState[sizeContainerName].variables.navbar !== null
 		) {
 			let sidebarElement = document.getElementsByClassName(nameOfSidebarClass)[0];
 
@@ -32,8 +33,8 @@ export function useSidebarResize(state, nameOfSidebarClass) {
 			}
 
 			const adjustedWindowHeight =
-				state.sizeContainer.variables.window.height -
-				state.sizeContainer.variables.navbar.height -
+				passedReduxState[sizeContainerName].variables.window.height -
+				passedReduxState[sizeContainerName].variables.navbar.height -
 				originalSidebarSizeAndStyle.marginBottom -
 				originalSidebarSizeAndStyle.borderBottom;
 
@@ -44,7 +45,7 @@ export function useSidebarResize(state, nameOfSidebarClass) {
 			}
 		}
 		// eslint-disable-next-line
-	}, [state.sizeContainer.variables, originalSidebarSizeAndStyle]);
+	}, [passedReduxState[sizeContainerName].variables, originalSidebarSizeAndStyle]);
 
 	return [];
 }

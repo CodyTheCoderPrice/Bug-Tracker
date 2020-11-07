@@ -25,7 +25,7 @@ export default function Home() {
 	const reduxState = useSelector((state) => state);
 
 	return (
-		<div className="home-container js-home-container">
+		<div className="home-container">
 			<Navbar />
 			{/*Account components*/}
 			{/*Displays bullered background when an account component is open*/}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	sizeContainerName,
 	projectContainerName,
 	bugContainerName,
 } from "../../reducers/containerNames";
@@ -17,9 +18,8 @@ import {
 import {
 	getWindowSize,
 	getElementSize,
-	getElementStyle,
-	stripNonDigits,
 	calcScrollbarWidth,
+	calcSearchFilterSortBarHeight,
 	calcViewItemTopBarHeight,
 	calcItemContainerListSidebarWidth,
 } from "../../utils/displaySizeUtils";
@@ -36,13 +36,6 @@ export default function Navbar() {
 	useEffect(() => {
 		dispatch(
 			setDisplaySizeConstants({
-				home: {
-					minWidth: stripNonDigits(
-						getElementStyle(
-							document.getElementsByClassName("js-home-container")[0]
-						).minWidth
-					),
-				},
 				scrollbar: calcScrollbarWidth(),
 				navbarAccountButton: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
@@ -53,6 +46,7 @@ export default function Navbar() {
 				navbarBugsButton: getElementSize(
 					document.getElementsByClassName("js-bug-list-button")[0]
 				),
+				listcontainerSearchFilterSortBar: calcSearchFilterSortBarHeight(),
 				itemContainerTopBar: calcViewItemTopBarHeight(),
 				itemContainerListSidebar: calcItemContainerListSidebarWidth(),
 			})
@@ -87,16 +81,16 @@ export default function Navbar() {
 	// Sets max-width for navbar buttons depending on navbar width
 	useEffect(() => {
 		if (
-			reduxState.sizeContainer.variables.navbar !== null &&
+			reduxState[sizeContainerName].variables.navbar !== null &&
 			// If navbarAccountButton is set, then projects and bugs button should also be set
-			reduxState.sizeContainer.constants.navbarAccountButton !== null &&
+			reduxState[sizeContainerName].constants.navbarAccountButton !== null &&
 			reduxState[projectContainerName].componentsDisplay.targetItem !== null
 		) {
 			let navbarAvailableSpace =
-				reduxState.sizeContainer.variables.navbar.width -
-				reduxState.sizeContainer.constants.navbarAccountButton.width -
-				reduxState.sizeContainer.constants.navbarProjectsButton.width -
-				reduxState.sizeContainer.constants.navbarBugsButton.width;
+				reduxState[sizeContainerName].variables.navbar.width -
+				reduxState[sizeContainerName].constants.navbarAccountButton.width -
+				reduxState[sizeContainerName].constants.navbarProjectsButton.width -
+				reduxState[sizeContainerName].constants.navbarBugsButton.width;
 
 			const projectButtonElement = document.getElementsByClassName(
 				"js-project-item-button"
@@ -126,7 +120,7 @@ export default function Navbar() {
 			}
 		}
 	}, [
-		reduxState.sizeContainer,
+		reduxState[sizeContainerName],
 		reduxState[projectContainerName].componentsDisplay.targetItem,
 		reduxState[bugContainerName].componentsDisplay.targetItem,
 	]);

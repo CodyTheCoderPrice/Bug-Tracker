@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { projectContainerName } from "../../../../reducers/containerNames";
+import {
+	sizeContainerName,
+	projectContainerName,
+} from "../../../../reducers/containerNames";
 
 import {
 	setProjectOrBugMassDeleteList,
@@ -23,20 +26,41 @@ export default function ListContainerTable(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	// Adjusts the height of the table to fit the screen
+	useEffect(() => {
+		if (
+			reduxState[sizeContainerName].variables.window !== null &&
+			reduxState[sizeContainerName].variables.navbar !== null &&
+			reduxState[sizeContainerName].constants
+				.listcontainerSearchFilterSortBar !== null
+		) {
+			const listTableContainerElement = document.getElementsByClassName(
+				"js-list-table-container"
+			)[0];
+
+			listTableContainerElement.style.height =
+				reduxState[sizeContainerName].variables.window.height -
+				reduxState[sizeContainerName].variables.navbar.height -
+				reduxState[sizeContainerName].constants.listcontainerSearchFilterSortBar
+					.height +
+				"px";
+		}
+	}, [reduxState[sizeContainerName]]);
+
 	// Fills remaining space in a table row after status
 	useEffect(() => {
-		if (reduxState.sizeContainer.variables.window !== null) {
+		if (reduxState[sizeContainerName].variables.window !== null) {
 			let remainingSpaceElement = document.getElementsByClassName(
 				"js-remaining-space"
 			)[0];
 			remainingSpaceElement.style.width =
-				reduxState.sizeContainer.variables.window.width -
+				reduxState[sizeContainerName].variables.window.width -
 				getElementLocation(
 					document.getElementsByClassName("js-remaining-space")[0]
 				).left +
 				"px";
 		}
-	}, [reduxState.sizeContainer.variables]);
+	}, [reduxState[sizeContainerName].variables]);
 
 	// Disables mass delete options buttons when no checkboxes are selected
 	useEffect(() => {
@@ -71,7 +95,7 @@ export default function ListContainerTable(props) {
 	};
 
 	return (
-		<div className="list-table-component">
+		<div className="list-table-component js-list-table-container">
 			<table className="list-table">
 				<thead className="">
 					<tr className="list-table__row">

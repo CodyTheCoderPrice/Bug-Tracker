@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	sizeContainerName,
 	generalContainerName,
 	projectContainerName,
 	bugContainerName,
@@ -38,19 +39,19 @@ export default function ItemContainer(props) {
 	// Adjusts the height and width of the modal to fit the screen
 	useEffect(() => {
 		if (
-			reduxState.sizeContainer.variables.window !== null &&
-			reduxState.sizeContainer.variables.navbar !== null &&
-			reduxState.sizeContainer.constants.itemContainerTopBar !== null &&
-			reduxState.sizeContainer.constants.itemContainerListSidebar !== null
+			reduxState[sizeContainerName].variables.window !== null &&
+			reduxState[sizeContainerName].variables.navbar !== null &&
+			reduxState[sizeContainerName].constants.itemContainerTopBar !== null &&
+			reduxState[sizeContainerName].constants.itemContainerListSidebar !== null
 		) {
 			const itemContainerElement = document.getElementsByClassName(
 				"js-item-container"
 			)[0];
 
 			itemContainerElement.style.height =
-				reduxState.sizeContainer.variables.window.height -
-				reduxState.sizeContainer.variables.navbar.height -
-				reduxState.sizeContainer.constants.itemContainerTopBar.height +
+				reduxState[sizeContainerName].variables.window.height -
+				reduxState[sizeContainerName].variables.navbar.height -
+				reduxState[sizeContainerName].constants.itemContainerTopBar.height +
 				"px";
 
 			if (
@@ -58,16 +59,16 @@ export default function ItemContainer(props) {
 					.itemContainerListSidebar
 			) {
 				itemContainerElement.style.width =
-					reduxState.sizeContainer.variables.window.width -
-					reduxState.sizeContainer.constants.itemContainerListSidebar.width +
+					reduxState[sizeContainerName].variables.window.width -
+					reduxState[sizeContainerName].constants.itemContainerListSidebar.width +
 					"px";
 			} else {
 				itemContainerElement.style.width =
-					reduxState.sizeContainer.variables.window.width + "px";
+					reduxState[sizeContainerName].variables.window.width + "px";
 			}
 		}
 	}, [
-		reduxState.sizeContainer,
+		reduxState[sizeContainerName],
 		reduxState[generalContainerName].componentsDisplay.itemContainerListSidebar,
 	]);
 

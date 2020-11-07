@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { projectContainerName, generalContainerName } from "../../../../reducers/containerNames";
+import { sizeContainerName, generalContainerName, projectContainerName } from "../../../../reducers/containerNames";
 
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
@@ -29,9 +29,9 @@ export default function ItemContainerListSidebar(props) {
 	// Resize list-sidebar-component height to fit window when smaller than it
 	useEffect(() => {
 		if (
-			reduxState.sizeContainer.variables.window !== null &&
-			reduxState.sizeContainer.variables.navbar !== null &&
-			reduxState.sizeContainer.constants.itemContainerTopBar !== null
+			reduxState[sizeContainerName].variables.window !== null &&
+			reduxState[sizeContainerName].variables.navbar !== null &&
+			reduxState[sizeContainerName].constants.itemContainerTopBar !== null
 		) {
 			let itemContainerListSidebarElement = document.getElementsByClassName(
 				"js-list-sidebar-component"
@@ -51,16 +51,16 @@ export default function ItemContainerListSidebar(props) {
 			}
 
 			const adjustedWindowHeight =
-				reduxState.sizeContainer.variables.window.height -
-				reduxState.sizeContainer.variables.navbar.height -
-				reduxState.sizeContainer.constants.itemContainerTopBar.height;
+				reduxState[sizeContainerName].variables.window.height -
+				reduxState[sizeContainerName].variables.navbar.height -
+				reduxState[sizeContainerName].constants.itemContainerTopBar.height;
 
 			itemContainerListSidebarElement.style.height =
 				adjustedWindowHeight + "px";
 		}
 		// eslint-disable-next-line
 	}, [
-		reduxState.sizeContainer.variables,
+		reduxState[sizeContainerName].variables,
 		originalItemContainerListSidebarHeight,
 		reduxState[props.reduxContainerName].componentsDisplay
 			.itemContainerListSidebar,

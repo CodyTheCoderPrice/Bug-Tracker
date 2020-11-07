@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+
+import { toggleClassName } from "../../../../utils/elementUtils";
 
 // Components
 import ListContainerSearchFilterSortBar from "./ListContainerSearchFilterSortBar";
@@ -9,6 +11,17 @@ import ListContainerMassDeleteItemsModal from "./ListContainerMassDeleteItemsMod
 
 export default function ListContainer(props) {
 	const reduxState = useSelector((state) => state);
+
+	// Disable scrolling for the body
+	useEffect(() => {
+		let body = document.getElementsByClassName("js-body")[0];
+
+		toggleClassName(true, body, "stop-x-y-scrolling");
+
+		return () => {
+			toggleClassName(false, body, "stop-x-y-scrolling");
+		};
+	}, []);
 
 	return (
 		<div className="list-container-component">
