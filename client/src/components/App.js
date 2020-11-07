@@ -26,13 +26,12 @@ function App() {
 	// Re-fetches user data after a page refresh,
 	// ... and makes sure the appropriate components are displayed
 	useEffect(() => {
-		dispatch(retrievePriorityStatusArrays());
-
 		if (reduxState.accountContainer.auth.isAuthenticated) {
 			dispatch(retrieveAccount());
 			dispatch(retrieveProjects());
 			dispatch(retrieveBugs());
 			dispatch(retrieveComments());
+			dispatch(retrievePriorityStatusArrays());
 		} else {
 			// Makes sure unauthenticated users do not see home page
 			if (reduxState[generalContainerName].componentsDisplay.home) {

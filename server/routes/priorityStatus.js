@@ -61,7 +61,7 @@ router.route("/retrieve").get(async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while retrieving project priorities";
+		inputErrors.server = "Server error while retrieving Priority/Status options";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });

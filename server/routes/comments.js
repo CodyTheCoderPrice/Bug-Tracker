@@ -48,14 +48,14 @@ router
 			// ...this querry gets it using account_id
 			const allCommentsForAccount = await pool.query(
 				`WITH c AS 
-						(SELECT * FROM comment WHERE bug_id IN
-							(SELECT bug_id FROM bug WHERE project_id IN 
-								(SELECT project_id FROM project WHERE account_id = $1)
-							)
+					(SELECT * FROM comment WHERE bug_id IN
+						(SELECT bug_id FROM bug WHERE project_id IN 
+							(SELECT project_id FROM project WHERE account_id = $1)
 						)
-					SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
-							FROM c
-								ORDER BY c.comment_id`,
+					)
+				SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+					FROM c
+						ORDER BY c.comment_id`,
 				[account_id]
 			);
 
@@ -81,14 +81,14 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		// ...this querry gets it using account_id
 		const allCommentsForAccount = await pool.query(
 			`WITH c AS 
-						(SELECT * FROM comment WHERE bug_id IN
-							(SELECT bug_id FROM bug WHERE project_id IN 
-								(SELECT project_id FROM project WHERE account_id = $1)
-							)
-						)
-					SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
-							FROM c
-								ORDER BY c.comment_id`,
+				(SELECT * FROM comment WHERE bug_id IN
+					(SELECT bug_id FROM bug WHERE project_id IN 
+						(SELECT project_id FROM project WHERE account_id = $1)
+					)
+				)
+			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+				FROM c
+					ORDER BY c.comment_id`,
 			[account_id]
 		);
 
@@ -140,14 +140,14 @@ router
 			// ...this querry gets it using account_id
 			const allCommentsForAccount = await pool.query(
 				`WITH c AS 
-						(SELECT * FROM comment WHERE bug_id IN
-							(SELECT bug_id FROM bug WHERE project_id IN 
-								(SELECT project_id FROM project WHERE account_id = $1)
-							)
+					(SELECT * FROM comment WHERE bug_id IN
+						(SELECT bug_id FROM bug WHERE project_id IN 
+							(SELECT project_id FROM project WHERE account_id = $1)
 						)
-					SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
-							FROM c
-								ORDER BY c.comment_id`,
+					)
+				SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+					FROM c
+						ORDER BY c.comment_id`,
 				[account_id]
 			);
 
@@ -191,14 +191,14 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		// ...this querry gets it using account_id
 		const allCommentsForAccount = await pool.query(
 			`WITH c AS 
-						(SELECT * FROM comment WHERE bug_id IN
-							(SELECT bug_id FROM bug WHERE project_id IN 
-								(SELECT project_id FROM project WHERE account_id = $1)
-							)
-						)
-					SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
-							FROM c
-								ORDER BY c.comment_id`,
+				(SELECT * FROM comment WHERE bug_id IN
+					(SELECT bug_id FROM bug WHERE project_id IN 
+						(SELECT project_id FROM project WHERE account_id = $1)
+					)
+				)
+			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+				FROM c
+					ORDER BY c.comment_id`,
 			[account_id]
 		);
 

@@ -3,14 +3,18 @@ import jwt_decode from "jwt-decode";
 
 import { ACCOUNT_CONTAINER } from "./constants/containers";
 import { SET_AUTHENTICATION, SET_ACCOUNT } from "./constants/types";
-import { retrievePriorityStatusArrays, setInputErrors, resetRedux } from "./index";
+import {
+	setPriorityStatusArrays,
+	setProjects,
+	setBugs,
+	setComments,
+	setInputErrors,
+	resetRedux,
+} from "./index";
 import {
 	setWhichGeneralComponentsDisplay,
 	setWhichAccountComponentsDisplay,
 } from "./componentActions";
-import { retrieveProjects } from "./projectActions";
-import { retrieveBugs } from "./bugActions";
-import { retrieveComments } from "./commentActions";
 
 export const setAuthentication = (decodedToken) => (dispatch) => {
 	dispatch({
@@ -43,23 +47,35 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 	axios
 		.post("/api/account/login", accountInfo)
 		.then((res) => {
-			const { jwToken, account } = res.data;
+			const {
+				jwToken,
+				projectPriorityStatusOptions,
+				bugPriorityStatusOptions,
+				account,
+				projects,
+				bugs,
+				comments,
+			} = res.data;
 			localStorage.setItem("jwToken", jwToken);
 
 			const decodedToken = jwt_decode(jwToken);
 
 			dispatch(setAuthentication(decodedToken));
 
+			dispatch(
+				setPriorityStatusArrays(
+					projectPriorityStatusOptions,
+					bugPriorityStatusOptions
+				)
+			);
 			dispatch(setAccount(account));
-			dispatch(retrieveProjects());
-			dispatch(retrieveBugs());
-			dispatch(retrieveComments());
+			dispatch(setProjects(projects));
+			dispatch(setBugs(bugs));
+			dispatch(setComments(comments));
 			dispatch(setWhichGeneralComponentsDisplay({ home: true }));
 		})
 		.catch((err) => {
-			if (err.response !== undefined) {
-				dispatch(setInputErrors(err.response.data.inputErrors));
-			}
+			dispatch(setInputErrors(err.response.data.inputErrors));
 		});
 };
 
@@ -151,8 +167,6 @@ export const logoutAccount = () => (dispatch) => {
 
 	// Reset redux
 	dispatch(resetRedux());
-	// Refetch priority and status options encase logging back in
-	dispatch(retrievePriorityStatusArrays());
 
 	console.log("Message: logged out");
 };

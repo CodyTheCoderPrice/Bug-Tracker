@@ -11,7 +11,6 @@ import {
 	SET_PRIORITY_STATUS_OPTIONS,
 	SET_MASS_DELETE_LIST,
 	SET_INPUT_ERRORS,
-	RESET_REDUX,
 } from "./constants/types";
 
 export * from "./accountActions";
@@ -38,33 +37,45 @@ export const setDisplaySizeVariables = (sizes) => (dispatch) => {
 	});
 };
 
-export const retrievePriorityStatusArrays = () => (dispatch) => {
-	axios.get("/api/priority-status/retrieve").then((res) => {
-		const { projectPriorityStatusOptions, bugPriorityStatusOptions } = res.data;
-		dispatch({
-			container: PROJECT_CONTAINER,
-			type: SET_PRIORITY_STATUS_OPTIONS,
-			priorityOptions: projectPriorityStatusOptions.priorityOptions,
-			statusOptions: projectPriorityStatusOptions.statusOptions,
-			statusCompletionId: projectPriorityStatusOptions.statusCompletionId,
-		});
-		dispatch({
-			container: BUG_CONTAINER,
-			type: SET_PRIORITY_STATUS_OPTIONS,
-			priorityOptions: bugPriorityStatusOptions.priorityOptions,
-			statusOptions: bugPriorityStatusOptions.statusOptions,
-			statusCompletionId: bugPriorityStatusOptions.statusCompletionId,
-		});
+export const setPriorityStatusArrays = (
+	projectPriorityStatusArrays,
+	bugPriorityStatusArrays
+) => (dispatch) => {
+	dispatch({
+		container: PROJECT_CONTAINER,
+		type: SET_PRIORITY_STATUS_OPTIONS,
+		priorityOptions: projectPriorityStatusArrays.priorityOptions,
+		statusOptions: projectPriorityStatusArrays.statusOptions,
+		statusCompletionId: projectPriorityStatusArrays.statusCompletionId,
+	});
+	dispatch({
+		container: BUG_CONTAINER,
+		type: SET_PRIORITY_STATUS_OPTIONS,
+		priorityOptions: bugPriorityStatusArrays.priorityOptions,
+		statusOptions: bugPriorityStatusArrays.statusOptions,
+		statusCompletionId: bugPriorityStatusArrays.statusCompletionId,
 	});
 };
 
-export const setProjectsMassDeleteList = (containerName, massDeleteList) => (dispatch) => {
-	if (containerName === "project"){
+export const retrievePriorityStatusArrays = () => (dispatch) => {
+	axios.get("/api/priority-status/retrieve").then((res) => {
+		const { projectPriorityStatusArrays, bugPriorityStatusArrays } = res.data;
+		setPriorityStatusArrays(
+			projectPriorityStatusArrays,
+			bugPriorityStatusArrays
+		);
+	});
+};
+
+export const setProjectsMassDeleteList = (containerName, massDeleteList) => (
+	dispatch
+) => {
+	if (containerName === "project") {
 		containerName = PROJECT_CONTAINER;
 	} /* else if (containerName === "bug"){
 		containerName = 
 	} */
-	
+
 	dispatch({
 		container: containerName,
 		type: SET_MASS_DELETE_LIST,

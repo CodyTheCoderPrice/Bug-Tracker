@@ -27,6 +27,10 @@ export default function Login() {
 		// eslint-disable-next-line
 	}, []);
 
+	useEffect(() => {
+		console.log(reduxState);
+	}, [reduxState])
+
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};

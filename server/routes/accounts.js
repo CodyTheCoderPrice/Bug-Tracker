@@ -99,6 +99,90 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		// Removes hash_pass so it is not passed to the front end
 		delete account.rows[0].hash_pass;
 
+		// Grab Priority/Status options, as well as all projects, bugs, and comments for the account.
+		const projectPriorityOptions = await pool.query(
+			`SELECT p_priority_id AS id, option 
+				FROM project_priority 
+					ORDER BY order_number`
+		);
+
+		const projectStatusOptions = await pool.query(
+			`SELECT p_status_id AS id, option 
+				FROM project_status 
+					ORDER BY order_number`
+		);
+
+		const projectStatusCompletionId = await pool.query(
+			`SELECT p_status_id AS id 
+				FROM project_status 
+					WHERE marks_completion = true`
+		);
+
+		const bugPriorityOptions = await pool.query(
+			`SELECT b_priority_id AS id, option 
+				FROM bug_priority 
+					ORDER BY order_number`
+		);
+
+		const bugStatusOptions = await pool.query(
+			`SELECT b_status_id AS id, option 
+				FROM bug_status 
+					ORDER BY order_number`
+		);
+
+		const bugStatusCompletionId = await pool.query(
+			`SELECT b_status_id AS id, option 
+				FROM bug_status 
+					WHERE marks_completion = true`
+		);
+
+		const allProjectsForAccount = await pool.query(
+			`WITH p AS 
+			(SELECT * FROM project WHERE account_id = $1)
+			SELECT p.project_id AS id, p.account_id, p.name, p.description,
+				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
+				p.creation_date, p.start_date, p.due_date,
+				p.completion_date, pp.option AS priority_option, 
+				ps.option AS status_option
+					FROM p, project_priority pp, project_status ps 
+						WHERE (p.p_priority_id = pp.p_priority_id) 
+							AND (p.p_status_id = ps.p_status_id)
+								ORDER BY p.project_id`,
+			[account.rows[0].account_id]
+		);
+
+			throw err
+
+		const allBugsForAccount = await pool.query(
+			`WITH b AS 
+				(SELECT * FROM bug WHERE project_id IN 
+					(SELECT project_id FROM project WHERE account_id = $1)
+				)
+			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
+				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
+				 b.creation_date, b.start_date, b.due_date,
+				b.completion_date, bp.option AS priority_option, 
+				bs.option AS status_option
+					FROM b, bug_priority bp, bug_status bs 
+						WHERE (b.b_priority_id = bp.b_priority_id) 
+							AND (b.b_status_id = bs.b_status_id)
+								ORDER BY b.bug_id`,
+			[account.rows[0].account_id]
+		);
+
+		const allCommentsForAccount = await pool.query(
+			`WITH c AS 
+				(SELECT * FROM comment WHERE bug_id IN
+					(SELECT bug_id FROM bug WHERE project_id IN 
+						(SELECT project_id FROM project WHERE account_id = $1)
+					)
+				)
+			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+				FROM c
+					ORDER BY c.comment_id`,
+			[account.rows[0].account_id]
+		);
+
 		// Sign token
 		jwt.sign(
 			tokenPayload,
@@ -110,7 +194,20 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 				return res.json({
 					success: true,
 					jwToken: jwToken,
+					projectPriorityStatusOptions: {
+						priorityOptions: projectPriorityOptions.rows,
+						statusOptions: projectStatusOptions.rows,
+						statusCompletionId: projectStatusCompletionId.rows[0].id,
+					},
+					bugPriorityStatusOptions: {
+						priorityOptions: bugPriorityOptions.rows,
+						statusOptions: bugStatusOptions.rows,
+						statusCompletionId: bugStatusCompletionId.rows[0].id,
+					},
 					account: account.rows[0],
+					projects: allProjectsForAccount.rows,
+					bugs: allBugsForAccount.rows,
+					comments: allCommentsForAccount.rows,
 				});
 			}
 		);
