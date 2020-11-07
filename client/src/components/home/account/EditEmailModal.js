@@ -70,7 +70,7 @@ export default function EditEmailModal() {
 						id="edit-account-email-email"
 						className="form__text-input"
 					/>
-					<span className="form__errors">{reduxState[generalContainerName].inputErrors.email}</span>
+					<span className="form__errors">{reduxState[generalContainerName].inputErrors.validationAccountEmail}</span>
 					<label htmlFor="edit-account-email-password" className="form__label">
 						Current Password:{" "}
 					</label>
@@ -89,9 +89,9 @@ export default function EditEmailModal() {
 						Update
 					</button>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validation}
+						{reduxState[generalContainerName].inputErrors.validationAccount}
 						{reduxState[generalContainerName].inputErrors.authorization}
-						{reduxState[generalContainerName].inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.serverAccount}
 					</span>
 				</form>
 				<div className="modal-links-container">

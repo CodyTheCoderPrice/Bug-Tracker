@@ -13,9 +13,9 @@ module.exports = (req, res, next) => {
 
 		// Email check
 		if (Validator.isEmpty(email)) {
-			inputErrors.email = "Email field is required";
+			inputErrors.validationAccountEmail = "Email field is required";
 		} else if (!Validator.isEmail(email)) {
-			inputErrors.email = "Email is invalid";
+			inputErrors.validationAccountEmail = "Email is invalid";
 		}
 		// currentPassword check
 		if (Validator.isEmpty(currentPassword)) {
@@ -29,7 +29,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validation = "Validation Error";
+		inputErrors.validationAccount = "Validation Error";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

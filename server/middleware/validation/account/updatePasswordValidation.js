@@ -13,18 +13,17 @@ module.exports = (req, res, next) => {
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
 		// newPassword check
-		if (Validator.isEmpty(newPassword)) {
-			inputErrors.newPassword = "Password field is required";
-		}
-		if (Validator.isEmpty(newPassword2)) {
-			inputErrors.newPassword2 = "Confirm password field is required";
+		if (!Validator.equals(newPassword, newPassword2)) {
+			inputErrors.validationAccountNewPassword2 = "Passwords must match";
 		}
 		if (!Validator.isLength(newPassword, { min: 6, max: 30 })) {
-			inputErrors.newPassword = "Password must be 6-30 characters long";
+			inputErrors.validationAccountNewPassword = "Password must be 6-30 characters long";
 		}
-		if (!Validator.equals(newPassword, newPassword2)) {
-			inputErrors.newPassword = "Passwords must match";
-			inputErrors.newPassword2 = "Passwords must match";
+		if (Validator.isEmpty(newPassword)) {
+			inputErrors.validationAccountNewPassword = "Password field is required";
+		}
+		if (Validator.isEmpty(newPassword2)) {
+			inputErrors.validationAccountNewPassword2 = "Confirm password field is required";
 		}
 
 		// currentPassword check
@@ -39,7 +38,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validation = "Validation Error";
+		inputErrors.validationAccount = "Validation Error";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

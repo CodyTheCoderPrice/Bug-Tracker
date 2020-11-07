@@ -72,7 +72,7 @@ export default function DeleteAccountModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.deleteTypedOut}
+						{reduxState[generalContainerName].inputErrors.validationAccountTypeOutCheck}
 					</span>
 					<label htmlFor="delete-account-password" className="form__label">
 						Current Password:{" "}
@@ -92,9 +92,9 @@ export default function DeleteAccountModal() {
 						Delete
 					</button>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validation}
+						{reduxState[generalContainerName].inputErrors.validationAccount}
 						{reduxState[generalContainerName].inputErrors.authorization}
-						{reduxState[generalContainerName].inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.serverAccount}
 					</span>
 				</form>
 				<div className="modal-links-container">

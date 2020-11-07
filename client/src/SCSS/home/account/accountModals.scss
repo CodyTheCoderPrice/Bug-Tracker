@@ -84,7 +84,7 @@
 
 	.form__submit {
 		margin-top: 10px;
-		margin-bottom: 5px;
+		margin-bottom: $form-input-margin-bottom;
 		outline: none;
 		border: 0;
 		background: $light-blue-gray;

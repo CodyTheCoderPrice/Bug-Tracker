@@ -13,13 +13,13 @@ module.exports = (req, res, next) => {
 
 		// Email check
 		if (Validator.isEmpty(email)) {
-			inputErrors.email = "Email field is required";
+			inputErrors.validationAccountEmail = "Email field is required";
 		} else if (!Validator.isEmail(email)) {
-			inputErrors.email = "Email is invalid";
+			inputErrors.validationAccountEmail = "Email is invalid";
 		}
 		// Password check
 		if (Validator.isEmpty(password)) {
-			inputErrors.password = "Password field is required";
+			inputErrors.validationAccountPassword = "Password field is required";
 		}
 
 		if (!isEmpty(inputErrors)) {
@@ -29,7 +29,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validation = "Validation Error";
+		inputErrors.validationAccount = "Validation Error";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

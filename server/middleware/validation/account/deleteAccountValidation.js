@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
 
 		// Delete Typed Out check
 		if (deleteTypedOut !== "DELETE") {
-			inputErrors.deleteTypedOut = "Must match: DELETE";
+			inputErrors.validationAccountTypeOutCheck = "Must match: DELETE";
 		}
 		// currentPassword check
 		if (Validator.isEmpty(currentPassword)) {
@@ -27,7 +27,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validation = "Validation Error";
+		inputErrors.validationAccount = "Validation Error";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

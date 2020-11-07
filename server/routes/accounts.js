@@ -35,7 +35,7 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 		);
 
 		if (activeAccounts.rowCount > 0) {
-			inputErrors = { email: "Email already in use" };
+			inputErrors = { validationAccountEmail: "Email already in use" };
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
@@ -55,7 +55,7 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while register account";
+		inputErrors.serverAccount = "Server error while registering account";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -77,7 +77,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		);
 
 		if (account.rowCount === 0) {
-			inputErrors = { email: "Email unregistered" };
+			inputErrors = { validationAccountEmail: "Email unregistered" };
 			return res.status(401).json({ success: false, inputErrors });
 		}
 
@@ -88,7 +88,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		);
 
 		if (!passwordMatch) {
-			inputErrors = { password: "Incorrect password" };
+			inputErrors = { validationAccountPassword: "Incorrect password" };
 			return res.status(401).json({ success: false, inputErrors });
 		}
 
@@ -151,8 +151,6 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			[account.rows[0].account_id]
 		);
 
-			throw err
-
 		const allBugsForAccount = await pool.query(
 			`WITH b AS 
 				(SELECT * FROM bug WHERE project_id IN 
@@ -213,7 +211,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		);
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while logging in";
+		inputErrors.serverAccount = "Server error while logging in";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -255,7 +253,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		return res.json({ success: true, account: account.rows[0] });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server error while retrieving account";
+		inputErrors.serverAccount = "Server error while retrieving account";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
@@ -286,7 +284,7 @@ router
 			return res.json({ success: true, account: updatedAccount.rows[0] });
 		} catch (err) {
 			console.error(err.message);
-			inputErrors.server = "Server error while updating account info";
+			inputErrors.serverAccount = "Server error while updating account info";
 			return res.status(500).json({ success: false, inputErrors });
 		}
 	});
@@ -316,7 +314,7 @@ router
 				);
 
 				if (activeAccounts.rowCount > 0) {
-					inputErrors = { email: "Email already in use" };
+					inputErrors = { validationAccountEmail: "Email already in use" };
 					return res.status(400).json({ success: false, inputErrors });
 				}
 
@@ -330,7 +328,7 @@ router
 				return res.json({ success: true, account: updatedAccount.rows[0] });
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server error while updating account email";
+				inputErrors.serverAccount = "Server error while updating account email";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
@@ -370,7 +368,7 @@ router
 				});
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server error while updating account password";
+				inputErrors.serverAccount = "Server error while updating account password";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}
@@ -401,7 +399,7 @@ router
 				return res.json({ success: true, message: "Account Deleted" });
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.server = "Server error while deleting account";
+				inputErrors.serverAccount = "Server error while deleting account";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}

@@ -84,7 +84,7 @@ export default function EditInfoModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.first_name}
+						{reduxState[generalContainerName].inputErrors.validationAccountFirstName}
 					</span>
 					<label htmlFor="edit-account-info-last-name" className="form__label">
 						Last Name:{" "}
@@ -98,14 +98,14 @@ export default function EditInfoModal() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.last_name}
+						{reduxState[generalContainerName].inputErrors.validationAccountLastName}
 					</span>
 					<button type="submit" className="form__submit">
 						Update
 					</button>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validation}
-						{reduxState[generalContainerName].inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.validationAccount}
+						{reduxState[generalContainerName].inputErrors.serverAccount}
 					</span>
 				</form>
 				<div className="modal-links-container">

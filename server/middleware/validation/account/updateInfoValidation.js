@@ -13,19 +13,19 @@ module.exports = (req, res, next) => {
 
 		// First name check
 		if (Validator.isEmpty(first_name)) {
-			inputErrors.first_name = "First name field is required";
+			inputErrors.validationAccountFirstName = "First name field is required";
 		}
 		if (!Validator.isLength(first_name, { max: 35 })) {
-			inputErrors.first_name = "First name can't be longer than 35 characters";
+			inputErrors.validationAccountFirstName = "First name can't be longer than 35 characters";
 		}
 
 
 		// Last name check
 		if (Validator.isEmpty(last_name)) {
-			inputErrors.last_name = "Last name field is required";
+			inputErrors.validationAccountLastName = "Last name field is required";
 		}
 		if (!Validator.isLength(last_name, { max: 35 })) {
-			inputErrors.last_name = "Last name can't be longer than 35 characters";
+			inputErrors.validationAccountLastName = "Last name can't be longer than 35 characters";
 		}
 
 		if (!isEmpty(inputErrors)) {
@@ -35,7 +35,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validation = "Validation Error";
+		inputErrors.validationAccount = "Validation Error";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

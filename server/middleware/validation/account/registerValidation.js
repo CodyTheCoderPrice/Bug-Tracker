@@ -14,42 +14,41 @@ module.exports = (req, res, next) => {
 		first_name = !isEmpty(first_name) ? first_name : "";
 		last_name = !isEmpty(last_name) ? last_name : "";
 
-		// Email check
-		if (Validator.isEmpty(email)) {
-			inputErrors.email = "Email field is required";
-		} else if (!Validator.isEmail(email)) {
-			inputErrors.email = "Email is invalid";
-		}
-
-		// Password check
-		if (!Validator.isLength(password, { min: 6, max: 30 })) {
-			inputErrors.password = "Password must be 6-30 characters long";
-		}
-		if (!Validator.equals(password, password2)) {
-			inputErrors.password = "Passwords must match";
-			inputErrors.password2 = "Passwords must match";
-		}
-		if (Validator.isEmpty(password)) {
-			inputErrors.password = "Password field is required";
-		}
-		if (Validator.isEmpty(password2)) {
-			inputErrors.password2 = "Confirm password field is required";
-		}
-
 		// First name check
 		if (Validator.isEmpty(first_name)) {
-			inputErrors.first_name = "First name field is required";
+			inputErrors.validationAccountFirstName = "First name field is required";
 		}
 		if (!Validator.isLength(first_name, { max: 35 })) {
-			inputErrors.first_name= "First name can't be longer than 35 characters";
+			inputErrors.validationAccountFirstName = "First name can't be longer than 35 characters";
 		}
 
 		// Last name check
 		if (Validator.isEmpty(last_name)) {
-			inputErrors.last_name = "Last name field is required";
+			inputErrors.validationAccountLastName = "Last name field is required";
 		}
 		if (!Validator.isLength(last_name, { max: 35 })) {
-			inputErrors.last_name = "Last name can't be longer than 35 characters";
+			inputErrors.validationAccountLastName = "Last name can't be longer than 35 characters";
+		}
+
+		// Email check
+		if (Validator.isEmpty(email)) {
+			inputErrors.validationAccountEmail = "Email field is required";
+		} else if (!Validator.isEmail(email)) {
+			inputErrors.validationAccountEmail = "Email is invalid";
+		}
+
+		// Password check
+		if (!Validator.equals(password, password2)) {
+			inputErrors.validationAccountPassword2 = "Passwords must match";
+		}
+		if (!Validator.isLength(password, { min: 6, max: 30 })) {
+			inputErrors.validationAccountPassword = "Password must be 6-30 characters long";
+		}
+		if (Validator.isEmpty(password)) {
+			inputErrors.validationAccountPassword = "Password field is required";
+		}
+		if (Validator.isEmpty(password2)) {
+			inputErrors.validationAccountPassword2 = "Confirm password field is required";
 		}
 
 		if (!isEmpty(inputErrors)) {
@@ -59,7 +58,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validation = "Validation Error";
+		inputErrors.validationAccount = "Validation Error";
 		return res.status(403).json({ success: false, inputErrors });
 	}
 };

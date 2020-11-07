@@ -75,7 +75,7 @@ export default function EditPasswordModal() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.newPassword}
+						{reduxState[generalContainerName].inputErrors.validationAccountNewPassword}
 					</span>
 					<label
 						htmlFor="edit-account-password-new-password2"
@@ -92,7 +92,7 @@ export default function EditPasswordModal() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.newPassword2}
+						{reduxState[generalContainerName].inputErrors.validationAccountNewPassword2}
 					</span>
 					<label
 						htmlFor="edit-account-password-current-password"
@@ -115,9 +115,9 @@ export default function EditPasswordModal() {
 						Update
 					</button>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validation}
+						{reduxState[generalContainerName].inputErrors.validationAccount}
 						{reduxState[generalContainerName].inputErrors.authorization}
-						{reduxState[generalContainerName].inputErrors.server}
+						{reduxState[generalContainerName].inputErrors.serverAccount}
 					</span>
 				</form>
 				<div className="modal-links-container">
