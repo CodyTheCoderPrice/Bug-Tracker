@@ -4,7 +4,7 @@ import { bugContainerName } from "../../../../reducers/containerNames";
 
 import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
-import { isEmpty } from "../../../../utils/basicUtils";
+import { displayNoneIfEmpty } from "../../../../utils/elementUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayInfo.scss";
 import { projectContainerName } from "../../../../reducers/containerNames";
@@ -24,14 +24,6 @@ export default function ItemContainerDisplayInfo(props) {
 			);
 		}
 	}, []);
-
-	const displayNoneIfEmpty = (itemValue) => {
-		if (isEmpty(itemValue)) {
-			return <span className="grayed-out-none">none</span>;
-		} else {
-			return itemValue;
-		}
-	};
 
 	return (
 		<div>

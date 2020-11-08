@@ -32,7 +32,7 @@
 		background: none;
 		height: 29px;
 		width: $options-button-width;
-		color: $dark-gray;
+		color: $darker-gray;
 		font-size: 28px;
 		text-align: center;
 		cursor: pointer;
@@ -85,7 +85,7 @@
 	.x-button {
 		@include back-exit-buttons();
 		right: 20px;
-		color: $dark-gray;
+		color: $darker-gray;
 	}
 	.x-button:hover,
 	.x-button:active {

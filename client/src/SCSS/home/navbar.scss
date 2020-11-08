@@ -2,11 +2,6 @@
 @import "../utils//mixins";
 
 .navbar-and-other-components-container {
-	// Must be more than table header so filter button can overlap
-	z-index: 1;
-	// Sticky instead of fixed for positioning of other components
-	/* position: -webkit-sticky;
-	position: sticky; */
 	position: fixed;
 	width: 100%;
 	top: 0;

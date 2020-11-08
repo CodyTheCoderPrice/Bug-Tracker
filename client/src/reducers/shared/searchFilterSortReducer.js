@@ -3,7 +3,7 @@ import { SET_SEARCH_FILTER_SORT } from "../../actions/constants/types";
 const initialState = {
 	searchKeyWordString: "",
 	sortByAscending: true,
-	sortByTypeId: 4,
+	sortByTypeId: 2,
 	priorityFilter: [1, 2, 3, 4],
 	statusFilter: [1, 2, 3, 4, 5, 6],
 };

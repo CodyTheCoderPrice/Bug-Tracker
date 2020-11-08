@@ -12,7 +12,8 @@ $light-gray: #e5e5e5;
 $medium-lighter-gray: #e4e4e4;
 $medium-light-gray: #bfbfbf;
 $medium-gray: #919191;
-$dark-gray: #757575;
+$dark-gray: #808080;
+$darker-gray: #757575;
 // Blue grays
 $very-light-blue-gray: #7390af;
 $light-blue-gray: #607c99;
@@ -29,6 +30,12 @@ $red-link: #f34242;
 // Components
 $search-filter-sort-bar-color: $light-gray;
 $list-table-background-color: #ffffff;
+// Status colors
+$status-purple: #9a82d8;
+$status-blue: #568DD5;
+$status-orange: #f59f3c;
+$status-green: #008000;
+$status-red: #d14242;
 
 //==========
 // Heights
@@ -48,6 +55,7 @@ $description-info-item-box-height: 300px;
 $list-table-min-width: 1100px;
 $edit-account-modal-width: 540px;
 $create-item-sidebar-width: 500px;
+$list-table-item-name-width: 100px;
 $list-sidebar-width: 300px;
 $filter-button-width: 90px;
 $options-button-width: 36px;

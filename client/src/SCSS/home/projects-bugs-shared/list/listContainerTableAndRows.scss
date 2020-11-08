@@ -36,6 +36,8 @@
 	}
 
 	.list-table__header {
+		// Must be more than 0 so element in below rows do not overlap when scrolling
+		z-index: 1;
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0px;
@@ -77,12 +79,25 @@
 		cursor: default;
 	}
 
-	.list-table__data__info--blue {
+	.list-table__data--name {
+		width: $list-table-item-name-width;
+		max-width: $list-table-item-name-width;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.list-table__data--blue {
 		color: $blue-link;
 	}
 
-	.list-table__data__info--red {
+	.list-table__data--red {
 		color: $red-link;
+	}
+
+	.list-table__data--gray {
+		color: $dark-gray;
+		text-decoration: line-through;
 	}
 
 	.list-table__data__checkbox {

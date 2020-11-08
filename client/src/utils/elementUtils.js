@@ -1,3 +1,6 @@
+import React from "react";
+import { isEmpty } from "./basicUtils";
+
 export function toggleCharCountColor(
 	charCounterElement,
 	descriptionLength,
@@ -5,6 +8,14 @@ export function toggleCharCountColor(
 ) {
 	toggleClassName(descriptionLength > charLimit, charCounterElement, "text-red");
 }
+
+export function displayNoneIfEmpty(itemValue) {
+	if (isEmpty(itemValue)) {
+		return <span className="grayed-out-none">none</span>;
+	} else {
+		return itemValue;
+	}
+};
 
 export function populateComboBox(selectElementClassName, array, id) {
 	let selectElement = document.getElementsByClassName(selectElementClassName)[0];

@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-	projectContainerName,
-	bugContainerName,
-} from "../../../../reducers/containerNames";
+import { projectContainerName } from "../../../../reducers/containerNames";
 
 import {
 	setWhichAccountComponentsDisplay,
@@ -13,6 +10,10 @@ import {
 } from "../../../../actions";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
+import { displayNoneIfEmpty } from "../../../../utils/elementUtils";
+
+// Components
+import ListTableRowStatusBox from "./ListContainerTableRowStatusBox";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
 
@@ -60,7 +61,8 @@ export default function ListContainerTableRow(props) {
 		// ...to prevent erros with bug targetItem not belonging to project
 		if (
 			props.reduxContainerName === projectContainerName &&
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem !== null &&
+			reduxState[props.reduxContainerName].componentsDisplay.targetItem !==
+				null &&
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
 				props.item.id
 		) {
@@ -71,13 +73,16 @@ export default function ListContainerTableRow(props) {
 	return (
 		<tr
 			className={
-				"list-table__row list-table__row--hover-highlight " +
-				"js-list-table-row-" +
+				"list-table__row list-table__row--hover-highlight" +
+				" js-list-table-row-" +
 				props.item.id
 			}
 			onClick={openItemContainer}
 		>
-			<td className="list-table__data" onClick={(e) => dontPropogateParentOnclick(e)}>
+			<td
+				className="list-table__data"
+				onClick={(e) => dontPropogateParentOnclick(e)}
+			>
 				<input
 					type="checkbox"
 					name="item"
@@ -89,41 +94,44 @@ export default function ListContainerTableRow(props) {
 					className="list-table__data__checkbox"
 				/>
 			</td>
+			<td
+				className={
+					"list-table__data list-table__data--name" +
+					(props.reduxContainerName === projectContainerName
+						? " list-table__data--blue"
+						: props.item.status_id !==
+						  reduxState[props.reduxContainerName].priorityStatusOptions
+								.statusCompletionId
+						? " list-table__data--red"
+						: " list-table__data--gray")
+				}
+			>
+				<span className="list-table__data__info">{props.item.name}</span>
+			</td>
 			<td className="list-table__data">
-				<span
-					className={
-						"list-table__data__info" +
-						(props.reduxContainerName === projectContainerName
-							? " list-table__data__info--blue"
-							: " list-table__data__info--red")
-					}
-				>
-					{props.item.name}
+				<ListTableRowStatusBox
+					item={props.item}
+					reduxContainerName={props.reduxContainerName}
+				/>
+			</td>
+			<td className="list-table__data">
+				<span className="list-table__data__info">
+					{displayNoneIfEmpty(props.item.priority_option)}
 				</span>
 			</td>
 			<td className="list-table__data">
 				<span className="list-table__data__info">
-					{props.item.status_option}
+					{displayNoneIfEmpty(formatDateMMddYYYY(props.item.creation_date))}
 				</span>
 			</td>
 			<td className="list-table__data">
 				<span className="list-table__data__info">
-					{props.item.priority_option}
+					{displayNoneIfEmpty(formatDateMMddYYYY(props.item.start_date))}
 				</span>
 			</td>
 			<td className="list-table__data">
 				<span className="list-table__data__info">
-					{formatDateMMddYYYY(props.item.creation_date)}
-				</span>
-			</td>
-			<td className="list-table__data">
-				<span className="list-table__data__info">
-					{formatDateMMddYYYY(props.item.start_date)}
-				</span>
-			</td>
-			<td className="list-table__data">
-				<span className="list-table__data__info">
-					{formatDateMMddYYYY(props.item.due_date)}
+					{displayNoneIfEmpty(formatDateMMddYYYY(props.item.due_date))}
 				</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}
