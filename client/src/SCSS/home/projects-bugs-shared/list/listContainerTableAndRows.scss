@@ -38,6 +38,7 @@
 	.list-table__header {
 		position: -webkit-sticky;
 		position: sticky;
+		top: 0px;
 		background-color: $list-table-background-color;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
