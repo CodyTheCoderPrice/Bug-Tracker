@@ -1,11 +1,15 @@
 import axios from "axios";
-import { setInputErrors } from "./index";
-import { logoutAccount } from "./accountActions";
-import { setWhichProjectComponentsDisplay } from "./componentActions";
-import { setProjectOrBugMassDeleteList } from "./switchActions";
 import { projectContainerName } from "../reducers/containerNames";
+
 import { PROJECT_CONTAINER } from "./constants/containers";
 import { SET_LIST } from "./constants/types";
+
+import {
+	setInputErrors,
+	logoutAccount,
+	setWhichProjectComponentsDisplay,
+	setProjectOrBugMassDeleteList,
+} from "./index";
 
 export const setProjects = (list) => (dispatch) => {
 	dispatch({

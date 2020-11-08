@@ -3,18 +3,17 @@ import jwt_decode from "jwt-decode";
 
 import { ACCOUNT_CONTAINER } from "./constants/containers";
 import { SET_AUTHENTICATION, SET_ACCOUNT } from "./constants/types";
+
 import {
+	setInputErrors,
+	resetRedux,
+	setWhichGeneralComponentsDisplay,
+	setWhichAccountComponentsDisplay,
 	setPriorityStatusArrays,
 	setProjects,
 	setBugs,
 	setComments,
-	setInputErrors,
-	resetRedux,
 } from "./index";
-import {
-	setWhichGeneralComponentsDisplay,
-	setWhichAccountComponentsDisplay,
-} from "./componentActions";
 
 export const setAuthentication = (decodedToken) => (dispatch) => {
 	dispatch({

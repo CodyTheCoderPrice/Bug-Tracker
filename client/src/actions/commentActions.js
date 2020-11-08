@@ -1,10 +1,13 @@
 import axios from "axios";
-import { setInputErrors } from "./index";
-import { logoutAccount } from "./accountActions";
-import { setWhichCommentComponentsDisplay } from "./componentActions";
 
 import { COMMENT_CONTAINER } from "./constants/containers";
 import { SET_COMMENTS } from "./constants/types";
+
+import {
+	setInputErrors,
+	logoutAccount,
+	setWhichCommentComponentsDisplay,
+} from "./index";
 
 export const setComments = (list) => (dispatch) => {
 	dispatch({

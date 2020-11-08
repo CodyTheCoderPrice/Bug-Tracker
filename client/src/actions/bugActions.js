@@ -1,11 +1,15 @@
 import axios from "axios";
-import { setInputErrors } from "./index";
-import { logoutAccount } from "./accountActions";
-import { setWhichBugComponentsDisplay } from "./componentActions";
-import { setProjectOrBugMassDeleteList } from "./switchActions";
 import { bugContainerName } from "../reducers/containerNames";
+
 import { BUG_CONTAINER } from "./constants/containers";
 import { SET_LIST } from "./constants/types";
+
+import {
+	setInputErrors,
+	logoutAccount,
+	setWhichBugComponentsDisplay,
+	setProjectOrBugMassDeleteList,
+} from "./index";
 
 export const setBugs = (list) => (dispatch) => {
 	dispatch({
