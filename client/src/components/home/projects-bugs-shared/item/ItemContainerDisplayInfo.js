@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { bugContainerName } from "../../../../reducers/containerNames";
+import {
+	projectContainerName,
+	bugContainerName,
+} from "../../../../reducers/containerNames";
 
 import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { displayNoneIfEmpty } from "../../../../utils/elementUtils";
+import { isEmpty } from "../../../../utils/basicUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayInfo.scss";
-import { projectContainerName } from "../../../../reducers/containerNames";
 
 export default function ItemContainerDisplayInfo(props) {
 	const reduxState = useSelector((state) => state);
@@ -24,6 +27,45 @@ export default function ItemContainerDisplayInfo(props) {
 			);
 		}
 	}, []);
+
+	const getStatusBoxColorClassName = () => {
+		if (props.reduxContainerName === projectContainerName) {
+			switch (
+				reduxState[props.reduxContainerName].componentsDisplay.targetItem
+					.status_id
+			) {
+				// Starts at 2 since 1 means status was left empty
+				case 2:
+					return " item-box__group__field__status-box--purple";
+				case 3:
+					return " item-box__group__field__status-box--blue";
+				case 4:
+					return " item-box__group__field__status-box--orange";
+				case 5:
+					return " item-box__group__field__status-box--green";
+				case 6:
+					return " item-box__group__field__status-box--red";
+				default:
+					return "";
+			}
+		} else {
+			switch (
+				reduxState[props.reduxContainerName].componentsDisplay.targetItem
+					.status_id
+			) {
+				case 1:
+					return " item-box__group__field__status-box--purple";
+				case 2:
+					return " item-box__group__field__status-box--blue";
+				case 3:
+					return " item-box__group__field__status-box--orange";
+				case 4:
+					return " item-box__group__field__status-box--green";
+				default:
+					return "";
+			}
+		}
+	};
 
 	return (
 		<div>
@@ -118,13 +160,27 @@ export default function ItemContainerDisplayInfo(props) {
 								</span>
 							</div>
 							<div className="item-box__group__field">
-								<span className="item-box__group__field__type">Status:</span>
-								<span className="item-box__group__field_content">
-									{displayNoneIfEmpty(
-										reduxState[props.reduxContainerName].componentsDisplay
-											.targetItem.status_option
-									)}
-								</span>
+								<div className="item-box__group__field__centering-container">
+									<span className="item-box__group__field__centering-container__type item-box__group__field__type">
+										Status:
+									</span>
+								</div>
+								<div
+									className={
+										"item-box__group__field__status-box" +
+										getStatusBoxColorClassName()
+									}
+								>
+									<span className="item-box__group__field__status-box__centered-content">
+										{isEmpty(
+											reduxState[props.reduxContainerName].componentsDisplay
+												.targetItem.status_option
+										)
+											? "None"
+											: reduxState[props.reduxContainerName].componentsDisplay
+													.targetItem.status_option}
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>

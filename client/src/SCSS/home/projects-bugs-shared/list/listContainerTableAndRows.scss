@@ -100,6 +100,48 @@
 		text-decoration: line-through;
 	}
 
+	.list-table__data__centering-container {
+		position: relative;
+		height: 100%;
+		width: 100%;
+	}
+	
+	.list-table__data__centering-container__status-box {
+		@include dead-center();
+		
+		background-color: gray;
+		color: white;
+		height: $status-box-height;
+		width: 125px;
+	}
+
+	.list-table__data__centering-container__status-box--purple {
+		background-color: $status-purple;
+	}
+
+	.list-table__data__centering-container__status-box--blue {
+		background-color: $status-blue;
+	}
+
+	.list-table__data__centering-container__status-box--orange {
+		background-color: $status-orange;
+	}
+
+	.list-table__data__centering-container__status-box--green {
+		background-color: $status-green;
+	}
+
+	.list-table__data__centering-container__status-box--red {
+		background-color: $status-red;
+	}
+	
+	.list-table__data__centering-container__status-box__centered-info {
+		@include dead-center();
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
 	.list-table__data__checkbox {
 		cursor: pointer;
 	}

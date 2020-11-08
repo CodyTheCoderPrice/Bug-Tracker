@@ -31,6 +31,7 @@ $red-link: #f34242;
 $search-filter-sort-bar-color: $light-gray;
 $list-table-background-color: #ffffff;
 // Status colors
+$status-gray: $dark-gray;
 $status-purple: #9a82d8;
 $status-blue: #568DD5;
 $status-orange: #f59f3c;
@@ -45,6 +46,7 @@ $edit-account-modal-height: 480px;
 $search-filter-sort-bar-height: 60px;
 $search-bar-height: 28px;
 $list-table-row-height: 50px;
+$status-box-height: 25px;
 $top-bar-height: 46px;
 $create-item-sidebar-height: 700px;
 $description-info-item-box-height: 300px;
@@ -65,6 +67,7 @@ $item-outer-dividing-container-min-width: 500px;
 // Margins
 //=========
 $form-input-margin-bottom: 10px;
+$display-info-field-margin-left: 11px;
 
 //==========
 // Borders

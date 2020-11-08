@@ -11,9 +11,7 @@ import {
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { displayNoneIfEmpty } from "../../../../utils/elementUtils";
-
-// Components
-import ListTableRowStatusBox from "./ListContainerTableRowStatusBox";
+import { isEmpty } from "../../../../utils/basicUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
 
@@ -45,6 +43,40 @@ export default function ListContainerTableRow(props) {
 	// Keeps clicking checkbox from propogating parent elements onclick
 	const dontPropogateParentOnclick = (e) => {
 		e.stopPropagation();
+	};
+
+
+	const getStatusBoxColorClassName = () => {
+		if (props.reduxContainerName === projectContainerName) {
+			switch (props.item.status_id) {
+				// Starts at 2 since 1 means status was left empty
+				case 2:
+					return " list-table__data__centering-container__status-box--purple";
+				case 3:
+					return " list-table__data__centering-container__status-box--blue";
+				case 4:
+					return " list-table__data__centering-container__status-box--orange";
+				case 5:
+					return " list-table__data__centering-container__status-box--green";
+				case 6:
+					return " list-table__data__centering-container__status-box--red";
+				default:
+					return "";
+			}
+		} else {
+			switch (props.item.status_id) {
+				case 1:
+					return " list-table__data__centering-container__status-box--purple";
+				case 2:
+					return " list-table__data__centering-container__status-box--blue";
+				case 3:
+					return " list-table__data__centering-container__status-box--orange";
+				case 4:
+					return " list-table__data__centering-container__status-box--green";
+				default:
+					return "";
+			}
+		}
 	};
 
 	const openItemContainer = () => {
@@ -109,10 +141,20 @@ export default function ListContainerTableRow(props) {
 				<span className="list-table__data__info">{props.item.name}</span>
 			</td>
 			<td className="list-table__data">
-				<ListTableRowStatusBox
-					item={props.item}
-					reduxContainerName={props.reduxContainerName}
-				/>
+			<div className="list-table__data__centering-container">
+				<div
+					className={
+						"list-table__data__centering-container__status-box" +
+						getStatusBoxColorClassName()
+					}
+				>
+					<span className="list-table__data__centering-container__status-box__centered-info">
+						{isEmpty(props.item.status_option)
+							? "None"
+							: props.item.status_option}
+					</span>
+				</div>
+			</div>
 			</td>
 			<td className="list-table__data">
 				<span className="list-table__data__info">

@@ -14,7 +14,55 @@
 		font-weight: bold;
 	}
 
+	.item-box__group__field__centering-container {
+		position: relative;
+		display: inline-block;
+		height: $status-box-height;
+		width: 55px;
+	}
+
+	.item-box__group__field__centering-container__type {
+		@include vertical-center();
+	}
+
 	.item-box__group__field_content {
-		margin-left: 11px;
+		margin-left: $display-info-field-margin-left;
+	}
+
+	.item-box__group__field__status-box {
+		position: relative;
+		display: inline-block;
+		margin-left: $display-info-field-margin-left;
+		background-color: $status-gray;
+		color: white;
+		height: $status-box-height;
+		width: 110px;
+	}
+
+	.item-box__group__field__status-box--purple {
+		background-color: $status-purple;
+	}
+
+	.item-box__group__field__status-box--blue {
+		background-color: $status-blue;
+	}
+
+	.item-box__group__field__status-box--orange {
+		background-color: $status-orange;
+	}
+
+	.item-box__group__field__status-box--green {
+		background-color: $status-green;
+	}
+
+	.item-box__group__field__status-box--red {
+		background-color: $status-red;
+	}
+	
+	.item-box__group__field__status-box__centered-content {
+		@include dead-center();
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
