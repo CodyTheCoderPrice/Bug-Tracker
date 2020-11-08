@@ -14,13 +14,13 @@ export default function ListContainerTableSortArrowsButton(props) {
 
 	const changeSorting = () => {
 		if (
-			reduxState[props.reduxContainerName].searchFilterSort.sortByType !== props.sortId
+			reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !== props.sortTypeId
 		) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(props.reduxContainerName, {
 					...reduxState[props.reduxContainerName].searchFilterSort,
 					sortByAscending: true,
-					sortByType: props.sortId,
+					sortByTypeId: props.sortTypeId,
 				})
 			);
 		} else {
@@ -38,15 +38,15 @@ export default function ListContainerTableSortArrowsButton(props) {
 		<img
 			className="sort-arrows"
 			src={
-				reduxState[props.reduxContainerName].searchFilterSort.sortByType !== props.sortId
+				reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !== props.sortTypeId
 					? sortArrowsBothEmpty
 					: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
 					? sortArrowsTopFilled
 					: sortArrowsBottomFilled
 			}
 			alt={
-				(reduxState[props.reduxContainerName].searchFilterSort.sortByType !==
-				props.sortId
+				(reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !==
+				props.sortTypeId
 					? "No"
 					: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
 					? "Ascending"

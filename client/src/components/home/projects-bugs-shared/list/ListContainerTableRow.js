@@ -103,6 +103,16 @@ export default function ListContainerTableRow(props) {
 			</td>
 			<td className="list-table__data">
 				<span className="list-table__data__info">
+					{props.item.status_option}
+				</span>
+			</td>
+			<td className="list-table__data">
+				<span className="list-table__data__info">
+					{props.item.priority_option}
+				</span>
+			</td>
+			<td className="list-table__data">
+				<span className="list-table__data__info">
 					{formatDateMMddYYYY(props.item.creation_date)}
 				</span>
 			</td>
@@ -114,16 +124,6 @@ export default function ListContainerTableRow(props) {
 			<td className="list-table__data">
 				<span className="list-table__data__info">
 					{formatDateMMddYYYY(props.item.due_date)}
-				</span>
-			</td>
-			<td className="list-table__data">
-				<span className="list-table__data__info">
-					{props.item.priority_option}
-				</span>
-			</td>
-			<td className="list-table__data">
-				<span className="list-table__data__info">
-					{props.item.status_option}
 				</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}
