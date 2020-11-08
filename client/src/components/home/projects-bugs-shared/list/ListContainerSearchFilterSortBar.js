@@ -106,11 +106,11 @@ export default function ListContainerSearchFilterSortBar(props) {
 					className="centering-container__new-item-button"
 					onClick={openCreateItemSidebar}
 				>
-					<i className="fa fa-plus" aria-hidden="true" />
-					{"  "}
-					{props.reduxContainerName === projectContainerName
-						? "New Project"
-						: "New Bug"}
+					<span className="centering-container__new-item-button__text">
+						{props.reduxContainerName === projectContainerName
+							? "New Project"
+							: "New Bug"}
+					</span>
 				</div>
 			</div>
 			<div className="centering-container js-list-search-bar-centering-container">
