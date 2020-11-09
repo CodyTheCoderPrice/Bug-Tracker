@@ -70,17 +70,15 @@ export default function ItemContainerListSidebarRow(props) {
 			}
 			onClick={openItemContainer}
 		>
-			<td className={
-						"list-sidebar__table__data" + (props.reduxContainerName ===
-						bugContainerName
-							? " list-sidebar__table__data--red"
-							: "")
-					}>
-			<span
-					
-				>
-					{props.item.name}
-				</span>
+			<td
+				className={
+					"list-sidebar__table__data" +
+					(props.reduxContainerName === bugContainerName
+						? " list-sidebar__table__data--red"
+						: "")
+				}
+			>
+				<div className="list-sidebar__table__data__overflow-container">{props.item.name}</div>
 			</td>
 		</tr>
 	);

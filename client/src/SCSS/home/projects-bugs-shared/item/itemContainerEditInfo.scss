@@ -18,7 +18,7 @@
 		height: 43px;
 		width: 600px;
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: 28px;
+		font-size: $display-edit-info-name-font-size;
 		font-weight: bold;
 		text-align: center;
 	}
@@ -38,7 +38,7 @@
 		width: 100%;
 		line-height: $common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: 16px;
+		font-size: $base-font-size;
 		// sizing
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		-moz-box-sizing: border-box; /* Firefox, other Gecko */

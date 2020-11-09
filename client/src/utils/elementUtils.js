@@ -11,7 +11,7 @@ export function toggleCharCountColor(
 
 export function displayNoneIfEmpty(itemValue) {
 	if (isEmpty(itemValue)) {
-		return <span className="grayed-out-none">none</span>;
+		return <span className="grayed-out-none">None</span>;
 	} else {
 		return itemValue;
 	}

@@ -11,6 +11,7 @@
 		// ...to make modal resize (using js) look less jumpy
 		height: 90vh;
 		width: 95vw;
+		font-size: $base-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto !important;
 		overflow-x: auto !important;
@@ -30,7 +31,7 @@
 	.item-creation-date {
 		margin: 5px;
 		text-align: center;
-		font-size: 115%;
+		font-size: 16px;
 	}
 
 	// Pairs item-boxs together

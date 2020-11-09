@@ -28,6 +28,8 @@
 }
 
 @mixin back-exit-buttons() {
+	// Should be higher than all other z-index's to ensure nothing covers them
+	z-index: 3;
 	position: absolute;
 	top: 7px;
 	border: none;
