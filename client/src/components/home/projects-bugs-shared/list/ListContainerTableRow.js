@@ -45,7 +45,6 @@ export default function ListContainerTableRow(props) {
 		e.stopPropagation();
 	};
 
-
 	const getStatusBoxColorClassName = () => {
 		if (props.reduxContainerName === projectContainerName) {
 			switch (props.item.status_id) {
@@ -102,6 +101,17 @@ export default function ListContainerTableRow(props) {
 		}
 	};
 
+	const getTableDataClassName = () => {
+		return (
+			"list-table__data list-table__data--name" +
+			(props.item.status_id ===
+			reduxState[props.reduxContainerName].priorityStatusOptions
+				.statusCompletionId
+				? " list-table__data--completed"
+				: "")
+		);
+	};
+
 	return (
 		<tr
 			className={
@@ -129,55 +139,65 @@ export default function ListContainerTableRow(props) {
 			<td
 				className={
 					"list-table__data list-table__data--name" +
-					(props.reduxContainerName === projectContainerName
+					(props.item.status_id ===
+					reduxState[props.reduxContainerName].priorityStatusOptions
+						.statusCompletionId
+						? " list-table__data--completed"
+						: props.reduxContainerName === projectContainerName
 						? " list-table__data--blue"
-						: props.item.status_id !==
-						  reduxState[props.reduxContainerName].priorityStatusOptions
-								.statusCompletionId
-						? " list-table__data--red"
-						: " list-table__data--gray")
+						: " list-table__data--red")
 				}
 			>
-				<span className="list-table__data__info">{props.item.name}</span>
+				<span className="list-table__data__info">
+					{props.item.name}
+					{props.item.status_id !==
+					reduxState[props.reduxContainerName].priorityStatusOptions
+						.statusCompletionId ? null : (
+						<i
+							className="fa fa-check list-table__data__info__completed-icon"
+							aria-hidden="true"
+						/>
+					)}
+				</span>
 			</td>
 			<td className="list-table__data">
-			<div className="list-table__data__centering-container">
-				<div
-					className={
-						"list-table__data__centering-container__status-box" +
-						getStatusBoxColorClassName()
-					}
-				>
-					<span className="list-table__data__centering-container__status-box__centered-info">
-						{isEmpty(props.item.status_option)
-							? "None"
-							: props.item.status_option}
-					</span>
+				<div className="list-table__data__centering-container">
+					<div
+						className={
+							"list-table__data__centering-container__status-box" +
+							getStatusBoxColorClassName()
+						}
+					>
+						<span className="list-table__data__centering-container__status-box__centered-info">
+							{isEmpty(props.item.status_option)
+								? "None"
+								: props.item.status_option}
+						</span>
+					</div>
 				</div>
-			</div>
 			</td>
-			<td className="list-table__data">
+			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
 					{displayNoneIfEmpty(props.item.priority_option)}
 				</span>
 			</td>
-			<td className="list-table__data">
+			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
 					{displayNoneIfEmpty(formatDateMMddYYYY(props.item.creation_date))}
 				</span>
 			</td>
-			<td className="list-table__data">
+			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
 					{displayNoneIfEmpty(formatDateMMddYYYY(props.item.start_date))}
 				</span>
 			</td>
-			<td className="list-table__data">
+			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
 					{displayNoneIfEmpty(formatDateMMddYYYY(props.item.due_date))}
 				</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}
-			<td className="list-table__data"></td>
+			<td className={getTableDataClassName()}></td>
 		</tr>
 	);
 }

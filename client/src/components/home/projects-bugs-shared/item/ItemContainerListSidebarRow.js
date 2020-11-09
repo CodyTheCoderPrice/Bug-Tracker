@@ -70,15 +70,31 @@ export default function ItemContainerListSidebarRow(props) {
 			}
 			onClick={openItemContainer}
 		>
-			<td
-				className={
-					"list-sidebar__table__data" +
-					(props.reduxContainerName === bugContainerName
-						? " list-sidebar__table__data--red"
-						: "")
-				}
-			>
-				<div className="list-sidebar__table__data__overflow-container">{props.item.name}</div>
+			<td className="list-sidebar__table__data">
+				<div
+					className={
+						"list-sidebar__table__data__overflow-container" +
+						(props.item.status_id ===
+						reduxState[props.reduxContainerName].priorityStatusOptions
+							.statusCompletionId
+							? " list-sidebar__table__data__overflow-container--completed"
+							: props.reduxContainerName === projectContainerName
+							? " list-sidebar__table__data__overflow-container--blue"
+							: " list-sidebar__table__data__overflow-container--red")
+					}
+				>
+					<span className="list-sidebar__table__data__overflow-container__info">
+						{props.item.name}
+						{props.item.status_id !==
+						reduxState[props.reduxContainerName].priorityStatusOptions
+							.statusCompletionId ? null : (
+							<i
+								className="fa fa-check list-sidebar__table__data__overflow-container__info__completed-icon"
+								aria-hidden="true"
+							/>
+						)}
+					</span>
+				</div>
 			</td>
 		</tr>
 	);

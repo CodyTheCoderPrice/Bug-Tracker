@@ -92,15 +92,7 @@
 	}
 
 	.list-sidebar__table__data {
-		color: $blue-link;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 		cursor: default;
-	}
-
-	.list-sidebar__table__data--red {
-		color: $red-link;
 	}
 
 	.list-sidebar__table__data__overflow-container {
@@ -111,5 +103,22 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+
+	.list-sidebar__table__data__overflow-container--blue {
+		color: $blue-link;
+	}
+
+	.list-sidebar__table__data__overflow-container--red {
+		color: $red-link;
+	}
+
+	.list-sidebar__table__data__overflow-container--completed {
+		color: $status-green;
+	}
+
+	.list-sidebar__table__data__overflow-container__info__completed-icon {
+		margin-left: 5px;
+		color: $status-green;
 	}
 }

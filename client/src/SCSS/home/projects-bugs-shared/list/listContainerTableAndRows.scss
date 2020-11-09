@@ -96,9 +96,13 @@
 		color: $red-link;
 	}
 
-	.list-table__data--gray {
-		color: $dark-gray;
-		text-decoration: line-through;
+	.list-table__data--completed {
+		color: $status-green;
+	}
+
+	.list-table__data__info__completed-icon {
+		margin-left: 5px;
+		color: $status-green;
 	}
 
 	.list-table__data__centering-container {
