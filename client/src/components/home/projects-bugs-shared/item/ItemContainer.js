@@ -55,7 +55,7 @@ export default function ItemContainer(props) {
 				"px";
 
 			if (
-				!reduxState[generalContainerName].componentsDisplay
+				reduxState[generalContainerName].componentsDisplay
 					.itemContainerListSidebar
 			) {
 				itemContainerElement.style.width =

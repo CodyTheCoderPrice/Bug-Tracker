@@ -18,7 +18,9 @@ export default function ListContainerSearchFilterSortBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [searchBarText, setSearchBarText] = useState("");
+	const [searchBarText, setSearchBarText] = useState(
+		reduxState[props.reduxContainerName].searchFilterSort.searchKeyWordString
+	);
 
 	const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
@@ -120,7 +122,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 						name="searchBarText"
 						onChange={(e) => onChangeSearchBar(e)}
 						onKeyDown={(e) => searchBarKeyDown(e)}
-						value={searchBarText.searchBarText}
+						value={searchBarText}
 						className="centering-container__search-group-container__search-bar js-list-search-bar"
 					/>
 					<div

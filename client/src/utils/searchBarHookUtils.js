@@ -9,22 +9,11 @@ import {
 	stripNonDigits,
 } from "./displaySizeUtils";
 
-export function useSearchBarResizeAndBorderEventListener(
-	passedReduxState,
-	searchBarClassName,
-	searchBarButtonClassName,
+export function useSearchBarBorderEventListener(
 	searchBarAndButtonInnerContainerClassName,
 	searchBarAndButtonInnerContainerModifierClassName,
-	createNewButtonContainerClassName,
-	sortFilterGroupContainerClassName,
-	searchBarAndButtonCenteringContainerClassName
+	searchBarClassName
 ) {
-	// Used for optimization in search-bar resize
-	const [
-		regularlyUsedSizesAndStyles,
-		setRegularlyUsedSizesAndStyles,
-	] = useState(null);
-
 	// Adds event listener to give the searchBarInnerContainer a border
 	useEffect(() => {
 		const toggleContainerBorder = (shouldDisplay) => {
@@ -37,7 +26,7 @@ export function useSearchBarResizeAndBorderEventListener(
 			);
 		};
 
-		let searchBar = document.getElementsByClassName(searchBarClassName)[0];
+		const searchBar = document.getElementsByClassName(searchBarClassName)[0];
 
 		searchBar.addEventListener("focus", () => {
 			toggleContainerBorder(true);
@@ -58,11 +47,34 @@ export function useSearchBarResizeAndBorderEventListener(
 		};
 		// eslint-disable-next-line
 	}, []);
+}
+
+export function useSearchBarResizeAndBorderEventListener(
+	passedReduxState,
+	searchBarClassName,
+	searchBarButtonClassName,
+	searchBarAndButtonInnerContainerClassName,
+	searchBarAndButtonInnerContainerModifierClassName,
+	createNewButtonContainerClassName,
+	sortFilterGroupContainerClassName,
+	searchBarAndButtonCenteringContainerClassName
+) {
+	useSearchBarBorderEventListener(
+		searchBarAndButtonInnerContainerClassName,
+		searchBarAndButtonInnerContainerModifierClassName,
+		searchBarClassName
+	);
+
+	// Used for optimization in search-bar resize
+	const [
+		regularlyUsedSizesAndStyles,
+		setRegularlyUsedSizesAndStyles,
+	] = useState(null);
 
 	// Resize search-bar to fit search-filter-sort-bar width
 	useEffect(() => {
 		if (passedReduxState[sizeContainerName].variables.window !== null) {
-			let searchBar = document.getElementsByClassName(searchBarClassName)[0];
+			const searchBar = document.getElementsByClassName(searchBarClassName)[0];
 
 			// Makes sure regularlyUsedSizesAndStyles gets set
 			if (regularlyUsedSizesAndStyles === null) {
@@ -95,27 +107,24 @@ export function useSearchBarResizeAndBorderEventListener(
 				return;
 			}
 
-			let searchBarCenteringContainer = document.getElementsByClassName(
+			const searchBarCenteringContainer = document.getElementsByClassName(
 				searchBarAndButtonCenteringContainerClassName
 			)[0];
 
-			let searchBarInnerContainer = document.getElementsByClassName(
+			const searchBarInnerContainer = document.getElementsByClassName(
 				searchBarAndButtonInnerContainerClassName
 			)[0];
 
-			const windowWidth =
-				passedReduxState[sizeContainerName].variables.window.width -
-				passedReduxState[sizeContainerName].constants.scrollbar.width;
-
 			// Used to make the searchBar take up remaining space
 			const remainingSearchFilterSortBarWidth =
-				windowWidth -
+				passedReduxState[sizeContainerName].variables.window.width -
 				regularlyUsedSizesAndStyles.newProjectsButtonContainer.width -
-				regularlyUsedSizesAndStyles.sortAndFilterContainer.width;
+				// Got 22 by eyeing it to see what made the distances look the same
+				regularlyUsedSizesAndStyles.sortAndFilterContainer.width - 22;
 			// Because of css centering, this element is given equal empty space
 			// ...on both sides equal to the subtracted value divided by 2
 			const searchBarInnercontainerWidth =
-				remainingSearchFilterSortBarWidth - 80;
+				remainingSearchFilterSortBarWidth - 40;
 
 			searchBarCenteringContainer.style.width =
 				remainingSearchFilterSortBarWidth + "px";

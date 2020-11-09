@@ -33,7 +33,7 @@ $list-table-background-color: #ffffff;
 // Status colors
 $status-gray: $dark-gray;
 $status-purple: #9a82d8;
-$status-blue: #568DD5;
+$status-blue: #568dd5;
 $status-orange: #f59f3c;
 $status-green: #007e00;
 $status-red: #d14242;
@@ -43,12 +43,12 @@ $status-red: #d14242;
 //==========
 $navbar-height: 60px;
 $edit-account-modal-height: 480px;
-$search-filter-sort-bar-height: 60px;
+$search-filter-sort-bar-height: 52px;
 $search-filter-sort-bar-button-height: 28px;
-$search-bar-height: 28px;
-$list-table-row-height: 50px;
+$list-search-bar-height: 28px;
+$list-item-table-row-height: 50px;
 $status-box-height: 25px;
-$top-bar-height: 46px;
+$top-bar-height: 52px;
 $create-item-sidebar-height: 700px;
 $description-info-item-box-height: 300px;
 
@@ -60,6 +60,7 @@ $edit-account-modal-width: 540px;
 $create-item-sidebar-width: 500px;
 $list-table-item-name-width: 100px;
 $list-sidebar-width: 275px;
+$expand-minimize-button-width: 25px;
 $filter-button-width: 90px;
 $options-button-width: 36px;
 $item-outer-dividing-container-min-width: 525px;
@@ -69,14 +70,21 @@ $item-outer-dividing-container-min-width: 525px;
 //=========
 $form-input-margin-bottom: 10px;
 $display-info-field-margin-left: 11px;
+$item-search-bar-margin-left: 10px;
 
 //==========
 // Borders
 //==========
 $search-filter-sort-bar-border-width: 1px;
-$search-bar-border-width: 2px;
+$list-search-bar-border-width: 2px;
+$list-item-search-bar-group-container-border-width: 1px;
 $top-bar-border-width: 1px;
 $list-sidebar-border-width: 2px;
+
+//=========
+// Padding
+//=========
+$list-search-bar-padding: 8px;
 
 //======
 // Text
@@ -93,5 +101,10 @@ $blurred-background-opacity: 0.5;
 //============
 // Arithmetic
 //============
-$search-bar-button-height: $search-bar-height + $search-bar-border-width * 2;
-$search-bar-button-width: $search-bar-height + $search-bar-border-width * 2 + 10;
+$list-item-search-bar-button-height: $list-search-bar-height +
+	$list-search-bar-border-width * 2;
+$list-item-search-bar-button-width: $list-search-bar-height +
+	$list-search-bar-border-width * 2 + 10;
+$item-search-bar-width: $list-sidebar-width + ($list-sidebar-border-width * 2) +
+	$expand-minimize-button-width - $item-search-bar-margin-left -
+	($list-item-search-bar-group-container-border-width * 2);

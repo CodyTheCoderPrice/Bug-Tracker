@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { projectContainerName } from "../../../../reducers/containerNames";
+import {
+	generalContainerName,
+	projectContainerName,
+} from "../../../../reducers/containerNames";
 
 import {
+	setProjectOrBugSearchFilterSort,
 	setWhichProjectOrBugComponentsDisplay,
 	setWhichBugComponentsDisplay,
 } from "../../../../actions";
 
+import { useSearchBarBorderEventListener } from "../../../../utils/searchBarHookUtils";
+import { toggleClassName } from "../../../../utils/elementUtils";
 import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerTopBar.scss";
@@ -15,7 +21,27 @@ export default function ItemContainerTopBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	const [searchBarText, setSearchBarText] = useState(
+		reduxState[props.reduxContainerName].searchFilterSort.searchKeyWordString
+	);
 	const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
+
+	useSearchBarBorderEventListener(
+		"js-item-outer-search-container",
+		"outer-search-container--with-border",
+		"js-item-search-bar"
+	);
+
+	useEffect(() => {
+		toggleClassName(
+			reduxState[generalContainerName].componentsDisplay
+				.itemContainerListSidebar === false,
+			document.getElementsByClassName("js-item-outer-search-container")[0],
+			"outer-search-container--invisible"
+		);
+	}, [
+		reduxState[generalContainerName].componentsDisplay.itemContainerListSidebar,
+	]);
 
 	useEffect(() => {
 		toggleDropdownButtonDisplay(
@@ -26,6 +52,25 @@ export default function ItemContainerTopBar(props) {
 		);
 	}, [showOptionsDropdown]);
 
+	const onChangeSearchBar = (e) => {
+		setSearchBarText(e.target.value);
+	};
+
+	const updateSearchKeyWordString = () => {
+		dispatch(
+			setProjectOrBugSearchFilterSort(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].searchFilterSort,
+				searchKeyWordString: searchBarText,
+			})
+		);
+	};
+
+	const searchBarKeyDown = (e) => {
+		if (e.keyCode === 13) {
+			updateSearchKeyWordString();
+		}
+	};
+
 	const toggleOptionsDropdown = () => {
 		// Toggle logic is unnessesary since this onClick will only be reached
 		// ...if showOptionsDropdown === false becasue of closeOptionsDropdown
@@ -33,12 +78,12 @@ export default function ItemContainerTopBar(props) {
 	};
 
 	// Closes options dropdown when clicking outside of dropdown
-	const closeOptionsDropdown = () => {
+	/* const closeOptionsDropdown = () => {
 		// This allows toggleOptionsDropdown to work
 		if (showOptionsDropdown) {
 			setShowOptionsDropdown(false);
 		}
-	};
+	}; */
 
 	const switchBetweenDisplayAndEditInfo = () => {
 		dispatch(
@@ -77,6 +122,24 @@ export default function ItemContainerTopBar(props) {
 
 	return (
 		<div className="top-bar-component js-top-bar">
+			<div className="outer-search-container js-item-outer-search-container">
+				<input
+					type="text"
+					name="searchBarText"
+					onChange={(e) => onChangeSearchBar(e)}
+					onKeyDown={(e) => searchBarKeyDown(e)}
+					value={searchBarText}
+					className="outer-search-container__search-bar js-item-search-bar"
+				/>
+				<div
+					className="outer-search-container__search-bar-button"
+					onClick={updateSearchKeyWordString}
+				>
+					<span className="outer-search-container__search-bar-button__icon">
+						<i className="fa fa-search" aria-hidden="true" />
+					</span>
+				</div>
+			</div>
 			<div className="item-options-container js">
 				<div
 					className="item-options-container__button js-item-options-button"

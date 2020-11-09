@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { sizeContainerName, generalContainerName, projectContainerName } from "../../../../reducers/containerNames";
+import {
+	sizeContainerName,
+	generalContainerName,
+	projectContainerName,
+} from "../../../../reducers/containerNames";
 
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
@@ -68,31 +72,30 @@ export default function ItemContainerListSidebar(props) {
 
 	useEffect(() => {
 		toggleClassName(
-			reduxState[generalContainerName].componentsDisplay
+			!reduxState[generalContainerName].componentsDisplay
 				.itemContainerListSidebar,
 			document.getElementsByClassName("js-expand-minimize-button")[0],
 			"expand-minimize-button--minimized"
 		);
 		toggleClassName(
-			reduxState[generalContainerName].componentsDisplay
+			!reduxState[generalContainerName].componentsDisplay
 				.itemContainerListSidebar,
 			document.getElementsByClassName("js-list-sidebar")[0],
 			"list-sidebar--minimized"
 		);
 		toggleClassName(
-			!reduxState[generalContainerName].componentsDisplay
+			reduxState[generalContainerName].componentsDisplay
 				.itemContainerListSidebar,
 			document.getElementsByClassName("js-item-container")[0],
 			"item-container--shifted-right"
 		);
 	}, [
-		reduxState[generalContainerName].componentsDisplay
-			.itemContainerListSidebar,
+		reduxState[generalContainerName].componentsDisplay.itemContainerListSidebar,
 	]);
 
 	const toggleListSidebar = () => {
 		dispatch(
-			setWhichGeneralComponentsDisplay( {
+			setWhichGeneralComponentsDisplay({
 				...reduxState[generalContainerName].componentsDisplay,
 				itemContainerListSidebar: !reduxState[generalContainerName]
 					.componentsDisplay.itemContainerListSidebar,
@@ -104,14 +107,17 @@ export default function ItemContainerListSidebar(props) {
 		/*Changing classname of list-sidebar-component will 
 		affect util function for calculating sidebar width*/
 		<div className="list-sidebar-component js-list-sidebar-component">
-			<div className="expand-minimize-button js-expand-minimize-button" onClick={toggleListSidebar}>
+			<div
+				className="expand-minimize-button js-expand-minimize-button"
+				onClick={toggleListSidebar}
+			>
 				<div className="expand-minimize-button__centering-container">
 					<div className="expand-minimize-button__centering-container__icon-container">
 						{reduxState[generalContainerName].componentsDisplay
 							.itemContainerListSidebar ? (
-							<i className="fa fa-chevron-right" aria-hidden="true" />
-						) : (
 							<i className="fa fa-chevron-left" aria-hidden="true" />
+						) : (
+							<i className="fa fa-chevron-right" aria-hidden="true" />
 						)}
 					</div>
 				</div>

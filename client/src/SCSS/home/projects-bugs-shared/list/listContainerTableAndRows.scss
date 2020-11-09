@@ -24,7 +24,7 @@
 
 	.list-table__row {
 		padding: 5px;
-		height: $list-table-row-height;
+		height: $list-item-table-row-height;
 		text-align: center;
 	}
 
@@ -33,7 +33,7 @@
 	}
 
 	.list-table__row--empty {
-		height: $list-table-row-height + ($list-table-row-height * 0.5);
+		height: $list-item-table-row-height + ($list-item-table-row-height * 0.5);
 	}
 
 	.list-table__header {

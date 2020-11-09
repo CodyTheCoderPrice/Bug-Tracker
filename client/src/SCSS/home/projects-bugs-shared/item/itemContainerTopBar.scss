@@ -13,9 +13,54 @@
 	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 
+	.outer-search-container {
+		@include vertical-center();
+
+		margin-left: $item-search-bar-margin-left;
+		width: $item-search-bar-width;
+	}
+
+	.outer-search-container--with-border {
+		border: $list-item-search-bar-group-container-border-width solid $blue-gray;
+	}
+
+	.outer-search-container--invisible {
+		visibility: hidden;
+	}
+
+	.outer-search-container__search-bar {
+		display: inline-block;
+		outline: none;
+		border: $list-search-bar-border-width solid $light-blue-gray;
+		padding: 0px $list-search-bar-padding 0px $list-search-bar-padding;
+		height: $list-search-bar-height;
+		width: $item-search-bar-width - ($list-search-bar-border-width * 2) -
+			($list-search-bar-padding * 2) - $list-item-search-bar-button-width;
+		font-size: 14px;
+	}
+
+	.outer-search-container__search-bar-button {
+		// Instead of relative to make sure the button always stays next to the list-search-bar
+		position: absolute;
+		display: inline-block;
+		background-color: $light-blue-gray;
+		height: $list-item-search-bar-button-height;
+		width: $list-item-search-bar-button-width;
+		cursor: pointer;
+	}
+	.outer-search-container__search-bar-button:hover,
+	.outer-search-container__search-bar-button:active {
+		background-color: $blue-gray;
+	}
+
+	.outer-search-container__search-bar-button__icon {
+		@include dead-center();
+		color: white;
+	}
+
 	.item-options-container {
 		position: absolute;
-		top: 8px;
+		top: 12px;
 		right: 50px;
 		width: 135px;
 	}
@@ -84,6 +129,7 @@
 
 	.x-button {
 		@include back-exit-buttons();
+		top: 11px;
 		right: 20px;
 		color: $darker-gray;
 	}

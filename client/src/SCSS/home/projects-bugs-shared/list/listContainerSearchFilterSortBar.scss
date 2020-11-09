@@ -47,27 +47,27 @@
 	}
 
 	.centering-container__search-group-container--with-border {
-		border: 1px solid $blue-gray;
+		border: $list-item-search-bar-group-container-border-width solid $blue-gray;
 	}
 
 	.centering-container__search-group-container__search-bar {
 		display: inline-block;
 		outline: none;
-		border: $search-bar-border-width solid $light-blue-gray;
-		padding: 0px 8px 0px 8px;
-		height: $search-bar-height;
+		border: $list-search-bar-border-width solid $light-blue-gray;
+		padding: 0px $list-search-bar-padding 0px $list-search-bar-padding;
+		height: $list-search-bar-height;
 		// Width changed by JS
 		width: 100%;
 		font-size: 14px;
 	}
 
 	.centering-container__search-group-container__search-bar-button {
-		display: inline-block;
-		// Instead of relative to make sure the button always stays next to the search-bar
+		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
+		display: inline-block;
 		background-color: $light-blue-gray;
-		height: $search-bar-button-height;
-		width: $search-bar-button-width;
+		height: $list-item-search-bar-button-height;
+		width: $list-item-search-bar-button-width;
 		cursor: pointer;
 	}
 	.centering-container__search-group-container__search-bar-button:hover,
@@ -100,7 +100,7 @@
 		// ...so its top border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
-		top: 15px;
+		top: 12px;
 		right: 30px;
 		border: 1px solid black;
 		background-color: white;
@@ -129,7 +129,7 @@
 	.filter-area-container__dropdown-container__content-dropdown {
 		position: absolute;
 		/* top: 41px; */
-		top: 67px;
+		top: 64px;
 		// 2px less than button since border resize moves the button
 		right: 28px;
 		border: 3px solid black;

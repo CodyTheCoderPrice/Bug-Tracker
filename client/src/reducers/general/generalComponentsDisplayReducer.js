@@ -5,7 +5,7 @@ const initialState = {
 	login: true,
 	home: false,
 	// In general container since value should be the same for projects and bugs
-	itemContainerListSidebar: false,
+	itemContainerListSidebar: true,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -25,7 +25,7 @@ export default function (state = initialState, action) {
 				itemContainerListSidebar:
 					action.displays.itemContainerListSidebar !== undefined
 						? action.displays.itemContainerListSidebar
-						: false,
+						: true,
 			};
 		default:
 			return state;
