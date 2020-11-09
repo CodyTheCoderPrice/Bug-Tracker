@@ -60,7 +60,8 @@ export default function ItemContainer(props) {
 			) {
 				itemContainerElement.style.width =
 					reduxState[sizeContainerName].variables.window.width -
-					reduxState[sizeContainerName].constants.itemContainerListSidebar.width +
+					reduxState[sizeContainerName].constants.itemContainerListSidebar
+						.width +
 					"px";
 			} else {
 				itemContainerElement.style.width =
@@ -89,7 +90,15 @@ export default function ItemContainer(props) {
 				<ItemContainerCommentsBoxIndividualCommentDeleteModal />
 			) : null}
 			<div className="item-container-component">
-				<div className="item-container item-container--shifted-right js-item-container">
+				<div
+					className={
+						"item-container js-item-container" +
+						(reduxState[generalContainerName].componentsDisplay
+							.itemContainerListSidebar
+							? " item-container--shifted-right"
+							: "")
+					}
+				>
 					<div className="item-content-container js-item-content-container">
 						<div className="padding-container">
 							{!reduxState[props.reduxContainerName].componentsDisplay

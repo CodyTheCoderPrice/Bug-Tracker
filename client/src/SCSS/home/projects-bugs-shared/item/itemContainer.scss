@@ -10,7 +10,7 @@
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
 		height: 90vh;
-		width: 95vw;
+		width: 100vw;
 		font-size: $base-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto !important;
@@ -19,7 +19,7 @@
 
 	.item-container--shifted-right {
 		left: $list-sidebar-width + $list-sidebar-border-width;
-		width: 80vw;
+		width: 85vw;
 	}
 
 	// Must be a seperate div inside .item-content-container so the padding

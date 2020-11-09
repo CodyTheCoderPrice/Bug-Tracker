@@ -70,29 +70,6 @@ export default function ItemContainerListSidebar(props) {
 			.itemContainerListSidebar,
 	]);
 
-	useEffect(() => {
-		toggleClassName(
-			!reduxState[generalContainerName].componentsDisplay
-				.itemContainerListSidebar,
-			document.getElementsByClassName("js-expand-minimize-button")[0],
-			"expand-minimize-button--minimized"
-		);
-		toggleClassName(
-			!reduxState[generalContainerName].componentsDisplay
-				.itemContainerListSidebar,
-			document.getElementsByClassName("js-list-sidebar")[0],
-			"list-sidebar--minimized"
-		);
-		toggleClassName(
-			reduxState[generalContainerName].componentsDisplay
-				.itemContainerListSidebar,
-			document.getElementsByClassName("js-item-container")[0],
-			"item-container--shifted-right"
-		);
-	}, [
-		reduxState[generalContainerName].componentsDisplay.itemContainerListSidebar,
-	]);
-
 	const toggleListSidebar = () => {
 		dispatch(
 			setWhichGeneralComponentsDisplay({
@@ -108,7 +85,13 @@ export default function ItemContainerListSidebar(props) {
 		affect util function for calculating sidebar width*/
 		<div className="list-sidebar-component js-list-sidebar-component">
 			<div
-				className="expand-minimize-button js-expand-minimize-button"
+				className={
+					"expand-minimize-button js-expand-minimize-button" +
+					(reduxState[generalContainerName].componentsDisplay
+						.itemContainerListSidebar
+						? " "
+						: " expand-minimize-button--minimized")
+				}
 				onClick={toggleListSidebar}
 			>
 				<div className="expand-minimize-button__centering-container">
@@ -122,7 +105,15 @@ export default function ItemContainerListSidebar(props) {
 					</div>
 				</div>
 			</div>
-			<div className="list-sidebar js-list-sidebar">
+			<div
+				className={
+					"list-sidebar js-list-sidebar" +
+					(reduxState[generalContainerName].componentsDisplay
+						.itemContainerListSidebar
+						? " "
+						: " list-sidebar--minimized")
+				}
+			>
 				<table className="list-sidebar__table">
 					<thead className="">
 						<tr className="list-sidebar__table__row">

@@ -33,17 +33,6 @@ export default function ItemContainerTopBar(props) {
 	);
 
 	useEffect(() => {
-		toggleClassName(
-			reduxState[generalContainerName].componentsDisplay
-				.itemContainerListSidebar === false,
-			document.getElementsByClassName("js-item-outer-search-container")[0],
-			"outer-search-container--invisible"
-		);
-	}, [
-		reduxState[generalContainerName].componentsDisplay.itemContainerListSidebar,
-	]);
-
-	useEffect(() => {
 		toggleDropdownButtonDisplay(
 			showOptionsDropdown,
 			document.getElementsByClassName("js-item-options-button")[0],
@@ -122,7 +111,14 @@ export default function ItemContainerTopBar(props) {
 
 	return (
 		<div className="top-bar-component js-top-bar">
-			<div className="outer-search-container js-item-outer-search-container">
+			<div className="outer-search-container js-item-outer-search-container"
+			className={
+				"outer-search-container js-item-outer-search-container" +
+				(reduxState[generalContainerName].componentsDisplay
+					.itemContainerListSidebar
+					? " "
+					: " outer-search-container--invisible")
+			}>
 				<input
 					type="text"
 					name="searchBarText"
