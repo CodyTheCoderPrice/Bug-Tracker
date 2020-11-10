@@ -30,7 +30,10 @@ export default function AccountSidebar() {
 		);
 	};
 
-	const handleLogoutAccount = () => {
+	const handleLogoutAccount = (e) => {
+		// Makes sure onclick set on the home component for closing
+		// ... itemContainerTopBarOptionsDropdown doesn't intefere
+		e.stopPropagation();
 		dispatch(logoutAccount());
 	};
 
@@ -57,7 +60,7 @@ export default function AccountSidebar() {
 						<span onClick={openEditInfoModals} className="account-link">
 							Edit Account
 						</span>
-						<span onClick={handleLogoutAccount} className="account-link">
+						<span onClick={(e) => handleLogoutAccount(e)} className="account-link">
 							Logout
 						</span>
 						<span onClick={logReduxState} className="account-link">

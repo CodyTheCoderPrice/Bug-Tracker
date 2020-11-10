@@ -104,8 +104,12 @@
 		border: 3px solid black;
 		background-color: white;
 		width: 129px;
-		// Made visible using JS
+		// Defaults as being hidden
 		visibility: hidden;
+	}
+
+	.item-options-container__dropdown--visible {
+		visibility: visible;
 	}
 
 	.item-options-container__dropdown__option {

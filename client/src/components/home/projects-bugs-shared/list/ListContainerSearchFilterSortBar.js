@@ -10,8 +10,6 @@ import {
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/searchBarHookUtils";
 
-import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
-
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerSearchFilterSortBar.scss";
 
 export default function ListContainerSearchFilterSortBar(props) {
@@ -37,15 +35,6 @@ export default function ListContainerSearchFilterSortBar(props) {
 		"js-list-filter-area-container",
 		"js-list-search-bar-centering-container"
 	);
-
-	useEffect(() => {
-		toggleDropdownButtonDisplay(
-			showFilterDropdown,
-			document.getElementsByClassName("js-list-filter-button")[0],
-			document.getElementsByClassName("js-list-filter-content-container")[0],
-			"filter-area-container__dropdown-container__button--clicked"
-		);
-	}, [showFilterDropdown]);
 
 	const toggleFilterDropdown = () => {
 		setShowFilterDropdown(!showFilterDropdown);
@@ -138,14 +127,26 @@ export default function ListContainerSearchFilterSortBar(props) {
 			<div className="filter-area-container js-list-filter-area-container">
 				<div className="filter-area-container__dropdown-container">
 					<div
-						className="filter-area-container__dropdown-container__button js-list-filter-button"
+						className={
+							"filter-area-container__dropdown-container__button" +
+							(showFilterDropdown
+								? " filter-area-container__dropdown-container__button--clicked"
+								: "")
+						}
 						onClick={toggleFilterDropdown}
 					>
 						<span className="filter-area-container__dropdown-container__button__text">
 							<i className="fa fa-filter" aria-hidden="true" /> Filter
 						</span>
 					</div>
-					<div className="filter-area-container__dropdown-container__content-dropdown js-list-filter-content-container">
+					<div
+						className={
+							"filter-area-container__dropdown-container__content-dropdown" +
+							(showFilterDropdown
+								? " filter-area-container__dropdown-container__content-dropdown--visible"
+								: "")
+						}
+					>
 						<div className="filter-area-container__dropdown-container__content-dropdown__content">
 							<span className="filter-area-container__dropdown-container__content-dropdown__content__title">
 								Priority

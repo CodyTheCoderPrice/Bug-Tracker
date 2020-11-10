@@ -1,9 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
+	generalContainerName,
 	projectContainerName,
 	bugContainerName,
 } from "../../reducers/containerNames";
+
+import { setWhichGeneralComponentsDisplay } from "../../actions";
 
 // Components
 // Navbar
@@ -23,13 +26,30 @@ import "../../SCSS/home/home.scss";
 
 export default function Home() {
 	const reduxState = useSelector((state) => state);
+	const dispatch = useDispatch();
+
+	// Closes itemContainerTopBarOptionsDropdown whenever it is open and user clicks anywhere
+	const closeItemContainerTopBarOptionsDropdown = () => {
+		// This allows toggleOptionsDropdown to work
+		if (reduxState[generalContainerName]
+			.componentsDisplay.itemContainerTopBarOptionsDropdown) {
+			dispatch(
+				setWhichGeneralComponentsDisplay({
+					...reduxState[generalContainerName].componentsDisplay,
+					itemContainerTopBarOptionsDropdown: false,
+				})
+			);
+		}
+	};
 
 	return (
-		<div className="home-container">
+		<div className="home-container" onClick={closeItemContainerTopBarOptionsDropdown}>
 			<Navbar />
 			{/*Account components*/}
 			{/*Displays bullered background when an account component is open*/}
-			{Object.values(reduxState.accountContainer.componentsDisplay).indexOf(true) > -1 ? (
+			{Object.values(reduxState.accountContainer.componentsDisplay).indexOf(
+				true
+			) > -1 ? (
 				<AccountBlurredBackground />
 			) : null}
 			{reduxState.accountContainer.componentsDisplay.accountSidebar ? (

@@ -6,6 +6,9 @@ const initialState = {
 	home: false,
 	// In general container since value should be the same for projects and bugs
 	itemContainerListSidebar: true,
+	// In general container since project and bug itemContainer are never open
+	// ...at the same time and implementation for closing it is easier here
+	itemContainerTopBarOptionsDropdown: false,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -26,6 +29,10 @@ export default function (state = initialState, action) {
 					action.displays.itemContainerListSidebar !== undefined
 						? action.displays.itemContainerListSidebar
 						: true,
+				itemContainerTopBarOptionsDropdown:
+					action.displays.itemContainerTopBarOptionsDropdown !== undefined
+						? action.displays.itemContainerTopBarOptionsDropdown
+						: false,
 			};
 		default:
 			return state;

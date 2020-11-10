@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	generalContainerName,
@@ -6,14 +6,13 @@ import {
 } from "../../../../reducers/containerNames";
 
 import {
+	setWhichGeneralComponentsDisplay,
 	setProjectOrBugSearchFilterSort,
 	setWhichProjectOrBugComponentsDisplay,
 	setWhichBugComponentsDisplay,
 } from "../../../../actions";
 
 import { useSearchBarBorderEventListener } from "../../../../utils/searchBarHookUtils";
-import { toggleClassName } from "../../../../utils/elementUtils";
-import { toggleDropdownButtonDisplay } from "../../../../utils/buttonUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerTopBar.scss";
 
@@ -24,22 +23,12 @@ export default function ItemContainerTopBar(props) {
 	const [searchBarText, setSearchBarText] = useState(
 		reduxState[props.reduxContainerName].searchFilterSort.searchKeyWordString
 	);
-	const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
 
 	useSearchBarBorderEventListener(
 		"js-item-outer-search-container",
 		"outer-search-container--with-border",
 		"js-item-search-bar"
 	);
-
-	useEffect(() => {
-		toggleDropdownButtonDisplay(
-			showOptionsDropdown,
-			document.getElementsByClassName("js-item-options-button")[0],
-			document.getElementsByClassName("js-item-options-dropdown")[0],
-			"item-options-container__button--clicked"
-		);
-	}, [showOptionsDropdown]);
 
 	const onChangeSearchBar = (e) => {
 		setSearchBarText(e.target.value);
@@ -61,18 +50,14 @@ export default function ItemContainerTopBar(props) {
 	};
 
 	const toggleOptionsDropdown = () => {
-		// Toggle logic is unnessesary since this onClick will only be reached
-		// ...if showOptionsDropdown === false becasue of closeOptionsDropdown
-		setShowOptionsDropdown(!showOptionsDropdown);
+		dispatch(
+			setWhichGeneralComponentsDisplay({
+				...reduxState[generalContainerName].componentsDisplay,
+				itemContainerTopBarOptionsDropdown: !reduxState[generalContainerName]
+					.componentsDisplay.itemContainerTopBarOptionsDropdown,
+			})
+		);
 	};
-
-	// Closes options dropdown when clicking outside of dropdown
-	/* const closeOptionsDropdown = () => {
-		// This allows toggleOptionsDropdown to work
-		if (showOptionsDropdown) {
-			setShowOptionsDropdown(false);
-		}
-	}; */
 
 	const switchBetweenDisplayAndEditInfo = () => {
 		dispatch(
@@ -111,14 +96,16 @@ export default function ItemContainerTopBar(props) {
 
 	return (
 		<div className="top-bar-component js-top-bar">
-			<div className="outer-search-container js-item-outer-search-container"
-			className={
-				"outer-search-container js-item-outer-search-container" +
-				(reduxState[generalContainerName].componentsDisplay
-					.itemContainerListSidebar
-					? " "
-					: " outer-search-container--invisible")
-			}>
+			<div
+				className="outer-search-container js-item-outer-search-container"
+				className={
+					"outer-search-container js-item-outer-search-container" +
+					(reduxState[generalContainerName].componentsDisplay
+						.itemContainerListSidebar
+						? " "
+						: " outer-search-container--invisible")
+				}
+			>
 				<input
 					type="text"
 					name="searchBarText"
@@ -138,14 +125,28 @@ export default function ItemContainerTopBar(props) {
 			</div>
 			<div className="item-options-container js">
 				<div
-					className="item-options-container__button js-item-options-button"
+					className={
+						"item-options-container__button" +
+						(reduxState[generalContainerName].componentsDisplay
+							.itemContainerTopBarOptionsDropdown
+							? " item-options-container__button--clicked"
+							: "")
+					}
 					onClick={toggleOptionsDropdown}
 				>
 					<span className="item-options-container__button__text">
 						<i className="fa fa-ellipsis-h" aria-hidden="true" />
 					</span>
 				</div>
-				<div className="item-options-container__dropdown js-item-options-dropdown">
+				<div
+					className={
+						"item-options-container__dropdown" +
+						(reduxState[generalContainerName].componentsDisplay
+							.itemContainerTopBarOptionsDropdown
+							? " item-options-container__dropdown--visible"
+							: "")
+					}
+				>
 					<span
 						className="item-options-container__dropdown__option js-edit-option"
 						onClick={switchBetweenDisplayAndEditInfo}

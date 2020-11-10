@@ -141,6 +141,10 @@
 		visibility: hidden;
 	}
 
+	.filter-area-container__dropdown-container__content-dropdown--visible {
+		visibility: visible;
+	}
+
 	.filter-area-container__dropdown-container__content-dropdown__content {
 		float: left;
 		margin: 15px 0px 5px 20px;
