@@ -75,6 +75,7 @@ export default function ItemContainerEditInfo(props) {
 		),
 	});
 
+	const [nameCharLimit] = useState(35);
 	const [descriptionCharLimit] = useState(500);
 	const [locationCharLimit] = useState(100);
 
@@ -146,6 +147,15 @@ export default function ItemContainerEditInfo(props) {
 
 	useEffect(() => {
 		toggleCharCountColor(
+			document.getElementsByClassName("js-edit-name-char-counter")[0],
+			itemInfo.name.length,
+			nameCharLimit
+		);
+		// eslint-disable-next-line
+	}, [itemInfo.name]);
+
+	useEffect(() => {
+		toggleCharCountColor(
 			document.getElementsByClassName("js-edit-description-char-counter")[0],
 			itemInfo.description.length,
 			descriptionCharLimit
@@ -212,19 +222,24 @@ export default function ItemContainerEditInfo(props) {
 	return (
 		<form className="js-edit-item-form" noValidate onSubmit={handleSubmit}>
 			<div className="outer-dividing-container">
-				<div className="centering-container">
+				<div className="name-centering-container">
 					<input
 						type="text"
 						name="name"
 						onChange={(e) => onChange(e)}
 						value={itemInfo.name}
 						id="edit-item-name"
-						className="centering-container__form-name-input"
+						className="name-centering-container__form-name-input"
 					/>
-					<span className="form-errors">
+					<div className="name-centering-container__char-count-centering-container">
+						<span className="name-centering-container__char-count-centering-container__name-char-counter js-edit-name-char-counter">
+							{itemInfo.name.length + "/" + nameCharLimit}
+						</span>
+					</div>
+				</div>
+				<span className="form-errors form-errors--item-name">
 						{reduxState[generalContainerName].inputErrors.validationItemName}
 					</span>
-				</div>
 				<div className="item-creation-date">
 					Created on: {itemInfo.creation_date}
 				</div>
@@ -237,7 +252,7 @@ export default function ItemContainerEditInfo(props) {
 								Description
 							</h2>
 						</label>
-						<span className="item-box__form-character-counter js-edit-description-char-counter">
+						<span className="item-box__form-char-counter js-edit-description-char-counter">
 							{itemInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
@@ -248,7 +263,10 @@ export default function ItemContainerEditInfo(props) {
 							className="item-box__form-textarea"
 						/>
 						<span className="form-errors">
-							{reduxState[generalContainerName].inputErrors.validationItemDescription}
+							{
+								reduxState[generalContainerName].inputErrors
+									.validationItemDescription
+							}
 						</span>
 					</div>
 				</div>
@@ -263,7 +281,7 @@ export default function ItemContainerEditInfo(props) {
 								>
 									Location:{" "}
 								</label>
-								<span className="item-box__form-character-counter js-edit-location-char-counter">
+								<span className="item-box__form-char-counter js-edit-location-char-counter">
 									{itemInfo.location.length + "/" + locationCharLimit}
 								</span>
 								<input
@@ -275,7 +293,10 @@ export default function ItemContainerEditInfo(props) {
 									className="item-box__group__field__form-text"
 								/>
 								<span className="form-errors">
-									{reduxState[generalContainerName].inputErrors.validationItemLocation}
+									{
+										reduxState[generalContainerName].inputErrors
+											.validationItemLocation
+									}
 								</span>
 							</div>
 						) : null}

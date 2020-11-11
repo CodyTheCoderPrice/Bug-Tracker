@@ -2,25 +2,46 @@
 @import "../../../utils//mixins";
 
 // This file is for SCSS used only by the ItemContainerEditInfo component
-// ...SCSS shared with other components is in itemContainer.scss 
+// ...SCSS shared with other components is in itemContainer.scss
 .item-container-component {
-	.centering-container {
-		margin-bottom: 9px;
+	.name-centering-container {
+		position: relative;
+		margin: 20px 0px 9px 0px;
+		height: $edit-item-name-name-centering-container-height;
 		width: 100%;
 		text-align: center;
 	}
 
-	.centering-container__form-name-input {
-		margin-top: 20px;
-		border: 2px solid black;
+	.name-centering-container__form-name-input {
+		@include dead-center;
+		border: $edit-item-name-input-border-width solid black;
+		border-right: $edit-item-name-input-border-width dotted $medium-light-gray;
 		background-color: white;
-		padding: 4px;
-		height: 43px;
-		width: 600px;
+		padding: $edit-item-name-input-padding;
+		height: $edit-item-name-input-height;
+		width: $edit-item-name-input-width;
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: $display-edit-info-name-font-size;
+		font-size: $item-container-name-font-size;
 		font-weight: bold;
 		text-align: center;
+	}
+
+	.name-centering-container__char-count-centering-container {
+		@include dead-center;
+
+		margin-left: ($edit-item-name-input-width / 2) + $edit-item-name-input-border-width +
+			$edit-item-name-input-padding + ($edit-item-name-char-counter-container-width / 2);
+		border: $edit-item-name-input-border-width solid black;
+		border-left: $edit-item-name-input-border-width solid transparent;
+		height: $edit-item-name-name-centering-container-height - ($edit-item-name-input-border-width * 2);
+		width: $edit-item-name-char-counter-container-width;
+	}
+
+	// This character counter is only for name in ItemContainerEditInfo
+	.name-centering-container__char-count-centering-container__name-char-counter {
+		@include dead-center;
+
+		font-size: $slightly-larger-font-size;
 	}
 
 	.item-box__group__field__form-label {
@@ -145,7 +166,8 @@
 		text-align: center;
 	}
 
-	.form-errors--test{
-		margin-top: 13px;
+	.form-errors--item-name {
+		margin: 15px 0px 11px 0px;
+		font-size: $slightly-larger-font-size;
 	}
 }

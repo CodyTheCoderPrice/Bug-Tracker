@@ -18,7 +18,7 @@
 	}
 
 	.item-container--shifted-right {
-		left: $list-sidebar-width + $list-sidebar-border-width;
+		left: $item-container-list-sidebar-width + $item-container-list-sidebar-border-width;
 		width: 85vw;
 	}
 
@@ -31,7 +31,7 @@
 	.item-creation-date {
 		margin: 5px;
 		text-align: center;
-		font-size: 16px;
+		font-size: $slightly-larger-font-size;
 	}
 
 	// Pairs item-boxs together
@@ -44,7 +44,7 @@
 	.outer-dividing-container {
 		float: left;
 		width: 100%;
-		min-width: $item-outer-dividing-container-min-width;
+		min-width: $item-container-outer-dividing-container-min-width;
 	}
 
 	.outer-dividing-container--half-width {
@@ -60,7 +60,7 @@
 	}
 
 	.item-box--desciption-info-height {
-		height: $description-info-item-box-height;
+		height: $edit-item-description-item-box-height;
 	}
 
 	// Used in ItemContainerEditInfo to calculate description size using JS
@@ -105,9 +105,9 @@
 		display: inline-flex;
 	}
 
-	.item-box__form-character-counter {
+	.item-box__form-char-counter {
 		float: right;
-		margin: 5px 2px 2px 0px;
+		margin: 5px 2px 4px 0px;
 	}
 
 	.item-box__form-textarea {

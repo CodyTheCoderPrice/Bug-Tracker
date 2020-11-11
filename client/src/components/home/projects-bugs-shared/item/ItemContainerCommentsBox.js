@@ -100,7 +100,7 @@ export default function ItemContainerCommentsBox() {
 							Comments
 						</h2>
 					</label>
-					<span className="item-box__form-character-counter js-create-comment-char-counter">
+					<span className="item-box__form-char-counter js-create-comment-char-counter">
 						{commentInfo.description.length + "/" + descriptionCharLimit}
 					</span>
 					<textarea

@@ -3,15 +3,15 @@
 
 .list-sidebar-component {
 	// Width must be set here so width can be calculated and stored in redux
-	width: $list-sidebar-width;
+	width: $item-container-list-sidebar-width;
 
 	.expand-minimize-button {
 		// Must be more than the item-container in item-container.scss
 		z-index: 1;
 		position: fixed;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width + 15;
-		left: $list-sidebar-width + $list-sidebar-border-width;
-		border: $list-sidebar-border-width solid black;
+		left: $item-container-list-sidebar-width + $item-container-list-sidebar-border-width;
+		border: $item-container-list-sidebar-border-width solid black;
 		border-left: none;
 		background-color: $medium-lighter-gray;
 		height: 80px;
@@ -24,7 +24,7 @@
 	}
 
 	.expand-minimize-button--minimized {
-		left: $list-sidebar-border-width;
+		left: $item-container-list-sidebar-border-width;
 	}
 
 	.expand-minimize-button__centering-container {
@@ -42,11 +42,11 @@
 		position: fixed;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width;
 		left: 0px;
-		border-right: $list-sidebar-border-width solid black;
+		border-right: $item-container-list-sidebar-border-width solid black;
 		background-color: $list-table-background-color;
 		height: 90vh;
 		// Width must be set here again to not go beyond
-		width: $list-sidebar-width;
+		width: $item-container-list-sidebar-width;
 		font-size: $base-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto !important;
@@ -88,7 +88,7 @@
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: 0 1px 0 $medium-gray;
-		width: $list-sidebar-width;
+		width: $item-container-list-sidebar-width;
 	}
 
 	.list-sidebar__table__data {
@@ -98,8 +98,8 @@
 	.list-sidebar__table__data__overflow-container {
 		@include horizontal-center();
 
-		width: $list-sidebar-width - 25;
-		max-width: $list-sidebar-width - 25;
+		width: $item-container-list-sidebar-width - 25;
+		max-width: $item-container-list-sidebar-width - 25;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;

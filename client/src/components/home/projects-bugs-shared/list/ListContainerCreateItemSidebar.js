@@ -215,7 +215,7 @@ export default function ListContainerCreateItemSidebar(props) {
 						<label htmlFor="create-item-description" className="form__label">
 							Description:{" "}
 						</label>
-						<span className="form__character-counter js-create-description-char-counter">
+						<span className="form__char-counter js-create-description-char-counter">
 							{itemInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
@@ -233,7 +233,7 @@ export default function ListContainerCreateItemSidebar(props) {
 								<label htmlFor="create-item-location" className="form__label">
 									Location:{" "}
 								</label>
-								<span className="form__character-counter js-create-location-char-counter">
+								<span className="form__char-counter js-create-location-char-counter">
 									{itemInfo.location.length + "/" + locationCharLimit}
 								</span>
 								<input

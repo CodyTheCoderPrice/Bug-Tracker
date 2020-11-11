@@ -5,9 +5,9 @@
 // ...SCSS shared with other components is in itemContainer.scss 
 .item-container-component {
 	.item-name {
-		padding: 13px 0px 3px 0px;
+		margin: 32px 0px 20px 0px;
 		text-align: center;
-		font-size: $display-edit-info-name-font-size;
+		font-size: $item-container-name-font-size;
 	}
 
 	.item-box__group__field__type {
@@ -26,13 +26,13 @@
 	}
 
 	.item-box__group__field_content {
-		margin-left: $display-info-field-margin-left;
+		margin-left: $display-item-field-margin-left;
 	}
 
 	.item-box__group__field__status-box {
 		position: relative;
 		display: inline-block;
-		margin-left: $display-info-field-margin-left;
+		margin-left: $display-item-field-margin-left;
 		background-color: $status-gray;
 		color: white;
 		height: $status-box-height;

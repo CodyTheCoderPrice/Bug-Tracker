@@ -157,7 +157,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 					</div>
 				) : (
 					<div>
-						<span className="item-box__form-character-counter js-edit-comment-char-counter">
+						<span className="item-box__form-char-counter js-edit-comment-char-counter">
 							{commentInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
