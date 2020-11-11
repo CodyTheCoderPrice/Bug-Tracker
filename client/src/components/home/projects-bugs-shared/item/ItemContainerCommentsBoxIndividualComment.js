@@ -120,6 +120,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 	const openDeleteCommentModal = () => {
 		dispatch(
 			setWhichCommentComponentsDisplay({
+				commentBeingEdited: reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
 				commentDeleteModal: true,
 				commentToBeDeleted: props.comment,
 			})
@@ -168,6 +169,12 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 							className="item-box__form-textarea item-box__form-textarea--shorter"
 						/>
 						<span>{formatDateMMddYYYY(props.comment.creation_date)}</span>
+						<div
+							className="comment__block__icon-button"
+							onClick={openDeleteCommentModal}
+						>
+							<i className="fa fa-trash-o" aria-hidden="true" />
+						</div>
 						<div className="comment__centering-container">
 							<div className="comment__centering-container__pair-container">
 								<div
@@ -186,7 +193,10 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 						</div>
 						<div className="edit-comment-form-errors-container">
 							<span className="form-errors">
-								{reduxState[generalContainerName].inputErrors.validationEditCommentDescription}
+								{
+									reduxState[generalContainerName].inputErrors
+										.validationEditCommentDescription
+								}
 								{reduxState[generalContainerName].inputErrors.validationComment}
 								{reduxState[generalContainerName].inputErrors.serverItem}
 							</span>

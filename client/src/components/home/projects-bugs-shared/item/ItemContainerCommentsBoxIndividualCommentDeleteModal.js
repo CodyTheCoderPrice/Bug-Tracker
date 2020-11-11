@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { generalContainerName, projectContainerName, bugContainerName, commentContainerName } from "../../../../reducers/containerNames";
+import {
+	generalContainerName,
+	projectContainerName,
+	bugContainerName,
+	commentContainerName,
+} from "../../../../reducers/containerNames";
 
 import {
 	clearInputErrors,
@@ -25,15 +30,26 @@ export default function ItemContainerCommentsBoxIndividualCommentDeleteModal() {
 	const deleteThisComment = () => {
 		dispatch(
 			deleteComment({
-				id: reduxState[commentContainerName].componentsDisplay.commentToBeDeleted.id,
-				project_id: reduxState[projectContainerName].componentsDisplay.targetItem.id,
+				id:
+					reduxState[commentContainerName].componentsDisplay.commentToBeDeleted
+						.id,
+				project_id:
+					reduxState[projectContainerName].componentsDisplay.targetItem.id,
 				bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
+				// Included so redux action can tell whether to persist this value or set null
+				commentBeingEdited:
+					reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
 			})
 		);
 	};
 
 	const closeDeleteCommentModal = () => {
-		dispatch(setWhichCommentComponentsDisplay({}));
+		dispatch(
+			setWhichCommentComponentsDisplay({
+				commentBeingEdited:
+					reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
+			})
+		);
 	};
 
 	return (

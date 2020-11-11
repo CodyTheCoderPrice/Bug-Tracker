@@ -69,14 +69,22 @@ export const updateComment = (commentInfo) => (dispatch) => {
 		});
 };
 
-export const deleteComment = (id) => (dispatch) => {
+export const deleteComment = (commentInfo) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
-		.post("/api/comment/delete", id, headers)
+		.post("/api/comment/delete", commentInfo, headers)
 		.then((res) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));
-			dispatch(setWhichCommentComponentsDisplay({}));
+			dispatch(
+				setWhichCommentComponentsDisplay({
+					commentBeingEdited:
+						commentInfo.commentBeingEdited !== null &&
+						commentInfo.commentBeingEdited.id !== commentInfo.id
+							? commentInfo.commentBeingEdited
+							: null,
+				})
+			);
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
