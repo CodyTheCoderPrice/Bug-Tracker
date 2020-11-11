@@ -86,13 +86,13 @@ export const setProjectOrBugMassDeleteList = (
 	}
 };
 
-export const createProjectOrBug = (containerName, itemInfo) => (dispatch) => {
+export const createProjectOrBug = (containerName, itemInfo, componentsDisplay) => (dispatch) => {
 	switch (containerName) {
 		case projectContainerName:
-			dispatch(createProject(itemInfo));
+			dispatch(createProject(itemInfo, componentsDisplay));
 			break;
 		case bugContainerName:
-			dispatch(createBug(itemInfo));
+			dispatch(createBug(itemInfo, componentsDisplay));
 			break;
 		default:
 			break;

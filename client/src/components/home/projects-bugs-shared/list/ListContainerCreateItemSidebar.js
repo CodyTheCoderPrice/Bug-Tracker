@@ -175,7 +175,13 @@ export default function ListContainerCreateItemSidebar(props) {
 			itemInfoDeepCopy["project_id"] =
 				reduxState[projectContainerName].componentsDisplay.targetItem.id;
 		}
-		dispatch(createProjectOrBug(props.reduxContainerName, itemInfoDeepCopy));
+		dispatch(
+			createProjectOrBug(
+				props.reduxContainerName,
+				itemInfoDeepCopy,
+				reduxState[props.reduxContainerName].componentsDisplay
+			)
+		);
 	};
 
 	const closeCreateItemSidebar = () => {
@@ -207,7 +213,11 @@ export default function ListContainerCreateItemSidebar(props) {
 							? "New Project"
 							: "New Bug"}
 					</h1>
-					<form className="form js-create-item-form" noValidate onSubmit={handleSubmit}>
+					<form
+						className="form js-create-item-form"
+						noValidate
+						onSubmit={handleSubmit}
+					>
 						<label htmlFor="create-item-name" className="form__label">
 							Name:{" "}
 						</label>
@@ -239,7 +249,10 @@ export default function ListContainerCreateItemSidebar(props) {
 							className="form__textarea"
 						/>
 						<span className="form__errors">
-							{reduxState[generalContainerName].inputErrors.validationItemDescription}
+							{
+								reduxState[generalContainerName].inputErrors
+									.validationItemDescription
+							}
 						</span>
 						{props.reduxContainerName === bugContainerName ? (
 							<div>
@@ -258,7 +271,10 @@ export default function ListContainerCreateItemSidebar(props) {
 									className="form__text-input"
 								/>
 								<span className="form__errors">
-									{reduxState[generalContainerName].inputErrors.validationItemLocation}
+									{
+										reduxState[generalContainerName].inputErrors
+											.validationItemLocation
+									}
 								</span>
 							</div>
 						) : null}

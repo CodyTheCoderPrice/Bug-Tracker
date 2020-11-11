@@ -19,14 +19,20 @@ export const setProjects = (list) => (dispatch) => {
 	});
 };
 
-export const createProject = (projectInfo) => (dispatch) => {
+export const createProject = (projectInfo, projectComponentsDisplay) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
 		.post("/api/project/create", projectInfo, headers)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
-			dispatch(setWhichProjectComponentsDisplay({ listContainer: true }));
+			// Done here so components only changes when update is succesful
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					...projectComponentsDisplay,
+					listContainerCreateItemSidbar: false,
+				})
+			);
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));

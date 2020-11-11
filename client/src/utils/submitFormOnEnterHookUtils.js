@@ -18,7 +18,7 @@ export function useSubmitFormOnEnter(formClassName) {
 			let newEvent = document.createEvent("Event");
 			newEvent.initEvent("submit", false, true);
 			event.target.form.dispatchEvent(newEvent);
-			/* event.preventDefault(); */
+			event.preventDefault();
 		}
 	}
 }

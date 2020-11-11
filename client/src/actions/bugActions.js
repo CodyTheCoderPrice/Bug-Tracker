@@ -19,14 +19,20 @@ export const setBugs = (list) => (dispatch) => {
 	});
 };
 
-export const createBug = (bugInfo) => (dispatch) => {
+export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
 		.post("/api/bug/create", bugInfo, headers)
 		.then((res) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
-			dispatch(setWhichBugComponentsDisplay({ listContainer: true }));
+			// Done here so components only changes when update is succesful
+			dispatch(
+				setWhichBugComponentsDisplay({
+					...bugComponentsDisplay,
+					listContainerCreateItemSidbar: false,
+				})
+			);
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));
