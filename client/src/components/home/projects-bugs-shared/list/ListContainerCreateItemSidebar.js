@@ -47,6 +47,7 @@ export default function ListContainerCreateItemSidebar(props) {
 		completion_date: null,
 	});
 
+	const [nameCharLimit] = useState(35);
 	const [descriptionCharLimit] = useState(500);
 	const [locationCharLimit] = useState(100);
 
@@ -117,6 +118,15 @@ export default function ListContainerCreateItemSidebar(props) {
 		);
 		// eslint-disable-next-line
 	}, []);
+
+	useEffect(() => {
+		toggleCharCountColor(
+			document.getElementsByClassName("js-create-name-char-counter")[0],
+			itemInfo.name.length,
+			nameCharLimit
+		);
+		// eslint-disable-next-line
+	}, [itemInfo.name]);
 
 	useEffect(() => {
 		toggleCharCountColor(
@@ -201,6 +211,9 @@ export default function ListContainerCreateItemSidebar(props) {
 						<label htmlFor="create-item-name" className="form__label">
 							Name:{" "}
 						</label>
+						<span className="form__char-counter js-create-name-char-counter">
+							{itemInfo.name.length + "/" + nameCharLimit}
+						</span>
 						<input
 							type="text"
 							name="name"
