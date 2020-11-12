@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	generalContainerName,
+	accountContainerName,
 	projectContainerName,
 	bugContainerName,
 } from "../../reducers/containerNames";
@@ -12,12 +13,9 @@ import { setWhichGeneralComponentsDisplay } from "../../actions";
 // Navbar
 import Navbar from "./Navbar";
 // Account
-import AccountSidebar from "./account/AccountSidebar";
 import AccountBlurredBackground from "./account/AccountBlurredBackground";
-import EditInfoModal from "./account/EditInfoModal";
-import EditEmailModal from "./account/EditEmailModal";
-import EditPasswordModal from "./account/EditPasswordModal";
-import DeleteAccountModal from "./account/DeleteAccountModal";
+import AccountSidebar from "./account/AccountSidebar";
+import EditAccountModal from "./account/EditAccountModal";
 // Projects & Bugs
 import ListContainer from "./projects-bugs-shared/list/ListContainer";
 import ItemContainer from "./projects-bugs-shared/item/ItemContainer";
@@ -31,8 +29,10 @@ export default function Home() {
 	// Closes itemContainerTopBarOptionsDropdown whenever it is open and user clicks anywhere
 	const closeItemContainerTopBarOptionsDropdown = () => {
 		// This allows toggleOptionsDropdown to work
-		if (reduxState[generalContainerName]
-			.componentsDisplay.itemContainerTopBarOptionsDropdown) {
+		if (
+			reduxState[generalContainerName].componentsDisplay
+				.itemContainerTopBarOptionsDropdown
+		) {
 			dispatch(
 				setWhichGeneralComponentsDisplay({
 					...reduxState[generalContainerName].componentsDisplay,
@@ -43,29 +43,26 @@ export default function Home() {
 	};
 
 	return (
-		<div className="home-container" onClick={closeItemContainerTopBarOptionsDropdown}>
+		<div
+			className="home-container"
+			onClick={closeItemContainerTopBarOptionsDropdown}
+		>
 			<Navbar />
 			{/*Account components*/}
 			{/*Displays bullered background when an account component is open*/}
-			{Object.values(reduxState.accountContainer.componentsDisplay).indexOf(
-				true
-			) > -1 ? (
+			{Object.values(
+				reduxState[accountContainerName].componentsDisplay
+			).indexOf(true) > -1 ? (
 				<AccountBlurredBackground />
 			) : null}
-			{reduxState.accountContainer.componentsDisplay.accountSidebar ? (
+			{reduxState[accountContainerName].componentsDisplay.accountSidebar ? (
 				<AccountSidebar />
 			) : null}
-			{reduxState.accountContainer.componentsDisplay.editInfoModal ? (
-				<EditInfoModal />
-			) : null}
-			{reduxState.accountContainer.componentsDisplay.editEmailModal ? (
-				<EditEmailModal />
-			) : null}
-			{reduxState.accountContainer.componentsDisplay.editPasswordModal ? (
-				<EditPasswordModal />
-			) : null}
-			{reduxState.accountContainer.componentsDisplay.deleteAccountModal ? (
-				<DeleteAccountModal />
+			{Object.values(
+				reduxState[accountContainerName].componentsDisplay
+			).indexOf(true) > -1 &&
+			!reduxState[accountContainerName].componentsDisplay.accountSidebar ? (
+				<EditAccountModal />
 			) : null}
 			{/*Project components*/}
 			{reduxState[projectContainerName].componentsDisplay.listContainer ? (

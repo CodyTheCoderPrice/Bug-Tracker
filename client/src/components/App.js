@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { generalContainerName } from "../reducers/containerNames";
+import { generalContainerName, accountContainerName } from "../reducers/containerNames";
 
 import {
 	retrievePriorityStatusArrays,
@@ -26,7 +26,7 @@ function App() {
 	// Re-fetches user data after a page refresh,
 	// ... and makes sure the appropriate components are displayed
 	useEffect(() => {
-		if (reduxState.accountContainer.auth.isAuthenticated) {
+		if (reduxState[accountContainerName].auth.isAuthenticated) {
 			dispatch(retrieveAccount());
 			dispatch(retrieveProjects());
 			dispatch(retrieveBugs());

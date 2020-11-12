@@ -2,10 +2,10 @@ import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 
 const initialState = {
 	accountSidebar: false,
-	editInfoModal: false,
-	editEmailModal: false,
-	editPasswordModal: false,
-	deleteAccountModal: false,
+	editAccountModalChangeInfo: false,
+	editAccountModalChangeEmail: false,
+	editAccountModalChangePassword: false,
+	editAccountModalDeleteAccount: false,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -19,21 +19,21 @@ export default function (state = initialState, action) {
 					action.displays.accountSidebar !== undefined
 						? action.displays.accountSidebar
 						: false,
-				editInfoModal:
-					action.displays.editInfoModal !== undefined
-						? action.displays.editInfoModal
+				editAccountModalChangeInfo:
+					action.displays.editAccountModalChangeInfo !== undefined
+						? action.displays.editAccountModalChangeInfo
 						: false,
-				editEmailModal:
-					action.displays.editEmailModal !== undefined
-						? action.displays.editEmailModal
+				editAccountModalChangeEmail:
+					action.displays.editAccountModalChangeEmail !== undefined
+						? action.displays.editAccountModalChangeEmail
 						: false,
-				editPasswordModal:
-					action.displays.editPasswordModal !== undefined
-						? action.displays.editPasswordModal
+				editAccountModalChangePassword:
+					action.displays.editAccountModalChangePassword !== undefined
+						? action.displays.editAccountModalChangePassword
 						: false,
-				deleteAccountModal:
-					action.displays.deleteAccountModal !== undefined
-						? action.displays.deleteAccountModal
+				editAccountModalDeleteAccount:
+					action.displays.editAccountModalDeleteAccount !== undefined
+						? action.displays.editAccountModalDeleteAccount
 						: false,
 			};
 		default:

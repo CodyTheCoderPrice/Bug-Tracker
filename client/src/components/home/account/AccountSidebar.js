@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { accountContainerName } from "../../../reducers/containerNames";
 
 import {
 	logoutAccount,
@@ -25,7 +26,7 @@ export default function AccountSidebar() {
 	const openEditInfoModals = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				editInfoModal: true,
+				editAccountModalChangeInfo: true,
 			})
 		);
 	};
@@ -47,13 +48,13 @@ export default function AccountSidebar() {
 				<div className="padded-container">
 					<div className="account-info-container">
 						<div className="account-info account-info--large-bold">
-							{reduxState.accountContainer.info.first_name +
+							{reduxState[accountContainerName].info.first_name +
 								" " +
-								reduxState.accountContainer.info.last_name}
+								reduxState[accountContainerName].info.last_name}
 						</div>
-						<div className="account-info">{reduxState.accountContainer.info.email}</div>
+						<div className="account-info">{reduxState[accountContainerName].info.email}</div>
 						<div className="account-info">
-							Joined: {formatDateMMddYYYY(reduxState.accountContainer.info.joinDate)}
+							Joined: {formatDateMMddYYYY(reduxState[accountContainerName].info.joinDate)}
 						</div>
 					</div>
 					<div className="account-link-container">

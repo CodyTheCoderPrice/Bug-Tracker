@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	sizeContainerName,
+	accountContainerName,
 	projectContainerName,
 	bugContainerName,
 } from "../../reducers/containerNames";
@@ -156,7 +157,7 @@ export default function Navbar() {
 		}
 		// eslint-disable-next-line
 	}, [
-		reduxState.accountContainer.componentsDisplay,
+		reduxState[accountContainerName].componentsDisplay,
 		// eslint-disable-next-line
 		reduxState[projectContainerName].componentsDisplay,
 		// eslint-disable-next-line
@@ -166,7 +167,7 @@ export default function Navbar() {
 	const openAccountSidebar = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar: !reduxState.accountContainer.componentsDisplay
+				accountSidebar: !reduxState[accountContainerName].componentsDisplay
 					.accountSidebar,
 			})
 		);
