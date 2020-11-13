@@ -9,7 +9,7 @@ export function toggleCharCountColor(
 	toggleClassName(descriptionLength > charLimit, charCounterElement, "text-red");
 }
 
-export function displayNoneIfEmpty(itemValue) {
+export function displayGrayedOutNoneIfEmpty(itemValue) {
 	if (isEmpty(itemValue)) {
 		return <span className="grayed-out-none">None</span>;
 	} else {
@@ -18,7 +18,7 @@ export function displayNoneIfEmpty(itemValue) {
 };
 
 export function populateComboBox(selectElementClassName, array, id) {
-	let selectElement = document.getElementsByClassName(selectElementClassName)[0];
+	const selectElement = document.getElementsByClassName(selectElementClassName)[0];
 
 	for (let i = 0; i < array.length; i++) {
 		let optionElement = document.createElement("option");

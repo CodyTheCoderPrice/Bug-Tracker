@@ -10,12 +10,9 @@ import {
 } from "../../../../actions";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
-import { displayNoneIfEmpty } from "../../../../utils/elementUtils";
-import { isEmpty } from "../../../../utils/basicUtils";
+import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
-
-import sortArrowsTopFilled from "../../../../images/sort-arrows-top-filled.svg";
 
 export default function ListContainerTableRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -120,8 +117,8 @@ export default function ListContainerTableRow(props) {
 				"list-table__row" +
 				(reduxState[props.reduxContainerName]?.componentsDisplay.targetItem !==
 					null &&
-					reduxState[props.reduxContainerName]?.componentsDisplay.targetItem
-						.id === props.item.id
+				reduxState[props.reduxContainerName]?.componentsDisplay.targetItem
+					.id === props.item.id
 					? " list-table__row--selected"
 					: " list-table__row--hover-highlight")
 			}
@@ -175,31 +172,41 @@ export default function ListContainerTableRow(props) {
 						}
 					>
 						<span className="list-table__data__centering-container__status-box__centered-info">
-							{isEmpty(props.item.status_option)
-								? "None"
-								: props.item.status_option}
+							{props.item.status_option}
 						</span>
 					</div>
 				</div>
 			</td>
 			<td className={getTableDataClassName()}>
-				<span className="list-table__data__info">
-					{displayNoneIfEmpty(props.item.priority_option)}
+				<span
+					className={
+						"list-table__data__info" +
+						(reduxState[props.reduxContainerName].priorityStatusOptions
+							.priorityEmptyId === props.item.priority_id
+							? " grayed-out-none"
+							: "")
+					}
+				>
+					{props.item.priority_option}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayNoneIfEmpty(formatDateMMddYYYY(props.item.creation_date))}
+					{displayGrayedOutNoneIfEmpty(
+						formatDateMMddYYYY(props.item.creation_date)
+					)}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayNoneIfEmpty(formatDateMMddYYYY(props.item.start_date))}
+					{displayGrayedOutNoneIfEmpty(
+						formatDateMMddYYYY(props.item.start_date)
+					)}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayNoneIfEmpty(formatDateMMddYYYY(props.item.due_date))}
+					{displayGrayedOutNoneIfEmpty(formatDateMMddYYYY(props.item.due_date))}
 				</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}

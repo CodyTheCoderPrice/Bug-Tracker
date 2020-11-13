@@ -38,31 +38,37 @@ export const setDisplaySizeVariables = (sizes) => (dispatch) => {
 };
 
 export const setPriorityStatusArrays = (
-	projectPriorityStatusArrays,
-	bugPriorityStatusArrays
+	projectPriorityStatusOptions,
+	bugPriorityStatusOptions
 ) => (dispatch) => {
 	dispatch({
 		container: PROJECT_CONTAINER,
 		type: SET_PRIORITY_STATUS_OPTIONS,
-		priorityOptions: projectPriorityStatusArrays.priorityOptions,
-		statusOptions: projectPriorityStatusArrays.statusOptions,
-		statusCompletionId: projectPriorityStatusArrays.statusCompletionId,
+		priorityOptions: projectPriorityStatusOptions.priorityOptions,
+		priorityEmptyId: projectPriorityStatusOptions.priorityEmptyId,
+		statusOptions: projectPriorityStatusOptions.statusOptions,
+		statusEmptyId: projectPriorityStatusOptions.statusEmptyId,
+		statusCompletionId: projectPriorityStatusOptions.statusCompletionId,
 	});
 	dispatch({
 		container: BUG_CONTAINER,
 		type: SET_PRIORITY_STATUS_OPTIONS,
-		priorityOptions: bugPriorityStatusArrays.priorityOptions,
-		statusOptions: bugPriorityStatusArrays.statusOptions,
-		statusCompletionId: bugPriorityStatusArrays.statusCompletionId,
+		priorityOptions: bugPriorityStatusOptions.priorityOptions,
+		priorityEmptyId: bugPriorityStatusOptions.priorityEmptyId,
+		statusOptions: bugPriorityStatusOptions.statusOptions,
+		statusEmptyId: bugPriorityStatusOptions.statusEmptyId,
+		statusCompletionId: bugPriorityStatusOptions.statusCompletionId,
 	});
 };
 
 export const retrievePriorityStatusArrays = () => (dispatch) => {
 	axios.get("/api/priority-status/retrieve").then((res) => {
-		const { projectPriorityStatusArrays, bugPriorityStatusArrays } = res.data;
-		setPriorityStatusArrays(
-			projectPriorityStatusArrays,
-			bugPriorityStatusArrays
+		const { projectPriorityStatusOptions, bugPriorityStatusOptions } = res.data;
+		dispatch(
+			setPriorityStatusArrays(
+				projectPriorityStatusOptions,
+				bugPriorityStatusOptions
+			)
 		);
 	});
 };

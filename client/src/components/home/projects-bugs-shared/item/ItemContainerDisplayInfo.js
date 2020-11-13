@@ -8,8 +8,7 @@ import {
 
 import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
-import { displayNoneIfEmpty } from "../../../../utils/elementUtils";
-import { isEmpty } from "../../../../utils/basicUtils";
+import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayInfo.scss";
 
@@ -136,7 +135,7 @@ export default function ItemContainerDisplayInfo(props) {
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Location:</span>
 								<span className="item-box__group__field_content">
-									{displayNoneIfEmpty(
+									{displayGrayedOutNoneIfEmpty(
 										reduxState[props.reduxContainerName].componentsDisplay
 											.targetItem.location
 									)}
@@ -149,7 +148,7 @@ export default function ItemContainerDisplayInfo(props) {
 									Start Date:
 								</span>
 								<span className="item-box__group__field_content">
-									{displayNoneIfEmpty(
+									{displayGrayedOutNoneIfEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
 												.targetItem.start_date
@@ -160,7 +159,7 @@ export default function ItemContainerDisplayInfo(props) {
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Due Date:</span>
 								<span className="item-box__group__field_content">
-									{displayNoneIfEmpty(
+									{displayGrayedOutNoneIfEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
 												.targetItem.due_date
@@ -173,7 +172,7 @@ export default function ItemContainerDisplayInfo(props) {
 									Completed on:
 								</span>
 								<span className="item-box__group__field_content">
-									{displayNoneIfEmpty(
+									{displayGrayedOutNoneIfEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
 												.targetItem.completion_date
@@ -185,11 +184,21 @@ export default function ItemContainerDisplayInfo(props) {
 						<div className="item-box__group item-box__group--right">
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Priority:</span>
-								<span className="item-box__group__field_content">
-									{displayNoneIfEmpty(
+								<span
+									className={
+										"item-box__group__field_content" +
+										(reduxState[props.reduxContainerName].priorityStatusOptions
+											.priorityEmptyId ===
+										reduxState[props.reduxContainerName].componentsDisplay
+											.targetItem.priority_id
+											? " grayed-out-none"
+											: "")
+									}
+								>
+									{
 										reduxState[props.reduxContainerName].componentsDisplay
 											.targetItem.priority_option
-									)}
+									}
 								</span>
 							</div>
 							<div className="item-box__group__field">
@@ -205,13 +214,10 @@ export default function ItemContainerDisplayInfo(props) {
 									}
 								>
 									<span className="item-box__group__field__status-box__centered-content">
-										{isEmpty(
+										{
 											reduxState[props.reduxContainerName].componentsDisplay
 												.targetItem.status_option
-										)
-											? "None"
-											: reduxState[props.reduxContainerName].componentsDisplay
-													.targetItem.status_option}
+										}
 									</span>
 								</div>
 							</div>

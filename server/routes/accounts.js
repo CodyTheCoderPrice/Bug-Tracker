@@ -106,10 +106,22 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 					ORDER BY order_number`
 		);
 
+		const projectPriorityEmptyId = await pool.query(
+			`SELECT p_priority_id AS id 
+				FROM project_priority 
+					WHERE marks_empty = true`
+		);
+
 		const projectStatusOptions = await pool.query(
 			`SELECT p_status_id AS id, option 
 				FROM project_status 
 					ORDER BY order_number`
+		);
+
+		const projectStatusEmptyId = await pool.query(
+			`SELECT p_status_id AS id 
+				FROM project_status 
+					WHERE marks_empty = true`
 		);
 
 		const projectStatusCompletionId = await pool.query(
@@ -124,10 +136,22 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 					ORDER BY order_number`
 		);
 
+		const bugPriorityEmptyId = await pool.query(
+			`SELECT b_priority_id AS id 
+				FROM bug_priority 
+					WHERE marks_empty = true`
+		);
+
 		const bugStatusOptions = await pool.query(
 			`SELECT b_status_id AS id, option 
 				FROM bug_status 
 					ORDER BY order_number`
+		);
+
+		const bugStatusEmptyId = await pool.query(
+			`SELECT b_status_id AS id 
+				FROM bug_status 
+					WHERE marks_empty = true`
 		);
 
 		const bugStatusCompletionId = await pool.query(
@@ -194,13 +218,35 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 					jwToken: jwToken,
 					projectPriorityStatusOptions: {
 						priorityOptions: projectPriorityOptions.rows,
+						priorityEmptyId:
+							projectPriorityEmptyId.rowCount < 1
+								? null
+								: projectPriorityEmptyId.rows[0].id,
 						statusOptions: projectStatusOptions.rows,
-						statusCompletionId: projectStatusCompletionId.rows[0].id,
+						statusEmptyId:
+							projectStatusEmptyId.rowCount < 1
+								? null
+								: projectStatusEmptyId.rows[0].id,
+						statusCompletionId:
+							projectStatusCompletionId.rowCount < 1
+								? null
+								: projectStatusCompletionId.rows[0].id,
 					},
 					bugPriorityStatusOptions: {
 						priorityOptions: bugPriorityOptions.rows,
+						priorityEmptyId:
+							bugPriorityEmptyId.rowCount < 1
+								? null
+								: bugPriorityEmptyId.rows[0].id,
 						statusOptions: bugStatusOptions.rows,
-						statusCompletionId: bugStatusCompletionId.rows[0].id,
+						statusEmptyId:
+							bugStatusEmptyId.rowCount < 1
+								? null
+								: bugStatusEmptyId.rows[0].id,
+						statusCompletionId:
+							bugStatusCompletionId.rowCount < 1
+								? null
+								: bugStatusCompletionId.rows[0].id,
 					},
 					account: account.rows[0],
 					projects: allProjectsForAccount.rows,
@@ -368,7 +414,8 @@ router
 				});
 			} catch (err) {
 				console.error(err.message);
-				inputErrors.serverAccount = "Server error while updating account password";
+				inputErrors.serverAccount =
+					"Server error while updating account password";
 				return res.status(500).json({ success: false, inputErrors });
 			}
 		}

@@ -37,31 +37,33 @@ CREATE TABLE project(
 CREATE TABLE project_priority(
 	p_priority_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
-	option TEXT
+	option TEXT,
+	marks_empty BOOLEAN DEFAULT false
 );
 
-INSERT INTO project_priority (order_number, option)
+INSERT INTO project_priority (order_number, option, marks_empty)
 	VALUES 
-		(0, ''),
-		(1, 'Low'),
-		(2, 'Medium'),
-		(3, 'High');
+		(0, 'None', true),
+		(1, 'Low', false),
+		(2, 'Medium', false),
+		(3, 'High', false);
 
 CREATE TABLE project_status(
 	p_status_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
 	option TEXT,
+	marks_empty BOOLEAN DEFAULT false,
 	marks_completion BOOLEAN DEFAULT false
 );
 
-INSERT INTO project_status (order_number, option, marks_completion)
+INSERT INTO project_status (order_number, option, marks_empty, marks_completion)
 	VALUES
-		(0, '', false),
-		(1, 'On Hold', false),
-		(2, 'Planning', false),
-		(3, 'Developing', false),
-		(4, 'Testing', false),
-		(5, 'Completed', true);
+		(0, '', true, false),
+		(1, 'On Hold', false, false),
+		(2, 'Planning', false, false),
+		(3, 'Developing', false, false),
+		(4, 'Testing', false, false),
+		(5, 'Completed', false, true);
 
 CREATE TABLE bug(
     bug_id SERIAL PRIMARY KEY,
@@ -92,30 +94,32 @@ CREATE TABLE bug(
 CREATE TABLE bug_priority(
 	b_priority_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
-	option TEXT
+	option TEXT,
+	marks_empty BOOLEAN DEFAULT false
 );
 
-INSERT INTO bug_priority (order_number, option)
+INSERT INTO bug_priority (order_number, option, marks_empty)
 	VALUES 
-		(0, ''),
-		(1, 'Low'),
-		(2, 'Medium'),
-		(3, 'High');
+		(0, '', true),
+		(1, 'Low', false),
+		(2, 'Medium', false),
+		(3, 'High', true);
 
 
 CREATE TABLE bug_status(
 	b_status_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
 	option TEXT,
+	marks_empty BOOLEAN DEFAULT false,
 	marks_completion BOOLEAN DEFAULT false
 );
 
-INSERT INTO bug_status (order_number, option, marks_completion)
+INSERT INTO bug_status (order_number, option, marks_empty, marks_completion)
 	VALUES 
-		(0, 'Open', false),
-		(1, 'In Progress', false),
-		(2, 'Testing', false),
-		(3, 'Closed', true);
+		(0, 'Open', false, false),
+		(1, 'In Progress', false, false),
+		(2, 'Testing', false, false),
+		(3, 'Closed', false, true);
 
 CREATE TABLE comment(
     comment_id SERIAL PRIMARY KEY,
