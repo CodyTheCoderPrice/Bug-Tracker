@@ -51,15 +51,15 @@ export default function ItemContainerDisplayInfo(props) {
 			) {
 				// Starts at 2 since 1 means status was left empty
 				case 2:
-					return " item-box__group__field__status-box--purple";
-				case 3:
-					return " item-box__group__field__status-box--blue";
-				case 4:
-					return " item-box__group__field__status-box--orange";
-				case 5:
-					return " item-box__group__field__status-box--green";
-				case 6:
 					return " item-box__group__field__status-box--red";
+				case 3:
+					return " item-box__group__field__status-box--purple";
+				case 4:
+					return " item-box__group__field__status-box--blue";
+				case 5:
+					return " item-box__group__field__status-box--orange";
+				case 6:
+					return " item-box__group__field__status-box--green";
 				default:
 					return "";
 			}
@@ -85,7 +85,25 @@ export default function ItemContainerDisplayInfo(props) {
 	return (
 		<div>
 			<div className="outer-dividing-container outer-dividing-container--full">
-				<h1 className="item-name">
+				<h1
+					className={
+						"item-name" +
+						(reduxState[props.reduxContainerName].componentsDisplay.targetItem
+							.status_id ===
+						reduxState[props.reduxContainerName].priorityStatusOptions
+							.statusCompletionId
+							? " name-completed-color"
+							: props.reduxContainerName === projectContainerName
+							? " name-project-color"
+							: " name-bug-color")
+					}
+				>
+					{reduxState[props.reduxContainerName].componentsDisplay.targetItem
+						.status_id !==
+					reduxState[props.reduxContainerName].priorityStatusOptions
+						.statusCompletionId ? null : (
+						<i className="fa fa-check name-completed-icon" aria-hidden="true" />
+					)}
 					{
 						reduxState[props.reduxContainerName].componentsDisplay.targetItem
 							.name

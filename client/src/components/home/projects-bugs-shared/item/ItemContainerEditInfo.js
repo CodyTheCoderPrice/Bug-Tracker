@@ -238,13 +238,34 @@ export default function ItemContainerEditInfo(props) {
 		<form className="js-edit-item-form" noValidate onSubmit={handleSubmit}>
 			<div className="outer-dividing-container">
 				<div className="name-centering-container">
+					{reduxState[props.reduxContainerName].componentsDisplay.targetItem
+						.status_id !==
+					reduxState[props.reduxContainerName].priorityStatusOptions
+						.statusCompletionId ? null : (
+					<div className="name-centering-container__completed-icon-centering-container">
+						<i
+							className="fa fa-check name-centering-container__completed-icon-centering-container__icon"
+							aria-hidden="true"
+						/>
+					</div>
+					)}
 					<input
 						type="text"
 						name="name"
 						onChange={(e) => onChange(e)}
 						value={itemInfo.name}
 						id="edit-item-name"
-						className="name-centering-container__form-name-input"
+						className={
+							"name-centering-container__form-name-input" +
+							(reduxState[props.reduxContainerName].componentsDisplay.targetItem
+								.status_id ===
+							reduxState[props.reduxContainerName].priorityStatusOptions
+								.statusCompletionId
+								? " name-completed-color"
+								: props.reduxContainerName === projectContainerName
+								? " name-project-color"
+								: " name-bug-color")
+						}
 					/>
 					<div className="name-centering-container__char-count-centering-container">
 						<span className="name-centering-container__char-count-centering-container__name-char-counter js-edit-name-char-counter">

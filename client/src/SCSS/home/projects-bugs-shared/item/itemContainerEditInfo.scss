@@ -26,6 +26,23 @@
 		text-align: center;
 	}
 
+	.name-centering-container__completed-icon-centering-container {
+		@include dead-center;
+
+		// Margin-right does nothing so using margin-left but making the value negative
+		margin-left: -($edit-item-name-input-width / 2) - $edit-item-name-input-border-width -
+			$edit-item-name-input-padding - ($edit-item-name-char-counter-container-width / 2);
+		height: $edit-item-name-name-centering-container-height;
+		width: $edit-item-name-char-counter-container-width;
+	}
+
+	.name-centering-container__completed-icon-centering-container__icon {
+		@include dead-center;
+
+		color: $status-green;
+		font-size: $item-container-name-font-size;
+	}
+
 	.name-centering-container__char-count-centering-container {
 		@include dead-center;
 

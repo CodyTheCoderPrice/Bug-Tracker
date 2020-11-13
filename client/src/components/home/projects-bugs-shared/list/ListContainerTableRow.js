@@ -15,6 +15,8 @@ import { isEmpty } from "../../../../utils/basicUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
 
+import sortArrowsTopFilled from "../../../../images/sort-arrows-top-filled.svg";
+
 export default function ListContainerTableRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -50,15 +52,15 @@ export default function ListContainerTableRow(props) {
 			switch (props.item.status_id) {
 				// Starts at 2 since 1 means status was left empty
 				case 2:
-					return " list-table__data__centering-container__status-box--purple";
-				case 3:
-					return " list-table__data__centering-container__status-box--blue";
-				case 4:
-					return " list-table__data__centering-container__status-box--orange";
-				case 5:
-					return " list-table__data__centering-container__status-box--green";
-				case 6:
 					return " list-table__data__centering-container__status-box--red";
+				case 3:
+					return " list-table__data__centering-container__status-box--purple";
+				case 4:
+					return " list-table__data__centering-container__status-box--blue";
+				case 5:
+					return " list-table__data__centering-container__status-box--orange";
+				case 6:
+					return " list-table__data__centering-container__status-box--green";
 				default:
 					return "";
 			}
@@ -107,7 +109,7 @@ export default function ListContainerTableRow(props) {
 			(props.item.status_id ===
 			reduxState[props.reduxContainerName].priorityStatusOptions
 				.statusCompletionId
-				? " list-table__data--completed"
+				? " list-table__data--completed-color"
 				: "")
 		);
 	};
@@ -115,9 +117,13 @@ export default function ListContainerTableRow(props) {
 	return (
 		<tr
 			className={
-				"list-table__row list-table__row--hover-highlight" +
-				" js-list-table-row-" +
-				props.item.id
+				"list-table__row" +
+				(reduxState[props.reduxContainerName]?.componentsDisplay.targetItem !==
+					null &&
+					reduxState[props.reduxContainerName]?.componentsDisplay.targetItem
+						.id === props.item.id
+					? " list-table__row--selected"
+					: " list-table__row--hover-highlight")
 			}
 			onClick={openItemContainer}
 		>
@@ -142,14 +148,13 @@ export default function ListContainerTableRow(props) {
 					(props.item.status_id ===
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId
-						? " list-table__data--completed"
+						? " list-table__data--completed-color"
 						: props.reduxContainerName === projectContainerName
-						? " list-table__data--blue"
-						: " list-table__data--red")
+						? " list-table__data--project-color"
+						: " list-table__data--bug-color")
 				}
 			>
 				<span className="list-table__data__info">
-					{props.item.name}
 					{props.item.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
@@ -158,6 +163,7 @@ export default function ListContainerTableRow(props) {
 							aria-hidden="true"
 						/>
 					)}
+					{props.item.name}
 				</span>
 			</td>
 			<td className="list-table__data">

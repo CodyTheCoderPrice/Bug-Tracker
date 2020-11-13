@@ -19,7 +19,7 @@ export default function ItemContainerListSidebarRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
+	/* useEffect(() => {
 		if (
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem !== null
 		) {
@@ -38,7 +38,7 @@ export default function ItemContainerListSidebarRow(props) {
 		reduxState[projectContainerName].componentsDisplay.targetItem,
 		// eslint-disable-next-line
 		reduxState[bugContainerName].componentsDisplay.targetItem,
-	]);
+	]); */
 
 	const openItemContainer = () => {
 		if (
@@ -67,9 +67,13 @@ export default function ItemContainerListSidebarRow(props) {
 	return (
 		<tr
 			className={
-				"list-sidebar__table__row list-sidebar__table__row--clickable " +
-				"js-list-sidebar__table-row-" +
-				props.item.id
+				"list-sidebar__table__row" +
+				(reduxState[props.reduxContainerName]?.componentsDisplay.targetItem !==
+					null &&
+				reduxState[props.reduxContainerName]?.componentsDisplay.targetItem
+					.id === props.item.id
+					? " list-sidebar__table__row--selected"
+					: " list-sidebar__table__row--hover-highlight")
 			}
 			onClick={openItemContainer}
 		>
@@ -80,14 +84,13 @@ export default function ItemContainerListSidebarRow(props) {
 						(props.item.status_id ===
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
-							? " list-sidebar__table__data__overflow-container--completed"
+							? " list-sidebar__table__data__overflow-container--completed-color"
 							: props.reduxContainerName === projectContainerName
-							? " list-sidebar__table__data__overflow-container--blue"
-							: " list-sidebar__table__data__overflow-container--red")
+							? " list-sidebar__table__data__overflow-container--project-color"
+							: " list-sidebar__table__data__overflow-container--bug-color")
 					}
 				>
 					<span className="list-sidebar__table__data__overflow-container__info">
-						{props.item.name}
 						{props.item.status_id !==
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId ? null : (
@@ -96,6 +99,7 @@ export default function ItemContainerListSidebarRow(props) {
 								aria-hidden="true"
 							/>
 						)}
+						{props.item.name}
 					</span>
 				</div>
 			</td>

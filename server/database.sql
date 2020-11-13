@@ -54,14 +54,14 @@ CREATE TABLE project_status(
 	marks_completion BOOLEAN DEFAULT false
 );
 
-INSERT INTO bug_status (order_number, option, marks_completion)
+INSERT INTO project_status (order_number, option, marks_completion)
 	VALUES
-		(0, '', false);
-		(1, 'Planning', false),
-		(2, 'Developing', false),
-		(3, 'Testing', false),
-		(4, 'Completed', true);
-		(5, 'On Hold', false);
+		(0, '', false),
+		(1, 'On Hold', false),
+		(2, 'Planning', false),
+		(3, 'Developing', false),
+		(4, 'Testing', false),
+		(5, 'Completed', true);
 
 CREATE TABLE bug(
     bug_id SERIAL PRIMARY KEY,

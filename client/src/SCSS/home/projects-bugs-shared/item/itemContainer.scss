@@ -30,6 +30,23 @@
 		padding: 0px 25px 25px 25px;
 	}
 
+	.name-project-color {
+		color: $blue-link;
+	}
+
+	.name-bug-color {
+		color: $red-link;
+	}
+
+	.name-completed-color {
+		color: $status-green;
+	}
+
+	.name-completed-icon {
+		margin-right: 5px;
+		color: $status-green;
+	}
+
 	.item-creation-date {
 		margin: 5px;
 		text-align: center;
