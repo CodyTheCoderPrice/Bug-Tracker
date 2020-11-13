@@ -14,8 +14,6 @@ import { getElementLocation } from "../../../../utils/displaySizeUtils";
 
 import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
 
-import { toggleDisableButtons } from "../../../../utils/massDeleteUtils";
-
 // Components
 import ListTableRow from "./ListContainerTableRow";
 import ListTableSortArrowsButton from "./ListContainerTableSortArrowsButton";
@@ -62,16 +60,6 @@ export default function ListContainerTable(props) {
 		}
 	}, [reduxState[sizeContainerName].variables]);
 
-	// Disables mass delete options buttons when no checkboxes are selected
-	useEffect(() => {
-		toggleDisableButtons(
-			reduxState[props.reduxContainerName].massDeleteList.length === 0,
-			"js-mass-delete-buttons-container",
-			"list-table__header__mass-delete-options-container__button--disabled"
-		);
-		// eslint-disable-next-line
-	}, [reduxState[props.reduxContainerName].massDeleteList]);
-
 	const checkAllItems = () => {
 		let allItems = [];
 		for (let item of reduxState[props.reduxContainerName].list) {
@@ -102,19 +90,37 @@ export default function ListContainerTable(props) {
 						<th className="list-table__header list-table__header--for-mass-delete">
 							<div className="list-table__header__mass-delete-options-container js-mass-delete-buttons-container">
 								<div
-									className="list-table__header__mass-delete-options-container__button"
+									className={
+										"list-table__header__mass-delete-options-container__button" +
+										(reduxState[props.reduxContainerName].massDeleteList
+											.length > 0
+											? ""
+											: " list-table__header__mass-delete-options-container__button--disabled")
+									}
 									onClick={checkAllItems}
 								>
 									<i className="fa fa-check-square-o" aria-hidden="true" />
 								</div>
 								<div
-									className="list-table__header__mass-delete-options-container__button"
+									className={
+										"list-table__header__mass-delete-options-container__button" +
+										(reduxState[props.reduxContainerName].massDeleteList
+											.length > 0
+											? ""
+											: " list-table__header__mass-delete-options-container__button--disabled")
+									}
 									onClick={uncheckAllItems}
 								>
 									<i className="fa fa-square-o" aria-hidden="true" />
 								</div>
 								<div
-									className="list-table__header__mass-delete-options-container__button"
+									className={
+										"list-table__header__mass-delete-options-container__button" +
+										(reduxState[props.reduxContainerName].massDeleteList
+											.length > 0
+											? ""
+											: " list-table__header__mass-delete-options-container__button--disabled")
+									}
 									onClick={openMassDeleteItemsModal}
 								>
 									<i className="fa fa-trash-o" aria-hidden="true" />

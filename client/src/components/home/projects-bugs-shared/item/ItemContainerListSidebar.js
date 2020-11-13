@@ -14,8 +14,6 @@ import {
 	stripNonDigits,
 } from "../../../../utils/displaySizeUtils";
 
-import { toggleClassName } from "../../../../utils/elementUtils";
-
 // Components
 import ItemContainerListSidebarRow from "./ItemContainerListSidebarRow";
 
