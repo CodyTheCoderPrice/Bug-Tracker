@@ -43,7 +43,11 @@ export default function ListContainerTable(props) {
 					.height +
 				"px";
 		}
-	}, [reduxState[sizeContainerName]]);
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[sizeContainerName],
+	]);
 
 	// Fills remaining space in a table row after status
 	useEffect(() => {
@@ -58,7 +62,11 @@ export default function ListContainerTable(props) {
 				).left +
 				"px";
 		}
-	}, [reduxState[sizeContainerName].variables]);
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[sizeContainerName].variables,
+	]);
 
 	const checkAllItems = () => {
 		let allItems = [];

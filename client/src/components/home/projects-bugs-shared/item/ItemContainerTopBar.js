@@ -97,7 +97,6 @@ export default function ItemContainerTopBar(props) {
 	return (
 		<div className="top-bar-component js-top-bar">
 			<div
-				className="outer-search-container js-item-outer-search-container"
 				className={
 					"outer-search-container js-item-outer-search-container" +
 					(reduxState[generalContainerName].componentsDisplay

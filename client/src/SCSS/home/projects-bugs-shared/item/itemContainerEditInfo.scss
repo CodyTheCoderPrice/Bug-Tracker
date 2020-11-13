@@ -143,12 +143,12 @@
 
 	// These classes are used by the custom hook that handles appearance
 	// ...of completion date based of the status of the project
-	.grayed-out-label {
+	.grayed-out-unclickable-label {
 		color: $medium-light-gray;
 		pointer-events: none;
 	}
 
-	.grayed-out-date {
+	.grayed-out-unclickable-date {
 		background-color: $light-gray;
 		color: $medium-light-gray;
 		pointer-events: none;

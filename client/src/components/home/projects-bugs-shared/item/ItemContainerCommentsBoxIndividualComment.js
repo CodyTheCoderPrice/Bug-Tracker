@@ -58,8 +58,11 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 				reduxState[projectContainerName].componentsDisplay.targetItem.id,
 			bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
 		});
+		// eslint-disable-next-line
 	}, [
+		// eslint-disable-next-line
 		reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
+		// eslint-disable-next-line
 		reduxState[commentContainerName].list.length,
 	]);
 
@@ -120,7 +123,8 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 	const openDeleteCommentModal = () => {
 		dispatch(
 			setWhichCommentComponentsDisplay({
-				commentBeingEdited: reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
+				commentBeingEdited:
+					reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
 				commentDeleteModal: true,
 				commentToBeDeleted: props.comment,
 			})

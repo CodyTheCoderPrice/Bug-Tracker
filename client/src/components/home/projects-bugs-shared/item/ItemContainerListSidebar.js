@@ -62,8 +62,10 @@ export default function ItemContainerListSidebar(props) {
 		}
 		// eslint-disable-next-line
 	}, [
+		// eslint-disable-next-line
 		reduxState[sizeContainerName].variables,
 		originalItemContainerListSidebarHeight,
+		// eslint-disable-next-line
 		reduxState[props.reduxContainerName].componentsDisplay
 			.itemContainerListSidebar,
 	]);

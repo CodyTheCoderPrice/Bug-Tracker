@@ -52,7 +52,9 @@ export default function ItemContainerCommentsBox() {
 	// Resets commentInfo when the comment list size increases (meaning comment was created)
 	// ...since the description should then be reset to empty
 	useEffect(() => {
-		if (reduxState[commentContainerName].list.length > previousCommmentsListSize) {
+		if (
+			reduxState[commentContainerName].list.length > previousCommmentsListSize
+		) {
 			setCommentInfo({
 				// Default commentInfo values
 				description: "",
@@ -62,7 +64,11 @@ export default function ItemContainerCommentsBox() {
 			});
 		}
 		setPreviousCommentsListSize(reduxState[commentContainerName].list.length);
-	}, [reduxState[commentContainerName].list.length]);
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[commentContainerName].list.length,
+	]);
 
 	useEffect(() => {
 		toggleCharCountColor(
@@ -94,7 +100,11 @@ export default function ItemContainerCommentsBox() {
 	return (
 		<div className="outer-dividing-container">
 			<div className="item-box">
-				<form className="js-create-comment-form" noValidate onSubmit={handleSubmit}>
+				<form
+					className="js-create-comment-form"
+					noValidate
+					onSubmit={handleSubmit}
+				>
 					<label htmlFor="create-comment-description">
 						<h2 className="item-box__title item-box__title--no-bottom-margin">
 							Comments
@@ -120,7 +130,10 @@ export default function ItemContainerCommentsBox() {
 					</div>
 					<div className="bottom-form-errors-container">
 						<span className="form-errors">
-							{reduxState[generalContainerName].inputErrors.validationCreateCommentDescription}
+							{
+								reduxState[generalContainerName].inputErrors
+									.validationCreateCommentDescription
+							}
 							{reduxState[generalContainerName].inputErrors.validationComment}
 							{reduxState[generalContainerName].inputErrors.serverItem}
 						</span>

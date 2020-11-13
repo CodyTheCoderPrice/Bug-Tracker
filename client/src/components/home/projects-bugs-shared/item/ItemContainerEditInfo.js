@@ -153,7 +153,9 @@ export default function ItemContainerEditInfo(props) {
 				);
 			}
 		}
+		// eslint-disable-next-line
 	}, [
+		// eslint-disable-next-line
 		reduxState[sizeContainerName].constants
 			.itemContainerOuterDividingContainerMinWidth,
 	]);

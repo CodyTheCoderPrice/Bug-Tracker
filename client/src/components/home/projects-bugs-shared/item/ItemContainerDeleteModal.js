@@ -18,7 +18,7 @@ export default function ItemContainerDeleteModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [itemInfo, setItemInfo] = useState({
+	const [itemInfo] = useState({
 		id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
 	});
 

@@ -6,6 +6,7 @@ export function searchFilterSort(projectsOrBugsArray, state) {
 		// Makes sure searchKeyWordString contains not just white spaces
 		if (/\S/.test(state.searchKeyWordString)) {
 			const keyWords = state.searchKeyWordString.toLowerCase().split(/\s+/);
+			// eslint-disable-next-line
 			return projectsOrBugsArray.filter((projectOrBug) => {
 				for (let word of keyWords) {
 					if (projectOrBug.name.toLowerCase().includes(word)) {

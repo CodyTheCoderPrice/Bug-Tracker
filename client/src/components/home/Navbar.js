@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	sizeContainerName,
@@ -124,9 +124,13 @@ export default function Navbar() {
 				projectButtonElement.style.maxWidth = navbarAvailableSpace + "px";
 			}
 		}
+		// eslint-disable-next-line
 	}, [
+		// eslint-disable-next-line
 		reduxState[sizeContainerName],
+		// eslint-disable-next-line
 		reduxState[projectContainerName].componentsDisplay.targetItem,
+		// eslint-disable-next-line
 		reduxState[bugContainerName].componentsDisplay.targetItem,
 	]);
 
@@ -161,6 +165,7 @@ export default function Navbar() {
 		}
 		// eslint-disable-next-line
 	}, [
+		// eslint-disable-next-line
 		reduxState[accountContainerName].componentsDisplay,
 		// eslint-disable-next-line
 		reduxState[projectContainerName].componentsDisplay,

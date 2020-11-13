@@ -34,13 +34,13 @@ export function useToggleableDateInput(
 				toggleClassName(
 					itemInfo.status_id !== completedIndex,
 					child,
-					"grayed-out-label"
+					"grayed-out-unclickable-label"
 				);
 			} else if (child.tagName === "INPUT") {
 				toggleClassName(
 					itemInfo.status_id !== completedIndex,
 					child,
-					"grayed-out-date"
+					"grayed-out-unclickable-date"
 				);
 			}
 		}

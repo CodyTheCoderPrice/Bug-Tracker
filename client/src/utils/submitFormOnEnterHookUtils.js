@@ -11,6 +11,7 @@ export function useSubmitFormOnEnter(formClassName) {
 				.getElementsByClassName(formClassName)[0]
 				.removeEventListener("keypress", submitOnEnter);
 		};
+		// eslint-disable-next-line
 	}, []);
 
 	function submitOnEnter(event) {

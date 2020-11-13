@@ -1,4 +1,3 @@
-import { bindActionCreators } from "redux";
 import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 
 const initialState = {

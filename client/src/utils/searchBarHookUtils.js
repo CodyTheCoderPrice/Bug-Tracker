@@ -139,7 +139,9 @@ export function useSearchBarResizeAndBorderEventListener(
 		}
 		// eslint-disable-next-line
 	}, [
+		// eslint-disable-next-line
 		passedReduxState[sizeContainerName].variables,
+		// eslint-disable-next-line
 		passedReduxState[sizeContainerName].constants,
 		regularlyUsedSizesAndStyles,
 	]);

@@ -1,4 +1,4 @@
-import { stripNonDigits, getElementStyle, getElementSize } from "./displaySizeUtils";
+import { getElementSize } from "./displaySizeUtils";
 import { toggleClassName } from "./elementUtils";
 
 export function manageSizeOfItemBoxsInPairContainer(

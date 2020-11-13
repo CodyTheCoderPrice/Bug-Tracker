@@ -72,8 +72,11 @@ export default function ItemContainer(props) {
 					reduxState[sizeContainerName].variables.window.width + "px";
 			}
 		}
+		// eslint-disable-next-line
 	}, [
+		// eslint-disable-next-line
 		reduxState[sizeContainerName],
+		// eslint-disable-next-line
 		reduxState[generalContainerName].componentsDisplay.itemContainerListSidebar,
 	]);
 
@@ -96,7 +99,6 @@ export default function ItemContainer(props) {
 				reduxState[sizeContainerName].variables.window === null
 					? getWindowSize()
 					: reduxState[sizeContainerName].variables.window;
-			
 
 			const minWidthNeededForNoItemBoxOverflow =
 				reduxState[sizeContainerName].constants
@@ -110,13 +112,17 @@ export default function ItemContainer(props) {
 					...reduxState[generalContainerName].componentsDisplay,
 					itemContainerListSidebar:
 						windowSize.width -
-							reduxState[sizeContainerName].constants
-								.itemContainerListSidebar.width >=
+							reduxState[sizeContainerName].constants.itemContainerListSidebar
+								.width >=
 						minWidthNeededForNoItemBoxOverflow,
 				})
 			);
 		}
-	}, [reduxState[sizeContainerName].constants]);
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[sizeContainerName].constants,
+	]);
 
 	return (
 		<div>

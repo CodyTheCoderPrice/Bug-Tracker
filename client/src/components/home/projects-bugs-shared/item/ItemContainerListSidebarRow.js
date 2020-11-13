@@ -32,8 +32,11 @@ export default function ItemContainerListSidebarRow(props) {
 				"list-sidebar__table__row--selected"
 			);
 		}
+		// eslint-disable-next-line
 	}, [
+		// eslint-disable-next-line
 		reduxState[projectContainerName].componentsDisplay.targetItem,
+		// eslint-disable-next-line
 		reduxState[bugContainerName].componentsDisplay.targetItem,
 	]);
 
