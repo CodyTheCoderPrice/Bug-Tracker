@@ -81,8 +81,11 @@ export default function ListContainerTableRow(props) {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listContainer: false,
-				itemContainer: true,
+				// If an itemContainer tab is not already open on the navbar, 
+				// user will navigate to itemContainer, otherwise remain on listcontainer 
+				/* listContainer: reduxState[props.reduxContainerName].componentsDisplay.targetItem === null ? false : true,
+				itemContainer: reduxState[props.reduxContainerName].componentsDisplay.targetItem === null ? true : false, */
+				listContainer: true,
 				targetItem: props.item,
 			})
 		);

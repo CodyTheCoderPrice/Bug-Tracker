@@ -80,7 +80,6 @@
 
 	.list-table__data {
 		@include border-line();
-		@include stop-text-selection();
 
 		padding: 0px 7px 0px 7px;
 		cursor: default;

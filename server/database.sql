@@ -58,7 +58,7 @@ CREATE TABLE project_status(
 
 INSERT INTO project_status (order_number, option, marks_empty, marks_completion)
 	VALUES
-		(0, '', true, false),
+		(0, 'None', true, false),
 		(1, 'On Hold', false, false),
 		(2, 'Planning', false, false),
 		(3, 'Developing', false, false),
@@ -100,7 +100,7 @@ CREATE TABLE bug_priority(
 
 INSERT INTO bug_priority (order_number, option, marks_empty)
 	VALUES 
-		(0, '', true),
+		(0, 'None', true),
 		(1, 'Low', false),
 		(2, 'Medium', false),
 		(3, 'High', true);
