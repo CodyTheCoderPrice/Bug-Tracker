@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	sizeContainerName,
@@ -8,7 +8,11 @@ import {
 	commentContainerName,
 } from "../../../../reducers/containerNames";
 
+import { setWhichGeneralComponentsDisplay } from "../../../../actions";
+
 import { toggleClassName } from "../../../../utils/elementUtils";
+
+import { getWindowSize } from "../../../../utils/displaySizeUtils";
 
 // Components
 import ItemContainerTopBar from "./ItemContainerTopBar";
@@ -72,6 +76,47 @@ export default function ItemContainer(props) {
 		reduxState[sizeContainerName],
 		reduxState[generalContainerName].componentsDisplay.itemContainerListSidebar,
 	]);
+
+	// If user has not set itemContainerListSidebar, then whether it is
+	// ...open or closed will be decided based on the current window size
+	useEffect(() => {
+		if (
+			reduxState[generalContainerName].componentsDisplay
+				.itemContainerListSidebarUserSet === false &&
+			reduxState[sizeContainerName].constants.itemContainerListSidebar !==
+				null &&
+			reduxState[sizeContainerName].constants
+				.itemContainerOuterDividingContainerMinWidth !== null &&
+			reduxState[sizeContainerName].constants
+				.itemContainerPaddingContainerPadding !== null
+		) {
+			// Instead of putting inn the optimization to re-run once no longer
+			// ...null since it would also re-run every window resize
+			const windowSize =
+				reduxState[sizeContainerName].variables.window === null
+					? getWindowSize()
+					: reduxState[sizeContainerName].variables.window;
+			
+
+			const minWidthNeededForNoItemBoxOverflow =
+				reduxState[sizeContainerName].constants
+					.itemContainerOuterDividingContainerMinWidth +
+				reduxState[sizeContainerName].constants
+					.itemContainerPaddingContainerPadding *
+					2;
+
+			dispatch(
+				setWhichGeneralComponentsDisplay({
+					...reduxState[generalContainerName].componentsDisplay,
+					itemContainerListSidebar:
+						windowSize.width -
+							reduxState[sizeContainerName].constants
+								.itemContainerListSidebar.width >=
+						minWidthNeededForNoItemBoxOverflow,
+				})
+			);
+		}
+	}, [reduxState[sizeContainerName].constants]);
 
 	return (
 		<div>

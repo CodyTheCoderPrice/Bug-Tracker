@@ -1,3 +1,4 @@
+import { bindActionCreators } from "redux";
 import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 
 const initialState = {
@@ -8,6 +9,8 @@ const initialState = {
 	listcontainerSearchFilterSortBar: null,
 	itemContainerTopBar: null,
 	itemContainerListSidebar: null,
+	itemContainerOuterDividingContainerMinWidth: null,
+	itemContainerPaddingContainerPadding: null,
 };
 
 export default function (state = initialState, action) {
@@ -18,9 +21,14 @@ export default function (state = initialState, action) {
 				navbarAccountButton: action.sizes.navbarAccountButton,
 				navbarProjectsButton: action.sizes.navbarProjectsButton,
 				navbarBugsButton: action.sizes.navbarBugsButton,
-				listcontainerSearchFilterSortBar: action.sizes.listcontainerSearchFilterSortBar,
+				listcontainerSearchFilterSortBar:
+					action.sizes.listcontainerSearchFilterSortBar,
 				itemContainerTopBar: action.sizes.itemContainerTopBar,
 				itemContainerListSidebar: action.sizes.itemContainerListSidebar,
+				itemContainerOuterDividingContainerMinWidth:
+					action.sizes.itemContainerOuterDividingContainerMinWidth,
+				itemContainerPaddingContainerPadding:
+					action.sizes.itemContainerPaddingContainerPadding,
 			};
 		default:
 			return state;

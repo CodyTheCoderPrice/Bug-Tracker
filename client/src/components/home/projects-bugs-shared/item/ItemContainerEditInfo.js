@@ -4,6 +4,7 @@ import {
 	generalContainerName,
 	projectContainerName,
 	bugContainerName,
+	sizeContainerName,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -118,19 +119,6 @@ export default function ItemContainerEditInfo(props) {
 	}, []);
 
 	useEffect(() => {
-		manageSizeOfItemBoxsInPairContainer(
-			document.getElementsByClassName("js-description-info-pair")[0],
-			"outer-dividing-container--half-width"
-		);
-		if (props.reduxContainerName === projectContainerName) {
-			manageSizeOfItemBoxsInPairContainer(
-				document.getElementsByClassName("js-bug-info-pair")[0],
-				"outer-dividing-container--half-width"
-			);
-		}
-	}, []);
-
-	useEffect(() => {
 		populateComboBox(
 			"js-item-priority-select",
 			reduxState[props.reduxContainerName].priorityStatusOptions
@@ -144,6 +132,31 @@ export default function ItemContainerEditInfo(props) {
 		);
 		// eslint-disable-next-line
 	}, []);
+
+	useEffect(() => {
+		if (
+			reduxState[sizeContainerName].constants
+				.itemContainerOuterDividingContainerMinWidth !== null
+		) {
+			manageSizeOfItemBoxsInPairContainer(
+				document.getElementsByClassName("js-description-info-pair")[0],
+				"outer-dividing-container--half-width",
+				reduxState[sizeContainerName].constants
+					.itemContainerOuterDividingContainerMinWidth
+			);
+			if (props.reduxContainerName === projectContainerName) {
+				manageSizeOfItemBoxsInPairContainer(
+					document.getElementsByClassName("js-projects-bug-info-pair")[0],
+					"outer-dividing-container--half-width",
+					reduxState[sizeContainerName].constants
+						.itemContainerOuterDividingContainerMinWidth
+				);
+			}
+		}
+	}, [
+		reduxState[sizeContainerName].constants
+			.itemContainerOuterDividingContainerMinWidth,
+	]);
 
 	useEffect(() => {
 		toggleCharCountColor(
@@ -238,8 +251,8 @@ export default function ItemContainerEditInfo(props) {
 					</div>
 				</div>
 				<span className="form-errors form-errors--item-name">
-						{reduxState[generalContainerName].inputErrors.validationItemName}
-					</span>
+					{reduxState[generalContainerName].inputErrors.validationItemName}
+				</span>
 				<div className="item-creation-date">
 					Created on: {itemInfo.creation_date}
 				</div>
@@ -410,7 +423,7 @@ export default function ItemContainerEditInfo(props) {
 				</div>
 			</div>
 			{props.reduxContainerName !== projectContainerName ? null : (
-				<div className="pair-container js-bug-info-pair">
+				<div className="pair-container js-projects-bug-info-pair">
 					<div className="outer-dividing-container outer-dividing-container--one-third">
 						<div className="item-box">
 							<h2 className="item-box__title">Status of Bugs</h2>

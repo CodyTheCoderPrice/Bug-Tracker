@@ -23,6 +23,8 @@ import {
 	calcSearchFilterSortBarHeight,
 	calcViewItemTopBarHeight,
 	calcItemContainerListSidebarWidth,
+	calcItemContainerOuterDividingContainerMinWidth,
+	calcItemContainerPaddingContainerPadding,
 } from "../../utils/displaySizeUtils";
 
 import { setNavbarButtonColor } from "../../utils/navbarUtils";
@@ -50,6 +52,8 @@ export default function Navbar() {
 				listcontainerSearchFilterSortBar: calcSearchFilterSortBarHeight(),
 				itemContainerTopBar: calcViewItemTopBarHeight(),
 				itemContainerListSidebar: calcItemContainerListSidebarWidth(),
+				itemContainerOuterDividingContainerMinWidth: calcItemContainerOuterDividingContainerMinWidth(),
+				itemContainerPaddingContainerPadding: calcItemContainerPaddingContainerPadding(),
 			})
 		);
 

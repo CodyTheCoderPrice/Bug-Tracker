@@ -76,6 +76,7 @@ export default function ItemContainerListSidebar(props) {
 				...reduxState[generalContainerName].componentsDisplay,
 				itemContainerListSidebar: !reduxState[generalContainerName]
 					.componentsDisplay.itemContainerListSidebar,
+				itemContainerListSidebarUserSet: true,
 			})
 		);
 	};

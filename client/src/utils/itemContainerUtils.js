@@ -4,24 +4,22 @@ import { toggleClassName } from "./elementUtils";
 export function manageSizeOfItemBoxsInPairContainer(
 	pairElement,
 	toggledClassNameForWidth,
+	outerDivingContainerMinWidth,
 ) {
 	const childNodes = pairElement.childNodes;
-	const firstItemBoxElement = childNodes[0];
-	const secondItemBoxElement = childNodes[1];
-
-	// Toggles each item box's className for height
-
+	// Item box width is determing by its outerDividingContainer
+	const firstOuterDividingContianerElement = childNodes[0];
+	const secondOuterDividingContianerElement = childNodes[1];
 
 	// Toggles each item box's className for width
 	const myObserver = new ResizeObserver(() => {
-		const itemBoxMinWidth = stripNonDigits(getElementStyle(firstItemBoxElement).minWidth);
 		// If both item-boxs can fit next to one another
 		const shouldHaveClassName =
-			getElementSize(pairElement).width > itemBoxMinWidth * 2;
+			getElementSize(pairElement).width > outerDivingContainerMinWidth * 2;
 
 		
-		toggleClassName(shouldHaveClassName, firstItemBoxElement, toggledClassNameForWidth);
-		toggleClassName(shouldHaveClassName, secondItemBoxElement, toggledClassNameForWidth);
+		toggleClassName(shouldHaveClassName, firstOuterDividingContianerElement, toggledClassNameForWidth);
+		toggleClassName(shouldHaveClassName, secondOuterDividingContianerElement, toggledClassNameForWidth);
 	});
 
 	myObserver.observe(

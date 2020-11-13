@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import {
 	projectContainerName,
 	bugContainerName,
+	sizeContainerName,
 } from "../../../../reducers/containerNames";
 
 import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
@@ -16,17 +17,29 @@ export default function ItemContainerDisplayInfo(props) {
 	const reduxState = useSelector((state) => state);
 
 	useEffect(() => {
-		manageSizeOfItemBoxsInPairContainer(
-			document.getElementsByClassName("js-description-info-pair")[0],
-			"outer-dividing-container--half-width"
-		);
-		if (props.reduxContainerName === projectContainerName) {
+		if (
+			reduxState[sizeContainerName].constants
+				.itemContainerOuterDividingContainerMinWidth !== null
+		) {
 			manageSizeOfItemBoxsInPairContainer(
-				document.getElementsByClassName("js-bug-info-pair")[0],
-				"outer-dividing-container--half-width"
+				document.getElementsByClassName("js-description-info-pair")[0],
+				"outer-dividing-container--half-width",
+				reduxState[sizeContainerName].constants
+					.itemContainerOuterDividingContainerMinWidth
 			);
+			if (props.reduxContainerName === projectContainerName) {
+				manageSizeOfItemBoxsInPairContainer(
+					document.getElementsByClassName("js-projects-bug-info-pair")[0],
+					"outer-dividing-container--half-width",
+					reduxState[sizeContainerName].constants
+						.itemContainerOuterDividingContainerMinWidth
+				);
+			}
 		}
-	}, []);
+	}, [
+		reduxState[sizeContainerName].constants
+			.itemContainerOuterDividingContainerMinWidth,
+	]);
 
 	const getStatusBoxColorClassName = () => {
 		if (props.reduxContainerName === projectContainerName) {
@@ -187,7 +200,7 @@ export default function ItemContainerDisplayInfo(props) {
 				</div>
 			</div>
 			{props.reduxContainerName !== projectContainerName ? null : (
-				<div className="pair-container js-bug-info-pair">
+				<div className="pair-container js-projects-bug-info-pair">
 					<div className="outer-dividing-container outer-dividing-container--half-width">
 						<div className="item-box">
 							<h2 className="item-box__title">Status of Bugs</h2>

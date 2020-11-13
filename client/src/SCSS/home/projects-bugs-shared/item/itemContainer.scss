@@ -1,7 +1,8 @@
 @import "../../../utils/variables";
 @import "../../../utils//mixins";
 
-.item-container-component {
+.item-container-component,
+.js-calc-item-container-component {
 	.item-container {
 		position: fixed;
 		top: $navbar-height + $top-bar-height + $top-bar-border-width;
@@ -24,7 +25,8 @@
 
 	// Must be a seperate div inside .item-content-container so the padding
 	// ...does not affect the resize so it goes beyond the modal
-	.padding-container {
+	.padding-container,
+	.js-calc-padding-container {
 		padding: 0px 25px 25px 25px;
 	}
 
@@ -41,7 +43,8 @@
 	}
 
 	// Seperates item-boxs
-	.outer-dividing-container {
+	.outer-dividing-container,
+	.js-calc-outer-dividing-container {
 		float: left;
 		width: 100%;
 		min-width: $item-container-outer-dividing-container-min-width;

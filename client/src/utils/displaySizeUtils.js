@@ -53,7 +53,7 @@ export function calcScrollbarWidth() {
 
 export function calcSearchFilterSortBarHeight() {
 	const invisibleSearchFilterSortBarElement = document.createElement("div");
-	invisibleSearchFilterSortBarElement.className = "search-filter-sort-component";
+	invisibleSearchFilterSortBarElement.className = "js-search-filter-sort-component";
 	invisibleSearchFilterSortBarElement.visibility = "hidden";
 	document.body.appendChild(invisibleSearchFilterSortBarElement);
 
@@ -65,7 +65,7 @@ export function calcSearchFilterSortBarHeight() {
 
 export function calcViewItemTopBarHeight() {
 	const invisibleTopBarElement = document.createElement("div");
-	invisibleTopBarElement.className = "top-bar-component";
+	invisibleTopBarElement.className = "js-calc-top-bar-component";
 	invisibleTopBarElement.visibility = "hidden";
 	document.body.appendChild(invisibleTopBarElement);
 
@@ -76,15 +76,51 @@ export function calcViewItemTopBarHeight() {
 }
 
 export function calcItemContainerListSidebarWidth() {
-	const outerDividingContainerElement = document.createElement("div");
-	outerDividingContainerElement.className = "list-sidebar-component";
-	outerDividingContainerElement.visibility = "hidden";
-	document.body.appendChild(outerDividingContainerElement);
+	const invisibleListSidebarElement = document.createElement("div");
+	invisibleListSidebarElement.className = "js-calc-list-sidebar-component";
+	invisibleListSidebarElement.visibility = "hidden";
+	document.body.appendChild(invisibleListSidebarElement);
 
-	const width = getElementSize(outerDividingContainerElement).width;
-	outerDividingContainerElement.parentNode.removeChild(
-		outerDividingContainerElement
+	const width = getElementSize(invisibleListSidebarElement).width;
+	invisibleListSidebarElement.parentNode.removeChild(
+		invisibleListSidebarElement
 	);
 
 	return { width: width };
+}
+
+export function calcItemContainerOuterDividingContainerMinWidth() {
+	const invisibleItemContainerComponentElement = document.createElement("div");
+	invisibleItemContainerComponentElement.className = "js-calc-item-container-component";
+	invisibleItemContainerComponentElement.visibility = "hidden";
+	document.body.appendChild(invisibleItemContainerComponentElement);
+	const invisibleOuterDividingContainerElement = document.createElement("div");
+	invisibleOuterDividingContainerElement.className = "js-calc-outer-dividing-container";
+	invisibleOuterDividingContainerElement.visibility = "hidden";
+	invisibleItemContainerComponentElement.appendChild(invisibleOuterDividingContainerElement);
+
+	const minWidth = stripNonDigits(getElementStyle(invisibleOuterDividingContainerElement).minWidth);
+	invisibleItemContainerComponentElement.parentNode.removeChild(
+		invisibleItemContainerComponentElement
+	);
+
+	return minWidth;
+}
+
+export function calcItemContainerPaddingContainerPadding() {
+	const invisibleItemContainerComponentElement = document.createElement("div");
+	invisibleItemContainerComponentElement.className = "js-calc-item-container-component";
+	invisibleItemContainerComponentElement.visibility = "hidden";
+	document.body.appendChild(invisibleItemContainerComponentElement);
+	const invisiblePaddingContainerElement = document.createElement("div");
+	invisiblePaddingContainerElement.className = "js-calc-padding-container";
+	invisiblePaddingContainerElement.visibility = "hidden";
+	invisibleItemContainerComponentElement.appendChild(invisiblePaddingContainerElement);
+
+	const padding = stripNonDigits(getElementStyle(invisiblePaddingContainerElement).paddingLeft);
+	invisibleItemContainerComponentElement.parentNode.removeChild(
+		invisibleItemContainerComponentElement
+	);
+
+	return padding;
 }
