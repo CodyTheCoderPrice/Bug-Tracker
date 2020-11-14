@@ -53,7 +53,7 @@ export function calcScrollbarWidth() {
 
 export function calcSearchFilterSortBarHeight() {
 	const invisibleSearchFilterSortBarElement = document.createElement("div");
-	invisibleSearchFilterSortBarElement.className = "js-search-filter-sort-component";
+	invisibleSearchFilterSortBarElement.className = "js-calc-search-filter-sort-component";
 	invisibleSearchFilterSortBarElement.visibility = "hidden";
 	document.body.appendChild(invisibleSearchFilterSortBarElement);
 

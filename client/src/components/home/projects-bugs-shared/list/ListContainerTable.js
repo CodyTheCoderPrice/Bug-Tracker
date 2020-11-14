@@ -42,6 +42,9 @@ export default function ListContainerTable(props) {
 				reduxState[sizeContainerName].constants.listcontainerSearchFilterSortBar
 					.height +
 				"px";
+
+			listTableContainerElement.style.width =
+				reduxState[sizeContainerName].variables.window.width + "px";
 		}
 		// eslint-disable-next-line
 	}, [
