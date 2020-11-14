@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	sizeContainerName,
 	projectContainerName,
+	bugContainerName,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -24,13 +25,15 @@ export default function ListContainerTable(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Adjusts the height of the table to fit the screen
+	// Adjusts the height and width of the table to fit the screen
+	// ...as well as adjust the height of empty-list-message-container
+	// ...(if it is present)
 	useEffect(() => {
 		if (
 			reduxState[sizeContainerName].variables.window !== null &&
 			reduxState[sizeContainerName].variables.navbar !== null &&
 			reduxState[sizeContainerName].constants
-				.listcontainerSearchFilterSortBar !== null
+				.listContainerSearchFilterSortBar !== null
 		) {
 			const listTableContainerElement = document.getElementsByClassName(
 				"js-list-table-container"
@@ -39,12 +42,35 @@ export default function ListContainerTable(props) {
 			listTableContainerElement.style.height =
 				reduxState[sizeContainerName].variables.window.height -
 				reduxState[sizeContainerName].variables.navbar.height -
-				reduxState[sizeContainerName].constants.listcontainerSearchFilterSortBar
+				reduxState[sizeContainerName].constants.listContainerSearchFilterSortBar
 					.height +
 				"px";
 
 			listTableContainerElement.style.width =
 				reduxState[sizeContainerName].variables.window.width + "px";
+
+			// If empty-list-message-container is present
+			if (
+				(props.reduxContainerName === projectContainerName &&
+					reduxState[props.reduxContainerName].list.length < 1) ||
+				(props.reduxContainerName === bugContainerName &&
+					reduxState[props.reduxContainerName].list.filter(
+						(item) =>
+							item.project_id ===
+							reduxState[projectContainerName].componentsDisplay.targetItem.id
+					).length < 1)
+			) {
+				const emptyListMessageContainer = document.getElementsByClassName(
+					"js-empty-list-message-container"
+				)[0];
+				emptyListMessageContainer.style.height =
+					reduxState[sizeContainerName].variables.window.height -
+					reduxState[sizeContainerName].variables.navbar.height -
+					reduxState[sizeContainerName].constants
+						.listContainerSearchFilterSortBar.height -
+					reduxState[sizeContainerName].constants.listContainerTableRowHeight +
+					"px";
+			}
 		}
 		// eslint-disable-next-line
 	}, [
@@ -215,10 +241,36 @@ export default function ListContainerTable(props) {
 							/>
 						);
 					})}
-					{/*Creates an empty space at the bottom*/}
-					<tr className="list-table__row--empty" />
+					{/*If the list has items, creates an empty space at the bottom of the table*/}
+					{(props.reduxContainerName === projectContainerName &&
+						reduxState[props.reduxContainerName].list.length > 0) ||
+					(props.reduxContainerName === bugContainerName &&
+						reduxState[props.reduxContainerName].list.filter(
+							(item) =>
+								item.project_id ===
+								reduxState[projectContainerName].componentsDisplay.targetItem.id
+						).length > 0) ? (
+						<tr className="list-table__row--empty" />
+					) : null}
 				</tbody>
 			</table>
+			{/*If the list has no items, displays a message saying list is empty*/}
+			{(props.reduxContainerName === projectContainerName &&
+				reduxState[props.reduxContainerName].list.length > 0) ||
+			(props.reduxContainerName === bugContainerName &&
+				reduxState[props.reduxContainerName].list.filter(
+					(item) =>
+						item.project_id ===
+						reduxState[projectContainerName].componentsDisplay.targetItem.id
+				).length > 0) ? null : (
+				<div className="empty-list-message-centering-container js-empty-list-message-container">
+					<div className="empty-list-message-centering-container__message">
+						{props.reduxContainerName === projectContainerName
+							? "Account has no projects created."
+							: "This project has no bugs tracked"}
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }

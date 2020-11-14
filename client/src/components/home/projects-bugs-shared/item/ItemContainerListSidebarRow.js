@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	projectContainerName,
-	bugContainerName,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -11,34 +10,11 @@ import {
 	setWhichBugComponentsDisplay,
 } from "../../../../actions";
 
-import { toggleClassName } from "../../../../utils/elementUtils";
-
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerSidebarTableAndRows.scss";
 
 export default function ItemContainerListSidebarRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
-
-	/* useEffect(() => {
-		if (
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem !== null
-		) {
-			toggleClassName(
-				reduxState[props.reduxContainerName].componentsDisplay.targetItem.id ===
-					props.item.id,
-				document.getElementsByClassName(
-					"js-list-sidebar__table-row-" + props.item.id
-				)[0],
-				"list-sidebar__table__row--selected"
-			);
-		}
-		// eslint-disable-next-line
-	}, [
-		// eslint-disable-next-line
-		reduxState[projectContainerName].componentsDisplay.targetItem,
-		// eslint-disable-next-line
-		reduxState[bugContainerName].componentsDisplay.targetItem,
-	]); */
 
 	const openItemContainer = () => {
 		if (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { projectContainerName } from "../../../../reducers/containerNames";
+import { projectContainerName, bugContainerName } from "../../../../reducers/containerNames";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,
@@ -94,7 +94,20 @@ export default function ListContainerSearchFilterSortBar(props) {
 		<div className="search-filter-sort-component ">
 			<div className="centering-container js-new-item-button-centering-container">
 				<div
-					className="centering-container__new-item-button"
+					className={
+						"centering-container__new-item-button" +
+						((props.reduxContainerName === projectContainerName &&
+							reduxState[props.reduxContainerName].list.length > 0) ||
+						(props.reduxContainerName === bugContainerName &&
+							reduxState[props.reduxContainerName].list.filter(
+								(item) =>
+									item.project_id ===
+									reduxState[projectContainerName].componentsDisplay.targetItem
+										.id
+							).length > 0)
+							? ""
+							: " centering-container__new-item-button--highlighted")
+					}
 					onClick={openCreateItemSidebar}
 				>
 					<span className="centering-container__new-item-button__text">
@@ -216,6 +229,28 @@ export default function ListContainerSearchFilterSortBar(props) {
 					</div>
 				</div>
 			</div>
+			{/*If the list has no items, displays a message to create one*/}
+			{(props.reduxContainerName === projectContainerName &&
+				reduxState[props.reduxContainerName].list.length > 0) ||
+			(props.reduxContainerName === bugContainerName &&
+				reduxState[props.reduxContainerName].list.filter(
+					(item) =>
+						item.project_id ===
+						reduxState[projectContainerName].componentsDisplay.targetItem.id
+				).length > 0) ? null : (
+				<div className="create-item-message-container">
+					<div className="create-item-message-container__arrow-head" />
+					<div className="create-item-message-container__arrow-stock" />
+					<div className="create-item-message-container__bend-message-centering-container">
+						<div className="create-item-message-container__bend-message-centering-container__arrow-bend" />
+						<div className="create-item-message-container__bend-message-centering-container__message">
+							{props.reduxContainerName === projectContainerName
+								? "Click to create a project."
+								: "Click to track a bug."}
+						</div>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }

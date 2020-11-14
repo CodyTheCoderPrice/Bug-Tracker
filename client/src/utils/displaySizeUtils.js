@@ -51,7 +51,7 @@ export function calcScrollbarWidth() {
 	return { width: scrollbarWidth };
 }
 
-export function calcSearchFilterSortBarHeight() {
+export function calcListContainerSearchFilterSortBarHeight() {
 	const invisibleSearchFilterSortBarElement = document.createElement("div");
 	invisibleSearchFilterSortBarElement.className = "js-calc-search-filter-sort-component";
 	invisibleSearchFilterSortBarElement.visibility = "hidden";
@@ -61,6 +61,30 @@ export function calcSearchFilterSortBarHeight() {
 	invisibleSearchFilterSortBarElement.parentNode.removeChild(invisibleSearchFilterSortBarElement);
 
 	return { height: height };
+}
+
+export function calcListContainerTableRowHeight() {
+	const invisibleListContainerComponentElement = document.createElement("div");
+	invisibleListContainerComponentElement.className = "js-calc-list-table-component";
+	invisibleListContainerComponentElement.visibility = "hidden";
+	document.body.appendChild(invisibleListContainerComponentElement);
+
+	const invisibleListTableElement = document.createElement("div");
+	invisibleListTableElement.className = "js-calc-list-table";
+	invisibleListTableElement.visibility = "hidden";
+	invisibleListContainerComponentElement.appendChild(invisibleListTableElement);
+
+	const invisibleListTableRowElement = document.createElement("div");
+	invisibleListTableRowElement.className = "js-calc-list-table__row";
+	invisibleListTableRowElement.visibility = "hidden";
+	invisibleListTableElement.appendChild(invisibleListTableRowElement);
+
+	const height = getElementSize(invisibleListTableRowElement).height;
+	invisibleListContainerComponentElement.parentNode.removeChild(
+		invisibleListContainerComponentElement
+	);
+
+	return height;
 }
 
 export function calcViewItemTopBarHeight() {
@@ -94,6 +118,7 @@ export function calcItemContainerOuterDividingContainerMinWidth() {
 	invisibleItemContainerComponentElement.className = "js-calc-item-container-component";
 	invisibleItemContainerComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleItemContainerComponentElement);
+
 	const invisibleOuterDividingContainerElement = document.createElement("div");
 	invisibleOuterDividingContainerElement.className = "js-calc-outer-dividing-container";
 	invisibleOuterDividingContainerElement.visibility = "hidden";
@@ -112,6 +137,7 @@ export function calcItemContainerPaddingContainerPadding() {
 	invisibleItemContainerComponentElement.className = "js-calc-item-container-component";
 	invisibleItemContainerComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleItemContainerComponentElement);
+
 	const invisiblePaddingContainerElement = document.createElement("div");
 	invisiblePaddingContainerElement.className = "js-calc-padding-container";
 	invisiblePaddingContainerElement.visibility = "hidden";

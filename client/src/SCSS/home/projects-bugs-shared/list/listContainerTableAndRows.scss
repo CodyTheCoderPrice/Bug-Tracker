@@ -1,9 +1,11 @@
 @import "../../../utils/variables";
 @import "../../../utils//mixins";
 
-.list-table-component {
+.list-table-component,
+.js-calc-list-table-component {
 	position: fixed;
-	top: $navbar-height + $search-filter-sort-bar-height + $search-filter-sort-bar-border-width;
+	top: $navbar-height + $search-filter-sort-bar-height +
+		$search-filter-sort-bar-border-width;
 	left: 0px;
 	background-color: $list-table-background-color;
 	// Height and width values were found through trial and error
@@ -15,14 +17,16 @@
 	overflow-y: auto !important;
 	overflow-x: auto !important;
 
-	.list-table {
-		position: absolute;
+	.list-table,
+	.js-calc-list-table {
+		position: relative;
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
 		min-width: $list-table-min-width;
 	}
 
-	.list-table__row {
+	.list-table__row,
+	.js-calc-list-table__row {
 		padding: 5px;
 		height: $list-item-table-row-height;
 		text-align: center;
@@ -115,10 +119,10 @@
 		height: 100%;
 		width: 100%;
 	}
-	
+
 	.list-table__data__centering-container__status-box {
 		@include dead-center();
-		
+
 		background-color: gray;
 		color: white;
 		height: $status-box-height;
@@ -144,7 +148,7 @@
 	.list-table__data__centering-container__status-box--red {
 		background-color: $status-red;
 	}
-	
+
 	.list-table__data__centering-container__status-box__centered-info {
 		@include dead-center();
 		white-space: nowrap;
@@ -154,5 +158,21 @@
 
 	.list-table__data__checkbox {
 		cursor: pointer;
+	}
+
+	.empty-list-message-centering-container {
+		position: relative;
+		height: 90%;
+		min-height: 300px;
+		width: 100%;
+	}
+
+	.empty-list-message-centering-container__message {
+		@include dead-center();
+		
+		width: 90%;
+		text-align: center;
+		font-size: $list-container-empty-list-message-font-size;
+		color: gray;
 	}
 }

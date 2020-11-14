@@ -28,13 +28,17 @@
 		@include vertical-center();
 
 		margin-left: 30px;
-		border: 1px solid black;
+		border: $search-filter-sort-bar-new-item-button-border-width solid black;
 		background-color: white;
 		height: $search-filter-sort-bar-button-height;
 		width: 110px;
 		font-size: 16px;
 		text-align: center;
 		cursor: pointer;
+	}
+
+	.centering-container__new-item-button--highlighted {
+		border: ($search-filter-sort-bar-new-item-button-border-width + 1) solid red;
 	}
 
 	.centering-container__new-item-button__text {
@@ -172,5 +176,49 @@
 	.filter-area-container__dropdown-container__content-dropdown__content__block__checkbox,
 	.filter-area-container__dropdown-container__content-dropdown__content__block__label {
 		margin: 5px 3px 5px 3px;
+	}
+
+	.create-item-message-container {
+		position: absolute;
+		top: $search-filter-sort-bar-height + 10;
+		left: 95px;
+	}
+
+	.create-item-message-container__arrow-head {
+		width: 0;
+		height: 0;
+		border-left: 14px solid transparent;
+		border-right: 14px solid transparent;
+		border-bottom: 14px solid black;
+	}
+
+	.create-item-message-container__arrow-stock {
+		background-color: black;
+		margin-left: 11px;
+		height: 50px;
+		width: 6px;
+	}
+
+	.create-item-message-container__bend-message-centering-container {
+		position: relative;
+		margin: -12px 0px 0px 11px;
+		height: 30px;
+		width: 300px;
+	}
+
+	.create-item-message-container__bend-message-centering-container__arrow-bend {
+		@include vertical-center();
+
+		background-color: black;
+		height: 6px;
+		width: 20px;
+	}
+
+	.create-item-message-container__bend-message-centering-container__message {
+		@include vertical-center();
+
+		left: 25px;
+		font-size: $search-filter-sort-create-item-message-font-size;
+		color: red;
 	}
 }

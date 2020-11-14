@@ -20,7 +20,8 @@ import {
 	getWindowSize,
 	getElementSize,
 	calcScrollbarWidth,
-	calcSearchFilterSortBarHeight,
+	calcListContainerSearchFilterSortBarHeight,
+	calcListContainerTableRowHeight,
 	calcViewItemTopBarHeight,
 	calcItemContainerListSidebarWidth,
 	calcItemContainerOuterDividingContainerMinWidth,
@@ -49,7 +50,8 @@ export default function Navbar() {
 				navbarBugsButton: getElementSize(
 					document.getElementsByClassName("js-bug-list-button")[0]
 				),
-				listcontainerSearchFilterSortBar: calcSearchFilterSortBarHeight(),
+				listContainerSearchFilterSortBar: calcListContainerSearchFilterSortBarHeight(),
+				listContainerTableRowHeight: calcListContainerTableRowHeight(),
 				itemContainerTopBar: calcViewItemTopBarHeight(),
 				itemContainerListSidebar: calcItemContainerListSidebarWidth(),
 				itemContainerOuterDividingContainerMinWidth: calcItemContainerOuterDividingContainerMinWidth(),

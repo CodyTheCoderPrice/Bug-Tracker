@@ -5,7 +5,8 @@ const initialState = {
 	navbarAccountButton: null,
 	navbarProjectsButton: null,
 	navbarBugsButton: null,
-	listcontainerSearchFilterSortBar: null,
+	listContainerSearchFilterSortBar: null,
+	listContainerTableRowHeight: null,
 	itemContainerTopBar: null,
 	itemContainerListSidebar: null,
 	itemContainerOuterDividingContainerMinWidth: null,
@@ -20,8 +21,9 @@ export default function (state = initialState, action) {
 				navbarAccountButton: action.sizes.navbarAccountButton,
 				navbarProjectsButton: action.sizes.navbarProjectsButton,
 				navbarBugsButton: action.sizes.navbarBugsButton,
-				listcontainerSearchFilterSortBar:
-					action.sizes.listcontainerSearchFilterSortBar,
+				listContainerSearchFilterSortBar:
+					action.sizes.listContainerSearchFilterSortBar,
+				listContainerTableRowHeight: action.sizes.listContainerTableRowHeight,
 				itemContainerTopBar: action.sizes.itemContainerTopBar,
 				itemContainerListSidebar: action.sizes.itemContainerListSidebar,
 				itemContainerOuterDividingContainerMinWidth:

@@ -81,6 +81,7 @@ $item-search-bar-margin-left: 10px;
 // Borders
 //==========
 $search-filter-sort-bar-border-width: 1px;
+$search-filter-sort-bar-new-item-button-border-width: 1px;
 $list-search-bar-border-width: 2px;
 $list-item-search-bar-group-container-border-width: 1px;
 $top-bar-border-width: 1px;
@@ -98,6 +99,8 @@ $edit-item-name-input-padding: 4px;
 //======
 $base-font-size: 15px;
 $slightly-larger-font-size: $base-font-size + 1px;
+$search-filter-sort-create-item-message-font-size: 24px;
+$list-container-empty-list-message-font-size: 32px;
 $item-container-name-font-size: 28px;
 $common-line-height: 20px;
 
