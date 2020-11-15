@@ -7,6 +7,7 @@ import { SET_LIST } from "./constants/types";
 import {
 	setInputErrors,
 	logoutAccount,
+	setComments,
 	setWhichBugComponentsDisplay,
 	setProjectOrBugMassDeleteList,
 } from "./index";
@@ -95,8 +96,9 @@ export const deleteBug = (id, massDeleteList, indexOfTargetBugId) => (
 	axios
 		.post("/api/bug/delete", id, headers)
 		.then((res) => {
-			const { bugs } = res.data;
+			const { bugs, comments } = res.data;
 			dispatch(setBugs(bugs));
+			dispatch(setComments(comments));
 			// Done here so following code only runs if deletion is succesful
 			if (indexOfTargetBugId > -1) {
 				massDeleteList.splice(indexOfTargetBugId, 1);
@@ -126,8 +128,9 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 	axios
 		.post("/api/bug/delete-multiple", { bugsArray: massDeleteList }, headers)
 		.then((res) => {
-			const { bugs } = res.data;
+			const { bugs, comments } = res.data;
 			dispatch(setBugs(bugs));
+			dispatch(setComments(comments));
 			// Done here so following code only runs if deletion is succesful
 			dispatch(setProjectOrBugMassDeleteList(bugContainerName, []));
 			dispatch(
@@ -135,6 +138,7 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 					...bugComponentsDisplay,
 					listContainerMassDeleteItemsModal: false,
 					targetItem:
+						bugComponentsDisplay.targetItem === null ||
 						massDeleteList.filter(
 							(itemId) => itemId === bugComponentsDisplay.targetItem.id
 						).length > 0

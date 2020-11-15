@@ -271,7 +271,26 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			[account_id]
 		);
 
-		res.json({ success: true, bugs: allBugsForAccount.rows });
+		// Since not all requests have access to bug_id,
+		// ...this querry gets it using account_id
+		const allCommentsForAccount = await pool.query(
+			`WITH c AS 
+				(SELECT * FROM comment WHERE bug_id IN
+					(SELECT bug_id FROM bug WHERE project_id IN 
+						(SELECT project_id FROM project WHERE account_id = $1)
+					)
+				)
+			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+				FROM c
+					ORDER BY c.comment_id`,
+			[account_id]
+		);
+
+		res.json({
+			success: true,
+			bugs: allBugsForAccount.rows,
+			comments: allCommentsForAccount.rows,
+		});
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.serverItem = "Server error while deleting bug";
@@ -337,7 +356,26 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			[account_id]
 		);
 
-		res.json({ success: true, bugs: allBugsForAccount.rows });
+		// Since not all requests have access to bug_id,
+		// ...this querry gets it using account_id
+		const allCommentsForAccount = await pool.query(
+			`WITH c AS 
+				(SELECT * FROM comment WHERE bug_id IN
+					(SELECT bug_id FROM bug WHERE project_id IN 
+						(SELECT project_id FROM project WHERE account_id = $1)
+					)
+				)
+			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+				FROM c
+					ORDER BY c.comment_id`,
+			[account_id]
+		);
+
+		res.json({
+			success: true,
+			bugs: allBugsForAccount.rows,
+			comments: allCommentsForAccount.rows,
+		});
 	} catch (err) {
 		console.error(err.message);
 		inputErrors.serverItem = "Server error while deleting bug";

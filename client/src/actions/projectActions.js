@@ -7,6 +7,8 @@ import { SET_LIST } from "./constants/types";
 import {
 	setInputErrors,
 	logoutAccount,
+	setBugs,
+	setComments,
 	setWhichProjectComponentsDisplay,
 	setProjectOrBugMassDeleteList,
 } from "./index";
@@ -99,8 +101,10 @@ export const deleteProject = (id, massDeleteList, indexOfTargetProjectId) => (
 	axios
 		.post("/api/project/delete", id, headers)
 		.then((res) => {
-			const { projects } = res.data;
+			const { projects, bugs, comments } = res.data;
 			dispatch(setProjects(projects));
+			dispatch(setBugs(bugs));
+			dispatch(setComments(comments));
 			// Done here so following code only runs if deletion is succesful
 			if (indexOfTargetProjectId > -1) {
 				massDeleteList.splice(indexOfTargetProjectId, 1);
@@ -135,8 +139,11 @@ export const deleteMultipleProjects = (
 			headers
 		)
 		.then((res) => {
-			const { projects } = res.data;
+			console.log(res.data);
+			const { projects, bugs, comments } = res.data;
 			dispatch(setProjects(projects));
+			dispatch(setBugs(bugs));
+			dispatch(setComments(comments));
 			// Done here so following code only runs if deletion is succesful
 			dispatch(setProjectOrBugMassDeleteList(projectContainerName, []));
 			dispatch(
@@ -144,9 +151,10 @@ export const deleteMultipleProjects = (
 					...projectComponentsDisplay,
 					listContainerMassDeleteItemsModal: false,
 					targetItem:
-						(massDeleteList.filter(
+						projectComponentsDisplay.targetItem === null ||
+						massDeleteList.filter(
 							(itemId) => itemId === projectComponentsDisplay.targetItem.id
-						).length > 0)
+						).length > 0
 							? null
 							: projectComponentsDisplay.targetItem,
 				})
