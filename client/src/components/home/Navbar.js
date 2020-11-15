@@ -262,6 +262,8 @@ export default function Navbar() {
 				...reduxState[bugContainerName].componentsDisplay,
 				// Keeps the user on their current tab (since the user can close a bug from the project tab)
 				listContainer:
+					reduxState[bugContainerName].componentsDisplay.listContainer ===
+						true ||
 					reduxState[bugContainerName].componentsDisplay.itemContainer === true
 						? true
 						: false,
