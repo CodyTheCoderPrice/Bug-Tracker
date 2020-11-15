@@ -20,10 +20,7 @@ import {
 
 import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
 
-import {
-	toggleCharCountColor,
-	populateComboBox,
-} from "../../../../utils/elementUtils";
+import { populateComboBox } from "../../../../utils/elementUtils";
 
 import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
@@ -160,36 +157,6 @@ export default function ItemContainerEditInfo(props) {
 			.itemContainerOuterDividingContainerMinWidth,
 	]);
 
-	useEffect(() => {
-		toggleCharCountColor(
-			document.getElementsByClassName("js-edit-name-char-counter")[0],
-			itemInfo.name.length,
-			nameCharLimit
-		);
-		// eslint-disable-next-line
-	}, [itemInfo.name]);
-
-	useEffect(() => {
-		toggleCharCountColor(
-			document.getElementsByClassName("js-edit-description-char-counter")[0],
-			itemInfo.description.length,
-			descriptionCharLimit
-		);
-		// eslint-disable-next-line
-	}, [itemInfo.description]);
-
-	useEffect(() => {
-		// Prevents error for projects (which don't have location)
-		if (itemInfo.location.length > 0) {
-			toggleCharCountColor(
-				document.getElementsByClassName("js-edit-location-char-counter")[0],
-				itemInfo.location.length,
-				locationCharLimit
-			);
-		}
-		// eslint-disable-next-line
-	}, [itemInfo.location]);
-
 	const switchToDisplayItemInfo = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
@@ -242,12 +209,12 @@ export default function ItemContainerEditInfo(props) {
 						.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
-					<div className="name-centering-container__completed-icon-centering-container">
-						<i
-							className="fa fa-check name-centering-container__completed-icon-centering-container__icon"
-							aria-hidden="true"
-						/>
-					</div>
+						<div className="name-centering-container__completed-icon-centering-container">
+							<i
+								className="fa fa-check name-centering-container__completed-icon-centering-container__icon"
+								aria-hidden="true"
+							/>
+						</div>
 					)}
 					<input
 						type="text"
@@ -268,7 +235,12 @@ export default function ItemContainerEditInfo(props) {
 						}
 					/>
 					<div className="name-centering-container__char-count-centering-container">
-						<span className="name-centering-container__char-count-centering-container__name-char-counter js-edit-name-char-counter">
+						<span
+							className={
+								"name-centering-container__char-count-centering-container__name-char-counter" +
+								(itemInfo.name.length > nameCharLimit ? " text-red" : "")
+							}
+						>
 							{itemInfo.name.length + "/" + nameCharLimit}
 						</span>
 					</div>
@@ -288,7 +260,14 @@ export default function ItemContainerEditInfo(props) {
 								Description
 							</h2>
 						</label>
-						<span className="item-box__form-char-counter js-edit-description-char-counter">
+						<span
+							className={
+								"item-box__form-char-counter" +
+								(itemInfo.description.length > descriptionCharLimit
+									? " text-red"
+									: "")
+							}
+						>
 							{itemInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
@@ -315,9 +294,16 @@ export default function ItemContainerEditInfo(props) {
 									htmlFor="edit-item-location"
 									className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
 								>
-									Location:{" "}
+									Location:
 								</label>
-								<span className="item-box__form-char-counter js-edit-location-char-counter">
+								<span
+									className={
+										"item-box__form-char-counter" +
+										(itemInfo.location.length > locationCharLimit
+											? " text-red"
+											: "")
+									}
+								>
 									{itemInfo.location.length + "/" + locationCharLimit}
 								</span>
 								<input

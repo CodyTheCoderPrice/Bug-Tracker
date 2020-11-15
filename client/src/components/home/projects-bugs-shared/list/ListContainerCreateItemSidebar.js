@@ -16,7 +16,6 @@ import {
 
 import {
 	toggleClassName,
-	toggleCharCountColor,
 	populateComboBox,
 } from "../../../../utils/elementUtils";
 
@@ -119,36 +118,6 @@ export default function ListContainerCreateItemSidebar(props) {
 		// eslint-disable-next-line
 	}, []);
 
-	useEffect(() => {
-		toggleCharCountColor(
-			document.getElementsByClassName("js-create-name-char-counter")[0],
-			itemInfo.name.length,
-			nameCharLimit
-		);
-		// eslint-disable-next-line
-	}, [itemInfo.name]);
-
-	useEffect(() => {
-		toggleCharCountColor(
-			document.getElementsByClassName("js-create-description-char-counter")[0],
-			itemInfo.description.length,
-			descriptionCharLimit
-		);
-		// eslint-disable-next-line
-	}, [itemInfo.description]);
-
-	useEffect(() => {
-		// Prevents error for projects (which don't have location)
-		if (itemInfo.location.length > 0) {
-			toggleCharCountColor(
-				document.getElementsByClassName("js-create-location-char-counter")[0],
-				itemInfo.location.length,
-				locationCharLimit
-			);
-		}
-		// eslint-disable-next-line
-	}, [itemInfo.location]);
-
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers
 		if (e.target.name === "status_id" || e.target.name === "priority_id") {
@@ -221,7 +190,12 @@ export default function ListContainerCreateItemSidebar(props) {
 						<label htmlFor="create-item-name" className="form__label">
 							Name:{" "}
 						</label>
-						<span className="form__char-counter js-create-name-char-counter">
+						<span
+							className={
+								"form__char-counter" +
+								(itemInfo.name.length > nameCharLimit ? " text-red" : "")
+							}
+						>
 							{itemInfo.name.length + "/" + nameCharLimit}
 						</span>
 						<input
@@ -238,7 +212,14 @@ export default function ListContainerCreateItemSidebar(props) {
 						<label htmlFor="create-item-description" className="form__label">
 							Description:{" "}
 						</label>
-						<span className="form__char-counter js-create-description-char-counter">
+						<span
+							className={
+								"form__char-counter" +
+								(itemInfo.description.length > descriptionCharLimit
+									? " text-red"
+									: "")
+							}
+						>
 							{itemInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
@@ -259,7 +240,14 @@ export default function ListContainerCreateItemSidebar(props) {
 								<label htmlFor="create-item-location" className="form__label">
 									Location:{" "}
 								</label>
-								<span className="form__char-counter js-create-location-char-counter">
+								<span
+									className={
+										"form__char-counter" +
+										(itemInfo.location.length > locationCharLimit
+											? " text-red"
+											: "")
+									}
+								>
 									{itemInfo.location.length + "/" + locationCharLimit}
 								</span>
 								<input

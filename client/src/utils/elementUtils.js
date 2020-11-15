@@ -1,14 +1,6 @@
 import React from "react";
 import { isEmpty } from "./basicUtils";
 
-export function toggleCharCountColor(
-	charCounterElement,
-	descriptionLength,
-	charLimit
-) {
-	toggleClassName(descriptionLength > charLimit, charCounterElement, "text-red");
-}
-
 export function displayGrayedOutNoneIfEmpty(itemValue) {
 	if (isEmpty(itemValue)) {
 		return <span className="grayed-out-none">None</span>;

@@ -14,7 +14,6 @@ import {
 } from "../../../../actions";
 
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
-import { toggleCharCountColor } from "../../../../utils/elementUtils";
 
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
@@ -65,22 +64,6 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		// eslint-disable-next-line
 		reduxState[commentContainerName].list.length,
 	]);
-
-	useEffect(() => {
-		if (
-			reduxState[commentContainerName].componentsDisplay.commentBeingEdited !==
-				null &&
-			reduxState[commentContainerName].componentsDisplay.commentBeingEdited
-				.id === props.comment.id
-		) {
-			toggleCharCountColor(
-				document.getElementsByClassName("js-edit-comment-char-counter")[0],
-				commentInfo.description.length,
-				descriptionCharLimit
-			);
-		}
-		// eslint-disable-next-line
-	}, [commentInfo.description]);
 
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers
@@ -162,7 +145,14 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 					</div>
 				) : (
 					<div>
-						<span className="item-box__form-char-counter js-edit-comment-char-counter">
+						<span
+							className={
+								"item-box__form-char-counter" +
+								(commentInfo.description.length > descriptionCharLimit
+									? " text-red"
+									: "")
+							}
+						>
 							{commentInfo.description.length + "/" + descriptionCharLimit}
 						</span>
 						<textarea
