@@ -52,7 +52,7 @@ export default function ListContainerTableRow(props) {
 		);
 
 		return (
-			" list-table__data__centering-container__status-box--" +
+			" status-box-background-color-" +
 			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
 		);
 	};

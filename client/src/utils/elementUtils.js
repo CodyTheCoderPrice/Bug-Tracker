@@ -7,28 +7,38 @@ export function displayGrayedOutNoneIfEmpty(itemValue) {
 	} else {
 		return itemValue;
 	}
-};
+}
 
-export function populateComboBox(selectElementClassName, array, id) {
-	const selectElement = document.getElementsByClassName(selectElementClassName)[0];
-
-	for (let i = 0; i < array.length; i++) {
+export function populateComboBox(
+	comboBoxElement,
+	populateList,
+	defaultSelectedValueId
+) {
+	for (let i = 0; i < populateList.length; i++) {
 		let optionElement = document.createElement("option");
 
-		// Makes the first item of the array the default selection
+		// Makes the first item of the populateList the default selection
 		if (i === 0) {
 			optionElement.selected = "selected";
 		}
 
-		optionElement.value = array[i].id;
-		optionElement.textContent = array[i].option;
-		selectElement.appendChild(optionElement);
+		optionElement.value = populateList[i].id;
+		optionElement.textContent = populateList[i].option;
+		if (populateList[i].color !== undefined) {
+			optionElement.className =
+				"status-box-text-color-" + populateList[i].color;
+		}
+		comboBoxElement.appendChild(optionElement);
 	}
 
-	selectElement.value = id;
+	comboBoxElement.value = defaultSelectedValueId;
 }
 
-export function toggleClassName(shouldHaveClassName, element, nameOfToggledClass) {
+export function toggleClassName(
+	shouldHaveClassName,
+	element,
+	nameOfToggledClass
+) {
 	if (shouldHaveClassName) {
 		if (!element.className.includes(nameOfToggledClass)) {
 			// Space is needed for nameOfToggledClass
@@ -36,10 +46,7 @@ export function toggleClassName(shouldHaveClassName, element, nameOfToggledClass
 			element.className = element.className + " " + nameOfToggledClass;
 		}
 	} else {
-		const regex = new RegExp("(?:^|\\s)"+nameOfToggledClass+"(?!\\S)", "g");
-		element.className = element.className.replace(
-			regex,
-			""
-		);
+		const regex = new RegExp("(?:^|\\s)" + nameOfToggledClass + "(?!\\S)", "g");
+		element.className = element.className.replace(regex, "");
 	}
 }

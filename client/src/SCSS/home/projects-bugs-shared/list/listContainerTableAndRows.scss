@@ -126,34 +126,11 @@
 
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to a status-box
+		// ...scss for other colors is in home.scss
 		background-color: black;
 		color: white;
 		height: $status-box-height;
 		width: 110px;
-	}
-
-	.list-table__data__centering-container__status-box--gray {
-		background-color: $status-gray;
-	}
-
-	.list-table__data__centering-container__status-box--blue {
-		background-color: $status-blue;
-	}
-
-	.list-table__data__centering-container__status-box--purple {
-		background-color: $status-purple;
-	}
-
-	.list-table__data__centering-container__status-box--orange {
-		background-color: $status-orange;
-	}
-
-	.list-table__data__centering-container__status-box--green {
-		background-color: $status-green;
-	}
-
-	.list-table__data__centering-container__status-box--red {
-		background-color: $status-red;
 	}
 
 	.list-table__data__centering-container__status-box__centered-info {

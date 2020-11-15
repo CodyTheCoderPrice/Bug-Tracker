@@ -35,34 +35,11 @@
 		margin-left: $display-item-field-margin-left;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to a status-box
+		// ...scss for other colors is in home.scss
 		background-color: black;
 		color: white;
 		height: $status-box-height;
 		width: 110px;
-	}
-
-	.item-box__group__field__status-box--gray {
-		background-color: $status-gray;
-	}
-
-	.item-box__group__field__status-box--blue {
-		background-color: $status-blue;
-	}
-
-	.item-box__group__field__status-box--purple {
-		background-color: $status-purple;
-	}
-
-	.item-box__group__field__status-box--orange {
-		background-color: $status-orange;
-	}
-
-	.item-box__group__field__status-box--green {
-		background-color: $status-green;
-	}
-
-	.item-box__group__field__status-box--red {
-		background-color: $status-red;
 	}
 	
 	.item-box__group__field__status-box__centered-content {

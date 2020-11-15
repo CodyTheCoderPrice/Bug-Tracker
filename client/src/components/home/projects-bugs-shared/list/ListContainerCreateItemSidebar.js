@@ -14,9 +14,7 @@ import {
 	clearInputErrors,
 } from "../../../../actions";
 
-import {
-	populateComboBox,
-} from "../../../../utils/elementUtils";
+import { populateComboBox } from "../../../../utils/elementUtils";
 
 import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
 import { useSidebarResize } from "../../../../utils/sidebarResizeHookUtils";
@@ -35,11 +33,11 @@ export default function ListContainerCreateItemSidebar(props) {
 		location: "",
 		// Sets default to the first option
 		priority_id:
-			reduxState[props.reduxContainerName].priorityStatusOptions
-				.priorityList[0].id,
+			reduxState[props.reduxContainerName].priorityStatusOptions.priorityList[0]
+				.id,
 		status_id:
-			reduxState[props.reduxContainerName].priorityStatusOptions
-				.statusList[0].id,
+			reduxState[props.reduxContainerName].priorityStatusOptions.statusList[0]
+				.id,
 		start_date: moment().format("YYYY-MM-DD"),
 		due_date: null,
 		completion_date: null,
@@ -92,18 +90,30 @@ export default function ListContainerCreateItemSidebar(props) {
 
 	useEffect(() => {
 		populateComboBox(
-			"js-priority-select",
-			reduxState[props.reduxContainerName].priorityStatusOptions
-				.priorityList,
+			document.getElementsByClassName("js-priority-select")[0],
+			reduxState[props.reduxContainerName].priorityStatusOptions.priorityList,
 			1
 		);
 		populateComboBox(
-			"js-status-select",
+			document.getElementsByClassName("js-status-select")[0],
 			reduxState[props.reduxContainerName].priorityStatusOptions.statusList,
 			1
 		);
 		// eslint-disable-next-line
 	}, []);
+
+	const getSelectTextColorClassName = () => {
+		const filteredStatusList = reduxState[
+			props.reduxContainerName
+		].priorityStatusOptions.statusList.filter(
+			(status) => status.id === itemInfo.status_id
+		);
+
+		return (
+			" status-box-text-color-" +
+			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
+		);
+	};
 
 	const onChange = (e) => {
 		// Since select option values are always strings while priority and status take integers
@@ -327,7 +337,10 @@ export default function ListContainerCreateItemSidebar(props) {
 									name="status_id"
 									onChange={(e) => onChange(e)}
 									id="create-item-status"
-									className="form__group-container__input-container__select js-status-select"
+									className={
+										"form__group-container__input-container__select js-status-select" +
+										getSelectTextColorClassName()
+									}
 								></select>
 							</div>
 						</div>

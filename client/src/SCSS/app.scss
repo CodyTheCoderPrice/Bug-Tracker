@@ -1,24 +1,4 @@
-@import "./utils/variables";
-@import "./utils//mixins";
-
 html, body {
 	width: 100%;
 	overflow: hidden;
-}
-
-//===============================
-// Bellow classes are used by JS
-//===============================
-
-// Used to turn character counters red when limit is gone over
-.text-red {
-	color: red;
-}
-
-// Used to to gray-out the word "none" for empty item fields
-.grayed-out-none {
-	@include stop-text-selection();
-
-	color: $dark-gray;
-	opacity: 0.7;
 }

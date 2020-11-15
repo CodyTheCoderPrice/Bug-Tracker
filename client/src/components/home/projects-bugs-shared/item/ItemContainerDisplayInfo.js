@@ -53,7 +53,7 @@ export default function ItemContainerDisplayInfo(props) {
 		);
 
 		return (
-			" item-box__group__field__status-box--" +
+			" status-box-background-color-" +
 			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
 		);
 	};

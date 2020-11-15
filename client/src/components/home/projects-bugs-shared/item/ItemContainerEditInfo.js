@@ -117,18 +117,30 @@ export default function ItemContainerEditInfo(props) {
 
 	useEffect(() => {
 		populateComboBox(
-			"js-item-priority-select",
-			reduxState[props.reduxContainerName].priorityStatusOptions
-				.priorityList,
+			document.getElementsByClassName("js-item-priority-select")[0],
+			reduxState[props.reduxContainerName].priorityStatusOptions.priorityList,
 			itemInfo.priority_id
 		);
 		populateComboBox(
-			"js-item-status-select",
+			document.getElementsByClassName("js-item-status-select")[0],
 			reduxState[props.reduxContainerName].priorityStatusOptions.statusList,
 			itemInfo.status_id
 		);
 		// eslint-disable-next-line
 	}, []);
+
+	const getSelectTextColorClassName = () => {
+		const filteredStatusList = reduxState[
+			props.reduxContainerName
+		].priorityStatusOptions.statusList.filter(
+			(status) => status.id === itemInfo.status_id
+		);
+
+		return (
+			" status-box-text-color-" +
+			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
+		);
+	};
 
 	useEffect(() => {
 		if (
@@ -398,7 +410,10 @@ export default function ItemContainerEditInfo(props) {
 									name="status_id"
 									onChange={(e) => onChange(e)}
 									id="edit-item-status"
-									className="item-box__group__field__form-select js-item-status-select"
+									className={
+										"item-box__group__field__form-select js-item-status-select" +
+										getSelectTextColorClassName()
+									}
 								></select>
 							</div>
 						</div>

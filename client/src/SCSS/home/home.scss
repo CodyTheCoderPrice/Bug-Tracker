@@ -1,8 +1,65 @@
 @import "../utils/variables";
+@import "../utils//mixins";
 
 .home-container {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
+
+	//======================================================
+	// Bellow class selectors are used by JS across project
+	//======================================================
+	// Used to turn character counters red when limit is gone over
+	.text-red {
+		color: red;
+	}
+
+	// Used to to gray-out the word "none" for empty item fields
+	.grayed-out-none {
+		@include stop-text-selection();
+
+		color: $dark-gray;
+		opacity: 0.7;
+	}
+
+	// Used for changing the background color of status-boxes
+	.status-box-background-color-gray {
+		background-color: $status-gray;
+	}
+	.status-box-background-color-blue {
+		background-color: $status-blue;
+	}
+	.status-box-background-color-purple {
+		background-color: $status-purple;
+	}
+	.status-box-background-color-orange {
+		background-color: $status-orange;
+	}
+	.status-box-background-color-green {
+		background-color: $status-green;
+	}
+	.status-box-background-color-red {
+		background-color: $status-red;
+	}
+
+	// Used to change text color in status combo-boxes
+	.status-box-text-color-gray {
+		color: $status-gray;
+	}
+	.status-box-text-color-blue {
+		color: $status-blue;
+	}
+	.status-box-text-color-purple {
+		color: $status-purple;
+	}
+	.status-box-text-color-orange {
+		color: $status-orange;
+	}
+	.status-box-text-color-green {
+		color: $status-green;
+	}
+	.status-box-text-color-red {
+		color: $status-red;
+	}
 }
