@@ -36,10 +36,10 @@ export default function ListContainerCreateItemSidebar(props) {
 		// Sets default to the first option
 		priority_id:
 			reduxState[props.reduxContainerName].priorityStatusOptions
-				.priorityOptions[0].id,
+				.priorityList[0].id,
 		status_id:
 			reduxState[props.reduxContainerName].priorityStatusOptions
-				.statusOptions[0].id,
+				.statusList[0].id,
 		start_date: moment().format("YYYY-MM-DD"),
 		due_date: null,
 		completion_date: null,
@@ -94,12 +94,12 @@ export default function ListContainerCreateItemSidebar(props) {
 		populateComboBox(
 			"js-priority-select",
 			reduxState[props.reduxContainerName].priorityStatusOptions
-				.priorityOptions,
+				.priorityList,
 			1
 		);
 		populateComboBox(
 			"js-status-select",
-			reduxState[props.reduxContainerName].priorityStatusOptions.statusOptions,
+			reduxState[props.reduxContainerName].priorityStatusOptions.statusList,
 			1
 		);
 		// eslint-disable-next-line

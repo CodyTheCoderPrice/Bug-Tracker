@@ -8,7 +8,7 @@ import {
 import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES,
-	SET_PRIORITY_STATUS_OPTIONS,
+	SET_PRIORITY_STATUS,
 	SET_INPUT_ERRORS,
 } from "./constants/types";
 
@@ -36,37 +36,37 @@ export const setDisplaySizeVariables = (sizes) => (dispatch) => {
 	});
 };
 
-export const setPriorityStatusArrays = (
-	projectPriorityStatusOptions,
-	bugPriorityStatusOptions
+export const setPriorityStatus = (
+	projectPriorityStatus,
+	bugPriorityStatus
 ) => (dispatch) => {
 	dispatch({
 		container: PROJECT_CONTAINER,
-		type: SET_PRIORITY_STATUS_OPTIONS,
-		priorityOptions: projectPriorityStatusOptions.priorityOptions,
-		priorityEmptyId: projectPriorityStatusOptions.priorityEmptyId,
-		statusOptions: projectPriorityStatusOptions.statusOptions,
-		statusEmptyId: projectPriorityStatusOptions.statusEmptyId,
-		statusCompletionId: projectPriorityStatusOptions.statusCompletionId,
+		type: SET_PRIORITY_STATUS,
+		priorityList: projectPriorityStatus.priorityList,
+		priorityEmptyId: projectPriorityStatus.priorityEmptyId,
+		statusList: projectPriorityStatus.statusList,
+		statusEmptyId: projectPriorityStatus.statusEmptyId,
+		statusCompletionId: projectPriorityStatus.statusCompletionId,
 	});
 	dispatch({
 		container: BUG_CONTAINER,
-		type: SET_PRIORITY_STATUS_OPTIONS,
-		priorityOptions: bugPriorityStatusOptions.priorityOptions,
-		priorityEmptyId: bugPriorityStatusOptions.priorityEmptyId,
-		statusOptions: bugPriorityStatusOptions.statusOptions,
-		statusEmptyId: bugPriorityStatusOptions.statusEmptyId,
-		statusCompletionId: bugPriorityStatusOptions.statusCompletionId,
+		type: SET_PRIORITY_STATUS,
+		priorityList: bugPriorityStatus.priorityList,
+		priorityEmptyId: bugPriorityStatus.priorityEmptyId,
+		statusList: bugPriorityStatus.statusList,
+		statusEmptyId: bugPriorityStatus.statusEmptyId,
+		statusCompletionId: bugPriorityStatus.statusCompletionId,
 	});
 };
 
 export const retrievePriorityStatusArrays = () => (dispatch) => {
 	axios.get("/api/priority-status/retrieve").then((res) => {
-		const { projectPriorityStatusOptions, bugPriorityStatusOptions } = res.data;
+		const { projectPriorityStatus, bugPriorityStatus } = res.data;
 		dispatch(
-			setPriorityStatusArrays(
-				projectPriorityStatusOptions,
-				bugPriorityStatusOptions
+			setPriorityStatus(
+				projectPriorityStatus,
+				bugPriorityStatus
 			)
 		);
 	});

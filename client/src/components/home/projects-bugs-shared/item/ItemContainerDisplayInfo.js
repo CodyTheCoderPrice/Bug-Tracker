@@ -43,42 +43,19 @@ export default function ItemContainerDisplayInfo(props) {
 	]);
 
 	const getStatusBoxColorClassName = () => {
-		if (props.reduxContainerName === projectContainerName) {
-			switch (
+		const filteredStatusList = reduxState[
+			props.reduxContainerName
+		].priorityStatusOptions.statusList.filter(
+			(status) =>
+				status.id ===
 				reduxState[props.reduxContainerName].componentsDisplay.targetItem
 					.status_id
-			) {
-				// Starts at 2 since 1 means status was left empty
-				case 2:
-					return " item-box__group__field__status-box--red";
-				case 3:
-					return " item-box__group__field__status-box--purple";
-				case 4:
-					return " item-box__group__field__status-box--blue";
-				case 5:
-					return " item-box__group__field__status-box--orange";
-				case 6:
-					return " item-box__group__field__status-box--green";
-				default:
-					return "";
-			}
-		} else {
-			switch (
-				reduxState[props.reduxContainerName].componentsDisplay.targetItem
-					.status_id
-			) {
-				case 1:
-					return " item-box__group__field__status-box--purple";
-				case 2:
-					return " item-box__group__field__status-box--blue";
-				case 3:
-					return " item-box__group__field__status-box--orange";
-				case 4:
-					return " item-box__group__field__status-box--green";
-				default:
-					return "";
-			}
-		}
+		);
+
+		return (
+			" item-box__group__field__status-box--" +
+			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
+		);
 	};
 
 	return (

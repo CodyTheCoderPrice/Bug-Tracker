@@ -161,7 +161,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 							</span>
 							{reduxState[
 								props.reduxContainerName
-							].priorityStatusOptions.priorityOptions.map((obj, i) => {
+							].priorityStatusOptions.priorityList.map((obj, i) => {
 								return (
 									<div
 										key={i}
@@ -194,7 +194,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 							</span>
 							{reduxState[
 								props.reduxContainerName
-							].priorityStatusOptions.statusOptions.map((obj, i) => {
+							].priorityStatusOptions.statusList.map((obj, i) => {
 								return (
 									<div
 										key={i}

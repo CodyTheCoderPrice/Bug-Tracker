@@ -119,12 +119,12 @@ export default function ItemContainerEditInfo(props) {
 		populateComboBox(
 			"js-item-priority-select",
 			reduxState[props.reduxContainerName].priorityStatusOptions
-				.priorityOptions,
+				.priorityList,
 			itemInfo.priority_id
 		);
 		populateComboBox(
 			"js-item-status-select",
-			reduxState[props.reduxContainerName].priorityStatusOptions.statusOptions,
+			reduxState[props.reduxContainerName].priorityStatusOptions.statusList,
 			itemInfo.status_id
 		);
 		// eslint-disable-next-line

@@ -52,18 +52,19 @@ CREATE TABLE project_status(
 	p_status_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
 	option TEXT,
+	color TEXT,
 	marks_empty BOOLEAN DEFAULT false,
 	marks_completion BOOLEAN DEFAULT false
 );
 
-INSERT INTO project_status (order_number, option, marks_empty, marks_completion)
+INSERT INTO project_status (order_number, option, color, marks_empty, marks_completion)
 	VALUES
-		(0, 'None', true, false),
-		(1, 'On Hold', false, false),
-		(2, 'Planning', false, false),
-		(3, 'Developing', false, false),
-		(4, 'Testing', false, false),
-		(5, 'Completed', false, true);
+		(0, 'None', 'gray', true, false),
+		(1, 'On Hold', 'red', false, false),
+		(2, 'Planning', 'blue', false, false),
+		(3, 'Developing', 'purple', false, false),
+		(4, 'Testing', 'orange', false, false),
+		(5, 'Completed', 'green', false, true);
 
 CREATE TABLE bug(
     bug_id SERIAL PRIMARY KEY,
@@ -110,16 +111,17 @@ CREATE TABLE bug_status(
 	b_status_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
 	option TEXT,
+	color TEXT,
 	marks_empty BOOLEAN DEFAULT false,
 	marks_completion BOOLEAN DEFAULT false
 );
 
-INSERT INTO bug_status (order_number, option, marks_empty, marks_completion)
+INSERT INTO bug_status (order_number, option, color, marks_empty, marks_completion)
 	VALUES 
-		(0, 'Open', false, false),
-		(1, 'In Progress', false, false),
-		(2, 'Testing', false, false),
-		(3, 'Closed', false, true);
+		(0, 'Open', 'blue', false, false),
+		(1, 'In Progress', 'purple', false, false),
+		(2, 'Testing', 'orange', false, false),
+		(3, 'Closed', 'green', false, true);
 
 CREATE TABLE comment(
     comment_id SERIAL PRIMARY KEY,

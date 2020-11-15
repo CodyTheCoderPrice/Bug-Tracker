@@ -9,7 +9,7 @@ import {
 	resetRedux,
 	setWhichGeneralComponentsDisplay,
 	setWhichAccountComponentsDisplay,
-	setPriorityStatusArrays,
+	setPriorityStatus,
 	setProjects,
 	setBugs,
 	setComments,
@@ -48,8 +48,8 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 		.then((res) => {
 			const {
 				jwToken,
-				projectPriorityStatusOptions,
-				bugPriorityStatusOptions,
+				projectPriorityStatus,
+				bugPriorityStatus,
 				account,
 				projects,
 				bugs,
@@ -62,9 +62,9 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setAuthentication(decodedToken));
 
 			dispatch(
-				setPriorityStatusArrays(
-					projectPriorityStatusOptions,
-					bugPriorityStatusOptions
+				setPriorityStatus(
+					projectPriorityStatus,
+					bugPriorityStatus
 				)
 			);
 			dispatch(setAccount(account));

@@ -1,20 +1,20 @@
-import { SET_PRIORITY_STATUS_OPTIONS } from "../../actions/constants/types";
+import { SET_PRIORITY_STATUS } from "../../actions/constants/types";
 
 const initialState = {
-	priorityOptions: null,
+	priorityList: null,
 	priorityEmptyId: null,
-	statusOptions: null,
+	statusList: null,
 	statusEmptyId: null,
 	statusCompletionId: null,
 };
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case SET_PRIORITY_STATUS_OPTIONS:
+		case SET_PRIORITY_STATUS:
 			return {
-				priorityOptions: action.priorityOptions,
+				priorityList: action.priorityList,
 				priorityEmptyId: action.priorityEmptyId,
-				statusOptions: action.statusOptions,
+				statusList: action.statusList,
 				statusEmptyId: action.statusEmptyId,
 				statusCompletionId: action.statusCompletionId,
 			};

@@ -45,44 +45,24 @@ export default function ListContainerTableRow(props) {
 	};
 
 	const getStatusBoxColorClassName = () => {
-		if (props.reduxContainerName === projectContainerName) {
-			switch (props.item.status_id) {
-				// Starts at 2 since 1 means status was left empty
-				case 2:
-					return " list-table__data__centering-container__status-box--red";
-				case 3:
-					return " list-table__data__centering-container__status-box--purple";
-				case 4:
-					return " list-table__data__centering-container__status-box--blue";
-				case 5:
-					return " list-table__data__centering-container__status-box--orange";
-				case 6:
-					return " list-table__data__centering-container__status-box--green";
-				default:
-					return "";
-			}
-		} else {
-			switch (props.item.status_id) {
-				case 1:
-					return " list-table__data__centering-container__status-box--purple";
-				case 2:
-					return " list-table__data__centering-container__status-box--blue";
-				case 3:
-					return " list-table__data__centering-container__status-box--orange";
-				case 4:
-					return " list-table__data__centering-container__status-box--green";
-				default:
-					return "";
-			}
-		}
+		const filteredStatusList = reduxState[
+			props.reduxContainerName
+		].priorityStatusOptions.statusList.filter(
+			(status) => status.id === props.item.status_id
+		);
+
+		return (
+			" list-table__data__centering-container__status-box--" +
+			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
+		);
 	};
 
 	const openItemContainer = () => {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				// If an itemContainer tab is not already open on the navbar, 
-				// user will navigate to itemContainer, otherwise remain on listcontainer 
+				// If an itemContainer tab is not already open on the navbar,
+				// user will navigate to itemContainer, otherwise remain on listcontainer
 				/* listContainer: reduxState[props.reduxContainerName].componentsDisplay.targetItem === null ? false : true,
 				itemContainer: reduxState[props.reduxContainerName].componentsDisplay.targetItem === null ? true : false, */
 				listContainer: true,
