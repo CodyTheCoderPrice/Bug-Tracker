@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	sizeContainerName,
+	accountContainerName,
 	projectContainerName,
 	bugContainerName,
+	sizeContainerName,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -124,7 +125,14 @@ export default function ListContainerTable(props) {
 		<div
 			className={
 				"list-table-component js-list-table-container" +
-				((props.reduxContainerName === projectContainerName &&
+				// If a sidebar or modal is present overtop of the table
+				// ...or the emptyListMessage is present
+				(Object.values(
+					reduxState[accountContainerName].componentsDisplay
+				).indexOf(true) > -1 ||
+				reduxState[props.reduxContainerName].componentsDisplay
+					.listContainerCreateItemSidbar === true ||
+				(props.reduxContainerName === projectContainerName &&
 					reduxState[props.reduxContainerName].list.length < 1) ||
 				(props.reduxContainerName === bugContainerName &&
 					reduxState[props.reduxContainerName].list.filter(
