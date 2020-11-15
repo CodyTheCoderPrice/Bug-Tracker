@@ -28,8 +28,6 @@ import {
 	calcItemContainerPaddingContainerPadding,
 } from "../../utils/displaySizeUtils";
 
-import { setNavbarButtonColor } from "../../utils/navbarUtils";
-
 import "../../SCSS/home/navbar.scss";
 
 export default function Navbar() {
@@ -134,45 +132,6 @@ export default function Navbar() {
 		reduxState[projectContainerName].componentsDisplay.targetItem,
 		// eslint-disable-next-line
 		reduxState[bugContainerName].componentsDisplay.targetItem,
-	]);
-
-	useEffect(() => {
-		setNavbarButtonColor(
-			reduxState[projectContainerName].componentsDisplay.listContainer,
-			document.getElementsByClassName("js-project-list-button")[0],
-			"navbar-button--selected"
-		);
-		// Prevents error of js-project-item-button, js-bug-list-button,
-		// ...and js-bug-item-button not exisiting
-		if (
-			reduxState[projectContainerName].componentsDisplay.targetItem !== null
-		) {
-			setNavbarButtonColor(
-				reduxState[projectContainerName].componentsDisplay.itemContainer,
-				document.getElementsByClassName("js-project-item-button")[0],
-				"navbar-button--selected"
-			);
-			setNavbarButtonColor(
-				reduxState[bugContainerName].componentsDisplay.listContainer,
-				document.getElementsByClassName("js-bug-list-button")[0],
-				"navbar-button--selected"
-			);
-			if (reduxState[bugContainerName].componentsDisplay.targetItem !== null) {
-				setNavbarButtonColor(
-					reduxState[bugContainerName].componentsDisplay.itemContainer,
-					document.getElementsByClassName("js-bug-item-button")[0],
-					"navbar-button--selected"
-				);
-			}
-		}
-		// eslint-disable-next-line
-	}, [
-		// eslint-disable-next-line
-		reduxState[accountContainerName].componentsDisplay,
-		// eslint-disable-next-line
-		reduxState[projectContainerName].componentsDisplay,
-		// eslint-disable-next-line
-		reduxState[bugContainerName].componentsDisplay,
 	]);
 
 	const openAccountSidebar = () => {
@@ -319,7 +278,12 @@ export default function Navbar() {
 		<div className="navbar-and-other-components-container">
 			<div className="navbar-component js-navbar">
 				<div
-					className="navbar-button js-project-list-button"
+					className={
+						"navbar-button js-project-list-button" +
+						(reduxState[projectContainerName].componentsDisplay.listContainer
+							? " navbar-button--selected"
+							: "")
+					}
 					onClick={openProjectsListContainer}
 				>
 					<div className="navbar-button__text-container">
@@ -340,7 +304,14 @@ export default function Navbar() {
 				{reduxState[projectContainerName].componentsDisplay.targetItem ===
 				null ? null : (
 					<div
-						className="navbar-button js-project-item-button"
+						className={
+							"navbar-button js-project-item-button" +
+							(reduxState[projectContainerName].componentsDisplay.targetItem !==
+								null &&
+							reduxState[projectContainerName].componentsDisplay.itemContainer
+								? " navbar-button--selected"
+								: "")
+						}
 						onClick={openProjectsItemContainer}
 					>
 						<div className="navbar-button__text-container navbar-button__text-container--item">
@@ -369,6 +340,11 @@ export default function Navbar() {
 						(reduxState[projectContainerName].componentsDisplay.targetItem ===
 						null
 							? " navbar-button--invisible"
+							: "") +
+						(reduxState[projectContainerName].componentsDisplay.targetItem !==
+							null &&
+						reduxState[bugContainerName].componentsDisplay.listContainer
+							? " navbar-button--selected"
 							: "")
 					}
 					onClick={openBugsListContainer}
@@ -391,7 +367,16 @@ export default function Navbar() {
 				{reduxState[bugContainerName].componentsDisplay.targetItem ===
 				null ? null : (
 					<div
-						className="navbar-button js-bug-item-button"
+						className={
+							"navbar-button js-bug-item-button" +
+							(reduxState[projectContainerName].componentsDisplay.targetItem !==
+								null &&
+							reduxState[bugContainerName].componentsDisplay.targetItem !==
+								null &&
+							reduxState[bugContainerName].componentsDisplay.itemContainer
+								? " navbar-button--selected"
+								: "")
+						}
 						onClick={openBugsItemContainer}
 					>
 						<div className="navbar-button__text-container navbar-button__text-container--item">
