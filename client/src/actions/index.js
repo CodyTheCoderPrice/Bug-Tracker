@@ -73,22 +73,6 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 	});
 };
 
-export const setProjectsMassDeleteList = (containerName, massDeleteList) => (
-	dispatch
-) => {
-	if (containerName === "project") {
-		containerName = PROJECT_CONTAINER;
-	} /* else if (containerName === "bug"){
-		containerName = 
-	} */
-
-	dispatch({
-		container: containerName,
-		type: SET_MASS_DELETE_LIST,
-		list: massDeleteList,
-	});
-};
-
 export const setInputErrors = (inputErrors) => (dispatch) => {
 	dispatch({
 		container: GENERAL_CONTAINER,

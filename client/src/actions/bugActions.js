@@ -134,6 +134,12 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
 					listContainerMassDeleteItemsModal: false,
+					targetItem:
+						massDeleteList.filter(
+							(itemId) => itemId === bugComponentsDisplay.targetItem.id
+						).length > 0
+							? null
+							: bugComponentsDisplay.targetItem,
 				})
 			);
 		})

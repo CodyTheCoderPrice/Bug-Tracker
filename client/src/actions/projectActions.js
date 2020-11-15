@@ -19,7 +19,9 @@ export const setProjects = (list) => (dispatch) => {
 	});
 };
 
-export const createProject = (projectInfo, projectComponentsDisplay) => (dispatch) => {
+export const createProject = (projectInfo, projectComponentsDisplay) => (
+	dispatch
+) => {
 	const headers = { headers: { jwToken: localStorage.jwToken } };
 	axios
 		.post("/api/project/create", projectInfo, headers)
@@ -141,6 +143,12 @@ export const deleteMultipleProjects = (
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
 					listContainerMassDeleteItemsModal: false,
+					targetItem:
+						(massDeleteList.filter(
+							(itemId) => itemId === projectComponentsDisplay.targetItem.id
+						).length > 0)
+							? null
+							: projectComponentsDisplay.targetItem,
 				})
 			);
 		})
