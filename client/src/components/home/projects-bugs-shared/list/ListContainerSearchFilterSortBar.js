@@ -99,12 +99,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 						((props.reduxContainerName === projectContainerName &&
 							reduxState[props.reduxContainerName].list.length > 0) ||
 						(props.reduxContainerName === bugContainerName &&
-							reduxState[props.reduxContainerName].list.filter(
-								(item) =>
-									item.project_id ===
-									reduxState[projectContainerName].componentsDisplay.targetItem
-										.id
-							).length > 0)
+							reduxState[props.reduxContainerName].list.length > 0)
 							? ""
 							: " centering-container__new-item-button--highlighted")
 					}
@@ -233,11 +228,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 			{(props.reduxContainerName === projectContainerName &&
 				reduxState[props.reduxContainerName].list.length > 0) ||
 			(props.reduxContainerName === bugContainerName &&
-				reduxState[props.reduxContainerName].list.filter(
-					(item) =>
-						item.project_id ===
-						reduxState[projectContainerName].componentsDisplay.targetItem.id
-				).length > 0) ? null : (
+				reduxState[props.reduxContainerName].list.length > 0) ? null : (
 				<div className="create-item-message-container">
 					<div className="create-item-message-container__arrow-head" />
 					<div className="create-item-message-container__arrow-stock" />

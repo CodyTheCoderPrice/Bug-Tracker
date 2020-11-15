@@ -68,7 +68,8 @@ export default function ListContainerTable(props) {
 					reduxState[sizeContainerName].variables.navbar.height -
 					reduxState[sizeContainerName].constants
 						.listContainerSearchFilterSortBar.height -
-					reduxState[sizeContainerName].constants.listContainerTableRowHeight +
+					reduxState[sizeContainerName].constants.listContainerTableRowHeight -
+					reduxState[sizeContainerName].constants.scrollbar.width +
 					"px";
 			}
 		}
@@ -120,7 +121,21 @@ export default function ListContainerTable(props) {
 	};
 
 	return (
-		<div className="list-table-component js-list-table-container">
+		<div
+			className={
+				"list-table-component js-list-table-container" +
+				((props.reduxContainerName === projectContainerName &&
+					reduxState[props.reduxContainerName].list.length < 1) ||
+				(props.reduxContainerName === bugContainerName &&
+					reduxState[props.reduxContainerName].list.filter(
+						(item) =>
+							item.project_id ===
+							reduxState[projectContainerName].componentsDisplay.targetItem.id
+					).length < 1)
+					? " list-table-component--no-scroll"
+					: "")
+			}
+		>
 			<table className="list-table">
 				<thead className="">
 					<tr className="list-table__row">
