@@ -10,8 +10,6 @@ import {
 
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
-import { toggleClassName } from "../../../../utils/elementUtils";
-
 import { getWindowSize } from "../../../../utils/displaySizeUtils";
 
 // Components
@@ -28,17 +26,6 @@ import "../../../../SCSS/home/projects-bugs-shared/item/itemContainer.scss";
 export default function ItemContainer(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
-
-	// Disable scrolling for the body
-	useEffect(() => {
-		let body = document.getElementsByClassName("js-body")[0];
-
-		toggleClassName(true, body, "stop-x-y-scrolling");
-
-		return () => {
-			toggleClassName(false, body, "stop-x-y-scrolling");
-		};
-	}, []);
 
 	// Adjusts the height and width of the modal to fit the screen
 	useEffect(() => {

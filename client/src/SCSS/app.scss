@@ -3,18 +3,12 @@
 
 html, body {
 	width: 100%;
+	overflow: hidden;
 }
 
 //===============================
 // Bellow classes are used by JS
 //===============================
-.stop-x-y-scrolling {
-	overflow: hidden;
-}
-
-.stop-x-scrolling {
-	overflow-x: hidden;
-}
 
 // Used to turn character counters red when limit is gone over
 .text-red {

@@ -15,7 +15,6 @@ import {
 } from "../../../../actions";
 
 import {
-	toggleClassName,
 	populateComboBox,
 } from "../../../../utils/elementUtils";
 
@@ -89,18 +88,6 @@ export default function ListContainerCreateItemSidebar(props) {
 			dispatch(clearInputErrors());
 		};
 		// eslint-disable-next-line
-	}, []);
-
-	// Move window to top of screen and disable scrolling for the body
-	useEffect(() => {
-		window.scrollTo(0, 0);
-		let body = document.getElementsByClassName("js-body")[0];
-
-		toggleClassName(true, body, "stop-x-y-scrolling");
-
-		return () => {
-			toggleClassName(false, body, "stop-x-y-scrolling");
-		};
 	}, []);
 
 	useEffect(() => {
