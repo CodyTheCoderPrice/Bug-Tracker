@@ -128,7 +128,8 @@ export function useSearchBarResizeAndBorderEventListener(
 
 			searchBarCenteringContainer.style.width =
 				remainingSearchFilterSortBarWidth + "px";
-			searchBarInnerContainer.style.width = searchBarInnercontainerWidth + "px";
+			// Minus 1 since button needed to have a margin-left of -1px for chrome
+			searchBarInnerContainer.style.width = searchBarInnercontainerWidth - 1 + "px";
 			// Adjusts for the searchBarButton, borders, and padding
 			searchBar.style.width =
 				searchBarInnercontainerWidth -

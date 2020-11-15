@@ -52,7 +52,7 @@
 	}
 
 	.centering-container__search-group-container--with-border {
-		border: $list-item-search-bar-group-container-border-width solid $blue-gray;
+		border: $list-item-search-bar-group-container-border-width solid $light-blue-gray;
 	}
 
 	.centering-container__search-group-container__search-bar {
@@ -70,6 +70,8 @@
 		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
 		display: inline-block;
+		// Since a agap between searchbar and button will appear in chrome otherwise
+		margin-left: -1px;
 		background-color: $light-blue-gray;
 		height: $list-item-search-bar-button-height;
 		width: $list-item-search-bar-button-width;
