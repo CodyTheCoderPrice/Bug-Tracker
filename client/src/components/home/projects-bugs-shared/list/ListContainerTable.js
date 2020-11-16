@@ -246,14 +246,12 @@ export default function ListContainerTable(props) {
 					{searchFilterSort(
 						props.reduxContainerName === projectContainerName
 							? [...reduxState[props.reduxContainerName].list]
-							: [
-									...reduxState[props.reduxContainerName].list.filter(
-										(item) =>
-											item.project_id ===
-											reduxState[projectContainerName].componentsDisplay
-												.targetItem.id
-									),
-							  ],
+							: [...reduxState[props.reduxContainerName].list].filter(
+									(item) =>
+										item.project_id ===
+										reduxState[projectContainerName].componentsDisplay
+											.targetItem.id
+							  ),
 						reduxState[props.reduxContainerName].searchFilterSort
 					).map((item, idx) => {
 						return (

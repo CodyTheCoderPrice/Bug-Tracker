@@ -115,6 +115,10 @@
 		color: $status-green;
 	}
 
+	.list-table__data__checkbox {
+		cursor: pointer;
+	}
+
 	.list-table__data__centering-container {
 		position: relative;
 		height: 100%;
@@ -130,7 +134,7 @@
 		background-color: black;
 		color: white;
 		height: $status-box-height;
-		width: 110px;
+		width: $status-box-width;
 	}
 
 	.list-table__data__centering-container__status-box__centered-info {
@@ -138,10 +142,6 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-	}
-
-	.list-table__data__checkbox {
-		cursor: pointer;
 	}
 
 	.empty-list-message-centering-container {

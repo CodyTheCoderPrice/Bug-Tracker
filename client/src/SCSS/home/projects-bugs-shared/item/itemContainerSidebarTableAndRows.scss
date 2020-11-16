@@ -1,7 +1,7 @@
 @import "../../../utils/variables";
 @import "../../../utils//mixins";
 
-.list-sidebar-component,
+.item-container-list-sidebar-component,
 .js-calc-list-sidebar-component {
 	// Width must be set here so width can be calculated and stored in redux
 	width: $item-container-list-sidebar-width;

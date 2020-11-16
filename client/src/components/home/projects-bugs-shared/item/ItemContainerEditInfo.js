@@ -25,6 +25,9 @@ import { populateComboBox } from "../../../../utils/elementUtils";
 import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
+// Components
+import ItemContainerBugList from "./ItemContainerBugList";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditInfo.scss";
 
 export default function ItemContainerEditInfo(props) {
@@ -457,7 +460,7 @@ export default function ItemContainerEditInfo(props) {
 					<div className="outer-dividing-container outer-dividing-container--one-third">
 						<div className="item-box">
 							<h2 className="item-box__title">Last Five Bugs</h2>
-							<span>Comming soon!</span>
+							<ItemContainerBugList />
 						</div>
 					</div>
 				</div>

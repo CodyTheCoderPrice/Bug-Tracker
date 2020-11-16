@@ -10,6 +10,9 @@ import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemConta
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
 
+// Components
+import ItemContainerBugList from "./ItemContainerBugList";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayInfo.scss";
 
 export default function ItemContainerDisplayInfo(props) {
@@ -213,7 +216,7 @@ export default function ItemContainerDisplayInfo(props) {
 					<div className="outer-dividing-container outer-dividing-container--half-width">
 						<div className="item-box">
 							<h2 className="item-box__title">Last Five Bugs</h2>
-							<span>Comming soon!</span>
+							<ItemContainerBugList />
 						</div>
 					</div>
 				</div>

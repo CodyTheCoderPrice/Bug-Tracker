@@ -44,27 +44,10 @@ export default function ListContainerTableRow(props) {
 		e.stopPropagation();
 	};
 
-	const getStatusBoxColorClassName = () => {
-		const filteredStatusList = reduxState[
-			props.reduxContainerName
-		].priorityStatusOptions.statusList.filter(
-			(status) => status.id === props.item.status_id
-		);
-
-		return (
-			" status-box-background-color-" +
-			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
-		);
-	};
-
 	const openItemContainer = () => {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				// If an itemContainer tab is not already open on the navbar,
-				// user will navigate to itemContainer, otherwise remain on listcontainer
-				/* listContainer: reduxState[props.reduxContainerName].componentsDisplay.targetItem === null ? false : true,
-				itemContainer: reduxState[props.reduxContainerName].componentsDisplay.targetItem === null ? true : false, */
 				listContainer: true,
 				targetItem: props.item,
 			})
@@ -91,6 +74,19 @@ export default function ListContainerTableRow(props) {
 				.statusCompletionId
 				? " list-table__data--completed-color"
 				: "")
+		);
+	};
+
+	const getStatusBoxColorClassName = () => {
+		const filteredStatusList = reduxState[
+			props.reduxContainerName
+		].priorityStatusOptions.statusList.filter(
+			(status) => status.id === props.item.status_id
+		);
+
+		return (
+			" status-box-background-color-" +
+			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
 		);
 	};
 

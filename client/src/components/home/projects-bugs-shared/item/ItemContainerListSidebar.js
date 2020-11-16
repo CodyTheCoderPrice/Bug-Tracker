@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	sizeContainerName,
@@ -9,10 +9,6 @@ import {
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
 import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
-import {
-	getElementStyle,
-	stripNonDigits,
-} from "../../../../utils/displaySizeUtils";
 
 // Components
 import ItemContainerListSidebarRow from "./ItemContainerListSidebarRow";
@@ -22,11 +18,6 @@ import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerSidebarTabl
 export default function ItemContainerListSidebar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
-
-	const [
-		originalItemContainerListSidebarHeight,
-		setOriginalItemContainerListSidebarHeight,
-	] = useState(null);
 
 	// Resize list-sidebar-component height to fit window when smaller than it
 	useEffect(() => {
@@ -38,19 +29,6 @@ export default function ItemContainerListSidebar(props) {
 			let itemContainerListSidebarElement = document.getElementsByClassName(
 				"js-list-sidebar-component"
 			)[0];
-
-			// Makes sure originalItemContainerListSidebarHeight gets set
-			if (originalItemContainerListSidebarHeight === null) {
-				setOriginalItemContainerListSidebarHeight({
-					height: stripNonDigits(
-						getElementStyle(itemContainerListSidebarElement).height
-					),
-				});
-
-				// Prevents crash since originalItemContainerListSidebarHeight will still
-				// ...be null for remainder of this useEfffect iteration
-				return;
-			}
 
 			const adjustedWindowHeight =
 				reduxState[sizeContainerName].variables.window.height -
@@ -64,7 +42,6 @@ export default function ItemContainerListSidebar(props) {
 	}, [
 		// eslint-disable-next-line
 		reduxState[sizeContainerName].variables,
-		originalItemContainerListSidebarHeight,
 		// eslint-disable-next-line
 		reduxState[props.reduxContainerName].componentsDisplay
 			.itemContainerListSidebar,
@@ -82,9 +59,7 @@ export default function ItemContainerListSidebar(props) {
 	};
 
 	return (
-		/*Changing classname of list-sidebar-component will 
-		affect util function for calculating sidebar width*/
-		<div className="list-sidebar-component js-list-sidebar-component">
+		<div className="item-container-list-sidebar-component js-list-sidebar-component">
 			<div
 				className={
 					"expand-minimize-button js-expand-minimize-button" +
@@ -133,14 +108,12 @@ export default function ItemContainerListSidebar(props) {
 						{searchFilterSort(
 							props.reduxContainerName === projectContainerName
 								? [...reduxState[props.reduxContainerName].list]
-								: [
-										...reduxState[props.reduxContainerName].list.filter(
-											(item) =>
-												item.project_id ===
-												reduxState[projectContainerName].componentsDisplay
-													.targetItem.id
-										),
-								  ],
+								: [...reduxState[props.reduxContainerName].list].filter(
+										(item) =>
+											item.project_id ===
+											reduxState[projectContainerName].componentsDisplay
+												.targetItem.id
+								  ),
 							reduxState[props.reduxContainerName].searchFilterSort
 						).map((item, idx) => {
 							return (
