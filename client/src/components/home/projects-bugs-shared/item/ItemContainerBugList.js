@@ -33,7 +33,7 @@ export default function ItemContainerBugList() {
 								reduxState[projectContainerName].componentsDisplay.targetItem.id
 						)
 						.sort((a, b) => {
-							return dateToInt(b.creation_date) - dateToInt(a.creation_date);
+							return b.last_edited_timestamp - a.last_edited_timestamp;
 						})
 						.slice(0, 5)
 						.map((item, idx) => {

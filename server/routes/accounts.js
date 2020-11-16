@@ -189,7 +189,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 						WHERE (p.p_priority_id = pp.p_priority_id) 
 							AND (p.p_status_id = ps.p_status_id)
 								ORDER BY p.project_id`,
-			[account_id]
+			[account.rows[0].account_id]
 		);
 
 		const allBugsForAccount = await pool.query(
@@ -207,7 +207,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 						WHERE (b.b_priority_id = bp.b_priority_id) 
 							AND (b.b_status_id = bs.b_status_id)
 								ORDER BY b.bug_id`,
-			[account_id]
+			[account.rows[0].account_id]
 		);
 
 		const allCommentsForAccount = await pool.query(
@@ -221,7 +221,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 				c.creation_date, c.last_edited_timestamp 
 				FROM c
 					ORDER BY c.comment_id`,
-			[account_id]
+			[account.rows[0].account_id]
 		);
 
 		// Sign token

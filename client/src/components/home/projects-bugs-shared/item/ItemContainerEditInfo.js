@@ -25,9 +25,6 @@ import { populateComboBox } from "../../../../utils/elementUtils";
 import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
-// Components
-import ItemContainerBugList from "./ItemContainerBugList";
-
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditInfo.scss";
 
 export default function ItemContainerEditInfo(props) {
@@ -156,14 +153,6 @@ export default function ItemContainerEditInfo(props) {
 				reduxState[sizeContainerName].constants
 					.itemContainerOuterDividingContainerMinWidth
 			);
-			if (props.reduxContainerName === projectContainerName) {
-				manageSizeOfItemBoxsInPairContainer(
-					document.getElementsByClassName("js-projects-bug-info-pair")[0],
-					"outer-dividing-container--half-width",
-					reduxState[sizeContainerName].constants
-						.itemContainerOuterDividingContainerMinWidth
-				);
-			}
 		}
 		// eslint-disable-next-line
 	}, [
@@ -449,22 +438,6 @@ export default function ItemContainerEditInfo(props) {
 					</span>
 				</div>
 			</div>
-			{props.reduxContainerName !== projectContainerName ? null : (
-				<div className="pair-container js-projects-bug-info-pair">
-					<div className="outer-dividing-container outer-dividing-container--one-third">
-						<div className="item-box">
-							<h2 className="item-box__title">Status of Bugs</h2>
-							<span>Comming soon!</span>
-						</div>
-					</div>
-					<div className="outer-dividing-container outer-dividing-container--one-third">
-						<div className="item-box">
-							<h2 className="item-box__title">Last Five Bugs</h2>
-							<ItemContainerBugList />
-						</div>
-					</div>
-				</div>
-			)}
 		</form>
 	);
 }

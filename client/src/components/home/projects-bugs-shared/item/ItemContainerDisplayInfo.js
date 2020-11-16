@@ -10,9 +10,6 @@ import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemConta
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
 
-// Components
-import ItemContainerBugList from "./ItemContainerBugList";
-
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayInfo.scss";
 
 export default function ItemContainerDisplayInfo(props) {
@@ -29,14 +26,6 @@ export default function ItemContainerDisplayInfo(props) {
 				reduxState[sizeContainerName].constants
 					.itemContainerOuterDividingContainerMinWidth
 			);
-			if (props.reduxContainerName === projectContainerName) {
-				manageSizeOfItemBoxsInPairContainer(
-					document.getElementsByClassName("js-projects-bug-info-pair")[0],
-					"outer-dividing-container--half-width",
-					reduxState[sizeContainerName].constants
-						.itemContainerOuterDividingContainerMinWidth
-				);
-			}
 		}
 		// eslint-disable-next-line
 	}, [
@@ -205,22 +194,6 @@ export default function ItemContainerDisplayInfo(props) {
 					</div>
 				</div>
 			</div>
-			{props.reduxContainerName !== projectContainerName ? null : (
-				<div className="pair-container js-projects-bug-info-pair">
-					<div className="outer-dividing-container outer-dividing-container--half-width">
-						<div className="item-box">
-							<h2 className="item-box__title">Status of Bugs</h2>
-							<span>Comming soon!</span>
-						</div>
-					</div>
-					<div className="outer-dividing-container outer-dividing-container--half-width">
-						<div className="item-box">
-							<h2 className="item-box__title">Last Five Bugs</h2>
-							<ItemContainerBugList />
-						</div>
-					</div>
-				</div>
-			)}
 		</div>
 	);
 }
