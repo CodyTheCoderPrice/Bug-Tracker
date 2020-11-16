@@ -35,11 +35,13 @@ router
 					completion_date,
 				} = req.body;
 				const creation_date = moment().format("YYYY-MM-DD");
+				// Current time in unix/epoch timestamp
+				const last_edited_timestamp = moment().format("X");
 
 				const createdProject = await pool.query(
 					`INSERT INTO project (account_id, name, description, p_priority_id, p_status_id, 
-					creation_date, start_date, due_date, completion_date) 
-						VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+					creation_date, start_date, due_date, completion_date, last_edited_timestamp) 
+						VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
 					[
 						account_id,
 						name,
@@ -50,6 +52,7 @@ router
 						start_date,
 						due_date,
 						completion_date,
+						last_edited_timestamp,
 					]
 				);
 
@@ -64,7 +67,8 @@ router
 					SELECT p.project_id AS id, p.account_id, p.name, p.description,
 						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 						p.creation_date, p.start_date, p.due_date,
-						p.completion_date, pp.option AS priority_option, 
+						p.completion_date, p.last_edited_timestamp, 
+						pp.option AS priority_option, 
 						ps.option AS status_option
 							FROM p, project_priority pp, project_status ps 
 								WHERE (p.p_priority_id = pp.p_priority_id) 
@@ -98,7 +102,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 			SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
-				p.completion_date, pp.option AS priority_option, 
+				p.completion_date, p.last_edited_timestamp, 
+				pp.option AS priority_option, 
 				ps.option AS status_option
 					FROM p, project_priority pp, project_status ps 
 						WHERE (p.p_priority_id = pp.p_priority_id) 
@@ -141,11 +146,14 @@ router
 					due_date,
 					completion_date,
 				} = req.body;
+				// Current time in unix/epoch timestamp
+				const last_edited_timestamp = moment().format("X");
 
 				const updatedProject = await pool.query(
 					`UPDATE project SET name = $1, description = $2, p_priority_id = $3, 
-				p_status_id = $4, start_date = $5, due_date = $6, completion_date = $7
-				WHERE account_id = $8 AND project_id = $9`,
+						p_status_id = $4, start_date = $5, due_date = $6, 
+						completion_date = $7, last_edited_timestamp = $8
+							WHERE account_id = $9 AND project_id = $10`,
 					[
 						name,
 						description,
@@ -154,6 +162,7 @@ router
 						start_date,
 						due_date,
 						completion_date,
+						last_edited_timestamp,
 						account_id,
 						id,
 					]
@@ -170,7 +179,8 @@ router
 					SELECT p.project_id AS id, p.account_id, p.name, p.description,
 						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 						p.creation_date, p.start_date, p.due_date,
-						p.completion_date, pp.option AS priority_option, 
+						p.completion_date, p.last_edited_timestamp, 
+						pp.option AS priority_option, 
 						ps.option AS status_option
 							FROM p, project_priority pp, project_status ps 
 								WHERE (p.p_priority_id = pp.p_priority_id) 
@@ -211,7 +221,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
-				p.completion_date, pp.option AS priority_option, 
+				p.completion_date, p.last_edited_timestamp, 
+				pp.option AS priority_option, 
 				ps.option AS status_option
 					FROM p, project_priority pp, project_status ps 
 						WHERE (p.p_priority_id = pp.p_priority_id) 
@@ -229,8 +240,9 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 				)
 			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-				b.creation_date, b.start_date, b.due_date,
-				b.completion_date, bp.option AS priority_option, 
+				 b.creation_date, b.start_date, b.due_date,
+				b.completion_date, last_edited_timestamp,
+				bp.option AS priority_option, 
 				bs.option AS status_option
 					FROM b, bug_priority bp, bug_status bs 
 						WHERE (b.b_priority_id = bp.b_priority_id) 
@@ -248,7 +260,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 						(SELECT project_id FROM project WHERE account_id = $1)
 					)
 				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+			SELECT c.comment_id AS id, c.bug_id, c.description, 
+				c.creation_date, c.last_edited_timestamp 
 				FROM c
 					ORDER BY c.comment_id`,
 			[account_id]
@@ -300,7 +313,8 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
-				p.completion_date, pp.option AS priority_option, 
+				p.completion_date, p.last_edited_timestamp, 
+				pp.option AS priority_option, 
 				ps.option AS status_option
 					FROM p, project_priority pp, project_status ps 
 						WHERE (p.p_priority_id = pp.p_priority_id) 
@@ -318,8 +332,9 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 				)
 			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-				b.creation_date, b.start_date, b.due_date,
-				b.completion_date, bp.option AS priority_option, 
+				 b.creation_date, b.start_date, b.due_date,
+				b.completion_date, last_edited_timestamp,
+				bp.option AS priority_option, 
 				bs.option AS status_option
 					FROM b, bug_priority bp, bug_status bs 
 						WHERE (b.b_priority_id = bp.b_priority_id) 
@@ -337,7 +352,8 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 						(SELECT project_id FROM project WHERE account_id = $1)
 					)
 				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+			SELECT c.comment_id AS id, c.bug_id, c.description, 
+				c.creation_date, c.last_edited_timestamp 
 				FROM c
 					ORDER BY c.comment_id`,
 			[account_id]

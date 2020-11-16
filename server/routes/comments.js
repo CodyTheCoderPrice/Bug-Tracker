@@ -22,6 +22,8 @@ router
 			// Passed in the post body
 			const { project_id, bug_id, description } = req.body;
 			const creation_date = moment().format("YYYY-MM-DD");
+			// Current time in unix/epoch timestamp
+			const last_edited_timestamp = moment().format("X");
 
 			const bugAndProjectBelongsToAccountCheck = await pool.query(
 				`SELECT * FROM project WHERE account_id = $1 AND project_id IN 
@@ -34,9 +36,9 @@ router
 			}
 
 			const createdComment = await pool.query(
-				`INSERT INTO comment (bug_id, description, creation_date) 
-						VALUES($1, $2, $3)`,
-				[bug_id, description, creation_date]
+				`INSERT INTO comment (bug_id, description, creation_date, last_edited_timestamp) 
+						VALUES($1, $2, $3, $4)`,
+				[bug_id, description, creation_date, last_edited_timestamp]
 			);
 
 			// This line of code may not be needed
@@ -53,7 +55,8 @@ router
 							(SELECT project_id FROM project WHERE account_id = $1)
 						)
 					)
-				SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+				SELECT c.comment_id AS id, c.bug_id, c.description, 
+					c.creation_date, c.last_edited_timestamp 
 					FROM c
 						ORDER BY c.comment_id`,
 				[account_id]
@@ -86,7 +89,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 						(SELECT project_id FROM project WHERE account_id = $1)
 					)
 				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+			SELECT c.comment_id AS id, c.bug_id, c.description, 
+				c.creation_date, c.last_edited_timestamp 
 				FROM c
 					ORDER BY c.comment_id`,
 			[account_id]
@@ -113,6 +117,8 @@ router
 			const { account_id } = req;
 			// Passed in the post body
 			const { id, project_id, bug_id, description } = req.body;
+			// Current time in unix/epoch timestamp
+			const last_edited_timestamp = moment().format("X");
 
 			const belongsToAccountCheck = await pool.query(
 				`SELECT * FROM project WHERE account_id = $1 AND project_id IN 
@@ -120,15 +126,17 @@ router
 							(SELECT bug_id FROM comment WHERE bug_id = $3 AND comment_id = $4))`,
 				[account_id, project_id, bug_id, id]
 			);
-	
+
 			if (belongsToAccountCheck.rowCount === 0) {
-				throw { message: "Comment, bug and/or project does not belong to account" };
+				throw {
+					message: "Comment, bug and/or project does not belong to account",
+				};
 			}
 
 			const updatedComment = await pool.query(
-				`UPDATE comment SET description = $1
-						WHERE bug_id = $2 AND comment_id = $3`,
-				[description, bug_id, id]
+				`UPDATE comment SET description = $1, last_edited_timestamp = $2
+						WHERE bug_id = $3 AND comment_id = $4`,
+				[description, last_edited_timestamp, bug_id, id]
 			);
 
 			// This line of code may not be needed
@@ -145,7 +153,8 @@ router
 							(SELECT project_id FROM project WHERE account_id = $1)
 						)
 					)
-				SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+				SELECT c.comment_id AS id, c.bug_id, c.description, 
+					c.creation_date, c.last_edited_timestamp 
 					FROM c
 						ORDER BY c.comment_id`,
 				[account_id]
@@ -179,7 +188,9 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		);
 
 		if (belongsToAccountCheck.rowCount === 0) {
-			throw { message: "Comment, bug and/or project does not belong to account" };
+			throw {
+				message: "Comment, bug and/or project does not belong to account",
+			};
 		}
 
 		const deletedComment = await pool.query(
@@ -196,7 +207,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 						(SELECT project_id FROM project WHERE account_id = $1)
 					)
 				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+			SELECT c.comment_id AS id, c.bug_id, c.description, 
+				c.creation_date, c.last_edited_timestamp 
 				FROM c
 					ORDER BY c.comment_id`,
 			[account_id]

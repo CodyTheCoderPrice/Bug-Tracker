@@ -37,6 +37,8 @@ router
 					completion_date,
 				} = req.body;
 				const creation_date = moment().format("YYYY-MM-DD");
+				// Current time in unix/epoch timestamp
+				const last_edited_timestamp = moment().format("X");
 
 				const projectBelongsToAccountCheck = await pool.query(
 					`SELECT * FROM project WHERE account_id = $1 AND project_id = $2`,
@@ -50,8 +52,8 @@ router
 				const createdBug = await pool.query(
 					`INSERT INTO bug (project_id, name, description, location, 
 					b_priority_id, b_status_id, creation_date, start_date, 
-					due_date, completion_date) 
-						VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+					due_date, completion_date, last_edited_timestamp) 
+						VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`,
 					[
 						project_id,
 						name,
@@ -63,6 +65,7 @@ router
 						start_date,
 						due_date,
 						completion_date,
+						last_edited_timestamp,
 					]
 				);
 
@@ -81,7 +84,8 @@ router
 					SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 						b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 					 	b.creation_date, b.start_date, b.due_date,
-						b.completion_date, bp.option AS priority_option, 
+						b.completion_date, last_edited_timestamp,
+						bp.option AS priority_option, 
 						bs.option AS status_option
 							FROM b, bug_priority bp, bug_status bs 
 								WHERE (b.b_priority_id = bp.b_priority_id) 
@@ -119,7 +123,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 				 b.creation_date, b.start_date, b.due_date,
-				b.completion_date, bp.option AS priority_option, 
+				b.completion_date, last_edited_timestamp,
+				bp.option AS priority_option, 
 				bs.option AS status_option
 					FROM b, bug_priority bp, bug_status bs 
 						WHERE (b.b_priority_id = bp.b_priority_id) 
@@ -164,6 +169,8 @@ router
 					due_date,
 					completion_date,
 				} = req.body;
+				// Current time in unix/epoch timestamp
+				const last_edited_timestamp = moment().format("X");
 
 				const projectBelongsToAccountCheck = await pool.query(
 					`SELECT * FROM project WHERE account_id = $1 AND project_id = $2`,
@@ -177,8 +184,8 @@ router
 				const updatedBug = await pool.query(
 					`UPDATE bug SET name = $1, description = $2, location = $3,
 					b_priority_id = $4, b_status_id = $5, start_date = $6,
-					due_date = $7, completion_date = $8
-						WHERE project_id = $9 AND bug_id = $10`,
+					due_date = $7, completion_date = $8, last_edited_timestamp = $9
+						WHERE project_id = $10 AND bug_id = $11`,
 					[
 						name,
 						description,
@@ -188,6 +195,7 @@ router
 						start_date,
 						due_date,
 						completion_date,
+						last_edited_timestamp,
 						project_id,
 						id,
 					]
@@ -208,7 +216,8 @@ router
 					SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 						b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 					 	b.creation_date, b.start_date, b.due_date,
-						b.completion_date, bp.option AS priority_option, 
+						b.completion_date, last_edited_timestamp,
+						bp.option AS priority_option, 
 						bs.option AS status_option
 							FROM b, bug_priority bp, bug_status bs 
 								WHERE (b.b_priority_id = bp.b_priority_id) 
@@ -262,7 +271,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 				 b.creation_date, b.start_date, b.due_date,
-				b.completion_date, bp.option AS priority_option, 
+				b.completion_date, last_edited_timestamp,
+				bp.option AS priority_option, 
 				bs.option AS status_option
 					FROM b, bug_priority bp, bug_status bs 
 						WHERE (b.b_priority_id = bp.b_priority_id) 
@@ -280,7 +290,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 						(SELECT project_id FROM project WHERE account_id = $1)
 					)
 				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+			SELECT c.comment_id AS id, c.bug_id, c.description, 
+				c.creation_date, c.last_edited_timestamp 
 				FROM c
 					ORDER BY c.comment_id`,
 			[account_id]
@@ -347,7 +358,8 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 				 b.creation_date, b.start_date, b.due_date,
-				b.completion_date, bp.option AS priority_option, 
+				b.completion_date, last_edited_timestamp,
+				bp.option AS priority_option, 
 				bs.option AS status_option
 					FROM b, bug_priority bp, bug_status bs 
 						WHERE (b.b_priority_id = bp.b_priority_id) 
@@ -365,7 +377,8 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 						(SELECT project_id FROM project WHERE account_id = $1)
 					)
 				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+			SELECT c.comment_id AS id, c.bug_id, c.description, 
+				c.creation_date, c.last_edited_timestamp 
 				FROM c
 					ORDER BY c.comment_id`,
 			[account_id]

@@ -27,6 +27,8 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 	try {
 		const { email, password, first_name, last_name } = req.body;
 		const join_date = moment().format("YYYY-MM-DD");
+		// Current time in unix/epoch timestamp
+		const last_edited_timestamp = moment().format("X");
 
 		// Verify that email does not already exist
 		const activeAccounts = await pool.query(
@@ -41,16 +43,30 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 
 		// Generate hashed password
 		bcrypt.genSalt(10, (err, salt) => {
+			if (err) throw err;
 			bcrypt.hash(password, salt, async (err, hash) => {
 				if (err) throw err;
 
-				const newAccount = await pool.query(
-					`INSERT INTO account (email, hash_pass, first_name, last_name, join_date) 
-							VALUES($1, $2, $3, $4, $5)`,
-					[email, hash, first_name, last_name, join_date]
-				);
+				try {
+					const newAccount = await pool.query(
+						`INSERT INTO account (email, hash_pass, first_name, last_name, join_date, last_edited_timestamp)
+								VALUES($1, $2, $3, $4, $5, $6)`,
+						[
+							email,
+							hash,
+							first_name,
+							last_name,
+							join_date,
+							last_edited_timestamp,
+						]
+					);
 
-				return res.json({ success: true, message: "Account created" });
+					return res.json({ success: true, message: "Account created" });
+				} catch (err) {
+					console.error(err.message);
+					inputErrors.serverAccount = "Server error while registering account";
+					return res.status(500).json({ success: false, inputErrors });
+				}
 			});
 		});
 	} catch (err) {
@@ -70,7 +86,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		const { email, password } = req.body;
 
 		const account = await pool.query(
-			`SELECT account_id, email, hash_pass, first_name, last_name, join_date
+			`SELECT account_id, email, hash_pass, first_name, last_name, join_date, last_edited_timestamp
 				FROM account 
 				WHERE LOWER(email) = LOWER($1)`,
 			[email]
@@ -166,13 +182,14 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			SELECT p.project_id AS id, p.account_id, p.name, p.description,
 				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
 				p.creation_date, p.start_date, p.due_date,
-				p.completion_date, pp.option AS priority_option, 
+				p.completion_date, p.last_edited_timestamp, 
+				pp.option AS priority_option, 
 				ps.option AS status_option
 					FROM p, project_priority pp, project_status ps 
 						WHERE (p.p_priority_id = pp.p_priority_id) 
 							AND (p.p_status_id = ps.p_status_id)
 								ORDER BY p.project_id`,
-			[account.rows[0].account_id]
+			[account_id]
 		);
 
 		const allBugsForAccount = await pool.query(
@@ -183,13 +200,14 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
 				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
 				 b.creation_date, b.start_date, b.due_date,
-				b.completion_date, bp.option AS priority_option, 
+				b.completion_date, last_edited_timestamp,
+				bp.option AS priority_option, 
 				bs.option AS status_option
 					FROM b, bug_priority bp, bug_status bs 
 						WHERE (b.b_priority_id = bp.b_priority_id) 
 							AND (b.b_status_id = bs.b_status_id)
 								ORDER BY b.bug_id`,
-			[account.rows[0].account_id]
+			[account_id]
 		);
 
 		const allCommentsForAccount = await pool.query(
@@ -199,10 +217,11 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 						(SELECT project_id FROM project WHERE account_id = $1)
 					)
 				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, c.creation_date 
+			SELECT c.comment_id AS id, c.bug_id, c.description, 
+				c.creation_date, c.last_edited_timestamp 
 				FROM c
 					ORDER BY c.comment_id`,
-			[account.rows[0].account_id]
+			[account_id]
 		);
 
 		// Sign token
@@ -290,7 +309,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		const { account_id } = req;
 
 		const account = await pool.query(
-			`SELECT account_id, email, first_name, last_name, join_date
+			`SELECT account_id, email, first_name, last_name, join_date, last_edited_timestamp
 				FROM account 
 				WHERE account_id = $1`,
 			[account_id]
@@ -319,12 +338,14 @@ router
 			const { account_id } = req;
 			// Passed in the post body
 			const { first_name, last_name } = req.body;
+			// Current time in unix/epoch timestamp
+			const last_edited_timestamp = moment().format("X");
 
 			const updatedAccount = await pool.query(
-				`UPDATE account SET first_name = $1, last_name = $2 
-					WHERE account_id = $3 
-					RETURNING account_id, email, first_name, last_name, join_date`,
-				[first_name, last_name, account_id]
+				`UPDATE account SET first_name = $1, last_name = $2, last_edited_timestamp = $3 
+					WHERE account_id = $4 
+					RETURNING account_id, email, first_name, last_name, join_date, last_edited_timestamp`,
+				[first_name, last_name, last_edited_timestamp, account_id]
 			);
 
 			return res.json({ success: true, account: updatedAccount.rows[0] });
@@ -352,6 +373,8 @@ router
 				const { account_id } = req;
 				// Passed in the post body
 				const { email } = req.body;
+				// Current time in unix/epoch timestamp
+				const last_edited_timestamp = moment().format("X");
 
 				// Verify that email does not already exist
 				const activeAccounts = await pool.query(
@@ -365,10 +388,10 @@ router
 				}
 
 				const updatedAccount = await pool.query(
-					`UPDATE account SET email = $1 
-						WHERE account_id = $2 
-						RETURNING account_id, email, first_name, last_name, join_date`,
-					[email, account_id]
+					`UPDATE account SET email = $1, last_edited_timestamp = $2 
+						WHERE account_id = $3 
+						RETURNING account_id, email, first_name, last_name, join_date, last_edited_timestamp`,
+					[email, last_edited_timestamp, account_id]
 				);
 
 				return res.json({ success: true, account: updatedAccount.rows[0] });
@@ -397,16 +420,18 @@ router
 				const { account_id } = req;
 				// Passed in the post body
 				const { newPassword } = req.body;
+				// Current time in unix/epoch timestamp
+				const last_edited_timestamp = moment().format("X");
 
 				bcrypt.genSalt(10, (err, salt) => {
 					bcrypt.hash(newPassword, salt, async (err, hash) => {
 						if (err) throw err;
 
 						const updatedAccount = await pool.query(
-							`UPDATE account SET hash_pass = $1 
-								WHERE account_id = $2 
-								RETURNING account_id, email, first_name, last_name, join_date`,
-							[hash, account_id]
+							`UPDATE account SET hash_pass = $1, last_edited_timestamp = $2 
+								WHERE account_id = $3 
+								RETURNING account_id, email, first_name, last_name, join_date, last_edited_timestamp`,
+							[hash, last_edited_timestamp, account_id]
 						);
 
 						return res.json({ success: true, account: updatedAccount.rows[0] });

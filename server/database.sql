@@ -6,7 +6,8 @@ CREATE TABLE account(
     hash_pass VARCHAR(255),
     first_name VARCHAR(255),
     last_name VARCHAR(255),
-    join_date DATE
+    join_date DATE,
+	last_edited_timestamp TIMESTAMP
 );
 
 CREATE TABLE project(
@@ -20,6 +21,7 @@ CREATE TABLE project(
 	start_date DATE,
     due_date DATE,
     completion_date DATE,
+	last_edited_timestamp TIMESTAMP,
 	CONSTRAINT fk_account
     FOREIGN KEY(account_id) 
 	REFERENCES account(account_id)
@@ -78,6 +80,7 @@ CREATE TABLE bug(
 	start_date DATE,
     due_date DATE,
     completion_date DATE,
+	last_edited_timestamp TIMESTAMP,
 	CONSTRAINT fk_project
     FOREIGN KEY(project_id) 
 	REFERENCES project(project_id)
@@ -128,6 +131,7 @@ CREATE TABLE comment(
     bug_id INTEGER,
     description TEXT,
 	creation_date DATE,
+	last_edited_timestamp TIMESTAMP,
 	CONSTRAINT fk_bug
     FOREIGN KEY(bug_id) 
 	REFERENCES bug(bug_id)
