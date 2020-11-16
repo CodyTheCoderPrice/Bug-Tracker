@@ -96,7 +96,15 @@ export default function ItemContainerCommentsBox() {
 				>
 					<label htmlFor="create-comment-description">
 						<h2 className="item-box__title item-box__title--no-bottom-margin">
-							Comments
+							Comments (
+							{
+								[...reduxState[commentContainerName].list].filter(
+									(item) =>
+										item.bug_id ===
+										reduxState[bugContainerName].componentsDisplay.targetItem.id
+								).length
+							}
+							)
 						</h2>
 					</label>
 					<span
