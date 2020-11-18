@@ -10,9 +10,9 @@ import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemConta
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayInfo.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayItemInfo.scss";
 
-export default function ItemContainerDisplayInfo(props) {
+export default function ItemContainerDisplayItemInfo(props) {
 	const reduxState = useSelector((state) => state);
 
 	useEffect(() => {

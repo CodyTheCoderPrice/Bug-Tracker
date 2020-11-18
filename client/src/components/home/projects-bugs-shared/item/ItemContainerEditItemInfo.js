@@ -25,9 +25,9 @@ import { populateComboBox } from "../../../../utils/elementUtils";
 import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditInfo.scss";
+import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditItemInfo.scss";
 
-export default function ItemContainerEditInfo(props) {
+export default function ItemContainerEditItemInfo(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -165,7 +165,7 @@ export default function ItemContainerEditInfo(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemContainerEditInfo: false,
+				itemContainerEditItemInfo: false,
 			})
 		);
 	};

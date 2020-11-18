@@ -76,7 +76,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 					targetItem: bugs.filter((bug) => {
 						return bug.id === bugInfo.id;
 					})[0],
-					itemContainerEditInfo: false,
+					itemContainerEditItemInfo: false,
 				})
 			);
 		})

@@ -80,7 +80,11 @@
 	}
 
 	.item-box--desciption-info-height {
-		height: $edit-item-description-item-box-height;
+		height: $edit-item-description-info-item-box-height;
+	}
+
+	.item-box--project-bugs-stats-height {
+		height: $edit-item-project-bugs-stats-item-box-height;
 	}
 
 	// Used in ItemContainerEditInfo to calculate description size using JS

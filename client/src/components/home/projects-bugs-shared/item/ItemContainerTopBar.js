@@ -63,8 +63,8 @@ export default function ItemContainerTopBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemContainerEditInfo: !reduxState[props.reduxContainerName]
-					.componentsDisplay.itemContainerEditInfo,
+				itemContainerEditItemInfo: !reduxState[props.reduxContainerName]
+					.componentsDisplay.itemContainerEditItemInfo,
 			})
 		);
 	};
@@ -151,7 +151,7 @@ export default function ItemContainerTopBar(props) {
 						onClick={switchBetweenDisplayAndEditInfo}
 					>
 						{reduxState[props.reduxContainerName].componentsDisplay
-							.itemContainerEditInfo
+							.itemContainerEditItemInfo
 							? "Cancel"
 							: props.reduxContainerName === projectContainerName
 							? "Edit Project"

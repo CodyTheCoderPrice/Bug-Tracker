@@ -5,7 +5,7 @@ const initialState = {
 	listContainerMassDeleteItemsModal: false,
 	listContainerCreateItemSidbar: false,
 	itemContainer: false,
-	itemContainerEditInfo: false,
+	itemContainerEditItemInfo: false,
 	itemContainerDeleteModal: false,
 	targetItem: null,
 };
@@ -33,9 +33,9 @@ export default function (state = initialState, action) {
 					action.displays.itemContainer !== undefined
 						? action.displays.itemContainer
 						: false,
-				itemContainerEditInfo:
-					action.displays.itemContainerEditInfo !== undefined
-						? action.displays.itemContainerEditInfo
+				itemContainerEditItemInfo:
+					action.displays.itemContainerEditItemInfo !== undefined
+						? action.displays.itemContainerEditItemInfo
 						: false,
 				itemContainerDeleteModal:
 					action.displays.itemContainerDeleteModal !== undefined

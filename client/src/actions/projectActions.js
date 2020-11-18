@@ -81,7 +81,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 					targetItem: projects.filter((project) => {
 						return project.id === projectInfo.id;
 					})[0],
-					itemContainerEditInfo: false,
+					itemContainerEditItemInfo: false,
 				})
 			);
 		})

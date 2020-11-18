@@ -16,10 +16,11 @@ import { getWindowSize } from "../../../../utils/displaySizeUtils";
 // Components
 import ItemContainerTopBar from "./ItemContainerTopBar";
 import ItemContainerListSidebar from "./ItemContainerListSidebar";
-import ItemContainerDisplayInfo from "./ItemContainerDisplayInfo";
-import ItemContainerEditInfo from "./ItemContainerEditInfo";
+import ItemContainerDisplayItemInfo from "./ItemContainerDisplayItemInfo";
+import ItemContainerEditItemInfo from "./ItemContainerEditItemInfo";
 import ItemContainerDeleteModal from "./ItemContainerDeleteModal";
 import ItemContainerBugList from "./ItemContainerBugList";
+import ItemContainerBugPieChart from "./ItemContainerBugPieChart";
 import ItemContainerCommentsBox from "./ItemContainerCommentsBox";
 import ItemContainerCommentsBoxIndividualCommentDeleteModal from "./ItemContainerCommentsBoxIndividualCommentDeleteModal";
 
@@ -126,7 +127,7 @@ export default function ItemContainer(props) {
 			);
 			if (props.reduxContainerName === projectContainerName) {
 				manageSizeOfItemBoxsInPairContainer(
-					document.getElementsByClassName("js-projects-bug-info-pair")[0],
+					document.getElementsByClassName("js-project-bugs-info-pair")[0],
 					"outer-dividing-container--half-width",
 					reduxState[sizeContainerName].constants
 						.itemContainerOuterDividingContainerMinWidth
@@ -169,29 +170,29 @@ export default function ItemContainer(props) {
 					<div className="item-content-container js-item-content-container">
 						<div className="padding-container">
 							{!reduxState[props.reduxContainerName].componentsDisplay
-								.itemContainerEditInfo ? (
+								.itemContainerEditItemInfo ? (
 								<div>
-									<ItemContainerDisplayInfo
+									<ItemContainerDisplayItemInfo
 										reduxContainerName={props.reduxContainerName}
 									/>
 								</div>
 							) : (
 								<div>
-									<ItemContainerEditInfo
+									<ItemContainerEditItemInfo
 										reduxContainerName={props.reduxContainerName}
 									/>
 								</div>
 							)}
 							{props.reduxContainerName !== projectContainerName ? null : (
-								<div className="pair-container js-projects-bug-info-pair">
+								<div className="pair-container js-project-bugs-info-pair">
 									<div className="outer-dividing-container outer-dividing-container--half-width">
-										<div className="item-box">
+										<div className="item-box item-box--project-bugs-stats-height">
 											<h2 className="item-box__title">Status of Bugs</h2>
-											<span>Comming soon!</span>
+											<ItemContainerBugPieChart />
 										</div>
 									</div>
 									<div className="outer-dividing-container outer-dividing-container--half-width">
-										<div className="item-box">
+										<div className="item-box item-box--project-bugs-stats-height">
 											<h2 className="item-box__title">Bugs Recently Worked On</h2>
 											<ItemContainerBugList />
 										</div>

@@ -1,15 +1,9 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import {
-	sizeContainerName,
-	generalContainerName,
 	projectContainerName,
 	bugContainerName,
 } from "../../../../reducers/containerNames";
-
-import { setWhichGeneralComponentsDisplay } from "../../../../actions";
-
-import { dateToInt } from "../../../../utils/dateUtils";
 
 // Components
 import ItemContainerBugListRow from "./ItemContainerBugListRow";
@@ -18,7 +12,6 @@ import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerBugListTabl
 
 export default function ItemContainerBugList() {
 	const reduxState = useSelector((state) => state);
-	const dispatch = useDispatch();
 
 	return (
 		<div className="item-container-bug-list-component">
