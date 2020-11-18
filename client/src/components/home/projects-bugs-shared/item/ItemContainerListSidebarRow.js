@@ -16,7 +16,7 @@ export default function ItemContainerListSidebarRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const openItemContainer = () => {
+	const changeTargetItem = () => {
 		if (
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem ===
 				null ||
@@ -51,7 +51,7 @@ export default function ItemContainerListSidebarRow(props) {
 					? " list-sidebar__table__row--selected"
 					: " list-sidebar__table__row--hover-highlight")
 			}
-			onClick={openItemContainer}
+			onClick={changeTargetItem}
 		>
 			<td className="list-sidebar__table__data">
 				<div
