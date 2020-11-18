@@ -13,7 +13,7 @@ export default function ItemContainerBugPieChart() {
 	const [pieChartSize] = useState(260);
 
 	useEffect(() => {
-		const bugsList = [...reduxState[bugContainerName].list].filter(
+		const bugsInProjectList = [...reduxState[bugContainerName].list].filter(
 			(item) =>
 				item.project_id ===
 				reduxState[projectContainerName].componentsDisplay.targetItem.id
@@ -28,8 +28,8 @@ export default function ItemContainerBugPieChart() {
 
 		ctx.clearRect(0, 0, pieChartSize, pieChartSize);
 
-		drawPieChart(ctx, statusList, bugsList);
-		addLabels(ctx, statusList, bugsList);
+		drawPieChart(ctx, statusList, bugsInProjectList);
+		addLabels(ctx, statusList, bugsInProjectList);
 	}, [
 		reduxState[projectContainerName].componentsDisplay.targetItem,
 		reduxState[bugContainerName].list,
@@ -52,13 +52,13 @@ export default function ItemContainerBugPieChart() {
 		ctx.fill();
 	}
 
-	function drawPieChart(ctx, statusList, bugsList) {
+	function drawPieChart(ctx, statusList, bugsInProjectList) {
 		var startAngle = 0;
 		for (let statusObject of statusList) {
-			let statusCount = bugsList.filter(
+			let statusCount = bugsInProjectList.filter(
 				(item) => item.status_id === statusObject.id
 			).length;
-			let sliceAngle = (statusCount / bugsList.length) * 2 * Math.PI;
+			let sliceAngle = (statusCount / bugsInProjectList.length) * 2 * Math.PI;
 
 			drawPieSlice(
 				ctx,
@@ -73,13 +73,13 @@ export default function ItemContainerBugPieChart() {
 		}
 	}
 
-	function addLabels(ctx, statusList, bugsList) {
+	function addLabels(ctx, statusList, bugsInProjectList) {
 		let startAngle = 0;
 		for (let statusObject of statusList) {
-			let statusCount = bugsList.filter(
+			let statusCount = bugsInProjectList.filter(
 				(item) => item.status_id === statusObject.id
 			).length;
-			let sliceAngle = (statusCount / bugsList.length) * 2 * Math.PI;
+			let sliceAngle = (statusCount / bugsInProjectList.length) * 2 * Math.PI;
 
 			console.log(
 				statusObject.option +
@@ -96,7 +96,9 @@ export default function ItemContainerBugPieChart() {
 				pieChartSize / 2 +
 				(pieChartSize / 4) * Math.sin(startAngle + sliceAngle / 2);
 
-			let labelText = Math.round((100 * statusCount) / bugsList.length);
+			let labelText = Math.round(
+				(100 * statusCount) / bugsInProjectList.length
+			);
 			if (labelText !== 0) {
 				ctx.fillStyle = "white";
 				ctx.font = "bold 20px Arial";
@@ -106,14 +108,71 @@ export default function ItemContainerBugPieChart() {
 		}
 	}
 
+	const getNumberOfBugsForStatus = (statusId) => {
+		const bugsForStatus = [...reduxState[bugContainerName].list].filter(
+			(item) =>
+				item.project_id ===
+					reduxState[projectContainerName].componentsDisplay.targetItem.id &&
+				item.status_id === statusId
+		);
+
+		return bugsForStatus.length;
+	};
+
+	const getAllStatusStatisticsElement = () => {
+		const bugsInProjectList = [...reduxState[bugContainerName].list].filter(
+			(item) =>
+				item.project_id ===
+				reduxState[projectContainerName].componentsDisplay.targetItem.id
+		);
+
+		return (
+			<div className="stats-container">
+				{reduxState[bugContainerName].priorityStatusOptions.statusList.map(
+					(statusObject) => {
+						return (
+							<div className="stats-container__row">
+								<div
+									className={
+										"stats-container__row__status-box" +
+										" status-box-background-color-" +
+										statusObject.color
+									}
+								>
+									<span className="stats-container__row__status-box__centered-info">
+										{statusObject.option}
+									</span>
+								</div>
+								<div className="stats-container__row__stats-centering-container">
+									<span
+										className={
+											"stats-container__row__stats-centering-container__stats" +
+											" status-box-text-color-" +
+											statusObject.color
+										}
+									>
+										{getNumberOfBugsForStatus(statusObject.id)} /{" "}
+										{bugsInProjectList.length}
+									</span>
+								</div>
+							</div>
+						);
+					}
+				)}
+			</div>
+		);
+	};
+
 	return (
 		<div className="item-container-bug-pie-chart-component">
-			<div className="centered-pie-chart-statistics-container"></div>
-			<canvas
-				className="pie-chart js-pie-chart-canvas"
-				height={pieChartSize}
-				width={pieChartSize}
-			></canvas>
+			<div className="centered-container">
+				<canvas
+					className="pie-chart js-pie-chart-canvas"
+					height={pieChartSize}
+					width={pieChartSize}
+				></canvas>
+				{getAllStatusStatisticsElement()}
+			</div>
 		</div>
 	);
 }

@@ -6,7 +6,66 @@
 	height: 100%;
 	width: 100%;
 
+	.centered-container {
+		@include horizontal-center();
+
+		height: 270px;
+		width: 480px;
+	}
+
 	.pie-chart {
-		
+		position: absolute;
+		right: 0;
+	}
+
+	.stats-container {
+		position: absolute;
+		left: 0;
+		padding-top: 12px;
+		width: $item-container-project-bugs-item-box-stats-container-width;
+	}
+
+	.stats-container__row {
+		width: 100%;
+		margin-top: 25px;
+	}
+
+	.stats-container__row__status-box {
+		position: relative;
+		display: inline-block;
+		// This background color should only appear if there was a problem
+		// ...assigning a different background color to a status-box
+		// ...scss for other colors is in home.scss
+		background-color: black;
+		/* color: black;
+		font-weight: bold; */
+		height: $status-box-height;
+		width: $status-box-width;
+	}
+
+	.stats-container__row__status-box__centered-info {
+		@include dead-center();
+
+		color: white;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.stats-container__row__stats-centering-container {
+		position: relative;
+		display: inline-block;
+		height: $status-box-height;
+		width: $item-container-project-bugs-item-box-stats-container-width -
+			$status-box-width;
+		font-weight: bold;
+	}
+
+	.stats-container__row__stats-centering-container__stats {
+		@include vertical-center();
+
+		left: 10px;
+		white-space: nowrap;
+		overflow: hidden;
 	}
 }
