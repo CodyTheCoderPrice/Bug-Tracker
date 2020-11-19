@@ -79,6 +79,11 @@
 		overflow-wrap: anywhere;
 	}
 
+	// Used to keep bug-pie-chart from going past item-container
+	.item-box--no-left-padding {
+		padding-left: 0px;
+	}
+
 	.item-box--desciption-info-height {
 		height: $edit-item-description-info-item-box-height;
 	}

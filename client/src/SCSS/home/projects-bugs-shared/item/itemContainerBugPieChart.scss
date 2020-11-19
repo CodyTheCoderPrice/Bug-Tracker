@@ -3,7 +3,7 @@
 
 .item-container-bug-pie-chart-component {
 	position: relative;
-	height: 100%;
+	height: 270px;
 	width: 100%;
 
 	.centered-container {
@@ -13,14 +13,22 @@
 		width: 480px;
 	}
 
+	.centering-table {
+		width: 100%;
+	}
+
+	.centering-table-data {
+		position: relative;
+		min-width: 200px;
+	}
+
 	.pie-chart {
-		position: absolute;
-		right: 0;
+		@include horizontal-center();
 	}
 
 	.stats-container {
-		position: absolute;
-		left: 0;
+		@include horizontal-center();
+
 		padding-top: 12px;
 		width: $item-container-project-bugs-item-box-stats-container-width;
 	}
@@ -58,13 +66,13 @@
 		height: $status-box-height;
 		width: $item-container-project-bugs-item-box-stats-container-width -
 			$status-box-width;
-		font-weight: bold;
 	}
 
 	.stats-container__row__stats-centering-container__stats {
-		@include vertical-center();
+		@include dead-center();
 
-		left: 10px;
+		font-size: $slightly-larger-font-size;
+		font-weight: bold;
 		white-space: nowrap;
 		overflow: hidden;
 	}

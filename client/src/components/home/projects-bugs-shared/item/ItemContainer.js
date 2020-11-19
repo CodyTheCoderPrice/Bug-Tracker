@@ -186,14 +186,14 @@ export default function ItemContainer(props) {
 							{props.reduxContainerName !== projectContainerName ? null : (
 								<div className="pair-container js-project-bugs-info-pair">
 									<div className="outer-dividing-container outer-dividing-container--half-width">
-										<div className="item-box item-box--project-bugs-stats-height">
+										<div className="item-box item-box--project-bugs-stats-height item-box--no-left-padding">
 											<h2 className="item-box__title">Status of Bugs</h2>
 											<ItemContainerBugPieChart />
 										</div>
 									</div>
 									<div className="outer-dividing-container outer-dividing-container--half-width">
 										<div className="item-box item-box--project-bugs-stats-height">
-											<h2 className="item-box__title">Bugs Recently Worked On</h2>
+											<h2 className="item-box__title">Most Recent Bugs Worked On</h2>
 											<ItemContainerBugList />
 										</div>
 									</div>

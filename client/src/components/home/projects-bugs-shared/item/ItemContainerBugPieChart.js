@@ -165,14 +165,20 @@ export default function ItemContainerBugPieChart() {
 
 	return (
 		<div className="item-container-bug-pie-chart-component">
-			<div className="centered-container">
-				<canvas
-					className="pie-chart js-pie-chart-canvas"
-					height={pieChartSize}
-					width={pieChartSize}
-				></canvas>
-				{getAllStatusStatisticsElement()}
-			</div>
+			<table className="centering-table">
+				<tbody>
+					<tr>
+						<td className="centering-table-data">{getAllStatusStatisticsElement()}</td>
+						<td className="centering-table-data">
+							<canvas
+								className="pie-chart js-pie-chart-canvas"
+								height={pieChartSize}
+								width={pieChartSize}
+							></canvas>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	);
 }
