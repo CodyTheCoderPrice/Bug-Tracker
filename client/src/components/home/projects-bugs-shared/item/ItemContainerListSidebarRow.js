@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	bugContainerName,
 	projectContainerName,
 } from "../../../../reducers/containerNames";
 
 import {
-	setWhichAccountComponentsDisplay,
 	setWhichProjectOrBugComponentsDisplay,
+	setWhichProjectComponentsDisplay,
 	setWhichBugComponentsDisplay,
 } from "../../../../actions";
 
@@ -23,7 +24,6 @@ export default function ItemContainerListSidebarRow(props) {
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
 				props.item.id
 		) {
-			dispatch(setWhichAccountComponentsDisplay({}));
 			dispatch(
 				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 					listContainer: false,
@@ -35,6 +35,40 @@ export default function ItemContainerListSidebarRow(props) {
 			// Resets bug components display when a different project is opened
 			// ...to prevent erros with bug targetItem not belonging to project
 			if (props.reduxContainerName === projectContainerName) {
+				dispatch(setWhichBugComponentsDisplay({}));
+			}
+		}
+	};
+
+	const openListContainerIfProject = () => {
+		if (props.reduxContainerName === projectContainerName) {
+			dispatch(
+				setWhichProjectComponentsDisplay({
+					targetItem: props.item,
+				})
+			);
+
+			dispatch(
+				setWhichBugComponentsDisplay({
+					listContainer: true,
+					// If the project targetItem is not changing, then keep the bug targetItem the same
+					targetItem:
+						props.item.id ===
+						reduxState[projectContainerName].componentsDisplay.targetItem.id
+							? reduxState[bugContainerName].componentsDisplay.targetItem
+							: null,
+				})
+			);
+
+			// Resets bug components display when a different project is opened
+			// ...to prevent erros with bug targetItem not belonging to project
+			if (
+				props.reduxContainerName === projectContainerName &&
+				reduxState[props.reduxContainerName].componentsDisplay.targetItem !==
+					null &&
+				reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
+					props.item.id
+			) {
 				dispatch(setWhichBugComponentsDisplay({}));
 			}
 		}
@@ -52,6 +86,7 @@ export default function ItemContainerListSidebarRow(props) {
 					: " list-sidebar__table__row--hover-highlight")
 			}
 			onClick={changeTargetItem}
+			onDoubleClick={openListContainerIfProject}
 		>
 			<td className="list-sidebar__table__data">
 				<div

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { projectContainerName } from "../../../../reducers/containerNames";
 
 import {
-	setWhichAccountComponentsDisplay,
 	setWhichProjectOrBugComponentsDisplay,
 	setWhichBugComponentsDisplay,
 	setProjectOrBugMassDeleteList,
@@ -45,7 +44,6 @@ export default function ListContainerTableRow(props) {
 	};
 
 	const changeTargetItem = () => {
-		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listContainer: true,
@@ -67,7 +65,6 @@ export default function ListContainerTableRow(props) {
 	};
 
 	const openItemContainer = () => {
-		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listContainer: false,
