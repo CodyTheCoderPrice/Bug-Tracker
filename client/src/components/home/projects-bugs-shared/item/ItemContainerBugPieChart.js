@@ -53,7 +53,9 @@ export default function ItemContainerBugPieChart() {
 	}
 
 	function drawPieChart(ctx, statusList, bugsInProjectList) {
-		var startAngle = 0;
+		// Math.PI instead of 0 so pie chart will be drawn starting on the left
+		var startAngle = Math.PI;
+
 		for (let statusObject of statusList) {
 			let statusCount = bugsInProjectList.filter(
 				(item) => item.status_id === statusObject.id
@@ -65,29 +67,28 @@ export default function ItemContainerBugPieChart() {
 				pieChartSize / 2,
 				pieChartSize / 2,
 				pieChartSize / 2,
-				startAngle,
-				startAngle + sliceAngle,
-				statusObject.color
+				// Modulos of (2 * Math.PI) because startAngle begins at Math.PI
+				startAngle % (2 * Math.PI),
+				// Modulos of (2 * Math.PI) because startAngle begins at Math.PI
+				(startAngle + sliceAngle) % (2 * Math.PI),
+				statusObject.colorHex !== null
+					? statusObject.colorHex
+					: statusObject.color
 			);
 			startAngle += sliceAngle;
 		}
 	}
 
 	function addLabels(ctx, statusList, bugsInProjectList) {
-		let startAngle = 0;
+		// Math.PI instead of 0 so pie chart will be drawn starting on the left
+		var startAngle = Math.PI;
+		
 		for (let statusObject of statusList) {
 			let statusCount = bugsInProjectList.filter(
 				(item) => item.status_id === statusObject.id
 			).length;
 			let sliceAngle = (statusCount / bugsInProjectList.length) * 2 * Math.PI;
 
-			console.log(
-				statusObject.option +
-					" -> " +
-					Math.cos(sliceAngle) +
-					" vs " +
-					Math.sin(sliceAngle)
-			);
 			let labelX =
 				pieChartSize / 2 +
 				(pieChartSize / 4) * Math.cos(startAngle + sliceAngle / 2) -
@@ -129,9 +130,9 @@ export default function ItemContainerBugPieChart() {
 		return (
 			<div className="stats-container">
 				{reduxState[bugContainerName].priorityStatusOptions.statusList.map(
-					(statusObject) => {
+					(statusObject, idx) => {
 						return (
-							<div className="stats-container__row">
+							<div className="stats-container__row" key={idx}>
 								<div
 									className={
 										"stats-container__row__status-box" +
@@ -168,7 +169,9 @@ export default function ItemContainerBugPieChart() {
 			<table className="centering-table">
 				<tbody>
 					<tr>
-						<td className="centering-table-data">{getAllStatusStatisticsElement()}</td>
+						<td className="centering-table-data">
+							{getAllStatusStatisticsElement()}
+						</td>
 						<td className="centering-table-data">
 							<canvas
 								className="pie-chart js-pie-chart-canvas"

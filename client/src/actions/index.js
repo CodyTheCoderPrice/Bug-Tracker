@@ -9,6 +9,7 @@ import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES,
 	SET_PRIORITY_STATUS,
+	SET_BUG_STATUS_COLOR_VALUES,
 	SET_INPUT_ERRORS,
 } from "./constants/types";
 
@@ -43,20 +44,12 @@ export const setPriorityStatus = (
 	dispatch({
 		container: PROJECT_CONTAINER,
 		type: SET_PRIORITY_STATUS,
-		priorityList: projectPriorityStatus.priorityList,
-		priorityEmptyId: projectPriorityStatus.priorityEmptyId,
-		statusList: projectPriorityStatus.statusList,
-		statusEmptyId: projectPriorityStatus.statusEmptyId,
-		statusCompletionId: projectPriorityStatus.statusCompletionId,
+		priorityStatusInfo: projectPriorityStatus,
 	});
 	dispatch({
 		container: BUG_CONTAINER,
 		type: SET_PRIORITY_STATUS,
-		priorityList: bugPriorityStatus.priorityList,
-		priorityEmptyId: bugPriorityStatus.priorityEmptyId,
-		statusList: bugPriorityStatus.statusList,
-		statusEmptyId: bugPriorityStatus.statusEmptyId,
-		statusCompletionId: bugPriorityStatus.statusCompletionId,
+		priorityStatusInfo: bugPriorityStatus,
 	});
 };
 

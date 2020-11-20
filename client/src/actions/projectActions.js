@@ -139,7 +139,6 @@ export const deleteMultipleProjects = (
 			headers
 		)
 		.then((res) => {
-			console.log(res.data);
 			const { projects, bugs, comments } = res.data;
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));

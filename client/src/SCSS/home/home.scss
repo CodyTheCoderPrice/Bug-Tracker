@@ -1,7 +1,8 @@
 @import "../utils/variables";
 @import "../utils//mixins";
 
-.home-container {
+.home-container,
+.js-calc-home-container {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -24,22 +25,29 @@
 	}
 
 	// Used for changing the background color of status-boxes
-	.status-box-background-color-gray {
+	// ...also used to store colors in redux for bug-pie-chart
+	.status-box-background-color-gray,
+	.js-calc-status-box-background-color-gray {
 		background-color: $status-gray;
 	}
-	.status-box-background-color-blue {
+	.status-box-background-color-blue,
+	.js-calc-status-box-background-color-blue {
 		background-color: $status-blue;
 	}
-	.status-box-background-color-purple {
+	.status-box-background-color-purple,
+	.js-calc-status-box-background-color-purple {
 		background-color: $status-purple;
 	}
-	.status-box-background-color-orange {
+	.status-box-background-color-orange,
+	.js-calc-status-box-background-color-orange {
 		background-color: $status-orange;
 	}
-	.status-box-background-color-green {
+	.status-box-background-color-green,
+	.js-calc-status-box-background-color-green {
 		background-color: $status-green;
 	}
-	.status-box-background-color-red {
+	.status-box-background-color-red,
+	.js-calc-status-box-background-color-red {
 		background-color: $status-red;
 	}
 
