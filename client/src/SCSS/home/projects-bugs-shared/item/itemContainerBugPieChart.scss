@@ -24,6 +24,11 @@
 
 	.pie-chart {
 		@include horizontal-center();
+
+		// stats-container is smaller, so centering causes 
+		// ...more space on left side than pie-chart
+		margin-left: -15px;
+		padding-top: 12px;
 	}
 
 	.stats-container {
@@ -45,8 +50,6 @@
 		// ...assigning a different background color to a status-box
 		// ...scss for other colors is in home.scss
 		background-color: black;
-		/* color: black;
-		font-weight: bold; */
 		height: $status-box-height;
 		width: $status-box-width;
 	}

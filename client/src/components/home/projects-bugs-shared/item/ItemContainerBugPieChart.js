@@ -10,7 +10,7 @@ import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerBugPieChart
 export default function ItemContainerBugPieChart() {
 	const reduxState = useSelector((state) => state);
 
-	const [pieChartSize] = useState(260);
+	const [pieChartSize] = useState(250);
 
 	useEffect(() => {
 		const bugsInProjectList = [...reduxState[bugContainerName].list].filter(
@@ -82,7 +82,7 @@ export default function ItemContainerBugPieChart() {
 	function addLabels(ctx, statusList, bugsInProjectList) {
 		// Math.PI instead of 0 so pie chart will be drawn starting on the left
 		var startAngle = Math.PI;
-		
+
 		for (let statusObject of statusList) {
 			let statusCount = bugsInProjectList.filter(
 				(item) => item.status_id === statusObject.id

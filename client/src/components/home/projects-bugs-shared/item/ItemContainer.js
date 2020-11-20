@@ -186,15 +186,39 @@ export default function ItemContainer(props) {
 							{props.reduxContainerName !== projectContainerName ? null : (
 								<div className="pair-container js-project-bugs-info-pair">
 									<div className="outer-dividing-container outer-dividing-container--half-width">
-										<div className="item-box item-box--project-bugs-stats-height item-box--no-left-padding">
+										<div className="item-box item-box--project-bugs-stats-height item-box--no-left-right-padding">
 											<h2 className="item-box__title">Status of Bugs</h2>
-											<ItemContainerBugPieChart />
+											{[...reduxState[bugContainerName].list].filter(
+												(item) =>
+													item.project_id ===
+													reduxState[projectContainerName].componentsDisplay
+														.targetItem.id
+											).length > 0 ? (
+												<ItemContainerBugPieChart />
+											) : (
+												<div className="item-box__no-bugs-message">
+													This project has no bugs tracked
+												</div>
+											)}
 										</div>
 									</div>
 									<div className="outer-dividing-container outer-dividing-container--half-width">
 										<div className="item-box item-box--project-bugs-stats-height">
-											<h2 className="item-box__title">Most Recent Bugs Worked On</h2>
-											<ItemContainerBugList />
+											<h2 className="item-box__title">
+												Most Recent Bugs Worked On
+											</h2>
+											{[...reduxState[bugContainerName].list].filter(
+												(item) =>
+													item.project_id ===
+													reduxState[projectContainerName].componentsDisplay
+														.targetItem.id
+											).length > 0 ? (
+												<ItemContainerBugList />
+											) : (
+												<div className="item-box__no-bugs-message">
+													This project has no bugs tracked
+												</div>
+											)}
 										</div>
 									</div>
 								</div>

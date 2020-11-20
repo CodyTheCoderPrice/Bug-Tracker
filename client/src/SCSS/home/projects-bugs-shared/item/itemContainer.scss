@@ -72,6 +72,8 @@
 	}
 
 	.item-box {
+		// So item-box__no-bugs-message centering will work
+		position: relative;
 		margin: 10px;
 		border: 2px solid black;
 		background-color: $light-gray;
@@ -80,8 +82,9 @@
 	}
 
 	// Used to keep bug-pie-chart from going past item-container
-	.item-box--no-left-padding {
+	.item-box--no-left-right-padding {
 		padding-left: 0px;
+		padding-right: 0px;
 	}
 
 	.item-box--desciption-info-height {
@@ -161,7 +164,12 @@
 		height: 100px;
 	}
 
-	.bottom-row-height-filler {
-		height: 65px;
+	.item-box__no-bugs-message {
+		@include vertical-center();
+
+		width: 100%;
+		font-size: $search-filter-sort-create-item-message-font-size;
+		text-align: center;
+		color: gray;
 	}
 }
