@@ -127,6 +127,7 @@ export default function ListContainerTableRow(props) {
 			<td
 				className="list-table__data"
 				onClick={(e) => dontPropogateParentOnclick(e)}
+				onDoubleClick={(e) => dontPropogateParentOnclick(e)}
 			>
 				<input
 					type="checkbox"
