@@ -34,8 +34,8 @@
 		display: inline-block;
 		margin-left: $display-item-field-margin-left;
 		// This background color should only appear if there was a problem
-		// ...assigning a different background color to a status-box
-		// ...scss for other colors is in home.scss
+		// ...assigning a different background color to a status-box.
+		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
 		color: white;
 		height: $status-box-height;
