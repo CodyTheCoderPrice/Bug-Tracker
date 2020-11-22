@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	generalContainerName,
 	projectContainerName,
+	bugContainerName,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -10,6 +11,7 @@ import {
 	setProjectOrBugSearchFilterSort,
 	setWhichProjectOrBugComponentsDisplay,
 	setWhichBugComponentsDisplay,
+	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
 import { useSearchBarBorderEventListener } from "../../../../utils/searchBarHookUtils";
@@ -91,6 +93,7 @@ export default function ItemContainerTopBar(props) {
 		// Resets bug components display if project itemContainer is closed
 		if (props.reduxContainerName === projectContainerName) {
 			dispatch(setWhichBugComponentsDisplay({}));
+			dispatch(setProjectOrBugMassDeleteList(bugContainerName));
 		}
 	};
 

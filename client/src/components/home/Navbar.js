@@ -13,6 +13,7 @@ import {
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 	setWhichBugComponentsDisplay,
+	setProjectOrBugMassDeleteList,
 	setWhichCommentComponentsDisplay,
 } from "../../actions";
 
@@ -221,6 +222,7 @@ export default function Navbar() {
 		);
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(setWhichBugComponentsDisplay({}));
+		dispatch(setProjectOrBugMassDeleteList(bugContainerName));
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
