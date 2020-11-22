@@ -7,7 +7,7 @@
 	top: 0;
 
 	.navbar-component {
-		background-color: $blue-gray;
+		background-color: $navy-blue;
 		height: $navbar-height;
 		width: 100%;
 	}
@@ -15,7 +15,7 @@
 	.navbar-button {
 		position: relative;
 		float: left;
-		background-color: $blue-gray;
+		background-color: $navy-blue;
 		height: $navbar-height;
 	}
 
@@ -31,7 +31,7 @@
 	}
 
 	.navbar-button--selected {
-		background-color: $light-blue-gray;
+		background-color: $light-navy-blue;
 	}
 
 	.navbar-button__text-container {

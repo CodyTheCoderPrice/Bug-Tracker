@@ -14,7 +14,7 @@
 		@include dead-center();
 		border: 1px solid black;
 		outline: none;
-		background-color: $light-blue-gray;
+		background-color: $light-navy-blue;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
 		padding: 10px 0px 10px 0px;
@@ -28,6 +28,6 @@
 	}
 	.form-submit-centering-container__button:hover,
 	.form-submit-centering-container__button:active {
-		background-color: $blue-gray;
+		background-color: $navy-blue;
 	}
 }

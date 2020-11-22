@@ -52,13 +52,13 @@
 	}
 
 	.centering-container__search-group-container--with-border {
-		border: $list-item-search-bar-group-container-border-width solid $light-blue-gray;
+		border: $list-item-search-bar-group-container-border-width solid $light-navy-blue;
 	}
 
 	.centering-container__search-group-container__search-bar {
 		display: inline-block;
 		outline: none;
-		border: $list-search-bar-border-width solid $light-blue-gray;
+		border: $list-search-bar-border-width solid $light-navy-blue;
 		padding: 0px $list-search-bar-padding 0px $list-search-bar-padding;
 		height: $list-search-bar-height;
 		// Width changed by JS
@@ -72,14 +72,14 @@
 		display: inline-block;
 		// Since a agap between searchbar and button will appear in chrome otherwise
 		margin-left: -1px;
-		background-color: $light-blue-gray;
+		background-color: $light-navy-blue;
 		height: $list-item-search-bar-button-height;
 		width: $list-item-search-bar-button-width;
 		cursor: pointer;
 	}
 	.centering-container__search-group-container__search-bar-button:hover,
 	.centering-container__search-group-container__search-bar-button:active {
-		background-color: $blue-gray;
+		background-color: $navy-blue;
 	}
 
 	.centering-container__search-group-container__search-bar-button__icon {
