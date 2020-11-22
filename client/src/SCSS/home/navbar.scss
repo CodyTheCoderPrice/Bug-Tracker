@@ -54,7 +54,7 @@
 		font-style: italic;
 	}
 
-	.navbar-button__close-button {
+	.navbar-button__close-button__text-container {
 		position: absolute;
 		top: 5px;
 		right: 5px;
@@ -65,13 +65,13 @@
 		opacity: 0.4;
 		cursor: pointer;
 	}
-	.navbar-button__close-button:hover,
-	.navbar-button__close-button:active {
+	.navbar-button__close-button__text-container:hover,
+	.navbar-button__close-button__text-container:active {
 		background-color: $bright-red;
 		opacity: 1;
 	}
 
-	.navbar-button__close-button__icon {
+	.navbar-button__close-button__text-container__icon {
 		@include stop-text-selection();
 		@include dead-center();
 

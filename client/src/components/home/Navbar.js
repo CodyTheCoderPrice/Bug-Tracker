@@ -273,11 +273,11 @@ export default function Navbar() {
 									}
 								</span>
 								<div
-									className="navbar-button__close-button"
+									className="navbar-button__close-button__text-container"
 									onClick={(e) => closeProjectItemContainer(e)}
 								>
 									<i
-										className="fa fa-times navbar-button__close-button__icon"
+										className="fa fa-times navbar-button__close-button__text-container__icon"
 										aria-hidden="true"
 									/>
 								</div>
@@ -314,11 +314,11 @@ export default function Navbar() {
 										}
 									</span>
 									<div
-										className="navbar-button__close-button"
+										className="navbar-button__close-button__text-container"
 										onClick={(e) => closeBugItemContainer(e)}
 									>
 										<i
-											className="fa fa-times navbar-button__close-button__icon"
+											className="fa fa-times navbar-button__close-button__text-container__icon"
 											aria-hidden="true"
 										/>
 									</div>
