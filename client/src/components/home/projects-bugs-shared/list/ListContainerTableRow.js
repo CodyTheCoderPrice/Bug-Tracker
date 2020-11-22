@@ -121,8 +121,7 @@ export default function ListContainerTableRow(props) {
 					? " list-table__row--selected"
 					: " list-table__row--hover-highlight")
 			}
-			onClick={changeTargetItem}
-			onDoubleClick={openItemContainer}
+			onClick={openItemContainer}
 		>
 			<td
 				className="list-table__data"
