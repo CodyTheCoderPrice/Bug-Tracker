@@ -13,7 +13,10 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import { getProjectOrBugBackgroundColorWithHover } from "../../../utils/elementColorUtils";
+import {
+	getProjectOrBugBackgroundColorWithHover,
+	getProjectOrBugTextColor,
+} from "../../../utils/elementColorUtils";
 
 import "../../../SCSS/home/account/editAccountModals.scss";
 
@@ -78,6 +81,17 @@ export default function EditAccountModalChangeInfo() {
 		}
 	};
 
+	const getLinkTextcolor = () => {
+		if (
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		) {
+			return getProjectOrBugTextColor(projectContainerName);
+		} else {
+			return getProjectOrBugTextColor(bugContainerName);
+		}
+	};
+
 	return (
 		<div>
 			<h1 className="title">Edit Personal Info</h1>
@@ -116,7 +130,10 @@ export default function EditAccountModalChangeInfo() {
 							.validationAccountLastName
 					}
 				</span>
-				<button type="submit" className={"form__submit" + getSubmitButtonBackgroundColorWithHover()}>
+				<button
+					type="submit"
+					className={"form__submit" + getSubmitButtonBackgroundColorWithHover()}
+				>
 					Update
 				</button>
 				<span className="form__errors">
@@ -125,15 +142,24 @@ export default function EditAccountModalChangeInfo() {
 				</span>
 			</form>
 			<div className="modal-links-container">
-				<span onClick={openEditEmailModal} className="modal-link">
+				<span
+					onClick={openEditEmailModal}
+					className={"modal-link" + getLinkTextcolor()}
+				>
 					Edit Email
 				</span>
 				<span className="link-spacer">|</span>
-				<span onClick={openEditPasswordModal} className="modal-link">
+				<span
+					onClick={openEditPasswordModal}
+					className={"modal-link" + getLinkTextcolor()}
+				>
 					Edit Password
 				</span>
 				<span className="link-spacer">|</span>
-				<span onClick={openDeleteAccountModal} className="modal-link">
+				<span
+					onClick={openDeleteAccountModal}
+					className={"modal-link" + getLinkTextcolor()}
+				>
 					Delete Account
 				</span>
 			</div>

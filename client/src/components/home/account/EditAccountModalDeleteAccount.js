@@ -12,7 +12,10 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import { getProjectOrBugBackgroundColorWithHover } from "../../../utils/elementColorUtils";
+import {
+	getProjectOrBugBackgroundColorWithHover,
+	getProjectOrBugTextColor,
+} from "../../../utils/elementColorUtils";
 
 import "../../../SCSS/home/account/editAccountModals.scss";
 
@@ -58,6 +61,17 @@ export default function EditAccountModalDeleteAccount() {
 			return getProjectOrBugBackgroundColorWithHover(projectContainerName);
 		} else {
 			return getProjectOrBugBackgroundColorWithHover(bugContainerName);
+		}
+	};
+
+	const getLinkTextcolor = () => {
+		if (
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		) {
+			return getProjectOrBugTextColor(projectContainerName);
+		} else {
+			return getProjectOrBugTextColor(bugContainerName);
 		}
 	};
 
@@ -113,7 +127,10 @@ export default function EditAccountModalDeleteAccount() {
 				</span>
 			</form>
 			<div className="modal-links-container">
-				<span onClick={backToEditInfo} className="modal-link">
+				<span
+					onClick={backToEditInfo}
+					className={"modal-link" + getLinkTextcolor()}
+				>
 					Back
 				</span>
 			</div>

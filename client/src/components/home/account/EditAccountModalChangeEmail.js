@@ -13,7 +13,10 @@ import {
 	clearInputErrors,
 } from "../../../actions";
 
-import { getProjectOrBugBackgroundColorWithHover } from "../../../utils/elementColorUtils";
+import {
+	getProjectOrBugBackgroundColorWithHover,
+	getProjectOrBugTextColor,
+} from "../../../utils/elementColorUtils";
 
 import "../../../SCSS/home/account/editAccountModals.scss";
 
@@ -62,6 +65,17 @@ export default function EditAccountModalChangeEmail() {
 		}
 	};
 
+	const getLinkTextcolor = () => {
+		if (
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		) {
+			return getProjectOrBugTextColor(projectContainerName);
+		} else {
+			return getProjectOrBugTextColor(bugContainerName);
+		}
+	};
+
 	return (
 		<div>
 			<div className="back-button" onClick={backToEditInfo}>
@@ -97,7 +111,10 @@ export default function EditAccountModalChangeEmail() {
 				<span className="form__errors">
 					{reduxState[generalContainerName].inputErrors.currentPassword}
 				</span>
-				<button type="submit" className={"form__submit" + getSubmitButtonBackgroundColorWithHover()}>
+				<button
+					type="submit"
+					className={"form__submit" + getSubmitButtonBackgroundColorWithHover()}
+				>
 					Update
 				</button>
 				<span className="form__errors">
@@ -107,7 +124,10 @@ export default function EditAccountModalChangeEmail() {
 				</span>
 			</form>
 			<div className="modal-links-container">
-				<span onClick={backToEditInfo} className="modal-link">
+				<span
+					onClick={backToEditInfo}
+					className={"modal-link" + getLinkTextcolor()}
+				>
 					Back
 				</span>
 			</div>
