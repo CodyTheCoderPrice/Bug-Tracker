@@ -103,7 +103,7 @@ export default function Navbar() {
 			projectButtonElement.style.maxWidth = null;
 
 			// If bug navbar button is present
-			if (reduxState[bugContainerName].componentsDisplay.targetItem !== null) {
+			if (reduxState[projectContainerName].componentsDisplay.targetItem !== null) {
 				const bugButtonElement = document.getElementsByClassName(
 					"js-bug-button"
 				)[0];
