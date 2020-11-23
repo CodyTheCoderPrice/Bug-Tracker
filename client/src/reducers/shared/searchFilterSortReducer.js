@@ -4,8 +4,8 @@ const initialState = {
 	searchKeyWordString: "",
 	sortByAscending: true,
 	sortByTypeId: 2,
-	priorityFilter: [1, 2, 3, 4],
-	statusFilter: [1, 2, 3, 4, 5, 6],
+	priorityFilter: [],
+	statusFilter: [],
 };
 
 export default function (state = initialState, action) {

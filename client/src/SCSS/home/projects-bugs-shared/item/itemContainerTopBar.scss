@@ -97,6 +97,11 @@
 		height: 48px;
 	}
 
+	.filter-container__button__text--active {
+		font-weight: bold;
+		color: $filter-active-color;
+	}
+
 	.filter-container__button__text {
 		// Used horizontal-center since resize would move the text
 		@include horizontal-center();
@@ -153,6 +158,10 @@
 	.filter-container__content-dropdown__content__block__checkbox,
 	.filter-container__content-dropdown__content__block__label {
 		margin: 5px 3px 5px 3px;
+	}
+
+	.filter-container__content-dropdown__content__block__label--active {
+		color: $filter-active-color;
 	}
 
 	.item-options-container {

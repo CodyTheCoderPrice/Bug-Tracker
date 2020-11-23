@@ -155,7 +155,9 @@ export default function ItemContainerTopBar(props) {
 				<div
 					className={
 						"outer-search-container__search-bar-button" +
-						getProjectOrBugBackgroundColorClassNameLight(props.reduxContainerName)
+						getProjectOrBugBackgroundColorClassNameLight(
+							props.reduxContainerName
+						)
 					}
 					onClick={updateSearchKeyWordString}
 				>
@@ -168,13 +170,21 @@ export default function ItemContainerTopBar(props) {
 				<div
 					className={
 						"filter-container__button" +
-						(showFilterDropdown
-							? " filter-container__button--clicked"
-							: "")
+						(showFilterDropdown ? " filter-container__button--clicked" : "")
 					}
 					onClick={toggleFilterDropdown}
 				>
-					<span className="filter-container__button__text">
+					<span
+						className={
+							"filter-container__button__text" +
+							(reduxState[props.reduxContainerName].searchFilterSort
+								.priorityFilter.length > 0 ||
+							reduxState[props.reduxContainerName].searchFilterSort.statusFilter
+								.length > 0
+								? " filter-container__button__text--active"
+								: "")
+						}
+					>
 						<i className="fa fa-filter" aria-hidden="true" /> Filter
 					</span>
 				</div>
@@ -206,15 +216,24 @@ export default function ItemContainerTopBar(props) {
 										name="priorityFilter"
 										value={obj.id}
 										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState[
-											props.reduxContainerName
-										].searchFilterSort.priorityFilter.includes(obj.id)}
+										checked={
+											!reduxState[
+												props.reduxContainerName
+											].searchFilterSort.priorityFilter.includes(obj.id)
+										}
 										id={"list-priority-filter-" + obj.id}
 										className="filter-container__content-dropdown__content__block__checkbox"
 									/>
 									<label
 										htmlFor={"list-priority-filter-" + obj.id}
-										className="filter-container__content-dropdown__content__block__label"
+										className={
+											"filter-container__content-dropdown__content__block__label" +
+											(reduxState[
+												props.reduxContainerName
+											].searchFilterSort.priorityFilter.includes(obj.id)
+												? " filter-container__content-dropdown__content__block__label--active"
+												: "")
+										}
 									>
 										{obj.option !== "" ? obj.option : "Not Assigned"}
 									</label>
@@ -239,15 +258,24 @@ export default function ItemContainerTopBar(props) {
 										name="statusFilter"
 										value={obj.id}
 										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState[
-											props.reduxContainerName
-										].searchFilterSort.statusFilter.includes(obj.id)}
+										checked={
+											!reduxState[
+												props.reduxContainerName
+											].searchFilterSort.statusFilter.includes(obj.id)
+										}
 										id={"list-status-filter-" + obj.id}
 										className="filter-container__content-dropdown__content__block__checkbox"
 									/>
 									<label
 										htmlFor={"list-status-filter-" + obj.id}
-										className="filter-container__content-dropdown__content__block__label"
+										className={
+											"filter-container__content-dropdown__content__block__label" +
+											(reduxState[
+												props.reduxContainerName
+											].searchFilterSort.statusFilter.includes(obj.id)
+												? " filter-container__content-dropdown__content__block__label--active"
+												: "")
+										}
 									>
 										{obj.option !== "" ? obj.option : "Not Assigned"}
 									</label>

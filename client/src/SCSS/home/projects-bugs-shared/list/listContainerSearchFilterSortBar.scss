@@ -122,7 +122,7 @@
 	.filter-area-container__button--clicked {
 		// Negative margin because border resize moves the element
 		margin: -2px -2px 0px;
-		border: 3px solid black;
+		border-width: 3px;
 		border-bottom: none;
 		height: 54px;
 	}
@@ -132,6 +132,11 @@
 		@include horizontal-center();
 		top: 4px;
 		width: $filter-button-width;
+	}
+
+	.filter-area-container__button__text--active {
+		font-weight: bold;
+		color: $filter-active-color;
 	}
 
 	.filter-area-container__content-dropdown {
@@ -183,6 +188,10 @@
 	.filter-area-container__content-dropdown__content__block__checkbox,
 	.filter-area-container__content-dropdown__content__block__label {
 		margin: 5px 3px 5px 3px;
+	}
+
+	.filter-area-container__content-dropdown__content__block__label--active {
+		color: $filter-active-color;
 	}
 
 	.create-item-message-container {

@@ -163,7 +163,17 @@ export default function ListContainerSearchFilterSortBar(props) {
 					}
 					onClick={toggleFilterDropdown}
 				>
-					<span className="filter-area-container__button__text">
+					<span
+						className={
+							"filter-area-container__button__text" +
+							(reduxState[props.reduxContainerName].searchFilterSort
+								.priorityFilter.length > 0 ||
+							reduxState[props.reduxContainerName].searchFilterSort.statusFilter
+								.length > 0
+								? " filter-area-container__button__text--active"
+								: "")
+						}
+					>
 						<i className="fa fa-filter" aria-hidden="true" /> Filter
 					</span>
 				</div>
@@ -195,15 +205,24 @@ export default function ListContainerSearchFilterSortBar(props) {
 										name="priorityFilter"
 										value={obj.id}
 										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState[
-											props.reduxContainerName
-										].searchFilterSort.priorityFilter.includes(obj.id)}
+										checked={
+											!reduxState[
+												props.reduxContainerName
+											].searchFilterSort.priorityFilter.includes(obj.id)
+										}
 										id={"list-priority-filter-" + obj.id}
 										className="filter-area-container__content-dropdown__content__block__checkbox"
 									/>
 									<label
 										htmlFor={"list-priority-filter-" + obj.id}
-										className="filter-area-container__content-dropdown__content__block__label"
+										className={
+											"filter-area-container__content-dropdown__content__block__label" +
+											(reduxState[
+												props.reduxContainerName
+											].searchFilterSort.priorityFilter.includes(obj.id)
+												? " filter-area-container__content-dropdown__content__block__label--active"
+												: "")
+										}
 									>
 										{obj.option !== "" ? obj.option : "Not Assigned"}
 									</label>
@@ -228,15 +247,24 @@ export default function ListContainerSearchFilterSortBar(props) {
 										name="statusFilter"
 										value={obj.id}
 										onChange={(e) => onChangeFilter(e)}
-										checked={reduxState[
-											props.reduxContainerName
-										].searchFilterSort.statusFilter.includes(obj.id)}
+										checked={
+											!reduxState[
+												props.reduxContainerName
+											].searchFilterSort.statusFilter.includes(obj.id)
+										}
 										id={"list-status-filter-" + obj.id}
 										className="filter-area-container__content-dropdown__content__block__checkbox"
 									/>
 									<label
 										htmlFor={"list-status-filter-" + obj.id}
-										className="filter-area-container__content-dropdown__content__block__label"
+										className={
+											"filter-area-container__content-dropdown__content__block__label" +
+											(reduxState[
+												props.reduxContainerName
+											].searchFilterSort.statusFilter.includes(obj.id)
+												? " filter-area-container__content-dropdown__content__block__label--active"
+												: "")
+										}
 									>
 										{obj.option !== "" ? obj.option : "Not Assigned"}
 									</label>

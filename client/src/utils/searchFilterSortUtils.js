@@ -22,8 +22,8 @@ export function searchFilterSort(projectsOrBugsArray, state) {
 	const filter = (projectsOrBugsArray) => {
 		return projectsOrBugsArray.filter((projectOrBug) => {
 			return (
-				state.priorityFilter.includes(projectOrBug.priority_id) &&
-				state.statusFilter.includes(projectOrBug.status_id)
+				!state.priorityFilter.includes(projectOrBug.priority_id) &&
+				!state.statusFilter.includes(projectOrBug.status_id)
 			);
 		});
 	};
