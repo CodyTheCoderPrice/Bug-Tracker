@@ -7,7 +7,10 @@
 	top: 0;
 
 	.navbar-component {
-		background-color: $navy-blue;
+		// This background color should only appear if there was a problem
+		// ...assigning a different background color to this element.
+		// ...the scss for the colors assigned are in home.scss
+		background-color: black;
 		height: $navbar-height;
 		width: 100%;
 	}
@@ -15,7 +18,10 @@
 	.navbar-button {
 		position: relative;
 		float: left;
-		background-color: $navy-blue;
+		// This background color should only appear if there was a problem
+		// ...assigning a different background color to this element.
+		// ...the scss for the colors assigned are in home.scss
+		background-color: black;
 		height: $navbar-height;
 	}
 
@@ -30,14 +36,14 @@
 		right: 0;
 	}
 
-	.navbar-button--selected {
+	/* .navbar-button--selected {
 		background-color: $light-navy-blue;
-	}
+	} */
 
 	.navbar-button__text-container {
 		@include stop-text-selection();
 
-		margin: 18px 12px 0px 12px;
+		margin: 18px 16px 0px 16px;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: 20px;
 		color: white;
@@ -49,7 +55,7 @@
 	}
 
 	.navbar-button__text-container__item-name {
-		margin: 18px 12px 0px 12px;
+		margin: 18px 0px 0px 8px;
 		color: #ffff00;
 		font-style: italic;
 	}

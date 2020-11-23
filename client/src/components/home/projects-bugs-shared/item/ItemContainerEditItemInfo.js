@@ -25,6 +25,8 @@ import { populateComboBox } from "../../../../utils/elementUtils";
 import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
+import { getProjectOrBugBackgroundColorWithHover } from "../../../../utils/elementColorUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditItemInfo.scss";
 
 export default function ItemContainerEditItemInfo(props) {
@@ -417,7 +419,12 @@ export default function ItemContainerEditItemInfo(props) {
 					<div className="form-buttons-centered-container">
 						<button
 							type="submit"
-							className="form-buttons-centered-container__submit-button"
+							className={
+								"form-buttons-centered-container__submit-button" +
+								getProjectOrBugBackgroundColorWithHover(
+									props.reduxContainerName
+								)
+							}
 						>
 							{props.reduxContainerName === projectContainerName
 								? "Edit Project"

@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	generalContainerName,
 	accountContainerName,
+	projectContainerName,
+	bugContainerName,
 } from "../../../reducers/containerNames";
 
 import {
@@ -10,6 +12,8 @@ import {
 	setWhichAccountComponentsDisplay,
 	clearInputErrors,
 } from "../../../actions";
+
+import { getProjectOrBugBackgroundColorWithHover } from "../../../utils/elementColorUtils";
 
 import "../../../SCSS/home/account/editAccountModals.scss";
 
@@ -47,6 +51,17 @@ export default function EditAccountModalChangeEmail() {
 		dispatch(updateAccountEmail(accountInfo));
 	};
 
+	const getSubmitButtonBackgroundColorWithHover = () => {
+		if (
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		) {
+			return getProjectOrBugBackgroundColorWithHover(projectContainerName);
+		} else {
+			return getProjectOrBugBackgroundColorWithHover(bugContainerName);
+		}
+	};
+
 	return (
 		<div>
 			<div className="back-button" onClick={backToEditInfo}>
@@ -82,7 +97,7 @@ export default function EditAccountModalChangeEmail() {
 				<span className="form__errors">
 					{reduxState[generalContainerName].inputErrors.currentPassword}
 				</span>
-				<button type="submit" className="form__submit">
+				<button type="submit" className={"form__submit" + getSubmitButtonBackgroundColorWithHover()}>
 					Update
 				</button>
 				<span className="form__errors">

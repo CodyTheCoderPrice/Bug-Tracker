@@ -16,6 +16,13 @@ import {
 
 import { useSearchBarBorderEventListener } from "../../../../utils/searchBarHookUtils";
 
+import {
+	getProjectOrBugBackgroundColorDark,
+	getProjectOrBugBackgroundColorLight,
+	getProjectOrBugBorderColorDark,
+	getProjectOrBugBorderColorLight,
+} from "../../../../utils/elementColorUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerTopBar.scss";
 
 export default function ItemContainerTopBar(props) {
@@ -102,6 +109,7 @@ export default function ItemContainerTopBar(props) {
 			<div
 				className={
 					"outer-search-container js-item-outer-search-container" +
+					getProjectOrBugBorderColorLight(props.reduxContainerName) +
 					(reduxState[generalContainerName].componentsDisplay
 						.itemContainerListSidebar
 						? " "
@@ -114,10 +122,16 @@ export default function ItemContainerTopBar(props) {
 					onChange={(e) => onChangeSearchBar(e)}
 					onKeyDown={(e) => searchBarKeyDown(e)}
 					value={searchBarText}
-					className="outer-search-container__search-bar js-item-search-bar"
+					className={
+						"outer-search-container__search-bar js-item-search-bar" +
+						getProjectOrBugBorderColorLight(props.reduxContainerName)
+					}
 				/>
 				<div
-					className="outer-search-container__search-bar-button"
+					className={
+						"outer-search-container__search-bar-button" +
+						getProjectOrBugBackgroundColorLight(props.reduxContainerName)
+					}
 					onClick={updateSearchKeyWordString}
 				>
 					<span className="outer-search-container__search-bar-button__icon">

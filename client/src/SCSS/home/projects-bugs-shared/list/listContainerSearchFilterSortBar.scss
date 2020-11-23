@@ -48,17 +48,24 @@
 
 	.centering-container__search-group-container {
 		@include dead-center();
+		// This border color should only appear if there was a problem
+		// ...assigning a different background color to this element.
+		// ...the scss for the colors assigned are in home.scss
+		border: 0px solid black;
 		width: 100%;
 	}
 
 	.centering-container__search-group-container--with-border {
-		border: $list-item-search-bar-group-container-border-width solid $light-navy-blue;
+		border-width: $list-item-search-bar-group-container-border-width;
 	}
 
 	.centering-container__search-group-container__search-bar {
 		display: inline-block;
 		outline: none;
-		border: $list-search-bar-border-width solid $light-navy-blue;
+		// This border color should only appear if there was a problem
+		// ...assigning a different background color to this element.
+		// ...the scss for the colors assigned are in home.scss
+		border: $list-search-bar-border-width solid black;
 		padding: 0px $list-search-bar-padding 0px $list-search-bar-padding;
 		height: $list-search-bar-height;
 		// Width changed by JS
@@ -72,14 +79,13 @@
 		display: inline-block;
 		// Since a agap between searchbar and button will appear in chrome otherwise
 		margin-left: -1px;
-		background-color: $light-navy-blue;
+		// This background color should only appear if there was a problem
+		// ...assigning a different background color to this element.
+		// ...the scss for the colors assigned are in home.scss
+		background-color: black;
 		height: $list-item-search-bar-button-height;
 		width: $list-item-search-bar-button-width;
 		cursor: pointer;
-	}
-	.centering-container__search-group-container__search-bar-button:hover,
-	.centering-container__search-group-container__search-bar-button:active {
-		background-color: $navy-blue;
 	}
 
 	.centering-container__search-group-container__search-bar-button__icon {

@@ -18,11 +18,15 @@
 		@include vertical-center();
 
 		margin-left: $item-search-bar-margin-left;
+		// This border color should only appear if there was a problem
+		// ...assigning a different background color to this element.
+		// ...the scss for the colors assigned are in home.scss
+		border: 0px solid black;
 		width: $item-search-bar-width;
 	}
 
 	.outer-search-container--with-border {
-		border: $list-item-search-bar-group-container-border-width solid $navy-blue;
+		border-width: $list-item-search-bar-group-container-border-width;
 	}
 
 	.outer-search-container--invisible {
@@ -32,7 +36,10 @@
 	.outer-search-container__search-bar {
 		display: inline-block;
 		outline: none;
-		border: $list-search-bar-border-width solid $light-navy-blue;
+		// This border color should only appear if there was a problem
+		// ...assigning a different background color to this element.
+		// ...the scss for the colors assigned are in home.scss
+		border: $list-search-bar-border-width solid black;
 		padding: 0px $list-search-bar-padding 0px $list-search-bar-padding;
 		height: $list-search-bar-height;
 		width: $item-search-bar-width - ($list-search-bar-border-width * 2) -
@@ -44,14 +51,13 @@
 		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
 		display: inline-block;
-		background-color: $light-navy-blue;
+		// This background color should only appear if there was a problem
+		// ...assigning a different background color to this element.
+		// ...the scss for the colors assigned are in home.scss
+		background-color: black;
 		height: $list-item-search-bar-button-height;
 		width: $list-item-search-bar-button-width;
 		cursor: pointer;
-	}
-	.outer-search-container__search-bar-button:hover,
-	.outer-search-container__search-bar-button:active {
-		background-color: $navy-blue;
 	}
 
 	.outer-search-container__search-bar-button__icon {

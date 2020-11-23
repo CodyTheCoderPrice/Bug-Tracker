@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { projectContainerName, bugContainerName } from "../../../../reducers/containerNames";
+import {
+	projectContainerName,
+	bugContainerName,
+} from "../../../../reducers/containerNames";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,
@@ -9,6 +12,13 @@ import {
 } from "../../../../actions";
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/searchBarHookUtils";
+
+import {
+	getProjectOrBugBackgroundColorDark,
+	getProjectOrBugBackgroundColorLight,
+	getProjectOrBugBorderColorDark,
+	getProjectOrBugBorderColorLight,
+} from "../../../../utils/elementColorUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerSearchFilterSortBar.scss";
 
@@ -113,17 +123,26 @@ export default function ListContainerSearchFilterSortBar(props) {
 				</div>
 			</div>
 			<div className="centering-container js-list-search-bar-centering-container">
-				<div className="centering-container__search-group-container js-list-search-bar-and-button-search-group-container">
+				<div
+					className={
+						"centering-container__search-group-container js-list-search-bar-and-button-search-group-container" +
+						getProjectOrBugBorderColorLight(props.reduxContainerName)
+					}
+				>
 					<input
 						type="text"
 						name="searchBarText"
 						onChange={(e) => onChangeSearchBar(e)}
 						onKeyDown={(e) => searchBarKeyDown(e)}
 						value={searchBarText}
-						className="centering-container__search-group-container__search-bar js-list-search-bar"
+						className={
+							"centering-container__search-group-container__search-bar js-list-search-bar" +
+							getProjectOrBugBorderColorLight(props.reduxContainerName)
+						}
 					/>
 					<div
-						className="centering-container__search-group-container__search-bar-button js-list-search-bar-button"
+						className={"centering-container__search-group-container__search-bar-button js-list-search-bar-button" +
+						getProjectOrBugBackgroundColorLight(props.reduxContainerName)}
 						onClick={updateSearchKeyWordString}
 					>
 						<span className="centering-container__search-group-container__search-bar-button__icon">

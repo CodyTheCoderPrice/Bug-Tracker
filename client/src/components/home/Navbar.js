@@ -29,6 +29,11 @@ import {
 	calcItemContainerPaddingContainerPadding,
 } from "../../utils/displaySizeUtils";
 
+import {
+	getProjectOrBugBackgroundColorDark,
+	getProjectOrBugBackgroundColorLight,
+} from "../../utils/elementColorUtils";
+
 import "../../SCSS/home/navbar.scss";
 
 export default function Navbar() {
@@ -192,10 +197,14 @@ export default function Navbar() {
 		) {
 			dispatch(
 				setWhichBugComponentsDisplay({
-					listContainer: reduxState[bugContainerName].componentsDisplay.targetItem ===
-					null ? true : false,
-					itemContainer: reduxState[bugContainerName].componentsDisplay.targetItem ===
-					null ? false : true,
+					listContainer:
+						reduxState[bugContainerName].componentsDisplay.targetItem === null
+							? true
+							: false,
+					itemContainer:
+						reduxState[bugContainerName].componentsDisplay.targetItem === null
+							? false
+							: true,
 					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
 				})
 			);
@@ -247,15 +256,42 @@ export default function Navbar() {
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
+	const getNavbarBackgroundColorDark = () => {
+		if (
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		) {
+			return getProjectOrBugBackgroundColorDark(projectContainerName);
+		} else {
+			return getProjectOrBugBackgroundColorDark(bugContainerName);
+		}
+	};
+
+	const getNavbarBackgroundColorLight = () => {
+		if (
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		) {
+			return getProjectOrBugBackgroundColorLight(projectContainerName);
+		} else {
+			return getProjectOrBugBackgroundColorLight(bugContainerName);
+		}
+	};
+
 	return (
 		<div className="navbar-and-other-components-container">
-			<div className="navbar-component js-navbar">
+			<div
+				className={
+					"navbar-component js-navbar" + getNavbarBackgroundColorDark()
+				}
+			>
 				<div
 					className={
 						"navbar-button js-project-button" +
+						getNavbarBackgroundColorDark() +
 						(reduxState[projectContainerName].componentsDisplay.listContainer ||
 						reduxState[projectContainerName].componentsDisplay.itemContainer
-							? " navbar-button--selected"
+							? getNavbarBackgroundColorLight()
 							: "")
 					}
 					onClick={openProjects}
@@ -292,11 +328,12 @@ export default function Navbar() {
 					<div
 						className={
 							"navbar-button js-bug-button" +
+							getNavbarBackgroundColorDark() +
 							(reduxState[projectContainerName].componentsDisplay.targetItem !==
 								null &&
 							(reduxState[bugContainerName].componentsDisplay.listContainer ||
 								reduxState[bugContainerName].componentsDisplay.itemContainer)
-								? " navbar-button--selected"
+								? getNavbarBackgroundColorLight()
 								: "")
 						}
 						onClick={openBugs}
@@ -330,7 +367,10 @@ export default function Navbar() {
 					</div>
 				)}
 				<div
-					className="navbar-button navbar-button--right js-account-button"
+					className={
+						"navbar-button navbar-button--right js-account-button" +
+						getNavbarBackgroundColorDark()
+					}
 					onClick={openAccountSidebar}
 				>
 					<div className="navbar-button__text-container">

@@ -11,6 +11,71 @@
 	//======================================================
 	// Bellow class selectors are used by JS across project
 	//======================================================
+	// Standard background colors
+	.js-set-project-background-color-dark {
+		background-color: $dark-blue-teal;
+		/* background-color: #0096db; */
+		/* background-color: #a16161; */
+	}
+
+	.js-set-project-background-color-light {
+		background-color: $blue-teal;
+		/* background-color: #39b3eb; */
+		/* background-color: #c98b8b; */
+	}
+	
+	.js-set-bug-background-color-dark {
+		background-color: $navy-blue;
+	}
+
+	.js-set-bug-background-color-light {
+		background-color: $light-navy-blue;
+	}
+
+	// Hover background colors
+	// Standard background colors
+	.js-set-project-background-color-with-hover {
+		background-color: $blue-teal;
+		/* background-color: #39b3eb; */
+		/* background-color: #c98b8b; */
+	}
+	.js-set-project-background-color-with-hover:hover,
+	.js-set-project-background-color-with-hover:active {
+		background-color: $dark-blue-teal;
+		/* background-color: #0096db; */
+		/* background-color: #a16161; */
+	}
+
+	.js-set-bug-background-color-with-hover {
+		background-color: $light-navy-blue;
+	}
+	.js-set-bug-background-color-with-hover:hover,
+	.js-set-bug-background-color-with-hover:active {
+		background-color: $navy-blue;
+	}
+
+	// Border colors
+	.js-set-project-border-color-dark {
+		border-color: $dark-blue-teal;
+		/* background-color: #0096db; */
+		/* background-color: #a16161; */
+	}
+
+	.js-set-project-border-color-light {
+		border-color: $blue-teal;
+		/* background-color: #39b3eb; */
+		/* background-color: #c98b8b; */
+	}
+
+	.js-set-bug-border-color-dark {
+		border-color: $navy-blue;
+	}
+
+	.js-set-bug-border-color-light {
+		border-color: $light-navy-blue;
+	}
+
+
 	// Used to turn character counters red when limit is gone over
 	.text-red {
 		color: red;

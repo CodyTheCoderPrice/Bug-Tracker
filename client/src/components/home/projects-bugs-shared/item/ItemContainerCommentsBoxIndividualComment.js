@@ -17,6 +17,8 @@ import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
+import { getProjectOrBugBackgroundColorWithHover } from "../../../../utils/elementColorUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerCommentsBoxIndividualComment.scss";
 
 export default function ItemContainerCommentsBoxIndividualComment(props) {
@@ -172,7 +174,10 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 						<div className="comment__centering-container">
 							<div className="comment__centering-container__pair-container">
 								<div
-									className="comment__centering-container__pair-container__submit-edit-button"
+									className={
+										"comment__centering-container__pair-container__submit-edit-button" +
+										getProjectOrBugBackgroundColorWithHover(bugContainerName)
+									}
 									onClick={handleSubmit}
 								>
 									Edit Comment

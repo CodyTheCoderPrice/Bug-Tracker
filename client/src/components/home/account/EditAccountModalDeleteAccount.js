@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { generalContainerName } from "../../../reducers/containerNames";
+import {
+	generalContainerName,
+	projectContainerName,
+	bugContainerName,
+} from "../../../reducers/containerNames";
 
 import {
 	deleteAccount,
 	setWhichAccountComponentsDisplay,
 	clearInputErrors,
 } from "../../../actions";
+
+import { getProjectOrBugBackgroundColorWithHover } from "../../../utils/elementColorUtils";
 
 import "../../../SCSS/home/account/editAccountModals.scss";
 
@@ -42,6 +48,17 @@ export default function EditAccountModalDeleteAccount() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(deleteAccount(accountInfo));
+	};
+
+	const getSubmitButtonBackgroundColorWithHover = () => {
+		if (
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		) {
+			return getProjectOrBugBackgroundColorWithHover(projectContainerName);
+		} else {
+			return getProjectOrBugBackgroundColorWithHover(bugContainerName);
+		}
 	};
 
 	return (
@@ -83,7 +100,10 @@ export default function EditAccountModalDeleteAccount() {
 				<span className="form__errors">
 					{reduxState[generalContainerName].inputErrors.currentPassword}
 				</span>
-				<button type="submit" className="form__submit">
+				<button
+					type="submit"
+					className={"form__submit" + getSubmitButtonBackgroundColorWithHover()}
+				>
 					Delete
 				</button>
 				<span className="form__errors">

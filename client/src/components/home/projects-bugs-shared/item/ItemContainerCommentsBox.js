@@ -13,6 +13,8 @@ import ItemContainerCommentsBoxIndividualComment from "./ItemContainerCommentsBo
 
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
+import { getProjectOrBugBackgroundColorWithHover } from "../../../../utils/elementColorUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerCommentBox.scss";
 
 export default function ItemContainerCommentsBox() {
@@ -127,7 +129,10 @@ export default function ItemContainerCommentsBox() {
 					<div className="form-submit-centering-container">
 						<button
 							type="submit"
-							className="form-submit-centering-container__button"
+							className={
+								"form-submit-centering-container__button" +
+								getProjectOrBugBackgroundColorWithHover(bugContainerName)
+							}
 						>
 							Add Comment
 						</button>
