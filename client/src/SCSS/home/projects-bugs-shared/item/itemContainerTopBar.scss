@@ -65,6 +65,96 @@
 		color: white;
 	}
 
+	.filter-container {
+		position: absolute;
+		left: $item-search-bar-width;
+		/* width: 109px; */
+	}
+
+	.filter-container__button {
+		@include stop-text-selection();
+
+		// Must be more than filter-container__content-dropdown
+		// ...so its top border can be covered to make the two containers look like one
+		z-index: 1;
+		position: absolute;
+		top: 12px;
+		left: 30px;
+		border: 1px solid black;
+		background-color: white;
+		height: $search-filter-sort-bar-button-height;
+		width: $filter-button-width;
+		font-size: 16px;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	.filter-container__button--clicked {
+		// Negative margin because border resize moves the element
+		margin: -2px -2px 0px;
+		border: 3px solid black;
+		border-bottom: none;
+		height: 48px;
+	}
+
+	.filter-container__button__text {
+		// Used horizontal-center since resize would move the text
+		@include horizontal-center();
+		top: 4px;
+		width: $filter-button-width;
+	}
+
+	.filter-container__content-dropdown {
+		position: absolute;
+		/* top: 41px; */
+		top: 58px;
+		// 2px less than button since border resize moves the button
+		left: 28px;
+		border: 3px solid black;
+		background-color: white;
+		height: 200px;
+		width: 330px;
+		cursor: default;
+		// Made visible using JS
+		visibility: hidden;
+	}
+
+	.filter-container__content-dropdown--shorter {
+		height: 155px;
+	}
+
+	.filter-container__content-dropdown--visible {
+		visibility: visible;
+	}
+
+	.filter-container__content-dropdown__content {
+		float: left;
+		margin: 15px 0px 5px 20px;
+		text-align: center;
+	}
+
+	.filter-container__content-dropdown__content--right {
+		float: right;
+		margin: 15px 20px 5px 0px;
+	}
+
+	.filter-container__content-dropdown__content__title {
+		display: block;
+		margin: 2px 0px 5px 0px;
+		border-bottom: 1px solid gray;
+		padding-bottom: 3px;
+		font-weight: bold;
+	}
+
+	.filter-container__content-dropdown__content__block {
+		text-align: left;
+	}
+
+	.filter-container__content-dropdown__content__block__checkbox,
+	.filter-container__content-dropdown__content__block__label {
+		margin: 5px 3px 5px 3px;
+	}
+
 	.item-options-container {
 		position: absolute;
 		top: 12px;

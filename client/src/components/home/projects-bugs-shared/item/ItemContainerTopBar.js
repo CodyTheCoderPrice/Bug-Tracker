@@ -17,9 +17,7 @@ import {
 import { useSearchBarBorderEventListener } from "../../../../utils/searchBarHookUtils";
 
 import {
-	getProjectOrBugBackgroundColorClassNameDark,
 	getProjectOrBugBackgroundColorClassNameLight,
-	getProjectOrBugBorderColorClassNameDark,
 	getProjectOrBugBorderColorClassNameLight,
 } from "../../../../utils/elementColorUtils";
 
@@ -32,6 +30,8 @@ export default function ItemContainerTopBar(props) {
 	const [searchBarText, setSearchBarText] = useState(
 		reduxState[props.reduxContainerName].searchFilterSort.searchKeyWordString
 	);
+
+	const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
 	useSearchBarBorderEventListener(
 		"js-item-outer-search-container",
@@ -56,6 +56,31 @@ export default function ItemContainerTopBar(props) {
 		if (e.keyCode === 13) {
 			updateSearchKeyWordString();
 		}
+	};
+
+	const toggleFilterDropdown = () => {
+		setShowFilterDropdown(!showFilterDropdown);
+	};
+
+	const onChangeFilter = (e) => {
+		const value = Number(e.target.value);
+		let deepCopyFilterArray = [
+			...reduxState[props.reduxContainerName].searchFilterSort[e.target.name],
+		];
+		const index = deepCopyFilterArray.indexOf(value);
+
+		if (index === -1) {
+			deepCopyFilterArray.push(value);
+		} else {
+			deepCopyFilterArray.splice(index, 1);
+		}
+
+		dispatch(
+			setProjectOrBugSearchFilterSort(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].searchFilterSort,
+				[e.target.name]: deepCopyFilterArray,
+			})
+		);
 	};
 
 	const toggleOptionsDropdown = () => {
@@ -139,7 +164,100 @@ export default function ItemContainerTopBar(props) {
 					</span>
 				</div>
 			</div>
-			<div className="item-options-container js">
+			<div className="filter-container">
+				<div
+					className={
+						"filter-container__button" +
+						(showFilterDropdown
+							? " filter-container__button--clicked"
+							: "")
+					}
+					onClick={toggleFilterDropdown}
+				>
+					<span className="filter-container__button__text">
+						<i className="fa fa-filter" aria-hidden="true" /> Filter
+					</span>
+				</div>
+				<div
+					className={
+						"filter-container__content-dropdown" +
+						(props.reduxContainerName === bugContainerName
+							? " filter-container__content-dropdown--shorter"
+							: "") +
+						(showFilterDropdown
+							? " filter-container__content-dropdown--visible"
+							: "")
+					}
+				>
+					<div className="filter-container__content-dropdown__content">
+						<span className="filter-container__content-dropdown__content__title">
+							Priority
+						</span>
+						{reduxState[
+							props.reduxContainerName
+						].priorityStatusOptions.priorityList.map((obj, i) => {
+							return (
+								<div
+									key={i}
+									className="filter-container__content-dropdown__content__block"
+								>
+									<input
+										type="checkbox"
+										name="priorityFilter"
+										value={obj.id}
+										onChange={(e) => onChangeFilter(e)}
+										checked={reduxState[
+											props.reduxContainerName
+										].searchFilterSort.priorityFilter.includes(obj.id)}
+										id={"list-priority-filter-" + obj.id}
+										className="filter-container__content-dropdown__content__block__checkbox"
+									/>
+									<label
+										htmlFor={"list-priority-filter-" + obj.id}
+										className="filter-container__content-dropdown__content__block__label"
+									>
+										{obj.option !== "" ? obj.option : "Not Assigned"}
+									</label>
+								</div>
+							);
+						})}
+					</div>
+					<div className="filter-container__content-dropdown__content filter-container__content-dropdown__content--right">
+						<span className="filter-container__content-dropdown__content__title">
+							Status
+						</span>
+						{reduxState[
+							props.reduxContainerName
+						].priorityStatusOptions.statusList.map((obj, i) => {
+							return (
+								<div
+									key={i}
+									className="filter-container__content-dropdown__content__block"
+								>
+									<input
+										type="checkbox"
+										name="statusFilter"
+										value={obj.id}
+										onChange={(e) => onChangeFilter(e)}
+										checked={reduxState[
+											props.reduxContainerName
+										].searchFilterSort.statusFilter.includes(obj.id)}
+										id={"list-status-filter-" + obj.id}
+										className="filter-container__content-dropdown__content__block__checkbox"
+									/>
+									<label
+										htmlFor={"list-status-filter-" + obj.id}
+										className="filter-container__content-dropdown__content__block__label"
+									>
+										{obj.option !== "" ? obj.option : "Not Assigned"}
+									</label>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+			<div className="item-options-container">
 				<div
 					className={
 						"item-options-container__button" +

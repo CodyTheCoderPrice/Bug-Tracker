@@ -27,7 +27,7 @@
 		@include stop-text-selection();
 		@include vertical-center();
 
-		margin-left: 30px;
+		left: 30px;
 		border: $search-filter-sort-bar-new-item-button-border-width solid black;
 		background-color: white;
 		height: $search-filter-sort-bar-button-height;
@@ -101,15 +101,10 @@
 		width: 109px;
 	}
 
-	.filter-area-container__dropdown-container {
-		float: right;
-		margin-left: 50px;
-	}
-
-	.filter-area-container__dropdown-container__button {
+	.filter-area-container__button {
 		@include stop-text-selection();
 
-		// Must be more than filter-area-container__dropdown-container__content-dropdown
+		// Must be more than filter-area-container__content-dropdown
 		// ...so its top border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
@@ -124,7 +119,7 @@
 		cursor: pointer;
 	}
 
-	.filter-area-container__dropdown-container__button--clicked {
+	.filter-area-container__button--clicked {
 		// Negative margin because border resize moves the element
 		margin: -2px -2px 0px;
 		border: 3px solid black;
@@ -132,14 +127,14 @@
 		height: 54px;
 	}
 
-	.filter-area-container__dropdown-container__button__text {
+	.filter-area-container__button__text {
 		// Used horizontal-center since resize would move the text
 		@include horizontal-center();
 		top: 4px;
 		width: $filter-button-width;
 	}
 
-	.filter-area-container__dropdown-container__content-dropdown {
+	.filter-area-container__content-dropdown {
 		position: absolute;
 		/* top: 41px; */
 		top: 64px;
@@ -154,22 +149,26 @@
 		visibility: hidden;
 	}
 
-	.filter-area-container__dropdown-container__content-dropdown--visible {
+	.filter-area-container__content-dropdown--shorter {
+		height: 155px;
+	}
+
+	.filter-area-container__content-dropdown--visible {
 		visibility: visible;
 	}
 
-	.filter-area-container__dropdown-container__content-dropdown__content {
+	.filter-area-container__content-dropdown__content {
 		float: left;
 		margin: 15px 0px 5px 20px;
 		text-align: center;
 	}
 
-	.filter-area-container__dropdown-container__content-dropdown__content--right {
+	.filter-area-container__content-dropdown__content--right {
 		float: right;
 		margin: 15px 20px 5px 0px;
 	}
 
-	.filter-area-container__dropdown-container__content-dropdown__content__title {
+	.filter-area-container__content-dropdown__content__title {
 		display: block;
 		margin: 2px 0px 5px 0px;
 		border-bottom: 1px solid gray;
@@ -177,12 +176,12 @@
 		font-weight: bold;
 	}
 
-	.filter-area-container__dropdown-container__content-dropdown__content__block {
+	.filter-area-container__content-dropdown__content__block {
 		text-align: left;
 	}
 
-	.filter-area-container__dropdown-container__content-dropdown__content__block__checkbox,
-	.filter-area-container__dropdown-container__content-dropdown__content__block__label {
+	.filter-area-container__content-dropdown__content__block__checkbox,
+	.filter-area-container__content-dropdown__content__block__label {
 		margin: 5px 3px 5px 3px;
 	}
 
