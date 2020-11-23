@@ -13,8 +13,9 @@ import {
 } from "../../../actions";
 
 import {
-	getProjectOrBugBackgroundColorWithHover,
-	getProjectOrBugTextColor,
+	getCurrentContainerName,
+	getProjectOrBugBackgroundColorClassNameWithHover,
+	getProjectOrBugTextColorClassName,
 } from "../../../utils/elementColorUtils";
 
 import "../../../SCSS/home/account/editAccountModals.scss";
@@ -52,28 +53,6 @@ export default function EditAccountModalChangePassword() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(updateAccountPassword(accountInfo));
-	};
-
-	const getSubmitButtonBackgroundColorWithHover = () => {
-		if (
-			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
-			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
-		) {
-			return getProjectOrBugBackgroundColorWithHover(projectContainerName);
-		} else {
-			return getProjectOrBugBackgroundColorWithHover(bugContainerName);
-		}
-	};
-
-	const getLinkTextcolor = () => {
-		if (
-			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
-			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
-		) {
-			return getProjectOrBugTextColor(projectContainerName);
-		} else {
-			return getProjectOrBugTextColor(bugContainerName);
-		}
 	};
 
 	return (
@@ -142,7 +121,7 @@ export default function EditAccountModalChangePassword() {
 				</span>
 				<button
 					type="submit"
-					className={"form__submit" + getSubmitButtonBackgroundColorWithHover()}
+					className={"form__submit" + getProjectOrBugBackgroundColorClassNameWithHover(getCurrentContainerName(reduxState))}
 				>
 					Update
 				</button>
@@ -155,7 +134,7 @@ export default function EditAccountModalChangePassword() {
 			<div className="modal-links-container">
 				<span
 					onClick={backToEditInfo}
-					className={"modal-link" + getLinkTextcolor()}
+					className={"modal-link" + getProjectOrBugTextColorClassName(getCurrentContainerName(reduxState))}
 				>
 					Back
 				</span>

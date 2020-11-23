@@ -4,7 +4,7 @@ import {
 } from "../reducers/containerNames";
 
 // Standard background color
-export function getProjectOrBugBackgroundColorDark(containerName) {
+export function getProjectOrBugBackgroundColorClassNameDark(containerName) {
 	return containerName === projectContainerName
 		? " js-set-project-background-color-dark"
 		: containerName === bugContainerName
@@ -12,7 +12,7 @@ export function getProjectOrBugBackgroundColorDark(containerName) {
 		: " PROBLEM";
 }
 
-export function getProjectOrBugBackgroundColorLight(containerName) {
+export function getProjectOrBugBackgroundColorClassNameLight(containerName) {
 	return containerName === projectContainerName
 		? " js-set-project-background-color-light"
 		: containerName === bugContainerName
@@ -21,7 +21,9 @@ export function getProjectOrBugBackgroundColorLight(containerName) {
 }
 
 // Hover background color
-export function getProjectOrBugBackgroundColorWithHover(containerName) {
+export function getProjectOrBugBackgroundColorClassNameWithHover(
+	containerName
+) {
 	return containerName === projectContainerName
 		? " js-set-project-background-color-with-hover"
 		: containerName === bugContainerName
@@ -30,7 +32,7 @@ export function getProjectOrBugBackgroundColorWithHover(containerName) {
 }
 
 // Border color
-export function getProjectOrBugBorderColorDark(containerName) {
+export function getProjectOrBugBorderColorClassNameDark(containerName) {
 	return containerName === projectContainerName
 		? " js-set-project-border-color-dark"
 		: containerName === bugContainerName
@@ -38,7 +40,7 @@ export function getProjectOrBugBorderColorDark(containerName) {
 		: " PROBLEM";
 }
 
-export function getProjectOrBugBorderColorLight(containerName) {
+export function getProjectOrBugBorderColorClassNameLight(containerName) {
 	return containerName === projectContainerName
 		? " js-set-project-border-color-light"
 		: containerName === bugContainerName
@@ -47,10 +49,18 @@ export function getProjectOrBugBorderColorLight(containerName) {
 }
 
 // Text and link color
-export function getProjectOrBugTextColor(containerName) {
+export function getProjectOrBugTextColorClassName(containerName) {
 	return containerName === projectContainerName
 		? " js-set-project-text-color"
 		: containerName === bugContainerName
 		? " js-set-bug-text-color"
 		: " PROBLEM";
+}
+
+export function getCurrentContainerName(passedReduxState) {
+	return passedReduxState[bugContainerName].componentsDisplay.listContainer !==
+		true &&
+		passedReduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		? projectContainerName
+		: bugContainerName;
 }

@@ -26,8 +26,8 @@ import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHoo
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
 import {
-	getProjectOrBugTextColor,
-	getProjectOrBugBackgroundColorWithHover,
+	getProjectOrBugTextColorClassName,
+	getProjectOrBugBackgroundColorClassNameWithHover,
 } from "../../../../utils/elementColorUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditItemInfo.scss";
@@ -238,7 +238,7 @@ export default function ItemContainerEditItemInfo(props) {
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId
 								? " name-completed-color"
-								: getProjectOrBugTextColor(props.reduxContainerName))
+								: getProjectOrBugTextColorClassName(props.reduxContainerName))
 						}
 					/>
 					<div className="name-centering-container__char-count-centering-container">
@@ -422,7 +422,7 @@ export default function ItemContainerEditItemInfo(props) {
 							type="submit"
 							className={
 								"form-buttons-centered-container__submit-button" +
-								getProjectOrBugBackgroundColorWithHover(
+								getProjectOrBugBackgroundColorClassNameWithHover(
 									props.reduxContainerName
 								)
 							}

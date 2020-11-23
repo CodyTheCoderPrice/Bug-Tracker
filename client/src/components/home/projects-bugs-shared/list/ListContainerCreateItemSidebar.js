@@ -20,7 +20,7 @@ import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHoo
 import { useSidebarResize } from "../../../../utils/sidebarResizeHookUtils";
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
-import { getProjectOrBugBackgroundColorWithHover } from "../../../../utils/elementColorUtils";
+import { getProjectOrBugBackgroundColorClassNameWithHover } from "../../../../utils/elementColorUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerCreateItemSidebar.scss";
 
@@ -350,7 +350,7 @@ export default function ListContainerCreateItemSidebar(props) {
 							type="submit"
 							className={
 								"form__submit" +
-								getProjectOrBugBackgroundColorWithHover(
+								getProjectOrBugBackgroundColorClassNameWithHover(
 									props.reduxContainerName
 								)
 							}

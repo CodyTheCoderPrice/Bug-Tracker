@@ -15,7 +15,7 @@ import { formatDateMMddYYYY } from "../../../utils/dateUtils";
 
 import { useSidebarResize } from "../../../utils/sidebarResizeHookUtils";
 
-import { getProjectOrBugTextColor } from "../../../utils/elementColorUtils";
+import { getProjectOrBugTextColorClassName } from "../../../utils/elementColorUtils";
 
 import "../../../SCSS/home/account/accountSidebar.scss";
 
@@ -50,9 +50,9 @@ export default function AccountSidebar() {
 			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
 			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
 		) {
-			return getProjectOrBugTextColor(projectContainerName);
+			return getProjectOrBugTextColorClassName(projectContainerName);
 		} else {
-			return getProjectOrBugTextColor(bugContainerName);
+			return getProjectOrBugTextColorClassName(bugContainerName);
 		}
 	};
 

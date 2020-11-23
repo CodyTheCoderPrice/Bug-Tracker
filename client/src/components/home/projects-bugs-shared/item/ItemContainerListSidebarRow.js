@@ -11,7 +11,7 @@ import {
 	setWhichBugComponentsDisplay,
 } from "../../../../actions";
 
-import { getProjectOrBugTextColor } from "../../../../utils/elementColorUtils";
+import { getProjectOrBugTextColorClassName } from "../../../../utils/elementColorUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerSidebarTableAndRows.scss";
 
@@ -98,7 +98,7 @@ export default function ItemContainerListSidebarRow(props) {
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " list-sidebar__table__data__overflow-container--completed-color"
-							: getProjectOrBugTextColor(props.reduxContainerName))
+							: getProjectOrBugTextColorClassName(props.reduxContainerName))
 					}
 				>
 					<span className="list-sidebar__table__data__overflow-container__info">

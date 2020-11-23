@@ -14,10 +14,10 @@ import {
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/searchBarHookUtils";
 
 import {
-	getProjectOrBugBackgroundColorDark,
-	getProjectOrBugBackgroundColorLight,
-	getProjectOrBugBorderColorDark,
-	getProjectOrBugBorderColorLight,
+	getProjectOrBugBackgroundColorClassNameDark,
+	getProjectOrBugBackgroundColorClassNameLight,
+	getProjectOrBugBorderColorClassNameDark,
+	getProjectOrBugBorderColorClassNameLight,
 } from "../../../../utils/elementColorUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerSearchFilterSortBar.scss";
@@ -126,7 +126,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 				<div
 					className={
 						"centering-container__search-group-container js-list-search-bar-and-button-search-group-container" +
-						getProjectOrBugBorderColorLight(props.reduxContainerName)
+						getProjectOrBugBorderColorClassNameLight(props.reduxContainerName)
 					}
 				>
 					<input
@@ -137,12 +137,12 @@ export default function ListContainerSearchFilterSortBar(props) {
 						value={searchBarText}
 						className={
 							"centering-container__search-group-container__search-bar js-list-search-bar" +
-							getProjectOrBugBorderColorLight(props.reduxContainerName)
+							getProjectOrBugBorderColorClassNameLight(props.reduxContainerName)
 						}
 					/>
 					<div
 						className={"centering-container__search-group-container__search-bar-button js-list-search-bar-button" +
-						getProjectOrBugBackgroundColorLight(props.reduxContainerName)}
+						getProjectOrBugBackgroundColorClassNameLight(props.reduxContainerName)}
 						onClick={updateSearchKeyWordString}
 					>
 						<span className="centering-container__search-group-container__search-bar-button__icon">
