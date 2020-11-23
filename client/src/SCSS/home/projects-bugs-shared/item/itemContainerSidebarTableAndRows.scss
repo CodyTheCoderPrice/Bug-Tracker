@@ -110,15 +110,6 @@
 		text-overflow: ellipsis;
 	}
 
-	.list-sidebar__table__data__overflow-container--project-color {
-		color: $blue-link;
-	}
-
-	.list-sidebar__table__data__overflow-container--bug-color {
-		color: $red-link;
-		color: $blue-link;
-	}
-
 	.list-sidebar__table__data__overflow-container--completed-color {
 		color: $status-green;
 		font-weight: bold;

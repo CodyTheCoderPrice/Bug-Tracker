@@ -11,26 +11,37 @@
 	//======================================================
 	// Bellow class selectors are used by JS across project
 	//======================================================
+	// Used to turn character counters red when limit is gone over
+	.text-red {
+		color: red;
+	}
+
+	// Used to to gray-out the word "none" for empty item fields
+	.grayed-out-none {
+		@include stop-text-selection();
+
+		color: $dark-gray;
+		opacity: 0.7;
+	}
+
 	// Standard background colors
 	.js-set-project-background-color-dark {
 		background-color: $dark-blue-teal;
 		/* background-color: #0096db; */
 		/* background-color: #a16161; */
 	}
-
 	.js-set-project-background-color-light {
 		background-color: $blue-teal;
 		/* background-color: #39b3eb; */
 		/* background-color: #c98b8b; */
 	}
-	
 	.js-set-bug-background-color-dark {
 		background-color: $navy-blue;
 	}
-
 	.js-set-bug-background-color-light {
 		background-color: $light-navy-blue;
 	}
+
 
 	// Hover background colors
 	// Standard background colors
@@ -45,7 +56,6 @@
 		/* background-color: #0096db; */
 		/* background-color: #a16161; */
 	}
-
 	.js-set-bug-background-color-with-hover {
 		background-color: $light-navy-blue;
 	}
@@ -54,40 +64,34 @@
 		background-color: $navy-blue;
 	}
 
+
 	// Border colors
 	.js-set-project-border-color-dark {
 		border-color: $dark-blue-teal;
 		/* background-color: #0096db; */
 		/* background-color: #a16161; */
 	}
-
 	.js-set-project-border-color-light {
 		border-color: $blue-teal;
 		/* background-color: #39b3eb; */
 		/* background-color: #c98b8b; */
 	}
-
 	.js-set-bug-border-color-dark {
 		border-color: $navy-blue;
 	}
-
 	.js-set-bug-border-color-light {
 		border-color: $light-navy-blue;
 	}
 
 
-	// Used to turn character counters red when limit is gone over
-	.text-red {
-		color: red;
+	// Text and link color
+	.js-set-project-text-color {
+		color: $teal-link;
+	}
+	.js-set-bug-text-color {
+		color: $blue-link;
 	}
 
-	// Used to to gray-out the word "none" for empty item fields
-	.grayed-out-none {
-		@include stop-text-selection();
-
-		color: $dark-gray;
-		opacity: 0.7;
-	}
 
 	// Used for changing the background color of status-boxes
 	// ...also used to store colors in redux for bug-pie-chart
@@ -115,6 +119,7 @@
 	.js-calc-status-box-background-color-red {
 		background-color: $status-red;
 	}
+
 
 	// Used to change text color in status combo-boxes
 	.status-box-text-color-gray {

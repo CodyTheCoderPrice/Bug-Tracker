@@ -97,15 +97,6 @@
 		text-overflow: ellipsis;
 	}
 
-	.list-table__data--project-color {
-		color: $blue-link;
-	}
-
-	.list-table__data--bug-color {
-		color: $red-link;
-		color: $blue-link;
-	}
-
 	.list-table__data--completed-color {
 		color: $status-green;
 		font-weight: bold;

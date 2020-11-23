@@ -17,7 +17,7 @@ import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
-import { getProjectOrBugBackgroundColorWithHover } from "../../../../utils/elementColorUtils";
+import { getProjectOrBugTextColor, getProjectOrBugBackgroundColorWithHover } from "../../../../utils/elementColorUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerCommentsBoxIndividualComment.scss";
 
@@ -116,6 +116,17 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		);
 	};
 
+	const getTextColor = () => {
+		if (
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		) {
+			return getProjectOrBugTextColor(projectContainerName);
+		} else {
+			return getProjectOrBugTextColor(bugContainerName);
+		}
+	};
+
 	return (
 		<form className="js-edit-comment-form" noValidate onSubmit={handleSubmit}>
 			<div className="comment-divider">
@@ -125,7 +136,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 					.id !== props.comment.id ? (
 					<div>
 						<div className="comment__block">
-							<span className="comment__block__description">
+							<span className={getTextColor(props.reduxContainerName)}>
 								{props.comment.description}
 							</span>
 						</div>

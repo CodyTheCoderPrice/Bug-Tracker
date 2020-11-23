@@ -11,6 +11,8 @@ import {
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
 
+import { getProjectOrBugTextColor } from "../../../../utils/elementColorUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
 
 export default function ListContainerTableRow(props) {
@@ -146,9 +148,7 @@ export default function ListContainerTableRow(props) {
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId
 						? " list-table__data--completed-color"
-						: props.reduxContainerName === projectContainerName
-						? " list-table__data--project-color"
-						: " list-table__data--bug-color")
+						: getProjectOrBugTextColor(props.reduxContainerName))
 				}
 			>
 				<span className="list-table__data__info">

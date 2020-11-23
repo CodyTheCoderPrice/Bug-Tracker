@@ -45,3 +45,12 @@ export function getProjectOrBugBorderColorLight(containerName) {
 		? " js-set-bug-border-color-light"
 		: " PROBLEM";
 }
+
+// Text and link color
+export function getProjectOrBugTextColor(containerName) {
+	return containerName === projectContainerName
+		? " js-set-project-text-color"
+		: containerName === bugContainerName
+		? " js-set-bug-text-color"
+		: " PROBLEM";
+}

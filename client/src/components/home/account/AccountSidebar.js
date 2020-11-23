@@ -1,6 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { accountContainerName } from "../../../reducers/containerNames";
+import {
+	accountContainerName,
+	projectContainerName,
+	bugContainerName,
+} from "../../../reducers/containerNames";
 
 import {
 	logoutAccount,
@@ -11,6 +15,8 @@ import { formatDateMMddYYYY } from "../../../utils/dateUtils";
 
 import { useSidebarResize } from "../../../utils/sidebarResizeHookUtils";
 
+import { getProjectOrBugTextColor } from "../../../utils/elementColorUtils";
+
 import "../../../SCSS/home/account/accountSidebar.scss";
 
 export default function AccountSidebar() {
@@ -18,10 +24,7 @@ export default function AccountSidebar() {
 	const dispatch = useDispatch();
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
-	useSidebarResize(
-		reduxState,
-		"js-account-sidebar",
-	);
+	useSidebarResize(reduxState, "js-account-sidebar");
 
 	const openEditInfoModals = () => {
 		dispatch(
@@ -42,6 +45,17 @@ export default function AccountSidebar() {
 		console.log(reduxState);
 	};
 
+	const getSLinkColor = () => {
+		if (
+			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
+			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+		) {
+			return getProjectOrBugTextColor(projectContainerName);
+		} else {
+			return getProjectOrBugTextColor(bugContainerName);
+		}
+	};
+
 	return (
 		<div className="account-sidebar-component">
 			<div className="sidebar-container js-account-sidebar">
@@ -52,19 +66,30 @@ export default function AccountSidebar() {
 								" " +
 								reduxState[accountContainerName].info.last_name}
 						</div>
-						<div className="account-info">{reduxState[accountContainerName].info.email}</div>
 						<div className="account-info">
-							Joined: {formatDateMMddYYYY(reduxState[accountContainerName].info.joinDate)}
+							{reduxState[accountContainerName].info.email}
+						</div>
+						<div className="account-info">
+							Joined:{" "}
+							{formatDateMMddYYYY(
+								reduxState[accountContainerName].info.joinDate
+							)}
 						</div>
 					</div>
-					<div className="account-link-container">
+					<div className={"account-link-container" + getSLinkColor()}>
 						<span onClick={openEditInfoModals} className="account-link">
 							Edit Account
 						</span>
-						<span onClick={(e) => handleLogoutAccount(e)} className="account-link">
+						<span
+							onClick={(e) => handleLogoutAccount(e)}
+							className={"account-link" + getSLinkColor()}
+						>
 							Logout
 						</span>
-						<span onClick={logReduxState} className="account-link">
+						<span
+							onClick={logReduxState}
+							className={"account-link" + getSLinkColor()}
+						>
 							Console Log Redux State
 						</span>
 					</div>

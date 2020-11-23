@@ -10,6 +10,8 @@ import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemConta
 import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
 
+import { getProjectOrBugTextColor } from "../../../../utils/elementColorUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayItemInfo.scss";
 
 export default function ItemContainerDisplayItemInfo(props) {
@@ -61,9 +63,7 @@ export default function ItemContainerDisplayItemInfo(props) {
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " name-completed-color"
-							: props.reduxContainerName === projectContainerName
-							? " name-project-color"
-							: " name-bug-color")
+							: getProjectOrBugTextColor(props.reduxContainerName))
 					}
 				>
 					{reduxState[props.reduxContainerName].componentsDisplay.targetItem

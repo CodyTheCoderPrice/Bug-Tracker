@@ -25,7 +25,10 @@ import { populateComboBox } from "../../../../utils/elementUtils";
 import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
 import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
 
-import { getProjectOrBugBackgroundColorWithHover } from "../../../../utils/elementColorUtils";
+import {
+	getProjectOrBugTextColor,
+	getProjectOrBugBackgroundColorWithHover,
+} from "../../../../utils/elementColorUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditItemInfo.scss";
 
@@ -235,9 +238,7 @@ export default function ItemContainerEditItemInfo(props) {
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId
 								? " name-completed-color"
-								: props.reduxContainerName === projectContainerName
-								? " name-project-color"
-								: " name-bug-color")
+								: getProjectOrBugTextColor(props.reduxContainerName))
 						}
 					/>
 					<div className="name-centering-container__char-count-centering-container">
