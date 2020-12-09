@@ -4,6 +4,7 @@ import {
 	generalContainerName,
 	projectContainerName,
 	bugContainerName,
+	sizeContainerName,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -166,125 +167,130 @@ export default function ItemContainerTopBar(props) {
 					</span>
 				</div>
 			</div>
-			<div className="filter-container">
-				<div
-					className={
-						"filter-container__button" +
-						(showFilterDropdown ? " filter-container__button--clicked" : "")
-					}
-					onClick={toggleFilterDropdown}
-				>
-					<span
+			{reduxState[generalContainerName].componentsDisplay
+				.itemContainerListSidebar !== true ||
+			(reduxState[sizeContainerName].variables.window !== null &&
+				reduxState[sizeContainerName].variables.window.width < 500) ? null : (
+				<div className="filter-container">
+					<div
 						className={
-							"filter-container__button__text" +
-							(reduxState[props.reduxContainerName].searchFilterSort
-								.priorityFilter.length > 0 ||
-							reduxState[props.reduxContainerName].searchFilterSort.statusFilter
-								.length > 0
-								? " filter-container__button__text--active"
+							"filter-container__button" +
+							(showFilterDropdown ? " filter-container__button--clicked" : "")
+						}
+						onClick={toggleFilterDropdown}
+					>
+						<span
+							className={
+								"filter-container__button__text" +
+								(reduxState[props.reduxContainerName].searchFilterSort
+									.priorityFilter.length > 0 ||
+								reduxState[props.reduxContainerName].searchFilterSort
+									.statusFilter.length > 0
+									? " filter-container__button__text--active"
+									: "")
+							}
+						>
+							<i className="fa fa-filter" aria-hidden="true" /> Filter
+						</span>
+					</div>
+					<div
+						className={
+							"filter-container__content-dropdown" +
+							(props.reduxContainerName === bugContainerName
+								? " filter-container__content-dropdown--shorter"
+								: "") +
+							(showFilterDropdown
+								? " filter-container__content-dropdown--visible"
 								: "")
 						}
 					>
-						<i className="fa fa-filter" aria-hidden="true" /> Filter
-					</span>
-				</div>
-				<div
-					className={
-						"filter-container__content-dropdown" +
-						(props.reduxContainerName === bugContainerName
-							? " filter-container__content-dropdown--shorter"
-							: "") +
-						(showFilterDropdown
-							? " filter-container__content-dropdown--visible"
-							: "")
-					}
-				>
-					<div className="filter-container__content-dropdown__content">
-						<span className="filter-container__content-dropdown__content__title">
-							Priority
-						</span>
-						{reduxState[
-							props.reduxContainerName
-						].priorityStatusOptions.priorityList.map((obj, i) => {
-							return (
-								<div
-									key={i}
-									className="filter-container__content-dropdown__content__block"
-								>
-									<input
-										type="checkbox"
-										name="priorityFilter"
-										value={obj.id}
-										onChange={(e) => onChangeFilter(e)}
-										checked={
-											!reduxState[
-												props.reduxContainerName
-											].searchFilterSort.priorityFilter.includes(obj.id)
-										}
-										id={"list-priority-filter-" + obj.id}
-										className="filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor={"list-priority-filter-" + obj.id}
-										className={
-											"filter-container__content-dropdown__content__block__label" +
-											(reduxState[
-												props.reduxContainerName
-											].searchFilterSort.priorityFilter.includes(obj.id)
-												? " filter-container__content-dropdown__content__block__label--active"
-												: "")
-										}
+						<div className="filter-container__content-dropdown__content">
+							<span className="filter-container__content-dropdown__content__title">
+								Priority
+							</span>
+							{reduxState[
+								props.reduxContainerName
+							].priorityStatusOptions.priorityList.map((obj, i) => {
+								return (
+									<div
+										key={i}
+										className="filter-container__content-dropdown__content__block"
 									>
-										{obj.option !== "" ? obj.option : "Not Assigned"}
-									</label>
-								</div>
-							);
-						})}
-					</div>
-					<div className="filter-container__content-dropdown__content filter-container__content-dropdown__content--right">
-						<span className="filter-container__content-dropdown__content__title">
-							Status
-						</span>
-						{reduxState[
-							props.reduxContainerName
-						].priorityStatusOptions.statusList.map((obj, i) => {
-							return (
-								<div
-									key={i}
-									className="filter-container__content-dropdown__content__block"
-								>
-									<input
-										type="checkbox"
-										name="statusFilter"
-										value={obj.id}
-										onChange={(e) => onChangeFilter(e)}
-										checked={
-											!reduxState[
-												props.reduxContainerName
-											].searchFilterSort.statusFilter.includes(obj.id)
-										}
-										id={"list-status-filter-" + obj.id}
-										className="filter-container__content-dropdown__content__block__checkbox"
-									/>
-									<label
-										htmlFor={"list-status-filter-" + obj.id}
-										className={
-											"filter-container__content-dropdown__content__block__label" +
-											(reduxState[
-												props.reduxContainerName
-											].searchFilterSort.statusFilter.includes(obj.id)
-												? " filter-container__content-dropdown__content__block__label--active"
-												: "")
-										}
+										<input
+											type="checkbox"
+											name="priorityFilter"
+											value={obj.id}
+											onChange={(e) => onChangeFilter(e)}
+											checked={
+												!reduxState[
+													props.reduxContainerName
+												].searchFilterSort.priorityFilter.includes(obj.id)
+											}
+											id={"list-priority-filter-" + obj.id}
+											className="filter-container__content-dropdown__content__block__checkbox"
+										/>
+										<label
+											htmlFor={"list-priority-filter-" + obj.id}
+											className={
+												"filter-container__content-dropdown__content__block__label" +
+												(reduxState[
+													props.reduxContainerName
+												].searchFilterSort.priorityFilter.includes(obj.id)
+													? " filter-container__content-dropdown__content__block__label--active"
+													: "")
+											}
+										>
+											{obj.option !== "" ? obj.option : "Not Assigned"}
+										</label>
+									</div>
+								);
+							})}
+						</div>
+						<div className="filter-container__content-dropdown__content filter-container__content-dropdown__content--right">
+							<span className="filter-container__content-dropdown__content__title">
+								Status
+							</span>
+							{reduxState[
+								props.reduxContainerName
+							].priorityStatusOptions.statusList.map((obj, i) => {
+								return (
+									<div
+										key={i}
+										className="filter-container__content-dropdown__content__block"
 									>
-										{obj.option !== "" ? obj.option : "Not Assigned"}
-									</label>
-								</div>
-							);
-						})}
+										<input
+											type="checkbox"
+											name="statusFilter"
+											value={obj.id}
+											onChange={(e) => onChangeFilter(e)}
+											checked={
+												!reduxState[
+													props.reduxContainerName
+												].searchFilterSort.statusFilter.includes(obj.id)
+											}
+											id={"list-status-filter-" + obj.id}
+											className="filter-container__content-dropdown__content__block__checkbox"
+										/>
+										<label
+											htmlFor={"list-status-filter-" + obj.id}
+											className={
+												"filter-container__content-dropdown__content__block__label" +
+												(reduxState[
+													props.reduxContainerName
+												].searchFilterSort.statusFilter.includes(obj.id)
+													? " filter-container__content-dropdown__content__block__label--active"
+													: "")
+											}
+										>
+											{obj.option !== "" ? obj.option : "Not Assigned"}
+										</label>
+									</div>
+								);
+							})}
+						</div>
 					</div>
 				</div>
-			</div>
+			)}
 			<div className="item-options-container">
 				<div
 					className={

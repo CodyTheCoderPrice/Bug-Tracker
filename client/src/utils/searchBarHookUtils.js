@@ -133,9 +133,7 @@ export function useSearchBarResizeAndBorderEventListener(
 			// Adjusts for the searchBarButton, borders, and padding
 			searchBar.style.width =
 				searchBarInnercontainerWidth -
-				regularlyUsedSizesAndStyles.searchBarButton.width -
-				regularlyUsedSizesAndStyles.searchBar.borderWidthOnOneSide * 2 -
-				regularlyUsedSizesAndStyles.searchBar.paddingOnOneSide * 2 +
+				regularlyUsedSizesAndStyles.searchBarButton.width +
 				"px";
 		}
 		// eslint-disable-next-line

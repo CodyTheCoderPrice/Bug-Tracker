@@ -60,6 +60,10 @@
 	}
 
 	.centering-container__search-group-container__search-bar {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
 		display: inline-block;
 		outline: none;
 		// This border color should only appear if there was a problem
@@ -68,6 +72,7 @@
 		border: $list-search-bar-border-width solid black;
 		padding: 0px $list-search-bar-padding 0px $list-search-bar-padding;
 		height: $list-search-bar-height;
+		line-height: $list-search-bar-height;
 		// Width changed by JS
 		width: 100%;
 		font-size: 14px;
@@ -83,7 +88,7 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
-		height: $list-item-search-bar-button-height;
+		height: $list-search-bar-height;
 		width: $list-item-search-bar-button-width;
 		cursor: pointer;
 	}
