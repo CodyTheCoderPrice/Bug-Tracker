@@ -235,6 +235,13 @@ export default function ListContainerTable(props) {
 								reduxContainerName={props.reduxContainerName}
 							/>
 						</th>
+						<th className="list-table__header">
+							<span className="list-table__header__span">
+								{props.reduxContainerName === projectContainerName
+									? "Bugs Completed"
+									: "Comments"}
+							</span>
+						</th>
 						<th className="list-table__header js-remaining-space">
 							{/*Fills remaining empty space*/}
 						</th>

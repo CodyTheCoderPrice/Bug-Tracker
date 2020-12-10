@@ -5,6 +5,11 @@ import {
 	bugContainerName,
 } from "../../../../reducers/containerNames";
 
+import {
+	getBugsInProjectList,
+	getNumberOfBugsForStatus,
+} from "../../../../utils/bugStatisticsUtils";
+
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerBugPieChart.scss";
 
 export default function ItemContainerBugPieChart() {
@@ -109,22 +114,10 @@ export default function ItemContainerBugPieChart() {
 		}
 	}
 
-	const getNumberOfBugsForStatus = (statusId) => {
-		const bugsForStatus = [...reduxState[bugContainerName].list].filter(
-			(item) =>
-				item.project_id ===
-					reduxState[projectContainerName].componentsDisplay.targetItem.id &&
-				item.status_id === statusId
-		);
-
-		return bugsForStatus.length;
-	};
-
 	const getAllStatusStatisticsElement = () => {
-		const bugsInProjectList = [...reduxState[bugContainerName].list].filter(
-			(item) =>
-				item.project_id ===
-				reduxState[projectContainerName].componentsDisplay.targetItem.id
+		const bugsInProjectList = getBugsInProjectList(
+			reduxState,
+			reduxState[projectContainerName].componentsDisplay.targetItem.id
 		);
 
 		return (
@@ -152,8 +145,13 @@ export default function ItemContainerBugPieChart() {
 											statusObject.color
 										}
 									>
-										{getNumberOfBugsForStatus(statusObject.id)} /{" "}
-										{bugsInProjectList.length}
+										{getNumberOfBugsForStatus(
+											reduxState,
+											reduxState[projectContainerName].componentsDisplay
+												.targetItem.id,
+											statusObject.id
+										)}{" "}
+										/ {bugsInProjectList.length}
 									</span>
 								</div>
 							</div>

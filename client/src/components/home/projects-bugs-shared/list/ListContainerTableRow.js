@@ -1,6 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { projectContainerName } from "../../../../reducers/containerNames";
+import {
+	projectContainerName,
+	bugContainerName,
+	commentContainerName,
+} from "../../../../reducers/containerNames";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,
@@ -12,6 +16,11 @@ import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
 import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
 
 import { getProjectOrBugTextColorClassName } from "../../../../utils/elementColorUtils";
+
+import {
+	getBugsInProjectList,
+	getNumberOfBugsForStatus,
+} from "../../../../utils/bugStatisticsUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
 
@@ -90,7 +99,7 @@ export default function ListContainerTableRow(props) {
 
 	const getTableDataClassName = () => {
 		return (
-			"list-table__data list-table__data--name" +
+			"list-table__data list-table__data--overflow" +
 			(props.item.status_id ===
 			reduxState[props.reduxContainerName].priorityStatusOptions
 				.statusCompletionId
@@ -143,7 +152,7 @@ export default function ListContainerTableRow(props) {
 			</td>
 			<td
 				className={
-					"list-table__data list-table__data--name" +
+					"list-table__data list-table__data--overflow" +
 					(props.item.status_id ===
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId
@@ -209,8 +218,24 @@ export default function ListContainerTableRow(props) {
 					{displayGrayedOutNoneIfEmpty(formatDateMMddYYYY(props.item.due_date))}
 				</span>
 			</td>
+			<td className="list-table__data">
+				<span className="list-table__data__info">
+					{props.reduxContainerName === projectContainerName
+						? getNumberOfBugsForStatus(
+								reduxState,
+								props.item.id,
+								reduxState[bugContainerName].priorityStatusOptions
+									.statusCompletionId
+						  ) +
+						  " / " +
+						  getBugsInProjectList(reduxState, props.item.id).length
+						: [...reduxState[commentContainerName].list].filter(
+								(item) => item.bug_id === props.item.id
+						  ).length}
+				</span>
+			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}
-			<td className={getTableDataClassName()}></td>
+			<td className={"list-table__data"}></td>
 		</tr>
 	);
 }

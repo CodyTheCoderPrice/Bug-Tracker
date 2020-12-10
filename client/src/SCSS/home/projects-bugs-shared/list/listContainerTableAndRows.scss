@@ -89,7 +89,7 @@
 		cursor: default;
 	}
 
-	.list-table__data--name {
+	.list-table__data--overflow {
 		/* width: $list-table-item-name-width; */
 		max-width: $list-table-item-name-width;
 		white-space: nowrap;
@@ -99,7 +99,7 @@
 
 	.list-table__data--completed-color {
 		color: $status-green;
-		font-weight: bold;
+		//font-weight: bold;
 	}
 
 	.list-table__data__info__completed-icon {
