@@ -1,21 +1,21 @@
 import {
-	projectContainerName,
-	bugContainerName,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../reducers/containerNames";
 
 // Standard background color
 export function getProjectOrBugBackgroundColorClassNameDark(containerName) {
-	return containerName === projectContainerName
+	return containerName === PROJECT_CONTAINER
 		? " js-set-project-background-color-dark"
-		: containerName === bugContainerName
+		: containerName === BUG_CONTAINER
 		? " js-set-bug-background-color-dark"
 		: " PROBLEM";
 }
 
 export function getProjectOrBugBackgroundColorClassNameLight(containerName) {
-	return containerName === projectContainerName
+	return containerName === PROJECT_CONTAINER
 		? " js-set-project-background-color-light"
-		: containerName === bugContainerName
+		: containerName === BUG_CONTAINER
 		? " js-set-bug-background-color-light"
 		: " PROBLEM";
 }
@@ -24,43 +24,43 @@ export function getProjectOrBugBackgroundColorClassNameLight(containerName) {
 export function getProjectOrBugBackgroundColorClassNameWithHover(
 	containerName
 ) {
-	return containerName === projectContainerName
+	return containerName === PROJECT_CONTAINER
 		? " js-set-project-background-color-with-hover"
-		: containerName === bugContainerName
+		: containerName === BUG_CONTAINER
 		? " js-set-bug-background-color-with-hover"
 		: " PROBLEM";
 }
 
 // Border color
 export function getProjectOrBugBorderColorClassNameDark(containerName) {
-	return containerName === projectContainerName
+	return containerName === PROJECT_CONTAINER
 		? " js-set-project-border-color-dark"
-		: containerName === bugContainerName
+		: containerName === BUG_CONTAINER
 		? " js-set-bug-border-color-dark"
 		: " PROBLEM";
 }
 
 export function getProjectOrBugBorderColorClassNameLight(containerName) {
-	return containerName === projectContainerName
+	return containerName === PROJECT_CONTAINER
 		? " js-set-project-border-color-light"
-		: containerName === bugContainerName
+		: containerName === BUG_CONTAINER
 		? " js-set-bug-border-color-light"
 		: " PROBLEM";
 }
 
 // Text and link color
 export function getProjectOrBugTextColorClassName(containerName) {
-	return containerName === projectContainerName
+	return containerName === PROJECT_CONTAINER
 		? " js-set-project-text-color"
-		: containerName === bugContainerName
+		: containerName === BUG_CONTAINER
 		? " js-set-bug-text-color"
 		: " PROBLEM";
 }
 
 export function getCurrentContainerName(passedReduxState) {
-	return passedReduxState[bugContainerName].componentsDisplay.listContainer !==
+	return passedReduxState[BUG_CONTAINER].componentsDisplay.listContainer !==
 		true &&
-		passedReduxState[bugContainerName].componentsDisplay.itemContainer !== true
-		? projectContainerName
-		: bugContainerName;
+		passedReduxState[BUG_CONTAINER].componentsDisplay.itemContainer !== true
+		? PROJECT_CONTAINER
+		: BUG_CONTAINER;
 }

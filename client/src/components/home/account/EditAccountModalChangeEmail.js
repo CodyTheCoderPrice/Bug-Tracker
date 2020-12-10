@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	generalContainerName,
-	accountContainerName,
-	projectContainerName,
-	bugContainerName,
+	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../reducers/containerNames";
 
 import {
@@ -26,7 +26,7 @@ export default function EditAccountModalChangeEmail() {
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		email: reduxState[accountContainerName].info.email,
+		email: reduxState[ACCOUNT_CONTAINER].info.email,
 		currentPassword: "",
 	});
 
@@ -74,7 +74,7 @@ export default function EditAccountModalChangeEmail() {
 					className="form__text-input"
 				/>
 				<span className="form__errors">
-					{reduxState[generalContainerName].inputErrors.validationAccountEmail}
+					{reduxState[GENERAL_CONTAINER].inputErrors.validationAccountEmail}
 				</span>
 				<label htmlFor="edit-account-email-password" className="form__label">
 					Current Password:{" "}
@@ -88,7 +88,7 @@ export default function EditAccountModalChangeEmail() {
 					className="form__text-input form__text-input--password"
 				/>
 				<span className="form__errors">
-					{reduxState[generalContainerName].inputErrors.currentPassword}
+					{reduxState[GENERAL_CONTAINER].inputErrors.currentPassword}
 				</span>
 				<button
 					type="submit"
@@ -102,9 +102,9 @@ export default function EditAccountModalChangeEmail() {
 					Update
 				</button>
 				<span className="form__errors">
-					{reduxState[generalContainerName].inputErrors.validationAccount}
-					{reduxState[generalContainerName].inputErrors.authorization}
-					{reduxState[generalContainerName].inputErrors.serverAccount}
+					{reduxState[GENERAL_CONTAINER].inputErrors.validationAccount}
+					{reduxState[GENERAL_CONTAINER].inputErrors.authorization}
+					{reduxState[GENERAL_CONTAINER].inputErrors.serverAccount}
 				</span>
 			</form>
 			<div className="modal-links-container">

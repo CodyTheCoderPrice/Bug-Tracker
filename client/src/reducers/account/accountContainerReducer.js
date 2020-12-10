@@ -2,7 +2,7 @@ import accountComponentsDisplayReducer from "./accountComponentsDisplayReducer";
 import authReducer from "./authReducer";
 import accountReducer from "./accountReducer";
 
-import { ACCOUNT_CONTAINER } from "../../actions/constants/containers";
+import { ACCOUNT_CONTAINER } from "../containerNames";
 import { RESET_CONTAINER } from "../../actions/constants/types";
 
 const initialState = {

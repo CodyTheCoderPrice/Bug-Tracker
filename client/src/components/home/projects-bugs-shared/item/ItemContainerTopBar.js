@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	generalContainerName,
-	projectContainerName,
-	bugContainerName,
-	sizeContainerName,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	SIZE_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -87,8 +87,8 @@ export default function ItemContainerTopBar(props) {
 	const toggleOptionsDropdown = () => {
 		dispatch(
 			setWhichGeneralComponentsDisplay({
-				...reduxState[generalContainerName].componentsDisplay,
-				itemContainerTopBarOptionsDropdown: !reduxState[generalContainerName]
+				...reduxState[GENERAL_CONTAINER].componentsDisplay,
+				itemContainerTopBarOptionsDropdown: !reduxState[GENERAL_CONTAINER]
 					.componentsDisplay.itemContainerTopBarOptionsDropdown,
 			})
 		);
@@ -124,9 +124,9 @@ export default function ItemContainerTopBar(props) {
 		);
 
 		// Resets bug components display if project itemContainer is closed
-		if (props.reduxContainerName === projectContainerName) {
+		if (props.reduxContainerName === PROJECT_CONTAINER) {
 			dispatch(setWhichBugComponentsDisplay({}));
-			dispatch(setProjectOrBugMassDeleteList(bugContainerName));
+			dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER));
 		}
 	};
 
@@ -136,7 +136,7 @@ export default function ItemContainerTopBar(props) {
 				className={
 					"outer-search-container js-item-outer-search-container" +
 					getProjectOrBugBorderColorClassNameLight(props.reduxContainerName) +
-					(reduxState[generalContainerName].componentsDisplay
+					(reduxState[GENERAL_CONTAINER].componentsDisplay
 						.itemContainerListSidebar
 						? " "
 						: " outer-search-container--invisible")
@@ -167,10 +167,10 @@ export default function ItemContainerTopBar(props) {
 					</span>
 				</div>
 			</div>
-			{reduxState[generalContainerName].componentsDisplay
+			{reduxState[GENERAL_CONTAINER].componentsDisplay
 				.itemContainerListSidebar !== true ||
-			(reduxState[sizeContainerName].variables.window !== null &&
-				reduxState[sizeContainerName].variables.window.width < 500) ? null : (
+			(reduxState[SIZE_CONTAINER].variables.window !== null &&
+				reduxState[SIZE_CONTAINER].variables.window.width < 500) ? null : (
 				<div className="filter-container">
 					<div
 						className={
@@ -196,7 +196,7 @@ export default function ItemContainerTopBar(props) {
 					<div
 						className={
 							"filter-container__content-dropdown" +
-							(props.reduxContainerName === bugContainerName
+							(props.reduxContainerName === BUG_CONTAINER
 								? " filter-container__content-dropdown--shorter"
 								: "") +
 							(showFilterDropdown
@@ -295,7 +295,7 @@ export default function ItemContainerTopBar(props) {
 				<div
 					className={
 						"item-options-container__button" +
-						(reduxState[generalContainerName].componentsDisplay
+						(reduxState[GENERAL_CONTAINER].componentsDisplay
 							.itemContainerTopBarOptionsDropdown
 							? " item-options-container__button--clicked"
 							: "")
@@ -309,7 +309,7 @@ export default function ItemContainerTopBar(props) {
 				<div
 					className={
 						"item-options-container__dropdown" +
-						(reduxState[generalContainerName].componentsDisplay
+						(reduxState[GENERAL_CONTAINER].componentsDisplay
 							.itemContainerTopBarOptionsDropdown
 							? " item-options-container__dropdown--visible"
 							: "")
@@ -322,7 +322,7 @@ export default function ItemContainerTopBar(props) {
 						{reduxState[props.reduxContainerName].componentsDisplay
 							.itemContainerEditItemInfo
 							? "Cancel"
-							: props.reduxContainerName === projectContainerName
+							: props.reduxContainerName === PROJECT_CONTAINER
 							? "Edit Project"
 							: "Edit Bug"}
 					</span>
@@ -330,7 +330,7 @@ export default function ItemContainerTopBar(props) {
 						className="item-options-container__dropdown__option item-options-container__dropdown__option--no-border"
 						onClick={openDeleteItemModal}
 					>
-						{props.reduxContainerName === projectContainerName
+						{props.reduxContainerName === PROJECT_CONTAINER
 							? "Delete Project"
 							: "Delete Bug"}
 					</span>

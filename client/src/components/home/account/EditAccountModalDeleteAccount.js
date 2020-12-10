@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	generalContainerName,
-	projectContainerName,
-	bugContainerName,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../reducers/containerNames";
 
 import {
@@ -75,7 +75,7 @@ export default function EditAccountModalDeleteAccount() {
 				/>
 				<span className="form__errors">
 					{
-						reduxState[generalContainerName].inputErrors
+						reduxState[GENERAL_CONTAINER].inputErrors
 							.validationAccountTypeOutCheck
 					}
 				</span>
@@ -91,7 +91,7 @@ export default function EditAccountModalDeleteAccount() {
 					className="form__text-input form__text-input--password"
 				/>
 				<span className="form__errors">
-					{reduxState[generalContainerName].inputErrors.currentPassword}
+					{reduxState[GENERAL_CONTAINER].inputErrors.currentPassword}
 				</span>
 				<button
 					type="submit"
@@ -100,9 +100,9 @@ export default function EditAccountModalDeleteAccount() {
 					Delete
 				</button>
 				<span className="form__errors">
-					{reduxState[generalContainerName].inputErrors.validationAccount}
-					{reduxState[generalContainerName].inputErrors.authorization}
-					{reduxState[generalContainerName].inputErrors.serverAccount}
+					{reduxState[GENERAL_CONTAINER].inputErrors.validationAccount}
+					{reduxState[GENERAL_CONTAINER].inputErrors.authorization}
+					{reduxState[GENERAL_CONTAINER].inputErrors.serverAccount}
 				</span>
 			</form>
 			<div className="modal-links-container">

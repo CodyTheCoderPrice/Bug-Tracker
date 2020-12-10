@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { generalContainerName } from "../../../../reducers/containerNames";
+import { GENERAL_CONTAINER } from "../../../../reducers/containerNames";
 
 import {
 	clearInputErrors,
@@ -49,7 +49,7 @@ export default function ListContainerMassDeleteItemsModal(props) {
 					<span className="warning-container__message">Are you sure?</span>
 				</div>
 				<span className="backend__errors">
-					{reduxState[generalContainerName].inputErrors.server}
+					{reduxState[GENERAL_CONTAINER].inputErrors.server}
 				</span>
 				<div className="centered-buttons-container">
 					<div

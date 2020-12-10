@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { sizeContainerName } from "../reducers/containerNames";
+import { SIZE_CONTAINER } from "../reducers/containerNames";
 
 import { toggleClassName } from "./elementUtils";
 
@@ -73,7 +73,7 @@ export function useSearchBarResizeAndBorderEventListener(
 
 	// Resize search-bar to fit search-filter-sort-bar width
 	useEffect(() => {
-		if (passedReduxState[sizeContainerName].variables.window !== null) {
+		if (passedReduxState[SIZE_CONTAINER].variables.window !== null) {
 			const searchBar = document.getElementsByClassName(searchBarClassName)[0];
 
 			// Makes sure regularlyUsedSizesAndStyles gets set
@@ -117,7 +117,7 @@ export function useSearchBarResizeAndBorderEventListener(
 
 			// Used to make the searchBar take up remaining space
 			const remainingSearchFilterSortBarWidth =
-				passedReduxState[sizeContainerName].variables.window.width -
+				passedReduxState[SIZE_CONTAINER].variables.window.width -
 				regularlyUsedSizesAndStyles.newProjectsButtonContainer.width -
 				// Got 22 by eyeing it to see what made the distances look the same
 				regularlyUsedSizesAndStyles.sortAndFilterContainer.width - 22;
@@ -139,9 +139,9 @@ export function useSearchBarResizeAndBorderEventListener(
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		passedReduxState[sizeContainerName].variables,
+		passedReduxState[SIZE_CONTAINER].variables,
 		// eslint-disable-next-line
-		passedReduxState[sizeContainerName].constants,
+		passedReduxState[SIZE_CONTAINER].constants,
 		regularlyUsedSizesAndStyles,
 	]);
 

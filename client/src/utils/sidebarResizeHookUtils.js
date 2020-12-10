@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { sizeContainerName } from "../reducers/containerNames";
+import { SIZE_CONTAINER } from "../reducers/containerNames";
 
 import { getElementStyle, stripNonDigits } from "./displaySizeUtils";
 
@@ -13,8 +13,8 @@ export function useSidebarResize(passedReduxState, nameOfSidebarClass) {
 	// Adjusts the height of the sidebar to fit the screen
 	useEffect(() => {
 		if (
-			passedReduxState[sizeContainerName].variables.window !== null &&
-			passedReduxState[sizeContainerName].variables.navbar !== null
+			passedReduxState[SIZE_CONTAINER].variables.window !== null &&
+			passedReduxState[SIZE_CONTAINER].variables.navbar !== null
 		) {
 			let sidebarElement = document.getElementsByClassName(nameOfSidebarClass)[0];
 
@@ -33,8 +33,8 @@ export function useSidebarResize(passedReduxState, nameOfSidebarClass) {
 			}
 
 			const adjustedWindowHeight =
-				passedReduxState[sizeContainerName].variables.window.height -
-				passedReduxState[sizeContainerName].variables.navbar.height -
+				passedReduxState[SIZE_CONTAINER].variables.window.height -
+				passedReduxState[SIZE_CONTAINER].variables.navbar.height -
 				originalSidebarSizeAndStyle.marginBottom -
 				originalSidebarSizeAndStyle.borderBottom;
 
@@ -45,7 +45,7 @@ export function useSidebarResize(passedReduxState, nameOfSidebarClass) {
 			}
 		}
 		// eslint-disable-next-line
-	}, [passedReduxState[sizeContainerName].variables, originalSidebarSizeAndStyle]);
+	}, [passedReduxState[SIZE_CONTAINER].variables, originalSidebarSizeAndStyle]);
 
 	return [];
 }

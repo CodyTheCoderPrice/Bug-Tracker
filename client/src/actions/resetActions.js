@@ -5,7 +5,7 @@ import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
-} from "./constants/containers";
+} from "../reducers/containerNames";
 import { RESET_CONTAINER } from "./constants/types";
 
 export const resetRedux = () => (dispatch) => {

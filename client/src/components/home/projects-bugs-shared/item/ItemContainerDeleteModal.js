@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	generalContainerName,
-	projectContainerName,
-	bugContainerName,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -40,9 +40,9 @@ export default function ItemContainerDeleteModal(props) {
 
 		let itemInfoDeepCopy = { ...itemInfo };
 		// Adds project_id when updating bugs
-		if (props.reduxContainerName === bugContainerName) {
+		if (props.reduxContainerName === BUG_CONTAINER) {
 			itemInfoDeepCopy["project_id"] =
-				reduxState[projectContainerName].componentsDisplay.targetItem.id;
+				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id;
 		}
 		dispatch(
 			deleteProjectOrBug(
@@ -71,7 +71,7 @@ export default function ItemContainerDeleteModal(props) {
 					<span className="warning-container__message">Are you sure?</span>
 				</div>
 				<span className="backend__errors">
-					{reduxState[generalContainerName].inputErrors.server}
+					{reduxState[GENERAL_CONTAINER].inputErrors.server}
 				</span>
 				<div className="centered-buttons-container">
 					<div

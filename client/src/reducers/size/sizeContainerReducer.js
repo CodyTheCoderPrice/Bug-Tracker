@@ -1,7 +1,7 @@
 import displaySizeConstantsReducer from "./displaySizeConstantsReducer";
 import displaySizeVariablesReducer from "./displaySizeVariablesReducer";
 
-import { SIZE_CONTAINER } from "../../actions/constants/containers";
+import { SIZE_CONTAINER } from "../containerNames";
 import { RESET_CONTAINER } from "../../actions/constants/types";
 
 const initialState = {

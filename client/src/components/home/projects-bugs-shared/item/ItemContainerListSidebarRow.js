@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	bugContainerName,
-	projectContainerName,
+	BUG_CONTAINER,
+	PROJECT_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -36,14 +36,14 @@ export default function ItemContainerListSidebarRow(props) {
 
 			// Resets bug components display when a different project is opened
 			// ...to prevent erros with bug targetItem not belonging to project
-			if (props.reduxContainerName === projectContainerName) {
+			if (props.reduxContainerName === PROJECT_CONTAINER) {
 				dispatch(setWhichBugComponentsDisplay({}));
 			}
 		}
 	};
 
 	const openListContainerIfProject = () => {
-		if (props.reduxContainerName === projectContainerName) {
+		if (props.reduxContainerName === PROJECT_CONTAINER) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					targetItem: props.item,
@@ -56,8 +56,8 @@ export default function ItemContainerListSidebarRow(props) {
 					// If the project targetItem is not changing, then keep the bug targetItem the same
 					targetItem:
 						props.item.id ===
-						reduxState[projectContainerName].componentsDisplay.targetItem.id
-							? reduxState[bugContainerName].componentsDisplay.targetItem
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+							? reduxState[BUG_CONTAINER].componentsDisplay.targetItem
 							: null,
 				})
 			);
@@ -65,7 +65,7 @@ export default function ItemContainerListSidebarRow(props) {
 			// Resets bug components display when a different project is opened
 			// ...to prevent erros with bug targetItem not belonging to project
 			if (
-				props.reduxContainerName === projectContainerName &&
+				props.reduxContainerName === PROJECT_CONTAINER &&
 				reduxState[props.reduxContainerName].componentsDisplay.targetItem !==
 					null &&
 				reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==

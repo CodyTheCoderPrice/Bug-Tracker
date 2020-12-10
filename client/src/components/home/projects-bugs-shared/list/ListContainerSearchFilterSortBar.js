@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	projectContainerName,
-	bugContainerName,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -104,9 +104,9 @@ export default function ListContainerSearchFilterSortBar(props) {
 				<div
 					className={
 						"centering-container__new-item-button" +
-						((props.reduxContainerName === projectContainerName &&
+						((props.reduxContainerName === PROJECT_CONTAINER &&
 							reduxState[props.reduxContainerName].list.length > 0) ||
-						(props.reduxContainerName === bugContainerName &&
+						(props.reduxContainerName === BUG_CONTAINER &&
 							reduxState[props.reduxContainerName].list.length > 0)
 							? ""
 							: " centering-container__new-item-button--highlighted")
@@ -114,7 +114,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 					onClick={openCreateItemSidebar}
 				>
 					<span className="centering-container__new-item-button__text">
-						{props.reduxContainerName === projectContainerName
+						{props.reduxContainerName === PROJECT_CONTAINER
 							? "New Project"
 							: "New Bug"}
 					</span>
@@ -180,7 +180,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 				<div
 					className={
 						"filter-area-container__content-dropdown" +
-						(props.reduxContainerName === bugContainerName
+						(props.reduxContainerName === BUG_CONTAINER
 							? " filter-area-container__content-dropdown--shorter"
 							: "") +
 						(showFilterDropdown
@@ -275,9 +275,9 @@ export default function ListContainerSearchFilterSortBar(props) {
 				</div>
 			</div>
 			{/*If the list has no items, displays a message to create one*/}
-			{(props.reduxContainerName === projectContainerName &&
+			{(props.reduxContainerName === PROJECT_CONTAINER &&
 				reduxState[props.reduxContainerName].list.length > 0) ||
-			(props.reduxContainerName === bugContainerName &&
+			(props.reduxContainerName === BUG_CONTAINER &&
 				reduxState[props.reduxContainerName].list.length > 0) ? null : (
 				<div className="create-item-message-container">
 					<div className="create-item-message-container__arrow-head" />
@@ -285,7 +285,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 					<div className="create-item-message-container__bend-message-centering-container">
 						<div className="create-item-message-container__bend-message-centering-container__arrow-bend" />
 						<div className="create-item-message-container__bend-message-centering-container__message">
-							{props.reduxContainerName === projectContainerName
+							{props.reduxContainerName === PROJECT_CONTAINER
 								? "Click to create a project."
 								: "Click to track a bug."}
 						</div>

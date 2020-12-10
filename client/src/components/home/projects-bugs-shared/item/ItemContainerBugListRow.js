@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { sizeContainerName } from "../../../../reducers/containerNames";
+import { SIZE_CONTAINER } from "../../../../reducers/containerNames";
 
 import { getElementSize } from "../../../../utils/displaySizeUtils";
 

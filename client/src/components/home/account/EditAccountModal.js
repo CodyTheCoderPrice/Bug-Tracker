@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { accountContainerName } from "../../../reducers/containerNames";
+import { ACCOUNT_CONTAINER } from "../../../reducers/containerNames";
 
 import {
 	setWhichAccountComponentsDisplay,
@@ -28,16 +28,16 @@ export default function EditAccountModal() {
 				<div className="exit-button" onClick={closeAccountComponents}>
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
-				{reduxState[accountContainerName].componentsDisplay.editAccountModalChangeInfo ? (
+				{reduxState[ACCOUNT_CONTAINER].componentsDisplay.editAccountModalChangeInfo ? (
 					<EditAccountModalChangeInfo />
 				) : null}
-				{reduxState[accountContainerName].componentsDisplay.editAccountModalChangeEmail ? (
+				{reduxState[ACCOUNT_CONTAINER].componentsDisplay.editAccountModalChangeEmail ? (
 					<EditAccountModalChangeEmail />
 				) : null}
-				{reduxState[accountContainerName].componentsDisplay.editAccountModalChangePassword ? (
+				{reduxState[ACCOUNT_CONTAINER].componentsDisplay.editAccountModalChangePassword ? (
 					<EditAccountModalChangePassword />
 				) : null}
-				{reduxState[accountContainerName].componentsDisplay.editAccountModalDeleteAccount ? (
+				{reduxState[ACCOUNT_CONTAINER].componentsDisplay.editAccountModalDeleteAccount ? (
 					<EditAccountModalDeleteAccount />
 				) : null}
 			</div>

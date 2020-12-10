@@ -1,7 +1,7 @@
 import generalComponentsDisplayReducer from "./generalComponentsDisplayReducer";
 import inputErrorReducer from "./inputErrorReducer";
 
-import { GENERAL_CONTAINER } from "../../actions/constants/containers";
+import { GENERAL_CONTAINER } from "../containerNames";
 import { RESET_CONTAINER } from "../../actions/constants/types";
 
 const initialState = {

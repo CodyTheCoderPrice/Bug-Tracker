@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	generalContainerName,
-	projectContainerName,
-	bugContainerName,
-	commentContainerName,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	COMMENT_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -31,14 +31,14 @@ export default function ItemContainerCommentsBoxIndividualCommentDeleteModal() {
 		dispatch(
 			deleteComment({
 				id:
-					reduxState[commentContainerName].componentsDisplay.commentToBeDeleted
+					reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted
 						.id,
 				project_id:
-					reduxState[projectContainerName].componentsDisplay.targetItem.id,
-				bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
+					reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+				bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 				// Included so redux action can tell whether to persist this value or set null
 				commentBeingEdited:
-					reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
+					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited,
 			})
 		);
 	};
@@ -47,7 +47,7 @@ export default function ItemContainerCommentsBoxIndividualCommentDeleteModal() {
 		dispatch(
 			setWhichCommentComponentsDisplay({
 				commentBeingEdited:
-					reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
+					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited,
 			})
 		);
 	};
@@ -60,7 +60,7 @@ export default function ItemContainerCommentsBoxIndividualCommentDeleteModal() {
 					<span className="warning-container__message">Are you sure?</span>
 				</div>
 				<span className="backend__errors">
-					{reduxState[generalContainerName].inputErrors.server}
+					{reduxState[GENERAL_CONTAINER].inputErrors.server}
 				</span>
 				<div className="centered-buttons-container">
 					<div

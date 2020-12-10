@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	projectContainerName,
-	bugContainerName,
-	commentContainerName,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	COMMENT_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -65,7 +65,7 @@ export default function ListContainerTableRow(props) {
 		// Resets bug components display when a different project is opened
 		// ...to prevent erros with bug targetItem not belonging to project
 		if (
-			props.reduxContainerName === projectContainerName &&
+			props.reduxContainerName === PROJECT_CONTAINER &&
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem !==
 				null &&
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
@@ -87,7 +87,7 @@ export default function ListContainerTableRow(props) {
 		// Resets bug components display when a different project is opened
 		// ...to prevent erros with bug targetItem not belonging to project
 		if (
-			props.reduxContainerName === projectContainerName &&
+			props.reduxContainerName === PROJECT_CONTAINER &&
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem !==
 				null &&
 			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
@@ -220,16 +220,16 @@ export default function ListContainerTableRow(props) {
 			</td>
 			<td className="list-table__data">
 				<span className="list-table__data__info">
-					{props.reduxContainerName === projectContainerName
+					{props.reduxContainerName === PROJECT_CONTAINER
 						? getNumberOfBugsForStatus(
 								reduxState,
 								props.item.id,
-								reduxState[bugContainerName].priorityStatusOptions
+								reduxState[BUG_CONTAINER].priorityStatusOptions
 									.statusCompletionId
 						  ) +
 						  " / " +
 						  getBugsInProjectList(reduxState, props.item.id).length
-						: [...reduxState[commentContainerName].list].filter(
+						: [...reduxState[COMMENT_CONTAINER].list].filter(
 								(item) => item.bug_id === props.item.id
 						  ).length}
 				</span>

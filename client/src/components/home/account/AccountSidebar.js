@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	accountContainerName,
-	projectContainerName,
-	bugContainerName,
+	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../reducers/containerNames";
 
 import {
@@ -47,12 +47,12 @@ export default function AccountSidebar() {
 
 	const getSLinkColor = () => {
 		if (
-			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
-			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+			reduxState[BUG_CONTAINER].componentsDisplay.listContainer !== true &&
+			reduxState[BUG_CONTAINER].componentsDisplay.itemContainer !== true
 		) {
-			return getProjectOrBugTextColorClassName(projectContainerName);
+			return getProjectOrBugTextColorClassName(PROJECT_CONTAINER);
 		} else {
-			return getProjectOrBugTextColorClassName(bugContainerName);
+			return getProjectOrBugTextColorClassName(BUG_CONTAINER);
 		}
 	};
 
@@ -62,17 +62,17 @@ export default function AccountSidebar() {
 				<div className="padded-container">
 					<div className="account-info-container">
 						<div className="account-info account-info--large-bold">
-							{reduxState[accountContainerName].info.first_name +
+							{reduxState[ACCOUNT_CONTAINER].info.first_name +
 								" " +
-								reduxState[accountContainerName].info.last_name}
+								reduxState[ACCOUNT_CONTAINER].info.last_name}
 						</div>
 						<div className="account-info">
-							{reduxState[accountContainerName].info.email}
+							{reduxState[ACCOUNT_CONTAINER].info.email}
 						</div>
 						<div className="account-info">
 							Joined:{" "}
 							{formatDateMMddYYYY(
-								reduxState[accountContainerName].info.joinDate
+								reduxState[ACCOUNT_CONTAINER].info.joinDate
 							)}
 						</div>
 					</div>

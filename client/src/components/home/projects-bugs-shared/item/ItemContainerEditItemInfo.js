@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	generalContainerName,
-	projectContainerName,
-	bugContainerName,
-	sizeContainerName,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	SIZE_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -45,7 +45,7 @@ export default function ItemContainerEditItemInfo(props) {
 				.description,
 		// Only used for bugs (backend will ignore this property for projects)
 		location:
-			props.reduxContainerName === bugContainerName
+			props.reduxContainerName === BUG_CONTAINER
 				? reduxState[props.reduxContainerName].componentsDisplay.targetItem
 						.location
 				: "",
@@ -149,20 +149,20 @@ export default function ItemContainerEditItemInfo(props) {
 
 	useEffect(() => {
 		if (
-			reduxState[sizeContainerName].constants
+			reduxState[SIZE_CONTAINER].constants
 				.itemContainerOuterDividingContainerMinWidth !== null
 		) {
 			manageSizeOfItemBoxsInPairContainer(
 				document.getElementsByClassName("js-description-info-pair")[0],
 				"outer-dividing-container--half-width",
-				reduxState[sizeContainerName].constants
+				reduxState[SIZE_CONTAINER].constants
 					.itemContainerOuterDividingContainerMinWidth
 			);
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[sizeContainerName].constants
+		reduxState[SIZE_CONTAINER].constants
 			.itemContainerOuterDividingContainerMinWidth,
 	]);
 
@@ -197,9 +197,9 @@ export default function ItemContainerEditItemInfo(props) {
 		e.preventDefault();
 		let itemInfoDeepCopy = { ...itemInfo };
 		// Adds project_id when updating bugs
-		if (props.reduxContainerName === bugContainerName) {
+		if (props.reduxContainerName === BUG_CONTAINER) {
 			itemInfoDeepCopy["project_id"] =
-				reduxState[projectContainerName].componentsDisplay.targetItem.id;
+				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id;
 		}
 		dispatch(
 			updateProjectOrBug(
@@ -253,7 +253,7 @@ export default function ItemContainerEditItemInfo(props) {
 					</div>
 				</div>
 				<span className="form-errors form-errors--item-name">
-					{reduxState[generalContainerName].inputErrors.validationItemName}
+					{reduxState[GENERAL_CONTAINER].inputErrors.validationItemName}
 				</span>
 				<div className="item-creation-date">
 					Created on: {itemInfo.creation_date}
@@ -286,7 +286,7 @@ export default function ItemContainerEditItemInfo(props) {
 						/>
 						<span className="form-errors">
 							{
-								reduxState[generalContainerName].inputErrors
+								reduxState[GENERAL_CONTAINER].inputErrors
 									.validationItemDescription
 							}
 						</span>
@@ -295,7 +295,7 @@ export default function ItemContainerEditItemInfo(props) {
 				<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
 					<div className="item-box item-box--desciption-info-height">
 						<h2 className="item-box__title">Info</h2>
-						{props.reduxContainerName === bugContainerName ? (
+						{props.reduxContainerName === BUG_CONTAINER ? (
 							<div className="item-box__group__field">
 								<label
 									htmlFor="edit-item-location"
@@ -323,7 +323,7 @@ export default function ItemContainerEditItemInfo(props) {
 								/>
 								<span className="form-errors">
 									{
-										reduxState[generalContainerName].inputErrors
+										reduxState[GENERAL_CONTAINER].inputErrors
 											.validationItemLocation
 									}
 								</span>
@@ -427,7 +427,7 @@ export default function ItemContainerEditItemInfo(props) {
 								)
 							}
 						>
-							{props.reduxContainerName === projectContainerName
+							{props.reduxContainerName === PROJECT_CONTAINER
 								? "Edit Project"
 								: "Edit Bug"}
 						</button>
@@ -441,8 +441,8 @@ export default function ItemContainerEditItemInfo(props) {
 				</div>
 				<div className="bottom-form-errors-container">
 					<span className="form-errors">
-						{reduxState[generalContainerName].inputErrors.validationItem}
-						{reduxState[generalContainerName].inputErrors.serverItem}
+						{reduxState[GENERAL_CONTAINER].inputErrors.validationItem}
+						{reduxState[GENERAL_CONTAINER].inputErrors.serverItem}
 					</span>
 				</div>
 			</div>

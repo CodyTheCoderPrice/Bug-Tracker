@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
 import {
-	generalContainerName,
-	projectContainerName,
-	bugContainerName,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -139,9 +139,9 @@ export default function ListContainerCreateItemSidebar(props) {
 		e.preventDefault();
 		let itemInfoDeepCopy = { ...itemInfo };
 		// Gives bugs (not projects) a project_id for backend table relations
-		if (props.reduxContainerName === bugContainerName) {
+		if (props.reduxContainerName === BUG_CONTAINER) {
 			itemInfoDeepCopy["project_id"] =
-				reduxState[projectContainerName].componentsDisplay.targetItem.id;
+				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id;
 		}
 		dispatch(
 			createProjectOrBug(
@@ -167,7 +167,7 @@ export default function ListContainerCreateItemSidebar(props) {
 			<div
 				className={
 					"create-item-sidebar js-create-item-sidebar" +
-					(props.reduxContainerName === bugContainerName
+					(props.reduxContainerName === BUG_CONTAINER
 						? " create-item-sidebar--taller"
 						: "")
 				}
@@ -177,7 +177,7 @@ export default function ListContainerCreateItemSidebar(props) {
 				</div>
 				<div className="padded-container">
 					<h1 className="title">
-						{props.reduxContainerName === projectContainerName
+						{props.reduxContainerName === PROJECT_CONTAINER
 							? "New Project"
 							: "New Bug"}
 					</h1>
@@ -206,7 +206,7 @@ export default function ListContainerCreateItemSidebar(props) {
 							className="form__text-input"
 						/>
 						<span className="form__errors">
-							{reduxState[generalContainerName].inputErrors.validationItemName}
+							{reduxState[GENERAL_CONTAINER].inputErrors.validationItemName}
 						</span>
 						<label htmlFor="create-item-description" className="form__label">
 							Description:{" "}
@@ -230,11 +230,11 @@ export default function ListContainerCreateItemSidebar(props) {
 						/>
 						<span className="form__errors">
 							{
-								reduxState[generalContainerName].inputErrors
+								reduxState[GENERAL_CONTAINER].inputErrors
 									.validationItemDescription
 							}
 						</span>
-						{props.reduxContainerName === bugContainerName ? (
+						{props.reduxContainerName === BUG_CONTAINER ? (
 							<div>
 								<label htmlFor="create-item-location" className="form__label">
 									Location:{" "}
@@ -259,7 +259,7 @@ export default function ListContainerCreateItemSidebar(props) {
 								/>
 								<span className="form__errors">
 									{
-										reduxState[generalContainerName].inputErrors
+										reduxState[GENERAL_CONTAINER].inputErrors
 											.validationItemLocation
 									}
 								</span>
@@ -355,13 +355,13 @@ export default function ListContainerCreateItemSidebar(props) {
 								)
 							}
 						>
-							{props.reduxContainerName === projectContainerName
+							{props.reduxContainerName === PROJECT_CONTAINER
 								? "Create Project"
 								: "Create Bug"}
 						</button>
 						<span className="form__errors">
-							{reduxState[generalContainerName].inputErrors.validationItem}
-							{reduxState[generalContainerName].inputErrors.serverItem}
+							{reduxState[GENERAL_CONTAINER].inputErrors.validationItem}
+							{reduxState[GENERAL_CONTAINER].inputErrors.serverItem}
 						</span>
 					</form>
 				</div>

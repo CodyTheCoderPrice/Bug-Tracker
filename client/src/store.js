@@ -9,12 +9,12 @@ import {
 	commentContainerReducer,
 } from "./reducers";
 import {
-	generalContainerName,
-	sizeContainerName,
-	accountContainerName,
-	projectContainerName,
-	bugContainerName,
-	commentContainerName,
+	GENERAL_CONTAINER,
+	SIZE_CONTAINER,
+	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	COMMENT_CONTAINER,
 } from "./reducers/containerNames";
 // Used to persist the redux state
 import { persistStore, persistReducer } from "redux-persist";
@@ -40,13 +40,13 @@ const rootPersistConfig = {
 // Following persistConfigs are used for nested redux persist, one level deeper
 //==============================================================================
 const generalComponentsPersistConfig = {
-	key: generalContainerName,
+	key: GENERAL_CONTAINER,
 	storage: storage,
 	whitelist: ["componentsDisplay"],
 };
 
 const projectContainerPersistConfig = {
-	key: projectContainerName,
+	key: PROJECT_CONTAINER,
 	storage: storage,
 	// Projects and priorityStatusOptions are persisted despite being re-fetched
 	// ...on page refresh so they are not null while data is retrieved from server
@@ -54,7 +54,7 @@ const projectContainerPersistConfig = {
 };
 
 const bugContainerPersistConfig = {
-	key: bugContainerName,
+	key: BUG_CONTAINER,
 	storage: storage,
 	// Projects and priorityStatusOptions are persisted despite being re-fetched
 	// ...on page refresh so they are not null while data is retrieved from server
@@ -64,18 +64,18 @@ const bugContainerPersistConfig = {
 // rootReducer is created here instead of in the reducer index.js
 // ...so nested persist can be used
 const rootReducer = combineReducers({
-	[generalContainerName]: persistReducer(
+	[GENERAL_CONTAINER]: persistReducer(
 		generalComponentsPersistConfig,
 		generalContainerReducer
 	),
-	[sizeContainerName]: sizeContainerReducer,
-	[accountContainerName]: accountContainerReducer,
-	[commentContainerName]: commentContainerReducer,
-	[projectContainerName]: persistReducer(
+	[SIZE_CONTAINER]: sizeContainerReducer,
+	[ACCOUNT_CONTAINER]: accountContainerReducer,
+	[COMMENT_CONTAINER]: commentContainerReducer,
+	[PROJECT_CONTAINER]: persistReducer(
 		projectContainerPersistConfig,
 		projectContainerReducer
 	),
-	[bugContainerName]: persistReducer(
+	[BUG_CONTAINER]: persistReducer(
 		bugContainerPersistConfig,
 		bugContainerReducer
 	),

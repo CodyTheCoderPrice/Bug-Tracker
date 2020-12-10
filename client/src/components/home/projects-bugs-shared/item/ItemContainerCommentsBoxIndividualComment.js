@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	generalContainerName,
-	projectContainerName,
-	bugContainerName,
-	commentContainerName,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	COMMENT_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -34,8 +34,8 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		// Following ids are used by the backend to ensure
 		// ...the comment will belong to the correct account
 		project_id:
-			reduxState[projectContainerName].componentsDisplay.targetItem.id,
-		bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
+			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 	});
 
 	const [descriptionCharLimit] = useState(500);
@@ -60,15 +60,15 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 			// Default commentInfo values
 			description: props.comment.description,
 			project_id:
-				reduxState[projectContainerName].componentsDisplay.targetItem.id,
-			bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
+				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+			bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 		});
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
+		reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited,
 		// eslint-disable-next-line
-		reduxState[commentContainerName].list.length,
+		reduxState[COMMENT_CONTAINER].list.length,
 	]);
 
 	const onChange = (e) => {
@@ -91,7 +91,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 			updateComment({
 				...commentInfo,
 				id:
-					reduxState[commentContainerName].componentsDisplay.commentBeingEdited
+					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited
 						.id,
 			})
 		);
@@ -113,7 +113,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		dispatch(
 			setWhichCommentComponentsDisplay({
 				commentBeingEdited:
-					reduxState[commentContainerName].componentsDisplay.commentBeingEdited,
+					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited,
 				commentDeleteModal: true,
 				commentToBeDeleted: props.comment,
 			})
@@ -123,9 +123,9 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 	return (
 		<form className="js-edit-comment-form" noValidate onSubmit={handleSubmit}>
 			<div className="comment-divider">
-				{reduxState[commentContainerName].componentsDisplay
+				{reduxState[COMMENT_CONTAINER].componentsDisplay
 					.commentBeingEdited === null ||
-				reduxState[commentContainerName].componentsDisplay.commentBeingEdited
+				reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited
 					.id !== props.comment.id ? (
 					<div>
 						<div className="comment__block">
@@ -181,7 +181,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 									className={
 										"comment__centering-container__pair-container__submit-edit-button" +
 										getProjectOrBugBackgroundColorClassNameWithHover(
-											bugContainerName
+											BUG_CONTAINER
 										)
 									}
 									onClick={handleSubmit}
@@ -199,11 +199,11 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 						<div className="edit-comment-form-errors-container">
 							<span className="form-errors">
 								{
-									reduxState[generalContainerName].inputErrors
+									reduxState[GENERAL_CONTAINER].inputErrors
 										.validationEditCommentDescription
 								}
-								{reduxState[generalContainerName].inputErrors.validationComment}
-								{reduxState[generalContainerName].inputErrors.serverItem}
+								{reduxState[GENERAL_CONTAINER].inputErrors.validationComment}
+								{reduxState[GENERAL_CONTAINER].inputErrors.serverItem}
 							</span>
 						</div>
 					</div>

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	sizeContainerName,
-	generalContainerName,
-	projectContainerName,
-	bugContainerName,
-	commentContainerName,
+	SIZE_CONTAINER,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	COMMENT_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
@@ -33,76 +33,76 @@ export default function ItemContainer(props) {
 	// Adjusts the height and width of the modal to fit the screen
 	useEffect(() => {
 		if (
-			reduxState[sizeContainerName].variables.window !== null &&
-			reduxState[sizeContainerName].variables.navbar !== null &&
-			reduxState[sizeContainerName].constants.itemContainerTopBar !== null &&
-			reduxState[sizeContainerName].constants.itemContainerListSidebar !== null
+			reduxState[SIZE_CONTAINER].variables.window !== null &&
+			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
+			reduxState[SIZE_CONTAINER].constants.itemContainerTopBar !== null &&
+			reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar !== null
 		) {
 			const itemContainerElement = document.getElementsByClassName(
 				"js-item-container"
 			)[0];
 
 			itemContainerElement.style.height =
-				reduxState[sizeContainerName].variables.window.height -
-				reduxState[sizeContainerName].variables.navbar.height -
-				reduxState[sizeContainerName].constants.itemContainerTopBar.height +
+				reduxState[SIZE_CONTAINER].variables.window.height -
+				reduxState[SIZE_CONTAINER].variables.navbar.height -
+				reduxState[SIZE_CONTAINER].constants.itemContainerTopBar.height +
 				"px";
 
 			if (
-				reduxState[generalContainerName].componentsDisplay
+				reduxState[GENERAL_CONTAINER].componentsDisplay
 					.itemContainerListSidebar
 			) {
 				itemContainerElement.style.width =
-					reduxState[sizeContainerName].variables.window.width -
-					reduxState[sizeContainerName].constants.itemContainerListSidebar
+					reduxState[SIZE_CONTAINER].variables.window.width -
+					reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar
 						.width +
 					"px";
 			} else {
 				itemContainerElement.style.width =
-					reduxState[sizeContainerName].variables.window.width + "px";
+					reduxState[SIZE_CONTAINER].variables.window.width + "px";
 			}
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[sizeContainerName],
+		reduxState[SIZE_CONTAINER],
 		// eslint-disable-next-line
-		reduxState[generalContainerName].componentsDisplay.itemContainerListSidebar,
+		reduxState[GENERAL_CONTAINER].componentsDisplay.itemContainerListSidebar,
 	]);
 
 	// If user has not set itemContainerListSidebar, then whether it is
 	// ...open or closed will be decided based on the current window size
 	useEffect(() => {
 		if (
-			reduxState[generalContainerName].componentsDisplay
+			reduxState[GENERAL_CONTAINER].componentsDisplay
 				.itemContainerListSidebarUserSet === false &&
-			reduxState[sizeContainerName].constants.itemContainerListSidebar !==
+			reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar !==
 				null &&
-			reduxState[sizeContainerName].constants
+			reduxState[SIZE_CONTAINER].constants
 				.itemContainerOuterDividingContainerMinWidth !== null &&
-			reduxState[sizeContainerName].constants
+			reduxState[SIZE_CONTAINER].constants
 				.itemContainerPaddingContainerPadding !== null
 		) {
 			// Instead of putting inn the optimization to re-run once no longer
 			// ...null since it would also re-run every window resize
 			const windowSize =
-				reduxState[sizeContainerName].variables.window === null
+				reduxState[SIZE_CONTAINER].variables.window === null
 					? getWindowSize()
-					: reduxState[sizeContainerName].variables.window;
+					: reduxState[SIZE_CONTAINER].variables.window;
 
 			const minWidthNeededForNoItemBoxOverflow =
-				reduxState[sizeContainerName].constants
+				reduxState[SIZE_CONTAINER].constants
 					.itemContainerOuterDividingContainerMinWidth +
-				reduxState[sizeContainerName].constants
+				reduxState[SIZE_CONTAINER].constants
 					.itemContainerPaddingContainerPadding *
 					2;
 
 			dispatch(
 				setWhichGeneralComponentsDisplay({
-					...reduxState[generalContainerName].componentsDisplay,
+					...reduxState[GENERAL_CONTAINER].componentsDisplay,
 					itemContainerListSidebar:
 						windowSize.width -
-							reduxState[sizeContainerName].constants.itemContainerListSidebar
+							reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar
 								.width >=
 						minWidthNeededForNoItemBoxOverflow,
 				})
@@ -111,25 +111,25 @@ export default function ItemContainer(props) {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[sizeContainerName].constants,
+		reduxState[SIZE_CONTAINER].constants,
 	]);
 
 	useEffect(() => {
 		if (
-			reduxState[sizeContainerName].constants
+			reduxState[SIZE_CONTAINER].constants
 				.itemContainerOuterDividingContainerMinWidth !== null
 		) {
 			manageSizeOfItemBoxsInPairContainer(
 				document.getElementsByClassName("js-description-info-pair")[0],
 				"outer-dividing-container--half-width",
-				reduxState[sizeContainerName].constants
+				reduxState[SIZE_CONTAINER].constants
 					.itemContainerOuterDividingContainerMinWidth
 			);
-			if (props.reduxContainerName === projectContainerName) {
+			if (props.reduxContainerName === PROJECT_CONTAINER) {
 				manageSizeOfItemBoxsInPairContainer(
 					document.getElementsByClassName("js-project-bugs-info-pair")[0],
 					"outer-dividing-container--half-width",
-					reduxState[sizeContainerName].constants
+					reduxState[SIZE_CONTAINER].constants
 						.itemContainerOuterDividingContainerMinWidth
 				);
 			}
@@ -137,7 +137,7 @@ export default function ItemContainer(props) {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[sizeContainerName].constants
+		reduxState[SIZE_CONTAINER].constants
 			.itemContainerOuterDividingContainerMinWidth,
 	]);
 
@@ -152,8 +152,8 @@ export default function ItemContainer(props) {
 					reduxContainerName={props.reduxContainerName}
 				/>
 			) : null}
-			{reduxState[bugContainerName].componentsDisplay.itemContainer === true &&
-			reduxState[commentContainerName].componentsDisplay.commentDeleteModal ===
+			{reduxState[BUG_CONTAINER].componentsDisplay.itemContainer === true &&
+			reduxState[COMMENT_CONTAINER].componentsDisplay.commentDeleteModal ===
 				true ? (
 				<ItemContainerCommentsBoxIndividualCommentDeleteModal />
 			) : null}
@@ -161,7 +161,7 @@ export default function ItemContainer(props) {
 				<div
 					className={
 						"item-container js-item-container" +
-						(reduxState[generalContainerName].componentsDisplay
+						(reduxState[GENERAL_CONTAINER].componentsDisplay
 							.itemContainerListSidebar
 							? " item-container--shifted-right"
 							: "")
@@ -183,15 +183,15 @@ export default function ItemContainer(props) {
 									/>
 								</div>
 							)}
-							{props.reduxContainerName !== projectContainerName ? null : (
+							{props.reduxContainerName !== PROJECT_CONTAINER ? null : (
 								<div className="pair-container js-project-bugs-info-pair">
 									<div className="outer-dividing-container outer-dividing-container--half-width">
 										<div className="item-box item-box--project-bugs-stats-height item-box--no-left-right-padding">
 											<h2 className="item-box__title">Status of Bugs</h2>
-											{[...reduxState[bugContainerName].list].filter(
+											{[...reduxState[BUG_CONTAINER].list].filter(
 												(item) =>
 													item.project_id ===
-													reduxState[projectContainerName].componentsDisplay
+													reduxState[PROJECT_CONTAINER].componentsDisplay
 														.targetItem.id
 											).length > 0 ? (
 												<ItemContainerBugPieChart />
@@ -207,10 +207,10 @@ export default function ItemContainer(props) {
 											<h2 className="item-box__title">
 												Most Recent Bugs Worked On
 											</h2>
-											{[...reduxState[bugContainerName].list].filter(
+											{[...reduxState[BUG_CONTAINER].list].filter(
 												(item) =>
 													item.project_id ===
-													reduxState[projectContainerName].componentsDisplay
+													reduxState[PROJECT_CONTAINER].componentsDisplay
 														.targetItem.id
 											).length > 0 ? (
 												<ItemContainerBugList />
@@ -223,7 +223,7 @@ export default function ItemContainer(props) {
 									</div>
 								</div>
 							)}
-							{props.reduxContainerName === projectContainerName ? null : (
+							{props.reduxContainerName === PROJECT_CONTAINER ? null : (
 								<ItemContainerCommentsBox />
 							)}
 						</div>

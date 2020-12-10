@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	sizeContainerName,
-	accountContainerName,
-	projectContainerName,
-	bugContainerName,
+	SIZE_CONTAINER,
+	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../reducers/containerNames";
 
 import {
@@ -87,14 +87,14 @@ export default function Navbar() {
 	// Sets max-width for navbar buttons depending on navbar width
 	useEffect(() => {
 		if (
-			reduxState[sizeContainerName].variables.navbar !== null &&
+			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
 			// If navbarAccountButton is set, then projects and bugs button should also be set
-			reduxState[sizeContainerName].constants.navbarAccountButton !== null &&
-			reduxState[projectContainerName].componentsDisplay.targetItem !== null
+			reduxState[SIZE_CONTAINER].constants.navbarAccountButton !== null &&
+			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !== null
 		) {
 			let navbarAvailableSpace =
-				reduxState[sizeContainerName].variables.navbar.width -
-				reduxState[sizeContainerName].constants.navbarAccountButton.width;
+				reduxState[SIZE_CONTAINER].variables.navbar.width -
+				reduxState[SIZE_CONTAINER].constants.navbarAccountButton.width;
 
 			const projectButtonElement = document.getElementsByClassName(
 				"js-project-button"
@@ -103,7 +103,7 @@ export default function Navbar() {
 			projectButtonElement.style.maxWidth = null;
 
 			// If bug navbar button is present
-			if (reduxState[projectContainerName].componentsDisplay.targetItem !== null) {
+			if (reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !== null) {
 				const bugButtonElement = document.getElementsByClassName(
 					"js-bug-button"
 				)[0];
@@ -126,23 +126,23 @@ export default function Navbar() {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[sizeContainerName],
+		reduxState[SIZE_CONTAINER],
 		// eslint-disable-next-line
-		reduxState[projectContainerName].componentsDisplay.targetItem,
+		reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
 		// eslint-disable-next-line
-		reduxState[bugContainerName].componentsDisplay.targetItem,
+		reduxState[BUG_CONTAINER].componentsDisplay.targetItem,
 	]);
 
 	const openAccountSidebar = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar: !reduxState[accountContainerName].componentsDisplay
+				accountSidebar: !reduxState[ACCOUNT_CONTAINER].componentsDisplay
 					.accountSidebar,
 			})
 		);
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState[projectContainerName].componentsDisplay,
+				...reduxState[PROJECT_CONTAINER].componentsDisplay,
 				listContainerCreateItemSidbar: false,
 				itemContainerDeleteModal: false,
 				listContainerMassDeleteItemsModal: false,
@@ -150,7 +150,7 @@ export default function Navbar() {
 		);
 		dispatch(
 			setWhichBugComponentsDisplay({
-				...reduxState[bugContainerName].componentsDisplay,
+				...reduxState[BUG_CONTAINER].componentsDisplay,
 				listContainerCreateItemSidbar: false,
 				itemContainerDeleteModal: false,
 				listContainerMassDeleteItemsModal: false,
@@ -161,29 +161,29 @@ export default function Navbar() {
 
 	const openProjects = () => {
 		if (
-			reduxState[projectContainerName].componentsDisplay.listContainer !==
+			reduxState[PROJECT_CONTAINER].componentsDisplay.listContainer !==
 				true &&
-			reduxState[projectContainerName].componentsDisplay.itemsContainer !== true
+			reduxState[PROJECT_CONTAINER].componentsDisplay.itemsContainer !== true
 		) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					listContainer:
-						reduxState[projectContainerName].componentsDisplay.targetItem ===
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
 						null
 							? true
 							: false,
 					itemContainer:
-						reduxState[projectContainerName].componentsDisplay.targetItem ===
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
 						null
 							? false
 							: true,
 					targetItem:
-						reduxState[projectContainerName].componentsDisplay.targetItem,
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
 				})
 			);
 			dispatch(
 				setWhichBugComponentsDisplay({
-					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
+					targetItem: reduxState[BUG_CONTAINER].componentsDisplay.targetItem,
 				})
 			);
 			dispatch(setWhichAccountComponentsDisplay({}));
@@ -193,26 +193,26 @@ export default function Navbar() {
 
 	const openBugs = () => {
 		if (
-			reduxState[bugContainerName].componentsDisplay.listContainer !== true &&
-			reduxState[bugContainerName].componentsDisplay.itemContainer !== true
+			reduxState[BUG_CONTAINER].componentsDisplay.listContainer !== true &&
+			reduxState[BUG_CONTAINER].componentsDisplay.itemContainer !== true
 		) {
 			dispatch(
 				setWhichBugComponentsDisplay({
 					listContainer:
-						reduxState[bugContainerName].componentsDisplay.targetItem === null
+						reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null
 							? true
 							: false,
 					itemContainer:
-						reduxState[bugContainerName].componentsDisplay.targetItem === null
+						reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null
 							? false
 							: true,
-					targetItem: reduxState[bugContainerName].componentsDisplay.targetItem,
+					targetItem: reduxState[BUG_CONTAINER].componentsDisplay.targetItem,
 				})
 			);
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					targetItem:
-						reduxState[projectContainerName].componentsDisplay.targetItem,
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
 				})
 			);
 			dispatch(setWhichAccountComponentsDisplay({}));
@@ -224,7 +224,7 @@ export default function Navbar() {
 		e.stopPropagation();
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				...reduxState[projectContainerName].componentsDisplay,
+				...reduxState[PROJECT_CONTAINER].componentsDisplay,
 				listContainer: true,
 				itemContainer: false,
 				targetItem: null,
@@ -232,7 +232,7 @@ export default function Navbar() {
 		);
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(setWhichBugComponentsDisplay({}));
-		dispatch(setProjectOrBugMassDeleteList(bugContainerName));
+		dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER));
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
@@ -240,12 +240,12 @@ export default function Navbar() {
 		e.stopPropagation();
 		dispatch(
 			setWhichBugComponentsDisplay({
-				...reduxState[bugContainerName].componentsDisplay,
+				...reduxState[BUG_CONTAINER].componentsDisplay,
 				// Keeps the user on their current tab (since the user can close a bug from the project tab)
 				listContainer:
-					reduxState[bugContainerName].componentsDisplay.listContainer ===
+					reduxState[BUG_CONTAINER].componentsDisplay.listContainer ===
 						true ||
-					reduxState[bugContainerName].componentsDisplay.itemContainer === true
+					reduxState[BUG_CONTAINER].componentsDisplay.itemContainer === true
 						? true
 						: false,
 				itemContainer: false,
@@ -268,8 +268,8 @@ export default function Navbar() {
 					className={
 						"navbar-button js-project-button" +
 						getProjectOrBugBackgroundColorClassNameDark(getCurrentContainerName(reduxState)) +
-						(reduxState[projectContainerName].componentsDisplay.listContainer ||
-						reduxState[projectContainerName].componentsDisplay.itemContainer
+						(reduxState[PROJECT_CONTAINER].componentsDisplay.listContainer ||
+						reduxState[PROJECT_CONTAINER].componentsDisplay.itemContainer
 							? getProjectOrBugBackgroundColorClassNameLight(getCurrentContainerName(reduxState))
 							: "")
 					}
@@ -277,7 +277,7 @@ export default function Navbar() {
 				>
 					<div className="navbar-button__text-container">
 						<i className="fa fa-folder" aria-hidden="true" /> Project
-						{reduxState[projectContainerName].componentsDisplay.targetItem ===
+						{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
 						null ? (
 							<span>s</span>
 						) : (
@@ -285,7 +285,7 @@ export default function Navbar() {
 								:{" "}
 								<span className="navbar-button__text-container navbar-button__text-container__item-name">
 									{
-										reduxState[projectContainerName].componentsDisplay
+										reduxState[PROJECT_CONTAINER].componentsDisplay
 											.targetItem.name
 									}
 								</span>
@@ -302,16 +302,16 @@ export default function Navbar() {
 						)}
 					</div>
 				</div>
-				{reduxState[projectContainerName].componentsDisplay.targetItem ===
+				{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
 				null ? null : (
 					<div
 						className={
 							"navbar-button js-bug-button" +
 							getProjectOrBugBackgroundColorClassNameDark(getCurrentContainerName(reduxState)) +
-							(reduxState[projectContainerName].componentsDisplay.targetItem !==
+							(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 								null &&
-							(reduxState[bugContainerName].componentsDisplay.listContainer ||
-								reduxState[bugContainerName].componentsDisplay.itemContainer)
+							(reduxState[BUG_CONTAINER].componentsDisplay.listContainer ||
+								reduxState[BUG_CONTAINER].componentsDisplay.itemContainer)
 								? getProjectOrBugBackgroundColorClassNameLight(getCurrentContainerName(reduxState))
 								: "")
 						}
@@ -319,7 +319,7 @@ export default function Navbar() {
 					>
 						<div className="navbar-button__text-container">
 							<i className="fa fa-bug" aria-hidden="true" /> Bug
-							{reduxState[bugContainerName].componentsDisplay.targetItem ===
+							{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
 							null ? (
 								<span>s</span>
 							) : (
@@ -327,7 +327,7 @@ export default function Navbar() {
 									:{" "}
 									<span className="navbar-button__text-container navbar-button__text-container__item-name">
 										{
-											reduxState[bugContainerName].componentsDisplay.targetItem
+											reduxState[BUG_CONTAINER].componentsDisplay.targetItem
 												.name
 										}
 									</span>

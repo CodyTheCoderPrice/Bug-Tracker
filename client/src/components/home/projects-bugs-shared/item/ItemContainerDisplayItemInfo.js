@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
-	projectContainerName,
-	bugContainerName,
-	sizeContainerName,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	SIZE_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
@@ -19,20 +19,20 @@ export default function ItemContainerDisplayItemInfo(props) {
 
 	useEffect(() => {
 		if (
-			reduxState[sizeContainerName].constants
+			reduxState[SIZE_CONTAINER].constants
 				.itemContainerOuterDividingContainerMinWidth !== null
 		) {
 			manageSizeOfItemBoxsInPairContainer(
 				document.getElementsByClassName("js-description-info-pair")[0],
 				"outer-dividing-container--half-width",
-				reduxState[sizeContainerName].constants
+				reduxState[SIZE_CONTAINER].constants
 					.itemContainerOuterDividingContainerMinWidth
 			);
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[sizeContainerName].constants
+		reduxState[SIZE_CONTAINER].constants
 			.itemContainerOuterDividingContainerMinWidth,
 	]);
 
@@ -100,7 +100,7 @@ export default function ItemContainerDisplayItemInfo(props) {
 				<div className="outer-dividing-container">
 					<div className="item-box item-box--desciption-info-height">
 						<h2 className="item-box__title">Info</h2>
-						{props.reduxContainerName === bugContainerName ? (
+						{props.reduxContainerName === BUG_CONTAINER ? (
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Location:</span>
 								<span className="item-box__group__field_content">

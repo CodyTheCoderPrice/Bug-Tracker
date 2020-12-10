@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import {
-	projectContainerName,
-	bugContainerName,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 // Components
@@ -19,11 +19,11 @@ export default function ItemContainerBugList() {
 				<tbody>
 					{/*Spread operator used for deep copy so 
 					  ...original list array is unaffected*/}
-					{[...reduxState[bugContainerName].list]
+					{[...reduxState[BUG_CONTAINER].list]
 						.filter(
 							(item) =>
 								item.project_id ===
-								reduxState[projectContainerName].componentsDisplay.targetItem.id
+								reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
 						)
 						.sort((a, b) => {
 							return b.last_edited_timestamp - a.last_edited_timestamp;
@@ -35,7 +35,7 @@ export default function ItemContainerBugList() {
 									key={idx}
 									idx={idx}
 									item={item}
-									reduxContainerName={bugContainerName}
+									reduxContainerName={BUG_CONTAINER}
 								/>
 							);
 						})}

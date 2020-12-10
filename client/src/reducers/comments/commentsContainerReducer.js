@@ -1,7 +1,7 @@
 import commentsComponentsDisplayReducer from "./commentsComponentsDisplayReducer";
 import commentsListReducer from "./commentsListReducer";
 
-import { COMMENT_CONTAINER } from "../../actions/constants/containers";
+import { COMMENT_CONTAINER } from "../containerNames";
 import { RESET_CONTAINER } from "../../actions/constants/types";
 
 const initialState = {

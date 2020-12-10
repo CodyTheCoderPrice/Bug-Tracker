@@ -4,7 +4,7 @@ import {
 	GENERAL_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
-} from "./constants/containers";
+} from "../reducers/containerNames";
 import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES,

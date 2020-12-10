@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { COMMENT_CONTAINER } from "./constants/containers";
+import { COMMENT_CONTAINER } from "../reducers/containerNames";
 import { SET_COMMENTS } from "./constants/types";
 
 import {

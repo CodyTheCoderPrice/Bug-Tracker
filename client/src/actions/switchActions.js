@@ -1,9 +1,8 @@
 import {
-	projectContainerName,
-	bugContainerName,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../reducers/containerNames";
 
-import { PROJECT_CONTAINER, BUG_CONTAINER } from "./constants/containers";
 import {
 	SET_SEARCH_FILTER_SORT,
 	SET_MASS_DELETE_LIST,
@@ -27,10 +26,10 @@ export const setWhichProjectOrBugComponentsDisplay = (
 	displays
 ) => (dispatch) => {
 	switch (containerName) {
-		case projectContainerName:
+		case PROJECT_CONTAINER:
 			dispatch(setWhichProjectComponentsDisplay(displays));
 			break;
-		case bugContainerName:
+		case BUG_CONTAINER:
 			dispatch(setWhichBugComponentsDisplay(displays));
 			break;
 		default:
@@ -43,14 +42,14 @@ export const setProjectOrBugSearchFilterSort = (
 	searchFilterSort
 ) => (dispatch) => {
 	switch (containerName) {
-		case projectContainerName:
+		case PROJECT_CONTAINER:
 			dispatch({
 				container: PROJECT_CONTAINER,
 				type: SET_SEARCH_FILTER_SORT,
 				searchFilterSort: searchFilterSort,
 			});
 			break;
-		case bugContainerName:
+		case BUG_CONTAINER:
 			dispatch({
 				container: BUG_CONTAINER,
 				type: SET_SEARCH_FILTER_SORT,
@@ -67,14 +66,14 @@ export const setProjectOrBugMassDeleteList = (
 	massDeleteList
 ) => (dispatch) => {
 	switch (containerName) {
-		case projectContainerName:
+		case PROJECT_CONTAINER:
 			dispatch({
 				container: PROJECT_CONTAINER,
 				type: SET_MASS_DELETE_LIST,
 				list: massDeleteList,
 			});
 			break;
-		case bugContainerName:
+		case BUG_CONTAINER:
 			dispatch({
 				container: BUG_CONTAINER,
 				type: SET_MASS_DELETE_LIST,
@@ -88,10 +87,10 @@ export const setProjectOrBugMassDeleteList = (
 
 export const createProjectOrBug = (containerName, itemInfo, componentsDisplay) => (dispatch) => {
 	switch (containerName) {
-		case projectContainerName:
+		case PROJECT_CONTAINER:
 			dispatch(createProject(itemInfo, componentsDisplay));
 			break;
-		case bugContainerName:
+		case BUG_CONTAINER:
 			dispatch(createBug(itemInfo, componentsDisplay));
 			break;
 		default:
@@ -105,10 +104,10 @@ export const updateProjectOrBug = (
 	componentsDisplay
 ) => (dispatch) => {
 	switch (containerName) {
-		case projectContainerName:
+		case PROJECT_CONTAINER:
 			dispatch(updateProject(itemInfo, componentsDisplay));
 			break;
-		case bugContainerName:
+		case BUG_CONTAINER:
 			dispatch(updateBug(itemInfo, componentsDisplay));
 			break;
 		default:
@@ -123,10 +122,10 @@ export const deleteProjectOrBug = (
 	indexOfTargetItemId
 ) => (dispatch) => {
 	switch (containerName) {
-		case projectContainerName:
+		case PROJECT_CONTAINER:
 			dispatch(deleteProject(id, massDeleteList, indexOfTargetItemId));
 			break;
-		case bugContainerName:
+		case BUG_CONTAINER:
 			dispatch(deleteBug(id, massDeleteList, indexOfTargetItemId));
 			break;
 		default:
@@ -140,12 +139,12 @@ export const deleteMultipleProjectsOrBugs = (
 	projectOrBugComponentsDisplay
 ) => (dispatch) => {
 	switch (containerName) {
-		case projectContainerName:
+		case PROJECT_CONTAINER:
 			dispatch(
 				deleteMultipleProjects(projectOrBugArray, projectOrBugComponentsDisplay)
 			);
 			break;
-		case bugContainerName:
+		case BUG_CONTAINER:
 			dispatch(
 				deleteMultipleBugs(projectOrBugArray, projectOrBugComponentsDisplay)
 			);

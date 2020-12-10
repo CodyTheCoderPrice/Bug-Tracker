@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { generalContainerName } from "../../reducers/containerNames";
+import { GENERAL_CONTAINER } from "../../reducers/containerNames";
 
 import {
 	registerAccount,
@@ -59,7 +59,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validationAccountFirstName}
+						{reduxState[GENERAL_CONTAINER].inputErrors.validationAccountFirstName}
 					</span>
 					<label htmlFor="register-last-name" className="form__label">Last Name</label>
 					<input
@@ -71,7 +71,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validationAccountLastName}
+						{reduxState[GENERAL_CONTAINER].inputErrors.validationAccountLastName}
 					</span>
 					<label htmlFor="register-email" className="form__label">Email</label>
 					<input
@@ -83,7 +83,7 @@ export default function Register() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validationAccountEmail}
+						{reduxState[GENERAL_CONTAINER].inputErrors.validationAccountEmail}
 					</span>
 					<label htmlFor="register-password" className="form__label">Password</label>
 					<input
@@ -95,7 +95,7 @@ export default function Register() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validationAccountPassword}
+						{reduxState[GENERAL_CONTAINER].inputErrors.validationAccountPassword}
 					</span>
 					<label htmlFor="register-password2" className="form__label">Confirm Password</label>
 					<input
@@ -107,14 +107,14 @@ export default function Register() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validationAccountPassword2}
+						{reduxState[GENERAL_CONTAINER].inputErrors.validationAccountPassword2}
 					</span>
 					<button type="submit" className="form__submit">
 						REGISTER
 					</button>
 					<span className="form__errors">
-						{reduxState[generalContainerName].inputErrors.validationAccount}
-						{reduxState[generalContainerName].inputErrors.serverAccount}
+						{reduxState[GENERAL_CONTAINER].inputErrors.validationAccount}
+						{reduxState[GENERAL_CONTAINER].inputErrors.serverAccount}
 					</span>
 				</form>
 				<div className="footer">

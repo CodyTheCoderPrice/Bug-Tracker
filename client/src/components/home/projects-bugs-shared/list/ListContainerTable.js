@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	accountContainerName,
-	projectContainerName,
-	bugContainerName,
-	sizeContainerName,
+	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	SIZE_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -31,9 +31,9 @@ export default function ListContainerTable(props) {
 	// ...(if it is present)
 	useEffect(() => {
 		if (
-			reduxState[sizeContainerName].variables.window !== null &&
-			reduxState[sizeContainerName].variables.navbar !== null &&
-			reduxState[sizeContainerName].constants
+			reduxState[SIZE_CONTAINER].variables.window !== null &&
+			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
+			reduxState[SIZE_CONTAINER].constants
 				.listContainerSearchFilterSortBar !== null
 		) {
 			const listTableContainerElement = document.getElementsByClassName(
@@ -41,53 +41,53 @@ export default function ListContainerTable(props) {
 			)[0];
 
 			listTableContainerElement.style.height =
-				reduxState[sizeContainerName].variables.window.height -
-				reduxState[sizeContainerName].variables.navbar.height -
-				reduxState[sizeContainerName].constants.listContainerSearchFilterSortBar
+				reduxState[SIZE_CONTAINER].variables.window.height -
+				reduxState[SIZE_CONTAINER].variables.navbar.height -
+				reduxState[SIZE_CONTAINER].constants.listContainerSearchFilterSortBar
 					.height +
 				"px";
 
 			listTableContainerElement.style.width =
-				reduxState[sizeContainerName].variables.window.width + "px";
+				reduxState[SIZE_CONTAINER].variables.window.width + "px";
 
 			// If empty-list-message-container is present
 			if (
-				(props.reduxContainerName === projectContainerName &&
+				(props.reduxContainerName === PROJECT_CONTAINER &&
 					reduxState[props.reduxContainerName].list.length < 1) ||
-				(props.reduxContainerName === bugContainerName &&
+				(props.reduxContainerName === BUG_CONTAINER &&
 					reduxState[props.reduxContainerName].list.filter(
 						(item) =>
 							item.project_id ===
-							reduxState[projectContainerName].componentsDisplay.targetItem.id
+							reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
 					).length < 1)
 			) {
 				const emptyListMessageContainer = document.getElementsByClassName(
 					"js-empty-list-message-container"
 				)[0];
 				emptyListMessageContainer.style.height =
-					reduxState[sizeContainerName].variables.window.height -
-					reduxState[sizeContainerName].variables.navbar.height -
-					reduxState[sizeContainerName].constants
+					reduxState[SIZE_CONTAINER].variables.window.height -
+					reduxState[SIZE_CONTAINER].variables.navbar.height -
+					reduxState[SIZE_CONTAINER].constants
 						.listContainerSearchFilterSortBar.height -
-					reduxState[sizeContainerName].constants.listContainerTableRowHeight -
-					reduxState[sizeContainerName].constants.scrollbar.width +
+					reduxState[SIZE_CONTAINER].constants.listContainerTableRowHeight -
+					reduxState[SIZE_CONTAINER].constants.scrollbar.width +
 					"px";
 			}
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[sizeContainerName],
+		reduxState[SIZE_CONTAINER],
 	]);
 
 	// Fills remaining space in a table row after status
 	useEffect(() => {
-		if (reduxState[sizeContainerName].variables.window !== null) {
+		if (reduxState[SIZE_CONTAINER].variables.window !== null) {
 			let remainingSpaceElement = document.getElementsByClassName(
 				"js-remaining-space"
 			)[0];
 			remainingSpaceElement.style.width =
-				reduxState[sizeContainerName].variables.window.width -
+				reduxState[SIZE_CONTAINER].variables.window.width -
 				getElementLocation(
 					document.getElementsByClassName("js-remaining-space")[0]
 				).left +
@@ -96,7 +96,7 @@ export default function ListContainerTable(props) {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[sizeContainerName].variables,
+		reduxState[SIZE_CONTAINER].variables,
 	]);
 
 	const checkAllItems = () => {
@@ -128,17 +128,17 @@ export default function ListContainerTable(props) {
 				// If a sidebar or modal is present overtop of the table
 				// ...or the emptyListMessage is present
 				(Object.values(
-					reduxState[accountContainerName].componentsDisplay
+					reduxState[ACCOUNT_CONTAINER].componentsDisplay
 				).indexOf(true) > -1 ||
 				reduxState[props.reduxContainerName].componentsDisplay
 					.listContainerCreateItemSidbar === true ||
-				(props.reduxContainerName === projectContainerName &&
+				(props.reduxContainerName === PROJECT_CONTAINER &&
 					reduxState[props.reduxContainerName].list.length < 1) ||
-				(props.reduxContainerName === bugContainerName &&
+				(props.reduxContainerName === BUG_CONTAINER &&
 					reduxState[props.reduxContainerName].list.filter(
 						(item) =>
 							item.project_id ===
-							reduxState[projectContainerName].componentsDisplay.targetItem.id
+							reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
 					).length < 1)
 					? " list-table-component--no-scroll"
 					: "")
@@ -237,7 +237,7 @@ export default function ListContainerTable(props) {
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">
-								{props.reduxContainerName === projectContainerName
+								{props.reduxContainerName === PROJECT_CONTAINER
 									? "Bugs Completed"
 									: "Comments"}
 							</span>
@@ -251,12 +251,12 @@ export default function ListContainerTable(props) {
 					{/*Spread operator used for deep copy so 
 					  ...original list array is unaffected*/}
 					{searchFilterSort(
-						props.reduxContainerName === projectContainerName
+						props.reduxContainerName === PROJECT_CONTAINER
 							? [...reduxState[props.reduxContainerName].list]
 							: [...reduxState[props.reduxContainerName].list].filter(
 									(item) =>
 										item.project_id ===
-										reduxState[projectContainerName].componentsDisplay
+										reduxState[PROJECT_CONTAINER].componentsDisplay
 											.targetItem.id
 							  ),
 						reduxState[props.reduxContainerName].searchFilterSort
@@ -270,30 +270,30 @@ export default function ListContainerTable(props) {
 						);
 					})}
 					{/*If the list has items, creates an empty space at the bottom of the table*/}
-					{(props.reduxContainerName === projectContainerName &&
+					{(props.reduxContainerName === PROJECT_CONTAINER &&
 						reduxState[props.reduxContainerName].list.length > 0) ||
-					(props.reduxContainerName === bugContainerName &&
+					(props.reduxContainerName === BUG_CONTAINER &&
 						reduxState[props.reduxContainerName].list.filter(
 							(item) =>
 								item.project_id ===
-								reduxState[projectContainerName].componentsDisplay.targetItem.id
+								reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
 						).length > 0) ? (
 						<tr className="list-table__row--empty" />
 					) : null}
 				</tbody>
 			</table>
 			{/*If the list has no items, displays a message saying list is empty*/}
-			{(props.reduxContainerName === projectContainerName &&
+			{(props.reduxContainerName === PROJECT_CONTAINER &&
 				reduxState[props.reduxContainerName].list.length > 0) ||
-			(props.reduxContainerName === bugContainerName &&
+			(props.reduxContainerName === BUG_CONTAINER &&
 				reduxState[props.reduxContainerName].list.filter(
 					(item) =>
 						item.project_id ===
-						reduxState[projectContainerName].componentsDisplay.targetItem.id
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
 				).length > 0) ? null : (
 				<div className="empty-list-message-centering-container js-empty-list-message-container">
 					<div className="empty-list-message-centering-container__message">
-						{props.reduxContainerName === projectContainerName
+						{props.reduxContainerName === PROJECT_CONTAINER
 							? "Account has no projects created."
 							: "This project has no bugs tracked"}
 					</div>

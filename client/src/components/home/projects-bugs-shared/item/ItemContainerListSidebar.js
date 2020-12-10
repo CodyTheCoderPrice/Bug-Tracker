@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	sizeContainerName,
-	generalContainerName,
-	projectContainerName,
+	SIZE_CONTAINER,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
@@ -22,18 +22,18 @@ export default function ItemContainerListSidebar(props) {
 	// Resize list-sidebar-component height to fit window when smaller than it
 	useEffect(() => {
 		if (
-			reduxState[sizeContainerName].variables.window !== null &&
-			reduxState[sizeContainerName].variables.navbar !== null &&
-			reduxState[sizeContainerName].constants.itemContainerTopBar !== null
+			reduxState[SIZE_CONTAINER].variables.window !== null &&
+			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
+			reduxState[SIZE_CONTAINER].constants.itemContainerTopBar !== null
 		) {
 			let itemContainerListSidebarElement = document.getElementsByClassName(
 				"js-list-sidebar-component"
 			)[0];
 
 			const adjustedWindowHeight =
-				reduxState[sizeContainerName].variables.window.height -
-				reduxState[sizeContainerName].variables.navbar.height -
-				reduxState[sizeContainerName].constants.itemContainerTopBar.height;
+				reduxState[SIZE_CONTAINER].variables.window.height -
+				reduxState[SIZE_CONTAINER].variables.navbar.height -
+				reduxState[SIZE_CONTAINER].constants.itemContainerTopBar.height;
 
 			itemContainerListSidebarElement.style.height =
 				adjustedWindowHeight + "px";
@@ -41,7 +41,7 @@ export default function ItemContainerListSidebar(props) {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[sizeContainerName].variables,
+		reduxState[SIZE_CONTAINER].variables,
 		// eslint-disable-next-line
 		reduxState[props.reduxContainerName].componentsDisplay
 			.itemContainerListSidebar,
@@ -50,8 +50,8 @@ export default function ItemContainerListSidebar(props) {
 	const toggleListSidebar = () => {
 		dispatch(
 			setWhichGeneralComponentsDisplay({
-				...reduxState[generalContainerName].componentsDisplay,
-				itemContainerListSidebar: !reduxState[generalContainerName]
+				...reduxState[GENERAL_CONTAINER].componentsDisplay,
+				itemContainerListSidebar: !reduxState[GENERAL_CONTAINER]
 					.componentsDisplay.itemContainerListSidebar,
 				itemContainerListSidebarUserSet: true,
 			})
@@ -63,7 +63,7 @@ export default function ItemContainerListSidebar(props) {
 			<div
 				className={
 					"expand-minimize-button js-expand-minimize-button" +
-					(reduxState[generalContainerName].componentsDisplay
+					(reduxState[GENERAL_CONTAINER].componentsDisplay
 						.itemContainerListSidebar
 						? " "
 						: " expand-minimize-button--minimized")
@@ -72,7 +72,7 @@ export default function ItemContainerListSidebar(props) {
 			>
 				<div className="expand-minimize-button__centering-container">
 					<div className="expand-minimize-button__centering-container__icon-container">
-						{reduxState[generalContainerName].componentsDisplay
+						{reduxState[GENERAL_CONTAINER].componentsDisplay
 							.itemContainerListSidebar ? (
 							<i className="fa fa-chevron-left" aria-hidden="true" />
 						) : (
@@ -84,7 +84,7 @@ export default function ItemContainerListSidebar(props) {
 			<div
 				className={
 					"list-sidebar js-list-sidebar" +
-					(reduxState[generalContainerName].componentsDisplay
+					(reduxState[GENERAL_CONTAINER].componentsDisplay
 						.itemContainerListSidebar
 						? " "
 						: " list-sidebar--minimized")
@@ -95,7 +95,7 @@ export default function ItemContainerListSidebar(props) {
 						<tr className="list-sidebar__table__row">
 							<th className="list-sidebar__table__header js-list-sidebar__table__header">
 								<span className="list-sidebar__table__header__span">
-									{props.reduxContainerName === projectContainerName
+									{props.reduxContainerName === PROJECT_CONTAINER
 										? "Projects"
 										: "Bugs"}
 								</span>
@@ -106,12 +106,12 @@ export default function ItemContainerListSidebar(props) {
 						{/*Spread operator used for deep copy so 
 					  ...original list array is unaffected*/}
 						{searchFilterSort(
-							props.reduxContainerName === projectContainerName
+							props.reduxContainerName === PROJECT_CONTAINER
 								? [...reduxState[props.reduxContainerName].list]
 								: [...reduxState[props.reduxContainerName].list].filter(
 										(item) =>
 											item.project_id ===
-											reduxState[projectContainerName].componentsDisplay
+											reduxState[PROJECT_CONTAINER].componentsDisplay
 												.targetItem.id
 								  ),
 							reduxState[props.reduxContainerName].searchFilterSort

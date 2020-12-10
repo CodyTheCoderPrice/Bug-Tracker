@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
-	projectContainerName,
-	bugContainerName,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import {
@@ -18,14 +18,14 @@ export default function ItemContainerBugPieChart() {
 	const [pieChartSize] = useState(250);
 
 	useEffect(() => {
-		const bugsInProjectList = [...reduxState[bugContainerName].list].filter(
+		const bugsInProjectList = [...reduxState[BUG_CONTAINER].list].filter(
 			(item) =>
 				item.project_id ===
-				reduxState[projectContainerName].componentsDisplay.targetItem.id
+				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
 		);
 
 		const statusList =
-			reduxState[bugContainerName].priorityStatusOptions.statusList;
+			reduxState[BUG_CONTAINER].priorityStatusOptions.statusList;
 
 		let ctx = document
 			.getElementsByClassName("js-pie-chart-canvas")[0]
@@ -36,8 +36,8 @@ export default function ItemContainerBugPieChart() {
 		drawPieChart(ctx, statusList, bugsInProjectList);
 		addLabels(ctx, statusList, bugsInProjectList);
 	}, [
-		reduxState[projectContainerName].componentsDisplay.targetItem,
-		reduxState[bugContainerName].list,
+		reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
+		reduxState[BUG_CONTAINER].list,
 	]);
 
 	function drawPieSlice(
@@ -117,12 +117,12 @@ export default function ItemContainerBugPieChart() {
 	const getAllStatusStatisticsElement = () => {
 		const bugsInProjectList = getBugsInProjectList(
 			reduxState,
-			reduxState[projectContainerName].componentsDisplay.targetItem.id
+			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
 		);
 
 		return (
 			<div className="stats-container">
-				{reduxState[bugContainerName].priorityStatusOptions.statusList.map(
+				{reduxState[BUG_CONTAINER].priorityStatusOptions.statusList.map(
 					(statusObject, idx) => {
 						return (
 							<div className="stats-container__row" key={idx}>
@@ -147,7 +147,7 @@ export default function ItemContainerBugPieChart() {
 									>
 										{getNumberOfBugsForStatus(
 											reduxState,
-											reduxState[projectContainerName].componentsDisplay
+											reduxState[PROJECT_CONTAINER].componentsDisplay
 												.targetItem.id,
 											statusObject.id
 										)}{" "}

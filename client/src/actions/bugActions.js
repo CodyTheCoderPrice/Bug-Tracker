@@ -1,7 +1,6 @@
 import axios from "axios";
-import { bugContainerName } from "../reducers/containerNames";
 
-import { BUG_CONTAINER } from "./constants/containers";
+import { BUG_CONTAINER } from "../reducers/containerNames";
 import { SET_LIST } from "./constants/types";
 
 import {
@@ -103,7 +102,7 @@ export const deleteBug = (id, massDeleteList, indexOfTargetBugId) => (
 			if (indexOfTargetBugId > -1) {
 				massDeleteList.splice(indexOfTargetBugId, 1);
 				dispatch(
-					setProjectOrBugMassDeleteList(bugContainerName, massDeleteList)
+					setProjectOrBugMassDeleteList(BUG_CONTAINER, massDeleteList)
 				);
 			}
 			dispatch(
@@ -132,7 +131,7 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
 			// Done here so following code only runs if deletion is succesful
-			dispatch(setProjectOrBugMassDeleteList(bugContainerName, []));
+			dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, []));
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,

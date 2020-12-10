@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	generalContainerName,
-	accountContainerName,
-	projectContainerName,
-	bugContainerName,
+	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../reducers/containerNames";
 
 import {
@@ -26,8 +26,8 @@ export default function EditAccountModalChangeInfo() {
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		first_name: reduxState[accountContainerName].info.first_name,
-		last_name: reduxState[accountContainerName].info.last_name,
+		first_name: reduxState[ACCOUNT_CONTAINER].info.first_name,
+		last_name: reduxState[ACCOUNT_CONTAINER].info.last_name,
 	});
 
 	// clears prior input errors when closing the component
@@ -88,7 +88,7 @@ export default function EditAccountModalChangeInfo() {
 				/>
 				<span className="form__errors">
 					{
-						reduxState[generalContainerName].inputErrors
+						reduxState[GENERAL_CONTAINER].inputErrors
 							.validationAccountFirstName
 					}
 				</span>
@@ -105,7 +105,7 @@ export default function EditAccountModalChangeInfo() {
 				/>
 				<span className="form__errors">
 					{
-						reduxState[generalContainerName].inputErrors
+						reduxState[GENERAL_CONTAINER].inputErrors
 							.validationAccountLastName
 					}
 				</span>
@@ -116,8 +116,8 @@ export default function EditAccountModalChangeInfo() {
 					Update
 				</button>
 				<span className="form__errors">
-					{reduxState[generalContainerName].inputErrors.validationAccount}
-					{reduxState[generalContainerName].inputErrors.serverAccount}
+					{reduxState[GENERAL_CONTAINER].inputErrors.validationAccount}
+					{reduxState[GENERAL_CONTAINER].inputErrors.serverAccount}
 				</span>
 			</form>
 			<div className="modal-links-container">

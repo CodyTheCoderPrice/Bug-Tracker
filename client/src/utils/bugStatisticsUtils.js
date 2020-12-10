@@ -1,6 +1,6 @@
 import {
-	projectContainerName,
-	bugContainerName,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../reducers/containerNames";
 
 export function getNumberOfBugsForStatus(
@@ -8,13 +8,13 @@ export function getNumberOfBugsForStatus(
 	projectId,
 	statusId
 ) {
-	return [...passedReduxState[bugContainerName].list].filter(
+	return [...passedReduxState[BUG_CONTAINER].list].filter(
 		(item) => item.project_id === projectId && item.status_id === statusId
 	).length;
 }
 
 export function getBugsInProjectList(passedReduxState, projectId) {
-	return [...passedReduxState[bugContainerName].list].filter(
+	return [...passedReduxState[BUG_CONTAINER].list].filter(
 		(item) => item.project_id === projectId
 	);
 }

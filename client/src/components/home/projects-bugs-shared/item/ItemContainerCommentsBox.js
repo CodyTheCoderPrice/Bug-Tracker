@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	generalContainerName,
-	projectContainerName,
-	bugContainerName,
-	commentContainerName,
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	COMMENT_CONTAINER,
 } from "../../../../reducers/containerNames";
 
 import { createComment, clearInputErrors } from "../../../../actions";
@@ -26,8 +26,8 @@ export default function ItemContainerCommentsBox() {
 		// Following ids are used by the backend to ensure
 		// ...the comment will belong to the correct account
 		project_id:
-			reduxState[projectContainerName].componentsDisplay.targetItem.id,
-		bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
+			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 	});
 
 	const [descriptionCharLimit] = useState(500);
@@ -35,7 +35,7 @@ export default function ItemContainerCommentsBox() {
 	// Keeps track of the current comment list size so componet can tell
 	// ...when a new comment has been added in order to reset commentInfo
 	const [previousCommmentsListSize, setPreviousCommentsListSize] = useState(
-		reduxState[commentContainerName].list.length
+		reduxState[COMMENT_CONTAINER].list.length
 	);
 
 	// Custome hook will cause form to submit whenever the enter key is pressed
@@ -53,21 +53,21 @@ export default function ItemContainerCommentsBox() {
 	// ...since the description should then be reset to empty
 	useEffect(() => {
 		if (
-			reduxState[commentContainerName].list.length > previousCommmentsListSize
+			reduxState[COMMENT_CONTAINER].list.length > previousCommmentsListSize
 		) {
 			setCommentInfo({
 				// Default commentInfo values
 				description: "",
 				project_id:
-					reduxState[projectContainerName].componentsDisplay.targetItem.id,
-				bug_id: reduxState[bugContainerName].componentsDisplay.targetItem.id,
+					reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+				bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 			});
 		}
-		setPreviousCommentsListSize(reduxState[commentContainerName].list.length);
+		setPreviousCommentsListSize(reduxState[COMMENT_CONTAINER].list.length);
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[commentContainerName].list.length,
+		reduxState[COMMENT_CONTAINER].list.length,
 	]);
 
 	const onChange = (e) => {
@@ -100,10 +100,10 @@ export default function ItemContainerCommentsBox() {
 						<h2 className="item-box__title item-box__title--no-bottom-margin">
 							Comments (
 							{
-								[...reduxState[commentContainerName].list].filter(
+								[...reduxState[COMMENT_CONTAINER].list].filter(
 									(item) =>
 										item.bug_id ===
-										reduxState[bugContainerName].componentsDisplay.targetItem.id
+										reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id
 								).length
 							}
 							)
@@ -131,7 +131,7 @@ export default function ItemContainerCommentsBox() {
 							type="submit"
 							className={
 								"form-submit-centering-container__button" +
-								getProjectOrBugBackgroundColorClassNameWithHover(bugContainerName)
+								getProjectOrBugBackgroundColorClassNameWithHover(BUG_CONTAINER)
 							}
 						>
 							Add Comment
@@ -140,20 +140,20 @@ export default function ItemContainerCommentsBox() {
 					<div className="bottom-form-errors-container">
 						<span className="form-errors">
 							{
-								reduxState[generalContainerName].inputErrors
+								reduxState[GENERAL_CONTAINER].inputErrors
 									.validationCreateCommentDescription
 							}
-							{reduxState[generalContainerName].inputErrors.validationComment}
-							{reduxState[generalContainerName].inputErrors.serverItem}
+							{reduxState[GENERAL_CONTAINER].inputErrors.validationComment}
+							{reduxState[GENERAL_CONTAINER].inputErrors.serverItem}
 						</span>
 					</div>
 				</form>
 
-				{[...reduxState[commentContainerName].list]
+				{[...reduxState[COMMENT_CONTAINER].list]
 					.filter(
 						(item) =>
 							item.bug_id ===
-							reduxState[bugContainerName].componentsDisplay.targetItem.id
+							reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id
 					)
 					.sort((a, b) => {
 						return a - b;
@@ -164,11 +164,11 @@ export default function ItemContainerCommentsBox() {
 								key={idx}
 								comment={comment}
 								project_id={
-									reduxState[projectContainerName].componentsDisplay.targetItem
+									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
 										.id
 								}
 								bug_id={
-									reduxState[bugContainerName].componentsDisplay.targetItem.id
+									reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id
 								}
 							/>
 						);
