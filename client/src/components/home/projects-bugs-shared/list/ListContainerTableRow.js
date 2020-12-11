@@ -218,7 +218,7 @@ export default function ListContainerTableRow(props) {
 					{displayGrayedOutNoneIfEmpty(formatDateMMddYYYY(props.item.due_date))}
 				</span>
 			</td>
-			<td className="list-table__data">
+			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
 					{props.reduxContainerName === PROJECT_CONTAINER
 						? getNumberOfBugsForStatus(
