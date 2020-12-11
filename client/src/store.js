@@ -31,8 +31,8 @@ const rootPersistConfig = {
 	whitelist: [
 		// Persisted despite account info and comments being re-fetched on
 		// ...page refresh so it is not null while data is retrieved from server
-		"accountContainer",
-		"commentContainer"
+		ACCOUNT_CONTAINER,
+		COMMENT_CONTAINER
 	],
 };
 
