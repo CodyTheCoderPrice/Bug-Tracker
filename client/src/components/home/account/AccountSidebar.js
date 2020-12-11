@@ -85,12 +85,12 @@ export default function AccountSidebar() {
 						>
 							Logout
 						</span>
-						<span
+						{/* <span
 							onClick={logReduxState}
 							className={"account-link" + getSLinkColor()}
 						>
 							Console Log Redux State
-						</span>
+						</span> */}
 					</div>
 				</div>
 			</div>
