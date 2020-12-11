@@ -11,11 +11,12 @@ import {
 	setWhichAccountComponentsDisplay,
 } from "../../../actions";
 
-import { formatDateMMddYYYY } from "../../../utils/dateUtils";
+import {
+	formatDateMMddYYYY,
+	getProjectOrBugTextColorClassName,
+} from "../../../utils";
 
-import { useSidebarResize } from "../../../utils/sidebarResizeHookUtils";
-
-import { getProjectOrBugTextColorClassName } from "../../../utils/elementColorUtils";
+import { useSidebarResize } from "../../../utils/hooks";
 
 import "../../../SCSS/home/account/accountSidebar.scss";
 
@@ -71,9 +72,7 @@ export default function AccountSidebar() {
 						</div>
 						<div className="account-info">
 							Joined:{" "}
-							{formatDateMMddYYYY(
-								reduxState[ACCOUNT_CONTAINER].info.joinDate
-							)}
+							{formatDateMMddYYYY(reduxState[ACCOUNT_CONTAINER].info.joinDate)}
 						</div>
 					</div>
 					<div className={"account-link-container" + getSLinkColor()}>

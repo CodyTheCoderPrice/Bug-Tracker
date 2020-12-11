@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { SIZE_CONTAINER } from "../../../../reducers/containerNames";
 
-import { getElementSize } from "../../../../utils/displaySizeUtils";
+import { getElementSize } from "../../../../utils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerBugListTableAndRows.scss";
 

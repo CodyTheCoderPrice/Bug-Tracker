@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import { SIZE_CONTAINER } from "../reducers/containerNames";
-
-import { toggleClassName } from "./elementUtils";
+import { SIZE_CONTAINER } from "../../reducers/containerNames";
 
 import {
+	toggleClassName,
 	getElementSize,
 	getElementStyle,
 	stripNonDigits,
-} from "./displaySizeUtils";
+} from "../index";
 
 export function useSearchBarBorderEventListener(
 	searchBarAndButtonInnerContainerClassName,
@@ -120,7 +119,8 @@ export function useSearchBarResizeAndBorderEventListener(
 				passedReduxState[SIZE_CONTAINER].variables.window.width -
 				regularlyUsedSizesAndStyles.newProjectsButtonContainer.width -
 				// Got 22 by eyeing it to see what made the distances look the same
-				regularlyUsedSizesAndStyles.sortAndFilterContainer.width - 22;
+				regularlyUsedSizesAndStyles.sortAndFilterContainer.width -
+				22;
 			// Because of css centering, this element is given equal empty space
 			// ...on both sides equal to the subtracted value divided by 2
 			const searchBarInnercontainerWidth =
@@ -129,7 +129,8 @@ export function useSearchBarResizeAndBorderEventListener(
 			searchBarCenteringContainer.style.width =
 				remainingSearchFilterSortBarWidth + "px";
 			// Minus 1 since button needed to have a margin-left of -1px for chrome
-			searchBarInnerContainer.style.width = searchBarInnercontainerWidth - 1 + "px";
+			searchBarInnerContainer.style.width =
+				searchBarInnercontainerWidth - 1 + "px";
 			// Adjusts for the searchBarButton, borders, and padding
 			searchBar.style.width =
 				searchBarInnercontainerWidth -

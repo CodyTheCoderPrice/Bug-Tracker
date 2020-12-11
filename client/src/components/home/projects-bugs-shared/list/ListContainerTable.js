@@ -12,9 +12,7 @@ import {
 	setWhichProjectOrBugComponentsDisplay,
 } from "../../../../actions";
 
-import { getElementLocation } from "../../../../utils/displaySizeUtils";
-
-import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
+import { getElementLocation, searchFilterSort } from "../../../../utils";
 
 // Components
 import ListTableRow from "./ListContainerTableRow";

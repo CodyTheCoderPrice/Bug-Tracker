@@ -1,5 +1,5 @@
 import React from "react";
-import { isEmpty } from "./basicUtils";
+import { isEmpty, getElementSize, toggleClassName } from "./index";
 
 export function displayGrayedOutNoneIfEmpty(itemValue) {
 	if (isEmpty(itemValue)) {
@@ -34,19 +34,28 @@ export function populateComboBox(
 	comboBoxElement.value = defaultSelectedValueId;
 }
 
-export function toggleClassName(
-	shouldHaveClassName,
-	element,
-	nameOfToggledClass
+export function manageSizeOfItemBoxsInPairContainer(
+	pairElement,
+	toggledClassNameForWidth,
+	outerDivingContainerMinWidth,
 ) {
-	if (shouldHaveClassName) {
-		if (!element.className.includes(nameOfToggledClass)) {
-			// Space is needed for nameOfToggledClass
-			// ...to keep it from merging with other classNames
-			element.className = element.className + " " + nameOfToggledClass;
-		}
-	} else {
-		const regex = new RegExp("(?:^|\\s)" + nameOfToggledClass + "(?!\\S)", "g");
-		element.className = element.className.replace(regex, "");
-	}
+	const childNodes = pairElement.childNodes;
+	// Item box width is determing by its outerDividingContainer
+	const firstOuterDividingContianerElement = childNodes[0];
+	const secondOuterDividingContianerElement = childNodes[1];
+
+	// Toggles each item box's className for width
+	const myObserver = new ResizeObserver(() => {
+		// If both item-boxs can fit next to one another
+		const shouldHaveClassName =
+			getElementSize(pairElement).width > outerDivingContainerMinWidth * 2;
+
+		
+		toggleClassName(shouldHaveClassName, firstOuterDividingContianerElement, toggledClassNameForWidth);
+		toggleClassName(shouldHaveClassName, secondOuterDividingContianerElement, toggledClassNameForWidth);
+	});
+
+	myObserver.observe(
+		pairElement
+	);
 }

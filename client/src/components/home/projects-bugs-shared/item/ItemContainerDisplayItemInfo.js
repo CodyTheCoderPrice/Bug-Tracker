@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
-	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	SIZE_CONTAINER,
 } from "../../../../reducers/containerNames";
 
-import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
-import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
-import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
-
-import { getProjectOrBugTextColorClassName } from "../../../../utils/elementColorUtils";
+import {
+	manageSizeOfItemBoxsInPairContainer,
+	formatDateMMddYYYY,
+	displayGrayedOutNoneIfEmpty,
+	getProjectOrBugTextColorClassName,
+} from "../../../../utils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayItemInfo.scss";
 

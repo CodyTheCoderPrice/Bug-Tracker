@@ -12,15 +12,13 @@ import {
 	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
-import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
-import { displayGrayedOutNoneIfEmpty } from "../../../../utils/elementUtils";
-
-import { getProjectOrBugTextColorClassName } from "../../../../utils/elementColorUtils";
-
 import {
+	formatDateMMddYYYY,
+	displayGrayedOutNoneIfEmpty,
+	getProjectOrBugTextColorClassName,
 	getBugsInProjectList,
 	getNumberOfBugsForStatus,
-} from "../../../../utils/bugStatisticsUtils";
+} from "../../../../utils";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
 

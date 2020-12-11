@@ -16,19 +16,16 @@ import {
 import {
 	formatDateMMddYYYY,
 	formatDateYYYYmmDD,
-} from "../../../../utils/dateUtils";
-
-import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
-
-import { populateComboBox } from "../../../../utils/elementUtils";
-
-import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
-import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
-
-import {
+	manageSizeOfItemBoxsInPairContainer,
+	populateComboBox,
 	getProjectOrBugTextColorClassName,
 	getProjectOrBugBackgroundColorClassNameWithHover,
-} from "../../../../utils/elementColorUtils";
+} from "../../../../utils";
+
+import {
+	useToggleableDateInput,
+	useSubmitFormOnEnter,
+} from "../../../../utils/hooks";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditItemInfo.scss";
 

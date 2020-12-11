@@ -11,7 +11,7 @@ import {
 	setWhichBugComponentsDisplay,
 } from "../../../../actions";
 
-import { getProjectOrBugTextColorClassName } from "../../../../utils/elementColorUtils";
+import { getProjectOrBugTextColorClassName } from "../../../../utils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerSidebarTableAndRows.scss";
 

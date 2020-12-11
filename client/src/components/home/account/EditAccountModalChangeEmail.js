@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
-	PROJECT_CONTAINER,
-	BUG_CONTAINER,
 } from "../../../reducers/containerNames";
 
 import {
@@ -17,7 +15,7 @@ import {
 	getCurrentContainerName,
 	getProjectOrBugBackgroundColorClassNameWithHover,
 	getProjectOrBugTextColorClassName,
-} from "../../../utils/elementColorUtils";
+} from "../../../utils";
 
 import "../../../SCSS/home/account/editAccountModals.scss";
 

@@ -10,8 +10,10 @@ import {
 
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
-import { manageSizeOfItemBoxsInPairContainer } from "../../../../utils/itemContainerUtils";
-import { getWindowSize } from "../../../../utils/displaySizeUtils";
+import {
+	manageSizeOfItemBoxsInPairContainer,
+	getWindowSize,
+} from "../../../../utils";
 
 // Components
 import ItemContainerTopBar from "./ItemContainerTopBar";
@@ -49,13 +51,11 @@ export default function ItemContainer(props) {
 				"px";
 
 			if (
-				reduxState[GENERAL_CONTAINER].componentsDisplay
-					.itemContainerListSidebar
+				reduxState[GENERAL_CONTAINER].componentsDisplay.itemContainerListSidebar
 			) {
 				itemContainerElement.style.width =
 					reduxState[SIZE_CONTAINER].variables.window.width -
-					reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar
-						.width +
+					reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar.width +
 					"px";
 			} else {
 				itemContainerElement.style.width =
@@ -76,8 +76,7 @@ export default function ItemContainer(props) {
 		if (
 			reduxState[GENERAL_CONTAINER].componentsDisplay
 				.itemContainerListSidebarUserSet === false &&
-			reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar !==
-				null &&
+			reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar !== null &&
 			reduxState[SIZE_CONTAINER].constants
 				.itemContainerOuterDividingContainerMinWidth !== null &&
 			reduxState[SIZE_CONTAINER].constants

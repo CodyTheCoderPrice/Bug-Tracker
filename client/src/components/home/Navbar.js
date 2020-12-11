@@ -27,13 +27,10 @@ import {
 	calcItemContainerListSidebarWidth,
 	calcItemContainerOuterDividingContainerMinWidth,
 	calcItemContainerPaddingContainerPadding,
-} from "../../utils/displaySizeUtils";
-
-import {
 	getCurrentContainerName,
 	getProjectOrBugBackgroundColorClassNameDark,
 	getProjectOrBugBackgroundColorClassNameLight,
-} from "../../utils/elementColorUtils";
+} from "../../utils";
 
 import "../../SCSS/home/navbar.scss";
 
@@ -161,20 +158,17 @@ export default function Navbar() {
 
 	const openProjects = () => {
 		if (
-			reduxState[PROJECT_CONTAINER].componentsDisplay.listContainer !==
-				true &&
+			reduxState[PROJECT_CONTAINER].componentsDisplay.listContainer !== true &&
 			reduxState[PROJECT_CONTAINER].componentsDisplay.itemsContainer !== true
 		) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					listContainer:
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
-						null
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
 							? true
 							: false,
 					itemContainer:
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
-						null
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
 							? false
 							: true,
 					targetItem:
@@ -243,8 +237,7 @@ export default function Navbar() {
 				...reduxState[BUG_CONTAINER].componentsDisplay,
 				// Keeps the user on their current tab (since the user can close a bug from the project tab)
 				listContainer:
-					reduxState[BUG_CONTAINER].componentsDisplay.listContainer ===
-						true ||
+					reduxState[BUG_CONTAINER].componentsDisplay.listContainer === true ||
 					reduxState[BUG_CONTAINER].componentsDisplay.itemContainer === true
 						? true
 						: false,
@@ -261,16 +254,23 @@ export default function Navbar() {
 		<div className="navbar-and-other-components-container">
 			<div
 				className={
-					"navbar-component js-navbar" + getProjectOrBugBackgroundColorClassNameDark(getCurrentContainerName(reduxState))
+					"navbar-component js-navbar" +
+					getProjectOrBugBackgroundColorClassNameDark(
+						getCurrentContainerName(reduxState)
+					)
 				}
 			>
 				<div
 					className={
 						"navbar-button js-project-button" +
-						getProjectOrBugBackgroundColorClassNameDark(getCurrentContainerName(reduxState)) +
+						getProjectOrBugBackgroundColorClassNameDark(
+							getCurrentContainerName(reduxState)
+						) +
 						(reduxState[PROJECT_CONTAINER].componentsDisplay.listContainer ||
 						reduxState[PROJECT_CONTAINER].componentsDisplay.itemContainer
-							? getProjectOrBugBackgroundColorClassNameLight(getCurrentContainerName(reduxState))
+							? getProjectOrBugBackgroundColorClassNameLight(
+									getCurrentContainerName(reduxState)
+							  )
 							: "")
 					}
 					onClick={openProjects}
@@ -285,8 +285,8 @@ export default function Navbar() {
 								:{" "}
 								<span className="navbar-button__text-container navbar-button__text-container__item-name">
 									{
-										reduxState[PROJECT_CONTAINER].componentsDisplay
-											.targetItem.name
+										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+											.name
 									}
 								</span>
 								<div
@@ -307,12 +307,16 @@ export default function Navbar() {
 					<div
 						className={
 							"navbar-button js-bug-button" +
-							getProjectOrBugBackgroundColorClassNameDark(getCurrentContainerName(reduxState)) +
+							getProjectOrBugBackgroundColorClassNameDark(
+								getCurrentContainerName(reduxState)
+							) +
 							(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 								null &&
 							(reduxState[BUG_CONTAINER].componentsDisplay.listContainer ||
 								reduxState[BUG_CONTAINER].componentsDisplay.itemContainer)
-								? getProjectOrBugBackgroundColorClassNameLight(getCurrentContainerName(reduxState))
+								? getProjectOrBugBackgroundColorClassNameLight(
+										getCurrentContainerName(reduxState)
+								  )
 								: "")
 						}
 						onClick={openBugs}
@@ -348,7 +352,9 @@ export default function Navbar() {
 				<div
 					className={
 						"navbar-button navbar-button--right js-account-button" +
-						getProjectOrBugBackgroundColorClassNameDark(getCurrentContainerName(reduxState))
+						getProjectOrBugBackgroundColorClassNameDark(
+							getCurrentContainerName(reduxState)
+						)
 					}
 					onClick={openAccountSidebar}
 				>

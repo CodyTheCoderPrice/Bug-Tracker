@@ -11,12 +11,12 @@ import {
 	setProjectOrBugSearchFilterSort,
 } from "../../../../actions";
 
-import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/searchBarHookUtils";
-
 import {
 	getProjectOrBugBackgroundColorClassNameLight,
 	getProjectOrBugBorderColorClassNameLight,
-} from "../../../../utils/elementColorUtils";
+} from "../../../../utils";
+
+import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerSearchFilterSortBar.scss";
 

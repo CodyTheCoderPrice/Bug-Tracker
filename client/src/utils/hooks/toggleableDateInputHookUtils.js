@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { toggleClassName } from "./elementUtils";
+import { toggleClassName } from "../index";
 
 export function useToggleableDateInput(
 	itemInfo,

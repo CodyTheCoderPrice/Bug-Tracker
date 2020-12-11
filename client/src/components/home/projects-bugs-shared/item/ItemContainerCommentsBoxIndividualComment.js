@@ -13,15 +13,14 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
 
-import { formatDateMMddYYYY } from "../../../../utils/dateUtils";
-
-import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
-
 import {
+	formatDateMMddYYYY,
 	getCurrentContainerName,
 	getProjectOrBugTextColorClassName,
 	getProjectOrBugBackgroundColorClassNameWithHover,
-} from "../../../../utils/elementColorUtils";
+} from "../../../../utils";
+
+import { useSubmitFormOnEnter } from "../../../../utils/hooks";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerCommentsBoxIndividualComment.scss";
 
@@ -33,8 +32,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		description: props.comment.description,
 		// Following ids are used by the backend to ensure
 		// ...the comment will belong to the correct account
-		project_id:
-			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+		project_id: reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
 		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 	});
 
@@ -59,8 +57,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 		setCommentInfo({
 			// Default commentInfo values
 			description: props.comment.description,
-			project_id:
-				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+			project_id: reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
 			bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 		});
 		// eslint-disable-next-line
@@ -91,8 +88,7 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 			updateComment({
 				...commentInfo,
 				id:
-					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited
-						.id,
+					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited.id,
 			})
 		);
 	};
@@ -123,13 +119,17 @@ export default function ItemContainerCommentsBoxIndividualComment(props) {
 	return (
 		<form className="js-edit-comment-form" noValidate onSubmit={handleSubmit}>
 			<div className="comment-divider">
-				{reduxState[COMMENT_CONTAINER].componentsDisplay
-					.commentBeingEdited === null ||
+				{reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited ===
+					null ||
 				reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited
 					.id !== props.comment.id ? (
 					<div>
 						<div className="comment__block">
-							<span className={getProjectOrBugTextColorClassName(getCurrentContainerName(reduxState))}>
+							<span
+								className={getProjectOrBugTextColorClassName(
+									getCurrentContainerName(reduxState)
+								)}
+							>
 								{props.comment.description}
 							</span>
 						</div>

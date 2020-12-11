@@ -8,7 +8,7 @@ import {
 
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
-import { searchFilterSort } from "../../../../utils/searchFilterSortUtils";
+import { searchFilterSort } from "../../../../utils";
 
 // Components
 import ItemContainerListSidebarRow from "./ItemContainerListSidebarRow";

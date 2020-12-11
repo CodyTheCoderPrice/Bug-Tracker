@@ -1,4 +1,4 @@
-import { dateToInt } from "./dateUtils";
+import { dateToInt } from "./index";
 
 export function searchFilterSort(projectsOrBugsArray, state) {
 	// Functions are nest inside so they do not need to be passed the state

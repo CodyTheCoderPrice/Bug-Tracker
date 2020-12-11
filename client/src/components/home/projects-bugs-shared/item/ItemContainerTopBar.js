@@ -15,12 +15,12 @@ import {
 	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
-import { useSearchBarBorderEventListener } from "../../../../utils/searchBarHookUtils";
-
 import {
 	getProjectOrBugBackgroundColorClassNameLight,
 	getProjectOrBugBorderColorClassNameLight,
-} from "../../../../utils/elementColorUtils";
+} from "../../../../utils";
+
+import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerTopBar.scss";
 

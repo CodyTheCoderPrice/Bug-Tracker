@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { SIZE_CONTAINER } from "../reducers/containerNames";
+import { SIZE_CONTAINER } from "../../reducers/containerNames";
 
-import { getElementStyle, stripNonDigits } from "./displaySizeUtils";
+import { getElementStyle, stripNonDigits } from "../index";
 
 export function useSidebarResize(passedReduxState, nameOfSidebarClass) {
 	// Used to decide when to resize the sidebar, and to reset its size

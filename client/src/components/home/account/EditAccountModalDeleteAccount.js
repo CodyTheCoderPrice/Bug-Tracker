@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
-	PROJECT_CONTAINER,
-	BUG_CONTAINER,
 } from "../../../reducers/containerNames";
 
 import {
@@ -16,7 +14,7 @@ import {
 	getCurrentContainerName,
 	getProjectOrBugBackgroundColorClassNameWithHover,
 	getProjectOrBugTextColorClassName,
-} from "../../../utils/elementColorUtils";
+} from "../../../utils";
 
 import "../../../SCSS/home/account/editAccountModals.scss";
 

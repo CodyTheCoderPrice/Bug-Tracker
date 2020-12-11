@@ -8,7 +8,7 @@ import {
 import {
 	getBugsInProjectList,
 	getNumberOfBugsForStatus,
-} from "../../../../utils/bugStatisticsUtils";
+} from "../../../../utils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerBugPieChart.scss";
 

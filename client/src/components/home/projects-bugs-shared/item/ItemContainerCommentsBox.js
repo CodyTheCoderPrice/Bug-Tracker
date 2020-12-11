@@ -9,11 +9,12 @@ import {
 
 import { createComment, clearInputErrors } from "../../../../actions";
 
+import { getProjectOrBugBackgroundColorClassNameWithHover } from "../../../../utils";
+
+import { useSubmitFormOnEnter } from "../../../../utils/hooks";
+
+// Components
 import ItemContainerCommentsBoxIndividualComment from "./ItemContainerCommentsBoxIndividualComment";
-
-import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
-
-import { getProjectOrBugBackgroundColorClassNameWithHover } from "../../../../utils/elementColorUtils";
 
 import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerCommentBox.scss";
 
@@ -25,8 +26,7 @@ export default function ItemContainerCommentsBox() {
 		description: "",
 		// Following ids are used by the backend to ensure
 		// ...the comment will belong to the correct account
-		project_id:
-			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+		project_id: reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
 		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 	});
 
@@ -52,9 +52,7 @@ export default function ItemContainerCommentsBox() {
 	// Resets commentInfo when the comment list size increases (meaning comment was created)
 	// ...since the description should then be reset to empty
 	useEffect(() => {
-		if (
-			reduxState[COMMENT_CONTAINER].list.length > previousCommmentsListSize
-		) {
+		if (reduxState[COMMENT_CONTAINER].list.length > previousCommmentsListSize) {
 			setCommentInfo({
 				// Default commentInfo values
 				description: "",
@@ -164,8 +162,7 @@ export default function ItemContainerCommentsBox() {
 								key={idx}
 								comment={comment}
 								project_id={
-									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
-										.id
+									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
 								}
 								bug_id={
 									reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id

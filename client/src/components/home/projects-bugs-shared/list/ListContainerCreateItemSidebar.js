@@ -14,13 +14,16 @@ import {
 	clearInputErrors,
 } from "../../../../actions";
 
-import { populateComboBox } from "../../../../utils/elementUtils";
+import {
+	populateComboBox,
+	getProjectOrBugBackgroundColorClassNameWithHover,
+} from "../../../../utils";
 
-import { useToggleableDateInput } from "../../../../utils/toggleableDateInputHookUtils";
-import { useSidebarResize } from "../../../../utils/sidebarResizeHookUtils";
-import { useSubmitFormOnEnter } from "../../../../utils/submitFormOnEnterHookUtils";
-
-import { getProjectOrBugBackgroundColorClassNameWithHover } from "../../../../utils/elementColorUtils";
+import {
+	useToggleableDateInput,
+	useSidebarResize,
+	useSubmitFormOnEnter,
+} from "../../../../utils/hooks";
 
 import "../../../../SCSS/home/projects-bugs-shared/list/listContainerCreateItemSidebar.scss";
 

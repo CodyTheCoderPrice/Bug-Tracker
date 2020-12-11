@@ -1,5 +1,4 @@
 import {
-	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "../reducers/containerNames";
 
