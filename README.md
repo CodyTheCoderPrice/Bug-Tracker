@@ -1,7 +1,10 @@
-# Bug-Tracker 
+# Bug-Tracker
 
-Download
---------
+## Website Url
+
+https://cody-price-bug-tracker.herokuapp.com/
+
+## Download
 
 1. Download this project into an empty or parent folder.
 
@@ -9,7 +12,6 @@ Download
 
 3. Run the following command: npm run dev
 
-Resources
----------
+## Resources
 
 *Online documentation:*  https://docs.google.com/document/d/1BlHjQvvfOXVDNEIT2mN0ByrDdnAvi45PIcieytp2D_E/edit?usp=sharing
