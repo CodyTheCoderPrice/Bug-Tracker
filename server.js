@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 // Http & https
-/* const fs = require("fs");
+const fs = require("fs");
 //const http = require("http");
 const https = require("https");
 //const httpPort = 8080;
@@ -11,7 +11,7 @@ const privateKey = fs.readFileSync("./sslCertification/selfsigned.key", "utf8");
 const certificate = fs.readFileSync("./sslCertification/selfsigned.crt", "utf8");
 const credentials = { key: privateKey, cert: certificate };
 // URL
-const url = require("url"); */
+const url = require("url");
 // Routes
 const priorityStatus = require("./routes/priorityStatus");
 const accounts = require("./routes/accounts");
@@ -41,12 +41,12 @@ app.use(express.json());
 	}
 }); */
 
-/* app.all('*', function(req, res, next) {
+app.all('*', function(req, res, next) {
     if (req.headers['x-forwarded-proto'] != 'https')
         res.redirect('https://' + req.headers.host + req.url)
     else
         next()
-}); */
+});
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
@@ -63,13 +63,13 @@ app.use("/api/project", projects);
 app.use("/api/bug", bugs);
 app.use("/api/comment", comments);
 
-/* //const httpServer = http.createServer(app);
+//const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 
 //httpServer.listen(httpPort);
-httpsServer.listen(httpsPort); */
+httpsServer.listen(httpsPort);
 
 // Was using before switching to https
-app.listen(process.env.PORT || 5000, () => {
+/* app.listen(process.env.PORT || 5000, () => {
 	console.log("Server has started on port 5000");
-});
+}); */

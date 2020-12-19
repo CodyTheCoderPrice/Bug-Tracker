@@ -276,8 +276,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		);
 	} catch (err) {
 		console.error(err.message);
-		//inputErrors.serverAccount = "Server error while logging in";
-		inputErrors.serverAccount = err.message;
+		inputErrors.serverAccount = "Server error while logging in";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
