@@ -61,6 +61,8 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 				bugPriorityStatus
 			)
 		);
+	}).catch((err) => {
+		console.log(err);
 	});
 };
 
