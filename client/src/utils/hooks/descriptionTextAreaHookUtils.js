@@ -20,6 +20,7 @@ export function useDescriptionTextAreaResize(
 		myObserver.observe(
 			document.getElementsByClassName(textAreaContainerClassName)[0]
 		);
+		// eslint-disable-next-line
 	}, []);
 
 	// Adjust description text area size to match ItemContainerDisplayInfo's description

@@ -42,9 +42,9 @@ export default function AccountSidebar() {
 		dispatch(logoutAccount());
 	};
 
-	const logReduxState = () => {
+	/* const logReduxState = () => {
 		console.log(reduxState);
-	};
+	}; */
 
 	const getSLinkColor = () => {
 		if (

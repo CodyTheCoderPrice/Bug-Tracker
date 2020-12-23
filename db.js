@@ -11,7 +11,7 @@ let connectionString = {
 /* connectionString.connectionString =
 	connectionString.connectionString + "?ssl=true"; */
 
-/* if (env === "development") {
+if (env === "development") {
 	connectionString = {
 		user: "postgres",
 		password: "PostgresEasyPassword",
@@ -19,7 +19,7 @@ let connectionString = {
 		port: 5432,
 		database: "bugtracker",
 	};
-} */
+}
 
 const pool = new Pool(connectionString);
 

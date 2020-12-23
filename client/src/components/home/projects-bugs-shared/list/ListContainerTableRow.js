@@ -52,7 +52,7 @@ export default function ListContainerTableRow(props) {
 		e.stopPropagation();
 	};
 
-	const changeTargetItem = () => {
+	/* const changeTargetItem = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listContainer: true,
@@ -71,7 +71,7 @@ export default function ListContainerTableRow(props) {
 		) {
 			dispatch(setWhichBugComponentsDisplay({}));
 		}
-	};
+	}; */
 
 	const openItemContainer = () => {
 		dispatch(

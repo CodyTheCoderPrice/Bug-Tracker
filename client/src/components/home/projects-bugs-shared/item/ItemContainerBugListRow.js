@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { getElementSize } from "../../../../utils";
 
@@ -7,7 +7,6 @@ import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerBugListTabl
 
 export default function ItemContainerBugListRow(props) {
 	const reduxState = useSelector((state) => state);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const tableDataElement = document.getElementsByClassName(
@@ -27,6 +26,7 @@ export default function ItemContainerBugListRow(props) {
 		});
 
 		myObserver.observe(tableDataElement);
+		// eslint-disable-next-line
 	}, []);
 
 	const getStatusBoxColorClassName = () => {
