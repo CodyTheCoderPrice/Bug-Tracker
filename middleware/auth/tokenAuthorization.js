@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 
+// Where the jwtSecret is declared
 require("dotenv").config();
 
 module.exports = (req, res, next) => {
@@ -14,9 +15,12 @@ module.exports = (req, res, next) => {
 			return res.status(403).json({ success: false, inputErrors });
 		}
 
+		// Uses jwtSecret in .env file to create payload 
 		const payload = jwt.verify(jwToken, process.env.jwtSecret);
 
 		req.account_id = payload.account_id;
+
+		// If payload was created succesfully, calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);

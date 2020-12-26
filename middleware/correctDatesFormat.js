@@ -14,6 +14,7 @@ module.exports = (req, res, next) => {
 		req.body.due_date = due_date;
 		req.body.completion_date = completion_date;
 
+		// Calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);

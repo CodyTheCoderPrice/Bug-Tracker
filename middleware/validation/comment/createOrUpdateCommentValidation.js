@@ -7,10 +7,11 @@ module.exports = (req, res, next) => {
 	try {
 		let { description, isEditing } = req.body;
 
-		// Convert empty fields to an empty string so we can use validator functions
+		// Convert empty fields to empty string so Validator module can be used
 		description = !isEmpty(description) ? description : "";
 
-		// Description check
+		// Which inputErrors property is set depends on isEditing (new comment or editted one)
+		// ...since error will be displayed in different places on frontend accordingly 
 		if (!Validator.isLength(description, { min: 1 })) {
 			inputErrors[
 				isEditing === false
@@ -29,6 +30,7 @@ module.exports = (req, res, next) => {
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
+		// If no inputErrors were found, calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);

@@ -7,15 +7,14 @@ module.exports = (req, res, next) => {
 	try {
 		let { deleteTypedOut, currentPassword } = req.body;
 
-		// Convert empty fields to an empty string so we can use validator functions
+		// Convert empty fields to empty string so Validator module can be used
 		deleteTypedOut = !isEmpty(deleteTypedOut) ? deleteTypedOut : "";
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
-		// Delete Typed Out check
 		if (deleteTypedOut !== "DELETE") {
 			inputErrors.validationAccountTypeOutCheck = "Must match: DELETE";
 		}
-		// currentPassword check
+
 		if (Validator.isEmpty(currentPassword)) {
 			inputErrors.currentPassword = "Current password field is required";
 		}
@@ -24,6 +23,7 @@ module.exports = (req, res, next) => {
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
+		// If no inputErrors were found, calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);

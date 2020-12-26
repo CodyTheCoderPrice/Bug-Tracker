@@ -5,7 +5,7 @@ module.exports = async (req, res, next) => {
 	let inputErrors = {};
 
 	try {
-		// declared in the tokenAuthorization middleware
+		// Declared in the tokenAuthorization middleware which ran before this one
 		const { account_id } = req;
 		const { currentPassword } = req.body;
 
@@ -30,7 +30,7 @@ module.exports = async (req, res, next) => {
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
-		req.passwordMatch = passwordMatch;
+		// If account is found and password matches, calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
