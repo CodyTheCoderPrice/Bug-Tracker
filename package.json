@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+	"installClientServer": "npm install --prefix ./client && npm audit fix --prefix ./client && npm install && npm audit fix",
     "server": "npm start server.js",
     "serverNodemon": "nodemon server.js",
     "client": "npm start --prefix ./client",
 	"dev": "concurrently \"npm run server\" \"npm run client\"",
 	"devNodemon": "concurrently \"npm run serverNodemon\" \"npm run client\"",
-    "heroku-postbuild": "npm install --prefix ./client && npm audit fix && npm run build --prefix ./client",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "heroku-postbuild": "npm install --prefix ./client && npm audit fix --prefix ./client && npm run build --prefix ./client"
   },
   "author": "",
   "license": "ISC",
