@@ -16,11 +16,15 @@ https://cody-price-bug-tracker.herokuapp.com/
 
 4. Add the following to package.json inside the client folder -- "proxy": "http://localhost:5000"
 
+5. Maneuver to this project's client folder using a command line or terminal
+
+7. Run the following command in the client folder: npm install
+
 5. Maneuver to this project's root directory using a command line or terminal
 
-7. Run the following command to install npm for client and server: npm run installClientServer
+7. Run the following command in the root directory: npm install
 
-6. Run the following command to start the project: npm run devNodemon
+6. Run the following command in the root directory: npm run devNodemon
 
 ## Resources
 
