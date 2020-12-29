@@ -124,7 +124,7 @@ router.route("/retrieve").get(async (req, res) => {
 	let inputErrors = {};
 
 	try {
-		// Function used here was abstracted above to also be used by login account route
+		// Function used was abstracted above and exported to be used by other routes
 		const priorityStatus = await getPriorityStatus();
 
 		// If null, then something went wrong, therefore throw err

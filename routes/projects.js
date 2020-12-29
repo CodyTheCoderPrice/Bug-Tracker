@@ -217,11 +217,11 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		);
 
 		const allBugsForAccount = await getAllBugsForAccount(
-			account.rows[0].account_id
+			account_id
 		);
 
 		const allCommentsForAccount = await getAllCommentsForAccount(
-			account.rows[0].account_id
+			account_id
 		);
 
 		// If any arenull, then something went wrong, therefore throw err
@@ -280,11 +280,11 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		);
 
 		const allBugsForAccount = await getAllBugsForAccount(
-			account.rows[0].account_id
+			account_id
 		);
 
 		const allCommentsForAccount = await getAllCommentsForAccount(
-			account.rows[0].account_id
+			account_id
 		);
 
 		// If any arenull, then something went wrong, therefore throw err

@@ -246,11 +246,11 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		// Following data is pulled from DB since bug deletion means they
 		// ...(may) need to be updated
 		const allBugsForAccount = await getAllBugsForAccount(
-			account.rows[0].account_id
+			account_id
 		);
 
 		const allCommentsForAccount = await getAllCommentsForAccount(
-			account.rows[0].account_id
+			account_id
 		);
 
 		// If any arenull, then something went wrong, therefore throw err
@@ -312,13 +312,14 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			[...bugsArray]
 		);
 
+		// Following data is pulled from DB since project deletion means they
+		// ...(may) need to be updated
 		const allBugsForAccount = await getAllBugsForAccount(
-			account.rows[0].account_id
+			account_id
 		);
 
-		// Pulls commentss for account using an exported function from comments.js
 		const allCommentsForAccount = await getAllCommentsForAccount(
-			account.rows[0].account_id
+			account_id
 		);
 
 		// If any arenull, then something went wrong, therefore throw err
