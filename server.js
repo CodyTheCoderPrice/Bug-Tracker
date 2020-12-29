@@ -11,7 +11,7 @@ const privateKey = fs.readFileSync("./sslCertification/selfsigned.key", "utf8");
 const certificate = fs.readFileSync("./sslCertification/selfsigned.crt", "utf8");
 const credentials = { key: privateKey, cert: certificate }; */
 // Routes
-const priorityStatus = require("./routes/priorityStatus");
+const { priorityStatusRouter } = require("./routes/priorityStatus");
 const accounts = require("./routes/accounts");
 const projects = require("./routes/projects");
 const bugs = require("./routes/bugs");
@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Set routes
-app.use("/api/priority-status", priorityStatus);
+app.use("/api/priority-status", priorityStatusRouter);
 app.use("/api/account", accounts);
 app.use("/api/project", projects);
 app.use("/api/bug", bugs);

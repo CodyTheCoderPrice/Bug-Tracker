@@ -15,6 +15,8 @@ const validatePasswordUpdateInput = require("../middleware/validation/account/up
 const validateDeleteAccountInput = require("../middleware/validation/account/deleteAccountValidation");
 const passwordAuthentication = require("../middleware/auth/passwordAuthentication");
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
+// Routes
+const { getPriorityStatus } = require("./priorityStatus");
 // Used instead of the Date() function
 const moment = require("moment");
 
@@ -30,13 +32,13 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 		// Current time in unix/epoch timestamp
 		const last_edited_timestamp = moment().format("X");
 
-		// Verify that email does not already exist
-		const activeAccounts = await pool.query(
+		const activeAccountsForEmail = await pool.query(
 			"SELECT * FROM account WHERE LOWER(email) = LOWER($1)",
 			[email]
 		);
 
-		if (activeAccounts.rowCount > 0) {
+		// Verify that email does not already exist
+		if (activeAccountsForEmail.rowCount > 0) {
 			inputErrors = { validationAccountEmail: "Email already in use" };
 			return res.status(400).json({ success: false, inputErrors });
 		}
@@ -92,89 +94,29 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			[email]
 		);
 
+		// Verifies email is registered
 		if (account.rowCount === 0) {
 			inputErrors = { validationAccountEmail: "Email unregistered" };
 			return res.status(401).json({ success: false, inputErrors });
 		}
 
-		// Verfies that password is correct
 		const passwordMatch = await bcrypt.compare(
 			password,
 			account.rows[0].hash_pass
 		);
 
+		// Verfies that password is correct
 		if (!passwordMatch) {
 			inputErrors = { validationAccountPassword: "Incorrect password" };
 			return res.status(401).json({ success: false, inputErrors });
 		}
 
-		const tokenPayload = {
-			account_id: account.rows[0].account_id,
-		};
-
 		// Removes hash_pass so it is not passed to the front end
 		delete account.rows[0].hash_pass;
 
-		// Grab Priority/Status options, as well as all projects, bugs, and comments for the account.
-		const projectPriorityList = await pool.query(
-			`SELECT p_priority_id AS id, option 
-				FROM project_priority 
-					ORDER BY order_number`
-		);
-
-		const projectPriorityEmptyId = await pool.query(
-			`SELECT p_priority_id AS id 
-				FROM project_priority 
-					WHERE marks_empty = true`
-		);
-
-		const projectStatusList = await pool.query(
-			`SELECT p_status_id AS id, option, color 
-				FROM project_status 
-					ORDER BY order_number`
-		);
-
-		const projectStatusEmptyId = await pool.query(
-			`SELECT p_status_id AS id 
-				FROM project_status 
-					WHERE marks_empty = true`
-		);
-
-		const projectStatusCompletionId = await pool.query(
-			`SELECT p_status_id AS id 
-				FROM project_status 
-					WHERE marks_completion = true`
-		);
-
-		const bugPriorityList = await pool.query(
-			`SELECT b_priority_id AS id, option 
-				FROM bug_priority 
-					ORDER BY order_number`
-		);
-
-		const bugPriorityEmptyId = await pool.query(
-			`SELECT b_priority_id AS id 
-				FROM bug_priority 
-					WHERE marks_empty = true`
-		);
-
-		const bugStatusList = await pool.query(
-			`SELECT b_status_id AS id, option, color
-				FROM bug_status 
-					ORDER BY order_number`
-		);
-
-		const bugStatusEmptyId = await pool.query(
-			`SELECT b_status_id AS id 
-				FROM bug_status 
-					WHERE marks_empty = true`
-		);
-
-		const bugStatusCompletionId = await pool.query(
-			`SELECT b_status_id AS id, option 
-				FROM bug_status 
-					WHERE marks_completion = true`
-		);
+		// Grabs Priority/Status options from database since frontend depends on them
+		// ...this is done using an exported function from the priorityStatus route
+		const priorityStatus = await getPriorityStatus();
 
 		const allProjectsForAccount = await pool.query(
 			`WITH p AS 
@@ -224,6 +166,11 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			[account.rows[0].account_id]
 		);
 
+		// What the hashed jwToken will contain
+		const tokenPayload = {
+			account_id: account.rows[0].account_id,
+		};
+
 		// Sign token
 		jwt.sign(
 			tokenPayload,
@@ -235,38 +182,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 				return res.json({
 					success: true,
 					jwToken: jwToken,
-					projectPriorityStatus: {
-						priorityList: projectPriorityList.rows,
-						priorityEmptyId:
-							projectPriorityEmptyId.rowCount < 1
-								? null
-								: projectPriorityEmptyId.rows[0].id,
-						statusList: projectStatusList.rows,
-						statusEmptyId:
-							projectStatusEmptyId.rowCount < 1
-								? null
-								: projectStatusEmptyId.rows[0].id,
-						statusCompletionId:
-							projectStatusCompletionId.rowCount < 1
-								? null
-								: projectStatusCompletionId.rows[0].id,
-					},
-					bugPriorityStatus: {
-						priorityList: bugPriorityList.rows,
-						priorityEmptyId:
-							bugPriorityEmptyId.rowCount < 1
-								? null
-								: bugPriorityEmptyId.rows[0].id,
-						statusList: bugStatusList.rows,
-						statusEmptyId:
-							bugStatusEmptyId.rowCount < 1
-								? null
-								: bugStatusEmptyId.rows[0].id,
-						statusCompletionId:
-							bugStatusCompletionId.rowCount < 1
-								? null
-								: bugStatusCompletionId.rows[0].id,
-					},
+					...priorityStatus,
 					account: account.rows[0],
 					projects: allProjectsForAccount.rows,
 					bugs: allBugsForAccount.rows,
@@ -280,23 +196,6 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
-
-//=====================
-// Check authorization
-//=====================
-router
-	.route("/check-authorization")
-	.post(tokenAuthorization, async (req, res) => {
-		let inputErrors = {};
-
-		try {
-			res.json(true);
-		} catch (err) {
-			console.error(err.message);
-			inputErrors.authorization = "Not authorized";
-			return res.status(403).json({ success: false, inputErrors });
-		}
-	});
 
 //===================
 //  Retrieve account
@@ -377,12 +276,12 @@ router
 				const last_edited_timestamp = moment().format("X");
 
 				// Verify that email does not already exist
-				const activeAccounts = await pool.query(
+				const activeAccountsForEmail = await pool.query(
 					"SELECT * FROM account WHERE LOWER(email) = LOWER($1)",
 					[email]
 				);
 
-				if (activeAccounts.rowCount > 0) {
+				if (activeAccountsForEmail.rowCount > 0) {
 					inputErrors = { validationAccountEmail: "Email already in use" };
 					return res.status(400).json({ success: false, inputErrors });
 				}

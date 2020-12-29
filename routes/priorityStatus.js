@@ -6,9 +6,10 @@ const router = express.Router();
 //=============================================================
 //  Retrieve priority and status tables for projects and bugs
 //=============================================================
-router.route("/retrieve").get(async (req, res) => {
-	let inputErrors = {};
-
+// Abstracted as stand alone function so it can exported along with the router
+// ...to be used during account login requests to avoid repeating code or needing
+// ...an additional http request during the login request to retreieve priorityStatus
+async function getPriorityStatus() {
 	try {
 		const projectPriorityList = await pool.query(
 			`SELECT p_priority_id AS id, option 
@@ -16,6 +17,7 @@ router.route("/retrieve").get(async (req, res) => {
 					ORDER BY order_number`
 		);
 
+		// Used by frontend to recongize the empty option without hard coding
 		const projectPriorityEmptyId = await pool.query(
 			`SELECT p_priority_id AS id 
 				FROM project_priority 
@@ -28,12 +30,14 @@ router.route("/retrieve").get(async (req, res) => {
 					ORDER BY order_number`
 		);
 
+		// Used by frontend to recongize the empty option without hard coding
 		const projectStatusEmptyId = await pool.query(
 			`SELECT p_status_id AS id 
 				FROM project_status 
 					WHERE marks_empty = true`
 		);
 
+		// Used by frontend to recongize the completed option without hard coding
 		const projectStatusCompletionId = await pool.query(
 			`SELECT p_status_id AS id 
 				FROM project_status 
@@ -46,6 +50,7 @@ router.route("/retrieve").get(async (req, res) => {
 					ORDER BY order_number`
 		);
 
+		// Used by frontend to recongize the empty option without hard coding
 		const bugPriorityEmptyId = await pool.query(
 			`SELECT b_priority_id AS id 
 				FROM bug_priority 
@@ -58,40 +63,92 @@ router.route("/retrieve").get(async (req, res) => {
 					ORDER BY order_number`
 		);
 
+		// Used by frontend to recongize the empty option without hard coding
 		const bugStatusEmptyId = await pool.query(
 			`SELECT b_status_id AS id 
 				FROM bug_status 
 					WHERE marks_empty = true`
 		);
 
+		// Used by frontend to recongize the completed option without hard coding
 		const bugStatusCompletionId = await pool.query(
 			`SELECT b_status_id AS id, option 
 				FROM bug_status 
 					WHERE marks_completion = true`
 		);
 
-		res.json({
-			success: true,
+		return {
 			projectPriorityStatus: {
 				priorityList: projectPriorityList.rows,
-				priorityEmptyId: projectPriorityEmptyId.rowCount < 1 ? null : projectPriorityEmptyId.rows[0].id,
+				// If there is no empty option, then sets as null
+				priorityEmptyId:
+					projectPriorityEmptyId.rowCount < 1
+						? null
+						: projectPriorityEmptyId.rows[0].id,
 				statusList: projectStatusList.rows,
-				statusEmptyId: projectStatusEmptyId.rowCount < 1 ? null : projectStatusEmptyId.rows[0].id,
-				statusCompletionId: projectStatusCompletionId.rowCount < 1 ? null : projectStatusCompletionId.rows[0].id,
+				// If there is no empty option, then sets as null
+				statusEmptyId:
+					projectStatusEmptyId.rowCount < 1
+						? null
+						: projectStatusEmptyId.rows[0].id,
+				// If there is no completed option, then sets as null
+				statusCompletionId:
+					projectStatusCompletionId.rowCount < 1
+						? null
+						: projectStatusCompletionId.rows[0].id,
 			},
 			bugPriorityStatus: {
 				priorityList: bugPriorityList.rows,
-				priorityEmptyId: bugPriorityEmptyId.rowCount < 1 ? null : bugPriorityEmptyId.rows[0].id,
+				// If there is no empty option, then sets as null
+				priorityEmptyId:
+					bugPriorityEmptyId.rowCount < 1
+						? null
+						: bugPriorityEmptyId.rows[0].id,
 				statusList: bugStatusList.rows,
-				statusEmptyId: bugStatusEmptyId.rowCount < 1 ? null : bugStatusEmptyId.rows[0].id,
-				statusCompletionId: bugStatusCompletionId.rowCount < 1 ? null : bugStatusCompletionId.rows[0].id,
+				// If there is no empty option, then sets as null
+				statusEmptyId:
+					bugStatusEmptyId.rowCount < 1 ? null : bugStatusEmptyId.rows[0].id,
+				// If there is no completed option, then sets as null
+				statusCompletionId:
+					bugStatusCompletionId.rowCount < 1
+						? null
+						: bugStatusCompletionId.rows[0].id,
 			},
+		};
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router.route("/retrieve").get(async (req, res) => {
+	let inputErrors = {};
+
+	try {
+		// Function used here was abstracted above so it could also be used by
+		// ...the login account request in the account route
+		const priorityStatus = await getPriorityStatus();
+
+		// If priorityStatus is null, something went wrong, therefore throw err
+		if (priorityStatus === null) {
+			throw err;
+		}
+
+		res.json({
+			success: true,
+			...priorityStatus,
 		});
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.serverPriorityStatus = "Server error while retrieving Priority/Status options";
+		inputErrors.serverPriorityStatus =
+			"Server error while retrieving Priority/Status options";
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
 
-module.exports = router;
+// Exports both the router and the function the router uses so the account login
+// ...request can use the function without creating an additional http request
+module.exports = {
+	priorityStatusRouter: router,
+	getPriorityStatus: getPriorityStatus,
+};
