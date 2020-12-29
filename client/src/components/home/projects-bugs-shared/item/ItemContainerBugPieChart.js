@@ -55,7 +55,13 @@ export default function ItemContainerBugPieChart() {
 		ctx.fillStyle = color;
 		ctx.beginPath();
 		ctx.moveTo(centerX, centerY);
-		ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+		/*
+		 * Since drawing a cirlce only works with a startAngle of 0 and an
+		 * endAngle of 2 PI, if the angles are the same, uses 0 and 2 PI instead
+		 */
+		startAngle !== endAngle
+			? ctx.arc(centerX, centerY, radius, startAngle, endAngle)
+			: ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
 		ctx.closePath();
 		ctx.fill();
 	}
@@ -70,19 +76,28 @@ export default function ItemContainerBugPieChart() {
 			).length;
 			let sliceAngle = (statusCount / bugsInProjectList.length) * 2 * Math.PI;
 
-			drawPieSlice(
-				ctx,
-				pieChartSize / 2,
-				pieChartSize / 2,
-				pieChartSize / 2,
-				// Modulos of (2 * Math.PI) because startAngle begins at Math.PI
-				startAngle % (2 * Math.PI),
-				// Modulos of (2 * Math.PI) because startAngle begins at Math.PI
-				(startAngle + sliceAngle) % (2 * Math.PI),
-				statusObject.colorHex !== null
-					? statusObject.colorHex
-					: statusObject.color
+			console.log(
+				`${statusObject.option} --> ${sliceAngle} --> ${
+					startAngle % (2 * Math.PI)
+				} --> ${(startAngle + sliceAngle) % (2 * Math.PI)}`
 			);
+
+			if (statusCount > 0) {
+				drawPieSlice(
+					ctx,
+					pieChartSize / 2,
+					pieChartSize / 2,
+					pieChartSize / 2,
+					// Modulos of (2 * Math.PI) because startAngle begins at Math.PI
+					startAngle % (2 * Math.PI),
+					// Modulos of (2 * Math.PI) because startAngle begins at Math.PI
+					(startAngle + sliceAngle) % (2 * Math.PI),
+					statusObject.colorHex !== null
+						? statusObject.colorHex
+						: statusObject.color
+				);
+			}
+
 			startAngle += sliceAngle;
 		}
 	}
@@ -150,8 +165,8 @@ export default function ItemContainerBugPieChart() {
 									>
 										{getNumberOfBugsForStatus(
 											reduxState,
-											reduxState[PROJECT_CONTAINER].componentsDisplay
-												.targetItem.id,
+											reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+												.id,
 											statusObject.id
 										)}{" "}
 										/ {bugsInProjectList.length}
