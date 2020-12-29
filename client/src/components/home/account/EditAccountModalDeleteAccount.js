@@ -61,7 +61,7 @@ export default function EditAccountModalDeleteAccount() {
 			<form className="form" noValidate onSubmit={handleSubmit}>
 				<label htmlFor="delete-account-type-out" className="form__label">
 					Enter <span className="form__label__captial-delete">DELETE</span>{" "}
-					below.
+					below:
 				</label>
 				<input
 					type="text"
