@@ -69,30 +69,13 @@ router
 					]
 				);
 
-				// This line of code may not be needed
-				if (createdBug.rowCount === 0) {
-					throw { message: "Bug creation failed" };
-				}
+				// getAllBugsForAccount is declared below
+				const allBugsForAccount = await getAllBugsForAccount(account_id);
 
-				// Since not all requests have access to project_id,
-				// ...this querry gets it using account_id
-				const allBugsForAccount = await pool.query(
-					`WITH b AS 
-						(SELECT * FROM bug WHERE project_id IN 
-							(SELECT project_id FROM project WHERE account_id = $1)
-						)
-					SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
-						b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-					 	b.creation_date, b.start_date, b.due_date,
-						b.completion_date, last_edited_timestamp,
-						bp.option AS priority_option, 
-						bs.option AS status_option
-							FROM b, bug_priority bp, bug_status bs 
-								WHERE (b.b_priority_id = bp.b_priority_id) 
-									AND (b.b_status_id = bs.b_status_id)
-										ORDER BY b.bug_id`,
-					[account_id]
-				);
+				// If null, then something went wrong, therefore throw err
+				if (allBugsForAccount === null) {
+					throw err;
+				}
 
 				res.json({ success: true, bugs: allBugsForAccount.rows });
 			} catch (err) {
@@ -106,16 +89,11 @@ router
 //================
 //  Retrieve bugs
 //================
-router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
-	let inputErrors = {};
-
+// Abstracted and later exported for reuse inside this and other route files
+async function getAllBugsForAccount(account_id) {
 	try {
-		// Declared in the tokenAuthorization middleware
-		const { account_id } = req;
-
-		// Since not all requests have access to project_id,
-		// ...this querry gets it using account_id
-		const allBugsForAccount = await pool.query(
+		// Uses only account_id since not all routes have access to project_id
+		return await pool.query(
 			`WITH b AS 
 				(SELECT * FROM bug WHERE project_id IN 
 					(SELECT project_id FROM project WHERE account_id = $1)
@@ -132,6 +110,25 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 								ORDER BY b.bug_id`,
 			[account_id]
 		);
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
+	let inputErrors = {};
+
+	try {
+		// Declared in the tokenAuthorization middleware
+		const { account_id } = req;
+
+		const allBugsForAccount = await getAllBugsForAccount(account_id);
+
+		// If null, then something went wrong, therefore throw err
+		if (allBugsForAccount === null) {
+			throw err;
+		}
 
 		res.json({ success: true, bugs: allBugsForAccount.rows });
 	} catch (err) {
@@ -201,30 +198,13 @@ router
 					]
 				);
 
-				// This line of code may not be needed
-				if (updatedBug.rowCount === 0) {
-					throw { message: "Bug update failed" };
-				}
+				// getAllBugsForAccount is declared below
+				const allBugsForAccount = await getAllBugsForAccount(account_id);
 
-				// Since not all requests have access to project_id,
-				// ...this querry gets it using account_id
-				const allBugsForAccount = await pool.query(
-					`WITH b AS 
-						(SELECT * FROM bug WHERE project_id IN 
-							(SELECT project_id FROM project WHERE account_id = $1)
-						)
-					SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
-						b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-					 	b.creation_date, b.start_date, b.due_date,
-						b.completion_date, last_edited_timestamp,
-						bp.option AS priority_option, 
-						bs.option AS status_option
-							FROM b, bug_priority bp, bug_status bs 
-								WHERE (b.b_priority_id = bp.b_priority_id) 
-									AND (b.b_status_id = bs.b_status_id)
-										ORDER BY b.bug_id`,
-					[account_id]
-				);
+				// If null, then something went wrong, therefore throw err
+				if (allBugsForAccount === null) {
+					throw err;
+				}
 
 				res.json({ success: true, bugs: allBugsForAccount.rows });
 			} catch (err) {
@@ -261,25 +241,13 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			[project_id, id]
 		);
 
-		// Since not all requests have access to project_id,
-		// ...this querry gets it using account_id
-		const allBugsForAccount = await pool.query(
-			`WITH b AS 
-				(SELECT * FROM bug WHERE project_id IN 
-					(SELECT project_id FROM project WHERE account_id = $1)
-				)
-			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
-				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-				 b.creation_date, b.start_date, b.due_date,
-				b.completion_date, last_edited_timestamp,
-				bp.option AS priority_option, 
-				bs.option AS status_option
-					FROM b, bug_priority bp, bug_status bs 
-						WHERE (b.b_priority_id = bp.b_priority_id) 
-							AND (b.b_status_id = bs.b_status_id)
-								ORDER BY b.bug_id`,
-			[account_id]
-		);
+		// getAllBugsForAccount is declared below
+		const allBugsForAccount = await getAllBugsForAccount(account_id);
+
+		// If null, then something went wrong, therefore throw err
+		if (allBugsForAccount === null) {
+			throw err;
+		}
 
 		// Since not all requests have access to bug_id,
 		// ...this querry gets it using account_id
@@ -348,25 +316,13 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			[...bugsArray]
 		);
 
-		// Since not all requests have access to project_id,
-		// ...this querry gets it using account_id
-		const allBugsForAccount = await pool.query(
-			`WITH b AS 
-				(SELECT * FROM bug WHERE project_id IN 
-					(SELECT project_id FROM project WHERE account_id = $1)
-				)
-			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
-				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-				 b.creation_date, b.start_date, b.due_date,
-				b.completion_date, last_edited_timestamp,
-				bp.option AS priority_option, 
-				bs.option AS status_option
-					FROM b, bug_priority bp, bug_status bs 
-						WHERE (b.b_priority_id = bp.b_priority_id) 
-							AND (b.b_status_id = bs.b_status_id)
-								ORDER BY b.bug_id`,
-			[account_id]
-		);
+		// getAllBugsForAccount is declared below
+		const allBugsForAccount = await getAllBugsForAccount(account_id);
+
+		// If null, then something went wrong, therefore throw err
+		if (allBugsForAccount === null) {
+			throw err;
+		}
 
 		// Since not all requests have access to bug_id,
 		// ...this querry gets it using account_id
@@ -396,4 +352,8 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 	}
 });
 
-module.exports = router;
+// Also exports getAllProjectsForAccount so other route files can use it
+module.exports = {
+	bugRouter: router,
+	getAllBugsForAccount: getAllBugsForAccount,
+};

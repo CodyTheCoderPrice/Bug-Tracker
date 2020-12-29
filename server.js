@@ -12,9 +12,9 @@ const certificate = fs.readFileSync("./sslCertification/selfsigned.crt", "utf8")
 const credentials = { key: privateKey, cert: certificate }; */
 // Routes
 const { priorityStatusRouter } = require("./routes/priorityStatus");
-const accounts = require("./routes/accounts");
-const projects = require("./routes/projects");
-const bugs = require("./routes/bugs");
+const { accountRouter } = require("./routes/accounts");
+const { projectRouter } = require("./routes/projects");
+const { bugRouter } = require("./routes/bugs");
 const comments = require("./routes/comments");
 
 // Middleware
@@ -38,9 +38,9 @@ if (process.env.NODE_ENV === "production") {
 
 // Set routes
 app.use("/api/priority-status", priorityStatusRouter);
-app.use("/api/account", accounts);
-app.use("/api/project", projects);
-app.use("/api/bug", bugs);
+app.use("/api/account", accountRouter);
+app.use("/api/project", projectRouter);
+app.use("/api/bug", bugRouter);
 app.use("/api/comment", comments);
 
 // Was being used when trying to use HTTPS

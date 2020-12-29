@@ -56,26 +56,15 @@ router
 					]
 				);
 
-				// This line of code may not be needed
-				if (createdProject.rowCount === 0) {
-					throw { message: "Project creation failed" };
-				}
-
-				const allProjectsForAccount = await pool.query(
-					`WITH p AS 
-					(SELECT * FROM project WHERE account_id = $1)
-					SELECT p.project_id AS id, p.account_id, p.name, p.description,
-						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
-						p.creation_date, p.start_date, p.due_date,
-						p.completion_date, p.last_edited_timestamp, 
-						pp.option AS priority_option, 
-						ps.option AS status_option
-							FROM p, project_priority pp, project_status ps 
-								WHERE (p.p_priority_id = pp.p_priority_id) 
-									AND (p.p_status_id = ps.p_status_id)
-										ORDER BY p.project_id`,
-					[account_id]
+				// getAllProjectsForAccount is declared below
+				const allProjectsForAccount = await getAllProjectsForAccount(
+					account_id
 				);
+
+				// If null, then something went wrong, therefore throw err
+				if (allProjectsForAccount === null) {
+					throw err;
+				}
 
 				res.json({ success: true, projects: allProjectsForAccount.rows });
 			} catch (err) {
@@ -89,14 +78,10 @@ router
 //====================
 //  Retrieve projects
 //====================
-router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
-	let inputErrors = {};
-
+// Abstracted and later exported for reuse inside this and other route files
+async function getAllProjectsForAccount(account_id) {
 	try {
-		// Declared in the tokenAuthorization middleware
-		const { account_id } = req;
-
-		const allProjectsForAccount = await pool.query(
+		return await pool.query(
 			`WITH p AS 
 			(SELECT * FROM project WHERE account_id = $1)
 			SELECT p.project_id AS id, p.account_id, p.name, p.description,
@@ -111,6 +96,25 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 								ORDER BY p.project_id`,
 			[account_id]
 		);
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
+	let inputErrors = {};
+
+	try {
+		// Declared in the tokenAuthorization middleware
+		const { account_id } = req;
+
+		const allProjectsForAccount = await getAllProjectsForAccount(account_id);
+
+		// If null, then something went wrong, therefore throw err
+		if (allProjectsForAccount === null) {
+			throw err;
+		}
 
 		res.json({ success: true, projects: allProjectsForAccount.rows });
 	} catch (err) {
@@ -168,26 +172,14 @@ router
 					]
 				);
 
-				// This line of code may not be needed
-				if (updatedProject.rowCount === 0) {
-					throw { message: "Project update failed" };
-				}
-
-				const allProjectsForAccount = await pool.query(
-					`WITH p AS 
-					(SELECT * FROM project WHERE account_id = $1)
-					SELECT p.project_id AS id, p.account_id, p.name, p.description,
-						p.p_priority_id AS priority_id, p.p_status_id AS status_id,
-						p.creation_date, p.start_date, p.due_date,
-						p.completion_date, p.last_edited_timestamp, 
-						pp.option AS priority_option, 
-						ps.option AS status_option
-							FROM p, project_priority pp, project_status ps 
-								WHERE (p.p_priority_id = pp.p_priority_id) 
-									AND (p.p_status_id = ps.p_status_id)
-										ORDER BY p.project_id`,
-					[account_id]
+				const allProjectsForAccount = await getAllProjectsForAccount(
+					account_id
 				);
+
+				// If null, then something went wrong, therefore throw err
+				if (allProjectsForAccount === null) {
+					throw err;
+				}
 
 				res.json({ success: true, projects: allProjectsForAccount.rows });
 			} catch (err) {
@@ -215,21 +207,14 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			[account_id, id]
 		);
 
-		const allProjectsForAccount = await pool.query(
-			`WITH p AS 
-			(SELECT * FROM project WHERE account_id = $1)
-			SELECT p.project_id AS id, p.account_id, p.name, p.description,
-				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
-				p.creation_date, p.start_date, p.due_date,
-				p.completion_date, p.last_edited_timestamp, 
-				pp.option AS priority_option, 
-				ps.option AS status_option
-					FROM p, project_priority pp, project_status ps 
-						WHERE (p.p_priority_id = pp.p_priority_id) 
-							AND (p.p_status_id = ps.p_status_id)
-								ORDER BY p.project_id`,
-			[account_id]
+		const allProjectsForAccount = await getAllProjectsForAccount(
+			account_id
 		);
+
+		// If null, then something went wrong, therefore throw err
+		if (allProjectsForAccount === null) {
+			throw err;
+		}
 
 		// Since not all requests have access to project_id,
 		// ...this querry gets it using account_id
@@ -372,4 +357,8 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 	}
 });
 
-module.exports = router;
+// Also exports getAllProjectsForAccount so other route files can use it
+module.exports = {
+	projectRouter: router,
+	getAllProjectsForAccount: getAllProjectsForAccount,
+};

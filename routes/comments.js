@@ -41,11 +41,6 @@ router
 				[bug_id, description, creation_date, last_edited_timestamp]
 			);
 
-			// This line of code may not be needed
-			if (createdComment.rowCount === 0) {
-				throw { message: "Comment creation failed" };
-			}
-
 			// Since not all requests have access to bug_id,
 			// ...this querry gets it using account_id
 			const allCommentsForAccount = await pool.query(
@@ -138,11 +133,6 @@ router
 						WHERE bug_id = $3 AND comment_id = $4`,
 				[description, last_edited_timestamp, bug_id, id]
 			);
-
-			// This line of code may not be needed
-			if (updatedComment.rowCount === 0) {
-				throw { message: "Comment update failed" };
-			}
 
 			// Since not all requests have access to bug_id,
 			// ...this querry gets it using account_id
