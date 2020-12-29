@@ -41,21 +41,13 @@ router
 				[bug_id, description, creation_date, last_edited_timestamp]
 			);
 
-			// Since not all requests have access to bug_id,
-			// ...this querry gets it using account_id
-			const allCommentsForAccount = await pool.query(
-				`WITH c AS 
-					(SELECT * FROM comment WHERE bug_id IN
-						(SELECT bug_id FROM bug WHERE project_id IN 
-							(SELECT project_id FROM project WHERE account_id = $1)
-						)
-					)
-				SELECT c.comment_id AS id, c.bug_id, c.description, 
-					c.creation_date, c.last_edited_timestamp 
-					FROM c
-						ORDER BY c.comment_id`,
-				[account_id]
-			);
+			// getAllBugsForAccount is declared below
+			const allCommentsForAccount = await getAllCommentsForAccount(account_id);
+
+			// If null, then something went wrong, therefore throw err
+			if (allCommentsForAccount === null) {
+				throw err;
+			}
 
 			res.json({ success: true, comments: allCommentsForAccount.rows });
 		} catch (err) {
@@ -68,16 +60,11 @@ router
 //====================
 //  Retrieve comments
 //====================
-router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
-	let inputErrors = {};
-
+// Abstracted and later exported for reuse inside this and other route files
+async function getAllCommentsForAccount(account_id) {
 	try {
-		// Declared in the tokenAuthorization middleware
-		const { account_id } = req;
-
-		// Since not all requests have access to bug_id,
-		// ...this querry gets it using account_id
-		const allCommentsForAccount = await pool.query(
+		// Uses account_id since not all routes have access to bug_id
+		return await pool.query(
 			`WITH c AS 
 				(SELECT * FROM comment WHERE bug_id IN
 					(SELECT bug_id FROM bug WHERE project_id IN 
@@ -90,6 +77,25 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 					ORDER BY c.comment_id`,
 			[account_id]
 		);
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
+	let inputErrors = {};
+
+	try {
+		// Declared in the tokenAuthorization middleware
+		const { account_id } = req;
+
+		const allCommentsForAccount = await getAllCommentsForAccount(account_id);
+
+		// If null, then something went wrong, therefore throw err
+		if (allCommentsForAccount === null) {
+			throw err;
+		}
 
 		res.json({ success: true, comments: allCommentsForAccount.rows });
 	} catch (err) {
@@ -134,21 +140,13 @@ router
 				[description, last_edited_timestamp, bug_id, id]
 			);
 
-			// Since not all requests have access to bug_id,
-			// ...this querry gets it using account_id
-			const allCommentsForAccount = await pool.query(
-				`WITH c AS 
-					(SELECT * FROM comment WHERE bug_id IN
-						(SELECT bug_id FROM bug WHERE project_id IN 
-							(SELECT project_id FROM project WHERE account_id = $1)
-						)
-					)
-				SELECT c.comment_id AS id, c.bug_id, c.description, 
-					c.creation_date, c.last_edited_timestamp 
-					FROM c
-						ORDER BY c.comment_id`,
-				[account_id]
-			);
+			// Needs updating after deletion
+			const allCommentsForAccount = await getAllCommentsForAccount(account_id);
+
+			// If null, then something went wrong, therefore throw err
+			if (allCommentsForAccount === null) {
+				throw err;
+			}
 
 			res.json({ success: true, comments: allCommentsForAccount.rows });
 		} catch (err) {
@@ -188,21 +186,13 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			[bug_id, id]
 		);
 
-		// Since not all requests have access to bug_id,
-		// ...this querry gets it using account_id
-		const allCommentsForAccount = await pool.query(
-			`WITH c AS 
-				(SELECT * FROM comment WHERE bug_id IN
-					(SELECT bug_id FROM bug WHERE project_id IN 
-						(SELECT project_id FROM project WHERE account_id = $1)
-					)
-				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, 
-				c.creation_date, c.last_edited_timestamp 
-				FROM c
-					ORDER BY c.comment_id`,
-			[account_id]
-		);
+		// Needs updating after deletion
+		const allCommentsForAccount = await getAllCommentsForAccount(account_id);
+
+		// If null, then something went wrong, therefore throw err
+		if (allCommentsForAccount === null) {
+			throw err;
+		}
 
 		res.json({ success: true, comments: allCommentsForAccount.rows });
 	} catch (err) {
@@ -212,4 +202,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 	}
 });
 
-module.exports = router;
+// Also exports getAllCommentsForAccount so other route files can use it
+module.exports = {
+	commentRouter: router,
+	getAllCommentsForAccount: getAllCommentsForAccount,
+};

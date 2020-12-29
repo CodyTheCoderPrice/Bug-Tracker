@@ -6,6 +6,8 @@ const router = express.Router();
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
 const validateBugInput = require("../middleware/validation/bug/createOrUpdateBugValidation");
 const correctDatesFormat = require("../middleware/correctDatesFormat");
+// functions from other routes
+const { getAllCommentsForAccount } = require("./comments");
 // Used instead of the Date() function
 const moment = require("moment");
 
@@ -92,7 +94,7 @@ router
 // Abstracted and later exported for reuse inside this and other route files
 async function getAllBugsForAccount(account_id) {
 	try {
-		// Uses only account_id since not all routes have access to project_id
+		// Uses account_id since not all routes have access to project_id
 		return await pool.query(
 			`WITH b AS 
 				(SELECT * FROM bug WHERE project_id IN 
@@ -241,29 +243,23 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			[project_id, id]
 		);
 
-		// getAllBugsForAccount is declared below
-		const allBugsForAccount = await getAllBugsForAccount(account_id);
+		// Following data is pulled from DB since bug deletion means they
+		// ...(may) need to be updated
+		const allBugsForAccount = await getAllBugsForAccount(
+			account.rows[0].account_id
+		);
 
-		// If null, then something went wrong, therefore throw err
-		if (allBugsForAccount === null) {
+		const allCommentsForAccount = await getAllCommentsForAccount(
+			account.rows[0].account_id
+		);
+
+		// If any arenull, then something went wrong, therefore throw err
+		if (
+			allBugsForAccount === null ||
+			allCommentsForAccount === null
+		) {
 			throw err;
 		}
-
-		// Since not all requests have access to bug_id,
-		// ...this querry gets it using account_id
-		const allCommentsForAccount = await pool.query(
-			`WITH c AS 
-				(SELECT * FROM comment WHERE bug_id IN
-					(SELECT bug_id FROM bug WHERE project_id IN 
-						(SELECT project_id FROM project WHERE account_id = $1)
-					)
-				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, 
-				c.creation_date, c.last_edited_timestamp 
-				FROM c
-					ORDER BY c.comment_id`,
-			[account_id]
-		);
 
 		res.json({
 			success: true,
@@ -316,29 +312,22 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			[...bugsArray]
 		);
 
-		// getAllBugsForAccount is declared below
-		const allBugsForAccount = await getAllBugsForAccount(account_id);
+		const allBugsForAccount = await getAllBugsForAccount(
+			account.rows[0].account_id
+		);
 
-		// If null, then something went wrong, therefore throw err
-		if (allBugsForAccount === null) {
+		// Pulls commentss for account using an exported function from comments.js
+		const allCommentsForAccount = await getAllCommentsForAccount(
+			account.rows[0].account_id
+		);
+
+		// If any arenull, then something went wrong, therefore throw err
+		if (
+			allBugsForAccount === null ||
+			allCommentsForAccount === null
+		) {
 			throw err;
 		}
-
-		// Since not all requests have access to bug_id,
-		// ...this querry gets it using account_id
-		const allCommentsForAccount = await pool.query(
-			`WITH c AS 
-				(SELECT * FROM comment WHERE bug_id IN
-					(SELECT bug_id FROM bug WHERE project_id IN 
-						(SELECT project_id FROM project WHERE account_id = $1)
-					)
-				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, 
-				c.creation_date, c.last_edited_timestamp 
-				FROM c
-					ORDER BY c.comment_id`,
-			[account_id]
-		);
 
 		res.json({
 			success: true,

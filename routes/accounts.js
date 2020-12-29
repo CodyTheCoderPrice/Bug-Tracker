@@ -19,6 +19,7 @@ const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
 const { getPriorityStatus } = require("./priorityStatus");
 const { getAllProjectsForAccount } = require("./projects");
 const { getAllBugsForAccount } = require("./bugs");
+const { getAllCommentsForAccount } = require("./comments");
 // Used instead of the Date() function
 const moment = require("moment");
 
@@ -116,39 +117,27 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		// Removes hash_pass so it is not passed to the front end
 		delete account.rows[0].hash_pass;
 
-		// Grabs Priority/Status options from database since frontend depends on them
-		// ...this is done using an exported function from priorityStatus.js
+		// Following data is pulled from DB here so only one http call is needed
 		const priorityStatus = await getPriorityStatus();
 
-		// Grabs projects for account using an exported function from projects.js
 		const allProjectsForAccount = await getAllProjectsForAccount(
 			account.rows[0].account_id
 		);
 
-		// Grabs bugs for account using an exported function from bug.js
 		const allBugsForAccount = await getAllBugsForAccount(
 			account.rows[0].account_id
 		);
 
-		const allCommentsForAccount = await pool.query(
-			`WITH c AS 
-				(SELECT * FROM comment WHERE bug_id IN
-					(SELECT bug_id FROM bug WHERE project_id IN 
-						(SELECT project_id FROM project WHERE account_id = $1)
-					)
-				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, 
-				c.creation_date, c.last_edited_timestamp 
-				FROM c
-					ORDER BY c.comment_id`,
-			[account.rows[0].account_id]
+		const allCommentsForAccount = await getAllCommentsForAccount(
+			account.rows[0].account_id
 		);
 
 		// If any arenull, then something went wrong, therefore throw err
 		if (
 			priorityStatus === null ||
 			allProjectsForAccount === null ||
-			allBugsForAccount === null
+			allBugsForAccount === null ||
+			allCommentsForAccount === null
 		) {
 			throw err;
 		}

@@ -6,6 +6,9 @@ const router = express.Router();
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
 const validateProjectInput = require("../middleware/validation/project/createOrUpdateProjectValidation");
 const correctDatesFormat = require("../middleware/correctDatesFormat");
+// functions from other routes
+const { getAllBugsForAccount } = require("./bugs");
+const { getAllCommentsForAccount } = require("./comments");
 // Used instead of the Date() function
 const moment = require("moment");
 
@@ -207,50 +210,28 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			[account_id, id]
 		);
 
+		// Following data is pulled from DB since project deletion means they
+		// ...(may) need to be updated
 		const allProjectsForAccount = await getAllProjectsForAccount(
 			account_id
 		);
 
-		// If null, then something went wrong, therefore throw err
-		if (allProjectsForAccount === null) {
+		const allBugsForAccount = await getAllBugsForAccount(
+			account.rows[0].account_id
+		);
+
+		const allCommentsForAccount = await getAllCommentsForAccount(
+			account.rows[0].account_id
+		);
+
+		// If any arenull, then something went wrong, therefore throw err
+		if (
+			allProjectsForAccount === null ||
+			allBugsForAccount === null ||
+			allCommentsForAccount === null
+		) {
 			throw err;
 		}
-
-		// Since not all requests have access to project_id,
-		// ...this querry gets it using account_id
-		const allBugsForAccount = await pool.query(
-			`WITH b AS 
-				(SELECT * FROM bug WHERE project_id IN 
-					(SELECT project_id FROM project WHERE account_id = $1)
-				)
-			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
-				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-				 b.creation_date, b.start_date, b.due_date,
-				b.completion_date, last_edited_timestamp,
-				bp.option AS priority_option, 
-				bs.option AS status_option
-					FROM b, bug_priority bp, bug_status bs 
-						WHERE (b.b_priority_id = bp.b_priority_id) 
-							AND (b.b_status_id = bs.b_status_id)
-								ORDER BY b.bug_id`,
-			[account_id]
-		);
-
-		// Since not all requests have access to bug_id,
-		// ...this querry gets it using account_id
-		const allCommentsForAccount = await pool.query(
-			`WITH c AS 
-				(SELECT * FROM comment WHERE bug_id IN
-					(SELECT bug_id FROM bug WHERE project_id IN 
-						(SELECT project_id FROM project WHERE account_id = $1)
-					)
-				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, 
-				c.creation_date, c.last_edited_timestamp 
-				FROM c
-					ORDER BY c.comment_id`,
-			[account_id]
-		);
 
 		res.json({
 			success: true,
@@ -292,57 +273,28 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			[...projectsArray, account_id]
 		);
 
-		const allProjectsForAccount = await pool.query(
-			`WITH p AS 
-			(SELECT * FROM project WHERE account_id = $1)
-			SELECT p.project_id AS id, p.account_id, p.name, p.description,
-				p.p_priority_id AS priority_id, p.p_status_id AS status_id,
-				p.creation_date, p.start_date, p.due_date,
-				p.completion_date, p.last_edited_timestamp, 
-				pp.option AS priority_option, 
-				ps.option AS status_option
-					FROM p, project_priority pp, project_status ps 
-						WHERE (p.p_priority_id = pp.p_priority_id) 
-							AND (p.p_status_id = ps.p_status_id)
-								ORDER BY p.project_id`,
-			[account_id]
+		// Following data is pulled from DB since project deletion means they
+		// ...(may) need to be updated
+		const allProjectsForAccount = await getAllProjectsForAccount(
+			account_id
 		);
 
-		// Since not all requests have access to project_id,
-		// ...this querry gets it using account_id
-		const allBugsForAccount = await pool.query(
-			`WITH b AS 
-				(SELECT * FROM bug WHERE project_id IN 
-					(SELECT project_id FROM project WHERE account_id = $1)
-				)
-			SELECT b.bug_id AS id, b.project_id, b.name, b.description, b.location,
-				b.b_priority_id AS priority_id, b.b_status_id AS status_id,
-				 b.creation_date, b.start_date, b.due_date,
-				b.completion_date, last_edited_timestamp,
-				bp.option AS priority_option, 
-				bs.option AS status_option
-					FROM b, bug_priority bp, bug_status bs 
-						WHERE (b.b_priority_id = bp.b_priority_id) 
-							AND (b.b_status_id = bs.b_status_id)
-								ORDER BY b.bug_id`,
-			[account_id]
+		const allBugsForAccount = await getAllBugsForAccount(
+			account.rows[0].account_id
 		);
 
-		// Since not all requests have access to bug_id,
-		// ...this querry gets it using account_id
-		const allCommentsForAccount = await pool.query(
-			`WITH c AS 
-				(SELECT * FROM comment WHERE bug_id IN
-					(SELECT bug_id FROM bug WHERE project_id IN 
-						(SELECT project_id FROM project WHERE account_id = $1)
-					)
-				)
-			SELECT c.comment_id AS id, c.bug_id, c.description, 
-				c.creation_date, c.last_edited_timestamp 
-				FROM c
-					ORDER BY c.comment_id`,
-			[account_id]
+		const allCommentsForAccount = await getAllCommentsForAccount(
+			account.rows[0].account_id
 		);
+
+		// If any arenull, then something went wrong, therefore throw err
+		if (
+			allProjectsForAccount === null ||
+			allBugsForAccount === null ||
+			allCommentsForAccount === null
+		) {
+			throw err;
+		}
 
 		res.json({
 			success: true,

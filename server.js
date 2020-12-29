@@ -15,7 +15,7 @@ const { priorityStatusRouter } = require("./routes/priorityStatus");
 const { accountRouter } = require("./routes/accounts");
 const { projectRouter } = require("./routes/projects");
 const { bugRouter } = require("./routes/bugs");
-const comments = require("./routes/comments");
+const { commentRouter } = require("./routes/comments");
 
 // Middleware
 app.use(express.json());
@@ -41,7 +41,7 @@ app.use("/api/priority-status", priorityStatusRouter);
 app.use("/api/account", accountRouter);
 app.use("/api/project", projectRouter);
 app.use("/api/bug", bugRouter);
-app.use("/api/comment", comments);
+app.use("/api/comment", commentRouter);
 
 // Was being used when trying to use HTTPS
 /* const httpServer = http.createServer(app);
