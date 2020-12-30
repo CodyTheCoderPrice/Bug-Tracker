@@ -76,15 +76,15 @@ export function searchFilterSort(projectsOrBugsArray, state) {
 				// Dates have the oldest date considered as sorted by descending
 				case 4:
 					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(a.creation_date) - dateToInt(a.creation_date);
+						return dateToInt(a.creation_date) - dateToInt(b.creation_date);
 					});
 				case 5:
 					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(a.start_date) - dateToInt(a.start_date);
+						return dateToInt(a.start_date) - dateToInt(b.start_date);
 					});
 				case 6:
 					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(a.due_date) - dateToInt(a.due_date);
+						return dateToInt(a.due_date) - dateToInt(b.due_date);
 					});
 				default:
 					return projectsOrBugsArray;
