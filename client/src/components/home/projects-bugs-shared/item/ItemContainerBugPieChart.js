@@ -76,12 +76,6 @@ export default function ItemContainerBugPieChart() {
 			).length;
 			let sliceAngle = (statusCount / bugsInProjectList.length) * 2 * Math.PI;
 
-			console.log(
-				`${statusObject.option} --> ${sliceAngle} --> ${
-					startAngle % (2 * Math.PI)
-				} --> ${(startAngle + sliceAngle) % (2 * Math.PI)}`
-			);
-
 			if (statusCount > 0) {
 				drawPieSlice(
 					ctx,
