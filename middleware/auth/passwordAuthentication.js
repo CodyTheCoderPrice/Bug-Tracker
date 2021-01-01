@@ -1,11 +1,19 @@
 const pool = require("../../db");
 const bcrypt = require("bcryptjs");
 
+/**
+ * An exported middleware function for routes in the routes folder, this
+ * middleware checkes if the password in req is correct for the account
+ * 
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @param {Function} next - Express function to be ran after this one 
+ */
 module.exports = async (req, res, next) => {
 	let inputErrors = {};
 
 	try {
-		// Declared in the tokenAuthorization middleware which ran before this one
+		// Declared in the tokenAuthorization middleware which was ran prior
 		const { account_id } = req;
 		const { currentPassword } = req.body;
 
@@ -15,22 +23,23 @@ module.exports = async (req, res, next) => {
 		);
 
 		if (accountPassword.rowCount === 0) {
+			// returns error and next middle/function is not called
 			inputErrors.account = "Account not found";
 			return res.status(403).json({ success: false, inputErrors });
 		}
 
-		// Verfies that password is correct
-		const passwordMatch = await bcrypt.compare(
+		const passwordMatches = await bcrypt.compare(
 			currentPassword,
 			accountPassword.rows[0].hash_pass
 		);
 
-		if (!passwordMatch) {
+		if (!passwordMatches) {
+			// returns error and next middle/function is not called
 			inputErrors.currentPassword = "Incorrect current password";
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
-		// If accountPassword is found and password matches, calls next middleware/function
+		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);

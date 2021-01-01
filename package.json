@@ -7,8 +7,8 @@
     "server": "npm start server.js",
     "serverNodemon": "nodemon server.js",
     "client": "npm start --prefix ./client",
-	"dev": "concurrently \"npm run server\" \"npm run client\"",
-	"devNodemon": "concurrently \"npm run serverNodemon\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "devNodemon": "concurrently \"npm run serverNodemon\" \"npm run client\"",
     "heroku-postbuild": "npm install --prefix ./client && npm audit fix --prefix ./client && npm run build --prefix ./client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +24,7 @@
     "http": "0.0.1-security",
     "https": "^1.0.0",
     "is-empty": "^1.2.0",
+    "jsdoc": "^3.6.6",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.27.0",
     "pg": "^8.2.1",

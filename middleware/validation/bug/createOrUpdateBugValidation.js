@@ -1,6 +1,14 @@
 const Validator = require("validator");
 const isEmpty = require("is-empty");
 
+/**
+ * An exported middleware function for routes in the routes folder, this
+ * middleware validates the user form input for creating / updating a bug
+ * 
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @param {Function} next - Express function to be ran after this one 
+ */
 module.exports = (req, res, next) => {
 	let inputErrors = {};
 
@@ -30,10 +38,11 @@ module.exports = (req, res, next) => {
 		}
 
 		if (!isEmpty(inputErrors)) {
+			// returns error and next middle/function is not called
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
-		// If no inputErrors were found, calls next middleware/function
+		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
