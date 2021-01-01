@@ -9,12 +9,12 @@ module.exports = async (req, res, next) => {
 		const { account_id } = req;
 		const { currentPassword } = req.body;
 
-		const account = await pool.query(
+		const accountPassword = await pool.query(
 			"SELECT hash_pass FROM account WHERE account_id = $1",
 			[account_id]
 		);
 
-		if (account.rowCount === 0) {
+		if (accountPassword.rowCount === 0) {
 			inputErrors.account = "Account not found";
 			return res.status(403).json({ success: false, inputErrors });
 		}
@@ -22,7 +22,7 @@ module.exports = async (req, res, next) => {
 		// Verfies that password is correct
 		const passwordMatch = await bcrypt.compare(
 			currentPassword,
-			account.rows[0].hash_pass
+			accountPassword.rows[0].hash_pass
 		);
 
 		if (!passwordMatch) {
@@ -30,7 +30,7 @@ module.exports = async (req, res, next) => {
 			return res.status(400).json({ success: false, inputErrors });
 		}
 
-		// If account is found and password matches, calls next middleware/function
+		// If accountPassword is found and password matches, calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);

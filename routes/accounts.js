@@ -90,22 +90,23 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 	try {
 		const { email, password } = req.body;
 
-		const account = await pool.query(
-			`SELECT account_id, email, hash_pass, first_name, last_name, join_date, last_edited_timestamp
-				FROM account 
-				WHERE LOWER(email) = LOWER($1)`,
+		// Only grabs id and password since getEverythingFromAccount() called
+		// ...below will grab all needed account info and this way there is no
+		// ...risk of accidentally passing the hash_pass to the frontend
+		const accountIdAndPassword = await pool.query(
+			`SELECT account_id, hash_pass FROM account WHERE LOWER(email) = LOWER($1)`,
 			[email]
 		);
 
 		// Verifies email is registered
-		if (account.rowCount === 0) {
+		if (accountIdAndPassword.rowCount === 0) {
 			inputErrors = { validationAccountEmail: "Email unregistered" };
 			return res.status(401).json({ success: false, inputErrors });
 		}
 
 		const passwordMatch = await bcrypt.compare(
 			password,
-			account.rows[0].hash_pass
+			accountIdAndPassword.rows[0].hash_pass
 		);
 
 		// Verfies that password is correct
@@ -114,26 +115,18 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			return res.status(401).json({ success: false, inputErrors });
 		}
 
-		// Removes hash_pass so it is not passed to the front end
-		delete account.rows[0].hash_pass;
+		// Everything for account is pulled here so login is only one http call
+		const {
+			account,
+			priorityStatus,
+			allProjectsForAccount,
+			allBugsForAccount,
+			allCommentsForAccount,
+		} = await getEverythingForAccount(accountIdAndPassword.rows[0].account_id);
 
-		// Following data is pulled from DB here so only one http call is needed
-		const priorityStatus = await getPriorityStatus();
-
-		const allProjectsForAccount = await getAllProjectsForAccount(
-			account.rows[0].account_id
-		);
-
-		const allBugsForAccount = await getAllBugsForAccount(
-			account.rows[0].account_id
-		);
-
-		const allCommentsForAccount = await getAllCommentsForAccount(
-			account.rows[0].account_id
-		);
-
-		// If any arenull, then something went wrong, therefore throw err
+		// If any are null, then something went wrong, therefore throw err
 		if (
+			account === null ||
 			priorityStatus === null ||
 			allProjectsForAccount === null ||
 			allBugsForAccount === null ||
@@ -176,6 +169,21 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 //===================
 //  Retrieve account
 //===================
+// Abstracted and later exported for reuse inside this and other route files
+async function getAccount(account_id) {
+	try {
+		return await await pool.query(
+			`SELECT account_id, email, first_name, last_name, join_date, last_edited_timestamp
+				FROM account 
+				WHERE account_id = $1`,
+			[account_id]
+		);
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
 router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 	let inputErrors = {};
 
@@ -183,12 +191,12 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		// Declared in the tokenAuthorization middleware
 		const { account_id } = req;
 
-		const account = await pool.query(
-			`SELECT account_id, email, first_name, last_name, join_date, last_edited_timestamp
-				FROM account 
-				WHERE account_id = $1`,
-			[account_id]
-		);
+		const account = await getAccount(account_id);
+
+		// If null, then something went wrong, therefore throw err
+		if (account === null) {
+			throw err;
+		}
 
 		return res.json({ success: true, account: account.rows[0] });
 	} catch (err) {
@@ -197,6 +205,96 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		return res.status(500).json({ success: false, inputErrors });
 	}
 });
+
+//==================================
+//  Retrieve everything for account
+//==================================
+// Abstracted and later exported for reuse inside this and other route files
+async function getEverythingForAccount(account_id) {
+	try {
+		const account = await getAccount(account_id);
+
+		const priorityStatus = await getPriorityStatus();
+
+		const allProjectsForAccount = await getAllProjectsForAccount(
+			account.rows[0].account_id
+		);
+
+		const allBugsForAccount = await getAllBugsForAccount(
+			account.rows[0].account_id
+		);
+
+		const allCommentsForAccount = await getAllCommentsForAccount(
+			account.rows[0].account_id
+		);
+
+		// If any are null, then something went wrong, therefore throw err
+		if (
+			account === null ||
+			priorityStatus === null ||
+			allProjectsForAccount === null ||
+			allBugsForAccount === null ||
+			allCommentsForAccount === null
+		) {
+			throw err;
+		}
+
+		return {
+			account: account,
+			priorityStatus: priorityStatus,
+			allProjectsForAccount: allProjectsForAccount,
+			allBugsForAccount: allBugsForAccount,
+			allCommentsForAccount: allCommentsForAccount,
+		};
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router
+	.route("/retrieve-everything")
+	.post(tokenAuthorization, async (req, res) => {
+		let inputErrors = {};
+
+		try {
+			// Declared in the tokenAuthorization middleware
+			const { account_id } = req;
+
+			const {
+				account,
+				priorityStatus,
+				allProjectsForAccount,
+				allBugsForAccount,
+				allCommentsForAccount,
+			} = await getEverythingForAccount(account_id);
+
+			// If any are null, then something went wrong, therefore throw err
+			if (
+				account === null ||
+				priorityStatus === null ||
+				allProjectsForAccount === null ||
+				allBugsForAccount === null ||
+				allCommentsForAccount === null
+			) {
+				throw err;
+			}
+
+			return res.json({
+				success: true,
+				...priorityStatus,
+				account: account.rows[0],
+				projects: allProjectsForAccount.rows,
+				bugs: allBugsForAccount.rows,
+				comments: allCommentsForAccount.rows,
+			});
+		} catch (err) {
+			console.error(err.message);
+			inputErrors.serverAccount =
+				"Server error while retrieving everything for account";
+			return res.status(500).json({ success: false, inputErrors });
+		}
+	});
 
 module.exports = router;
 
@@ -352,4 +450,10 @@ router
 		}
 	);
 
-module.exports = { accountRouter: router };
+// Also exports getAccount and getEverythingForAccount
+// ...so other route files can use it
+module.exports = {
+	accountRouter: router,
+	getAccount: getAccount,
+	getEverythingForAccount: getEverythingForAccount,
+};
