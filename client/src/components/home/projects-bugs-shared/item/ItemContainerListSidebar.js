@@ -4,7 +4,7 @@ import {
 	SIZE_CONTAINER,
 	GENERAL_CONTAINER,
 	PROJECT_CONTAINER,
-} from "../../../../reducers/containerNames";
+} from "../../../../actions/constants/containerNames";
 
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 

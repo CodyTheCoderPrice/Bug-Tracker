@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
-} from "../../../../reducers/containerNames";
+} from "../../../../actions/constants/containerNames";
 
 import {
 	getBugsInProjectList,

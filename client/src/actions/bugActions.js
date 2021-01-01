@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { BUG_CONTAINER } from "../reducers/containerNames";
+import { BUG_CONTAINER } from "./constants/containerNames";
 import { SET_LIST } from "./constants/types";
 
 import {

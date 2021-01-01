@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { PROJECT_CONTAINER } from "../reducers/containerNames";
+import { PROJECT_CONTAINER } from "./constants/containerNames";
 import { SET_LIST } from "./constants/types";
 
 import {

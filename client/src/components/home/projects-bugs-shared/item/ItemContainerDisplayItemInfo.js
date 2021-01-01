@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import {
 	BUG_CONTAINER,
 	SIZE_CONTAINER,
-} from "../../../../reducers/containerNames";
+} from "../../../../actions/constants/containerNames";
 
 import {
 	manageSizeOfItemBoxsInPairContainer,

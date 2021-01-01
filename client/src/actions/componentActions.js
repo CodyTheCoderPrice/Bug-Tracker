@@ -4,7 +4,7 @@ import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
-} from "../reducers/containerNames";
+} from "./constants/containerNames";
 import {
 	SET_WHICH_GENERAL_COMPONENTS_DISPLAY,
 	SET_WHICH_LIST_COMPONENTS_DISPLAY,

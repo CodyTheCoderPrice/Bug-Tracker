@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
-} from "../../../reducers/containerNames";
+} from "../../../actions/constants/containerNames";
 
 import {
 	updateAccountEmail,

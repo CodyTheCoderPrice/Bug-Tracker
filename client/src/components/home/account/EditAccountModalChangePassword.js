@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
-} from "../../../reducers/containerNames";
+} from "../../../actions/constants/containerNames";
 
 import {
 	updateAccountPassword,

@@ -6,7 +6,7 @@ import {
 	GENERAL_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
-} from "../../../../reducers/containerNames";
+} from "../../../../actions/constants/containerNames";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,

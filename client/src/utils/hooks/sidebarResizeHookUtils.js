@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { SIZE_CONTAINER } from "../../reducers/containerNames";
+import { SIZE_CONTAINER } from "../../actions/constants/containerNames";
 
 import { getElementStyle, stripNonDigits } from "../index";
 

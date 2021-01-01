@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ACCOUNT_CONTAINER } from "../../../reducers/containerNames";
+import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
 
 import {
 	setWhichAccountComponentsDisplay,

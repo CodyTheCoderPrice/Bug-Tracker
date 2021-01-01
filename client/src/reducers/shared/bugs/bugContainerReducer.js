@@ -4,7 +4,7 @@ import searchFilterSortReducer from "../searchFilterSortReducer";
 import massDeleteReducer from "../massDeleteReducer";
 import priorityStatusOptionsReducer from "../priorityStatusOptionsReducer";
 
-import { BUG_CONTAINER } from "../../containerNames";
+import { BUG_CONTAINER } from "../../../actions/constants/containerNames";
 import { RESET_CONTAINER } from "../../../actions/constants/types";
 
 const initialState = {

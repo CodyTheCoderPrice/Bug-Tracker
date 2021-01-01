@@ -1,4 +1,7 @@
-// These primarly exist to ensure components are passed the correct container names
+/** 
+ * The redux state object has its contents divided into containers for
+ * organization. These are all the container names.
+ */
 export const GENERAL_CONTAINER = "GENERAL_CONTAINER";
 export const SIZE_CONTAINER = "SIZE_CONTAINER";
 export const ACCOUNT_CONTAINER = "ACCOUNT_CONTAINER";

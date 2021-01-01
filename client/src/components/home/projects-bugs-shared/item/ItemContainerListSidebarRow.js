@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	BUG_CONTAINER,
 	PROJECT_CONTAINER,
-} from "../../../../reducers/containerNames";
+} from "../../../../actions/constants/containerNames";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,

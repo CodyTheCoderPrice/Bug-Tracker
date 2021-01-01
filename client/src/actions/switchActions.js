@@ -1,7 +1,7 @@
 import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
-} from "../reducers/containerNames";
+} from "./constants/containerNames";
 
 import {
 	SET_SEARCH_FILTER_SORT,

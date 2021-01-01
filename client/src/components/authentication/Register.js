@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GENERAL_CONTAINER } from "../../reducers/containerNames";
+import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
 
 import {
 	registerAccount,

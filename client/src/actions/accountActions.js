@@ -1,9 +1,12 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-import { ACCOUNT_CONTAINER } from "../reducers/containerNames";
+// Redux containers
+import { ACCOUNT_CONTAINER } from "./constants/containerNames";
+// 
 import { SET_AUTHENTICATION, SET_ACCOUNT } from "./constants/types";
 
+// dispatch functions
 import {
 	setInputErrors,
 	resetRedux,

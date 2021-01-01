@@ -15,7 +15,7 @@ import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
-} from "./reducers/containerNames";
+} from "./actions/constants/containerNames";
 // Used to persist the redux state
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";

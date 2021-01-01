@@ -1,6 +1,6 @@
 import {
 	BUG_CONTAINER,
-} from "../reducers/containerNames";
+} from "../actions/constants/containerNames";
 
 export function getNumberOfBugsForStatus(
 	passedReduxState,
