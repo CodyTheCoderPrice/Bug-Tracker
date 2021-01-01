@@ -6,8 +6,8 @@ const router = express.Router();
 //=============================================================
 //  Retrieve priority and status tables for projects and bugs
 //=============================================================
-// Abstracted outside of route to be exported along side router so login route
-// ...in account.js doesn't repeat code or use additonal http request
+// Abstracted outside of route to be exported along side router so other route
+// ...files can use it doesn't repeat code or use additonal http request
 async function getPriorityStatus() {
 	try {
 		const projectPriorityList = await pool.query(
@@ -144,8 +144,7 @@ router.route("/retrieve").get(async (req, res) => {
 	}
 });
 
-// Also exports getPriorityStatus so login route in accounts.js can use
-// ...it without repeating code or using an additional http request
+// Also exports getPriorityStatus so other route files can use it
 module.exports = {
 	priorityStatusRouter: router,
 	getPriorityStatus: getPriorityStatus,
