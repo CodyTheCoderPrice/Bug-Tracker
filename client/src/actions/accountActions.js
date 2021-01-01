@@ -61,12 +61,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 
 			dispatch(setAuthentication(decodedToken));
 
-			dispatch(
-				setPriorityStatus(
-					projectPriorityStatus,
-					bugPriorityStatus
-				)
-			);
+			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
 			dispatch(setAccount(account));
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
@@ -85,6 +80,35 @@ export const retrieveAccount = () => (dispatch) => {
 		.then((res) => {
 			const { account } = res.data;
 			dispatch(setAccount(account));
+		})
+		.catch((err) => {
+			dispatch(setInputErrors(err.response.data.inputErrors));
+
+			if (err.response.data.inputErrors.jwToken !== undefined) {
+				dispatch(logoutAccount());
+			}
+		});
+};
+
+export const retrieveEverythingForAccount = () => (dispatch) => {
+	const headers = { headers: { jwToken: localStorage.jwToken } };
+	axios
+		.post("/api/account/retrieve-everything", null, headers)
+		.then((res) => {
+			const {
+				projectPriorityStatus,
+				bugPriorityStatus,
+				account,
+				projects,
+				bugs,
+				comments,
+			} = res.data;
+			
+			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
+			dispatch(setAccount(account));
+			dispatch(setProjects(projects));
+			dispatch(setBugs(bugs));
+			dispatch(setComments(comments));
 		})
 		.catch((err) => {
 			dispatch(setInputErrors(err.response.data.inputErrors));

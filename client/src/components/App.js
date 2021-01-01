@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GENERAL_CONTAINER, ACCOUNT_CONTAINER } from "../reducers/containerNames";
+import {
+	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
+} from "../reducers/containerNames";
 
 import {
-	retrievePriorityStatusArrays,
-	retrieveAccount,
-	retrieveProjects,
-	retrieveBugs,
-	retrieveComments,
+	retrieveEverythingForAccount,
 	setWhichGeneralComponentsDisplay,
 } from "../actions";
 
@@ -27,11 +26,7 @@ function App() {
 	// ... and makes sure the appropriate components are displayed
 	useEffect(() => {
 		if (reduxState[ACCOUNT_CONTAINER].auth.isAuthenticated) {
-			dispatch(retrieveAccount());
-			dispatch(retrieveProjects());
-			dispatch(retrieveBugs());
-			dispatch(retrieveComments());
-			dispatch(retrievePriorityStatusArrays());
+			dispatch(retrieveEverythingForAccount());
 		} else {
 			// Makes sure unauthenticated users do not see home page
 			if (reduxState[GENERAL_CONTAINER].componentsDisplay.home) {
