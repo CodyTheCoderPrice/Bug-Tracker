@@ -22,6 +22,25 @@ function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	// When app is in development enviornment, creates way to access redux state
+	useEffect(() => {
+		if (process.env.NODE_ENV === "development") {
+			window.addEventListener("keydown", (e) => logReduxState(e));
+
+			return () => {
+				window.removeEventListener("resize", (e) => logReduxState(e));
+			};
+		}
+		// eslint-disable-next-line
+	}, []);
+
+	// Declared outside of the eventListener so removing will working on cleanup
+	function logReduxState(e) {
+		if (e.keyCode === 192) {
+			console.log(reduxState);
+		}
+	}
+
 	// Re-fetches user data after a page refresh,
 	// ... and makes sure the appropriate components are displayed
 	useEffect(() => {
