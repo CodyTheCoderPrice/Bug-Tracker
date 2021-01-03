@@ -1,10 +1,13 @@
 import axios from "axios";
+
+// Redux containers
 import {
 	SIZE_CONTAINER,
 	GENERAL_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "./constants/containerNames";
+// Redux types
 import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES,
@@ -12,6 +15,7 @@ import {
 	SET_INPUT_ERRORS,
 } from "./constants/types";
 
+// Exporting redux dispatch functions from all other action files
 export * from "./accountActions";
 export * from "./projectActions";
 export * from "./bugActions";
@@ -81,3 +85,14 @@ export const clearInputErrors = () => (dispatch) => {
 		inputErrors: {},
 	});
 };
+
+/**
+* Creates a header containing jwToken from localStorage (set during login)
+* so the server can both decode it to get the account_id for the call
+* as well as authenticate the call without being sent a password
+* 
+* @returns {JSON} header containing jwToken from localStorage
+*/
+export const createHeader = () => {
+   return { headers: { jwToken: localStorage.jwToken } }; 
+}
