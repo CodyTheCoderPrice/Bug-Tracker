@@ -45,6 +45,9 @@ function App() {
 	// ... and makes sure the appropriate components are displayed
 	useEffect(() => {
 		if (reduxState[ACCOUNT_CONTAINER].auth.isAuthenticated) {
+			// This also serves to logout a user if their jwToken has expired
+			// ...since the server will catch the expired token and throw an
+			// ...error to which the frontend will log the user out
 			dispatch(retrieveEverythingForAccount());
 		} else {
 			// Makes sure unauthenticated users do not see home page
