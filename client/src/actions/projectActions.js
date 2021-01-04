@@ -16,7 +16,7 @@ import {
 } from "./index";
 
 /**
- * Sets the project's list inside the project container of the redux state
+ * Sets the project list inside the projects container of the redux state
  *
  * @param {JSON} list - JSON containing the project list
  */
@@ -31,7 +31,7 @@ export const setProjects = (list) => (dispatch) => {
 /**
  * Calls /api/project/create route in order to create a new project in
  * the database, then stores the updated projects list in the projects
- * contianer of the redux state
+ * container of the redux state
  *
  * @param {JSON} projectInfo - JSON containing the info to create a new project
  * @param {JSON} projectComponentsDisplay - JSON from redux state containing
@@ -46,7 +46,8 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
-			// project creation was succesful, so closing the create project sidebar
+			// project creation was succesful, so closing the
+			// ...listContainerCreateItemSidbar
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
@@ -105,16 +106,18 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
-			// project update was succesful, so closing the edit project view
+			// project update was succesful, so closing itemContainerEditItemInfo
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
-					// since targetItem (what determins which project displays)
-					// ...will be set to the pre-edited project, it will need
-					// ...to be replaced with the updated project
-					targetItem: projects.filter((project) => {
-						return project.id === projectInfo.id;
-					})[0],
+					// if targetItem was set to the pre-edited project, then it
+					// ...is updated to the post-edited project
+					targetItem:
+						projectComponentsDisplay.targetItem.id !== projectInfo.id
+							? projectComponentsDisplay.targetItem
+							: projects.filter((project) => {
+									return project.id === projectInfo.id;
+							  })[0],
 					itemContainerEditItemInfo: false,
 				})
 			);
@@ -132,7 +135,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 
 /**
  * Calls /api/project/delete route to delete a project in the database, then
- * store the updated projects, bugs, and comment list in their corresponding
+ * store the updated projects, bugs, and comments list in their corresponding
  * containers in the redux state. Also updates the massDeleteList if it
  * contained the deleted project and updates it in the projects container of
  * the redux state.
@@ -158,8 +161,8 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
 				idJson.id
 			);
 
-			// checks if the id deleted project id was in the massDeleteList,
-			// ...and if so removes it and updates the massDeleteList in the
+			// checks if the deleted project id was in the massDeleteList, and
+			// ...if so removes it and updates the massDeleteList in the
 			// ...project container of the redux state
 			if (deletedProjectIndexInMassDeleteList > -1) {
 				massDeleteList.splice(deletedProjectIndexInMassDeleteList, 1);
@@ -168,7 +171,7 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
 				);
 			}
 
-			// project deletion was succesful, so closing the delete project modal
+			// project deletion was succesful, so closing itemContainerDeleteModal
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					listContainer: true,
@@ -188,7 +191,7 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
 
 /**
  * Calls /api/project/delete-multiple route to delete multiple projects in the
- * database, stores the updated projects, bugs, and comment list in their
+ * database, stores the updated projects, bugs, and comments list in their
  * corresponding containers in the redux state, then emptys the massDeleteList
  * in the projects container of the redux state.
  *
@@ -219,7 +222,7 @@ export const deleteMultipleProjects = (
 			// emptys the massDeleteList in the redux state
 			dispatch(setProjectOrBugMassDeleteList(PROJECT_CONTAINER, []));
 
-			// mass project deletion was succesful, so closing the delete project modal
+			// mass project deletion was succesful, so closing itemContainerDeleteModal
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
