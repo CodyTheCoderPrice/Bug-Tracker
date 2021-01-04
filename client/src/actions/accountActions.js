@@ -19,8 +19,8 @@ import {
 } from "./index";
 
 /**
- * Sets the accounts authentication information inside the
- * account container of the redux state
+ * Sets the accounts authentication information inside the account container
+ * of the redux state
  *
  * @param {JSON} decodedToken - JSON containing authentication info for account
  */
@@ -46,8 +46,8 @@ export const setAccount = (account) => (dispatch) => {
 };
 
 /**
- * Calls api/account/register route in order to register a new account in
- * the database
+ * Calls api/account/register route to register a new account in the database
+ * and open the login page
  *
  * @param {JSON} accountInfo - JSON containing the info to create a new account
  */
@@ -65,9 +65,10 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 };
 
 /**
- * Calls api/account/login route in order to login into an account, retrieve a
- * jwToken to store in localStorage, and retrieve all account data from the
- * database and store each data set in their corresponding redux state containers
+ * Calls api/account/login route to login into an account, retrieve a jwToken
+ * to store in localStorage, retrieve all account data from the database amd
+ * store each data set in their corresponding redux state containers, and open
+ * the home page
  *
  * @param {JSON} accountInfo - JSON containing the account info for login
  */
@@ -134,8 +135,8 @@ export const retrieveAccount = () => (dispatch) => {
 
 /**
  * Calls api/account/retrieve-everything route to retrieve all account data
- * from the database and store each data set in their corresponding
- * redux state containers
+ * from the database and store each data set in their corresponding redux
+ * state containers
  */
 export const retrieveEverythingForAccount = () => (dispatch) => {
 	const header = createHeader();
@@ -169,9 +170,9 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 };
 
 /**
- * Calls api/account/update-info route to update the name for the account
- * in the database, then stores the updated account info in the account
- * container of the redux state
+ * Calls api/account/update-info route to update the name for the account in
+ * the database, store the updated account info in the account container of the
+ * redux state, and re-open to the accountSidebar
  *
  * @param {JSON} accountInfo - JSON containing the new account name
  */
@@ -198,9 +199,9 @@ export const updateAccountInfo = (accountInfo) => (dispatch) => {
 };
 
 /**
- * Calls api/account/update-email route to update the email for the account
- * in the database, then stores the updated account email in the account
- * container of the redux state
+ * Calls api/account/update-email route to update the email for the account in
+ * the database, store the updated account email in the account container of
+ * the redux state, and re-open to the accountSidebar
  *
  * @param {JSON} accountInfo - JSON containing the new account email
  */
@@ -228,7 +229,7 @@ export const updateAccountEmail = (accountInfo) => (dispatch) => {
 
 /**
  * Calls api/account/update-password route to update the password for the
- * account in the database
+ * account in the database and re-open to the accountSidebar
  *
  * @param {JSON} accountInfo - JSON containing the new account password
  */
@@ -257,10 +258,9 @@ export const updateAccountPassword = (accountInfo) => (dispatch) => {
 };
 
 /**
- * Calls api/account/delete route to delete the account in the database, then
- * logs the user out (which resets the redux state and returns them to the 
- * login page)
- * 
+ * Calls api/account/delete route to delete the account in the database and log
+ * the user out (which resets the redux state and opens the login page)
+ *
  * @param {JSON} accountInfo - JSON containing the new account password and delete check
  */
 export const deleteAccount = (accountInfo) => (dispatch) => {
@@ -278,11 +278,11 @@ export const deleteAccount = (accountInfo) => (dispatch) => {
 
 /**
  * Logs an account out by removing their jwToken from the localStorage and
- * resetting the redux state (which also returns them to the login page)
+ * resetting the redux state (which also opens the login page)
  */
 export const logoutAccount = () => (dispatch) => {
 	localStorage.removeItem("jwToken");
 	dispatch(resetRedux());
-	
+
 	console.log("Message: logged out");
 };

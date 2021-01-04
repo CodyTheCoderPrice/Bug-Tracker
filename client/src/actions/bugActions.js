@@ -17,7 +17,7 @@ import {
 /**
  * Sets the bugs list inside the bug container of the redux state
  *
- * @param {JSON} list - JSON containing the bug list
+ * @param {JSON} list - JSON containing the bugs list
  */
 export const setBugs = (list) => (dispatch) => {
 	dispatch({
@@ -28,9 +28,9 @@ export const setBugs = (list) => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/create route in order to create a new bug in
- * the database, then stores the updated bugs list in the bug
- * container of the redux state
+ * Calls /api/bug/create route to create a new bug in the database, store the
+ * updated bugs list in the bug container of the redux state, and close the
+ * listContainerCreateItemSidbar
  *
  * @param {JSON} bugInfo - JSON containing the info to create a new bug
  * @param {JSON} bugComponentsDisplay - JSON from redux state containing
@@ -43,6 +43,7 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 		.then((res) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
+
 			// bug creation was succesful, so closing the
 			// ...listContainerCreateItemSidbar
 			dispatch(
@@ -64,8 +65,8 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/retrieve route to retrieve the bugs list from the
- * database and store it in the bug container of the redux state
+ * Calls /api/bug/retrieve route to retrieve the bugs list from the database
+ * and store it in the bug container of the redux state
  */
 export const retrieveBugs = () => (dispatch) => {
 	const header = createHeader();
@@ -87,8 +88,9 @@ export const retrieveBugs = () => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/update route to update a bug in the database, then
- * store the updated bugs list in the bugs container of the redux state
+ * Calls /api/bug/update route to update a bug in the database, store the
+ * updated bugs list in the bug container of the redux state, and close the
+ * itemContainerEditItemInfo
  *
  * @param {JSON} bugInfo - JSON containing the info to update a bug
  * @param {JSON} bugComponentsDisplay - JSON from redux state containing
@@ -101,6 +103,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 		.then((res) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
+
 			// bug update was succesful, so closing itemContainerEditItemInfo
 			dispatch(
 				setWhichBugComponentsDisplay({
@@ -129,14 +132,13 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/delete route to delete a bug in the database, then
- * store the updated bugs and comments list in their corresponding
- * containers in the redux state. Also updates the massDeleteList if it
- * contained the deleted bug and updates it in the bugs container of
- * the redux state.
+ * Calls /api/bug/delete route to delete a bug in the database, store the
+ * updated bugs and comments list in their corresponding containers in the
+ * redux state, update the massDeleteList (if it contained the deleted bug) in
+ * the bug container of the redux state, and close the itemContainerDeleteModal
  *
  * @param {JSON} idJson - JSON containing the id of the bug to be deleted
- * and the id of the project the bug belongs to
+ * and the id of the project it belongs to
  * @param {Number[]} massDeleteList - array of bug ids the user selected
  * on the bug table to possibly be mass deleted
  */
@@ -181,9 +183,9 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
 
 /**
  * Calls /api/bug/delete-multiple route to delete multiple bugs in the database,
- * stores the updated bugs and comments list in their corresponding containers
- * in the redux state, then emptys the massDeleteList in the bugs container of
- * the redux state.
+ * store the updated bugs and comments list in their corresponding containers
+ * in the redux state, empty the massDeleteList in the bug container of the
+ * redux state, and close the itemContainerDeleteModal
  *
  * @param {Number[]} massDeleteList - array of bug ids the user selected
  * on the bug table to possibly be mass deleted

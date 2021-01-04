@@ -16,9 +16,9 @@ import {
 } from "./index";
 
 /**
- * Sets the project list inside the projects container of the redux state
+ * Sets the projects list inside the project container of the redux state
  *
- * @param {JSON} list - JSON containing the project list
+ * @param {JSON} list - JSON containing the projects list
  */
 export const setProjects = (list) => (dispatch) => {
 	dispatch({
@@ -29,9 +29,9 @@ export const setProjects = (list) => (dispatch) => {
 };
 
 /**
- * Calls /api/project/create route in order to create a new project in
- * the database, then stores the updated projects list in the projects
- * container of the redux state
+ * Calls /api/project/create route to create a new project in the database, 
+ * store the updated projects list in the project container of the redux 
+ * state, and close the listContainerCreateItemSidbar
  *
  * @param {JSON} projectInfo - JSON containing the info to create a new project
  * @param {JSON} projectComponentsDisplay - JSON from redux state containing
@@ -46,6 +46,7 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
+
 			// project creation was succesful, so closing the
 			// ...listContainerCreateItemSidbar
 			dispatch(
@@ -90,8 +91,9 @@ export const retrieveProjects = () => (dispatch) => {
 };
 
 /**
- * Calls api/project/update route to update a project in the database, then
- * store the updated projects list in the projects container of the redux state
+ * Calls api/project/update route to update a project in the database, store
+ * the updated projects list in the project container of the redux state, and
+ * close the itemContainerEditItemInfo
  *
  * @param {JSON} projectInfo - JSON containing the info to update a project
  * @param {JSON} projectComponentsDisplay - JSON from redux state containing
@@ -106,6 +108,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
+			
 			// project update was succesful, so closing itemContainerEditItemInfo
 			dispatch(
 				setWhichProjectComponentsDisplay({
@@ -134,11 +137,11 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 };
 
 /**
- * Calls /api/project/delete route to delete a project in the database, then
- * store the updated projects, bugs, and comments list in their corresponding
- * containers in the redux state. Also updates the massDeleteList if it
- * contained the deleted project and updates it in the projects container of
- * the redux state.
+ * Calls /api/project/delete route to delete a project in the database, store
+ * the updated projects, bugs, and comments list in their corresponding
+ * containers in the redux state, update the massDeleteList (if it contained
+ * the deleted project) in the project container of the redux state, and close
+ * the itemContainerDeleteModal
  *
  * @param {JSON} idJson - JSON containing the id of the project to be deleted
  * (explaination for why JSON instead of Number in ItemContainerDeleteModal)
@@ -191,9 +194,9 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
 
 /**
  * Calls /api/project/delete-multiple route to delete multiple projects in the
- * database, stores the updated projects, bugs, and comments list in their
- * corresponding containers in the redux state, then emptys the massDeleteList
- * in the projects container of the redux state.
+ * database, store the updated projects, bugs, and comments list in their
+ * corresponding containers in the redux state, empty the massDeleteList in the
+ * project container of the redux state, and close the itemContainerDeleteModal
  *
  * @param {Number[]} massDeleteList - array of project ids the user selected
  * on the project table to possibly be mass deleted
