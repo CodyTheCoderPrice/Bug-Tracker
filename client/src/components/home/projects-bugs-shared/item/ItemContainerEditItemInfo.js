@@ -193,7 +193,7 @@ export default function ItemContainerEditItemInfo(props) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		let itemInfoDeepCopy = { ...itemInfo };
-		// Adds project_id when updating bugs
+		// Adds project_id when updating a bug
 		if (props.reduxContainerName === BUG_CONTAINER) {
 			itemInfoDeepCopy["project_id"] =
 				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id;

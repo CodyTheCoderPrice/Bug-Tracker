@@ -1,13 +1,14 @@
+// Redux containers
 import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "./constants/containerNames";
-
+// Redux types
 import {
 	SET_SEARCH_FILTER_SORT,
 	SET_MASS_DELETE_LIST,
 } from "./constants/types";
-
+// Redux dispatch functions
 import {
 	setWhichProjectComponentsDisplay,
 	setWhichBugComponentsDisplay,
@@ -119,14 +120,13 @@ export const deleteProjectOrBug = (
 	containerName,
 	id,
 	massDeleteList,
-	indexOfTargetItemId
 ) => (dispatch) => {
 	switch (containerName) {
 		case PROJECT_CONTAINER:
-			dispatch(deleteProject(id, massDeleteList, indexOfTargetItemId));
+			dispatch(deleteProject(id, massDeleteList));
 			break;
 		case BUG_CONTAINER:
-			dispatch(deleteBug(id, massDeleteList, indexOfTargetItemId));
+			dispatch(deleteBug(id, massDeleteList));
 			break;
 		default:
 			break;

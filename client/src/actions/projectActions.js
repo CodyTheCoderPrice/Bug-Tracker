@@ -1,9 +1,12 @@
 import axios from "axios";
 
+// Redux containers
 import { PROJECT_CONTAINER } from "./constants/containerNames";
+// Redux types
 import { SET_LIST } from "./constants/types";
-
+// Redux dispatch functions
 import {
+	createHeader,
 	setInputErrors,
 	logoutAccount,
 	setBugs,
@@ -12,6 +15,11 @@ import {
 	setProjectOrBugMassDeleteList,
 } from "./index";
 
+/**
+ * Sets the project's list inside the project container of the redux state
+ *
+ * @param {JSON} list - JSON containing the project list
+ */
 export const setProjects = (list) => (dispatch) => {
 	dispatch({
 		container: PROJECT_CONTAINER,
@@ -20,16 +28,25 @@ export const setProjects = (list) => (dispatch) => {
 	});
 };
 
+/**
+ * Calls /api/project/create route in order to create a new project in
+ * the database, then stores the updated projects list in the projects
+ * contianer of the redux state
+ *
+ * @param {JSON} projectInfo - JSON containing the info to create a new project
+ * @param {JSON} projectComponentsDisplay - JSON from redux state containing
+ * which project components are currently being displayed
+ */
 export const createProject = (projectInfo, projectComponentsDisplay) => (
 	dispatch
 ) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+	const header = createHeader();
 	axios
-		.post("/api/project/create", projectInfo, headers)
+		.post("/api/project/create", projectInfo, header)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
-			// Done here so components only changes when update is succesful
+			// project creation was succesful, so closing the create project sidebar
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
@@ -38,45 +55,63 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 			);
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});
 };
 
+/**
+ * Calls /api/project/retrieve route to retrieve the projects list from the
+ * database and store it in the project container of the redux state
+ */
 export const retrieveProjects = () => (dispatch) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+	const header = createHeader();
 	axios
-		.post("/api/project/retrieve", null, headers)
+		.post("/api/project/retrieve", null, header)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});
 };
 
+/**
+ * Calls api/project/update route to update a project in the database, then
+ * store the updated projects list in the projects container of the redux state
+ *
+ * @param {JSON} projectInfo - JSON containing the info to update a project
+ * @param {JSON} projectComponentsDisplay - JSON from redux state containing
+ * which project components are currently being displayed
+ */
 export const updateProject = (projectInfo, projectComponentsDisplay) => (
 	dispatch
 ) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+	const header = createHeader();
 	axios
-		.post("/api/project/update", projectInfo, headers)
+		.post("/api/project/update", projectInfo, header)
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
-			// Done here so components only changes when update is succesful
+			// project update was succesful, so closing the edit project view
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
-					// Set redux target project to match project update on server side
+					// since targetItem (what determins which project displays)
+					// ...will be set to the pre-edited project, it will need
+					// ...to be replaced with the updated project
 					targetItem: projects.filter((project) => {
 						return project.id === projectInfo.id;
 					})[0],
@@ -85,32 +120,55 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 			);
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});
 };
 
-export const deleteProject = (id, massDeleteList, indexOfTargetProjectId) => (
-	dispatch
-) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+/**
+ * Calls /api/project/delete route to delete a project in the database, then
+ * store the updated projects, bugs, and comment list in their corresponding
+ * containers in the redux state. Also updates the massDeleteList if it
+ * contained the deleted project and updates it in the projects container of
+ * the redux state.
+ *
+ * @param {JSON} idJson - JSON containing the id of the project to be deleted
+ * (explaination for why JSON instead of Number in ItemContainerDeleteModal)
+ * @param {Number[]} massDeleteList - array of project ids the user selected
+ * on the project table to possibly be mass deleted
+ */
+export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
+	const header = createHeader();
 	axios
-		.post("/api/project/delete", id, headers)
+		.post("/api/project/delete", idJson, header)
 		.then((res) => {
+			// since deleting a project also deletes bugs and comments it had,
+			// ...the bugs and comments lists are also updated in redux state
 			const { projects, bugs, comments } = res.data;
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
-			// Done here so following code only runs if deletion is succesful
-			if (indexOfTargetProjectId > -1) {
-				massDeleteList.splice(indexOfTargetProjectId, 1);
+
+			const deletedProjectIndexInMassDeleteList = massDeleteList.indexOf(
+				idJson.id
+			);
+
+			// checks if the id deleted project id was in the massDeleteList,
+			// ...and if so removes it and updates the massDeleteList in the
+			// ...project container of the redux state
+			if (deletedProjectIndexInMassDeleteList > -1) {
+				massDeleteList.splice(deletedProjectIndexInMassDeleteList, 1);
 				dispatch(
 					setProjectOrBugMassDeleteList(PROJECT_CONTAINER, massDeleteList)
 				);
 			}
+
+			// project deletion was succesful, so closing the delete project modal
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					listContainer: true,
@@ -118,36 +176,55 @@ export const deleteProject = (id, massDeleteList, indexOfTargetProjectId) => (
 			);
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});
 };
 
+/**
+ * Calls /api/project/delete-multiple route to delete multiple projects in the
+ * database, stores the updated projects, bugs, and comment list in their
+ * corresponding containers in the redux state, then emptys the massDeleteList
+ * in the projects container of the redux state.
+ *
+ * @param {Number[]} massDeleteList - array of project ids the user selected
+ * on the project table to possibly be mass deleted
+ * @param {JSON} projectComponentsDisplay - JSON from redux state containing
+ * which project components are currently being displayed
+ */
 export const deleteMultipleProjects = (
 	massDeleteList,
 	projectComponentsDisplay
 ) => (dispatch) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+	const header = createHeader();
 	axios
 		.post(
 			"/api/project/delete-multiple",
 			{ projectsArray: massDeleteList },
-			headers
+			header
 		)
 		.then((res) => {
 			const { projects, bugs, comments } = res.data;
+			// since deleting a project also deletes bugs and comments it had,
+			// ...the bugs and comments lists are also updated in redux state
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
-			// Done here so following code only runs if deletion is succesful
+
+			// emptys the massDeleteList in the redux state
 			dispatch(setProjectOrBugMassDeleteList(PROJECT_CONTAINER, []));
+
+			// mass project deletion was succesful, so closing the delete project modal
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
 					listContainerMassDeleteItemsModal: false,
+					// if the targetItem was a deleted project, then sets it to null
 					targetItem:
 						projectComponentsDisplay.targetItem === null ||
 						massDeleteList.filter(
@@ -159,9 +236,11 @@ export const deleteMultipleProjects = (
 			);
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});

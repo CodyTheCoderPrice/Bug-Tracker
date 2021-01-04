@@ -1,9 +1,12 @@
 import axios from "axios";
 
+// Redux containers
 import { BUG_CONTAINER } from "./constants/containerNames";
+// Redux types
 import { SET_LIST } from "./constants/types";
-
+// Redux dispatch functions
 import {
+	createHeader,
 	setInputErrors,
 	logoutAccount,
 	setComments,
@@ -20,9 +23,9 @@ export const setBugs = (list) => (dispatch) => {
 };
 
 export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+	const header = createHeader();
 	axios
-		.post("/api/bug/create", bugInfo, headers)
+		.post("/api/bug/create", bugInfo, header)
 		.then((res) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
@@ -35,35 +38,39 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});
 };
 
 export const retrieveBugs = () => (dispatch) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+	const header = createHeader();
 	axios
-		.post("/api/bug/retrieve", null, headers)
+		.post("/api/bug/retrieve", null, header)
 		.then((res) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});
 };
 
 export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+	const header = createHeader();
 	axios
-		.post("/api/bug/update", bugInfo, headers)
+		.post("/api/bug/update", bugInfo, header)
 		.then((res) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
@@ -80,30 +87,35 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});
 };
 
-export const deleteBug = (id, massDeleteList, indexOfTargetBugId) => (
+export const deleteBug = (idJson, massDeleteList) => (
 	dispatch
 ) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+	const header = createHeader();
 	axios
-		.post("/api/bug/delete", id, headers)
+		.post("/api/bug/delete", idJson, header)
 		.then((res) => {
 			const { bugs, comments } = res.data;
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
+
+			const deletedBugIndexInMassDeleteList = massDeleteList.indexOf(
+				idJson.id
+			);
+
 			// Done here so following code only runs if deletion is succesful
-			if (indexOfTargetBugId > -1) {
-				massDeleteList.splice(indexOfTargetBugId, 1);
-				dispatch(
-					setProjectOrBugMassDeleteList(BUG_CONTAINER, massDeleteList)
-				);
+			if (deletedBugIndexInMassDeleteList > -1) {
+				massDeleteList.splice(deletedBugIndexInMassDeleteList, 1);
+				dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, massDeleteList));
 			}
 			dispatch(
 				setWhichBugComponentsDisplay({
@@ -112,9 +124,11 @@ export const deleteBug = (id, massDeleteList, indexOfTargetBugId) => (
 			);
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});
@@ -123,9 +137,9 @@ export const deleteBug = (id, massDeleteList, indexOfTargetBugId) => (
 export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 	dispatch
 ) => {
-	const headers = { headers: { jwToken: localStorage.jwToken } };
+	const header = createHeader();
 	axios
-		.post("/api/bug/delete-multiple", { bugsArray: massDeleteList }, headers)
+		.post("/api/bug/delete-multiple", { bugsArray: massDeleteList }, header)
 		.then((res) => {
 			const { bugs, comments } = res.data;
 			dispatch(setBugs(bugs));
@@ -147,9 +161,11 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 			);
 		})
 		.catch((err) => {
+			// sets input errors for what went wrong to be displayed to user
 			dispatch(setInputErrors(err.response.data.inputErrors));
 
 			if (err.response.data.inputErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
 		});

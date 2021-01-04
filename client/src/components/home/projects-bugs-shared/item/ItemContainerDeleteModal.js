@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
@@ -18,10 +18,6 @@ export default function ItemContainerDeleteModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [itemInfo] = useState({
-		id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
-	});
-
 	// clears prior input errors when closing the component
 	useEffect(() => {
 		return () => {
@@ -31,25 +27,26 @@ export default function ItemContainerDeleteModal(props) {
 	}, []);
 
 	const deleteItem = () => {
+		// Let since list may be edited in the function it is passed to
 		let copyMassDeleteList = [
 			...reduxState[props.reduxContainerName].massDeleteList,
 		];
-		const indexOfTargetItemId = copyMassDeleteList.indexOf(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id
-		);
 
-		let itemInfoDeepCopy = { ...itemInfo };
-		// Adds project_id when updating bugs
+		// JSON instead of Number since deleting bugs requires the project_id
+		// ...so it is appended below when deleting bugs
+		let idJson = {
+			id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
+		};
+		// Adds project_id when deleting a bug
 		if (props.reduxContainerName === BUG_CONTAINER) {
-			itemInfoDeepCopy["project_id"] =
+			idJson["project_id"] =
 				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id;
 		}
 		dispatch(
 			deleteProjectOrBug(
 				props.reduxContainerName,
-				itemInfoDeepCopy,
+				idJson,
 				copyMassDeleteList,
-				indexOfTargetItemId
 			)
 		);
 	};

@@ -49,7 +49,7 @@ export const setAccount = (account) => (dispatch) => {
  * Calls api/account/register route in order to register a new account in
  * the database
  *
- * @param {JSON} accountInfo - JSON containing the account info for the new account
+ * @param {JSON} accountInfo - JSON containing the info to create a new account
  */
 export const registerAccount = (accountInfo) => (dispatch) => {
 	axios
@@ -170,7 +170,8 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 
 /**
  * Calls api/account/update-info route to update the name for the account
- * in the database as well as in the redux state
+ * in the database, then stores the updated account info in the account
+ * container of the redux state
  *
  * @param {JSON} accountInfo - JSON containing the new account name
  */
@@ -198,7 +199,8 @@ export const updateAccountInfo = (accountInfo) => (dispatch) => {
 
 /**
  * Calls api/account/update-email route to update the email for the account
- * in the database as well as in the redux state
+ * in the database, then stores the updated account email in the account
+ * container of the redux state
  *
  * @param {JSON} accountInfo - JSON containing the new account email
  */
@@ -255,7 +257,9 @@ export const updateAccountPassword = (accountInfo) => (dispatch) => {
 };
 
 /**
- * Calls api/account/delete route to delete the account in the database
+ * Calls api/account/delete route to delete the account in the database, then
+ * logs the user out (which resets the redux state and returns them to the 
+ * login page)
  * 
  * @param {JSON} accountInfo - JSON containing the new account password and delete check
  */
@@ -274,7 +278,7 @@ export const deleteAccount = (accountInfo) => (dispatch) => {
 
 /**
  * Logs an account out by removing their jwToken from the localStorage and
- * resetting the redux state (which also returns them to the login menu)
+ * resetting the redux state (which also returns them to the login page)
  */
 export const logoutAccount = () => (dispatch) => {
 	localStorage.removeItem("jwToken");
