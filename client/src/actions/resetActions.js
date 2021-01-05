@@ -1,3 +1,4 @@
+// Redux containers
 import {
 	SIZE_CONTAINER,
 	GENERAL_CONTAINER,
@@ -6,17 +7,12 @@ import {
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
 } from "./constants/containerNames";
+// Redux types
 import { RESET_CONTAINER } from "./constants/types";
 
-export const resetRedux = () => (dispatch) => {
-	dispatch(resetSizeContainer());
-	dispatch(resetGeneralContainer());
-	dispatch(resetAccountContainer());
-	dispatch(resetProjectContainer());
-	dispatch(resetBugContainer());
-	dispatch(resetCommentContainer());
-};
-
+/**
+ * Resets the size container to its starting state
+ */
 export const resetSizeContainer = () => (dispatch) => {
 	dispatch({
 		container: SIZE_CONTAINER,
@@ -24,6 +20,9 @@ export const resetSizeContainer = () => (dispatch) => {
 	});
 };
 
+/**
+ * Resets the general container to its starting state
+ */
 export const resetGeneralContainer = () => (dispatch) => {
 	dispatch({
 		container: GENERAL_CONTAINER,
@@ -31,6 +30,9 @@ export const resetGeneralContainer = () => (dispatch) => {
 	});
 };
 
+/**
+ * Resets the account container to its starting state
+ */
 export const resetAccountContainer = () => (dispatch) => {
 	dispatch({
 		container: ACCOUNT_CONTAINER,
@@ -38,6 +40,9 @@ export const resetAccountContainer = () => (dispatch) => {
 	});
 };
 
+/**
+ * Resets the project container to its starting state
+ */
 export const resetProjectContainer = () => (dispatch) => {
 	dispatch({
 		container: PROJECT_CONTAINER,
@@ -45,6 +50,9 @@ export const resetProjectContainer = () => (dispatch) => {
 	});
 };
 
+/**
+ * Resets the bug container to its starting state
+ */
 export const resetBugContainer = () => (dispatch) => {
 	dispatch({
 		container: BUG_CONTAINER,
@@ -52,9 +60,24 @@ export const resetBugContainer = () => (dispatch) => {
 	});
 };
 
+/**
+ * Resets the comment container to its starting state
+ */
 export const resetCommentContainer = () => (dispatch) => {
 	dispatch({
 		container: COMMENT_CONTAINER,
 		type: RESET_CONTAINER,
 	});
+};
+
+/**
+ * Resets the all containers to their starting states
+ */
+export const resetRedux = () => (dispatch) => {
+	dispatch(resetSizeContainer());
+	dispatch(resetGeneralContainer());
+	dispatch(resetAccountContainer());
+	dispatch(resetProjectContainer());
+	dispatch(resetBugContainer());
+	dispatch(resetCommentContainer());
 };
