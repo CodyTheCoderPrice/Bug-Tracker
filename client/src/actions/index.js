@@ -24,6 +24,15 @@ export * from "./componentActions";
 export * from "./switchActions";
 export * from "./resetActions";
 
+/**
+ * Sets JSON object containing the size info of multiple html elements (thats
+ * size remains constant) in the size container of the redux state. This info
+ * is mostly used to calulcate the resizing of other html elements, but is
+ * sometimes used for other things.
+ * 
+ * @param {JSON} sizes - JSON containing size info for multiple html elements 
+ * (thats size remains constant)
+ */
 export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 	dispatch({
 		container: SIZE_CONTAINER,
@@ -32,6 +41,15 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 	});
 };
 
+/**
+ * Sets JSON object containing the size info of multiple html elements (thats
+ * size changes) in the size container of the redux state. This info is mostly
+ * used to calulcate the resizing of other html elements, but is sometimes used
+ * for other things.
+ * 
+ * @param {JSON} sizes - JSON containing size info for multiple html elements 
+ * (thats size changes)
+ */
 export const setDisplaySizeVariables = (sizes) => (dispatch) => {
 	dispatch({
 		container: SIZE_CONTAINER,
@@ -40,6 +58,21 @@ export const setDisplaySizeVariables = (sizes) => (dispatch) => {
 	});
 };
 
+/**
+ * Sets JSON objects containing the developer set data for the project and the
+ * bug priority/status tables (4 total) of the database used by the app to 
+ * convert priority/status integer values for projects/bugs to the string 
+ * options they represent, populate priority/status comboboxes, and dynamically
+ * know if any particular option represents empty or completed. These JSON
+ * objects are stored in their corresponding containers of the redux state
+ * 
+ * @param {JSON} projectPriorityStatus - JSON containing the developer set data
+ * in the project priority/status tables of the database, to be stored in the
+ * project contianer of the redux state
+ * @param {JSON} bugPriorityStatus - JSON containing the developer set data
+ * in the bug priority/status tables of the database, to be stored in the
+ * bug contianer of the redux state
+ */
 export const setPriorityStatus = (
 	projectPriorityStatus,
 	bugPriorityStatus
@@ -56,6 +89,11 @@ export const setPriorityStatus = (
 	});
 };
 
+/**
+ * Calls /api/priority-status/retrieve route to retrieve the project and the
+ * bug priority/status tables (4 total) info from the database and store it
+ * in their corresponding containers of the redux state 
+ */
 export const retrievePriorityStatusArrays = () => (dispatch) => {
 	axios.get("/api/priority-status/retrieve").then((res) => {
 		const { projectPriorityStatus, bugPriorityStatus } = res.data;
@@ -70,6 +108,14 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 	});
 };
 
+/**
+ * Sets JSON object containing info on what went wrong during an http request
+ * to be displayed to the user (typically input validation errors), in the
+ * general container of the redux state
+ * 
+ * @param {JSON} inputErrors - JSON containing info on what went wrong during
+ * an http request
+ */
 export const setInputErrors = (inputErrors) => (dispatch) => {
 	dispatch({
 		container: GENERAL_CONTAINER,
@@ -78,6 +124,10 @@ export const setInputErrors = (inputErrors) => (dispatch) => {
 	});
 };
 
+/**
+ * Clears JSON object for input errors in the general container of the redux
+ * state
+ */
 export const clearInputErrors = () => (dispatch) => {
 	dispatch({
 		container: GENERAL_CONTAINER,
