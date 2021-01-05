@@ -1,8 +1,5 @@
 // Redux containers
-import {
-	PROJECT_CONTAINER,
-	BUG_CONTAINER,
-} from "./constants/containerNames";
+import { PROJECT_CONTAINER, BUG_CONTAINER } from "./constants/containerNames";
 // Redux types
 import {
 	SET_SEARCH_FILTER_SORT,
@@ -22,6 +19,15 @@ import {
 	deleteMultipleBugs,
 } from "./index";
 
+/**
+ * Depending on which container name is passed (project or bug) the components
+ * display JSON will be stored in for that contianer in the redux state
+ *
+ * @param {String} containerName - name of either the project or bug
+ * container of the redux state
+ * @param {JSON} displays - JSON containing info for how either project or bug
+ * components should be displyed in the app
+ */
 export const setWhichProjectOrBugComponentsDisplay = (
 	containerName,
 	displays
@@ -38,6 +44,16 @@ export const setWhichProjectOrBugComponentsDisplay = (
 	}
 };
 
+/**
+ * Depending on which container name is passed (project or bug) a JSON object
+ * containing the necessary info to search, filter, and sort a list for
+ * projects or bugs is stored in that container of the redux state
+ *
+ * @param {String} containerName - name of either the project or bug
+ * container of the redux state
+ * @param {JSON} searchFilterSort - JSON containing the necessary info to
+ * search, filter, and sort a list for projects or bugs
+ */
 export const setProjectOrBugSearchFilterSort = (
 	containerName,
 	searchFilterSort
@@ -62,6 +78,16 @@ export const setProjectOrBugSearchFilterSort = (
 	}
 };
 
+/**
+ * Depending on which container name is passed (project or bug) an array of ids
+ * for either projects or bugs to be mass deleted is stored in that container
+ * of the redux state
+ *
+ * @param {String} containerName - name of either the project or bug
+ * container of the redux state
+ * @param {Number[]} massDeleteList - array of ids for either projects or bugs
+ * to be mass deleted
+ */
 export const setProjectOrBugMassDeleteList = (
 	containerName,
 	massDeleteList
@@ -86,7 +112,22 @@ export const setProjectOrBugMassDeleteList = (
 	}
 };
 
-export const createProjectOrBug = (containerName, itemInfo, componentsDisplay) => (dispatch) => {
+/**
+ * Depending on which container name is passed (project or bug) calls that
+ * categories create action
+ *
+ * @param {String} containerName - name of either the project or bug
+ * container of the redux state
+ * @param {JSON} itemInfo - JSON containing the info to create a new project
+ * or bug
+ * @param {JSON} componentsDisplay - JSON from redux state containing
+ * which project or bug components are currently being displayed
+ */
+export const createProjectOrBug = (
+	containerName,
+	itemInfo,
+	componentsDisplay
+) => (dispatch) => {
 	switch (containerName) {
 		case PROJECT_CONTAINER:
 			dispatch(createProject(itemInfo, componentsDisplay));
@@ -99,6 +140,16 @@ export const createProjectOrBug = (containerName, itemInfo, componentsDisplay) =
 	}
 };
 
+/**
+ * Depending on which container name is passed (project or bug) calls that
+ * categories update action
+ *
+ * @param {String} containerName - name of either the project or bug container
+ * of the redux state
+ * @param {JSON} itemInfo - JSON containing the info to update a project or bug
+ * @param {JSON} componentsDisplay - JSON from redux state containing which
+ * project or bug components are currently being displayed
+ */
 export const updateProjectOrBug = (
 	containerName,
 	itemInfo,
@@ -116,38 +167,54 @@ export const updateProjectOrBug = (
 	}
 };
 
-export const deleteProjectOrBug = (
-	containerName,
-	id,
-	massDeleteList,
-) => (dispatch) => {
+/**
+ * Depending on which container name is passed (project or bug) calls that
+ * categories delete action
+ *
+ * @param {String} containerName - name of either the project or bug
+ * container of the redux state
+ * @param {JSON} idJson - JSON containing the id of the project or bug to be
+ * deleted (if bug, then also the id of the project it belongs to)
+ * @param {Number[]} massDeleteList - array of ids for projects or bugs to be
+ * mass deleted
+ */
+export const deleteProjectOrBug = (containerName, idJson, massDeleteList) => (
+	dispatch
+) => {
 	switch (containerName) {
 		case PROJECT_CONTAINER:
-			dispatch(deleteProject(id, massDeleteList));
+			dispatch(deleteProject(idJson, massDeleteList));
 			break;
 		case BUG_CONTAINER:
-			dispatch(deleteBug(id, massDeleteList));
+			dispatch(deleteBug(idJson, massDeleteList));
 			break;
 		default:
 			break;
 	}
 };
 
+/**
+ * Depending on which container name is passed (project or bug) calls that
+ * categories delete multiple action
+ *
+ * @param {String} containerName - name of either the project or bug
+ * container of the redux state
+ * @param {Number[]} massDeleteList - array of ids for projects or bugs to be
+ * mass deleted
+ * @param {JSON} componentsDisplay - JSON from redux state containing which
+ * project or bug components are currently being displayed
+ */
 export const deleteMultipleProjectsOrBugs = (
 	containerName,
-	projectOrBugArray,
-	projectOrBugComponentsDisplay
+	massDeleteList,
+	componentsDisplay
 ) => (dispatch) => {
 	switch (containerName) {
 		case PROJECT_CONTAINER:
-			dispatch(
-				deleteMultipleProjects(projectOrBugArray, projectOrBugComponentsDisplay)
-			);
+			dispatch(deleteMultipleProjects(massDeleteList, componentsDisplay));
 			break;
 		case BUG_CONTAINER:
-			dispatch(
-				deleteMultipleBugs(projectOrBugArray, projectOrBugComponentsDisplay)
-			);
+			dispatch(deleteMultipleBugs(massDeleteList, componentsDisplay));
 			break;
 		default:
 			break;

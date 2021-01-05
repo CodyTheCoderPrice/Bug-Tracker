@@ -108,7 +108,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 		.then((res) => {
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
-			
+
 			// project update was succesful, so closing itemContainerEditItemInfo
 			dispatch(
 				setWhichProjectComponentsDisplay({
@@ -145,8 +145,8 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
  *
  * @param {JSON} idJson - JSON containing the id of the project to be deleted
  * (explaination for why JSON instead of Number in ItemContainerDeleteModal)
- * @param {Number[]} massDeleteList - array of project ids the user selected
- * on the project table to possibly be mass deleted
+ * @param {Number[]} massDeleteList - array of ids for projects to be mass
+ * deleted
  */
 export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
 	const header = createHeader();
@@ -198,8 +198,8 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
  * corresponding containers in the redux state, empty the massDeleteList in the
  * project container of the redux state, and close the itemContainerDeleteModal
  *
- * @param {Number[]} massDeleteList - array of project ids the user selected
- * on the project table to possibly be mass deleted
+ * @param {Number[]} massDeleteList  - array of ids for projects to be mass
+ * deleted
  * @param {JSON} projectComponentsDisplay - JSON from redux state containing
  * which project components are currently being displayed
  */

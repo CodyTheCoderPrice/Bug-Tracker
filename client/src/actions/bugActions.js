@@ -34,7 +34,7 @@ export const setBugs = (list) => (dispatch) => {
  *
  * @param {JSON} bugInfo - JSON containing the info to create a new bug
  * @param {JSON} bugComponentsDisplay - JSON from redux state containing
- * which pbug components are currently being displayed
+ * which bug components are currently being displayed
  */
 export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 	const header = createHeader();
@@ -139,8 +139,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  *
  * @param {JSON} idJson - JSON containing the id of the bug to be deleted
  * and the id of the project it belongs to
- * @param {Number[]} massDeleteList - array of bug ids the user selected
- * on the bug table to possibly be mass deleted
+ * @param {Number[]} massDeleteList - array of ids for bugs to be mass deleted
  */
 export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
 	const header = createHeader();
@@ -187,8 +186,7 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
  * in the redux state, empty the massDeleteList in the bug container of the
  * redux state, and close the itemContainerDeleteModal
  *
- * @param {Number[]} massDeleteList - array of bug ids the user selected
- * on the bug table to possibly be mass deleted
+ * @param {Number[]} massDeleteList - array of ids for bugs to be mass deleted
  * @param {JSON} bugComponentsDisplay - JSON from redux state containing
  * which bug components are currently being displayed
  */
