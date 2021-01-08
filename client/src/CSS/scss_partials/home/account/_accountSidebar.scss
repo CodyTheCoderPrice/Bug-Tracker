@@ -1,11 +1,11 @@
-@import "../../utils/variables";
+@use "../../utils/variables" as v;
 
 .account-sidebar-component {
 	.sidebar-container {
 		// Must be the same as accountBlurredBackground.scss
 		z-index: 2;
 		position: fixed;
-		top: $navbar-height;
+		top: v.$navbar-height;
 		right: 0;
 		// Used by JS during resize to give margin to bottom
 		margin-bottom: 20px;

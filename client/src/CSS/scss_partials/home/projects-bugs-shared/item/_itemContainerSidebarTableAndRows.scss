@@ -1,31 +1,31 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 .item-container-list-sidebar-component,
 .js-calc-list-sidebar-component {
 	// Width must be set here so width can be calculated and stored in redux
-	width: $item-container-list-sidebar-width;
+	width: v.$item-container-list-sidebar-width;
 
 	.expand-minimize-button {
 		// Must be more than the item-container in item-container.scss
 		z-index: 1;
 		position: fixed;
-		top: $navbar-height + $top-bar-height + $top-bar-border-width + 15;
-		left: $item-container-list-sidebar-width + $item-container-list-sidebar-border-width;
-		border: $item-container-list-sidebar-border-width solid black;
+		top: v.$navbar-height + v.$top-bar-height + v.$top-bar-border-width + 15;
+		left: v.$item-container-list-sidebar-width + v.$item-container-list-sidebar-border-width;
+		border: v.$item-container-list-sidebar-border-width solid black;
 		border-left: none;
-		background-color: $light-gray;
+		background-color: v.$light-gray;
 		height: 80px;
 		width: 25px;
 		cursor: pointer;
 	}
 	.expand-minimize-button:hover,
 	.expand-minimize-button:active {
-		background-color: $medium-light-gray;
+		background-color: v.$medium-light-gray;
 	}
 
 	.expand-minimize-button--minimized {
-		left: $item-container-list-sidebar-border-width;
+		left: v.$item-container-list-sidebar-border-width;
 	}
 
 	.expand-minimize-button__centering-container {
@@ -34,21 +34,21 @@
 	}
 
 	.expand-minimize-button__centering-container__icon-container {
-		@include dead-center();
+		@include m.dead-center();
 	}
 
 	.list-sidebar {
 		// Must be more than the item-container in item-container.scss
 		z-index: 1;
 		position: fixed;
-		top: $navbar-height + $top-bar-height + $top-bar-border-width;
+		top: v.$navbar-height + v.$top-bar-height + v.$top-bar-border-width;
 		left: 0px;
-		border-right: $item-container-list-sidebar-border-width solid black;
-		background-color: $list-table-background-color;
+		border-right: v.$item-container-list-sidebar-border-width solid black;
+		background-color: v.$list-table-background-color;
 		height: 90vh;
 		// Width must be set here again to not go beyond
-		width: $item-container-list-sidebar-width;
-		font-size: $base-font-size;
+		width: v.$item-container-list-sidebar-width;
+		font-size: v.$base-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto !important;
 		overflow-x: hidden !important;
@@ -64,23 +64,23 @@
 	}
 
 	.list-sidebar__table__row {
-		@include border-line();
-		background-color: $list-table-background-color;
+		@include m.border-line();
+		background-color: v.$list-table-background-color;
 		padding: 5px;
-		height: $list-item-table-row-height;
+		height: v.$list-item-table-row-height;
 		text-align: center;
 	}
 
 	.list-sidebar__table__row--hover-highlight:hover {
-		background-color: $very-light-gray;
+		background-color: v.$very-light-gray;
 	}
 
 	.list-sidebar__table__row--selected {
-		background-color: $less-light-gray;
+		background-color: v.$less-light-gray;
 	}
 
 	.list-sidebar__table__row--empty {
-		height: $list-item-table-row-height + ($list-item-table-row-height * 0.5);
+		height: v.$list-item-table-row-height + (v.$list-item-table-row-height * 0.5);
 	}
 
 	.list-sidebar__table__header {
@@ -89,11 +89,11 @@
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0px;
-		background-color: $list-table-background-color;
+		background-color: v.$list-table-background-color;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
-		box-shadow: 0 1px 0 $medium-gray;
-		width: $item-container-list-sidebar-width;
+		box-shadow: 0 1px 0 v.$medium-gray;
+		width: v.$item-container-list-sidebar-width;
 	}
 
 	.list-sidebar__table__data {
@@ -101,22 +101,22 @@
 	}
 
 	.list-sidebar__table__data__overflow-container {
-		@include horizontal-center();
+		@include m.horizontal-center();
 
-		width: $item-container-list-sidebar-width - 25;
-		max-width: $item-container-list-sidebar-width - 25;
+		width: v.$item-container-list-sidebar-width - 25;
+		max-width: v.$item-container-list-sidebar-width - 25;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
 	.list-sidebar__table__data__overflow-container--completed-color {
-		color: $status-green;
+		color: v.$status-green;
 		font-weight: bold;
 	}
 
 	.list-sidebar__table__data__overflow-container__info__completed-icon {
 		margin-right: 5px;
-		color: $status-green;
+		color: v.$status-green;
 	}
 }

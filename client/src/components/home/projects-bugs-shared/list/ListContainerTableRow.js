@@ -20,8 +20,6 @@ import {
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
 
-import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
-
 export default function ListContainerTableRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

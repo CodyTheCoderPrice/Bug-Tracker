@@ -1,11 +1,11 @@
-@import "../utils/variables";
+@use "../utils/variables" as v;
 
 .register-login-components {
 	.background {
 		position: absolute;
 		top: 0;
 		left: 0;
-		background-image: url(../../images/BlueBackground_1920.jpg);
+		background-image: url(../images/BlueBackground_1920.jpg);
 		height: 100vh;
 		width: 100vw;
 	}
@@ -63,7 +63,7 @@
 		margin-bottom: 5px;
 		outline: none;
 		border: 0;
-		background-color: $light-blue-teal;
+		background-color: v.$light-blue-teal;
 		padding: 10px;
 		width: 100%;
 		color: white;
@@ -72,7 +72,7 @@
 	}
 	.form__submit:hover,
 	.form__submit:active {
-		background-color: $dark-blue-teal;
+		background-color: v.$dark-blue-teal;
 	}
 
 	.footer {

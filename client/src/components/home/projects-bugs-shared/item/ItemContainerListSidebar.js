@@ -13,8 +13,6 @@ import { searchFilterSort } from "../../../../utils";
 // Components
 import ItemContainerListSidebarRow from "./ItemContainerListSidebarRow";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerSidebarTableAndRows.scss";
-
 export default function ItemContainerListSidebar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

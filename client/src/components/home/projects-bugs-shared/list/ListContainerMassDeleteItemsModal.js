@@ -8,8 +8,6 @@ import {
 	deleteMultipleProjectsOrBugs,
 } from "../../../../actions";
 
-import "../../../../SCSS/home/projects-bugs-shared/deleteModal.scss";
-
 export default function ListContainerMassDeleteItemsModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

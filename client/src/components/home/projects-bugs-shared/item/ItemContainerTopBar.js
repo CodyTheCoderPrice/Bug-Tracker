@@ -22,8 +22,6 @@ import {
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerTopBar.scss";
-
 export default function ItemContainerTopBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

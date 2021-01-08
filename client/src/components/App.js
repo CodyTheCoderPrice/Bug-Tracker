@@ -16,7 +16,7 @@ import Home from "./home/Home";
 
 // Allows font awesome icons
 import "font-awesome/css/font-awesome.min.css";
-import "../SCSS/app.scss";
+import "../CSS/styles.css";
 
 function App() {
 	const reduxState = useSelector((state) => state);

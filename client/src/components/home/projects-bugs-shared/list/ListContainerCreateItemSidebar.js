@@ -25,8 +25,6 @@ import {
 	useSubmitFormOnEnter,
 } from "../../../../utils/hooks";
 
-import "../../../../SCSS/home/projects-bugs-shared/list/listContainerCreateItemSidebar.scss";
-
 export default function ListContainerCreateItemSidebar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

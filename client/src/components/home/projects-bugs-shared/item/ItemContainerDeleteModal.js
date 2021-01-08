@@ -12,8 +12,6 @@ import {
 	deleteProjectOrBug,
 } from "../../../../actions";
 
-import "../../../../SCSS/home/projects-bugs-shared/deleteModal.scss";
-
 export default function ItemContainerDeleteModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

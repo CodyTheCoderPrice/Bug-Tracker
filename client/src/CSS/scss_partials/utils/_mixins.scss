@@ -1,3 +1,4 @@
+@use "./variables" as v;
 @mixin stop-text-selection() {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */
@@ -34,11 +35,11 @@
 	top: 7px;
 	border: none;
 	background: none;
-	color: $medium-gray;
+	color: v.$medium-gray;
 	font-size: 26px;
 	cursor: pointer;
 }
 
 @mixin border-line() {
-	border-bottom: 1px solid $medium-gray;
+	border-bottom: 1px solid v.$medium-gray;
 }

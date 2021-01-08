@@ -12,8 +12,6 @@ import EditAccountModalChangeEmail from "./EditAccountModalChangeEmail";
 import EditAccountModalChangePassword from "./EditAccountModalChangePassword";
 import EditAccountModalDeleteAccount from "./EditAccountModalDeleteAccount";
 
-import "../../../SCSS/home/account/editAccountModals.scss";
-
 export default function EditAccountModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

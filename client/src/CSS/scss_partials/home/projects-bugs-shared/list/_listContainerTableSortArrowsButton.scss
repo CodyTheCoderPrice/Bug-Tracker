@@ -1,0 +1,8 @@
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
+
+.sort-arrows {
+	@include m.vertical-center();
+	margin-left: 8px;
+	cursor: pointer;
+}

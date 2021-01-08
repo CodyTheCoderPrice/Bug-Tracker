@@ -1,5 +1,5 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 .item-container-component {
 	.comment-divider {
@@ -32,7 +32,7 @@
 	}
 
 	.comment__centering-container__pair-container {
-		@include horizontal-center();
+		@include m.horizontal-center();
 		top: 0px;
 		width: 265px;
 	}

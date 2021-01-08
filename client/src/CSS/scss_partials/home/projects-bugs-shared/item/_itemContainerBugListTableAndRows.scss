@@ -1,11 +1,11 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 .item-container-bug-list-component {
 	// Must be more than the item-container in item-container.scss
 	z-index: 1;
 	width: 100%;
-	font-size: $base-font-size;
+	font-size: v.$base-font-size;
 	font-family: Arial, Helvetica, sans-serif;
 
 	.bug-list-table {
@@ -14,7 +14,7 @@
 
 	.bug-list-table__row {
 		padding: 5px;
-		height: $list-item-table-row-height;
+		height: v.$list-item-table-row-height;
 		text-align: center;
 	}
 
@@ -24,7 +24,7 @@
 	}
 
 	.bug-list-table__data__overflow-container {
-		@include horizontal-center();
+		@include m.horizontal-center();
 
 		width: 50px;
 		// Changed using JS
@@ -35,22 +35,22 @@
 	}
 
 	.bug-list-table__data__overflow-container--project-color {
-		color: $blue-link;
+		color: v.$blue-link;
 	}
 
 	.bug-list-table__data__overflow-container--bug-color {
-		color: $red-link;
-		color: $blue-link;
+		color: v.$red-link;
+		color: v.$blue-link;
 	}
 
 	.bug-list-table__data__overflow-container--completed-color {
-		color: $status-green;
+		color: v.$status-green;
 		font-weight: bold;
 	}
 
 	.bug-list-table__data__overflow-container__info__completed-icon {
 		margin-right: 5px;
-		color: $status-green;
+		color: v.$status-green;
 	}
 
 	.bug-list-table__data__centering-container {
@@ -60,19 +60,19 @@
 	}
 
 	.bug-list-table__data__centering-container__status-box {
-		@include dead-center();
+		@include m.dead-center();
 
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to a status-box.
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
 		color: white;
-		height: $status-box-height;
+		height: v.$status-box-height;
 		width: 100%;
 	}
 
 	.bug-list-table__data__centering-container__status-box__centered-info {
-		@include dead-center();
+		@include m.dead-center();
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;

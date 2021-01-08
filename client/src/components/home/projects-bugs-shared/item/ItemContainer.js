@@ -26,8 +26,6 @@ import ItemContainerBugPieChart from "./ItemContainerBugPieChart";
 import ItemContainerCommentsBox from "./ItemContainerCommentsBox";
 import ItemContainerCommentsBoxIndividualCommentDeleteModal from "./ItemContainerCommentsBoxIndividualCommentDeleteModal";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainer.scss";
-
 export default function ItemContainer(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

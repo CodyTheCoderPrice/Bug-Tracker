@@ -1,14 +1,14 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 .create-item-component {
 	.blurred-background {
 		// Must be more than listContainerSearchFilterSortBar.scss
 		z-index: 1;
 		position: absolute;
-		top: $navbar-height;
+		top: v.$navbar-height;
 		background-color: black;
-		opacity: $blurred-background-opacity;
+		opacity: v.$blurred-background-opacity;
 		height: 100vh;
 		width: 100vw;
 	}
@@ -17,15 +17,15 @@
 		// Must be more than listContainerSearchFilterSortBar.scss
 		z-index: 1;
 		position: fixed;
-		top: $navbar-height;
+		top: v.$navbar-height;
 		// Used by JS during resize to give margin to bottom
 		margin-bottom: 20px;
 		border: 5px solid black;
 		border-top: none;
 		border-left: none;
 		background-color: white;
-		height: $create-item-sidebar-height;
-		width: $create-item-sidebar-width;
+		height: v.$create-item-sidebar-height;
+		width: v.$create-item-sidebar-width;
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
 		// Gives sidebar scrolling when content goes beyond height
@@ -34,7 +34,7 @@
 	}
 
 	.create-item-sidebar--taller {
-		height: $create-item-sidebar-height + 100;
+		height: v.$create-item-sidebar-height + 100;
 	}
 
 	.take-up-space {
@@ -42,12 +42,12 @@
 	}
 
 	.x-button {
-		@include back-exit-buttons();
+		@include m.back-exit-buttons();
 		right: 15px;
 	}
 	.x-button:hover,
 	.x-button:active {
-		color: $black;
+		color: v.$black;
 	}
 
 	.padded-container {
@@ -64,7 +64,7 @@
 	.form__errors {
 		display: block;
 		color: red;
-		font-size: $create-item-sidebar-label-font-size;
+		font-size: v.$create-item-sidebar-label-font-size;
 	}
 
 	.form__label,
@@ -72,39 +72,39 @@
 	.form__group-container__input-container__label {
 		float: left;
 		margin-top: 5px;
-		font-size: $create-item-sidebar-label-font-size;
+		font-size: v.$create-item-sidebar-label-font-size;
 	}
 
 	.form__char-counter {
 		float: right;
 		margin: 5px 2px 2px 0px;
-		font-size: $create-item-sidebar-label-font-size;
+		font-size: v.$create-item-sidebar-label-font-size;
 	}
 
 	.form__text-input {
-		margin-top: $create-item-sidebar-text-input-margin-top;
-		margin-bottom: $form-input-margin-bottom;
+		margin-top: v.$create-item-sidebar-text-input-margin-top;
+		margin-bottom: v.$form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
 		box-sizing: border-box;
 		background-color: #e5e5e5;
-		padding: $create-item-sidebar-padding;
+		padding: v.$create-item-sidebar-padding;
 		width: 100%;
-		font-size: $create-item-sidebar-text-input-font-size;
+		font-size: v.$create-item-sidebar-text-input-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
 	.form__textarea {
-		margin-top: $create-item-sidebar-text-input-margin-top;
-		margin-bottom: $form-input-margin-bottom;
+		margin-top: v.$create-item-sidebar-text-input-margin-top;
+		margin-bottom: v.$form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
-		background-color: $light-gray;
-		padding: 4px $create-item-sidebar-padding 4px $create-item-sidebar-padding;
+		background-color: v.$light-gray;
+		padding: 4px v.$create-item-sidebar-padding 4px v.$create-item-sidebar-padding;
 		height: 150px;
 		width: 100%;
-		font-size: $create-item-sidebar-text-input-font-size;
-		line-height: $common-line-height;
+		font-size: v.$create-item-sidebar-text-input-font-size;
+		line-height: v.$common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
 		// sizing
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -128,10 +128,10 @@
 
 	.form__group-container__input-container__date {
 		margin-top: 2px;
-		margin-bottom: $form-input-margin-bottom;
+		margin-bottom: v.$form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
-		background-color: $light-gray;
+		background-color: v.$light-gray;
 		// Width is 97% since date boxes extend past conatiner
 		width: 97%;
 		// one pixel smaller than associated label
@@ -140,9 +140,9 @@
 
 	.form__group-container__input-container__select {
 		margin-top: 2px;
-		margin-bottom: $form-input-margin-bottom;
+		margin-bottom: v.$form-input-margin-bottom;
 		border: 1px solid gray;
-		background-color: $light-gray;
+		background-color: v.$light-gray;
 		width: 100%;
 		// one pixel smaller than associated label
 		font-size: 13px;
@@ -168,13 +168,13 @@
 	// These classes are used by the custom hook that handles appearance
 	// ...of completion date based of the status of the project
 	.grayed-out-unclickable-label {
-		color: $medium-light-gray;
+		color: v.$medium-light-gray;
 		pointer-events: none;
 	}
 
 	.grayed-out-unclickable-date {
 		background-color: white;
-		color: $medium-light-gray;
+		color: v.$medium-light-gray;
 		pointer-events: none;
 	}
 }

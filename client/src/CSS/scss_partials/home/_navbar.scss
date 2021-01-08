@@ -1,5 +1,5 @@
-@import "../utils/variables";
-@import "../utils//mixins";
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
 
 .navbar-and-other-components-container {
 	position: fixed;
@@ -11,7 +11,7 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
-		height: $navbar-height;
+		height: v.$navbar-height;
 		width: 100%;
 	}
 
@@ -22,7 +22,7 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
-		height: $navbar-height;
+		height: v.$navbar-height;
 	}
 
 	.navbar-button--invisible {
@@ -37,11 +37,11 @@
 	}
 
 	/* .navbar-button--selected {
-		background-color: $light-navy-blue;
+		background-color: v.$light-navy-blue;
 	} */
 
 	.navbar-button__text-container {
-		@include stop-text-selection();
+		@include m.stop-text-selection();
 
 		margin: 18px 16px 0px 16px;
 		font-family: Verdana, Geneva, sans-serif;
@@ -56,7 +56,7 @@
 
 	.navbar-button__text-container__item-name {
 		margin: 18px 0px 0px 8px;
-		color: $yellow;
+		color: v.$yellow;
 		font-style: italic;
 	}
 
@@ -64,7 +64,7 @@
 		position: absolute;
 		top: 5px;
 		right: 5px;
-		background-color: $light-red;
+		background-color: v.$light-red;
 		border-radius: 100%;
 		height: 16px;
 		width: 16px;
@@ -73,13 +73,13 @@
 	}
 	.navbar-button__close-button__text-container:hover,
 	.navbar-button__close-button__text-container:active {
-		background-color: $bright-red;
+		background-color: v.$bright-red;
 		opacity: 1;
 	}
 
 	.navbar-button__close-button__text-container__icon {
-		@include stop-text-selection();
-		@include dead-center();
+		@include m.stop-text-selection();
+		@include m.dead-center();
 
 		color: white;
 		font-size: 12px;

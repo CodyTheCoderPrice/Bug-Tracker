@@ -16,8 +16,6 @@ import { useSubmitFormOnEnter } from "../../../../utils/hooks";
 // Components
 import ItemContainerCommentsBoxIndividualComment from "./ItemContainerCommentsBoxIndividualComment";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerCommentBox.scss";
-
 export default function ItemContainerCommentsBox() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

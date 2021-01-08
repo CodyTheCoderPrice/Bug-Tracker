@@ -1,18 +1,18 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 .list-table-component,
 .js-calc-list-table-component {
 	position: fixed;
-	top: $navbar-height + $search-filter-sort-bar-height +
-		$search-filter-sort-bar-border-width;
+	top: v.$navbar-height + v.$search-filter-sort-bar-height +
+		v.$search-filter-sort-bar-border-width;
 	left: 0px;
-	background-color: $list-table-background-color;
+	background-color: v.$list-table-background-color;
 	// Height and width values were found through trial and error
 	// ...to make modal resize (using js) look less jumpy
 	height: 90vh;
 	width: 100%;
-	font-size: $base-font-size;
+	font-size: v.$base-font-size;
 	font-family: Arial, Helvetica, sans-serif;
 	overflow-y: auto !important;
 	overflow-x: auto !important;
@@ -22,26 +22,26 @@
 		position: relative;
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
-		min-width: $list-table-min-width;
+		min-width: v.$list-table-min-width;
 	}
 
 	.list-table__row,
 	.js-calc-list-table__row {
 		padding: 5px;
-		height: $list-item-table-row-height;
+		height: v.$list-item-table-row-height;
 		text-align: center;
 	}
 
 	.list-table__row--hover-highlight:hover {
-		background-color: $very-light-gray;
+		background-color: v.$very-light-gray;
 	}
 
 	.list-table__row--selected {
-		background-color: $less-light-gray;
+		background-color: v.$less-light-gray;
 	}
 
 	.list-table__row--empty {
-		height: $list-item-table-row-height + ($list-item-table-row-height * 0.5);
+		height: v.$list-item-table-row-height + (v.$list-item-table-row-height * 0.5);
 	}
 
 	.list-table__header {
@@ -50,10 +50,10 @@
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0px;
-		background-color: $list-table-background-color;
+		background-color: v.$list-table-background-color;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
-		box-shadow: 0 1px 0 $medium-gray;
+		box-shadow: 0 1px 0 v.$medium-gray;
 		width: 300px;
 	}
 
@@ -63,7 +63,7 @@
 	}
 
 	.list-table__header__mass-delete-options-container {
-		@include dead-center();
+		@include m.dead-center();
 		width: 100%;
 	}
 
@@ -83,28 +83,28 @@
 	}
 
 	.list-table__data {
-		@include border-line();
+		@include m.border-line();
 
 		padding: 0px 7px 0px 7px;
 		cursor: default;
 	}
 
 	.list-table__data--overflow {
-		/* width: $list-table-item-name-width; */
-		max-width: $list-table-item-name-width;
+		/* width: v.$list-table-item-name-width; */
+		max-width: v.$list-table-item-name-width;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
 	.list-table__data--completed-color {
-		color: $status-green;
+		color: v.$status-green;
 		//font-weight: bold;
 	}
 
 	.list-table__data__info__completed-icon {
 		margin-right: 5px;
-		color: $status-green;
+		color: v.$status-green;
 	}
 
 	.list-table__data__checkbox {
@@ -118,18 +118,18 @@
 	}
 
 	.list-table__data__centering-container__status-box {
-		@include dead-center();
+		@include m.dead-center();
 
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to a status-box.
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
-		height: $status-box-height;
-		width: $status-box-width;
+		height: v.$status-box-height;
+		width: v.$status-box-width;
 	}
 
 	.list-table__data__centering-container__status-box__centered-info {
-		@include dead-center();
+		@include m.dead-center();
 
 		color: white;
 		white-space: nowrap;
@@ -145,11 +145,11 @@
 	}
 
 	.empty-list-message-centering-container__message {
-		@include dead-center();
+		@include m.dead-center();
 		
 		width: 90%;
 		text-align: center;
-		font-size: $list-container-empty-list-message-font-size;
+		font-size: v.$list-container-empty-list-message-font-size;
 		color: gray;
 	}
 }

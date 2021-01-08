@@ -12,8 +12,6 @@ import {
 	getProjectOrBugTextColorClassName,
 } from "../../../../utils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerDisplayItemInfo.scss";
-
 export default function ItemContainerDisplayItemInfo(props) {
 	const reduxState = useSelector((state) => state);
 

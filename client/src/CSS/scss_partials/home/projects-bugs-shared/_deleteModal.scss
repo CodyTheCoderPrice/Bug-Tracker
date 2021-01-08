@@ -1,5 +1,5 @@
-@import "../../utils/variables";
-@import "../../utils/mixins";
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
 
 .delete-modal-component {
 	.blurred-background {
@@ -7,10 +7,10 @@
 		// ...and itemContainer.scss
 		z-index: 1;
 		position: fixed;
-		top: $navbar-height;
+		top: v.$navbar-height;
 		left: 0px;
 		background-color: black;
-		opacity: $blurred-background-opacity;
+		opacity: v.$blurred-background-opacity;
 		height: 100vh;
 		width: 100vw;
 	}
@@ -48,7 +48,7 @@
 	}
 
 	.centered-buttons-container {
-		@include horizontal-center();
+		@include m.horizontal-center();
 
 		top: 110px;
 		width: 265px;
@@ -57,7 +57,7 @@
 	.centered-buttons-container__delete {
 		float: left;
 		border: 1px solid black;
-		background-color: $dark-red;
+		background-color: v.$dark-red;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
 		padding: 10px 0px 10px 0px;
@@ -71,7 +71,7 @@
 	}
 	.centered-buttons-container__delete:hover,
 	.centered-buttons-container__delete:active {
-		background-color: $darker-red;
+		background-color: v.$darker-red;
 	}
 
 	.centered-buttons-container__cancel {

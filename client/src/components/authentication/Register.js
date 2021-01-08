@@ -8,8 +8,6 @@ import {
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
 
-import "../../SCSS/authentication/registerLogin.scss";
-
 export default function Register() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

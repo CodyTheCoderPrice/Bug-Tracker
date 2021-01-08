@@ -8,8 +8,6 @@ import {
 // Components
 import ItemContainerBugListRow from "./ItemContainerBugListRow";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerBugListTableAndRows.scss";
-
 export default function ItemContainerBugList() {
 	const reduxState = useSelector((state) => state);
 

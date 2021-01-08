@@ -32,8 +32,6 @@ import {
 	getProjectOrBugBackgroundColorClassNameLight,
 } from "../../utils";
 
-import "../../SCSS/home/navbar.scss";
-
 export default function Navbar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

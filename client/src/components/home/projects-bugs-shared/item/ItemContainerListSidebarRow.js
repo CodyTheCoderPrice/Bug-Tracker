@@ -13,8 +13,6 @@ import {
 
 import { getProjectOrBugTextColorClassName } from "../../../../utils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerSidebarTableAndRows.scss";
-
 export default function ItemContainerListSidebarRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

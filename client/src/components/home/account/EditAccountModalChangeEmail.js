@@ -17,8 +17,6 @@ import {
 	getProjectOrBugTextColorClassName,
 } from "../../../utils";
 
-import "../../../SCSS/home/account/editAccountModals.scss";
-
 export default function EditAccountModalChangeEmail() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

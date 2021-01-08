@@ -16,8 +16,6 @@ import {
 	getProjectOrBugTextColorClassName,
 } from "../../../utils";
 
-import "../../../SCSS/home/account/editAccountModals.scss";
-
 export default function EditAccountModalChangePassword() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

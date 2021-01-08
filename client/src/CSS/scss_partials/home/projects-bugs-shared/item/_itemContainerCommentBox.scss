@@ -1,5 +1,5 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 // This file is for SCSS used only by the ItemContainerCommentBox component
 // ...SCSS shared with other components is in itemContainer.scss
@@ -11,7 +11,7 @@
 	}
 
 	.form-submit-centering-container__button {
-		@include dead-center();
+		@include m.dead-center();
 		border: 1px solid black;
 		outline: none;
 		// This background color should only appear if there was a problem

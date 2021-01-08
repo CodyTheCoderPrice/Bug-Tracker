@@ -1,5 +1,5 @@
-@import "../../utils/variables";
-@import "../../utils//mixins";
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
 
 .edit-account-modal-component {
 	.edit-account-modal {
@@ -12,28 +12,28 @@
 		border: 5px solid black;
 		background-color: white;
 		padding: 30px;
-		height: $edit-account-modal-height;
-		width: $edit-account-modal-width;
+		height: v.$edit-account-modal-height;
+		width: v.$edit-account-modal-width;
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
 	.back-button {
-		@include back-exit-buttons();
+		@include m.back-exit-buttons();
 		left: 15px;
 	}
 	.back-button:hover,
 	.back-button:active {
-		color: $black;
+		color: v.$black;
 	}
 
 	.exit-button {
-		@include back-exit-buttons();
+		@include m.back-exit-buttons();
 		right: 15px;
 	}
 	.exit-button:hover,
 	.exit-button:active {
-		color: $black;
+		color: v.$black;
 	}
 
 	.title {
@@ -60,11 +60,11 @@
 
 	.form__text-input {
 		margin-top: 5px;
-		margin-bottom: $form-input-margin-bottom;
+		margin-bottom: v.$form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
 		box-sizing: border-box;
-		background: $light-gray;
+		background: v.$light-gray;
 		padding: 8px;
 		width: 100%;
 		font-size: 14px;
@@ -84,7 +84,7 @@
 
 	.form__submit {
 		margin-top: 10px;
-		margin-bottom: $form-input-margin-bottom;
+		margin-bottom: v.$form-input-margin-bottom;
 		outline: none;
 		border: 0;
 		// This background color should only appear if there was a problem
@@ -101,7 +101,7 @@
 	.modal-links-container {
 		position: absolute;
 		bottom: 30px;
-		width: $edit-account-modal-width;
+		width: v.$edit-account-modal-width;
 		text-align: center;
 	}
 

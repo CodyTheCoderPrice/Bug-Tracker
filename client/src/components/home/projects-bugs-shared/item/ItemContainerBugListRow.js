@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 
 import { getElementSize } from "../../../../utils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerBugListTableAndRows.scss";
-
 export default function ItemContainerBugListRow(props) {
 	const reduxState = useSelector((state) => state);
 

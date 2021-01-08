@@ -1,13 +1,13 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 // This file is for SCSS used only by the ItemContainerDisplayInfo component
-// ...SCSS shared with other components is in itemContainer.scss 
+// ...SCSS shared with other components is in itemContainer.scss
 .item-container-component {
 	.item-name {
 		margin: 32px 0px 20px 0px;
 		text-align: center;
-		font-size: $item-container-name-font-size;
+		font-size: v.$item-container-name-font-size;
 	}
 
 	.item-box__group__field__type {
@@ -17,33 +17,33 @@
 	.item-box__group__field__centering-container {
 		position: relative;
 		display: inline-block;
-		height: $status-box-height;
+		height: v.$status-box-height;
 		width: 55px;
 	}
 
 	.item-box__group__field__centering-container__type {
-		@include vertical-center();
+		@include m.vertical-center();
 	}
 
 	.item-box__group__field_content {
-		margin-left: $display-item-field-margin-left;
+		margin-left: v.$display-item-field-margin-left;
 	}
 
 	.item-box__group__field__status-box {
 		position: relative;
 		display: inline-block;
-		margin-left: $display-item-field-margin-left;
+		margin-left: v.$display-item-field-margin-left;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to a status-box.
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
 		color: white;
-		height: $status-box-height;
-		width: $status-box-width;
+		height: v.$status-box-height;
+		width: v.$status-box-width;
 	}
-	
+
 	.item-box__group__field__status-box__centered-content {
-		@include dead-center();
+		@include m.dead-center();
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;

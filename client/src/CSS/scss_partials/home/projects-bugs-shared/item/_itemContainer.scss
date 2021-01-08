@@ -1,25 +1,25 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 .item-container-component,
 .js-calc-item-container-component {
 	.item-container {
 		position: fixed;
-		top: $navbar-height + $top-bar-height + $top-bar-border-width;
+		top: v.$navbar-height + v.$top-bar-height + v.$top-bar-border-width;
 		left: 0px;
 		background-color: white;
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
 		height: 90vh;
 		width: 100vw;
-		font-size: $base-font-size;
+		font-size: v.$base-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto !important;
 		overflow-x: auto !important;
 	}
 
 	.item-container--shifted-right {
-		left: $item-container-list-sidebar-width + $item-container-list-sidebar-border-width;
+		left: v.$item-container-list-sidebar-width + v.$item-container-list-sidebar-border-width;
 		width: 85vw;
 	}
 
@@ -31,18 +31,18 @@
 	}
 
 	.name-completed-color {
-		color: $status-green;
+		color: v.$status-green;
 	}
 
 	.name-completed-icon {
 		margin-right: 5px;
-		color: $status-green;
+		color: v.$status-green;
 	}
 
 	.item-creation-date {
 		margin: 5px;
 		text-align: center;
-		font-size: $slightly-larger-font-size;
+		font-size: v.$slightly-larger-font-size;
 	}
 
 	// Pairs item-boxs together
@@ -56,7 +56,7 @@
 	.js-calc-outer-dividing-container {
 		float: left;
 		width: 100%;
-		min-width: $item-container-outer-dividing-container-min-width;
+		min-width: v.$item-container-outer-dividing-container-min-width;
 	}
 
 	.outer-dividing-container--half-width {
@@ -68,7 +68,7 @@
 		position: relative;
 		margin: 10px;
 		border: 2px solid black;
-		background-color: $light-gray;
+		background-color: v.$light-gray;
 		padding: 0px 20px 20px 20px;
 		overflow-wrap: anywhere;
 	}
@@ -80,11 +80,11 @@
 	}
 
 	.item-box--desciption-info-height {
-		height: $edit-item-description-info-item-box-height;
+		height: v.$edit-item-description-info-item-box-height;
 	}
 
 	.item-box--project-bugs-stats-height {
-		height: $edit-item-project-bugs-stats-item-box-height;
+		height: v.$edit-item-project-bugs-stats-item-box-height;
 	}
 
 	// Used in ItemContainerEditInfo to calculate description size using JS
@@ -97,7 +97,7 @@
 	.item-box__description {
 		display: block;
 		padding: 13px 5px 13px 5px;
-		line-height: $common-line-height;
+		line-height: v.$common-line-height;
 	}
 
 	.item-box__group {
@@ -142,9 +142,9 @@
 		padding: 4px 8px 4px 8px;
 		height: 180px;
 		width: 100%;
-		line-height: $common-line-height;
+		line-height: v.$common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: $base-font-size;
+		font-size: v.$base-font-size;
 		// sizing
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		-moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -157,10 +157,10 @@
 	}
 
 	.item-box__no-bugs-message {
-		@include vertical-center();
+		@include m.vertical-center();
 
 		width: 100%;
-		font-size: $search-filter-sort-create-item-message-font-size;
+		font-size: v.$search-filter-sort-create-item-message-font-size;
 		text-align: center;
 		color: gray;
 	}

@@ -1,33 +1,33 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 .top-bar-component,
 .js-calc-top-bar-component {
 	// Must be more than the item-container in item-container.scss
 	z-index: 1;
 	position: fixed;
-	top: $navbar-height;
-	border-bottom: $top-bar-border-width solid black;
-	background-color: $search-filter-sort-bar-color;
-	height: $top-bar-height;
-	/* height: $search-filter-sort-bar-height; */
+	top: v.$navbar-height;
+	border-bottom: v.$top-bar-border-width solid black;
+	background-color: v.$search-filter-sort-bar-color;
+	height: v.$top-bar-height;
+	/* height: v.$search-filter-sort-bar-height; */
 	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 
 	.outer-search-container,
 	.js-calc-outer-search-container {
-		@include vertical-center();
+		@include m.vertical-center();
 
-		left: $item-search-bar-left;
+		left: v.$item-search-bar-left;
 		// This border color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		border: 0px solid black;
-		width: $item-search-bar-width;
+		width: v.$item-search-bar-width;
 	}
 
 	.outer-search-container--with-border {
-		border-width: $list-item-search-bar-group-container-border-width;
+		border-width: v.$list-item-search-bar-group-container-border-width;
 	}
 
 	.outer-search-container--invisible {
@@ -44,10 +44,10 @@
 		// This border color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
-		border: $list-search-bar-border-width solid black;
-		padding: 0px $list-search-bar-padding 0px $list-search-bar-padding;
-		height: $list-search-bar-height;
-		width: $item-search-bar-width - $list-item-search-bar-button-width;
+		border: v.$list-search-bar-border-width solid black;
+		padding: 0px v.$list-search-bar-padding 0px v.$list-search-bar-padding;
+		height: v.$list-search-bar-height;
+		width: v.$item-search-bar-width - v.$list-item-search-bar-button-width;
 		font-size: 14px;
 	}
 
@@ -59,26 +59,26 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
-		height: $list-search-bar-height;
-		width: $list-item-search-bar-button-width;
+		height: v.$list-search-bar-height;
+		width: v.$list-item-search-bar-button-width;
 		cursor: pointer;
 	}
 
 	.outer-search-container__search-bar-button__icon {
-		@include dead-center();
+		@include m.dead-center();
 		color: white;
 	}
 
 	.filter-container,
 	.js-calc-filter-container {
 		position: absolute;
-		left: $item-search-bar-width + ($item-search-bar-left * 2);
+		left: v.$item-search-bar-width + (v.$item-search-bar-left * 2);
 		/* width: 109px; */
 	}
 
 	.filter-container__button,
 	.js-calc-filter-container__button {
-		@include stop-text-selection();
+		@include m.stop-text-selection();
 
 		// Must be more than filter-container__content-dropdown
 		// ...so its top border can be covered to make the two containers look like one
@@ -87,8 +87,8 @@
 		top: 12px;
 		border: 1px solid black;
 		background-color: white;
-		height: $search-filter-sort-bar-button-height;
-		width: $filter-button-width;
+		height: v.$search-filter-sort-bar-button-height;
+		width: v.$filter-button-width;
 		font-size: 16px;
 		text-align: center;
 		cursor: pointer;
@@ -104,14 +104,14 @@
 
 	.filter-container__button__text--active {
 		font-weight: bold;
-		color: $filter-active-color;
+		color: v.$filter-active-color;
 	}
 
 	.filter-container__button__text {
 		// Used horizontal-center since resize would move the text
-		@include horizontal-center();
+		@include m.horizontal-center();
 		top: 4px;
-		width: $filter-button-width;
+		width: v.$filter-button-width;
 	}
 
 	.filter-container__content-dropdown {
@@ -163,7 +163,7 @@
 	}
 
 	.filter-container__content-dropdown__content__block__label--active {
-		color: $filter-active-color;
+		color: v.$filter-active-color;
 	}
 
 	.item-options-container {
@@ -184,19 +184,19 @@
 		border-bottom: none;
 		background: none;
 		height: 29px;
-		width: $options-button-width;
-		color: $darker-gray;
+		width: v.$options-button-width;
+		color: v.$darker-gray;
 		font-size: 28px;
 		text-align: center;
 		cursor: pointer;
 	}
 	.item-options-container__button:hover,
 	.item-options-container__button:active {
-		color: $black;
+		color: v.$black;
 	}
 
 	.item-options-container__button__text {
-		@include dead-center();
+		@include m.dead-center();
 	}
 
 	.item-options-container__button--clicked {
@@ -228,7 +228,7 @@
 	}
 	.item-options-container__dropdown__option:hover,
 	.item-options-container__dropdown__option:active {
-		background-color: $light-gray;
+		background-color: v.$light-gray;
 	}
 
 	.item-options-container__dropdown__option--no-display {
@@ -240,13 +240,13 @@
 	}
 
 	.x-button {
-		@include back-exit-buttons();
+		@include m.back-exit-buttons();
 		top: 11px;
 		right: 20px;
-		color: $darker-gray;
+		color: v.$darker-gray;
 	}
 	.x-button:hover,
 	.x-button:active {
-		color: $black;
+		color: v.$black;
 	}
 }

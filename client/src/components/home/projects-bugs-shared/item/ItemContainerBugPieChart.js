@@ -10,8 +10,6 @@ import {
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerBugPieChart.scss";
-
 export default function ItemContainerBugPieChart() {
 	const reduxState = useSelector((state) => state);
 

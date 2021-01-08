@@ -13,8 +13,6 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
 
-import "../../../../SCSS/home/projects-bugs-shared/deleteModal.scss";
-
 export default function ItemContainerCommentsBoxIndividualCommentDeleteModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

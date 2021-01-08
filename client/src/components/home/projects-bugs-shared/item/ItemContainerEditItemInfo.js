@@ -27,8 +27,6 @@ import {
 	useSubmitFormOnEnter,
 } from "../../../../utils/hooks";
 
-import "../../../../SCSS/home/projects-bugs-shared/item/itemContainerEditItemInfo.scss";
-
 export default function ItemContainerEditItemInfo(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

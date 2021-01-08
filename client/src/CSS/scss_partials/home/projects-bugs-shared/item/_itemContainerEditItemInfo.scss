@@ -1,5 +1,5 @@
-@import "../../../utils/variables";
-@import "../../../utils//mixins";
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 // This file is for SCSS used only by the ItemContainerEditInfo component
 // ...SCSS shared with other components is in itemContainer.scss
@@ -7,58 +7,58 @@
 	.name-centering-container {
 		position: relative;
 		margin: 20px 0px 9px 0px;
-		height: $edit-item-name-name-centering-container-height;
+		height: v.$edit-item-name-name-centering-container-height;
 		width: 100%;
 		text-align: center;
 	}
 
 	.name-centering-container__form-name-input {
-		@include dead-center;
-		border: $edit-item-name-input-border-width solid black;
-		border-right: $edit-item-name-input-border-width dotted $medium-light-gray;
+		@include m.dead-center;
+		border: v.$edit-item-name-input-border-width solid black;
+		border-right: v.$edit-item-name-input-border-width dotted v.$medium-light-gray;
 		background-color: white;
-		padding: $edit-item-name-input-padding;
-		height: $edit-item-name-input-height;
-		width: $edit-item-name-input-width;
+		padding: v.$edit-item-name-input-padding;
+		height: v.$edit-item-name-input-height;
+		width: v.$edit-item-name-input-width;
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: $item-container-name-font-size;
+		font-size: v.$item-container-name-font-size;
 		font-weight: bold;
 		text-align: center;
 	}
 
 	.name-centering-container__completed-icon-centering-container {
-		@include dead-center;
+		@include m.dead-center;
 
 		// Margin-right does nothing so using margin-left but making the value negative
-		margin-left: -($edit-item-name-input-width / 2) - $edit-item-name-input-border-width -
-			$edit-item-name-input-padding - ($edit-item-name-char-counter-container-width / 2);
-		height: $edit-item-name-name-centering-container-height;
-		width: $edit-item-name-char-counter-container-width;
+		margin-left: -(v.$edit-item-name-input-width / 2) - v.$edit-item-name-input-border-width -
+			v.$edit-item-name-input-padding - (v.$edit-item-name-char-counter-container-width / 2);
+		height: v.$edit-item-name-name-centering-container-height;
+		width: v.$edit-item-name-char-counter-container-width;
 	}
 
 	.name-centering-container__completed-icon-centering-container__icon {
-		@include dead-center;
+		@include m.dead-center;
 
-		color: $status-green;
-		font-size: $item-container-name-font-size;
+		color: v.$status-green;
+		font-size: v.$item-container-name-font-size;
 	}
 
 	.name-centering-container__char-count-centering-container {
-		@include dead-center;
+		@include m.dead-center;
 
-		margin-left: ($edit-item-name-input-width / 2) + $edit-item-name-input-border-width +
-			$edit-item-name-input-padding + ($edit-item-name-char-counter-container-width / 2);
-		border: $edit-item-name-input-border-width solid black;
-		border-left: $edit-item-name-input-border-width solid transparent;
-		height: $edit-item-name-name-centering-container-height - ($edit-item-name-input-border-width * 2);
-		width: $edit-item-name-char-counter-container-width;
+		margin-left: (v.$edit-item-name-input-width / 2) + v.$edit-item-name-input-border-width +
+			v.$edit-item-name-input-padding + (v.$edit-item-name-char-counter-container-width / 2);
+		border: v.$edit-item-name-input-border-width solid black;
+		border-left: v.$edit-item-name-input-border-width solid transparent;
+		height: v.$edit-item-name-name-centering-container-height - (v.$edit-item-name-input-border-width * 2);
+		width: v.$edit-item-name-char-counter-container-width;
 	}
 
 	// This character counter is only for name in ItemContainerEditInfo
 	.name-centering-container__char-count-centering-container__name-char-counter {
-		@include dead-center;
+		@include m.dead-center;
 
-		font-size: $slightly-larger-font-size;
+		font-size: v.$slightly-larger-font-size;
 	}
 
 	.item-box__group__field__form-label {
@@ -138,7 +138,7 @@
 	}
 
 	.form-buttons-centered-container__cancel-button {
-		@include stop-text-selection();
+		@include m.stop-text-selection();
 
 		float: right;
 		border: 1px solid black;
@@ -159,13 +159,13 @@
 	// These classes are used by the custom hook that handles appearance
 	// ...of completion date based of the status of the project
 	.grayed-out-unclickable-label {
-		color: $medium-light-gray;
+		color: v.$medium-light-gray;
 		pointer-events: none;
 	}
 
 	.grayed-out-unclickable-date {
-		background-color: $light-gray;
-		color: $medium-light-gray;
+		background-color: v.$light-gray;
+		color: v.$medium-light-gray;
 		pointer-events: none;
 	}
 
@@ -183,6 +183,6 @@
 
 	.form-errors--item-name {
 		margin: 15px 0px 11px 0px;
-		font-size: $slightly-larger-font-size;
+		font-size: v.$slightly-larger-font-size;
 	}
 }

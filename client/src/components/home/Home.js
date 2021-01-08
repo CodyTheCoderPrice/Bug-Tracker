@@ -20,8 +20,6 @@ import EditAccountModal from "./account/EditAccountModal";
 import ListContainer from "./projects-bugs-shared/list/ListContainer";
 import ItemContainer from "./projects-bugs-shared/item/ItemContainer";
 
-import "../../SCSS/home/home.scss";
-
 export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

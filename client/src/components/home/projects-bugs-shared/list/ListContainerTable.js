@@ -18,8 +18,6 @@ import { getElementLocation, searchFilterSort } from "../../../../utils";
 import ListTableRow from "./ListContainerTableRow";
 import ListTableSortArrowsButton from "./ListContainerTableSortArrowsButton";
 
-import "../../../../SCSS/home/projects-bugs-shared/list/listContainerTableAndRows.scss";
-
 export default function ListContainerTable(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

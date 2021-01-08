@@ -18,8 +18,6 @@ import {
 
 import { useSidebarResize } from "../../../utils/hooks";
 
-import "../../../SCSS/home/account/accountSidebar.scss";
-
 export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

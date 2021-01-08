@@ -18,8 +18,6 @@ import {
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
 
-import "../../../../SCSS/home/projects-bugs-shared/list/listContainerSearchFilterSortBar.scss";
-
 export default function ListContainerSearchFilterSortBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
