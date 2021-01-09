@@ -7,7 +7,7 @@ import sortArrowsBothEmpty from "../../../../images/sort-arrows-both-empty.svg";
 import sortArrowsTopFilled from "../../../../images/sort-arrows-top-filled.svg";
 import sortArrowsBottomFilled from "../../../../images/sort-arrows-bottom-filled.svg";
 
-export default function ListContainerTableSortArrowsButton(props) {
+export default function ListViewTableSortArrowsButton(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 

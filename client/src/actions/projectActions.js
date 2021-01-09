@@ -31,7 +31,7 @@ export const setProjects = (list) => (dispatch) => {
 /**
  * Calls /api/project/create route to create a new project in the database, 
  * store the updated projects list in the project container of the redux 
- * state, and close the listContainerCreateItemSidbar
+ * state, and close the listViewCreateItemSidbar
  *
  * @param {JSON} projectInfo - JSON containing the info to create a new project
  * @param {JSON} projectComponentsDisplay - JSON from redux state containing
@@ -48,11 +48,11 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 			dispatch(setProjects(projects));
 
 			// project creation was succesful, so closing the
-			// ...listContainerCreateItemSidbar
+			// ...listViewCreateItemSidbar
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
-					listContainerCreateItemSidbar: false,
+					listViewCreateItemSidbar: false,
 				})
 			);
 		})
@@ -93,7 +93,7 @@ export const retrieveProjects = () => (dispatch) => {
 /**
  * Calls api/project/update route to update a project in the database, store
  * the updated projects list in the project container of the redux state, and
- * close the itemContainerEditItemInfo
+ * close the itemViewEditItemInfo
  *
  * @param {JSON} projectInfo - JSON containing the info to update a project
  * @param {JSON} projectComponentsDisplay - JSON from redux state containing
@@ -109,7 +109,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
 
-			// project update was succesful, so closing itemContainerEditItemInfo
+			// project update was succesful, so closing itemViewEditItemInfo
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
@@ -121,7 +121,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 							: projects.filter((project) => {
 									return project.id === projectInfo.id;
 							  })[0],
-					itemContainerEditItemInfo: false,
+					itemViewEditItemInfo: false,
 				})
 			);
 		})
@@ -141,10 +141,10 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
  * the updated projects, bugs, and comments list in their corresponding
  * containers in the redux state, update the massDeleteList (if it contained
  * the deleted project) in the project container of the redux state, and close
- * the itemContainerDeleteModal
+ * the itemViewDeleteModal
  *
  * @param {JSON} idJson - JSON containing the id of the project to be deleted
- * (explaination for why JSON instead of Number in ItemContainerDeleteModal)
+ * (explaination for why JSON instead of Number in ItemViewDeleteModal)
  * @param {Number[]} massDeleteList - array of ids for projects to be mass
  * deleted
  */
@@ -174,10 +174,10 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
 				);
 			}
 
-			// project deletion was succesful, so closing itemContainerDeleteModal
+			// project deletion was succesful, so closing itemViewDeleteModal
 			dispatch(
 				setWhichProjectComponentsDisplay({
-					listContainer: true,
+					listView: true,
 				})
 			);
 		})
@@ -196,7 +196,7 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
  * Calls /api/project/delete-multiple route to delete multiple projects in the
  * database, store the updated projects, bugs, and comments list in their
  * corresponding containers in the redux state, empty the massDeleteList in the
- * project container of the redux state, and close the itemContainerDeleteModal
+ * project container of the redux state, and close the itemViewDeleteModal
  *
  * @param {Number[]} massDeleteList  - array of ids for projects to be mass
  * deleted
@@ -225,11 +225,11 @@ export const deleteMultipleProjects = (
 			// emptys the massDeleteList in the redux state
 			dispatch(setProjectOrBugMassDeleteList(PROJECT_CONTAINER, []));
 
-			// mass project deletion was succesful, so closing itemContainerDeleteModal
+			// mass project deletion was succesful, so closing itemViewDeleteModal
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
-					listContainerMassDeleteItemsModal: false,
+					listViewMassDeleteItemsModal: false,
 					// if the targetItem was a deleted project, then sets it to null
 					targetItem:
 						projectComponentsDisplay.targetItem === null ||

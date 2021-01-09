@@ -15,10 +15,10 @@ import {
 import { getElementLocation, searchFilterSort } from "../../../../utils";
 
 // Components
-import ListTableRow from "./ListContainerTableRow";
-import ListTableSortArrowsButton from "./ListContainerTableSortArrowsButton";
+import ListTableRow from "./ListViewTableRow";
+import ListTableSortArrowsButton from "./ListViewTableSortArrowsButton";
 
-export default function ListContainerTable(props) {
+export default function ListViewTable(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ export default function ListContainerTable(props) {
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
 			reduxState[SIZE_CONTAINER].constants
-				.listContainerSearchFilterSortBar !== null
+				.listViewSearchFilterSortBar !== null
 		) {
 			const listTableContainerElement = document.getElementsByClassName(
 				"js-list-table-container"
@@ -39,7 +39,7 @@ export default function ListContainerTable(props) {
 			listTableContainerElement.style.height =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.listContainerSearchFilterSortBar
+				reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBar
 					.height +
 				"px";
 
@@ -64,8 +64,8 @@ export default function ListContainerTable(props) {
 					reduxState[SIZE_CONTAINER].variables.window.height -
 					reduxState[SIZE_CONTAINER].variables.navbar.height -
 					reduxState[SIZE_CONTAINER].constants
-						.listContainerSearchFilterSortBar.height -
-					reduxState[SIZE_CONTAINER].constants.listContainerTableRowHeight -
+						.listViewSearchFilterSortBar.height -
+					reduxState[SIZE_CONTAINER].constants.listViewTableRowHeight -
 					reduxState[SIZE_CONTAINER].constants.scrollbar.width +
 					"px";
 			}
@@ -112,7 +112,7 @@ export default function ListContainerTable(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listContainerMassDeleteItemsModal: true,
+				listViewMassDeleteItemsModal: true,
 			})
 		);
 	};
@@ -127,7 +127,7 @@ export default function ListContainerTable(props) {
 					reduxState[ACCOUNT_CONTAINER].componentsDisplay
 				).indexOf(true) > -1 ||
 				reduxState[props.reduxContainerName].componentsDisplay
-					.listContainerCreateItemSidbar === true ||
+					.listViewCreateItemSidbar === true ||
 				(props.reduxContainerName === PROJECT_CONTAINER &&
 					reduxState[props.reduxContainerName].list.length < 1) ||
 				(props.reduxContainerName === BUG_CONTAINER &&

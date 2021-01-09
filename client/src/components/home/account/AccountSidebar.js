@@ -35,7 +35,7 @@ export default function AccountSidebar() {
 
 	const handleLogoutAccount = (e) => {
 		// Makes sure onclick set on the home component for closing
-		// ... itemContainerTopBarOptionsDropdown doesn't intefere
+		// ... itemViewTopBarOptionsDropdown doesn't intefere
 		e.stopPropagation();
 		dispatch(logoutAccount());
 	};
@@ -46,8 +46,8 @@ export default function AccountSidebar() {
 
 	const getSLinkColor = () => {
 		if (
-			reduxState[BUG_CONTAINER].componentsDisplay.listContainer !== true &&
-			reduxState[BUG_CONTAINER].componentsDisplay.itemContainer !== true
+			reduxState[BUG_CONTAINER].componentsDisplay.listView !== true &&
+			reduxState[BUG_CONTAINER].componentsDisplay.itemView !== true
 		) {
 			return getProjectOrBugTextColorClassName(PROJECT_CONTAINER);
 		} else {

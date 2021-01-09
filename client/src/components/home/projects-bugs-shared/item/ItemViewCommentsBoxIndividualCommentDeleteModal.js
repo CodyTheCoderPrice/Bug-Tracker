@@ -1,14 +1,19 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GENERAL_CONTAINER } from "../../../../actions/constants/containerNames";
+import {
+	GENERAL_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
+	COMMENT_CONTAINER,
+} from "../../../../actions/constants/containerNames";
 
 import {
 	clearInputErrors,
-	setWhichProjectOrBugComponentsDisplay,
-	deleteMultipleProjectsOrBugs,
+	deleteComment,
+	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
 
-export default function ListContainerMassDeleteItemsModal(props) {
+export default function ItemViewCommentsBoxIndividualCommentDeleteModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -20,21 +25,27 @@ export default function ListContainerMassDeleteItemsModal(props) {
 		// eslint-disable-next-line
 	}, []);
 
-	const deleteCheckedItems = () => {
+	const deleteThisComment = () => {
 		dispatch(
-			deleteMultipleProjectsOrBugs(
-				props.reduxContainerName,
-				reduxState[props.reduxContainerName].massDeleteList,
-				reduxState[props.reduxContainerName].componentsDisplay
+			deleteComment(
+				{
+					id:
+						reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted
+							.id,
+					project_id:
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+					bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
+				},
+				reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited
 			)
 		);
 	};
 
-	const closeMassDeleteItemsModal = () => {
+	const closeDeleteCommentModal = () => {
 		dispatch(
-			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				...reduxState[props.reduxContainerName].componentsDisplay,
-				listContainerMassDeleteItemsModal: false,
+			setWhichCommentComponentsDisplay({
+				commentBeingEdited:
+					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited,
 			})
 		);
 	};
@@ -52,13 +63,13 @@ export default function ListContainerMassDeleteItemsModal(props) {
 				<div className="centered-buttons-container">
 					<div
 						className="centered-buttons-container__delete"
-						onClick={deleteCheckedItems}
+						onClick={deleteThisComment}
 					>
 						Delete
 					</div>
 					<div
 						className="centered-buttons-container__cancel"
-						onClick={closeMassDeleteItemsModal}
+						onClick={closeDeleteCommentModal}
 					>
 						Cancel
 					</div>

@@ -6,7 +6,7 @@ export function useDescriptionTextAreaResize(
 	itemInfo
 ) {
 	// Adjust description text area size to match the size
-	// ...of the description in ItemContainerDisplayInfo's
+	// ...of the description in ItemViewDisplayInfo's
 	useEffect(() => {
 		const textAreaElement = document.getElementsByClassName(
 			textAreaClassName
@@ -23,7 +23,7 @@ export function useDescriptionTextAreaResize(
 		// eslint-disable-next-line
 	}, []);
 
-	// Adjust description text area size to match ItemContainerDisplayInfo's description
+	// Adjust description text area size to match ItemViewDisplayInfo's description
 	useEffect(() => {
 		let textAreaElement = document.getElementsByClassName(
 			"js-item-description-text-area"

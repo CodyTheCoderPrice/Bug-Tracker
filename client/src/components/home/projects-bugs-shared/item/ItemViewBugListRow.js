@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { getElementSize } from "../../../../utils";
 
-export default function ItemContainerBugListRow(props) {
+export default function ItemViewBugListRow(props) {
 	const reduxState = useSelector((state) => state);
 
 	useEffect(() => {

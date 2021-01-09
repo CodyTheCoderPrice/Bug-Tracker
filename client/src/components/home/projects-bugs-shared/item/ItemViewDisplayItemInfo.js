@@ -12,26 +12,26 @@ import {
 	getProjectOrBugTextColorClassName,
 } from "../../../../utils";
 
-export default function ItemContainerDisplayItemInfo(props) {
+export default function ItemViewDisplayItemInfo(props) {
 	const reduxState = useSelector((state) => state);
 
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].constants
-				.itemContainerOuterDividingContainerMinWidth !== null
+				.itemViewOuterDividingContainerMinWidth !== null
 		) {
 			manageSizeOfItemBoxsInPairContainer(
 				document.getElementsByClassName("js-description-info-pair")[0],
 				"outer-dividing-container--half-width",
 				reduxState[SIZE_CONTAINER].constants
-					.itemContainerOuterDividingContainerMinWidth
+					.itemViewOuterDividingContainerMinWidth
 			);
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].constants
-			.itemContainerOuterDividingContainerMinWidth,
+			.itemViewOuterDividingContainerMinWidth,
 	]);
 
 	const getStatusBoxColorClassName = () => {

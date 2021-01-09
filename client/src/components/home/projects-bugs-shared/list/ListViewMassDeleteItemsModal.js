@@ -1,19 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-	GENERAL_CONTAINER,
-	PROJECT_CONTAINER,
-	BUG_CONTAINER,
-	COMMENT_CONTAINER,
-} from "../../../../actions/constants/containerNames";
+import { GENERAL_CONTAINER } from "../../../../actions/constants/containerNames";
 
 import {
 	clearInputErrors,
-	deleteComment,
-	setWhichCommentComponentsDisplay,
+	setWhichProjectOrBugComponentsDisplay,
+	deleteMultipleProjectsOrBugs,
 } from "../../../../actions";
 
-export default function ItemContainerCommentsBoxIndividualCommentDeleteModal() {
+export default function ListViewMassDeleteItemsModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -25,27 +20,21 @@ export default function ItemContainerCommentsBoxIndividualCommentDeleteModal() {
 		// eslint-disable-next-line
 	}, []);
 
-	const deleteThisComment = () => {
+	const deleteCheckedItems = () => {
 		dispatch(
-			deleteComment(
-				{
-					id:
-						reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted
-							.id,
-					project_id:
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
-					bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
-				},
-				reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited
+			deleteMultipleProjectsOrBugs(
+				props.reduxContainerName,
+				reduxState[props.reduxContainerName].massDeleteList,
+				reduxState[props.reduxContainerName].componentsDisplay
 			)
 		);
 	};
 
-	const closeDeleteCommentModal = () => {
+	const closeMassDeleteItemsModal = () => {
 		dispatch(
-			setWhichCommentComponentsDisplay({
-				commentBeingEdited:
-					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited,
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
+				listViewMassDeleteItemsModal: false,
 			})
 		);
 	};
@@ -63,13 +52,13 @@ export default function ItemContainerCommentsBoxIndividualCommentDeleteModal() {
 				<div className="centered-buttons-container">
 					<div
 						className="centered-buttons-container__delete"
-						onClick={deleteThisComment}
+						onClick={deleteCheckedItems}
 					>
 						Delete
 					</div>
 					<div
 						className="centered-buttons-container__cancel"
-						onClick={closeDeleteCommentModal}
+						onClick={closeMassDeleteItemsModal}
 					>
 						Cancel
 					</div>

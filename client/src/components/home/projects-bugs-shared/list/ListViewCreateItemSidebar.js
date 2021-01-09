@@ -25,7 +25,7 @@ import {
 	useSubmitFormOnEnter,
 } from "../../../../utils/hooks";
 
-export default function ListContainerCreateItemSidebar(props) {
+export default function ListViewCreateItemSidebar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -157,7 +157,7 @@ export default function ListContainerCreateItemSidebar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listContainerCreateItemSidbar: false,
+				listViewCreateItemSidbar: false,
 			})
 		);
 	};

@@ -5,12 +5,12 @@ const initialState = {
 	login: true,
 	home: false,
 	// In general container since value should be the same for projects and bugs
-	itemContainerListSidebar: true,
-	// Has the user set itemContainerListSidebar, or has it only been auto decided
-	itemContainerListSidebarUserSet: false,
-	// In general container since project and bug itemContainer are never open
+	itemViewListSidebar: true,
+	// Has the user set itemViewListSidebar, or has it only been auto decided
+	itemViewListSidebarUserSet: false,
+	// In general container since project and bug itemView are never open
 	// ...at the same time and implementation for closing it is easier here
-	itemContainerTopBarOptionsDropdown: false,
+	itemViewTopBarOptionsDropdown: false,
 };
 
 // Ternary operator is used to set undefined components to false since
@@ -27,17 +27,17 @@ export default function (state = initialState, action) {
 				login:
 					action.displays.login !== undefined ? action.displays.login : false,
 				home: action.displays.home !== undefined ? action.displays.home : false,
-				itemContainerListSidebar:
-					action.displays.itemContainerListSidebar !== undefined
-						? action.displays.itemContainerListSidebar
+				itemViewListSidebar:
+					action.displays.itemViewListSidebar !== undefined
+						? action.displays.itemViewListSidebar
 						: true,
-				itemContainerListSidebarUserSet:
-					action.displays.itemContainerListSidebarUserSet !== undefined
-						? action.displays.itemContainerListSidebarUserSet
+				itemViewListSidebarUserSet:
+					action.displays.itemViewListSidebarUserSet !== undefined
+						? action.displays.itemViewListSidebarUserSet
 						: false,
-				itemContainerTopBarOptionsDropdown:
-					action.displays.itemContainerTopBarOptionsDropdown !== undefined
-						? action.displays.itemContainerTopBarOptionsDropdown
+				itemViewTopBarOptionsDropdown:
+					action.displays.itemViewTopBarOptionsDropdown !== undefined
+						? action.displays.itemViewTopBarOptionsDropdown
 						: false,
 			};
 		default:

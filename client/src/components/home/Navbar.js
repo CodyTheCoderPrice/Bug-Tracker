@@ -21,12 +21,12 @@ import {
 	getWindowSize,
 	getElementSize,
 	calcScrollbarWidth,
-	calcListContainerSearchFilterSortBarHeight,
-	calcListContainerTableRowHeight,
+	calcListViewSearchFilterSortBarHeight,
+	calcListViewTableRowHeight,
 	calcViewItemTopBarHeight,
-	calcItemContainerListSidebarWidth,
-	calcItemContainerOuterDividingContainerMinWidth,
-	calcItemContainerPaddingContainerPadding,
+	calcItemViewListSidebarWidth,
+	calcItemViewOuterDividingContainerMinWidth,
+	calcItemViewPaddingContainerPadding,
 	getCurrentContainerName,
 	getProjectOrBugBackgroundColorClassNameDark,
 	getProjectOrBugBackgroundColorClassNameLight,
@@ -44,12 +44,12 @@ export default function Navbar() {
 				navbarAccountButton: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
 				),
-				listContainerSearchFilterSortBar: calcListContainerSearchFilterSortBarHeight(),
-				listContainerTableRowHeight: calcListContainerTableRowHeight(),
-				itemContainerTopBar: calcViewItemTopBarHeight(),
-				itemContainerListSidebar: calcItemContainerListSidebarWidth(),
-				itemContainerOuterDividingContainerMinWidth: calcItemContainerOuterDividingContainerMinWidth(),
-				itemContainerPaddingContainerPadding: calcItemContainerPaddingContainerPadding(),
+				listViewSearchFilterSortBar: calcListViewSearchFilterSortBarHeight(),
+				listViewTableRowHeight: calcListViewTableRowHeight(),
+				itemViewTopBar: calcViewItemTopBarHeight(),
+				itemViewListSidebar: calcItemViewListSidebarWidth(),
+				itemViewOuterDividingContainerMinWidth: calcItemViewOuterDividingContainerMinWidth(),
+				itemViewPaddingContainerPadding: calcItemViewPaddingContainerPadding(),
 			})
 		);
 
@@ -138,17 +138,17 @@ export default function Navbar() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState[PROJECT_CONTAINER].componentsDisplay,
-				listContainerCreateItemSidbar: false,
-				itemContainerDeleteModal: false,
-				listContainerMassDeleteItemsModal: false,
+				listViewCreateItemSidbar: false,
+				itemViewDeleteModal: false,
+				listViewMassDeleteItemsModal: false,
 			})
 		);
 		dispatch(
 			setWhichBugComponentsDisplay({
 				...reduxState[BUG_CONTAINER].componentsDisplay,
-				listContainerCreateItemSidbar: false,
-				itemContainerDeleteModal: false,
-				listContainerMassDeleteItemsModal: false,
+				listViewCreateItemSidbar: false,
+				itemViewDeleteModal: false,
+				listViewMassDeleteItemsModal: false,
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));
@@ -156,16 +156,16 @@ export default function Navbar() {
 
 	const openProjects = () => {
 		if (
-			reduxState[PROJECT_CONTAINER].componentsDisplay.listContainer !== true &&
+			reduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true &&
 			reduxState[PROJECT_CONTAINER].componentsDisplay.itemsContainer !== true
 		) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
-					listContainer:
+					listView:
 						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
 							? true
 							: false,
-					itemContainer:
+					itemView:
 						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
 							? false
 							: true,
@@ -185,16 +185,16 @@ export default function Navbar() {
 
 	const openBugs = () => {
 		if (
-			reduxState[BUG_CONTAINER].componentsDisplay.listContainer !== true &&
-			reduxState[BUG_CONTAINER].componentsDisplay.itemContainer !== true
+			reduxState[BUG_CONTAINER].componentsDisplay.listView !== true &&
+			reduxState[BUG_CONTAINER].componentsDisplay.itemView !== true
 		) {
 			dispatch(
 				setWhichBugComponentsDisplay({
-					listContainer:
+					listView:
 						reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null
 							? true
 							: false,
-					itemContainer:
+					itemView:
 						reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null
 							? false
 							: true,
@@ -212,13 +212,13 @@ export default function Navbar() {
 		}
 	};
 
-	const closeProjectItemContainer = (e) => {
+	const closeProjectItemView = (e) => {
 		e.stopPropagation();
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState[PROJECT_CONTAINER].componentsDisplay,
-				listContainer: true,
-				itemContainer: false,
+				listView: true,
+				itemView: false,
 				targetItem: null,
 			})
 		);
@@ -228,18 +228,18 @@ export default function Navbar() {
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
-	const closeBugItemContainer = (e) => {
+	const closeBugItemView = (e) => {
 		e.stopPropagation();
 		dispatch(
 			setWhichBugComponentsDisplay({
 				...reduxState[BUG_CONTAINER].componentsDisplay,
 				// Keeps the user on their current tab (since the user can close a bug from the project tab)
-				listContainer:
-					reduxState[BUG_CONTAINER].componentsDisplay.listContainer === true ||
-					reduxState[BUG_CONTAINER].componentsDisplay.itemContainer === true
+				listView:
+					reduxState[BUG_CONTAINER].componentsDisplay.listView === true ||
+					reduxState[BUG_CONTAINER].componentsDisplay.itemView === true
 						? true
 						: false,
-				itemContainer: false,
+				itemView: false,
 				targetItem: null,
 			})
 		);
@@ -264,8 +264,8 @@ export default function Navbar() {
 						getProjectOrBugBackgroundColorClassNameDark(
 							getCurrentContainerName(reduxState)
 						) +
-						(reduxState[PROJECT_CONTAINER].componentsDisplay.listContainer ||
-						reduxState[PROJECT_CONTAINER].componentsDisplay.itemContainer
+						(reduxState[PROJECT_CONTAINER].componentsDisplay.listView ||
+						reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
 							? getProjectOrBugBackgroundColorClassNameLight(
 									getCurrentContainerName(reduxState)
 							  )
@@ -289,7 +289,7 @@ export default function Navbar() {
 								</span>
 								<div
 									className="navbar-button__close-button__text-container"
-									onClick={(e) => closeProjectItemContainer(e)}
+									onClick={(e) => closeProjectItemView(e)}
 								>
 									<i
 										className="fa fa-times navbar-button__close-button__text-container__icon"
@@ -310,8 +310,8 @@ export default function Navbar() {
 							) +
 							(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 								null &&
-							(reduxState[BUG_CONTAINER].componentsDisplay.listContainer ||
-								reduxState[BUG_CONTAINER].componentsDisplay.itemContainer)
+							(reduxState[BUG_CONTAINER].componentsDisplay.listView ||
+								reduxState[BUG_CONTAINER].componentsDisplay.itemView)
 								? getProjectOrBugBackgroundColorClassNameLight(
 										getCurrentContainerName(reduxState)
 								  )
@@ -335,7 +335,7 @@ export default function Navbar() {
 									</span>
 									<div
 										className="navbar-button__close-button__text-container"
-										onClick={(e) => closeBugItemContainer(e)}
+										onClick={(e) => closeBugItemView(e)}
 									>
 										<i
 											className="fa fa-times navbar-button__close-button__text-container__icon"

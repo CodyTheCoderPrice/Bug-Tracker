@@ -16,17 +16,17 @@ import {
 } from "../../../../utils";
 
 // Components
-import ItemContainerTopBar from "./ItemContainerTopBar";
-import ItemContainerListSidebar from "./ItemContainerListSidebar";
-import ItemContainerDisplayItemInfo from "./ItemContainerDisplayItemInfo";
-import ItemContainerEditItemInfo from "./ItemContainerEditItemInfo";
-import ItemContainerDeleteModal from "./ItemContainerDeleteModal";
-import ItemContainerBugList from "./ItemContainerBugList";
-import ItemContainerBugPieChart from "./ItemContainerBugPieChart";
-import ItemContainerCommentsBox from "./ItemContainerCommentsBox";
-import ItemContainerCommentsBoxIndividualCommentDeleteModal from "./ItemContainerCommentsBoxIndividualCommentDeleteModal";
+import ItemViewTopBar from "./ItemViewTopBar";
+import ItemViewListSidebar from "./ItemViewListSidebar";
+import ItemViewDisplayItemInfo from "./ItemViewDisplayItemInfo";
+import ItemViewEditItemInfo from "./ItemViewEditItemInfo";
+import ItemViewDeleteModal from "./ItemViewDeleteModal";
+import ItemViewBugList from "./ItemViewBugList";
+import ItemViewBugPieChart from "./ItemViewBugPieChart";
+import ItemViewCommentsBox from "./ItemViewCommentsBox";
+import ItemViewCommentsBoxIndividualCommentDeleteModal from "./ItemViewCommentsBoxIndividualCommentDeleteModal";
 
-export default function ItemContainer(props) {
+export default function ItemView(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -35,28 +35,28 @@ export default function ItemContainer(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemContainerTopBar !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar !== null
+			reduxState[SIZE_CONTAINER].constants.itemViewTopBar !== null &&
+			reduxState[SIZE_CONTAINER].constants.itemViewListSidebar !== null
 		) {
-			const itemContainerElement = document.getElementsByClassName(
+			const itemViewElement = document.getElementsByClassName(
 				"js-item-container"
 			)[0];
 
-			itemContainerElement.style.height =
+			itemViewElement.style.height =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.itemContainerTopBar.height +
+				reduxState[SIZE_CONTAINER].constants.itemViewTopBar.height +
 				"px";
 
 			if (
-				reduxState[GENERAL_CONTAINER].componentsDisplay.itemContainerListSidebar
+				reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
 			) {
-				itemContainerElement.style.width =
+				itemViewElement.style.width =
 					reduxState[SIZE_CONTAINER].variables.window.width -
-					reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar.width +
+					reduxState[SIZE_CONTAINER].constants.itemViewListSidebar.width +
 					"px";
 			} else {
-				itemContainerElement.style.width =
+				itemViewElement.style.width =
 					reduxState[SIZE_CONTAINER].variables.window.width + "px";
 			}
 		}
@@ -65,20 +65,20 @@ export default function ItemContainer(props) {
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER],
 		// eslint-disable-next-line
-		reduxState[GENERAL_CONTAINER].componentsDisplay.itemContainerListSidebar,
+		reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar,
 	]);
 
-	// If user has not set itemContainerListSidebar, then whether it is
+	// If user has not set itemViewListSidebar, then whether it is
 	// ...open or closed will be decided based on the current window size
 	useEffect(() => {
 		if (
 			reduxState[GENERAL_CONTAINER].componentsDisplay
-				.itemContainerListSidebarUserSet === false &&
-			reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar !== null &&
+				.itemViewListSidebarUserSet === false &&
+			reduxState[SIZE_CONTAINER].constants.itemViewListSidebar !== null &&
 			reduxState[SIZE_CONTAINER].constants
-				.itemContainerOuterDividingContainerMinWidth !== null &&
+				.itemViewOuterDividingContainerMinWidth !== null &&
 			reduxState[SIZE_CONTAINER].constants
-				.itemContainerPaddingContainerPadding !== null
+				.itemViewPaddingContainerPadding !== null
 		) {
 			// Instead of putting inn the optimization to re-run once no longer
 			// ...null since it would also re-run every window resize
@@ -89,17 +89,17 @@ export default function ItemContainer(props) {
 
 			const minWidthNeededForNoItemBoxOverflow =
 				reduxState[SIZE_CONTAINER].constants
-					.itemContainerOuterDividingContainerMinWidth +
+					.itemViewOuterDividingContainerMinWidth +
 				reduxState[SIZE_CONTAINER].constants
-					.itemContainerPaddingContainerPadding *
+					.itemViewPaddingContainerPadding *
 					2;
 
 			dispatch(
 				setWhichGeneralComponentsDisplay({
 					...reduxState[GENERAL_CONTAINER].componentsDisplay,
-					itemContainerListSidebar:
+					itemViewListSidebar:
 						windowSize.width -
-							reduxState[SIZE_CONTAINER].constants.itemContainerListSidebar
+							reduxState[SIZE_CONTAINER].constants.itemViewListSidebar
 								.width >=
 						minWidthNeededForNoItemBoxOverflow,
 				})
@@ -114,20 +114,20 @@ export default function ItemContainer(props) {
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].constants
-				.itemContainerOuterDividingContainerMinWidth !== null
+				.itemViewOuterDividingContainerMinWidth !== null
 		) {
 			manageSizeOfItemBoxsInPairContainer(
 				document.getElementsByClassName("js-description-info-pair")[0],
 				"outer-dividing-container--half-width",
 				reduxState[SIZE_CONTAINER].constants
-					.itemContainerOuterDividingContainerMinWidth
+					.itemViewOuterDividingContainerMinWidth
 			);
 			if (props.reduxContainerName === PROJECT_CONTAINER) {
 				manageSizeOfItemBoxsInPairContainer(
 					document.getElementsByClassName("js-project-bugs-info-pair")[0],
 					"outer-dividing-container--half-width",
 					reduxState[SIZE_CONTAINER].constants
-						.itemContainerOuterDividingContainerMinWidth
+						.itemViewOuterDividingContainerMinWidth
 				);
 			}
 		}
@@ -135,31 +135,31 @@ export default function ItemContainer(props) {
 	}, [
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].constants
-			.itemContainerOuterDividingContainerMinWidth,
+			.itemViewOuterDividingContainerMinWidth,
 	]);
 
 	return (
 		<div>
-			<ItemContainerTopBar reduxContainerName={props.reduxContainerName} />
-			<ItemContainerListSidebar reduxContainerName={props.reduxContainerName} />
+			<ItemViewTopBar reduxContainerName={props.reduxContainerName} />
+			<ItemViewListSidebar reduxContainerName={props.reduxContainerName} />
 			{/* Located outside item-container-component so topBar doesn't cover it */}
 			{reduxState[props.reduxContainerName].componentsDisplay
-				.itemContainerDeleteModal ? (
-				<ItemContainerDeleteModal
+				.itemViewDeleteModal ? (
+				<ItemViewDeleteModal
 					reduxContainerName={props.reduxContainerName}
 				/>
 			) : null}
-			{reduxState[BUG_CONTAINER].componentsDisplay.itemContainer === true &&
+			{reduxState[BUG_CONTAINER].componentsDisplay.itemView === true &&
 			reduxState[COMMENT_CONTAINER].componentsDisplay.commentDeleteModal ===
 				true ? (
-				<ItemContainerCommentsBoxIndividualCommentDeleteModal />
+				<ItemViewCommentsBoxIndividualCommentDeleteModal />
 			) : null}
 			<div className="item-container-component">
 				<div
 					className={
 						"item-container js-item-container" +
 						(reduxState[GENERAL_CONTAINER].componentsDisplay
-							.itemContainerListSidebar
+							.itemViewListSidebar
 							? " item-container--shifted-right"
 							: "")
 					}
@@ -167,15 +167,15 @@ export default function ItemContainer(props) {
 					<div className="item-content-container js-item-content-container">
 						<div className="padding-container">
 							{!reduxState[props.reduxContainerName].componentsDisplay
-								.itemContainerEditItemInfo ? (
+								.itemViewEditItemInfo ? (
 								<div>
-									<ItemContainerDisplayItemInfo
+									<ItemViewDisplayItemInfo
 										reduxContainerName={props.reduxContainerName}
 									/>
 								</div>
 							) : (
 								<div>
-									<ItemContainerEditItemInfo
+									<ItemViewEditItemInfo
 										reduxContainerName={props.reduxContainerName}
 									/>
 								</div>
@@ -191,7 +191,7 @@ export default function ItemContainer(props) {
 													reduxState[PROJECT_CONTAINER].componentsDisplay
 														.targetItem.id
 											).length > 0 ? (
-												<ItemContainerBugPieChart />
+												<ItemViewBugPieChart />
 											) : (
 												<div className="item-box__no-bugs-message">
 													This project has no bugs tracked
@@ -210,7 +210,7 @@ export default function ItemContainer(props) {
 													reduxState[PROJECT_CONTAINER].componentsDisplay
 														.targetItem.id
 											).length > 0 ? (
-												<ItemContainerBugList />
+												<ItemViewBugList />
 											) : (
 												<div className="item-box__no-bugs-message">
 													This project has no bugs tracked
@@ -221,7 +221,7 @@ export default function ItemContainer(props) {
 								</div>
 							)}
 							{props.reduxContainerName === PROJECT_CONTAINER ? null : (
-								<ItemContainerCommentsBox />
+								<ItemViewCommentsBox />
 							)}
 						</div>
 					</div>

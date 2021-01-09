@@ -11,9 +11,9 @@ import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 import { searchFilterSort } from "../../../../utils";
 
 // Components
-import ItemContainerListSidebarRow from "./ItemContainerListSidebarRow";
+import ItemViewListSidebarRow from "./ItemViewListSidebarRow";
 
-export default function ItemContainerListSidebar(props) {
+export default function ItemViewListSidebar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -22,18 +22,18 @@ export default function ItemContainerListSidebar(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemContainerTopBar !== null
+			reduxState[SIZE_CONTAINER].constants.itemViewTopBar !== null
 		) {
-			let itemContainerListSidebarElement = document.getElementsByClassName(
+			let itemViewListSidebarElement = document.getElementsByClassName(
 				"js-list-sidebar-component"
 			)[0];
 
 			const adjustedWindowHeight =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.itemContainerTopBar.height;
+				reduxState[SIZE_CONTAINER].constants.itemViewTopBar.height;
 
-			itemContainerListSidebarElement.style.height =
+			itemViewListSidebarElement.style.height =
 				adjustedWindowHeight + "px";
 		}
 		// eslint-disable-next-line
@@ -42,16 +42,16 @@ export default function ItemContainerListSidebar(props) {
 		reduxState[SIZE_CONTAINER].variables,
 		// eslint-disable-next-line
 		reduxState[props.reduxContainerName].componentsDisplay
-			.itemContainerListSidebar,
+			.itemViewListSidebar,
 	]);
 
 	const toggleListSidebar = () => {
 		dispatch(
 			setWhichGeneralComponentsDisplay({
 				...reduxState[GENERAL_CONTAINER].componentsDisplay,
-				itemContainerListSidebar: !reduxState[GENERAL_CONTAINER]
-					.componentsDisplay.itemContainerListSidebar,
-				itemContainerListSidebarUserSet: true,
+				itemViewListSidebar: !reduxState[GENERAL_CONTAINER]
+					.componentsDisplay.itemViewListSidebar,
+				itemViewListSidebarUserSet: true,
 			})
 		);
 	};
@@ -62,7 +62,7 @@ export default function ItemContainerListSidebar(props) {
 				className={
 					"expand-minimize-button js-expand-minimize-button" +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay
-						.itemContainerListSidebar
+						.itemViewListSidebar
 						? " "
 						: " expand-minimize-button--minimized")
 				}
@@ -71,7 +71,7 @@ export default function ItemContainerListSidebar(props) {
 				<div className="expand-minimize-button__centering-container">
 					<div className="expand-minimize-button__centering-container__icon-container">
 						{reduxState[GENERAL_CONTAINER].componentsDisplay
-							.itemContainerListSidebar ? (
+							.itemViewListSidebar ? (
 							<i className="fa fa-chevron-left" aria-hidden="true" />
 						) : (
 							<i className="fa fa-chevron-right" aria-hidden="true" />
@@ -83,7 +83,7 @@ export default function ItemContainerListSidebar(props) {
 				className={
 					"list-sidebar js-list-sidebar" +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay
-						.itemContainerListSidebar
+						.itemViewListSidebar
 						? " "
 						: " list-sidebar--minimized")
 				}
@@ -115,7 +115,7 @@ export default function ItemContainerListSidebar(props) {
 							reduxState[props.reduxContainerName].searchFilterSort
 						).map((item, idx) => {
 							return (
-								<ItemContainerListSidebarRow
+								<ItemViewListSidebarRow
 									key={idx}
 									item={item}
 									reduxContainerName={props.reduxContainerName}

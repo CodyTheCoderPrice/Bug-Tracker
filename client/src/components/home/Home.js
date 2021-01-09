@@ -17,24 +17,24 @@ import AccountBlurredBackground from "./account/AccountBlurredBackground";
 import AccountSidebar from "./account/AccountSidebar";
 import EditAccountModal from "./account/EditAccountModal";
 // Projects & Bugs
-import ListContainer from "./projects-bugs-shared/list/ListContainer";
-import ItemContainer from "./projects-bugs-shared/item/ItemContainer";
+import ListView from "./projects-bugs-shared/list/ListView";
+import ItemView from "./projects-bugs-shared/item/ItemView";
 
 export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Closes itemContainerTopBarOptionsDropdown whenever it is open and user clicks anywhere
-	const closeItemContainerTopBarOptionsDropdown = () => {
+	// Closes itemViewTopBarOptionsDropdown whenever it is open and user clicks anywhere
+	const closeItemViewTopBarOptionsDropdown = () => {
 		// This allows toggleOptionsDropdown to work
 		if (
 			reduxState[GENERAL_CONTAINER].componentsDisplay
-				.itemContainerTopBarOptionsDropdown
+				.itemViewTopBarOptionsDropdown
 		) {
 			dispatch(
 				setWhichGeneralComponentsDisplay({
 					...reduxState[GENERAL_CONTAINER].componentsDisplay,
-					itemContainerTopBarOptionsDropdown: false,
+					itemViewTopBarOptionsDropdown: false,
 				})
 			);
 		}
@@ -43,7 +43,7 @@ export default function Home() {
 	return (
 		<div
 			className="home-container"
-			onClick={closeItemContainerTopBarOptionsDropdown}
+			onClick={closeItemViewTopBarOptionsDropdown}
 		>
 			<Navbar />
 			{/*Account components*/}
@@ -63,18 +63,18 @@ export default function Home() {
 				<EditAccountModal />
 			) : null}
 			{/*Project components*/}
-			{reduxState[PROJECT_CONTAINER].componentsDisplay.listContainer ? (
-				<ListContainer reduxContainerName={PROJECT_CONTAINER} />
+			{reduxState[PROJECT_CONTAINER].componentsDisplay.listView ? (
+				<ListView reduxContainerName={PROJECT_CONTAINER} />
 			) : null}
-			{reduxState[PROJECT_CONTAINER].componentsDisplay.itemContainer ? (
-				<ItemContainer reduxContainerName={PROJECT_CONTAINER} />
+			{reduxState[PROJECT_CONTAINER].componentsDisplay.itemView ? (
+				<ItemView reduxContainerName={PROJECT_CONTAINER} />
 			) : null}
 			{/*Bug components*/}
-			{reduxState[BUG_CONTAINER].componentsDisplay.listContainer ? (
-				<ListContainer reduxContainerName={BUG_CONTAINER} />
+			{reduxState[BUG_CONTAINER].componentsDisplay.listView ? (
+				<ListView reduxContainerName={BUG_CONTAINER} />
 			) : null}
-			{reduxState[BUG_CONTAINER].componentsDisplay.itemContainer ? (
-				<ItemContainer reduxContainerName={BUG_CONTAINER} />
+			{reduxState[BUG_CONTAINER].componentsDisplay.itemView ? (
+				<ItemView reduxContainerName={BUG_CONTAINER} />
 			) : null}
 		</div>
 	);

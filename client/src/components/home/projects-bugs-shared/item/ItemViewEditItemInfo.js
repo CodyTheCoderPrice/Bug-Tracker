@@ -27,7 +27,7 @@ import {
 	useSubmitFormOnEnter,
 } from "../../../../utils/hooks";
 
-export default function ItemContainerEditItemInfo(props) {
+export default function ItemViewEditItemInfo(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -145,27 +145,27 @@ export default function ItemContainerEditItemInfo(props) {
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].constants
-				.itemContainerOuterDividingContainerMinWidth !== null
+				.itemViewOuterDividingContainerMinWidth !== null
 		) {
 			manageSizeOfItemBoxsInPairContainer(
 				document.getElementsByClassName("js-description-info-pair")[0],
 				"outer-dividing-container--half-width",
 				reduxState[SIZE_CONTAINER].constants
-					.itemContainerOuterDividingContainerMinWidth
+					.itemViewOuterDividingContainerMinWidth
 			);
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].constants
-			.itemContainerOuterDividingContainerMinWidth,
+			.itemViewOuterDividingContainerMinWidth,
 	]);
 
 	const switchToDisplayItemInfo = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemContainerEditItemInfo: false,
+				itemViewEditItemInfo: false,
 			})
 		);
 	};

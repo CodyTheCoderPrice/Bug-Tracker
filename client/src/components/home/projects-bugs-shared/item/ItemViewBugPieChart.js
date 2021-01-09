@@ -10,7 +10,7 @@ import {
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
 
-export default function ItemContainerBugPieChart() {
+export default function ItemViewBugPieChart() {
 	const reduxState = useSelector((state) => state);
 
 	const [pieChartSize] = useState(250);

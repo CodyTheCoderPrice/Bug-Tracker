@@ -18,7 +18,7 @@ import {
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
 
-export default function ListContainerSearchFilterSortBar(props) {
+export default function ListViewSearchFilterSortBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -46,7 +46,7 @@ export default function ListContainerSearchFilterSortBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listContainerCreateItemSidbar: true,
+				listViewCreateItemSidbar: true,
 			})
 		);
 		dispatch(setWhichAccountComponentsDisplay({}));

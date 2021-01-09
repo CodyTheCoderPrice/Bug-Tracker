@@ -1,8 +1,8 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-// This file is for SCSS used only by the ItemContainerDisplayInfo component
-// ...SCSS shared with other components is in itemContainer.scss
+// This file is for SCSS used only by the ItemViewDisplayInfo component
+// ...SCSS shared with other components is in itemView.scss
 .item-container-component {
 	.item-name {
 		margin: 32px 0px 20px 0px;

@@ -3,7 +3,7 @@
 
 .create-item-component {
 	.blurred-background {
-		// Must be more than listContainerSearchFilterSortBar.scss
+		// Must be more than listViewSearchFilterSortBar.scss
 		z-index: 1;
 		position: absolute;
 		top: v.$navbar-height;
@@ -14,7 +14,7 @@
 	}
 
 	.create-item-sidebar {
-		// Must be more than listContainerSearchFilterSortBar.scss
+		// Must be more than listViewSearchFilterSortBar.scss
 		z-index: 1;
 		position: fixed;
 		top: v.$navbar-height;

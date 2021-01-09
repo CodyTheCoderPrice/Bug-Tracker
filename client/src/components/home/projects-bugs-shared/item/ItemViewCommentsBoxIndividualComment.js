@@ -22,7 +22,7 @@ import {
 
 import { useSubmitFormOnEnter } from "../../../../utils/hooks";
 
-export default function ItemContainerCommentsBoxIndividualComment(props) {
+export default function ItemViewCommentsBoxIndividualComment(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 

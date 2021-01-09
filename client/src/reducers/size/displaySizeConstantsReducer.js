@@ -5,12 +5,12 @@ const initialState = {
 	navbarAccountButton: null,
 	navbarProjectsButton: null,
 	navbarBugsButton: null,
-	listContainerSearchFilterSortBar: null,
-	listContainerTableRowHeight: null,
-	itemContainerTopBar: null,
-	itemContainerListSidebar: null,
-	itemContainerOuterDividingContainerMinWidth: null,
-	itemContainerPaddingContainerPadding: null,
+	listViewSearchFilterSortBar: null,
+	listViewTableRowHeight: null,
+	itemViewTopBar: null,
+	itemViewListSidebar: null,
+	itemViewOuterDividingContainerMinWidth: null,
+	itemViewPaddingContainerPadding: null,
 };
 
 export default function (state = initialState, action) {
@@ -21,15 +21,15 @@ export default function (state = initialState, action) {
 				navbarAccountButton: action.sizes.navbarAccountButton,
 				navbarProjectsButton: action.sizes.navbarProjectsButton,
 				navbarBugsButton: action.sizes.navbarBugsButton,
-				listContainerSearchFilterSortBar:
-					action.sizes.listContainerSearchFilterSortBar,
-				listContainerTableRowHeight: action.sizes.listContainerTableRowHeight,
-				itemContainerTopBar: action.sizes.itemContainerTopBar,
-				itemContainerListSidebar: action.sizes.itemContainerListSidebar,
-				itemContainerOuterDividingContainerMinWidth:
-					action.sizes.itemContainerOuterDividingContainerMinWidth,
-				itemContainerPaddingContainerPadding:
-					action.sizes.itemContainerPaddingContainerPadding,
+				listViewSearchFilterSortBar:
+					action.sizes.listViewSearchFilterSortBar,
+				listViewTableRowHeight: action.sizes.listViewTableRowHeight,
+				itemViewTopBar: action.sizes.itemViewTopBar,
+				itemViewListSidebar: action.sizes.itemViewListSidebar,
+				itemViewOuterDividingContainerMinWidth:
+					action.sizes.itemViewOuterDividingContainerMinWidth,
+				itemViewPaddingContainerPadding:
+					action.sizes.itemViewPaddingContainerPadding,
 			};
 		default:
 			return state;

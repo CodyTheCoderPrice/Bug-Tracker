@@ -105,9 +105,9 @@ export function getProjectOrBugTextColorClassName(containerName) {
 }
 
 export function getCurrentContainerName(passedReduxState) {
-	return passedReduxState[BUG_CONTAINER].componentsDisplay.listContainer !==
+	return passedReduxState[BUG_CONTAINER].componentsDisplay.listView !==
 		true &&
-		passedReduxState[BUG_CONTAINER].componentsDisplay.itemContainer !== true
+		passedReduxState[BUG_CONTAINER].componentsDisplay.itemView !== true
 		? PROJECT_CONTAINER
 		: BUG_CONTAINER;
 }

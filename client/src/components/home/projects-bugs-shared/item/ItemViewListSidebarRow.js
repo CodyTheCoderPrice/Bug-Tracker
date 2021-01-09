@@ -13,7 +13,7 @@ import {
 
 import { getProjectOrBugTextColorClassName } from "../../../../utils";
 
-export default function ItemContainerListSidebarRow(props) {
+export default function ItemViewListSidebarRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -26,8 +26,8 @@ export default function ItemContainerListSidebarRow(props) {
 		) {
 			dispatch(
 				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-					listContainer: false,
-					itemContainer: true,
+					listView: false,
+					itemView: true,
 					targetItem: props.item,
 				})
 			);
@@ -40,7 +40,7 @@ export default function ItemContainerListSidebarRow(props) {
 		}
 	};
 
-	const openListContainerIfProject = () => {
+	const openListViewIfProject = () => {
 		if (props.reduxContainerName === PROJECT_CONTAINER) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
@@ -50,7 +50,7 @@ export default function ItemContainerListSidebarRow(props) {
 
 			dispatch(
 				setWhichBugComponentsDisplay({
-					listContainer: true,
+					listView: true,
 					// If the project targetItem is not changing, then keep the bug targetItem the same
 					targetItem:
 						props.item.id ===
@@ -86,7 +86,7 @@ export default function ItemContainerListSidebarRow(props) {
 					: " list-sidebar__table__row--hover-highlight")
 			}
 			onClick={changeTargetItem}
-			onDoubleClick={openListContainerIfProject}
+			onDoubleClick={openListViewIfProject}
 		>
 			<td className="list-sidebar__table__data">
 				<div

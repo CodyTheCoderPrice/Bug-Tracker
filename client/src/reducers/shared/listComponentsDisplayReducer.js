@@ -1,12 +1,12 @@
 import { SET_WHICH_LIST_COMPONENTS_DISPLAY } from "../../actions/constants/types";
 
 const initialState = {
-	listContainer: false,
-	listContainerMassDeleteItemsModal: false,
-	listContainerCreateItemSidbar: false,
-	itemContainer: false,
-	itemContainerEditItemInfo: false,
-	itemContainerDeleteModal: false,
+	listView: false,
+	listViewMassDeleteItemsModal: false,
+	listViewCreateItemSidbar: false,
+	itemView: false,
+	itemViewEditItemInfo: false,
+	itemViewDeleteModal: false,
 	targetItem: null,
 };
 
@@ -17,29 +17,29 @@ export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_LIST_COMPONENTS_DISPLAY:
 			return {
-				listContainer:
-					action.displays.listContainer !== undefined
-						? action.displays.listContainer
+				listView:
+					action.displays.listView !== undefined
+						? action.displays.listView
 						: false,
-				listContainerMassDeleteItemsModal:
-					action.displays.listContainerMassDeleteItemsModal !== undefined
-						? action.displays.listContainerMassDeleteItemsModal
+				listViewMassDeleteItemsModal:
+					action.displays.listViewMassDeleteItemsModal !== undefined
+						? action.displays.listViewMassDeleteItemsModal
 						: false,
-				listContainerCreateItemSidbar:
-					action.displays.listContainerCreateItemSidbar !== undefined
-						? action.displays.listContainerCreateItemSidbar
+				listViewCreateItemSidbar:
+					action.displays.listViewCreateItemSidbar !== undefined
+						? action.displays.listViewCreateItemSidbar
 						: false,
-				itemContainer:
-					action.displays.itemContainer !== undefined
-						? action.displays.itemContainer
+				itemView:
+					action.displays.itemView !== undefined
+						? action.displays.itemView
 						: false,
-				itemContainerEditItemInfo:
-					action.displays.itemContainerEditItemInfo !== undefined
-						? action.displays.itemContainerEditItemInfo
+				itemViewEditItemInfo:
+					action.displays.itemViewEditItemInfo !== undefined
+						? action.displays.itemViewEditItemInfo
 						: false,
-				itemContainerDeleteModal:
-					action.displays.itemContainerDeleteModal !== undefined
-						? action.displays.itemContainerDeleteModal
+				itemViewDeleteModal:
+					action.displays.itemViewDeleteModal !== undefined
+						? action.displays.itemViewDeleteModal
 						: false,
 				targetItem:
 					action.displays.targetItem !== undefined

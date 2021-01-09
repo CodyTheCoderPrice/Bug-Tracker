@@ -6,9 +6,9 @@ import {
 } from "../../../../actions/constants/containerNames";
 
 // Components
-import ItemContainerBugListRow from "./ItemContainerBugListRow";
+import ItemViewBugListRow from "./ItemViewBugListRow";
 
-export default function ItemContainerBugList() {
+export default function ItemViewBugList() {
 	const reduxState = useSelector((state) => state);
 
 	return (
@@ -29,7 +29,7 @@ export default function ItemContainerBugList() {
 						.slice(0, 5)
 						.map((item, idx) => {
 							return (
-								<ItemContainerBugListRow
+								<ItemViewBugListRow
 									key={idx}
 									idx={idx}
 									item={item}

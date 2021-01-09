@@ -12,7 +12,7 @@ const initialState = {
 	componentsDisplay: {
 		...listComponentsDisplayReducer(undefined, {}),
 		// Overrides listTable since inital state is false for bugContainerReducer
-		listContainer: true,
+		listView: true,
 	},
 	list: listReducer(undefined, {}),
 	searchFilterSort: searchFilterSortReducer(undefined, {}),

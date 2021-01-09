@@ -20,7 +20,7 @@ import {
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
 
-export default function ListContainerTableRow(props) {
+export default function ListViewTableRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -53,7 +53,7 @@ export default function ListContainerTableRow(props) {
 	/* const changeTargetItem = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listContainer: true,
+				listView: true,
 				targetItem: props.item,
 			})
 		);
@@ -71,11 +71,11 @@ export default function ListContainerTableRow(props) {
 		}
 	}; */
 
-	const openItemContainer = () => {
+	const openItemView = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listContainer: false,
-				itemContainer: true,
+				listView: false,
+				itemView: true,
 				targetItem: props.item,
 			})
 		);
@@ -128,7 +128,7 @@ export default function ListContainerTableRow(props) {
 					? " list-table__row--selected"
 					: " list-table__row--hover-highlight")
 			}
-			onClick={openItemContainer}
+			onClick={openItemView}
 		>
 			<td
 				className="list-table__data"

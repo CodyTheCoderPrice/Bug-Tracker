@@ -3,8 +3,8 @@
 
 .delete-modal-component {
 	.blurred-background {
-		// Must be the same or more than listContainerSearchFilterSortBar.scss
-		// ...and itemContainer.scss
+		// Must be the same or more than listViewSearchFilterSortBar.scss
+		// ...and itemView.scss
 		z-index: 1;
 		position: fixed;
 		top: v.$navbar-height;
@@ -16,8 +16,8 @@
 	}
 
 	.delete-account-modal {
-		// Must be the same or more than listContainerSearchFilterSortBar.scss
-		// ...and itemContainer.scss
+		// Must be the same or more than listViewSearchFilterSortBar.scss
+		// ...and itemView.scss
 		z-index: 1;
 		position: fixed;
 		top: 50%;

@@ -30,7 +30,7 @@ export const setBugs = (list) => (dispatch) => {
 /**
  * Calls /api/bug/create route to create a new bug in the database, store the
  * updated bugs list in the bug container of the redux state, and close the
- * listContainerCreateItemSidbar
+ * listViewCreateItemSidbar
  *
  * @param {JSON} bugInfo - JSON containing the info to create a new bug
  * @param {JSON} bugComponentsDisplay - JSON from redux state containing
@@ -45,11 +45,11 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			dispatch(setBugs(bugs));
 
 			// bug creation was succesful, so closing the
-			// ...listContainerCreateItemSidbar
+			// ...listViewCreateItemSidbar
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
-					listContainerCreateItemSidbar: false,
+					listViewCreateItemSidbar: false,
 				})
 			);
 		})
@@ -90,7 +90,7 @@ export const retrieveBugs = () => (dispatch) => {
 /**
  * Calls /api/bug/update route to update a bug in the database, store the
  * updated bugs list in the bug container of the redux state, and close the
- * itemContainerEditItemInfo
+ * itemViewEditItemInfo
  *
  * @param {JSON} bugInfo - JSON containing the info to update a bug
  * @param {JSON} bugComponentsDisplay - JSON from redux state containing
@@ -104,7 +104,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
 
-			// bug update was succesful, so closing itemContainerEditItemInfo
+			// bug update was succesful, so closing itemViewEditItemInfo
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
@@ -116,7 +116,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 							: bugs.filter((bug) => {
 									return bug.id === bugInfo.id;
 							  })[0],
-					itemContainerEditItemInfo: false,
+					itemViewEditItemInfo: false,
 				})
 			);
 		})
@@ -135,7 +135,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * Calls /api/bug/delete route to delete a bug in the database, store the
  * updated bugs and comments list in their corresponding containers in the
  * redux state, update the massDeleteList (if it contained the deleted bug) in
- * the bug container of the redux state, and close the itemContainerDeleteModal
+ * the bug container of the redux state, and close the itemViewDeleteModal
  *
  * @param {JSON} idJson - JSON containing the id of the bug to be deleted
  * and the id of the project it belongs to
@@ -162,10 +162,10 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
 				dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, massDeleteList));
 			}
 
-			// bug deletion was succesful, so closing itemContainerDeleteModal
+			// bug deletion was succesful, so closing itemViewDeleteModal
 			dispatch(
 				setWhichBugComponentsDisplay({
-					listContainer: true,
+					listView: true,
 				})
 			);
 		})
@@ -184,7 +184,7 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
  * Calls /api/bug/delete-multiple route to delete multiple bugs in the database,
  * store the updated bugs and comments list in their corresponding containers
  * in the redux state, empty the massDeleteList in the bug container of the
- * redux state, and close the itemContainerDeleteModal
+ * redux state, and close the itemViewDeleteModal
  *
  * @param {Number[]} massDeleteList - array of ids for bugs to be mass deleted
  * @param {JSON} bugComponentsDisplay - JSON from redux state containing
@@ -206,11 +206,11 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 			// emptys the massDeleteList in the redux state
 			dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, []));
 
-			// mass bug deletion was succesful, so closing itemContainerDeleteModal
+			// mass bug deletion was succesful, so closing itemViewDeleteModal
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
-					listContainerMassDeleteItemsModal: false,
+					listViewMassDeleteItemsModal: false,
 					// if the targetItem was a deleted bug, then sets it to null
 					targetItem:
 						bugComponentsDisplay.targetItem === null ||

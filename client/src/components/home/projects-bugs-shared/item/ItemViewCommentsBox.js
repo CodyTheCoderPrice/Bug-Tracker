@@ -14,9 +14,9 @@ import { getProjectOrBugBackgroundColorClassNameWithHover } from "../../../../ut
 import { useSubmitFormOnEnter } from "../../../../utils/hooks";
 
 // Components
-import ItemContainerCommentsBoxIndividualComment from "./ItemContainerCommentsBoxIndividualComment";
+import ItemViewCommentsBoxIndividualComment from "./ItemViewCommentsBoxIndividualComment";
 
-export default function ItemContainerCommentsBox() {
+export default function ItemViewCommentsBox() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -156,7 +156,7 @@ export default function ItemContainerCommentsBox() {
 					})
 					.map((comment, idx) => {
 						return (
-							<ItemContainerCommentsBoxIndividualComment
+							<ItemViewCommentsBoxIndividualComment
 								key={idx}
 								comment={comment}
 								project_id={

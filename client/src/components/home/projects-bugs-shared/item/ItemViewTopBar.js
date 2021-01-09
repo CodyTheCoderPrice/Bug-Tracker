@@ -22,7 +22,7 @@ import {
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
 
-export default function ItemContainerTopBar(props) {
+export default function ItemViewTopBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -86,8 +86,8 @@ export default function ItemContainerTopBar(props) {
 		dispatch(
 			setWhichGeneralComponentsDisplay({
 				...reduxState[GENERAL_CONTAINER].componentsDisplay,
-				itemContainerTopBarOptionsDropdown: !reduxState[GENERAL_CONTAINER]
-					.componentsDisplay.itemContainerTopBarOptionsDropdown,
+				itemViewTopBarOptionsDropdown: !reduxState[GENERAL_CONTAINER]
+					.componentsDisplay.itemViewTopBarOptionsDropdown,
 			})
 		);
 	};
@@ -96,8 +96,8 @@ export default function ItemContainerTopBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemContainerEditItemInfo: !reduxState[props.reduxContainerName]
-					.componentsDisplay.itemContainerEditItemInfo,
+				itemViewEditItemInfo: !reduxState[props.reduxContainerName]
+					.componentsDisplay.itemViewEditItemInfo,
 			})
 		);
 	};
@@ -106,22 +106,22 @@ export default function ItemContainerTopBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemContainerDeleteModal: true,
+				itemViewDeleteModal: true,
 			})
 		);
 	};
 
-	const closeItemContainer = () => {
+	const closeItemView = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listContainer: true,
-				itemContainer: false,
+				listView: true,
+				itemView: false,
 				targetItem: null,
 			})
 		);
 
-		// Resets bug components display if project itemContainer is closed
+		// Resets bug components display if project itemView is closed
 		if (props.reduxContainerName === PROJECT_CONTAINER) {
 			dispatch(setWhichBugComponentsDisplay({}));
 			dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER));
@@ -135,7 +135,7 @@ export default function ItemContainerTopBar(props) {
 					"outer-search-container js-item-outer-search-container" +
 					getProjectOrBugBorderColorClassNameLight(props.reduxContainerName) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay
-						.itemContainerListSidebar
+						.itemViewListSidebar
 						? " "
 						: " outer-search-container--invisible")
 				}
@@ -166,7 +166,7 @@ export default function ItemContainerTopBar(props) {
 				</div>
 			</div>
 			{reduxState[GENERAL_CONTAINER].componentsDisplay
-				.itemContainerListSidebar !== true ||
+				.itemViewListSidebar !== true ||
 			(reduxState[SIZE_CONTAINER].variables.window !== null &&
 				reduxState[SIZE_CONTAINER].variables.window.width < 500) ? null : (
 				<div className="filter-container">
@@ -294,7 +294,7 @@ export default function ItemContainerTopBar(props) {
 					className={
 						"item-options-container__button" +
 						(reduxState[GENERAL_CONTAINER].componentsDisplay
-							.itemContainerTopBarOptionsDropdown
+							.itemViewTopBarOptionsDropdown
 							? " item-options-container__button--clicked"
 							: "")
 					}
@@ -308,7 +308,7 @@ export default function ItemContainerTopBar(props) {
 					className={
 						"item-options-container__dropdown" +
 						(reduxState[GENERAL_CONTAINER].componentsDisplay
-							.itemContainerTopBarOptionsDropdown
+							.itemViewTopBarOptionsDropdown
 							? " item-options-container__dropdown--visible"
 							: "")
 					}
@@ -318,7 +318,7 @@ export default function ItemContainerTopBar(props) {
 						onClick={switchBetweenDisplayAndEditInfo}
 					>
 						{reduxState[props.reduxContainerName].componentsDisplay
-							.itemContainerEditItemInfo
+							.itemViewEditItemInfo
 							? "Cancel"
 							: props.reduxContainerName === PROJECT_CONTAINER
 							? "Edit Project"
@@ -334,7 +334,7 @@ export default function ItemContainerTopBar(props) {
 					</span>
 				</div>
 			</div>
-			<div className="x-button" onClick={closeItemContainer}>
+			<div className="x-button" onClick={closeItemView}>
 				<i className="fa fa-times" aria-hidden="true"></i>
 			</div>
 		</div>

@@ -87,7 +87,7 @@
 		height: v.$edit-item-project-bugs-stats-item-box-height;
 	}
 
-	// Used in ItemContainerEditInfo to calculate description size using JS
+	// Used in ItemViewEditInfo to calculate description size using JS
 	.item-box--invisible {
 		position: absolute;
 		visibility: hidden;

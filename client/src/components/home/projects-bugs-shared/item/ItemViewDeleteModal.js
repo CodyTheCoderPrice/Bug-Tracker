@@ -12,7 +12,7 @@ import {
 	deleteProjectOrBug,
 } from "../../../../actions";
 
-export default function ItemContainerDeleteModal(props) {
+export default function ItemViewDeleteModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -53,7 +53,7 @@ export default function ItemContainerDeleteModal(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemContainerDeleteModal: false,
+				itemViewDeleteModal: false,
 			})
 		);
 	};
