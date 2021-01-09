@@ -26,10 +26,12 @@
 
 	// Standard background colors
 	.js-set-project-background-color-dark {
-		background-color: v.$dark-blue-teal !important;
+		//background-color: v.$dark-blue-teal !important;
+		background-color: v.$darker-navy-blue !important;
 	}
 	.js-set-project-background-color-light {
-		background-color: v.$blue-teal !important;
+		//background-color: v.$blue-teal !important;
+		background-color: v.$light-navy-blue !important;
 	}
 	.js-set-bug-background-color-dark {
 		background-color: v.$darker-navy-blue !important;
@@ -41,11 +43,13 @@
 	// Hover background colors
 	// Standard background colors
 	.js-set-project-background-color-with-hover {
-		background-color: v.$blue-teal !important;
+		//background-color: v.$blue-teal !important;
+		background-color: v.$light-navy-blue !important;
 
 		&:hover,
 		&:active {
-			background-color: v.$dark-blue-teal !important;
+			//background-color: v.$dark-blue-teal !important;
+			background-color: v.$darker-navy-blue !important;
 		}
 	}
 	.js-set-bug-background-color-with-hover {
@@ -59,10 +63,12 @@
 
 	// Border colors
 	.js-set-project-border-color-dark {
-		border-color: v.$dark-blue-teal !important;
+		//border-color: v.$dark-blue-teal !important;
+		border-color: v.$darker-navy-blue !important;
 	}
 	.js-set-project-border-color-light {
-		border-color: v.$blue-teal !important;
+		//border-color: v.$blue-teal !important;
+		border-color: v.$light-navy-blue !important;
 	}
 	.js-set-bug-border-color-dark {
 		border-color: v.$darker-navy-blue !important;
@@ -73,7 +79,8 @@
 
 	// Text and link color
 	.js-set-project-text-color {
-		color: v.$teal-link !important;
+		//color: v.$teal-link !important;
+		color: v.$blue-link !important;
 	}
 	.js-set-bug-text-color {
 		color: v.$blue-link !important;
