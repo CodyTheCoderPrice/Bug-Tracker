@@ -38,6 +38,11 @@
 	color: v.$medium-gray;
 	font-size: 26px;
 	cursor: pointer;
+
+	&:hover,
+	&:active {
+		color: black;
+	}
 }
 
 @mixin border-line() {

@@ -70,11 +70,12 @@
 		width: 16px;
 		opacity: 0.4;
 		cursor: pointer;
-	}
-	.navbar-button__close-button__text-container:hover,
-	.navbar-button__close-button__text-container:active {
-		background-color: v.$bright-red;
-		opacity: 1;
+
+		&:hover,
+		&:active {
+			background-color: v.$bright-red;
+			opacity: 1;
+		}
 	}
 
 	.navbar-button__close-button__text-container__icon {

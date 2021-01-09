@@ -18,10 +18,11 @@
 		height: 80px;
 		width: 25px;
 		cursor: pointer;
-	}
-	.expand-minimize-button:hover,
-	.expand-minimize-button:active {
-		background-color: v.$medium-light-gray;
+
+		&:hover,
+		&:active {
+			background-color: v.$medium-light-gray;
+		}
 	}
 
 	.expand-minimize-button--minimized {

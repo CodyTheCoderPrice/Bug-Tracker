@@ -189,10 +189,11 @@
 		font-size: 28px;
 		text-align: center;
 		cursor: pointer;
-	}
-	.item-options-container__button:hover,
-	.item-options-container__button:active {
-		color: v.$black;
+
+		&:hover,
+		&:active {
+			color: black;
+		}
 	}
 
 	.item-options-container__button__text {
@@ -225,10 +226,11 @@
 		border-bottom: 1px solid gray;
 		padding: 12px;
 		cursor: pointer;
-	}
-	.item-options-container__dropdown__option:hover,
-	.item-options-container__dropdown__option:active {
-		background-color: v.$light-gray;
+
+		&:hover,
+		&:active {
+			background-color: v.$light-gray;
+		}
 	}
 
 	.item-options-container__dropdown__option--no-display {
@@ -244,9 +246,5 @@
 		top: 11px;
 		right: 20px;
 		color: v.$darker-gray;
-	}
-	.x-button:hover,
-	.x-button:active {
-		color: v.$black;
 	}
 }

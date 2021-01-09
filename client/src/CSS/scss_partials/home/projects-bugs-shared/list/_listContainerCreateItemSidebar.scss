@@ -45,10 +45,6 @@
 		@include m.back-exit-buttons();
 		right: 15px;
 	}
-	.x-button:hover,
-	.x-button:active {
-		color: v.$black;
-	}
 
 	.padded-container {
 		// No padding on the top because of the header

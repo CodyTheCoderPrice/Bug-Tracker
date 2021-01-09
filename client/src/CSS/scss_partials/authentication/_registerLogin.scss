@@ -16,7 +16,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 25px;
-		border: 5px solid #202024;
+		border: 5px solid black;
 		background-color: white;
 		padding: 25px;
 		width: 500px;
@@ -69,10 +69,11 @@
 		color: white;
 		font-size: 16px;
 		cursor: pointer;
-	}
-	.form__submit:hover,
-	.form__submit:active {
-		background-color: v.$dark-blue-teal;
+
+		&:hover,
+		&:active {
+			background-color: v.$dark-blue-teal;
+		}
 	}
 
 	.footer {

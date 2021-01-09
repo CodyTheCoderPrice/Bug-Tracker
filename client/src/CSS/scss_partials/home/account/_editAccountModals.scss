@@ -22,18 +22,10 @@
 		@include m.back-exit-buttons();
 		left: 15px;
 	}
-	.back-button:hover,
-	.back-button:active {
-		color: v.$black;
-	}
 
 	.exit-button {
 		@include m.back-exit-buttons();
 		right: 15px;
-	}
-	.exit-button:hover,
-	.exit-button:active {
-		color: v.$black;
 	}
 
 	.title {

@@ -84,7 +84,7 @@
 		margin-top: 3px;
 		border: 1px solid black;
 		box-sizing: border-box;
-		background-color: #ffffff;
+		background-color: white;
 		padding: 6px;
 		width: 100%;
 		font-size: 12px;
@@ -150,10 +150,11 @@
 		text-align: center;
 		font-size: 16px;
 		cursor: pointer;
-	}
-	.form-buttons-centered-container__cancel-button:hover,
-	.form-buttons-centered-container__cancel-button:active {
-		background-color: #f1f0f0;
+
+		&:hover,
+		&:active {
+			background-color: #dad9d9;
+		}
 	}
 
 	// These classes are used by the custom hook that handles appearance

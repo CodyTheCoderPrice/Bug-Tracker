@@ -68,10 +68,11 @@
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16px;
 		cursor: pointer;
-	}
-	.centered-buttons-container__delete:hover,
-	.centered-buttons-container__delete:active {
-		background-color: v.$darker-red;
+
+		&:hover,
+		&:active {
+			background-color: v.$darker-red;
+		}
 	}
 
 	.centered-buttons-container__cancel {
@@ -86,9 +87,10 @@
 		text-align: center;
 		font-size: 16px;
 		cursor: pointer;
-	}
-	.centered-buttons-container__cancel:hover,
-	.centered-buttons-container__cancel:active {
-		background-color: #dad9d9;
+
+		&:hover,
+		&:active {
+			background-color: #dad9d9;
+		}
 	}
 }
