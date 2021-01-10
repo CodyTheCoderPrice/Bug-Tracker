@@ -9,7 +9,10 @@ import {
 
 import { createComment, clearInputErrors } from "../../../../actions";
 
-import { getProjectOrBugBackgroundColorClassNameWithHover } from "../../../../utils";
+import {
+	getProjectOrBugTextColorClassName,
+	getProjectOrBugBackgroundColorClassNameWithHover,
+} from "../../../../utils";
 
 import { useSubmitFormOnEnter } from "../../../../utils/hooks";
 
@@ -93,7 +96,12 @@ export default function ItemViewCommentsBox() {
 					onSubmit={handleSubmit}
 				>
 					<label htmlFor="create-comment-description">
-						<h2 className="item-box__title item-box__title--no-bottom-margin">
+						<h2
+							className={
+								"item-box__title item-box__title--no-bottom-margin" +
+								getProjectOrBugTextColorClassName(BUG_CONTAINER)
+							}
+						>
 							Comments (
 							{
 								[...reduxState[COMMENT_CONTAINER].list].filter(

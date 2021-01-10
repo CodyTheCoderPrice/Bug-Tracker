@@ -30,8 +30,7 @@ export default function ItemViewDisplayItemInfo(props) {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER].constants
-			.itemViewOuterDividingContainerMinWidth,
+		reduxState[SIZE_CONTAINER].constants.itemViewOuterDividingContainerMinWidth,
 	]);
 
 	const getStatusBoxColorClassName = () => {
@@ -86,7 +85,14 @@ export default function ItemViewDisplayItemInfo(props) {
 			<div className="pair-container js-description-info-pair">
 				<div className="outer-dividing-container">
 					<div className="item-box item-box--desciption-info-height">
-						<h2 className="item-box__title">Description</h2>
+						<h2
+							className={
+								"item-box__title" +
+								getProjectOrBugTextColorClassName(props.reduxContainerName)
+							}
+						>
+							Description
+						</h2>
 						<span className="item-box__description">
 							{
 								reduxState[props.reduxContainerName].componentsDisplay
@@ -97,7 +103,14 @@ export default function ItemViewDisplayItemInfo(props) {
 				</div>
 				<div className="outer-dividing-container">
 					<div className="item-box item-box--desciption-info-height">
-						<h2 className="item-box__title">Info</h2>
+						<h2
+							className={
+								"item-box__title" +
+								getProjectOrBugTextColorClassName(props.reduxContainerName)
+							}
+						>
+							Info
+						</h2>
 						{props.reduxContainerName === BUG_CONTAINER ? (
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Location:</span>

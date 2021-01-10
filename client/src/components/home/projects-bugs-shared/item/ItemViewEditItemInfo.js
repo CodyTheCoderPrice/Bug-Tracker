@@ -157,8 +157,7 @@ export default function ItemViewEditItemInfo(props) {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER].constants
-			.itemViewOuterDividingContainerMinWidth,
+		reduxState[SIZE_CONTAINER].constants.itemViewOuterDividingContainerMinWidth,
 	]);
 
 	const switchToDisplayItemInfo = () => {
@@ -258,7 +257,12 @@ export default function ItemViewEditItemInfo(props) {
 				<div className="outer-dividing-container">
 					<div className="item-box item-box--desciption-info-height">
 						<label htmlFor="edit-item-description">
-							<h2 className="item-box__title item-box__title--no-bottom-margin">
+							<h2
+								className={
+									"item-box__title item-box__title--no-bottom-margin" +
+									getProjectOrBugTextColorClassName(props.reduxContainerName)
+								}
+							>
 								Description
 							</h2>
 						</label>
@@ -289,7 +293,14 @@ export default function ItemViewEditItemInfo(props) {
 				</div>
 				<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
 					<div className="item-box item-box--desciption-info-height">
-						<h2 className="item-box__title">Info</h2>
+						<h2
+							className={
+								"item-box__title" +
+								getProjectOrBugTextColorClassName(props.reduxContainerName)
+							}
+						>
+							Info
+						</h2>
 						{props.reduxContainerName === BUG_CONTAINER ? (
 							<div className="item-box__group__field">
 								<label

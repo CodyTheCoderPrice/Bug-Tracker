@@ -13,6 +13,7 @@ import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	getWindowSize,
+	getProjectOrBugTextColorClassName,
 } from "../../../../utils";
 
 // Components
@@ -48,9 +49,7 @@ export default function ItemView(props) {
 				reduxState[SIZE_CONTAINER].constants.itemViewTopBar.height +
 				"px";
 
-			if (
-				reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
-			) {
+			if (reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar) {
 				itemViewElement.style.width =
 					reduxState[SIZE_CONTAINER].variables.window.width -
 					reduxState[SIZE_CONTAINER].constants.itemViewListSidebar.width +
@@ -77,8 +76,8 @@ export default function ItemView(props) {
 			reduxState[SIZE_CONTAINER].constants.itemViewListSidebar !== null &&
 			reduxState[SIZE_CONTAINER].constants
 				.itemViewOuterDividingContainerMinWidth !== null &&
-			reduxState[SIZE_CONTAINER].constants
-				.itemViewPaddingContainerPadding !== null
+			reduxState[SIZE_CONTAINER].constants.itemViewPaddingContainerPadding !==
+				null
 		) {
 			// Instead of putting inn the optimization to re-run once no longer
 			// ...null since it would also re-run every window resize
@@ -90,8 +89,7 @@ export default function ItemView(props) {
 			const minWidthNeededForNoItemBoxOverflow =
 				reduxState[SIZE_CONTAINER].constants
 					.itemViewOuterDividingContainerMinWidth +
-				reduxState[SIZE_CONTAINER].constants
-					.itemViewPaddingContainerPadding *
+				reduxState[SIZE_CONTAINER].constants.itemViewPaddingContainerPadding *
 					2;
 
 			dispatch(
@@ -99,8 +97,7 @@ export default function ItemView(props) {
 					...reduxState[GENERAL_CONTAINER].componentsDisplay,
 					itemViewListSidebar:
 						windowSize.width -
-							reduxState[SIZE_CONTAINER].constants.itemViewListSidebar
-								.width >=
+							reduxState[SIZE_CONTAINER].constants.itemViewListSidebar.width >=
 						minWidthNeededForNoItemBoxOverflow,
 				})
 			);
@@ -134,8 +131,7 @@ export default function ItemView(props) {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER].constants
-			.itemViewOuterDividingContainerMinWidth,
+		reduxState[SIZE_CONTAINER].constants.itemViewOuterDividingContainerMinWidth,
 	]);
 
 	return (
@@ -145,9 +141,7 @@ export default function ItemView(props) {
 			{/* Located outside item-container-component so topBar doesn't cover it */}
 			{reduxState[props.reduxContainerName].componentsDisplay
 				.itemViewDeleteModal ? (
-				<ItemViewDeleteModal
-					reduxContainerName={props.reduxContainerName}
-				/>
+				<ItemViewDeleteModal reduxContainerName={props.reduxContainerName} />
 			) : null}
 			{reduxState[BUG_CONTAINER].componentsDisplay.itemView === true &&
 			reduxState[COMMENT_CONTAINER].componentsDisplay.commentDeleteModal ===
@@ -158,8 +152,7 @@ export default function ItemView(props) {
 				<div
 					className={
 						"item-container js-item-container" +
-						(reduxState[GENERAL_CONTAINER].componentsDisplay
-							.itemViewListSidebar
+						(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
 							? " item-container--shifted-right"
 							: "")
 					}
@@ -184,7 +177,16 @@ export default function ItemView(props) {
 								<div className="pair-container js-project-bugs-info-pair">
 									<div className="outer-dividing-container outer-dividing-container--half-width">
 										<div className="item-box item-box--project-bugs-stats-height item-box--no-left-right-padding">
-											<h2 className="item-box__title">Status of Bugs</h2>
+											<h2
+												className={
+													"item-box__title" +
+													getProjectOrBugTextColorClassName(
+														props.reduxContainerName
+													)
+												}
+											>
+												Status of Bugs
+											</h2>
 											{[...reduxState[BUG_CONTAINER].list].filter(
 												(item) =>
 													item.project_id ===
@@ -201,7 +203,14 @@ export default function ItemView(props) {
 									</div>
 									<div className="outer-dividing-container outer-dividing-container--half-width">
 										<div className="item-box item-box--project-bugs-stats-height">
-											<h2 className="item-box__title">
+											<h2
+												className={
+													"item-box__title" +
+													getProjectOrBugTextColorClassName(
+														props.reduxContainerName
+													)
+												}
+											>
 												Most Recent Bugs Worked On
 											</h2>
 											{[...reduxState[BUG_CONTAINER].list].filter(

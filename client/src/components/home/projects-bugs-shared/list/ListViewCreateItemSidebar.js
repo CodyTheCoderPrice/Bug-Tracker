@@ -16,6 +16,7 @@ import {
 
 import {
 	populateComboBox,
+	getProjectOrBugTextColorClassName,
 	getProjectOrBugBackgroundColorClassNameWithHover,
 } from "../../../../utils";
 
@@ -177,7 +178,12 @@ export default function ListViewCreateItemSidebar(props) {
 					<i className="fa fa-times" aria-hidden="true"></i>
 				</div>
 				<div className="padded-container">
-					<h1 className="title">
+					<h1
+						className={
+							"title" +
+							getProjectOrBugTextColorClassName(props.reduxContainerName)
+						}
+					>
 						{props.reduxContainerName === PROJECT_CONTAINER
 							? "New Project"
 							: "New Bug"}
