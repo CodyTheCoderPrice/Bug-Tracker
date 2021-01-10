@@ -161,11 +161,11 @@ html, body {
 }
 .home-container .js-set-project-text-color,
 .js-calc-home-container .js-set-project-text-color {
-  color: #1658ad !important;
+  color: #22579c !important;
 }
 .home-container .js-set-bug-text-color,
 .js-calc-home-container .js-set-bug-text-color {
-  color: #1658ad !important;
+  color: #22579c !important;
 }
 .home-container .status-box-background-color-gray,
 .home-container .js-calc-status-box-background-color-gray,
@@ -751,11 +751,11 @@ html, body {
   text-overflow: ellipsis;
 }
 .item-container-bug-list-component .bug-list-table__data__overflow-container--project-color {
-  color: #1658ad;
+  color: #22579c;
 }
 .item-container-bug-list-component .bug-list-table__data__overflow-container--bug-color {
   color: #f34242;
-  color: #1658ad;
+  color: #22579c;
 }
 .item-container-bug-list-component .bug-list-table__data__overflow-container--completed-color {
   color: #007e00;
