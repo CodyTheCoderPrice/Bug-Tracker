@@ -1,4 +1,4 @@
-// Combined in store.js
+// imported and combined in store.js
 export * from "./general/generalContainerReducer";
 export * from "./size/sizeContainerReducer";
 export * from "./account/accountContainerReducer";
