@@ -1,5 +1,6 @@
 import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 
+// Default state for html element sizes that remain the same
 const initialState = {
 	scrollbar: null,
 	navbarAccountButton: null,
@@ -13,6 +14,20 @@ const initialState = {
 	itemViewPaddingContainerPadding: null,
 };
 
+/**
+ * Used to set JSON containing constant html element sizes in the size
+ * container of the redux state
+ * 
+ * @param {JSON} state - JSON of constant html element sizes used mostly to
+ * calulcate the resizing of other html elements, but is sometimes used for
+ * other things
+ * @param {JSON} action - JSON containing a container name and type (used to
+ * determin where and what to do in the redux state), and any data addition
+ * data needed based on the container name and type (typically data to updated
+ * in the redux state)
+ * @returns {JSON} - JSON of constant html element sizes to be stored in the
+ * size container of the redux state
+ */
 export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_DISPLAY_SIZE_CONSTANTS:

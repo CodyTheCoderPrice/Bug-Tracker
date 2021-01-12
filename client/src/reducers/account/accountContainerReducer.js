@@ -5,9 +5,9 @@ import accountReducer from "./accountReducer";
 import { ACCOUNT_CONTAINER } from "../../actions/constants/containerNames";
 import { RESET_CONTAINER } from "../../actions/constants/types";
 
-// Default state for the account container
+// Default state for the account container (each reducers initial state)
 const initialState = {
-	// (undefined, {}) will cause each function to return their initial state
+	// passing 'undefined, {}' causes reducers to return their initial state
 	componentsDisplay: accountComponentsDisplayReducer(undefined, {}),
 	auth: authReducer(undefined, {}),
 	info: accountReducer(undefined, {}),
@@ -16,8 +16,8 @@ const initialState = {
 /**
  * Used to set JSON for the account container of the redux state
  * 
- * @param {JSON} state - JSON for the current user authentication data in the
- * redux state
+ * @param {JSON} state - JSON containing all current data for the account
+ * container of the redux state
  * @param {JSON} action - JSON containing a container name and type (used to
  * determin where and what to do in the redux state), and any data addition
  * data needed based on the container name and type (typically data to updated
@@ -28,6 +28,8 @@ const initialState = {
 export function accountContainerReducer(state = initialState, action) {
 	switch (action.container) {
 		case ACCOUNT_CONTAINER:
+			// This if statement is in all container reducers to allow for the
+			// ...resetting of the redux state to default
 			if(action.type === RESET_CONTAINER) {
 				return initialState
 			} else {

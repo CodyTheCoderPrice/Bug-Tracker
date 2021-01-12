@@ -28,7 +28,7 @@ export * from "./resetActions";
  * Sets JSON object containing the size info of multiple html elements (thats
  * size remains constant) in the size container of the redux state. This info
  * is mostly used to calulcate the resizing of other html elements, but is
- * sometimes used for other things.
+ * sometimes used for other things
  * 
  * @param {JSON} sizes - JSON containing size info for multiple html elements 
  * (thats size remains constant)
@@ -45,7 +45,7 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
  * Sets JSON object containing the size info of multiple html elements (thats
  * size changes) in the size container of the redux state. This info is mostly
  * used to calulcate the resizing of other html elements, but is sometimes used
- * for other things.
+ * for other things
  * 
  * @param {JSON} sizes - JSON containing size info for multiple html elements 
  * (thats size changes)
