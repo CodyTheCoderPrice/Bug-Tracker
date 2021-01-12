@@ -22,7 +22,7 @@ export default function ItemViewListSidebar(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemViewTopBar !== null
+			reduxState[SIZE_CONTAINER].constants.itemViewTopBarHeight !== null
 		) {
 			let itemViewListSidebarElement = document.getElementsByClassName(
 				"js-list-sidebar-component"
@@ -31,7 +31,7 @@ export default function ItemViewListSidebar(props) {
 			const adjustedWindowHeight =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.itemViewTopBar.height;
+				reduxState[SIZE_CONTAINER].constants.itemViewTopBarHeight;
 
 			itemViewListSidebarElement.style.height =
 				adjustedWindowHeight + "px";

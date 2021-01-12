@@ -2,14 +2,14 @@ import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 
 // Default state for html element sizes that remain the same
 const initialState = {
-	scrollbar: null,
+	scrollbarWidth: null,
 	navbarAccountButton: null,
 	navbarProjectsButton: null,
 	navbarBugsButton: null,
-	listViewSearchFilterSortBar: null,
+	listViewSearchFilterSortBarHeight: null,
 	listViewTableRowHeight: null,
-	itemViewTopBar: null,
-	itemViewListSidebar: null,
+	itemViewTopBarHeight: null,
+	itemViewListSidebarWidth: null,
 	itemViewOuterDividingContainerMinWidth: null,
 	itemViewPaddingContainerPadding: null,
 };
@@ -32,15 +32,15 @@ export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_DISPLAY_SIZE_CONSTANTS:
 			return {
-				scrollbar: action.sizes.scrollbar,
+				scrollbarWidth: action.sizes.scrollbarWidth,
 				navbarAccountButton: action.sizes.navbarAccountButton,
 				navbarProjectsButton: action.sizes.navbarProjectsButton,
 				navbarBugsButton: action.sizes.navbarBugsButton,
-				listViewSearchFilterSortBar:
-					action.sizes.listViewSearchFilterSortBar,
+				listViewSearchFilterSortBarHeight:
+					action.sizes.listViewSearchFilterSortBarHeight,
 				listViewTableRowHeight: action.sizes.listViewTableRowHeight,
-				itemViewTopBar: action.sizes.itemViewTopBar,
-				itemViewListSidebar: action.sizes.itemViewListSidebar,
+				itemViewTopBarHeight: action.sizes.itemViewTopBarHeight,
+				itemViewListSidebarWidth: action.sizes.itemViewListSidebarWidth,
 				itemViewOuterDividingContainerMinWidth:
 					action.sizes.itemViewOuterDividingContainerMinWidth,
 				itemViewPaddingContainerPadding:

@@ -36,8 +36,8 @@ export default function ItemView(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemViewTopBar !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemViewListSidebar !== null
+			reduxState[SIZE_CONTAINER].constants.itemViewTopBarHeight !== null &&
+			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth !== null
 		) {
 			const itemViewElement = document.getElementsByClassName(
 				"js-item-container"
@@ -46,13 +46,13 @@ export default function ItemView(props) {
 			itemViewElement.style.height =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.itemViewTopBar.height +
+				reduxState[SIZE_CONTAINER].constants.itemViewTopBarHeight +
 				"px";
 
 			if (reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar) {
 				itemViewElement.style.width =
 					reduxState[SIZE_CONTAINER].variables.window.width -
-					reduxState[SIZE_CONTAINER].constants.itemViewListSidebar.width +
+					reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth +
 					"px";
 			} else {
 				itemViewElement.style.width =
@@ -73,7 +73,7 @@ export default function ItemView(props) {
 		if (
 			reduxState[GENERAL_CONTAINER].componentsDisplay
 				.itemViewListSidebarUserSet === false &&
-			reduxState[SIZE_CONTAINER].constants.itemViewListSidebar !== null &&
+			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth !== null &&
 			reduxState[SIZE_CONTAINER].constants
 				.itemViewOuterDividingContainerMinWidth !== null &&
 			reduxState[SIZE_CONTAINER].constants.itemViewPaddingContainerPadding !==
@@ -97,7 +97,7 @@ export default function ItemView(props) {
 					...reduxState[GENERAL_CONTAINER].componentsDisplay,
 					itemViewListSidebar:
 						windowSize.width -
-							reduxState[SIZE_CONTAINER].constants.itemViewListSidebar.width >=
+							reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth >=
 						minWidthNeededForNoItemBoxOverflow,
 				})
 			);

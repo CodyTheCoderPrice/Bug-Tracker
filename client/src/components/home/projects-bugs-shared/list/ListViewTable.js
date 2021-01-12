@@ -29,8 +29,7 @@ export default function ListViewTable(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants
-				.listViewSearchFilterSortBar !== null
+			reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBarHeight !== null
 		) {
 			const listTableContainerElement = document.getElementsByClassName(
 				"js-list-table-container"
@@ -39,8 +38,7 @@ export default function ListViewTable(props) {
 			listTableContainerElement.style.height =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBar
-					.height +
+				reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBarHeight +
 				"px";
 
 			listTableContainerElement.style.width =
@@ -63,10 +61,10 @@ export default function ListViewTable(props) {
 				emptyListMessageContainer.style.height =
 					reduxState[SIZE_CONTAINER].variables.window.height -
 					reduxState[SIZE_CONTAINER].variables.navbar.height -
-					reduxState[SIZE_CONTAINER].constants
-						.listViewSearchFilterSortBar.height -
+					reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBarHeight
+						.height -
 					reduxState[SIZE_CONTAINER].constants.listViewTableRowHeight -
-					reduxState[SIZE_CONTAINER].constants.scrollbar.width +
+					reduxState[SIZE_CONTAINER].constants.scrollbarWidth +
 					"px";
 			}
 		}
@@ -123,9 +121,9 @@ export default function ListViewTable(props) {
 				"list-table-component js-list-table-container" +
 				// If a sidebar or modal is present overtop of the table
 				// ...or the emptyListMessage is present
-				(Object.values(
-					reduxState[ACCOUNT_CONTAINER].componentsDisplay
-				).indexOf(true) > -1 ||
+				(Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
+					true
+				) > -1 ||
 				reduxState[props.reduxContainerName].componentsDisplay
 					.listViewCreateItemSidbar === true ||
 				(props.reduxContainerName === PROJECT_CONTAINER &&
@@ -252,8 +250,8 @@ export default function ListViewTable(props) {
 							: [...reduxState[props.reduxContainerName].list].filter(
 									(item) =>
 										item.project_id ===
-										reduxState[PROJECT_CONTAINER].componentsDisplay
-											.targetItem.id
+										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+											.id
 							  ),
 						reduxState[props.reduxContainerName].searchFilterSort
 					).map((item, idx) => {

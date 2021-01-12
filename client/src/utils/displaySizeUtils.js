@@ -48,7 +48,7 @@ export function calcScrollbarWidth() {
 
 	outerElement.parentNode.removeChild(outerElement);
 
-	return { width: scrollbarWidth };
+	return scrollbarWidth;
 }
 
 export function calcListViewSearchFilterSortBarHeight() {
@@ -60,7 +60,7 @@ export function calcListViewSearchFilterSortBarHeight() {
 	const height = getElementSize(invisibleSearchFilterSortBarElement).height;
 	invisibleSearchFilterSortBarElement.parentNode.removeChild(invisibleSearchFilterSortBarElement);
 
-	return { height: height };
+	return height;
 }
 
 export function calcListViewTableRowHeight() {
@@ -96,7 +96,7 @@ export function calcViewItemTopBarHeight() {
 	const height = getElementSize(invisibleTopBarElement).height;
 	invisibleTopBarElement.parentNode.removeChild(invisibleTopBarElement);
 
-	return { height: height };
+	return height;
 }
 
 export function calcItemViewListSidebarWidth() {
@@ -110,7 +110,7 @@ export function calcItemViewListSidebarWidth() {
 		invisibleListSidebarElement
 	);
 
-	return { width: width };
+	return width;
 }
 
 export function calcItemViewOuterDividingContainerMinWidth() {

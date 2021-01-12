@@ -40,14 +40,14 @@ export default function Navbar() {
 	useEffect(() => {
 		dispatch(
 			setDisplaySizeConstants({
-				scrollbar: calcScrollbarWidth(),
+				scrollbarWidth: calcScrollbarWidth(),
 				navbarAccountButton: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
 				),
-				listViewSearchFilterSortBar: calcListViewSearchFilterSortBarHeight(),
+				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
 				listViewTableRowHeight: calcListViewTableRowHeight(),
-				itemViewTopBar: calcViewItemTopBarHeight(),
-				itemViewListSidebar: calcItemViewListSidebarWidth(),
+				itemViewTopBarHeight: calcViewItemTopBarHeight(),
+				itemViewListSidebarWidth: calcItemViewListSidebarWidth(),
 				itemViewOuterDividingContainerMinWidth: calcItemViewOuterDividingContainerMinWidth(),
 				itemViewPaddingContainerPadding: calcItemViewPaddingContainerPadding(),
 			})
