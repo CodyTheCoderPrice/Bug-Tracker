@@ -50,7 +50,7 @@
 	.navbar-button__outer-text-container__inner-text-container {
 		@include m.stop-text-selection();
 
-		margin: 18px 8px 0px v.$navbar-button-text-container-margin-left;
+		margin: 18px v.$navbar-button-text-container-margin-right 0px v.$navbar-button-text-container-margin-left;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: 20px;
 		color: white;
@@ -62,8 +62,9 @@
 	}
 
 	.navbar-button__outer-text-container__inner-text-container--right {
-		// Same as margin-left for unmoddified version
+		// Reverse of the unmoddified version
 		margin-right: v.$navbar-button-text-container-margin-left;
+		margin-left: v.$navbar-button-text-container-margin-right;
 	}
 
 	.navbar-button__outer-text-container__inner-text-container--item-name {
@@ -75,7 +76,7 @@
 		position: relative;
 		float: left;
 		height: v.$navbar-height;
-		width: v.$navbar-button-arrow-width + 1;
+		width: v.$navbar-button-arrow-width + 2;
 	}
 
 	.navbar-button__arrow-container__arrow {

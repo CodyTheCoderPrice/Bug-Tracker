@@ -32,6 +32,8 @@ import {
 	getProjectOrBugBackgroundColorClassNameLight,
 	getProjectOrBugNavbarArrowColorClassNameDark,
 	getProjectOrBugNavbarArrowColorClassNameLight,
+	getElementStyle,
+	stripNonDigits,
 } from "../../utils";
 
 export default function Navbar() {
@@ -46,10 +48,10 @@ export default function Navbar() {
 				navbarAccountButton: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
 				),
-				navbarProjectsButton: getElementSize(
+				navbarProjectsListButton: getElementSize(
 					document.getElementsByClassName("js-project-list-button")[0]
 				),
-				navbarBugsButton: getElementSize(
+				navbarBugsListButton: getElementSize(
 					document.getElementsByClassName("js-bug-list-button")[0]
 				),
 				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
@@ -98,34 +100,62 @@ export default function Navbar() {
 			let navbarAvailableSpace =
 				reduxState[SIZE_CONTAINER].variables.navbar.width -
 				reduxState[SIZE_CONTAINER].constants.navbarAccountButton.width -
-				reduxState[SIZE_CONTAINER].constants.navbarProjectsButton.width -
-				reduxState[SIZE_CONTAINER].constants.navbarBugsButton.width;
+				reduxState[SIZE_CONTAINER].constants.navbarProjectsListButton.width -
+				reduxState[SIZE_CONTAINER].constants.navbarBugsListButton.width;
 
-			const projectButtonElement = document.getElementsByClassName(
-				"js-project-item-button"
+			// Same for all buttons
+			const navbarButtonArrowWidth = getElementSize(
+				document.getElementsByClassName("js-project-list-button-arrow")[0]
+			).width;
+
+			const projectItemButtonTextContainerElement = document.getElementsByClassName(
+				"js-project-item-button-text-container"
 			)[0];
+
 			// Reset maxWidth so will not interferre with measuring the new width
-			projectButtonElement.style.maxWidth = null;
+			projectItemButtonTextContainerElement.style.maxWidth = null;
 
 			// If bug navbar button is present
 			if (reduxState[BUG_CONTAINER].componentsDisplay.targetItem !== null) {
-				const bugButtonElement = document.getElementsByClassName(
-					"js-bug-item-button"
+				// Removes bugItemButton's arrow from available space,other
+				// ...arrows removed in size of projectList and bugList buttons
+				navbarAvailableSpace -= navbarButtonArrowWidth;
+
+				const bugItemButtonTextContainerElement = document.getElementsByClassName(
+					"js-bug-item-button-text-container"
 				)[0];
 				// Reset maxWidth so will not interferre with measuring the new width
-				bugButtonElement.style.maxWidth = null;
+				bugItemButtonTextContainerElement.style.maxWidth = null;
 
-				const bugButtonElementWidth = getElementSize(bugButtonElement).width;
-				if (bugButtonElementWidth > navbarAvailableSpace / 2) {
-					bugButtonElement.style.maxWidth = navbarAvailableSpace / 2 + "px";
+				const bugItemButtonTextContainerElementWidth = getElementSize(
+					bugItemButtonTextContainerElement
+				).width;
+
+				if (
+					bugItemButtonTextContainerElementWidth >
+					navbarAvailableSpace / 2
+				) {
+					bugItemButtonTextContainerElement.style.maxWidth =
+						navbarAvailableSpace / 2 + "px";
 					navbarAvailableSpace = navbarAvailableSpace / 2;
 				} else {
-					navbarAvailableSpace -= bugButtonElementWidth;
+					navbarAvailableSpace -= bugItemButtonTextContainerElementWidth;
 				}
 			}
 
-			if (getElementSize(projectButtonElement).width > navbarAvailableSpace) {
-				projectButtonElement.style.maxWidth = navbarAvailableSpace + "px";
+			const projectItemButtonTextContainerElementWidth = getElementSize(
+				projectItemButtonTextContainerElement
+			).width;
+
+			console.log(
+				navbarAvailableSpace +
+					" vs " +
+					projectItemButtonTextContainerElementWidth
+			);
+
+			if (projectItemButtonTextContainerElementWidth > navbarAvailableSpace) {
+				projectItemButtonTextContainerElement.style.maxWidth =
+					navbarAvailableSpace - navbarButtonArrowWidth + "px";
 			}
 		}
 		// eslint-disable-next-line
@@ -320,7 +350,7 @@ export default function Navbar() {
 					>
 						<div
 							className={
-								"navbar-button__arrow-container__arrow" +
+								"navbar-button__arrow-container__arrow js-project-list-button-arrow" +
 								getProjectOrBugNavbarArrowColorClassNameDark(
 									getCurrentContainerName(reduxState)
 								) +
@@ -330,7 +360,7 @@ export default function Navbar() {
 									  )
 									: "")
 							}
-						></div>
+						/>
 						<div className="navbar-button__arrow-container__border-arrow" />
 					</div>
 				</div>
@@ -352,7 +382,7 @@ export default function Navbar() {
 						}
 						onClick={openProjectsItemView}
 					>
-						<div className="navbar-button__outer-text-container">
+						<div className="navbar-button__outer-text-container js-project-item-button-text-container">
 							<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--item-name">
 								{
 									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
@@ -444,7 +474,7 @@ export default function Navbar() {
 									  )
 									: "")
 							}
-						></div>
+						/>
 						<div className="navbar-button__arrow-container__border-arrow" />
 					</div>
 				</div>
@@ -466,7 +496,7 @@ export default function Navbar() {
 						}
 						onClick={openBugsItemView}
 					>
-						<div className="navbar-button__outer-text-container">
+						<div className="navbar-button__outer-text-container js-bug-item-button-text-container">
 							<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--item-name">
 								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
 							</div>

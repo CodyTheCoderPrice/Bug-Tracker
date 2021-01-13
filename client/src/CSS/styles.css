@@ -290,7 +290,7 @@ html, body {
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  margin: 18px 8px 0px 16px;
+  margin: 18px 10px 0px 16px;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 20px;
   color: white;
@@ -301,6 +301,7 @@ html, body {
 }
 .navbar-and-other-components-container .navbar-button__outer-text-container__inner-text-container--right {
   margin-right: 16px;
+  margin-left: 10px;
 }
 .navbar-and-other-components-container .navbar-button__outer-text-container__inner-text-container--item-name {
   color: #ffff00;
@@ -310,7 +311,7 @@ html, body {
   position: relative;
   float: left;
   height: 60px;
-  width: 31px;
+  width: 32px;
 }
 .navbar-and-other-components-container .navbar-button__arrow-container__arrow {
   z-index: 2;
