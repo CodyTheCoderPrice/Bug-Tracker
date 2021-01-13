@@ -37,8 +37,8 @@
 	}
 
 	.navbar-button--arrow-buffered {
-		margin-left: -((v.$navbar-height / 2) + 1);
-		padding-left: (v.$navbar-height / 2) + 1;
+		margin-left: -(v.$navbar-button-arrow-width + 1);
+		padding-left: v.$navbar-button-arrow-width + 1;
 	}
 
 	.navbar-button__outer-text-container {
@@ -70,7 +70,7 @@
 		position: relative;
 		float: left;
 		height: v.$navbar-height;
-		width: (v.$navbar-height / 2) + 1;
+		width: v.$navbar-button-arrow-width + 1;
 	}
 
 	.navbar-button__arrow-container__arrow {
@@ -78,9 +78,9 @@
 		z-index: 2;
 		position: absolute;
 		left: 0px;
-		border-top: (v.$navbar-height / 2) solid transparent;
-		border-bottom: (v.$navbar-height / 2) solid transparent;
-		border-left: (v.$navbar-height / 2) solid gray;
+		border-top: v.$navbar-button-arrow-width solid transparent;
+		border-bottom: v.$navbar-button-arrow-width solid transparent;
+		border-left: v.$navbar-button-arrow-width solid gray;
 		height: 0;
 		width: 0;
 	}
@@ -90,9 +90,9 @@
 		z-index: 1;
 		position: absolute;
 		left: 1px;
-		border-top: (v.$navbar-height / 2) solid transparent;
-		border-bottom: (v.$navbar-height / 2) solid transparent;
-		border-left: (v.$navbar-height / 2) solid black;
+		border-top: v.$navbar-button-arrow-width solid transparent;
+		border-bottom: v.$navbar-button-arrow-width solid transparent;
+		border-left: v.$navbar-button-arrow-width solid black;
 		height: 0;
 		width: 0;
 	}
