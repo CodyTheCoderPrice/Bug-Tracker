@@ -331,7 +331,7 @@ export default function Navbar() {
 									: "")
 							}
 						></div>
-						<div className="navbar-button__arrow-container__border-arrow"></div>
+						<div className="navbar-button__arrow-container__border-arrow" />
 					</div>
 				</div>
 
@@ -359,15 +359,6 @@ export default function Navbar() {
 										.name
 								}
 							</div>
-							<div
-								className="navbar-button__outer-text-container__close-button"
-								onClick={(e) => closeProjectItemView(e)}
-							>
-								<i
-									className="fa fa-times navbar-button__outer-text-container__close-button__icon"
-									aria-hidden="true"
-								/>
-							</div>
 						</div>
 						<div
 							// Background-color must be made same as the navbar
@@ -394,8 +385,14 @@ export default function Navbar() {
 										  )
 										: "")
 								}
-							></div>
-							<div className="navbar-button__arrow-container__border-arrow"></div>
+							>
+								<i
+									className="fa fa-times navbar-button__arrow-container__border-arrow__close-button"
+									aria-hidden="true"
+									onClick={closeProjectItemView}
+								/>
+							</div>
+							<div className="navbar-button__arrow-container__border-arrow" />
 						</div>
 					</div>
 				)}
@@ -425,8 +422,8 @@ export default function Navbar() {
 					</div>
 					<div
 						// Background-color must be made same as the navbar
-							// ...otherwise selecting last visible button will
-							// ...have its different color extend past arrow
+						// ...otherwise selecting last visible button will
+						// ...have its different color extend past arrow
 						className={
 							"navbar-button__arrow-container" +
 							getProjectOrBugBackgroundColorClassNameDark(
@@ -448,7 +445,7 @@ export default function Navbar() {
 									: "")
 							}
 						></div>
-						<div className="navbar-button__arrow-container__border-arrow"></div>
+						<div className="navbar-button__arrow-container__border-arrow" />
 					</div>
 				</div>
 
@@ -472,15 +469,6 @@ export default function Navbar() {
 						<div className="navbar-button__outer-text-container">
 							<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--item-name">
 								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
-							</div>
-							<div
-								className="navbar-button__outer-text-container__close-button"
-								onClick={(e) => closeBugItemView(e)}
-							>
-								<i
-									className="fa fa-times navbar-button__outer-text-container__close-button__icon"
-									aria-hidden="true"
-								/>
 							</div>
 						</div>
 						<div
@@ -508,8 +496,15 @@ export default function Navbar() {
 										  )
 										: "")
 								}
-							></div>
-							<div className="navbar-button__arrow-container__border-arrow"></div>
+							>
+								{" "}
+								<i
+									className="fa fa-times navbar-button__arrow-container__border-arrow__close-button"
+									aria-hidden="true"
+									onClick={(e) => closeBugItemView(e)}
+								/>
+							</div>
+							<div className="navbar-button__arrow-container__border-arrow" />
 						</div>
 					</div>
 				)}
@@ -523,7 +518,7 @@ export default function Navbar() {
 						}
 						onClick={openAccountSidebar}
 					>
-						<div className="navbar-button__outer-text-container__inner-text-container">
+						<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--right">
 							<i className="fa fa-fw fa-user" />
 							Account
 						</div>
