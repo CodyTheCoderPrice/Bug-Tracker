@@ -143,6 +143,22 @@ html, body {
 .js-calc-home-container .js-set-bug-background-color-with-hover:active {
   background-color: #3d5774 !important;
 }
+.home-container .js-set-project-navbar-arrow-color-dark,
+.js-calc-home-container .js-set-project-navbar-arrow-color-dark {
+  border-left-color: #3d5774 !important;
+}
+.home-container .js-set-project-navbar-arrow-color-light,
+.js-calc-home-container .js-set-project-navbar-arrow-color-light {
+  border-left-color: #4d6b8b !important;
+}
+.home-container .js-set-bug-navbar-arrow-color-dark,
+.js-calc-home-container .js-set-bug-navbar-arrow-color-dark {
+  border-left-color: #3d5774 !important;
+}
+.home-container .js-set-bug-navbar-arrow-color-light,
+.js-calc-home-container .js-set-bug-navbar-arrow-color-light {
+  border-left-color: #4d6b8b !important;
+}
 .home-container .js-set-project-border-color-dark,
 .js-calc-home-container .js-set-project-border-color-dark {
   border-color: #3d5774 !important;
@@ -232,9 +248,6 @@ html, body {
   position: fixed;
   width: 100%;
   top: 0;
-  /* .navbar-button--selected {
-  	background-color: v.$light-navy-blue;
-  } */
 }
 .navbar-and-other-components-container .navbar-component {
   background-color: black;
@@ -244,17 +257,24 @@ html, body {
 .navbar-and-other-components-container .navbar-button {
   position: relative;
   float: left;
+  height: 60px;
+}
+.navbar-and-other-components-container .navbar-button__outer-text-container {
+  position: relative;
+  float: left;
+  /* border: 1px solid black;
+  border-right: none; */
   background-color: black;
   height: 60px;
 }
-.navbar-and-other-components-container .navbar-button--invisible {
+.navbar-and-other-components-container .navbar-button__outer-text-container--invisible {
   visibility: hidden;
 }
-.navbar-and-other-components-container .navbar-button--right {
+.navbar-and-other-components-container .navbar-button__outer-text-container--right {
   position: absolute;
   right: 0;
 }
-.navbar-and-other-components-container .navbar-button__text-container {
+.navbar-and-other-components-container .navbar-button__outer-text-container__inner-text-container {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -277,12 +297,37 @@ html, body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.navbar-and-other-components-container .navbar-button__text-container__item-name {
+.navbar-and-other-components-container .navbar-button__outer-text-container__inner-text-container__item-name {
   margin: 18px 0px 0px 8px;
   color: #ffff00;
   font-style: italic;
 }
-.navbar-and-other-components-container .navbar-button__close-button__text-container {
+.navbar-and-other-components-container .navbar-button__arrow-container {
+  position: relative;
+  float: left;
+  height: 30px;
+  width: 31px;
+}
+.navbar-and-other-components-container .navbar-button__arrow-container__arrow {
+  z-index: 1;
+  position: absolute;
+  left: 0px;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid gray;
+  height: 0;
+  width: 0;
+}
+.navbar-and-other-components-container .navbar-button__arrow-container__border-arrow {
+  position: absolute;
+  left: 1px;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid black;
+  height: 0;
+  width: 0;
+}
+.navbar-and-other-components-container .navbar-button__outer-text-container__close-button__text-container {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -293,11 +338,11 @@ html, body {
   opacity: 0.4;
   cursor: pointer;
 }
-.navbar-and-other-components-container .navbar-button__close-button__text-container:hover, .navbar-and-other-components-container .navbar-button__close-button__text-container:active {
+.navbar-and-other-components-container .navbar-button__outer-text-container__close-button__text-container:hover, .navbar-and-other-components-container .navbar-button__outer-text-container__close-button__text-container:active {
   background-color: #fc1e1e;
   opacity: 1;
 }
-.navbar-and-other-components-container .navbar-button__close-button__text-container__icon {
+.navbar-and-other-components-container .navbar-button__outer-text-container__close-button__text-container__icon {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -317,12 +362,6 @@ html, body {
   transform: translate(-50%, -50%);
   color: white;
   font-size: 12px;
-}
-.navbar-and-other-components-container .account-dropdown {
-  position: absolute;
-  right: 0px;
-  width: 200px;
-  height: 300px;
 }
 
 .account-modals-blurred-background {
@@ -1898,8 +1937,8 @@ html, body {
 }
 .search-filter-sort-component .create-item-message-container__arrow-head,
 .js-calc-search-filter-sort-component .create-item-message-container__arrow-head {
-  width: 0;
   height: 0;
+  width: 0;
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
   border-bottom: 14px solid black;

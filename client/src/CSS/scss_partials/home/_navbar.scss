@@ -18,6 +18,14 @@
 	.navbar-button {
 		position: relative;
 		float: left;
+		height: v.$navbar-height;
+	}
+
+	.navbar-button__outer-text-container {
+		position: relative;
+		float: left;
+		/* border: 1px solid black;
+		border-right: none; */
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
@@ -25,22 +33,18 @@
 		height: v.$navbar-height;
 	}
 
-	.navbar-button--invisible {
+	.navbar-button__outer-text-container--invisible {
 		visibility: hidden;
 	}
 
-	.navbar-button--right {
+	.navbar-button__outer-text-container--right {
 		// Postion absolute instead of float right so that account button
 		// ...will always remain on screen during screen resizing
 		position: absolute;
 		right: 0;
 	}
 
-	/* .navbar-button--selected {
-		background-color: v.$light-navy-blue;
-	} */
-
-	.navbar-button__text-container {
+	.navbar-button__outer-text-container__inner-text-container {
 		@include m.stop-text-selection();
 
 		margin: 18px 16px 0px 16px;
@@ -54,13 +58,42 @@
 		text-overflow: ellipsis;
 	}
 
-	.navbar-button__text-container__item-name {
+	.navbar-button__outer-text-container__inner-text-container__item-name {
 		margin: 18px 0px 0px 8px;
 		color: v.$yellow;
 		font-style: italic;
 	}
 
-	.navbar-button__close-button__text-container {
+	.navbar-button__arrow-container {
+		position: relative;
+		float: left;
+		height: (v.$navbar-height / 2);
+		width: (v.$navbar-height / 2) + 1;
+	}
+
+	.navbar-button__arrow-container__arrow {
+		// Must have higher z-index than border-arrow below
+		z-index: 1;
+		position: absolute;
+		left: 0px;
+		border-top: (v.$navbar-height / 2) solid transparent;
+		border-bottom: (v.$navbar-height / 2) solid transparent;
+		border-left: (v.$navbar-height / 2) solid gray;
+		height: 0;
+		width: 0;
+	}
+
+	.navbar-button__arrow-container__border-arrow {
+		position: absolute;
+		left: 1px;
+		border-top: (v.$navbar-height / 2) solid transparent;
+		border-bottom: (v.$navbar-height / 2) solid transparent;
+		border-left: (v.$navbar-height / 2) solid black;
+		height: 0;
+		width: 0;
+	}
+
+	.navbar-button__outer-text-container__close-button__text-container {
 		position: absolute;
 		top: 5px;
 		right: 5px;
@@ -78,19 +111,11 @@
 		}
 	}
 
-	.navbar-button__close-button__text-container__icon {
+	.navbar-button__outer-text-container__close-button__text-container__icon {
 		@include m.stop-text-selection();
 		@include m.dead-center();
 
 		color: white;
 		font-size: 12px;
-	}
-
-	.account-dropdown {
-		// Must be absolute so it doesn't affect the postion of other components
-		position: absolute;
-		right: 0px;
-		width: 200px;
-		height: 300px;
 	}
 }

@@ -61,6 +61,22 @@
 		}
 	}
 
+	// Navbar arrow colors
+	.js-set-project-navbar-arrow-color-dark {
+		//border-left-color: v.$dark-blue-teal !important;
+		border-left-color: v.$darker-navy-blue !important;
+	}
+	.js-set-project-navbar-arrow-color-light {
+		//border-left-color: v.$blue-teal !important;
+		border-left-color: v.$light-navy-blue !important;
+	}
+	.js-set-bug-navbar-arrow-color-dark {
+		border-left-color: v.$darker-navy-blue !important;
+	}
+	.js-set-bug-navbar-arrow-color-light {
+		border-left-color: v.$light-navy-blue !important;
+	}
+
 	// Border colors
 	.js-set-project-border-color-dark {
 		//border-color: v.$dark-blue-teal !important;

@@ -78,6 +78,23 @@ export function getProjectOrBugBackgroundColorClassNameWithHover(
 		: " PROBLEM";
 }
 
+// Navbar arrow color
+export function getProjectOrBugNavbarArrowColorClassNameDark(containerName) {
+	return containerName === PROJECT_CONTAINER
+		? " js-set-project-navbar-arrow-color-dark"
+		: containerName === BUG_CONTAINER
+		? " js-set-bug-navbar-arrow-color-dark"
+		: " PROBLEM";
+}
+
+export function getProjectOrBugNavbarArrowColorClassNameLight(containerName) {
+	return containerName === PROJECT_CONTAINER
+		? " js-set-project-navbar-arrow-color-light"
+		: containerName === BUG_CONTAINER
+		? " js-set-bug-navbar-arrow-color-light"
+		: " PROBLEM";
+}
+
 // Border color
 export function getProjectOrBugBorderColorClassNameDark(containerName) {
 	return containerName === PROJECT_CONTAINER
