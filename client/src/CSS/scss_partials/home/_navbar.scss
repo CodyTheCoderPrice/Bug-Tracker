@@ -18,6 +18,10 @@
 	.navbar-button {
 		position: relative;
 		float: left;
+		// This background color should only appear if there was a problem
+		// ...assigning a different background color to this element.
+		// ...the scss for the colors assigned are in home.scss
+		background-color: black;
 		height: v.$navbar-height;
 	}
 
@@ -32,22 +36,21 @@
 		right: 0;
 	}
 
+	.navbar-button--arrow-buffered {
+		margin-left: -((v.$navbar-height / 2) + 1);
+		padding-left: (v.$navbar-height / 2) + 1;
+	}
+
 	.navbar-button__outer-text-container {
 		position: relative;
 		float: left;
-		/* border: 1px solid black;
-		border-right: none; */
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in home.scss
-		background-color: black;
 		height: v.$navbar-height;
 	}
 
 	.navbar-button__outer-text-container__inner-text-container {
 		@include m.stop-text-selection();
 
-		margin: 18px 16px 0px 16px;
+		margin: 18px 4px 0px 16px;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: 20px;
 		color: white;
@@ -58,8 +61,7 @@
 		text-overflow: ellipsis;
 	}
 
-	.navbar-button__outer-text-container__inner-text-container__item-name {
-		margin: 18px 0px 0px 8px;
+	.navbar-button__outer-text-container__inner-text-container--item-name {
 		color: v.$yellow;
 		font-style: italic;
 	}
@@ -67,13 +69,13 @@
 	.navbar-button__arrow-container {
 		position: relative;
 		float: left;
-		height: (v.$navbar-height / 2);
+		height: v.$navbar-height;
 		width: (v.$navbar-height / 2) + 1;
 	}
 
 	.navbar-button__arrow-container__arrow {
 		// Must have higher z-index than border-arrow below
-		z-index: 1;
+		z-index: 2;
 		position: absolute;
 		left: 0px;
 		border-top: (v.$navbar-height / 2) solid transparent;
@@ -84,6 +86,8 @@
 	}
 
 	.navbar-button__arrow-container__border-arrow {
+		// Must have higher z-index of navbar-button
+		z-index: 1;
 		position: absolute;
 		left: 1px;
 		border-top: (v.$navbar-height / 2) solid transparent;

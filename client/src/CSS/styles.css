@@ -257,6 +257,7 @@ html, body {
 .navbar-and-other-components-container .navbar-button {
   position: relative;
   float: left;
+  background-color: black;
   height: 60px;
 }
 .navbar-and-other-components-container .navbar-button--invisible {
@@ -266,12 +267,13 @@ html, body {
   position: absolute;
   right: 0;
 }
+.navbar-and-other-components-container .navbar-button--arrow-buffered {
+  margin-left: -31px;
+  padding-left: 31px;
+}
 .navbar-and-other-components-container .navbar-button__outer-text-container {
   position: relative;
   float: left;
-  /* border: 1px solid black;
-  border-right: none; */
-  background-color: black;
   height: 60px;
 }
 .navbar-and-other-components-container .navbar-button__outer-text-container__inner-text-container {
@@ -288,7 +290,7 @@ html, body {
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  margin: 18px 16px 0px 16px;
+  margin: 18px 4px 0px 16px;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 20px;
   color: white;
@@ -297,19 +299,18 @@ html, body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.navbar-and-other-components-container .navbar-button__outer-text-container__inner-text-container__item-name {
-  margin: 18px 0px 0px 8px;
+.navbar-and-other-components-container .navbar-button__outer-text-container__inner-text-container--item-name {
   color: #ffff00;
   font-style: italic;
 }
 .navbar-and-other-components-container .navbar-button__arrow-container {
   position: relative;
   float: left;
-  height: 30px;
+  height: 60px;
   width: 31px;
 }
 .navbar-and-other-components-container .navbar-button__arrow-container__arrow {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   left: 0px;
   border-top: 30px solid transparent;
@@ -319,6 +320,7 @@ html, body {
   width: 0;
 }
 .navbar-and-other-components-container .navbar-button__arrow-container__border-arrow {
+  z-index: 1;
   position: absolute;
   left: 1px;
   border-top: 30px solid transparent;
