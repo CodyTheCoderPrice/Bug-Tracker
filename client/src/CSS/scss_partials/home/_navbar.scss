@@ -21,6 +21,17 @@
 		height: v.$navbar-height;
 	}
 
+	.navbar-button--invisible {
+		visibility: hidden;
+	}
+
+	.navbar-button--right {
+		// Postion absolute instead of float right so that account button
+		// ...will always remain on screen during screen resizing
+		position: absolute;
+		right: 0;
+	}
+
 	.navbar-button__outer-text-container {
 		position: relative;
 		float: left;
@@ -31,17 +42,6 @@
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
 		height: v.$navbar-height;
-	}
-
-	.navbar-button__outer-text-container--invisible {
-		visibility: hidden;
-	}
-
-	.navbar-button__outer-text-container--right {
-		// Postion absolute instead of float right so that account button
-		// ...will always remain on screen during screen resizing
-		position: absolute;
-		right: 0;
 	}
 
 	.navbar-button__outer-text-container__inner-text-container {

@@ -381,14 +381,17 @@ export default function Navbar() {
 					</div>
 				)}
 
-				<div className="navbar-button js-bug-list-button">
+				<div
+					className={
+						"navbar-button js-bug-list-button" +
+						(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
+							? " navbar-button--invisible"
+							: "")
+					}
+				>
 					<div
 						className={
 							"navbar-button__outer-text-container" +
-							(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
-							null
-								? " navbar-button__outer-text-container--invisible"
-								: "") +
 							getProjectOrBugBackgroundColorClassNameDark(
 								getCurrentContainerName(reduxState)
 							) +
@@ -475,18 +478,20 @@ export default function Navbar() {
 						</div>
 					</div>
 				)}
-				<div
-					className={
-						"navbar-button__outer-text-container navbar-button__outer-text-container--right js-account-button" +
-						getProjectOrBugBackgroundColorClassNameDark(
-							getCurrentContainerName(reduxState)
-						)
-					}
-					onClick={openAccountSidebar}
-				>
-					<div className="navbar-button__outer-text-container__inner-text-container">
-						<i className="fa fa-fw fa-user" />
-						Account
+				<div className="navbar-button navbar-button--right js-account-button">
+					<div
+						className={
+							"navbar-button__outer-text-container" +
+							getProjectOrBugBackgroundColorClassNameDark(
+								getCurrentContainerName(reduxState)
+							)
+						}
+						onClick={openAccountSidebar}
+					>
+						<div className="navbar-button__outer-text-container__inner-text-container">
+							<i className="fa fa-fw fa-user" />
+							Account
+						</div>
 					</div>
 				</div>
 			</div>

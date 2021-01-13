@@ -259,6 +259,13 @@ html, body {
   float: left;
   height: 60px;
 }
+.navbar-and-other-components-container .navbar-button--invisible {
+  visibility: hidden;
+}
+.navbar-and-other-components-container .navbar-button--right {
+  position: absolute;
+  right: 0;
+}
 .navbar-and-other-components-container .navbar-button__outer-text-container {
   position: relative;
   float: left;
@@ -266,13 +273,6 @@ html, body {
   border-right: none; */
   background-color: black;
   height: 60px;
-}
-.navbar-and-other-components-container .navbar-button__outer-text-container--invisible {
-  visibility: hidden;
-}
-.navbar-and-other-components-container .navbar-button__outer-text-container--right {
-  position: absolute;
-  right: 0;
 }
 .navbar-and-other-components-container .navbar-button__outer-text-container__inner-text-container {
   -webkit-touch-callout: none;
