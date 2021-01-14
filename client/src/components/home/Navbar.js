@@ -32,8 +32,6 @@ import {
 	getProjectOrBugBackgroundColorClassNameLight,
 	getProjectOrBugNavbarArrowColorClassNameDark,
 	getProjectOrBugNavbarArrowColorClassNameLight,
-	getElementStyle,
-	stripNonDigits,
 } from "../../utils";
 
 export default function Navbar() {
@@ -48,12 +46,9 @@ export default function Navbar() {
 				navbarAccountButton: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
 				),
-				navbarProjectsListButton: getElementSize(
-					document.getElementsByClassName("js-project-list-button")[0]
-				),
-				navbarBugsListButton: getElementSize(
-					document.getElementsByClassName("js-bug-list-button")[0]
-				),
+				navbarButtonArrowWidth: getElementSize(
+					document.getElementsByClassName("js-project-list-button-arrow")[0]
+				).width,
 				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
 				listViewTableRowHeight: calcListViewTableRowHeight(),
 				itemViewTopBarHeight: calcViewItemTopBarHeight(),
@@ -93,69 +88,118 @@ export default function Navbar() {
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			// If navbarAccountButton is set, then projects and bugs button should also be set
+			// If navbarAccountButton is set, then projects and bugs button should also be set (possibly remove this comment)
 			reduxState[SIZE_CONTAINER].constants.navbarAccountButton !== null &&
+			reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth !== null &&
 			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !== null
 		) {
-			let navbarAvailableSpace =
-				reduxState[SIZE_CONTAINER].variables.navbar.width -
-				reduxState[SIZE_CONTAINER].constants.navbarAccountButton.width -
-				reduxState[SIZE_CONTAINER].constants.navbarProjectsListButton.width -
-				reduxState[SIZE_CONTAINER].constants.navbarBugsListButton.width;
-
-			// Same for all buttons
-			const navbarButtonArrowWidth = getElementSize(
-				document.getElementsByClassName("js-project-list-button-arrow")[0]
-			).width;
+			const projectListButtonTextContainerElement = document.getElementsByClassName(
+				"js-project-list-button-text-container"
+			)[0];
 
 			const projectItemButtonTextContainerElement = document.getElementsByClassName(
 				"js-project-item-button-text-container"
 			)[0];
 
+			const bugListButtonTextContainerElement = document.getElementsByClassName(
+				"js-bug-list-button-text-container"
+			)[0];
+
 			// Reset maxWidth so will not interferre with measuring the new width
+			projectListButtonTextContainerElement.style.maxWidth = null;
 			projectItemButtonTextContainerElement.style.maxWidth = null;
+			bugListButtonTextContainerElement.style.maxWidth = null;
 
-			// If bug navbar button is present
+			const projectListButtonTextContainerJson = {
+				className: "js-project-list-button-text-container",
+				width: getElementSize(projectListButtonTextContainerElement).width,
+			};
+
+			const projectItemButtonTextContainerJson = {
+				className: "js-project-item-button-text-container",
+				width: getElementSize(projectItemButtonTextContainerElement).width,
+			};
+
+			const bugListButtonTextContainerJson = {
+				className: "js-bug-list-button-text-container",
+				width: getElementSize(bugListButtonTextContainerElement).width,
+			};
+
+			const navbarButtonElementJsonArray = [
+				projectListButtonTextContainerJson,
+				projectItemButtonTextContainerJson,
+				bugListButtonTextContainerJson,
+			];
+
+			let navbarAvailableSpace =
+				reduxState[SIZE_CONTAINER].variables.navbar.width -
+				reduxState[SIZE_CONTAINER].constants.navbarAccountButton.width -
+				projectListButtonTextContainerJson.width -
+				projectItemButtonTextContainerJson.width -
+				bugListButtonTextContainerJson.width -
+				reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth * 3;
+
 			if (reduxState[BUG_CONTAINER].componentsDisplay.targetItem !== null) {
-				// Removes bugItemButton's arrow from available space,other
-				// ...arrows removed in size of projectList and bugList buttons
-				navbarAvailableSpace -= navbarButtonArrowWidth;
-
 				const bugItemButtonTextContainerElement = document.getElementsByClassName(
 					"js-bug-item-button-text-container"
 				)[0];
+
 				// Reset maxWidth so will not interferre with measuring the new width
 				bugItemButtonTextContainerElement.style.maxWidth = null;
 
-				const bugItemButtonTextContainerElementWidth = getElementSize(
-					bugItemButtonTextContainerElement
-				).width;
+				const bugItemButtonTextContainerJson = {
+					className: "js-bug-item-button-text-container",
+					width: getElementSize(bugItemButtonTextContainerElement).width,
+				};
 
-				if (
-					bugItemButtonTextContainerElementWidth >
-					navbarAvailableSpace / 2
-				) {
-					bugItemButtonTextContainerElement.style.maxWidth =
-						navbarAvailableSpace / 2 + "px";
-					navbarAvailableSpace = navbarAvailableSpace / 2;
-				} else {
-					navbarAvailableSpace -= bugItemButtonTextContainerElementWidth;
-				}
+				navbarButtonElementJsonArray.push(bugItemButtonTextContainerJson);
+
+				navbarAvailableSpace -=
+					bugItemButtonTextContainerJson.width +
+					reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth;
 			}
 
-			const projectItemButtonTextContainerElementWidth = getElementSize(
-				projectItemButtonTextContainerElement
-			).width;
+			if (navbarAvailableSpace < 0) {
+				// Sort by width descending
+				navbarButtonElementJsonArray.sort((a, b) => {
+					return b.width - a.width;
+				});
 
-			console.log(
-				navbarAvailableSpace +
-					" vs " +
-					projectItemButtonTextContainerElementWidth
-			);
+				let combinedElementWidths = 0;
+				let navbarButtonElementsJsonToResizeArray = [];
 
-			if (projectItemButtonTextContainerElementWidth > navbarAvailableSpace) {
-				projectItemButtonTextContainerElement.style.maxWidth =
-					navbarAvailableSpace - navbarButtonArrowWidth + "px";
+				// Using every instead of forEach so loop can be broken (by returning false)
+				navbarButtonElementJsonArray.every((elementJson, i) => {
+					combinedElementWidths += elementJson.width;
+
+					// Inserts current element to the front of the resize array (so the smallest element should be at the start)
+					navbarButtonElementsJsonToResizeArray.unshift(elementJson);
+
+					// If not the last element
+					if (navbarButtonElementJsonArray[i + 1] !== undefined) {
+						// Checks if reducing the the current (and previous) elements width to being the same as the next element's width is more than enough to solve the deficit
+						if (
+							navbarAvailableSpace +
+								(combinedElementWidths -
+									navbarButtonElementJsonArray[i + 1].width *
+										navbarButtonElementsJsonToResizeArray.length) >
+							0
+						) {
+							// We can solve the deficit by resizing only the current (and previous) elements while not making them the same size or smaller than the next element
+							return false;
+						}
+					}
+					return true;
+				});
+
+				const resizeWidth =
+					(combinedElementWidths + navbarAvailableSpace) /
+					navbarButtonElementsJsonToResizeArray.length;
+				navbarButtonElementsJsonToResizeArray.forEach((elementJson) => {
+					document.getElementsByClassName(
+						elementJson.className
+					)[0].style.maxWidth = resizeWidth + "px";
+				});
 			}
 		}
 		// eslint-disable-next-line
@@ -332,7 +376,7 @@ export default function Navbar() {
 					}
 					onClick={openProjectsListView}
 				>
-					<div className="navbar-button__outer-text-container">
+					<div className="navbar-button__outer-text-container js-project-list-button-text-container">
 						<div className="navbar-button__outer-text-container__inner-text-container">
 							<i className="fa fa-folder" aria-hidden="true" /> Projects
 						</div>
@@ -445,7 +489,7 @@ export default function Navbar() {
 					}
 					onClick={openBugsListView}
 				>
-					<div className="navbar-button__outer-text-container">
+					<div className="navbar-button__outer-text-container  js-bug-list-button-text-container">
 						<div className="navbar-button__outer-text-container__inner-text-container">
 							<i className="fa fa-bug" aria-hidden="true" /> Bugs
 						</div>

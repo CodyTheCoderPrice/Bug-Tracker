@@ -4,8 +4,7 @@ import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 const initialState = {
 	scrollbarWidth: null,
 	navbarAccountButton: null,
-	navbarProjectsListButton: null,
-	navbarBugsListButton: null,
+	navbarButtonArrowWidth: null,
 	listViewSearchFilterSortBarHeight: null,
 	listViewTableRowHeight: null,
 	itemViewTopBarHeight: null,
@@ -34,8 +33,7 @@ export default function (state = initialState, action) {
 			return {
 				scrollbarWidth: action.sizes.scrollbarWidth,
 				navbarAccountButton: action.sizes.navbarAccountButton,
-				navbarProjectsListButton: action.sizes.navbarProjectsListButton,
-				navbarBugsListButton: action.sizes.navbarBugsListButton,
+				navbarButtonArrowWidth: action.sizes.navbarButtonArrowWidth,
 				listViewSearchFilterSortBarHeight:
 					action.sizes.listViewSearchFilterSortBarHeight,
 				listViewTableRowHeight: action.sizes.listViewTableRowHeight,
