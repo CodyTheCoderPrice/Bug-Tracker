@@ -86,116 +86,134 @@ export default function Navbar() {
 
 	// Sets max-width for navbar buttons depending on navbar width
 	useEffect(() => {
+		/**
+		 * Resets a navbar breadcrumb button's text-container element size and
+		 * returns a json object to be used in the resizing process
+		 *
+		 * @param {String} buttonTextContainerClassName - className for navbar
+		 * breadcrumb button's outer text container element
+		 * @returns {JSON} - JSON container a navbar breadcrumb buttons
+		 * text-container className and the text-container element's width
+		 */
+		const resetButtonSizeAndGetJson = (buttonTextContainerClassName) => {
+			/*
+			Working with button's text-container element instead of the entire
+			button element since only the text-container of a button resizes
+			*/
+			const buttonTextContainerElement = document.getElementsByClassName(
+				buttonTextContainerClassName
+			)[0];
+
+			/*
+			maxWidth determins the size of the text-container.
+			Also, must set maxWidth to null encase there was a prior
+			resizing that would interfer with this current resizing
+			*/
+			buttonTextContainerElement.style.maxWidth = null;
+
+			return {
+				className: buttonTextContainerClassName,
+				width: getElementSize(buttonTextContainerElement).width,
+			};
+		};
+
+		/*
+		Project list breadcrumb button added here since it is always present
+		and may need it's size reset even if it is the only breadcrumb button
+		*/
+		const navbarBreadcrumbButtonJsonArray = [
+			resetButtonSizeAndGetJson("js-project-list-button-text-container"),
+		];
+
+		/*
+		If project item and bug list breadcrumb buttons are present. Also needs
+		to check if the SIZE_CONTAINER has the sizes needed to calc resize.
+		*/
 		if (
+			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			// If navbarAccountButton is set, then projects and bugs button should also be set (possibly remove this comment)
 			reduxState[SIZE_CONTAINER].constants.navbarAccountButton !== null &&
-			reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth !== null &&
-			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !== null
+			reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth !== null
 		) {
-			const projectListButtonTextContainerElement = document.getElementsByClassName(
-				"js-project-list-button-text-container"
-			)[0];
-
-			const projectItemButtonTextContainerElement = document.getElementsByClassName(
-				"js-project-item-button-text-container"
-			)[0];
-
-			const bugListButtonTextContainerElement = document.getElementsByClassName(
-				"js-bug-list-button-text-container"
-			)[0];
-
-			// Reset maxWidth so will not interferre with measuring the new width
-			projectListButtonTextContainerElement.style.maxWidth = null;
-			projectItemButtonTextContainerElement.style.maxWidth = null;
-			bugListButtonTextContainerElement.style.maxWidth = null;
-
-			const projectListButtonTextContainerJson = {
-				className: "js-project-list-button-text-container",
-				width: getElementSize(projectListButtonTextContainerElement).width,
-			};
-
-			const projectItemButtonTextContainerJson = {
-				className: "js-project-item-button-text-container",
-				width: getElementSize(projectItemButtonTextContainerElement).width,
-			};
-
-			const bugListButtonTextContainerJson = {
-				className: "js-bug-list-button-text-container",
-				width: getElementSize(bugListButtonTextContainerElement).width,
-			};
-
-			const navbarButtonElementJsonArray = [
-				projectListButtonTextContainerJson,
-				projectItemButtonTextContainerJson,
-				bugListButtonTextContainerJson,
-			];
+			// Following 2 buttons are always present when there's a target project.
+			navbarBreadcrumbButtonJsonArray.push(
+				resetButtonSizeAndGetJson("js-project-item-button-text-container")
+			);
+			navbarBreadcrumbButtonJsonArray.push(
+				resetButtonSizeAndGetJson("js-bug-list-button-text-container")
+			);
 
 			let navbarAvailableSpace =
 				reduxState[SIZE_CONTAINER].variables.navbar.width -
 				reduxState[SIZE_CONTAINER].constants.navbarAccountButton.width -
-				projectListButtonTextContainerJson.width -
-				projectItemButtonTextContainerJson.width -
-				bugListButtonTextContainerJson.width -
+				navbarBreadcrumbButtonJsonArray[0].width -
+				navbarBreadcrumbButtonJsonArray[1].width -
+				navbarBreadcrumbButtonJsonArray[2].width -
 				reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth * 3;
 
+			// If bug item breadcrumb button is also present
 			if (reduxState[BUG_CONTAINER].componentsDisplay.targetItem !== null) {
-				const bugItemButtonTextContainerElement = document.getElementsByClassName(
-					"js-bug-item-button-text-container"
-				)[0];
-
-				// Reset maxWidth so will not interferre with measuring the new width
-				bugItemButtonTextContainerElement.style.maxWidth = null;
-
-				const bugItemButtonTextContainerJson = {
-					className: "js-bug-item-button-text-container",
-					width: getElementSize(bugItemButtonTextContainerElement).width,
-				};
-
-				navbarButtonElementJsonArray.push(bugItemButtonTextContainerJson);
+				navbarBreadcrumbButtonJsonArray.push(
+					resetButtonSizeAndGetJson("js-bug-item-button-text-container")
+				);
 
 				navbarAvailableSpace -=
-					bugItemButtonTextContainerJson.width +
+					navbarBreadcrumbButtonJsonArray[3].width +
 					reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth;
 			}
 
+			// If navbar doesn't have enough space -- resize breadcrumb buttons
 			if (navbarAvailableSpace < 0) {
-				// Sort by width descending
-				navbarButtonElementJsonArray.sort((a, b) => {
+				// Sort by desc width so largest buttons are resized first
+				navbarBreadcrumbButtonJsonArray.sort((a, b) => {
 					return b.width - a.width;
 				});
 
 				let combinedElementWidths = 0;
-				let navbarButtonElementsJsonToResizeArray = [];
+				const navbarBreadcrumbButtonJsonArrayToResize = [];
 
-				// Using every instead of forEach so loop can be broken (by returning false)
-				navbarButtonElementJsonArray.every((elementJson, i) => {
+				/*
+				Since forEach loops can't be broken out of, using every (break
+				by returning false instead of true)
+				*/
+				navbarBreadcrumbButtonJsonArray.every((elementJson, i) => {
 					combinedElementWidths += elementJson.width;
-
-					// Inserts current element to the front of the resize array (so the smallest element should be at the start)
-					navbarButtonElementsJsonToResizeArray.unshift(elementJson);
+					navbarBreadcrumbButtonJsonArrayToResize.push(elementJson);
 
 					// If not the last element
-					if (navbarButtonElementJsonArray[i + 1] !== undefined) {
-						// Checks if reducing the the current (and previous) elements width to being the same as the next element's width is more than enough to solve the deficit
+					if (navbarBreadcrumbButtonJsonArray[i + 1] !== undefined) {
+						/*
+						If reducing the current & previous element's widths to
+						being equal to next element's (smaller element) width
+						would be more than enough to fit the available space.
+						*/
 						if (
 							navbarAvailableSpace +
 								(combinedElementWidths -
-									navbarButtonElementJsonArray[i + 1].width *
-										navbarButtonElementsJsonToResizeArray.length) >
+									navbarBreadcrumbButtonJsonArray[i + 1].width *
+										navbarBreadcrumbButtonJsonArrayToResize.length) >
 							0
 						) {
-							// We can solve the deficit by resizing only the current (and previous) elements while not making them the same size or smaller than the next element
+							/*
+							Only current & previous elements need resizing so
+							break out of the every loop
+							*/
 							return false;
 						}
 					}
+					// Continue every loop (or end it if last element)
 					return true;
 				});
 
+				/*
+				We now know how many buttons need resizing, so we calc the size
+				that will make them all just fit the available space.
+				*/
 				const resizeWidth =
 					(combinedElementWidths + navbarAvailableSpace) /
-					navbarButtonElementsJsonToResizeArray.length;
-				navbarButtonElementsJsonToResizeArray.forEach((elementJson) => {
+					navbarBreadcrumbButtonJsonArrayToResize.length;
+
+				navbarBreadcrumbButtonJsonArrayToResize.forEach((elementJson) => {
 					document.getElementsByClassName(
 						elementJson.className
 					)[0].style.maxWidth = resizeWidth + "px";
