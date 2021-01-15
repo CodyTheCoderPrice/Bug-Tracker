@@ -125,8 +125,8 @@
 		top: 53px;
 		border: 3px solid black;
 		background-color: white;
-		height: 200px;
-		width: 330px;
+		height: v.$filter-dropdown-content-container-height;
+		width: v.$filter-dropdown-content-container-width;
 		cursor: default;
 		// Made visible using JS
 		visibility: hidden;
@@ -144,6 +144,7 @@
 		float: left;
 		margin: 15px 0px 5px 20px;
 		text-align: center;
+		font-size: v.$filter-dropdown-content-font-size;
 	}
 
 	.filter-container__content-dropdown__content--right {
