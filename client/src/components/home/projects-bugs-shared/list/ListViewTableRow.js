@@ -45,12 +45,12 @@ export default function ListViewTableRow(props) {
 		);
 	};
 
-	// Keeps clicking checkbox from propogating parent elements onclick
+	// Stops the clicking of a checkbox from propogating parent elements onclick
 	const dontPropogateParentOnclick = (e) => {
 		e.stopPropagation();
 	};
 
-	/* const changeTargetItem = () => {
+	const changeTargetItem = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listView: true,
@@ -69,7 +69,7 @@ export default function ListViewTableRow(props) {
 		) {
 			dispatch(setWhichBugComponentsDisplay({}));
 		}
-	}; */
+	};
 
 	const openItemView = () => {
 		dispatch(
@@ -128,7 +128,8 @@ export default function ListViewTableRow(props) {
 					? " list-table__row--selected"
 					: " list-table__row--hover-highlight")
 			}
-			onClick={openItemView}
+			onClick={changeTargetItem}
+			onDoubleClick={openItemView}
 		>
 			<td
 				className="list-table__data"

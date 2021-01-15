@@ -1255,7 +1255,7 @@ html, body {
 }
 .item-container-list-sidebar-component .list-sidebar__table__row--hover-highlight:hover,
 .js-calc-list-sidebar-component .list-sidebar__table__row--hover-highlight:hover {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
 }
 .item-container-list-sidebar-component .list-sidebar__table__row--selected,
 .js-calc-list-sidebar-component .list-sidebar__table__row--selected {
@@ -2005,7 +2005,7 @@ html, body {
 }
 .list-table-component .list-table__row--hover-highlight:hover,
 .js-calc-list-table-component .list-table__row--hover-highlight:hover {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
 }
 .list-table-component .list-table__row--selected,
 .js-calc-list-table-component .list-table__row--selected {
