@@ -1425,7 +1425,7 @@ html, body {
 .top-bar-component .filter-container__content-dropdown,
 .js-calc-top-bar-component .filter-container__content-dropdown {
   position: absolute;
-  top: 53px;
+  top: 52px;
   border: 3px solid black;
   background-color: white;
   height: 200px;
@@ -1889,7 +1889,7 @@ html, body {
 .js-calc-search-filter-sort-component .filter-area-container__content-dropdown {
   position: absolute;
   /* top: 41px; */
-  top: 53px;
+  top: 52px;
   right: 28px;
   border: 3px solid black;
   background-color: white;
