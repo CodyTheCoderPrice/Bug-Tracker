@@ -1,4 +1,5 @@
 import generalComponentsDisplayReducer from "./generalComponentsDisplayReducer";
+import globalConstantsReducer from "./globalConstantsReducer";
 import inputErrorReducer from "./inputErrorReducer";
 
 import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
@@ -9,11 +10,13 @@ const initialState = {
 	// passing 'undefined, {}' causes reducers to return their initial state
 	componentsDisplay: generalComponentsDisplayReducer(undefined, {}),
 	inputErrors: inputErrorReducer(undefined, {}),
+	// Passed nothing since this reducer takes no parameters
+	globalConstants: globalConstantsReducer(),
 };
 
 /**
  * Used to set JSON for the general container of the redux state
- * 
+ *
  * @param {JSON} state - JSON containing all current data for the general
  * container of the redux state
  * @param {JSON} action - JSON containing a container name and type (used to
@@ -28,8 +31,8 @@ export function generalContainerReducer(state = initialState, action) {
 		case GENERAL_CONTAINER:
 			// This if statement is in all container reducers to allow for the
 			// ...resetting of the redux state to default
-			if(action.type === RESET_CONTAINER) {
-				return initialState
+			if (action.type === RESET_CONTAINER) {
+				return initialState;
 			} else {
 				return {
 					componentsDisplay: generalComponentsDisplayReducer(
@@ -37,6 +40,8 @@ export function generalContainerReducer(state = initialState, action) {
 						action
 					),
 					inputErrors: inputErrorReducer(state.inputErrors, action),
+					// Passed nothing since this reducer takes no parameters
+					globalConstants: globalConstantsReducer(),
 				};
 			}
 		default:

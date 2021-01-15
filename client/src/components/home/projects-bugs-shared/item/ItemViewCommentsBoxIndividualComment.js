@@ -34,8 +34,6 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 	});
 
-	const [descriptionCharLimit] = useState(500);
-
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnter("js-edit-comment-form");
 
@@ -152,12 +150,16 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 						<span
 							className={
 								"item-box__form-char-counter" +
-								(commentInfo.description.length > descriptionCharLimit
+								(reduxState[GENERAL_CONTAINER].globalConstants
+									.descriptionCharLimit < commentInfo.description.length
 									? " text-red"
 									: "")
 							}
 						>
-							{commentInfo.description.length + "/" + descriptionCharLimit}
+							{commentInfo.description.length +
+								"/" +
+								reduxState[GENERAL_CONTAINER].globalConstants
+									.descriptionCharLimit}
 						</span>
 						<textarea
 							name="description"

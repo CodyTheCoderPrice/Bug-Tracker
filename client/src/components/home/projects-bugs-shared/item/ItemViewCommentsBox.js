@@ -31,8 +31,6 @@ export default function ItemViewCommentsBox() {
 		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
 	});
 
-	const [descriptionCharLimit] = useState(500);
-
 	// Keeps track of the current comment list size so componet can tell
 	// ...when a new comment has been added in order to reset commentInfo
 	const [previousCommmentsListSize, setPreviousCommentsListSize] = useState(
@@ -116,12 +114,16 @@ export default function ItemViewCommentsBox() {
 					<span
 						className={
 							"item-box__form-char-counter" +
-							(commentInfo.description.length > descriptionCharLimit
+							(reduxState[GENERAL_CONTAINER].globalConstants
+								.descriptionCharLimit < commentInfo.description.length
 								? " text-red"
 								: "")
 						}
 					>
-						{commentInfo.description.length + "/" + descriptionCharLimit}
+						{commentInfo.description.length +
+							"/" +
+							reduxState[GENERAL_CONTAINER].globalConstants
+								.descriptionCharLimit}
 					</span>
 					<textarea
 						name="description"

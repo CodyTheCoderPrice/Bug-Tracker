@@ -47,10 +47,6 @@ export default function ListViewCreateItemSidebar(props) {
 		completion_date: null,
 	});
 
-	const [nameCharLimit] = useState(35);
-	const [descriptionCharLimit] = useState(500);
-	const [locationCharLimit] = useState(100);
-
 	// Custom hook toggles the display of the date input for completion date
 	// ...based on status and makes sure itemInfo contains accurate
 	// ...completion date info after every toggle
@@ -199,10 +195,15 @@ export default function ListViewCreateItemSidebar(props) {
 						<span
 							className={
 								"form__char-counter" +
-								(itemInfo.name.length > nameCharLimit ? " text-red" : "")
+								(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
+								itemInfo.name.length
+									? " text-red"
+									: "")
 							}
 						>
-							{itemInfo.name.length + "/" + nameCharLimit}
+							{itemInfo.name.length +
+								"/" +
+								reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
 						</span>
 						<input
 							type="text"
@@ -221,12 +222,16 @@ export default function ListViewCreateItemSidebar(props) {
 						<span
 							className={
 								"form__char-counter" +
-								(itemInfo.description.length > descriptionCharLimit
+								(reduxState[GENERAL_CONTAINER].globalConstants
+									.descriptionCharLimit < itemInfo.description.length
 									? " text-red"
 									: "")
 							}
 						>
-							{itemInfo.description.length + "/" + descriptionCharLimit}
+							{itemInfo.description.length +
+								"/" +
+								reduxState[GENERAL_CONTAINER].globalConstants
+									.descriptionCharLimit}
 						</span>
 						<textarea
 							name="description"
@@ -249,12 +254,16 @@ export default function ListViewCreateItemSidebar(props) {
 								<span
 									className={
 										"form__char-counter" +
-										(itemInfo.location.length > locationCharLimit
+										(reduxState[GENERAL_CONTAINER].globalConstants
+											.locationCharLimit < itemInfo.location.length
 											? " text-red"
 											: "")
 									}
 								>
-									{itemInfo.location.length + "/" + locationCharLimit}
+									{itemInfo.location.length +
+										"/" +
+										reduxState[GENERAL_CONTAINER].globalConstants
+											.locationCharLimit}
 								</span>
 								<input
 									type="text"
