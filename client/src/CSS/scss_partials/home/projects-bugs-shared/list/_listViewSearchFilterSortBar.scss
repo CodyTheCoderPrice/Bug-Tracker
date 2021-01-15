@@ -27,12 +27,17 @@
 		@include m.stop-text-selection();
 		@include m.vertical-center();
 
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
 		left: 30px;
 		border: v.$search-filter-sort-bar-new-item-button-border-width solid black;
 		background-color: white;
 		height: v.$search-filter-sort-bar-button-height;
 		width: 110px;
-		font-size: 16px;
+		font-size: v.$search-filter-sort-bar-button-font-size;
 		text-align: center;
 		cursor: pointer;
 	}
@@ -71,11 +76,11 @@
 		// ...the scss for the colors assigned are in home.scss
 		border: v.$list-search-bar-border-width solid black;
 		padding: 0px v.$list-search-bar-padding 0px v.$list-search-bar-padding;
-		height: v.$list-search-bar-height;
-		line-height: v.$list-search-bar-height;
+		height: v.$list-item-search-bar-height;
+		line-height: v.$list-item-search-bar-height;
 		// Width changed by JS
 		width: 100%;
-		font-size: 14px;
+		font-size: v.$list-item-search-bar-font-size;
 	}
 
 	.centering-container__search-group-container__search-bar-button {
@@ -88,7 +93,7 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
-		height: v.$list-search-bar-height;
+		height: v.$list-item-search-bar-height;
 		width: v.$list-item-search-bar-button-width;
 		cursor: pointer;
 	}
@@ -96,6 +101,7 @@
 	.centering-container__search-group-container__search-bar-button__icon {
 		@include m.dead-center();
 		color: white;
+		font-size: v.$list-item-search-bar-button-icon-font-size;
 	}
 
 	// Lets the searchbar resize know when to stop
@@ -109,17 +115,22 @@
 	.filter-area-container__button {
 		@include m.stop-text-selection();
 
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
 		// Must be more than filter-area-container__content-dropdown
 		// ...so its top border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
-		top: 12px;
+		top: 9px;
 		right: 30px;
 		border: 1px solid black;
 		background-color: white;
 		height: v.$search-filter-sort-bar-button-height;
 		width: v.$filter-button-width;
-		font-size: 16px;
+		font-size: v.$search-filter-sort-bar-button-font-size;
 		text-align: center;
 		cursor: pointer;
 	}
@@ -129,7 +140,7 @@
 		margin: -2px -2px 0px;
 		border-width: 3px;
 		border-bottom: none;
-		height: 54px;
+		height: 48px;
 	}
 
 	.filter-area-container__button__text {
@@ -147,7 +158,7 @@
 	.filter-area-container__content-dropdown {
 		position: absolute;
 		/* top: 41px; */
-		top: 64px;
+		top: 53px;
 		// 2px less than button since border resize moves the button
 		right: 28px;
 		border: 3px solid black;

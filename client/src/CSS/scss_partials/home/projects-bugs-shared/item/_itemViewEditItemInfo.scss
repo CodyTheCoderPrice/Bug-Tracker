@@ -7,7 +7,7 @@
 	.name-centering-container {
 		position: relative;
 		margin: 20px 0px 9px 0px;
-		height: v.$edit-item-name-name-centering-container-height;
+		height: v.$edit-item-name-centering-container-height;
 		width: 100%;
 		text-align: center;
 	}
@@ -32,7 +32,7 @@
 		// Margin-right does nothing so using margin-left but making the value negative
 		margin-left: -(v.$edit-item-name-input-width / 2) - v.$edit-item-name-input-border-width -
 			v.$edit-item-name-input-padding - (v.$edit-item-name-char-counter-container-width / 2);
-		height: v.$edit-item-name-name-centering-container-height;
+		height: v.$edit-item-name-centering-container-height;
 		width: v.$edit-item-name-char-counter-container-width;
 	}
 
@@ -50,7 +50,7 @@
 			v.$edit-item-name-input-padding + (v.$edit-item-name-char-counter-container-width / 2);
 		border: v.$edit-item-name-input-border-width solid black;
 		border-left: v.$edit-item-name-input-border-width solid transparent;
-		height: v.$edit-item-name-name-centering-container-height - (v.$edit-item-name-input-border-width * 2);
+		height: v.$edit-item-name-centering-container-height - (v.$edit-item-name-input-border-width * 2);
 		width: v.$edit-item-name-char-counter-container-width;
 	}
 

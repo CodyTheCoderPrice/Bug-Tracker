@@ -1,7 +1,7 @@
 @use "../utils/variables" as v;
 @use "../utils/mixins" as m;
 
-.navbar-and-other-components-container {
+.navbar-container {
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -52,7 +52,7 @@
 
 		margin: 18px v.$navbar-button-text-container-margin-right 0px v.$navbar-button-text-container-margin-left;
 		font-family: Verdana, Geneva, sans-serif;
-		font-size: 20px;
+		font-size: 18px;
 		color: white;
 		text-align: center;
 		// Text cutoff with ellipise only takes place when max-width is added by JS
