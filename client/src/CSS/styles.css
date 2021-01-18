@@ -406,7 +406,6 @@ dropdown can overlap all other components
   transform: translate(-50%, -50%);
   color: black;
   font-size: 24px;
-  cursor: pointer;
 }
 .hamburger-container .hamburger-dropdown,
 .js-calc-hamburger-container .hamburger-dropdown {
@@ -437,7 +436,6 @@ dropdown can overlap all other components
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
-  cursor: pointer;
 }
 .hamburger-container .hamburger-dropdown__option,
 .js-calc-hamburger-container .hamburger-dropdown__option {
@@ -469,10 +467,10 @@ dropdown can overlap all other components
   border-bottom-left-radius: 15%;
   border-bottom-right-radius: 15%;
 }
-.hamburger-container .hamburger-current-view-title,
-.hamburger-container .js-calc-hamburger-current-view-title,
-.js-calc-hamburger-container .hamburger-current-view-title,
-.js-calc-hamburger-container .js-calc-hamburger-current-view-title {
+.hamburger-container .hamburger-title,
+.hamburger-container .js-calc-hamburger-title,
+.js-calc-hamburger-container .hamburger-title,
+.js-calc-hamburger-container .js-calc-hamburger-title {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -488,7 +486,8 @@ dropdown can overlap all other components
   supported by Chrome, Edge, Opera and Firefox */
   position: absolute;
   left: 52px;
-  margin-top: 18px;
+  padding-top: 18px;
+  height: 56px;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 18px;
   color: white;

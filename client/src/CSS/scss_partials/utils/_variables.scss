@@ -158,7 +158,7 @@ $blurred-background-opacity: 0.5;
 // Arithmetic (must be at bottom)
 //===============================
 // The value added at the end represents the margin between the hamburger button and the title
-$navbar-hamburger-current-view-title-left: $navbar-hamburger-button-left +
+$navbar-hamburger-title-left: $navbar-hamburger-button-left +
 	$navbar-hamburger-button-width + 6px;
 $edit-item-name-centering-container-height: $edit-item-name-input-height +
 	($edit-item-name-input-border-width * 2) + ($edit-item-name-input-padding * 2);

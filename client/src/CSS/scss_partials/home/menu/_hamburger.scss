@@ -37,7 +37,6 @@
 
 		color: black;
 		font-size: 24px;
-		cursor: pointer;
 	}
 
 	.hamburger-dropdown {
@@ -66,7 +65,6 @@
 		@include m.dead-center();
 
 		font-size: 24px;
-		cursor: pointer;
 	}
 
 	.hamburger-dropdown__option {
@@ -102,14 +100,14 @@
 		@include round-bottom-border(v.$navbar-hamburger-dropdown-border-radius + 10);
 	}
 
-	.hamburger-current-view-title,
-	.js-calc-hamburger-current-view-title {
+	.hamburger-title,
+	.js-calc-hamburger-title {
 		@include m.stop-text-selection();
 
 		position: absolute;
-		left: v.$navbar-hamburger-current-view-title-left;
-
-		margin-top: 18px;
+		left: v.$navbar-hamburger-title-left;
+		padding-top: 18px;
+		height: v.$navbar-height;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: v.$navbar-button-font-size;
 		color: white;

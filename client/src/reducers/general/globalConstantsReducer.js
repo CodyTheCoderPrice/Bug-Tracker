@@ -4,7 +4,7 @@ const initialState = {
 	descriptionCharLimit: 500,
 	locationCharLimit: 100,
 	// Breaking point equals this times the number of breadcrumb buttons
-	navbarHamburgerMenuBreakingPointMultiplier: 700,
+	navbarHamburgerMenuBreakingPointMultiplier: 600,
 };
 
 /**

@@ -29,7 +29,7 @@ export default function NavbarHamburger() {
 	// Resizes breacrumb buttons to fit inside the navbar based on the window size
 	useEffect(() => {
 		const hamburgerCurrentViewTitleElement = document.getElementsByClassName(
-			"js-hamburger-current-view-title"
+			"js-hamburger-title"
 		)[0];
 
 		if (
@@ -89,8 +89,12 @@ export default function NavbarHamburger() {
 					);
 
 					// Makes sure font-size was not made too big
-					if (navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width < 0) {
-						hamburgerCurrentViewTitleElement.style.fontSize = (fontSize - 1) + "px";
+					if (
+						navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width <
+						0
+					) {
+						hamburgerCurrentViewTitleElement.style.fontSize =
+							fontSize - 1 + "px";
 						break;
 					}
 				}
@@ -246,11 +250,13 @@ export default function NavbarHamburger() {
 		<div className="hamburger-container">
 			{!reduxState[GENERAL_CONTAINER].componentsDisplay
 				.navbarHamburherDropdown ? (
-				<div className="hamburger-button-container">
+				<div
+					className="hamburger-button-container"
+					onClick={toggleHamburgerDropdown}
+				>
 					<i
 						className="fa fa-bars hamburger-button-container__icon"
 						aria-hidden="true"
-						onClick={toggleHamburgerDropdown}
 					/>
 				</div>
 			) : (
@@ -320,7 +326,10 @@ export default function NavbarHamburger() {
 					</div>
 				</div>
 			)}
-			<div className="hamburger-current-view-title js-hamburger-current-view-title">
+			<div
+				className="hamburger-title js-hamburger-title"
+				onClick={toggleHamburgerDropdown}
+			>
 				{getCurrentViewTitle()}
 			</div>
 		</div>

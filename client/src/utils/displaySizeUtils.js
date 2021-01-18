@@ -61,7 +61,7 @@ export function calcHamburgerCurrentViewTitleStyles() {
 		"div"
 	);
 	invisibleHamburgerCurrrentTitleViewElement.className =
-		"js-calc-hamburger-current-view-title";
+		"js-calc-hamburger-title";
 	invisibleHamburgerCurrrentTitleViewElement.visibility = "hidden";
 	invisibleHamburgerContainerElement.appendChild(
 		invisibleHamburgerCurrrentTitleViewElement
