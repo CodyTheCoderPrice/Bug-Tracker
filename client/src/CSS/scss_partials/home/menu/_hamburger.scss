@@ -3,6 +3,18 @@
 
 // SCSS for classNames only used by the hamburger components
 .hamburger-container {
+	.blurred-background {
+		// Must be more than navbar.scss
+		z-index: 3;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: black;
+		opacity: v.$blurred-background-opacity;
+		height: 100vh;
+		width: 100vw;
+	}
+
 	.hamburger-button-container {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -28,6 +40,8 @@
 	}
 
 	.hamburger-dropdown {
+		// Must be more than blurred-background
+		z-index: 4;
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		-moz-box-sizing: border-box; /* Firefox, other Gecko */

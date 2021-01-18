@@ -171,65 +171,71 @@ export default function NavbarHamburger() {
 					/>
 				</div>
 			) : (
-				<div className="hamburger-dropdown">
-					<div className="hamburger-dropdown__top-space">
-						<i
-							className="fa fa-bars hamburger-dropdown__top-space__icon"
-							aria-hidden="true"
-							onClick={toggleHamburgerDropdown}
-						/>
-					</div>
-					<div
-						className={
-							"hamburger-dropdown__option" +
-							(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
-								null &&
-							reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null
-								? " hamburger-dropdown__option--round-bottom-border-first-button"
-								: "")
-						}
-						onClick={openProjectsListView}
-					>
-						<i className="fa fa-folder" aria-hidden="true" /> Projects
-					</div>
-
-					{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
-					null ? null : (
-						<div>
-							<div
-								className="hamburger-dropdown__option"
-								onClick={openProjectsItemView}
-							>
-								{
-									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
-										.name
-								}
-							</div>
-
-							<div
-								className={
-									"hamburger-dropdown__option" +
-									(reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
-									null
-										? " hamburger-dropdown__option--round-bottom-border-third-button"
-										: "")
-								}
-								onClick={openBugsListView}
-							>
-								<i className="fa fa-bug" aria-hidden="true" /> Bugs
-							</div>
-
-							{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
-							null ? null : (
-								<div
-									className="hamburger-dropdown__option hamburger-dropdown__option--round-bottom-border-last-button"
-									onClick={openBugsItemView}
-								>
-									{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
-								</div>
-							)}
+				<div>
+					<div className="blurred-background" />
+					<div className="hamburger-dropdown">
+						<div className="hamburger-dropdown__top-space">
+							<i
+								className="fa fa-bars hamburger-dropdown__top-space__icon"
+								aria-hidden="true"
+								onClick={toggleHamburgerDropdown}
+							/>
 						</div>
-					)}
+						<div
+							className={
+								"hamburger-dropdown__option" +
+								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
+									null &&
+								reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null
+									? " hamburger-dropdown__option--round-bottom-border-first-button"
+									: "")
+							}
+							onClick={openProjectsListView}
+						>
+							<i className="fa fa-folder" aria-hidden="true" /> Projects
+						</div>
+
+						{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
+						null ? null : (
+							<div>
+								<div
+									className="hamburger-dropdown__option"
+									onClick={openProjectsItemView}
+								>
+									{
+										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+											.name
+									}
+								</div>
+
+								<div
+									className={
+										"hamburger-dropdown__option" +
+										(reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
+										null
+											? " hamburger-dropdown__option--round-bottom-border-third-button"
+											: "")
+									}
+									onClick={openBugsListView}
+								>
+									<i className="fa fa-bug" aria-hidden="true" /> Bugs
+								</div>
+
+								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
+								null ? null : (
+									<div
+										className="hamburger-dropdown__option hamburger-dropdown__option--round-bottom-border-last-button"
+										onClick={openBugsItemView}
+									>
+										{
+											reduxState[BUG_CONTAINER].componentsDisplay.targetItem
+												.name
+										}
+									</div>
+								)}
+							</div>
+						)}
+					</div>
 				</div>
 			)}
 		</div>
