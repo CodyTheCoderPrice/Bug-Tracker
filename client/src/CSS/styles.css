@@ -245,7 +245,6 @@ html, body {
 }
 
 .navbar-container {
-  z-index: 2;
   position: fixed;
   width: 100%;
   top: 0;
@@ -317,7 +316,7 @@ html, body {
 .navbar-container .navbar-button__breadcrumb-arrow-container__arrow {
   z-index: 4;
   position: absolute;
-  top: -2px;
+  top: -1px;
   left: 0px;
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
@@ -328,7 +327,7 @@ html, body {
 .navbar-container .navbar-button__breadcrumb-arrow-container__border-arrow {
   z-index: 3;
   position: absolute;
-  top: -2px;
+  top: -1px;
   left: 2px;
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
@@ -361,6 +360,14 @@ html, body {
 .navbar-container .navbar-button__breadcrumb-arrow-container__border-arrow__close-button:hover, .navbar-container .navbar-button__breadcrumb-arrow-container__border-arrow__close-button:active {
   opacity: 1;
   color: #fc1e1e;
+}
+
+/*
+Increases navbar z-index for when the hamburger menu is present so hamburger
+dropdown can overlap all other components
+*/
+.navbar-container--increased-z-index {
+  z-index: 2;
 }
 
 .hamburger-container .blurred-background,

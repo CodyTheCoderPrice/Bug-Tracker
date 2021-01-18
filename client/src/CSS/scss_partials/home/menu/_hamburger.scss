@@ -5,7 +5,7 @@
 .hamburger-container,
 .js-calc-hamburger-container {
 	.blurred-background {
-		// Must be more than navbar.scss
+		// Must be more than navbar-container--increased-z-index in navbar.scss
 		z-index: 3;
 		position: absolute;
 		top: 0;

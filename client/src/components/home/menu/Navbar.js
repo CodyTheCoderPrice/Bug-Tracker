@@ -138,7 +138,17 @@ export default function Navbar() {
 	};
 
 	return (
-		<div className="navbar-container">
+		<div
+			className={
+				"navbar-container" +
+				(reduxState[SIZE_CONTAINER].variables.navbar === null ||
+				reduxState[SIZE_CONTAINER].variables.navbar.width >
+					reduxState[GENERAL_CONTAINER].globalConstants
+						.navbarHamburgerMenuBreakingPointMultiplier
+					? ""
+					: " navbar-container--increased-z-index")
+			}
+		>
 			<div
 				className={
 					"navbar-component js-navbar" +
