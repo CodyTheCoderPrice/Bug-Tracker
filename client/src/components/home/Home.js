@@ -11,7 +11,7 @@ import { setWhichGeneralComponentsDisplay } from "../../actions";
 
 // Components
 // Navbar
-import Navbar from "./Navbar";
+import Navbar from "./menu/Navbar";
 // Account
 import AccountBlurredBackground from "./account/AccountBlurredBackground";
 import AccountSidebar from "./account/AccountSidebar";
@@ -24,9 +24,20 @@ export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Closes itemViewTopBarOptionsDropdown whenever it is open and user clicks anywhere
-	const closeItemViewTopBarOptionsDropdown = () => {
-		// This allows toggleOptionsDropdown to work
+	// Closes the hamburger dropdown and the item-view dropdown whenever they are
+	// ...open and user anywhere (including the dropdown containers)
+	const closeDropdownsWhenOpen = () => {
+		if (
+			reduxState[GENERAL_CONTAINER].componentsDisplay.navbarHamburherDropdown
+		) {
+			dispatch(
+				setWhichGeneralComponentsDisplay({
+					...reduxState[GENERAL_CONTAINER].componentsDisplay,
+					navbarHamburherDropdown: false,
+				})
+			);
+		}
+
 		if (
 			reduxState[GENERAL_CONTAINER].componentsDisplay
 				.itemViewTopBarOptionsDropdown
@@ -43,22 +54,22 @@ export default function Home() {
 	return (
 		<div
 			className="home-container"
-			onClick={closeItemViewTopBarOptionsDropdown}
+			onClick={closeDropdownsWhenOpen}
 		>
 			<Navbar />
 			{/*Account components*/}
 			{/*Displays bullered background when an account component is open*/}
-			{Object.values(
-				reduxState[ACCOUNT_CONTAINER].componentsDisplay
-			).indexOf(true) > -1 ? (
+			{Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
+				true
+			) > -1 ? (
 				<AccountBlurredBackground />
 			) : null}
 			{reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ? (
 				<AccountSidebar />
 			) : null}
-			{Object.values(
-				reduxState[ACCOUNT_CONTAINER].componentsDisplay
-			).indexOf(true) > -1 &&
+			{Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
+				true
+			) > -1 &&
 			!reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ? (
 				<EditAccountModal />
 			) : null}

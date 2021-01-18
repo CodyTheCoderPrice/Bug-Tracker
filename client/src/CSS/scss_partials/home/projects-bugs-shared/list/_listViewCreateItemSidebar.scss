@@ -91,22 +91,24 @@
 	}
 
 	.form__textarea {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+		resize: none;
+
 		margin-top: v.$create-item-sidebar-text-input-margin-top;
 		margin-bottom: v.$form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
 		background-color: v.$light-gray;
-		padding: 4px v.$create-item-sidebar-padding 4px v.$create-item-sidebar-padding;
+		padding: 4px v.$create-item-sidebar-padding 4px
+			v.$create-item-sidebar-padding;
 		height: 150px;
 		width: 100%;
 		font-size: v.$create-item-sidebar-text-input-font-size;
 		line-height: v.$common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
-		// sizing
-		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-		-moz-box-sizing: border-box; /* Firefox, other Gecko */
-		box-sizing: border-box; /* Opera/IE 8+ */
-		resize: none;
 	}
 
 	.form__group-container {

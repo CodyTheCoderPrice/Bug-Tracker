@@ -1,0 +1,89 @@
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
+
+// SCSS for classNames only used by the hamburger components
+.hamburger-container {
+	.hamburger-button-container {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+
+		position: absolute;
+		top: 9px;
+		left: 10px;
+		border: v.$navbar-hamburger-border-width solid black;
+		border-radius: 25%;
+		background-color: white;
+		height: 38px;
+		width: 36px;
+	}
+
+	.hamburger-button-container__icon {
+		@include m.dead-center();
+
+		color: black;
+		font-size: 24px;
+		cursor: pointer;
+	}
+
+	.hamburger-dropdown {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+
+		position: absolute;
+		top: 9px;
+		left: 10px;
+		border: v.$navbar-hamburger-border-width solid black;
+		border-radius: v.$navbar-hamburger-dropdown-border-radius;
+		background-color: white;
+	}
+
+	.hamburger-dropdown__top-space {
+		position: relative;
+		display: block;
+		height: 34px;
+	}
+
+	.hamburger-dropdown__top-space__icon {
+		@include m.dead-center();
+
+		font-size: 24px;
+		cursor: pointer;
+	}
+
+	.hamburger-dropdown__option {
+		display: block;
+		border-top: 1px solid gray;
+		padding: 12px;
+		cursor: pointer;
+
+		&:hover,
+		&:active {
+			background-color: v.$light-gray;
+		}
+	}
+
+	@mixin round-bottom-border($border-radius) {
+		border-bottom: v.$navbar-hamburger-border-width solid transparent;
+		border-bottom-left-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
+	}
+
+	// Should be applied to first option when is also the last
+	.hamburger-dropdown__option--round-bottom-border-first-button {
+		@include round-bottom-border(v.$navbar-hamburger-dropdown-border-radius);
+	}
+
+	// Should be applied to third option when it is also the last
+	.hamburger-dropdown__option--round-bottom-border-third-button {
+		@include round-bottom-border(v.$navbar-hamburger-dropdown-border-radius + 5);
+	}
+
+	// Should be applied to last option when it is also the last
+	.hamburger-dropdown__option--round-bottom-border-last-button {
+		@include round-bottom-border(v.$navbar-hamburger-dropdown-border-radius + 10);
+	}
+}

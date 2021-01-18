@@ -10,15 +10,18 @@ const initialState = {
 	// Has the user set itemViewListSidebar, or has it only been auto decided
 	// ...based on the size of the window
 	itemViewListSidebarUserSet: false,
-	// In general container since project and bug itemView are never open
-	// ...at the same time and implementation for closing it is easier here
+	/*
+	Dropdowns are stored here in the general container to make it easier for
+	other compoents to close them when user clicks away from the dropdown.
+	*/
+	navbarHamburherDropdown: false,
 	itemViewTopBarOptionsDropdown: false,
 };
 
 /**
  * Used to set JSON in the general container of the redux state for which
  * general components should display by the app
- * 
+ *
  * @param {JSON} state - JSON for which account components are currently being
  * display by the app
  * @param {JSON} action - JSON containing a container name and type (used to
@@ -51,6 +54,10 @@ export default function (state = initialState, action) {
 				itemViewListSidebarUserSet:
 					action.displays.itemViewListSidebarUserSet !== undefined
 						? action.displays.itemViewListSidebarUserSet
+						: false,
+				navbarHamburherDropdown:
+					action.displays.navbarHamburherDropdown !== undefined
+						? action.displays.navbarHamburherDropdown
 						: false,
 				itemViewTopBarOptionsDropdown:
 					action.displays.itemViewTopBarOptionsDropdown !== undefined

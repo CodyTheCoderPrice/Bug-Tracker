@@ -1,7 +1,10 @@
-@use "../utils/variables" as v;
-@use "../utils/mixins" as m;
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
 
+// SCSS for classNames shared by the navbar, breadcrumb, and hamburger components
 .navbar-container {
+	// Must be more than listViewSearchFilterSortBar.scss
+	z-index: 2;
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -52,7 +55,7 @@
 
 		margin: 18px v.$navbar-button-text-container-margin-right 0px v.$navbar-button-text-container-margin-left;
 		font-family: Verdana, Geneva, sans-serif;
-		font-size: 18px;
+		font-size: v.$navbar-button-font-size;
 		color: white;
 		text-align: center;
 		// Text cutoff with ellipise only takes place when max-width is added by JS
@@ -81,10 +84,10 @@
 
 	.navbar-button__arrow-container__arrow {
 		// Must have higher z-index than border-arrow below
-		z-index: 2;
+		z-index: 4;
 		position: absolute;
-		top: -1px;
-		left: 0px;
+		top: v.$navbar-breadcrumb-arrow-top;
+		left: v.$navbar-breadcrumb-arrow-left;
 		border-top: v.$navbar-button-arrow-width + 2 solid transparent;
 		border-bottom: v.$navbar-button-arrow-width + 2 solid transparent;
 		border-left: v.$navbar-button-arrow-width + 2 solid gray;
@@ -94,10 +97,10 @@
 
 	.navbar-button__arrow-container__border-arrow {
 		// Must have higher z-index of navbar-button
-		z-index: 1;
+		z-index: 3;
 		position: absolute;
-		top: -1px;
-		left: 1px;
+		top: v.$navbar-breadcrumb-arrow-top;
+		left: v.$navbar-breadcrumb-arrow-left + 2;
 		border-top: v.$navbar-button-arrow-width + 2 solid transparent;
 		border-bottom: v.$navbar-button-arrow-width + 2 solid transparent;
 		border-left: v.$navbar-button-arrow-width + 2 solid black;

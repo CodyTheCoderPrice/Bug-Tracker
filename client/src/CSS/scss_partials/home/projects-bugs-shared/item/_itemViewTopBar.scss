@@ -39,6 +39,7 @@
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
+
 		display: inline-block;
 		outline: none;
 		// This border color should only appear if there was a problem
@@ -244,6 +245,7 @@
 		display: none;
 	}
 
+	// Should be applied to the last option
 	.item-options-container__dropdown__option--no-border {
 		border-bottom: none;
 	}

@@ -2,89 +2,32 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	SIZE_CONTAINER,
-	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
-} from "../../actions/constants/containerNames";
+} from "../../../actions/constants/containerNames";
 
 import {
-	setDisplaySizeConstants,
-	setDisplaySizeVariables,
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 	setWhichBugComponentsDisplay,
 	setProjectOrBugMassDeleteList,
 	setWhichCommentComponentsDisplay,
-} from "../../actions";
+} from "../../../actions";
 
 import {
-	getWindowSize,
 	getElementSize,
-	calcScrollbarWidth,
-	calcListViewSearchFilterSortBarHeight,
-	calcListViewTableRowHeight,
-	calcViewItemTopBarHeight,
-	calcItemViewListSidebarWidth,
-	calcItemViewOuterDividingContainerMinWidth,
-	calcItemViewPaddingContainerPadding,
 	getCurrentContainerName,
 	getProjectOrBugBackgroundColorClassNameDark,
 	getProjectOrBugBackgroundColorClassNameLight,
 	getProjectOrBugNavbarArrowColorClassNameDark,
 	getProjectOrBugNavbarArrowColorClassNameLight,
-} from "../../utils";
+} from "../../../utils";
 
-export default function Navbar() {
+export default function NavbarBreadcrumb() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Makes sure the current size of the window and navbar are stored in redux
-	useEffect(() => {
-		dispatch(
-			setDisplaySizeConstants({
-				scrollbarWidth: calcScrollbarWidth(),
-				navbarAccountButton: getElementSize(
-					document.getElementsByClassName("js-account-button")[0]
-				),
-				navbarButtonArrowWidth: getElementSize(
-					document.getElementsByClassName("js-project-list-button-arrow")[0]
-				).width,
-				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
-				listViewTableRowHeight: calcListViewTableRowHeight(),
-				itemViewTopBarHeight: calcViewItemTopBarHeight(),
-				itemViewListSidebarWidth: calcItemViewListSidebarWidth(),
-				itemViewOuterDividingContainerMinWidth: calcItemViewOuterDividingContainerMinWidth(),
-				itemViewPaddingContainerPadding: calcItemViewPaddingContainerPadding(),
-			})
-		);
-
-		dispatch(
-			setDisplaySizeVariables({
-				window: getWindowSize(),
-				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
-			})
-		);
-
-		// Adds event to update navbar size on a resize
-		window.addEventListener("resize", displaySizeHandler);
-
-		return () => {
-			window.removeEventListener("resize", displaySizeHandler);
-		};
-		// eslint-disable-next-line
-	}, []);
-
-	// Declared outside of the eventListener so removing will working on cleanup
-	function displaySizeHandler() {
-		dispatch(
-			setDisplaySizeVariables({
-				window: getWindowSize(),
-				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
-			})
-		);
-	}
-
-	// Sets max-width for navbar buttons depending on navbar width
+	// Resizes breacrumb buttons to fit inside the navbar based on the window size
 	useEffect(() => {
 		/**
 		 * Resets a navbar breadcrumb button's text-container element size and
@@ -230,32 +173,6 @@ export default function Navbar() {
 		reduxState[BUG_CONTAINER].componentsDisplay.targetItem,
 	]);
 
-	const openAccountSidebar = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountSidebar: !reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountSidebar,
-			})
-		);
-		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState[PROJECT_CONTAINER].componentsDisplay,
-				listViewCreateItemSidbar: false,
-				itemViewDeleteModal: false,
-				listViewMassDeleteItemsModal: false,
-			})
-		);
-		dispatch(
-			setWhichBugComponentsDisplay({
-				...reduxState[BUG_CONTAINER].componentsDisplay,
-				listViewCreateItemSidbar: false,
-				itemViewDeleteModal: false,
-				listViewMassDeleteItemsModal: false,
-			})
-		);
-		dispatch(setWhichCommentComponentsDisplay({}));
-	};
-
 	const openProjectsListView = () => {
 		if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true) {
 			dispatch(
@@ -371,145 +288,74 @@ export default function Navbar() {
 	};
 
 	return (
-		<div className="navbar-and-other-components-container">
+		<div className="breadcrumb-container">
 			<div
 				className={
-					"navbar-component js-navbar" +
+					"navbar-button js-project-list-button" +
 					getProjectOrBugBackgroundColorClassNameDark(
 						getCurrentContainerName(reduxState)
-					)
-				}
-			>
-				<div
-					className={
-						"navbar-button js-project-list-button" +
-						getProjectOrBugBackgroundColorClassNameDark(
-							getCurrentContainerName(reduxState)
-						) +
-						(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-							? getProjectOrBugBackgroundColorClassNameLight(
-									getCurrentContainerName(reduxState)
-							  )
-							: "")
-					}
-					onClick={openProjectsListView}
-				>
-					<div className="navbar-button__outer-text-container js-project-list-button-text-container">
-						<div className="navbar-button__outer-text-container__inner-text-container">
-							<i className="fa fa-folder" aria-hidden="true" /> Projects
-						</div>
-					</div>
-					<div
-						// Background color must be made that of the navbar
-						// ...otherwise selecting the last button will have
-						// ... its light color extend past the arrow
-						className={
-							"navbar-button__arrow-container" +
-							getProjectOrBugBackgroundColorClassNameDark(
+					) +
+					(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+						? getProjectOrBugBackgroundColorClassNameLight(
 								getCurrentContainerName(reduxState)
-							)
-						}
-					>
-						<div
-							className={
-								"navbar-button__arrow-container__arrow js-project-list-button-arrow" +
-								getProjectOrBugNavbarArrowColorClassNameDark(
-									getCurrentContainerName(reduxState)
-								) +
-								(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-									? getProjectOrBugNavbarArrowColorClassNameLight(
-											getCurrentContainerName(reduxState)
-									  )
-									: "")
-							}
-						/>
-						<div className="navbar-button__arrow-container__border-arrow" />
+						  )
+						: "")
+				}
+				onClick={openProjectsListView}
+			>
+				<div className="navbar-button__outer-text-container js-project-list-button-text-container">
+					<div className="navbar-button__outer-text-container__inner-text-container">
+						<i className="fa fa-folder" aria-hidden="true" /> Projects
 					</div>
 				</div>
-
-				{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
-				null ? null : (
+				<div
+					// Background color must be made that of the navbar
+					// ...otherwise selecting the last button will have
+					// ... its light color extend past the arrow
+					className={
+						"navbar-button__arrow-container" +
+						getProjectOrBugBackgroundColorClassNameDark(
+							getCurrentContainerName(reduxState)
+						)
+					}
+				>
 					<div
 						className={
-							"navbar-button navbar-button--arrow-buffered js-project-item-button" +
-							getProjectOrBugBackgroundColorClassNameDark(
+							"navbar-button__arrow-container__arrow js-project-list-button-arrow" +
+							getProjectOrBugNavbarArrowColorClassNameDark(
 								getCurrentContainerName(reduxState)
 							) +
-							(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
-								null && reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-								? getProjectOrBugBackgroundColorClassNameLight(
+							(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+								? getProjectOrBugNavbarArrowColorClassNameLight(
 										getCurrentContainerName(reduxState)
 								  )
 								: "")
 						}
-						onClick={openProjectsItemView}
-					>
-						<div className="navbar-button__outer-text-container js-project-item-button-text-container">
-							<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--item-name">
-								{
-									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
-										.name
-								}
-							</div>
-						</div>
-						<div
-							// Background-color must be made same as the navbar
-							// ...otherwise selecting last visible button will
-							// ...have its different color extend past arrow
-							className={
-								"navbar-button__arrow-container" +
-								getProjectOrBugBackgroundColorClassNameDark(
-									getCurrentContainerName(reduxState)
-								)
-							}
-						>
-							<div
-								className={
-									"navbar-button__arrow-container__arrow" +
-									getProjectOrBugNavbarArrowColorClassNameDark(
-										getCurrentContainerName(reduxState)
-									) +
-									(reduxState[PROJECT_CONTAINER].componentsDisplay
-										.targetItem !== null &&
-									reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-										? getProjectOrBugNavbarArrowColorClassNameLight(
-												getCurrentContainerName(reduxState)
-										  )
-										: "")
-								}
-							>
-								<i
-									className="fa fa-times navbar-button__arrow-container__border-arrow__close-button"
-									aria-hidden="true"
-									onClick={closeProjectItemView}
-								/>
-							</div>
-							<div className="navbar-button__arrow-container__border-arrow" />
-						</div>
-					</div>
-				)}
+					/>
+					<div className="navbar-button__arrow-container__border-arrow" />
+				</div>
+			</div>
 
+			{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
+			null ? null : (
 				<div
 					className={
-						"navbar-button navbar-button--arrow-buffered js-bug-list-button" +
-						(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
-							? " navbar-button--invisible"
-							: "") +
+						"navbar-button navbar-button--arrow-buffered js-project-item-button" +
 						getProjectOrBugBackgroundColorClassNameDark(
 							getCurrentContainerName(reduxState)
 						) +
 						(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
-							null && reduxState[BUG_CONTAINER].componentsDisplay.listView
+							null && reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
 							? getProjectOrBugBackgroundColorClassNameLight(
 									getCurrentContainerName(reduxState)
 							  )
 							: "")
 					}
-					onClick={openBugsListView}
+					onClick={openProjectsItemView}
 				>
-					<div className="navbar-button__outer-text-container  js-bug-list-button-text-container">
-						<div className="navbar-button__outer-text-container__inner-text-container">
-							<i className="fa fa-bug" aria-hidden="true" /> Bugs
+					<div className="navbar-button__outer-text-container js-project-item-button-text-container">
+						<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--item-name">
+							{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.name}
 						</div>
 					</div>
 					<div
@@ -530,93 +376,135 @@ export default function Navbar() {
 									getCurrentContainerName(reduxState)
 								) +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
-									null && reduxState[BUG_CONTAINER].componentsDisplay.listView
+									null &&
+								reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
 									? getProjectOrBugNavbarArrowColorClassNameLight(
 											getCurrentContainerName(reduxState)
 									  )
 									: "")
 							}
-						/>
+						>
+							<i
+								className="fa fa-times navbar-button__arrow-container__border-arrow__close-button"
+								aria-hidden="true"
+								onClick={closeProjectItemView}
+							/>
+						</div>
 						<div className="navbar-button__arrow-container__border-arrow" />
 					</div>
 				</div>
+			)}
 
-				{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
-				null ? null : (
+			<div
+				className={
+					"navbar-button navbar-button--arrow-buffered js-bug-list-button" +
+					(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
+						? " navbar-button--invisible"
+						: "") +
+					getProjectOrBugBackgroundColorClassNameDark(
+						getCurrentContainerName(reduxState)
+					) +
+					(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
+						null && reduxState[BUG_CONTAINER].componentsDisplay.listView
+						? getProjectOrBugBackgroundColorClassNameLight(
+								getCurrentContainerName(reduxState)
+						  )
+						: "")
+				}
+				onClick={openBugsListView}
+			>
+				<div className="navbar-button__outer-text-container  js-bug-list-button-text-container">
+					<div className="navbar-button__outer-text-container__inner-text-container">
+						<i className="fa fa-bug" aria-hidden="true" /> Bugs
+					</div>
+				</div>
+				<div
+					// Background-color must be made same as the navbar
+					// ...otherwise selecting last visible button will
+					// ...have its different color extend past arrow
+					className={
+						"navbar-button__arrow-container" +
+						getProjectOrBugBackgroundColorClassNameDark(
+							getCurrentContainerName(reduxState)
+						)
+					}
+				>
 					<div
 						className={
-							"navbar-button navbar-button--arrow-buffered js-bug-item-button" +
-							getProjectOrBugBackgroundColorClassNameDark(
+							"navbar-button__arrow-container__arrow" +
+							getProjectOrBugNavbarArrowColorClassNameDark(
 								getCurrentContainerName(reduxState)
 							) +
 							(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
-								null && reduxState[BUG_CONTAINER].componentsDisplay.itemView
-								? getProjectOrBugBackgroundColorClassNameLight(
+								null && reduxState[BUG_CONTAINER].componentsDisplay.listView
+								? getProjectOrBugNavbarArrowColorClassNameLight(
 										getCurrentContainerName(reduxState)
 								  )
 								: "")
 						}
-						onClick={openBugsItemView}
-					>
-						<div className="navbar-button__outer-text-container js-bug-item-button-text-container">
-							<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--item-name">
-								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
-							</div>
-						</div>
-						<div
-							// Background-color must be made same as the navbar
-							// ...otherwise selecting last visible button will
-							// ...have its different color extend past arrow
-							className={
-								"navbar-button__arrow-container" +
-								getProjectOrBugBackgroundColorClassNameDark(
+					/>
+					<div className="navbar-button__arrow-container__border-arrow" />
+				</div>
+			</div>
+
+			{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
+			null ? null : (
+				<div
+					className={
+						"navbar-button navbar-button--arrow-buffered js-bug-item-button" +
+						getProjectOrBugBackgroundColorClassNameDark(
+							getCurrentContainerName(reduxState)
+						) +
+						(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
+							null && reduxState[BUG_CONTAINER].componentsDisplay.itemView
+							? getProjectOrBugBackgroundColorClassNameLight(
 									getCurrentContainerName(reduxState)
-								)
-							}
-						>
-							<div
-								className={
-									"navbar-button__arrow-container__arrow" +
-									getProjectOrBugNavbarArrowColorClassNameDark(
-										getCurrentContainerName(reduxState)
-									) +
-									(reduxState[PROJECT_CONTAINER].componentsDisplay
-										.targetItem !== null &&
-									reduxState[BUG_CONTAINER].componentsDisplay.itemView
-										? getProjectOrBugNavbarArrowColorClassNameLight(
-												getCurrentContainerName(reduxState)
-										  )
-										: "")
-								}
-							>
-								{" "}
-								<i
-									className="fa fa-times navbar-button__arrow-container__border-arrow__close-button"
-									aria-hidden="true"
-									onClick={(e) => closeBugItemView(e)}
-								/>
-							</div>
-							<div className="navbar-button__arrow-container__border-arrow" />
+							  )
+							: "")
+					}
+					onClick={openBugsItemView}
+				>
+					<div className="navbar-button__outer-text-container js-bug-item-button-text-container">
+						<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--item-name">
+							{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
 						</div>
 					</div>
-				)}
-				<div className="navbar-button navbar-button--right js-account-button">
 					<div
+						// Background-color must be made same as the navbar
+						// ...otherwise selecting last visible button will
+						// ...have its different color extend past arrow
 						className={
-							"navbar-button__outer-text-container" +
+							"navbar-button__arrow-container" +
 							getProjectOrBugBackgroundColorClassNameDark(
 								getCurrentContainerName(reduxState)
 							)
 						}
-						onClick={openAccountSidebar}
 					>
-						<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--right">
-							<i className="fa fa-fw fa-user" />
-							Account
+						<div
+							className={
+								"navbar-button__arrow-container__arrow" +
+								getProjectOrBugNavbarArrowColorClassNameDark(
+									getCurrentContainerName(reduxState)
+								) +
+								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
+									null && reduxState[BUG_CONTAINER].componentsDisplay.itemView
+									? getProjectOrBugNavbarArrowColorClassNameLight(
+											getCurrentContainerName(reduxState)
+									  )
+									: "")
+							}
+						>
+							{" "}
+							<i
+								className="fa fa-times navbar-button__arrow-container__border-arrow__close-button"
+								aria-hidden="true"
+								onClick={(e) => closeBugItemView(e)}
+							/>
 						</div>
+						<div className="navbar-button__arrow-container__border-arrow" />
 					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 }

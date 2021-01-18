@@ -135,6 +135,12 @@
 	}
 
 	.item-box__form-textarea {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+		resize: none;
+
 		outline: none;
 		margin-bottom: 10px;
 		border: 2px solid black;
@@ -145,11 +151,6 @@
 		line-height: v.$common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: v.$base-font-size;
-		// sizing
-		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-		-moz-box-sizing: border-box; /* Firefox, other Gecko */
-		box-sizing: border-box; /* Opera/IE 8+ */
-		resize: none;
 	}
 
 	.item-box__form-textarea--shorter {

@@ -92,6 +92,8 @@ $item-container-project-bugs-item-box-stats-container-width: 200px;
 //==========
 // Position
 //==========
+$navbar-breadcrumb-arrow-top: -2px;
+$navbar-breadcrumb-arrow-left: 0px;
 $item-search-bar-left: 15px;
 
 //=========
@@ -103,9 +105,10 @@ $form-input-margin-bottom: 10px;
 $create-item-sidebar-text-input-margin-top: 2px;
 $display-item-field-margin-left: 11px;
 
-//==========
-// Borders
-//==========
+//==============
+// Border-width
+//==============
+$navbar-hamburger-border-width: 3px;
 $search-filter-sort-bar-border-width: 1px;
 $search-filter-sort-bar-new-item-button-border-width: 1px;
 $list-search-bar-border-width: 2px;
@@ -113,6 +116,11 @@ $list-item-search-bar-group-container-border-width: 1px;
 $top-bar-border-width: $search-filter-sort-bar-border-width;
 $edit-item-name-input-border-width: 2px;
 $item-container-list-sidebar-border-width: 2px;
+
+//==============
+// Border-radius
+//==============
+$navbar-hamburger-dropdown-border-radius: 5%;
 
 //=========
 // Padding
@@ -126,6 +134,7 @@ $edit-item-name-input-padding: 4px;
 //======
 $base-font-size: 15px;
 $slightly-larger-font-size: $base-font-size + 1px;
+$navbar-button-font-size: 18px;
 $search-filter-sort-create-item-message-font-size: 24px;
 $list-item-search-bar-font-size: 14px;
 $list-item-search-bar-button-icon-font-size: 14px;

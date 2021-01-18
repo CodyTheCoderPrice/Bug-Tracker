@@ -4,7 +4,9 @@
 @use "scss_partials/authentication/registerLogin";
 // scss_partials/home
 @use "scss_partials/home/home";
-@use "scss_partials/home/navbar";
+// scss_partials/home/menu
+@use "scss_partials/home/menu/navbar";
+@use "scss_partials/home/menu/hamburger";
 // scss_partials/home/account
 @use "scss_partials/home/account/accountBlurredBackground";
 @use "scss_partials/home/account/accountSidebar";
