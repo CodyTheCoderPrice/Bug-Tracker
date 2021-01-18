@@ -40,8 +40,8 @@
 	}
 
 	.navbar-button--arrow-buffered {
-		margin-left: -(v.$navbar-button-arrow-width + 1);
-		padding-left: v.$navbar-button-arrow-width + 1;
+		margin-left: -(v.$navbar-breadcrumb-button-arrow-width + 1);
+		padding-left: v.$navbar-breadcrumb-button-arrow-width + 1;
 	}
 
 	.navbar-button__outer-text-container {
@@ -79,7 +79,7 @@
 		position: relative;
 		float: left;
 		height: v.$navbar-height;
-		width: v.$navbar-button-arrow-width + 2;
+		width: v.$navbar-breadcrumb-button-arrow-width + 2;
 	}
 
 	.navbar-button__arrow-container__arrow {
@@ -88,9 +88,9 @@
 		position: absolute;
 		top: v.$navbar-breadcrumb-arrow-top;
 		left: v.$navbar-breadcrumb-arrow-left;
-		border-top: v.$navbar-button-arrow-width + 2 solid transparent;
-		border-bottom: v.$navbar-button-arrow-width + 2 solid transparent;
-		border-left: v.$navbar-button-arrow-width + 2 solid gray;
+		border-top: v.$navbar-breadcrumb-button-arrow-width + 2 solid transparent;
+		border-bottom: v.$navbar-breadcrumb-button-arrow-width + 2 solid transparent;
+		border-left: v.$navbar-breadcrumb-button-arrow-width + 2 solid gray;
 		height: 0;
 		width: 0;
 	}
@@ -101,9 +101,9 @@
 		position: absolute;
 		top: v.$navbar-breadcrumb-arrow-top;
 		left: v.$navbar-breadcrumb-arrow-left + 2;
-		border-top: v.$navbar-button-arrow-width + 2 solid transparent;
-		border-bottom: v.$navbar-button-arrow-width + 2 solid transparent;
-		border-left: v.$navbar-button-arrow-width + 2 solid black;
+		border-top: v.$navbar-breadcrumb-button-arrow-width + 2 solid transparent;
+		border-bottom: v.$navbar-breadcrumb-button-arrow-width + 2 solid transparent;
+		border-left: v.$navbar-breadcrumb-button-arrow-width + 2 solid black;
 		height: 0;
 		width: 0;
 	}

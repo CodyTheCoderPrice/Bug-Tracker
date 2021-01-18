@@ -450,6 +450,28 @@ html, body {
   border-bottom-left-radius: 15%;
   border-bottom-right-radius: 15%;
 }
+.hamburger-container .hamburger-current-view-title {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  position: absolute;
+  left: 46px;
+  margin: 18px 10px 0px 6px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+}
 
 .account-modals-blurred-background {
   z-index: 2;

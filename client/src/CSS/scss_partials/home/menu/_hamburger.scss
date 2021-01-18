@@ -23,12 +23,12 @@
 
 		position: absolute;
 		top: 9px;
-		left: 10px;
+		left: v.$navbar-hamburger-button-left;
 		border: v.$navbar-hamburger-border-width solid black;
 		border-radius: 25%;
 		background-color: white;
 		height: 38px;
-		width: 36px;
+		width: v.$navbar-hamburger-button-width;
 	}
 
 	.hamburger-button-container__icon {
@@ -99,5 +99,18 @@
 	// Should be applied to last option when it is also the last
 	.hamburger-dropdown__option--round-bottom-border-last-button {
 		@include round-bottom-border(v.$navbar-hamburger-dropdown-border-radius + 10);
+	}
+
+	.hamburger-current-view-title {
+		@include m.stop-text-selection();
+
+		position: absolute;
+		left: v.$navbar-hamburger-current-view-title-left;
+
+		margin: 18px v.$navbar-button-text-container-margin-right 0px 6px;
+		font-family: Verdana, Geneva, sans-serif;
+		font-size: v.$navbar-button-font-size;
+		color: white;
+		text-align: center;
 	}
 }

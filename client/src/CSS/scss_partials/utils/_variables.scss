@@ -71,7 +71,8 @@ $edit-item-project-bugs-stats-item-box-height: 320px;
 //=========
 // Widths
 //=========
-$navbar-button-arrow-width:($navbar-height / 2);
+$navbar-breadcrumb-button-arrow-width: ($navbar-height / 2);
+$navbar-hamburger-button-width: 36px;
 $edit-account-modal-width: 540px;
 $list-item-search-bar-button-width: $list-item-search-bar-height + 10;
 $filter-button-width: 90px;
@@ -94,6 +95,7 @@ $item-container-project-bugs-item-box-stats-container-width: 200px;
 //==========
 $navbar-breadcrumb-arrow-top: -2px;
 $navbar-breadcrumb-arrow-left: 0px;
+$navbar-hamburger-button-left: 10px;
 $item-search-bar-left: 15px;
 
 //=========
@@ -155,5 +157,7 @@ $blurred-background-opacity: 0.5;
 //===============================
 // Arithmetic (must be at bottom)
 //===============================
+$navbar-hamburger-current-view-title-left: $navbar-hamburger-button-left +
+	$navbar-hamburger-button-width;
 $edit-item-name-centering-container-height: $edit-item-name-input-height +
 	($edit-item-name-input-border-width * 2) + ($edit-item-name-input-padding * 2);

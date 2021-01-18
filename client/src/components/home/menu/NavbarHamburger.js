@@ -159,6 +159,18 @@ export default function NavbarHamburger() {
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
+	const getCurrentViewTitle = () => {
+		if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView) {
+			return "Projects";
+		} else if (reduxState[PROJECT_CONTAINER].componentsDisplay.itemView) {
+			return reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.name;
+		} else if (reduxState[BUG_CONTAINER].componentsDisplay.listView) {
+			return "Bugs";
+		} else if (reduxState[BUG_CONTAINER].componentsDisplay.itemView) {
+			return reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name;
+		}
+	};
+
 	return (
 		<div className="hamburger-container">
 			{!reduxState[GENERAL_CONTAINER].componentsDisplay
@@ -185,8 +197,7 @@ export default function NavbarHamburger() {
 							className={
 								"hamburger-dropdown__option" +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
-									null &&
-								reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null
+								null
 									? " hamburger-dropdown__option--round-bottom-border-first-button"
 									: "")
 							}
@@ -238,6 +249,9 @@ export default function NavbarHamburger() {
 					</div>
 				</div>
 			)}
+			<div className="hamburger-current-view-title">
+				{getCurrentViewTitle()}
+			</div>
 		</div>
 	);
 }
