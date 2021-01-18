@@ -21,6 +21,7 @@ import {
 	getWindowSize,
 	getElementSize,
 	calcScrollbarWidth,
+	calcHamburgerCurrentViewTitleStyles,
 	calcListViewSearchFilterSortBarHeight,
 	calcListViewTableRowHeight,
 	calcViewItemTopBarHeight,
@@ -47,9 +48,10 @@ export default function Navbar() {
 				navbarAccountButton: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
 				),
-				navbarButtonArrowWidth: getElementSize(
+				navbarButtonBreadcrumbArrowWidth: getElementSize(
 					document.getElementsByClassName("js-project-list-button-arrow")[0]
 				).width,
+				navbarHamburgerCurrentViewTitleStyles: calcHamburgerCurrentViewTitleStyles(),
 				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
 				listViewTableRowHeight: calcListViewTableRowHeight(),
 				itemViewTopBarHeight: calcViewItemTopBarHeight(),

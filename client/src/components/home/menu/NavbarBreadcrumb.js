@@ -76,7 +76,7 @@ export default function NavbarBreadcrumb() {
 			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
 			reduxState[SIZE_CONTAINER].constants.navbarAccountButton !== null &&
-			reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth !== null
+			reduxState[SIZE_CONTAINER].constants.navbarButtonBreadcrumbArrowWidth !== null
 		) {
 			// Following 2 buttons are always present when there's a target project.
 			navbarBreadcrumbButtonJsonArray.push(
@@ -92,7 +92,7 @@ export default function NavbarBreadcrumb() {
 				navbarBreadcrumbButtonJsonArray[0].width -
 				navbarBreadcrumbButtonJsonArray[1].width -
 				navbarBreadcrumbButtonJsonArray[2].width -
-				reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth * 3;
+				reduxState[SIZE_CONTAINER].constants.navbarButtonBreadcrumbArrowWidth * 3;
 
 			// If bug item breadcrumb button is also present
 			if (reduxState[BUG_CONTAINER].componentsDisplay.targetItem !== null) {
@@ -102,7 +102,7 @@ export default function NavbarBreadcrumb() {
 
 				navbarAvailableSpace -=
 					navbarBreadcrumbButtonJsonArray[3].width +
-					reduxState[SIZE_CONTAINER].constants.navbarButtonArrowWidth;
+					reduxState[SIZE_CONTAINER].constants.navbarButtonBreadcrumbArrowWidth;
 			}
 
 			// If navbar doesn't have enough space -- resize breadcrumb buttons
@@ -313,7 +313,7 @@ export default function NavbarBreadcrumb() {
 					// ...otherwise selecting the last button will have
 					// ... its light color extend past the arrow
 					className={
-						"navbar-button__arrow-container" +
+						"navbar-button__breadcrumb-arrow-container" +
 						getProjectOrBugBackgroundColorClassNameDark(
 							getCurrentContainerName(reduxState)
 						)
@@ -321,7 +321,7 @@ export default function NavbarBreadcrumb() {
 				>
 					<div
 						className={
-							"navbar-button__arrow-container__arrow js-project-list-button-arrow" +
+							"navbar-button__breadcrumb-arrow-container__arrow js-project-list-button-arrow" +
 							getProjectOrBugNavbarArrowColorClassNameDark(
 								getCurrentContainerName(reduxState)
 							) +
@@ -332,7 +332,7 @@ export default function NavbarBreadcrumb() {
 								: "")
 						}
 					/>
-					<div className="navbar-button__arrow-container__border-arrow" />
+					<div className="navbar-button__breadcrumb-arrow-container__border-arrow" />
 				</div>
 			</div>
 
@@ -340,7 +340,7 @@ export default function NavbarBreadcrumb() {
 			null ? null : (
 				<div
 					className={
-						"navbar-button navbar-button--arrow-buffered js-project-item-button" +
+						"navbar-button navbar-button--breadcrumb-arrow-buffered js-project-item-button" +
 						getProjectOrBugBackgroundColorClassNameDark(
 							getCurrentContainerName(reduxState)
 						) +
@@ -363,7 +363,7 @@ export default function NavbarBreadcrumb() {
 						// ...otherwise selecting last visible button will
 						// ...have its different color extend past arrow
 						className={
-							"navbar-button__arrow-container" +
+							"navbar-button__breadcrumb-arrow-container" +
 							getProjectOrBugBackgroundColorClassNameDark(
 								getCurrentContainerName(reduxState)
 							)
@@ -371,7 +371,7 @@ export default function NavbarBreadcrumb() {
 					>
 						<div
 							className={
-								"navbar-button__arrow-container__arrow" +
+								"navbar-button__breadcrumb-arrow-container__arrow" +
 								getProjectOrBugNavbarArrowColorClassNameDark(
 									getCurrentContainerName(reduxState)
 								) +
@@ -385,19 +385,19 @@ export default function NavbarBreadcrumb() {
 							}
 						>
 							<i
-								className="fa fa-times navbar-button__arrow-container__border-arrow__close-button"
+								className="fa fa-times navbar-button__breadcrumb-arrow-container__border-arrow__close-button"
 								aria-hidden="true"
 								onClick={closeProjectItemView}
 							/>
 						</div>
-						<div className="navbar-button__arrow-container__border-arrow" />
+						<div className="navbar-button__breadcrumb-arrow-container__border-arrow" />
 					</div>
 				</div>
 			)}
 
 			<div
 				className={
-					"navbar-button navbar-button--arrow-buffered js-bug-list-button" +
+					"navbar-button navbar-button--breadcrumb-arrow-buffered js-bug-list-button" +
 					(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
 						? " navbar-button--invisible"
 						: "") +
@@ -423,7 +423,7 @@ export default function NavbarBreadcrumb() {
 					// ...otherwise selecting last visible button will
 					// ...have its different color extend past arrow
 					className={
-						"navbar-button__arrow-container" +
+						"navbar-button__breadcrumb-arrow-container" +
 						getProjectOrBugBackgroundColorClassNameDark(
 							getCurrentContainerName(reduxState)
 						)
@@ -431,7 +431,7 @@ export default function NavbarBreadcrumb() {
 				>
 					<div
 						className={
-							"navbar-button__arrow-container__arrow" +
+							"navbar-button__breadcrumb-arrow-container__arrow" +
 							getProjectOrBugNavbarArrowColorClassNameDark(
 								getCurrentContainerName(reduxState)
 							) +
@@ -443,7 +443,7 @@ export default function NavbarBreadcrumb() {
 								: "")
 						}
 					/>
-					<div className="navbar-button__arrow-container__border-arrow" />
+					<div className="navbar-button__breadcrumb-arrow-container__border-arrow" />
 				</div>
 			</div>
 
@@ -451,7 +451,7 @@ export default function NavbarBreadcrumb() {
 			null ? null : (
 				<div
 					className={
-						"navbar-button navbar-button--arrow-buffered js-bug-item-button" +
+						"navbar-button navbar-button--breadcrumb-arrow-buffered js-bug-item-button" +
 						getProjectOrBugBackgroundColorClassNameDark(
 							getCurrentContainerName(reduxState)
 						) +
@@ -474,7 +474,7 @@ export default function NavbarBreadcrumb() {
 						// ...otherwise selecting last visible button will
 						// ...have its different color extend past arrow
 						className={
-							"navbar-button__arrow-container" +
+							"navbar-button__breadcrumb-arrow-container" +
 							getProjectOrBugBackgroundColorClassNameDark(
 								getCurrentContainerName(reduxState)
 							)
@@ -482,7 +482,7 @@ export default function NavbarBreadcrumb() {
 					>
 						<div
 							className={
-								"navbar-button__arrow-container__arrow" +
+								"navbar-button__breadcrumb-arrow-container__arrow" +
 								getProjectOrBugNavbarArrowColorClassNameDark(
 									getCurrentContainerName(reduxState)
 								) +
@@ -496,12 +496,12 @@ export default function NavbarBreadcrumb() {
 						>
 							{" "}
 							<i
-								className="fa fa-times navbar-button__arrow-container__border-arrow__close-button"
+								className="fa fa-times navbar-button__breadcrumb-arrow-container__border-arrow__close-button"
 								aria-hidden="true"
 								onClick={(e) => closeBugItemView(e)}
 							/>
 						</div>
-						<div className="navbar-button__arrow-container__border-arrow" />
+						<div className="navbar-button__breadcrumb-arrow-container__border-arrow" />
 					</div>
 				</div>
 			)}

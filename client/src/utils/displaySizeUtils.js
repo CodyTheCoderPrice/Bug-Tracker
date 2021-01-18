@@ -51,14 +51,45 @@ export function calcScrollbarWidth() {
 	return scrollbarWidth;
 }
 
+export function calcHamburgerCurrentViewTitleStyles() {
+	const invisibleHamburgerContainerElement = document.createElement("div");
+	invisibleHamburgerContainerElement.className = "js-calc-hamburger-container";
+	invisibleHamburgerContainerElement.visibility = "hidden";
+	document.body.appendChild(invisibleHamburgerContainerElement);
+
+	const invisibleHamburgerCurrrentTitleViewElement = document.createElement(
+		"div"
+	);
+	invisibleHamburgerCurrrentTitleViewElement.className =
+		"js-calc-hamburger-current-view-title";
+	invisibleHamburgerCurrrentTitleViewElement.visibility = "hidden";
+	invisibleHamburgerContainerElement.appendChild(
+		invisibleHamburgerCurrrentTitleViewElement
+	);
+
+	const styles = getElementStyle(invisibleHamburgerCurrrentTitleViewElement);
+	const elementStylejson = {
+		left: stripNonDigits(styles.left),
+		baseFontSize: stripNonDigits(styles.fontSize),
+	};
+	invisibleHamburgerContainerElement.parentNode.removeChild(
+		invisibleHamburgerContainerElement
+	);
+
+	return elementStylejson;
+}
+
 export function calcListViewSearchFilterSortBarHeight() {
 	const invisibleSearchFilterSortBarElement = document.createElement("div");
-	invisibleSearchFilterSortBarElement.className = "js-calc-search-filter-sort-component";
+	invisibleSearchFilterSortBarElement.className =
+		"js-calc-search-filter-sort-component";
 	invisibleSearchFilterSortBarElement.visibility = "hidden";
 	document.body.appendChild(invisibleSearchFilterSortBarElement);
 
 	const height = getElementSize(invisibleSearchFilterSortBarElement).height;
-	invisibleSearchFilterSortBarElement.parentNode.removeChild(invisibleSearchFilterSortBarElement);
+	invisibleSearchFilterSortBarElement.parentNode.removeChild(
+		invisibleSearchFilterSortBarElement
+	);
 
 	return height;
 }
@@ -115,16 +146,22 @@ export function calcItemViewListSidebarWidth() {
 
 export function calcItemViewOuterDividingContainerMinWidth() {
 	const invisibleItemViewComponentElement = document.createElement("div");
-	invisibleItemViewComponentElement.className = "js-calc-item-container-component";
+	invisibleItemViewComponentElement.className =
+		"js-calc-item-container-component";
 	invisibleItemViewComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleItemViewComponentElement);
 
 	const invisibleOuterDividingContainerElement = document.createElement("div");
-	invisibleOuterDividingContainerElement.className = "js-calc-outer-dividing-container";
+	invisibleOuterDividingContainerElement.className =
+		"js-calc-outer-dividing-container";
 	invisibleOuterDividingContainerElement.visibility = "hidden";
-	invisibleItemViewComponentElement.appendChild(invisibleOuterDividingContainerElement);
+	invisibleItemViewComponentElement.appendChild(
+		invisibleOuterDividingContainerElement
+	);
 
-	const minWidth = stripNonDigits(getElementStyle(invisibleOuterDividingContainerElement).minWidth);
+	const minWidth = stripNonDigits(
+		getElementStyle(invisibleOuterDividingContainerElement).minWidth
+	);
 	invisibleItemViewComponentElement.parentNode.removeChild(
 		invisibleItemViewComponentElement
 	);
@@ -134,16 +171,21 @@ export function calcItemViewOuterDividingContainerMinWidth() {
 
 export function calcItemViewPaddingContainerPadding() {
 	const invisibleItemViewComponentElement = document.createElement("div");
-	invisibleItemViewComponentElement.className = "js-calc-item-container-component";
+	invisibleItemViewComponentElement.className =
+		"js-calc-item-container-component";
 	invisibleItemViewComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleItemViewComponentElement);
 
 	const invisiblePaddingContainerElement = document.createElement("div");
 	invisiblePaddingContainerElement.className = "js-calc-padding-container";
 	invisiblePaddingContainerElement.visibility = "hidden";
-	invisibleItemViewComponentElement.appendChild(invisiblePaddingContainerElement);
+	invisibleItemViewComponentElement.appendChild(
+		invisiblePaddingContainerElement
+	);
 
-	const padding = stripNonDigits(getElementStyle(invisiblePaddingContainerElement).paddingLeft);
+	const padding = stripNonDigits(
+		getElementStyle(invisiblePaddingContainerElement).paddingLeft
+	);
 	invisibleItemViewComponentElement.parentNode.removeChild(
 		invisibleItemViewComponentElement
 	);

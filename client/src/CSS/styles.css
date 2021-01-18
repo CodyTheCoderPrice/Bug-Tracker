@@ -268,7 +268,7 @@ html, body {
   position: absolute;
   right: 0;
 }
-.navbar-container .navbar-button--arrow-buffered {
+.navbar-container .navbar-button--breadcrumb-arrow-buffered {
   margin-left: -29px;
   padding-left: 29px;
 }
@@ -308,13 +308,13 @@ html, body {
   color: #ffff00;
   font-style: italic;
 }
-.navbar-container .navbar-button__arrow-container {
+.navbar-container .navbar-button__breadcrumb-arrow-container {
   position: relative;
   float: left;
   height: 56px;
   width: 30px;
 }
-.navbar-container .navbar-button__arrow-container__arrow {
+.navbar-container .navbar-button__breadcrumb-arrow-container__arrow {
   z-index: 4;
   position: absolute;
   top: -2px;
@@ -325,7 +325,7 @@ html, body {
   height: 0;
   width: 0;
 }
-.navbar-container .navbar-button__arrow-container__border-arrow {
+.navbar-container .navbar-button__breadcrumb-arrow-container__border-arrow {
   z-index: 3;
   position: absolute;
   top: -2px;
@@ -336,7 +336,7 @@ html, body {
   height: 0;
   width: 0;
 }
-.navbar-container .navbar-button__arrow-container__border-arrow__close-button {
+.navbar-container .navbar-button__breadcrumb-arrow-container__border-arrow__close-button {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -358,12 +358,13 @@ html, body {
   font-size: 18px;
   cursor: pointer;
 }
-.navbar-container .navbar-button__arrow-container__border-arrow__close-button:hover, .navbar-container .navbar-button__arrow-container__border-arrow__close-button:active {
+.navbar-container .navbar-button__breadcrumb-arrow-container__border-arrow__close-button:hover, .navbar-container .navbar-button__breadcrumb-arrow-container__border-arrow__close-button:active {
   opacity: 1;
   color: #fc1e1e;
 }
 
-.hamburger-container .blurred-background {
+.hamburger-container .blurred-background,
+.js-calc-hamburger-container .blurred-background {
   z-index: 3;
   position: absolute;
   top: 0;
@@ -373,7 +374,8 @@ html, body {
   height: 100vh;
   width: 100vw;
 }
-.hamburger-container .hamburger-button-container {
+.hamburger-container .hamburger-button-container,
+.js-calc-hamburger-container .hamburger-button-container {
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;
@@ -389,7 +391,8 @@ html, body {
   height: 38px;
   width: 36px;
 }
-.hamburger-container .hamburger-button-container__icon {
+.hamburger-container .hamburger-button-container__icon,
+.js-calc-hamburger-container .hamburger-button-container__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -398,7 +401,8 @@ html, body {
   font-size: 24px;
   cursor: pointer;
 }
-.hamburger-container .hamburger-dropdown {
+.hamburger-container .hamburger-dropdown,
+.js-calc-hamburger-container .hamburger-dropdown {
   z-index: 4;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
@@ -413,12 +417,14 @@ html, body {
   border-radius: 5%;
   background-color: white;
 }
-.hamburger-container .hamburger-dropdown__top-space {
+.hamburger-container .hamburger-dropdown__top-space,
+.js-calc-hamburger-container .hamburger-dropdown__top-space {
   position: relative;
   display: block;
   height: 34px;
 }
-.hamburger-container .hamburger-dropdown__top-space__icon {
+.hamburger-container .hamburger-dropdown__top-space__icon,
+.js-calc-hamburger-container .hamburger-dropdown__top-space__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -426,31 +432,40 @@ html, body {
   font-size: 24px;
   cursor: pointer;
 }
-.hamburger-container .hamburger-dropdown__option {
+.hamburger-container .hamburger-dropdown__option,
+.js-calc-hamburger-container .hamburger-dropdown__option {
   display: block;
   border-top: 1px solid gray;
   padding: 12px;
   cursor: pointer;
 }
-.hamburger-container .hamburger-dropdown__option:hover, .hamburger-container .hamburger-dropdown__option:active {
+.hamburger-container .hamburger-dropdown__option:hover, .hamburger-container .hamburger-dropdown__option:active,
+.js-calc-hamburger-container .hamburger-dropdown__option:hover,
+.js-calc-hamburger-container .hamburger-dropdown__option:active {
   background-color: #e5e5e5;
 }
-.hamburger-container .hamburger-dropdown__option--round-bottom-border-first-button {
+.hamburger-container .hamburger-dropdown__option--round-bottom-border-first-button,
+.js-calc-hamburger-container .hamburger-dropdown__option--round-bottom-border-first-button {
   border-bottom: 3px solid transparent;
   border-bottom-left-radius: 5%;
   border-bottom-right-radius: 5%;
 }
-.hamburger-container .hamburger-dropdown__option--round-bottom-border-third-button {
+.hamburger-container .hamburger-dropdown__option--round-bottom-border-third-button,
+.js-calc-hamburger-container .hamburger-dropdown__option--round-bottom-border-third-button {
   border-bottom: 3px solid transparent;
   border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
 }
-.hamburger-container .hamburger-dropdown__option--round-bottom-border-last-button {
+.hamburger-container .hamburger-dropdown__option--round-bottom-border-last-button,
+.js-calc-hamburger-container .hamburger-dropdown__option--round-bottom-border-last-button {
   border-bottom: 3px solid transparent;
   border-bottom-left-radius: 15%;
   border-bottom-right-radius: 15%;
 }
-.hamburger-container .hamburger-current-view-title {
+.hamburger-container .hamburger-current-view-title,
+.hamburger-container .js-calc-hamburger-current-view-title,
+.js-calc-hamburger-container .hamburger-current-view-title,
+.js-calc-hamburger-container .js-calc-hamburger-current-view-title {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -465,8 +480,8 @@ html, body {
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
   position: absolute;
-  left: 46px;
-  margin: 18px 10px 0px 6px;
+  left: 52px;
+  margin-top: 18px;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 18px;
   color: white;

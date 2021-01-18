@@ -18,22 +18,93 @@ import {
 
 import {
 	getElementSize,
-	getCurrentContainerName,
-	getProjectOrBugBackgroundColorClassNameDark,
-	getProjectOrBugBackgroundColorClassNameLight,
-	getProjectOrBugNavbarArrowColorClassNameDark,
-	getProjectOrBugNavbarArrowColorClassNameLight,
+	getElementStyle,
+	stripNonDigits,
 } from "../../../utils";
 
 export default function NavbarHamburger() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	// Resizes breacrumb buttons to fit inside the navbar based on the window size
 	useEffect(() => {
-		console.log(
-			reduxState[GENERAL_CONTAINER].componentsDisplay.navbarHamburherDropdown
-		);
-	});
+		const hamburgerCurrentViewTitleElement = document.getElementsByClassName(
+			"js-hamburger-current-view-title"
+		)[0];
+
+		if (
+			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
+			reduxState[SIZE_CONTAINER].constants.navbarAccountButton !== null
+		) {
+			/* 
+			Width of hambugerCurrentViewTitle left out since it needs it will
+			change frequently and new available space needs to be calculated
+			 */
+			let navbarAvailableSpace =
+				reduxState[SIZE_CONTAINER].variables.navbar.width -
+				reduxState[SIZE_CONTAINER].constants.navbarAccountButton.width -
+				reduxState[SIZE_CONTAINER].constants
+					.navbarHamburgerCurrentViewTitleStyles.left;
+
+			let hamburgerCurrentViewTitleElementSize = getElementSize(
+				hamburgerCurrentViewTitleElement
+			);
+
+			let fontSize = stripNonDigits(
+				getElementStyle(hamburgerCurrentViewTitleElement).fontSize
+			);
+
+			if (
+				fontSize > 2 &&
+				navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width < 0
+			) {
+				while (
+					fontSize > 2 &&
+					navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width < 0
+				) {
+					fontSize = fontSize - 1;
+					hamburgerCurrentViewTitleElement.style.fontSize = fontSize + "px";
+
+					hamburgerCurrentViewTitleElementSize = getElementSize(
+						hamburgerCurrentViewTitleElement
+					);
+				}
+			} else if (
+				fontSize <
+					reduxState[SIZE_CONTAINER].constants
+						.navbarHamburgerCurrentViewTitleStyles.baseFontSize &&
+				navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width > 0
+			) {
+				while (
+					fontSize <
+						reduxState[SIZE_CONTAINER].constants
+							.navbarHamburgerCurrentViewTitleStyles.baseFontSize &&
+					navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width > 0
+				) {
+					fontSize = fontSize + 1;
+					hamburgerCurrentViewTitleElement.style.fontSize = fontSize + "px";
+
+					hamburgerCurrentViewTitleElementSize = getElementSize(
+						hamburgerCurrentViewTitleElement
+					);
+
+					// Makes sure font-size was not made too big
+					if (navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width < 0) {
+						hamburgerCurrentViewTitleElement.style.fontSize = (fontSize - 1) + "px";
+						break;
+					}
+				}
+			}
+		}
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[SIZE_CONTAINER],
+		// eslint-disable-next-line
+		reduxState[PROJECT_CONTAINER].componentsDisplay,
+		// eslint-disable-next-line
+		reduxState[BUG_CONTAINER].componentsDisplay,
+	]);
 
 	const toggleHamburgerDropdown = () => {
 		dispatch(
@@ -249,7 +320,7 @@ export default function NavbarHamburger() {
 					</div>
 				</div>
 			)}
-			<div className="hamburger-current-view-title">
+			<div className="hamburger-current-view-title js-hamburger-current-view-title">
 				{getCurrentViewTitle()}
 			</div>
 		</div>

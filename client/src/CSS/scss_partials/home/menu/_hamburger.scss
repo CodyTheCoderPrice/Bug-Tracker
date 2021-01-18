@@ -2,7 +2,8 @@
 @use "../../utils/mixins" as m;
 
 // SCSS for classNames only used by the hamburger components
-.hamburger-container {
+.hamburger-container,
+.js-calc-hamburger-container {
 	.blurred-background {
 		// Must be more than navbar.scss
 		z-index: 3;
@@ -101,13 +102,14 @@
 		@include round-bottom-border(v.$navbar-hamburger-dropdown-border-radius + 10);
 	}
 
-	.hamburger-current-view-title {
+	.hamburger-current-view-title,
+	.js-calc-hamburger-current-view-title {
 		@include m.stop-text-selection();
 
 		position: absolute;
 		left: v.$navbar-hamburger-current-view-title-left;
 
-		margin: 18px v.$navbar-button-text-container-margin-right 0px 6px;
+		margin-top: 18px;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: v.$navbar-button-font-size;
 		color: white;
