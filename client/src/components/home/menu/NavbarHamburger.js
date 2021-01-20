@@ -22,6 +22,8 @@ import {
 	stripNonDigits,
 } from "../../../utils";
 
+import bendyArrowRight from "../../../images/bendy-arrow-longer-icon.svg";
+
 export default function NavbarHamburger() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -290,6 +292,11 @@ export default function NavbarHamburger() {
 									className="hamburger-dropdown__option"
 									onClick={openProjectsItemView}
 								>
+									<img
+										className="hamburger-dropdown__option__arrow-icon"
+										src={bendyArrowRight}
+										alt="Arrow pointing from the Projects button above to this button signifying this is a project"
+									/>
 									{
 										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
 											.name
@@ -315,6 +322,11 @@ export default function NavbarHamburger() {
 										className="hamburger-dropdown__option hamburger-dropdown__option--round-bottom-border-last-button"
 										onClick={openBugsItemView}
 									>
+										<img
+											className="hamburger-dropdown__option__arrow-icon"
+											src={bendyArrowRight}
+											alt="Arrow pointing from the Bugs button above to this button signifying this is a bug"
+										/>
 										{
 											reduxState[BUG_CONTAINER].componentsDisplay.targetItem
 												.name

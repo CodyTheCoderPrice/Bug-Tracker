@@ -71,7 +71,7 @@ $edit-item-project-bugs-stats-item-box-height: 320px;
 //=========
 // Widths
 //=========
-$navbar-breadcrumb-button-arrow-width: ($navbar-height / 2);
+$navbar-breadcrumb-button-arrow-width: ($navbar-height / 2) + 2;
 $navbar-hamburger-button-width: 36px;
 $edit-account-modal-width: 540px;
 $list-item-search-bar-button-width: $list-item-search-bar-height + 10;
@@ -110,6 +110,7 @@ $display-item-field-margin-left: 11px;
 //==============
 // Border-width
 //==============
+$navbar-breadcrumb-border-width: 2px;
 $navbar-hamburger-border-width: 3px;
 $search-filter-sort-bar-border-width: 1px;
 $search-filter-sort-bar-new-item-button-border-width: 1px;
@@ -157,6 +158,7 @@ $blurred-background-opacity: 0.5;
 //===============================
 // Arithmetic (must be at bottom)
 //===============================
+$navbar-breadcrumb-button-height: $navbar-height - ($navbar-breadcrumb-border-width * 2);
 // The value added at the end represents the margin between the hamburger button and the title
 $navbar-hamburger-title-left: $navbar-hamburger-button-left +
 	$navbar-hamburger-button-width + 6px;

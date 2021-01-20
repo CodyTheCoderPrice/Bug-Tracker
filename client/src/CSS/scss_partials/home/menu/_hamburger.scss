@@ -1,7 +1,7 @@
 @use "../../utils/variables" as v;
 @use "../../utils/mixins" as m;
 
-// SCSS for classNames only used by the hamburger components
+// SCSS for classNames only used by the hamburger component
 .hamburger-container,
 .js-calc-hamburger-container {
 	.blurred-background {
@@ -79,10 +79,13 @@
 		}
 	}
 
+	.hamburger-dropdown__option__arrow-icon {
+		margin: 0px 6px 0px 7px;
+	}
+
 	@mixin round-bottom-border($border-radius) {
 		border-bottom: v.$navbar-hamburger-border-width solid transparent;
-		border-bottom-left-radius: $border-radius;
-		border-bottom-right-radius: $border-radius;
+		border-radius: 0 0 $border-radius $border-radius;
 	}
 
 	// Should be applied to first option when is also the last
