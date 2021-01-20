@@ -115,6 +115,7 @@
 		color: white;
 		text-align: center;
 		vertical-align: middle;
+		// Allows vertical-align: middle to work
 		line-height: v.$navbar-height;
 	}
 }
