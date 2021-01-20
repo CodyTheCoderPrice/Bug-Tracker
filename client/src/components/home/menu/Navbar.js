@@ -151,7 +151,7 @@ export default function Navbar() {
 		>
 			<div
 				className={
-					"navbar-component js-navbar" +
+					"navbar js-navbar" +
 					getProjectOrBugBackgroundColorClassNameDark(
 						getCurrentContainerName(reduxState)
 					)
@@ -166,17 +166,17 @@ export default function Navbar() {
 					<NavbarHamburger />
 				)}
 
-				<div className="navbar-button navbar-button--right js-account-button">
+				<div className="navbar__button navbar__button--right js-account-button">
 					<div
 						className={
-							"navbar-button__outer-text-container" +
+							"navbar__button__outer-text-container" +
 							getProjectOrBugBackgroundColorClassNameDark(
 								getCurrentContainerName(reduxState)
 							)
 						}
 						onClick={openAccountSidebar}
 					>
-						<div className="navbar-button__outer-text-container__inner-text-container navbar-button__outer-text-container__inner-text-container--right">
+						<div className="navbar__button__outer-text-container__inner-text-container navbar__button__outer-text-container__inner-text-container--right">
 							<i className="fa fa-fw fa-user" />
 							Account
 						</div>

@@ -5,7 +5,7 @@
 .js-calc-item-container-component {
 	.item-container {
 		position: fixed;
-		top: v.$navbar-height + v.$top-bar-height + v.$top-bar-border-width;
+		top: v.$list-table-and-item-view-top;
 		left: 0px;
 		background-color: white;
 		// Height and width values were found through trial and error

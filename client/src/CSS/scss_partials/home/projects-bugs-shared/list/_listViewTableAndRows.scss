@@ -4,8 +4,7 @@
 .list-table-component,
 .js-calc-list-table-component {
 	position: fixed;
-	top: v.$navbar-height + v.$search-filter-sort-bar-height +
-		v.$search-filter-sort-bar-border-width;
+	top: v.$list-table-and-item-view-top;
 	left: 0px;
 	background-color: v.$list-table-background-color;
 	// Height and width values were found through trial and error

@@ -71,7 +71,8 @@ $edit-item-project-bugs-stats-item-box-height: 320px;
 //=========
 // Widths
 //=========
-$navbar-breadcrumb-button-arrow-width: ($navbar-height / 2) + 2;
+$navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
+$navbar-breadcrumb-button-arrow-left-width: 20px;
 $navbar-hamburger-button-width: 36px;
 $edit-account-modal-width: 540px;
 $list-item-search-bar-button-width: $list-item-search-bar-height + 10;
@@ -93,15 +94,15 @@ $item-container-project-bugs-item-box-stats-container-width: 200px;
 //==========
 // Position
 //==========
-$navbar-breadcrumb-arrow-top: -1px;
-$navbar-breadcrumb-arrow-left: 0px;
+$navbar-breadcrumb-arrow-top: -2px;
+$navbar-breadcrumb-arrow-left: -2px;
 $navbar-hamburger-button-left: 10px;
 $item-search-bar-left: 15px;
 
 //=========
 // Margins
 //=========
-$navbar-button-text-container-margin-right: 10px;
+$navbar-button-text-container-margin-right: 14px;
 $navbar-button-text-container-margin-left: 14px;
 $form-input-margin-bottom: 10px;
 $create-item-sidebar-text-input-margin-top: 2px;
@@ -158,9 +159,13 @@ $blurred-background-opacity: 0.5;
 //===============================
 // Arithmetic (must be at bottom)
 //===============================
-$navbar-breadcrumb-button-height: $navbar-height - ($navbar-breadcrumb-border-width * 2);
+$navbar-breadcrumb-button-height: $navbar-height -
+	($navbar-breadcrumb-border-width * 2);
 // The value added at the end represents the margin between the hamburger button and the title
 $navbar-hamburger-title-left: $navbar-hamburger-button-left +
 	$navbar-hamburger-button-width + 6px;
+$search-filter-sort-and-top-bar-top: $navbar-height;
+$list-table-and-item-view-top: $search-filter-sort-and-top-bar-top + $search-filter-sort-bar-height +
+	$search-filter-sort-bar-border-width;
 $edit-item-name-centering-container-height: $edit-item-name-input-height +
 	($edit-item-name-input-border-width * 2) + ($edit-item-name-input-padding * 2);

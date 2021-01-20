@@ -7,7 +7,8 @@
 	width: 100%;
 	top: 0;
 
-	.navbar-component {
+	.navbar {
+
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
@@ -16,7 +17,7 @@
 		width: 100%;
 	}
 
-	.navbar-button {
+	.navbar__button {
 		position: relative;
 		float: left;
 		// This background color should only appear if there was a problem
@@ -26,29 +27,20 @@
 		height: v.$navbar-height;
 	}
 
-	.navbar-button--invisible {
-		visibility: hidden;
-	}
-
-	.navbar-button--right {
+	.navbar__button--right {
 		// Postion absolute instead of float right so that account button
 		// ...will always remain on screen during screen resizing
 		position: absolute;
 		right: 0;
 	}
 
-	.navbar-button--breadcrumb-arrow-buffered {
-		margin-left: -(v.$navbar-breadcrumb-button-arrow-width + 1);
-		padding-left: v.$navbar-breadcrumb-button-arrow-width + 1;
-	}
-
-	.navbar-button__outer-text-container {
+	.navbar__button__outer-text-container {
 		position: relative;
 		float: left;
 		height: v.$navbar-height;
 	}
 
-	.navbar-button__outer-text-container__inner-text-container {
+	.navbar__button__outer-text-container__inner-text-container {
 		@include m.stop-text-selection();
 
 		margin: 18px v.$navbar-button-text-container-margin-right 0px v.$navbar-button-text-container-margin-left;
@@ -62,68 +54,15 @@
 		text-overflow: ellipsis;
 	}
 
-	.navbar-button__outer-text-container__inner-text-container--right {
+	.navbar__button__outer-text-container__inner-text-container--right {
 		// Reverse of the unmoddified version
 		margin-right: v.$navbar-button-text-container-margin-left;
 		margin-left: v.$navbar-button-text-container-margin-right;
 	}
 
-	.navbar-button__outer-text-container__inner-text-container--item-name {
+	.navbar__button__outer-text-container__inner-text-container--item-name {
 		color: v.$yellow;
 		font-style: italic;
-	}
-
-	.navbar-button__breadcrumb-arrow-container {
-		position: relative;
-		float: left;
-		height: v.$navbar-height;
-		width: v.$navbar-breadcrumb-button-arrow-width + 2;
-	}
-
-	.navbar-button__breadcrumb-arrow-container__arrow {
-		// Must have higher z-index than border-arrow below
-		z-index: 4;
-		position: absolute;
-		top: v.$navbar-breadcrumb-arrow-top;
-		left: v.$navbar-breadcrumb-arrow-left;
-		border-top: v.$navbar-breadcrumb-button-arrow-width + 2 solid transparent;
-		border-bottom: v.$navbar-breadcrumb-button-arrow-width + 2 solid transparent;
-		border-left: v.$navbar-breadcrumb-button-arrow-width + 2 solid gray;
-		height: 0;
-		width: 0;
-	}
-
-	.navbar-button__breadcrumb-arrow-container__border-arrow {
-		// Must have higher z-index of navbar-button
-		z-index: 3;
-		position: absolute;
-		top: v.$navbar-breadcrumb-arrow-top;
-		left: v.$navbar-breadcrumb-arrow-left + 2;
-		border-top: v.$navbar-breadcrumb-button-arrow-width + 2 solid transparent;
-		border-bottom: v.$navbar-breadcrumb-button-arrow-width + 2 solid transparent;
-		border-left: v.$navbar-breadcrumb-button-arrow-width + 2 solid black;
-		height: 0;
-		width: 0;
-	}
-
-	.navbar-button__breadcrumb-arrow-container__border-arrow__close-button {
-		@include m.stop-text-selection();
-		//@include m.dead-center();
-
-		position: absolute;
-		top: -9px;
-		left: -32px;
-
-		color: silver;
-		opacity: 0.6;
-		font-size: 18px;
-		cursor: pointer;
-
-		&:hover,
-		&:active {
-			opacity: 1;
-			color: v.$bright-red;
-		}
 	}
 }
 

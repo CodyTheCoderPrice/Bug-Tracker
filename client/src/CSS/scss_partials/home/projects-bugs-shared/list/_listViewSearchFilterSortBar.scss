@@ -6,7 +6,7 @@
 	// Must be more than table header so filter button can overlap
 	z-index: 1;
 	position: fixed;
-	top: v.$navbar-height;
+	top: v.$search-filter-sort-and-top-bar-top;
 	border: v.$search-filter-sort-bar-border-width solid black;
 	border-left: none;
 	border-right: none;

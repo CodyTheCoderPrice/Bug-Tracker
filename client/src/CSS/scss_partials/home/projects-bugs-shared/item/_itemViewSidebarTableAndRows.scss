@@ -10,7 +10,7 @@
 		// Must be more than the item-container in item-container.scss
 		z-index: 1;
 		position: fixed;
-		top: v.$navbar-height + v.$top-bar-height + v.$top-bar-border-width + 15;
+		top: v.$list-table-and-item-view-top + 15;
 		left: v.$item-container-list-sidebar-width + v.$item-container-list-sidebar-border-width;
 		border: v.$item-container-list-sidebar-border-width solid black;
 		border-left: none;
@@ -42,7 +42,7 @@
 		// Must be more than the item-container in item-container.scss
 		z-index: 1;
 		position: fixed;
-		top: v.$navbar-height + v.$top-bar-height + v.$top-bar-border-width;
+		top: v.$list-table-and-item-view-top;
 		left: 0px;
 		border-right: v.$item-container-list-sidebar-border-width solid black;
 		background-color: v.$list-table-background-color;
