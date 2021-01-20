@@ -109,11 +109,12 @@
 
 		position: absolute;
 		left: v.$navbar-hamburger-title-left;
-		padding-top: 18px;
 		height: v.$navbar-height;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: v.$navbar-button-font-size;
 		color: white;
 		text-align: center;
+		vertical-align: middle;
+		line-height: v.$navbar-height;
 	}
 }

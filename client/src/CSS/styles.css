@@ -546,12 +546,13 @@ dropdown can overlap all other components
   supported by Chrome, Edge, Opera and Firefox */
   position: absolute;
   left: 52px;
-  padding-top: 18px;
   height: 56px;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 18px;
   color: white;
   text-align: center;
+  vertical-align: middle;
+  line-height: 56px;
 }
 
 .account-modals-blurred-background {
