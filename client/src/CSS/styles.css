@@ -354,13 +354,8 @@ dropdown can overlap all other components
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.breadcrumb-container .breadcrumb-button__outer-text-container__inner-text-container--right {
-  margin-right: 14px;
-  margin-left: 14px;
-}
 .breadcrumb-container .breadcrumb-button__outer-text-container__inner-text-container--item-name {
   color: #ffff00;
-  font-style: italic;
 }
 .breadcrumb-container .breadcrumb-button__end-container {
   position: relative;

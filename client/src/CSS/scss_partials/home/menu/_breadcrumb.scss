@@ -49,15 +49,8 @@
 		text-overflow: ellipsis;
 	}
 
-	.breadcrumb-button__outer-text-container__inner-text-container--right {
-		// Reverse of the unmoddified version
-		margin-right: v.$navbar-button-text-container-margin-left;
-		margin-left: v.$navbar-button-text-container-margin-right;
-	}
-
 	.breadcrumb-button__outer-text-container__inner-text-container--item-name {
 		color: v.$yellow;
-		font-style: italic;
 	}
 
 	.breadcrumb-button__end-container {
