@@ -3,9 +3,10 @@ import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 // Default state for html element sizes that remain the same
 const initialState = {
 	scrollbarWidth: null,
-	navbarAccountButton: null,
-	navbarButtonBreadcrumbArrowWidth: null,
-	navbarHamburgerCurrentViewTitleStyles: null,
+	navbarAccountButtonWidth: null,
+	navbarBreadcrumbArrowWidth: null,
+	navbarBreadcrumbButtonTextBaseFontSize: null,
+	navbarHamburgerTitleStyles: null,
 	listViewSearchFilterSortBarHeight: null,
 	listViewTableRowHeight: null,
 	itemViewTopBarHeight: null,
@@ -33,9 +34,10 @@ export default function (state = initialState, action) {
 		case SET_DISPLAY_SIZE_CONSTANTS:
 			return {
 				scrollbarWidth: action.sizes.scrollbarWidth,
-				navbarAccountButton: action.sizes.navbarAccountButton,
-				navbarButtonBreadcrumbArrowWidth: action.sizes.navbarButtonBreadcrumbArrowWidth,
-				navbarHamburgerCurrentViewTitleStyles: action.sizes.navbarHamburgerCurrentViewTitleStyles,
+				navbarAccountButtonWidth: action.sizes.navbarAccountButtonWidth,
+				navbarBreadcrumbButtonTextBaseFontSize: action.sizes.navbarBreadcrumbButtonTextBaseFontSize,
+				navbarBreadcrumbArrowWidth: action.sizes.navbarBreadcrumbArrowWidth,
+				navbarHamburgerTitleStyles: action.sizes.navbarHamburgerTitleStyles,
 				listViewSearchFilterSortBarHeight:
 					action.sizes.listViewSearchFilterSortBarHeight,
 				listViewTableRowHeight: action.sizes.listViewTableRowHeight,

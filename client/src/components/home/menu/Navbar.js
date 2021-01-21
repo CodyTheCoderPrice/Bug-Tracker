@@ -21,7 +21,8 @@ import {
 	getWindowSize,
 	getElementSize,
 	calcScrollbarWidth,
-	calcHamburgerCurrentViewTitleStyles,
+	calcBreadcrumbBaseFontSize,
+	calcHamburgerTitleStyles,
 	calcListViewSearchFilterSortBarHeight,
 	calcListViewTableRowHeight,
 	calcViewItemTopBarHeight,
@@ -45,13 +46,16 @@ export default function Navbar() {
 		dispatch(
 			setDisplaySizeConstants({
 				scrollbarWidth: calcScrollbarWidth(),
-				navbarAccountButton: getElementSize(
+				navbarAccountButtonWidth: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
-				),
-				navbarButtonBreadcrumbArrowWidth: getElementSize(
-					document.getElementsByClassName("js-project-list-button-arrow")[0]
 				).width,
-				navbarHamburgerCurrentViewTitleStyles: calcHamburgerCurrentViewTitleStyles(),
+				navbarBreadcrumbArrowWidth: getElementSize(
+					document.getElementsByClassName(
+						"js-breadcrumb-project-list-button-arrow"
+					)[0]
+				).width,
+				navbarBreadcrumbButtonTextBaseFontSize: calcBreadcrumbBaseFontSize(),
+				navbarHamburgerTitleStyles: calcHamburgerTitleStyles(),
 				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
 				listViewTableRowHeight: calcListViewTableRowHeight(),
 				itemViewTopBarHeight: calcViewItemTopBarHeight(),
@@ -157,7 +161,10 @@ export default function Navbar() {
 					)
 				}
 			>
-				{reduxState[SIZE_CONTAINER].variables.navbar === null ||
+				{//Makes sure Breadcrumb appears at first so sizes can be stored
+				reduxState[SIZE_CONTAINER].constants
+					.navbarBreadcrumbProjectListButtonTextWidth === null ||
+				reduxState[SIZE_CONTAINER].variables.navbar === null ||
 				reduxState[SIZE_CONTAINER].variables.navbar.width >
 					reduxState[GENERAL_CONTAINER].globalConstants
 						.navbarHamburgerMenuBreakingPointMultiplier ? (

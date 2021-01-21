@@ -309,29 +309,31 @@ dropdown can overlap all other components
   z-index: 2;
 }
 
-.breadcrumb-container .breadcrumb-button {
+.breadcrumb-container .breadcrumb-button,
+.js-calc-breadcrumb-container .breadcrumb-button {
   position: relative;
   float: left;
   background-color: black;
   height: 56px;
 }
-.breadcrumb-container .breadcrumb-button--invisible {
+.breadcrumb-container .breadcrumb-button--invisible,
+.js-calc-breadcrumb-container .breadcrumb-button--invisible {
   visibility: hidden;
 }
-.breadcrumb-container .breadcrumb-button--right {
+.breadcrumb-container .breadcrumb-button--right,
+.js-calc-breadcrumb-container .breadcrumb-button--right {
   position: absolute;
   right: 0;
 }
-.breadcrumb-container .breadcrumb-button--breadcrumb-arrow-buffered {
+.breadcrumb-container .breadcrumb-button--breadcrumb-arrow-buffered,
+.js-calc-breadcrumb-container .breadcrumb-button--breadcrumb-arrow-buffered {
   margin-left: -20px;
   padding-left: 20px;
 }
-.breadcrumb-container .breadcrumb-button__outer-text-container {
-  position: relative;
-  float: left;
-  height: 56px;
-}
-.breadcrumb-container .breadcrumb-button__outer-text-container__inner-text-container {
+.breadcrumb-container .breadcrumb-button__text,
+.breadcrumb-container .js-calc-breadcrumb-text,
+.js-calc-breadcrumb-container .breadcrumb-button__text,
+.js-calc-breadcrumb-container .js-calc-breadcrumb-text {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -345,25 +347,30 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  margin: 18px 14px 0px 14px;
+  position: relative;
+  float: left;
+  padding: 0px 14px 0px 14px;
+  height: 56px;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 18px;
   color: white;
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  vertical-align: middle;
+  line-height: 56px;
 }
-.breadcrumb-container .breadcrumb-button__outer-text-container__inner-text-container--item-name {
+.breadcrumb-container .breadcrumb-button__text--item-name,
+.js-calc-breadcrumb-container .breadcrumb-button__text--item-name {
   color: #ffff00;
 }
-.breadcrumb-container .breadcrumb-button__end-container {
+.breadcrumb-container .breadcrumb-button__end-container,
+.js-calc-breadcrumb-container .breadcrumb-button__end-container {
   position: relative;
   float: left;
   height: 56px;
   width: 20px;
 }
-.breadcrumb-container .breadcrumb-button__end-container__round-border {
+.breadcrumb-container .breadcrumb-button__end-container__round-border,
+.js-calc-breadcrumb-container .breadcrumb-button__end-container__round-border {
   z-index: 5;
   position: absolute;
   top: -2px;
@@ -374,7 +381,8 @@ dropdown can overlap all other components
   height: 56px;
   width: 20px;
 }
-.breadcrumb-container .breadcrumb-button__end-container__arrow {
+.breadcrumb-container .breadcrumb-button__end-container__arrow,
+.js-calc-breadcrumb-container .breadcrumb-button__end-container__arrow {
   z-index: 4;
   position: absolute;
   top: -2px;
@@ -385,7 +393,8 @@ dropdown can overlap all other components
   height: 0;
   width: 0;
 }
-.breadcrumb-container .breadcrumb-button__end-container__border-arrow {
+.breadcrumb-container .breadcrumb-button__end-container__border-arrow,
+.js-calc-breadcrumb-container .breadcrumb-button__end-container__border-arrow {
   z-index: 3;
   position: absolute;
   top: -2px;
@@ -396,7 +405,8 @@ dropdown can overlap all other components
   height: 0;
   width: 0;
 }
-.breadcrumb-container .breadcrumb-button__end-container__close-button {
+.breadcrumb-container .breadcrumb-button__end-container__close-button,
+.js-calc-breadcrumb-container .breadcrumb-button__end-container__close-button {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -419,7 +429,9 @@ dropdown can overlap all other components
   font-size: 18px;
   cursor: pointer;
 }
-.breadcrumb-container .breadcrumb-button__end-container__close-button:hover, .breadcrumb-container .breadcrumb-button__end-container__close-button:active {
+.breadcrumb-container .breadcrumb-button__end-container__close-button:hover, .breadcrumb-container .breadcrumb-button__end-container__close-button:active,
+.js-calc-breadcrumb-container .breadcrumb-button__end-container__close-button:hover,
+.js-calc-breadcrumb-container .breadcrumb-button__end-container__close-button:active {
   opacity: 1;
   color: #fc1e1e;
 }

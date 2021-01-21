@@ -51,23 +51,44 @@ export function calcScrollbarWidth() {
 	return scrollbarWidth;
 }
 
-export function calcHamburgerCurrentViewTitleStyles() {
+export function calcBreadcrumbBaseFontSize() {
+	const invisibleBreadcrumbContainerElement = document.createElement("div");
+	invisibleBreadcrumbContainerElement.className =
+		"js-calc-breadcrumb-container";
+	invisibleBreadcrumbContainerElement.visibility = "hidden";
+	document.body.appendChild(invisibleBreadcrumbContainerElement);
+
+	const invisibleBreadcrumbTextElement = document.createElement("div");
+	invisibleBreadcrumbTextElement.className = "js-calc-breadcrumb-text";
+	invisibleBreadcrumbTextElement.visibility = "hidden";
+	invisibleBreadcrumbContainerElement.appendChild(
+		invisibleBreadcrumbTextElement
+	);
+
+	const baseFontSize = stripNonDigits(
+		getElementStyle(invisibleBreadcrumbTextElement).fontSize
+	);
+	invisibleBreadcrumbContainerElement.parentNode.removeChild(
+		invisibleBreadcrumbContainerElement
+	);
+
+	return baseFontSize;
+}
+
+export function calcHamburgerTitleStyles() {
 	const invisibleHamburgerContainerElement = document.createElement("div");
 	invisibleHamburgerContainerElement.className = "js-calc-hamburger-container";
 	invisibleHamburgerContainerElement.visibility = "hidden";
 	document.body.appendChild(invisibleHamburgerContainerElement);
 
-	const invisibleHamburgerCurrrentTitleViewElement = document.createElement(
-		"div"
-	);
-	invisibleHamburgerCurrrentTitleViewElement.className =
-		"js-calc-hamburger-title";
-	invisibleHamburgerCurrrentTitleViewElement.visibility = "hidden";
+	const invisibleHamburgerTitleElement = document.createElement("div");
+	invisibleHamburgerTitleElement.className = "js-calc-hamburger-title";
+	invisibleHamburgerTitleElement.visibility = "hidden";
 	invisibleHamburgerContainerElement.appendChild(
-		invisibleHamburgerCurrrentTitleViewElement
+		invisibleHamburgerTitleElement
 	);
 
-	const styles = getElementStyle(invisibleHamburgerCurrrentTitleViewElement);
+	const styles = getElementStyle(invisibleHamburgerTitleElement);
 	const elementStylejson = {
 		left: stripNonDigits(styles.left),
 		baseFontSize: stripNonDigits(styles.fontSize),

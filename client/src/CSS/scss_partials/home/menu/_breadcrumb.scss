@@ -2,7 +2,8 @@
 @use "../../utils/mixins" as m;
 
 // SCSS for classNames only used by the breadcrumb component
-.breadcrumb-container {
+.breadcrumb-container,
+.js-calc-breadcrumb-container {
 	.breadcrumb-button {
 		position: relative;
 		float: left;
@@ -25,31 +26,31 @@
 	}
 
 	.breadcrumb-button--breadcrumb-arrow-buffered {
-		margin-left: -(v.$navbar-breadcrumb-button-arrow-left-width );
-		padding-left: v.$navbar-breadcrumb-button-arrow-left-width ;
+		margin-left: -(v.$navbar-breadcrumb-button-arrow-left-width);
+		padding-left: v.$navbar-breadcrumb-button-arrow-left-width;
 	}
 
-	.breadcrumb-button__outer-text-container {
-		position: relative;
-		float: left;
-		height: v.$navbar-height;
-	}
-
-	.breadcrumb-button__outer-text-container__inner-text-container {
+	.breadcrumb-button__text,
+	.js-calc-breadcrumb-text {
 		@include m.stop-text-selection();
 
-		margin: 18px v.$navbar-button-text-container-margin-right 0px v.$navbar-button-text-container-margin-left;
+		position: relative;
+		float: left;
+		// Padding instead of margin since padding is included in element
+		// ...size when resizing the breadcrumb menu
+		padding: 0px v.$navbar-button-text-container-margin-right 0px
+			v.$navbar-button-text-container-margin-left;
+		height: v.$navbar-height;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: v.$navbar-button-font-size;
 		color: white;
 		text-align: center;
-		// Text cutoff with ellipise only takes place when max-width is added by JS
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		vertical-align: middle;
+		// Allows vertical-align: middle to work
+		line-height: v.$navbar-height;
 	}
 
-	.breadcrumb-button__outer-text-container__inner-text-container--item-name {
+	.breadcrumb-button__text--item-name {
 		color: v.$yellow;
 	}
 
@@ -63,13 +64,13 @@
 	.breadcrumb-button__end-container__round-border {
 		z-index: 5;
 		position: absolute;
-		top: - v.$navbar-breadcrumb-border-width;
+		top: -(v.$navbar-breadcrumb-border-width);
 		left: -12px;
 		border: v.$navbar-breadcrumb-border-width solid black;
 		border-left: none;
 		border-radius: 0 100% 100% 0;
 		height: v.$navbar-height;
-		width: v.$navbar-breadcrumb-button-arrow-left-width ;
+		width: v.$navbar-breadcrumb-button-arrow-left-width;
 	}
 
 	.breadcrumb-button__end-container__arrow {
@@ -78,8 +79,10 @@
 		position: absolute;
 		top: v.$navbar-breadcrumb-arrow-top;
 		left: v.$navbar-breadcrumb-arrow-left;
-		border-top: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid transparent;
-		border-bottom: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid transparent;
+		border-top: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid
+			transparent;
+		border-bottom: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid
+			transparent;
 		border-left: v.$navbar-breadcrumb-button-arrow-left-width solid gray;
 		height: 0;
 		width: 0;
@@ -91,8 +94,10 @@
 		position: absolute;
 		top: v.$navbar-breadcrumb-arrow-top;
 		left: v.$navbar-breadcrumb-arrow-left + v.$navbar-breadcrumb-border-width;
-		border-top: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid transparent;
-		border-bottom: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid transparent;
+		border-top: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid
+			transparent;
+		border-bottom: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid
+			transparent;
 		border-left: v.$navbar-breadcrumb-button-arrow-left-width solid black;
 		height: 0;
 		width: 0;

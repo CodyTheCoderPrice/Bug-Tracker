@@ -30,77 +30,50 @@ export default function NavbarHamburger() {
 
 	// Resizes breacrumb buttons to fit inside the navbar based on the window size
 	useEffect(() => {
-		const hamburgerCurrentViewTitleElement = document.getElementsByClassName(
+		const hamburgerTitleElement = document.getElementsByClassName(
 			"js-hamburger-title"
 		)[0];
 
+		hamburgerTitleElement.style.visibility = "hidden";
+
+		hamburgerTitleElement.style.fontSize =
+			reduxState[SIZE_CONTAINER].constants.navbarHamburgerTitleStyles
+				.baseFontSize + "px";
+
 		if (
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.navbarAccountButton !== null
+			reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth !== null
 		) {
 			/* 
-			Width of hambugerCurrentViewTitle left out since it needs it will
+			Width of hambugerTitle left out since it needs it will
 			change frequently and new available space needs to be calculated
 			 */
 			let navbarAvailableSpace =
 				reduxState[SIZE_CONTAINER].variables.navbar.width -
-				reduxState[SIZE_CONTAINER].constants.navbarAccountButton.width -
-				reduxState[SIZE_CONTAINER].constants
-					.navbarHamburgerCurrentViewTitleStyles.left;
+				reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth -
+				reduxState[SIZE_CONTAINER].constants.navbarHamburgerTitleStyles.left;
 
-			let hamburgerCurrentViewTitleElementSize = getElementSize(
-				hamburgerCurrentViewTitleElement
-			);
+			let hamburgerTitleElementWidth = getElementSize(
+				hamburgerTitleElement
+			).width;
 
-			let fontSize = stripNonDigits(
-				getElementStyle(hamburgerCurrentViewTitleElement).fontSize
-			);
+			let fontSize =
+				reduxState[SIZE_CONTAINER].constants.navbarHamburgerTitleStyles
+					.baseFontSize;
 
-			if (
+			while (
 				fontSize > 2 &&
-				navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width < 0
+				navbarAvailableSpace - hamburgerTitleElementWidth < 0
 			) {
-				while (
-					fontSize > 2 &&
-					navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width < 0
-				) {
-					fontSize = fontSize - 1;
-					hamburgerCurrentViewTitleElement.style.fontSize = fontSize + "px";
+				fontSize -= 1;
+				hamburgerTitleElement.style.fontSize = fontSize + "px";
 
-					hamburgerCurrentViewTitleElementSize = getElementSize(
-						hamburgerCurrentViewTitleElement
-					);
-				}
-			} else if (
-				fontSize <
-					reduxState[SIZE_CONTAINER].constants
-						.navbarHamburgerCurrentViewTitleStyles.baseFontSize &&
-				navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width > 0
-			) {
-				while (
-					fontSize <
-						reduxState[SIZE_CONTAINER].constants
-							.navbarHamburgerCurrentViewTitleStyles.baseFontSize &&
-					navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width > 0
-				) {
-					fontSize = fontSize + 1;
-					hamburgerCurrentViewTitleElement.style.fontSize = fontSize + "px";
-
-					hamburgerCurrentViewTitleElementSize = getElementSize(
-						hamburgerCurrentViewTitleElement
-					);
-
-					// Makes sure font-size was not made too big
-					if (
-						navbarAvailableSpace - hamburgerCurrentViewTitleElementSize.width <
-						0
-					) {
-						hamburgerCurrentViewTitleElement.style.fontSize =
-							fontSize - 1 + "px";
-						break;
-					}
-				}
+				hamburgerTitleElementWidth = getElementSize(
+					hamburgerTitleElement
+				).width;
 			}
+
+			hamburgerTitleElement.style.visibility = "visible";
 		}
 		// eslint-disable-next-line
 	}, [
@@ -236,7 +209,7 @@ export default function NavbarHamburger() {
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
-	const getCurrentViewTitle = () => {
+	const getTitle = () => {
 		if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView) {
 			return "Projects";
 		} else if (reduxState[PROJECT_CONTAINER].componentsDisplay.itemView) {
@@ -342,7 +315,7 @@ export default function NavbarHamburger() {
 				className="hamburger-title js-hamburger-title"
 				onClick={toggleHamburgerDropdown}
 			>
-				{getCurrentViewTitle()}
+				{getTitle()}
 			</div>
 		</div>
 	);
