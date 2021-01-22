@@ -4,6 +4,7 @@
 // SCSS for classNames shared by the navbar, breadcrumb, and hamburger components
 .navbar-container {
 	position: fixed;
+	height: v.$navbar-height;
 	width: 100%;
 	top: 0;
 

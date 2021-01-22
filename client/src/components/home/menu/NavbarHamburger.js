@@ -36,9 +36,11 @@ export default function NavbarHamburger() {
 
 		hamburgerTitleElement.style.visibility = "hidden";
 
+		// Resets fontSize and maxWidth
 		hamburgerTitleElement.style.fontSize =
 			reduxState[SIZE_CONTAINER].constants.navbarHamburgerTitleStyles
 				.baseFontSize + "px";
+		hamburgerTitleElement.style.maxWidth = null;
 
 		if (
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
@@ -53,24 +55,28 @@ export default function NavbarHamburger() {
 				reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth -
 				reduxState[SIZE_CONTAINER].constants.navbarHamburgerTitleStyles.left;
 
-			let hamburgerTitleElementWidth = getElementSize(
-				hamburgerTitleElement
-			).width;
+			let hamburgerTitleElementWidth = getElementSize(hamburgerTitleElement)
+				.width;
 
 			let fontSize =
 				reduxState[SIZE_CONTAINER].constants.navbarHamburgerTitleStyles
 					.baseFontSize;
 
 			while (
-				fontSize > 2 &&
+				fontSize >
+					reduxState[GENERAL_CONTAINER].globalConstants
+						.navbarBreadcrumbMinimumFontSize &&
 				navbarAvailableSpace - hamburgerTitleElementWidth < 0
 			) {
 				fontSize -= 1;
 				hamburgerTitleElement.style.fontSize = fontSize + "px";
 
-				hamburgerTitleElementWidth = getElementSize(
-					hamburgerTitleElement
-				).width;
+				hamburgerTitleElementWidth = getElementSize(hamburgerTitleElement)
+					.width;
+			}
+
+			if (navbarAvailableSpace - hamburgerTitleElementWidth < 0) {
+				hamburgerTitleElement.style.maxWidth = navbarAvailableSpace + "px";
 			}
 
 			hamburgerTitleElement.style.visibility = "visible";
@@ -78,7 +84,11 @@ export default function NavbarHamburger() {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER],
+		reduxState[SIZE_CONTAINER].constants,
+		// eslint-disable-next-line
+		reduxState[SIZE_CONTAINER].variables.navbar,
+		// eslint-disable-next-line
+		reduxState[GENERAL_CONTAINER].globalConstants,
 		// eslint-disable-next-line
 		reduxState[PROJECT_CONTAINER].componentsDisplay,
 		// eslint-disable-next-line

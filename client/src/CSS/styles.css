@@ -246,6 +246,7 @@ html, body {
 
 .navbar-container {
   position: fixed;
+  height: 56px;
   width: 100%;
   top: 0;
 }
@@ -560,6 +561,9 @@ dropdown can overlap all other components
   text-align: center;
   vertical-align: middle;
   line-height: 56px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ". . .   ";
 }
 
 .account-modals-blurred-background {

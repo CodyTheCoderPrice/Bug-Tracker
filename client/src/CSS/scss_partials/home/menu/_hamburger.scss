@@ -117,5 +117,9 @@
 		vertical-align: middle;
 		// Allows vertical-align: middle to work
 		line-height: v.$navbar-height;
+		// maxWidth (which allows ellipse to work) set using JS
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ". . .   ";
 	}
 }
