@@ -309,16 +309,16 @@ dropdown can overlap all other components
   z-index: 2;
 }
 
+.breadcrumb-container .invisible,
+.js-calc-breadcrumb-container .invisible {
+  visibility: hidden;
+}
 .breadcrumb-container .breadcrumb-button,
 .js-calc-breadcrumb-container .breadcrumb-button {
   position: relative;
   float: left;
   background-color: black;
   height: 56px;
-}
-.breadcrumb-container .breadcrumb-button--invisible,
-.js-calc-breadcrumb-container .breadcrumb-button--invisible {
-  visibility: hidden;
 }
 .breadcrumb-container .breadcrumb-button--right,
 .js-calc-breadcrumb-container .breadcrumb-button--right {

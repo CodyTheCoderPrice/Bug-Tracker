@@ -4,9 +4,11 @@ import {
 	SIZE_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
+	GENERAL_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
 import {
+	setDisplaySizeVariablesBreadcrumbFontSize,
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 	setWhichBugComponentsDisplay,
@@ -23,7 +25,7 @@ import {
 	getProjectOrBugNavbarArrowColorClassNameLight,
 } from "../../../utils";
 
-export default function NavbarBreadcrumb() {
+export default function NavbarBreadcrumb(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -33,7 +35,10 @@ export default function NavbarBreadcrumb() {
 			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
 			reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth !== null &&
-			reduxState[SIZE_CONTAINER].constants.navbarBreadcrumbArrowWidth !== null
+			reduxState[SIZE_CONTAINER].constants.navbarBreadcrumbArrowWidth !==
+				null &&
+			reduxState[GENERAL_CONTAINER].globalConstants
+				.navbarBreadcrumbMinimumFontSize !== null
 		) {
 			const breadcrumbProjectListButtonTextElement = document.getElementsByClassName(
 				"js-breadcrumb-project-list-button-text"
@@ -93,16 +98,10 @@ export default function NavbarBreadcrumb() {
 				reduxState[SIZE_CONTAINER].constants
 					.navbarBreadcrumbButtonTextBaseFontSize;
 
-			console.log(
-				`${reduxState[SIZE_CONTAINER].variables.navbar.width} - ${
-					reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth
-				} - ${
-					reduxState[SIZE_CONTAINER].constants.navbarBreadcrumbArrowWidth * 4
-				} - ${breadcrumbProjectListButtonTextElementWidth} - ${breadcrumbProjectItemButtonTextElementWidth} - ${breadcrumbBugListButtonTextElementWidth} - ${breadcrumbBugItemButtonTextElementWidth}`
-			);
-
 			while (
-				fontSize > 2 &&
+				fontSize >=
+					reduxState[GENERAL_CONTAINER].globalConstants
+						.navbarBreadcrumbMinimumFontSize &&
 				navbarAvailableSpace -
 					(breadcrumbProjectListButtonTextElementWidth +
 						breadcrumbProjectItemButtonTextElementWidth +
@@ -134,17 +133,16 @@ export default function NavbarBreadcrumb() {
 				}
 			}
 
-			breadcrumbProjectListButtonTextElement.style.visibility = "visible";
-			breadcrumbProjectItemButtonTextElement.style.visibility = "visible";
-			breadcrumbBugListButtonTextElement.style.visibility = "visible";
-			if (breadcrumbBugItemButtonTextElement !== null) {
-				breadcrumbBugItemButtonTextElement.style.visibility = "visible";
-			}
+			dispatch(setDisplaySizeVariablesBreadcrumbFontSize(fontSize));
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER],
+		reduxState[SIZE_CONTAINER].constants,
+		// eslint-disable-next-line
+		reduxState[SIZE_CONTAINER].variables.navbar,
+		// eslint-disable-next-line
+		reduxState[GENERAL_CONTAINER].globalConstants,
 		// eslint-disable-next-line
 		reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
 		// eslint-disable-next-line
@@ -267,75 +265,28 @@ export default function NavbarBreadcrumb() {
 
 	return (
 		<div className="breadcrumb-container">
-			<div
-				className={
-					"breadcrumb-button js-breadcrumb-project-list-button" +
-					getProjectOrBugBackgroundColorClassNameDark(
-						getCurrentContainerName(reduxState)
-					) +
-					(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-						? getProjectOrBugBackgroundColorClassNameLight(
-								getCurrentContainerName(reduxState)
-						  )
-						: "")
-				}
-				onClick={openProjectsListView}
-			>
-				<div className="breadcrumb-button__text js-breadcrumb-project-list-button-text">
-					<i className="fa fa-folder" aria-hidden="true" /> Projects
-				</div>
-				<div
-					// Background color must be made that of the navbar
-					// ...otherwise selecting the last button will have
-					// ... its light color extend past the arrow
-					className={
-						"breadcrumb-button__end-container" +
-						getProjectOrBugBackgroundColorClassNameDark(
-							getCurrentContainerName(reduxState)
-						)
-					}
-				>
-					<div
-						className={
-							"breadcrumb-button__end-container__arrow js-breadcrumb-project-list-button-arrow" +
-							getProjectOrBugNavbarArrowColorClassNameDark(
-								getCurrentContainerName(reduxState)
-							) +
-							(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-								? getProjectOrBugNavbarArrowColorClassNameLight(
-										getCurrentContainerName(reduxState)
-								  )
-								: "")
-						}
-					/>
-					<div className="breadcrumb-button__end-container__border-arrow" />
-				</div>
-			</div>
-
-			{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
-			null ? null : (
+			<div className={props.visible ? "" : "invisible"}>
 				<div
 					className={
-						"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-project-item-button" +
+						"breadcrumb-button js-breadcrumb-project-list-button" +
 						getProjectOrBugBackgroundColorClassNameDark(
 							getCurrentContainerName(reduxState)
 						) +
-						(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
-							null && reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
+						(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
 							? getProjectOrBugBackgroundColorClassNameLight(
 									getCurrentContainerName(reduxState)
 							  )
 							: "")
 					}
-					onClick={openProjectsItemView}
+					onClick={openProjectsListView}
 				>
-					<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-project-item-button-text">
-						{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.name}
+					<div className="breadcrumb-button__text js-breadcrumb-project-list-button-text">
+						<i className="fa fa-folder" aria-hidden="true" /> Projects
 					</div>
 					<div
-						// Background-color must be made same as the navbar
-						// ...otherwise selecting last visible button will
-						// ...have its different color extend past arrow
+						// Background color must be made that of the navbar
+						// ...otherwise selecting the last button will have
+						// ... its light color extend past the arrow
 						className={
 							"breadcrumb-button__end-container" +
 							getProjectOrBugBackgroundColorClassNameDark(
@@ -345,133 +296,188 @@ export default function NavbarBreadcrumb() {
 					>
 						<div
 							className={
-								"breadcrumb-button__end-container__arrow" +
+								"breadcrumb-button__end-container__arrow js-breadcrumb-project-list-button-arrow" +
 								getProjectOrBugNavbarArrowColorClassNameDark(
+									getCurrentContainerName(reduxState)
+								) +
+								(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+									? getProjectOrBugNavbarArrowColorClassNameLight(
+											getCurrentContainerName(reduxState)
+									  )
+									: "")
+							}
+						/>
+						<div className="breadcrumb-button__end-container__border-arrow" />
+					</div>
+				</div>
+
+				{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
+				null ? null : (
+					<div>
+						<div
+							className={
+								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-project-item-button" +
+								getProjectOrBugBackgroundColorClassNameDark(
 									getCurrentContainerName(reduxState)
 								) +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 									null &&
 								reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-									? getProjectOrBugNavbarArrowColorClassNameLight(
+									? getProjectOrBugBackgroundColorClassNameLight(
 											getCurrentContainerName(reduxState)
 									  )
 									: "")
 							}
-						/>
-						<div className="breadcrumb-button__end-container__border-arrow" />
-						<i
-							className="fa fa-times breadcrumb-button__end-container__close-button"
-							aria-hidden="true"
-							onClick={closeProjectItemView}
-						/>
-					</div>
-				</div>
-			)}
-
-			<div
-				className={
-					"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-list-button" +
-					(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
-						? " breadcrumb-button--invisible"
-						: "") +
-					getProjectOrBugBackgroundColorClassNameDark(
-						getCurrentContainerName(reduxState)
-					) +
-					(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
-						null && reduxState[BUG_CONTAINER].componentsDisplay.listView
-						? getProjectOrBugBackgroundColorClassNameLight(
-								getCurrentContainerName(reduxState)
-						  )
-						: "")
-				}
-				onClick={openBugsListView}
-			>
-				<div className="breadcrumb-button__text js-breadcrumb-bug-list-button-text">
-					<i className="fa fa-bug" aria-hidden="true" /> Bugs
-				</div>
-				<div
-					// Background-color must be made same as the navbar
-					// ...otherwise selecting last visible button will
-					// ...have its different color extend past arrow
-					className={
-						"breadcrumb-button__end-container" +
-						getProjectOrBugBackgroundColorClassNameDark(
-							getCurrentContainerName(reduxState)
-						)
-					}
-				>
-					<div
-						className={
-							"breadcrumb-button__end-container__arrow" +
-							getProjectOrBugNavbarArrowColorClassNameDark(
-								getCurrentContainerName(reduxState)
-							) +
-							(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
-								null && reduxState[BUG_CONTAINER].componentsDisplay.listView
-								? getProjectOrBugNavbarArrowColorClassNameLight(
+							onClick={openProjectsItemView}
+						>
+							<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-project-item-button-text">
+								{
+									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+										.name
+								}
+							</div>
+							<div
+								// Background-color must be made same as the navbar
+								// ...otherwise selecting last visible button will
+								// ...have its different color extend past arrow
+								className={
+									"breadcrumb-button__end-container" +
+									getProjectOrBugBackgroundColorClassNameDark(
 										getCurrentContainerName(reduxState)
-								  )
-								: "")
-						}
-					/>
-					<div className="breadcrumb-button__end-container__border-arrow" />
-				</div>
-			</div>
+									)
+								}
+							>
+								<div
+									className={
+										"breadcrumb-button__end-container__arrow" +
+										getProjectOrBugNavbarArrowColorClassNameDark(
+											getCurrentContainerName(reduxState)
+										) +
+										(reduxState[PROJECT_CONTAINER].componentsDisplay
+											.targetItem !== null &&
+										reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
+											? getProjectOrBugNavbarArrowColorClassNameLight(
+													getCurrentContainerName(reduxState)
+											  )
+											: "")
+									}
+								/>
+								<div className="breadcrumb-button__end-container__border-arrow" />
+								<i
+									className="fa fa-times breadcrumb-button__end-container__close-button"
+									aria-hidden="true"
+									onClick={closeProjectItemView}
+								/>
+							</div>
+						</div>
 
-			{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
-			null ? null : (
-				<div
-					className={
-						"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-item-button" +
-						getProjectOrBugBackgroundColorClassNameDark(
-							getCurrentContainerName(reduxState)
-						) +
-						(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
-							null && reduxState[BUG_CONTAINER].componentsDisplay.itemView
-							? getProjectOrBugBackgroundColorClassNameLight(
-									getCurrentContainerName(reduxState)
-							  )
-							: "")
-					}
-					onClick={openBugsItemView}
-				>
-					<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-bug-item-button-text">
-						{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
-					</div>
-					<div
-						// Background-color must be made same as the navbar
-						// ...otherwise selecting last visible button will
-						// ...have its different color extend past arrow
-						className={
-							"breadcrumb-button__end-container" +
-							getProjectOrBugBackgroundColorClassNameDark(
-								getCurrentContainerName(reduxState)
-							)
-						}
-					>
 						<div
 							className={
-								"breadcrumb-button__end-container__arrow" +
-								getProjectOrBugNavbarArrowColorClassNameDark(
+								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-list-button" +
+								getProjectOrBugBackgroundColorClassNameDark(
 									getCurrentContainerName(reduxState)
 								) +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
-									null && reduxState[BUG_CONTAINER].componentsDisplay.itemView
-									? getProjectOrBugNavbarArrowColorClassNameLight(
+									null && reduxState[BUG_CONTAINER].componentsDisplay.listView
+									? getProjectOrBugBackgroundColorClassNameLight(
 											getCurrentContainerName(reduxState)
 									  )
 									: "")
 							}
-						></div>
-						<div className="breadcrumb-button__end-container__border-arrow" />
-						<i
-							className="fa fa-times breadcrumb-button__end-container__close-button"
-							aria-hidden="true"
-							onClick={(e) => closeBugItemView(e)}
-						/>
+							onClick={openBugsListView}
+						>
+							<div className="breadcrumb-button__text js-breadcrumb-bug-list-button-text">
+								<i className="fa fa-bug" aria-hidden="true" /> Bugs
+							</div>
+							<div
+								// Background-color must be made same as the navbar
+								// ...otherwise selecting last visible button will
+								// ...have its different color extend past arrow
+								className={
+									"breadcrumb-button__end-container" +
+									getProjectOrBugBackgroundColorClassNameDark(
+										getCurrentContainerName(reduxState)
+									)
+								}
+							>
+								<div
+									className={
+										"breadcrumb-button__end-container__arrow" +
+										getProjectOrBugNavbarArrowColorClassNameDark(
+											getCurrentContainerName(reduxState)
+										) +
+										(reduxState[PROJECT_CONTAINER].componentsDisplay
+											.targetItem !== null &&
+										reduxState[BUG_CONTAINER].componentsDisplay.listView
+											? getProjectOrBugNavbarArrowColorClassNameLight(
+													getCurrentContainerName(reduxState)
+											  )
+											: "")
+									}
+								/>
+								<div className="breadcrumb-button__end-container__border-arrow" />
+							</div>
+						</div>
+
+						{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
+						null ? null : (
+							<div
+								className={
+									"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-item-button" +
+									getProjectOrBugBackgroundColorClassNameDark(
+										getCurrentContainerName(reduxState)
+									) +
+									(reduxState[PROJECT_CONTAINER].componentsDisplay
+										.targetItem !== null &&
+									reduxState[BUG_CONTAINER].componentsDisplay.itemView
+										? getProjectOrBugBackgroundColorClassNameLight(
+												getCurrentContainerName(reduxState)
+										  )
+										: "")
+								}
+								onClick={openBugsItemView}
+							>
+								<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-bug-item-button-text">
+									{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
+								</div>
+								<div
+									// Background-color must be made same as the navbar
+									// ...otherwise selecting last visible button will
+									// ...have its different color extend past arrow
+									className={
+										"breadcrumb-button__end-container" +
+										getProjectOrBugBackgroundColorClassNameDark(
+											getCurrentContainerName(reduxState)
+										)
+									}
+								>
+									<div
+										className={
+											"breadcrumb-button__end-container__arrow" +
+											getProjectOrBugNavbarArrowColorClassNameDark(
+												getCurrentContainerName(reduxState)
+											) +
+											(reduxState[PROJECT_CONTAINER].componentsDisplay
+												.targetItem !== null &&
+											reduxState[BUG_CONTAINER].componentsDisplay.itemView
+												? getProjectOrBugNavbarArrowColorClassNameLight(
+														getCurrentContainerName(reduxState)
+												  )
+												: "")
+										}
+									></div>
+									<div className="breadcrumb-button__end-container__border-arrow" />
+									<i
+										className="fa fa-times breadcrumb-button__end-container__close-button"
+										aria-hidden="true"
+										onClick={(e) => closeBugItemView(e)}
+									/>
+								</div>
+							</div>
+						)}
 					</div>
-				</div>
-			)}
+				)}
+			</div>
 		</div>
 	);
 }

@@ -4,6 +4,10 @@
 // SCSS for classNames only used by the breadcrumb component
 .breadcrumb-container,
 .js-calc-breadcrumb-container {
+	.invisible {
+		visibility: hidden;
+	}
+
 	.breadcrumb-button {
 		position: relative;
 		float: left;
@@ -12,10 +16,6 @@
 		// ...the scss for the colors assigned are in home.scss
 		background-color: black;
 		height: v.$navbar-height;
-	}
-
-	.breadcrumb-button--invisible {
-		visibility: hidden;
 	}
 
 	.breadcrumb-button--right {

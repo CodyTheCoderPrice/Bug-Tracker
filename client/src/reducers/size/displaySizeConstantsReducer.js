@@ -19,9 +19,7 @@ const initialState = {
  * Used to set JSON containing constant html element sizes in the size
  * container of the redux state
  * 
- * @param {JSON} state - JSON of constant html element sizes used mostly to
- * calulcate the resizing of other html elements, but is sometimes used for
- * other things
+ * @param {JSON} state - JSON of constant html element sizes
  * @param {JSON} action - JSON containing a container name and type (used to
  * determin where and what to do in the redux state), and any data addition
  * data needed based on the container name and type (typically data to updated

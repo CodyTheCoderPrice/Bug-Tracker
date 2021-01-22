@@ -10,7 +10,8 @@ import {
 // Redux types
 import {
 	SET_DISPLAY_SIZE_CONSTANTS,
-	SET_DISPLAY_SIZE_VARIABLES,
+	SET_DISPLAY_SIZE_VARIABLES_WINDOW_NAVBAR,
+	SET_DISPLAY_SIZE_VARIABLES_BREADCRUMB_FONT_SIZE,
 	SET_PRIORITY_STATUS,
 	SET_INPUT_ERRORS,
 } from "./constants/types";
@@ -42,19 +43,35 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 };
 
 /**
- * Sets JSON object containing the size info of multiple html elements (thats
- * size changes) in the size container of the redux state. This info is mostly
- * used to calulcate the resizing of other html elements, but is sometimes used
- * for other things
+ * Sets JSON object containing the current size info of the Window and Navbar
+ * elements in the size container of the redux state. These sizes are updated
+ * everytime they change. This info is mostly used to calulcate the resizing of
+ * other html elements, but is sometimes used for other things
  * 
- * @param {JSON} sizes - JSON containing size info for multiple html elements 
- * (thats size changes)
+ * @param {JSON} sizes - JSON containing current size info for Widnow and Navbar
  */
-export const setDisplaySizeVariables = (sizes) => (dispatch) => {
+export const setDisplaySizeVariablesWindowAndNavbar = (sizes) => (dispatch) => {
 	dispatch({
 		container: SIZE_CONTAINER,
-		type: SET_DISPLAY_SIZE_VARIABLES,
+		type: SET_DISPLAY_SIZE_VARIABLES_WINDOW_NAVBAR,
 		sizes: sizes,
+	});
+};
+
+/**
+ * Sets the current font size of the breadcrumb menu button text elements in
+ * the size container of the redux state. The fontsize is updated everytime it
+ * changes. The font size is used to know when the switch to the hamburger menu
+ * (i.e. when breadcrumb button text element's font size gets to be too small)
+ * 
+ * @param {Number} fontSize - Number of current font size of the breadcrumb menu
+ * button text elements
+ */
+export const setDisplaySizeVariablesBreadcrumbFontSize = (fontSize) => (dispatch) => {
+	dispatch({
+		container: SIZE_CONTAINER,
+		type: SET_DISPLAY_SIZE_VARIABLES_BREADCRUMB_FONT_SIZE,
+		fontSize: fontSize,
 	});
 };
 

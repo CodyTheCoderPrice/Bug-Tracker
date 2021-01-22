@@ -10,7 +10,8 @@ import {
 
 import {
 	setDisplaySizeConstants,
-	setDisplaySizeVariables,
+	setDisplaySizeVariablesWindowAndNavbar,
+	setDisplaySizeVariablesBreadcrumbFontSize,
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 	setWhichBugComponentsDisplay,
@@ -43,6 +44,8 @@ export default function Navbar() {
 
 	// Makes sure the current size of the window and navbar are stored in redux
 	useEffect(() => {
+		const breadcrumbBaseFontSize = calcBreadcrumbBaseFontSize();
+
 		dispatch(
 			setDisplaySizeConstants({
 				scrollbarWidth: calcScrollbarWidth(),
@@ -54,7 +57,7 @@ export default function Navbar() {
 						"js-breadcrumb-project-list-button-arrow"
 					)[0]
 				).width,
-				navbarBreadcrumbButtonTextBaseFontSize: calcBreadcrumbBaseFontSize(),
+				navbarBreadcrumbButtonTextBaseFontSize: breadcrumbBaseFontSize,
 				navbarHamburgerTitleStyles: calcHamburgerTitleStyles(),
 				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
 				listViewTableRowHeight: calcListViewTableRowHeight(),
@@ -66,11 +69,13 @@ export default function Navbar() {
 		);
 
 		dispatch(
-			setDisplaySizeVariables({
+			setDisplaySizeVariablesWindowAndNavbar({
 				window: getWindowSize(),
 				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 			})
 		);
+
+		dispatch(setDisplaySizeVariablesBreadcrumbFontSize(breadcrumbBaseFontSize));
 
 		// Adds event to update navbar size on a resize
 		window.addEventListener("resize", displaySizeHandler);
@@ -84,7 +89,7 @@ export default function Navbar() {
 	// Declared outside of the eventListener so removing will working on cleanup
 	function displaySizeHandler() {
 		dispatch(
-			setDisplaySizeVariables({
+			setDisplaySizeVariablesWindowAndNavbar({
 				window: getWindowSize(),
 				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 			})
@@ -117,38 +122,19 @@ export default function Navbar() {
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
-	/**
-	 * Gives the number of buttons that would be present in the breadcrumb menu
-	 * when it is displayed
-	 *
-	 * @returns {Number} - The number of present buttons in the breadcrumb menu
-	 */
-	const getNumberOfPresentBreadcrumbButtons = () => {
-		/*
-		The project list button is always present in the breadcrumb menu, so
-		the base value is 1. If there is a target project then the project item
-		and bug list buttons will also be present meaning at least 2 needs to
-		be added, but if there is also a target bug then the bug item button is
-		also present and it is insead 3 that needst to be added
-		*/
-		return (
-			1 +
-			(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null
-				? 0
-				: reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null
-				? 2
-				: 3)
-		);
-	};
-
 	return (
 		<div
 			className={
 				"navbar-container" +
 				(reduxState[SIZE_CONTAINER].variables.navbar === null ||
-				reduxState[SIZE_CONTAINER].variables.navbar.width >
+					reduxState[SIZE_CONTAINER].variables
+						.navbarBreadcrumbButtonTextFontSize === null ||
 					reduxState[GENERAL_CONTAINER].globalConstants
-						.navbarHamburgerMenuBreakingPointMultiplier
+						.navbarBreadcrumbMinimumFontSize === null ||
+					reduxState[SIZE_CONTAINER].variables
+						.navbarBreadcrumbButtonTextFontSize >
+						reduxState[GENERAL_CONTAINER].globalConstants
+							.navbarBreadcrumbMinimumFontSize
 					? ""
 					: " navbar-container--increased-z-index")
 			}
@@ -161,15 +147,29 @@ export default function Navbar() {
 					)
 				}
 			>
-				{//Makes sure Breadcrumb appears at first so sizes can be stored
-				reduxState[SIZE_CONTAINER].constants
-					.navbarBreadcrumbProjectListButtonTextWidth === null ||
-				reduxState[SIZE_CONTAINER].variables.navbar === null ||
-				reduxState[SIZE_CONTAINER].variables.navbar.width >
+				<NavbarBreadcrumb
+					visible={
+						reduxState[SIZE_CONTAINER].variables.navbar === null ||
+						reduxState[SIZE_CONTAINER].variables
+							.navbarBreadcrumbButtonTextFontSize === null ||
+						reduxState[GENERAL_CONTAINER].globalConstants
+							.navbarBreadcrumbMinimumFontSize === null ||
+						reduxState[SIZE_CONTAINER].variables
+							.navbarBreadcrumbButtonTextFontSize >
+							reduxState[GENERAL_CONTAINER].globalConstants
+								.navbarBreadcrumbMinimumFontSize
+					}
+				/>
+
+				{reduxState[SIZE_CONTAINER].variables.navbar === null ||
+				reduxState[SIZE_CONTAINER].variables
+					.navbarBreadcrumbButtonTextFontSize === null ||
+				reduxState[GENERAL_CONTAINER].globalConstants
+					.navbarBreadcrumbMinimumFontSize === null ||
+				reduxState[SIZE_CONTAINER].variables
+					.navbarBreadcrumbButtonTextFontSize >
 					reduxState[GENERAL_CONTAINER].globalConstants
-						.navbarHamburgerMenuBreakingPointMultiplier ? (
-					<NavbarBreadcrumb />
-				) : (
+						.navbarBreadcrumbMinimumFontSize ? null : (
 					<NavbarHamburger />
 				)}
 

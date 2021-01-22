@@ -1,5 +1,5 @@
 import displaySizeConstantsReducer from "./displaySizeConstantsReducer";
-import displaySizeVariablesReducer from "./displaySizeVariablesReducer";
+import displaySizeVariablesReducer from "./variables/displaySizeVariablesReducer";
 
 import { SIZE_CONTAINER } from "../../actions/constants/containerNames";
 import { RESET_CONTAINER } from "../../actions/constants/types";
@@ -32,7 +32,11 @@ export function sizeContainerReducer(state = initialState, action) {
 				return initialState
 			} else {
 				return {
+					// Must pass state.constants or else default return will
+					// ...be entire size container
 					constants: displaySizeConstantsReducer(state.constants, action),
+					// Must pass state.variables or else default return will
+					// ...be entire size container
 					variables: displaySizeVariablesReducer(state.variables, action),
 				};
 			}
