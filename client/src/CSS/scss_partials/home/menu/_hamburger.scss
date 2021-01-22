@@ -16,7 +16,8 @@
 		width: 100vw;
 	}
 
-	.hamburger-button-container {
+	.hamburger-button-container,
+	.js-calc-hamburger-button-container {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		-moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -26,7 +27,7 @@
 		top: 9px;
 		left: v.$navbar-hamburger-button-left;
 		border: v.$navbar-hamburger-border-width solid black;
-		border-radius: 25%;
+		border-radius: v.$navbar-hamburger-border-radius;
 		background-color: white;
 		height: 38px;
 		width: v.$navbar-hamburger-button-width;
@@ -51,7 +52,7 @@
 		top: 9px;
 		left: 10px;
 		border: v.$navbar-hamburger-border-width solid black;
-		border-radius: v.$navbar-hamburger-dropdown-border-radius;
+		border-radius: v.$navbar-hamburger-border-radius;
 		background-color: white;
 	}
 
@@ -71,6 +72,8 @@
 		display: block;
 		border-top: 1px solid gray;
 		padding: 12px;
+		white-space: nowrap;
+		overflow: hidden;
 		cursor: pointer;
 
 		&:hover,
@@ -79,28 +82,12 @@
 		}
 	}
 
+	.hamburger-dropdown__option--last-button-round-bottom-border {
+		border-radius: 0 0 v.$navbar-hamburger-border-radius v.$navbar-hamburger-border-radius
+	}
+
 	.hamburger-dropdown__option__arrow-icon {
 		margin: 0px 6px 0px 7px;
-	}
-
-	@mixin round-bottom-border($border-radius) {
-		border-bottom: v.$navbar-hamburger-border-width solid transparent;
-		border-radius: 0 0 $border-radius $border-radius;
-	}
-
-	// Should be applied to first option when is also the last
-	.hamburger-dropdown__option--round-bottom-border-first-button {
-		@include round-bottom-border(v.$navbar-hamburger-dropdown-border-radius);
-	}
-
-	// Should be applied to third option when it is also the last
-	.hamburger-dropdown__option--round-bottom-border-third-button {
-		@include round-bottom-border(v.$navbar-hamburger-dropdown-border-radius + 5);
-	}
-
-	// Should be applied to last option when it is also the last
-	.hamburger-dropdown__option--round-bottom-border-last-button {
-		@include round-bottom-border(v.$navbar-hamburger-dropdown-border-radius + 10);
 	}
 
 	.hamburger-title,

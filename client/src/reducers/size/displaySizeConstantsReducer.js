@@ -6,7 +6,7 @@ const initialState = {
 	navbarAccountButtonWidth: null,
 	navbarBreadcrumbArrowWidth: null,
 	navbarBreadcrumbButtonTextBaseFontSize: null,
-	navbarHamburgerTitleStyles: null,
+	navbarHamburgerStyles: null,
 	listViewSearchFilterSortBarHeight: null,
 	listViewTableRowHeight: null,
 	itemViewTopBarHeight: null,
@@ -35,7 +35,7 @@ export default function (state = initialState, action) {
 				navbarAccountButtonWidth: action.sizes.navbarAccountButtonWidth,
 				navbarBreadcrumbButtonTextBaseFontSize: action.sizes.navbarBreadcrumbButtonTextBaseFontSize,
 				navbarBreadcrumbArrowWidth: action.sizes.navbarBreadcrumbArrowWidth,
-				navbarHamburgerTitleStyles: action.sizes.navbarHamburgerTitleStyles,
+				navbarHamburgerStyles: action.sizes.navbarHamburgerStyles,
 				listViewSearchFilterSortBarHeight:
 					action.sizes.listViewSearchFilterSortBarHeight,
 				listViewTableRowHeight: action.sizes.listViewTableRowHeight,

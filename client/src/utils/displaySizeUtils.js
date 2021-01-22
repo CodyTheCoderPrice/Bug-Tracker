@@ -75,11 +75,18 @@ export function calcBreadcrumbBaseFontSize() {
 	return baseFontSize;
 }
 
-export function calcHamburgerTitleStyles() {
+export function calcHamburgerStyles() {
 	const invisibleHamburgerContainerElement = document.createElement("div");
 	invisibleHamburgerContainerElement.className = "js-calc-hamburger-container";
 	invisibleHamburgerContainerElement.visibility = "hidden";
 	document.body.appendChild(invisibleHamburgerContainerElement);
+
+	const invisibleHamburgerElement = document.createElement("div");
+	invisibleHamburgerElement.className = "js-calc-hamburger-button-container";
+	invisibleHamburgerElement.visibility = "hidden";
+	invisibleHamburgerContainerElement.appendChild(
+		invisibleHamburgerElement
+	);
 
 	const invisibleHamburgerTitleElement = document.createElement("div");
 	invisibleHamburgerTitleElement.className = "js-calc-hamburger-title";
@@ -88,16 +95,19 @@ export function calcHamburgerTitleStyles() {
 		invisibleHamburgerTitleElement
 	);
 
-	const styles = getElementStyle(invisibleHamburgerTitleElement);
-	const elementStylejson = {
-		left: stripNonDigits(styles.left),
-		baseFontSize: stripNonDigits(styles.fontSize),
+	const hamburgerElementStyles = getElementStyle(invisibleHamburgerElement);
+	const hamburgerTitleElementStyles = getElementStyle(invisibleHamburgerTitleElement);
+
+	const stylejson = {
+		buttonLeft: stripNonDigits(hamburgerElementStyles.left),
+		titleLeft: stripNonDigits(hamburgerTitleElementStyles.left),
+		titleBaseFontSize: stripNonDigits(hamburgerTitleElementStyles.fontSize),
 	};
 	invisibleHamburgerContainerElement.parentNode.removeChild(
 		invisibleHamburgerContainerElement
 	);
 
-	return elementStylejson;
+	return stylejson;
 }
 
 export function calcListViewSearchFilterSortBarHeight() {

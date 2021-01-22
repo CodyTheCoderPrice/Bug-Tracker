@@ -23,7 +23,7 @@ import {
 	getElementSize,
 	calcScrollbarWidth,
 	calcBreadcrumbBaseFontSize,
-	calcHamburgerTitleStyles,
+	calcHamburgerStyles,
 	calcListViewSearchFilterSortBarHeight,
 	calcListViewTableRowHeight,
 	calcViewItemTopBarHeight,
@@ -58,7 +58,7 @@ export default function Navbar() {
 					)[0]
 				).width,
 				navbarBreadcrumbButtonTextBaseFontSize: breadcrumbBaseFontSize,
-				navbarHamburgerTitleStyles: calcHamburgerTitleStyles(),
+				navbarHamburgerStyles: calcHamburgerStyles(),
 				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
 				listViewTableRowHeight: calcListViewTableRowHeight(),
 				itemViewTopBarHeight: calcViewItemTopBarHeight(),

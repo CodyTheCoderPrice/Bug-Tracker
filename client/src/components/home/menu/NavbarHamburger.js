@@ -28,7 +28,7 @@ export default function NavbarHamburger() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Resizes breacrumb buttons to fit inside the navbar based on the window size
+	// Resizes Hamburger title to fit inside the navbar based on the window size
 	useEffect(() => {
 		const hamburgerTitleElement = document.getElementsByClassName(
 			"js-hamburger-title"
@@ -38,8 +38,8 @@ export default function NavbarHamburger() {
 
 		// Resets fontSize and maxWidth
 		hamburgerTitleElement.style.fontSize =
-			reduxState[SIZE_CONTAINER].constants.navbarHamburgerTitleStyles
-				.baseFontSize + "px";
+			reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles
+				.titleBaseFontSize + "px";
 		hamburgerTitleElement.style.maxWidth = null;
 
 		if (
@@ -53,14 +53,14 @@ export default function NavbarHamburger() {
 			let navbarAvailableSpace =
 				reduxState[SIZE_CONTAINER].variables.navbar.width -
 				reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth -
-				reduxState[SIZE_CONTAINER].constants.navbarHamburgerTitleStyles.left;
+				reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles.titleLeft;
 
 			let hamburgerTitleElementWidth = getElementSize(hamburgerTitleElement)
 				.width;
 
 			let fontSize =
-				reduxState[SIZE_CONTAINER].constants.navbarHamburgerTitleStyles
-					.baseFontSize;
+				reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles
+					.titleBaseFontSize;
 
 			while (
 				fontSize >
@@ -93,6 +93,35 @@ export default function NavbarHamburger() {
 		reduxState[PROJECT_CONTAINER].componentsDisplay,
 		// eslint-disable-next-line
 		reduxState[BUG_CONTAINER].componentsDisplay,
+	]);
+
+	// Resize hamburger dropdown width to be full screen
+	useEffect(() => {
+		if (
+			reduxState[GENERAL_CONTAINER].componentsDisplay.navbarHamburherDropdown &&
+			reduxState[SIZE_CONTAINER].variables.window !== null &&
+			reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles !== null
+		) {
+			const hamburgerDropdownElement = document.getElementsByClassName(
+				"js-hamburger-dropdown"
+			)[0];
+
+			hamburgerDropdownElement.style.width =
+				reduxState[SIZE_CONTAINER].variables.window.width -
+				reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles.buttonLeft *
+					2 +
+				"px";
+		}
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[SIZE_CONTAINER].constants,
+		// eslint-disable-next-line
+		reduxState[SIZE_CONTAINER].variables.window,
+		// eslint-disable-next-line
+		reduxState[GENERAL_CONTAINER].globalConstants,
+		// eslint-disable-next-line
+		reduxState[GENERAL_CONTAINER].componentsDisplay,
 	]);
 
 	const toggleHamburgerDropdown = () => {
@@ -247,7 +276,7 @@ export default function NavbarHamburger() {
 			) : (
 				<div>
 					<div className="blurred-background" />
-					<div className="hamburger-dropdown">
+					<div className="hamburger-dropdown js-hamburger-dropdown">
 						<div className="hamburger-dropdown__top-space">
 							<i
 								className="fa fa-bars hamburger-dropdown__top-space__icon"
@@ -260,7 +289,7 @@ export default function NavbarHamburger() {
 								"hamburger-dropdown__option" +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
 								null
-									? " hamburger-dropdown__option--round-bottom-border-first-button"
+									? " hamburger-dropdown__option--last-button-round-bottom-border"
 									: "")
 							}
 							onClick={openProjectsListView}
@@ -291,7 +320,7 @@ export default function NavbarHamburger() {
 										"hamburger-dropdown__option" +
 										(reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
 										null
-											? " hamburger-dropdown__option--round-bottom-border-third-button"
+											? " hamburger-dropdown__option--last-button-round-bottom-border"
 											: "")
 									}
 									onClick={openBugsListView}
@@ -302,7 +331,7 @@ export default function NavbarHamburger() {
 								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
 								null ? null : (
 									<div
-										className="hamburger-dropdown__option hamburger-dropdown__option--round-bottom-border-last-button"
+										className="hamburger-dropdown__option hamburger-dropdown__option--last-button-round-bottom-border"
 										onClick={openBugsItemView}
 									>
 										<img

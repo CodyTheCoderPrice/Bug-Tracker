@@ -9,6 +9,7 @@ import {
 
 import {
 	setDisplaySizeVariablesBreadcrumbFontSize,
+	setWhichGeneralComponentsDisplay,
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 	setWhichBugComponentsDisplay,

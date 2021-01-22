@@ -449,7 +449,9 @@ dropdown can overlap all other components
   width: 100vw;
 }
 .hamburger-container .hamburger-button-container,
-.js-calc-hamburger-container .hamburger-button-container {
+.hamburger-container .js-calc-hamburger-button-container,
+.js-calc-hamburger-container .hamburger-button-container,
+.js-calc-hamburger-container .js-calc-hamburger-button-container {
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;
@@ -460,7 +462,7 @@ dropdown can overlap all other components
   top: 9px;
   left: 10px;
   border: 3px solid black;
-  border-radius: 25%;
+  border-radius: 10px;
   background-color: white;
   height: 38px;
   width: 36px;
@@ -487,7 +489,7 @@ dropdown can overlap all other components
   top: 9px;
   left: 10px;
   border: 3px solid black;
-  border-radius: 5%;
+  border-radius: 10px;
   background-color: white;
 }
 .hamburger-container .hamburger-dropdown__top-space,
@@ -509,6 +511,8 @@ dropdown can overlap all other components
   display: block;
   border-top: 1px solid gray;
   padding: 12px;
+  white-space: nowrap;
+  overflow: hidden;
   cursor: pointer;
 }
 .hamburger-container .hamburger-dropdown__option:hover, .hamburger-container .hamburger-dropdown__option:active,
@@ -516,24 +520,13 @@ dropdown can overlap all other components
 .js-calc-hamburger-container .hamburger-dropdown__option:active {
   background-color: #e5e5e5;
 }
+.hamburger-container .hamburger-dropdown__option--last-button-round-bottom-border,
+.js-calc-hamburger-container .hamburger-dropdown__option--last-button-round-bottom-border {
+  border-radius: 0 0 10px 10px;
+}
 .hamburger-container .hamburger-dropdown__option__arrow-icon,
 .js-calc-hamburger-container .hamburger-dropdown__option__arrow-icon {
   margin: 0px 6px 0px 7px;
-}
-.hamburger-container .hamburger-dropdown__option--round-bottom-border-first-button,
-.js-calc-hamburger-container .hamburger-dropdown__option--round-bottom-border-first-button {
-  border-bottom: 3px solid transparent;
-  border-radius: 0 0 5% 5%;
-}
-.hamburger-container .hamburger-dropdown__option--round-bottom-border-third-button,
-.js-calc-hamburger-container .hamburger-dropdown__option--round-bottom-border-third-button {
-  border-bottom: 3px solid transparent;
-  border-radius: 0 0 10% 10%;
-}
-.hamburger-container .hamburger-dropdown__option--round-bottom-border-last-button,
-.js-calc-hamburger-container .hamburger-dropdown__option--round-bottom-border-last-button {
-  border-bottom: 3px solid transparent;
-  border-radius: 0 0 15% 15%;
 }
 .hamburger-container .hamburger-title,
 .hamburger-container .js-calc-hamburger-title,
