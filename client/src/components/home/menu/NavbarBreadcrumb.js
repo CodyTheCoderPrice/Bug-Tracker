@@ -32,6 +32,16 @@ export default function NavbarBreadcrumb(props) {
 
 	// Resizes breacrumb buttons to fit inside the navbar based on the window size
 	useEffect(() => {
+		const breadcrumbProjectListButtonTextElement = document.getElementsByClassName(
+			"js-breadcrumb-project-list-button-text"
+		)[0];
+		breadcrumbProjectListButtonTextElement.style.fontSize =
+			reduxState[SIZE_CONTAINER].constants
+				.navbarBreadcrumbButtonTextBaseFontSize + "px";
+		let breadcrumbProjectListButtonTextElementWidth = getElementSize(
+			breadcrumbProjectListButtonTextElement
+		).width;
+
 		if (
 			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
@@ -41,15 +51,6 @@ export default function NavbarBreadcrumb(props) {
 			reduxState[GENERAL_CONTAINER].globalConstants
 				.navbarBreadcrumbMinimumFontSize !== null
 		) {
-			const breadcrumbProjectListButtonTextElement = document.getElementsByClassName(
-				"js-breadcrumb-project-list-button-text"
-			)[0];
-			breadcrumbProjectListButtonTextElement.style.fontSize =
-				reduxState[SIZE_CONTAINER].constants
-					.navbarBreadcrumbButtonTextBaseFontSize + "px";
-			let breadcrumbProjectListButtonTextElementWidth = getElementSize(
-				breadcrumbProjectListButtonTextElement
-			).width;
 			const breadcrumbProjectItemButtonTextElement = document.getElementsByClassName(
 				"js-breadcrumb-project-item-button-text"
 			)[0];

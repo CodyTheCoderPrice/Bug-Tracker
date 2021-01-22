@@ -122,19 +122,25 @@ export default function Navbar() {
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
+	const shouldBreadcrumbBeVisible = () => {
+		return (
+			reduxState[SIZE_CONTAINER].variables.navbar === null ||
+			reduxState[SIZE_CONTAINER].variables
+				.navbarBreadcrumbButtonTextFontSize === null ||
+			reduxState[GENERAL_CONTAINER].globalConstants
+				.navbarBreadcrumbMinimumFontSize === null ||
+			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null ||
+			reduxState[SIZE_CONTAINER].variables.navbarBreadcrumbButtonTextFontSize >
+				reduxState[GENERAL_CONTAINER].globalConstants
+					.navbarBreadcrumbMinimumFontSize
+		);
+	};
+
 	return (
 		<div
 			className={
 				"navbar-container" +
-				(reduxState[SIZE_CONTAINER].variables.navbar === null ||
-					reduxState[SIZE_CONTAINER].variables
-						.navbarBreadcrumbButtonTextFontSize === null ||
-					reduxState[GENERAL_CONTAINER].globalConstants
-						.navbarBreadcrumbMinimumFontSize === null ||
-					reduxState[SIZE_CONTAINER].variables
-						.navbarBreadcrumbButtonTextFontSize >
-						reduxState[GENERAL_CONTAINER].globalConstants
-							.navbarBreadcrumbMinimumFontSize
+				(shouldBreadcrumbBeVisible()
 					? ""
 					: " navbar-container--increased-z-index")
 			}
@@ -147,31 +153,8 @@ export default function Navbar() {
 					)
 				}
 			>
-				<NavbarBreadcrumb
-					visible={
-						reduxState[SIZE_CONTAINER].variables.navbar === null ||
-						reduxState[SIZE_CONTAINER].variables
-							.navbarBreadcrumbButtonTextFontSize === null ||
-						reduxState[GENERAL_CONTAINER].globalConstants
-							.navbarBreadcrumbMinimumFontSize === null ||
-						reduxState[SIZE_CONTAINER].variables
-							.navbarBreadcrumbButtonTextFontSize >
-							reduxState[GENERAL_CONTAINER].globalConstants
-								.navbarBreadcrumbMinimumFontSize
-					}
-				/>
-
-				{reduxState[SIZE_CONTAINER].variables.navbar === null ||
-				reduxState[SIZE_CONTAINER].variables
-					.navbarBreadcrumbButtonTextFontSize === null ||
-				reduxState[GENERAL_CONTAINER].globalConstants
-					.navbarBreadcrumbMinimumFontSize === null ||
-				reduxState[SIZE_CONTAINER].variables
-					.navbarBreadcrumbButtonTextFontSize >
-					reduxState[GENERAL_CONTAINER].globalConstants
-						.navbarBreadcrumbMinimumFontSize ? null : (
-					<NavbarHamburger />
-				)}
+				<NavbarBreadcrumb visible={shouldBreadcrumbBeVisible()} />
+				{shouldBreadcrumbBeVisible() ? null : <NavbarHamburger />}
 
 				<div className="navbar__button navbar__button--right js-account-button">
 					<div
