@@ -72,9 +72,9 @@ export default function ItemViewListSidebar(props) {
 					<div className="expand-minimize-button__centering-container__icon-container">
 						{reduxState[GENERAL_CONTAINER].componentsDisplay
 							.itemViewListSidebar ? (
-							<i className="fa fa-chevron-left" aria-hidden="true" />
+							<i className="fa fa-chevron-left" aria-hidden="true" alt="Icon of an arrow pointing left"/>
 						) : (
-							<i className="fa fa-chevron-right" aria-hidden="true" />
+							<i className="fa fa-chevron-right" aria-hidden="true" alt="Icon of an arrow pointing right"/>
 						)}
 					</div>
 				</div>

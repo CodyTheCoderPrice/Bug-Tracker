@@ -283,7 +283,7 @@ export default function NavbarBreadcrumb(props) {
 					onClick={openProjectsListView}
 				>
 					<div className="breadcrumb-button__text js-breadcrumb-project-list-button-text">
-						<i className="fa fa-folder" aria-hidden="true" /> Projects
+						<i className="fa fa-folder" aria-hidden="true" alt="Icon of a folder"/> Projects
 					</div>
 					<div
 						// Background color must be made that of the navbar
@@ -389,7 +389,7 @@ export default function NavbarBreadcrumb(props) {
 							onClick={openBugsListView}
 						>
 							<div className="breadcrumb-button__text js-breadcrumb-bug-list-button-text">
-								<i className="fa fa-bug" aria-hidden="true" /> Bugs
+								<i className="fa fa-bug" aria-hidden="true" alt="Icon of a bug"/> Bugs
 							</div>
 							<div
 								// Background-color must be made same as the navbar

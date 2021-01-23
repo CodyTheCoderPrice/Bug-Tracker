@@ -161,7 +161,7 @@ export default function ItemViewTopBar(props) {
 					onClick={updateSearchKeyWordString}
 				>
 					<span className="outer-search-container__search-bar-button__icon">
-						<i className="fa fa-search" aria-hidden="true" />
+						<i className="fa fa-search" aria-hidden="true" alt="Icon of a magnifying glass"/>
 					</span>
 				</div>
 			</div>
@@ -188,7 +188,7 @@ export default function ItemViewTopBar(props) {
 									: "")
 							}
 						>
-							<i className="fa fa-filter" aria-hidden="true" /> Filter
+							<i className="fa fa-filter" aria-hidden="true" alt="Icon of a filter"/> Filter
 						</span>
 					</div>
 					<div
@@ -301,7 +301,7 @@ export default function ItemViewTopBar(props) {
 					onClick={toggleOptionsDropdown}
 				>
 					<span className="item-options-container__button__text">
-						<i className="fa fa-ellipsis-h" aria-hidden="true" />
+						<i className="fa fa-ellipsis-h" aria-hidden="true" alt="Icon of an ellipsis (three dots)"/>
 					</span>
 				</div>
 				<div
@@ -335,7 +335,7 @@ export default function ItemViewTopBar(props) {
 				</div>
 			</div>
 			<div className="x-button" onClick={closeItemView}>
-				<i className="fa fa-times" aria-hidden="true"></i>
+				<i className="fa fa-times" aria-hidden="true" alt="Icon of an X"></i>
 			</div>
 		</div>
 	);

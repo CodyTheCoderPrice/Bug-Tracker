@@ -54,7 +54,7 @@ export default function EditAccountModalChangePassword() {
 	return (
 		<div>
 			<div className="back-button" onClick={backToEditInfo}>
-				<i className="fa fa-arrow-left" aria-hidden="true"></i>
+				<i className="fa fa-arrow-left" aria-hidden="true" alt="Icon of an arrow pointing to the left" />
 			</div>
 			<h1 className="title">Edit Password</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>

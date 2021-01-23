@@ -67,7 +67,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
-						<i className="fa fa-check name-completed-icon" aria-hidden="true" />
+						<i className="fa fa-check name-completed-icon" aria-hidden="true" alt="Icon of a check mark"/>
 					)}
 					{
 						reduxState[props.reduxContainerName].componentsDisplay.targetItem

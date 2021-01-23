@@ -491,6 +491,8 @@ dropdown can overlap all other components
   border: 3px solid black;
   border-radius: 10px;
   background-color: white;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
 }
 .hamburger-container .hamburger-dropdown__top-space,
 .js-calc-hamburger-container .hamburger-dropdown__top-space {
@@ -518,15 +520,40 @@ dropdown can overlap all other components
 .hamburger-container .hamburger-dropdown__option:hover, .hamburger-container .hamburger-dropdown__option:active,
 .js-calc-hamburger-container .hamburger-dropdown__option:hover,
 .js-calc-hamburger-container .hamburger-dropdown__option:active {
+  background-color: #f8f8f8;
+}
+.hamburger-container .hamburger-dropdown__option--selected,
+.js-calc-hamburger-container .hamburger-dropdown__option--selected {
   background-color: #e5e5e5;
+}
+.hamburger-container .hamburger-dropdown__option--selected:hover, .hamburger-container .hamburger-dropdown__option--selected:active,
+.js-calc-hamburger-container .hamburger-dropdown__option--selected:hover,
+.js-calc-hamburger-container .hamburger-dropdown__option--selected:active {
+  background-color: #e5e5e5;
+}
+.hamburger-container .hamburger-dropdown__option--item-name,
+.js-calc-hamburger-container .hamburger-dropdown__option--item-name {
+  color: blue;
 }
 .hamburger-container .hamburger-dropdown__option--last-button-round-bottom-border,
 .js-calc-hamburger-container .hamburger-dropdown__option--last-button-round-bottom-border {
   border-radius: 0 0 10px 10px;
 }
-.hamburger-container .hamburger-dropdown__option__arrow-icon,
-.js-calc-hamburger-container .hamburger-dropdown__option__arrow-icon {
+.hamburger-container .hamburger-dropdown__option__icon,
+.js-calc-hamburger-container .hamburger-dropdown__option__icon {
+  color: #4e4e4e;
+}
+.hamburger-container .hamburger-dropdown__option__svg-arrow-option-2,
+.js-calc-hamburger-container .hamburger-dropdown__option__svg-arrow-option-2 {
   margin: 0px 6px 0px 7px;
+}
+.hamburger-container .hamburger-dropdown__option__svg-arrow-option-3,
+.js-calc-hamburger-container .hamburger-dropdown__option__svg-arrow-option-3 {
+  margin: 0px 6px 0px 17px;
+}
+.hamburger-container .hamburger-dropdown__option__svg-arrow-option-4,
+.js-calc-hamburger-container .hamburger-dropdown__option__svg-arrow-option-4 {
+  margin: 0px 6px 0px 27px;
 }
 .hamburger-container .hamburger-title,
 .hamburger-container .js-calc-hamburger-title,
@@ -557,6 +584,10 @@ dropdown can overlap all other components
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ". . .   ";
+}
+.hamburger-container .hamburger-title--item-name,
+.js-calc-hamburger-container .hamburger-title--item-name {
+  color: #ffff00;
 }
 
 .account-modals-blurred-background {

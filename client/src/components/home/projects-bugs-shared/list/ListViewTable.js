@@ -153,7 +153,7 @@ export default function ListViewTable(props) {
 									}
 									onClick={checkAllItems}
 								>
-									<i className="fa fa-check-square-o" aria-hidden="true" />
+									<i className="fa fa-check-square-o" aria-hidden="true" alt="Icon of a check mark inside a square"/>
 								</div>
 								<div
 									className={
@@ -165,7 +165,7 @@ export default function ListViewTable(props) {
 									}
 									onClick={uncheckAllItems}
 								>
-									<i className="fa fa-square-o" aria-hidden="true" />
+									<i className="fa fa-square-o" aria-hidden="true" alt="Icon of an empty square"/>
 								</div>
 								<div
 									className={
@@ -177,7 +177,7 @@ export default function ListViewTable(props) {
 									}
 									onClick={openMassDeleteItemsModal}
 								>
-									<i className="fa fa-trash-o" aria-hidden="true" />
+									<i className="fa fa-trash-o" aria-hidden="true" alt="Icon of a trash can"/>
 								</div>
 							</div>
 						</th>

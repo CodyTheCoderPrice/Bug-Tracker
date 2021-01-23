@@ -167,7 +167,7 @@ export default function Navbar() {
 						onClick={openAccountSidebar}
 					>
 						<div className="navbar__button__outer-text-container__inner-text-container navbar__button__outer-text-container__inner-text-container--right">
-							<i className="fa fa-fw fa-user" />
+							<i className="fa fa-fw fa-user" alt="Icon of a user"/>
 							Account
 						</div>
 					</div>

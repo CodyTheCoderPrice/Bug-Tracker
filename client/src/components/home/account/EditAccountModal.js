@@ -24,7 +24,7 @@ export default function EditAccountModal() {
 		<div className="edit-account-modal-component">
 			<div className="edit-account-modal">
 				<div className="exit-button" onClick={closeAccountComponents}>
-					<i className="fa fa-times" aria-hidden="true"></i>
+					<i className="fa fa-times" aria-hidden="true" alt="icon of an X"></i>
 				</div>
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay.editAccountModalChangeInfo ? (
 					<EditAccountModalChangeInfo />

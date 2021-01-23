@@ -16,13 +16,9 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../../../actions";
 
-import {
-	getElementSize,
-	getElementStyle,
-	stripNonDigits,
-} from "../../../utils";
+import { getElementSize } from "../../../utils";
 
-import bendyArrowRight from "../../../images/bendy-arrow-longer-icon.svg";
+import bendyArrowRight from "../../../images/bendy-arrow-taller-longer-icon.svg";
 
 export default function NavbarHamburger() {
 	const reduxState = useSelector((state) => state);
@@ -287,6 +283,9 @@ export default function NavbarHamburger() {
 						<div
 							className={
 								"hamburger-dropdown__option" +
+								(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+									? " hamburger-dropdown__option--selected"
+									: "") +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
 								null
 									? " hamburger-dropdown__option--last-button-round-bottom-border"
@@ -294,20 +293,29 @@ export default function NavbarHamburger() {
 							}
 							onClick={openProjectsListView}
 						>
-							<i className="fa fa-folder" aria-hidden="true" /> Projects
+							<i
+								className="fa fa-folder hamburger-dropdown__option__icon"
+								aria-hidden="true"
+							/>{" "}
+							Projects
 						</div>
 
 						{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
 						null ? null : (
 							<div>
 								<div
-									className="hamburger-dropdown__option"
+									className={
+										"hamburger-dropdown__option hamburger-dropdown__option--item-name" +
+										(reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
+											? " hamburger-dropdown__option--selected"
+											: "")
+									}
 									onClick={openProjectsItemView}
 								>
 									<img
-										className="hamburger-dropdown__option__arrow-icon"
+										className="hamburger-dropdown__option__svg-arrow-option-2"
 										src={bendyArrowRight}
-										alt="Arrow pointing from the Projects button above to this button signifying this is a project"
+										alt="Arrow pointing from the button above to this button signifying this is to open a particular project"
 									/>
 									{
 										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
@@ -318,6 +326,9 @@ export default function NavbarHamburger() {
 								<div
 									className={
 										"hamburger-dropdown__option" +
+										(reduxState[BUG_CONTAINER].componentsDisplay.listView
+											? " hamburger-dropdown__option--selected"
+											: "") +
 										(reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
 										null
 											? " hamburger-dropdown__option--last-button-round-bottom-border"
@@ -325,19 +336,33 @@ export default function NavbarHamburger() {
 									}
 									onClick={openBugsListView}
 								>
-									<i className="fa fa-bug" aria-hidden="true" /> Bugs
+									<img
+										className="hamburger-dropdown__option__svg-arrow-option-3"
+										src={bendyArrowRight}
+										alt="Arrow pointing from the button above to this button signifying this is to open a table of bugs belonging to that particular project"
+									/>
+									<i
+										className="fa fa-bug hamburger-dropdown__option__icon"
+										aria-hidden="true"
+									/>{" "}
+									Bugs
 								</div>
 
 								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
 								null ? null : (
 									<div
-										className="hamburger-dropdown__option hamburger-dropdown__option--last-button-round-bottom-border"
+										className={
+											"hamburger-dropdown__option hamburger-dropdown__option--item-name hamburger-dropdown__option--last-button-round-bottom-border" +
+											(reduxState[BUG_CONTAINER].componentsDisplay.itemView
+												? " hamburger-dropdown__option--selected"
+												: "")
+										}
 										onClick={openBugsItemView}
 									>
 										<img
-											className="hamburger-dropdown__option__arrow-icon"
+											className="hamburger-dropdown__option__svg-arrow-option-4"
 											src={bendyArrowRight}
-											alt="Arrow pointing from the Bugs button above to this button signifying this is a bug"
+											alt="Arrow pointing from the button above to this button signifying this is to open a particular bug"
 										/>
 										{
 											reduxState[BUG_CONTAINER].componentsDisplay.targetItem
@@ -351,7 +376,13 @@ export default function NavbarHamburger() {
 				</div>
 			)}
 			<div
-				className="hamburger-title js-hamburger-title"
+				className={
+					"hamburger-title js-hamburger-title" +
+					(reduxState[PROJECT_CONTAINER].componentsDisplay.itemView ||
+					reduxState[BUG_CONTAINER].componentsDisplay.itemView
+						? " hamburger-title--item-name"
+						: "")
+				}
 				onClick={toggleHamburgerDropdown}
 			>
 				{getTitle()}

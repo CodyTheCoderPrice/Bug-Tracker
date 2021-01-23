@@ -146,7 +146,7 @@ export default function ListViewSearchFilterSortBar(props) {
 						onClick={updateSearchKeyWordString}
 					>
 						<span className="centering-container__search-group-container__search-bar-button__icon">
-							<i className="fa fa-search" aria-hidden="true" />
+							<i className="fa fa-search" aria-hidden="true" alt="Icon of a magnifying glass"/>
 						</span>
 					</div>
 				</div>
@@ -172,7 +172,7 @@ export default function ListViewSearchFilterSortBar(props) {
 								: "")
 						}
 					>
-						<i className="fa fa-filter" aria-hidden="true" /> Filter
+						<i className="fa fa-filter" aria-hidden="true" alt="Icon of a filter"/> Filter
 					</span>
 				</div>
 				<div

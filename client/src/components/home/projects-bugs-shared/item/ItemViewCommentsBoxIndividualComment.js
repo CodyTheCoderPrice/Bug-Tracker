@@ -135,13 +135,13 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								className="comment__block__icon-button"
 								onClick={switchToEditingComment}
 							>
-								<i className="fa fa-pencil-square-o" aria-hidden="true" />
+								<i className="fa fa-pencil-square-o" aria-hidden="true" alt="Icon of a pencil"/>
 							</div>
 							<div
 								className="comment__block__icon-button"
 								onClick={openDeleteCommentModal}
 							>
-								<i className="fa fa-trash-o" aria-hidden="true" />
+								<i className="fa fa-trash-o" aria-hidden="true" alt="Icon of a trash can"/>
 							</div>
 						</div>
 					</div>
@@ -173,7 +173,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 							className="comment__block__icon-button"
 							onClick={openDeleteCommentModal}
 						>
-							<i className="fa fa-trash-o" aria-hidden="true" />
+							<i className="fa fa-trash-o" aria-hidden="true" alt="Icon of a trash can"/>
 						</div>
 						<div className="comment__centering-container">
 							<div className="comment__centering-container__pair-container">

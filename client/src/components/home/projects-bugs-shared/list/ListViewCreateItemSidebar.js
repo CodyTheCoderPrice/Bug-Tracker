@@ -171,7 +171,7 @@ export default function ListViewCreateItemSidebar(props) {
 				}
 			>
 				<div className="x-button" onClick={closeCreateItemSidebar}>
-					<i className="fa fa-times" aria-hidden="true"></i>
+					<i className="fa fa-times" aria-hidden="true" alt="Icon of an X"></i>
 				</div>
 				<div className="padded-container">
 					<h1
