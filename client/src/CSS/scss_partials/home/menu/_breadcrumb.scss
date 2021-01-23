@@ -73,7 +73,8 @@
 		width: v.$navbar-breadcrumb-button-arrow-left-width;
 	}
 
-	.breadcrumb-button__end-container__arrow {
+	.breadcrumb-button__end-container__arrow,
+	.js-calc-breadcrumb-button-arrow {
 		// Must have higher z-index than border-arrow below
 		z-index: 4;
 		position: absolute;

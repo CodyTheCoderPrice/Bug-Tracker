@@ -23,6 +23,7 @@ import {
 	getElementSize,
 	calcScrollbarWidth,
 	calcBreadcrumbBaseFontSize,
+	calcBreadcrumbButtonArrowWidth,
 	calcHamburgerStyles,
 	calcListViewSearchFilterSortBarHeight,
 	calcListViewTableRowHeight,
@@ -52,12 +53,8 @@ export default function Navbar() {
 				navbarAccountButtonWidth: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
 				).width,
-				navbarBreadcrumbArrowWidth: getElementSize(
-					document.getElementsByClassName(
-						"js-breadcrumb-project-list-button-arrow"
-					)[0]
-				).width,
 				navbarBreadcrumbButtonTextBaseFontSize: breadcrumbBaseFontSize,
+				navbarBreadcrumbArrowWidth: calcBreadcrumbButtonArrowWidth(),
 				navbarHamburgerStyles: calcHamburgerStyles(),
 				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
 				listViewTableRowHeight: calcListViewTableRowHeight(),
@@ -167,7 +164,7 @@ export default function Navbar() {
 						onClick={openAccountSidebar}
 					>
 						<div className="navbar__button__outer-text-container__inner-text-container navbar__button__outer-text-container__inner-text-container--right">
-							<i className="fa fa-fw fa-user" alt="Icon of a user"/>
+							<i className="fa fa-fw fa-user" alt="Icon of a user" />
 							Account
 						</div>
 					</div>

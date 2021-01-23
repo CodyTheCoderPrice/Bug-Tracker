@@ -383,7 +383,9 @@ dropdown can overlap all other components
   width: 20px;
 }
 .breadcrumb-container .breadcrumb-button__end-container__arrow,
-.js-calc-breadcrumb-container .breadcrumb-button__end-container__arrow {
+.breadcrumb-container .js-calc-breadcrumb-button-arrow,
+.js-calc-breadcrumb-container .breadcrumb-button__end-container__arrow,
+.js-calc-breadcrumb-container .js-calc-breadcrumb-button-arrow {
   z-index: 4;
   position: absolute;
   top: -2px;

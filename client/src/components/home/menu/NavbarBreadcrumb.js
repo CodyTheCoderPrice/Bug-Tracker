@@ -298,7 +298,7 @@ export default function NavbarBreadcrumb(props) {
 					>
 						<div
 							className={
-								"breadcrumb-button__end-container__arrow js-breadcrumb-project-list-button-arrow" +
+								"breadcrumb-button__end-container__arrow" +
 								getProjectOrBugNavbarArrowColorClassNameDark(
 									getCurrentContainerName(reduxState)
 								) +

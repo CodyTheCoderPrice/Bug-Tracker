@@ -75,6 +75,31 @@ export function calcBreadcrumbBaseFontSize() {
 	return baseFontSize;
 }
 
+export function calcBreadcrumbButtonArrowWidth() {
+	const invisibleBreadcrumbContainerElement = document.createElement("div");
+	invisibleBreadcrumbContainerElement.className =
+		"js-calc-breadcrumb-container";
+	invisibleBreadcrumbContainerElement.visibility = "hidden";
+	document.body.appendChild(invisibleBreadcrumbContainerElement);
+
+	const invisibleBreadcrumbButtonArrowElement = document.createElement("div");
+	invisibleBreadcrumbButtonArrowElement.className =
+		"js-calc-breadcrumb-button-arrow";
+	invisibleBreadcrumbButtonArrowElement.visibility = "hidden";
+	invisibleBreadcrumbContainerElement.appendChild(
+		invisibleBreadcrumbButtonArrowElement
+	);
+
+	const arrowWidth = getElementSize(invisibleBreadcrumbButtonArrowElement)
+		.width;
+
+	invisibleBreadcrumbContainerElement.parentNode.removeChild(
+		invisibleBreadcrumbContainerElement
+	);
+
+	return arrowWidth;
+}
+
 export function calcHamburgerStyles() {
 	const invisibleHamburgerContainerElement = document.createElement("div");
 	invisibleHamburgerContainerElement.className = "js-calc-hamburger-container";
@@ -84,9 +109,7 @@ export function calcHamburgerStyles() {
 	const invisibleHamburgerElement = document.createElement("div");
 	invisibleHamburgerElement.className = "js-calc-hamburger-button-container";
 	invisibleHamburgerElement.visibility = "hidden";
-	invisibleHamburgerContainerElement.appendChild(
-		invisibleHamburgerElement
-	);
+	invisibleHamburgerContainerElement.appendChild(invisibleHamburgerElement);
 
 	const invisibleHamburgerTitleElement = document.createElement("div");
 	invisibleHamburgerTitleElement.className = "js-calc-hamburger-title";
@@ -96,7 +119,9 @@ export function calcHamburgerStyles() {
 	);
 
 	const hamburgerElementStyles = getElementStyle(invisibleHamburgerElement);
-	const hamburgerTitleElementStyles = getElementStyle(invisibleHamburgerTitleElement);
+	const hamburgerTitleElementStyles = getElementStyle(
+		invisibleHamburgerTitleElement
+	);
 
 	const stylejson = {
 		buttonLeft: stripNonDigits(hamburgerElementStyles.left),
