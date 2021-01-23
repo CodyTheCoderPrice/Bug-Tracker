@@ -510,9 +510,12 @@ dropdown can overlap all other components
 }
 .hamburger-container .hamburger-dropdown__option,
 .js-calc-hamburger-container .hamburger-dropdown__option {
+  position: relative;
   display: block;
   border-top: 1px solid gray;
-  padding: 12px;
+  padding-left: 12px;
+  height: 42px;
+  line-height: 42px;
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
@@ -554,6 +557,36 @@ dropdown can overlap all other components
 .hamburger-container .hamburger-dropdown__option__svg-arrow-option-4,
 .js-calc-hamburger-container .hamburger-dropdown__option__svg-arrow-option-4 {
   margin: 0px 6px 0px 27px;
+}
+.hamburger-container .hamburger-dropdown__option__close-button,
+.js-calc-hamburger-container .hamburger-dropdown__option__close-button {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  padding: 1px 0px 0px 5px;
+  color: #808080;
+  opacity: 0.6;
+  font-size: 17px;
+  cursor: pointer;
+}
+.hamburger-container .hamburger-dropdown__option__close-button:hover, .hamburger-container .hamburger-dropdown__option__close-button:active,
+.js-calc-hamburger-container .hamburger-dropdown__option__close-button:hover,
+.js-calc-hamburger-container .hamburger-dropdown__option__close-button:active {
+  opacity: 1;
+  color: #fc1e1e;
 }
 .hamburger-container .hamburger-title,
 .hamburger-container .js-calc-hamburger-title,

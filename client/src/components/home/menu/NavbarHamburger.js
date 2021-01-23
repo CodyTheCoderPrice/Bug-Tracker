@@ -321,6 +321,11 @@ export default function NavbarHamburger() {
 										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
 											.name
 									}
+									<i
+										className="fa fa-times hamburger-dropdown__option__close-button"
+										aria-hidden="true"
+										onClick={(e) => closeProjectItemView(e)}
+									/>
 								</div>
 
 								<div
@@ -368,6 +373,11 @@ export default function NavbarHamburger() {
 											reduxState[BUG_CONTAINER].componentsDisplay.targetItem
 												.name
 										}
+										<i
+										className="fa fa-times hamburger-dropdown__option__close-button"
+										aria-hidden="true"
+										onClick={(e) => closeBugItemView(e)}
+									/>
 									</div>
 								)}
 							</div>

@@ -70,10 +70,13 @@
 		font-size: 24px;
 	}
 
-	.hamburger-dropdown__option {
+	.hamburger-dropdown__option { 
+		position: relative;
 		display: block;
 		border-top: 1px solid gray;
-		padding: 12px;
+		padding-left: 12px;
+		height: v.$hamburger-dropdown-item-height;
+		line-height: v.$hamburger-dropdown-item-height;
 		white-space: nowrap;
 		overflow: hidden;
 		cursor: pointer;
@@ -103,7 +106,7 @@
 	}
 
 	.hamburger-dropdown__option__icon {
-		color: #4e4e4e;
+		color: v.$very-dark-gray;
 	}
 
 	.hamburger-dropdown__option__svg-arrow-option-2 {
@@ -116,6 +119,23 @@
 
 	.hamburger-dropdown__option__svg-arrow-option-4 {
 		margin: 0px 6px 0px 27px;
+	}
+
+	.hamburger-dropdown__option__close-button {
+		@include m.vertical-center();
+		@include m.stop-text-selection();
+
+		padding: 1px 0px 0px 5px;
+		color: v.$dark-gray;
+		opacity: 0.6;
+		font-size: 17px;
+		cursor: pointer;
+
+		&:hover,
+		&:active {
+			opacity: 1;
+			color: v.$bright-red;
+		}
 	}
 
 	.hamburger-title,
