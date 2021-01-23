@@ -1,4 +1,5 @@
 export * from "./basicUtils";
+export * from "./breadcrumbHamburgerButtonUtils";
 export * from "./bugStatisticsUtils";
 export * from "./colorUtils";
 export * from "./dateUtils";

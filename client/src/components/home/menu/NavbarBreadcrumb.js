@@ -7,15 +7,7 @@ import {
 	GENERAL_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
-import {
-	setDisplaySizeVariablesBreadcrumbFontSize,
-	setWhichGeneralComponentsDisplay,
-	setWhichAccountComponentsDisplay,
-	setWhichProjectComponentsDisplay,
-	setWhichBugComponentsDisplay,
-	setProjectOrBugMassDeleteList,
-	setWhichCommentComponentsDisplay,
-} from "../../../actions";
+import { setDisplaySizeVariablesBreadcrumbFontSize } from "../../../actions";
 
 import {
 	getElementSize,
@@ -24,6 +16,12 @@ import {
 	getProjectOrBugBackgroundColorClassNameLight,
 	getProjectOrBugNavbarArrowColorClassNameDark,
 	getProjectOrBugNavbarArrowColorClassNameLight,
+	openProjectsListView,
+	openProjectsItemView,
+	openBugsListView,
+	openBugsItemView,
+	closeProjectItemView,
+	closeBugItemView,
 } from "../../../utils";
 
 export default function NavbarBreadcrumb(props) {
@@ -151,120 +149,6 @@ export default function NavbarBreadcrumb(props) {
 		reduxState[BUG_CONTAINER].componentsDisplay.targetItem,
 	]);
 
-	const openProjectsListView = () => {
-		if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true) {
-			dispatch(
-				setWhichProjectComponentsDisplay({
-					listView: true,
-					targetItem:
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(setWhichAccountComponentsDisplay({}));
-			dispatch(
-				setWhichBugComponentsDisplay({
-					targetItem: reduxState[BUG_CONTAINER].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(setWhichCommentComponentsDisplay({}));
-		}
-	};
-
-	const openProjectsItemView = () => {
-		if (
-			reduxState[PROJECT_CONTAINER].componentsDisplay.itemsContainer !== true
-		) {
-			dispatch(
-				setWhichProjectComponentsDisplay({
-					itemView: true,
-					targetItem:
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(setWhichAccountComponentsDisplay({}));
-			dispatch(
-				setWhichBugComponentsDisplay({
-					targetItem: reduxState[BUG_CONTAINER].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(setWhichCommentComponentsDisplay({}));
-		}
-	};
-
-	const openBugsListView = () => {
-		if (reduxState[BUG_CONTAINER].componentsDisplay.listView !== true) {
-			dispatch(
-				setWhichBugComponentsDisplay({
-					listView: true,
-					targetItem: reduxState[BUG_CONTAINER].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(setWhichAccountComponentsDisplay({}));
-			dispatch(
-				setWhichProjectComponentsDisplay({
-					targetItem:
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(setWhichCommentComponentsDisplay({}));
-		}
-	};
-
-	const openBugsItemView = () => {
-		if (reduxState[BUG_CONTAINER].componentsDisplay.itemView !== true) {
-			dispatch(
-				setWhichBugComponentsDisplay({
-					itemView: true,
-					targetItem: reduxState[BUG_CONTAINER].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(setWhichAccountComponentsDisplay({}));
-			dispatch(
-				setWhichProjectComponentsDisplay({
-					targetItem:
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
-				})
-			);
-			dispatch(setWhichCommentComponentsDisplay({}));
-		}
-	};
-
-	const closeProjectItemView = (e) => {
-		e.stopPropagation();
-		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState[PROJECT_CONTAINER].componentsDisplay,
-				listView: true,
-				itemView: false,
-				targetItem: null,
-			})
-		);
-		dispatch(setWhichAccountComponentsDisplay({}));
-		dispatch(setWhichBugComponentsDisplay({}));
-		dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER));
-		dispatch(setWhichCommentComponentsDisplay({}));
-	};
-
-	const closeBugItemView = (e) => {
-		e.stopPropagation();
-		dispatch(
-			setWhichBugComponentsDisplay({
-				...reduxState[BUG_CONTAINER].componentsDisplay,
-				// Keeps the user on their current tab (since the user can close a bug from the project tab)
-				listView:
-					reduxState[BUG_CONTAINER].componentsDisplay.listView === true ||
-					reduxState[BUG_CONTAINER].componentsDisplay.itemView === true
-						? true
-						: false,
-				itemView: false,
-				targetItem: null,
-			})
-		);
-		dispatch(setWhichAccountComponentsDisplay({}));
-		// projectComponentsDisplay is not cleared here on purpose
-		dispatch(setWhichCommentComponentsDisplay({}));
-	};
-
 	return (
 		<div className="breadcrumb-container">
 			<div className={props.visible ? "" : "invisible"}>
@@ -280,10 +164,15 @@ export default function NavbarBreadcrumb(props) {
 							  )
 							: "")
 					}
-					onClick={openProjectsListView}
+					onClick={() => openProjectsListView(reduxState, dispatch)}
 				>
 					<div className="breadcrumb-button__text js-breadcrumb-project-list-button-text">
-						<i className="fa fa-folder" aria-hidden="true" alt="Icon of a folder"/> Projects
+						<i
+							className="fa fa-folder"
+							aria-hidden="true"
+							alt="Icon of a folder"
+						/>{" "}
+						Projects
 					</div>
 					<div
 						// Background color must be made that of the navbar
@@ -330,7 +219,7 @@ export default function NavbarBreadcrumb(props) {
 									  )
 									: "")
 							}
-							onClick={openProjectsItemView}
+							onClick={() => openProjectsItemView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-project-item-button-text">
 								{
@@ -368,7 +257,7 @@ export default function NavbarBreadcrumb(props) {
 								<i
 									className="fa fa-times breadcrumb-button__end-container__close-button"
 									aria-hidden="true"
-									onClick={closeProjectItemView}
+									onClick={(e) => closeProjectItemView(e, reduxState, dispatch)}
 								/>
 							</div>
 						</div>
@@ -386,10 +275,15 @@ export default function NavbarBreadcrumb(props) {
 									  )
 									: "")
 							}
-							onClick={openBugsListView}
+							onClick={() => openBugsListView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text js-breadcrumb-bug-list-button-text">
-								<i className="fa fa-bug" aria-hidden="true" alt="Icon of a bug"/> Bugs
+								<i
+									className="fa fa-bug"
+									aria-hidden="true"
+									alt="Icon of a bug"
+								/>{" "}
+								Bugs
 							</div>
 							<div
 								// Background-color must be made same as the navbar
@@ -437,7 +331,7 @@ export default function NavbarBreadcrumb(props) {
 										  )
 										: "")
 								}
-								onClick={openBugsItemView}
+								onClick={() => openBugsItemView(reduxState, dispatch)}
 							>
 								<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-bug-item-button-text">
 									{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
@@ -472,7 +366,7 @@ export default function NavbarBreadcrumb(props) {
 									<i
 										className="fa fa-times breadcrumb-button__end-container__close-button"
 										aria-hidden="true"
-										onClick={(e) => closeBugItemView(e)}
+										onClick={(e) => closeBugItemView(e, reduxState, dispatch)}
 									/>
 								</div>
 							</div>
