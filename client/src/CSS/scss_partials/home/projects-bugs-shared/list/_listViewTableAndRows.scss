@@ -26,6 +26,8 @@
 
 	.list-table__row,
 	.js-calc-list-table__row {
+		@include m.stop-text-selection();
+
 		padding: 5px;
 		height: v.$list-item-table-row-height;
 		text-align: center;

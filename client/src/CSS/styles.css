@@ -2275,6 +2275,19 @@ dropdown can overlap all other components
 .list-table-component .js-calc-list-table__row,
 .js-calc-list-table-component .list-table__row,
 .js-calc-list-table-component .js-calc-list-table__row {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
   padding: 5px;
   height: 50px;
   text-align: center;

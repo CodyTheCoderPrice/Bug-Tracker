@@ -50,27 +50,6 @@ export default function ListViewTableRow(props) {
 		e.stopPropagation();
 	};
 
-	const changeTargetItem = () => {
-		dispatch(
-			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listView: true,
-				targetItem: props.item,
-			})
-		);
-
-		// Resets bug components display when a different project is opened
-		// ...to prevent erros with bug targetItem not belonging to project
-		if (
-			props.reduxContainerName === PROJECT_CONTAINER &&
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem !==
-				null &&
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
-				props.item.id
-		) {
-			dispatch(setWhichBugComponentsDisplay({}));
-		}
-	};
-
 	const openItemView = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
@@ -128,8 +107,7 @@ export default function ListViewTableRow(props) {
 					? " list-table__row--selected"
 					: " list-table__row--hover-highlight")
 			}
-			onClick={changeTargetItem}
-			onDoubleClick={openItemView}
+			onClick={openItemView}
 		>
 			<td
 				className="list-table__data"
