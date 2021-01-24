@@ -7,7 +7,7 @@ import {
 	COMMENT_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 
-import { createComment, clearInputErrors } from "../../../../actions";
+import { createComment, clearBackendErrors } from "../../../../actions";
 
 import {
 	getProjectOrBugTextColorClassName,
@@ -40,10 +40,10 @@ export default function ItemViewCommentsBox() {
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnter("js-create-comment-form");
 
-	// clears prior input errors when closing the component
+	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
-			dispatch(clearInputErrors());
+			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -146,11 +146,11 @@ export default function ItemViewCommentsBox() {
 					<div className="bottom-form-errors-container">
 						<span className="form-errors">
 							{
-								reduxState[GENERAL_CONTAINER].inputErrors
+								reduxState[GENERAL_CONTAINER].backendErrors
 									.validationCreateCommentDescription
 							}
-							{reduxState[GENERAL_CONTAINER].inputErrors.validationComment}
-							{reduxState[GENERAL_CONTAINER].inputErrors.serverItem}
+							{reduxState[GENERAL_CONTAINER].backendErrors.validationComment}
+							{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
 						</span>
 					</div>
 				</form>

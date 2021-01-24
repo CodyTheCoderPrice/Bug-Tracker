@@ -8,7 +8,7 @@ import { SET_AUTHENTICATION, SET_ACCOUNT } from "./constants/types";
 // Redux dispatch functions
 import {
 	createHeader,
-	setInputErrors,
+	seBackendErrors,
 	resetRedux,
 	setWhichGeneralComponentsDisplay,
 	setWhichAccountComponentsDisplay,
@@ -59,8 +59,8 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 			dispatch(setWhichGeneralComponentsDisplay({ login: true }));
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 		});
 };
 
@@ -105,8 +105,8 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setWhichGeneralComponentsDisplay({ home: true }));
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 		});
 };
 
@@ -123,10 +123,10 @@ export const retrieveAccount = () => (dispatch) => {
 			dispatch(setAccount(account));
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
@@ -159,10 +159,10 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 			dispatch(setComments(comments));
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
@@ -188,10 +188,10 @@ export const updateAccountInfo = (accountInfo) => (dispatch) => {
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
@@ -217,10 +217,10 @@ export const updateAccountEmail = (accountInfo) => (dispatch) => {
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
@@ -247,10 +247,10 @@ export const updateAccountPassword = (accountInfo) => (dispatch) => {
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
@@ -271,8 +271,8 @@ export const deleteAccount = (accountInfo) => (dispatch) => {
 			dispatch(logoutAccount());
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 		});
 };
 

@@ -8,7 +8,7 @@ import {
 } from "../../../../actions/constants/containerNames";
 
 import {
-	clearInputErrors,
+	clearBackendErrors,
 	deleteComment,
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
@@ -17,10 +17,10 @@ export default function ItemViewCommentsBoxIndividualCommentDeleteModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// clears prior input errors when closing the component
+	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
-			dispatch(clearInputErrors());
+			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -58,7 +58,7 @@ export default function ItemViewCommentsBoxIndividualCommentDeleteModal() {
 					<span className="warning-container__message">Are you sure?</span>
 				</div>
 				<span className="backend__errors">
-					{reduxState[GENERAL_CONTAINER].inputErrors.server}
+					{reduxState[GENERAL_CONTAINER].backendErrors.server}
 				</span>
 				<div className="centered-buttons-container">
 					<div

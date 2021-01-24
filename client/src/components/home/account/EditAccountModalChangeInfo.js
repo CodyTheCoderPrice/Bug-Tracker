@@ -8,7 +8,7 @@ import {
 import {
 	updateAccountInfo,
 	setWhichAccountComponentsDisplay,
-	clearInputErrors,
+	clearBackendErrors,
 } from "../../../actions";
 
 import {
@@ -26,10 +26,10 @@ export default function EditAccountModalChangeInfo() {
 		last_name: reduxState[ACCOUNT_CONTAINER].info.last_name,
 	});
 
-	// clears prior input errors when closing the component
+	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
-			dispatch(clearInputErrors());
+			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -84,7 +84,7 @@ export default function EditAccountModalChangeInfo() {
 				/>
 				<span className="form__errors">
 					{
-						reduxState[GENERAL_CONTAINER].inputErrors
+						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountFirstName
 					}
 				</span>
@@ -101,7 +101,7 @@ export default function EditAccountModalChangeInfo() {
 				/>
 				<span className="form__errors">
 					{
-						reduxState[GENERAL_CONTAINER].inputErrors
+						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountLastName
 					}
 				</span>
@@ -112,8 +112,8 @@ export default function EditAccountModalChangeInfo() {
 					Update
 				</button>
 				<span className="form__errors">
-					{reduxState[GENERAL_CONTAINER].inputErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].inputErrors.serverAccount}
+					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
+					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
 				</span>
 			</form>
 			<div className="modal-links-container">

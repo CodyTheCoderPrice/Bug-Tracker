@@ -9,7 +9,7 @@ import {
 
 import {
 	updateComment,
-	clearInputErrors,
+	clearBackendErrors,
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
 
@@ -37,10 +37,10 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnter("js-edit-comment-form");
 
-	// clears prior input errors when closing the component
+	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
-			dispatch(clearInputErrors());
+			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -199,11 +199,11 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 						<div className="edit-comment-form-errors-container">
 							<span className="form-errors">
 								{
-									reduxState[GENERAL_CONTAINER].inputErrors
+									reduxState[GENERAL_CONTAINER].backendErrors
 										.validationEditCommentDescription
 								}
-								{reduxState[GENERAL_CONTAINER].inputErrors.validationComment}
-								{reduxState[GENERAL_CONTAINER].inputErrors.serverItem}
+								{reduxState[GENERAL_CONTAINER].backendErrors.validationComment}
+								{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
 							</span>
 						</div>
 					</div>

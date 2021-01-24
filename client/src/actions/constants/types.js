@@ -21,6 +21,6 @@ export const SET_SEARCH_FILTER_SORT = "SET_SEARCH_FILTER_SORT";
 // Mass delete
 export const SET_MASS_DELETE_LIST = "SET_MASS_DELETE_LIST";
 // Errors
-export const SET_INPUT_ERRORS = "SET_INPUT_ERRORS";
+export const SET_BACKEND_ERRORS = "SET_BACKEND_ERRORS";
 // Reset Redux
 export const RESET_CONTAINER = "RESET_CONTAINER";

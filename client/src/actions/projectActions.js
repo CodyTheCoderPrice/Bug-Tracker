@@ -7,7 +7,7 @@ import { SET_LIST } from "./constants/types";
 // Redux dispatch functions
 import {
 	createHeader,
-	setInputErrors,
+	seBackendErrors,
 	logoutAccount,
 	setBugs,
 	setComments,
@@ -57,10 +57,10 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 			);
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
@@ -80,10 +80,10 @@ export const retrieveProjects = () => (dispatch) => {
 			dispatch(setProjects(projects));
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
@@ -126,10 +126,10 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 			);
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
@@ -182,10 +182,10 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}
@@ -242,10 +242,10 @@ export const deleteMultipleProjects = (
 			);
 		})
 		.catch((err) => {
-			// sets input errors for what went wrong to be displayed to user
-			dispatch(setInputErrors(err.response.data.inputErrors));
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.inputErrors.jwToken !== undefined) {
+			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 			}

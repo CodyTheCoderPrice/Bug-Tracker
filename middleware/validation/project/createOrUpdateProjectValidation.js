@@ -10,7 +10,7 @@ const isEmpty = require("is-empty");
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {
-	let inputErrors = {};
+	let backendErrors = {};
 
 	try {
 		let { name, description, priority_id, status_id } = req.body;
@@ -22,27 +22,27 @@ module.exports = (req, res, next) => {
 		status_id = !isEmpty(status_id) ? status_id : "";
 
 		if (Validator.isEmpty(name)) {
-			inputErrors.validationItemName = "Name field is required";
+			backendErrors.validationItemName = "Name field is required";
 		} else if (!Validator.isLength(name, { max: 35 })) {
-			inputErrors.validationItemName =
+			backendErrors.validationItemName =
 				"Name can't be longer than 35 characters";
 		}
 
 		if (!Validator.isLength(description, { max: 500 })) {
-			inputErrors.validationItemDescription =
+			backendErrors.validationItemDescription =
 				"Description can't be longer than 500 characters";
 		}
 
-		if (!isEmpty(inputErrors)) {
+		if (!isEmpty(backendErrors)) {
 			// returns error and next middle/function is not called
-			return res.status(400).json({ success: false, inputErrors });
+			return res.status(400).json({ success: false, backendErrors });
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validationItem = "Validation Error";
-		return res.status(403).json({ success: false, inputErrors });
+		backendErrors.validationItem = "Validation Error";
+		return res.status(403).json({ success: false, backendErrors });
 	}
 };

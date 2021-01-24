@@ -10,7 +10,7 @@ import {
 import {
 	setWhichProjectOrBugComponentsDisplay,
 	updateProjectOrBug,
-	clearInputErrors,
+	clearBackendErrors,
 } from "../../../../actions";
 
 import {
@@ -103,10 +103,10 @@ export default function ItemViewEditItemInfo(props) {
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnter("js-edit-item-form");
 
-	// clears prior input errors when closing the component
+	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
-			dispatch(clearInputErrors());
+			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -248,7 +248,7 @@ export default function ItemViewEditItemInfo(props) {
 					</div>
 				</div>
 				<span className="form-errors form-errors--item-name">
-					{reduxState[GENERAL_CONTAINER].inputErrors.validationItemName}
+					{reduxState[GENERAL_CONTAINER].backendErrors.validationItemName}
 				</span>
 				<div className="item-creation-date">
 					Created on: {itemInfo.creation_date}
@@ -290,7 +290,7 @@ export default function ItemViewEditItemInfo(props) {
 						/>
 						<span className="form-errors">
 							{
-								reduxState[GENERAL_CONTAINER].inputErrors
+								reduxState[GENERAL_CONTAINER].backendErrors
 									.validationItemDescription
 							}
 						</span>
@@ -338,7 +338,7 @@ export default function ItemViewEditItemInfo(props) {
 								/>
 								<span className="form-errors">
 									{
-										reduxState[GENERAL_CONTAINER].inputErrors
+										reduxState[GENERAL_CONTAINER].backendErrors
 											.validationItemLocation
 									}
 								</span>
@@ -456,8 +456,8 @@ export default function ItemViewEditItemInfo(props) {
 				</div>
 				<div className="bottom-form-errors-container">
 					<span className="form-errors">
-						{reduxState[GENERAL_CONTAINER].inputErrors.validationItem}
-						{reduxState[GENERAL_CONTAINER].inputErrors.serverItem}
+						{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
+						{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
 					</span>
 				</div>
 			</div>

@@ -11,7 +11,7 @@ import {
 import {
 	setWhichProjectOrBugComponentsDisplay,
 	createProjectOrBug,
-	clearInputErrors,
+	clearBackendErrors,
 } from "../../../../actions";
 
 import {
@@ -80,10 +80,10 @@ export default function ListViewCreateItemSidebar(props) {
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnter("js-create-item-form");
 
-	// clears prior input errors when closing the component
+	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
-			dispatch(clearInputErrors());
+			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -214,7 +214,7 @@ export default function ListViewCreateItemSidebar(props) {
 							className="form__text-input"
 						/>
 						<span className="form__errors">
-							{reduxState[GENERAL_CONTAINER].inputErrors.validationItemName}
+							{reduxState[GENERAL_CONTAINER].backendErrors.validationItemName}
 						</span>
 						<label htmlFor="create-item-description" className="form__label">
 							Description:{" "}
@@ -242,7 +242,7 @@ export default function ListViewCreateItemSidebar(props) {
 						/>
 						<span className="form__errors">
 							{
-								reduxState[GENERAL_CONTAINER].inputErrors
+								reduxState[GENERAL_CONTAINER].backendErrors
 									.validationItemDescription
 							}
 						</span>
@@ -275,7 +275,7 @@ export default function ListViewCreateItemSidebar(props) {
 								/>
 								<span className="form__errors">
 									{
-										reduxState[GENERAL_CONTAINER].inputErrors
+										reduxState[GENERAL_CONTAINER].backendErrors
 											.validationItemLocation
 									}
 								</span>
@@ -376,8 +376,8 @@ export default function ListViewCreateItemSidebar(props) {
 								: "Create Bug"}
 						</button>
 						<span className="form__errors">
-							{reduxState[GENERAL_CONTAINER].inputErrors.validationItem}
-							{reduxState[GENERAL_CONTAINER].inputErrors.serverItem}
+							{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
+							{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
 						</span>
 					</form>
 				</div>

@@ -4,7 +4,7 @@ import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
 
 import {
 	loginAccount,
-	clearInputErrors,
+	clearBackendErrors,
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
 
@@ -17,10 +17,10 @@ export default function Login() {
 		password: "",
 	});
 
-	// clears prior input errors when closing the component
+	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
-			dispatch(clearInputErrors());
+			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -56,7 +56,7 @@ export default function Login() {
 						className="form__text-input"
 					/>
 					<span className="form__errors">
-						{reduxState[GENERAL_CONTAINER].inputErrors.validationAccountEmail}
+						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
 					</span>
 					<label htmlFor="login-password" className="form__label">
 						Password
@@ -70,14 +70,14 @@ export default function Login() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState[GENERAL_CONTAINER].inputErrors.validationAccountPassword}
+						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword}
 					</span>
 					<button type="submit" className="form__submit">
 						LOGIN
 					</button>
 					<span className="form__errors">
-						{reduxState[GENERAL_CONTAINER].inputErrors.validationAccount}
-						{reduxState[GENERAL_CONTAINER].inputErrors.serverAccount}
+						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
+						{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
 					</span>
 				</form>
 				<div className="footer">

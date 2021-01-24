@@ -121,7 +121,7 @@ async function getPriorityStatus() {
 }
 
 router.route("/retrieve").get(async (req, res) => {
-	let inputErrors = {};
+	let backendErrors = {};
 
 	try {
 		// Function used was abstracted above and exported to be used by other routes
@@ -138,9 +138,9 @@ router.route("/retrieve").get(async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.serverPriorityStatus =
+		backendErrors.serverPriorityStatus =
 			"Server error while retrieving Priority/Status options";
-		return res.status(500).json({ success: false, inputErrors });
+		return res.status(500).json({ success: false, backendErrors });
 	}
 });
 

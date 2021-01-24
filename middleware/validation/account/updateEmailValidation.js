@@ -11,7 +11,7 @@ const isEmpty = require("is-empty");
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {
-	let inputErrors = {};
+	let backendErrors = {};
 
 	try {
 		let { email, currentPassword } = req.body;
@@ -21,25 +21,25 @@ module.exports = (req, res, next) => {
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
 		if (Validator.isEmpty(email)) {
-			inputErrors.validationAccountEmail = "Email field is required";
+			backendErrors.validationAccountEmail = "Email field is required";
 		} else if (!Validator.isEmail(email)) {
-			inputErrors.validationAccountEmail = "Email is invalid";
+			backendErrors.validationAccountEmail = "Email is invalid";
 		}
 
 		if (Validator.isEmpty(currentPassword)) {
-			inputErrors.currentPassword = "Current password field is required";
+			backendErrors.currentPassword = "Current password field is required";
 		}
 
-		if (!isEmpty(inputErrors)) {
+		if (!isEmpty(backendErrors)) {
 			// returns error and next middle/function is not called
-			return res.status(400).json({ success: false, inputErrors });
+			return res.status(400).json({ success: false, backendErrors });
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validationAccount = "Validation Error";
-		return res.status(403).json({ success: false, inputErrors });
+		backendErrors.validationAccount = "Validation Error";
+		return res.status(403).json({ success: false, backendErrors });
 	}
 };

@@ -14,7 +14,7 @@ const moment = require("moment");
 router
 	.route("/create")
 	.post(tokenAuthorization, validateCommentInput, async (req, res) => {
-		let inputErrors = {};
+		let backendErrors = {};
 
 		try {
 			// Declared in the tokenAuthorization middleware
@@ -52,8 +52,8 @@ router
 			res.json({ success: true, comments: allCommentsForAccount.rows });
 		} catch (err) {
 			console.error(err.message);
-			inputErrors.serverItem = "Server error while creating comment";
-			return res.status(500).json({ success: false, inputErrors });
+			backendErrors.serverItem = "Server error while creating comment";
+			return res.status(500).json({ success: false, backendErrors });
 		}
 	});
 
@@ -84,7 +84,7 @@ async function getAllCommentsForAccount(account_id) {
 }
 
 router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
-	let inputErrors = {};
+	let backendErrors = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -100,8 +100,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, comments: allCommentsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.serverItem = "Server error while retrieving comments";
-		return res.status(500).json({ success: false, inputErrors });
+		backendErrors.serverItem = "Server error while retrieving comments";
+		return res.status(500).json({ success: false, backendErrors });
 	}
 });
 
@@ -111,7 +111,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 router
 	.route("/update")
 	.post(tokenAuthorization, validateCommentInput, async (req, res) => {
-		let inputErrors = {};
+		let backendErrors = {};
 
 		try {
 			// Declared in the tokenAuthorization middleware
@@ -151,8 +151,8 @@ router
 			res.json({ success: true, comments: allCommentsForAccount.rows });
 		} catch (err) {
 			console.error(err.message);
-			inputErrors.serverItem = "Server error while updating comment";
-			return res.status(500).json({ success: false, inputErrors });
+			backendErrors.serverItem = "Server error while updating comment";
+			return res.status(500).json({ success: false, backendErrors });
 		}
 	});
 
@@ -160,7 +160,7 @@ router
 // Delete comment
 //================
 router.route("/delete").post(tokenAuthorization, async (req, res) => {
-	let inputErrors = {};
+	let backendErrors = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -197,8 +197,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, comments: allCommentsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.serverItem = "Server error while deleting comment";
-		return res.status(500).json({ success: false, inputErrors });
+		backendErrors.serverItem = "Server error while deleting comment";
+		return res.status(500).json({ success: false, backendErrors });
 	}
 });
 

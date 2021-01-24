@@ -7,7 +7,7 @@ import {
 import {
 	deleteAccount,
 	setWhichAccountComponentsDisplay,
-	clearInputErrors,
+	clearBackendErrors,
 } from "../../../actions";
 
 import {
@@ -25,10 +25,10 @@ export default function EditAccountModalDeleteAccount() {
 		currentPassword: "",
 	});
 
-	// clears prior input errors when closing the component
+	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
-			dispatch(clearInputErrors());
+			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -71,7 +71,7 @@ export default function EditAccountModalDeleteAccount() {
 				/>
 				<span className="form__errors">
 					{
-						reduxState[GENERAL_CONTAINER].inputErrors
+						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountTypeOutCheck
 					}
 				</span>
@@ -87,7 +87,7 @@ export default function EditAccountModalDeleteAccount() {
 					className="form__text-input form__text-input--password"
 				/>
 				<span className="form__errors">
-					{reduxState[GENERAL_CONTAINER].inputErrors.currentPassword}
+					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
 				</span>
 				<button
 					type="submit"
@@ -96,9 +96,9 @@ export default function EditAccountModalDeleteAccount() {
 					Delete
 				</button>
 				<span className="form__errors">
-					{reduxState[GENERAL_CONTAINER].inputErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].inputErrors.authorization}
-					{reduxState[GENERAL_CONTAINER].inputErrors.serverAccount}
+					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
+					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
+					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
 				</span>
 			</form>
 			<div className="modal-links-container">

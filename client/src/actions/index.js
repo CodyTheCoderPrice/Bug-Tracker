@@ -13,7 +13,7 @@ import {
 	SET_DISPLAY_SIZE_VARIABLES_WINDOW_NAVBAR,
 	SET_DISPLAY_SIZE_VARIABLES_BREADCRUMB_FONT_SIZE,
 	SET_PRIORITY_STATUS,
-	SET_INPUT_ERRORS,
+	SET_BACKEND_ERRORS,
 } from "./constants/types";
 
 // Exporting redux dispatch functions from all other action files
@@ -130,26 +130,26 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
  * to be displayed to the user (typically input validation errors), in the
  * general container of the redux state
  * 
- * @param {JSON} inputErrors - JSON containing info on what went wrong during
+ * @param {JSON} backendErrors - JSON containing info on what went wrong during
  * an http request
  */
-export const setInputErrors = (inputErrors) => (dispatch) => {
+export const seBackendErrors = (backendErrors) => (dispatch) => {
 	dispatch({
 		container: GENERAL_CONTAINER,
-		type: SET_INPUT_ERRORS,
-		inputErrors: inputErrors,
+		type: SET_BACKEND_ERRORS,
+		backendErrors: backendErrors,
 	});
 };
 
 /**
- * Clears JSON object for input errors in the general container of the redux
+ * Clears JSON object for backend errors in the general container of the redux
  * state
  */
-export const clearInputErrors = () => (dispatch) => {
+export const clearBackendErrors = () => (dispatch) => {
 	dispatch({
 		container: GENERAL_CONTAINER,
-		type: SET_INPUT_ERRORS,
-		inputErrors: {},
+		type: SET_BACKEND_ERRORS,
+		backendErrors: {},
 	});
 };
 

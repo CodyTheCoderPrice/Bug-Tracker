@@ -8,7 +8,7 @@ import {
 import {
 	updateAccountEmail,
 	setWhichAccountComponentsDisplay,
-	clearInputErrors,
+	clearBackendErrors,
 } from "../../../actions";
 
 import {
@@ -26,10 +26,10 @@ export default function EditAccountModalChangeEmail() {
 		currentPassword: "",
 	});
 
-	// clears prior input errors when closing the component
+	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
-			dispatch(clearInputErrors());
+			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -70,7 +70,7 @@ export default function EditAccountModalChangeEmail() {
 					className="form__text-input"
 				/>
 				<span className="form__errors">
-					{reduxState[GENERAL_CONTAINER].inputErrors.validationAccountEmail}
+					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
 				</span>
 				<label htmlFor="edit-account-email-password" className="form__label">
 					Current Password:{" "}
@@ -84,7 +84,7 @@ export default function EditAccountModalChangeEmail() {
 					className="form__text-input form__text-input--password"
 				/>
 				<span className="form__errors">
-					{reduxState[GENERAL_CONTAINER].inputErrors.currentPassword}
+					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
 				</span>
 				<button
 					type="submit"
@@ -98,9 +98,9 @@ export default function EditAccountModalChangeEmail() {
 					Update
 				</button>
 				<span className="form__errors">
-					{reduxState[GENERAL_CONTAINER].inputErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].inputErrors.authorization}
-					{reduxState[GENERAL_CONTAINER].inputErrors.serverAccount}
+					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
+					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
+					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
 				</span>
 			</form>
 			<div className="modal-links-container">

@@ -10,7 +10,7 @@ const isEmpty = require("is-empty");
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {
-	let inputErrors = {};
+	let backendErrors = {};
 
 	try {
 		let { email, password, password2, first_name, last_name } = req.body;
@@ -23,49 +23,49 @@ module.exports = (req, res, next) => {
 		last_name = !isEmpty(last_name) ? last_name : "";
 
 		if (Validator.isEmpty(first_name)) {
-			inputErrors.validationAccountFirstName = "First name field is required";
+			backendErrors.validationAccountFirstName = "First name field is required";
 		} else if (!Validator.isLength(first_name, { max: 35 })) {
-			inputErrors.validationAccountFirstName =
+			backendErrors.validationAccountFirstName =
 				"First name can't be longer than 35 characters";
 		}
 
 		if (Validator.isEmpty(last_name)) {
-			inputErrors.validationAccountLastName = "Last name field is required";
+			backendErrors.validationAccountLastName = "Last name field is required";
 		} else if (!Validator.isLength(last_name, { max: 35 })) {
-			inputErrors.validationAccountLastName =
+			backendErrors.validationAccountLastName =
 				"Last name can't be longer than 35 characters";
 		}
 
 		if (Validator.isEmpty(email)) {
-			inputErrors.validationAccountEmail = "Email field is required";
+			backendErrors.validationAccountEmail = "Email field is required";
 		} else if (!Validator.isEmail(email)) {
-			inputErrors.validationAccountEmail = "Email is invalid";
+			backendErrors.validationAccountEmail = "Email is invalid";
 		}
 
 		if (Validator.isEmpty(password)) {
-			inputErrors.validationAccountPassword = "Password field is required";
+			backendErrors.validationAccountPassword = "Password field is required";
 		} else if (!Validator.isLength(password, { min: 6, max: 30 })) {
-			inputErrors.validationAccountPassword =
+			backendErrors.validationAccountPassword =
 				"Password must be 6-30 characters long";
 		}
 
 		if (Validator.isEmpty(password2)) {
-			inputErrors.validationAccountPassword2 =
+			backendErrors.validationAccountPassword2 =
 				"Confirm password field is required";
 		} else if (!Validator.equals(password, password2)) {
-			inputErrors.validationAccountPassword2 = "Passwords must match";
+			backendErrors.validationAccountPassword2 = "Passwords must match";
 		}
 
-		if (!isEmpty(inputErrors)) {
+		if (!isEmpty(backendErrors)) {
 			// returns error and next middle/function is not called
-			return res.status(400).json({ success: false, inputErrors });
+			return res.status(400).json({ success: false, backendErrors });
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validationAccount = "Validation Error";
-		return res.status(403).json({ success: false, inputErrors });
+		backendErrors.validationAccount = "Validation Error";
+		return res.status(403).json({ success: false, backendErrors });
 	}
 };

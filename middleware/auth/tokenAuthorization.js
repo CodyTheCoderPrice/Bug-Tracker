@@ -13,15 +13,15 @@ require("dotenv").config();
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {
-	let inputErrors = {};
+	let backendErrors = {};
 
 	try {
 		const jwToken = req.header("jwToken");
 
 		if (jwToken === undefined) {
-			inputErrors.jwToken = "No jwToken";
-			console.log(inputErrors);
-			return res.status(403).json({ success: false, inputErrors });
+			backendErrors.jwToken = "No jwToken";
+			console.log(backendErrors);
+			return res.status(403).json({ success: false, backendErrors });
 		}
 
 		// Uses jwtSecret in .env file to verify jwToken and extract payload
@@ -33,7 +33,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.jwToken = "jwToken verify error";
-		return res.status(403).json({ success: false, inputErrors });
+		backendErrors.jwToken = "jwToken verify error";
+		return res.status(403).json({ success: false, backendErrors });
 	}
 };

@@ -10,7 +10,7 @@ const isEmpty = require("is-empty");
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {
-	let inputErrors = {};
+	let backendErrors = {};
 
 	try {
 		let { newPassword, newPassword2, currentPassword } = req.body;
@@ -21,34 +21,34 @@ module.exports = (req, res, next) => {
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
 		if (Validator.isEmpty(newPassword)) {
-			inputErrors.validationAccountNewPassword = "New password field is required";
+			backendErrors.validationAccountNewPassword = "New password field is required";
 		} else if (!Validator.isLength(newPassword, { min: 6, max: 30 })) {
-			inputErrors.validationAccountNewPassword =
+			backendErrors.validationAccountNewPassword =
 				"New password must be 6-30 characters long";
 		}
 
 		if (Validator.isEmpty(newPassword2)) {
-			inputErrors.validationAccountNewPassword2 =
+			backendErrors.validationAccountNewPassword2 =
 				"Confirm new password field is required";
 		} else if (!Validator.equals(newPassword, newPassword2)) {
-			inputErrors.validationAccountNewPassword2 = "New passwords must match";
+			backendErrors.validationAccountNewPassword2 = "New passwords must match";
 		}
 
 		// Check for whether password is correct is done in the next middleware
 		if (Validator.isEmpty(currentPassword)) {
-			inputErrors.currentPassword = "Current password field is required";
+			backendErrors.currentPassword = "Current password field is required";
 		}
 
-		if (!isEmpty(inputErrors)) {
+		if (!isEmpty(backendErrors)) {
 			// returns error and next middle/function is not called
-			return res.status(400).json({ success: false, inputErrors });
+			return res.status(400).json({ success: false, backendErrors });
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.validationAccount = "Validation Error";
-		return res.status(403).json({ success: false, inputErrors });
+		backendErrors.validationAccount = "Validation Error";
+		return res.status(403).json({ success: false, backendErrors });
 	}
 };

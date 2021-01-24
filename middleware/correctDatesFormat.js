@@ -1,7 +1,7 @@
 const isEmpty = require("is-empty");
 
 module.exports = (req, res, next) => {
-	let inputErrors = {};
+	let backendErrors = {};
 
 	try {
 		let { start_date, due_date, completion_date } = req.body;
@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
 		next();
 	} catch (err) {
 		console.error(err.message);
-		inputErrors.server = "Server Error";
-		return res.status(403).json({ success: false, inputErrors });
+		backendErrors.server = "Server Error";
+		return res.status(403).json({ success: false, backendErrors });
 	}
 };
