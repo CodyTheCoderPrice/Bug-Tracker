@@ -79,28 +79,8 @@ export default function EditAccountModalChangePassword() {
 					}
 				</span>
 				<label
-					htmlFor="edit-account-password-new-password2"
-					className="form__label"
-				>
-					Confirm New Password:{" "}
-				</label>
-				<input
-					type="password"
-					name="newPassword2"
-					onChange={(e) => onChange(e)}
-					value={accountInfo.newPassword2}
-					id="edit-account-password-new-password2"
-					className="form__text-input form__text-input--password"
-				/>
-				<span className="form__errors">
-					{
-						reduxState[GENERAL_CONTAINER].backendErrors
-							.validationAccountNewPassword2
-					}
-				</span>
-				<label
 					htmlFor="edit-account-password-current-password"
-					className="form__label form__label--top-margin"
+					className="form__label"
 				>
 					Current Password:{" "}
 				</label>

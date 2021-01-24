@@ -13,12 +13,11 @@ module.exports = (req, res, next) => {
 	let backendErrors = {};
 
 	try {
-		let { email, password, password2, first_name, last_name } = req.body;
+		let { email, password, first_name, last_name } = req.body;
 
 		// Convert empty fields to empty string so Validator module can be used
 		email = !isEmpty(email) ? email : "";
 		password = !isEmpty(password) ? password : "";
-		password2 = !isEmpty(password2) ? password2 : "";
 		first_name = !isEmpty(first_name) ? first_name : "";
 		last_name = !isEmpty(last_name) ? last_name : "";
 
@@ -47,13 +46,6 @@ module.exports = (req, res, next) => {
 		} else if (!Validator.isLength(password, { min: 6, max: 30 })) {
 			backendErrors.validationAccountPassword =
 				"Password must be 6-30 characters long";
-		}
-
-		if (Validator.isEmpty(password2)) {
-			backendErrors.validationAccountPassword2 =
-				"Confirm password required";
-		} else if (!Validator.equals(password, password2)) {
-			backendErrors.validationAccountPassword2 = "Passwords must match";
 		}
 
 		if (!isEmpty(backendErrors)) {

@@ -118,23 +118,6 @@ export default function Register() {
 								.validationAccountPassword
 						}
 					</span>
-					<label htmlFor="register-password2" className="form__label">
-						Confirm Password
-					</label>
-					<input
-						type="password"
-						name="password2"
-						onChange={(e) => onChange(e)}
-						value={accountInfo.password2}
-						id="register-password2"
-						className="form__text-input form__text-input--password"
-					/>
-					<span className="form__errors">
-						{
-							reduxState[GENERAL_CONTAINER].backendErrors
-								.validationAccountPassword2
-						}
-					</span>
 					<button type="submit" className="form__submit">
 						REGISTER
 					</button>

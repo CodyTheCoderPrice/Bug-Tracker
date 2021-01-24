@@ -67,7 +67,7 @@ html, body {
   color: red;
 }
 .register-login-components .form__submit {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 5px;
   outline: none;
   border: 0;
@@ -778,7 +778,7 @@ dropdown can overlap all other components
   color: red;
 }
 .edit-account-modal-component .form__submit {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
   outline: none;
   border: 0;
