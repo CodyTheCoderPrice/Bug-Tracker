@@ -204,6 +204,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								}
 								{reduxState[GENERAL_CONTAINER].backendErrors.validationComment}
 								{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
+								{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 							</span>
 						</div>
 					</div>

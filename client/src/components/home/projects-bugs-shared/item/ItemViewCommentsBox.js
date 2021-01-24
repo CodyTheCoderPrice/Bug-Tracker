@@ -151,6 +151,7 @@ export default function ItemViewCommentsBox() {
 							}
 							{reduxState[GENERAL_CONTAINER].backendErrors.validationComment}
 							{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
+							{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 						</span>
 					</div>
 				</form>

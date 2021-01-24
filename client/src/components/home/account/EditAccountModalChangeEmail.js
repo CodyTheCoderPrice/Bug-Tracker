@@ -101,6 +101,7 @@ export default function EditAccountModalChangeEmail() {
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
+					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 				</span>
 			</form>
 			<div className="modal-links-container">

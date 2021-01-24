@@ -59,6 +59,7 @@ export default function ItemViewCommentsBoxIndividualCommentDeleteModal() {
 				</div>
 				<span className="backend__errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.server}
+					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 				</span>
 				<div className="centered-buttons-container">
 					<div
