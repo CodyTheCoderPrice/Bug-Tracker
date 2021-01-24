@@ -21,13 +21,13 @@ module.exports = (req, res, next) => {
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
 		if (Validator.isEmpty(email)) {
-			backendErrors.validationAccountEmail = "Email field is required";
+			backendErrors.validationAccountEmail = "Email required";
 		} else if (!Validator.isEmail(email)) {
 			backendErrors.validationAccountEmail = "Email is invalid";
 		}
 
 		if (Validator.isEmpty(currentPassword)) {
-			backendErrors.currentPassword = "Current password field is required";
+			backendErrors.currentPassword = "Current password required";
 		}
 
 		if (!isEmpty(backendErrors)) {

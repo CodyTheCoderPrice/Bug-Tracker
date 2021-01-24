@@ -23,7 +23,7 @@ module.exports = (req, res, next) => {
 		status_id = !isEmpty(status_id) ? status_id : "";
 
 		if (Validator.isEmpty(name)) {
-			backendErrors.validationItemName = "Name field is required";
+			backendErrors.validationItemName = "Name required";
 		} else if (!Validator.isLength(name, { max: 35 })) {
 			backendErrors.validationItemName = "Name can't be longer than 35 characters";
 		}

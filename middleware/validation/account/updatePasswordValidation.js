@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
 		if (Validator.isEmpty(newPassword)) {
-			backendErrors.validationAccountNewPassword = "New password field is required";
+			backendErrors.validationAccountNewPassword = "New password required";
 		} else if (!Validator.isLength(newPassword, { min: 6, max: 30 })) {
 			backendErrors.validationAccountNewPassword =
 				"New password must be 6-30 characters long";
@@ -29,14 +29,14 @@ module.exports = (req, res, next) => {
 
 		if (Validator.isEmpty(newPassword2)) {
 			backendErrors.validationAccountNewPassword2 =
-				"Confirm new password field is required";
+				"Confirm new password required";
 		} else if (!Validator.equals(newPassword, newPassword2)) {
 			backendErrors.validationAccountNewPassword2 = "New passwords must match";
 		}
 
 		// Check for whether password is correct is done in the next middleware
 		if (Validator.isEmpty(currentPassword)) {
-			backendErrors.currentPassword = "Current password field is required";
+			backendErrors.currentPassword = "Current password required";
 		}
 
 		if (!isEmpty(backendErrors)) {
