@@ -16,6 +16,7 @@
 		@include m.dead-center;
 		border: v.$edit-item-name-input-border-width solid black;
 		border-right: v.$edit-item-name-input-border-width dotted v.$medium-light-gray;
+		border-radius: v.$form-input-border-radius 0 0 v.$form-input-border-radius;
 		background-color: white;
 		padding: v.$edit-item-name-input-padding;
 		height: v.$edit-item-name-input-height;
@@ -50,6 +51,7 @@
 			v.$edit-item-name-input-padding + (v.$edit-item-name-char-counter-container-width / 2);
 		border: v.$edit-item-name-input-border-width solid black;
 		border-left: v.$edit-item-name-input-border-width solid transparent;
+		border-radius: 0 v.$form-input-border-radius v.$form-input-border-radius 0;
 		height: v.$edit-item-name-centering-container-height - (v.$edit-item-name-input-border-width * 2);
 		width: v.$edit-item-name-char-counter-container-width;
 	}
@@ -79,15 +81,21 @@
 		width: 125px;
 	}
 
+	.item-box__group__field__form-label--top-bottom-margin {
+		// Same as the margin for the char-counter so for alignment
+		margin: v.$item-view-item-box-char-counter-margin;
+	}
+
 	.item-box__group__field__form-text {
+		box-sizing: border-box;
 		outline: none;
 		margin-top: 3px;
 		border: 1px solid black;
-		box-sizing: border-box;
+		border-radius: v.$form-input-border-radius;
 		background-color: white;
 		padding: 6px;
 		width: 100%;
-		font-size: 12px;
+		font-size: v.$item-form-text-input-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
@@ -120,6 +128,7 @@
 	.form-buttons-centered-container__submit-button {
 		float: left;
 		border: 1px solid black;
+		border-radius: v.$base-buttton-border-radius;
 		outline: none;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
@@ -142,6 +151,7 @@
 
 		float: right;
 		border: 1px solid black;
+		border-radius: v.$base-buttton-border-radius;
 		background-color: white;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.

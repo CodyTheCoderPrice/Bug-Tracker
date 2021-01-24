@@ -25,6 +25,7 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		border: 0px solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius;
 		width: v.$item-search-bar-width;
 	}
 
@@ -48,6 +49,7 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		border: v.$list-search-bar-border-width solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius 0 0 v.$search-top-bar-buttton-border-radius;
 		padding: 0px v.$list-search-bar-padding 0px v.$list-search-bar-padding;
 		height: v.$list-item-search-bar-height;
 		width: v.$item-search-bar-width - v.$list-item-search-bar-button-width;
@@ -58,6 +60,7 @@
 		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
 		display: inline-block;
+		border-radius: 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
@@ -95,6 +98,7 @@
 		position: absolute;
 		top: 9px;
 		border: 1px solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$search-filter-sort-bar-button-height;
 		width: v.$filter-button-width;
@@ -107,6 +111,7 @@
 		// Negative margin because border resize moves the element
 		margin: -2px 0px;
 		border: 3px solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0 0;
 		border-bottom: none;
 		height: 48px;
 	}
@@ -127,6 +132,7 @@
 		position: absolute;
 		top: 52px;
 		border: 3px solid black;
+		border-radius: 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$filter-dropdown-content-container-height;
 		width: v.$filter-dropdown-content-container-width;
@@ -191,6 +197,7 @@
 		right: 0px;
 		// Border given color through JS
 		border: 3px solid transparent;
+		border-radius: v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0 0;
 		border-bottom: none;
 		background: none;
 		height: 29px;
@@ -212,8 +219,9 @@
 
 	.item-options-container__button--clicked {
 		border-color: black;
-		border-bottom-color: white;
+		border-bottom: none;
 		background-color: white;
+		color: black;
 	}
 
 	.item-options-container__dropdown {
@@ -221,6 +229,7 @@
 		top: 29px;
 		right: 0;
 		border: 3px solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius;
 		background-color: white;
 		width: 129px;
 		// Defaults as being hidden

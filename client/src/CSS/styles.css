@@ -27,17 +27,30 @@ html, body {
 }
 .register-login-components .title {
   margin-bottom: 25px;
+  font-size: 30px;
+}
+.register-login-components .form__pair-container {
+  display: inline-block;
+  width: 100%;
+}
+.register-login-components .form__pair-container__single-container {
+  float: left;
+  width: 46%;
+}
+.register-login-components .form__pair-container__single-container--right {
+  float: right;
 }
 .register-login-components .form__label {
   float: left;
   margin-top: 5px;
-  text-align: left;
+  font-size: 16px;
 }
 .register-login-components .form__text-input {
   margin-top: 5px;
   margin-bottom: 5px;
   outline: none;
   border: 1px solid gray;
+  border-radius: 5px;
   box-sizing: border-box;
   background-color: #e5e5e5;
   padding: 8px;
@@ -58,6 +71,7 @@ html, body {
   margin-bottom: 5px;
   outline: none;
   border: 0;
+  border-radius: 10px;
   background-color: #8ba8b3;
   padding: 10px;
   width: 100%;
@@ -747,6 +761,7 @@ dropdown can overlap all other components
   margin-bottom: 10px;
   outline: none;
   border: 1px solid gray;
+  border-radius: 5px;
   box-sizing: border-box;
   background: #e5e5e5;
   padding: 8px;
@@ -767,6 +782,7 @@ dropdown can overlap all other components
   margin-bottom: 10px;
   outline: none;
   border: 0;
+  border-radius: 10px;
   background-color: black;
   padding: 10px;
   width: 100%;
@@ -839,6 +855,7 @@ dropdown can overlap all other components
 .delete-modal-component .centered-buttons-container__delete {
   float: left;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: #d36464;
   padding: 10px 0px 10px 0px;
   width: 127px;
@@ -853,6 +870,7 @@ dropdown can overlap all other components
 .delete-modal-component .centered-buttons-container__cancel {
   float: right;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: #e7e7e7;
   padding: 10px 0px 10px 0px;
   width: 125px;
@@ -1000,6 +1018,7 @@ dropdown can overlap all other components
   outline: none;
   margin-bottom: 10px;
   border: 2px solid black;
+  border-radius: 5px;
   background-color: white;
   padding: 4px 8px 4px 8px;
   height: 180px;
@@ -1173,6 +1192,7 @@ dropdown can overlap all other components
   transform: translate(-50%, -50%);
   border: 1px solid black;
   outline: none;
+  border-radius: 10px;
   background-color: black;
   padding: 10px 0px 10px 0px;
   width: 127px;
@@ -1214,6 +1234,7 @@ dropdown can overlap all other components
 .item-container-component .comment__centering-container__pair-container__submit-edit-button {
   float: left;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: black;
   padding: 10px 0px 10px 0px;
   width: 127px;
@@ -1226,6 +1247,7 @@ dropdown can overlap all other components
 .item-container-component .comment__centering-container__pair-container__cancel-button {
   float: right;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: #e7e7e7;
   padding: 10px 0px 10px 0px;
   width: 125px;
@@ -1297,6 +1319,7 @@ dropdown can overlap all other components
   transform: translate(-50%, -50%);
   border: 2px solid black;
   border-right: 2px dotted #bfbfbf;
+  border-radius: 5px 0 0 5px;
   background-color: white;
   padding: 4px;
   height: 43px;
@@ -1331,6 +1354,7 @@ dropdown can overlap all other components
   margin-left: 331px;
   border: 2px solid black;
   border-left: 2px solid transparent;
+  border-radius: 0 5px 5px 0;
   height: 51px;
   width: 50px;
 }
@@ -1352,15 +1376,19 @@ dropdown can overlap all other components
 .item-container-component .item-box__group__field__form-label--long-width {
   width: 125px;
 }
+.item-container-component .item-box__group__field__form-label--top-bottom-margin {
+  margin: 5px 2px 4px 0px;
+}
 .item-container-component .item-box__group__field__form-text {
+  box-sizing: border-box;
   outline: none;
   margin-top: 3px;
   border: 1px solid black;
-  box-sizing: border-box;
+  border-radius: 5px;
   background-color: white;
   padding: 6px;
   width: 100%;
-  font-size: 12px;
+  font-size: 13px;
   font-family: Arial, Helvetica, sans-serif;
 }
 .item-container-component .item-box__group__field__form-select {
@@ -1388,6 +1416,7 @@ dropdown can overlap all other components
 .item-container-component .form-buttons-centered-container__submit-button {
   float: left;
   border: 1px solid black;
+  border-radius: 10px;
   outline: none;
   background-color: black;
   padding: 10px 0px 10px 0px;
@@ -1413,6 +1442,7 @@ dropdown can overlap all other components
   supported by Chrome, Edge, Opera and Firefox */
   float: right;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: white;
   padding: 10px 0px 10px 0px;
   width: 125px;
@@ -1587,6 +1617,7 @@ dropdown can overlap all other components
   transform: translate(0%, -50%);
   left: 15px;
   border: 0px solid black;
+  border-radius: 5px;
   width: 290px;
 }
 .top-bar-component .outer-search-container--with-border,
@@ -1605,6 +1636,7 @@ dropdown can overlap all other components
   display: inline-block;
   outline: none;
   border: 2px solid black;
+  border-radius: 5px 0 0 5px;
   padding: 0px 8px 0px 8px;
   height: 28px;
   width: 252px;
@@ -1614,6 +1646,7 @@ dropdown can overlap all other components
 .js-calc-top-bar-component .outer-search-container__search-bar-button {
   position: absolute;
   display: inline-block;
+  border-radius: 0 5px 5px 0;
   background-color: black;
   height: 28px;
   width: 38px;
@@ -1660,6 +1693,7 @@ dropdown can overlap all other components
   position: absolute;
   top: 9px;
   border: 1px solid black;
+  border-radius: 5px;
   background-color: white;
   height: 28px;
   width: 90px;
@@ -1671,6 +1705,7 @@ dropdown can overlap all other components
 .js-calc-top-bar-component .filter-container__button--clicked {
   margin: -2px 0px;
   border: 3px solid black;
+  border-radius: 5px 5px 0 0;
   border-bottom: none;
   height: 48px;
 }
@@ -1692,6 +1727,7 @@ dropdown can overlap all other components
   position: absolute;
   top: 52px;
   border: 3px solid black;
+  border-radius: 0 5px 5px 5px;
   background-color: white;
   height: 200px;
   width: 280px;
@@ -1753,6 +1789,7 @@ dropdown can overlap all other components
   position: absolute;
   right: 0px;
   border: 3px solid transparent;
+  border-radius: 5px 5px 0 0;
   border-bottom: none;
   background: none;
   height: 29px;
@@ -1777,8 +1814,9 @@ dropdown can overlap all other components
 .top-bar-component .item-options-container__button--clicked,
 .js-calc-top-bar-component .item-options-container__button--clicked {
   border-color: black;
-  border-bottom-color: white;
+  border-bottom: none;
   background-color: white;
+  color: black;
 }
 .top-bar-component .item-options-container__dropdown,
 .js-calc-top-bar-component .item-options-container__dropdown {
@@ -1786,6 +1824,7 @@ dropdown can overlap all other components
   top: 29px;
   right: 0;
   border: 3px solid black;
+  border-radius: 5px 0 5px 5px;
   background-color: white;
   width: 129px;
   visibility: hidden;
@@ -1909,6 +1948,7 @@ dropdown can overlap all other components
   margin-bottom: 10px;
   outline: none;
   border: 1px solid gray;
+  border-radius: 5px;
   box-sizing: border-box;
   background-color: #e5e5e5;
   padding: 6px;
@@ -1928,6 +1968,7 @@ dropdown can overlap all other components
   margin-bottom: 10px;
   outline: none;
   border: 1px solid gray;
+  border-radius: 5px;
   background-color: #e5e5e5;
   padding: 4px 6px 4px 6px;
   height: 150px;
@@ -1968,6 +2009,7 @@ dropdown can overlap all other components
   margin-bottom: 15px;
   outline: none;
   border: 0;
+  border-radius: 10px;
   background-color: black;
   padding: 10px;
   width: 100%;
@@ -2029,6 +2071,7 @@ dropdown can overlap all other components
   box-sizing: border-box;
   left: 30px;
   border: 1px solid black;
+  border-radius: 5px;
   background-color: white;
   height: 28px;
   width: 110px;
@@ -2055,6 +2098,7 @@ dropdown can overlap all other components
   left: 50%;
   transform: translate(-50%, -50%);
   border: 0px solid black;
+  border-radius: 5px;
   width: 100%;
 }
 .search-filter-sort-component .centering-container__search-group-container--with-border,
@@ -2069,6 +2113,7 @@ dropdown can overlap all other components
   display: inline-block;
   outline: none;
   border: 2px solid black;
+  border-radius: 5px 0 0 5px;
   padding: 0px 8px 0px 8px;
   height: 28px;
   line-height: 28px;
@@ -2080,6 +2125,7 @@ dropdown can overlap all other components
   position: absolute;
   display: inline-block;
   margin-left: -1px;
+  border-radius: 0 5px 5px 0;
   background-color: black;
   height: 28px;
   width: 38px;
@@ -2123,6 +2169,7 @@ dropdown can overlap all other components
   top: 9px;
   right: 30px;
   border: 1px solid black;
+  border-radius: 5px;
   background-color: white;
   height: 28px;
   width: 90px;
@@ -2135,6 +2182,7 @@ dropdown can overlap all other components
   margin: -2px -2px 0px;
   border-width: 3px;
   border-bottom: none;
+  border-radius: 5px 5px 0 0;
   height: 48px;
 }
 .search-filter-sort-component .filter-area-container__button__text,
@@ -2157,6 +2205,7 @@ dropdown can overlap all other components
   top: 52px;
   right: 28px;
   border: 3px solid black;
+  border-radius: 5px 0 5px 5px;
   background-color: white;
   height: 200px;
   width: 280px;

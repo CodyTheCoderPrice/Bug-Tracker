@@ -47,31 +47,49 @@ export default function Register() {
 			<div className="border-container">
 				<h1 className="title">Register</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
-					<label htmlFor="register-first-name" className="form__label">First Name</label>
-					<input
-						type="text"
-						name="first_name"
-						onChange={(e) => onChange(e)}
-						value={accountInfo.first_name}
-						id="register-first-name"
-						className="form__text-input"
-					/>
-					<span className="form__errors">
-						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountFirstName}
-					</span>
-					<label htmlFor="register-last-name" className="form__label">Last Name</label>
-					<input
-						type="text"
-						name="last_name"
-						onChange={(e) => onChange(e)}
-						value={accountInfo.last_name}
-						id="register-last-name"
-						className="form__text-input"
-					/>
-					<span className="form__errors">
-						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountLastName}
-					</span>
-					<label htmlFor="register-email" className="form__label">Email</label>
+					<div className="form__pair-container">
+						<div className="form__pair-container__single-container">
+							<label htmlFor="register-first-name" className="form__label">
+								First Name
+							</label>
+							<input
+								type="text"
+								name="first_name"
+								onChange={(e) => onChange(e)}
+								value={accountInfo.first_name}
+								id="register-first-name"
+								className="form__text-input"
+							/>
+							<span className="form__errors">
+								{
+									reduxState[GENERAL_CONTAINER].backendErrors
+										.validationAccountFirstName
+								}
+							</span>
+						</div>
+						<div className="form__pair-container__single-container form__pair-container__single-container--right">
+							<label htmlFor="register-last-name" className="form__label">
+								Last Name
+							</label>
+							<input
+								type="text"
+								name="last_name"
+								onChange={(e) => onChange(e)}
+								value={accountInfo.last_name}
+								id="register-last-name"
+								className="form__text-input"
+							/>
+							<span className="form__errors">
+								{
+									reduxState[GENERAL_CONTAINER].backendErrors
+										.validationAccountLastName
+								}
+							</span>
+						</div>
+					</div>
+					<label htmlFor="register-email" className="form__label">
+						Email
+					</label>
 					<input
 						type="email"
 						name="email"
@@ -83,7 +101,9 @@ export default function Register() {
 					<span className="form__errors">
 						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
 					</span>
-					<label htmlFor="register-password" className="form__label">Password</label>
+					<label htmlFor="register-password" className="form__label">
+						Password
+					</label>
 					<input
 						type="password"
 						name="password"
@@ -93,9 +113,14 @@ export default function Register() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword}
+						{
+							reduxState[GENERAL_CONTAINER].backendErrors
+								.validationAccountPassword
+						}
 					</span>
-					<label htmlFor="register-password2" className="form__label">Confirm Password</label>
+					<label htmlFor="register-password2" className="form__label">
+						Confirm Password
+					</label>
 					<input
 						type="password"
 						name="password2"
@@ -105,7 +130,10 @@ export default function Register() {
 						className="form__text-input form__text-input--password"
 					/>
 					<span className="form__errors">
-						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword2}
+						{
+							reduxState[GENERAL_CONTAINER].backendErrors
+								.validationAccountPassword2
+						}
 					</span>
 					<button type="submit" className="form__submit">
 						REGISTER
@@ -118,7 +146,7 @@ export default function Register() {
 				</form>
 				<div className="footer">
 					<span>Already a Member?</span>
-					<span className="footer__link" onClick={openLogin} >
+					<span className="footer__link" onClick={openLogin}>
 						Login
 					</span>
 				</div>

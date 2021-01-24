@@ -131,7 +131,7 @@
 
 	.item-box__form-char-counter {
 		float: right;
-		margin: 5px 2px 4px 0px;
+		margin: v.$item-view-item-box-char-counter-margin;
 	}
 
 	.item-box__form-textarea {
@@ -144,6 +144,7 @@
 		outline: none;
 		margin-bottom: 10px;
 		border: 2px solid black;
+		border-radius: v.$form-input-border-radius;
 		background-color: white;
 		padding: 4px 8px 4px 8px;
 		height: 180px;

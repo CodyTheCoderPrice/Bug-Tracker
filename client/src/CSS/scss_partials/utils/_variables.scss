@@ -109,6 +109,7 @@ $navbar-button-text-container-margin-left: 14px;
 $form-input-margin-bottom: 10px;
 $create-item-sidebar-text-input-margin-top: 2px;
 $display-item-field-margin-left: 11px;
+$item-view-item-box-char-counter-margin: 5px 2px 4px 0px;
 
 //==============
 // Border-width
@@ -126,7 +127,10 @@ $item-container-list-sidebar-border-width: 2px;
 //==============
 // Border-radius
 //==============
+$base-buttton-border-radius: 10px;
 $navbar-hamburger-border-radius: 10px;
+$search-top-bar-buttton-border-radius: 5px;
+$form-input-border-radius: 5px;
 
 //=========
 // Padding
@@ -150,7 +154,7 @@ $filter-dropdown-content-font-size: 14px;
 $list-container-empty-list-message-font-size: 32px;
 $item-container-name-font-size: 28px;
 $create-item-sidebar-label-font-size: 15px;
-$create-item-sidebar-text-input-font-size: 13px;
+$item-form-text-input-font-size: 13px;
 $common-line-height: 20px;
 
 //=========

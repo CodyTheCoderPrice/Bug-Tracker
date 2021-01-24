@@ -41,6 +41,7 @@
 	.comment__centering-container__pair-container__submit-edit-button {
 		float: left;
 		border: 1px solid black;
+		border-radius: v.$base-buttton-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
@@ -61,6 +62,7 @@
 	.comment__centering-container__pair-container__cancel-button {
 		float: right;
 		border: 1px solid black;
+		border-radius: v.$base-buttton-border-radius;
 		background-color: #e7e7e7;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.

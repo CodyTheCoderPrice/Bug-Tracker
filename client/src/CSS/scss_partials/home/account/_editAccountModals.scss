@@ -55,6 +55,7 @@
 		margin-bottom: v.$form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
+		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
 		background: v.$light-gray;
 		padding: 8px;
@@ -79,6 +80,7 @@
 		margin-bottom: v.$form-input-margin-bottom;
 		outline: none;
 		border: 0;
+		border-radius: v.$base-buttton-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss

@@ -34,6 +34,7 @@
 
 		left: 30px;
 		border: v.$search-filter-sort-bar-new-item-button-border-width solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$search-filter-sort-bar-button-height;
 		width: 110px;
@@ -57,6 +58,7 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		border: 0px solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius;
 		width: 100%;
 	}
 
@@ -75,6 +77,7 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
 		border: v.$list-search-bar-border-width solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius 0 0 v.$search-top-bar-buttton-border-radius;
 		padding: 0px v.$list-search-bar-padding 0px v.$list-search-bar-padding;
 		height: v.$list-item-search-bar-height;
 		line-height: v.$list-item-search-bar-height;
@@ -89,6 +92,7 @@
 		display: inline-block;
 		// Since a agap between searchbar and button will appear in chrome otherwise
 		margin-left: -1px;
+		border-radius: 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
@@ -127,6 +131,7 @@
 		top: 9px;
 		right: 30px;
 		border: 1px solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$search-filter-sort-bar-button-height;
 		width: v.$filter-button-width;
@@ -140,6 +145,7 @@
 		margin: -2px -2px 0px;
 		border-width: 3px;
 		border-bottom: none;
+		border-radius: v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0 0;
 		height: 48px;
 	}
 
@@ -162,6 +168,7 @@
 		// 2px less than button since border resize moves the button
 		right: 28px;
 		border: 3px solid black;
+		border-radius: v.$search-top-bar-buttton-border-radius 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$filter-dropdown-content-container-height;
 		width: v.$filter-dropdown-content-container-width;

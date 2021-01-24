@@ -310,7 +310,7 @@ export default function ItemViewEditItemInfo(props) {
 							<div className="item-box__group__field">
 								<label
 									htmlFor="edit-item-location"
-									className="item-box__group__field__form-label item-box__group__field__form-label--medium-width"
+									className="item-box__group__field__form-label item-box__group__field__form-label--medium-width item-box__group__field__form-label--top-bottom-margin"
 								>
 									Location:
 								</label>
