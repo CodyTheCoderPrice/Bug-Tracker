@@ -23,13 +23,13 @@ module.exports = (req, res, next) => {
 		if (Validator.isEmpty(first_name)) {
 			backendErrors.validationAccountFirstName = "First name required";
 		} else if (!Validator.isLength(first_name, { max: 35 })) {
-			backendErrors.validationAccountFirstName = "First name can't be longer than 35 characters";
+			backendErrors.validationAccountFirstName = "First name longer than 35 characters";
 		}
 
 		if (Validator.isEmpty(last_name)) {
 			backendErrors.validationAccountLastName = "Last name required";
 		} else if (!Validator.isLength(last_name, { max: 35 })) {
-			backendErrors.validationAccountLastName = "Last name can't be longer than 35 characters";
+			backendErrors.validationAccountLastName = "Last name longer than 35 characters";
 		}
 
 		if (!isEmpty(backendErrors)) {

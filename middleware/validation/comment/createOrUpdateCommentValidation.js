@@ -25,13 +25,13 @@ module.exports = (req, res, next) => {
 				isEditing === false
 					? "validationCreateCommentDescription"
 					: "validationEditCommentDescription"
-			] = "Comment can't be empty";
+			] = "Comment is empty";
 		} else if (!Validator.isLength(description, { max: 500 })) {
 			backendErrors[
 				isEditing === false
 					? "validationCreateCommentDescription"
 					: "validationEditCommentDescription"
-			] = "Comment can't be longer than 500 characters";
+			] = "Comment longer than 500 characters";
 		}
 
 		if (!isEmpty(backendErrors)) {

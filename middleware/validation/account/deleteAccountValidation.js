@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
 		if (deleteTypedOut !== "DELETE") {
-			backendErrors.validationAccountTypeOutCheck = "Must match: DELETE";
+			backendErrors.validationAccountTypeOutCheck = "Doesn't match: DELETE";
 		}
 
 		if (Validator.isEmpty(currentPassword)) {

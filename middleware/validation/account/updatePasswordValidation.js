@@ -23,7 +23,7 @@ module.exports = (req, res, next) => {
 			backendErrors.validationAccountNewPassword = "New password required";
 		} else if (!Validator.isLength(newPassword, { min: 6, max: 30 })) {
 			backendErrors.validationAccountNewPassword =
-				"New password must be 6-30 characters long";
+				"New password not between 6-30 characters";
 		}
 
 		// Check for whether password is correct is done in the next middleware

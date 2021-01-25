@@ -25,14 +25,14 @@ module.exports = (req, res, next) => {
 			backendErrors.validationAccountFirstName = "First name required";
 		} else if (!Validator.isLength(first_name, { max: 35 })) {
 			backendErrors.validationAccountFirstName =
-				"First name can't be longer than 35 characters";
+				"First name longer than 35 characters";
 		}
 
 		if (Validator.isEmpty(last_name)) {
 			backendErrors.validationAccountLastName = "Last name required";
 		} else if (!Validator.isLength(last_name, { max: 35 })) {
 			backendErrors.validationAccountLastName =
-				"Last name can't be longer than 35 characters";
+				"Last name longer than 35 characters";
 		}
 
 		if (Validator.isEmpty(email)) {
@@ -45,7 +45,7 @@ module.exports = (req, res, next) => {
 			backendErrors.validationAccountPassword = "Password required";
 		} else if (!Validator.isLength(password, { min: 6, max: 30 })) {
 			backendErrors.validationAccountPassword =
-				"Password must be 6-30 characters long";
+				"Password not between 6-30 characters";
 		}
 
 		if (!isEmpty(backendErrors)) {
