@@ -34,9 +34,9 @@ export default function ListViewSearchFilterSortBar(props) {
 	useSearchBarResizeAndBorderEventListener(
 		reduxState,
 		"js-list-search-bar",
-		"js-list-search-bar-button",
+		"js-list-search-button",
 		"js-list-search-bar-and-button-search-group-container",
-		"centering-container__search-group-container--with-border",
+		"search-bar-and-button-thick-border",
 		"js-new-item-button-centering-container",
 		"js-list-filter-area-container",
 		"js-list-search-bar-centering-container"
@@ -138,15 +138,20 @@ export default function ListViewSearchFilterSortBar(props) {
 					/>
 					<div
 						className={
-							"centering-container__search-group-container__search-bar-button js-list-search-bar-button" +
+							"centering-container__search-group-container__search-bar-button js-list-search-button" +
 							getProjectOrBugBackgroundColorClassNameLight(
 								props.reduxContainerName
-							)
+							) +
+							getProjectOrBugBorderColorClassNameLight(props.reduxContainerName)
 						}
 						onClick={updateSearchKeyWordString}
 					>
 						<span className="centering-container__search-group-container__search-bar-button__icon">
-							<i className="fa fa-search" aria-hidden="true" alt="Icon of a magnifying glass"/>
+							<i
+								className="fa fa-search"
+								aria-hidden="true"
+								alt="Icon of a magnifying glass"
+							/>
 						</span>
 					</div>
 				</div>
@@ -172,7 +177,12 @@ export default function ListViewSearchFilterSortBar(props) {
 								: "")
 						}
 					>
-						<i className="fa fa-filter" aria-hidden="true" alt="Icon of a filter"/> Filter
+						<i
+							className="fa fa-filter"
+							aria-hidden="true"
+							alt="Icon of a filter"
+						/>{" "}
+						Filter
 					</span>
 				</div>
 				<div

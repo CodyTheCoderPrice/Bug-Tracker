@@ -62,23 +62,20 @@
 		width: 100%;
 	}
 
-	.centering-container__search-group-container--with-border {
-		border-width: v.$list-item-search-bar-group-container-border-width;
-	}
-
 	.centering-container__search-group-container__search-bar {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
+
 		display: inline-block;
 		outline: none;
 		// This border color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
-		border: v.$list-search-bar-border-width solid black;
+		border: v.$list-search-bar-button-border-width solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius 0 0 v.$search-top-bar-buttton-border-radius;
-		padding: 0px v.$list-search-bar-padding 0px v.$list-search-bar-padding;
+		padding: 0px v.$list-item-search-bar-padding 0px v.$list-item-search-bar-padding;
 		height: v.$list-item-search-bar-height;
 		line-height: v.$list-item-search-bar-height;
 		// Width changed by JS
@@ -87,11 +84,17 @@
 	}
 
 	.centering-container__search-group-container__search-bar-button {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
 		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
 		display: inline-block;
 		// Since a agap between searchbar and button will appear in chrome otherwise
 		margin-left: -1px;
+		border: v.$list-search-bar-button-border-width solid black;
 		border-radius: 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
@@ -114,6 +117,11 @@
 		position: absolute;
 		right: 0px;
 		width: 109px;
+	}
+
+	.search-bar-and-button-thick-border {
+		border-width: v.$list-item-search-bar-button-focus-border-width;
+		height: v.$search-filter-sort-bar-button-focus-height;
 	}
 
 	.filter-area-container__button {

@@ -66,6 +66,7 @@ $list-item-table-row-height: 50px;
 $status-box-height: 27px;
 $create-item-sidebar-height: 700px;
 $top-bar-height: $search-filter-sort-bar-height;
+$top-bar-button-height: $search-filter-sort-bar-button-height;
 $edit-item-name-input-height: 43px;
 $edit-item-description-info-item-box-height: 300px;
 $edit-item-project-bugs-stats-item-box-height: 320px;
@@ -118,8 +119,9 @@ $navbar-breadcrumb-border-width: 2px;
 $navbar-hamburger-border-width: 3px;
 $search-filter-sort-bar-border-width: 1px;
 $search-filter-sort-bar-new-item-button-border-width: 1px;
-$list-search-bar-border-width: 2px;
-$list-item-search-bar-group-container-border-width: 1px;
+$list-search-bar-button-border-width: 2px;
+$top-bar-button-border-width: $list-search-bar-button-border-width;
+$list-item-search-bar-button-focus-border-width: 3px;
 $top-bar-border-width: $search-filter-sort-bar-border-width;
 $edit-item-name-input-border-width: 2px;
 $item-container-list-sidebar-border-width: 2px;
@@ -135,7 +137,7 @@ $form-input-border-radius: 5px;
 //=========
 // Padding
 //=========
-$list-search-bar-padding: 8px;
+$list-item-search-bar-padding: 8px;
 $create-item-sidebar-padding: 6px;
 $edit-item-name-input-padding: 4px;
 
@@ -170,8 +172,15 @@ $navbar-breadcrumb-button-height: $navbar-height -
 // The value added at the end represents the margin between the hamburger button and the title
 $navbar-hamburger-title-left: $navbar-hamburger-button-left +
 	$navbar-hamburger-button-width + 6px;
+$search-filter-sort-bar-button-focus-height: $search-filter-sort-bar-button-height +
+	(
+		(
+			$list-item-search-bar-button-focus-border-width -
+				$list-search-bar-button-border-width
+		) * 2
+	);
 $search-filter-sort-and-top-bar-top: $navbar-height;
-$list-table-and-item-view-top: $search-filter-sort-and-top-bar-top + $search-filter-sort-bar-height +
-	$search-filter-sort-bar-border-width;
+$list-table-and-item-view-top: $search-filter-sort-and-top-bar-top +
+	$search-filter-sort-bar-height + $search-filter-sort-bar-border-width;
 $edit-item-name-centering-container-height: $edit-item-name-input-height +
 	($edit-item-name-input-border-width * 2) + ($edit-item-name-input-padding * 2);

@@ -9,9 +9,9 @@ import {
 } from "../index";
 
 export function useSearchBarBorderEventListener(
-	searchBarAndButtonInnerContainerClassName,
-	searchBarAndButtonInnerContainerModifierClassName,
-	searchBarClassName
+	searchBarClassName,
+	searchButtonClassName,
+	searchBarAndButtonModifierClassName,
 ) {
 	// Adds event listener to give the searchBarInnerContainer a border
 	useEffect(() => {
@@ -19,9 +19,17 @@ export function useSearchBarBorderEventListener(
 			toggleClassName(
 				shouldDisplay,
 				document.getElementsByClassName(
-					searchBarAndButtonInnerContainerClassName
+					searchBarClassName
 				)[0],
-				searchBarAndButtonInnerContainerModifierClassName
+				searchBarAndButtonModifierClassName
+			);
+
+			toggleClassName(
+				shouldDisplay,
+				document.getElementsByClassName(
+					searchButtonClassName
+				)[0],
+				searchBarAndButtonModifierClassName
 			);
 		};
 
@@ -51,17 +59,17 @@ export function useSearchBarBorderEventListener(
 export function useSearchBarResizeAndBorderEventListener(
 	passedReduxState,
 	searchBarClassName,
-	searchBarButtonClassName,
+	searchButtonClassName,
 	searchBarAndButtonInnerContainerClassName,
-	searchBarAndButtonInnerContainerModifierClassName,
+	searchBarAndButtonModifierClassName,
 	createNewButtonContainerClassName,
 	sortFilterGroupContainerClassName,
 	searchBarAndButtonCenteringContainerClassName
 ) {
 	useSearchBarBorderEventListener(
-		searchBarAndButtonInnerContainerClassName,
-		searchBarAndButtonInnerContainerModifierClassName,
-		searchBarClassName
+		searchBarClassName,
+		searchButtonClassName,
+		searchBarAndButtonModifierClassName,
 	);
 
 	// Used for optimization in search-bar resize
@@ -96,8 +104,8 @@ export function useSearchBarResizeAndBorderEventListener(
 						paddingOnOneSide: stripNonDigits(searchBarStyle.paddingLeft),
 					},
 
-					searchBarButton: getElementSize(
-						document.getElementsByClassName(searchBarButtonClassName)[0]
+					searchButton: getElementSize(
+						document.getElementsByClassName(searchButtonClassName)[0]
 					),
 				});
 
@@ -131,10 +139,10 @@ export function useSearchBarResizeAndBorderEventListener(
 			// Minus 1 since button needed to have a margin-left of -1px for chrome
 			searchBarInnerContainer.style.width =
 				searchBarInnercontainerWidth - 1 + "px";
-			// Adjusts for the searchBarButton, borders, and padding
+			// Adjusts for the searchButton, borders, and padding
 			searchBar.style.width =
 				searchBarInnercontainerWidth -
-				regularlyUsedSizesAndStyles.searchBarButton.width +
+				regularlyUsedSizesAndStyles.searchButton.width +
 				"px";
 		}
 		// eslint-disable-next-line

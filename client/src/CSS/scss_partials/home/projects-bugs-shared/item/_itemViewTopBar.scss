@@ -29,10 +29,6 @@
 		width: v.$item-search-bar-width;
 	}
 
-	.outer-search-container--with-border {
-		border-width: v.$list-item-search-bar-group-container-border-width;
-	}
-
 	.outer-search-container--invisible {
 		visibility: hidden;
 	}
@@ -48,15 +44,20 @@
 		// This border color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in home.scss
-		border: v.$list-search-bar-border-width solid black;
+		border: v.$top-bar-button-border-width solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius 0 0 v.$search-top-bar-buttton-border-radius;
-		padding: 0px v.$list-search-bar-padding 0px v.$list-search-bar-padding;
+		padding: 0px v.$list-item-search-bar-padding 0px v.$list-item-search-bar-padding;
 		height: v.$list-item-search-bar-height;
 		width: v.$item-search-bar-width - v.$list-item-search-bar-button-width;
 		font-size: v.$list-item-search-bar-font-size;
 	}
 
 	.outer-search-container__search-bar-button {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
 		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
 		display: inline-block;
@@ -74,6 +75,11 @@
 		@include m.dead-center();
 		color: white;
 		font-size: v.$list-item-search-bar-button-icon-font-size;
+	}
+
+	.search-bar-and-button-thick-border {
+		border-width: v.$list-item-search-bar-button-focus-border-width;
+		height: v.$search-filter-sort-bar-button-focus-height;
 	}
 
 	.filter-container,
@@ -100,7 +106,7 @@
 		border: 1px solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius;
 		background-color: white;
-		height: v.$search-filter-sort-bar-button-height;
+		height: v.$top-bar-button-height;
 		width: v.$filter-button-width;
 		font-size: v.$top-bar-filter-button-font-size;
 		text-align: center;

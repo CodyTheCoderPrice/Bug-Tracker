@@ -1627,10 +1627,6 @@ dropdown can overlap all other components
   border-radius: 5px;
   width: 290px;
 }
-.top-bar-component .outer-search-container--with-border,
-.js-calc-top-bar-component .outer-search-container--with-border {
-  border-width: 1px;
-}
 .top-bar-component .outer-search-container--invisible,
 .js-calc-top-bar-component .outer-search-container--invisible {
   visibility: hidden;
@@ -1651,6 +1647,9 @@ dropdown can overlap all other components
 }
 .top-bar-component .outer-search-container__search-bar-button,
 .js-calc-top-bar-component .outer-search-container__search-bar-button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   position: absolute;
   display: inline-block;
   border-radius: 0 5px 5px 0;
@@ -1667,6 +1666,11 @@ dropdown can overlap all other components
   transform: translate(-50%, -50%);
   color: white;
   font-size: 14px;
+}
+.top-bar-component .search-bar-and-button-thick-border,
+.js-calc-top-bar-component .search-bar-and-button-thick-border {
+  border-width: 3px;
+  height: 30px;
 }
 .top-bar-component .filter-container,
 .top-bar-component .js-calc-filter-container,
@@ -2108,10 +2112,6 @@ dropdown can overlap all other components
   border-radius: 5px;
   width: 100%;
 }
-.search-filter-sort-component .centering-container__search-group-container--with-border,
-.js-calc-search-filter-sort-component .centering-container__search-group-container--with-border {
-  border-width: 1px;
-}
 .search-filter-sort-component .centering-container__search-group-container__search-bar,
 .js-calc-search-filter-sort-component .centering-container__search-group-container__search-bar {
   -webkit-box-sizing: border-box;
@@ -2129,9 +2129,13 @@ dropdown can overlap all other components
 }
 .search-filter-sort-component .centering-container__search-group-container__search-bar-button,
 .js-calc-search-filter-sort-component .centering-container__search-group-container__search-bar-button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   position: absolute;
   display: inline-block;
   margin-left: -1px;
+  border: 2px solid black;
   border-radius: 0 5px 5px 0;
   background-color: black;
   height: 28px;
@@ -2152,6 +2156,11 @@ dropdown can overlap all other components
   position: absolute;
   right: 0px;
   width: 109px;
+}
+.search-filter-sort-component .search-bar-and-button-thick-border,
+.js-calc-search-filter-sort-component .search-bar-and-button-thick-border {
+  border-width: 3px;
+  height: 30px;
 }
 .search-filter-sort-component .filter-area-container__button,
 .js-calc-search-filter-sort-component .filter-area-container__button {

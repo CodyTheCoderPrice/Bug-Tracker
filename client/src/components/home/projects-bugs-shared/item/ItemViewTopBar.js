@@ -33,9 +33,9 @@ export default function ItemViewTopBar(props) {
 	const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
 	useSearchBarBorderEventListener(
-		"js-item-outer-search-container",
-		"outer-search-container--with-border",
-		"js-item-search-bar"
+		"js-item-search-bar",
+		"js-item-search-button",
+		"search-bar-and-button-thick-border",
 	);
 
 	const onChangeSearchBar = (e) => {
@@ -132,7 +132,7 @@ export default function ItemViewTopBar(props) {
 		<div className="top-bar-component js-top-bar">
 			<div
 				className={
-					"outer-search-container js-item-outer-search-container" +
+					"outer-search-container" +
 					getProjectOrBugBorderColorClassNameLight(props.reduxContainerName) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay
 						.itemViewListSidebar
@@ -153,7 +153,7 @@ export default function ItemViewTopBar(props) {
 				/>
 				<div
 					className={
-						"outer-search-container__search-bar-button" +
+						"outer-search-container__search-bar-button js-item-search-button" +
 						getProjectOrBugBackgroundColorClassNameLight(
 							props.reduxContainerName
 						)
