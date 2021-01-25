@@ -28,6 +28,7 @@
 
 	.comment__centering-container {
 		position: relative;
+		margin-bottom: 20px;
 		height: 40px;
 		width: 100%;
 	}
@@ -77,10 +78,5 @@
 		&:active {
 			background-color: #dad9d9;
 		}
-	}
-
-	.edit-comment-form-errors-container {
-		display: relative;
-		margin: 15px 0px 20px 0px;
 	}
 }

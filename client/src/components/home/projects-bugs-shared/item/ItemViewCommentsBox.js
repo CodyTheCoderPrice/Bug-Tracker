@@ -132,6 +132,15 @@ export default function ItemViewCommentsBox() {
 						id="create-comment-description"
 						className="item-box__form-textarea item-box__form-textarea--shorter"
 					/>
+					<span className="form-errors form-errors--comment">
+						{
+							reduxState[GENERAL_CONTAINER].backendErrors
+								.validationCreateCommentDescription
+						}
+						{reduxState[GENERAL_CONTAINER].backendErrors.validationComment}
+						{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
+						{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
+					</span>
 					<div className="form-submit-centering-container">
 						<button
 							type="submit"
@@ -142,17 +151,6 @@ export default function ItemViewCommentsBox() {
 						>
 							Add Comment
 						</button>
-					</div>
-					<div className="bottom-form-errors-container">
-						<span className="form-errors">
-							{
-								reduxState[GENERAL_CONTAINER].backendErrors
-									.validationCreateCommentDescription
-							}
-							{reduxState[GENERAL_CONTAINER].backendErrors.validationComment}
-							{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
-							{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-						</span>
 					</div>
 				</form>
 

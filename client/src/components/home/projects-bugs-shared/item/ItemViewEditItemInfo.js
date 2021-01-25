@@ -430,6 +430,22 @@ export default function ItemViewEditItemInfo(props) {
 					</div>
 				</div>
 			</div>
+			{/* reduxState[GENERAL_CONTAINER].backendErrors.validationItem ===
+				undefined &&
+			reduxState[GENERAL_CONTAINER].backendErrors.serverItem === undefined &&
+			reduxState[GENERAL_CONTAINER].backendErrors.serverConnection ===
+				undefined ? null : (
+				<span className="form-errors form-errors--edit-item">
+					{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
+					{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
+					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
+				</span>
+			) */}
+			<span className="form-errors form-errors--edit-item">
+				{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
+				{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
+				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
+			</span>
 			<div className="outer-dividing-container">
 				<div className="form-buttons-outer-container">
 					<div className="form-buttons-centered-container">
@@ -453,13 +469,6 @@ export default function ItemViewEditItemInfo(props) {
 							Cancel
 						</div>
 					</div>
-				</div>
-				<div className="bottom-form-errors-container">
-					<span className="form-errors">
-						{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
-						{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
-						{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-					</span>
 				</div>
 			</div>
 		</form>
