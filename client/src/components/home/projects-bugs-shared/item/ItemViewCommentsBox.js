@@ -12,6 +12,7 @@ import { createComment, clearBackendErrors } from "../../../../actions";
 import {
 	getProjectOrBugTextColorClassName,
 	getProjectOrBugBackgroundColorClassNameWithHover,
+	dateToInt,
 } from "../../../../utils";
 
 import { useSubmitFormOnEnter } from "../../../../utils/hooks";
@@ -161,7 +162,7 @@ export default function ItemViewCommentsBox() {
 							reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id
 					)
 					.sort((a, b) => {
-						return a - b;
+						return dateToInt(b.creation_date) - dateToInt(a.creation_date);
 					})
 					.map((comment, idx) => {
 						return (
