@@ -98,6 +98,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 	};
 
 	const cancelEditingComment = () => {
+		dispatch(clearBackendErrors());
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
