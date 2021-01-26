@@ -55,6 +55,8 @@ $status-purple: #9680ce;
 $status-orange: #ff9900;
 $status-green: #007e00;
 $status-red: #d14242;
+// Focus colors
+$focus-blue: #0059ff;
 
 //==========
 // Heights
@@ -109,9 +111,12 @@ $item-search-bar-left: 15px;
 //=========
 // Margins
 //=========
+$register-login-form-input-margin-top: 5px;
+$register-login-form-input-margin-bottom: 5px;
 $navbar-button-text-container-margin-right: 14px;
 $navbar-button-text-container-margin-left: 14px;
-$form-input-margin-bottom: 10px;
+$edit-account-form-input-margin-top: 5px;
+$edit-account-create-item-form-input-margin-bottom: 10px;
 $create-item-sidebar-text-input-margin-top: 2px;
 $display-item-field-margin-left: 11px;
 $item-view-item-box-char-counter-margin: 5px 2px 4px 0px;
@@ -119,6 +124,9 @@ $item-view-item-box-char-counter-margin: 5px 2px 4px 0px;
 //==============
 // Border-width
 //==============
+$form-input-text-base-border-width: 1px;
+$form-input-text-focus-border-width: 2px;
+$form-input-text-focus-border-width-difference: $form-input-text-focus-border-width - $form-input-text-base-border-width;
 $navbar-breadcrumb-border-width: 2px;
 $navbar-hamburger-border-width: 3px;
 $search-filter-sort-bar-border-width: 1px;
@@ -179,9 +187,9 @@ $navbar-hamburger-title-left: $navbar-hamburger-button-left +
 $search-filter-sort-bar-button-focus-height: $search-filter-sort-bar-button-height +
 	(
 		(
-			$list-item-search-bar-button-focus-border-width -
-				$list-search-bar-button-border-width
-		) * 2
+				$list-item-search-bar-button-focus-border-width -
+					$list-search-bar-button-border-width
+			) * 2
 	);
 $search-filter-sort-and-top-bar-top: $navbar-height;
 $list-table-and-item-view-top: $search-filter-sort-and-top-bar-top +

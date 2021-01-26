@@ -220,6 +220,11 @@ body .status-box-text-color-red {
   font-size: 14px;
   text-align: center;
 }
+.register-login-components .form__text-input:focus {
+  border: 2px solid #0059ff;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
 .register-login-components .form__text-input--password {
   font: small-caption;
   font-size: 16px;
@@ -780,6 +785,11 @@ dropdown can overlap all other components
   width: 100%;
   font-size: 14px;
   text-align: center;
+}
+.edit-account-modal-component .form__text-input:focus {
+  border: 2px solid #0059ff;
+  margin-top: 4px;
+  margin-bottom: 9px;
 }
 .edit-account-modal-component .form__text-input--password {
   font: small-caption;

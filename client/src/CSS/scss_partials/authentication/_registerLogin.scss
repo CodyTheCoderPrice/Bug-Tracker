@@ -57,10 +57,10 @@
 	}
 
 	.form__text-input {
-		margin-top: 5px;
-		margin-bottom: 5px;
+		margin-top: v.$register-login-form-input-margin-top;
+		margin-bottom: v.$register-login-form-input-margin-bottom;
 		outline: none;
-		border: 1px solid gray;
+		border: v.$form-input-text-base-border-width solid gray;
 		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
 		background: v.$light-gray-level-5;
@@ -68,6 +68,14 @@
 		width: 100%;
 		font-size: 14px;
 		text-align: center;
+
+		&:focus {
+			border: v.$form-input-text-focus-border-width solid v.$focus-blue;
+			margin-top: v.$register-login-form-input-margin-top -
+				v.$form-input-text-focus-border-width-difference;
+			margin-bottom: v.$register-login-form-input-margin-bottom -
+				v.$form-input-text-focus-border-width-difference;
+		}
 	}
 
 	.form__text-input--password {

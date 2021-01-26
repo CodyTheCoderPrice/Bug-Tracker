@@ -79,9 +79,9 @@
 
 	.form__text-input {
 		margin-top: v.$create-item-sidebar-text-input-margin-top;
-		margin-bottom: v.$form-input-margin-bottom;
+		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
 		outline: none;
-		border: 1px solid gray;
+		border: v.$form-input-text-base-border-width solid gray;
 		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
 		background: v.$light-gray-level-5;
@@ -99,9 +99,9 @@
 		resize: none;
 
 		margin-top: v.$create-item-sidebar-text-input-margin-top;
-		margin-bottom: v.$form-input-margin-bottom;
+		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
 		outline: none;
-		border: 1px solid gray;
+		border: v.$form-input-text-base-border-width solid gray;
 		border-radius: v.$form-input-border-radius;
 		background-color: v.$light-gray-level-5;
 		padding: 4px v.$create-item-sidebar-padding 4px
@@ -128,7 +128,7 @@
 
 	.form__group-container__input-container__date {
 		margin-top: 2px;
-		margin-bottom: v.$form-input-margin-bottom;
+		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
 		background-color: v.$light-gray-level-5;
@@ -140,7 +140,7 @@
 
 	.form__group-container__input-container__select {
 		margin-top: 2px;
-		margin-bottom: v.$form-input-margin-bottom;
+		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
 		border: 1px solid gray;
 		background-color: v.$light-gray-level-5;
 		width: 100%;
