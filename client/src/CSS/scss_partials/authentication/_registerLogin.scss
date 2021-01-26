@@ -47,7 +47,13 @@
 	.form__label {
 		float: left;
 		margin-top: 5px;
-		font-size: 16px;
+		font-size: v.$slightly-larger-font-size;
+	}
+
+	.form__char-counter {
+		float: right;
+		margin: 4px 2px 0px 0px;
+		font-size: v.$slightly-larger-font-size;
 	}
 
 	.form__text-input {
@@ -57,11 +63,11 @@
 		border: 1px solid gray;
 		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
-		background-color: #e5e5e5;
+		background: v.$light-gray-level-5;
 		padding: 8px;
 		width: 100%;
-		text-align: center;
 		font-size: 14px;
+		text-align: center;
 	}
 
 	.form__text-input--password {

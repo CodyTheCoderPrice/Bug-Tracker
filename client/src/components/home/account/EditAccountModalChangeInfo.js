@@ -74,6 +74,14 @@ export default function EditAccountModalChangeInfo() {
 				<label htmlFor="edit-account-info-first-name" className="form__label">
 					First Name:{" "}
 				</label>
+				{accountInfo.first_name.length >
+				reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
+					<span className="form__char-counter text-red">
+						{accountInfo.first_name.length +
+							"/" +
+							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
+					</span>
+				) : null}
 				<input
 					type="text"
 					name="first_name"
@@ -91,6 +99,14 @@ export default function EditAccountModalChangeInfo() {
 				<label htmlFor="edit-account-info-last-name" className="form__label">
 					Last Name:{" "}
 				</label>
+				{accountInfo.last_name.length >
+				reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
+					<span className="form__char-counter text-red">
+						{accountInfo.last_name.length +
+							"/" +
+							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
+					</span>
+				) : null}
 				<input
 					type="text"
 					name="last_name"
@@ -107,7 +123,12 @@ export default function EditAccountModalChangeInfo() {
 				</span>
 				<button
 					type="submit"
-					className={"form__submit" + getProjectOrBugBackgroundColorClassNameWithHover(getCurrentContainerName(reduxState))}
+					className={
+						"form__submit" +
+						getProjectOrBugBackgroundColorClassNameWithHover(
+							getCurrentContainerName(reduxState)
+						)
+					}
 				>
 					Update
 				</button>
@@ -120,21 +141,36 @@ export default function EditAccountModalChangeInfo() {
 			<div className="modal-links-container">
 				<span
 					onClick={openEditEmailModal}
-					className={"modal-link" + getProjectOrBugTextColorClassName(getCurrentContainerName(reduxState))}
+					className={
+						"modal-link" +
+						getProjectOrBugTextColorClassName(
+							getCurrentContainerName(reduxState)
+						)
+					}
 				>
 					Edit Email
 				</span>
 				<span className="link-spacer">|</span>
 				<span
 					onClick={openEditPasswordModal}
-					className={"modal-link" + getProjectOrBugTextColorClassName(getCurrentContainerName(reduxState))}
+					className={
+						"modal-link" +
+						getProjectOrBugTextColorClassName(
+							getCurrentContainerName(reduxState)
+						)
+					}
 				>
 					Edit Password
 				</span>
 				<span className="link-spacer">|</span>
 				<span
 					onClick={openDeleteAccountModal}
-					className={"modal-link" + getProjectOrBugTextColorClassName(getCurrentContainerName(reduxState))}
+					className={
+						"modal-link" +
+						getProjectOrBugTextColorClassName(
+							getCurrentContainerName(reduxState)
+						)
+					}
 				>
 					Delete Account
 				</span>

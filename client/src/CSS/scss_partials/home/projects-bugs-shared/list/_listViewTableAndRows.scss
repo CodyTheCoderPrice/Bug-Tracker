@@ -34,11 +34,11 @@
 	}
 
 	.list-table__row--hover-highlight:hover {
-		background-color: v.$very-light-gray;
+		background-color: v.$light-gray-level-2;
 	}
 
 	.list-table__row--selected {
-		background-color: v.$less-light-gray;
+		background-color: v.$light-gray-level-7;
 	}
 
 	.list-table__row--empty {
@@ -54,7 +54,7 @@
 		background-color: v.$list-table-background-color;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
-		box-shadow: 0 1px 0 v.$medium-gray;
+		box-shadow: 0 1px 0 v.$gray-level-3;
 		width: 300px;
 	}
 

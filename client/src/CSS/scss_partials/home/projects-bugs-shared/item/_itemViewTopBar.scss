@@ -208,7 +208,7 @@
 		background: none;
 		height: 29px;
 		width: v.$options-button-width;
-		color: v.$darker-gray;
+		color: v.$dark-gray-level-2;
 		font-size: 28px;
 		text-align: center;
 		cursor: pointer;
@@ -254,7 +254,7 @@
 
 		&:hover,
 		&:active {
-			background-color: v.$light-gray;
+			background-color: v.$light-gray-level-5;
 		}
 	}
 
@@ -271,6 +271,6 @@
 		@include m.back-exit-buttons();
 		top: 11px;
 		right: 20px;
-		color: v.$darker-gray;
+		color: v.$dark-gray-level-2;
 	}
 }

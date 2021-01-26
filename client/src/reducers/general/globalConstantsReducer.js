@@ -1,6 +1,8 @@
 // Default state for global constants (set here and never changed)
 const initialState = {
 	nameCharLimit: 35,
+	passwordCharMin: 6,
+	passwordCharLimit: 30,
 	descriptionCharLimit: 500,
 	locationCharLimit: 100,
 	navbarBreadcrumbMinimumFontSize: 12,

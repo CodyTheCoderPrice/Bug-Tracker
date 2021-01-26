@@ -14,14 +14,14 @@
 		left: v.$item-container-list-sidebar-width + v.$item-container-list-sidebar-border-width;
 		border: v.$item-container-list-sidebar-border-width solid black;
 		border-left: none;
-		background-color: v.$light-gray;
+		background-color: v.$light-gray-level-5;
 		height: 80px;
 		width: 25px;
 		cursor: pointer;
 
 		&:hover,
 		&:active {
-			background-color: v.$medium-light-gray;
+			background-color: v.$gray-level-2;
 		}
 	}
 
@@ -73,11 +73,11 @@
 	}
 
 	.list-sidebar__table__row--hover-highlight:hover {
-		background-color: v.$very-light-gray;
+		background-color: v.$light-gray-level-2;
 	}
 
 	.list-sidebar__table__row--selected {
-		background-color: v.$less-light-gray;
+		background-color: v.$light-gray-level-7;
 	}
 
 	.list-sidebar__table__row--empty {
@@ -93,7 +93,7 @@
 		background-color: v.$list-table-background-color;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
-		box-shadow: 0 1px 0 v.$medium-gray;
+		box-shadow: 0 1px 0 v.$gray-level-3;
 		width: v.$item-container-list-sidebar-width;
 	}
 

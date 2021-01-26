@@ -6,15 +6,19 @@ $light-blue-teal: #8ba8b3;
 $blue-teal: #6691a3;
 $dark-blue-teal: #50798b;
 // Grays
-$very-light-gray: #f8f8f8;
-$lighter-gray: #f5f5f5;
-$light-gray: #e5e5e5;
-$less-light-gray: #dddddd;
-$medium-light-gray: #bfbfbf;
-$medium-gray: #919191;
-$dark-gray: #808080;
-$darker-gray: #757575;
-$very-dark-gray: #4e4e4e;
+$light-gray-level-1: #fbfbfb;
+$light-gray-level-2: #f8f8f8;
+$light-gray-level-3: #f5f5f5;
+$light-gray-level-4: #ebebeb;
+$light-gray-level-5: #e5e5e5;
+$light-gray-level-6: #e1e1e1;
+$light-gray-level-7: #dddddd;
+$gray-level-1: #d6d6d6;
+$gray-level-2: #bfbfbf;
+$gray-level-3: #919191;
+$dark-gray-level-1: #808080;
+$dark-gray-level-2: #757575;
+$dark-gray-level-3: #4e4e4e;
 // Blue grays
 $very-light-blue-gray: #7390af;
 $light-blue-gray: #607c99;
@@ -40,12 +44,12 @@ $light-green: #ccf5cc;
 // Yellows
 $yellow: #ffff00;
 // Components
-$search-filter-sort-bar-color: $light-gray;
+$search-filter-sort-bar-color: $light-gray-level-5;
 $list-table-background-color: #ffffff;
 $filter-active-color: #ae00ff;
 $filter-active-color2: #ffbb00;
 // Status colors
-$status-gray: $dark-gray;
+$status-gray: $dark-gray-level-1;
 $status-blue: #568dd5;
 $status-purple: #9680ce;
 $status-orange: #ff9900;

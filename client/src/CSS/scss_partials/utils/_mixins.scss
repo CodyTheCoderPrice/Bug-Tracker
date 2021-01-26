@@ -35,7 +35,7 @@
 	top: 7px;
 	border: none;
 	background: none;
-	color: v.$medium-gray;
+	color: v.$gray-level-3;
 	font-size: 26px;
 	cursor: pointer;
 
@@ -46,5 +46,5 @@
 }
 
 @mixin border-line() {
-	border-bottom: 1px solid v.$medium-gray;
+	border-bottom: 1px solid v.$gray-level-3;
 }

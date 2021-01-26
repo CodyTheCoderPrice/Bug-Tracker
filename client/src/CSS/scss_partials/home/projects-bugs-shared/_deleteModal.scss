@@ -80,7 +80,7 @@
 		float: right;
 		border: 1px solid black;
 		border-radius: v.$base-buttton-border-radius;
-		background-color: #e7e7e7;
+		background-color: v.$light-gray-level-4;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.
 		padding: 10px 0px 10px 0px;
@@ -92,7 +92,7 @@
 
 		&:hover,
 		&:active {
-			background-color: #dad9d9;
+			background-color: v.$light-gray-level-6;
 		}
 	}
 }

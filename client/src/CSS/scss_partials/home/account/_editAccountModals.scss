@@ -37,6 +37,7 @@
 	.form__label {
 		float: left;
 		margin-top: 5px;
+		font-size: v.$slightly-larger-font-size;
 	}
 
 	.form__label--top-margin {
@@ -50,6 +51,12 @@
 		color: red;
 	}
 
+	.form__char-counter {
+		float: right;
+		margin: 5px 2px 0px 0px;
+		font-size: v.$slightly-larger-font-size;
+	}
+
 	.form__text-input {
 		margin-top: 5px;
 		margin-bottom: v.$form-input-margin-bottom;
@@ -57,7 +64,7 @@
 		border: 1px solid gray;
 		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
-		background: v.$light-gray;
+		background: v.$light-gray-level-5;
 		padding: 8px;
 		width: 100%;
 		font-size: 14px;

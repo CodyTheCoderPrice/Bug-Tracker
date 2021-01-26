@@ -1,9 +1,166 @@
-html, body {
+/* $blue-link: #005ed8; */
+html,
+body {
   width: 100%;
   overflow: hidden;
 }
+html .text-red,
+body .text-red {
+  color: red;
+}
+html .grayed-out-none,
+body .grayed-out-none {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  color: #808080;
+  opacity: 0.7;
+}
+html .js-set-project-background-color-dark,
+body .js-set-project-background-color-dark {
+  background-color: #3d5774 !important;
+}
+html .js-set-project-background-color-light,
+body .js-set-project-background-color-light {
+  background-color: #4d6b8b !important;
+}
+html .js-set-bug-background-color-dark,
+body .js-set-bug-background-color-dark {
+  background-color: #3d5774 !important;
+}
+html .js-set-bug-background-color-light,
+body .js-set-bug-background-color-light {
+  background-color: #4d6b8b !important;
+}
+html .js-set-project-background-color-with-hover,
+body .js-set-project-background-color-with-hover {
+  background-color: #4d6b8b !important;
+}
+html .js-set-project-background-color-with-hover:hover, html .js-set-project-background-color-with-hover:active,
+body .js-set-project-background-color-with-hover:hover,
+body .js-set-project-background-color-with-hover:active {
+  background-color: #3d5774 !important;
+}
+html .js-set-bug-background-color-with-hover,
+body .js-set-bug-background-color-with-hover {
+  background-color: #4d6b8b !important;
+}
+html .js-set-bug-background-color-with-hover:hover, html .js-set-bug-background-color-with-hover:active,
+body .js-set-bug-background-color-with-hover:hover,
+body .js-set-bug-background-color-with-hover:active {
+  background-color: #3d5774 !important;
+}
+html .js-set-project-navbar-arrow-color-dark,
+body .js-set-project-navbar-arrow-color-dark {
+  border-left-color: #3d5774 !important;
+}
+html .js-set-project-navbar-arrow-color-light,
+body .js-set-project-navbar-arrow-color-light {
+  border-left-color: #4d6b8b !important;
+}
+html .js-set-bug-navbar-arrow-color-dark,
+body .js-set-bug-navbar-arrow-color-dark {
+  border-left-color: #3d5774 !important;
+}
+html .js-set-bug-navbar-arrow-color-light,
+body .js-set-bug-navbar-arrow-color-light {
+  border-left-color: #4d6b8b !important;
+}
+html .js-set-project-border-color-dark,
+body .js-set-project-border-color-dark {
+  border-color: #3d5774 !important;
+}
+html .js-set-project-border-color-light,
+body .js-set-project-border-color-light {
+  border-color: #4d6b8b !important;
+}
+html .js-set-bug-border-color-dark,
+body .js-set-bug-border-color-dark {
+  border-color: #3d5774 !important;
+}
+html .js-set-bug-border-color-light,
+body .js-set-bug-border-color-light {
+  border-color: #4d6b8b !important;
+}
+html .js-set-project-text-color,
+body .js-set-project-text-color {
+  color: #22579c !important;
+}
+html .js-set-bug-text-color,
+body .js-set-bug-text-color {
+  color: #22579c !important;
+}
+html .status-box-background-color-gray,
+html .js-calc-status-box-background-color-gray,
+body .status-box-background-color-gray,
+body .js-calc-status-box-background-color-gray {
+  background-color: #808080 !important;
+}
+html .status-box-background-color-blue,
+html .js-calc-status-box-background-color-blue,
+body .status-box-background-color-blue,
+body .js-calc-status-box-background-color-blue {
+  background-color: #568dd5 !important;
+}
+html .status-box-background-color-purple,
+html .js-calc-status-box-background-color-purple,
+body .status-box-background-color-purple,
+body .js-calc-status-box-background-color-purple {
+  background-color: #9680ce !important;
+}
+html .status-box-background-color-orange,
+html .js-calc-status-box-background-color-orange,
+body .status-box-background-color-orange,
+body .js-calc-status-box-background-color-orange {
+  background-color: #ff9900 !important;
+}
+html .status-box-background-color-green,
+html .js-calc-status-box-background-color-green,
+body .status-box-background-color-green,
+body .js-calc-status-box-background-color-green {
+  background-color: #007e00 !important;
+}
+html .status-box-background-color-red,
+html .js-calc-status-box-background-color-red,
+body .status-box-background-color-red,
+body .js-calc-status-box-background-color-red {
+  background-color: #d14242 !important;
+}
+html .status-box-text-color-gray,
+body .status-box-text-color-gray {
+  color: #808080 !important;
+}
+html .status-box-text-color-blue,
+body .status-box-text-color-blue {
+  color: #568dd5 !important;
+}
+html .status-box-text-color-purple,
+body .status-box-text-color-purple {
+  color: #9680ce !important;
+}
+html .status-box-text-color-orange,
+body .status-box-text-color-orange {
+  color: #ff9900 !important;
+}
+html .status-box-text-color-green,
+body .status-box-text-color-green {
+  color: #007e00 !important;
+}
+html .status-box-text-color-red,
+body .status-box-text-color-red {
+  color: #d14242 !important;
+}
 
-/* $blue-link: #005ed8; */
 .register-login-components .background {
   position: absolute;
   top: 0;
@@ -45,6 +202,11 @@ html, body {
   margin-top: 5px;
   font-size: 16px;
 }
+.register-login-components .form__char-counter {
+  float: right;
+  margin: 4px 2px 0px 0px;
+  font-size: 16px;
+}
 .register-login-components .form__text-input {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -52,11 +214,11 @@ html, body {
   border: 1px solid gray;
   border-radius: 5px;
   box-sizing: border-box;
-  background-color: #e5e5e5;
+  background: #e5e5e5;
   padding: 8px;
   width: 100%;
-  text-align: center;
   font-size: 14px;
+  text-align: center;
 }
 .register-login-components .form__text-input--password {
   font: small-caption;
@@ -100,162 +262,6 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-}
-.home-container .text-red,
-.js-calc-home-container .text-red {
-  color: red;
-}
-.home-container .grayed-out-none,
-.js-calc-home-container .grayed-out-none {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  color: #808080;
-  opacity: 0.7;
-}
-.home-container .js-set-project-background-color-dark,
-.js-calc-home-container .js-set-project-background-color-dark {
-  background-color: #3d5774 !important;
-}
-.home-container .js-set-project-background-color-light,
-.js-calc-home-container .js-set-project-background-color-light {
-  background-color: #4d6b8b !important;
-}
-.home-container .js-set-bug-background-color-dark,
-.js-calc-home-container .js-set-bug-background-color-dark {
-  background-color: #3d5774 !important;
-}
-.home-container .js-set-bug-background-color-light,
-.js-calc-home-container .js-set-bug-background-color-light {
-  background-color: #4d6b8b !important;
-}
-.home-container .js-set-project-background-color-with-hover,
-.js-calc-home-container .js-set-project-background-color-with-hover {
-  background-color: #4d6b8b !important;
-}
-.home-container .js-set-project-background-color-with-hover:hover, .home-container .js-set-project-background-color-with-hover:active,
-.js-calc-home-container .js-set-project-background-color-with-hover:hover,
-.js-calc-home-container .js-set-project-background-color-with-hover:active {
-  background-color: #3d5774 !important;
-}
-.home-container .js-set-bug-background-color-with-hover,
-.js-calc-home-container .js-set-bug-background-color-with-hover {
-  background-color: #4d6b8b !important;
-}
-.home-container .js-set-bug-background-color-with-hover:hover, .home-container .js-set-bug-background-color-with-hover:active,
-.js-calc-home-container .js-set-bug-background-color-with-hover:hover,
-.js-calc-home-container .js-set-bug-background-color-with-hover:active {
-  background-color: #3d5774 !important;
-}
-.home-container .js-set-project-navbar-arrow-color-dark,
-.js-calc-home-container .js-set-project-navbar-arrow-color-dark {
-  border-left-color: #3d5774 !important;
-}
-.home-container .js-set-project-navbar-arrow-color-light,
-.js-calc-home-container .js-set-project-navbar-arrow-color-light {
-  border-left-color: #4d6b8b !important;
-}
-.home-container .js-set-bug-navbar-arrow-color-dark,
-.js-calc-home-container .js-set-bug-navbar-arrow-color-dark {
-  border-left-color: #3d5774 !important;
-}
-.home-container .js-set-bug-navbar-arrow-color-light,
-.js-calc-home-container .js-set-bug-navbar-arrow-color-light {
-  border-left-color: #4d6b8b !important;
-}
-.home-container .js-set-project-border-color-dark,
-.js-calc-home-container .js-set-project-border-color-dark {
-  border-color: #3d5774 !important;
-}
-.home-container .js-set-project-border-color-light,
-.js-calc-home-container .js-set-project-border-color-light {
-  border-color: #4d6b8b !important;
-}
-.home-container .js-set-bug-border-color-dark,
-.js-calc-home-container .js-set-bug-border-color-dark {
-  border-color: #3d5774 !important;
-}
-.home-container .js-set-bug-border-color-light,
-.js-calc-home-container .js-set-bug-border-color-light {
-  border-color: #4d6b8b !important;
-}
-.home-container .js-set-project-text-color,
-.js-calc-home-container .js-set-project-text-color {
-  color: #22579c !important;
-}
-.home-container .js-set-bug-text-color,
-.js-calc-home-container .js-set-bug-text-color {
-  color: #22579c !important;
-}
-.home-container .status-box-background-color-gray,
-.home-container .js-calc-status-box-background-color-gray,
-.js-calc-home-container .status-box-background-color-gray,
-.js-calc-home-container .js-calc-status-box-background-color-gray {
-  background-color: #808080 !important;
-}
-.home-container .status-box-background-color-blue,
-.home-container .js-calc-status-box-background-color-blue,
-.js-calc-home-container .status-box-background-color-blue,
-.js-calc-home-container .js-calc-status-box-background-color-blue {
-  background-color: #568dd5 !important;
-}
-.home-container .status-box-background-color-purple,
-.home-container .js-calc-status-box-background-color-purple,
-.js-calc-home-container .status-box-background-color-purple,
-.js-calc-home-container .js-calc-status-box-background-color-purple {
-  background-color: #9680ce !important;
-}
-.home-container .status-box-background-color-orange,
-.home-container .js-calc-status-box-background-color-orange,
-.js-calc-home-container .status-box-background-color-orange,
-.js-calc-home-container .js-calc-status-box-background-color-orange {
-  background-color: #ff9900 !important;
-}
-.home-container .status-box-background-color-green,
-.home-container .js-calc-status-box-background-color-green,
-.js-calc-home-container .status-box-background-color-green,
-.js-calc-home-container .js-calc-status-box-background-color-green {
-  background-color: #007e00 !important;
-}
-.home-container .status-box-background-color-red,
-.home-container .js-calc-status-box-background-color-red,
-.js-calc-home-container .status-box-background-color-red,
-.js-calc-home-container .js-calc-status-box-background-color-red {
-  background-color: #d14242 !important;
-}
-.home-container .status-box-text-color-gray,
-.js-calc-home-container .status-box-text-color-gray {
-  color: #808080 !important;
-}
-.home-container .status-box-text-color-blue,
-.js-calc-home-container .status-box-text-color-blue {
-  color: #568dd5 !important;
-}
-.home-container .status-box-text-color-purple,
-.js-calc-home-container .status-box-text-color-purple {
-  color: #9680ce !important;
-}
-.home-container .status-box-text-color-orange,
-.js-calc-home-container .status-box-text-color-orange {
-  color: #ff9900 !important;
-}
-.home-container .status-box-text-color-green,
-.js-calc-home-container .status-box-text-color-green {
-  color: #007e00 !important;
-}
-.home-container .status-box-text-color-red,
-.js-calc-home-container .status-box-text-color-red {
-  color: #d14242 !important;
 }
 
 .navbar-container {
@@ -746,6 +752,7 @@ dropdown can overlap all other components
 .edit-account-modal-component .form__label {
   float: left;
   margin-top: 5px;
+  font-size: 16px;
 }
 .edit-account-modal-component .form__label--top-margin {
   margin-top: 40px;
@@ -755,6 +762,11 @@ dropdown can overlap all other components
   margin-right: 2px;
   font-size: 16px;
   color: red;
+}
+.edit-account-modal-component .form__char-counter {
+  float: right;
+  margin: 5px 2px 0px 0px;
+  font-size: 16px;
 }
 .edit-account-modal-component .form__text-input {
   margin-top: 5px;
@@ -871,7 +883,7 @@ dropdown can overlap all other components
   float: right;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: #e7e7e7;
+  background-color: #ebebeb;
   padding: 10px 0px 10px 0px;
   width: 125px;
   color: black;
@@ -880,7 +892,7 @@ dropdown can overlap all other components
   cursor: pointer;
 }
 .delete-modal-component .centered-buttons-container__cancel:hover, .delete-modal-component .centered-buttons-container__cancel:active {
-  background-color: #dad9d9;
+  background-color: #e1e1e1;
 }
 
 .item-container-component .item-container,
@@ -1249,7 +1261,7 @@ dropdown can overlap all other components
   float: right;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: #e7e7e7;
+  background-color: white;
   padding: 10px 0px 10px 0px;
   width: 125px;
   color: black;
@@ -1258,7 +1270,7 @@ dropdown can overlap all other components
   cursor: pointer;
 }
 .item-container-component .comment__centering-container__pair-container__cancel-button:hover, .item-container-component .comment__centering-container__pair-container__cancel-button:active {
-  background-color: #dad9d9;
+  background-color: #fbfbfb;
 }
 
 .item-container-component .item-name {
@@ -1441,7 +1453,7 @@ dropdown can overlap all other components
   float: right;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: white;
+  background-color: #f5f5f5;
   padding: 10px 0px 10px 0px;
   width: 125px;
   text-align: center;
@@ -1449,7 +1461,7 @@ dropdown can overlap all other components
   cursor: pointer;
 }
 .item-container-component .form-buttons-centered-container__cancel-button:hover, .item-container-component .form-buttons-centered-container__cancel-button:active {
-  background-color: #dad9d9;
+  background-color: #e5e5e5;
 }
 .item-container-component .grayed-out-unclickable-label {
   color: #bfbfbf;
@@ -1961,7 +1973,7 @@ dropdown can overlap all other components
   border: 1px solid gray;
   border-radius: 5px;
   box-sizing: border-box;
-  background-color: #e5e5e5;
+  background: #e5e5e5;
   padding: 6px;
   width: 100%;
   font-size: 13px;

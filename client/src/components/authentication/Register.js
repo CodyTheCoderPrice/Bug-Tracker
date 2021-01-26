@@ -17,7 +17,6 @@ export default function Register() {
 		last_name: "",
 		email: "",
 		password: "",
-		password2: "",
 	});
 
 	// clears prior backend errors when closing the component
@@ -52,6 +51,14 @@ export default function Register() {
 							<label htmlFor="register-first-name" className="form__label">
 								First Name
 							</label>
+							{accountInfo.first_name.length >
+							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
+								<span className="form__char-counter text-red">
+									{accountInfo.first_name.length +
+										"/" +
+										reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
+								</span>
+							) : null}
 							<input
 								type="text"
 								name="first_name"
@@ -71,6 +78,14 @@ export default function Register() {
 							<label htmlFor="register-last-name" className="form__label">
 								Last Name
 							</label>
+							{accountInfo.last_name.length >
+							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
+								<span className="form__char-counter text-red">
+									{accountInfo.last_name.length +
+										"/" +
+										reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
+								</span>
+							) : null}
 							<input
 								type="text"
 								name="last_name"
@@ -104,6 +119,14 @@ export default function Register() {
 					<label htmlFor="register-password" className="form__label">
 						Password
 					</label>
+					{accountInfo.password.length >
+					reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
+						<span className="form__char-counter text-red">
+							{accountInfo.password.length +
+								"/" +
+								reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}
+						</span>
+					) : null}
 					<input
 						type="password"
 						name="password"

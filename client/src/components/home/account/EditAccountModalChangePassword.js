@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-	GENERAL_CONTAINER,
-} from "../../../actions/constants/containerNames";
+import { GENERAL_CONTAINER } from "../../../actions/constants/containerNames";
 
 import {
 	updateAccountPassword,
@@ -22,7 +20,6 @@ export default function EditAccountModalChangePassword() {
 
 	const [accountInfo, setAccountInfo] = useState({
 		newPassword: "",
-		newPassword2: "",
 		currentPassword: "",
 	});
 
@@ -54,7 +51,11 @@ export default function EditAccountModalChangePassword() {
 	return (
 		<div>
 			<div className="back-button" onClick={backToEditInfo}>
-				<i className="fa fa-arrow-left" aria-hidden="true" alt="Icon of an arrow pointing to the left" />
+				<i
+					className="fa fa-arrow-left"
+					aria-hidden="true"
+					alt="Icon of an arrow pointing to the left"
+				/>
 			</div>
 			<h1 className="title">Edit Password</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
@@ -64,6 +65,14 @@ export default function EditAccountModalChangePassword() {
 				>
 					New Password:{" "}
 				</label>
+				{accountInfo.newPassword.length >
+				reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
+					<span className="form__char-counter text-red">
+						{accountInfo.newPassword.length +
+							"/" +
+							reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}
+					</span>
+				) : null}
 				<input
 					type="password"
 					name="newPassword"
@@ -84,6 +93,14 @@ export default function EditAccountModalChangePassword() {
 				>
 					Current Password:{" "}
 				</label>
+				{accountInfo.currentPassword.length >
+				reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
+					<span className="form__char-counter text-red">
+						{accountInfo.currentPassword.length +
+							"/" +
+							reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}
+					</span>
+				) : null}
 				<input
 					type="password"
 					name="currentPassword"
@@ -97,7 +114,12 @@ export default function EditAccountModalChangePassword() {
 				</span>
 				<button
 					type="submit"
-					className={"form__submit" + getProjectOrBugBackgroundColorClassNameWithHover(getCurrentContainerName(reduxState))}
+					className={
+						"form__submit" +
+						getProjectOrBugBackgroundColorClassNameWithHover(
+							getCurrentContainerName(reduxState)
+						)
+					}
 				>
 					Update
 				</button>
@@ -111,7 +133,12 @@ export default function EditAccountModalChangePassword() {
 			<div className="modal-links-container">
 				<span
 					onClick={backToEditInfo}
-					className={"modal-link" + getProjectOrBugTextColorClassName(getCurrentContainerName(reduxState))}
+					className={
+						"modal-link" +
+						getProjectOrBugTextColorClassName(
+							getCurrentContainerName(reduxState)
+						)
+					}
 				>
 					Back
 				</span>
