@@ -33,6 +33,7 @@ import {
 	calcItemViewPaddingContainerPadding,
 	getCurrentContainerName,
 	getProjectOrBugBackgroundColorClassNameDark,
+	getProjectOrBugBackgroundColorClassNameLight,
 } from "../../../utils";
 
 // Components
@@ -153,20 +154,13 @@ export default function Navbar() {
 				<NavbarBreadcrumb visible={shouldBreadcrumbBeVisible()} />
 				{shouldBreadcrumbBeVisible() ? null : <NavbarHamburger />}
 
-				<div className="navbar__button navbar__button--right js-account-button">
+				<div className="navbar__account-button js-account-button">
 					<div
-						className={
-							"navbar__button__outer-text-container" +
-							getProjectOrBugBackgroundColorClassNameDark(
-								getCurrentContainerName(reduxState)
-							)
-						}
+						className="navbar__account-button__text"
 						onClick={openAccountSidebar}
 					>
-						<div className="navbar__button__outer-text-container__inner-text-container navbar__button__outer-text-container__inner-text-container--right">
-							<i className="fa fa-fw fa-user" alt="Icon of a user" />
-							Account
-						</div>
+						<i className="fa fa-fw fa-user" alt="Icon of a user" />
+						Account
 					</div>
 				</div>
 			</div>

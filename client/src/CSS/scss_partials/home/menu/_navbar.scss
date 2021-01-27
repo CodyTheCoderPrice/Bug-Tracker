@@ -17,52 +17,31 @@
 		width: 100%;
 	}
 
-	.navbar__button {
-		position: relative;
-		float: left;
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in home.scss
-		background-color: black;
-		height: v.$navbar-height;
-	}
-
-	.navbar__button--right {
+	.navbar__account-button {
 		// Postion absolute instead of float right so that account button
 		// ...will always remain on screen during screen resizing
 		position: absolute;
 		right: 0;
+		// Padding instead of margin since padding is include in size to be
+		// ...used for breadcrumb font-resize
+		padding-left: 40px;
+		height: v.$navbar-account-button-height;
+		width: v.$navbar-account-button-width;
 	}
 
-	.navbar__button__outer-text-container {
-		position: relative;
-		float: left;
-		height: v.$navbar-height;
-	}
-
-	.navbar__button__outer-text-container__inner-text-container {
+	.navbar__account-button__text {
 		@include m.stop-text-selection();
 
-		margin: 18px v.$navbar-button-text-container-margin-right 0px v.$navbar-button-text-container-margin-left;
+		position: relative;
+		margin: 0 auto 0 auto;
+		height: v.$navbar-account-button-height;
+		color: white;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: v.$navbar-button-font-size;
-		color: white;
 		text-align: center;
-		// Text cutoff with ellipise only takes place when max-width is added by JS
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	.navbar__button__outer-text-container__inner-text-container--right {
-		// Reverse of the unmoddified version
-		margin-right: v.$navbar-button-text-container-margin-left;
-		margin-left: v.$navbar-button-text-container-margin-right;
-	}
-
-	.navbar__button__outer-text-container__inner-text-container--item-name {
-		color: v.$yellow;
-		font-style: italic;
+		vertical-align: middle;
+		// Allows vertical-align: middle to work
+		line-height: v.$navbar-account-button-height;
 	}
 }
 

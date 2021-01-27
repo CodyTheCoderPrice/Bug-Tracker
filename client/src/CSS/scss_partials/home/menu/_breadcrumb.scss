@@ -38,8 +38,7 @@
 		float: left;
 		// Padding instead of margin since padding is included in element
 		// ...size when resizing the breadcrumb menu
-		padding: 0px v.$navbar-button-text-container-margin-right 0px
-			v.$navbar-button-text-container-margin-left;
+		padding: v.$navbar-button-text-container-padding;
 		height: v.$navbar-height;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: v.$navbar-button-font-size;

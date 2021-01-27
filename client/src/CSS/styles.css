@@ -280,22 +280,14 @@ body .status-box-text-color-red {
   height: 56px;
   width: 100%;
 }
-.navbar-container .navbar__button {
-  position: relative;
-  float: left;
-  background-color: black;
-  height: 56px;
-}
-.navbar-container .navbar__button--right {
+.navbar-container .navbar__account-button {
   position: absolute;
   right: 0;
-}
-.navbar-container .navbar__button__outer-text-container {
-  position: relative;
-  float: left;
+  padding-left: 40px;
   height: 56px;
+  width: 130px;
 }
-.navbar-container .navbar__button__outer-text-container__inner-text-container {
+.navbar-container .navbar__account-button__text {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -309,22 +301,15 @@ body .status-box-text-color-red {
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  margin: 18px 14px 0px 14px;
+  position: relative;
+  margin: 0 auto 0 auto;
+  height: 56px;
+  color: white;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 18px;
-  color: white;
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.navbar-container .navbar__button__outer-text-container__inner-text-container--right {
-  margin-right: 14px;
-  margin-left: 14px;
-}
-.navbar-container .navbar__button__outer-text-container__inner-text-container--item-name {
-  color: #ffff00;
-  font-style: italic;
+  vertical-align: middle;
+  line-height: 56px;
 }
 
 /*
@@ -375,7 +360,7 @@ dropdown can overlap all other components
   supported by Chrome, Edge, Opera and Firefox */
   position: relative;
   float: left;
-  padding: 0px 14px 0px 14px;
+  padding: 0 14px 0 14px;
   height: 56px;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 18px;
@@ -662,14 +647,17 @@ dropdown can overlap all other components
 }
 
 .account-sidebar-component .sidebar-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   z-index: 2;
   position: fixed;
   top: 56px;
   right: 0;
   margin-bottom: 20px;
-  border: 5px solid black;
-  border-top: none;
+  border: 2px solid black;
   border-right: none;
+  border-radius: 25px 0 0 25px;
   background: white;
   height: 200px;
   width: 350px;

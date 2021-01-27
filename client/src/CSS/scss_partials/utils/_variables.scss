@@ -62,6 +62,7 @@ $focus-blue: #0059ff;
 // Heights
 //==========
 $navbar-height: 56px;
+$navbar-account-button-height:$navbar-height;
 $hamburger-dropdown-item-height: 42px;
 $edit-account-modal-height: 480px;
 $search-filter-sort-bar-height: 46px;
@@ -80,9 +81,11 @@ $edit-item-project-bugs-stats-item-box-height: 320px;
 //=========
 // Widths
 //=========
+$navbar-account-button-width: 130px;
 $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;
 $navbar-hamburger-button-width: 36px;
+$account-sidebar-width: 350px;
 $edit-account-modal-width: 540px;
 $list-item-search-bar-button-width: $list-item-search-bar-height + 10;
 $filter-button-width: 90px;
@@ -113,8 +116,6 @@ $item-search-bar-left: 15px;
 //=========
 $register-login-form-input-margin-top: 5px;
 $register-login-form-input-margin-bottom: 5px;
-$navbar-button-text-container-margin-right: 14px;
-$navbar-button-text-container-margin-left: 14px;
 $edit-account-form-input-margin-top: 5px;
 $edit-account-create-item-form-input-margin-bottom: 10px;
 $create-item-sidebar-text-input-margin-top: 2px;
@@ -143,12 +144,14 @@ $item-container-list-sidebar-border-width: 2px;
 //==============
 $base-buttton-border-radius: 10px;
 $navbar-hamburger-border-radius: 10px;
+$base-sidebar-border-radius: 25px;
 $search-top-bar-buttton-border-radius: 5px;
 $form-input-border-radius: 5px;
 
 //=========
 // Padding
 //=========
+$navbar-button-text-container-padding: 0 14px 0 14px;
 $list-item-search-bar-padding: 8px;
 $create-item-sidebar-padding: 6px;
 $edit-item-name-input-padding: 4px;
