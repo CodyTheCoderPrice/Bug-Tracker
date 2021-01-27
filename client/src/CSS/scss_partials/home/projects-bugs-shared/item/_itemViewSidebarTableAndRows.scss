@@ -44,7 +44,9 @@
 		position: fixed;
 		top: v.$list-table-and-item-view-top;
 		left: 0px;
-		border-right: v.$item-container-list-sidebar-border-width solid black;
+		border: v.$item-container-list-sidebar-border-width solid black;
+		border-left: none;
+		border-bottom: none;
 		background-color: v.$list-table-background-color;
 		height: 90vh;
 		// Width must be set here again to not go beyond
@@ -113,7 +115,6 @@
 
 	.list-sidebar__table__data__overflow-container--completed-color {
 		color: v.$status-green;
-		font-weight: bold;
 	}
 
 	.list-sidebar__table__data__overflow-container__info__completed-icon {

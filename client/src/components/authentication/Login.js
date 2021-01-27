@@ -81,9 +81,9 @@ export default function Login() {
 						{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 					</span>
 				</form>
-				<div className="footer">
+				<div className="bottom-question">
 					<span>Not a Member? </span>
-					<span className="footer__link" onClick={openRegister}>
+					<span className="bottom-question__link" onClick={openRegister}>
 						Register
 					</span>
 				</div>

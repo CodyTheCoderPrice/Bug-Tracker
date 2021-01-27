@@ -20,9 +20,9 @@
 		top: v.$navbar-height;
 		// Used by JS during resize to give margin to bottom
 		margin-bottom: 20px;
-		border: 5px solid black;
-		border-top: none;
-		border-left: none;
+		border: v.$base-sidebar-border-width solid black;
+		border-width: v.$base-sidebar-border-width - 1 v.$base-sidebar-border-width v.$base-sidebar-border-width 0;
+		border-radius: 0 0 v.$base-sidebar-border-radius 0;
 		background-color: white;
 		height: v.$create-item-sidebar-height;
 		width: v.$create-item-sidebar-width;

@@ -16,7 +16,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 25px;
-		border: 5px solid black;
+		border: v.$base-modal-border-width solid black;
 		background-color: white;
 		padding: 25px;
 		width: 400px;
@@ -108,15 +108,14 @@
 		}
 	}
 
-	.footer {
+	.bottom-question {
 		margin-top: 25px;
-		font-size: 20px;
+		font-size: 17px;
 	}
 
-	.footer__link {
-		margin-left: 15px;
+	.bottom-question__link {
+		margin-left: 10px;
 		color: blue;
-		font-size: 115%;
 		text-decoration: none;
 		cursor: pointer;
 	}

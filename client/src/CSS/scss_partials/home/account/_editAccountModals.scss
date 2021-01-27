@@ -9,7 +9,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		border: 5px solid black;
+		border: v.$base-modal-border-width solid black;
 		background-color: white;
 		padding: 30px;
 		height: v.$edit-account-modal-height;
@@ -113,17 +113,23 @@
 	}
 
 	.modal-link {
-		margin-left: 15px;
-		margin-right: 15px;
-		font-size: 22px;
+		margin-left: v.$edit-account-modal-link-margin;
+		margin-right: v.$edit-account-modal-link-margin;
+		font-size: v.$edit-account-modal-link-font-size;
 		font-style: bold;
 		text-decoration: none;
 		cursor: pointer;
 	}
 
+	.modal-link--no-left-margin {
+		margin-left: 0;
+	}
+
+	.modal-link--no-right-margin {
+		margin-right: 0;
+	}
+
 	.link-spacer {
-		margin-left: 10px;
-		margin-right: 10px;
 		font-size: 20px;
 	}
 }

@@ -150,9 +150,9 @@ export default function Register() {
 						{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 					</span>
 				</form>
-				<div className="footer">
+				<div className="bottom-question">
 					<span>Already a Member?</span>
-					<span className="footer__link" onClick={openLogin}>
+					<span className="bottom-question__link" onClick={openLogin}>
 						Login
 					</span>
 				</div>

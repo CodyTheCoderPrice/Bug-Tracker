@@ -175,7 +175,7 @@ body .status-box-text-color-red {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 25px;
-  border: 5px solid black;
+  border: 3px solid black;
   background-color: white;
   padding: 25px;
   width: 400px;
@@ -221,9 +221,9 @@ body .status-box-text-color-red {
   text-align: center;
 }
 .register-login-components .form__text-input:focus {
-  border: 2px solid #0059ff;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  border: 1px solid #0059ff;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .register-login-components .form__text-input--password {
   font: small-caption;
@@ -249,14 +249,13 @@ body .status-box-text-color-red {
 .register-login-components .form__submit:hover, .register-login-components .form__submit:active {
   background-color: #50798b;
 }
-.register-login-components .footer {
+.register-login-components .bottom-question {
   margin-top: 25px;
-  font-size: 20px;
+  font-size: 17px;
 }
-.register-login-components .footer__link {
-  margin-left: 15px;
+.register-login-components .bottom-question__link {
+  margin-left: 10px;
   color: blue;
-  font-size: 115%;
   text-decoration: none;
   cursor: pointer;
 }
@@ -655,7 +654,7 @@ dropdown can overlap all other components
   top: 56px;
   right: 0;
   margin-bottom: 20px;
-  border: 2px solid black;
+  border: 3px solid black;
   border-right: none;
   border-radius: 25px 0 0 25px;
   background: white;
@@ -701,11 +700,11 @@ dropdown can overlap all other components
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 5px solid black;
+  border: 3px solid black;
   background-color: white;
   padding: 30px;
   height: 480px;
-  width: 540px;
+  width: 460px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -775,9 +774,9 @@ dropdown can overlap all other components
   text-align: center;
 }
 .edit-account-modal-component .form__text-input:focus {
-  border: 2px solid #0059ff;
-  margin-top: 4px;
-  margin-bottom: 9px;
+  border: 1px solid #0059ff;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 .edit-account-modal-component .form__text-input--password {
   font: small-caption;
@@ -803,20 +802,24 @@ dropdown can overlap all other components
 .edit-account-modal-component .modal-links-container {
   position: absolute;
   bottom: 30px;
-  width: 540px;
+  width: 460px;
   text-align: center;
 }
 .edit-account-modal-component .modal-link {
-  margin-left: 15px;
-  margin-right: 15px;
-  font-size: 22px;
+  margin-left: 18px;
+  margin-right: 18px;
+  font-size: 20px;
   font-style: bold;
   text-decoration: none;
   cursor: pointer;
 }
+.edit-account-modal-component .modal-link--no-left-margin {
+  margin-left: 0;
+}
+.edit-account-modal-component .modal-link--no-right-margin {
+  margin-right: 0;
+}
 .edit-account-modal-component .link-spacer {
-  margin-left: 10px;
-  margin-right: 10px;
   font-size: 20px;
 }
 
@@ -954,6 +957,7 @@ dropdown can overlap all other components
   position: relative;
   margin: 10px;
   border: 2px solid black;
+  border-radius: 25px;
   background-color: #e5e5e5;
   padding: 0px 20px 20px 20px;
   overflow-wrap: anywhere;
@@ -1027,7 +1031,7 @@ dropdown can overlap all other components
   resize: none;
   outline: none;
   margin-bottom: 10px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   background-color: white;
   padding: 4px 8px 4px 8px;
@@ -1088,7 +1092,6 @@ dropdown can overlap all other components
 }
 .item-container-bug-list-component .bug-list-table__data__overflow-container--completed-color {
   color: #007e00;
-  font-weight: bold;
 }
 .item-container-bug-list-component .bug-list-table__data__overflow-container__info__completed-icon {
   margin-right: 5px;
@@ -1104,6 +1107,7 @@ dropdown can overlap all other components
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 50px;
   background-color: black;
   color: white;
   height: 27px;
@@ -1159,6 +1163,7 @@ dropdown can overlap all other components
 .item-container-bug-pie-chart-component .stats-container__row__status-box {
   position: relative;
   display: inline-block;
+  border-radius: 50px;
   background-color: black;
   height: 27px;
   width: 110px;
@@ -1297,6 +1302,7 @@ dropdown can overlap all other components
   position: relative;
   display: inline-block;
   margin-left: 11px;
+  border-radius: 50px;
   background-color: black;
   color: white;
   height: 27px;
@@ -1538,7 +1544,9 @@ dropdown can overlap all other components
   position: fixed;
   top: 103px;
   left: 0px;
-  border-right: 2px solid black;
+  border: 2px solid black;
+  border-left: none;
+  border-bottom: none;
   background-color: #ffffff;
   height: 90vh;
   width: 275px;
@@ -1603,7 +1611,6 @@ dropdown can overlap all other components
 .item-container-list-sidebar-component .list-sidebar__table__data__overflow-container--completed-color,
 .js-calc-list-sidebar-component .list-sidebar__table__data__overflow-container--completed-color {
   color: #007e00;
-  font-weight: bold;
 }
 .item-container-list-sidebar-component .list-sidebar__table__data__overflow-container__info__completed-icon,
 .js-calc-list-sidebar-component .list-sidebar__table__data__overflow-container__info__completed-icon {
@@ -1617,8 +1624,7 @@ dropdown can overlap all other components
   position: fixed;
   top: 56px;
   border: 1px solid black;
-  border-left: none;
-  border-right: none;
+  border-width: 1px 0 2px 0;
   background-color: #e5e5e5;
   height: 46px;
   /* height: v.$search-filter-sort-bar-height; */
@@ -1908,9 +1914,9 @@ dropdown can overlap all other components
   position: fixed;
   top: 56px;
   margin-bottom: 20px;
-  border: 5px solid black;
-  border-top: none;
-  border-left: none;
+  border: 3px solid black;
+  border-width: 2px 3px 3px 0;
+  border-radius: 0 0 25px 0;
   background-color: white;
   height: 700px;
   width: 500px;
@@ -2458,6 +2464,7 @@ dropdown can overlap all other components
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 50px;
   background-color: black;
   height: 27px;
   width: 110px;

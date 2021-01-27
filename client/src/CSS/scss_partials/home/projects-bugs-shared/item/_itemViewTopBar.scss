@@ -8,8 +8,7 @@
 	position: fixed;
 	top: v.$search-filter-sort-and-top-bar-top;
 	border: v.$top-bar-border-width solid black;
-	border-left: none;
-	border-right: none;
+	border-width: v.$top-bar-border-width 0 v.$item-container-list-sidebar-border-width 0;
 	background-color: v.$search-filter-sort-bar-color;
 	height: v.$top-bar-height;
 	/* height: v.$search-filter-sort-bar-height; */

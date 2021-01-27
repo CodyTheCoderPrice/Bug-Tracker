@@ -46,6 +46,7 @@
 	.stats-container__row__status-box {
 		position: relative;
 		display: inline-block;
+		border-radius: v.$status-box-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to a status-box.
 		// ...the scss for the colors assigned are in home.scss

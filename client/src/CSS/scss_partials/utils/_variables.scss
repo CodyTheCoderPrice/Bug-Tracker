@@ -86,7 +86,7 @@ $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;
 $navbar-hamburger-button-width: 36px;
 $account-sidebar-width: 350px;
-$edit-account-modal-width: 540px;
+$edit-account-modal-width: 460px;
 $list-item-search-bar-button-width: $list-item-search-bar-height + 10;
 $filter-button-width: 90px;
 $filter-dropdown-content-container-width: 280px;
@@ -118,6 +118,7 @@ $register-login-form-input-margin-top: 5px;
 $register-login-form-input-margin-bottom: 5px;
 $edit-account-form-input-margin-top: 5px;
 $edit-account-create-item-form-input-margin-bottom: 10px;
+$edit-account-modal-link-margin: 18px;
 $create-item-sidebar-text-input-margin-top: 2px;
 $display-item-field-margin-left: 11px;
 $item-view-item-box-char-counter-margin: 5px 2px 4px 0px;
@@ -126,10 +127,12 @@ $item-view-item-box-char-counter-margin: 5px 2px 4px 0px;
 // Border-width
 //==============
 $form-input-text-base-border-width: 1px;
-$form-input-text-focus-border-width: 2px;
+$form-input-text-focus-border-width: 1px;
 $form-input-text-focus-border-width-difference: $form-input-text-focus-border-width - $form-input-text-base-border-width;
 $navbar-breadcrumb-border-width: 2px;
 $navbar-hamburger-border-width: 3px;
+$base-sidebar-border-width: 3px;
+$base-modal-border-width: 3px;
 $search-filter-sort-bar-border-width: 1px;
 $search-filter-sort-bar-new-item-button-border-width: 1px;
 $list-search-bar-button-border-width: 2px;
@@ -147,6 +150,7 @@ $navbar-hamburger-border-radius: 10px;
 $base-sidebar-border-radius: 25px;
 $search-top-bar-buttton-border-radius: 5px;
 $form-input-border-radius: 5px;
+$status-box-border-radius: 50px;
 
 //=========
 // Padding
@@ -162,6 +166,7 @@ $edit-item-name-input-padding: 4px;
 $base-font-size: 15px;
 $slightly-larger-font-size: $base-font-size + 1px;
 $navbar-button-font-size: 18px;
+$edit-account-modal-link-font-size: 20px;
 $search-filter-sort-create-item-message-font-size: 24px;
 $list-item-search-bar-font-size: 14px;
 $list-item-search-bar-button-icon-font-size: 14px;

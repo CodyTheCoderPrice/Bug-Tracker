@@ -45,7 +45,6 @@
 
 	.bug-list-table__data__overflow-container--completed-color {
 		color: v.$status-green;
-		font-weight: bold;
 	}
 
 	.bug-list-table__data__overflow-container__info__completed-icon {
@@ -62,6 +61,7 @@
 	.bug-list-table__data__centering-container__status-box {
 		@include m.dead-center();
 
+		border-radius: v.$status-box-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to a status-box.
 		// ...the scss for the colors assigned are in home.scss

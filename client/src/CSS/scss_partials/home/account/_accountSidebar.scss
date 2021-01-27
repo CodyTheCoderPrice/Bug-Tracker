@@ -13,7 +13,7 @@
 		right: 0;
 		// Used by JS during resize to give margin to bottom
 		margin-bottom: 20px;
-		border: 2px solid black;
+		border: v.$base-sidebar-border-width solid black;
 		border-right: none;
 		border-radius: v.$base-sidebar-border-radius 0 0 v.$base-sidebar-border-radius;
 		background: white;

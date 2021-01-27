@@ -142,7 +142,7 @@ export default function EditAccountModalChangeInfo() {
 				<span
 					onClick={openEditEmailModal}
 					className={
-						"modal-link" +
+						"modal-link modal-link--no-left-margin" +
 						getProjectOrBugTextColorClassName(
 							getCurrentContainerName(reduxState)
 						)
@@ -166,7 +166,7 @@ export default function EditAccountModalChangeInfo() {
 				<span
 					onClick={openDeleteAccountModal}
 					className={
-						"modal-link" +
+						"modal-link modal-link--no-right-margin" +
 						getProjectOrBugTextColorClassName(
 							getCurrentContainerName(reduxState)
 						)
