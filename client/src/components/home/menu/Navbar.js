@@ -94,7 +94,15 @@ export default function Navbar() {
 		);
 	}
 
-	const openAccountSidebar = () => {
+	const closeAccountComponents = () => {
+		dispatch(setWhichAccountComponentsDisplay({}));
+	};
+
+	const openAccountSidebar = (e) => {
+		// Keeps onclick set on the navbar component for closing
+		// ...account components from interfering
+		e.stopPropagation();
+
 		dispatch(
 			setWhichAccountComponentsDisplay({
 				accountSidebar: !reduxState[ACCOUNT_CONTAINER].componentsDisplay
@@ -142,6 +150,8 @@ export default function Navbar() {
 					? ""
 					: " navbar-container--increased-z-index")
 			}
+
+			onClick={(e) => closeAccountComponents(e)}
 		>
 			<div
 				className={
