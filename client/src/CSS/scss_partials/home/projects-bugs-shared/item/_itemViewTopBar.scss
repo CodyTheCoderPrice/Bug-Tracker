@@ -93,17 +93,12 @@
 	.list-sort-filter-container__button {
 		@include m.stop-text-selection();
 
-		// Must be border-box because the zoom on the webpage can resize the border otherwise
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-
 		// Must be more than list-sort-filter-container__content-dropdown
 		// ...so its top border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
 		top: 9px;
-		border: 1px solid black;
+		border: v.$search-top-bar-base-button-border-width solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$top-bar-button-height;
@@ -120,10 +115,15 @@
 	.list-sort-filter-container__button--clicked {
 		// Negative margin because border resize moves the element
 		margin: -2px 0px;
-		border: 3px solid black;
+		border: v.$search-top-bar-clicked-dropdown-button-border-width solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0 0;
 		border-bottom: none;
-		height: 48px;
+		height: 45px;
+		width: v.$top-bar-sort-button-width - (v.$search-top-bar-clicked-dropdown-button-border-width-difference * 2);
+	}
+
+	.list-sort-filter-container__button--clicked-filter-width {
+		width: v.$search-top-bar-filter-button-width - (v.$search-top-bar-clicked-dropdown-button-border-width-difference * 2);
 	}
 
 	.list-sort-filter-container__button__text--active {
@@ -135,7 +135,7 @@
 		// Used horizontal-center since resize would move the text
 		@include m.horizontal-center();
 		top: 4px;
-		width: v.$top-bar-sort-button-width;
+		width: 100%;
 	}
 
 	.list-sort-filter-container__button__text--filter-width {
@@ -234,7 +234,7 @@
 		position: absolute;
 		right: 0px;
 		// Border given color through JS
-		border: 3px solid transparent;
+		border: v.$search-top-bar-clicked-dropdown-button-border-width solid transparent;
 		border-radius: v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0 0;
 		border-bottom: none;
 		background: none;

@@ -294,7 +294,7 @@ export default function ItemViewTopBar(props) {
 							className={
 								"list-sort-filter-container__button list-sort-filter-container__button--filter-width" +
 								(showFilterDropdown
-									? " list-sort-filter-container__button--clicked"
+									? " list-sort-filter-container__button--clicked list-sort-filter-container__button--clicked-filter-width"
 									: "")
 							}
 							onClick={toggleFilterDropdown}

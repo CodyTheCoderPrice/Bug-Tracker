@@ -1686,7 +1686,7 @@ dropdown can overlap all other components
 .top-bar-component .search-bar-and-button-thick-border,
 .js-calc-top-bar-component .search-bar-and-button-thick-border {
   border-width: 3px;
-  height: 30px;
+  height: 28px;
 }
 .top-bar-component .list-sort-filter-container,
 .js-calc-top-bar-component .list-sort-filter-container {
@@ -1712,16 +1712,13 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   z-index: 1;
   position: absolute;
   top: 9px;
   border: 1px solid black;
   border-radius: 5px;
   background-color: white;
-  height: 28px;
+  height: 26px;
   width: 80px;
   font-size: 14px;
   text-align: center;
@@ -1737,12 +1734,17 @@ dropdown can overlap all other components
   border: 3px solid black;
   border-radius: 5px 5px 0 0;
   border-bottom: none;
-  height: 48px;
+  height: 45px;
+  width: 76px;
+}
+.top-bar-component .list-sort-filter-container__button--clicked-filter-width,
+.js-calc-top-bar-component .list-sort-filter-container__button--clicked-filter-width {
+  width: 86px;
 }
 .top-bar-component .list-sort-filter-container__button__text--active,
 .js-calc-top-bar-component .list-sort-filter-container__button__text--active {
   font-weight: bold;
-  color: #ae00ff;
+  color: #0077ff;
 }
 .top-bar-component .list-sort-filter-container__button__text,
 .js-calc-top-bar-component .list-sort-filter-container__button__text {
@@ -1750,7 +1752,7 @@ dropdown can overlap all other components
   left: 50%;
   transform: translate(-50%);
   top: 4px;
-  width: 80px;
+  width: 100%;
 }
 .top-bar-component .list-sort-filter-container__button__text--filter-width,
 .js-calc-top-bar-component .list-sort-filter-container__button__text--filter-width {
@@ -1830,7 +1832,7 @@ dropdown can overlap all other components
 }
 .top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active,
 .js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active {
-  color: #ae00ff;
+  color: #0077ff;
 }
 .top-bar-component .item-options-container,
 .js-calc-top-bar-component .item-options-container {
@@ -2122,14 +2124,11 @@ dropdown can overlap all other components
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   left: 30px;
   border: 1px solid black;
   border-radius: 5px;
   background-color: white;
-  height: 28px;
+  height: 26px;
   width: 110px;
   font-size: 14px;
   text-align: center;
@@ -2205,7 +2204,7 @@ dropdown can overlap all other components
 .search-filter-sort-component .search-bar-and-button-thick-border,
 .js-calc-search-filter-sort-component .search-bar-and-button-thick-border {
   border-width: 3px;
-  height: 30px;
+  height: 28px;
 }
 .search-filter-sort-component .filter-area-container__button,
 .js-calc-search-filter-sort-component .filter-area-container__button {
@@ -2222,9 +2221,6 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   z-index: 1;
   position: absolute;
   top: 9px;
@@ -2232,7 +2228,7 @@ dropdown can overlap all other components
   border: 1px solid black;
   border-radius: 5px;
   background-color: white;
-  height: 28px;
+  height: 26px;
   width: 90px;
   font-size: 14px;
   text-align: center;
@@ -2240,11 +2236,12 @@ dropdown can overlap all other components
 }
 .search-filter-sort-component .filter-area-container__button--clicked,
 .js-calc-search-filter-sort-component .filter-area-container__button--clicked {
-  margin: -2px -2px 0px;
+  margin: -2px 0px 0px;
   border-width: 3px;
   border-bottom: none;
   border-radius: 5px 5px 0 0;
-  height: 48px;
+  height: 45px;
+  width: 86px;
 }
 .search-filter-sort-component .filter-area-container__button__text,
 .js-calc-search-filter-sort-component .filter-area-container__button__text {
@@ -2252,19 +2249,18 @@ dropdown can overlap all other components
   left: 50%;
   transform: translate(-50%);
   top: 4px;
-  width: 90px;
+  width: 100%;
 }
 .search-filter-sort-component .filter-area-container__button__text--active,
 .js-calc-search-filter-sort-component .filter-area-container__button__text--active {
   font-weight: bold;
-  color: #ae00ff;
+  color: #0077ff;
 }
 .search-filter-sort-component .filter-area-container__content-dropdown,
 .js-calc-search-filter-sort-component .filter-area-container__content-dropdown {
   position: absolute;
-  /* top: 41px; */
   top: 52px;
-  right: 28px;
+  right: 30px;
   border: 3px solid black;
   border-radius: 5px 0 5px 5px;
   background-color: white;
@@ -2313,7 +2309,7 @@ dropdown can overlap all other components
 }
 .search-filter-sort-component .filter-area-container__content-dropdown__content__block__label--active,
 .js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content__block__label--active {
-  color: #ae00ff;
+  color: #0077ff;
 }
 .search-filter-sort-component .create-item-message-container,
 .js-calc-search-filter-sort-component .create-item-message-container {

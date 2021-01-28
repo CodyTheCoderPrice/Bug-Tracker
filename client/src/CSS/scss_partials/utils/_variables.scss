@@ -46,8 +46,9 @@ $yellow: #ffff00;
 // Components
 $search-filter-sort-bar-color: $light-gray-level-5;
 $list-table-background-color: #ffffff;
-$filter-active-color: #ae00ff;
-$filter-active-color2: #ffbb00;
+$filter-active-color: #0077ff;
+$filter-active-color2: #ae00ff;
+$filter-active-color3: #ffbb00;
 // Status colors
 $status-gray: $dark-gray-level-1;
 $status-blue: #568dd5;
@@ -62,11 +63,11 @@ $focus-blue: #0059ff;
 // Heights
 //==========
 $navbar-height: 56px;
-$navbar-account-button-height:$navbar-height;
+$navbar-account-button-height: $navbar-height;
 $hamburger-dropdown-item-height: 42px;
 $edit-account-modal-height: 480px;
 $search-filter-sort-bar-height: 46px;
-$search-filter-sort-bar-button-height: 28px;
+$search-filter-sort-bar-button-height: 26px;
 $list-item-search-bar-height: 28px;
 $filter-dropdown-content-container-height: 190px;
 $list-item-table-row-height: 50px;
@@ -113,7 +114,8 @@ $navbar-breadcrumb-arrow-left: -2px;
 $navbar-hamburger-button-left: 10px;
 $item-search-bar-left: 15px;
 $top-bar-sort-button-left: $item-search-bar-width + ($item-search-bar-left * 2);
-$top-bar-filter-button-left: $top-bar-sort-button-left + $top-bar-sort-button-width + ($item-search-bar-left);
+$top-bar-filter-button-left: $top-bar-sort-button-left +
+	$top-bar-sort-button-width + ($item-search-bar-left);
 
 //=========
 // Margins
@@ -134,13 +136,17 @@ $item-view-item-box-char-counter-margin: 5px 2px 4px 0px;
 //==============
 $form-input-text-base-border-width: 1px;
 $form-input-text-focus-border-width: 1px;
-$form-input-text-focus-border-width-difference: $form-input-text-focus-border-width - $form-input-text-base-border-width;
+$form-input-text-focus-border-width-difference: $form-input-text-focus-border-width -
+	$form-input-text-base-border-width;
 $navbar-breadcrumb-border-width: 2px;
 $navbar-hamburger-border-width: 3px;
 $base-sidebar-border-width: 3px;
 $base-modal-border-width: 3px;
 $search-filter-sort-bar-border-width: 1px;
-$search-filter-sort-bar-new-item-button-border-width: 1px;
+$search-top-bar-base-button-border-width: 1px;
+$search-top-bar-clicked-dropdown-button-border-width: 3px;
+$search-top-bar-clicked-dropdown-button-border-width-difference: $search-top-bar-clicked-dropdown-button-border-width -
+	$search-top-bar-base-button-border-width;
 $list-search-bar-button-border-width: 2px;
 $top-bar-button-border-width: $list-search-bar-button-border-width;
 $list-item-search-bar-button-focus-border-width: 3px;
