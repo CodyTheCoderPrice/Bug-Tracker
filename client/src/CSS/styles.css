@@ -1688,18 +1688,17 @@ dropdown can overlap all other components
   border-width: 3px;
   height: 30px;
 }
-.top-bar-component .filter-container,
-.top-bar-component .js-calc-filter-container,
-.js-calc-top-bar-component .filter-container,
-.js-calc-top-bar-component .js-calc-filter-container {
+.top-bar-component .list-sort-filter-container,
+.js-calc-top-bar-component .list-sort-filter-container {
   position: absolute;
   left: 320px;
-  /* width: 109px; */
 }
-.top-bar-component .filter-container__button,
-.top-bar-component .js-calc-filter-container__button,
-.js-calc-top-bar-component .filter-container__button,
-.js-calc-top-bar-component .js-calc-filter-container__button {
+.top-bar-component .list-sort-filter-container--filter-placement,
+.js-calc-top-bar-component .list-sort-filter-container--filter-placement {
+  left: 415px;
+}
+.top-bar-component .list-sort-filter-container__button,
+.js-calc-top-bar-component .list-sort-filter-container__button {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -1723,84 +1722,114 @@ dropdown can overlap all other components
   border-radius: 5px;
   background-color: white;
   height: 28px;
-  width: 90px;
+  width: 80px;
   font-size: 14px;
   text-align: center;
   cursor: pointer;
 }
-.top-bar-component .filter-container__button--clicked,
-.js-calc-top-bar-component .filter-container__button--clicked {
+.top-bar-component .list-sort-filter-container__button--filter-width,
+.js-calc-top-bar-component .list-sort-filter-container__button--filter-width {
+  width: 90px;
+}
+.top-bar-component .list-sort-filter-container__button--clicked,
+.js-calc-top-bar-component .list-sort-filter-container__button--clicked {
   margin: -2px 0px;
   border: 3px solid black;
   border-radius: 5px 5px 0 0;
   border-bottom: none;
   height: 48px;
 }
-.top-bar-component .filter-container__button__text--active,
-.js-calc-top-bar-component .filter-container__button__text--active {
+.top-bar-component .list-sort-filter-container__button__text--active,
+.js-calc-top-bar-component .list-sort-filter-container__button__text--active {
   font-weight: bold;
   color: #ae00ff;
 }
-.top-bar-component .filter-container__button__text,
-.js-calc-top-bar-component .filter-container__button__text {
+.top-bar-component .list-sort-filter-container__button__text,
+.js-calc-top-bar-component .list-sort-filter-container__button__text {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   top: 4px;
+  width: 80px;
+}
+.top-bar-component .list-sort-filter-container__button__text--filter-width,
+.js-calc-top-bar-component .list-sort-filter-container__button__text--filter-width {
   width: 90px;
 }
-.top-bar-component .filter-container__content-dropdown,
-.js-calc-top-bar-component .filter-container__content-dropdown {
+.top-bar-component .list-sort-filter-container__content-dropdown,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown {
   position: absolute;
   top: 52px;
   border: 3px solid black;
   border-radius: 0 5px 5px 5px;
+  padding: 2px 0 6px 0;
   background-color: white;
-  height: 200px;
-  width: 280px;
+  height: 190px;
+  width: 120px;
   cursor: default;
   visibility: hidden;
 }
-.top-bar-component .filter-container__content-dropdown--shorter,
-.js-calc-top-bar-component .filter-container__content-dropdown--shorter {
+.top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block {
+  position: relative;
+  margin: 12px 0;
+  width: 100%;
+}
+.top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container {
+  display: inline-block;
+  margin-left: 8px;
+  height: 100%;
+  width: 21px;
+}
+.top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__title,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__title {
+  font-size: 15px;
+}
+.top-bar-component .list-sort-filter-container__content-dropdown--filter-width,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown--filter-width {
+  width: 260px;
+}
+.top-bar-component .list-sort-filter-container__content-dropdown--shorter,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown--shorter {
   height: 155px;
 }
-.top-bar-component .filter-container__content-dropdown--visible,
-.js-calc-top-bar-component .filter-container__content-dropdown--visible {
+.top-bar-component .list-sort-filter-container__content-dropdown--visible,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown--visible {
   visibility: visible;
 }
-.top-bar-component .filter-container__content-dropdown__content,
-.js-calc-top-bar-component .filter-container__content-dropdown__content {
+.top-bar-component .list-sort-filter-container__content-dropdown__filter-content,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content {
   float: left;
-  margin: 15px 0px 5px 20px;
+  margin: 13px 0 0 20px;
   text-align: center;
   font-size: 14px;
 }
-.top-bar-component .filter-container__content-dropdown__content--right,
-.js-calc-top-bar-component .filter-container__content-dropdown__content--right {
+.top-bar-component .list-sort-filter-container__content-dropdown__filter-content--right,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content--right {
   float: right;
-  margin: 15px 20px 5px 0px;
+  margin: 13px 20px 0 0;
 }
-.top-bar-component .filter-container__content-dropdown__content__title,
-.js-calc-top-bar-component .filter-container__content-dropdown__content__title {
+.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__title,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__title {
   display: block;
   margin: 2px 0px 5px 0px;
   border-bottom: 1px solid gray;
   padding-bottom: 3px;
   font-weight: bold;
 }
-.top-bar-component .filter-container__content-dropdown__content__block,
-.js-calc-top-bar-component .filter-container__content-dropdown__content__block {
+.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block {
   text-align: left;
 }
-.top-bar-component .filter-container__content-dropdown__content__block__checkbox,
-.top-bar-component .filter-container__content-dropdown__content__block__label,
-.js-calc-top-bar-component .filter-container__content-dropdown__content__block__checkbox,
-.js-calc-top-bar-component .filter-container__content-dropdown__content__block__label {
+.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__checkbox,
+.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__checkbox,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label {
   margin: 5px 3px 5px 3px;
 }
-.top-bar-component .filter-container__content-dropdown__content__block__label--active,
-.js-calc-top-bar-component .filter-container__content-dropdown__content__block__label--active {
+.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active,
+.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active {
   color: #ae00ff;
 }
 .top-bar-component .item-options-container,
@@ -2239,8 +2268,8 @@ dropdown can overlap all other components
   border: 3px solid black;
   border-radius: 5px 0 5px 5px;
   background-color: white;
-  height: 200px;
-  width: 280px;
+  height: 190px;
+  width: 260px;
   cursor: default;
   visibility: hidden;
 }
@@ -2255,14 +2284,14 @@ dropdown can overlap all other components
 .search-filter-sort-component .filter-area-container__content-dropdown__content,
 .js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content {
   float: left;
-  margin: 15px 0px 5px 20px;
+  margin: 13px 0 0 20px;
   text-align: center;
   font-size: 14px;
 }
 .search-filter-sort-component .filter-area-container__content-dropdown__content--right,
 .js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content--right {
   float: right;
-  margin: 15px 20px 5px 0px;
+  margin: 13px 20px 0 0;
 }
 .search-filter-sort-component .filter-area-container__content-dropdown__content__title,
 .js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content__title {
@@ -2425,6 +2454,11 @@ dropdown can overlap all other components
   cursor: default;
   pointer-events: none;
 }
+.list-table-component .list-table__header__sort-arrow-container,
+.js-calc-list-table-component .list-table__header__sort-arrow-container {
+  display: inline-block;
+  margin-left: 5px;
+}
 .list-table-component .list-table__data,
 .js-calc-list-table-component .list-table__data {
   border-bottom: 1px solid #919191;
@@ -2504,11 +2538,10 @@ dropdown can overlap all other components
   overflow-x: hidden !important;
 }
 
-.sort-arrows {
+.sort-arrow {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
-  margin-left: 8px;
   cursor: pointer;
 }
 

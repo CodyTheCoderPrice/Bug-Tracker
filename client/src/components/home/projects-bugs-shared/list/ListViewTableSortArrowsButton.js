@@ -13,7 +13,8 @@ export default function ListViewTableSortArrowsButton(props) {
 
 	const changeSorting = () => {
 		if (
-			reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !== props.sortTypeId
+			reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !==
+			props.sortTypeId
 		) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(props.reduxContainerName, {
@@ -26,8 +27,8 @@ export default function ListViewTableSortArrowsButton(props) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(props.reduxContainerName, {
 					...reduxState[props.reduxContainerName].searchFilterSort,
-					sortByAscending: !reduxState[props.reduxContainerName].searchFilterSort
-						.sortByAscending,
+					sortByAscending: !reduxState[props.reduxContainerName]
+						.searchFilterSort.sortByAscending,
 				})
 			);
 		}
@@ -35,11 +36,13 @@ export default function ListViewTableSortArrowsButton(props) {
 
 	return (
 		<img
-			className="sort-arrows"
+			className="sort-arrow"
 			src={
-				reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !== props.sortTypeId
+				reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !==
+				props.sortTypeId
 					? sortArrowsBothEmpty
-					: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
+					: reduxState[props.reduxContainerName].searchFilterSort
+							.sortByAscending
 					? sortArrowsTopFilled
 					: sortArrowsBottomFilled
 			}
@@ -47,11 +50,13 @@ export default function ListViewTableSortArrowsButton(props) {
 				(reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !==
 				props.sortTypeId
 					? "No"
-					: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
+					: reduxState[props.reduxContainerName].searchFilterSort
+							.sortByAscending
 					? "Ascending"
 					: "Descending") +
 				" sorting for " +
-				props.sortFor + " column."
+				props.sortFor +
+				" column."
 			}
 			onClick={changeSorting}
 		/>

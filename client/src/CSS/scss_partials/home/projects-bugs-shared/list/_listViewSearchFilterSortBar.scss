@@ -142,7 +142,7 @@
 		border-radius: v.$search-top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$search-filter-sort-bar-button-height;
-		width: v.$filter-button-width;
+		width: v.$search-top-bar-filter-button-width;
 		font-size: v.$search-filter-sort-bar-button-font-size;
 		text-align: center;
 		cursor: pointer;
@@ -161,7 +161,7 @@
 		// Used horizontal-center since resize would move the text
 		@include m.horizontal-center();
 		top: 4px;
-		width: v.$filter-button-width;
+		width: v.$search-top-bar-filter-button-width;
 	}
 
 	.filter-area-container__button__text--active {
@@ -179,7 +179,7 @@
 		border-radius: v.$search-top-bar-buttton-border-radius 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$filter-dropdown-content-container-height;
-		width: v.$filter-dropdown-content-container-width;
+		width: v.$search-top-bar-filter-dropdown-content-container-width;
 		cursor: default;
 		// Made visible using JS
 		visibility: hidden;
@@ -195,14 +195,14 @@
 
 	.filter-area-container__content-dropdown__content {
 		float: left;
-		margin: 15px 0px 5px 20px;
+		margin: v.$search-top-bar-filter-button-dropdown-title-margin-top 0 0 v.$search-top-bar-filter-button-dropdown-title-margin-on-one-side;
 		text-align: center;
 		font-size: v.$filter-dropdown-content-font-size;
 	}
 
 	.filter-area-container__content-dropdown__content--right {
 		float: right;
-		margin: 15px 20px 5px 0px;
+		margin: v.$search-top-bar-filter-button-dropdown-title-margin-top v.$search-top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
 	}
 
 	.filter-area-container__content-dropdown__content__title {

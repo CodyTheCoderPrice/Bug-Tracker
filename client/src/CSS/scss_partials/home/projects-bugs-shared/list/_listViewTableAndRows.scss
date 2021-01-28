@@ -83,6 +83,11 @@
 		pointer-events: none;
 	}
 
+	.list-table__header__sort-arrow-container {
+		display: inline-block;
+		margin-left: 5px;
+	}
+
 	.list-table__data {
 		@include m.border-line();
 

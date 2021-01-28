@@ -1,11 +1,11 @@
 import { dateToInt } from "./index";
 
-export function searchFilterSort(projectsOrBugsArray, state) {
-	// Functions are nest inside so they do not need to be passed the state
+export function searchFilterSort(projectsOrBugsArray, passedReduxState) {
+	// Functions are nest inside so they do not need to be passed the passedReduxState
 	const search = (projectsOrBugsArray) => {
 		// Makes sure searchKeyWordString contains not just white spaces
-		if (/\S/.test(state.searchKeyWordString)) {
-			const keyWords = state.searchKeyWordString.toLowerCase().split(/\s+/);
+		if (/\S/.test(passedReduxState.searchKeyWordString)) {
+			const keyWords = passedReduxState.searchKeyWordString.toLowerCase().split(/\s+/);
 			// eslint-disable-next-line
 			return projectsOrBugsArray.filter((projectOrBug) => {
 				for (let word of keyWords) {
@@ -22,15 +22,15 @@ export function searchFilterSort(projectsOrBugsArray, state) {
 	const filter = (projectsOrBugsArray) => {
 		return projectsOrBugsArray.filter((projectOrBug) => {
 			return (
-				!state.priorityFilter.includes(projectOrBug.priority_id) &&
-				!state.statusFilter.includes(projectOrBug.status_id)
+				!passedReduxState.priorityFilter.includes(projectOrBug.priority_id) &&
+				!passedReduxState.statusFilter.includes(projectOrBug.status_id)
 			);
 		});
 	};
 
 	const sort = (projectsOrBugsArray) => {
-		if (state.sortByAscending) {
-			switch (state.sortByTypeId) {
+		if (passedReduxState.sortByAscending) {
+			switch (passedReduxState.sortByTypeId) {
 				case 1:
 					return projectsOrBugsArray.sort((a, b) => {
 						return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
@@ -60,7 +60,7 @@ export function searchFilterSort(projectsOrBugsArray, state) {
 					return projectsOrBugsArray;
 			}
 		} else {
-			switch (state.sortByTypeId) {
+			switch (passedReduxState.sortByTypeId) {
 				case 1:
 					return projectsOrBugsArray.sort((a, b) => {
 						return b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1;

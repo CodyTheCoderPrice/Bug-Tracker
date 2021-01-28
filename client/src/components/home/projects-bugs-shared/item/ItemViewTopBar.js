@@ -22,6 +22,8 @@ import {
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
 
+import ListTableSortArrowsButton from "../list/ListViewTableSortArrowsButton";
+
 export default function ItemViewTopBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -30,12 +32,13 @@ export default function ItemViewTopBar(props) {
 		reduxState[props.reduxContainerName].searchFilterSort.searchKeyWordString
 	);
 
+	const [showSortDropdown, setShowSortDropdown] = useState(false);
 	const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
 	useSearchBarBorderEventListener(
 		"js-item-search-bar",
 		"js-item-search-button",
-		"search-bar-and-button-thick-border",
+		"search-bar-and-button-thick-border"
 	);
 
 	const onChangeSearchBar = (e) => {
@@ -57,8 +60,26 @@ export default function ItemViewTopBar(props) {
 		}
 	};
 
+	const toggleSortDropdown = () => {
+		setShowFilterDropdown(false);
+		setShowSortDropdown(!showSortDropdown);
+	};
+
 	const toggleFilterDropdown = () => {
+		setShowSortDropdown(false);
 		setShowFilterDropdown(!showFilterDropdown);
+	};
+
+	const toggleOptionsDropdown = () => {
+		setShowFilterDropdown(false);
+		setShowSortDropdown(false);
+		dispatch(
+			setWhichGeneralComponentsDisplay({
+				...reduxState[GENERAL_CONTAINER].componentsDisplay,
+				itemViewTopBarOptionsDropdown: !reduxState[GENERAL_CONTAINER]
+					.componentsDisplay.itemViewTopBarOptionsDropdown,
+			})
+		);
 	};
 
 	const onChangeFilter = (e) => {
@@ -78,16 +99,6 @@ export default function ItemViewTopBar(props) {
 			setProjectOrBugSearchFilterSort(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].searchFilterSort,
 				[e.target.name]: deepCopyFilterArray,
-			})
-		);
-	};
-
-	const toggleOptionsDropdown = () => {
-		dispatch(
-			setWhichGeneralComponentsDisplay({
-				...reduxState[GENERAL_CONTAINER].componentsDisplay,
-				itemViewTopBarOptionsDropdown: !reduxState[GENERAL_CONTAINER]
-					.componentsDisplay.itemViewTopBarOptionsDropdown,
 			})
 		);
 	};
@@ -135,9 +146,11 @@ export default function ItemViewTopBar(props) {
 					"outer-search-container" +
 					getProjectOrBugBorderColorClassNameLight(props.reduxContainerName) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay
-						.itemViewListSidebar
-						? " "
-						: " outer-search-container--invisible")
+						.itemViewListSidebar !== true ||
+						(reduxState[SIZE_CONTAINER].variables.window !== null &&
+						reduxState[SIZE_CONTAINER].variables.window.width < 390
+							? " outer-search-container--invisible"
+							: ""))
 				}
 			>
 				<input
@@ -161,130 +174,245 @@ export default function ItemViewTopBar(props) {
 					onClick={updateSearchKeyWordString}
 				>
 					<span className="outer-search-container__search-bar-button__icon">
-						<i className="fa fa-search" aria-hidden="true" alt="Icon of a magnifying glass"/>
+						<i
+							className="fa fa-search"
+							aria-hidden="true"
+							alt="Icon of a magnifying glass"
+						/>
 					</span>
 				</div>
 			</div>
-			{reduxState[GENERAL_CONTAINER].componentsDisplay
-				.itemViewListSidebar !== true ||
+			{reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar !==
+				true ||
 			(reduxState[SIZE_CONTAINER].variables.window !== null &&
-				reduxState[SIZE_CONTAINER].variables.window.width < 500) ? null : (
-				<div className="filter-container">
-					<div
-						className={
-							"filter-container__button" +
-							(showFilterDropdown ? " filter-container__button--clicked" : "")
-						}
-						onClick={toggleFilterDropdown}
-					>
-						<span
+				reduxState[SIZE_CONTAINER].variables.window.width < 590) ? null : (
+				<div>
+					<div className="list-sort-filter-container">
+						<div
 							className={
-								"filter-container__button__text" +
-								(reduxState[props.reduxContainerName].searchFilterSort
-									.priorityFilter.length > 0 ||
-								reduxState[props.reduxContainerName].searchFilterSort
-									.statusFilter.length > 0
-									? " filter-container__button__text--active"
+								"list-sort-filter-container__button" +
+								(showSortDropdown
+									? " list-sort-filter-container__button--clicked"
+									: "")
+							}
+							onClick={toggleSortDropdown}
+						>
+							<span className={"list-sort-filter-container__button__text"}>
+								<i
+									className="fa fa-sort"
+									aria-hidden="true"
+									alt="Icon representing sorting"
+								/>{" "}
+								Sort
+							</span>
+						</div>
+						<div
+							className={
+								"list-sort-filter-container__content-dropdown" +
+								(showSortDropdown
+									? " list-sort-filter-container__content-dropdown--visible"
 									: "")
 							}
 						>
-							<i className="fa fa-filter" aria-hidden="true" alt="Icon of a filter"/> Filter
-						</span>
-					</div>
-					<div
-						className={
-							"filter-container__content-dropdown" +
-							(props.reduxContainerName === BUG_CONTAINER
-								? " filter-container__content-dropdown--shorter"
-								: "") +
-							(showFilterDropdown
-								? " filter-container__content-dropdown--visible"
-								: "")
-						}
-					>
-						<div className="filter-container__content-dropdown__content">
-							<span className="filter-container__content-dropdown__content__title">
-								Priority
-							</span>
-							{reduxState[
-								props.reduxContainerName
-							].priorityStatusOptions.priorityList.map((obj, i) => {
-								return (
-									<div
-										key={i}
-										className="filter-container__content-dropdown__content__block"
-									>
-										<input
-											type="checkbox"
-											name="priorityFilter"
-											value={obj.id}
-											onChange={(e) => onChangeFilter(e)}
-											checked={
-												!reduxState[
-													props.reduxContainerName
-												].searchFilterSort.priorityFilter.includes(obj.id)
-											}
-											id={"list-priority-filter-" + obj.id}
-											className="filter-container__content-dropdown__content__block__checkbox"
-										/>
-										<label
-											htmlFor={"list-priority-filter-" + obj.id}
-											className={
-												"filter-container__content-dropdown__content__block__label" +
-												(reduxState[
-													props.reduxContainerName
-												].searchFilterSort.priorityFilter.includes(obj.id)
-													? " filter-container__content-dropdown__content__block__label--active"
-													: "")
-											}
-										>
-											{obj.option !== "" ? obj.option : "Not Assigned"}
-										</label>
-									</div>
-								);
-							})}
+							<div className="list-sort-filter-container__content-dropdown__sort-content-block list-sort-filter-container__content-dropdown__sort-content-block--larger-top-margin">
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<ListTableSortArrowsButton
+										sortTypeId={1}
+										sortFor="Name"
+										reduxContainerName={props.reduxContainerName}
+									/>
+								</span>
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
+									Name
+								</span>
+							</div>
+							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<ListTableSortArrowsButton
+										sortTypeId={2}
+										sortFor="Status"
+										reduxContainerName={props.reduxContainerName}
+									/>
+								</span>
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
+									Status
+								</span>
+							</div>
+							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<ListTableSortArrowsButton
+										sortTypeId={3}
+										sortFor="Priority"
+										reduxContainerName={props.reduxContainerName}
+									/>
+								</span>
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
+									Priority
+								</span>
+							</div>
+							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<ListTableSortArrowsButton
+										sortTypeId={4}
+										sortFor="Created on"
+										reduxContainerName={props.reduxContainerName}
+									/>
+								</span>
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
+									Created on
+								</span>
+							</div>
+							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<ListTableSortArrowsButton
+										sortTypeId={5}
+										sortFor="Start Date"
+										reduxContainerName={props.reduxContainerName}
+									/>
+								</span>
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
+									Start Date
+								</span>
+							</div>
+							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<ListTableSortArrowsButton
+										sortTypeId={6}
+										sortFor="Due Date"
+										reduxContainerName={props.reduxContainerName}
+									/>
+								</span>
+								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
+									Due Date
+								</span>
+							</div>
 						</div>
-						<div className="filter-container__content-dropdown__content filter-container__content-dropdown__content--right">
-							<span className="filter-container__content-dropdown__content__title">
-								Status
+					</div>
+
+					<div className="list-sort-filter-container list-sort-filter-container--filter-placement">
+						<div
+							className={
+								"list-sort-filter-container__button list-sort-filter-container__button--filter-width" +
+								(showFilterDropdown
+									? " list-sort-filter-container__button--clicked"
+									: "")
+							}
+							onClick={toggleFilterDropdown}
+						>
+							<span
+								className={
+									"list-sort-filter-container__button__text list-sort-filter-container__button__text--filter-width" +
+									(reduxState[props.reduxContainerName].searchFilterSort
+										.priorityFilter.length > 0 ||
+									reduxState[props.reduxContainerName].searchFilterSort
+										.statusFilter.length > 0
+										? " list-sort-filter-container__button__text--active"
+										: "")
+								}
+							>
+								<i
+									className="fa fa-filter"
+									aria-hidden="true"
+									alt="Icon of a filter"
+								/>{" "}
+								Filter
 							</span>
-							{reduxState[
-								props.reduxContainerName
-							].priorityStatusOptions.statusList.map((obj, i) => {
-								return (
-									<div
-										key={i}
-										className="filter-container__content-dropdown__content__block"
-									>
-										<input
-											type="checkbox"
-											name="statusFilter"
-											value={obj.id}
-											onChange={(e) => onChangeFilter(e)}
-											checked={
-												!reduxState[
-													props.reduxContainerName
-												].searchFilterSort.statusFilter.includes(obj.id)
-											}
-											id={"list-status-filter-" + obj.id}
-											className="filter-container__content-dropdown__content__block__checkbox"
-										/>
-										<label
-											htmlFor={"list-status-filter-" + obj.id}
-											className={
-												"filter-container__content-dropdown__content__block__label" +
-												(reduxState[
-													props.reduxContainerName
-												].searchFilterSort.statusFilter.includes(obj.id)
-													? " filter-container__content-dropdown__content__block__label--active"
-													: "")
-											}
+						</div>
+						<div
+							className={
+								"list-sort-filter-container__content-dropdown list-sort-filter-container__content-dropdown--filter-width" +
+								(props.reduxContainerName === BUG_CONTAINER
+									? " list-sort-filter-container__content-dropdown--shorter"
+									: "") +
+								(showFilterDropdown
+									? " list-sort-filter-container__content-dropdown--visible"
+									: "")
+							}
+						>
+							<div className="list-sort-filter-container__content-dropdown__filter-content">
+								<span className="list-sort-filter-container__content-dropdown__filter-content__title">
+									Priority
+								</span>
+								{reduxState[
+									props.reduxContainerName
+								].priorityStatusOptions.priorityList.map((obj, i) => {
+									return (
+										<div
+											key={i}
+											className="list-sort-filter-container__content-dropdown__filter-content__block"
 										>
-											{obj.option !== "" ? obj.option : "Not Assigned"}
-										</label>
-									</div>
-								);
-							})}
+											<input
+												type="checkbox"
+												name="priorityFilter"
+												value={obj.id}
+												onChange={(e) => onChangeFilter(e)}
+												checked={
+													!reduxState[
+														props.reduxContainerName
+													].searchFilterSort.priorityFilter.includes(obj.id)
+												}
+												id={"list-priority-filter-" + obj.id}
+												className="list-sort-filter-container__content-dropdown__filter-content__block__checkbox"
+											/>
+											<label
+												htmlFor={"list-priority-filter-" + obj.id}
+												className={
+													"list-sort-filter-container__content-dropdown__filter-content__block__label" +
+													(reduxState[
+														props.reduxContainerName
+													].searchFilterSort.priorityFilter.includes(obj.id)
+														? " list-sort-filter-container__content-dropdown__filter-content__block__label--active"
+														: "")
+												}
+											>
+												{obj.option !== "" ? obj.option : "Not Assigned"}
+											</label>
+										</div>
+									);
+								})}
+							</div>
+							<div className="list-sort-filter-container__content-dropdown__filter-content list-sort-filter-container__content-dropdown__filter-content--right">
+								<span className="list-sort-filter-container__content-dropdown__filter-content__title">
+									Status
+								</span>
+								{reduxState[
+									props.reduxContainerName
+								].priorityStatusOptions.statusList.map((obj, i) => {
+									return (
+										<div
+											key={i}
+											className="list-sort-filter-container__content-dropdown__filter-content__block"
+										>
+											<input
+												type="checkbox"
+												name="statusFilter"
+												value={obj.id}
+												onChange={(e) => onChangeFilter(e)}
+												checked={
+													!reduxState[
+														props.reduxContainerName
+													].searchFilterSort.statusFilter.includes(obj.id)
+												}
+												id={"list-status-filter-" + obj.id}
+												className="list-sort-filter-container__content-dropdown__filter-content__block__checkbox"
+											/>
+											<label
+												htmlFor={"list-status-filter-" + obj.id}
+												className={
+													"list-sort-filter-container__content-dropdown__filter-content__block__label" +
+													(reduxState[
+														props.reduxContainerName
+													].searchFilterSort.statusFilter.includes(obj.id)
+														? " list-sort-filter-container__content-dropdown__filter-content__block__label--active"
+														: "")
+												}
+											>
+												{obj.option !== "" ? obj.option : "Not Assigned"}
+											</label>
+										</div>
+									);
+								})}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -301,7 +429,11 @@ export default function ItemViewTopBar(props) {
 					onClick={toggleOptionsDropdown}
 				>
 					<span className="item-options-container__button__text">
-						<i className="fa fa-ellipsis-h" aria-hidden="true" alt="Icon of an ellipsis (three dots)"/>
+						<i
+							className="fa fa-ellipsis-h"
+							aria-hidden="true"
+							alt="Icon of an ellipsis (three dots)"
+						/>
 					</span>
 				</div>
 				<div

@@ -29,7 +29,8 @@ export default function ListViewTable(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBarHeight !== null
+			reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBarHeight !==
+				null
 		) {
 			const listTableContainerElement = document.getElementsByClassName(
 				"js-list-table-container"
@@ -153,7 +154,11 @@ export default function ListViewTable(props) {
 									}
 									onClick={checkAllItems}
 								>
-									<i className="fa fa-check-square-o" aria-hidden="true" alt="Icon of a check mark inside a square"/>
+									<i
+										className="fa fa-check-square-o"
+										aria-hidden="true"
+										alt="Icon of a check mark inside a square"
+									/>
 								</div>
 								<div
 									className={
@@ -165,7 +170,11 @@ export default function ListViewTable(props) {
 									}
 									onClick={uncheckAllItems}
 								>
-									<i className="fa fa-square-o" aria-hidden="true" alt="Icon of an empty square"/>
+									<i
+										className="fa fa-square-o"
+										aria-hidden="true"
+										alt="Icon of an empty square"
+									/>
 								</div>
 								<div
 									className={
@@ -177,57 +186,73 @@ export default function ListViewTable(props) {
 									}
 									onClick={openMassDeleteItemsModal}
 								>
-									<i className="fa fa-trash-o" aria-hidden="true" alt="Icon of a trash can"/>
+									<i
+										className="fa fa-trash-o"
+										aria-hidden="true"
+										alt="Icon of a trash can"
+									/>
 								</div>
 							</div>
 						</th>
 						<th className="list-table__header js-list-table__header">
 							<span className="list-table__header__span">Name</span>
-							<ListTableSortArrowsButton
-								sortTypeId={1}
-								sortFor="Name"
-								reduxContainerName={props.reduxContainerName}
-							/>
+							<span className="list-table__header__sort-arrow-container">
+								<ListTableSortArrowsButton
+									sortTypeId={1}
+									sortFor="Name"
+									reduxContainerName={props.reduxContainerName}
+								/>
+							</span>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Status</span>
-							<ListTableSortArrowsButton
-								sortTypeId={2}
-								sortFor="Status"
-								reduxContainerName={props.reduxContainerName}
-							/>
+							<span className="list-table__header__sort-arrow-container">
+								<ListTableSortArrowsButton
+									sortTypeId={2}
+									sortFor="Status"
+									reduxContainerName={props.reduxContainerName}
+								/>
+							</span>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Priority</span>
-							<ListTableSortArrowsButton
-								sortTypeId={3}
-								sortFor="Priority"
-								reduxContainerName={props.reduxContainerName}
-							/>
+							<span className="list-table__header__sort-arrow-container">
+								<ListTableSortArrowsButton
+									sortTypeId={3}
+									sortFor="Priority"
+									reduxContainerName={props.reduxContainerName}
+								/>
+							</span>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Created on</span>
-							<ListTableSortArrowsButton
-								sortTypeId={4}
-								sortFor="Created on"
-								reduxContainerName={props.reduxContainerName}
-							/>
+							<span className="list-table__header__sort-arrow-container">
+								<ListTableSortArrowsButton
+									sortTypeId={4}
+									sortFor="Created on"
+									reduxContainerName={props.reduxContainerName}
+								/>
+							</span>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Start Date</span>
-							<ListTableSortArrowsButton
-								sortTypeId={5}
-								sortFor="Start Date"
-								reduxContainerName={props.reduxContainerName}
-							/>
+							<span className="list-table__header__sort-arrow-container">
+								<ListTableSortArrowsButton
+									sortTypeId={5}
+									sortFor="Start Date"
+									reduxContainerName={props.reduxContainerName}
+								/>
+							</span>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">Due Date</span>
-							<ListTableSortArrowsButton
-								sortTypeId={6}
-								sortFor="Due Date"
-								reduxContainerName={props.reduxContainerName}
-							/>
+							<span className="list-table__header__sort-arrow-container">
+								<ListTableSortArrowsButton
+									sortTypeId={6}
+									sortFor="Due Date"
+									reduxContainerName={props.reduxContainerName}
+								/>
+							</span>
 						</th>
 						<th className="list-table__header">
 							<span className="list-table__header__span">
