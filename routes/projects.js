@@ -37,9 +37,9 @@ router
 					due_date,
 					completion_date,
 				} = req.body;
-				const creation_date = moment().format("YYYY-MM-DD");
+				const creation_date = moment.utc().format("YYYY-MM-DD");
 				// Current time in unix/epoch timestamp
-				const last_edited_timestamp = moment().format("X");
+				const last_edited_timestamp = moment.utc().format("X");
 
 				const createdProject = await pool.query(
 					`INSERT INTO project (account_id, name, description, p_priority_id, p_status_id, 
@@ -154,7 +154,7 @@ router
 					completion_date,
 				} = req.body;
 				// Current time in unix/epoch timestamp
-				const last_edited_timestamp = moment().format("X");
+				const last_edited_timestamp = moment.utc().format("X");
 
 				const updatedProject = await pool.query(
 					`UPDATE project SET name = $1, description = $2, p_priority_id = $3, 

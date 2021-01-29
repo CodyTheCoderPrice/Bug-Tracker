@@ -21,9 +21,9 @@ router
 			const { account_id } = req;
 			// Passed in the post body
 			const { project_id, bug_id, description } = req.body;
-			const creation_date = moment().format("YYYY-MM-DD");
+			const creation_date = moment.utc().format("YYYY-MM-DD");
 			// Current time in unix/epoch timestamp
-			const last_edited_timestamp = moment().format("X");
+			const last_edited_timestamp = moment.utc().format("X");
 
 			const bugAndProjectBelongsToAccountCheck = await pool.query(
 				`SELECT * FROM project WHERE account_id = $1 AND project_id IN 
@@ -119,7 +119,7 @@ router
 			// Passed in the post body
 			const { id, project_id, bug_id, description } = req.body;
 			// Current time in unix/epoch timestamp
-			const last_edited_timestamp = moment().format("X");
+			const last_edited_timestamp = moment.utc().format("X");
 
 			const belongsToAccountCheck = await pool.query(
 				`SELECT * FROM project WHERE account_id = $1 AND project_id IN 

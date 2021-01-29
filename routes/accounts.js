@@ -31,9 +31,9 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 
 	try {
 		const { email, password, first_name, last_name } = req.body;
-		const join_date = moment().format("YYYY-MM-DD");
+		const join_date = moment.utc().format("YYYY-MM-DD");
 		// Current time in unix/epoch timestamp
-		const last_edited_timestamp = moment().format("X");
+		const last_edited_timestamp = moment.utc().format("X");
 
 		const activeAccountsForEmail = await pool.query(
 			"SELECT * FROM account WHERE LOWER(email) = LOWER($1)",
@@ -312,7 +312,7 @@ router
 			// Passed in the post body
 			const { first_name, last_name } = req.body;
 			// Current time in unix/epoch timestamp
-			const last_edited_timestamp = moment().format("X");
+			const last_edited_timestamp = moment.utc().format("X");
 
 			const updatedAccount = await pool.query(
 				`UPDATE account SET first_name = $1, last_name = $2, last_edited_timestamp = $3 
@@ -347,7 +347,7 @@ router
 				// Passed in the post body
 				const { email } = req.body;
 				// Current time in unix/epoch timestamp
-				const last_edited_timestamp = moment().format("X");
+				const last_edited_timestamp = moment.utc().format("X");
 
 				// Verify that email does not already exist
 				const activeAccountsForEmail = await pool.query(
@@ -394,7 +394,7 @@ router
 				// Passed in the post body
 				const { newPassword } = req.body;
 				// Current time in unix/epoch timestamp
-				const last_edited_timestamp = moment().format("X");
+				const last_edited_timestamp = moment.utc().format("X");
 
 				bcrypt.genSalt(10, (err, salt) => {
 					bcrypt.hash(newPassword, salt, async (err, hash) => {

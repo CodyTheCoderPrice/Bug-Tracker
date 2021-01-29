@@ -38,9 +38,9 @@ router
 					due_date,
 					completion_date,
 				} = req.body;
-				const creation_date = moment().format("YYYY-MM-DD");
+				const creation_date = moment.utc().format("YYYY-MM-DD");
 				// Current time in unix/epoch timestamp
-				const last_edited_timestamp = moment().format("X");
+				const last_edited_timestamp = moment.utc().format("X");
 
 				const projectBelongsToAccountCheck = await pool.query(
 					`SELECT * FROM project WHERE account_id = $1 AND project_id = $2`,
@@ -169,7 +169,7 @@ router
 					completion_date,
 				} = req.body;
 				// Current time in unix/epoch timestamp
-				const last_edited_timestamp = moment().format("X");
+				const last_edited_timestamp = moment.utc().format("X");
 
 				const projectBelongsToAccountCheck = await pool.query(
 					`SELECT * FROM project WHERE account_id = $1 AND project_id = $2`,

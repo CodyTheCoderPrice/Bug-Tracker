@@ -42,7 +42,7 @@ export default function ListViewCreateItemSidebar(props) {
 		status_id:
 			reduxState[props.reduxContainerName].priorityStatusOptions.statusList[0]
 				.id,
-		start_date: moment().format("YYYY-MM-DD"),
+		start_date: moment.utc().format("YYYY-MM-DD"),
 		due_date: null,
 		completion_date: null,
 	});
