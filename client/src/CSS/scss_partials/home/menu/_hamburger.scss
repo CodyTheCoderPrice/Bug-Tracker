@@ -5,7 +5,7 @@
 .hamburger-container,
 .js-calc-hamburger-container {
 	.blurred-background {
-		// Must be more than navbar-container--increased-z-index in navbar.scss
+		// Must be same as navbar-container--increased-z-index in navbar.scss
 		z-index: 3;
 		position: absolute;
 		top: 0;
@@ -42,7 +42,7 @@
 
 	.hamburger-dropdown {
 		// Must be more than blurred-background
-		z-index: 4;
+		z-index: 5;
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		-moz-box-sizing: border-box; /* Firefox, other Gecko */

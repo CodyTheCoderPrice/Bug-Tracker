@@ -60,22 +60,10 @@
 		width: v.$navbar-breadcrumb-button-arrow-left-width;
 	}
 
-	.breadcrumb-button__end-container__round-border {
-		z-index: 5;
-		position: absolute;
-		top: -(v.$navbar-breadcrumb-border-width);
-		left: -12px;
-		border: v.$navbar-breadcrumb-border-width solid black;
-		border-left: none;
-		border-radius: 0 100% 100% 0;
-		height: v.$navbar-height;
-		width: v.$navbar-breadcrumb-button-arrow-left-width;
-	}
-
 	.breadcrumb-button__end-container__arrow,
 	.js-calc-breadcrumb-button-arrow {
 		// Must have higher z-index than border-arrow below
-		z-index: 4;
+		z-index: 5;
 		position: absolute;
 		top: v.$navbar-breadcrumb-arrow-top;
 		left: v.$navbar-breadcrumb-arrow-left;
@@ -90,7 +78,7 @@
 
 	.breadcrumb-button__end-container__border-arrow {
 		// Must have higher z-index of navbar-button
-		z-index: 3;
+		z-index: 4;
 		position: absolute;
 		top: v.$navbar-breadcrumb-arrow-top;
 		left: v.$navbar-breadcrumb-arrow-left + v.$navbar-breadcrumb-border-width;
@@ -106,8 +94,8 @@
 	.breadcrumb-button__end-container__close-button {
 		@include m.stop-text-selection();
 
-		// Must have higher z-index than botha arrows above
-		z-index: 5;
+		// Must have higher z-index than both arrows above
+		z-index: 6;
 		position: absolute;
 		top: 20px;
 		left: -8px;

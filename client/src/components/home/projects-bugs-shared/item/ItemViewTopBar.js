@@ -147,10 +147,10 @@ export default function ItemViewTopBar(props) {
 					getProjectOrBugBorderColorClassNameLight(props.reduxContainerName) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay
 						.itemViewListSidebar !== true ||
-						(reduxState[SIZE_CONTAINER].variables.window !== null &&
-						reduxState[SIZE_CONTAINER].variables.window.width < 390
-							? " outer-search-container--invisible"
-							: ""))
+					(reduxState[SIZE_CONTAINER].variables.window !== null &&
+						reduxState[SIZE_CONTAINER].variables.window.width < 400)
+						? " outer-search-container--invisible"
+						: "")
 				}
 			>
 				<input
@@ -185,7 +185,7 @@ export default function ItemViewTopBar(props) {
 			{reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar !==
 				true ||
 			(reduxState[SIZE_CONTAINER].variables.window !== null &&
-				reduxState[SIZE_CONTAINER].variables.window.width < 590) ? null : (
+				reduxState[SIZE_CONTAINER].variables.window.width < 602) ? null : (
 				<div>
 					<div className="list-sort-filter-container">
 						<div

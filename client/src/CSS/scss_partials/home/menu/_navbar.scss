@@ -50,6 +50,6 @@ Increases navbar z-index for when the hamburger menu is present so hamburger
 dropdown can overlap all other components
 */
 .navbar-container--increased-z-index {
-	// Must be more than listViewSearchFilterSortBar.scss
-	z-index: 2;
+	// Must be more than listViewSearchFilterSortBar.scss and itemViewTopBar.scss
+	z-index: 3;
 }

@@ -3,7 +3,7 @@
 .account-modals-blurred-background {
 	// Must be more than listViewSearchFilterSortBar.scss,
 	// ...itemViewTopBar.scss, and itemViewSidebarTablesAndRows.scss
-	z-index: 2;
+	z-index: 3;
 	position: fixed;
 	left: 0;
 	top: v.$navbar-height;

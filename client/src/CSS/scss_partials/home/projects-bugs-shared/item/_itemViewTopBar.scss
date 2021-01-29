@@ -3,8 +3,9 @@
 
 .top-bar-component,
 .js-calc-top-bar-component {
-	// Must be more than the item-container in item-container.scss
-	z-index: 1;
+	// Must be more than list-sidebar so item-options-container will display
+	// ...overtop the list-sidebar if the screen gets too small
+	z-index: 2;
 	position: fixed;
 	top: v.$search-filter-sort-and-top-bar-top;
 	border: v.$top-bar-border-width solid black;
