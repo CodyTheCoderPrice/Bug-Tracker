@@ -145,7 +145,8 @@
 
 	.list-sort-filter-container__content-dropdown {
 		position: absolute;
-		top: 52px;
+		// Additional 0.2px to fix border overflow in chrome and edge
+		top: 52.2px;
 		border: 3px solid black;
 		border-radius: 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius;
 		padding: 2px 0 6px 0;

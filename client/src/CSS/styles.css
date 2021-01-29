@@ -1749,7 +1749,7 @@ dropdown can overlap all other components
 .top-bar-component .list-sort-filter-container__content-dropdown,
 .js-calc-top-bar-component .list-sort-filter-container__content-dropdown {
   position: absolute;
-  top: 52px;
+  top: 52.2px;
   border: 3px solid black;
   border-radius: 0 5px 5px 5px;
   padding: 2px 0 6px 0;
@@ -2247,7 +2247,7 @@ dropdown can overlap all other components
 .search-filter-sort-component .filter-area-container__content-dropdown,
 .js-calc-search-filter-sort-component .filter-area-container__content-dropdown {
   position: absolute;
-  top: 52px;
+  top: 52.2px;
   right: 30px;
   border: 3px solid black;
   border-radius: 5px 0 5px 5px;
