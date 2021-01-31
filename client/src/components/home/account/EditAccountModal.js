@@ -17,7 +17,7 @@ export default function EditAccountModal() {
 	const dispatch = useDispatch();
 
 	const closeAccountComponents = () => {
-		dispatch(setWhichAccountComponentsDisplay({}));
+		dispatch(setWhichAccountComponentsDisplay({accountSidebar: true}));
 	};
 
 	return (

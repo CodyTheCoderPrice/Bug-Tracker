@@ -33,7 +33,6 @@ import {
 	calcItemViewPaddingContainerPadding,
 	getCurrentContainerName,
 	getProjectOrBugBackgroundColorClassNameDark,
-	getProjectOrBugBackgroundColorClassNameLight,
 } from "../../../utils";
 
 // Components
