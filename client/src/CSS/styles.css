@@ -379,6 +379,18 @@ dropdown can overlap all other components
   height: 56px;
   width: 20px;
 }
+.breadcrumb-container .breadcrumb-button__end-container__round-border,
+.js-calc-breadcrumb-container .breadcrumb-button__end-container__round-border {
+  z-index: 5;
+  position: absolute;
+  top: -2px;
+  left: -5px;
+  border: 2px solid black;
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  height: 56px;
+  width: 20px;
+}
 .breadcrumb-container .breadcrumb-button__end-container__arrow,
 .breadcrumb-container .js-calc-breadcrumb-button-arrow,
 .js-calc-breadcrumb-container .breadcrumb-button__end-container__arrow,

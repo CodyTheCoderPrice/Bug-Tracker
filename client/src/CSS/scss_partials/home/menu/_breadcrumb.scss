@@ -60,6 +60,18 @@
 		width: v.$navbar-breadcrumb-button-arrow-left-width;
 	}
 
+	.breadcrumb-button__end-container__round-border {
+		z-index: 5;
+		position: absolute;
+		top: -(v.$navbar-breadcrumb-border-width);
+		left: -5px;
+		border: v.$navbar-breadcrumb-border-width solid black;
+		border-left: none;
+		border-radius: 0 v.$navbar-breadcrumb-round-border-radius v.$navbar-breadcrumb-round-border-radius 0;
+		height: v.$navbar-height;
+		width: v.$navbar-breadcrumb-button-arrow-left-width;
+	}
+
 	.breadcrumb-button__end-container__arrow,
 	.js-calc-breadcrumb-button-arrow {
 		// Must have higher z-index than border-arrow below

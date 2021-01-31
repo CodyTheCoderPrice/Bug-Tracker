@@ -155,14 +155,13 @@ export default function NavbarBreadcrumb(props) {
 				<div
 					className={
 						"breadcrumb-button js-breadcrumb-project-list-button" +
-						getProjectOrBugBackgroundColorClassNameDark(
-							getCurrentContainerName(reduxState)
-						) +
 						(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
 							? getProjectOrBugBackgroundColorClassNameLight(
 									getCurrentContainerName(reduxState)
 							  )
-							: "")
+							: getProjectOrBugBackgroundColorClassNameDark(
+									getCurrentContainerName(reduxState)
+							  ))
 					}
 					onClick={() => openProjectsListView(reduxState, dispatch)}
 				>
@@ -185,20 +184,37 @@ export default function NavbarBreadcrumb(props) {
 							)
 						}
 					>
-						<div
-							className={
-								"breadcrumb-button__end-container__arrow" +
-								getProjectOrBugNavbarArrowColorClassNameDark(
-									getCurrentContainerName(reduxState)
-								) +
-								(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-									? getProjectOrBugNavbarArrowColorClassNameLight(
-											getCurrentContainerName(reduxState)
-									  )
-									: "")
-							}
-						/>
-						<div className="breadcrumb-button__end-container__border-arrow" />
+						{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
+						null ? (
+							<div
+								className={
+									"breadcrumb-button__end-container__round-border" +
+									(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+										? getProjectOrBugBackgroundColorClassNameLight(
+												getCurrentContainerName(reduxState)
+										  )
+										: getProjectOrBugBackgroundColorClassNameDark(
+												getCurrentContainerName(reduxState)
+										  ))
+								}
+							/>
+						) : (
+							<div>
+								<div
+									className={
+										"breadcrumb-button__end-container__arrow" +
+										(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+											? getProjectOrBugNavbarArrowColorClassNameLight(
+													getCurrentContainerName(reduxState)
+											  )
+											: getProjectOrBugNavbarArrowColorClassNameDark(
+													getCurrentContainerName(reduxState)
+											  ))
+									}
+								/>
+								<div className="breadcrumb-button__end-container__border-arrow" />
+							</div>
+						)}
 					</div>
 				</div>
 
@@ -208,16 +224,15 @@ export default function NavbarBreadcrumb(props) {
 						<div
 							className={
 								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-project-item-button" +
-								getProjectOrBugBackgroundColorClassNameDark(
-									getCurrentContainerName(reduxState)
-								) +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 									null &&
 								reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
 									? getProjectOrBugBackgroundColorClassNameLight(
 											getCurrentContainerName(reduxState)
 									  )
-									: "")
+									: getProjectOrBugBackgroundColorClassNameDark(
+											getCurrentContainerName(reduxState)
+									  ))
 							}
 							onClick={() => openProjectsItemView(reduxState, dispatch)}
 						>
@@ -241,16 +256,15 @@ export default function NavbarBreadcrumb(props) {
 								<div
 									className={
 										"breadcrumb-button__end-container__arrow" +
-										getProjectOrBugNavbarArrowColorClassNameDark(
-											getCurrentContainerName(reduxState)
-										) +
 										(reduxState[PROJECT_CONTAINER].componentsDisplay
 											.targetItem !== null &&
 										reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
 											? getProjectOrBugNavbarArrowColorClassNameLight(
 													getCurrentContainerName(reduxState)
 											  )
-											: "")
+											: getProjectOrBugNavbarArrowColorClassNameDark(
+													getCurrentContainerName(reduxState)
+											  ))
 									}
 								/>
 								<div className="breadcrumb-button__end-container__border-arrow" />
@@ -265,15 +279,14 @@ export default function NavbarBreadcrumb(props) {
 						<div
 							className={
 								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-list-button" +
-								getProjectOrBugBackgroundColorClassNameDark(
-									getCurrentContainerName(reduxState)
-								) +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 									null && reduxState[BUG_CONTAINER].componentsDisplay.listView
 									? getProjectOrBugBackgroundColorClassNameLight(
 											getCurrentContainerName(reduxState)
 									  )
-									: "")
+									: getProjectOrBugBackgroundColorClassNameDark(
+											getCurrentContainerName(reduxState)
+									  ))
 							}
 							onClick={() => openBugsListView(reduxState, dispatch)}
 						>
@@ -296,22 +309,39 @@ export default function NavbarBreadcrumb(props) {
 									)
 								}
 							>
-								<div
-									className={
-										"breadcrumb-button__end-container__arrow" +
-										getProjectOrBugNavbarArrowColorClassNameDark(
-											getCurrentContainerName(reduxState)
-										) +
-										(reduxState[PROJECT_CONTAINER].componentsDisplay
-											.targetItem !== null &&
-										reduxState[BUG_CONTAINER].componentsDisplay.listView
-											? getProjectOrBugNavbarArrowColorClassNameLight(
-													getCurrentContainerName(reduxState)
-											  )
-											: "")
-									}
-								/>
-								<div className="breadcrumb-button__end-container__border-arrow" />
+								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
+								null ? (
+									<div
+										className={
+											"breadcrumb-button__end-container__round-border" +
+											(reduxState[BUG_CONTAINER].componentsDisplay.listView
+												? getProjectOrBugBackgroundColorClassNameLight(
+														getCurrentContainerName(reduxState)
+												  )
+												: getProjectOrBugBackgroundColorClassNameDark(
+														getCurrentContainerName(reduxState)
+												  ))
+										}
+									/>
+								) : (
+									<div>
+										<div
+											className={
+												"breadcrumb-button__end-container__arrow" +
+												(reduxState[PROJECT_CONTAINER].componentsDisplay
+													.targetItem !== null &&
+												reduxState[BUG_CONTAINER].componentsDisplay.listView
+													? getProjectOrBugNavbarArrowColorClassNameLight(
+															getCurrentContainerName(reduxState)
+													  )
+													: getProjectOrBugNavbarArrowColorClassNameDark(
+															getCurrentContainerName(reduxState)
+													  ))
+											}
+										/>
+										<div className="breadcrumb-button__end-container__border-arrow" />
+									</div>
+								)}
 							</div>
 						</div>
 
@@ -320,16 +350,15 @@ export default function NavbarBreadcrumb(props) {
 							<div
 								className={
 									"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-item-button" +
-									getProjectOrBugBackgroundColorClassNameDark(
-										getCurrentContainerName(reduxState)
-									) +
 									(reduxState[PROJECT_CONTAINER].componentsDisplay
 										.targetItem !== null &&
 									reduxState[BUG_CONTAINER].componentsDisplay.itemView
 										? getProjectOrBugBackgroundColorClassNameLight(
 												getCurrentContainerName(reduxState)
 										  )
-										: "")
+										: getProjectOrBugBackgroundColorClassNameDark(
+												getCurrentContainerName(reduxState)
+										  ))
 								}
 								onClick={() => openBugsItemView(reduxState, dispatch)}
 							>
@@ -349,20 +378,16 @@ export default function NavbarBreadcrumb(props) {
 								>
 									<div
 										className={
-											"breadcrumb-button__end-container__arrow" +
-											getProjectOrBugNavbarArrowColorClassNameDark(
-												getCurrentContainerName(reduxState)
-											) +
-											(reduxState[PROJECT_CONTAINER].componentsDisplay
-												.targetItem !== null &&
-											reduxState[BUG_CONTAINER].componentsDisplay.itemView
-												? getProjectOrBugNavbarArrowColorClassNameLight(
+											"breadcrumb-button__end-container__round-border" +
+											(reduxState[BUG_CONTAINER].componentsDisplay.itemView
+												? getProjectOrBugBackgroundColorClassNameLight(
 														getCurrentContainerName(reduxState)
 												  )
-												: "")
+												: getProjectOrBugBackgroundColorClassNameDark(
+														getCurrentContainerName(reduxState)
+												  ))
 										}
-									></div>
-									<div className="breadcrumb-button__end-container__border-arrow" />
+									/>
 									<i
 										className="fa fa-times breadcrumb-button__end-container__close-button"
 										aria-hidden="true"
