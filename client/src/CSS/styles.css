@@ -1947,7 +1947,7 @@ dropdown can overlap all other components
   margin-bottom: 20px;
   border: 3px solid black;
   border-width: 2px 3px 3px 0;
-  border-radius: 0 0 25px 0;
+  border-radius: 0 25px 25px 0;
   background-color: white;
   height: 700px;
   width: 500px;

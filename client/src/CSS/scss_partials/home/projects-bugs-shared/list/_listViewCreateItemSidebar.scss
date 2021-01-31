@@ -22,7 +22,7 @@
 		margin-bottom: 20px;
 		border: v.$base-sidebar-border-width solid black;
 		border-width: v.$base-sidebar-border-width - 1 v.$base-sidebar-border-width v.$base-sidebar-border-width 0;
-		border-radius: 0 0 v.$base-sidebar-border-radius 0;
+		border-radius: 0 v.$base-sidebar-border-radius v.$base-sidebar-border-radius 0;
 		background-color: white;
 		height: v.$create-item-sidebar-height;
 		width: v.$create-item-sidebar-width;
