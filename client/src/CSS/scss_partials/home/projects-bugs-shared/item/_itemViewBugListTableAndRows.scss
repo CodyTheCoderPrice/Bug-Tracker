@@ -34,15 +34,6 @@
 		text-overflow: ellipsis;
 	}
 
-	.bug-list-table__data__overflow-container--project-color {
-		color: v.$blue-link;
-	}
-
-	.bug-list-table__data__overflow-container--bug-color {
-		color: v.$red-link;
-		color: v.$blue-link;
-	}
-
 	.bug-list-table__data__overflow-container--completed-color {
 		color: v.$status-green;
 	}

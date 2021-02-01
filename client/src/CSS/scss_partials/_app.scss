@@ -29,20 +29,20 @@ body {
 	}
 	.js-set-project-background-color-light {
 		//background-color: v.$blue-teal !important;
-		background-color: v.$light-navy-blue !important;
+		background-color: v.$lighter-navy-blue !important;
 	}
 	.js-set-bug-background-color-dark {
 		background-color: v.$darker-navy-blue !important;
 	}
 	.js-set-bug-background-color-light {
-		background-color: v.$light-navy-blue !important;
+		background-color: v.$lighter-navy-blue !important;
 	}
 
 	// Hover background colors
 	// Standard background colors
 	.js-set-project-background-color-with-hover {
 		//background-color: v.$blue-teal !important;
-		background-color: v.$light-navy-blue !important;
+		background-color: v.$lighter-navy-blue !important;
 
 		&:hover,
 		&:active {
@@ -51,7 +51,7 @@ body {
 		}
 	}
 	.js-set-bug-background-color-with-hover {
-		background-color: v.$light-navy-blue !important;
+		background-color: v.$lighter-navy-blue !important;
 
 		&:hover,
 		&:active {
@@ -66,13 +66,13 @@ body {
 	}
 	.js-set-project-navbar-arrow-color-light {
 		//border-left-color: v.$blue-teal !important;
-		border-left-color: v.$light-navy-blue !important;
+		border-left-color: v.$lighter-navy-blue !important;
 	}
 	.js-set-bug-navbar-arrow-color-dark {
 		border-left-color: v.$darker-navy-blue !important;
 	}
 	.js-set-bug-navbar-arrow-color-light {
-		border-left-color: v.$light-navy-blue !important;
+		border-left-color: v.$lighter-navy-blue !important;
 	}
 
 	// Border colors
@@ -82,22 +82,22 @@ body {
 	}
 	.js-set-project-border-color-light {
 		//border-color: v.$blue-teal !important;
-		border-color: v.$light-navy-blue !important;
+		border-color: v.$lighter-navy-blue !important;
 	}
 	.js-set-bug-border-color-dark {
 		border-color: v.$darker-navy-blue !important;
 	}
 	.js-set-bug-border-color-light {
-		border-color: v.$light-navy-blue !important;
+		border-color: v.$lighter-navy-blue !important;
 	}
 
 	// Text and link color
 	.js-set-project-text-color {
-		//color: v.$teal-link !important;
-		color: v.$blue-link !important;
+		//color: v.$teal-text !important;
+		color: v.$blue-text !important;
 	}
 	.js-set-bug-text-color {
-		color: v.$blue-link !important;
+		color: v.$blue-text !important;
 	}
 
 	// Used for changing the background color of status-boxes

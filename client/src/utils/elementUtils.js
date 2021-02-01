@@ -9,6 +9,14 @@ export function displayGrayedOutNoneIfEmpty(itemValue) {
 	}
 }
 
+export function displayGrayedOutMessageIfEmpty(itemValue, message) {
+	if (isEmpty(itemValue)) {
+		return <span className="grayed-out-none">{message}</span>;
+	} else {
+		return itemValue;
+	}
+}
+
 export function populateComboBox(
 	comboBoxElement,
 	populateList,

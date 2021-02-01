@@ -8,6 +8,7 @@ import {
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	formatDateMMddYYYY,
+	displayGrayedOutMessageIfEmpty,
 	displayGrayedOutNoneIfEmpty,
 	getProjectOrBugTextColorClassName,
 } from "../../../../utils";
@@ -95,8 +96,8 @@ export default function ItemViewDisplayItemInfo(props) {
 						</h2>
 						<span className="item-box__description">
 							{
-								reduxState[props.reduxContainerName].componentsDisplay
-									.targetItem.description
+								displayGrayedOutMessageIfEmpty(reduxState[props.reduxContainerName].componentsDisplay
+									.targetItem.description, "Description Is Empty.")
 							}
 						</span>
 					</div>
