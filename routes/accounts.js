@@ -55,7 +55,8 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 				try {
 					const newAccount = await pool.query(
 						`INSERT INTO account (email, hash_pass, first_name, last_name, join_date, last_edited_timestamp)
-								VALUES($1, $2, $3, $4, $5, $6)`,
+								VALUES($1, $2, $3, $4, $5, $6)
+									RETURNING account_id`,
 						[
 							email,
 							hash,
@@ -66,10 +67,29 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 						]
 					);
 
+					const defaultTheme = await pool.query(
+						"SELECT theme_id FROM theme WHERE marks_default = true"
+					);
+					const defaultThemeID =
+						defaultTheme.rows.length > 0 ? defaultTheme.rows[0].theme_id : 1;
+
+					const newSetting = await pool.query(
+						`INSERT INTO setting (account_id, default_display_completed_items, dark_mode, theme_id, last_edited_timestamp)
+								VALUES($1, $2, $3, $4, $5)`,
+						[
+							newAccount.rows[0].account_id,
+							true,
+							false,
+							defaultThemeID,
+							last_edited_timestamp,
+						]
+					);
+
 					return res.json({ success: true, message: "Account created" });
 				} catch (err) {
 					console.error(err.message);
-					backendErrors.serverAccount = "Server error while registering account";
+					backendErrors.serverAccount =
+						"Server error while registering account";
 					return res.status(500).json({ success: false, backendErrors });
 				}
 			});
@@ -370,7 +390,8 @@ router
 				return res.json({ success: true, account: updatedAccount.rows[0] });
 			} catch (err) {
 				console.error(err.message);
-				backendErrors.serverAccount = "Server error while updating account email";
+				backendErrors.serverAccount =
+					"Server error while updating account email";
 				return res.status(500).json({ success: false, backendErrors });
 			}
 		}
