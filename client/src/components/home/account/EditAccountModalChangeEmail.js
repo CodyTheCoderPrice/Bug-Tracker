@@ -22,7 +22,7 @@ export default function EditAccountModalChangeEmail() {
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		email: reduxState[ACCOUNT_CONTAINER].info.email,
+		email: reduxState[ACCOUNT_CONTAINER].accountInfo.email,
 		currentPassword: "",
 	});
 

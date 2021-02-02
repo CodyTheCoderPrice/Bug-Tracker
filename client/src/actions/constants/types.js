@@ -12,6 +12,8 @@ export const SET_PRIORITY_STATUS = "SET_PRIORITY_STATUS";
 // Accounts
 export const SET_AUTHENTICATION = "SET_AUTHENTICATION";
 export const SET_ACCOUNT = "SET_ACCOUNT";
+export const SET_ACCOUNT_SETTINGS = "SET_ACCOUNT_SETTINGS";
+export const SET_ACCOUNT_SETTING_THEMES = "SET_ACCOUNT_SETTING_THEMES";
 // Projects/Bugs list
 export const SET_LIST = "SET_LIST";
 // Comments

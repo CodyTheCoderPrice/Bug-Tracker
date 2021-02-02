@@ -22,8 +22,8 @@ export default function EditAccountModalChangeInfo() {
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		first_name: reduxState[ACCOUNT_CONTAINER].info.first_name,
-		last_name: reduxState[ACCOUNT_CONTAINER].info.last_name,
+		first_name: reduxState[ACCOUNT_CONTAINER].accountInfo.first_name,
+		last_name: reduxState[ACCOUNT_CONTAINER].accountInfo.last_name,
 	});
 
 	// clears prior backend errors when closing the component

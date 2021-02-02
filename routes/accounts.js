@@ -138,22 +138,13 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		// Everything for account is pulled here so login is only one http call
 		const {
 			account,
+			accountSettings,
+			accountSettingThemes,
 			priorityStatus,
 			allProjectsForAccount,
 			allBugsForAccount,
 			allCommentsForAccount,
 		} = await getEverythingForAccount(accountIdAndPassword.rows[0].account_id);
-
-		// If any are null, then something went wrong, therefore throw err
-		if (
-			account === null ||
-			priorityStatus === null ||
-			allProjectsForAccount === null ||
-			allBugsForAccount === null ||
-			allCommentsForAccount === null
-		) {
-			throw err;
-		}
 
 		// What the hashed jwToken will contain
 		const tokenPayload = {
@@ -168,11 +159,15 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 				expiresIn: "1d",
 			},
 			(err, jwToken) => {
+				// Don't need to check if values are null first since that is
+				// ...done in getEverythingForAccount
 				return res.json({
 					success: true,
-					jwToken: jwToken,
 					...priorityStatus,
+					jwToken: jwToken,
 					account: account.rows[0],
+					accountSettings: accountSettings.rows[0],
+					accountSettingThemes: accountSettingThemes.rows,
 					projects: allProjectsForAccount.rows,
 					bugs: allBugsForAccount.rows,
 					comments: allCommentsForAccount.rows,
@@ -226,6 +221,94 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 	}
 });
 
+//====================
+//  Retrieve settings
+//====================
+// Abstracted and later exported for reuse inside this and other route files
+async function getAccountSettings(account_id) {
+	try {
+		return await await pool.query(
+			`SELECT setting_id, default_display_completed_items, dark_mode, theme_id, last_edited_timestamp
+				FROM setting 
+				WHERE account_id = $1`,
+			[account_id]
+		);
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router
+	.route("/retrieve-settings")
+	.post(tokenAuthorization, async (req, res) => {
+		let backendErrors = {};
+
+		try {
+			// Declared in the tokenAuthorization middleware
+			const { account_id } = req;
+
+			const accountSettings = await getAccountSettings(account_id);
+
+			// If null, then something went wrong, therefore throw err
+			if (accountSettings === null) {
+				throw err;
+			}
+
+			return res.json({
+				success: true,
+				accountSettings: accountSettings.rows[0],
+			});
+		} catch (err) {
+			console.error(err.message);
+			backendErrors.serverAccount =
+				"Server error while retrieving account settings";
+			return res.status(500).json({ success: false, backendErrors });
+		}
+	});
+
+//==================
+//  Retrieve themes
+//==================
+// Abstracted and later exported for reuse inside this and other route files
+async function getAccountSettingThemes() {
+	try {
+		return await await pool.query(
+			`SELECT theme_id, order_number, color, marks_default
+				FROM theme
+					ORDER BY order_number`
+		);
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router
+	.route("/retrieve-setting-themes")
+	.post(tokenAuthorization, async (req, res) => {
+		let backendErrors = {};
+
+		try {
+			const accountSettingThemes = await getAccountSettingThemes();
+
+			// If null, then something went wrong, therefore throw err
+			if (accountSettingThemes === null) {
+				throw err;
+			}
+
+			return res.json({
+				success: true,
+				accountSettingThemes: accountSettingThemes.rows,
+			});
+		} catch (err) {
+			console.error(err.message);
+			backendErrors.serverAccount =
+				"Server error while retrieving account setting themes";
+			return res.status(500).json({ success: false, backendErrors });
+		}
+	});
+
 //==================================
 //  Retrieve everything for account
 //==================================
@@ -233,6 +316,10 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 async function getEverythingForAccount(account_id) {
 	try {
 		const account = await getAccount(account_id);
+
+		const accountSettings = await getAccountSettings(account_id);
+
+		const accountSettingThemes = await getAccountSettingThemes();
 
 		const priorityStatus = await getPriorityStatus();
 
@@ -251,6 +338,8 @@ async function getEverythingForAccount(account_id) {
 		// If any are null, then something went wrong, therefore throw err
 		if (
 			account === null ||
+			accountSettings === null ||
+			accountSettingThemes === null ||
 			priorityStatus === null ||
 			allProjectsForAccount === null ||
 			allBugsForAccount === null ||
@@ -261,6 +350,8 @@ async function getEverythingForAccount(account_id) {
 
 		return {
 			account: account,
+			accountSettings: accountSettings,
+			accountSettingThemes: accountSettingThemes,
 			priorityStatus: priorityStatus,
 			allProjectsForAccount: allProjectsForAccount,
 			allBugsForAccount: allBugsForAccount,
@@ -283,27 +374,22 @@ router
 
 			const {
 				account,
+				accountSettings,
+				accountSettingThemes,
 				priorityStatus,
 				allProjectsForAccount,
 				allBugsForAccount,
 				allCommentsForAccount,
 			} = await getEverythingForAccount(account_id);
 
-			// If any are null, then something went wrong, therefore throw err
-			if (
-				account === null ||
-				priorityStatus === null ||
-				allProjectsForAccount === null ||
-				allBugsForAccount === null ||
-				allCommentsForAccount === null
-			) {
-				throw err;
-			}
-
+			// Don't need to check if values are null first since that is done
+			// ...in getEverythingForAccount
 			return res.json({
 				success: true,
 				...priorityStatus,
 				account: account.rows[0],
+				accountSettings: accountSettings.rows[0],
+				accountSettingThemes: accountSettingThemes.rows,
 				projects: allProjectsForAccount.rows,
 				bugs: allBugsForAccount.rows,
 				comments: allCommentsForAccount.rows,

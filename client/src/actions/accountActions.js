@@ -4,7 +4,12 @@ import jwt_decode from "jwt-decode";
 // Redux containers
 import { ACCOUNT_CONTAINER } from "./constants/containerNames";
 // Redux types
-import { SET_AUTHENTICATION, SET_ACCOUNT } from "./constants/types";
+import {
+	SET_AUTHENTICATION,
+	SET_ACCOUNT,
+	SET_ACCOUNT_SETTINGS,
+	SET_ACCOUNT_SETTING_THEMES,
+} from "./constants/types";
 // Redux dispatch functions
 import {
 	createHeader,
@@ -46,6 +51,33 @@ export const setAccount = (account) => (dispatch) => {
 };
 
 /**
+ * Sets the account settings inside the account container of the redux state
+ *
+ * @param {JSON} accountSettings - JSON containing the account settings
+ */
+export const setAccountSettings = (accountSettings) => (dispatch) => {
+	dispatch({
+		container: ACCOUNT_CONTAINER,
+		type: SET_ACCOUNT_SETTINGS,
+		accountSettings: accountSettings,
+	});
+};
+
+/**
+ * Sets account setting themes inside the account container of the redux state
+ *
+ * @param {JSON} accountSettingThemes - JSON containing the account setting
+ * themes
+ */
+export const setAccountSettingThemes = (accountSettingThemes) => (dispatch) => {
+	dispatch({
+		container: ACCOUNT_CONTAINER,
+		type: SET_ACCOUNT_SETTING_THEMES,
+		accountSettingThemes: accountSettingThemes,
+	});
+};
+
+/**
  * Calls api/account/register route to register a new account in the database
  * and open the login page
  *
@@ -77,10 +109,12 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 		.post("/api/account/login", accountInfo)
 		.then((res) => {
 			const {
-				jwToken,
 				projectPriorityStatus,
 				bugPriorityStatus,
+				jwToken,
 				account,
+				accountSettings,
+				accountSettingThemes,
 				projects,
 				bugs,
 				comments,
@@ -97,6 +131,8 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setAuthentication(decodedToken));
 			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
 			dispatch(setAccount(account));
+			dispatch(setAccountSettings(accountSettings));
+			dispatch(setAccountSettingThemes(accountSettingThemes));
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
@@ -134,6 +170,53 @@ export const retrieveAccount = () => (dispatch) => {
 };
 
 /**
+ * Calls api/account/retrieve-settings route to retrieve the account settings
+ * from the database and store it in the account container of the redux state
+ */
+export const retrieveAccountSettings = () => (dispatch) => {
+	const header = createHeader();
+	axios
+		.post("/api/account/retrieve-settings", null, header)
+		.then((res) => {
+			const { accountSettings } = res.data;
+			dispatch(setAccountSettings(accountSettings));
+		})
+		.catch((err) => {
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
+
+			if (err.response.data.backendErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
+				dispatch(logoutAccount());
+			}
+		});
+};
+
+/**
+ * Calls api/account/retrieve-setting-themes route to retrieve the account
+ * setting themes from the database and store it in the account container of
+ * the redux state
+ */
+export const retrieveAccountSettingThemes = () => (dispatch) => {
+	const header = createHeader();
+	axios
+		.post("/api/account/retrieve-setting-themes", null, header)
+		.then((res) => {
+			const { accountSettingThemes } = res.data;
+			dispatch(setAccountSettingThemes(accountSettingThemes));
+		})
+		.catch((err) => {
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
+
+			if (err.response.data.backendErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
+				dispatch(logoutAccount());
+			}
+		});
+};
+
+/**
  * Calls api/account/retrieve-everything route to retrieve all account data
  * from the database and store each data set in their corresponding redux
  * state containers
@@ -147,6 +230,8 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 				projectPriorityStatus,
 				bugPriorityStatus,
 				account,
+				accountSettings,
+				accountSettingThemes,
 				projects,
 				bugs,
 				comments,
@@ -154,6 +239,8 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 
 			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
 			dispatch(setAccount(account));
+			dispatch(setAccountSettings(accountSettings));
+			dispatch(setAccountSettingThemes(accountSettingThemes));
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));

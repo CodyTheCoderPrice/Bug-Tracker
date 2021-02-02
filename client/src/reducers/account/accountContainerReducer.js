@@ -1,6 +1,8 @@
 import accountComponentsDisplayReducer from "./accountComponentsDisplayReducer";
 import authReducer from "./authReducer";
 import accountReducer from "./accountReducer";
+import accountSettingsReducer from "./accountSettingsReducer";
+import accountSettingThemesReducer from "./accountSettingThemesReducer";
 
 import { ACCOUNT_CONTAINER } from "../../actions/constants/containerNames";
 import { RESET_CONTAINER } from "../../actions/constants/types";
@@ -10,12 +12,14 @@ const initialState = {
 	// passing 'undefined, {}' causes reducers to return their initial state
 	componentsDisplay: accountComponentsDisplayReducer(undefined, {}),
 	auth: authReducer(undefined, {}),
-	info: accountReducer(undefined, {}),
+	accountInfo: accountReducer(undefined, {}),
+	settings: accountSettingsReducer(undefined, {}),
+	settingThemes: accountSettingThemesReducer(undefined, {}),
 };
 
 /**
  * Used to set JSON for the account container of the redux state
- * 
+ *
  * @param {JSON} state - JSON containing all current data for the account
  * container of the redux state
  * @param {JSON} action - JSON containing a container name and type (used to
@@ -30,8 +34,8 @@ export function accountContainerReducer(state = initialState, action) {
 		case ACCOUNT_CONTAINER:
 			// This if statement is in all container reducers to allow for the
 			// ...resetting of the redux state to default
-			if(action.type === RESET_CONTAINER) {
-				return initialState
+			if (action.type === RESET_CONTAINER) {
+				return initialState;
 			} else {
 				return {
 					componentsDisplay: accountComponentsDisplayReducer(
@@ -39,7 +43,9 @@ export function accountContainerReducer(state = initialState, action) {
 						action
 					),
 					auth: authReducer(state.auth, action),
-					info: accountReducer(state.info, action),
+					accountInfo: accountReducer(state.accountInfo, action),
+					settings: accountSettingsReducer(state.settings, action),
+					settingThemes: accountSettingThemesReducer(state.settingThemes, action),
 				};
 			}
 		default:
