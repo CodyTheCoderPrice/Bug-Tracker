@@ -7,8 +7,37 @@ CREATE TABLE account(
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     join_date DATE,
-	last_edited_timestamp TIMESTAMP
+	last_edited_timestamp BIGINT
 );
+
+CREATE TABLE setting(
+    setting_id SERIAL PRIMARY KEY,
+    account_id INTEGER,
+    default_display_completed_items boolean,
+    dark_mode boolean,
+	theme_id INTEGER,
+	last_edited_timestamp BIGINT,
+	CONSTRAINT fk_account
+    FOREIGN KEY(account_id) 
+	REFERENCES account(account_id)
+	ON DELETE CASCADE,
+	CONSTRAINT fk_theme
+	FOREIGN KEY(theme_id) 
+	REFERENCES theme(theme_id)
+	ON DELETE SET NULL
+);
+
+CREATE TABLE theme(
+	theme_id SERIAL PRIMARY KEY,
+	order_number SMALLINT,
+	color TEXT,
+	marks_default BOOLEAN DEFAULT false
+);
+
+INSERT INTO theme (order_number, color, marks_default)
+	VALUES 
+		(0, 'Navy Blue', true),
+		(1, 'Teal', false);
 
 CREATE TABLE project(
     project_id SERIAL PRIMARY KEY,
@@ -21,7 +50,7 @@ CREATE TABLE project(
 	start_date DATE,
     due_date DATE,
     completion_date DATE,
-	last_edited_timestamp TIMESTAMP,
+	last_edited_timestamp BIGINT,
 	CONSTRAINT fk_account
     FOREIGN KEY(account_id) 
 	REFERENCES account(account_id)
@@ -80,7 +109,7 @@ CREATE TABLE bug(
 	start_date DATE,
     due_date DATE,
     completion_date DATE,
-	last_edited_timestamp TIMESTAMP,
+	last_edited_timestamp BIGINT,
 	CONSTRAINT fk_project
     FOREIGN KEY(project_id) 
 	REFERENCES project(project_id)
@@ -131,7 +160,7 @@ CREATE TABLE comment(
     bug_id INTEGER,
     description TEXT,
 	creation_date DATE,
-	last_edited_timestamp TIMESTAMP,
+	last_edited_timestamp BIGINT,
 	CONSTRAINT fk_bug
     FOREIGN KEY(bug_id) 
 	REFERENCES bug(bug_id)
