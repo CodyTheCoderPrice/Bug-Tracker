@@ -17,8 +17,8 @@
 		border-right: none;
 		border-radius: v.$base-sidebar-border-radius 0 0 v.$base-sidebar-border-radius;
 		background: white;
-		height: 200px;
-		width: v.$account-sidebar-width;
+		height: 250px;
+		width: 370px;
 		text-align: left;
 		font-family: Arial, Helvetica, sans-serif;
 		// Gives sidebar scrolling when content goes beyond height
@@ -28,30 +28,36 @@
 
 	// Used so that the padding does not affect the size of the sidebar-container
 	.padded-container {
-		padding: 20px 10px 10px 15px;
+		padding: 22px 18px 0px;
 	}
 
 	.account-info {
 		display: block;
-		margin-bottom: 8px;
-		font-size: 16px;
+		margin-bottom: v.$account-sidebar-contents-margin-top-bottom;;
+		font-size: 14px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
 	.account-info--large-bold {
-		font-size: 19px;
+		font-size: 18px;
 		font-weight: bold;
 	}
 
+	.dividing-line {
+		margin: 27px 0px;
+		border: solid silver 1px;
+	}
+
 	.account-link-container {
-		margin-top: 30px;
+		margin-top: v.$account-sidebar-contents-margin-top-bottom;;
 	}
 
 	.account-link {
 		display: block;
-		margin-bottom: 8px;
+		margin-bottom: v.$account-sidebar-contents-margin-top-bottom;;
+		font-size: 15px;
 		font-style: bold;
 		text-decoration: none;
 		cursor: pointer;

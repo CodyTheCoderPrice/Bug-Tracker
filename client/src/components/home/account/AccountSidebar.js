@@ -73,9 +73,13 @@ export default function AccountSidebar() {
 							{formatDateMMddYYYY(reduxState[ACCOUNT_CONTAINER].accountInfo.joinDate)}
 						</div>
 					</div>
+					<div className="dividing-line" />
 					<div className={"account-link-container" + getSLinkColor()}>
 						<span onClick={openEditInfoModals} className="account-link">
 							Edit Account
+						</span>
+						<span onClick={openEditInfoModals} className="account-link">
+							Settings
 						</span>
 						<span
 							onClick={(e) => handleLogoutAccount(e)}
@@ -83,12 +87,6 @@ export default function AccountSidebar() {
 						>
 							Logout
 						</span>
-						{/* <span
-							onClick={logReduxState}
-							className={"account-link" + getSLinkColor()}
-						>
-							Console Log Redux State
-						</span> */}
 					</div>
 				</div>
 			</div>
