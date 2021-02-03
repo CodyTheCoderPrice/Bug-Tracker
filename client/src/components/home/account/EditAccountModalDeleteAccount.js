@@ -84,7 +84,7 @@ export default function EditAccountModalDeleteAccount() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.currentPassword}
 					id="delete-account-password"
-					className="form__text-input form__text-input--password"
+					className="form__text-input"
 				/>
 				<span className="form__errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}

@@ -79,7 +79,7 @@ export default function EditAccountModalChangePassword() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.newPassword}
 					id="edit-account-password-new-password"
-					className="form__text-input form__text-input--password"
+					className="form__text-input"
 				/>
 				<span className="form__errors">
 					{
@@ -107,7 +107,7 @@ export default function EditAccountModalChangePassword() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.currentPassword}
 					id="edit-account-password-current-password"
-					className="form__text-input form__text-input--password"
+					className="form__text-input"
 				/>
 				<span className="form__errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}

@@ -133,7 +133,7 @@ export default function Register() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
 						id="register-password"
-						className="form__text-input form__text-input--password"
+						className="form__text-input"
 					/>
 					<span className="form__errors">
 						{
