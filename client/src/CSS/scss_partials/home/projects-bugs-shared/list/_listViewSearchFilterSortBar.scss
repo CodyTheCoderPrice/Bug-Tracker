@@ -51,7 +51,7 @@
 		@include m.dead-center();
 		// This border color should only appear if there was a problem
 		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in home.scss
+		// ...the scss for the colors assigned are in app.scss
 		border: 0px solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius;
 		width: 100%;
@@ -67,7 +67,7 @@
 		outline: none;
 		// This border color should only appear if there was a problem
 		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in home.scss
+		// ...the scss for the colors assigned are in app.scss
 		border: v.$list-search-bar-button-border-width solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius 0 0 v.$search-top-bar-buttton-border-radius;
 		padding: 0px v.$list-item-search-bar-padding 0px v.$list-item-search-bar-padding;
@@ -93,7 +93,7 @@
 		border-radius: 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in home.scss
+		// ...the scss for the colors assigned are in app.scss
 		background-color: black;
 		height: v.$list-item-search-bar-height;
 		width: v.$list-item-search-bar-button-width;

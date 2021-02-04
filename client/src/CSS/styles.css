@@ -25,6 +25,22 @@ body .grayed-out-none {
   color: #808080;
   opacity: 0.7;
 }
+html .js-set-dark-background-color-theme-blue,
+body .js-set-dark-background-color-theme-blue {
+  background-color: #3d5774 !important;
+}
+html .js-set-light-background-color-theme-blue,
+body .js-set-light-background-color-theme-blue {
+  background-color: #4d6e92 !important;
+}
+html .js-set-dark-background-color-theme-teal,
+body .js-set-dark-background-color-theme-teal {
+  background-color: #50798b !important;
+}
+html .js-set-dark-background-color-light-teal,
+body .js-set-dark-background-color-light-teal {
+  background-color: #6691a3 !important;
+}
 html .js-set-project-background-color-dark,
 body .js-set-project-background-color-dark {
   background-color: #3d5774 !important;
@@ -99,64 +115,64 @@ html .js-set-bug-text-color,
 body .js-set-bug-text-color {
   color: #245ba3 !important;
 }
-html .status-box-background-color-gray,
-html .js-calc-status-box-background-color-gray,
-body .status-box-background-color-gray,
-body .js-calc-status-box-background-color-gray {
+html .js-set-status-box-background-color-gray,
+html .js-calc-js-set-status-box-background-color-gray,
+body .js-set-status-box-background-color-gray,
+body .js-calc-js-set-status-box-background-color-gray {
   background-color: #808080 !important;
 }
-html .status-box-background-color-blue,
-html .js-calc-status-box-background-color-blue,
-body .status-box-background-color-blue,
-body .js-calc-status-box-background-color-blue {
+html .js-set-status-box-background-color-blue,
+html .js-calc-js-set-status-box-background-color-blue,
+body .js-set-status-box-background-color-blue,
+body .js-calc-js-set-status-box-background-color-blue {
   background-color: #568dd5 !important;
 }
-html .status-box-background-color-purple,
-html .js-calc-status-box-background-color-purple,
-body .status-box-background-color-purple,
-body .js-calc-status-box-background-color-purple {
+html .js-set-status-box-background-color-purple,
+html .js-calc-js-set-status-box-background-color-purple,
+body .js-set-status-box-background-color-purple,
+body .js-calc-js-set-status-box-background-color-purple {
   background-color: #9680ce !important;
 }
-html .status-box-background-color-orange,
-html .js-calc-status-box-background-color-orange,
-body .status-box-background-color-orange,
-body .js-calc-status-box-background-color-orange {
+html .js-set-status-box-background-color-orange,
+html .js-calc-js-set-status-box-background-color-orange,
+body .js-set-status-box-background-color-orange,
+body .js-calc-js-set-status-box-background-color-orange {
   background-color: #ff9900 !important;
 }
-html .status-box-background-color-green,
-html .js-calc-status-box-background-color-green,
-body .status-box-background-color-green,
-body .js-calc-status-box-background-color-green {
+html .js-set-status-box-background-color-green,
+html .js-calc-js-set-status-box-background-color-green,
+body .js-set-status-box-background-color-green,
+body .js-calc-js-set-status-box-background-color-green {
   background-color: #007e00 !important;
 }
-html .status-box-background-color-red,
-html .js-calc-status-box-background-color-red,
-body .status-box-background-color-red,
-body .js-calc-status-box-background-color-red {
+html .js-set-status-box-background-color-red,
+html .js-calc-js-set-status-box-background-color-red,
+body .js-set-status-box-background-color-red,
+body .js-calc-js-set-status-box-background-color-red {
   background-color: #d14242 !important;
 }
-html .status-box-text-color-gray,
-body .status-box-text-color-gray {
+html .js-set-status-box-text-color-gray,
+body .js-set-status-box-text-color-gray {
   color: #808080 !important;
 }
-html .status-box-text-color-blue,
-body .status-box-text-color-blue {
+html .js-set-status-box-text-color-blue,
+body .js-set-status-box-text-color-blue {
   color: #568dd5 !important;
 }
-html .status-box-text-color-purple,
-body .status-box-text-color-purple {
+html .js-set-status-box-text-color-purple,
+body .js-set-status-box-text-color-purple {
   color: #9680ce !important;
 }
-html .status-box-text-color-orange,
-body .status-box-text-color-orange {
+html .js-set-status-box-text-color-orange,
+body .js-set-status-box-text-color-orange {
   color: #ff9900 !important;
 }
-html .status-box-text-color-green,
-body .status-box-text-color-green {
+html .js-set-status-box-text-color-green,
+body .js-set-status-box-text-color-green {
   color: #007e00 !important;
 }
-html .status-box-text-color-red,
-body .status-box-text-color-red {
+html .js-set-status-box-text-color-red,
+body .js-set-status-box-text-color-red {
   color: #d14242 !important;
 }
 
@@ -846,17 +862,128 @@ dropdown can overlap all other components
 }
 .edit-account-modal-component .category-container__border-container__content-container {
   margin-top: 15px;
-  height: 20px;
+  height: 24px;
 }
 .edit-account-modal-component .category-container__border-container__content-container--smaller-top-margin {
   margin-top: 5px;
 }
 .edit-account-modal-component .category-container__border-container__content-container__label {
   float: left;
-  height: 20px;
+  height: 22px;
   font-size: 15px;
   vertical-align: middle;
-  line-height: 20px;
+  line-height: 22px;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-left: 10px;
+  width: 88px;
+  cursor: pointer;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__selected-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  border: solid #bfbfbf 2px;
+  border-right: none;
+  background-color: white;
+  height: 22px;
+  width: 64px;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__option {
+  position: relative;
+  height: 18px;
+  width: 60px;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__option--larger {
+  height: 26px;
+  width: 84px;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__option--selected {
+  background-color: #e5e5e5;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__option__centering-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 3px;
+  height: 100%;
+  width: 15px;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__option__centering-container__circle {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  border-radius: 100px;
+  background-color: black;
+  height: 14px;
+  width: 14px;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__option__centering-container__text {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__arrow-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  border: solid #bfbfbf 2px;
+  background-color: #bfbfbf;
+  height: 22px;
+  width: 24px;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__arrow-container__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__options-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  border: solid #bfbfbf 2px;
+  border-top: none;
+  background-color: white;
+  width: 88px;
 }
 
 .toggle-switch-component {
@@ -873,8 +1000,8 @@ dropdown can overlap all other components
   border: solid #0856ff 3px;
   border-radius: 25px;
   background-color: #0856ff;
-  height: 20px;
-  width: 48px;
+  height: 24px;
+  width: 52px;
   cursor: pointer;
 }
 .toggle-switch-component .toggle-switch--off {
@@ -899,13 +1026,13 @@ dropdown can overlap all other components
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
   left: 4px;
+  color: white;
   font-size: 12px;
   font-weight: bold;
-  color: white;
 }
 .toggle-switch-component .toggle-switch__text--off {
   left: auto;
-  right: 2px;
+  right: 3px;
   color: #808080;
 }
 .toggle-switch-component .toggle-switch__circle {
@@ -915,16 +1042,16 @@ dropdown can overlap all other components
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  right: 0px;
+  right: 1px;
   border: solid silver 1px;
   border-radius: 100px;
   background-color: white;
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
 }
 .toggle-switch-component .toggle-switch__circle--off {
   right: auto;
-  left: 0px;
+  left: 1px;
 }
 
 .delete-modal-component .blurred-background {

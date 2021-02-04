@@ -22,6 +22,20 @@ body {
 		opacity: 0.7;
 	}
 
+	// Theme standard background colors
+	.js-set-dark-background-color-theme-blue {
+		background-color: v.$darker-navy-blue !important;
+	}
+	.js-set-light-background-color-theme-blue {
+		background-color: v.$lighter-navy-blue !important;
+	}
+	.js-set-dark-background-color-theme-teal {
+		background-color: v.$dark-blue-teal !important;
+	}
+	.js-set-dark-background-color-light-teal {
+		background-color: v.$blue-teal !important;
+	}
+
 	// Standard background colors
 	.js-set-project-background-color-dark {
 		//background-color: v.$dark-blue-teal !important;
@@ -102,48 +116,48 @@ body {
 
 	// Used for changing the background color of status-boxes
 	// ...also used to store colors in redux for bug-pie-chart
-	.status-box-background-color-gray,
-	.js-calc-status-box-background-color-gray {
+	.js-set-status-box-background-color-gray,
+	.js-calc-js-set-status-box-background-color-gray {
 		background-color: v.$status-gray !important;
 	}
-	.status-box-background-color-blue,
-	.js-calc-status-box-background-color-blue {
+	.js-set-status-box-background-color-blue,
+	.js-calc-js-set-status-box-background-color-blue {
 		background-color: v.$status-blue !important;
 	}
-	.status-box-background-color-purple,
-	.js-calc-status-box-background-color-purple {
+	.js-set-status-box-background-color-purple,
+	.js-calc-js-set-status-box-background-color-purple {
 		background-color: v.$status-purple !important;
 	}
-	.status-box-background-color-orange,
-	.js-calc-status-box-background-color-orange {
+	.js-set-status-box-background-color-orange,
+	.js-calc-js-set-status-box-background-color-orange {
 		background-color: v.$status-orange !important;
 	}
-	.status-box-background-color-green,
-	.js-calc-status-box-background-color-green {
+	.js-set-status-box-background-color-green,
+	.js-calc-js-set-status-box-background-color-green {
 		background-color: v.$status-green !important;
 	}
-	.status-box-background-color-red,
-	.js-calc-status-box-background-color-red {
+	.js-set-status-box-background-color-red,
+	.js-calc-js-set-status-box-background-color-red {
 		background-color: v.$status-red !important;
 	}
 
 	// Used to change text color in status combo-boxes
-	.status-box-text-color-gray {
+	.js-set-status-box-text-color-gray {
 		color: v.$status-gray !important;
 	}
-	.status-box-text-color-blue {
+	.js-set-status-box-text-color-blue {
 		color: v.$status-blue !important;
 	}
-	.status-box-text-color-purple {
+	.js-set-status-box-text-color-purple {
 		color: v.$status-purple !important;
 	}
-	.status-box-text-color-orange {
+	.js-set-status-box-text-color-orange {
 		color: v.$status-orange !important;
 	}
-	.status-box-text-color-green {
+	.js-set-status-box-text-color-green {
 		color: v.$status-green !important;
 	}
-	.status-box-text-color-red {
+	.js-set-status-box-text-color-red {
 		color: v.$status-red !important;
 	}
 }

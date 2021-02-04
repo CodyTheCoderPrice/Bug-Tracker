@@ -91,7 +91,7 @@ export default function ListViewTableRow(props) {
 		);
 
 		return (
-			" status-box-background-color-" +
+			" js-set-status-box-background-color-" +
 			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
 		);
 	};

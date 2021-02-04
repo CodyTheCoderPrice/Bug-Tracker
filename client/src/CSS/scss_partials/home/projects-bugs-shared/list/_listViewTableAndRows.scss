@@ -128,7 +128,7 @@
 		border-radius: v.$status-box-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to a status-box.
-		// ...the scss for the colors assigned are in home.scss
+		// ...the scss for the colors assigned are in app.scss
 		background-color: black;
 		height: v.$status-box-height;
 		width: v.$status-box-width;

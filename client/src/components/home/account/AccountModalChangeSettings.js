@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
@@ -25,6 +25,8 @@ export default function AccountModalChangeSettings() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	const [showThemetDropdown, setShowThemetDropdown] = useState(false);
+
 	// clears prior backend errors when closing the component
 	useEffect(() => {
 		return () => {
@@ -40,6 +42,15 @@ export default function AccountModalChangeSettings() {
 				dark_mode: !reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 			})
 		);
+	};
+
+	const onChangeTheme = (theme_id) => {
+		/* dispatch(
+			updateAccountSettings({
+				...reduxState[ACCOUNT_CONTAINER].settings,
+				theme_id: theme_id,
+			})
+		); */
 	};
 
 	const onChangeFilterCompletedProjects = () => {
@@ -62,6 +73,43 @@ export default function AccountModalChangeSettings() {
 		);
 	};
 
+	const getThemeColorOption = (theme_id, onClickFunction, keyId) => {
+		const theme = reduxState[ACCOUNT_CONTAINER].settingThemes.filter(
+			(theme) => theme.theme_id === theme_id
+		)[0];
+
+		return (
+			<div
+				className={
+					"category-container__border-container__content-container__theme-button__option" +
+					(onClickFunction !== null
+						? " category-container__border-container__content-container__theme-button__option--larger" +
+						  (reduxState[ACCOUNT_CONTAINER].settings.theme_id === theme_id
+								? " category-container__border-container__content-container__theme-button__option--selected"
+								: "")
+						: "")
+				}
+				onClick={onClickFunction !== null ? onClickFunction : null}
+				key={keyId !== null ? keyId : null}
+			>
+				<div className="category-container__border-container__content-container__theme-button__option__centering-container">
+					<span
+						className={
+							"category-container__border-container__content-container__theme-button__option__centering-container__circle" +
+							" js-set-dark-background-color-theme-" +
+							theme.color.toLowerCase()
+						}
+					/>
+				</div>
+				<div className="category-container__border-container__content-container__theme-button__option__centering-container">
+					<span className="category-container__border-container__content-container__theme-button__option__centering-container__text">
+						{theme.color}
+					</span>
+				</div>
+			</div>
+		);
+	};
+
 	const backToAccountSidebar = () => {
 		dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 	};
@@ -78,7 +126,7 @@ export default function AccountModalChangeSettings() {
 						)
 					}
 				>
-					Theme
+					Appearance
 				</h2>
 				<div className="category-container__border-container">
 					<div className="category-container__border-container__content-container category-container__border-container__content-container--smaller-top-margin">
@@ -92,8 +140,43 @@ export default function AccountModalChangeSettings() {
 					</div>
 					<div className="category-container__border-container__content-container">
 						<label className="category-container__border-container__content-container__label">
-							Color
+							Color Theme
 						</label>
+						<div
+							className="category-container__border-container__content-container__theme-button"
+							onClick={() => setShowThemetDropdown(!showThemetDropdown)}
+						>
+							<div className="category-container__border-container__content-container__theme-button__selected-container">
+								{getThemeColorOption(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_id,
+									null,
+									null
+								)}
+							</div>
+							<div className="category-container__border-container__content-container__theme-button__arrow-container">
+								<i
+									className="fa fa-caret-down category-container__border-container__content-container__theme-button__arrow-container__icon"
+									aria-hidden="true"
+								/>
+							</div>
+							{showThemetDropdown === false ? null : (
+								<div className="category-container__border-container__content-container__theme-button__options-container">
+									{reduxState[ACCOUNT_CONTAINER].settingThemes.map(
+										(theme, i) => {
+											return (
+												<span>
+													{getThemeColorOption(
+														theme.theme_id,
+														(theme_id) => onChangeTheme(theme_id),
+														i
+													)}
+												</span>
+											);
+										}
+									)}
+								</div>
+							)}
+						</div>
 					</div>
 				</div>
 			</div>

@@ -26,7 +26,7 @@ $blue-gray: #50677f;
 $dark-blue-gray: #215792;
 // Navy blues
 $lighter-navy-blue: #4d6e92;
-  $light-navy-blue: #4d6b8b;
+$light-navy-blue: #4d6b8b;
 $navy-blue: #45607e;
 $darker-navy-blue: #3d5774;
 //Text
@@ -47,6 +47,7 @@ $yellow: #ffff00;
 // Components
 $account-modal-toggle-switch-on-color: #0856ff;
 $account-modal-toggle-switch-off-color: $light-gray-level-7;
+$account-modal-theme-button-outer-color: $gray-level-2;
 $search-filter-sort-bar-color: $light-gray-level-5;
 $list-table-background-color: white;
 $filter-active-color: #0077ff;
@@ -69,7 +70,9 @@ $navbar-height: 56px;
 $navbar-account-button-height: $navbar-height;
 $hamburger-dropdown-item-height: 42px;
 $edit-account-modal-height: 380px;
-$account-modal-toggle-switch-drop-down-height: 20px;
+$account-modal-toggle-switch-height: 24px;
+$account-modal-theme-button-selected-arrow-container-height: 22px;
+$account-modal-settings-content-container-height: $account-modal-toggle-switch-height;
 $search-filter-sort-bar-height: 46px;
 $search-filter-sort-bar-button-height: 26px;
 $list-item-search-bar-height: 28px;
@@ -91,6 +94,10 @@ $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;
 $navbar-hamburger-button-width: 36px;
 $edit-account-modal-width: 460px;
+$account-modal-theme-button-selected-container-width: 64px;
+$account-modal-theme-button-arrow-container-width: 24px;
+$account-modal-theme-button-width: $account-modal-theme-button-selected-container-width +
+	$account-modal-theme-button-arrow-container-width;
 $list-item-search-bar-button-width: $list-item-search-bar-height + 10;
 $search-top-bar-filter-button-width: 90px;
 $search-top-bar-filter-dropdown-content-container-width: 260px;
@@ -146,6 +153,8 @@ $navbar-breadcrumb-border-width: 2px;
 $navbar-hamburger-border-width: 3px;
 $base-sidebar-border-width: 3px;
 $base-modal-border-width: 3px;
+$account-modal-toggle-switch-border-width: 3px;
+$account-modal-theme-button-outer-border-width: 2px;
 $search-filter-sort-bar-border-width: 1px;
 $search-top-bar-base-button-border-width: 1px;
 $search-top-bar-clicked-dropdown-button-border-width: 3px;
@@ -209,6 +218,12 @@ $navbar-breadcrumb-button-height: $navbar-height -
 // The value added at the end represents the margin between the hamburger button and the title
 $navbar-hamburger-title-left: $navbar-hamburger-button-left +
 	$navbar-hamburger-button-width + 6px;
+$account-modal-theme-button-option-height: $account-modal-theme-button-selected-arrow-container-height -
+	($account-modal-theme-button-outer-border-width * 2);
+$account-modal-theme-button-option-width: $account-modal-theme-button-selected-container-width -
+($account-modal-theme-button-outer-border-width * 2);
+$account-modal-theme-button-option-extended-width: $account-modal-theme-button-width -
+($account-modal-theme-button-outer-border-width * 2);
 $search-filter-sort-bar-button-focus-height: $search-filter-sort-bar-button-height +
 	(
 		(

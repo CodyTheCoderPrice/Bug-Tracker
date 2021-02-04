@@ -75,8 +75,10 @@
 
 		&:focus {
 			border: v.$form-input-text-focus-border-width solid v.$focus-blue;
-			margin-top: v.$edit-account-form-input-margin-top - v.$form-input-text-focus-border-width-difference;
-			margin-bottom: v.$edit-account-create-item-form-input-margin-bottom - v.$form-input-text-focus-border-width-difference;
+			margin-top: v.$edit-account-form-input-margin-top -
+				v.$form-input-text-focus-border-width-difference;
+			margin-bottom: v.$edit-account-create-item-form-input-margin-bottom -
+				v.$form-input-text-focus-border-width-difference;
 		}
 	}
 
@@ -94,7 +96,7 @@
 		border-radius: v.$base-buttton-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in home.scss
+		// ...the scss for the colors assigned are in app.scss
 		background-color: black;
 		padding: 10px;
 		width: 100%;
@@ -134,7 +136,6 @@
 	.category-container {
 		position: relative;
 		margin: 20px 0px;
-
 	}
 
 	.category-container--larger-top-margin {
@@ -162,8 +163,7 @@
 
 	.category-container__border-container__content-container {
 		margin-top: 15px;
-		height: v.$account-modal-toggle-switch-drop-down-height;
-		
+		height: v.$account-modal-settings-content-container-height;
 	}
 
 	.category-container__border-container__content-container--smaller-top-margin {
@@ -172,9 +172,114 @@
 
 	.category-container__border-container__content-container__label {
 		float: left;
-		height: v.$account-modal-toggle-switch-drop-down-height;
+		height: v.$account-modal-theme-button-selected-arrow-container-height;
 		font-size: v.$base-font-size;
 		vertical-align: middle;
-		line-height: v.$account-modal-toggle-switch-drop-down-height;
+		line-height: v.$account-modal-theme-button-selected-arrow-container-height;
+	}
+
+	.category-container__border-container__content-container__theme-button {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		position: relative;
+		float: left;
+		margin-left: 10px;
+		width: v.$account-modal-theme-button-width;
+		cursor: pointer;
+	}
+
+	.category-container__border-container__content-container__theme-button__selected-container {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		position: relative;
+		float: left;
+		border: solid v.$account-modal-theme-button-outer-color v.$account-modal-theme-button-outer-border-width;
+		border-right: none;
+		background-color: white;
+		height: v.$account-modal-theme-button-selected-arrow-container-height;
+		width: v.$account-modal-theme-button-selected-container-width;
+	}
+
+	.category-container__border-container__content-container__theme-button__option {
+		position: relative;
+		height: v.$account-modal-theme-button-option-height;
+		width: v.$account-modal-theme-button-option-width;
+	}
+
+	.category-container__border-container__content-container__theme-button__option--larger {
+		height: v.$account-modal-theme-button-option-height + 8;
+		width: v.$account-modal-theme-button-option-extended-width;
+	}
+
+	.category-container__border-container__content-container__theme-button__option--selected {
+		background-color: v.$light-gray-level-5;
+	}
+
+	.category-container__border-container__content-container__theme-button__option__centering-container {
+		position: relative;
+		display: inline-block;
+		margin-left: 3px;
+		height: 100%;
+		width: 15px;
+	}
+
+	.category-container__border-container__content-container__theme-button__option__centering-container__circle {
+		@include m.vertical-center();
+
+		border-radius: 100px;
+		// This background color should only appear if there was a problem
+		// ...assigning a different background color to a the circle.
+		// ...the scss for the colors assigned are in app.scss
+		background-color: black;
+		height: 14px;
+		width: 14px;
+	}
+
+	.category-container__border-container__content-container__theme-button__option__centering-container__text {
+		@include m.vertical-center();
+		@include m.stop-text-selection();
+
+		color: black;
+		font-size: 12px;
+		font-weight: bold;
+		
+	}
+
+	.category-container__border-container__content-container__theme-button__arrow-container {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		position: relative;
+		float: left;
+		border: solid v.$account-modal-theme-button-outer-color v.$account-modal-theme-button-outer-border-width;
+		background-color: v.$account-modal-theme-button-outer-color;
+		height: v.$account-modal-theme-button-selected-arrow-container-height;
+		width: v.$account-modal-theme-button-arrow-container-width;
+	}
+
+	.category-container__border-container__content-container__theme-button__arrow-container__icon {
+		@include m.dead-center();
+		@include m.stop-text-selection();
+	}
+
+	.category-container__border-container__content-container__theme-button__options-container {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		float: left;
+		border: solid v.$account-modal-theme-button-outer-color v.$account-modal-theme-button-outer-border-width;
+		border-top: none;
+		background-color: white;
+		width: v.$account-modal-theme-button-width;
 	}
 }

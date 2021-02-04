@@ -17,8 +17,8 @@
 		border: solid v.$account-modal-toggle-switch-on-color 3px;
 		border-radius: 25px;
 		background-color: v.$account-modal-toggle-switch-on-color;
-		height: v.$account-modal-toggle-switch-drop-down-height;
-		width: 48px;
+		height: v.$account-modal-toggle-switch-height;
+		width: 52px;
 		cursor: pointer;
 	}
 
@@ -32,15 +32,15 @@
 		@include m.stop-text-selection();
 
 		left: 4px;
+		color: white;
 		font-size: 12px;
 		font-weight: bold;
-		color: white;
 	}
 
 	.toggle-switch__text--off {
 		// Resets left
 		left: auto;
-		right: 2px;
+		right: 3px;
 		color: v.$dark-gray-level-1;
 	}
 
@@ -52,16 +52,16 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
-		right: 0px;
+		right: 1px;
 		border: solid silver 1px;
 		border-radius: 100px;
 		background-color: white;
-		height: 16px;
-		width: 16px;
+		height: 18px;
+		width: 18px;
 	}
 
 	.toggle-switch__circle--off {
 		right: auto;
-		left: 0px;
+		left: 1px;
 	}
 }

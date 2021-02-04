@@ -110,7 +110,7 @@ export default function ListViewCreateItemSidebar(props) {
 		);
 
 		return (
-			" status-box-text-color-" +
+			" js-set-status-box-text-color-" +
 			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
 		);
 	};

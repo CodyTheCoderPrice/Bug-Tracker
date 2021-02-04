@@ -139,7 +139,7 @@ export default function ItemViewBugPieChart() {
 								<div
 									className={
 										"stats-container__row__status-box" +
-										" status-box-background-color-" +
+										" js-set-status-box-background-color-" +
 										statusObject.color
 									}
 								>
@@ -151,7 +151,7 @@ export default function ItemViewBugPieChart() {
 									<span
 										className={
 											"stats-container__row__stats-centering-container__stats" +
-											" status-box-text-color-" +
+											" js-set-status-box-text-color-" +
 											statusObject.color
 										}
 									>
