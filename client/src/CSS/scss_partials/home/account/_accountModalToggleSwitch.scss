@@ -1,0 +1,67 @@
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
+
+.toggle-switch-component {
+	position: relative;
+	display: inline-block;
+
+	.toggle-switch {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		position: relative;
+		float: left;
+		margin-left: 6px;
+		border: solid v.$account-modal-toggle-switch-on-color 3px;
+		border-radius: 25px;
+		background-color: v.$account-modal-toggle-switch-on-color;
+		height: v.$account-modal-toggle-switch-drop-down-height;
+		width: 48px;
+		cursor: pointer;
+	}
+
+	.toggle-switch--off {
+		border-color: v.$account-modal-toggle-switch-off-color;
+		background-color: v.$account-modal-toggle-switch-off-color;
+	}
+	
+	.toggle-switch__text {
+		@include m.vertical-center();
+		@include m.stop-text-selection();
+
+		left: 4px;
+		font-size: 12px;
+		font-weight: bold;
+		color: white;
+	}
+
+	.toggle-switch__text--off {
+		// Resets left
+		left: auto;
+		right: 2px;
+		color: v.$dark-gray-level-1;
+	}
+
+	.toggle-switch__circle {
+		@include m.vertical-center();
+
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		right: 0px;
+		border: solid silver 1px;
+		border-radius: 100px;
+		background-color: white;
+		height: 16px;
+		width: 16px;
+	}
+
+	.toggle-switch__circle--off {
+		right: auto;
+		left: 0px;
+	}
+}

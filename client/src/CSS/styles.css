@@ -701,11 +701,11 @@ dropdown can overlap all other components
   left: 50%;
   transform: translate(-50%, -50%);
   border: 3px solid black;
+  border-radius: 15px;
   background-color: white;
   padding: 30px;
-  height: 480px;
+  height: 380px;
   width: 460px;
-  text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }
 .edit-account-modal-component .back-button {
@@ -738,8 +738,10 @@ dropdown can overlap all other components
 }
 .edit-account-modal-component .title {
   position: relative;
+  display: block;
   padding-top: 8px;
   font-size: 150%;
+  text-align: center;
 }
 .edit-account-modal-component .form__label {
   float: left;
@@ -781,6 +783,7 @@ dropdown can overlap all other components
 .edit-account-modal-component .form__errors {
   display: block;
   color: red;
+  text-align: center;
 }
 .edit-account-modal-component .form__submit {
   margin-top: 15px;
@@ -817,6 +820,111 @@ dropdown can overlap all other components
 }
 .edit-account-modal-component .link-spacer {
   font-size: 20px;
+}
+.edit-account-modal-component .category-container {
+  position: relative;
+  margin: 20px 0px;
+}
+.edit-account-modal-component .category-container--larger-top-margin {
+  margin-top: 40px;
+}
+.edit-account-modal-component .category-container__heading {
+  z-index: 1;
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  margin: 0px;
+  background-color: white;
+  padding: 0px 8px;
+  font-size: 18px;
+}
+.edit-account-modal-component .category-container__border-container {
+  position: relative;
+  border: solid black 2px;
+  border-radius: 10px;
+  padding: 15px 20px;
+}
+.edit-account-modal-component .category-container__border-container__content-container {
+  margin-top: 15px;
+  height: 20px;
+}
+.edit-account-modal-component .category-container__border-container__content-container--smaller-top-margin {
+  margin-top: 5px;
+}
+.edit-account-modal-component .category-container__border-container__content-container__label {
+  float: left;
+  height: 20px;
+  font-size: 15px;
+  vertical-align: middle;
+  line-height: 20px;
+}
+
+.toggle-switch-component {
+  position: relative;
+  display: inline-block;
+}
+.toggle-switch-component .toggle-switch {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-left: 6px;
+  border: solid #0856ff 3px;
+  border-radius: 25px;
+  background-color: #0856ff;
+  height: 20px;
+  width: 48px;
+  cursor: pointer;
+}
+.toggle-switch-component .toggle-switch--off {
+  border-color: #dddddd;
+  background-color: #dddddd;
+}
+.toggle-switch-component .toggle-switch__text {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  left: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+.toggle-switch-component .toggle-switch__text--off {
+  left: auto;
+  right: 2px;
+  color: #808080;
+}
+.toggle-switch-component .toggle-switch__circle {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  right: 0px;
+  border: solid silver 1px;
+  border-radius: 100px;
+  background-color: white;
+  height: 16px;
+  width: 16px;
+}
+.toggle-switch-component .toggle-switch__circle--off {
+  right: auto;
+  left: 0px;
 }
 
 .delete-modal-component .blurred-background {
@@ -1536,7 +1644,7 @@ dropdown can overlap all other components
   border: 2px solid black;
   border-left: none;
   border-bottom: none;
-  background-color: #ffffff;
+  background-color: white;
   height: 90vh;
   width: 275px;
   font-size: 15px;
@@ -1555,7 +1663,7 @@ dropdown can overlap all other components
 .item-container-list-sidebar-component .list-sidebar__table__row,
 .js-calc-list-sidebar-component .list-sidebar__table__row {
   border-bottom: 1px solid #919191;
-  background-color: #ffffff;
+  background-color: white;
   padding: 5px;
   height: 50px;
   text-align: center;
@@ -1578,7 +1686,7 @@ dropdown can overlap all other components
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 0 1px 0 #919191;
   width: 275px;
 }
@@ -2353,7 +2461,7 @@ dropdown can overlap all other components
   position: fixed;
   top: 103px;
   left: 0px;
-  background-color: #ffffff;
+  background-color: white;
   height: 90vh;
   width: 100%;
   font-size: 15px;
@@ -2408,7 +2516,7 @@ dropdown can overlap all other components
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 0 1px 0 #919191;
   width: 300px;
 }

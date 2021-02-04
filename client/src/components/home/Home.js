@@ -15,7 +15,7 @@ import Navbar from "./menu/Navbar";
 // Account
 import AccountBlurredBackground from "./account/AccountBlurredBackground";
 import AccountSidebar from "./account/AccountSidebar";
-import EditAccountModal from "./account/EditAccountModal";
+import AccountModal from "./account/AccountModal";
 // Projects & Bugs
 import ListView from "./projects-bugs-shared/list/ListView";
 import ItemView from "./projects-bugs-shared/item/ItemView";
@@ -58,7 +58,7 @@ export default function Home() {
 		>
 			<Navbar />
 			{/*Account components*/}
-			{/*Displays bullered background when an account component is open*/}
+			{/*Displays blurred background when an account component is open*/}
 			{Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
 				true
 			) > -1 ? (
@@ -67,11 +67,12 @@ export default function Home() {
 			{reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ? (
 				<AccountSidebar />
 			) : null}
+			{/*If any account component other than accountSidebar is true, display modal*/}
 			{Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
 				true
 			) > -1 &&
 			!reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ? (
-				<EditAccountModal />
+				<AccountModal />
 			) : null}
 			{/*Project components*/}
 			{reduxState[PROJECT_CONTAINER].componentsDisplay.listView ? (

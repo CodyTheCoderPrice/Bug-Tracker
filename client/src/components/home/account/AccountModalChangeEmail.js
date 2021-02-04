@@ -17,7 +17,7 @@ import {
 	getProjectOrBugTextColorClassName,
 } from "../../../utils";
 
-export default function EditAccountModalChangeEmail() {
+export default function AccountModalChangeEmail() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -41,7 +41,7 @@ export default function EditAccountModalChangeEmail() {
 	const backToEditInfo = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				editAccountModalChangeInfo: true,
+				accountModalChangeInfo: true,
 			})
 		);
 	};

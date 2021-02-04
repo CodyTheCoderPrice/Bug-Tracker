@@ -10,10 +10,18 @@ CREATE TABLE account(
 	last_edited_timestamp BIGINT
 );
 
+CREATE TABLE theme(
+	theme_id SERIAL PRIMARY KEY,
+	order_number SMALLINT,
+	color TEXT,
+	marks_default BOOLEAN DEFAULT false
+);
+
 CREATE TABLE setting(
     setting_id SERIAL PRIMARY KEY,
     account_id INTEGER,
-    default_display_completed_items boolean,
+    filter_completed_projects boolean,
+	filter_completed_bugs boolean,
     dark_mode boolean,
 	theme_id INTEGER,
 	last_edited_timestamp BIGINT,
@@ -25,13 +33,6 @@ CREATE TABLE setting(
 	FOREIGN KEY(theme_id) 
 	REFERENCES theme(theme_id)
 	ON DELETE SET NULL
-);
-
-CREATE TABLE theme(
-	theme_id SERIAL PRIMARY KEY,
-	order_number SMALLINT,
-	color TEXT,
-	marks_default BOOLEAN DEFAULT false
 );
 
 INSERT INTO theme (order_number, color, marks_default)

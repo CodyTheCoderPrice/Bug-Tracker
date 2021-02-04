@@ -25,10 +25,18 @@ export default function AccountSidebar() {
 	// Custom hook resizes the sidebar so that the overflow functionality works
 	useSidebarResize(reduxState, "js-account-sidebar");
 
-	const openEditInfoModals = () => {
+	const openAccountModalForEditingAccount = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				editAccountModalChangeInfo: true,
+				accountModalChangeInfo: true,
+			})
+		);
+	};
+
+	const openAccountModalForEditingSettings = () => {
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountModalChangeSettings: true,
 			})
 		);
 	};
@@ -39,10 +47,6 @@ export default function AccountSidebar() {
 		e.stopPropagation();
 		dispatch(logoutAccount());
 	};
-
-	/* const logReduxState = () => {
-		console.log(reduxState);
-	}; */
 
 	const getSLinkColor = () => {
 		if (
@@ -75,10 +79,10 @@ export default function AccountSidebar() {
 					</div>
 					<div className="dividing-line" />
 					<div className={"account-link-container" + getSLinkColor()}>
-						<span onClick={openEditInfoModals} className="account-link">
+						<span onClick={openAccountModalForEditingAccount} className="account-link">
 							Edit Account
 						</span>
-						<span onClick={openEditInfoModals} className="account-link">
+						<span onClick={openAccountModalForEditingSettings} className="account-link">
 							Settings
 						</span>
 						<span

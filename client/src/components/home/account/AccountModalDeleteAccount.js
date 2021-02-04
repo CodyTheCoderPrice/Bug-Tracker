@@ -16,7 +16,7 @@ import {
 	getProjectOrBugTextColorClassName,
 } from "../../../utils";
 
-export default function EditAccountModalDeleteAccount() {
+export default function AccountModalDeleteAccount() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -40,7 +40,7 @@ export default function EditAccountModalDeleteAccount() {
 	const backToEditInfo = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				editAccountModalChangeInfo: true,
+				accountModalChangeInfo: true,
 			})
 		);
 	};

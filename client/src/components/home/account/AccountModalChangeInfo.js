@@ -17,7 +17,7 @@ import {
 	getProjectOrBugTextColorClassName,
 } from "../../../utils";
 
-export default function EditAccountModalChangeInfo() {
+export default function AccountModalChangeInfo() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -41,7 +41,7 @@ export default function EditAccountModalChangeInfo() {
 	const openEditEmailModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				editAccountModalChangeEmail: true,
+				accountModalChangeEmail: true,
 			})
 		);
 	};
@@ -49,7 +49,7 @@ export default function EditAccountModalChangeInfo() {
 	const openEditPasswordModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				editAccountModalChangePassword: true,
+				accountModalChangePassword: true,
 			})
 		);
 	};
@@ -57,7 +57,7 @@ export default function EditAccountModalChangeInfo() {
 	const openDeleteAccountModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				editAccountModalDeleteAccount: true,
+				accountModalDeleteAccount: true,
 			})
 		);
 	};

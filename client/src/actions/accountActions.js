@@ -21,6 +21,7 @@ import {
 	setProjects,
 	setBugs,
 	setComments,
+	clearBackendErrors,
 } from "./index";
 
 /**
@@ -271,7 +272,7 @@ export const updateAccountInfo = (accountInfo) => (dispatch) => {
 			const { account } = res.data;
 			// updates the redux state with the new account name
 			dispatch(setAccount(account));
-			// closes the editAccountModal and re-opens the accountSidebar
+			// closes the accountModal and re-opens the accountSidebar
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
@@ -300,7 +301,7 @@ export const updateAccountEmail = (accountInfo) => (dispatch) => {
 			const { account } = res.data;
 			// updates the redux state with the new account email
 			dispatch(setAccount(account));
-			// closes the editAccountModal and re-opens the accountSidebar
+			// closes the accountModal and re-opens the accountSidebar
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
@@ -330,7 +331,7 @@ export const updateAccountPassword = (accountInfo) => (dispatch) => {
 			// ...password since the new account JSON will contained an
 			// ...updated last_edited_timestamp
 			dispatch(setAccount(account));
-			// closes the editAccountModal and re-opens the accountSidebar
+			// closes the accountModal and re-opens the accountSidebar
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
@@ -360,6 +361,36 @@ export const deleteAccount = (accountInfo) => (dispatch) => {
 		.catch((err) => {
 			// sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
+		});
+};
+
+/**
+ * Calls api/account/update-settings route to update the account settings in
+ * the database, store the updated account settings in the account container of
+ * the redux state
+ *
+ * @param {JSON} accountSettings - JSON containing the new account settings
+ */
+export const updateAccountSettings = (accountSettings) => (dispatch) => {
+	const header = createHeader();
+	axios
+		.post("/api/account/update-settings", accountSettings, header)
+		.then((res) => {
+			const { settings } = res.data;
+			// updates the redux state with the new account settings
+			dispatch(setAccountSettings(settings));
+			// Backend errors cleared since setting modal doesn't get closed on
+			// ...success, meaning backend errors can remain
+			dispatch(clearBackendErrors());
+		})
+		.catch((err) => {
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
+
+			if (err.response.data.backendErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
+				dispatch(logoutAccount());
+			}
 		});
 };
 

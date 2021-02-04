@@ -3,16 +3,17 @@ import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 // Default state for which account components should be displayed by the app
 const initialState = {
 	accountSidebar: false,
-	editAccountModalChangeInfo: false,
-	editAccountModalChangeEmail: false,
-	editAccountModalChangePassword: false,
-	editAccountModalDeleteAccount: false,
+	accountModalChangeInfo: false,
+	accountModalChangeEmail: false,
+	accountModalChangePassword: false,
+	accountModalDeleteAccount: false,
+	accountModalChangeSettings: false,
 };
 
 /**
  * Used to set JSON in the account container of the redux state for which
  * account components should display by the app
- * 
+ *
  * @param {JSON} state - JSON for which account components are currently being
  * display by the app
  * @param {JSON} action - JSON containing a container name and type (used to
@@ -33,21 +34,25 @@ export default function (state = initialState, action) {
 					action.displays.accountSidebar !== undefined
 						? action.displays.accountSidebar
 						: false,
-				editAccountModalChangeInfo:
-					action.displays.editAccountModalChangeInfo !== undefined
-						? action.displays.editAccountModalChangeInfo
+				accountModalChangeInfo:
+					action.displays.accountModalChangeInfo !== undefined
+						? action.displays.accountModalChangeInfo
 						: false,
-				editAccountModalChangeEmail:
-					action.displays.editAccountModalChangeEmail !== undefined
-						? action.displays.editAccountModalChangeEmail
+				accountModalChangeEmail:
+					action.displays.accountModalChangeEmail !== undefined
+						? action.displays.accountModalChangeEmail
 						: false,
-				editAccountModalChangePassword:
-					action.displays.editAccountModalChangePassword !== undefined
-						? action.displays.editAccountModalChangePassword
+				accountModalChangePassword:
+					action.displays.accountModalChangePassword !== undefined
+						? action.displays.accountModalChangePassword
 						: false,
-				editAccountModalDeleteAccount:
-					action.displays.editAccountModalDeleteAccount !== undefined
-						? action.displays.editAccountModalDeleteAccount
+				accountModalDeleteAccount:
+					action.displays.accountModalDeleteAccount !== undefined
+						? action.displays.accountModalDeleteAccount
+						: false,
+				accountModalChangeSettings:
+					action.displays.accountModalChangeSettings !== undefined
+						? action.displays.accountModalChangeSettings
 						: false,
 			};
 		default:

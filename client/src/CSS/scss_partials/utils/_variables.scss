@@ -45,8 +45,10 @@ $light-green: #ccf5cc;
 // Yellows
 $yellow: #ffff00;
 // Components
+$account-modal-toggle-switch-on-color: #0856ff;
+$account-modal-toggle-switch-off-color: $light-gray-level-7;
 $search-filter-sort-bar-color: $light-gray-level-5;
-$list-table-background-color: #ffffff;
+$list-table-background-color: white;
 $filter-active-color: #0077ff;
 $filter-active-color2: #ae00ff;
 $filter-active-color3: #ffbb00;
@@ -66,7 +68,8 @@ $focus-blue: #0059ff;
 $navbar-height: 56px;
 $navbar-account-button-height: $navbar-height;
 $hamburger-dropdown-item-height: 42px;
-$edit-account-modal-height: 480px;
+$edit-account-modal-height: 380px;
+$account-modal-toggle-switch-drop-down-height: 20px;
 $search-filter-sort-bar-height: 46px;
 $search-filter-sort-bar-button-height: 26px;
 $list-item-search-bar-height: 28px;
