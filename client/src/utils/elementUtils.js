@@ -34,7 +34,7 @@ export function populateComboBox(
 		optionElement.textContent = populateList[i].option;
 		if (populateList[i].color !== undefined) {
 			optionElement.className =
-				"status-box-text-color-" + populateList[i].color;
+				"js-set-status-box-text-color-" + populateList[i].color;
 		}
 		comboBoxElement.appendChild(optionElement);
 	}

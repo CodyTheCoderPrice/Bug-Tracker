@@ -117,27 +117,27 @@ body {
 	// Used for changing the background color of status-boxes
 	// ...also used to store colors in redux for bug-pie-chart
 	.js-set-status-box-background-color-gray,
-	.js-calc-js-set-status-box-background-color-gray {
+	.js-calc-status-box-background-color-gray {
 		background-color: v.$status-gray !important;
 	}
 	.js-set-status-box-background-color-blue,
-	.js-calc-js-set-status-box-background-color-blue {
+	.js-calc-status-box-background-color-blue {
 		background-color: v.$status-blue !important;
 	}
 	.js-set-status-box-background-color-purple,
-	.js-calc-js-set-status-box-background-color-purple {
+	.js-calc-status-box-background-color-purple {
 		background-color: v.$status-purple !important;
 	}
 	.js-set-status-box-background-color-orange,
-	.js-calc-js-set-status-box-background-color-orange {
+	.js-calc-status-box-background-color-orange {
 		background-color: v.$status-orange !important;
 	}
 	.js-set-status-box-background-color-green,
-	.js-calc-js-set-status-box-background-color-green {
+	.js-calc-status-box-background-color-green {
 		background-color: v.$status-green !important;
 	}
 	.js-set-status-box-background-color-red,
-	.js-calc-js-set-status-box-background-color-red {
+	.js-calc-status-box-background-color-red {
 		background-color: v.$status-red !important;
 	}
 

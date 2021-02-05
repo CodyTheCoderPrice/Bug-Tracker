@@ -116,39 +116,39 @@ body .js-set-bug-text-color {
   color: #245ba3 !important;
 }
 html .js-set-status-box-background-color-gray,
-html .js-calc-js-set-status-box-background-color-gray,
+html .js-calc-status-box-background-color-gray,
 body .js-set-status-box-background-color-gray,
-body .js-calc-js-set-status-box-background-color-gray {
+body .js-calc-status-box-background-color-gray {
   background-color: #808080 !important;
 }
 html .js-set-status-box-background-color-blue,
-html .js-calc-js-set-status-box-background-color-blue,
+html .js-calc-status-box-background-color-blue,
 body .js-set-status-box-background-color-blue,
-body .js-calc-js-set-status-box-background-color-blue {
+body .js-calc-status-box-background-color-blue {
   background-color: #568dd5 !important;
 }
 html .js-set-status-box-background-color-purple,
-html .js-calc-js-set-status-box-background-color-purple,
+html .js-calc-status-box-background-color-purple,
 body .js-set-status-box-background-color-purple,
-body .js-calc-js-set-status-box-background-color-purple {
+body .js-calc-status-box-background-color-purple {
   background-color: #9680ce !important;
 }
 html .js-set-status-box-background-color-orange,
-html .js-calc-js-set-status-box-background-color-orange,
+html .js-calc-status-box-background-color-orange,
 body .js-set-status-box-background-color-orange,
-body .js-calc-js-set-status-box-background-color-orange {
+body .js-calc-status-box-background-color-orange {
   background-color: #ff9900 !important;
 }
 html .js-set-status-box-background-color-green,
-html .js-calc-js-set-status-box-background-color-green,
+html .js-calc-status-box-background-color-green,
 body .js-set-status-box-background-color-green,
-body .js-calc-js-set-status-box-background-color-green {
+body .js-calc-status-box-background-color-green {
   background-color: #007e00 !important;
 }
 html .js-set-status-box-background-color-red,
-html .js-calc-js-set-status-box-background-color-red,
+html .js-calc-status-box-background-color-red,
 body .js-set-status-box-background-color-red,
-body .js-calc-js-set-status-box-background-color-red {
+body .js-calc-status-box-background-color-red {
   background-color: #d14242 !important;
 }
 html .js-set-status-box-text-color-gray,
