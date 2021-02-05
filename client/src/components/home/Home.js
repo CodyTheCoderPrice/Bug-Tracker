@@ -7,7 +7,7 @@ import {
 	BUG_CONTAINER,
 } from "../../actions/constants/containerNames";
 
-import { setWhichGeneralComponentsDisplay } from "../../actions";
+import { setWhichGeneralDropdownsDisplay } from "../../actions";
 
 // Components
 // Navbar
@@ -24,38 +24,19 @@ export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Closes the hamburger dropdown and the item-view dropdown whenever they are
-	// ...open and user anywhere (including the dropdown containers)
+	// Closes general dropdowns whenever they are open and user anywhere
 	const closeDropdownsWhenOpen = () => {
 		if (
-			reduxState[GENERAL_CONTAINER].componentsDisplay.navbarHamburherDropdown
+			Object.values(reduxState[GENERAL_CONTAINER].dropdownsDisplay).indexOf(
+				true
+			) > -1
 		) {
-			dispatch(
-				setWhichGeneralComponentsDisplay({
-					...reduxState[GENERAL_CONTAINER].componentsDisplay,
-					navbarHamburherDropdown: false,
-				})
-			);
-		}
-
-		if (
-			reduxState[GENERAL_CONTAINER].componentsDisplay
-				.itemViewTopBarOptionsDropdown
-		) {
-			dispatch(
-				setWhichGeneralComponentsDisplay({
-					...reduxState[GENERAL_CONTAINER].componentsDisplay,
-					itemViewTopBarOptionsDropdown: false,
-				})
-			);
+			dispatch(setWhichGeneralDropdownsDisplay({}));
 		}
 	};
 
 	return (
-		<div
-			className="home-container"
-			onClick={closeDropdownsWhenOpen}
-		>
+		<div className="home-container" onClick={closeDropdownsWhenOpen}>
 			<Navbar />
 			{/*Account components*/}
 			{/*Displays blurred background when an account component is open*/}

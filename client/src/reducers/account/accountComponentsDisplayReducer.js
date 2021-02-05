@@ -15,7 +15,7 @@ const initialState = {
  * account components should display by the app
  *
  * @param {JSON} state - JSON for which account components are currently being
- * display by the app
+ * displayed by the app
  * @param {JSON} action - JSON containing a container name and type (used to
  * determin where and what to do in the redux state), and any data addition
  * data needed based on the container name and type (typically data to updated

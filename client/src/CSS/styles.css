@@ -982,7 +982,7 @@ dropdown can overlap all other components
   supported by Chrome, Edge, Opera and Firefox */
   color: #3a3a3a;
 }
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__options-container {
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__dropdown-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;

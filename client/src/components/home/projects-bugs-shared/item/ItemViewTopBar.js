@@ -8,7 +8,7 @@ import {
 } from "../../../../actions/constants/containerNames";
 
 import {
-	setWhichGeneralComponentsDisplay,
+	setWhichGeneralDropdownsDisplay,
 	setProjectOrBugSearchFilterSort,
 	setWhichProjectOrBugComponentsDisplay,
 	setWhichBugComponentsDisplay,
@@ -31,9 +31,6 @@ export default function ItemViewTopBar(props) {
 	const [searchBarText, setSearchBarText] = useState(
 		reduxState[props.reduxContainerName].searchFilterSort.searchKeyWordString
 	);
-
-	const [showSortDropdown, setShowSortDropdown] = useState(false);
-	const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
 	useSearchBarBorderEventListener(
 		"js-item-search-bar",
@@ -60,24 +57,35 @@ export default function ItemViewTopBar(props) {
 		}
 	};
 
-	const toggleSortDropdown = () => {
-		setShowFilterDropdown(false);
-		setShowSortDropdown(!showSortDropdown);
-	};
+	const toggleSortDropdown = (e) => {
+		e.stopPropagation();
 
-	const toggleFilterDropdown = () => {
-		setShowSortDropdown(false);
-		setShowFilterDropdown(!showFilterDropdown);
-	};
-
-	const toggleOptionsDropdown = () => {
-		setShowFilterDropdown(false);
-		setShowSortDropdown(false);
 		dispatch(
-			setWhichGeneralComponentsDisplay({
-				...reduxState[GENERAL_CONTAINER].componentsDisplay,
+			setWhichGeneralDropdownsDisplay({
+				itemViewTopBarSortDropdown: !reduxState[GENERAL_CONTAINER]
+					.dropdownsDisplay.itemViewTopBarSortDropdown,
+			})
+		);
+	};
+
+	const toggleFilterDropdown = (e) => {
+		e.stopPropagation();
+
+		dispatch(
+			setWhichGeneralDropdownsDisplay({
+				itemViewTopBarFilterDropdown: !reduxState[GENERAL_CONTAINER]
+					.dropdownsDisplay.itemViewTopBarFilterDropdown,
+			})
+		);
+	};
+
+	const toggleOptionsDropdown = (e) => {
+		e.stopPropagation();
+
+		dispatch(
+			setWhichGeneralDropdownsDisplay({
 				itemViewTopBarOptionsDropdown: !reduxState[GENERAL_CONTAINER]
-					.componentsDisplay.itemViewTopBarOptionsDropdown,
+					.dropdownsDisplay.itemViewTopBarOptionsDropdown,
 			})
 		);
 	};
@@ -191,11 +199,12 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__button" +
-								(showSortDropdown
+								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+									.itemViewTopBarSortDropdown
 									? " list-sort-filter-container__button--clicked"
 									: "")
 							}
-							onClick={toggleSortDropdown}
+							onClick={(e) => toggleSortDropdown(e)}
 						>
 							<span className={"list-sort-filter-container__button__text"}>
 								<i
@@ -209,9 +218,16 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__content-dropdown" +
-								(showSortDropdown
+								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+									.itemViewTopBarSortDropdown
 									? " list-sort-filter-container__content-dropdown--visible"
 									: "")
+							}
+							onClick={
+								/*Keeps clicking dropdown from closing itself*/
+								(e) => {
+									e.stopPropagation();
+								}
 							}
 						>
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block list-sort-filter-container__content-dropdown__sort-content-block--larger-top-margin">
@@ -293,11 +309,12 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__button list-sort-filter-container__button--filter-width" +
-								(showFilterDropdown
+								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+									.itemViewTopBarFilterDropdown
 									? " list-sort-filter-container__button--clicked list-sort-filter-container__button--clicked-filter-width"
 									: "")
 							}
-							onClick={toggleFilterDropdown}
+							onClick={(e) => toggleFilterDropdown(e)}
 						>
 							<span
 								className={
@@ -324,9 +341,16 @@ export default function ItemViewTopBar(props) {
 								(props.reduxContainerName === BUG_CONTAINER
 									? " list-sort-filter-container__content-dropdown--shorter"
 									: "") +
-								(showFilterDropdown
+								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+									.itemViewTopBarFilterDropdown
 									? " list-sort-filter-container__content-dropdown--visible"
 									: "")
+							}
+							onClick={
+								/*Keeps clicking dropdown from closing itself*/
+								(e) => {
+									e.stopPropagation();
+								}
 							}
 						>
 							<div className="list-sort-filter-container__content-dropdown__filter-content">
@@ -421,12 +445,12 @@ export default function ItemViewTopBar(props) {
 				<div
 					className={
 						"item-options-container__button" +
-						(reduxState[GENERAL_CONTAINER].componentsDisplay
+						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.itemViewTopBarOptionsDropdown
 							? " item-options-container__button--clicked"
 							: "")
 					}
-					onClick={toggleOptionsDropdown}
+					onClick={(e) => toggleOptionsDropdown(e)}
 				>
 					<span className="item-options-container__button__text">
 						<i
@@ -439,10 +463,16 @@ export default function ItemViewTopBar(props) {
 				<div
 					className={
 						"item-options-container__dropdown" +
-						(reduxState[GENERAL_CONTAINER].componentsDisplay
+						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.itemViewTopBarOptionsDropdown
 							? " item-options-container__dropdown--visible"
 							: "")
+					}
+					onClick={
+						/*Keeps clicking dropdown from closing itself*/
+						(e) => {
+							e.stopPropagation();
+						}
 					}
 				>
 					<span

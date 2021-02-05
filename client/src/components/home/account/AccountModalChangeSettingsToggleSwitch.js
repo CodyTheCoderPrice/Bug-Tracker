@@ -1,17 +1,6 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-	GENERAL_CONTAINER,
-	ACCOUNT_CONTAINER,
-} from "../../../actions/constants/containerNames";
-
-import {
-	getCurrentContainerName,
-} from "../../../utils";
+import React from "react";
 
 export default function AccountModalChangeSettingsToggleSwitch(props) {
-	const reduxState = useSelector((state) => state);
-	const dispatch = useDispatch();
 
 	return (
 		<div className="toggle-switch-component">

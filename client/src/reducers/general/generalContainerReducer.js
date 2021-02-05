@@ -1,4 +1,5 @@
 import generalComponentsDisplayReducer from "./generalComponentsDisplayReducer";
+import generalDropdownsDisplayReducer from "./generalDropdownsDisplayReducer";
 import globalConstantsReducer from "./globalConstantsReducer";
 import backendErrorReducer from "./backendErrorReducer";
 
@@ -9,6 +10,7 @@ import { RESET_CONTAINER } from "../../actions/constants/types";
 const initialState = {
 	// passing 'undefined, {}' causes reducers to return their initial state
 	componentsDisplay: generalComponentsDisplayReducer(undefined, {}),
+	dropdownsDisplay: generalDropdownsDisplayReducer(undefined, {}),
 	backendErrors: backendErrorReducer(undefined, {}),
 	// Passed nothing since this reducer takes no parameters
 	globalConstants: globalConstantsReducer(),
@@ -37,6 +39,10 @@ export function generalContainerReducer(state = initialState, action) {
 				return {
 					componentsDisplay: generalComponentsDisplayReducer(
 						state.componentsDisplay,
+						action
+					),
+					dropdownsDisplay: generalDropdownsDisplayReducer(
+						state.dropdownsDisplay,
 						action
 					),
 					backendErrors: backendErrorReducer(state.backendErrors, action),

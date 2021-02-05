@@ -5,25 +5,19 @@ const initialState = {
 	register: false,
 	login: true,
 	home: false,
-	// In general container since value should be the same for projects and bugs
-	itemViewListSidebar: true,
 	// Has the user set itemViewListSidebar, or has it only been auto decided
 	// ...based on the size of the window
 	itemViewListSidebarUserSet: false,
-	/*
-	Dropdowns are stored here in the general container to make it easier for
-	other compoents to close them when user clicks away from the dropdown.
-	*/
-	navbarHamburherDropdown: false,
-	itemViewTopBarOptionsDropdown: false,
+	// In general container since value should be the same for projects and bugs
+	itemViewListSidebar: true,
 };
 
 /**
  * Used to set JSON in the general container of the redux state for which
  * general components should display by the app
  *
- * @param {JSON} state - JSON for which account components are currently being
- * display by the app
+ * @param {JSON} state - JSON for which general components are currently being
+ * displayed by the app
  * @param {JSON} action - JSON containing a container name and type (used to
  * determin where and what to do in the redux state), and any data addition
  * data needed based on the container name and type (typically data to updated
@@ -46,23 +40,15 @@ export default function (state = initialState, action) {
 				login:
 					action.displays.login !== undefined ? action.displays.login : false,
 				home: action.displays.home !== undefined ? action.displays.home : false,
+				itemViewListSidebarUserSet:
+					action.displays.itemViewListSidebarUserSet !== undefined
+						? action.displays.itemViewListSidebarUserSet
+						: false,
 				// If undefined then true since default is true
 				itemViewListSidebar:
 					action.displays.itemViewListSidebar !== undefined
 						? action.displays.itemViewListSidebar
 						: true,
-				itemViewListSidebarUserSet:
-					action.displays.itemViewListSidebarUserSet !== undefined
-						? action.displays.itemViewListSidebarUserSet
-						: false,
-				navbarHamburherDropdown:
-					action.displays.navbarHamburherDropdown !== undefined
-						? action.displays.navbarHamburherDropdown
-						: false,
-				itemViewTopBarOptionsDropdown:
-					action.displays.itemViewTopBarOptionsDropdown !== undefined
-						? action.displays.itemViewTopBarOptionsDropdown
-						: false,
 			};
 		default:
 			return state;

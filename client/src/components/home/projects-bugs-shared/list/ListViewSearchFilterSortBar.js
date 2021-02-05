@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	GENERAL_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 
 import {
+	setWhichGeneralDropdownsDisplay,
 	setWhichProjectOrBugComponentsDisplay,
 	setWhichAccountComponentsDisplay,
 	setProjectOrBugSearchFilterSort,
@@ -25,8 +27,6 @@ export default function ListViewSearchFilterSortBar(props) {
 	const [searchBarText, setSearchBarText] = useState(
 		reduxState[props.reduxContainerName].searchFilterSort.searchKeyWordString
 	);
-
-	const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
 	// Custom hook resizes the searchbar to take up the space
 	// ...in the middle of the search-sort-filter-bar. Also adds
@@ -71,8 +71,16 @@ export default function ListViewSearchFilterSortBar(props) {
 		}
 	};
 
-	const toggleFilterDropdown = () => {
-		setShowFilterDropdown(!showFilterDropdown);
+	const toggleFilterDropdown = (e) => {
+		e.stopPropagation();
+
+		dispatch(
+			setWhichGeneralDropdownsDisplay({
+				listViewSearchFilterSearchBarFilterDropdown: !reduxState[
+					GENERAL_CONTAINER
+				].dropdownsDisplay.listViewSearchFilterSearchBarFilterDropdown,
+			})
+		);
 	};
 
 	const onChangeFilter = (e) => {
@@ -160,11 +168,12 @@ export default function ListViewSearchFilterSortBar(props) {
 				<div
 					className={
 						"filter-area-container__button" +
-						(showFilterDropdown
+						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+							.listViewSearchFilterSearchBarFilterDropdown
 							? " filter-area-container__button--clicked"
 							: "")
 					}
-					onClick={toggleFilterDropdown}
+					onClick={(e) => toggleFilterDropdown(e)}
 				>
 					<span
 						className={
@@ -191,9 +200,16 @@ export default function ListViewSearchFilterSortBar(props) {
 						(props.reduxContainerName === BUG_CONTAINER
 							? " filter-area-container__content-dropdown--shorter"
 							: "") +
-						(showFilterDropdown
+						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+							.listViewSearchFilterSearchBarFilterDropdown
 							? " filter-area-container__content-dropdown--visible"
 							: "")
+					}
+					onClick={
+						/*Keeps clicking dropdown from closing itself*/
+						(e) => {
+							e.stopPropagation();
+						}
 					}
 				>
 					<div className="filter-area-container__content-dropdown__content">

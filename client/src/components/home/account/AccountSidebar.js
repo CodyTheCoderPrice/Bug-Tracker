@@ -43,7 +43,7 @@ export default function AccountSidebar() {
 
 	const handleLogoutAccount = (e) => {
 		// Makes sure onclick set on the home component for closing
-		// ... itemViewTopBarOptionsDropdown doesn't intefere
+		// ...itemViewTopBarOptionsDropdown doesn't intefere
 		e.stopPropagation();
 		dispatch(logoutAccount());
 	};

@@ -7,7 +7,7 @@ import {
 	BUG_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
-import { setWhichGeneralComponentsDisplay } from "../../../actions";
+import { setWhichGeneralDropdownsDisplay } from "../../../actions";
 
 import {
 	getElementSize,
@@ -95,7 +95,7 @@ export default function NavbarHamburger() {
 	// Resize hamburger dropdown width to be full screen
 	useEffect(() => {
 		if (
-			reduxState[GENERAL_CONTAINER].componentsDisplay.navbarHamburherDropdown &&
+			reduxState[GENERAL_CONTAINER].dropdownsDisplay.navbarHamburherDropdown &&
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles !== null
 		) {
@@ -118,15 +118,16 @@ export default function NavbarHamburger() {
 		// eslint-disable-next-line
 		reduxState[GENERAL_CONTAINER].globalConstants,
 		// eslint-disable-next-line
-		reduxState[GENERAL_CONTAINER].componentsDisplay,
+		reduxState[GENERAL_CONTAINER].dropdownsDisplay,
 	]);
 
-	const toggleHamburgerDropdown = () => {
+	const toggleHamburgerDropdown = (e) => {
+		e.stopPropagation();
+
 		dispatch(
-			setWhichGeneralComponentsDisplay({
-				...reduxState[GENERAL_CONTAINER].componentsDisplay,
-				navbarHamburherDropdown: !reduxState[GENERAL_CONTAINER]
-					.componentsDisplay.navbarHamburherDropdown,
+			setWhichGeneralDropdownsDisplay({
+				navbarHamburherDropdown: !reduxState[GENERAL_CONTAINER].dropdownsDisplay
+					.navbarHamburherDropdown,
 			})
 		);
 	};
@@ -145,11 +146,11 @@ export default function NavbarHamburger() {
 
 	return (
 		<div className="hamburger-container">
-			{!reduxState[GENERAL_CONTAINER].componentsDisplay
+			{!reduxState[GENERAL_CONTAINER].dropdownsDisplay
 				.navbarHamburherDropdown ? (
 				<div
 					className="hamburger-button-container"
-					onClick={toggleHamburgerDropdown}
+					onClick={(e) => toggleHamburgerDropdown(e)}
 				>
 					<i
 						className="fa fa-bars hamburger-button-container__icon"

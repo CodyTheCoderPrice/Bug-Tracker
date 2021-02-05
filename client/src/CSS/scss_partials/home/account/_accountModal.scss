@@ -282,7 +282,7 @@
 		color: v.$account-modal-theme-button-option-text-color;
 	}
 
-	.category-container__border-container__content-container__theme-button__options-container {
+	.category-container__border-container__content-container__theme-button__dropdown-container {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -290,7 +290,7 @@
 
 		z-index: 1;
 		position: absolute;
-		top: v.$account-modal-theme-button-options-container-top;
+		top: v.$account-modal-theme-button-dropdown-container-top;
 		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
 		border-top: none;
 		background-color: v.$account-modal-theme-button-background-color;

@@ -7,8 +7,9 @@ import {
 
 import {
 	clearBackendErrors,
-	updateAccountSettings,
+	setWhichGeneralDropdownsDisplay,
 	setWhichAccountComponentsDisplay,
+	updateAccountSettings,
 } from "../../../actions";
 
 import {
@@ -23,7 +24,6 @@ export default function AccountModalChangeSettings() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [showThemeDropdown, setShowThemeDropdown] = useState(false);
 	const [highlightedOptionThemeId, setHighlightedOptionThemeId] = useState(
 		reduxState[ACCOUNT_CONTAINER].settings.theme_id
 	);
@@ -36,23 +36,24 @@ export default function AccountModalChangeSettings() {
 		// eslint-disable-next-line
 	}, []);
 
-	const closeThemeDropdownIfOpen = () => {
-		if (showThemeDropdown) {
-			setShowThemeDropdown(false);
-		}
-	}
-
-	const openCloseThemeDropdown = (e) => {
+	const toggleThemeDropdown = (e) => {
 		e.stopPropagation();
 
-		if (!showThemeDropdown) {
+		if (
+			!reduxState[GENERAL_CONTAINER].dropdownsDisplay
+				.accountModalChangeSettingsThemeDropdown
+		) {
 			setHighlightedOptionThemeId(
 				reduxState[ACCOUNT_CONTAINER].settings.theme_id
 			);
-			setShowThemeDropdown(true);
-		} else {
-			setShowThemeDropdown(false);
 		}
+
+		dispatch(
+			setWhichGeneralDropdownsDisplay({
+				accountModalChangeSettingsThemeDropdown: !reduxState[GENERAL_CONTAINER]
+					.dropdownsDisplay.accountModalChangeSettingsThemeDropdown,
+			})
+		);
 	};
 
 	const onChangeTheme = (e, theme_id) => {
@@ -67,7 +68,12 @@ export default function AccountModalChangeSettings() {
 			);
 		}
 
-		setShowThemeDropdown(false);
+		dispatch(
+			setWhichGeneralDropdownsDisplay({
+				accountModalChangeSettingsThemeDropdown: !reduxState[GENERAL_CONTAINER]
+					.dropdownsDisplay.accountModalChangeSettingsThemeDropdown,
+			})
+		);
 	};
 
 	const onChangeDarkMode = () => {
@@ -169,12 +175,13 @@ export default function AccountModalChangeSettings() {
 						</label>
 						<div
 							className="category-container__border-container__content-container__theme-button"
-							onClick={(e) => openCloseThemeDropdown(e)}
+							onClick={(e) => toggleThemeDropdown(e)}
 						>
 							<div
 								className={
 									"category-container__border-container__content-container__theme-button__selected-container" +
-									(showThemeDropdown
+									(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+										.accountModalChangeSettingsThemeDropdown
 										? " category-container__border-container__content-container__theme-button__selected-container--dropdown-present"
 										: "")
 								}
@@ -188,7 +195,8 @@ export default function AccountModalChangeSettings() {
 							<div
 								className={
 									"category-container__border-container__content-container__theme-button__arrow-container" +
-									(showThemeDropdown
+									(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+										.accountModalChangeSettingsThemeDropdown
 										? " category-container__border-container__content-container__theme-button__arrow-container--dropdown-present"
 										: "")
 								}
@@ -196,13 +204,25 @@ export default function AccountModalChangeSettings() {
 								<i
 									className={
 										"fa category-container__border-container__content-container__theme-button__arrow-container__icon" +
-										(showThemeDropdown ? " fa-caret-up" : " fa-caret-down")
+										(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+											.accountModalChangeSettingsThemeDropdown
+											? " fa-caret-up"
+											: " fa-caret-down")
 									}
 									aria-hidden="true"
 								/>
 							</div>
-							{showThemeDropdown === false ? null : (
-								<div className="category-container__border-container__content-container__theme-button__options-container">
+							{reduxState[GENERAL_CONTAINER].dropdownsDisplay
+								.accountModalChangeSettingsThemeDropdown === false ? null : (
+								<div
+									className="category-container__border-container__content-container__theme-button__dropdown-container"
+									onClick={
+										/*Keeps clicking dropdown from closing itself*/
+										(e) => {
+											e.stopPropagation();
+										}
+									}
+								>
 									{reduxState[ACCOUNT_CONTAINER].settingThemes.map(
 										(theme, i) => {
 											return (
