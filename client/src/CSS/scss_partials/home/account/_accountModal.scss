@@ -9,14 +9,22 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		//border: v.$base-modal-border-width solid black;
-		border-radius: 15px;
+		border: v.$account-modal-border-width solid black;
+		border-radius: v.$account-modal-border-radius;
 		background-color: white;
+		padding: 4px;
+		
+		//text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	.inner-border-padding-container {
+		position: relative;
+		border: v.$account-modal-border-width solid black;
+		border-radius: v.$account-modal-border-radius;
 		padding: 30px;
 		height: v.$edit-account-modal-height;
 		width: v.$edit-account-modal-width;
-		//text-align: center;
-		font-family: Arial, Helvetica, sans-serif;
 	}
 
 	.back-button {
@@ -170,9 +178,11 @@
 
 	.category-container__border-container__content-container__label {
 		float: left;
-		height: v.$account-modal-theme-button-selected-arrow-container-height;
+		// Subtracting 2px for better alignment
+		height: v.$account-modal-settings-content-container-height - 2;
 		font-size: v.$base-font-size;
 		vertical-align: middle;
-		line-height: v.$account-modal-theme-button-selected-arrow-container-height;
+		// Subtracting 2px for better alignment
+		line-height: v.$account-modal-settings-content-container-height - 2;
 	}
 }

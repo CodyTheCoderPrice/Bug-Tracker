@@ -107,7 +107,7 @@ export default function AccountModalChangeSettings() {
 						)
 					}
 				>
-					close
+					Close
 				</span>
 			</div>
 		</div>

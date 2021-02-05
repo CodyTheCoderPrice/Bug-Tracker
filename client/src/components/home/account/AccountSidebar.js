@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
-	BUG_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
 import {
@@ -19,7 +18,7 @@ import {
 import { useSidebarResize } from "../../../utils/hooks";
 
 // Components
-import AccountSidebarChangeTheme from "./AccountSidebarChangeTheme";
+import AccountSidebarChangeAppearance from "./AccountSidebarChangeAppearance";
 
 export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
@@ -51,20 +50,19 @@ export default function AccountSidebar() {
 		dispatch(logoutAccount());
 	};
 
-	const getSLinkColor = () => {
-		if (
-			reduxState[BUG_CONTAINER].componentsDisplay.listView !== true &&
-			reduxState[BUG_CONTAINER].componentsDisplay.itemView !== true
-		) {
-			return getProjectOrBugTextColorClassName(PROJECT_CONTAINER);
-		} else {
-			return getProjectOrBugTextColorClassName(BUG_CONTAINER);
-		}
-	};
-
 	return (
 		<div className="account-sidebar-component">
 			<div className="sidebar-container js-account-sidebar">
+				<div
+					className="settings-button"
+					onClick={openAccountModalForEditingSettings}
+				>
+					<i
+						className="fa fa-cog"
+						aria-hidden="true"
+						alt="Icon of a settings cog"
+					/>
+				</div>
 				<div className="padded-container">
 					<div className="account-info-container">
 						<div className="account-info account-info--name">
@@ -77,25 +75,39 @@ export default function AccountSidebar() {
 						</div>
 						<div className="account-info">
 							Joined:{" "}
-							{formatDateMMddYYYY(reduxState[ACCOUNT_CONTAINER].accountInfo.joinDate)}
+							{formatDateMMddYYYY(
+								reduxState[ACCOUNT_CONTAINER].accountInfo.joinDate
+							)}
 						</div>
 					</div>
-					<div className="dividing-line" />
-					<AccountSidebarChangeTheme />
-					<div className="dividing-line" />
-					<div className={"account-link-container" + getSLinkColor()}>
-						<span onClick={openAccountModalForEditingAccount} className="account-link">
+					<div className="link-container">
+						<span
+							onClick={openAccountModalForEditingAccount}
+							className={
+								"link-container__text" +
+								getProjectOrBugTextColorClassName(PROJECT_CONTAINER)
+							}
+						>
 							Edit Account
 						</span>
-						<span onClick={openAccountModalForEditingSettings} className="account-link">
-							Settings
-						</span>
-						<span
+					</div>
+					<div className="horizontal-dividing-line" />
+					<AccountSidebarChangeAppearance />
+					<div className="horizontal-dividing-line" />
+					<div className="button-container">
+						<div
+							className="button-container__logout-button"
 							onClick={(e) => handleLogoutAccount(e)}
-							className={"account-link" + getSLinkColor()}
 						>
-							Logout
-						</span>
+							<span
+								className={
+									"button-container__logout-button__text" +
+									getProjectOrBugTextColorClassName(PROJECT_CONTAINER)
+								}
+							>
+								Logout
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>

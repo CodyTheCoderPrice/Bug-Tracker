@@ -53,11 +53,11 @@ $yellow: #ffff00;
 // Components
 $basic-toggle-switch-on-color: $blue;
 $basic-toggle-switch-off-color: $light-gray-level-7;
-$account-modal-theme-button-border-color: $dark-gray-level-3;
-$account-modal-theme-button-background-color: $light-gray-level-5;
-$account-modal-theme-button-arrow-container-color: $gray-level-2;
-$account-modal-theme-button-option-text-color: $dark-gray-level-4;
-$account-modal-theme-button-option-selected-color: $light-blue;
+$account-sidebar-appearance-theme-button-border-color: $dark-gray-level-3;
+$account-sidebar-appearance-theme-button-background-color: $light-gray-level-5;
+$account-sidebar-appearance-theme-button-arrow-container-color: $gray-level-2;
+$account-sidebar-appearance-theme-button-option-text-color: $dark-gray-level-4;
+$account-sidebar-appearance-theme-button-option-selected-color: $light-blue;
 $search-filter-sort-bar-color: $light-gray-level-5;
 $list-table-background-color: white;
 $filter-active-color: #0077ff;
@@ -72,6 +72,10 @@ $status-green: #007e00;
 $status-red: #d14242;
 // Focus colors
 $focus-blue: #0059ff;
+// Icon Button Colors
+$normal-icon-button-gray: $gray-level-5;
+$darker-icon-button-gray: $dark-gray-level-2;
+$hover-active-icon-button-gray: $dark-gray-level-4;
 
 //==========
 // Heights
@@ -81,7 +85,8 @@ $navbar-account-button-height: $navbar-height;
 $hamburger-dropdown-item-height: 42px;
 $edit-account-modal-height: 390px;
 $basic-toggle-switch-height: 24px;
-$account-modal-theme-button-selected-arrow-container-height: 22px;
+$account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
+$account-sidebar-logout-button-height: 40px;
 $account-modal-settings-content-container-height: $basic-toggle-switch-height;
 $search-filter-sort-bar-height: 46px;
 $search-filter-sort-bar-button-height: 26px;
@@ -103,11 +108,12 @@ $navbar-account-button-width: 130px;
 $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;
 $navbar-hamburger-button-width: 36px;
+$account-sidebar-width: 430px;
 $edit-account-modal-width: 460px;
-$account-modal-theme-button-selected-container-width: 80px;
-$account-modal-theme-button-arrow-container-width: 24px;
-$account-modal-theme-button-width: $account-modal-theme-button-selected-container-width +
-	$account-modal-theme-button-arrow-container-width;
+$account-sidebar-appearance-theme-button-selected-container-width: 80px;
+$account-sidebar-appearance-theme-button-arrow-container-width: 24px;
+$account-sidebar-appearance-theme-button-width: $account-sidebar-appearance-theme-button-selected-container-width +
+	$account-sidebar-appearance-theme-button-arrow-container-width;
 $list-item-search-bar-button-width: $list-item-search-bar-height + 10;
 $search-top-bar-filter-button-width: 90px;
 $search-top-bar-filter-dropdown-content-container-width: 260px;
@@ -145,6 +151,8 @@ $top-bar-filter-button-left: $top-bar-sort-button-left +
 $register-login-form-input-margin-top: 5px;
 $register-login-form-input-margin-bottom: 5px;
 $account-sidebar-contents-margin-top-bottom: 9px;
+$account-sidebar-dividing-line-margin-top-bottom: 34px;
+$account-sidebar-appearance-contents-container-margin-left-right: 16px;
 $edit-account-form-input-margin-top: 5px;
 $edit-account-create-item-form-input-margin-bottom: 10px;
 $edit-account-modal-link-margin: 18px;
@@ -165,8 +173,9 @@ $navbar-breadcrumb-border-width: 2px;
 $navbar-hamburger-border-width: 3px;
 $base-sidebar-border-width: 3px;
 $base-modal-border-width: 3px;
+$account-modal-border-width: 4px;
 $account-modal-toggle-switch-border-width: 3px;
-$account-modal-theme-button-border-width: 1px;
+$account-sidebar-appearance-theme-button-border-width: 1px;
 $search-filter-sort-bar-border-width: 1px;
 $search-top-bar-base-button-border-width: 1px;
 $search-top-bar-clicked-dropdown-button-border-width: 3px;
@@ -186,6 +195,7 @@ $base-buttton-border-radius: 10px;
 $navbar-breadcrumb-round-border-radius: 12px;
 $navbar-hamburger-border-radius: 10px;
 $base-sidebar-border-radius: 25px;
+$account-modal-border-radius: 15px;
 $search-top-bar-buttton-border-radius: 5px;
 $form-input-border-radius: 5px;
 $status-box-border-radius: 50px;
@@ -194,6 +204,8 @@ $status-box-border-radius: 50px;
 // Padding
 //=========
 $navbar-button-text-container-padding: 0 14px 0 14px;
+$account-sidebar-padding-top: 32px;
+$account-sidebar-padding-left-right: 18px;
 $list-item-search-bar-padding: 8px;
 $create-item-sidebar-padding: 6px;
 $edit-item-name-input-padding: 4px;
@@ -206,8 +218,8 @@ $slightly-larger-font-size: $base-font-size + 1px;
 $navbar-button-font-size: 18px;
 $account-sidebar-account-name-font-size: 18px;
 $account-sidebar-account-info-font-size: 15px;
-$account-sidebar-theme-label-font-size: 16px;
-$account-sidebar-link-font-size: 16px;
+$account-sidebar-appearance-label-font-size: 16px;
+$account-sidebar-link-font-size: 15px;
 $edit-account-modal-link-font-size: 20px;
 $search-filter-sort-create-item-message-font-size: 24px;
 $list-item-search-bar-font-size: 14px;
@@ -235,14 +247,14 @@ $navbar-breadcrumb-button-height: $navbar-height -
 // The value added at the end represents the margin between the hamburger button and the title
 $navbar-hamburger-title-left: $navbar-hamburger-button-left +
 	$navbar-hamburger-button-width + 6px;
-$account-modal-theme-button-option-height: $account-modal-theme-button-selected-arrow-container-height -
-	($account-modal-theme-button-border-width * 2);
-$account-modal-theme-button-option-width: $account-modal-theme-button-selected-container-width -
-	($account-modal-theme-button-border-width * 2);
-$account-modal-theme-button-option-larger-width: $account-modal-theme-button-width -
-	($account-modal-theme-button-border-width * 2);
-$account-modal-theme-button-dropdown-container-top: $account-modal-theme-button-option-height +
-	($account-modal-theme-button-border-width * 2);
+$account-sidebar-appearance-theme-button-option-height: $account-sidebar-appearance-theme-button-selected-arrow-container-height -
+	($account-sidebar-appearance-theme-button-border-width * 2);
+$account-sidebar-appearance-theme-button-option-width: $account-sidebar-appearance-theme-button-selected-container-width -
+	($account-sidebar-appearance-theme-button-border-width * 2);
+$account-sidebar-appearance-theme-button-option-larger-width: $account-sidebar-appearance-theme-button-width -
+	($account-sidebar-appearance-theme-button-border-width * 2);
+$account-sidebar-appearance-theme-button-dropdown-container-top: $account-sidebar-appearance-theme-button-option-height +
+	($account-sidebar-appearance-theme-button-border-width * 2);
 $search-filter-sort-bar-button-focus-height: $search-filter-sort-bar-button-height +
 	(
 		(

@@ -4,18 +4,20 @@
 .account-sidebar-change-theme-component {
 	.content-container {
 		display: inline-block;
-		height: v.$account-modal-settings-content-container-height;
+		margin: 0 0 0 v.$account-sidebar-appearance-contents-container-margin-left-right;
+		height: v.$basic-toggle-switch-height;
 	}
 
 	.content-container--right {
 		float: right;
+		margin: 0 v.$account-sidebar-appearance-contents-container-margin-left-right 0 0;
 	}
 
 	.content-container__label {
 		float: left;
-		height: v.$account-modal-theme-button-selected-arrow-container-height;
-		font-size: v.$account-sidebar-theme-label-font-size;
-		line-height: v.$account-modal-theme-button-selected-arrow-container-height;
+		height: v.$account-sidebar-appearance-theme-button-selected-arrow-container-height;
+		font-size: v.$account-sidebar-appearance-label-font-size;
+		line-height: v.$account-sidebar-appearance-theme-button-selected-arrow-container-height;
 		vertical-align: middle;
 	}
 
@@ -28,7 +30,7 @@
 		position: relative;
 		float: left;
 		margin-left: 10px;
-		width: v.$account-modal-theme-button-width;
+		width: v.$account-sidebar-appearance-theme-button-width;
 		cursor: pointer;
 	}
 
@@ -40,11 +42,11 @@
 
 		position: relative;
 		float: left;
-		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
+		border: solid v.$account-sidebar-appearance-theme-button-border-color v.$account-sidebar-appearance-theme-button-border-width;
 		border-right: none;
-		background-color: v.$account-modal-theme-button-background-color;
-		height: v.$account-modal-theme-button-selected-arrow-container-height;
-		width: v.$account-modal-theme-button-selected-container-width;
+		background-color: v.$account-sidebar-appearance-theme-button-background-color;
+		height: v.$account-sidebar-appearance-theme-button-selected-arrow-container-height;
+		width: v.$account-sidebar-appearance-theme-button-selected-container-width;
 	}
 
 	.content-container__theme-button__option {
@@ -54,23 +56,23 @@
 		box-sizing: border-box;
 
 		position: relative;
-		height: v.$account-modal-theme-button-option-height;
-		width: v.$account-modal-theme-button-option-width;
+		height: v.$account-sidebar-appearance-theme-button-option-height;
+		width: v.$account-sidebar-appearance-theme-button-option-width;
 	}
 
 	.content-container__theme-button__option--larger {
-		height: v.$account-modal-theme-button-option-height + 10;
-		width: v.$account-modal-theme-button-option-larger-width;
+		height: v.$account-sidebar-appearance-theme-button-option-height + 10;
+		width: v.$account-sidebar-appearance-theme-button-option-larger-width;
 	}
 
 	.content-container__theme-button__option--selected {
-		background-color: v.$account-modal-theme-button-option-selected-color;
+		background-color: v.$account-sidebar-appearance-theme-button-option-selected-color;
 	}
 
 	.content-container__theme-button__option__centering-container {
 		position: relative;
 		display: inline-block;
-		margin-left: 3px;
+		margin-left: 5px;
 		height: 100%;
 		width: 15px;
 	}
@@ -96,7 +98,7 @@
 		@include m.vertical-center();
 		@include m.stop-text-selection();
 
-		color: v.$account-modal-theme-button-option-text-color;
+		color: v.$account-sidebar-appearance-theme-button-option-text-color;
 		font-size: 12px;
 		font-weight: bold;
 		
@@ -110,17 +112,17 @@
 
 		position: relative;
 		float: left;
-		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
-		background-color: v.$account-modal-theme-button-arrow-container-color;
-		height: v.$account-modal-theme-button-selected-arrow-container-height;
-		width: v.$account-modal-theme-button-arrow-container-width;
+		border: solid v.$account-sidebar-appearance-theme-button-border-color v.$account-sidebar-appearance-theme-button-border-width;
+		background-color: v.$account-sidebar-appearance-theme-button-arrow-container-color;
+		height: v.$account-sidebar-appearance-theme-button-selected-arrow-container-height;
+		width: v.$account-sidebar-appearance-theme-button-arrow-container-width;
 	}
 
 	.content-container__theme-button__arrow-container__icon {
 		@include m.dead-center();
 		@include m.stop-text-selection();
 
-		color: v.$account-modal-theme-button-option-text-color;
+		color: v.$account-sidebar-appearance-theme-button-option-text-color;
 	}
 
 	.content-container__theme-button__dropdown-container {
@@ -131,10 +133,10 @@
 
 		z-index: 1;
 		position: absolute;
-		top: v.$account-modal-theme-button-dropdown-container-top;
-		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
+		top: v.$account-sidebar-appearance-theme-button-dropdown-container-top;
+		border: solid v.$account-sidebar-appearance-theme-button-border-color v.$account-sidebar-appearance-theme-button-border-width;
 		border-top: none;
-		background-color: v.$account-modal-theme-button-background-color;
-		width: v.$account-modal-theme-button-width;
+		background-color: v.$account-sidebar-appearance-theme-button-background-color;
+		width: v.$account-sidebar-appearance-theme-button-width;
 	}
 }

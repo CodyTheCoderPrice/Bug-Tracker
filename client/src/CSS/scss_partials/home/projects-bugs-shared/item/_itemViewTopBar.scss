@@ -242,14 +242,14 @@
 		background: none;
 		height: 29px;
 		width: v.$options-button-width;
-		color: v.$dark-gray-level-2;
+		color: v.$darker-icon-button-gray;
 		font-size: 28px;
 		text-align: center;
 		cursor: pointer;
 
 		&:hover,
 		&:active {
-			color: black;
+			color: v.$hover-active-icon-button-gray;
 		}
 	}
 
@@ -261,7 +261,7 @@
 		border-color: black;
 		border-bottom: none;
 		background-color: white;
-		color: black;
+		color: v.$hover-active-icon-button-gray;
 	}
 
 	.item-options-container__dropdown {

@@ -14,7 +14,7 @@ import {
 // Components
 import ToggleSwitch from "../../basic/toggleSwitch";
 
-export default function AccountSidebarChangeTheme() {
+export default function AccountSidebarChangeAppearance() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -127,9 +127,7 @@ export default function AccountSidebarChangeTheme() {
 	return (
 		<div className="account-sidebar-change-theme-component">
 			<div className="content-container">
-				<label className="content-container__label">
-					Dark mode
-				</label>
+				<label className="content-container__label">Dark mode</label>
 				<ToggleSwitch
 					on={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 					onChangeFunction={onChangeDarkMode}
@@ -137,9 +135,7 @@ export default function AccountSidebarChangeTheme() {
 				/>
 			</div>
 			<div className="content-container content-container--right">
-				<label className="content-container__label">
-					Theme
-				</label>
+				<label className="content-container__label">Theme</label>
 				<div
 					className="content-container__theme-button"
 					onClick={(e) => toggleThemeDropdown(e)}
@@ -177,6 +173,13 @@ export default function AccountSidebarChangeTheme() {
 									: " fa-caret-down")
 							}
 							aria-hidden="true"
+							alt={
+								"Icon of an arrow pointing " +
+								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+									.accountModalChangeSettingsThemeDropdown
+									? "up"
+									: "down")
+							}
 						/>
 					</div>
 					{reduxState[GENERAL_CONTAINER].dropdownsDisplay

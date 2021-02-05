@@ -745,54 +745,91 @@ dropdown can overlap all other components
   border: 3px solid black;
   border-right: none;
   background: white;
-  height: 340px;
+  height: 376px;
   width: 430px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: auto !important;
   overflow-x: hidden !important;
 }
+.account-sidebar-component .settings-button {
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  border: none;
+  background: none;
+  color: #757575;
+  font-size: 22px;
+  cursor: pointer;
+}
+.account-sidebar-component .settings-button:hover, .account-sidebar-component .settings-button:active {
+  color: #3a3a3a;
+  font-size: 24px;
+}
 .account-sidebar-component .padded-container {
-  padding: 22px 18px 0px;
+  padding: 32px 18px 0px;
 }
 .account-sidebar-component .account-info {
   display: block;
-  margin-bottom: 9px;
+  margin-bottom: 5px;
   font-size: 15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 .account-sidebar-component .account-info--name {
   font-size: 18px;
   font-weight: bold;
 }
-.account-sidebar-component .dividing-line {
-  margin: 27px 0px;
-  border: solid silver 1px;
+.account-sidebar-component .link-container {
+  padding-top: 5px;
+  text-align: center;
 }
-.account-sidebar-component .account-link-container {
-  margin-top: 9px;
-  padding-bottom: 12px;
-}
-.account-sidebar-component .account-link {
-  display: block;
-  margin-bottom: 9px;
-  font-size: 16px;
+.account-sidebar-component .link-container__text {
+  font-size: 15px;
   font-style: bold;
   text-decoration: none;
   cursor: pointer;
 }
-.account-sidebar-component .account-link:hover, .account-sidebar-component .account-link:active {
+.account-sidebar-component .link-container__text:hover, .account-sidebar-component .link-container__text:active {
   text-decoration: underline;
+}
+.account-sidebar-component .horizontal-dividing-line {
+  margin: 34px 0px;
+  border-top: solid silver 2px;
+}
+.account-sidebar-component .button-container {
+  position: relative;
+  padding-bottom: 34px;
+  height: 40px;
+}
+.account-sidebar-component .button-container__logout-button {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: solid silver 1px;
+  border-radius: 5px;
+  height: 40px;
+  width: 80px;
+  cursor: pointer;
+}
+.account-sidebar-component .button-container__logout-button__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
 }
 
 .account-sidebar-change-theme-component .content-container {
   display: inline-block;
+  margin: 0 0 0 16px;
   height: 24px;
 }
 .account-sidebar-change-theme-component .content-container--right {
   float: right;
+  margin: 0 16px 0 0;
 }
 .account-sidebar-change-theme-component .content-container__label {
   float: left;
@@ -841,7 +878,7 @@ dropdown can overlap all other components
 .account-sidebar-change-theme-component .content-container__theme-button__option__centering-container {
   position: relative;
   display: inline-block;
-  margin-left: 3px;
+  margin-left: 5px;
   height: 100%;
   width: 15px;
 }
@@ -928,12 +965,19 @@ dropdown can overlap all other components
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 4px solid black;
   border-radius: 15px;
   background-color: white;
+  padding: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.edit-account-modal-component .inner-border-padding-container {
+  position: relative;
+  border: 4px solid black;
+  border-radius: 15px;
   padding: 30px;
   height: 390px;
   width: 460px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 .edit-account-modal-component .back-button {
   z-index: 6;
@@ -948,7 +992,7 @@ dropdown can overlap all other components
   font-size: 22px;
 }
 .edit-account-modal-component .back-button:hover, .edit-account-modal-component .back-button:active {
-  color: black;
+  color: #3a3a3a;
 }
 .edit-account-modal-component .exit-button {
   z-index: 6;
@@ -962,7 +1006,7 @@ dropdown can overlap all other components
   font-size: 26px;
 }
 .edit-account-modal-component .exit-button:hover, .edit-account-modal-component .exit-button:active {
-  color: black;
+  color: #3a3a3a;
 }
 .edit-account-modal-component .title {
   position: relative;
@@ -2117,7 +2161,7 @@ dropdown can overlap all other components
 .top-bar-component .item-options-container__button:hover, .top-bar-component .item-options-container__button:active,
 .js-calc-top-bar-component .item-options-container__button:hover,
 .js-calc-top-bar-component .item-options-container__button:active {
-  color: black;
+  color: #3a3a3a;
 }
 .top-bar-component .item-options-container__button__text,
 .js-calc-top-bar-component .item-options-container__button__text {
@@ -2131,7 +2175,7 @@ dropdown can overlap all other components
   border-color: black;
   border-bottom: none;
   background-color: white;
-  color: black;
+  color: #3a3a3a;
 }
 .top-bar-component .item-options-container__dropdown,
 .js-calc-top-bar-component .item-options-container__dropdown {
@@ -2185,7 +2229,7 @@ dropdown can overlap all other components
 .top-bar-component .x-button:hover, .top-bar-component .x-button:active,
 .js-calc-top-bar-component .x-button:hover,
 .js-calc-top-bar-component .x-button:active {
-  color: black;
+  color: #3a3a3a;
 }
 
 .create-item-component .blurred-background {
@@ -2230,7 +2274,7 @@ dropdown can overlap all other components
   font-size: 26px;
 }
 .create-item-component .x-button:hover, .create-item-component .x-button:active {
-  color: black;
+  color: #3a3a3a;
 }
 .create-item-component .padded-container {
   padding: 0px 25px 25px 25px;
