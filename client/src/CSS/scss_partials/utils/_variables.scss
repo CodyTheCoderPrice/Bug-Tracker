@@ -79,7 +79,7 @@ $focus-blue: #0059ff;
 $navbar-height: 56px;
 $navbar-account-button-height: $navbar-height;
 $hamburger-dropdown-item-height: 42px;
-$edit-account-modal-height: 380px;
+$edit-account-modal-height: 390px;
 $account-modal-toggle-switch-height: 24px;
 $account-modal-theme-button-selected-arrow-container-height: 22px;
 $account-modal-settings-content-container-height: $account-modal-toggle-switch-height;
@@ -132,6 +132,8 @@ $item-container-project-bugs-item-box-stats-container-width: 200px;
 $navbar-breadcrumb-arrow-top: -2px;
 $navbar-breadcrumb-arrow-left: -2px;
 $navbar-hamburger-button-left: 10px;
+$back-exit-buttons-top: 10px;
+$back-exit-buttons-left-right: 20px;
 $item-search-bar-left: 15px;
 $top-bar-sort-button-left: $item-search-bar-width + ($item-search-bar-left * 2);
 $top-bar-filter-button-left: $top-bar-sort-button-left +
@@ -218,7 +220,8 @@ $common-line-height: 20px;
 //=========
 // Opacity
 //=========
-$blurred-background-opacity: 0.5;
+$blurred-background-opacity: 0.8;
+$click-to-close-blurred-background-opacity: 0.5;
 
 //===============================
 // Arithmetic (must be at bottom)

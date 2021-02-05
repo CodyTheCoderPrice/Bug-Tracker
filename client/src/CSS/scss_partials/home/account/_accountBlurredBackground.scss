@@ -6,9 +6,14 @@
 	z-index: 3;
 	position: fixed;
 	left: 0;
-	top: v.$navbar-height;
+	top: 0;
 	background-color: black;
 	opacity: v.$blurred-background-opacity;
 	height: 100vh;
 	width: 100vw;
+}
+
+.account-modals-blurred-background--account-sidebar {
+	top: v.$navbar-height;
+	opacity: v.$click-to-close-blurred-background-opacity;
 }

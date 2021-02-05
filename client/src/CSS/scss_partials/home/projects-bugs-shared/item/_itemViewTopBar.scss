@@ -302,9 +302,8 @@
 	}
 
 	.x-button {
-		@include m.back-exit-buttons();
+		@include m.exit-button();
 		top: 11px;
-		right: 20px;
 		color: v.$dark-gray-level-2;
 	}
 }

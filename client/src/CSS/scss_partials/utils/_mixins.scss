@@ -28,21 +28,35 @@
 	transform: translate(0%, -50%);
 }
 
-@mixin back-exit-buttons() {
+@mixin back-exit-buttons-incomplete() {
 	// Should be higher than all other z-index's to ensure nothing covers them
 	z-index: 6;
 	position: absolute;
-	top: 7px;
+	top: v.$back-exit-buttons-top;
 	border: none;
 	background: none;
 	color: v.$gray-level-5;
-	font-size: 26px;
 	cursor: pointer;
 
 	&:hover,
 	&:active {
 		color: black;
 	}
+}
+
+@mixin back-button() {
+	@include back-exit-buttons-incomplete();
+
+	top: v.$back-exit-buttons-top + 2;
+	left: v.$back-exit-buttons-left-right;
+	font-size: 22px;
+}
+
+@mixin exit-button() {
+	@include back-exit-buttons-incomplete();
+
+	right: v.$back-exit-buttons-left-right;
+	font-size: 26px;
 }
 
 @mixin border-line() {

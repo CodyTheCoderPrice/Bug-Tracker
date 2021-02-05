@@ -161,7 +161,7 @@ export default function ListViewCreateItemSidebar(props) {
 
 	return (
 		<div className="create-item-component">
-			<div className="blurred-background" onClick={closeCreateItemSidebar} />
+			<div className="blurred-background" />
 			<div
 				className={
 					"create-item-sidebar js-create-item-sidebar" +

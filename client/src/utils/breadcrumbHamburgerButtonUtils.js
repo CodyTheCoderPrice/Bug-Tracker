@@ -11,7 +11,7 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../actions";
 
-export function  openProjectsListView(passedReduxState, dispatch) {
+export function openProjectsListView(passedReduxState, dispatch) {
 	if (passedReduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true) {
 		dispatch(
 			setWhichProjectComponentsDisplay({
@@ -23,16 +23,29 @@ export function  openProjectsListView(passedReduxState, dispatch) {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichBugComponentsDisplay({
-				targetItem: passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+				targetItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));
+	} else if (
+		passedReduxState[PROJECT_CONTAINER].componentsDisplay
+			.listViewCreateItemSidbar === true
+	) {
+		dispatch(
+			setWhichProjectComponentsDisplay({
+				listView: true,
+				targetItem:
+					passedReduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
+			})
+		);
 	}
-};
+}
 
 export function openProjectsItemView(passedReduxState, dispatch) {
 	if (
-		passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemsContainer !== true
+		passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemsContainer !==
+		true
 	) {
 		dispatch(
 			setWhichProjectComponentsDisplay({
@@ -44,19 +57,21 @@ export function openProjectsItemView(passedReduxState, dispatch) {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichBugComponentsDisplay({
-				targetItem: passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+				targetItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));
 	}
-};
+}
 
-export function  openBugsListView(passedReduxState, dispatch) {
+export function openBugsListView(passedReduxState, dispatch) {
 	if (passedReduxState[BUG_CONTAINER].componentsDisplay.listView !== true) {
 		dispatch(
 			setWhichBugComponentsDisplay({
 				listView: true,
-				targetItem: passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+				targetItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
 			})
 		);
 		dispatch(setWhichAccountComponentsDisplay({}));
@@ -67,15 +82,27 @@ export function  openBugsListView(passedReduxState, dispatch) {
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));
+	} else if (
+		passedReduxState[BUG_CONTAINER].componentsDisplay
+			.listViewCreateItemSidbar === true
+	) {
+		dispatch(
+			setWhichBugComponentsDisplay({
+				listView: true,
+				targetItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+			})
+		);
 	}
-};
+}
 
-export function  openBugsItemView(passedReduxState, dispatch) {
+export function openBugsItemView(passedReduxState, dispatch) {
 	if (passedReduxState[BUG_CONTAINER].componentsDisplay.itemView !== true) {
 		dispatch(
 			setWhichBugComponentsDisplay({
 				itemView: true,
-				targetItem: passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+				targetItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
 			})
 		);
 		dispatch(setWhichAccountComponentsDisplay({}));
@@ -87,7 +114,7 @@ export function  openBugsItemView(passedReduxState, dispatch) {
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));
 	}
-};
+}
 
 export function closeProjectItemView(e, passedReduxState, dispatch) {
 	e.stopPropagation();
@@ -103,7 +130,7 @@ export function closeProjectItemView(e, passedReduxState, dispatch) {
 	dispatch(setWhichBugComponentsDisplay({}));
 	dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER));
 	dispatch(setWhichCommentComponentsDisplay({}));
-};
+}
 
 export function closeBugItemView(e, passedReduxState, dispatch) {
 	e.stopPropagation();
@@ -123,4 +150,4 @@ export function closeBugItemView(e, passedReduxState, dispatch) {
 	dispatch(setWhichAccountComponentsDisplay({}));
 	// projectComponentsDisplay is not cleared here on purpose
 	dispatch(setWhichCommentComponentsDisplay({}));
-};
+}

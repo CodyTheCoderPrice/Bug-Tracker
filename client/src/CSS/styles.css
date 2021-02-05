@@ -466,7 +466,7 @@ dropdown can overlap all other components
   top: 0;
   left: 0;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.8;
   height: 100vh;
   width: 100vw;
 }
@@ -649,11 +649,16 @@ dropdown can overlap all other components
   z-index: 3;
   position: fixed;
   left: 0;
-  top: 56px;
+  top: 0;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.8;
   height: 100vh;
   width: 100vw;
+}
+
+.account-modals-blurred-background--account-sidebar {
+  top: 56px;
+  opacity: 0.5;
 }
 
 .account-sidebar-component .sidebar-container {
@@ -667,7 +672,6 @@ dropdown can overlap all other components
   margin-bottom: 20px;
   border: 3px solid black;
   border-right: none;
-  border-radius: 25px 0 0 25px;
   background: white;
   height: 250px;
   width: 370px;
@@ -716,24 +720,24 @@ dropdown can overlap all other components
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 3px solid black;
   border-radius: 15px;
   background-color: white;
   padding: 30px;
-  height: 380px;
+  height: 390px;
   width: 460px;
   font-family: Arial, Helvetica, sans-serif;
 }
 .edit-account-modal-component .back-button {
   z-index: 6;
   position: absolute;
-  top: 7px;
+  top: 10px;
   border: none;
   background: none;
   color: #919191;
-  font-size: 26px;
   cursor: pointer;
-  left: 15px;
+  top: 12px;
+  left: 20px;
+  font-size: 22px;
 }
 .edit-account-modal-component .back-button:hover, .edit-account-modal-component .back-button:active {
   color: black;
@@ -741,13 +745,13 @@ dropdown can overlap all other components
 .edit-account-modal-component .exit-button {
   z-index: 6;
   position: absolute;
-  top: 7px;
+  top: 10px;
   border: none;
   background: none;
   color: #919191;
-  font-size: 26px;
   cursor: pointer;
-  right: 15px;
+  right: 20px;
+  font-size: 26px;
 }
 .edit-account-modal-component .exit-button:hover, .edit-account-modal-component .exit-button:active {
   color: black;
@@ -1069,7 +1073,7 @@ dropdown can overlap all other components
   top: 56px;
   left: 0px;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.8;
   height: 100vh;
   width: 100vw;
 }
@@ -2148,14 +2152,14 @@ dropdown can overlap all other components
 .js-calc-top-bar-component .x-button {
   z-index: 6;
   position: absolute;
-  top: 7px;
+  top: 10px;
   border: none;
   background: none;
   color: #919191;
-  font-size: 26px;
   cursor: pointer;
-  top: 11px;
   right: 20px;
+  font-size: 26px;
+  top: 11px;
   color: #757575;
 }
 .top-bar-component .x-button:hover, .top-bar-component .x-button:active,
@@ -2169,7 +2173,7 @@ dropdown can overlap all other components
   position: absolute;
   top: 56px;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.8;
   height: 100vh;
   width: 100vw;
 }
@@ -2180,7 +2184,6 @@ dropdown can overlap all other components
   margin-bottom: 20px;
   border: 3px solid black;
   border-width: 2px 3px 3px 0;
-  border-radius: 0 25px 25px 0;
   background-color: white;
   height: 700px;
   width: 500px;
@@ -2198,13 +2201,13 @@ dropdown can overlap all other components
 .create-item-component .x-button {
   z-index: 6;
   position: absolute;
-  top: 7px;
+  top: 10px;
   border: none;
   background: none;
   color: #919191;
-  font-size: 26px;
   cursor: pointer;
-  right: 15px;
+  right: 20px;
+  font-size: 26px;
 }
 .create-item-component .x-button:hover, .create-item-component .x-button:active {
   color: black;
