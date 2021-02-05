@@ -1,10 +1,6 @@
 //=========
 // Colors
 //=========
-// Blue teals
-$light-blue-teal: #8ba8b3;
-$blue-teal: #6691a3;
-$dark-blue-teal: #50798b;
 // Grays
 $light-gray-level-1: #fbfbfb;
 $light-gray-level-2: #f8f8f8;
@@ -15,20 +11,29 @@ $light-gray-level-6: #e1e1e1;
 $light-gray-level-7: #dddddd;
 $gray-level-1: #d6d6d6;
 $gray-level-2: #bfbfbf;
-$gray-level-3: #919191;
+$gray-level-3: #b1b1b1;
+$gray-level-4: #a3a3a3;
+$gray-level-5: #919191;
 $dark-gray-level-1: #808080;
 $dark-gray-level-2: #757575;
 $dark-gray-level-3: #4e4e4e;
+$dark-gray-level-4: #3a3a3a;
 // Blue grays
 $very-light-blue-gray: #7390af;
 $light-blue-gray: #607c99;
 $blue-gray: #50677f;
 $dark-blue-gray: #215792;
+// Blue teals
+$light-blue-teal: #8ba8b3;
+$blue-teal: #6691a3;
+$dark-blue-teal: #50798b;
 // Navy blues
 $lighter-navy-blue: #4d6e92;
 $light-navy-blue: #4d6b8b;
 $navy-blue: #45607e;
 $darker-navy-blue: #3d5774;
+// Basic blues
+$light-blue: #8cc8fa;
 //Text
 $blue-text: #245ba3;
 $teal-text: #2588b3;
@@ -47,7 +52,11 @@ $yellow: #ffff00;
 // Components
 $account-modal-toggle-switch-on-color: #0856ff;
 $account-modal-toggle-switch-off-color: $light-gray-level-7;
-$account-modal-theme-button-outer-color: $gray-level-2;
+$account-modal-theme-button-border-color: $dark-gray-level-3;
+$account-modal-theme-button-background-color: $light-gray-level-7;
+$account-modal-theme-button-arrow-container-color: $gray-level-4;
+$account-modal-theme-button-option-text-color: $dark-gray-level-4;
+$account-modal-theme-button-option-selected-color: $light-blue;
 $search-filter-sort-bar-color: $light-gray-level-5;
 $list-table-background-color: white;
 $filter-active-color: #0077ff;
@@ -94,7 +103,7 @@ $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;
 $navbar-hamburger-button-width: 36px;
 $edit-account-modal-width: 460px;
-$account-modal-theme-button-selected-container-width: 64px;
+$account-modal-theme-button-selected-container-width: 84px;
 $account-modal-theme-button-arrow-container-width: 24px;
 $account-modal-theme-button-width: $account-modal-theme-button-selected-container-width +
 	$account-modal-theme-button-arrow-container-width;
@@ -154,7 +163,7 @@ $navbar-hamburger-border-width: 3px;
 $base-sidebar-border-width: 3px;
 $base-modal-border-width: 3px;
 $account-modal-toggle-switch-border-width: 3px;
-$account-modal-theme-button-outer-border-width: 2px;
+$account-modal-theme-button-border-width: 1px;
 $search-filter-sort-bar-border-width: 1px;
 $search-top-bar-base-button-border-width: 1px;
 $search-top-bar-clicked-dropdown-button-border-width: 3px;
@@ -219,11 +228,13 @@ $navbar-breadcrumb-button-height: $navbar-height -
 $navbar-hamburger-title-left: $navbar-hamburger-button-left +
 	$navbar-hamburger-button-width + 6px;
 $account-modal-theme-button-option-height: $account-modal-theme-button-selected-arrow-container-height -
-	($account-modal-theme-button-outer-border-width * 2);
+	($account-modal-theme-button-border-width * 2);
 $account-modal-theme-button-option-width: $account-modal-theme-button-selected-container-width -
-($account-modal-theme-button-outer-border-width * 2);
-$account-modal-theme-button-option-extended-width: $account-modal-theme-button-width -
-($account-modal-theme-button-outer-border-width * 2);
+	($account-modal-theme-button-border-width * 2);
+$account-modal-theme-button-option-larger-width: $account-modal-theme-button-width -
+	($account-modal-theme-button-border-width * 2);
+$account-modal-theme-button-options-container-top: $account-modal-theme-button-option-height +
+	($account-modal-theme-button-border-width * 2);
 $search-filter-sort-bar-button-focus-height: $search-filter-sort-bar-button-height +
 	(
 		(

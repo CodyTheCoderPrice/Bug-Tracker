@@ -839,7 +839,7 @@ dropdown can overlap all other components
 }
 .edit-account-modal-component .category-container {
   position: relative;
-  margin: 20px 0px;
+  margin: 20px 0px 10px;
 }
 .edit-account-modal-component .category-container--larger-top-margin {
   margin-top: 40px;
@@ -881,7 +881,7 @@ dropdown can overlap all other components
   position: relative;
   float: left;
   margin-left: 10px;
-  width: 88px;
+  width: 108px;
   cursor: pointer;
 }
 .edit-account-modal-component .category-container__border-container__content-container__theme-button__selected-container {
@@ -890,23 +890,26 @@ dropdown can overlap all other components
   box-sizing: border-box;
   position: relative;
   float: left;
-  border: solid #bfbfbf 2px;
+  border: solid #4e4e4e 1px;
   border-right: none;
-  background-color: white;
+  background-color: #dddddd;
   height: 22px;
-  width: 64px;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__option {
-  position: relative;
-  height: 18px;
-  width: 60px;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__option--larger {
-  height: 26px;
   width: 84px;
 }
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__option {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  height: 20px;
+  width: 82px;
+}
+.edit-account-modal-component .category-container__border-container__content-container__theme-button__option--larger {
+  height: 30px;
+  width: 106px;
+}
 .edit-account-modal-component .category-container__border-container__content-container__theme-button__option--selected {
-  background-color: #e5e5e5;
+  background-color: #8cc8fa;
 }
 .edit-account-modal-component .category-container__border-container__content-container__theme-button__option__centering-container {
   position: relative;
@@ -919,6 +922,9 @@ dropdown can overlap all other components
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 100px;
   background-color: black;
   height: 14px;
@@ -941,7 +947,7 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  color: black;
+  color: #3a3a3a;
   font-size: 12px;
   font-weight: bold;
 }
@@ -951,8 +957,8 @@ dropdown can overlap all other components
   box-sizing: border-box;
   position: relative;
   float: left;
-  border: solid #bfbfbf 2px;
-  background-color: #bfbfbf;
+  border: solid #4e4e4e 1px;
+  background-color: #a3a3a3;
   height: 22px;
   width: 24px;
 }
@@ -974,16 +980,19 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
+  color: #3a3a3a;
 }
 .edit-account-modal-component .category-container__border-container__content-container__theme-button__options-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  float: left;
-  border: solid #bfbfbf 2px;
+  z-index: 1;
+  position: absolute;
+  top: 22px;
+  border: solid #4e4e4e 1px;
   border-top: none;
-  background-color: white;
-  width: 88px;
+  background-color: #dddddd;
+  width: 108px;
 }
 
 .toggle-switch-component {

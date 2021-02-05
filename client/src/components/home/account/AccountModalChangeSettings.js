@@ -9,12 +9,10 @@ import {
 	clearBackendErrors,
 	updateAccountSettings,
 	setWhichAccountComponentsDisplay,
-	setAccountSettings,
 } from "../../../actions";
 
 import {
 	getCurrentContainerName,
-	getProjectOrBugBackgroundColorClassNameWithHover,
 	getProjectOrBugTextColorClassName,
 } from "../../../utils";
 
@@ -35,6 +33,21 @@ export default function AccountModalChangeSettings() {
 		// eslint-disable-next-line
 	}, []);
 
+	const onChangeTheme = (e, theme_id) => {
+		e.stopPropagation();
+
+		if (theme_id !== reduxState[ACCOUNT_CONTAINER].settings.theme_id) {
+			dispatch(
+				updateAccountSettings({
+					...reduxState[ACCOUNT_CONTAINER].settings,
+					theme_id: theme_id,
+				})
+			);
+		}
+
+		setShowThemetDropdown(false);
+	};
+
 	const onChangeDarkMode = () => {
 		dispatch(
 			updateAccountSettings({
@@ -42,15 +55,6 @@ export default function AccountModalChangeSettings() {
 				dark_mode: !reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 			})
 		);
-	};
-
-	const onChangeTheme = (theme_id) => {
-		/* dispatch(
-			updateAccountSettings({
-				...reduxState[ACCOUNT_CONTAINER].settings,
-				theme_id: theme_id,
-			})
-		); */
 	};
 
 	const onChangeFilterCompletedProjects = () => {
@@ -73,9 +77,11 @@ export default function AccountModalChangeSettings() {
 		);
 	};
 
-	const getThemeColorOption = (theme_id, onClickFunction, keyId) => {
-		const theme = reduxState[ACCOUNT_CONTAINER].settingThemes.filter(
-			(theme) => theme.theme_id === theme_id
+	const getThemeColorOption = (theme_id, onClickFunction) => {
+		const theme = reduxState[ACCOUNT_CONTAINER].settingThemes.filter((theme) =>
+			theme_id !== null
+				? theme.theme_id === theme_id
+				: theme.marks_default === true
 		)[0];
 
 		return (
@@ -90,7 +96,6 @@ export default function AccountModalChangeSettings() {
 						: "")
 				}
 				onClick={onClickFunction !== null ? onClickFunction : null}
-				key={keyId !== null ? keyId : null}
 			>
 				<div className="category-container__border-container__content-container__theme-button__option__centering-container">
 					<span
@@ -128,16 +133,7 @@ export default function AccountModalChangeSettings() {
 				>
 					Appearance
 				</h2>
-				<div className="category-container__border-container">
-					<div className="category-container__border-container__content-container category-container__border-container__content-container--smaller-top-margin">
-						<label className="category-container__border-container__content-container__label">
-							Dark mode
-						</label>
-						<AccountModalChangeSettingsToggleSwitch
-							on={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-							onChangeFunction={onChangeDarkMode}
-						/>
-					</div>
+				<div className="category-container__border-container category-container__border-container__content-container--smaller-top-margin">
 					<div className="category-container__border-container__content-container">
 						<label className="category-container__border-container__content-container__label">
 							Color Theme
@@ -164,11 +160,9 @@ export default function AccountModalChangeSettings() {
 									{reduxState[ACCOUNT_CONTAINER].settingThemes.map(
 										(theme, i) => {
 											return (
-												<span>
-													{getThemeColorOption(
-														theme.theme_id,
-														(theme_id) => onChangeTheme(theme_id),
-														i
+												<span key={i}>
+													{getThemeColorOption(theme.theme_id, (e) =>
+														onChangeTheme(e, theme.theme_id)
 													)}
 												</span>
 											);
@@ -177,6 +171,15 @@ export default function AccountModalChangeSettings() {
 								</div>
 							)}
 						</div>
+					</div>
+					<div className="category-container__border-container__content-container">
+						<label className="category-container__border-container__content-container__label">
+							Dark mode
+						</label>
+						<AccountModalChangeSettingsToggleSwitch
+							on={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+							onChangeFunction={onChangeDarkMode}
+						/>
 					</div>
 				</div>
 			</div>

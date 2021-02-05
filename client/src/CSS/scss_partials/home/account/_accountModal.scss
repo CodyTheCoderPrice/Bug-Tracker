@@ -135,7 +135,7 @@
 
 	.category-container {
 		position: relative;
-		margin: 20px 0px;
+		margin: 20px 0px 10px;
 	}
 
 	.category-container--larger-top-margin {
@@ -199,26 +199,31 @@
 
 		position: relative;
 		float: left;
-		border: solid v.$account-modal-theme-button-outer-color v.$account-modal-theme-button-outer-border-width;
+		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
 		border-right: none;
-		background-color: white;
+		background-color: v.$account-modal-theme-button-background-color;
 		height: v.$account-modal-theme-button-selected-arrow-container-height;
 		width: v.$account-modal-theme-button-selected-container-width;
 	}
 
 	.category-container__border-container__content-container__theme-button__option {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
 		position: relative;
 		height: v.$account-modal-theme-button-option-height;
 		width: v.$account-modal-theme-button-option-width;
 	}
 
 	.category-container__border-container__content-container__theme-button__option--larger {
-		height: v.$account-modal-theme-button-option-height + 8;
-		width: v.$account-modal-theme-button-option-extended-width;
+		height: v.$account-modal-theme-button-option-height + 10;
+		width: v.$account-modal-theme-button-option-larger-width;
 	}
 
 	.category-container__border-container__content-container__theme-button__option--selected {
-		background-color: v.$light-gray-level-5;
+		background-color: v.$account-modal-theme-button-option-selected-color;
 	}
 
 	.category-container__border-container__content-container__theme-button__option__centering-container {
@@ -231,6 +236,11 @@
 
 	.category-container__border-container__content-container__theme-button__option__centering-container__circle {
 		@include m.vertical-center();
+
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
 
 		border-radius: 100px;
 		// This background color should only appear if there was a problem
@@ -245,7 +255,7 @@
 		@include m.vertical-center();
 		@include m.stop-text-selection();
 
-		color: black;
+		color: v.$account-modal-theme-button-option-text-color;
 		font-size: 12px;
 		font-weight: bold;
 		
@@ -259,8 +269,8 @@
 
 		position: relative;
 		float: left;
-		border: solid v.$account-modal-theme-button-outer-color v.$account-modal-theme-button-outer-border-width;
-		background-color: v.$account-modal-theme-button-outer-color;
+		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
+		background-color: v.$account-modal-theme-button-arrow-container-color;
 		height: v.$account-modal-theme-button-selected-arrow-container-height;
 		width: v.$account-modal-theme-button-arrow-container-width;
 	}
@@ -268,6 +278,8 @@
 	.category-container__border-container__content-container__theme-button__arrow-container__icon {
 		@include m.dead-center();
 		@include m.stop-text-selection();
+
+		color: v.$account-modal-theme-button-option-text-color;
 	}
 
 	.category-container__border-container__content-container__theme-button__options-container {
@@ -276,10 +288,12 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
-		float: left;
-		border: solid v.$account-modal-theme-button-outer-color v.$account-modal-theme-button-outer-border-width;
+		z-index: 1;
+		position: absolute;
+		top: v.$account-modal-theme-button-options-container-top;
+		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
 		border-top: none;
-		background-color: white;
+		background-color: v.$account-modal-theme-button-background-color;
 		width: v.$account-modal-theme-button-width;
 	}
 }
