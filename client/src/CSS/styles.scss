@@ -1,5 +1,7 @@
 // scss_partials
 @use "scss_partials/app";
+// scss_partials/basic
+@use "scss_partials/basic/toggleSwitch";
 // scss_partials/authentication
 @use "scss_partials/authentication/registerLogin";
 // scss_partials/home
@@ -11,8 +13,8 @@
 // scss_partials/home/account
 @use "scss_partials/home/account/accountBlurredBackground";
 @use "scss_partials/home/account/accountSidebar";
+@use "scss_partials/home/account/accountSidebarChangeTheme";
 @use "scss_partials/home/account/accountModal";
-@use "scss_partials/home/account/accountModalToggleSwitch";
 // scss_partials/home/projects-bugs-shared
 @use "scss_partials/home/projects-bugs-shared/deleteModal";
 // scss_partials/home/projects-bugs-shared/item

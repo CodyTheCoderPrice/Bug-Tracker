@@ -1,5 +1,5 @@
-@use "../../utils/variables" as v;
-@use "../../utils/mixins" as m;
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
 
 .toggle-switch-component {
 	position: relative;
@@ -14,17 +14,22 @@
 		position: relative;
 		float: left;
 		margin-left: 6px;
-		border: solid v.$account-modal-toggle-switch-on-color 3px;
+		border: solid v.$basic-toggle-switch-on-color 3px;
 		border-radius: 25px;
-		background-color: v.$account-modal-toggle-switch-on-color;
-		height: v.$account-modal-toggle-switch-height;
+		background-color: v.$basic-toggle-switch-on-color;
+		height: v.$basic-toggle-switch-height;
 		width: 52px;
 		cursor: pointer;
 	}
 
+	.toggle-switch--dark-mode {
+		border-color: v.$dark-gray-level-2;
+		background-color: v.$dark-gray-level-2;
+	}
+
 	.toggle-switch--off {
-		border-color: v.$account-modal-toggle-switch-off-color;
-		background-color: v.$account-modal-toggle-switch-off-color;
+		border-color: v.$basic-toggle-switch-off-color;
+		background-color: v.$basic-toggle-switch-off-color;
 	}
 	
 	.toggle-switch__text {

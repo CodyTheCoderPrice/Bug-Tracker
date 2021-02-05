@@ -176,6 +176,78 @@ body .js-set-status-box-text-color-red {
   color: #d14242 !important;
 }
 
+.toggle-switch-component {
+  position: relative;
+  display: inline-block;
+}
+.toggle-switch-component .toggle-switch {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-left: 6px;
+  border: solid #3889cc 3px;
+  border-radius: 25px;
+  background-color: #3889cc;
+  height: 24px;
+  width: 52px;
+  cursor: pointer;
+}
+.toggle-switch-component .toggle-switch--dark-mode {
+  border-color: #757575;
+  background-color: #757575;
+}
+.toggle-switch-component .toggle-switch--off {
+  border-color: #dddddd;
+  background-color: #dddddd;
+}
+.toggle-switch-component .toggle-switch__text {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  left: 4px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+.toggle-switch-component .toggle-switch__text--off {
+  left: auto;
+  right: 3px;
+  color: #808080;
+}
+.toggle-switch-component .toggle-switch__circle {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  right: 1px;
+  border: solid silver 1px;
+  border-radius: 100px;
+  background-color: white;
+  height: 18px;
+  width: 18px;
+}
+.toggle-switch-component .toggle-switch__circle--off {
+  right: auto;
+  left: 1px;
+}
+
 .register-login-components .background {
   position: absolute;
   top: 0;
@@ -673,8 +745,8 @@ dropdown can overlap all other components
   border: 3px solid black;
   border-right: none;
   background: white;
-  height: 250px;
-  width: 370px;
+  height: 340px;
+  width: 430px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: auto !important;
@@ -686,12 +758,12 @@ dropdown can overlap all other components
 .account-sidebar-component .account-info {
   display: block;
   margin-bottom: 9px;
-  font-size: 14px;
+  font-size: 15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.account-sidebar-component .account-info--large-bold {
+.account-sidebar-component .account-info--name {
   font-size: 18px;
   font-weight: bold;
 }
@@ -701,17 +773,153 @@ dropdown can overlap all other components
 }
 .account-sidebar-component .account-link-container {
   margin-top: 9px;
+  padding-bottom: 12px;
 }
 .account-sidebar-component .account-link {
   display: block;
   margin-bottom: 9px;
-  font-size: 15px;
+  font-size: 16px;
   font-style: bold;
   text-decoration: none;
   cursor: pointer;
 }
 .account-sidebar-component .account-link:hover, .account-sidebar-component .account-link:active {
   text-decoration: underline;
+}
+
+.account-sidebar-change-theme-component .content-container {
+  display: inline-block;
+  height: 24px;
+}
+.account-sidebar-change-theme-component .content-container--right {
+  float: right;
+}
+.account-sidebar-change-theme-component .content-container__label {
+  float: left;
+  height: 22px;
+  font-size: 16px;
+  line-height: 22px;
+  vertical-align: middle;
+}
+.account-sidebar-change-theme-component .content-container__theme-button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-left: 10px;
+  width: 104px;
+  cursor: pointer;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__selected-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  border: solid #4e4e4e 1px;
+  border-right: none;
+  background-color: #e5e5e5;
+  height: 22px;
+  width: 80px;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__option {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  height: 20px;
+  width: 78px;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__option--larger {
+  height: 30px;
+  width: 102px;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__option--selected {
+  background-color: #76bffa;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__option__centering-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 3px;
+  height: 100%;
+  width: 15px;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__option__centering-container__circle {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 100px;
+  background-color: black;
+  height: 14px;
+  width: 14px;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__option__centering-container__text {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  color: #3a3a3a;
+  font-size: 12px;
+  font-weight: bold;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__arrow-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  border: solid #4e4e4e 1px;
+  background-color: #bfbfbf;
+  height: 22px;
+  width: 24px;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__arrow-container__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  color: #3a3a3a;
+}
+.account-sidebar-change-theme-component .content-container__theme-button__dropdown-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 1;
+  position: absolute;
+  top: 22px;
+  border: solid #4e4e4e 1px;
+  border-top: none;
+  background-color: #e5e5e5;
+  width: 104px;
 }
 
 .edit-account-modal-component .edit-account-modal {
@@ -877,194 +1085,6 @@ dropdown can overlap all other components
   font-size: 15px;
   vertical-align: middle;
   line-height: 22px;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  float: left;
-  margin-left: 10px;
-  width: 184px;
-  cursor: pointer;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__selected-container {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  float: left;
-  border: solid #4e4e4e 1px;
-  border-right: none;
-  background-color: #e5e5e5;
-  height: 22px;
-  width: 160px;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__option {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  height: 20px;
-  width: 158px;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__option--larger {
-  height: 30px;
-  width: 182px;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__option--selected {
-  background-color: #76bffa;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__option__centering-container {
-  position: relative;
-  display: inline-block;
-  margin-left: 3px;
-  height: 100%;
-  width: 15px;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__option__centering-container__circle {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: 100px;
-  background-color: black;
-  height: 14px;
-  width: 14px;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__option__centering-container__text {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  color: #3a3a3a;
-  font-size: 12px;
-  font-weight: bold;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__arrow-container {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  float: left;
-  border: solid #4e4e4e 1px;
-  background-color: #bfbfbf;
-  height: 22px;
-  width: 24px;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__arrow-container__icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  color: #3a3a3a;
-}
-.edit-account-modal-component .category-container__border-container__content-container__theme-button__dropdown-container {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  z-index: 1;
-  position: absolute;
-  top: 22px;
-  border: solid #4e4e4e 1px;
-  border-top: none;
-  background-color: #e5e5e5;
-  width: 184px;
-}
-
-.toggle-switch-component {
-  position: relative;
-  display: inline-block;
-}
-.toggle-switch-component .toggle-switch {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  float: left;
-  margin-left: 6px;
-  border: solid #3889cc 3px;
-  border-radius: 25px;
-  background-color: #3889cc;
-  height: 24px;
-  width: 52px;
-  cursor: pointer;
-}
-.toggle-switch-component .toggle-switch--off {
-  border-color: #dddddd;
-  background-color: #dddddd;
-}
-.toggle-switch-component .toggle-switch__text {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  left: 4px;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-}
-.toggle-switch-component .toggle-switch__text--off {
-  left: auto;
-  right: 3px;
-  color: #808080;
-}
-.toggle-switch-component .toggle-switch__circle {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  right: 1px;
-  border: solid silver 1px;
-  border-radius: 100px;
-  background-color: white;
-  height: 18px;
-  width: 18px;
-}
-.toggle-switch-component .toggle-switch__circle--off {
-  right: auto;
-  left: 1px;
 }
 
 .delete-modal-component .blurred-background {

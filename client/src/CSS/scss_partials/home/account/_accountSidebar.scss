@@ -16,8 +16,8 @@
 		border: v.$base-sidebar-border-width solid black;
 		border-right: none;
 		background: white;
-		height: 250px;
-		width: 370px;
+		height: 340px;
+		width: 430px;
 		text-align: left;
 		font-family: Arial, Helvetica, sans-serif;
 		// Gives sidebar scrolling when content goes beyond height
@@ -33,14 +33,14 @@
 	.account-info {
 		display: block;
 		margin-bottom: v.$account-sidebar-contents-margin-top-bottom;;
-		font-size: 14px;
+		font-size: v.$account-sidebar-account-info-font-size;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
-	.account-info--large-bold {
-		font-size: 18px;
+	.account-info--name {
+		font-size: v.$account-sidebar-account-name-font-size;
 		font-weight: bold;
 	}
 
@@ -50,13 +50,15 @@
 	}
 
 	.account-link-container {
-		margin-top: v.$account-sidebar-contents-margin-top-bottom;;
+		margin-top: v.$account-sidebar-contents-margin-top-bottom;
+		// Needed so resize will keep space between container and the bottom
+		padding-bottom: 12px;
 	}
 
 	.account-link {
 		display: block;
 		margin-bottom: v.$account-sidebar-contents-margin-top-bottom;;
-		font-size: 15px;
+		font-size: v.$account-sidebar-link-font-size;
 		font-style: bold;
 		text-decoration: none;
 		cursor: pointer;

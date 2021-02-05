@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
@@ -7,7 +7,6 @@ import {
 
 import {
 	clearBackendErrors,
-	setWhichGeneralDropdownsDisplay,
 	setWhichAccountComponentsDisplay,
 	updateAccountSettings,
 } from "../../../actions";
@@ -18,15 +17,11 @@ import {
 } from "../../../utils";
 
 // Components
-import AccountModalChangeSettingsToggleSwitch from "./AccountModalChangeSettingsToggleSwitch";
+import ToggleSwitch from "../../basic/toggleSwitch";
 
 export default function AccountModalChangeSettings() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
-
-	const [highlightedOptionThemeId, setHighlightedOptionThemeId] = useState(
-		reduxState[ACCOUNT_CONTAINER].settings.theme_id
-	);
 
 	// clears prior backend errors when closing the component
 	useEffect(() => {
@@ -35,55 +30,6 @@ export default function AccountModalChangeSettings() {
 		};
 		// eslint-disable-next-line
 	}, []);
-
-	const toggleThemeDropdown = (e) => {
-		e.stopPropagation();
-
-		if (
-			!reduxState[GENERAL_CONTAINER].dropdownsDisplay
-				.accountModalChangeSettingsThemeDropdown
-		) {
-			setHighlightedOptionThemeId(
-				reduxState[ACCOUNT_CONTAINER].settings.theme_id
-			);
-		}
-
-		dispatch(
-			setWhichGeneralDropdownsDisplay({
-				accountModalChangeSettingsThemeDropdown: !reduxState[GENERAL_CONTAINER]
-					.dropdownsDisplay.accountModalChangeSettingsThemeDropdown,
-			})
-		);
-	};
-
-	const onChangeTheme = (e, theme_id) => {
-		e.stopPropagation();
-
-		if (theme_id !== reduxState[ACCOUNT_CONTAINER].settings.theme_id) {
-			dispatch(
-				updateAccountSettings({
-					...reduxState[ACCOUNT_CONTAINER].settings,
-					theme_id: theme_id,
-				})
-			);
-		}
-
-		dispatch(
-			setWhichGeneralDropdownsDisplay({
-				accountModalChangeSettingsThemeDropdown: !reduxState[GENERAL_CONTAINER]
-					.dropdownsDisplay.accountModalChangeSettingsThemeDropdown,
-			})
-		);
-	};
-
-	const onChangeDarkMode = () => {
-		dispatch(
-			updateAccountSettings({
-				...reduxState[ACCOUNT_CONTAINER].settings,
-				dark_mode: !reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-			})
-		);
-	};
 
 	const onChangeFilterCompletedProjects = () => {
 		dispatch(
@@ -105,51 +51,6 @@ export default function AccountModalChangeSettings() {
 		);
 	};
 
-	const getThemeColorOption = (
-		theme_id,
-		onClickFunction,
-		onMouseEnterFunction
-	) => {
-		const theme = reduxState[ACCOUNT_CONTAINER].settingThemes.filter((theme) =>
-			theme_id !== null
-				? theme.theme_id === theme_id
-				: theme.marks_default === true
-		)[0];
-
-		return (
-			<div
-				className={
-					"category-container__border-container__content-container__theme-button__option" +
-					(onClickFunction !== null
-						? " category-container__border-container__content-container__theme-button__option--larger" +
-						  (highlightedOptionThemeId === theme_id
-								? " category-container__border-container__content-container__theme-button__option--selected"
-								: "")
-						: "")
-				}
-				onClick={onClickFunction !== null ? onClickFunction : null}
-				onMouseEnter={
-					onMouseEnterFunction !== null ? onMouseEnterFunction : null
-				}
-			>
-				<div className="category-container__border-container__content-container__theme-button__option__centering-container">
-					<span
-						className={
-							"category-container__border-container__content-container__theme-button__option__centering-container__circle" +
-							" js-set-dark-background-color-theme-" +
-							theme.color.toLowerCase()
-						}
-					/>
-				</div>
-				<div className="category-container__border-container__content-container__theme-button__option__centering-container">
-					<span className="category-container__border-container__content-container__theme-button__option__centering-container__text">
-						{theme.color}
-					</span>
-				</div>
-			</div>
-		);
-	};
-
 	const backToAccountSidebar = () => {
 		dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 	};
@@ -157,100 +58,6 @@ export default function AccountModalChangeSettings() {
 	return (
 		<div>
 			<h1 className="title">Account Settings</h1>
-			<div className="category-container">
-				<h2
-					className={
-						"category-container__heading" +
-						getProjectOrBugTextColorClassName(
-							getCurrentContainerName(reduxState)
-						)
-					}
-				>
-					Appearance
-				</h2>
-				<div className="category-container__border-container category-container__border-container__content-container--smaller-top-margin">
-					<div className="category-container__border-container__content-container">
-						<label className="category-container__border-container__content-container__label">
-							Color Theme
-						</label>
-						<div
-							className="category-container__border-container__content-container__theme-button"
-							onClick={(e) => toggleThemeDropdown(e)}
-						>
-							<div
-								className={
-									"category-container__border-container__content-container__theme-button__selected-container" +
-									(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-										.accountModalChangeSettingsThemeDropdown
-										? " category-container__border-container__content-container__theme-button__selected-container--dropdown-present"
-										: "")
-								}
-							>
-								{getThemeColorOption(
-									reduxState[ACCOUNT_CONTAINER].settings.theme_id,
-									null,
-									null
-								)}
-							</div>
-							<div
-								className={
-									"category-container__border-container__content-container__theme-button__arrow-container" +
-									(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-										.accountModalChangeSettingsThemeDropdown
-										? " category-container__border-container__content-container__theme-button__arrow-container--dropdown-present"
-										: "")
-								}
-							>
-								<i
-									className={
-										"fa category-container__border-container__content-container__theme-button__arrow-container__icon" +
-										(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-											.accountModalChangeSettingsThemeDropdown
-											? " fa-caret-up"
-											: " fa-caret-down")
-									}
-									aria-hidden="true"
-								/>
-							</div>
-							{reduxState[GENERAL_CONTAINER].dropdownsDisplay
-								.accountModalChangeSettingsThemeDropdown === false ? null : (
-								<div
-									className="category-container__border-container__content-container__theme-button__dropdown-container"
-									onClick={
-										/*Keeps clicking dropdown from closing itself*/
-										(e) => {
-											e.stopPropagation();
-										}
-									}
-								>
-									{reduxState[ACCOUNT_CONTAINER].settingThemes.map(
-										(theme, i) => {
-											return (
-												<span key={i}>
-													{getThemeColorOption(
-														theme.theme_id,
-														(e) => onChangeTheme(e, theme.theme_id),
-														() => setHighlightedOptionThemeId(theme.theme_id)
-													)}
-												</span>
-											);
-										}
-									)}
-								</div>
-							)}
-						</div>
-					</div>
-					<div className="category-container__border-container__content-container">
-						<label className="category-container__border-container__content-container__label">
-							Dark mode
-						</label>
-						<AccountModalChangeSettingsToggleSwitch
-							on={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-							onChangeFunction={onChangeDarkMode}
-						/>
-					</div>
-				</div>
-			</div>
 			<div className="category-container category-container--larger-top-margin">
 				<h2
 					className={
@@ -267,7 +74,7 @@ export default function AccountModalChangeSettings() {
 						<label className="category-container__border-container__content-container__label">
 							Filter out completed projects
 						</label>
-						<AccountModalChangeSettingsToggleSwitch
+						<ToggleSwitch
 							on={
 								reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects
 							}
@@ -278,7 +85,7 @@ export default function AccountModalChangeSettings() {
 						<label className="category-container__border-container__content-container__label">
 							Filter out completed bugs
 						</label>
-						<AccountModalChangeSettingsToggleSwitch
+						<ToggleSwitch
 							on={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs}
 							onChangeFunction={onChangeFilterCompletedBugs}
 						/>

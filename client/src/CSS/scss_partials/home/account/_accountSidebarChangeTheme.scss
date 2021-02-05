@@ -1,0 +1,140 @@
+@use "../../utils/variables" as v;
+@use "../../utils/mixins" as m;
+
+.account-sidebar-change-theme-component {
+	.content-container {
+		display: inline-block;
+		height: v.$account-modal-settings-content-container-height;
+	}
+
+	.content-container--right {
+		float: right;
+	}
+
+	.content-container__label {
+		float: left;
+		height: v.$account-modal-theme-button-selected-arrow-container-height;
+		font-size: v.$account-sidebar-theme-label-font-size;
+		line-height: v.$account-modal-theme-button-selected-arrow-container-height;
+		vertical-align: middle;
+	}
+
+	.content-container__theme-button {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		position: relative;
+		float: left;
+		margin-left: 10px;
+		width: v.$account-modal-theme-button-width;
+		cursor: pointer;
+	}
+
+	.content-container__theme-button__selected-container {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		position: relative;
+		float: left;
+		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
+		border-right: none;
+		background-color: v.$account-modal-theme-button-background-color;
+		height: v.$account-modal-theme-button-selected-arrow-container-height;
+		width: v.$account-modal-theme-button-selected-container-width;
+	}
+
+	.content-container__theme-button__option {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		position: relative;
+		height: v.$account-modal-theme-button-option-height;
+		width: v.$account-modal-theme-button-option-width;
+	}
+
+	.content-container__theme-button__option--larger {
+		height: v.$account-modal-theme-button-option-height + 10;
+		width: v.$account-modal-theme-button-option-larger-width;
+	}
+
+	.content-container__theme-button__option--selected {
+		background-color: v.$account-modal-theme-button-option-selected-color;
+	}
+
+	.content-container__theme-button__option__centering-container {
+		position: relative;
+		display: inline-block;
+		margin-left: 3px;
+		height: 100%;
+		width: 15px;
+	}
+
+	.content-container__theme-button__option__centering-container__circle {
+		@include m.vertical-center();
+
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		border-radius: 100px;
+		// This background color should only appear if there was a problem
+		// ...assigning a different background color to a the circle.
+		// ...the scss for the colors assigned are in app.scss
+		background-color: black;
+		height: 14px;
+		width: 14px;
+	}
+
+	.content-container__theme-button__option__centering-container__text {
+		@include m.vertical-center();
+		@include m.stop-text-selection();
+
+		color: v.$account-modal-theme-button-option-text-color;
+		font-size: 12px;
+		font-weight: bold;
+		
+	}
+
+	.content-container__theme-button__arrow-container {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		position: relative;
+		float: left;
+		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
+		background-color: v.$account-modal-theme-button-arrow-container-color;
+		height: v.$account-modal-theme-button-selected-arrow-container-height;
+		width: v.$account-modal-theme-button-arrow-container-width;
+	}
+
+	.content-container__theme-button__arrow-container__icon {
+		@include m.dead-center();
+		@include m.stop-text-selection();
+
+		color: v.$account-modal-theme-button-option-text-color;
+	}
+
+	.content-container__theme-button__dropdown-container {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		z-index: 1;
+		position: absolute;
+		top: v.$account-modal-theme-button-dropdown-container-top;
+		border: solid v.$account-modal-theme-button-border-color v.$account-modal-theme-button-border-width;
+		border-top: none;
+		background-color: v.$account-modal-theme-button-background-color;
+		width: v.$account-modal-theme-button-width;
+	}
+}

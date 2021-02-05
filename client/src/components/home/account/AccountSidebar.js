@@ -18,6 +18,9 @@ import {
 
 import { useSidebarResize } from "../../../utils/hooks";
 
+// Components
+import AccountSidebarChangeTheme from "./AccountSidebarChangeTheme";
+
 export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -64,7 +67,7 @@ export default function AccountSidebar() {
 			<div className="sidebar-container js-account-sidebar">
 				<div className="padded-container">
 					<div className="account-info-container">
-						<div className="account-info account-info--large-bold">
+						<div className="account-info account-info--name">
 							{reduxState[ACCOUNT_CONTAINER].accountInfo.first_name +
 								" " +
 								reduxState[ACCOUNT_CONTAINER].accountInfo.last_name}
@@ -77,6 +80,8 @@ export default function AccountSidebar() {
 							{formatDateMMddYYYY(reduxState[ACCOUNT_CONTAINER].accountInfo.joinDate)}
 						</div>
 					</div>
+					<div className="dividing-line" />
+					<AccountSidebarChangeTheme />
 					<div className="dividing-line" />
 					<div className={"account-link-container" + getSLinkColor()}>
 						<span onClick={openAccountModalForEditingAccount} className="account-link">
