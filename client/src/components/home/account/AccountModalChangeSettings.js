@@ -23,7 +23,10 @@ export default function AccountModalChangeSettings() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [showThemetDropdown, setShowThemetDropdown] = useState(false);
+	const [showThemeDropdown, setShowThemeDropdown] = useState(false);
+	const [highlightedOptionThemeId, setHighlightedOptionThemeId] = useState(
+		reduxState[ACCOUNT_CONTAINER].settings.theme_id
+	);
 
 	// clears prior backend errors when closing the component
 	useEffect(() => {
@@ -32,6 +35,25 @@ export default function AccountModalChangeSettings() {
 		};
 		// eslint-disable-next-line
 	}, []);
+
+	const closeThemeDropdownIfOpen = () => {
+		if (showThemeDropdown) {
+			setShowThemeDropdown(false);
+		}
+	}
+
+	const openCloseThemeDropdown = (e) => {
+		e.stopPropagation();
+
+		if (!showThemeDropdown) {
+			setHighlightedOptionThemeId(
+				reduxState[ACCOUNT_CONTAINER].settings.theme_id
+			);
+			setShowThemeDropdown(true);
+		} else {
+			setShowThemeDropdown(false);
+		}
+	};
 
 	const onChangeTheme = (e, theme_id) => {
 		e.stopPropagation();
@@ -45,7 +67,7 @@ export default function AccountModalChangeSettings() {
 			);
 		}
 
-		setShowThemetDropdown(false);
+		setShowThemeDropdown(false);
 	};
 
 	const onChangeDarkMode = () => {
@@ -77,7 +99,11 @@ export default function AccountModalChangeSettings() {
 		);
 	};
 
-	const getThemeColorOption = (theme_id, onClickFunction) => {
+	const getThemeColorOption = (
+		theme_id,
+		onClickFunction,
+		onMouseEnterFunction
+	) => {
 		const theme = reduxState[ACCOUNT_CONTAINER].settingThemes.filter((theme) =>
 			theme_id !== null
 				? theme.theme_id === theme_id
@@ -90,12 +116,15 @@ export default function AccountModalChangeSettings() {
 					"category-container__border-container__content-container__theme-button__option" +
 					(onClickFunction !== null
 						? " category-container__border-container__content-container__theme-button__option--larger" +
-						  (reduxState[ACCOUNT_CONTAINER].settings.theme_id === theme_id
+						  (highlightedOptionThemeId === theme_id
 								? " category-container__border-container__content-container__theme-button__option--selected"
 								: "")
 						: "")
 				}
 				onClick={onClickFunction !== null ? onClickFunction : null}
+				onMouseEnter={
+					onMouseEnterFunction !== null ? onMouseEnterFunction : null
+				}
 			>
 				<div className="category-container__border-container__content-container__theme-button__option__centering-container">
 					<span
@@ -140,29 +169,48 @@ export default function AccountModalChangeSettings() {
 						</label>
 						<div
 							className="category-container__border-container__content-container__theme-button"
-							onClick={() => setShowThemetDropdown(!showThemetDropdown)}
+							onClick={(e) => openCloseThemeDropdown(e)}
 						>
-							<div className="category-container__border-container__content-container__theme-button__selected-container">
+							<div
+								className={
+									"category-container__border-container__content-container__theme-button__selected-container" +
+									(showThemeDropdown
+										? " category-container__border-container__content-container__theme-button__selected-container--dropdown-present"
+										: "")
+								}
+							>
 								{getThemeColorOption(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_id,
 									null,
 									null
 								)}
 							</div>
-							<div className="category-container__border-container__content-container__theme-button__arrow-container">
+							<div
+								className={
+									"category-container__border-container__content-container__theme-button__arrow-container" +
+									(showThemeDropdown
+										? " category-container__border-container__content-container__theme-button__arrow-container--dropdown-present"
+										: "")
+								}
+							>
 								<i
-									className="fa fa-caret-down category-container__border-container__content-container__theme-button__arrow-container__icon"
+									className={
+										"fa category-container__border-container__content-container__theme-button__arrow-container__icon" +
+										(showThemeDropdown ? " fa-caret-up" : " fa-caret-down")
+									}
 									aria-hidden="true"
 								/>
 							</div>
-							{showThemetDropdown === false ? null : (
+							{showThemeDropdown === false ? null : (
 								<div className="category-container__border-container__content-container__theme-button__options-container">
 									{reduxState[ACCOUNT_CONTAINER].settingThemes.map(
 										(theme, i) => {
 											return (
 												<span key={i}>
-													{getThemeColorOption(theme.theme_id, (e) =>
-														onChangeTheme(e, theme.theme_id)
+													{getThemeColorOption(
+														theme.theme_id,
+														(e) => onChangeTheme(e, theme.theme_id),
+														() => setHighlightedOptionThemeId(theme.theme_id)
 													)}
 												</span>
 											);

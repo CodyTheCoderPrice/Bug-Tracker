@@ -881,7 +881,7 @@ dropdown can overlap all other components
   position: relative;
   float: left;
   margin-left: 10px;
-  width: 108px;
+  width: 184px;
   cursor: pointer;
 }
 .edit-account-modal-component .category-container__border-container__content-container__theme-button__selected-container {
@@ -892,9 +892,9 @@ dropdown can overlap all other components
   float: left;
   border: solid #4e4e4e 1px;
   border-right: none;
-  background-color: #dddddd;
+  background-color: #e5e5e5;
   height: 22px;
-  width: 84px;
+  width: 160px;
 }
 .edit-account-modal-component .category-container__border-container__content-container__theme-button__option {
   -webkit-box-sizing: border-box;
@@ -902,14 +902,14 @@ dropdown can overlap all other components
   box-sizing: border-box;
   position: relative;
   height: 20px;
-  width: 82px;
+  width: 158px;
 }
 .edit-account-modal-component .category-container__border-container__content-container__theme-button__option--larger {
   height: 30px;
-  width: 106px;
+  width: 182px;
 }
 .edit-account-modal-component .category-container__border-container__content-container__theme-button__option--selected {
-  background-color: #8cc8fa;
+  background-color: #76bffa;
 }
 .edit-account-modal-component .category-container__border-container__content-container__theme-button__option__centering-container {
   position: relative;
@@ -958,7 +958,7 @@ dropdown can overlap all other components
   position: relative;
   float: left;
   border: solid #4e4e4e 1px;
-  background-color: #a3a3a3;
+  background-color: #bfbfbf;
   height: 22px;
   width: 24px;
 }
@@ -991,8 +991,8 @@ dropdown can overlap all other components
   top: 22px;
   border: solid #4e4e4e 1px;
   border-top: none;
-  background-color: #dddddd;
-  width: 108px;
+  background-color: #e5e5e5;
+  width: 184px;
 }
 
 .toggle-switch-component {
@@ -1006,9 +1006,9 @@ dropdown can overlap all other components
   position: relative;
   float: left;
   margin-left: 6px;
-  border: solid #0856ff 3px;
+  border: solid #3889cc 3px;
   border-radius: 25px;
-  background-color: #0856ff;
+  background-color: #3889cc;
   height: 24px;
   width: 52px;
   cursor: pointer;

@@ -33,7 +33,8 @@ $light-navy-blue: #4d6b8b;
 $navy-blue: #45607e;
 $darker-navy-blue: #3d5774;
 // Basic blues
-$light-blue: #8cc8fa;
+$light-blue: #76bffa;
+$blue: #3889cc;
 //Text
 $blue-text: #245ba3;
 $teal-text: #2588b3;
@@ -50,11 +51,11 @@ $light-green: #ccf5cc;
 // Yellows
 $yellow: #ffff00;
 // Components
-$account-modal-toggle-switch-on-color: #0856ff;
+$account-modal-toggle-switch-on-color: $blue;
 $account-modal-toggle-switch-off-color: $light-gray-level-7;
 $account-modal-theme-button-border-color: $dark-gray-level-3;
-$account-modal-theme-button-background-color: $light-gray-level-7;
-$account-modal-theme-button-arrow-container-color: $gray-level-4;
+$account-modal-theme-button-background-color: $light-gray-level-5;
+$account-modal-theme-button-arrow-container-color: $gray-level-2;
 $account-modal-theme-button-option-text-color: $dark-gray-level-4;
 $account-modal-theme-button-option-selected-color: $light-blue;
 $search-filter-sort-bar-color: $light-gray-level-5;
@@ -103,7 +104,7 @@ $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;
 $navbar-hamburger-button-width: 36px;
 $edit-account-modal-width: 460px;
-$account-modal-theme-button-selected-container-width: 84px;
+$account-modal-theme-button-selected-container-width: 160px;
 $account-modal-theme-button-arrow-container-width: 24px;
 $account-modal-theme-button-width: $account-modal-theme-button-selected-container-width +
 	$account-modal-theme-button-arrow-container-width;
