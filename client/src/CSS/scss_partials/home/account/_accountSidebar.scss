@@ -82,6 +82,7 @@
 	}
 
 	.horizontal-dividing-line {
+		position: relative;
 		margin: v.$account-sidebar-dividing-line-margin-top-bottom 0px;
 		border-top: solid silver 2px;
 	}
