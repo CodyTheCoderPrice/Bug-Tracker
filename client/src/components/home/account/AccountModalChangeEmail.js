@@ -12,9 +12,8 @@ import {
 } from "../../../actions";
 
 import {
-	getCurrentContainerName,
-	getProjectOrBugBackgroundColorClassNameWithHover,
-	getProjectOrBugTextColorClassName,
+	getBackgroundColorWithHoverClassNameForTheme,
+	getTextColorClassNameForTheme,
 } from "../../../utils";
 
 export default function AccountModalChangeEmail() {
@@ -90,8 +89,8 @@ export default function AccountModalChangeEmail() {
 					type="submit"
 					className={
 						"form__submit" +
-						getProjectOrBugBackgroundColorClassNameWithHover(
-							getCurrentContainerName(reduxState)
+						getBackgroundColorWithHoverClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>
@@ -107,7 +106,7 @@ export default function AccountModalChangeEmail() {
 			<div className="modal-links-container">
 				<span
 					onClick={backToEditInfo}
-					className={"modal-link" + getProjectOrBugTextColorClassName(getCurrentContainerName(reduxState))}
+					className={"modal-link" + getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)}
 				>
 					Back
 				</span>

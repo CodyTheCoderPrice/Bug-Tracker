@@ -22,7 +22,7 @@ body {
 		opacity: 0.7;
 	}
 
-	// Theme standard background colors
+	// Theme background colors
 	.js-set-dark-background-color-theme-blue {
 		background-color: v.$darker-navy-blue !important;
 	}
@@ -32,39 +32,12 @@ body {
 	.js-set-dark-background-color-theme-teal {
 		background-color: v.$dark-blue-teal !important;
 	}
-	.js-set-dark-background-color-light-teal {
+	.js-set-light-background-color-theme-teal {
 		background-color: v.$blue-teal !important;
 	}
 
-	// Standard background colors
-	.js-set-project-background-color-dark {
-		//background-color: v.$dark-blue-teal !important;
-		background-color: v.$darker-navy-blue !important;
-	}
-	.js-set-project-background-color-light {
-		//background-color: v.$blue-teal !important;
-		background-color: v.$lighter-navy-blue !important;
-	}
-	.js-set-bug-background-color-dark {
-		background-color: v.$darker-navy-blue !important;
-	}
-	.js-set-bug-background-color-light {
-		background-color: v.$lighter-navy-blue !important;
-	}
-
-	// Hover background colors
-	// Standard background colors
-	.js-set-project-background-color-with-hover {
-		//background-color: v.$blue-teal !important;
-		background-color: v.$lighter-navy-blue !important;
-
-		&:hover,
-		&:active {
-			//background-color: v.$dark-blue-teal !important;
-			background-color: v.$darker-navy-blue !important;
-		}
-	}
-	.js-set-bug-background-color-with-hover {
+	// Theme background colors with hover
+	.js-set-background-color-with-hover-theme-blue {
 		background-color: v.$lighter-navy-blue !important;
 
 		&:hover,
@@ -72,46 +45,49 @@ body {
 			background-color: v.$darker-navy-blue !important;
 		}
 	}
+	.js-set-background-color-with-hover-theme-teal {
+		background-color: v.$blue-teal !important;
 
-	// Navbar arrow colors
-	.js-set-project-navbar-arrow-color-dark {
-		//border-left-color: v.$dark-blue-teal !important;
+		&:hover,
+		&:active {
+			background-color: v.$dark-blue-teal !important;
+		}
+	}
+
+	// Breadcrumb arrow colors
+	.js-set-dark-breadcrumb-arrow-color-theme-blue {
 		border-left-color: v.$darker-navy-blue !important;
 	}
-	.js-set-project-navbar-arrow-color-light {
-		//border-left-color: v.$blue-teal !important;
+	.js-set-light-breadcrumb-arrow-color-theme-blue {
 		border-left-color: v.$lighter-navy-blue !important;
 	}
-	.js-set-bug-navbar-arrow-color-dark {
-		border-left-color: v.$darker-navy-blue !important;
+	.js-set-dark-breadcrumb-arrow-color-theme-teal {
+		border-left-color: v.$dark-blue-teal !important;
 	}
-	.js-set-bug-navbar-arrow-color-light {
-		border-left-color: v.$lighter-navy-blue !important;
+	.js-set-light-breadcrumb-arrow-color-theme-teal {
+		border-left-color: v.$blue-teal !important;
 	}
 
 	// Border colors
-	.js-set-project-border-color-dark {
-		//border-color: v.$dark-blue-teal !important;
+	.js-set-dark-border-color-theme-blue {
 		border-color: v.$darker-navy-blue !important;
 	}
-	.js-set-project-border-color-light {
-		//border-color: v.$blue-teal !important;
+	.js-set-light-border-color-theme-blue {
 		border-color: v.$lighter-navy-blue !important;
 	}
-	.js-set-bug-border-color-dark {
-		border-color: v.$darker-navy-blue !important;
+	.js-set-dark-border-color-theme-teal {
+		border-color: v.$dark-blue-teal !important;
 	}
-	.js-set-bug-border-color-light {
-		border-color: v.$lighter-navy-blue !important;
+	.js-set-light-border-color-theme-teal {
+		border-color: v.$blue-teal !important;
 	}
 
 	// Text and link color
-	.js-set-project-text-color {
-		//color: v.$teal-text !important;
+	.js-set-text-color-theme-blue {
 		color: v.$blue-text !important;
 	}
-	.js-set-bug-text-color {
-		color: v.$blue-text !important;
+	.js-set-text-color-theme-teal {
+		color: v.$teal-text !important;
 	}
 
 	// Used for changing the background color of status-boxes

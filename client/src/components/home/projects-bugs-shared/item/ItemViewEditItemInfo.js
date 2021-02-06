@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	SIZE_CONTAINER,
@@ -18,8 +19,8 @@ import {
 	formatDateYYYYmmDD,
 	manageSizeOfItemBoxsInPairContainer,
 	populateComboBox,
-	getProjectOrBugTextColorClassName,
-	getProjectOrBugBackgroundColorClassNameWithHover,
+	getTextColorClassNameForTheme,
+	getBackgroundColorWithHoverClassNameForTheme,
 } from "../../../../utils";
 
 import {
@@ -228,7 +229,7 @@ export default function ItemViewEditItemInfo(props) {
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId
 								? " name-completed-color"
-								: getProjectOrBugTextColorClassName(props.reduxContainerName))
+								: getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color))
 						}
 					/>
 					<div className="name-centering-container__char-count-centering-container">
@@ -261,7 +262,7 @@ export default function ItemViewEditItemInfo(props) {
 							<h2
 								className={
 									"item-box__title item-box__title--no-bottom-margin" +
-									getProjectOrBugTextColorClassName(props.reduxContainerName)
+									getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 								}
 							>
 								Description
@@ -301,7 +302,7 @@ export default function ItemViewEditItemInfo(props) {
 						<h2
 							className={
 								"item-box__title" +
-								getProjectOrBugTextColorClassName(props.reduxContainerName)
+								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 							}
 						>
 							Info
@@ -453,8 +454,8 @@ export default function ItemViewEditItemInfo(props) {
 							type="submit"
 							className={
 								"form-buttons-centered-container__submit-button" +
-								getProjectOrBugBackgroundColorClassNameWithHover(
-									props.reduxContainerName
+								getBackgroundColorWithHoverClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}
 						>

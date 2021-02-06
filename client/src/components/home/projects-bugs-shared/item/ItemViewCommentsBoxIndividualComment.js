@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
@@ -15,9 +16,8 @@ import {
 
 import {
 	formatDateMMddYYYY,
-	getCurrentContainerName,
-	getProjectOrBugTextColorClassName,
-	getProjectOrBugBackgroundColorClassNameWithHover,
+	getTextColorClassNameForTheme,
+	getBackgroundColorWithHoverClassNameForTheme,
 } from "../../../../utils";
 
 import { useSubmitFormOnEnter } from "../../../../utils/hooks";
@@ -123,8 +123,8 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 					<div>
 						<div className="comment__block">
 							<span
-								className={getProjectOrBugTextColorClassName(
-									getCurrentContainerName(reduxState)
+								className={getTextColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)}
 							>
 								{props.comment.description}
@@ -202,8 +202,8 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								<div
 									className={
 										"comment__centering-container__pair-container__submit-edit-button" +
-										getProjectOrBugBackgroundColorClassNameWithHover(
-											BUG_CONTAINER
+										getBackgroundColorWithHoverClassNameForTheme(
+											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										)
 									}
 									onClick={handleSubmit}

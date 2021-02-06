@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 import {
 	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "../../../../actions/constants/containerNames";
@@ -16,8 +17,8 @@ import {
 
 import {
 	populateComboBox,
-	getProjectOrBugTextColorClassName,
-	getProjectOrBugBackgroundColorClassNameWithHover,
+	getTextColorClassNameForTheme,
+	getBackgroundColorWithHoverClassNameForTheme,
 } from "../../../../utils";
 
 import {
@@ -177,7 +178,7 @@ export default function ListViewCreateItemSidebar(props) {
 					<h1
 						className={
 							"title" +
-							getProjectOrBugTextColorClassName(props.reduxContainerName)
+							getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 						}
 					>
 						{props.reduxContainerName === PROJECT_CONTAINER
@@ -366,8 +367,8 @@ export default function ListViewCreateItemSidebar(props) {
 							type="submit"
 							className={
 								"form__submit" +
-								getProjectOrBugBackgroundColorClassNameWithHover(
-									props.reduxContainerName
+								getBackgroundColorWithHoverClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}
 						>

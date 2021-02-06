@@ -37,83 +37,67 @@ html .js-set-dark-background-color-theme-teal,
 body .js-set-dark-background-color-theme-teal {
   background-color: #50798b !important;
 }
-html .js-set-dark-background-color-light-teal,
-body .js-set-dark-background-color-light-teal {
+html .js-set-light-background-color-theme-teal,
+body .js-set-light-background-color-theme-teal {
   background-color: #6691a3 !important;
 }
-html .js-set-project-background-color-dark,
-body .js-set-project-background-color-dark {
-  background-color: #3d5774 !important;
-}
-html .js-set-project-background-color-light,
-body .js-set-project-background-color-light {
+html .js-set-background-color-with-hover-theme-blue,
+body .js-set-background-color-with-hover-theme-blue {
   background-color: #4d6e92 !important;
 }
-html .js-set-bug-background-color-dark,
-body .js-set-bug-background-color-dark {
+html .js-set-background-color-with-hover-theme-blue:hover, html .js-set-background-color-with-hover-theme-blue:active,
+body .js-set-background-color-with-hover-theme-blue:hover,
+body .js-set-background-color-with-hover-theme-blue:active {
   background-color: #3d5774 !important;
 }
-html .js-set-bug-background-color-light,
-body .js-set-bug-background-color-light {
-  background-color: #4d6e92 !important;
+html .js-set-background-color-with-hover-theme-teal,
+body .js-set-background-color-with-hover-theme-teal {
+  background-color: #6691a3 !important;
 }
-html .js-set-project-background-color-with-hover,
-body .js-set-project-background-color-with-hover {
-  background-color: #4d6e92 !important;
+html .js-set-background-color-with-hover-theme-teal:hover, html .js-set-background-color-with-hover-theme-teal:active,
+body .js-set-background-color-with-hover-theme-teal:hover,
+body .js-set-background-color-with-hover-theme-teal:active {
+  background-color: #50798b !important;
 }
-html .js-set-project-background-color-with-hover:hover, html .js-set-project-background-color-with-hover:active,
-body .js-set-project-background-color-with-hover:hover,
-body .js-set-project-background-color-with-hover:active {
-  background-color: #3d5774 !important;
-}
-html .js-set-bug-background-color-with-hover,
-body .js-set-bug-background-color-with-hover {
-  background-color: #4d6e92 !important;
-}
-html .js-set-bug-background-color-with-hover:hover, html .js-set-bug-background-color-with-hover:active,
-body .js-set-bug-background-color-with-hover:hover,
-body .js-set-bug-background-color-with-hover:active {
-  background-color: #3d5774 !important;
-}
-html .js-set-project-navbar-arrow-color-dark,
-body .js-set-project-navbar-arrow-color-dark {
+html .js-set-dark-breadcrumb-arrow-color-theme-blue,
+body .js-set-dark-breadcrumb-arrow-color-theme-blue {
   border-left-color: #3d5774 !important;
 }
-html .js-set-project-navbar-arrow-color-light,
-body .js-set-project-navbar-arrow-color-light {
+html .js-set-light-breadcrumb-arrow-color-theme-blue,
+body .js-set-light-breadcrumb-arrow-color-theme-blue {
   border-left-color: #4d6e92 !important;
 }
-html .js-set-bug-navbar-arrow-color-dark,
-body .js-set-bug-navbar-arrow-color-dark {
-  border-left-color: #3d5774 !important;
+html .js-set-dark-breadcrumb-arrow-color-theme-teal,
+body .js-set-dark-breadcrumb-arrow-color-theme-teal {
+  border-left-color: #50798b !important;
 }
-html .js-set-bug-navbar-arrow-color-light,
-body .js-set-bug-navbar-arrow-color-light {
-  border-left-color: #4d6e92 !important;
+html .js-set-light-breadcrumb-arrow-color-theme-teal,
+body .js-set-light-breadcrumb-arrow-color-theme-teal {
+  border-left-color: #6691a3 !important;
 }
-html .js-set-project-border-color-dark,
-body .js-set-project-border-color-dark {
+html .js-set-dark-border-color-theme-blue,
+body .js-set-dark-border-color-theme-blue {
   border-color: #3d5774 !important;
 }
-html .js-set-project-border-color-light,
-body .js-set-project-border-color-light {
+html .js-set-light-border-color-theme-blue,
+body .js-set-light-border-color-theme-blue {
   border-color: #4d6e92 !important;
 }
-html .js-set-bug-border-color-dark,
-body .js-set-bug-border-color-dark {
-  border-color: #3d5774 !important;
+html .js-set-dark-border-color-theme-teal,
+body .js-set-dark-border-color-theme-teal {
+  border-color: #50798b !important;
 }
-html .js-set-bug-border-color-light,
-body .js-set-bug-border-color-light {
-  border-color: #4d6e92 !important;
+html .js-set-light-border-color-theme-teal,
+body .js-set-light-border-color-theme-teal {
+  border-color: #6691a3 !important;
 }
-html .js-set-project-text-color,
-body .js-set-project-text-color {
+html .js-set-text-color-theme-blue,
+body .js-set-text-color-theme-blue {
   color: #245ba3 !important;
 }
-html .js-set-bug-text-color,
-body .js-set-bug-text-color {
-  color: #245ba3 !important;
+html .js-set-text-color-theme-teal,
+body .js-set-text-color-theme-teal {
+  color: #2588b3 !important;
 }
 html .js-set-status-box-background-color-gray,
 html .js-calc-status-box-background-color-gray,
@@ -2276,7 +2260,6 @@ dropdown can overlap all other components
   position: relative;
   padding-top: 24px;
   font-size: 140%;
-  color: #1f4d8a;
 }
 .create-item-component .form__errors {
   display: block;

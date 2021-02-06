@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GENERAL_CONTAINER } from "../../../actions/constants/containerNames";
+import {
+	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
+} from "../../../actions/constants/containerNames";
 
 import {
 	updateAccountPassword,
@@ -9,9 +12,8 @@ import {
 } from "../../../actions";
 
 import {
-	getCurrentContainerName,
-	getProjectOrBugBackgroundColorClassNameWithHover,
-	getProjectOrBugTextColorClassName,
+	getBackgroundColorWithHoverClassNameForTheme,
+	getTextColorClassNameForTheme,
 } from "../../../utils";
 
 export default function AccountModalChangePassword() {
@@ -116,8 +118,8 @@ export default function AccountModalChangePassword() {
 					type="submit"
 					className={
 						"form__submit" +
-						getProjectOrBugBackgroundColorClassNameWithHover(
-							getCurrentContainerName(reduxState)
+						getBackgroundColorWithHoverClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>
@@ -135,8 +137,8 @@ export default function AccountModalChangePassword() {
 					onClick={backToEditInfo}
 					className={
 						"modal-link" +
-						getProjectOrBugTextColorClassName(
-							getCurrentContainerName(reduxState)
+						getTextColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>

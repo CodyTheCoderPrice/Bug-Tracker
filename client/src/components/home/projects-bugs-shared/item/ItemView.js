@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	SIZE_CONTAINER,
 	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
@@ -13,7 +14,7 @@ import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	getWindowSize,
-	getProjectOrBugTextColorClassName,
+	getTextColorClassNameForTheme,
 } from "../../../../utils";
 
 // Components
@@ -180,8 +181,8 @@ export default function ItemView(props) {
 											<h2
 												className={
 													"item-box__title" +
-													getProjectOrBugTextColorClassName(
-														props.reduxContainerName
+													getTextColorClassNameForTheme(
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													)
 												}
 											>
@@ -206,8 +207,8 @@ export default function ItemView(props) {
 											<h2
 												className={
 													"item-box__title" +
-													getProjectOrBugTextColorClassName(
-														props.reduxContainerName
+													getTextColorClassNameForTheme(
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													)
 												}
 											>

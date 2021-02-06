@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
@@ -10,8 +11,8 @@ import {
 import { createComment, clearBackendErrors } from "../../../../actions";
 
 import {
-	getProjectOrBugTextColorClassName,
-	getProjectOrBugBackgroundColorClassNameWithHover,
+	getTextColorClassNameForTheme,
+	getBackgroundColorWithHoverClassNameForTheme,
 	dateToInt,
 } from "../../../../utils";
 
@@ -98,7 +99,7 @@ export default function ItemViewCommentsBox() {
 						<h2
 							className={
 								"item-box__title item-box__title--no-bottom-margin" +
-								getProjectOrBugTextColorClassName(BUG_CONTAINER)
+								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 							}
 						>
 							Comments (
@@ -147,7 +148,9 @@ export default function ItemViewCommentsBox() {
 							type="submit"
 							className={
 								"form-submit-centering-container__button" +
-								getProjectOrBugBackgroundColorClassNameWithHover(BUG_CONTAINER)
+								getBackgroundColorWithHoverClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								)
 							}
 						>
 							Add Comment

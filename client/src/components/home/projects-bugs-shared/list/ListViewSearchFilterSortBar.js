@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "../../../../actions/constants/containerNames";
@@ -15,8 +16,8 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
-	getProjectOrBugBackgroundColorClassNameLight,
-	getProjectOrBugBorderColorClassNameLight,
+	getLightBackgroundColorClassNameForTheme,
+	getLightBorderColorClassNameForTheme,
 } from "../../../../utils";
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
@@ -124,7 +125,7 @@ export default function ListViewSearchFilterSortBar(props) {
 				<div
 					className={
 						"centering-container__search-group-container js-list-search-bar-and-button-search-group-container" +
-						getProjectOrBugBorderColorClassNameLight(props.reduxContainerName)
+						getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 					}
 				>
 					<input
@@ -135,16 +136,16 @@ export default function ListViewSearchFilterSortBar(props) {
 						value={searchBarText}
 						className={
 							"centering-container__search-group-container__search-bar js-list-search-bar" +
-							getProjectOrBugBorderColorClassNameLight(props.reduxContainerName)
+							getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 						}
 					/>
 					<div
 						className={
 							"centering-container__search-group-container__search-bar-button js-list-search-button" +
-							getProjectOrBugBackgroundColorClassNameLight(
-								props.reduxContainerName
+							getLightBackgroundColorClassNameForTheme(
+								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							) +
-							getProjectOrBugBorderColorClassNameLight(props.reduxContainerName)
+							getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 						}
 						onClick={updateSearchKeyWordString}
 					>

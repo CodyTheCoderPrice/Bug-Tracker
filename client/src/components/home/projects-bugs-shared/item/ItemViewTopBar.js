@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	SIZE_CONTAINER,
@@ -17,8 +18,8 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
-	getProjectOrBugBackgroundColorClassNameLight,
-	getProjectOrBugBorderColorClassNameLight,
+	getLightBackgroundColorClassNameForTheme,
+	getLightBorderColorClassNameForTheme,
 } from "../../../../utils";
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
@@ -146,7 +147,7 @@ export default function ItemViewTopBar(props) {
 			<div
 				className={
 					"outer-search-container" +
-					getProjectOrBugBorderColorClassNameLight(props.reduxContainerName) +
+					getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay
 						.itemViewListSidebar !== true ||
 					(reduxState[SIZE_CONTAINER].variables.window !== null &&
@@ -163,14 +164,14 @@ export default function ItemViewTopBar(props) {
 					value={searchBarText}
 					className={
 						"outer-search-container__search-bar js-item-search-bar" +
-						getProjectOrBugBorderColorClassNameLight(props.reduxContainerName)
+						getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 					}
 				/>
 				<div
 					className={
 						"outer-search-container__search-bar-button js-item-search-button" +
-						getProjectOrBugBackgroundColorClassNameLight(
-							props.reduxContainerName
+						getLightBackgroundColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 					onClick={updateSearchKeyWordString}

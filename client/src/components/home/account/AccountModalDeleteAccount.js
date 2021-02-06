@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
 import {
@@ -11,9 +12,8 @@ import {
 } from "../../../actions";
 
 import {
-	getCurrentContainerName,
-	getProjectOrBugBackgroundColorClassNameWithHover,
-	getProjectOrBugTextColorClassName,
+	getBackgroundColorWithHoverClassNameForTheme,
+	getTextColorClassNameForTheme,
 } from "../../../utils";
 
 export default function AccountModalDeleteAccount() {
@@ -53,7 +53,11 @@ export default function AccountModalDeleteAccount() {
 	return (
 		<div>
 			<div className="back-button" onClick={backToEditInfo}>
-				<i className="fa fa-arrow-left" aria-hidden="true" alt="Icon of an arrow pointing to the left" />
+				<i
+					className="fa fa-arrow-left"
+					aria-hidden="true"
+					alt="Icon of an arrow pointing to the left"
+				/>
 			</div>
 			<h1 className="title">Delete Account</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
@@ -91,7 +95,12 @@ export default function AccountModalDeleteAccount() {
 				</span>
 				<button
 					type="submit"
-					className={"form__submit" + getProjectOrBugBackgroundColorClassNameWithHover(getCurrentContainerName(reduxState))}
+					className={
+						"form__submit" +
+						getBackgroundColorWithHoverClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						)
+					}
 				>
 					Delete
 				</button>
@@ -105,7 +114,12 @@ export default function AccountModalDeleteAccount() {
 			<div className="modal-links-container">
 				<span
 					onClick={backToEditInfo}
-					className={"modal-link" + getProjectOrBugTextColorClassName(getCurrentContainerName(reduxState))}
+					className={
+						"modal-link" +
+						getTextColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						)
+					}
 				>
 					Back
 				</span>

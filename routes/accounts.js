@@ -79,7 +79,7 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 						[
 							newAccount.rows[0].account_id,
 							false,
-							false,
+							true,
 							false,
 							defaultThemeID,
 							last_edited_timestamp,
@@ -229,9 +229,9 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 async function getAccountSettings(account_id) {
 	try {
 		return await await pool.query(
-			`SELECT setting_id, filter_completed_projects, filter_completed_bugs, dark_mode, theme_id, last_edited_timestamp
-				FROM setting 
-				WHERE account_id = $1`,
+			`SELECT setting_id, filter_completed_projects, filter_completed_bugs, dark_mode, theme_id, 
+				(SELECT color FROM theme WHERE theme_id = s.theme_id) AS theme_color,
+					 last_edited_timestamp FROM setting AS s WHERE account_id = $1`,
 			[account_id]
 		);
 	} catch (err) {
@@ -561,33 +561,46 @@ router
 //=================
 // Update settings
 //=================
-router
-	.route("/update-settings")
-	.post(tokenAuthorization, async (req, res) => {
-		let backendErrors = {};
+router.route("/update-settings").post(tokenAuthorization, async (req, res) => {
+	let backendErrors = {};
 
-		try {
-			// Declared in the tokenAuthorization middleware
-			const { account_id } = req;
-			// Passed in the post body
-			const { filter_completed_projects, filter_completed_bugs, dark_mode, theme_id } = req.body;
-			// Current time in unix/epoch timestamp
-			const last_edited_timestamp = moment.utc().format("X");
+	try {
+		// Declared in the tokenAuthorization middleware
+		const { account_id } = req;
+		// Passed in the post body
+		const {
+			filter_completed_projects,
+			filter_completed_bugs,
+			dark_mode,
+			theme_id,
+		} = req.body;
+		// Current time in unix/epoch timestamp
+		const last_edited_timestamp = moment.utc().format("X");
 
-			const updatedSettings = await pool.query(
-				`UPDATE setting SET filter_completed_projects = $1, filter_completed_bugs = $2, dark_mode = $3, theme_id = $4, last_edited_timestamp = $5 
+		const updatedSettings = await pool.query(
+			`UPDATE setting SET filter_completed_projects = $1, filter_completed_bugs = $2, dark_mode = $3, theme_id = $4, last_edited_timestamp = $5 
 					WHERE account_id = $6 
-						RETURNING account_id, filter_completed_projects, filter_completed_bugs, dark_mode, theme_id, last_edited_timestamp`,
-				[filter_completed_projects, filter_completed_bugs, dark_mode, theme_id, last_edited_timestamp, account_id]
-			);
+						RETURNING account_id, filter_completed_projects, filter_completed_bugs, dark_mode, theme_id, 
+							(SELECT color FROM theme WHERE theme_id = $4) AS theme_color,
+								last_edited_timestamp`,
+			[
+				filter_completed_projects,
+				filter_completed_bugs,
+				dark_mode,
+				theme_id,
+				last_edited_timestamp,
+				account_id,
+			]
+		);
 
-			return res.json({ success: true, settings: updatedSettings.rows[0] });
-		} catch (err) {
-			console.error(err.message);
-			backendErrors.serverSettings = "Server error while updating account settings";
-			return res.status(500).json({ success: false, backendErrors });
-		}
-	});
+		return res.json({ success: true, settings: updatedSettings.rows[0] });
+	} catch (err) {
+		console.error(err.message);
+		backendErrors.serverSettings =
+			"Server error while updating account settings";
+		return res.status(500).json({ success: false, backendErrors });
+	}
+});
 
 // Also exports getAccount and getEverythingForAccount
 // ...so other route files can use it

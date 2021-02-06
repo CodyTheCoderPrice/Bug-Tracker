@@ -12,9 +12,8 @@ import {
 } from "../../../actions";
 
 import {
-	getCurrentContainerName,
-	getProjectOrBugBackgroundColorClassNameWithHover,
-	getProjectOrBugTextColorClassName,
+	getBackgroundColorWithHoverClassNameForTheme,
+	getTextColorClassNameForTheme,
 } from "../../../utils";
 
 export default function AccountModalChangeInfo() {
@@ -125,8 +124,8 @@ export default function AccountModalChangeInfo() {
 					type="submit"
 					className={
 						"form__submit" +
-						getProjectOrBugBackgroundColorClassNameWithHover(
-							getCurrentContainerName(reduxState)
+						getBackgroundColorWithHoverClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>
@@ -143,8 +142,8 @@ export default function AccountModalChangeInfo() {
 					onClick={openEditEmailModal}
 					className={
 						"modal-link modal-link--no-left-margin" +
-						getProjectOrBugTextColorClassName(
-							getCurrentContainerName(reduxState)
+						getTextColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>
@@ -155,8 +154,8 @@ export default function AccountModalChangeInfo() {
 					onClick={openEditPasswordModal}
 					className={
 						"modal-link" +
-						getProjectOrBugTextColorClassName(
-							getCurrentContainerName(reduxState)
+						getTextColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>
@@ -167,8 +166,8 @@ export default function AccountModalChangeInfo() {
 					onClick={openDeleteAccountModal}
 					className={
 						"modal-link modal-link--no-right-margin" +
-						getProjectOrBugTextColorClassName(
-							getCurrentContainerName(reduxState)
+						getTextColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>

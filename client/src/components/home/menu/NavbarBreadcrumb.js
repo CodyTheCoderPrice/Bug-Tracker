@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	SIZE_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	GENERAL_CONTAINER,
@@ -11,11 +12,10 @@ import { setDisplaySizeVariablesBreadcrumbFontSize } from "../../../actions";
 
 import {
 	getElementSize,
-	getCurrentContainerName,
-	getProjectOrBugBackgroundColorClassNameDark,
-	getProjectOrBugBackgroundColorClassNameLight,
-	getProjectOrBugNavbarArrowColorClassNameDark,
-	getProjectOrBugNavbarArrowColorClassNameLight,
+	getDarkBackgroundColorClassNameForTheme,
+	getLightBackgroundColorClassNameForTheme,
+	getDarkBreadcrumbArrowColorClassNameForTheme,
+	getLightBreadcrumbArrowColorClassNameForTheme,
 	openProjectsListView,
 	openProjectsItemView,
 	openBugsListView,
@@ -156,11 +156,11 @@ export default function NavbarBreadcrumb(props) {
 					className={
 						"breadcrumb-button js-breadcrumb-project-list-button" +
 						(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-							? getProjectOrBugBackgroundColorClassNameLight(
-									getCurrentContainerName(reduxState)
+							? getLightBackgroundColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  )
-							: getProjectOrBugBackgroundColorClassNameDark(
-									getCurrentContainerName(reduxState)
+							: getDarkBackgroundColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
 					onClick={() => openProjectsListView(reduxState, dispatch)}
@@ -179,8 +179,8 @@ export default function NavbarBreadcrumb(props) {
 						// ... its light color extend past the arrow
 						className={
 							"breadcrumb-button__end-container" +
-							getProjectOrBugBackgroundColorClassNameDark(
-								getCurrentContainerName(reduxState)
+							getDarkBackgroundColorClassNameForTheme(
+								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)
 						}
 					>
@@ -190,11 +190,11 @@ export default function NavbarBreadcrumb(props) {
 								className={
 									"breadcrumb-button__end-container__round-border" +
 									(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-										? getProjectOrBugBackgroundColorClassNameLight(
-												getCurrentContainerName(reduxState)
+										? getLightBackgroundColorClassNameForTheme(
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  )
-										: getProjectOrBugBackgroundColorClassNameDark(
-												getCurrentContainerName(reduxState)
+										: getDarkBackgroundColorClassNameForTheme(
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  ))
 								}
 							/>
@@ -204,11 +204,11 @@ export default function NavbarBreadcrumb(props) {
 									className={
 										"breadcrumb-button__end-container__arrow" +
 										(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-											? getProjectOrBugNavbarArrowColorClassNameLight(
-													getCurrentContainerName(reduxState)
+											? getLightBreadcrumbArrowColorClassNameForTheme(
+													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
-											: getProjectOrBugNavbarArrowColorClassNameDark(
-													getCurrentContainerName(reduxState)
+											: getDarkBreadcrumbArrowColorClassNameForTheme(
+													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  ))
 									}
 								/>
@@ -227,11 +227,11 @@ export default function NavbarBreadcrumb(props) {
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 									null &&
 								reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-									? getProjectOrBugBackgroundColorClassNameLight(
-											getCurrentContainerName(reduxState)
+									? getLightBackgroundColorClassNameForTheme(
+											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  )
-									: getProjectOrBugBackgroundColorClassNameDark(
-											getCurrentContainerName(reduxState)
+									: getDarkBackgroundColorClassNameForTheme(
+											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
 							onClick={() => openProjectsItemView(reduxState, dispatch)}
@@ -248,8 +248,8 @@ export default function NavbarBreadcrumb(props) {
 								// ...have its different color extend past arrow
 								className={
 									"breadcrumb-button__end-container" +
-									getProjectOrBugBackgroundColorClassNameDark(
-										getCurrentContainerName(reduxState)
+									getDarkBackgroundColorClassNameForTheme(
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									)
 								}
 							>
@@ -259,11 +259,11 @@ export default function NavbarBreadcrumb(props) {
 										(reduxState[PROJECT_CONTAINER].componentsDisplay
 											.targetItem !== null &&
 										reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-											? getProjectOrBugNavbarArrowColorClassNameLight(
-													getCurrentContainerName(reduxState)
+											? getLightBreadcrumbArrowColorClassNameForTheme(
+													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
-											: getProjectOrBugNavbarArrowColorClassNameDark(
-													getCurrentContainerName(reduxState)
+											: getDarkBreadcrumbArrowColorClassNameForTheme(
+													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  ))
 									}
 								/>
@@ -281,11 +281,11 @@ export default function NavbarBreadcrumb(props) {
 								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-list-button" +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 									null && reduxState[BUG_CONTAINER].componentsDisplay.listView
-									? getProjectOrBugBackgroundColorClassNameLight(
-											getCurrentContainerName(reduxState)
+									? getLightBackgroundColorClassNameForTheme(
+											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  )
-									: getProjectOrBugBackgroundColorClassNameDark(
-											getCurrentContainerName(reduxState)
+									: getDarkBackgroundColorClassNameForTheme(
+											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
 							onClick={() => openBugsListView(reduxState, dispatch)}
@@ -304,8 +304,8 @@ export default function NavbarBreadcrumb(props) {
 								// ...have its different color extend past arrow
 								className={
 									"breadcrumb-button__end-container" +
-									getProjectOrBugBackgroundColorClassNameDark(
-										getCurrentContainerName(reduxState)
+									getDarkBackgroundColorClassNameForTheme(
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									)
 								}
 							>
@@ -315,11 +315,11 @@ export default function NavbarBreadcrumb(props) {
 										className={
 											"breadcrumb-button__end-container__round-border" +
 											(reduxState[BUG_CONTAINER].componentsDisplay.listView
-												? getProjectOrBugBackgroundColorClassNameLight(
-														getCurrentContainerName(reduxState)
+												? getLightBackgroundColorClassNameForTheme(
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )
-												: getProjectOrBugBackgroundColorClassNameDark(
-														getCurrentContainerName(reduxState)
+												: getDarkBackgroundColorClassNameForTheme(
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  ))
 										}
 									/>
@@ -331,11 +331,11 @@ export default function NavbarBreadcrumb(props) {
 												(reduxState[PROJECT_CONTAINER].componentsDisplay
 													.targetItem !== null &&
 												reduxState[BUG_CONTAINER].componentsDisplay.listView
-													? getProjectOrBugNavbarArrowColorClassNameLight(
-															getCurrentContainerName(reduxState)
+													? getLightBreadcrumbArrowColorClassNameForTheme(
+															reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													  )
-													: getProjectOrBugNavbarArrowColorClassNameDark(
-															getCurrentContainerName(reduxState)
+													: getDarkBreadcrumbArrowColorClassNameForTheme(
+															reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													  ))
 											}
 										/>
@@ -353,11 +353,11 @@ export default function NavbarBreadcrumb(props) {
 									(reduxState[PROJECT_CONTAINER].componentsDisplay
 										.targetItem !== null &&
 									reduxState[BUG_CONTAINER].componentsDisplay.itemView
-										? getProjectOrBugBackgroundColorClassNameLight(
-												getCurrentContainerName(reduxState)
+										? getLightBackgroundColorClassNameForTheme(
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  )
-										: getProjectOrBugBackgroundColorClassNameDark(
-												getCurrentContainerName(reduxState)
+										: getDarkBackgroundColorClassNameForTheme(
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  ))
 								}
 								onClick={() => openBugsItemView(reduxState, dispatch)}
@@ -371,8 +371,8 @@ export default function NavbarBreadcrumb(props) {
 									// ...have its different color extend past arrow
 									className={
 										"breadcrumb-button__end-container" +
-										getProjectOrBugBackgroundColorClassNameDark(
-											getCurrentContainerName(reduxState)
+										getDarkBackgroundColorClassNameForTheme(
+											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										)
 									}
 								>
@@ -380,11 +380,11 @@ export default function NavbarBreadcrumb(props) {
 										className={
 											"breadcrumb-button__end-container__round-border" +
 											(reduxState[BUG_CONTAINER].componentsDisplay.itemView
-												? getProjectOrBugBackgroundColorClassNameLight(
-														getCurrentContainerName(reduxState)
+												? getLightBackgroundColorClassNameForTheme(
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )
-												: getProjectOrBugBackgroundColorClassNameDark(
-														getCurrentContainerName(reduxState)
+												: getDarkBackgroundColorClassNameForTheme(
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  ))
 										}
 									/>

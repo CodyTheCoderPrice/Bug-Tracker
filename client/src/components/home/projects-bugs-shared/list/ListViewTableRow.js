@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
@@ -15,7 +16,7 @@ import {
 import {
 	formatDateMMddYYYY,
 	displayGrayedOutNoneIfEmpty,
-	getProjectOrBugTextColorClassName,
+	getTextColorClassNameForTheme,
 	getBugsInProjectList,
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
@@ -132,7 +133,7 @@ export default function ListViewTableRow(props) {
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId
 						? " list-table__data--completed-color"
-						: getProjectOrBugTextColorClassName(props.reduxContainerName))
+						: getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color))
 				}
 			>
 				<span className="list-table__data__info">

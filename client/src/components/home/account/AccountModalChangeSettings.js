@@ -12,8 +12,7 @@ import {
 } from "../../../actions";
 
 import {
-	getCurrentContainerName,
-	getProjectOrBugTextColorClassName,
+	getTextColorClassNameForTheme,
 } from "../../../utils";
 
 // Components
@@ -62,8 +61,8 @@ export default function AccountModalChangeSettings() {
 				<h2
 					className={
 						"category-container__heading" +
-						getProjectOrBugTextColorClassName(
-							getCurrentContainerName(reduxState)
+						getTextColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>
@@ -102,8 +101,8 @@ export default function AccountModalChangeSettings() {
 					onClick={backToAccountSidebar}
 					className={
 						"modal-link" +
-						getProjectOrBugTextColorClassName(
-							getCurrentContainerName(reduxState)
+						getTextColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>

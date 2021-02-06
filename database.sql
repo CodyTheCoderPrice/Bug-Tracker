@@ -23,7 +23,7 @@ CREATE TABLE setting(
     filter_completed_projects boolean,
 	filter_completed_bugs boolean,
     dark_mode boolean,
-	theme_id INTEGER,
+	theme_id INTEGER DEFAULT 1,
 	last_edited_timestamp BIGINT,
 	CONSTRAINT fk_account
     FOREIGN KEY(account_id) 
@@ -32,7 +32,7 @@ CREATE TABLE setting(
 	CONSTRAINT fk_theme
 	FOREIGN KEY(theme_id) 
 	REFERENCES theme(theme_id)
-	ON DELETE SET NULL
+	ON DELETE SET DEFAULT
 );
 
 INSERT INTO theme (order_number, color, marks_default)

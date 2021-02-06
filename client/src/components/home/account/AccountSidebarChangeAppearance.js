@@ -11,6 +11,8 @@ import {
 	updateAccountSettings,
 } from "../../../actions";
 
+import { getDarkBackgroundColorClassNameForTheme } from "../../../utils";
+
 // Components
 import ToggleSwitch from "../../basic/toggleSwitch";
 
@@ -84,10 +86,8 @@ export default function AccountSidebarChangeAppearance() {
 		onClickFunction,
 		onMouseEnterFunction
 	) => {
-		const theme = reduxState[ACCOUNT_CONTAINER].settingThemes.filter((theme) =>
-			theme_id !== null
-				? theme.theme_id === theme_id
-				: theme.marks_default === true
+		const theme = reduxState[ACCOUNT_CONTAINER].settingThemes.filter(
+			(theme) => theme.theme_id === theme_id
 		)[0];
 
 		return (
@@ -110,8 +110,7 @@ export default function AccountSidebarChangeAppearance() {
 					<span
 						className={
 							"content-container__theme-button__option__centering-container__circle" +
-							" js-set-dark-background-color-theme-" +
-							theme.color.toLowerCase()
+							getDarkBackgroundColorClassNameForTheme(theme.color)
 						}
 					/>
 				</div>

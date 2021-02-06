@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	ACCOUNT_CONTAINER,
 	BUG_CONTAINER,
 	PROJECT_CONTAINER,
 } from "../../../../actions/constants/containerNames";
@@ -11,7 +12,7 @@ import {
 	setWhichBugComponentsDisplay,
 } from "../../../../actions";
 
-import { getProjectOrBugTextColorClassName } from "../../../../utils";
+import { getTextColorClassNameForTheme } from "../../../../utils";
 
 export default function ItemViewListSidebarRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -96,7 +97,7 @@ export default function ItemViewListSidebarRow(props) {
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " list-sidebar__table__data__overflow-container--completed-color"
-							: getProjectOrBugTextColorClassName(props.reduxContainerName))
+							: getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color))
 					}
 				>
 					<span className="list-sidebar__table__data__overflow-container__info">

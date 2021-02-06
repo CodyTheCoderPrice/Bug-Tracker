@@ -1,8 +1,3 @@
-import {
-	PROJECT_CONTAINER,
-	BUG_CONTAINER,
-} from "../actions/constants/containerNames";
-
 import { getElementStyle } from "./index";
 
 function componentToHex(color) {
@@ -50,82 +45,41 @@ export function appendHexValueForColor(statusList) {
 	return statusList;
 }
 
-// Standard background color
-export function getProjectOrBugBackgroundColorClassNameDark(containerName) {
-	return containerName === PROJECT_CONTAINER
-		? " js-set-project-background-color-dark"
-		: containerName === BUG_CONTAINER
-		? " js-set-bug-background-color-dark"
-		: " PROBLEM";
+// Background color
+export function getDarkBackgroundColorClassNameForTheme(theme_color) {
+	return " js-set-dark-background-color-theme-" + theme_color.toLowerCase();
 }
 
-export function getProjectOrBugBackgroundColorClassNameLight(containerName) {
-	return containerName === PROJECT_CONTAINER
-		? " js-set-project-background-color-light"
-		: containerName === BUG_CONTAINER
-		? " js-set-bug-background-color-light"
-		: " PROBLEM";
+export function getLightBackgroundColorClassNameForTheme(theme_color) {
+	return " js-set-light-background-color-theme-" + theme_color.toLowerCase()
 }
 
-// Hover background color
-export function getProjectOrBugBackgroundColorClassNameWithHover(
-	containerName
+// Background color with hover
+export function getBackgroundColorWithHoverClassNameForTheme(
+	theme_color
 ) {
-	return containerName === PROJECT_CONTAINER
-		? " js-set-project-background-color-with-hover"
-		: containerName === BUG_CONTAINER
-		? " js-set-bug-background-color-with-hover"
-		: " PROBLEM";
+	return " js-set-background-color-with-hover-theme-" + theme_color.toLowerCase();
 }
 
-// Navbar arrow color
-export function getProjectOrBugNavbarArrowColorClassNameDark(containerName) {
-	return containerName === PROJECT_CONTAINER
-		? " js-set-project-navbar-arrow-color-dark"
-		: containerName === BUG_CONTAINER
-		? " js-set-bug-navbar-arrow-color-dark"
-		: " PROBLEM";
+// Breadcrumb arrow color
+export function getDarkBreadcrumbArrowColorClassNameForTheme(theme_color) {
+	return " js-set-dark-breadcrumb-arrow-color-theme-" + theme_color.toLowerCase();
 }
 
-export function getProjectOrBugNavbarArrowColorClassNameLight(containerName) {
-	return containerName === PROJECT_CONTAINER
-		? " js-set-project-navbar-arrow-color-light"
-		: containerName === BUG_CONTAINER
-		? " js-set-bug-navbar-arrow-color-light"
-		: " PROBLEM";
+export function getLightBreadcrumbArrowColorClassNameForTheme(theme_color) {
+	return " js-set-light-breadcrumb-arrow-color-theme-" + theme_color.toLowerCase();
 }
 
 // Border color
-export function getProjectOrBugBorderColorClassNameDark(containerName) {
-	return containerName === PROJECT_CONTAINER
-		? " js-set-project-border-color-dark"
-		: containerName === BUG_CONTAINER
-		? " js-set-bug-border-color-dark"
-		: " PROBLEM";
+export function getDarkBorderColorClassNameForTheme(theme_color) {
+	return " js-set-dark-border-color-theme-" + theme_color.toLowerCase();
 }
 
-export function getProjectOrBugBorderColorClassNameLight(containerName) {
-	return containerName === PROJECT_CONTAINER
-		? " js-set-project-border-color-light"
-		: containerName === BUG_CONTAINER
-		? " js-set-bug-border-color-light"
-		: " PROBLEM";
+export function getLightBorderColorClassNameForTheme(theme_color) {
+	return " js-set-light-border-color-theme-" + theme_color.toLowerCase();
 }
 
 // Text and link color
-export function getProjectOrBugTextColorClassName(containerName) {
-	return containerName === PROJECT_CONTAINER
-		? " js-set-project-text-color"
-		: containerName === BUG_CONTAINER
-		? " js-set-bug-text-color"
-		: " PROBLEM";
+export function getTextColorClassNameForTheme(theme_color) {
+	return " js-set-text-color-theme-" + theme_color.toLowerCase();
 }
-
-export function getCurrentContainerName(passedReduxState) {
-	return passedReduxState[BUG_CONTAINER].componentsDisplay.listView !==
-		true &&
-		passedReduxState[BUG_CONTAINER].componentsDisplay.itemView !== true
-		? PROJECT_CONTAINER
-		: BUG_CONTAINER;
-}
-

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import {
 	BUG_CONTAINER,
 	SIZE_CONTAINER,
+	ACCOUNT_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 
 import {
@@ -10,7 +11,7 @@ import {
 	formatDateMMddYYYY,
 	displayGrayedOutMessageIfEmpty,
 	displayGrayedOutNoneIfEmpty,
-	getProjectOrBugTextColorClassName,
+	getTextColorClassNameForTheme,
 } from "../../../../utils";
 
 export default function ItemViewDisplayItemInfo(props) {
@@ -61,7 +62,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " name-completed-color"
-							: getProjectOrBugTextColorClassName(props.reduxContainerName))
+							: getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color))
 					}
 				>
 					{reduxState[props.reduxContainerName].componentsDisplay.targetItem
@@ -89,7 +90,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						<h2
 							className={
 								"item-box__title" +
-								getProjectOrBugTextColorClassName(props.reduxContainerName)
+								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 							}
 						>
 							Description
@@ -107,7 +108,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						<h2
 							className={
 								"item-box__title" +
-								getProjectOrBugTextColorClassName(props.reduxContainerName)
+								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 							}
 						>
 							Info

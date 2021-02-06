@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	ACCOUNT_CONTAINER,
-	PROJECT_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
 import {
@@ -12,7 +11,7 @@ import {
 
 import {
 	formatDateMMddYYYY,
-	getProjectOrBugTextColorClassName,
+	getTextColorClassNameForTheme,
 } from "../../../utils";
 
 import { useSidebarResize } from "../../../utils/hooks";
@@ -85,7 +84,7 @@ export default function AccountSidebar() {
 							onClick={openAccountModalForEditingAccount}
 							className={
 								"link-container__text" +
-								getProjectOrBugTextColorClassName(PROJECT_CONTAINER)
+								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 							}
 						>
 							Edit Account
@@ -102,7 +101,7 @@ export default function AccountSidebar() {
 							<span
 								className={
 									"button-container__logout-button__text" +
-									getProjectOrBugTextColorClassName(PROJECT_CONTAINER)
+									getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
 								}
 							>
 								Logout

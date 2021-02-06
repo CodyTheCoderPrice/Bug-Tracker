@@ -31,8 +31,7 @@ import {
 	calcItemViewListSidebarWidth,
 	calcItemViewOuterDividingContainerMinWidth,
 	calcItemViewPaddingContainerPadding,
-	getCurrentContainerName,
-	getProjectOrBugBackgroundColorClassNameDark,
+	getDarkBackgroundColorClassNameForTheme,
 } from "../../../utils";
 
 // Components
@@ -149,14 +148,13 @@ export default function Navbar() {
 					? ""
 					: " navbar-container--increased-z-index")
 			}
-
 			onClick={(e) => closeAccountComponents(e)}
 		>
 			<div
 				className={
 					"navbar js-navbar" +
-					getProjectOrBugBackgroundColorClassNameDark(
-						getCurrentContainerName(reduxState)
+					getDarkBackgroundColorClassNameForTheme(
+						reduxState[ACCOUNT_CONTAINER].settings.theme_color
 					)
 				}
 			>
