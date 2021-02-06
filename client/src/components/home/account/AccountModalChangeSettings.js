@@ -72,7 +72,7 @@ export default function AccountModalChangeSettings() {
 				<div className="category-container__border-container">
 					<div className="category-container__border-container__content-container category-container__border-container__content-container--smaller-top-margin">
 						<label className="category-container__border-container__content-container__label">
-							Filter out completed projects
+							Filter out completed projects (by default)
 						</label>
 						<ToggleSwitch
 							on={
@@ -83,7 +83,7 @@ export default function AccountModalChangeSettings() {
 					</div>
 					<div className="category-container__border-container__content-container">
 						<label className="category-container__border-container__content-container__label">
-							Filter out completed bugs
+							Filter out completed bugs (by default)
 						</label>
 						<ToggleSwitch
 							on={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs}

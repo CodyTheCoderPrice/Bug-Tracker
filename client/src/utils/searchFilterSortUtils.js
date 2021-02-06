@@ -94,3 +94,22 @@ export function searchFilterSort(projectsOrBugsArray, passedReduxState) {
 
 	return sort(filter(search(projectsOrBugsArray)));
 }
+
+export function getUpdatedDeepCopyFilterArray(passedReduxState, reduxContainerName, filterName, targetId) {
+	if (typeof targetId !== "number") {
+		targetId = Number(targetId);
+	}
+
+	let deepCopyFilterArray = [
+		...passedReduxState[reduxContainerName].searchFilterSort[filterName],
+	];
+	const index = deepCopyFilterArray.indexOf(targetId);
+
+	if (index === -1) {
+		deepCopyFilterArray.push(targetId);
+	} else {
+		deepCopyFilterArray.splice(index, 1);
+	}
+
+	return deepCopyFilterArray;
+}

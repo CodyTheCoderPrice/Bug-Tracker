@@ -16,6 +16,7 @@ import {
 } from "../../../../actions";
 
 import {
+	getUpdatedDeepCopyFilterArray,
 	getProjectOrBugBackgroundColorClassNameLight,
 	getProjectOrBugBorderColorClassNameLight,
 } from "../../../../utils";
@@ -91,22 +92,15 @@ export default function ItemViewTopBar(props) {
 	};
 
 	const onChangeFilter = (e) => {
-		const value = Number(e.target.value);
-		let deepCopyFilterArray = [
-			...reduxState[props.reduxContainerName].searchFilterSort[e.target.name],
-		];
-		const index = deepCopyFilterArray.indexOf(value);
-
-		if (index === -1) {
-			deepCopyFilterArray.push(value);
-		} else {
-			deepCopyFilterArray.splice(index, 1);
-		}
-
 		dispatch(
 			setProjectOrBugSearchFilterSort(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].searchFilterSort,
-				[e.target.name]: deepCopyFilterArray,
+				[e.target.name]: getUpdatedDeepCopyFilterArray(
+					reduxState,
+					props.reduxContainerName,
+					e.target.name,
+					e.target.value
+				),
 			})
 		);
 	};
