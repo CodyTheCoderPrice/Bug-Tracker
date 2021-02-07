@@ -1,5 +1,5 @@
 import React from "react";
-import { isEmpty, getElementSize, toggleClassName } from "./index";
+import { isEmpty } from "./index";
 
 export function displayGrayedOutNoneIfEmpty(itemValue) {
 	if (isEmpty(itemValue)) {
