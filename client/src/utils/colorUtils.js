@@ -47,39 +47,39 @@ export function appendHexValueForColor(statusList) {
 
 // Background color
 export function getDarkBackgroundColorClassNameForTheme(theme_color) {
-	return " js-set-dark-background-color-theme-" + theme_color.toLowerCase();
+	return " js-set-dark-background-color-theme-" + theme_color;
 }
 
 export function getLightBackgroundColorClassNameForTheme(theme_color) {
-	return " js-set-light-background-color-theme-" + theme_color.toLowerCase()
+	return " js-set-light-background-color-theme-" + theme_color
 }
 
 // Background color with hover
 export function getBackgroundColorWithHoverClassNameForTheme(
 	theme_color
 ) {
-	return " js-set-background-color-with-hover-theme-" + theme_color.toLowerCase();
+	return " js-set-background-color-with-hover-theme-" + theme_color;
 }
 
 // Breadcrumb arrow color
 export function getDarkBreadcrumbArrowColorClassNameForTheme(theme_color) {
-	return " js-set-dark-breadcrumb-arrow-color-theme-" + theme_color.toLowerCase();
+	return " js-set-dark-breadcrumb-arrow-color-theme-" + theme_color;
 }
 
 export function getLightBreadcrumbArrowColorClassNameForTheme(theme_color) {
-	return " js-set-light-breadcrumb-arrow-color-theme-" + theme_color.toLowerCase();
+	return " js-set-light-breadcrumb-arrow-color-theme-" + theme_color;
 }
 
 // Border color
 export function getDarkBorderColorClassNameForTheme(theme_color) {
-	return " js-set-dark-border-color-theme-" + theme_color.toLowerCase();
+	return " js-set-dark-border-color-theme-" + theme_color;
 }
 
 export function getLightBorderColorClassNameForTheme(theme_color) {
-	return " js-set-light-border-color-theme-" + theme_color.toLowerCase();
+	return " js-set-light-border-color-theme-" + theme_color;
 }
 
 // Text and link color
 export function getTextColorClassNameForTheme(theme_color) {
-	return " js-set-text-color-theme-" + theme_color.toLowerCase();
+	return " js-set-text-color-theme-" + theme_color;
 }

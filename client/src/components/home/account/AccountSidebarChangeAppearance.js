@@ -11,7 +11,10 @@ import {
 	updateAccountSettings,
 } from "../../../actions";
 
-import { getDarkBackgroundColorClassNameForTheme } from "../../../utils";
+import {
+	capitalizeFistLetterOfEachWord,
+	getDarkBackgroundColorClassNameForTheme,
+} from "../../../utils";
 
 // Components
 import ToggleSwitch from "../../basic/toggleSwitch";
@@ -116,7 +119,7 @@ export default function AccountSidebarChangeAppearance() {
 				</div>
 				<div className="content-container__theme-button__option__centering-container">
 					<span className="content-container__theme-button__option__centering-container__text">
-						{theme.color}
+						{capitalizeFistLetterOfEachWord(theme.color)}
 					</span>
 				</div>
 			</div>
