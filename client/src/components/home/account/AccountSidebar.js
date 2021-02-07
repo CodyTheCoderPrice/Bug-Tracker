@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
 import {
+	clearBackendErrors,
 	logoutAccount,
 	setWhichAccountComponentsDisplay,
 } from "../../../actions";
@@ -22,6 +23,14 @@ import AccountSidebarChangeAppearance from "./AccountSidebarChangeAppearance";
 export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	// clears prior backend errors when closing the component
+	useEffect(() => {
+		return () => {
+			dispatch(clearBackendErrors());
+		};
+		// eslint-disable-next-line
+	}, []);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
 	useSidebarResize(reduxState, "js-account-sidebar");
@@ -92,7 +101,7 @@ export default function AccountSidebar() {
 					</div>
 					<div className="horizontal-dividing-line" />
 					<AccountSidebarChangeAppearance />
-					<div className="horizontal-dividing-line" />
+					<div className="horizontal-dividing-line horizontal-dividing-line--half-top-margin" />
 					<div className="button-container">
 						<div
 							className="button-container__logout-button"

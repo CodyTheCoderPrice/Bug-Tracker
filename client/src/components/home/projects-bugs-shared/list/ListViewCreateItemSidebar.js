@@ -214,7 +214,7 @@ export default function ListViewCreateItemSidebar(props) {
 							id="create-item-name"
 							className="form__text-input"
 						/>
-						<span className="form__errors">
+						<span className="backend-errors">
 							{reduxState[GENERAL_CONTAINER].backendErrors.validationItemName}
 						</span>
 						<label htmlFor="create-item-description" className="form__label">
@@ -241,7 +241,7 @@ export default function ListViewCreateItemSidebar(props) {
 							id="create-item-description"
 							className="form__textarea"
 						/>
-						<span className="form__errors">
+						<span className="backend-errors">
 							{
 								reduxState[GENERAL_CONTAINER].backendErrors
 									.validationItemDescription
@@ -274,7 +274,7 @@ export default function ListViewCreateItemSidebar(props) {
 									id="create-item-location"
 									className="form__text-input"
 								/>
-								<span className="form__errors">
+								<span className="backend-errors">
 									{
 										reduxState[GENERAL_CONTAINER].backendErrors
 											.validationItemLocation
@@ -376,7 +376,7 @@ export default function ListViewCreateItemSidebar(props) {
 								? "Create Project"
 								: "Create Bug"}
 						</button>
-						<span className="form__errors">
+						<span className="backend-errors">
 							{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
 							{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
 							{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}

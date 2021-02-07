@@ -248,7 +248,7 @@ export default function ItemViewEditItemInfo(props) {
 						</span>
 					</div>
 				</div>
-				<span className="form-errors form-errors--item-name">
+				<span className="backend-errors backend-errors--item-name">
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationItemName}
 				</span>
 				<div className="item-creation-date">
@@ -289,7 +289,7 @@ export default function ItemViewEditItemInfo(props) {
 							id="edit-item-description"
 							className="item-box__form-textarea"
 						/>
-						<span className="form-errors">
+						<span className="backend-errors">
 							{
 								reduxState[GENERAL_CONTAINER].backendErrors
 									.validationItemDescription
@@ -337,7 +337,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-location"
 									className="item-box__group__field__form-text"
 								/>
-								<span className="form-errors">
+								<span className="backend-errors">
 									{
 										reduxState[GENERAL_CONTAINER].backendErrors
 											.validationItemLocation
@@ -436,13 +436,13 @@ export default function ItemViewEditItemInfo(props) {
 			reduxState[GENERAL_CONTAINER].backendErrors.serverItem === undefined &&
 			reduxState[GENERAL_CONTAINER].backendErrors.serverConnection ===
 				undefined ? null : (
-				<span className="form-errors form-errors--edit-item">
+				<span className="backend-errors backend-errors--edit-item">
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 				</span>
 			) */}
-			<span className="form-errors form-errors--edit-item">
+			<span className="backend-errors backend-errors--edit-item">
 				{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}

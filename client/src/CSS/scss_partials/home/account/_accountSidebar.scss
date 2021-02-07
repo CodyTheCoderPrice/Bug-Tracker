@@ -17,7 +17,7 @@
 		border: v.$base-sidebar-border-width solid black;
 		border-right: none;
 		background: white;
-		height: 376px;
+		height: 390px;
 		width: v.$account-sidebar-width;
 		text-align: left;
 		font-family: Arial, Helvetica, sans-serif;
@@ -85,6 +85,12 @@
 		position: relative;
 		margin: v.$account-sidebar-dividing-line-margin-top-bottom 0px;
 		border-top: solid silver 2px;
+	}
+
+	// Used to allow backend-errors to be positioned half way between content
+	// ...and the dividing line
+	.horizontal-dividing-line--half-top-margin {
+		margin-top: v.$account-sidebar-dividing-line-margin-top-bottom-half;
 	}
 
 	.button-container {

@@ -81,10 +81,8 @@
 		}
 	}
 
-	.form__errors {
-		display: block;
-		color: red;
-		text-align: center;
+	.backend-errors {
+		@include m.backend-error();
 	}
 
 	.form__submit {

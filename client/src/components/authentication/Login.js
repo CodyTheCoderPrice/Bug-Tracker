@@ -55,7 +55,7 @@ export default function Login() {
 						id="login-email"
 						className="form__text-input"
 					/>
-					<span className="form__errors">
+					<span className="backend-errors">
 						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
 					</span>
 					<label htmlFor="login-password" className="form__label">
@@ -69,13 +69,13 @@ export default function Login() {
 						id="login-password"
 						className="form__text-input"
 					/>
-					<span className="form__errors">
+					<span className="backend-errors">
 						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword}
 					</span>
 					<button type="submit" className="form__submit">
 						LOGIN
 					</button>
-					<span className="form__errors">
+					<span className="backend-errors">
 						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 						{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
 						{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}

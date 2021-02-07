@@ -59,6 +59,7 @@ $account-sidebar-appearance-theme-button-arrow-container-color: $gray-level-2;
 $account-sidebar-appearance-theme-button-option-text-color: $dark-gray-level-4;
 $account-sidebar-appearance-theme-button-option-selected-color: $light-blue;
 $search-filter-sort-bar-color: $light-gray-level-5;
+$list-tale-border-color: $gray-level-5;
 $list-table-background-color: white;
 $filter-active-color: #0077ff;
 $filter-active-color2: #ae00ff;
@@ -70,6 +71,8 @@ $status-purple: #9680ce;
 $status-orange: #ff9900;
 $status-green: #007e00;
 $status-red: #d14242;
+// Backend error color
+$backend-error-color: red;
 // Blurred background color
 $blurred-background-color: black;
 // Focus colors
@@ -154,6 +157,7 @@ $register-login-form-input-margin-top: 5px;
 $register-login-form-input-margin-bottom: 5px;
 $account-sidebar-contents-margin-top-bottom: 9px;
 $account-sidebar-dividing-line-margin-top-bottom: 34px;
+$account-sidebar-dividing-line-margin-top-bottom-half: $account-sidebar-dividing-line-margin-top-bottom / 2;
 $account-sidebar-appearance-contents-container-margin-left-right: 16px;
 $edit-account-form-input-margin-top: 5px;
 $edit-account-create-item-form-input-margin-bottom: 10px;
@@ -187,6 +191,7 @@ $list-search-bar-button-border-width: 2px;
 $top-bar-button-border-width: $list-search-bar-button-border-width;
 $list-item-search-bar-button-focus-border-width: 3px;
 $top-bar-border-width: $search-filter-sort-bar-border-width;
+$list-table-border-width: 1px;
 $edit-item-name-input-border-width: 2px;
 $item-container-list-sidebar-border-width: 2px;
 

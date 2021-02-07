@@ -68,7 +68,7 @@ export default function AccountModalChangeEmail() {
 					id="edit-account-email-email"
 					className="form__text-input"
 				/>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
 				</span>
 				<label htmlFor="edit-account-email-password" className="form__label">
@@ -82,7 +82,7 @@ export default function AccountModalChangeEmail() {
 					id="edit-account-email-password"
 					className="form__text-input"
 				/>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
 				</span>
 				<button
@@ -96,7 +96,7 @@ export default function AccountModalChangeEmail() {
 				>
 					Update
 				</button>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}

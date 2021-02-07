@@ -6,7 +6,6 @@ import {
 } from "../../../actions/constants/containerNames";
 
 import {
-	clearBackendErrors,
 	setWhichGeneralDropdownsDisplay,
 	updateAccountSettings,
 } from "../../../actions";
@@ -26,14 +25,6 @@ export default function AccountSidebarChangeAppearance() {
 	const [highlightedOptionThemeId, setHighlightedOptionThemeId] = useState(
 		reduxState[ACCOUNT_CONTAINER].settings.theme_id
 	);
-
-	// clears prior backend errors when closing the component
-	useEffect(() => {
-		return () => {
-			dispatch(clearBackendErrors());
-		};
-		// eslint-disable-next-line
-	}, []);
 
 	const toggleThemeDropdown = (e) => {
 		e.stopPropagation();
@@ -210,6 +201,11 @@ export default function AccountSidebarChangeAppearance() {
 					)}
 				</div>
 			</div>
+			<span className="backend-errors">
+				{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
+				{reduxState[GENERAL_CONTAINER].backendErrors.serverSettings}
+				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
+			</span>
 		</div>
 	);
 }

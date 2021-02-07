@@ -91,7 +91,7 @@ export default function AccountModalChangeSettings() {
 					</div>
 				</div>
 			</div>
-			<span className="form__errors">
+			<span className="backend-errors">
 				{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverSettings}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}

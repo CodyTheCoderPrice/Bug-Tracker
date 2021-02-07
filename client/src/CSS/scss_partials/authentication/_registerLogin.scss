@@ -1,4 +1,5 @@
 @use "../utils/variables" as v;
+@use "../utils/mixins" as m;
 
 .register-login-components {
 	.background {
@@ -78,9 +79,8 @@
 		}
 	}
 
-	.form__errors {
-		display: block;
-		color: red;
+	.backend-errors {
+		@include m.backend-error();
 	}
 
 	.form__submit {

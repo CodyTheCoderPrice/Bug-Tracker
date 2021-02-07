@@ -41,10 +41,10 @@
 		font-size: 22px;
 	}
 
-	.backend__errors {
+	.backend-errors {
+		@include m.backend-error();
+
 		margin-top: 10px;
-		display: block;
-		color: red;
 	}
 
 	.centered-buttons-container {

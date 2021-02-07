@@ -4,13 +4,13 @@
 .account-sidebar-change-theme-component {
 	.content-container {
 		display: inline-block;
-		margin: 0 0 0 v.$account-sidebar-appearance-contents-container-margin-left-right;
+		margin: 0 0 v.$account-sidebar-dividing-line-margin-top-bottom-half v.$account-sidebar-appearance-contents-container-margin-left-right;
 		height: v.$basic-toggle-switch-height;
 	}
 
 	.content-container--right {
 		float: right;
-		margin: 0 v.$account-sidebar-appearance-contents-container-margin-left-right 0 0;
+		margin: 0 v.$account-sidebar-appearance-contents-container-margin-left-right v.$account-sidebar-dividing-line-margin-top-bottom-half 0;
 	}
 
 	.content-container__label {
@@ -138,5 +138,14 @@
 		border-top: none;
 		background-color: v.$account-sidebar-appearance-theme-button-background-color;
 		width: v.$account-sidebar-appearance-theme-button-width;
+	}
+
+	.backend-errors {
+		@include m.backend-error();
+		//@include m.horizontal-center();
+
+		//position: absolute;
+		//top: 35px;
+		//width: 500px;
 	}
 }

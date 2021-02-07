@@ -59,6 +59,8 @@
 	font-size: 26px;
 }
 
-@mixin border-line() {
-	border-bottom: 1px solid v.$gray-level-5;
+@mixin backend-error {
+	display: block;
+	color: v.$backend-error-color;
+	text-align: center;
 }

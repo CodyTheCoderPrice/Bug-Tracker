@@ -89,7 +89,7 @@ export default function AccountModalChangeInfo() {
 					id="edit-account-info-first-name"
 					className="form__text-input"
 				/>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountFirstName
@@ -114,7 +114,7 @@ export default function AccountModalChangeInfo() {
 					id="edit-account-info-last-name"
 					className="form__text-input"
 				/>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountLastName
@@ -131,7 +131,7 @@ export default function AccountModalChangeInfo() {
 				>
 					Update
 				</button>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}

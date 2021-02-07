@@ -67,7 +67,7 @@ export default function Register() {
 								id="register-first-name"
 								className="form__text-input"
 							/>
-							<span className="form__errors">
+							<span className="backend-errors">
 								{
 									reduxState[GENERAL_CONTAINER].backendErrors
 										.validationAccountFirstName
@@ -94,7 +94,7 @@ export default function Register() {
 								id="register-last-name"
 								className="form__text-input"
 							/>
-							<span className="form__errors">
+							<span className="backend-errors">
 								{
 									reduxState[GENERAL_CONTAINER].backendErrors
 										.validationAccountLastName
@@ -113,7 +113,7 @@ export default function Register() {
 						id="register-email"
 						className="form__text-input"
 					/>
-					<span className="form__errors">
+					<span className="backend-errors">
 						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
 					</span>
 					<label htmlFor="register-password" className="form__label">
@@ -135,7 +135,7 @@ export default function Register() {
 						id="register-password"
 						className="form__text-input"
 					/>
-					<span className="form__errors">
+					<span className="backend-errors">
 						{
 							reduxState[GENERAL_CONTAINER].backendErrors
 								.validationAccountPassword
@@ -144,7 +144,7 @@ export default function Register() {
 					<button type="submit" className="form__submit">
 						REGISTER
 					</button>
-					<span className="form__errors">
+					<span className="backend-errors">
 						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 						{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
 						{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}

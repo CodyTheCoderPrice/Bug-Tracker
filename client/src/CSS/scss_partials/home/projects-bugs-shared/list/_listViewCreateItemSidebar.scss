@@ -55,9 +55,9 @@
 		font-size: 140%;
 	}
 
-	.form__errors {
-		display: block;
-		color: red;
+	.backend-errors {
+		@include m.backend-error();
+		
 		font-size: v.$create-item-sidebar-label-font-size;
 	}
 

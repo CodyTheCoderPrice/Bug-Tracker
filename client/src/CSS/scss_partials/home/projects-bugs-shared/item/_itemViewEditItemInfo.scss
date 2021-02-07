@@ -181,19 +181,19 @@
 		pointer-events: none;
 	}
 
-	.form-errors {
-		display: block;
+	.backend-errors {
+		@include m.backend-error();
+		
+
 		margin-top: 10px;
-		color: red;
-		text-align: center;
 	}
 
-	.form-errors--item-name {
+	.backend-errors--item-name {
 		margin: 15px 0px 11px 0px;
 		font-size: v.$slightly-larger-font-size;
 	}
 
-	.form-errors--edit-item {
+	.backend-errors--edit-item {
 		// So span can be placed after outer-diving-containers yet not take up
 		// ...space unless text is present the span
 		float: left;
@@ -205,11 +205,11 @@
 		text-align: center;
 	}
 
-	.form-errors--comment {
+	.backend-errors--comment {
 		margin: 5px 0 5px 0;
 	}
 
-	.form-errors--edit-comment {
+	.backend-errors--edit-comment {
 		margin: 0 0 10px 0;
 	}
 }

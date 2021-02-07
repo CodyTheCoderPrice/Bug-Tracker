@@ -42,7 +42,8 @@
 	}
 
 	.list-table__row--empty {
-		height: v.$list-item-table-row-height + (v.$list-item-table-row-height * 0.5);
+		height: v.$list-item-table-row-height +
+			(v.$list-item-table-row-height * 0.5);
 	}
 
 	.list-table__header {
@@ -89,8 +90,7 @@
 	}
 
 	.list-table__data {
-		@include m.border-line();
-
+		border-bottom: v.$list-table-border-width solid v.$list-tale-border-color;
 		padding: 0px 7px 0px 7px;
 		cursor: default;
 	}
@@ -152,7 +152,7 @@
 
 	.empty-list-message-centering-container__message {
 		@include m.dead-center();
-		
+
 		width: 90%;
 		text-align: center;
 		font-size: v.$list-container-empty-list-message-font-size;

@@ -296,9 +296,10 @@ body .js-set-status-box-text-color-red {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.register-login-components .form__errors {
+.register-login-components .backend-errors {
   display: block;
   color: red;
+  text-align: center;
 }
 .register-login-components .form__submit {
   margin-top: 15px;
@@ -729,7 +730,7 @@ dropdown can overlap all other components
   border: 3px solid black;
   border-right: none;
   background: white;
-  height: 376px;
+  height: 390px;
   width: 430px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
@@ -784,6 +785,9 @@ dropdown can overlap all other components
   margin: 34px 0px;
   border-top: solid silver 2px;
 }
+.account-sidebar-component .horizontal-dividing-line--half-top-margin {
+  margin-top: 17px;
+}
 .account-sidebar-component .button-container {
   position: relative;
   padding-bottom: 34px;
@@ -809,12 +813,12 @@ dropdown can overlap all other components
 
 .account-sidebar-change-theme-component .content-container {
   display: inline-block;
-  margin: 0 0 0 16px;
+  margin: 0 0 17px 16px;
   height: 24px;
 }
 .account-sidebar-change-theme-component .content-container--right {
   float: right;
-  margin: 0 16px 0 0;
+  margin: 0 16px 17px 0;
 }
 .account-sidebar-change-theme-component .content-container__label {
   float: left;
@@ -943,6 +947,11 @@ dropdown can overlap all other components
   background-color: #e5e5e5;
   width: 104px;
 }
+.account-sidebar-change-theme-component .backend-errors {
+  display: block;
+  color: red;
+  text-align: center;
+}
 
 .edit-account-modal-component .edit-account-modal {
   z-index: 3;
@@ -1029,7 +1038,7 @@ dropdown can overlap all other components
   margin-top: 5px;
   margin-bottom: 10px;
 }
-.edit-account-modal-component .form__errors {
+.edit-account-modal-component .backend-errors {
   display: block;
   color: red;
   text-align: center;
@@ -1138,10 +1147,11 @@ dropdown can overlap all other components
 .delete-modal-component .warning-container__message {
   font-size: 22px;
 }
-.delete-modal-component .backend__errors {
-  margin-top: 10px;
+.delete-modal-component .backend-errors {
   display: block;
   color: red;
+  text-align: center;
+  margin-top: 10px;
 }
 .delete-modal-component .centered-buttons-container {
   position: absolute;
@@ -1754,27 +1764,27 @@ dropdown can overlap all other components
   color: #bfbfbf;
   pointer-events: none;
 }
-.item-container-component .form-errors {
+.item-container-component .backend-errors {
   display: block;
-  margin-top: 10px;
   color: red;
   text-align: center;
+  margin-top: 10px;
 }
-.item-container-component .form-errors--item-name {
+.item-container-component .backend-errors--item-name {
   margin: 15px 0px 11px 0px;
   font-size: 16px;
 }
-.item-container-component .form-errors--edit-item {
+.item-container-component .backend-errors--edit-item {
   float: left;
   margin: 0px 0 0px 0;
   width: 100%;
   line-height: 30px;
   text-align: center;
 }
-.item-container-component .form-errors--comment {
+.item-container-component .backend-errors--comment {
   margin: 5px 0 5px 0;
 }
-.item-container-component .form-errors--edit-comment {
+.item-container-component .backend-errors--edit-comment {
   margin: 0 0 10px 0;
 }
 
@@ -2261,9 +2271,10 @@ dropdown can overlap all other components
   padding-top: 24px;
   font-size: 140%;
 }
-.create-item-component .form__errors {
+.create-item-component .backend-errors {
   display: block;
   color: red;
+  text-align: center;
   font-size: 15px;
 }
 .create-item-component .form__label,

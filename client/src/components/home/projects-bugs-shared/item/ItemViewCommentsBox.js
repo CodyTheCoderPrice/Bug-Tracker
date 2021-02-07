@@ -134,7 +134,7 @@ export default function ItemViewCommentsBox() {
 						id="create-comment-description"
 						className="item-box__form-textarea item-box__form-textarea--shorter"
 					/>
-					<span className="form-errors form-errors--comment">
+					<span className="backend-errors backend-errors--comment">
 						{
 							reduxState[GENERAL_CONTAINER].backendErrors
 								.validationCreateCommentDescription

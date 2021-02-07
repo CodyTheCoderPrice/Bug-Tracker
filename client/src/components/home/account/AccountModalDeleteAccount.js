@@ -73,7 +73,7 @@ export default function AccountModalDeleteAccount() {
 					id="delete-account-type-out"
 					className="form__text-input"
 				/>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountTypeOutCheck
@@ -90,7 +90,7 @@ export default function AccountModalDeleteAccount() {
 					id="delete-account-password"
 					className="form__text-input"
 				/>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
 				</span>
 				<button
@@ -104,7 +104,7 @@ export default function AccountModalDeleteAccount() {
 				>
 					Delete
 				</button>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}

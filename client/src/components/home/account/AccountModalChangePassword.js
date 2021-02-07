@@ -83,7 +83,7 @@ export default function AccountModalChangePassword() {
 					id="edit-account-password-new-password"
 					className="form__text-input"
 				/>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountNewPassword
@@ -111,7 +111,7 @@ export default function AccountModalChangePassword() {
 					id="edit-account-password-current-password"
 					className="form__text-input"
 				/>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
 				</span>
 				<button
@@ -125,7 +125,7 @@ export default function AccountModalChangePassword() {
 				>
 					Update
 				</button>
-				<span className="form__errors">
+				<span className="backend-errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}

@@ -65,7 +65,7 @@ export default function ItemViewDeleteModal(props) {
 				<div className="warning-container">
 					<span className="warning-container__message">Are you sure?</span>
 				</div>
-				<span className="backend__errors">
+				<span className="backend-errors">
 					{reduxState[GENERAL_CONTAINER].backendErrors.server}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 				</span>

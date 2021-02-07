@@ -188,7 +188,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								alt="Icon of a trash can"
 							/>
 						</div>
-						<span className="form-errors form-errors--edit-comment">
+						<span className="backend-errors backend-errors--edit-comment">
 							{
 								reduxState[GENERAL_CONTAINER].backendErrors
 									.validationEditCommentDescription
