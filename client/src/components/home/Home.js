@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
@@ -7,7 +7,12 @@ import {
 	BUG_CONTAINER,
 } from "../../actions/constants/containerNames";
 
-import { setWhichGeneralDropdownsDisplay } from "../../actions";
+import {
+	setWhichGeneralDropdownsDisplay,
+	setProjectOrBugSearchFilterSort,
+} from "../../actions";
+
+import { getUpdatedDeepCopyFilterArray } from "../../utils";
 
 // Components
 // Navbar
@@ -23,6 +28,54 @@ import ItemView from "./projects-bugs-shared/item/ItemView";
 export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	// Updates list filters to match the account settings
+	useEffect(() => {
+		if (
+			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects !==
+			reduxState[PROJECT_CONTAINER].searchFilterSort.statusFilter.includes(
+				reduxState[PROJECT_CONTAINER].priorityStatusOptions.statusCompletionId
+			)
+		) {
+			dispatch(
+				setProjectOrBugSearchFilterSort(PROJECT_CONTAINER, {
+					...reduxState[PROJECT_CONTAINER].searchFilterSort,
+					statusFilter: getUpdatedDeepCopyFilterArray(
+						reduxState,
+						PROJECT_CONTAINER,
+						"statusFilter",
+						reduxState[PROJECT_CONTAINER].priorityStatusOptions
+							.statusCompletionId
+					),
+				})
+			);
+		}
+
+		if (
+			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs !==
+			reduxState[BUG_CONTAINER].searchFilterSort.statusFilter.includes(
+				reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
+			)
+		) {
+			dispatch(
+				setProjectOrBugSearchFilterSort(BUG_CONTAINER, {
+					...reduxState[BUG_CONTAINER].searchFilterSort,
+					statusFilter: getUpdatedDeepCopyFilterArray(
+						reduxState,
+						BUG_CONTAINER,
+						"statusFilter",
+						reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
+					),
+				})
+			);
+		}
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects,
+		// eslint-disable-next-line
+		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs,
+	]);
 
 	// Closes general dropdowns whenever they are open and user anywhere
 	const closeDropdownsWhenOpen = () => {

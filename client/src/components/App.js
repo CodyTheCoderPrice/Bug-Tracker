@@ -3,17 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
-	PROJECT_CONTAINER,
-	BUG_CONTAINER,
 } from "../actions/constants/containerNames";
 
 import {
 	retrieveEverythingForAccount,
 	setWhichGeneralComponentsDisplay,
-	setProjectOrBugSearchFilterSort,
+	
 } from "../actions";
-
-import { getUpdatedDeepCopyFilterArray } from "../utils";
 
 import Register from "./authentication/Register";
 import Login from "./authentication/Login";
@@ -63,54 +59,6 @@ function App() {
 			console.log(reduxState);
 		}
 	}
-
-	// Updates list filters to match the account settings
-	useEffect(() => {
-		if (
-			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects !==
-			reduxState[PROJECT_CONTAINER].searchFilterSort.statusFilter.includes(
-				reduxState[PROJECT_CONTAINER].priorityStatusOptions.statusCompletionId
-			)
-		) {
-			dispatch(
-				setProjectOrBugSearchFilterSort(PROJECT_CONTAINER, {
-					...reduxState[PROJECT_CONTAINER].searchFilterSort,
-					statusFilter: getUpdatedDeepCopyFilterArray(
-						reduxState,
-						PROJECT_CONTAINER,
-						"statusFilter",
-						reduxState[PROJECT_CONTAINER].priorityStatusOptions
-							.statusCompletionId
-					),
-				})
-			);
-		}
-
-		if (
-			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs !==
-			reduxState[BUG_CONTAINER].searchFilterSort.statusFilter.includes(
-				reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
-			)
-		) {
-			dispatch(
-				setProjectOrBugSearchFilterSort(BUG_CONTAINER, {
-					...reduxState[BUG_CONTAINER].searchFilterSort,
-					statusFilter: getUpdatedDeepCopyFilterArray(
-						reduxState,
-						BUG_CONTAINER,
-						"statusFilter",
-						reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
-					),
-				})
-			);
-		}
-		// eslint-disable-next-line
-	}, [
-		// eslint-disable-next-line
-		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects,
-		// eslint-disable-next-line
-		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs,
-	]);
 
 	return (
 		<div onMouseDown={logReduxState} className="pageContainer">
