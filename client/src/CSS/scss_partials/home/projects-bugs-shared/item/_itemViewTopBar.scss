@@ -47,6 +47,7 @@
 		border: v.$top-bar-button-border-width solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius 0 0 v.$search-top-bar-buttton-border-radius;
 		padding: 0px v.$list-item-search-bar-padding 0px v.$list-item-search-bar-padding;
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-search-bar-light;
 		height: v.$list-item-search-bar-height;
 		width: v.$item-search-bar-width - v.$list-item-search-bar-button-width;
 		font-size: v.$list-item-search-bar-font-size;
@@ -99,11 +100,12 @@
 		z-index: 1;
 		position: absolute;
 		top: 9px;
-		border: v.$search-top-bar-base-button-border-width solid black;
+		border: v.$search-top-bar-base-button-border-width solid v.$mode-border-color-search-filter-sort-top-bar-button-light;
 		border-radius: v.$search-top-bar-buttton-border-radius;
-		background-color: white;
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-light;
 		height: v.$top-bar-button-height;
 		width: v.$top-bar-sort-button-width;
+		color: v.$mode-text-color-search-filter-sort-top-bar-button-light;
 		font-size: v.$top-bar-filter-button-font-size;
 		text-align: center;
 		cursor: pointer;
@@ -271,6 +273,7 @@
 		border: 3px solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius;
 		background-color: white;
+		color: v.$mode-text-color-more-distinct-icon-button-light;
 		width: 129px;
 		// Defaults as being hidden
 		visibility: hidden;
@@ -304,6 +307,6 @@
 	.x-button {
 		@include m.exit-button();
 		top: 11px;
-		color: v.$gray-level-4;
+		color: v.$mode-text-color-more-distinct-icon-button-light;
 	}
 }

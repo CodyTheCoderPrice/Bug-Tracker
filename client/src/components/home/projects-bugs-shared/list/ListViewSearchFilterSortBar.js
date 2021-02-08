@@ -19,7 +19,8 @@ import {
 	getBarBackgroundColorClassNameForDarkMode,
 	getLightBackgroundColorClassNameForTheme,
 	getLightBorderColorClassNameForTheme,
-	getBaseTextColorClassNameForDarkMode,
+	getBarSearchBarBackgroundAndTextColorClassNameForDarkMode,
+	getBarButtonBorderBackgroundTextColorClassNameForDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
@@ -114,6 +115,9 @@ export default function ListViewSearchFilterSortBar(props) {
 				<div
 					className={
 						"centering-container__new-item-button" +
+						getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
 						((props.reduxContainerName === PROJECT_CONTAINER &&
 							reduxState[props.reduxContainerName].list.length > 0) ||
 						(props.reduxContainerName === BUG_CONTAINER &&
@@ -147,6 +151,9 @@ export default function ListViewSearchFilterSortBar(props) {
 						value={searchBarText}
 						className={
 							"centering-container__search-group-container__search-bar js-list-search-bar" +
+							getBarSearchBarBackgroundAndTextColorClassNameForDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							) +
 							getLightBorderColorClassNameForTheme(
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)
@@ -178,6 +185,9 @@ export default function ListViewSearchFilterSortBar(props) {
 				<div
 					className={
 						"filter-area-container__button" +
+						getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.listViewSearchFilterSearchBarFilterDropdown
 							? " filter-area-container__button--clicked"
@@ -207,6 +217,9 @@ export default function ListViewSearchFilterSortBar(props) {
 				<div
 					className={
 						"filter-area-container__content-dropdown" +
+						getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
 						(props.reduxContainerName === BUG_CONTAINER
 							? " filter-area-container__content-dropdown--shorter"
 							: "") +

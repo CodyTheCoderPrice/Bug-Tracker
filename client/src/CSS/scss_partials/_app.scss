@@ -39,6 +39,28 @@ body {
 		background-color: v.$mode-background-color-search-filter-sort-top-bar-light !important;
 	}
 
+	// Dark/Light mode background and text colors for searchFilterSearch/top bar search bar
+	.js-set-bar-search-bar-background-text-color-dark-mode-true {
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-search-bar-dark !important;
+		color: v.$mode-text-color-search-filter-sort-top-bar-search-bar-dark !important;
+	}
+	.js-set-bar-search-bar-background-text-color-dark-mode-false {
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-search-bar-light !important;
+		color: v.$mode-text-color-search-filter-sort-top-bar-search-bar-light !important;
+	}
+
+	// Dark/Light mode border, background, and text color for searchFilterSearch/top bar buttons
+	.js-set-bar-button-border-background-text-color-dark-mode-true {
+		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-dark !important;
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-dark !important;
+		color: v.$mode-text-color-search-filter-sort-top-bar-button-dark !important;
+	}
+	.js-set-bar-button-border-background-text-color-dark-mode-false {
+		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-light !important;
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-light !important;
+		color: v.$mode-text-color-search-filter-sort-top-bar-button-light !important;
+	}
+
 	// Dark/Light mode background colors for createItemSidebar component
 	.js-set-create-item-sidebar-background-color-dark-mode-true {
 		background-color: v.$mode-background-color-create-item-sidebar-dark !important;
@@ -65,13 +87,31 @@ body {
 		}
 	}
 
-	// Dark/Light mode background, border, and text color for base form-input
-	.js-set-base-form-input-background-border-text-color-dark-mode-true {
+	// Dark/Light mode text colors with hover for more distinct icon buttons
+	.js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true {
+		color: v.$mode-text-color-more-distinct-icon-button-dark !important;
+
+		&:hover,
+		&:active {
+			color: v.$mode-hover-text-color-more-distinct-icon-button-dark !important;
+		}
+	}
+	.js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false {
+		color: v.$mode-text-color-more-distinct-icon-button-light !important;
+
+		&:hover,
+		&:active {
+			color: v.$mode-hover-text-color-more-distinct-icon-button-light !important;
+		}
+	}
+
+	// Dark/Light mode border, background, and text color for base form-input
+	.js-set-base-form-input-border-background-text-border-text-color-dark-mode-true {
 		border-color: v.$mode-border-color-base-form-input-dark !important;
 		background-color: v.$mode-background-color-base-form-input-dark !important;
 		color: v.$mode-text-color-base-dark !important;
 	}
-	.js-set-base-form-input-background-border-text-color-dark-mode-false {
+	.js-set-base-form-input-border-background-text-border-text-color-dark-mode-false {
 		border-color: v.$mode-border-color-base-form-input-light !important;
 		background-color: v.$mode-background-color-base-form-input-light !important;
 		color: v.$mode-text-color-base-light !important;

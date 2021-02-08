@@ -21,7 +21,7 @@ import {
 	populateComboBox,
 	getTextColorClassNameForTheme,
 	getBaseTextColorClassNameForDarkMode,
-	getBaseFormInputTextBackgroundBorderTextColorClassNameForDarkMode,
+	getBaseFormInputBorderBackgroundTextColorClassNameForDarkMode,
 	getItemBoxBackgroundColorClassNameForDarkMode,
 	getBaseDisabledLabelClassNameForDarkMode,
 	getBaseDisableInputDateClassNameForDarkMode,
@@ -418,7 +418,7 @@ export default function ItemViewEditItemInfo(props) {
 											? getBaseDisableInputDateClassNameForDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
-											: getBaseFormInputTextBackgroundBorderTextColorClassNameForDarkMode(
+											: getBaseFormInputBorderBackgroundTextColorClassNameForDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  ))
 									}

@@ -42,6 +42,28 @@ html .js-set-bar-background-color-dark-mode-false,
 body .js-set-bar-background-color-dark-mode-false {
   background-color: #e5e5e5 !important;
 }
+html .js-set-bar-search-bar-background-text-color-dark-mode-true,
+body .js-set-bar-search-bar-background-text-color-dark-mode-true {
+  background-color: #363636 !important;
+  color: #C9D1D9 !important;
+}
+html .js-set-bar-search-bar-background-text-color-dark-mode-false,
+body .js-set-bar-search-bar-background-text-color-dark-mode-false {
+  background-color: white !important;
+  color: black !important;
+}
+html .js-set-bar-button-border-background-text-color-dark-mode-true,
+body .js-set-bar-button-border-background-text-color-dark-mode-true {
+  border-color: #a3a3a3 !important;
+  background-color: #3a3a3a !important;
+  color: #C9D1D9 !important;
+}
+html .js-set-bar-button-border-background-text-color-dark-mode-false,
+body .js-set-bar-button-border-background-text-color-dark-mode-false {
+  border-color: black !important;
+  background-color: white !important;
+  color: black !important;
+}
 html .js-set-create-item-sidebar-background-color-dark-mode-true,
 body .js-set-create-item-sidebar-background-color-dark-mode-true {
   background-color: #333333 !important;
@@ -68,14 +90,32 @@ body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover,
 body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active {
   color: #3a3a3a !important;
 }
-html .js-set-base-form-input-background-border-text-color-dark-mode-true,
-body .js-set-base-form-input-background-border-text-color-dark-mode-true {
+html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true {
+  color: #4e4e4e !important;
+}
+html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover, html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active {
+  color: #757575 !important;
+}
+html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false {
+  color: #757575 !important;
+}
+html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover, html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active {
+  color: #3a3a3a !important;
+}
+html .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true,
+body .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true {
   border-color: #1d1d1d !important;
   background-color: #525252 !important;
   color: #C9D1D9 !important;
 }
-html .js-set-base-form-input-background-border-text-color-dark-mode-false,
-body .js-set-base-form-input-background-border-text-color-dark-mode-false {
+html .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
+body .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false {
   border-color: #757575 !important;
   background-color: #e5e5e5 !important;
   color: black !important;
@@ -2039,6 +2079,7 @@ dropdown can overlap all other components
   border: 2px solid black;
   border-radius: 5px 0 0 5px;
   padding: 0px 8px 0px 8px;
+  background-color: white;
   height: 28px;
   width: 252px;
   font-size: 14px;
@@ -2102,6 +2143,7 @@ dropdown can overlap all other components
   background-color: white;
   height: 26px;
   width: 80px;
+  color: black;
   font-size: 14px;
   text-align: center;
   cursor: pointer;
@@ -2266,6 +2308,7 @@ dropdown can overlap all other components
   border: 3px solid black;
   border-radius: 5px 0 5px 5px;
   background-color: white;
+  color: #757575;
   width: 129px;
   visibility: hidden;
 }
@@ -2503,6 +2546,7 @@ dropdown can overlap all other components
   background-color: white;
   height: 26px;
   width: 110px;
+  color: black;
   font-size: 14px;
   text-align: center;
   cursor: pointer;
@@ -2539,6 +2583,7 @@ dropdown can overlap all other components
   border: 2px solid black;
   border-radius: 5px 0 0 5px;
   padding: 0px 8px 0px 8px;
+  background-color: white;
   height: 28px;
   line-height: 28px;
   width: 100%;
@@ -2603,6 +2648,7 @@ dropdown can overlap all other components
   background-color: white;
   height: 26px;
   width: 90px;
+  color: black;
   font-size: 14px;
   text-align: center;
   cursor: pointer;

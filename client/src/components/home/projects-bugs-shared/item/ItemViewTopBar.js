@@ -21,6 +21,9 @@ import {
 	getBarBackgroundColorClassNameForDarkMode,
 	getLightBackgroundColorClassNameForTheme,
 	getLightBorderColorClassNameForTheme,
+	getBarSearchBarBackgroundAndTextColorClassNameForDarkMode,
+	getBarButtonBorderBackgroundTextColorClassNameForDarkMode,
+	getMoreDistinctIconButtonTextColorWithHoverClassNameForDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
@@ -174,6 +177,9 @@ export default function ItemViewTopBar(props) {
 					value={searchBarText}
 					className={
 						"outer-search-container__search-bar js-item-search-bar" +
+						getBarSearchBarBackgroundAndTextColorClassNameForDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
 						getLightBorderColorClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -206,6 +212,9 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__button" +
+								getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								) +
 								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 									.itemViewTopBarSortDropdown
 									? " list-sort-filter-container__button--clicked"
@@ -225,6 +234,9 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__content-dropdown" +
+								getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								) +
 								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 									.itemViewTopBarSortDropdown
 									? " list-sort-filter-container__content-dropdown--visible"
@@ -322,6 +334,9 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__button list-sort-filter-container__button--filter-width" +
+								getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								) +
 								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 									.itemViewTopBarFilterDropdown
 									? " list-sort-filter-container__button--clicked list-sort-filter-container__button--clicked-filter-width"
@@ -351,6 +366,9 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__content-dropdown list-sort-filter-container__content-dropdown--filter-width" +
+								getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								) +
 								(props.reduxContainerName === BUG_CONTAINER
 									? " list-sort-filter-container__content-dropdown--shorter"
 									: "") +
@@ -460,8 +478,13 @@ export default function ItemViewTopBar(props) {
 						"item-options-container__button" +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.itemViewTopBarOptionsDropdown
-							? " item-options-container__button--clicked"
-							: "")
+							? " item-options-container__button--clicked" +
+							  getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							  )
+							: getMoreDistinctIconButtonTextColorWithHoverClassNameForDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							  ))
 					}
 					onClick={(e) => toggleOptionsDropdown(e)}
 				>
@@ -476,6 +499,9 @@ export default function ItemViewTopBar(props) {
 				<div
 					className={
 						"item-options-container__dropdown" +
+						getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.itemViewTopBarOptionsDropdown
 							? " item-options-container__dropdown--visible"
@@ -509,7 +535,15 @@ export default function ItemViewTopBar(props) {
 					</span>
 				</div>
 			</div>
-			<div className="x-button" onClick={closeItemView}>
+			<div
+				className={
+					"x-button" +
+					getMoreDistinctIconButtonTextColorWithHoverClassNameForDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+				onClick={closeItemView}
+			>
 				<i className="fa fa-times" aria-hidden="true" alt="Icon of an X"></i>
 			</div>
 		</div>

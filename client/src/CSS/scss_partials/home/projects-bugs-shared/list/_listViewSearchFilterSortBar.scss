@@ -28,11 +28,12 @@
 		@include m.vertical-center();
 
 		left: 30px;
-		border: v.$search-top-bar-base-button-border-width solid black;
+		border: v.$search-top-bar-base-button-border-width solid v.$mode-border-color-search-filter-sort-top-bar-button-light;
 		border-radius: v.$search-top-bar-buttton-border-radius;
-		background-color: white;
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-light;
 		height: v.$search-filter-sort-bar-button-height;
 		width: 110px;
+		color: v.$mode-text-color-search-filter-sort-top-bar-button-light;
 		font-size: v.$search-filter-sort-bar-button-font-size;
 		text-align: center;
 		cursor: pointer;
@@ -71,6 +72,7 @@
 		border: v.$list-search-bar-button-border-width solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius 0 0 v.$search-top-bar-buttton-border-radius;
 		padding: 0px v.$list-item-search-bar-padding 0px v.$list-item-search-bar-padding;
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-search-bar-light;
 		height: v.$list-item-search-bar-height;
 		line-height: v.$list-item-search-bar-height;
 		// Width changed by JS
@@ -128,11 +130,12 @@
 		position: absolute;
 		top: 9px;
 		right: 30px;
-		border: v.$search-top-bar-base-button-border-width solid black;
+		border: v.$search-top-bar-base-button-border-width solid v.$mode-border-color-search-filter-sort-top-bar-button-light;
 		border-radius: v.$search-top-bar-buttton-border-radius;
-		background-color: white;
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-light;
 		height: v.$search-filter-sort-bar-button-height;
 		width: v.$search-top-bar-filter-button-width;
+		color: v.$mode-text-color-search-filter-sort-top-bar-button-light;
 		font-size: v.$search-filter-sort-bar-button-font-size;
 		text-align: center;
 		cursor: pointer;
