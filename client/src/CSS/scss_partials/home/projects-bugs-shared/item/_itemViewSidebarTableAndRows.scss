@@ -21,7 +21,7 @@
 
 		&:hover,
 		&:active {
-			background-color: v.$gray-level-2;
+			background-color: v.$light-gray-level-10;
 		}
 	}
 
@@ -47,7 +47,6 @@
 		border: v.$item-container-list-sidebar-border-width solid black;
 		border-left: none;
 		border-bottom: none;
-		background-color: v.$list-table-background-color;
 		height: 90vh;
 		// Width must be set here again to not go beyond
 		width: v.$item-container-list-sidebar-width;
@@ -67,8 +66,7 @@
 	}
 
 	.list-sidebar__table__row {
-		border-bottom: v.$list-table-border-width solid v.$list-tale-border-color;
-		background-color: v.$list-table-background-color;
+		border-bottom: v.$list-table-border-width solid v.$list-table-border-color;
 		padding: 5px;
 		height: v.$list-item-table-row-height;
 		text-align: center;
@@ -92,10 +90,9 @@
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0px;
-		background-color: v.$list-table-background-color;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
-		box-shadow: 0 1px 0 v.$gray-level-5;
+		box-shadow: 0 1px 0 v.$gray-level-2;
 		width: v.$item-container-list-sidebar-width;
 	}
 

@@ -17,6 +17,7 @@ import {
 	formatDateMMddYYYY,
 	displayGrayedOutNoneIfEmpty,
 	getTextColorClassNameForTheme,
+	getBaseTextColorClassNameForDarkMode,
 	getBugsInProjectList,
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
@@ -80,7 +81,9 @@ export default function ListViewTableRow(props) {
 			reduxState[props.reduxContainerName].priorityStatusOptions
 				.statusCompletionId
 				? " list-table__data--completed-color"
-				: "")
+				: getBaseTextColorClassNameForDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+				  ))
 		);
 	};
 
@@ -133,7 +136,9 @@ export default function ListViewTableRow(props) {
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId
 						? " list-table__data--completed-color"
-						: getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color))
+						: getTextColorClassNameForTheme(
+								reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						  ))
 				}
 			>
 				<span className="list-table__data__info">

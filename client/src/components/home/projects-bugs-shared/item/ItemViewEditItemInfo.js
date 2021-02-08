@@ -20,11 +20,16 @@ import {
 	manageSizeOfItemBoxsInPairContainer,
 	populateComboBox,
 	getTextColorClassNameForTheme,
+	getBaseTextColorClassNameForDarkMode,
+	getBaseFormInputTextBackgroundBorderTextColorClassNameForDarkMode,
+	getItemBoxBackgroundColorClassNameForDarkMode,
+	getBaseDisabledLabelClassNameForDarkMode,
+	getBaseDisableInputDateClassNameForDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
 } from "../../../../utils";
 
 import {
-	useToggleableDateInput,
+	usePerserveCompletetionDate,
 	useSubmitFormOnEnter,
 } from "../../../../utils/hooks";
 
@@ -74,32 +79,15 @@ export default function ItemViewEditItemInfo(props) {
 		),
 	});
 
-	// Custom hook toggles the display of the date input for completion date
-	// ...based on status and makes sure itemInfo contains accurate
-	// ...completion date info after every toggle
-	const [preservedCompletionDate] = useToggleableDateInput(
+	// Custom hook perserves the completion date whenever it is disabled so it
+	// ...can be restored if reactivated
+	usePerserveCompletetionDate(
 		itemInfo,
-		"js-completion-date-container",
+		setItemInfo,
+		"js-completion-date",
 		reduxState[props.reduxContainerName].priorityStatusOptions
 			.statusCompletionId
 	);
-
-	// Update completion_Date with the preservedCompletionDate
-	useEffect(() => {
-		if (
-			itemInfo.status_id !==
-			reduxState[props.reduxContainerName].priorityStatusOptions
-				.statusCompletionId
-		) {
-			setItemInfo({ ...itemInfo, completion_date: "" });
-		} else {
-			setItemInfo({
-				...itemInfo,
-				completion_date: preservedCompletionDate,
-			});
-		}
-		// eslint-disable-next-line
-	}, [itemInfo.status_id]);
 
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnter("js-edit-item-form");
@@ -229,7 +217,9 @@ export default function ItemViewEditItemInfo(props) {
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId
 								? " name-completed-color"
-								: getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color))
+								: getTextColorClassNameForTheme(
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								  ))
 						}
 					/>
 					<div className="name-centering-container__char-count-centering-container">
@@ -257,12 +247,21 @@ export default function ItemViewEditItemInfo(props) {
 			</div>
 			<div className="pair-container js-description-info-pair">
 				<div className="outer-dividing-container">
-					<div className="item-box item-box--desciption-info-height">
+					<div
+						className={
+							"item-box item-box--desciption-info-height" +
+							getItemBoxBackgroundColorClassNameForDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					>
 						<label htmlFor="edit-item-description">
 							<h2
 								className={
 									"item-box__title item-box__title--no-bottom-margin" +
-									getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+									getTextColorClassNameForTheme(
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+									)
 								}
 							>
 								Description
@@ -298,11 +297,20 @@ export default function ItemViewEditItemInfo(props) {
 					</div>
 				</div>
 				<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
-					<div className="item-box item-box--desciption-info-height">
+					<div
+						className={
+							"item-box item-box--desciption-info-height" +
+							getItemBoxBackgroundColorClassNameForDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					>
 						<h2
 							className={
 								"item-box__title" +
-								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+								getTextColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								)
 							}
 						>
 							Info
@@ -378,10 +386,21 @@ export default function ItemViewEditItemInfo(props) {
 									className="item-box__group__field__form-date"
 								/>
 							</div>
-							<div className="item-box__group__field item-box__group__field--no-bottom-margin item-box__group__field--inline-flex js-completion-date-container">
+							<div className="item-box__group__field item-box__group__field--no-bottom-margin item-box__group__field--inline-flex">
 								<label
 									htmlFor="edit-item-completion-date"
-									className="item-box__group__field__form-label item-box__group__field__form-label--long-width"
+									className={
+										"item-box__group__field__form-label item-box__group__field__form-label--long-width" +
+										(itemInfo.status_id !==
+										reduxState[props.reduxContainerName].priorityStatusOptions
+											.statusCompletionId
+											? getBaseDisabledLabelClassNameForDarkMode(
+													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											  )
+											: getBaseTextColorClassNameForDarkMode(
+													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											  ))
+									}
 								>
 									Completed on:
 								</label>
@@ -391,7 +410,18 @@ export default function ItemViewEditItemInfo(props) {
 									value={itemInfo.completion_date}
 									onChange={(e) => onChange(e)}
 									id="edit-item-completion-date"
-									className="item-box__group__field__form-date"
+									className={
+										"item-box__group__field__form-date  js-completion-date" +
+										(itemInfo.status_id !==
+										reduxState[props.reduxContainerName].priorityStatusOptions
+											.statusCompletionId
+											? getBaseDisableInputDateClassNameForDarkMode(
+													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											  )
+											: getBaseFormInputTextBackgroundBorderTextColorClassNameForDarkMode(
+													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											  ))
+									}
 								/>
 							</div>
 						</div>
@@ -431,17 +461,6 @@ export default function ItemViewEditItemInfo(props) {
 					</div>
 				</div>
 			</div>
-			{/* reduxState[GENERAL_CONTAINER].backendErrors.validationItem ===
-				undefined &&
-			reduxState[GENERAL_CONTAINER].backendErrors.serverItem === undefined &&
-			reduxState[GENERAL_CONTAINER].backendErrors.serverConnection ===
-				undefined ? null : (
-				<span className="backend-errors backend-errors--edit-item">
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-				</span>
-			) */}
 			<span className="backend-errors backend-errors--edit-item">
 				{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}

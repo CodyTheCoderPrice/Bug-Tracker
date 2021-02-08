@@ -8,6 +8,8 @@ import {
 	deleteMultipleProjectsOrBugs,
 } from "../../../../actions";
 
+import { getBaseTextColorClassNameForDarkMode } from "../../../../utils"; 
+
 export default function ListViewMassDeleteItemsModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();

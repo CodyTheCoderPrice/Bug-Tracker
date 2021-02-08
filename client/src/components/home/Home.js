@@ -12,7 +12,10 @@ import {
 	setProjectOrBugSearchFilterSort,
 } from "../../actions";
 
-import { getUpdatedDeepCopyFilterArray } from "../../utils";
+import {
+	getUpdatedDeepCopyFilterArray,
+	getHomeBackgroundColorClassNameForDarkMode,
+} from "../../utils";
 
 // Components
 // Navbar
@@ -89,7 +92,15 @@ export default function Home() {
 	};
 
 	return (
-		<div className="home-container" onClick={closeDropdownsWhenOpen}>
+		<div
+			className={
+				"home-container" +
+				getHomeBackgroundColorClassNameForDarkMode(
+					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+				)
+			}
+			onClick={closeDropdownsWhenOpen}
+		>
 			<Navbar />
 			{/*Account components*/}
 			{/*Displays blurred background when an account component is open*/}

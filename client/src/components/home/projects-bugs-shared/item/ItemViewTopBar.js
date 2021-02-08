@@ -18,6 +18,7 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
+	getBarBackgroundColorClassNameForDarkMode,
 	getLightBackgroundColorClassNameForTheme,
 	getLightBorderColorClassNameForTheme,
 } from "../../../../utils";
@@ -143,11 +144,20 @@ export default function ItemViewTopBar(props) {
 	};
 
 	return (
-		<div className="top-bar-component js-top-bar">
+		<div
+			className={
+				"top-bar-component js-top-bar" +
+				getBarBackgroundColorClassNameForDarkMode(
+					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+				)
+			}
+		>
 			<div
 				className={
 					"outer-search-container" +
-					getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color) +
+					getLightBorderColorClassNameForTheme(
+						reduxState[ACCOUNT_CONTAINER].settings.theme_color
+					) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay
 						.itemViewListSidebar !== true ||
 					(reduxState[SIZE_CONTAINER].variables.window !== null &&
@@ -164,7 +174,9 @@ export default function ItemViewTopBar(props) {
 					value={searchBarText}
 					className={
 						"outer-search-container__search-bar js-item-search-bar" +
-						getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+						getLightBorderColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						)
 					}
 				/>
 				<div

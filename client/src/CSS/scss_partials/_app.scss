@@ -5,6 +5,7 @@ html,
 body {
 	width: 100%;
 	overflow: hidden;
+	color: v.$mode-text-color-base-light;
 
 	//======================================================
 	// Bellow class selectors are used by JS across project
@@ -18,78 +19,155 @@ body {
 	.grayed-out-none {
 		@include m.stop-text-selection();
 
-		color: v.$dark-gray-level-1;
+		color: v.$gray-level-3;
 		opacity: 0.7;
 	}
 
+	// Dark/Light mode background colors for home component
+	.js-set-home-background-color-dark-mode-true {
+		background-color: v.$mode-background-color-home-dark !important;
+	}
+	.js-set-home-background-color-dark-mode-false {
+		background-color: v.$mode-background-color-home-light !important;
+	}
+
+	// Dark/Light mode background colors for searchFilterSearch/top bar
+	.js-set-bar-background-color-dark-mode-true {
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-dark !important;
+	}
+	.js-set-bar-background-color-dark-mode-false {
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-light !important;
+	}
+
+	// Dark/Light mode background colors for createItemSidebar component
+	.js-set-create-item-sidebar-background-color-dark-mode-true {
+		background-color: v.$mode-background-color-create-item-sidebar-dark !important;
+	}
+	.js-set-create-item-sidebar-background-color-dark-mode-false {
+		background-color: v.$mode-background-color-create-item-sidebar-light !important;
+	}
+
+	// Dark/Light mode background, border, and text color for base form-input
+	.js-set-base-form-input-background-border-text-color-dark-mode-true {
+		border-color: v.$mode-border-color-base-form-input-dark !important;
+		background-color: v.$mode-background-color-base-form-input-dark !important;
+		color: v.$mode-text-color-base-dark !important;
+	}
+	.js-set-base-form-input-background-border-text-color-dark-mode-false {
+		border-color: v.$mode-border-color-base-form-input-light !important;
+		background-color: v.$mode-background-color-base-form-input-light !important;
+		color: v.$mode-text-color-base-light !important;
+	}
+
+	// Dark/Light mode disable base label
+	.js-set-base-diabled-label-dark-mode-true {
+		color: v.$mode-text-color-base-disabled-form-input-dark;
+		pointer-events: none;
+	}
+	.js-set-base-diabled-label-dark-mode-false {
+		color: v.$mode-text-color-base-disabled-form-input-light;
+		pointer-events: none;
+	}
+
+	// Dark/Light mode disable base input date
+	.js-set-base-diabled-input-date-dark-mode-true {
+		border-color: v.$mode-border-color-base-form-input-dark !important;
+		background-color: v.$mode-background-color-base-disabled-form-input-dark !important;
+		color: v.$mode-text-color-base-disabled-form-input-dark;
+		pointer-events: none;
+	}
+	.js-set-base-diabled-input-date-dark-mode-false {
+		border-color: v.$mode-border-color-base-form-input-light !important;
+		background-color: v.$mode-background-color-base-disabled-form-input-light !important;
+		color: v.$mode-text-color-base-disabled-form-input-dark;
+		pointer-events: none;
+	}
+
+	// Dark/Light mode background colors for itemView item-box
+	.js-set-item-box-background-color-dark-mode-true {
+		background-color: v.$mode-background-color-item-view-item-box-dark !important;
+	}
+	.js-set-item-box-background-color-dark-mode-false {
+		background-color: v.$mode-background-color-item-view-item-box-light !important;
+	}
+
+	// Dark/Light mode text color for base text elements
+	.js-set-base-text-color-dark-mode-true {
+		color: v.$mode-text-color-base-dark !important;
+	}
+	.js-set-base-text-color-dark-mode-false {
+		color: v.$mode-text-color-base-light !important;
+	}
+
 	// Theme background colors
-	.js-set-dark-background-color-theme-blue {
-		background-color: v.$darker-navy-blue !important;
-	}
-	.js-set-light-background-color-theme-blue {
-		background-color: v.$lighter-navy-blue !important;
-	}
 	.js-set-dark-background-color-theme-teal {
-		background-color: v.$dark-blue-teal !important;
+		background-color: v.$theme-background-color-teal-dark !important;
 	}
 	.js-set-light-background-color-theme-teal {
-		background-color: v.$blue-teal !important;
+		background-color: v.$theme-background-color-teal-light !important;
+	}
+	.js-set-dark-background-color-theme-blue {
+		background-color: v.$theme-background-color-blue-dark !important;
+	}
+	.js-set-light-background-color-theme-blue {
+		background-color: v.$theme-background-color-blue-light !important;
 	}
 
 	// Theme background colors with hover
-	.js-set-background-color-with-hover-theme-blue {
-		background-color: v.$lighter-navy-blue !important;
-
-		&:hover,
-		&:active {
-			background-color: v.$darker-navy-blue !important;
-		}
-	}
 	.js-set-background-color-with-hover-theme-teal {
-		background-color: v.$blue-teal !important;
+		background-color: v.$theme-background-color-teal-light !important;
 
 		&:hover,
 		&:active {
-			background-color: v.$dark-blue-teal !important;
+			background-color: v.$theme-background-color-teal-dark !important;
+		}
+	}
+	.js-set-background-color-with-hover-theme-blue {
+		background-color: v.$theme-background-color-blue-light !important;
+
+		&:hover,
+		&:active {
+			background-color: v.$theme-background-color-blue-dark !important;
 		}
 	}
 
-	// Breadcrumb arrow colors
-	.js-set-dark-breadcrumb-arrow-color-theme-blue {
-		border-left-color: v.$darker-navy-blue !important;
-	}
-	.js-set-light-breadcrumb-arrow-color-theme-blue {
-		border-left-color: v.$lighter-navy-blue !important;
-	}
+	// Theme breadcrumb arrow colors
 	.js-set-dark-breadcrumb-arrow-color-theme-teal {
-		border-left-color: v.$dark-blue-teal !important;
+		border-left-color: v.$theme-background-color-teal-dark !important;
 	}
 	.js-set-light-breadcrumb-arrow-color-theme-teal {
-		border-left-color: v.$blue-teal !important;
+		border-left-color: v.$theme-background-color-teal-light !important;
+	}
+	.js-set-dark-breadcrumb-arrow-color-theme-blue {
+		border-left-color: v.$theme-background-color-blue-dark !important;
+	}
+	.js-set-light-breadcrumb-arrow-color-theme-blue {
+		border-left-color: v.$theme-background-color-blue-light !important;
 	}
 
-	// Border colors
-	.js-set-dark-border-color-theme-blue {
-		border-color: v.$darker-navy-blue !important;
-	}
-	.js-set-light-border-color-theme-blue {
-		border-color: v.$lighter-navy-blue !important;
-	}
+	// Theme border colors
 	.js-set-dark-border-color-theme-teal {
-		border-color: v.$dark-blue-teal !important;
+		border-color: v.$theme-background-color-teal-dark !important;
 	}
 	.js-set-light-border-color-theme-teal {
-		border-color: v.$blue-teal !important;
+		border-color: v.$theme-background-color-teal-light !important;
+	}
+	.js-set-dark-border-color-theme-blue {
+		border-color: v.$theme-background-color-blue-dark !important;
+	}
+	.js-set-light-border-color-theme-blue {
+		border-color: v.$theme-background-color-blue-light !important;
 	}
 
-	// Text and link color
-	.js-set-text-color-theme-blue {
-		color: v.$blue-text !important;
-	}
+	// Theme text and link color
 	.js-set-text-color-theme-teal {
-		color: v.$teal-text !important;
+		color: v.$theme-text-color-teal !important;
+	}
+	.js-set-text-color-theme-blue {
+		color: v.$theme-text-color-blue !important;
 	}
 
+	// Status boxes
 	// Used for changing the background color of status-boxes
 	// ...also used to store colors in redux for bug-pie-chart
 	.js-set-status-box-background-color-gray,

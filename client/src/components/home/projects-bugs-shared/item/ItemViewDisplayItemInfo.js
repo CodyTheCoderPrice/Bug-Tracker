@@ -11,6 +11,7 @@ import {
 	formatDateMMddYYYY,
 	displayGrayedOutMessageIfEmpty,
 	displayGrayedOutNoneIfEmpty,
+	getItemBoxBackgroundColorClassNameForDarkMode,
 	getTextColorClassNameForTheme,
 } from "../../../../utils";
 
@@ -62,14 +63,20 @@ export default function ItemViewDisplayItemInfo(props) {
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " name-completed-color"
-							: getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color))
+							: getTextColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
+							  ))
 					}
 				>
 					{reduxState[props.reduxContainerName].componentsDisplay.targetItem
 						.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
-						<i className="fa fa-check name-completed-icon" aria-hidden="true" alt="Icon of a check mark"/>
+						<i
+							className="fa fa-check name-completed-icon"
+							aria-hidden="true"
+							alt="Icon of a check mark"
+						/>
 					)}
 					{
 						reduxState[props.reduxContainerName].componentsDisplay.targetItem
@@ -86,29 +93,48 @@ export default function ItemViewDisplayItemInfo(props) {
 			</div>
 			<div className="pair-container js-description-info-pair">
 				<div className="outer-dividing-container">
-					<div className="item-box item-box--desciption-info-height">
+					<div
+						className={
+							"item-box item-box--desciption-info-height" +
+							getItemBoxBackgroundColorClassNameForDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					>
 						<h2
 							className={
 								"item-box__title" +
-								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+								getTextColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								)
 							}
 						>
 							Description
 						</h2>
 						<span className="item-box__description">
-							{
-								displayGrayedOutMessageIfEmpty(reduxState[props.reduxContainerName].componentsDisplay
-									.targetItem.description, "Description Is Empty.")
-							}
+							{displayGrayedOutMessageIfEmpty(
+								reduxState[props.reduxContainerName].componentsDisplay
+									.targetItem.description,
+								"Description Is Empty."
+							)}
 						</span>
 					</div>
 				</div>
 				<div className="outer-dividing-container">
-					<div className="item-box item-box--desciption-info-height">
+					<div
+						className={
+							"item-box item-box--desciption-info-height" +
+							getItemBoxBackgroundColorClassNameForDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					>
 						<h2
 							className={
 								"item-box__title" +
-								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+								getTextColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								)
 							}
 						>
 							Info

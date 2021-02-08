@@ -12,7 +12,11 @@ import {
 	setWhichProjectOrBugComponentsDisplay,
 } from "../../../../actions";
 
-import { getElementLocation, searchFilterSort } from "../../../../utils";
+import {
+	getElementLocation,
+	searchFilterSort,
+	getBaseTextColorClassNameForDarkMode,
+} from "../../../../utils";
 
 // Components
 import ListTableRow from "./ListViewTableRow";
@@ -116,6 +120,27 @@ export default function ListViewTable(props) {
 		);
 	};
 
+	const createMassDeleteButton = (onclickfunction, iconClassName, altText) => {
+		return (
+			<div
+				className={
+					"list-table__header__mass-delete-options-container__button" +
+					(reduxState[props.reduxContainerName].massDeleteList.length > 0
+						? getBaseTextColorClassNameForDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						  )
+						: " list-table__header__mass-delete-options-container__button--disabled" +
+						  getBaseTextColorClassNameForDarkMode(
+								!reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						  ))
+				}
+				onClick={onclickfunction}
+			>
+				<i className={"fa " + iconClassName} aria-hidden="true" alt={altText} />
+			</div>
+		);
+	};
+
 	return (
 		<div
 			className={
@@ -144,58 +169,34 @@ export default function ListViewTable(props) {
 					<tr className="list-table__row">
 						<th className="list-table__header list-table__header--for-mass-delete">
 							<div className="list-table__header__mass-delete-options-container js-mass-delete-buttons-container">
-								<div
-									className={
-										"list-table__header__mass-delete-options-container__button" +
-										(reduxState[props.reduxContainerName].massDeleteList
-											.length > 0
-											? ""
-											: " list-table__header__mass-delete-options-container__button--disabled")
-									}
-									onClick={checkAllItems}
-								>
-									<i
-										className="fa fa-check-square-o"
-										aria-hidden="true"
-										alt="Icon of a check mark inside a square"
-									/>
-								</div>
-								<div
-									className={
-										"list-table__header__mass-delete-options-container__button" +
-										(reduxState[props.reduxContainerName].massDeleteList
-											.length > 0
-											? ""
-											: " list-table__header__mass-delete-options-container__button--disabled")
-									}
-									onClick={uncheckAllItems}
-								>
-									<i
-										className="fa fa-square-o"
-										aria-hidden="true"
-										alt="Icon of an empty square"
-									/>
-								</div>
-								<div
-									className={
-										"list-table__header__mass-delete-options-container__button" +
-										(reduxState[props.reduxContainerName].massDeleteList
-											.length > 0
-											? ""
-											: " list-table__header__mass-delete-options-container__button--disabled")
-									}
-									onClick={openMassDeleteItemsModal}
-								>
-									<i
-										className="fa fa-trash-o"
-										aria-hidden="true"
-										alt="Icon of a trash can"
-									/>
-								</div>
+								{createMassDeleteButton(
+									checkAllItems,
+									"fa-check-square-o",
+									"Icon of a check mark inside a square"
+								)}
+								{createMassDeleteButton(
+									uncheckAllItems,
+									"fa-square-o",
+									"Icon of an empty square"
+								)}
+								{createMassDeleteButton(
+									openMassDeleteItemsModal,
+									"fa-trash-o",
+									"Icon of a trash can"
+								)}
 							</div>
 						</th>
 						<th className="list-table__header js-list-table__header">
-							<span className="list-table__header__span">Name</span>
+							<span
+								className={
+									"list-table__header__span" +
+									getBaseTextColorClassNameForDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+								}
+							>
+								Name
+							</span>
 							<span className="list-table__header__sort-arrow-container">
 								<ListTableSortArrowsButton
 									sortTypeId={1}
@@ -205,7 +206,16 @@ export default function ListViewTable(props) {
 							</span>
 						</th>
 						<th className="list-table__header">
-							<span className="list-table__header__span">Status</span>
+							<span
+								className={
+									"list-table__header__span" +
+									getBaseTextColorClassNameForDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+								}
+							>
+								Status
+							</span>
 							<span className="list-table__header__sort-arrow-container">
 								<ListTableSortArrowsButton
 									sortTypeId={2}
@@ -215,7 +225,16 @@ export default function ListViewTable(props) {
 							</span>
 						</th>
 						<th className="list-table__header">
-							<span className="list-table__header__span">Priority</span>
+							<span
+								className={
+									"list-table__header__span" +
+									getBaseTextColorClassNameForDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+								}
+							>
+								Priority
+							</span>
 							<span className="list-table__header__sort-arrow-container">
 								<ListTableSortArrowsButton
 									sortTypeId={3}
@@ -225,7 +244,16 @@ export default function ListViewTable(props) {
 							</span>
 						</th>
 						<th className="list-table__header">
-							<span className="list-table__header__span">Created on</span>
+							<span
+								className={
+									"list-table__header__span" +
+									getBaseTextColorClassNameForDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+								}
+							>
+								Created on
+							</span>
 							<span className="list-table__header__sort-arrow-container">
 								<ListTableSortArrowsButton
 									sortTypeId={4}
@@ -235,7 +263,16 @@ export default function ListViewTable(props) {
 							</span>
 						</th>
 						<th className="list-table__header">
-							<span className="list-table__header__span">Start Date</span>
+							<span
+								className={
+									"list-table__header__span" +
+									getBaseTextColorClassNameForDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+								}
+							>
+								Start Date
+							</span>
 							<span className="list-table__header__sort-arrow-container">
 								<ListTableSortArrowsButton
 									sortTypeId={5}
@@ -245,7 +282,16 @@ export default function ListViewTable(props) {
 							</span>
 						</th>
 						<th className="list-table__header">
-							<span className="list-table__header__span">Due Date</span>
+							<span
+								className={
+									"list-table__header__span" +
+									getBaseTextColorClassNameForDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+								}
+							>
+								Due Date
+							</span>
 							<span className="list-table__header__sort-arrow-container">
 								<ListTableSortArrowsButton
 									sortTypeId={6}
@@ -255,7 +301,14 @@ export default function ListViewTable(props) {
 							</span>
 						</th>
 						<th className="list-table__header">
-							<span className="list-table__header__span">
+							<span
+								className={
+									"list-table__header__span" +
+									getBaseTextColorClassNameForDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+								}
+							>
 								{props.reduxContainerName === PROJECT_CONTAINER
 									? "Bugs Completed"
 									: "Comments"}

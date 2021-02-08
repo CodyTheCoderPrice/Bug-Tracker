@@ -22,7 +22,6 @@
 		margin-bottom: 20px;
 		border: v.$base-sidebar-border-width solid black;
 		border-width: v.$base-sidebar-border-width - 1 v.$base-sidebar-border-width v.$base-sidebar-border-width 0;
-		background-color: white;
 		height: v.$create-item-sidebar-height;
 		width: v.$create-item-sidebar-width;
 		text-align: center;
@@ -79,10 +78,10 @@
 		margin-top: v.$create-item-sidebar-text-input-margin-top;
 		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-base-border-width solid gray;
+		border: v.$form-input-text-base-border-width solid v.$mode-border-color-base-form-input-light;
 		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
-		background: v.$light-gray-level-5;
+		background: v.$mode-background-color-base-form-input-light;
 		padding: v.$create-item-sidebar-padding;
 		width: 100%;
 		font-size: v.$item-form-text-input-font-size;
@@ -99,9 +98,9 @@
 		margin-top: v.$create-item-sidebar-text-input-margin-top;
 		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-base-border-width solid gray;
+		border: v.$form-input-text-base-border-width solid v.$mode-border-color-base-form-input-light;
 		border-radius: v.$form-input-border-radius;
-		background-color: v.$light-gray-level-5;
+		background: v.$mode-background-color-base-form-input-light;
 		padding: 4px v.$create-item-sidebar-padding 4px
 			v.$create-item-sidebar-padding;
 		height: 150px;
@@ -129,7 +128,7 @@
 		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
-		background-color: v.$light-gray-level-5;
+		background: v.$mode-background-color-base-form-input-light;
 		// Width is 97% since date boxes extend past conatiner
 		width: 97%;
 		// one pixel smaller than associated label
@@ -140,7 +139,7 @@
 		margin-top: 2px;
 		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
 		border: 1px solid gray;
-		background-color: v.$light-gray-level-5;
+		background: v.$mode-background-color-base-form-input-light;
 		width: 100%;
 		// one pixel smaller than associated label
 		font-size: 13px;
@@ -167,13 +166,13 @@
 	// These classes are used by the custom hook that handles appearance
 	// ...of completion date based of the status of the project
 	.grayed-out-unclickable-label {
-		color: v.$gray-level-2;
+		color: v.$light-gray-level-10;
 		pointer-events: none;
 	}
 
 	.grayed-out-unclickable-date {
 		background-color: white;
-		color: v.$gray-level-2;
+		color: v.$light-gray-level-10;
 		pointer-events: none;
 	}
 }

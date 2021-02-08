@@ -16,8 +16,10 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
+	getBarBackgroundColorClassNameForDarkMode,
 	getLightBackgroundColorClassNameForTheme,
 	getLightBorderColorClassNameForTheme,
+	getBaseTextColorClassNameForDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
@@ -100,7 +102,14 @@ export default function ListViewSearchFilterSortBar(props) {
 	};
 
 	return (
-		<div className="search-filter-sort-component ">
+		<div
+			className={
+				"search-filter-sort-component" +
+				getBarBackgroundColorClassNameForDarkMode(
+					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+				)
+			}
+		>
 			<div className="centering-container js-new-item-button-centering-container">
 				<div
 					className={
@@ -125,7 +134,9 @@ export default function ListViewSearchFilterSortBar(props) {
 				<div
 					className={
 						"centering-container__search-group-container js-list-search-bar-and-button-search-group-container" +
-						getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+						getLightBorderColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						)
 					}
 				>
 					<input
@@ -136,7 +147,9 @@ export default function ListViewSearchFilterSortBar(props) {
 						value={searchBarText}
 						className={
 							"centering-container__search-group-container__search-bar js-list-search-bar" +
-							getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+							getLightBorderColorClassNameForTheme(
+								reduxState[ACCOUNT_CONTAINER].settings.theme_color
+							)
 						}
 					/>
 					<div
@@ -145,7 +158,9 @@ export default function ListViewSearchFilterSortBar(props) {
 							getLightBackgroundColorClassNameForTheme(
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							) +
-							getLightBorderColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+							getLightBorderColorClassNameForTheme(
+								reduxState[ACCOUNT_CONTAINER].settings.theme_color
+							)
 						}
 						onClick={updateSearchKeyWordString}
 					>

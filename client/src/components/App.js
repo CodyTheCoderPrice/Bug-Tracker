@@ -61,7 +61,7 @@ function App() {
 	}
 
 	return (
-		<div onMouseDown={logReduxState} className="pageContainer">
+		<div onMouseDown={logReduxState} className="app-component">
 			{reduxState[GENERAL_CONTAINER].componentsDisplay.register ? (
 				<Register />
 			) : null}

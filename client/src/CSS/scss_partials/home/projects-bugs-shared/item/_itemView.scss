@@ -7,7 +7,6 @@
 		position: fixed;
 		top: v.$list-table-and-item-view-top;
 		left: 0px;
-		background-color: white;
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
 		height: 90vh;
@@ -69,7 +68,7 @@
 		margin: 10px;
 		border: 2px solid black;
 		border-radius: 25px;
-		background-color: v.$light-gray-level-5;
+		background-color: v.$mode-background-color-item-view-item-box-light;
 		padding: 0px 20px 20px 20px;
 		overflow-wrap: anywhere;
 	}

@@ -6,7 +6,6 @@
 	position: fixed;
 	top: v.$list-table-and-item-view-top;
 	left: 0px;
-	background-color: v.$list-table-background-color;
 	// Height and width values were found through trial and error
 	// ...to make modal resize (using js) look less jumpy
 	height: 90vh;
@@ -52,10 +51,9 @@
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0px;
-		background-color: v.$list-table-background-color;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
-		box-shadow: 0 1px 0 v.$gray-level-5;
+		box-shadow: 0 1px 0 v.$gray-level-2;
 		width: 300px;
 	}
 
@@ -90,7 +88,7 @@
 	}
 
 	.list-table__data {
-		border-bottom: v.$list-table-border-width solid v.$list-tale-border-color;
+		border-bottom: v.$list-table-border-width solid v.$list-table-border-color;
 		padding: 0px 7px 0px 7px;
 		cursor: default;
 	}

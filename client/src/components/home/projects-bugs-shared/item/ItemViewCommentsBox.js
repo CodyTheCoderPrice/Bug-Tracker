@@ -11,6 +11,7 @@ import {
 import { createComment, clearBackendErrors } from "../../../../actions";
 
 import {
+	getItemBoxBackgroundColorClassNameForDarkMode,
 	getTextColorClassNameForTheme,
 	getBackgroundColorWithHoverClassNameForTheme,
 	dateToInt,
@@ -89,7 +90,14 @@ export default function ItemViewCommentsBox() {
 
 	return (
 		<div className="outer-dividing-container">
-			<div className="item-box">
+			<div
+				className={
+					"item-box" +
+					getItemBoxBackgroundColorClassNameForDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			>
 				<form
 					className="js-create-comment-form"
 					noValidate
@@ -99,7 +107,9 @@ export default function ItemViewCommentsBox() {
 						<h2
 							className={
 								"item-box__title item-box__title--no-bottom-margin" +
-								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+								getTextColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								)
 							}
 						>
 							Comments (

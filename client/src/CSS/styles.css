@@ -2,6 +2,7 @@ html,
 body {
   width: 100%;
   overflow: hidden;
+  color: black;
 }
 html .text-red,
 body .text-red {
@@ -25,13 +26,81 @@ body .grayed-out-none {
   color: #808080;
   opacity: 0.7;
 }
-html .js-set-dark-background-color-theme-blue,
-body .js-set-dark-background-color-theme-blue {
-  background-color: #3d5774 !important;
+html .js-set-home-background-color-dark-mode-true,
+body .js-set-home-background-color-dark-mode-true {
+  background-color: #333333 !important;
 }
-html .js-set-light-background-color-theme-blue,
-body .js-set-light-background-color-theme-blue {
-  background-color: #4d6e92 !important;
+html .js-set-home-background-color-dark-mode-false,
+body .js-set-home-background-color-dark-mode-false {
+  background-color: white !important;
+}
+html .js-set-bar-background-color-dark-mode-true,
+body .js-set-bar-background-color-dark-mode-true {
+  background-color: #292929 !important;
+}
+html .js-set-bar-background-color-dark-mode-false,
+body .js-set-bar-background-color-dark-mode-false {
+  background-color: #e5e5e5 !important;
+}
+html .js-set-create-item-sidebar-background-color-dark-mode-true,
+body .js-set-create-item-sidebar-background-color-dark-mode-true {
+  background-color: #333333 !important;
+}
+html .js-set-create-item-sidebar-background-color-dark-mode-false,
+body .js-set-create-item-sidebar-background-color-dark-mode-false {
+  background-color: white !important;
+}
+html .js-set-base-form-input-background-border-text-color-dark-mode-true,
+body .js-set-base-form-input-background-border-text-color-dark-mode-true {
+  border-color: #1d1d1d !important;
+  background-color: #525252 !important;
+  color: #cacaca !important;
+}
+html .js-set-base-form-input-background-border-text-color-dark-mode-false,
+body .js-set-base-form-input-background-border-text-color-dark-mode-false {
+  border-color: #757575 !important;
+  background-color: #e5e5e5 !important;
+  color: black !important;
+}
+html .js-set-base-diabled-label-dark-mode-true,
+body .js-set-base-diabled-label-dark-mode-true {
+  color: #6d6d6d;
+  pointer-events: none;
+}
+html .js-set-base-diabled-label-dark-mode-false,
+body .js-set-base-diabled-label-dark-mode-false {
+  color: #bfbfbf;
+  pointer-events: none;
+}
+html .js-set-base-diabled-input-date-dark-mode-true,
+body .js-set-base-diabled-input-date-dark-mode-true {
+  border-color: #1d1d1d !important;
+  background-color: #333333 !important;
+  color: #6d6d6d;
+  pointer-events: none;
+}
+html .js-set-base-diabled-input-date-dark-mode-false,
+body .js-set-base-diabled-input-date-dark-mode-false {
+  border-color: #757575 !important;
+  background-color: white !important;
+  color: #6d6d6d;
+  pointer-events: none;
+}
+html .js-set-item-box-background-color-dark-mode-true,
+body .js-set-item-box-background-color-dark-mode-true {
+  background-color: #292929 !important;
+}
+html .js-set-item-box-background-color-dark-mode-false,
+body .js-set-item-box-background-color-dark-mode-false {
+  background-color: #e5e5e5 !important;
+}
+html .js-set-base-text-color-dark-mode-true,
+body .js-set-base-text-color-dark-mode-true {
+  color: #cacaca !important;
+}
+html .js-set-base-text-color-dark-mode-false,
+body .js-set-base-text-color-dark-mode-false {
+  color: black !important;
 }
 html .js-set-dark-background-color-theme-teal,
 body .js-set-dark-background-color-theme-teal {
@@ -41,14 +110,13 @@ html .js-set-light-background-color-theme-teal,
 body .js-set-light-background-color-theme-teal {
   background-color: #6691a3 !important;
 }
-html .js-set-background-color-with-hover-theme-blue,
-body .js-set-background-color-with-hover-theme-blue {
-  background-color: #4d6e92 !important;
-}
-html .js-set-background-color-with-hover-theme-blue:hover, html .js-set-background-color-with-hover-theme-blue:active,
-body .js-set-background-color-with-hover-theme-blue:hover,
-body .js-set-background-color-with-hover-theme-blue:active {
+html .js-set-dark-background-color-theme-blue,
+body .js-set-dark-background-color-theme-blue {
   background-color: #3d5774 !important;
+}
+html .js-set-light-background-color-theme-blue,
+body .js-set-light-background-color-theme-blue {
+  background-color: #4d6e92 !important;
 }
 html .js-set-background-color-with-hover-theme-teal,
 body .js-set-background-color-with-hover-theme-teal {
@@ -59,13 +127,14 @@ body .js-set-background-color-with-hover-theme-teal:hover,
 body .js-set-background-color-with-hover-theme-teal:active {
   background-color: #50798b !important;
 }
-html .js-set-dark-breadcrumb-arrow-color-theme-blue,
-body .js-set-dark-breadcrumb-arrow-color-theme-blue {
-  border-left-color: #3d5774 !important;
+html .js-set-background-color-with-hover-theme-blue,
+body .js-set-background-color-with-hover-theme-blue {
+  background-color: #4d6e92 !important;
 }
-html .js-set-light-breadcrumb-arrow-color-theme-blue,
-body .js-set-light-breadcrumb-arrow-color-theme-blue {
-  border-left-color: #4d6e92 !important;
+html .js-set-background-color-with-hover-theme-blue:hover, html .js-set-background-color-with-hover-theme-blue:active,
+body .js-set-background-color-with-hover-theme-blue:hover,
+body .js-set-background-color-with-hover-theme-blue:active {
+  background-color: #3d5774 !important;
 }
 html .js-set-dark-breadcrumb-arrow-color-theme-teal,
 body .js-set-dark-breadcrumb-arrow-color-theme-teal {
@@ -75,13 +144,13 @@ html .js-set-light-breadcrumb-arrow-color-theme-teal,
 body .js-set-light-breadcrumb-arrow-color-theme-teal {
   border-left-color: #6691a3 !important;
 }
-html .js-set-dark-border-color-theme-blue,
-body .js-set-dark-border-color-theme-blue {
-  border-color: #3d5774 !important;
+html .js-set-dark-breadcrumb-arrow-color-theme-blue,
+body .js-set-dark-breadcrumb-arrow-color-theme-blue {
+  border-left-color: #3d5774 !important;
 }
-html .js-set-light-border-color-theme-blue,
-body .js-set-light-border-color-theme-blue {
-  border-color: #4d6e92 !important;
+html .js-set-light-breadcrumb-arrow-color-theme-blue,
+body .js-set-light-breadcrumb-arrow-color-theme-blue {
+  border-left-color: #4d6e92 !important;
 }
 html .js-set-dark-border-color-theme-teal,
 body .js-set-dark-border-color-theme-teal {
@@ -91,13 +160,21 @@ html .js-set-light-border-color-theme-teal,
 body .js-set-light-border-color-theme-teal {
   border-color: #6691a3 !important;
 }
-html .js-set-text-color-theme-blue,
-body .js-set-text-color-theme-blue {
-  color: #245ba3 !important;
+html .js-set-dark-border-color-theme-blue,
+body .js-set-dark-border-color-theme-blue {
+  border-color: #3d5774 !important;
+}
+html .js-set-light-border-color-theme-blue,
+body .js-set-light-border-color-theme-blue {
+  border-color: #4d6e92 !important;
 }
 html .js-set-text-color-theme-teal,
 body .js-set-text-color-theme-teal {
   color: #2588b3 !important;
+}
+html .js-set-text-color-theme-blue,
+body .js-set-text-color-theme-blue {
+  color: #245ba3 !important;
 }
 html .js-set-status-box-background-color-gray,
 html .js-calc-status-box-background-color-gray,
@@ -282,7 +359,7 @@ body .js-set-status-box-text-color-red {
   margin-top: 5px;
   margin-bottom: 5px;
   outline: none;
-  border: 1px solid gray;
+  border: 1px solid #757575;
   border-radius: 5px;
   box-sizing: border-box;
   background: #e5e5e5;
@@ -333,6 +410,8 @@ body .js-set-status-box-text-color-red {
   position: absolute;
   top: 0;
   left: 0;
+  background-color: white;
+  height: 100%;
   width: 100%;
 }
 
@@ -1024,7 +1103,7 @@ dropdown can overlap all other components
   margin-top: 5px;
   margin-bottom: 10px;
   outline: none;
-  border: 1px solid gray;
+  border: 1px solid #757575;
   border-radius: 5px;
   box-sizing: border-box;
   background: #e5e5e5;
@@ -1196,7 +1275,6 @@ dropdown can overlap all other components
   position: fixed;
   top: 103px;
   left: 0px;
-  background-color: white;
   height: 90vh;
   width: 100vw;
   font-size: 15px;
@@ -1835,7 +1913,6 @@ dropdown can overlap all other components
   border: 2px solid black;
   border-left: none;
   border-bottom: none;
-  background-color: white;
   height: 90vh;
   width: 275px;
   font-size: 15px;
@@ -1854,7 +1931,6 @@ dropdown can overlap all other components
 .item-container-list-sidebar-component .list-sidebar__table__row,
 .js-calc-list-sidebar-component .list-sidebar__table__row {
   border-bottom: 1px solid #919191;
-  background-color: white;
   padding: 5px;
   height: 50px;
   text-align: center;
@@ -1877,7 +1953,6 @@ dropdown can overlap all other components
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
-  background-color: white;
   box-shadow: 0 1px 0 #919191;
   width: 275px;
 }
@@ -2235,7 +2310,6 @@ dropdown can overlap all other components
   margin-bottom: 20px;
   border: 3px solid black;
   border-width: 2px 3px 3px 0;
-  background-color: white;
   height: 700px;
   width: 500px;
   text-align: center;
@@ -2293,7 +2367,7 @@ dropdown can overlap all other components
   margin-top: 2px;
   margin-bottom: 10px;
   outline: none;
-  border: 1px solid gray;
+  border: 1px solid #757575;
   border-radius: 5px;
   box-sizing: border-box;
   background: #e5e5e5;
@@ -2313,9 +2387,9 @@ dropdown can overlap all other components
   margin-top: 2px;
   margin-bottom: 10px;
   outline: none;
-  border: 1px solid gray;
+  border: 1px solid #757575;
   border-radius: 5px;
-  background-color: #e5e5e5;
+  background: #e5e5e5;
   padding: 4px 6px 4px 6px;
   height: 150px;
   width: 100%;
@@ -2338,7 +2412,7 @@ dropdown can overlap all other components
   margin-bottom: 10px;
   outline: none;
   border: 1px solid gray;
-  background-color: #e5e5e5;
+  background: #e5e5e5;
   width: 97%;
   font-size: 13px;
 }
@@ -2346,7 +2420,7 @@ dropdown can overlap all other components
   margin-top: 2px;
   margin-bottom: 10px;
   border: 1px solid gray;
-  background-color: #e5e5e5;
+  background: #e5e5e5;
   width: 100%;
   font-size: 13px;
 }
@@ -2651,7 +2725,6 @@ dropdown can overlap all other components
   position: fixed;
   top: 103px;
   left: 0px;
-  background-color: white;
   height: 90vh;
   width: 100%;
   font-size: 15px;
@@ -2706,7 +2779,6 @@ dropdown can overlap all other components
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
-  background-color: white;
   box-shadow: 0 1px 0 #919191;
   width: 300px;
 }

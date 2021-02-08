@@ -10,7 +10,7 @@
 	top: v.$search-filter-sort-and-top-bar-top;
 	border: v.$top-bar-border-width solid black;
 	border-width: v.$top-bar-border-width 0 v.$item-container-list-sidebar-border-width 0;
-	background-color: v.$search-filter-sort-bar-color;
+	background-color: v.$mode-background-color-search-filter-sort-top-bar-light;
 	height: v.$top-bar-height;
 	/* height: v.$search-filter-sort-bar-height; */
 	width: 100%;
@@ -304,6 +304,6 @@
 	.x-button {
 		@include m.exit-button();
 		top: 11px;
-		color: v.$dark-gray-level-2;
+		color: v.$gray-level-4;
 	}
 }

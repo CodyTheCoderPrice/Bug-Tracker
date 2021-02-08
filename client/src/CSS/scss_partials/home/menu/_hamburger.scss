@@ -106,7 +106,7 @@
 	}
 
 	.hamburger-dropdown__option__icon {
-		color: v.$dark-gray-level-3;
+		color: v.$dark-gray-level-1;
 	}
 
 	.hamburger-dropdown__option__svg-arrow-option-2 {
@@ -126,7 +126,7 @@
 		@include m.stop-text-selection();
 
 		padding: 1px 0px 0px 5px;
-		color: v.$dark-gray-level-1;
+		color: v.$gray-level-3;
 		opacity: 0.6;
 		font-size: 17px;
 		cursor: pointer;
