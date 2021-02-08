@@ -1,300 +1,3 @@
-html,
-body {
-  width: 100%;
-  overflow: hidden;
-  color: black;
-}
-html .text-red,
-body .text-red {
-  color: red;
-}
-html .grayed-out-none,
-body .grayed-out-none {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  color: #808080;
-  opacity: 0.7;
-}
-html .js-set-home-background-color-dark-mode-true,
-body .js-set-home-background-color-dark-mode-true {
-  background-color: #333333 !important;
-}
-html .js-set-home-background-color-dark-mode-false,
-body .js-set-home-background-color-dark-mode-false {
-  background-color: white !important;
-}
-html .js-set-bar-background-color-dark-mode-true,
-body .js-set-bar-background-color-dark-mode-true {
-  background-color: #292929 !important;
-}
-html .js-set-bar-background-color-dark-mode-false,
-body .js-set-bar-background-color-dark-mode-false {
-  background-color: #e5e5e5 !important;
-}
-html .js-set-bar-search-bar-background-text-color-dark-mode-true,
-body .js-set-bar-search-bar-background-text-color-dark-mode-true {
-  background-color: #363636 !important;
-  color: #C9D1D9 !important;
-}
-html .js-set-bar-search-bar-background-text-color-dark-mode-false,
-body .js-set-bar-search-bar-background-text-color-dark-mode-false {
-  background-color: white !important;
-  color: black !important;
-}
-html .js-set-bar-button-border-background-text-color-dark-mode-true,
-body .js-set-bar-button-border-background-text-color-dark-mode-true {
-  border-color: #a3a3a3 !important;
-  background-color: #3a3a3a !important;
-  color: #C9D1D9 !important;
-}
-html .js-set-bar-button-border-background-text-color-dark-mode-false,
-body .js-set-bar-button-border-background-text-color-dark-mode-false {
-  border-color: black !important;
-  background-color: white !important;
-  color: black !important;
-}
-html .js-set-create-item-sidebar-background-color-dark-mode-true,
-body .js-set-create-item-sidebar-background-color-dark-mode-true {
-  background-color: #333333 !important;
-}
-html .js-set-create-item-sidebar-background-color-dark-mode-false,
-body .js-set-create-item-sidebar-background-color-dark-mode-false {
-  background-color: white !important;
-}
-html .js-set-base-icon-button-background-color-with-hover-dark-mode-true,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-true {
-  color: #525252 !important;
-}
-html .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover, html .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active {
-  color: #808080 !important;
-}
-html .js-set-base-icon-button-background-color-with-hover-dark-mode-false,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-false {
-  color: #919191 !important;
-}
-html .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover, html .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active {
-  color: #3a3a3a !important;
-}
-html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true {
-  color: #4e4e4e !important;
-}
-html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover, html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active {
-  color: #757575 !important;
-}
-html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false {
-  color: #757575 !important;
-}
-html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover, html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active {
-  color: #3a3a3a !important;
-}
-html .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true,
-body .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true {
-  border-color: #1d1d1d !important;
-  background-color: #525252 !important;
-  color: #C9D1D9 !important;
-}
-html .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
-body .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false {
-  border-color: #757575 !important;
-  background-color: #e5e5e5 !important;
-  color: black !important;
-}
-html .js-set-base-diabled-label-dark-mode-true,
-body .js-set-base-diabled-label-dark-mode-true {
-  color: #6d6d6d;
-  pointer-events: none;
-}
-html .js-set-base-diabled-label-dark-mode-false,
-body .js-set-base-diabled-label-dark-mode-false {
-  color: #bfbfbf;
-  pointer-events: none;
-}
-html .js-set-base-diabled-input-date-dark-mode-true,
-body .js-set-base-diabled-input-date-dark-mode-true {
-  border-color: #1d1d1d !important;
-  background-color: #333333 !important;
-  color: #6d6d6d;
-  pointer-events: none;
-}
-html .js-set-base-diabled-input-date-dark-mode-false,
-body .js-set-base-diabled-input-date-dark-mode-false {
-  border-color: #757575 !important;
-  background-color: white !important;
-  color: #6d6d6d;
-  pointer-events: none;
-}
-html .js-set-item-box-background-color-dark-mode-true,
-body .js-set-item-box-background-color-dark-mode-true {
-  background-color: #292929 !important;
-}
-html .js-set-item-box-background-color-dark-mode-false,
-body .js-set-item-box-background-color-dark-mode-false {
-  background-color: #e5e5e5 !important;
-}
-html .js-set-base-text-color-dark-mode-true,
-body .js-set-base-text-color-dark-mode-true {
-  color: #C9D1D9 !important;
-}
-html .js-set-base-text-color-dark-mode-false,
-body .js-set-base-text-color-dark-mode-false {
-  color: black !important;
-}
-html .js-set-dark-background-color-theme-teal,
-body .js-set-dark-background-color-theme-teal {
-  background-color: #50798b !important;
-}
-html .js-set-light-background-color-theme-teal,
-body .js-set-light-background-color-theme-teal {
-  background-color: #6691a3 !important;
-}
-html .js-set-dark-background-color-theme-blue,
-body .js-set-dark-background-color-theme-blue {
-  background-color: #3d5774 !important;
-}
-html .js-set-light-background-color-theme-blue,
-body .js-set-light-background-color-theme-blue {
-  background-color: #4d6e92 !important;
-}
-html .js-set-background-color-with-hover-theme-teal,
-body .js-set-background-color-with-hover-theme-teal {
-  background-color: #6691a3 !important;
-}
-html .js-set-background-color-with-hover-theme-teal:hover, html .js-set-background-color-with-hover-theme-teal:active,
-body .js-set-background-color-with-hover-theme-teal:hover,
-body .js-set-background-color-with-hover-theme-teal:active {
-  background-color: #50798b !important;
-}
-html .js-set-background-color-with-hover-theme-blue,
-body .js-set-background-color-with-hover-theme-blue {
-  background-color: #4d6e92 !important;
-}
-html .js-set-background-color-with-hover-theme-blue:hover, html .js-set-background-color-with-hover-theme-blue:active,
-body .js-set-background-color-with-hover-theme-blue:hover,
-body .js-set-background-color-with-hover-theme-blue:active {
-  background-color: #3d5774 !important;
-}
-html .js-set-dark-breadcrumb-arrow-color-theme-teal,
-body .js-set-dark-breadcrumb-arrow-color-theme-teal {
-  border-left-color: #50798b !important;
-}
-html .js-set-light-breadcrumb-arrow-color-theme-teal,
-body .js-set-light-breadcrumb-arrow-color-theme-teal {
-  border-left-color: #6691a3 !important;
-}
-html .js-set-dark-breadcrumb-arrow-color-theme-blue,
-body .js-set-dark-breadcrumb-arrow-color-theme-blue {
-  border-left-color: #3d5774 !important;
-}
-html .js-set-light-breadcrumb-arrow-color-theme-blue,
-body .js-set-light-breadcrumb-arrow-color-theme-blue {
-  border-left-color: #4d6e92 !important;
-}
-html .js-set-dark-border-color-theme-teal,
-body .js-set-dark-border-color-theme-teal {
-  border-color: #50798b !important;
-}
-html .js-set-light-border-color-theme-teal,
-body .js-set-light-border-color-theme-teal {
-  border-color: #6691a3 !important;
-}
-html .js-set-dark-border-color-theme-blue,
-body .js-set-dark-border-color-theme-blue {
-  border-color: #3d5774 !important;
-}
-html .js-set-light-border-color-theme-blue,
-body .js-set-light-border-color-theme-blue {
-  border-color: #4d6e92 !important;
-}
-html .js-set-text-color-theme-teal,
-body .js-set-text-color-theme-teal {
-  color: #2588b3 !important;
-}
-html .js-set-text-color-theme-blue,
-body .js-set-text-color-theme-blue {
-  color: #245ba3 !important;
-}
-html .js-set-status-box-background-color-gray,
-html .js-calc-status-box-background-color-gray,
-body .js-set-status-box-background-color-gray,
-body .js-calc-status-box-background-color-gray {
-  background-color: #808080 !important;
-}
-html .js-set-status-box-background-color-blue,
-html .js-calc-status-box-background-color-blue,
-body .js-set-status-box-background-color-blue,
-body .js-calc-status-box-background-color-blue {
-  background-color: #568dd5 !important;
-}
-html .js-set-status-box-background-color-purple,
-html .js-calc-status-box-background-color-purple,
-body .js-set-status-box-background-color-purple,
-body .js-calc-status-box-background-color-purple {
-  background-color: #9680ce !important;
-}
-html .js-set-status-box-background-color-orange,
-html .js-calc-status-box-background-color-orange,
-body .js-set-status-box-background-color-orange,
-body .js-calc-status-box-background-color-orange {
-  background-color: #ff9900 !important;
-}
-html .js-set-status-box-background-color-green,
-html .js-calc-status-box-background-color-green,
-body .js-set-status-box-background-color-green,
-body .js-calc-status-box-background-color-green {
-  background-color: #007e00 !important;
-}
-html .js-set-status-box-background-color-red,
-html .js-calc-status-box-background-color-red,
-body .js-set-status-box-background-color-red,
-body .js-calc-status-box-background-color-red {
-  background-color: #d14242 !important;
-}
-html .js-set-status-box-text-color-gray,
-body .js-set-status-box-text-color-gray {
-  color: #808080 !important;
-}
-html .js-set-status-box-text-color-blue,
-body .js-set-status-box-text-color-blue {
-  color: #568dd5 !important;
-}
-html .js-set-status-box-text-color-purple,
-body .js-set-status-box-text-color-purple {
-  color: #9680ce !important;
-}
-html .js-set-status-box-text-color-orange,
-body .js-set-status-box-text-color-orange {
-  color: #ff9900 !important;
-}
-html .js-set-status-box-text-color-green,
-body .js-set-status-box-text-color-green {
-  color: #007e00 !important;
-}
-html .js-set-status-box-text-color-red,
-body .js-set-status-box-text-color-red {
-  color: #d14242 !important;
-}
-
 .toggle-switch-component {
   position: relative;
   display: inline-block;
@@ -463,8 +166,7 @@ body .js-set-status-box-text-color-red {
   cursor: pointer;
 }
 
-.home-container,
-.js-calc-home-container {
+.home-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -2956,6 +2658,465 @@ dropdown can overlap all other components
   top: 50%;
   transform: translate(0%, -50%);
   cursor: pointer;
+}
+
+html,
+body,
+.app-component,
+.js-calc-app-component {
+  width: 100%;
+  overflow: hidden;
+  color: black;
+}
+html .text-red,
+body .text-red,
+.app-component .text-red,
+.js-calc-app-component .text-red {
+  color: red;
+}
+html .grayed-out-none,
+body .grayed-out-none,
+.app-component .grayed-out-none,
+.js-calc-app-component .grayed-out-none {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  color: #808080;
+  opacity: 0.7;
+}
+html .js-set-home-background-color-dark-mode-true,
+body .js-set-home-background-color-dark-mode-true,
+.app-component .js-set-home-background-color-dark-mode-true,
+.js-calc-app-component .js-set-home-background-color-dark-mode-true {
+  background-color: #333333;
+}
+html .js-set-home-background-color-dark-mode-false,
+body .js-set-home-background-color-dark-mode-false,
+.app-component .js-set-home-background-color-dark-mode-false,
+.js-calc-app-component .js-set-home-background-color-dark-mode-false {
+  background-color: white;
+}
+html .js-set-bar-background-color-dark-mode-true,
+body .js-set-bar-background-color-dark-mode-true,
+.app-component .js-set-bar-background-color-dark-mode-true,
+.js-calc-app-component .js-set-bar-background-color-dark-mode-true {
+  background-color: #292929;
+}
+html .js-set-bar-background-color-dark-mode-false,
+body .js-set-bar-background-color-dark-mode-false,
+.app-component .js-set-bar-background-color-dark-mode-false,
+.js-calc-app-component .js-set-bar-background-color-dark-mode-false {
+  background-color: #e5e5e5;
+}
+html .js-set-bar-search-bar-background-text-color-dark-mode-true,
+body .js-set-bar-search-bar-background-text-color-dark-mode-true,
+.app-component .js-set-bar-search-bar-background-text-color-dark-mode-true,
+.js-calc-app-component .js-set-bar-search-bar-background-text-color-dark-mode-true {
+  background-color: #363636;
+  color: #C9D1D9;
+}
+html .js-set-bar-search-bar-background-text-color-dark-mode-false,
+body .js-set-bar-search-bar-background-text-color-dark-mode-false,
+.app-component .js-set-bar-search-bar-background-text-color-dark-mode-false,
+.js-calc-app-component .js-set-bar-search-bar-background-text-color-dark-mode-false {
+  background-color: white;
+  color: black;
+}
+html .js-set-bar-button-border-background-text-color-dark-mode-true,
+body .js-set-bar-button-border-background-text-color-dark-mode-true,
+.app-component .js-set-bar-button-border-background-text-color-dark-mode-true,
+.js-calc-app-component .js-set-bar-button-border-background-text-color-dark-mode-true {
+  border-color: #a3a3a3;
+  background-color: #3a3a3a;
+  color: #C9D1D9;
+}
+html .js-set-bar-button-border-background-text-color-dark-mode-false,
+body .js-set-bar-button-border-background-text-color-dark-mode-false,
+.app-component .js-set-bar-button-border-background-text-color-dark-mode-false,
+.js-calc-app-component .js-set-bar-button-border-background-text-color-dark-mode-false {
+  border-color: black;
+  background-color: white;
+  color: black;
+}
+html .js-set-create-item-sidebar-background-color-dark-mode-true,
+body .js-set-create-item-sidebar-background-color-dark-mode-true,
+.app-component .js-set-create-item-sidebar-background-color-dark-mode-true,
+.js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-true {
+  background-color: #333333;
+}
+html .js-set-create-item-sidebar-background-color-dark-mode-false,
+body .js-set-create-item-sidebar-background-color-dark-mode-false,
+.app-component .js-set-create-item-sidebar-background-color-dark-mode-false,
+.js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-false {
+  background-color: white;
+}
+html .js-set-base-icon-button-background-color-with-hover-dark-mode-true,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-true,
+.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true,
+.js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true {
+  color: #525252;
+}
+html .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover, html .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active,
+.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover,
+.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active,
+.js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover,
+.js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active {
+  color: #808080;
+}
+html .js-set-base-icon-button-background-color-with-hover-dark-mode-false,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-false,
+.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false,
+.js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false {
+  color: #919191;
+}
+html .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover, html .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active,
+.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover,
+.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active,
+.js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover,
+.js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active {
+  color: #3a3a3a;
+}
+html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true,
+.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true,
+.js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true {
+  color: #4e4e4e;
+}
+html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover, html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active,
+.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover,
+.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active,
+.js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover,
+.js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active {
+  color: #757575;
+}
+html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false,
+.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false,
+.js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false {
+  color: #757575;
+}
+html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover, html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover,
+body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active,
+.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover,
+.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active,
+.js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover,
+.js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active {
+  color: #3a3a3a;
+}
+html .js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-true,
+body .js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-true,
+.app-component .js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-true,
+.js-calc-app-component .js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-true {
+  border-color: #a3a3a3;
+  background-color: #3a3a3a;
+  color: #757575;
+}
+html .js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-false,
+body .js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-false,
+.app-component .js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-false,
+.js-calc-app-component .js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-false {
+  border-color: black;
+  background-color: white;
+  color: #3a3a3a;
+}
+html .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true,
+body .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true,
+.app-component .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true,
+.js-calc-app-component .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true {
+  border-color: #1d1d1d;
+  background-color: #525252;
+  color: #C9D1D9;
+}
+html .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
+body .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
+.app-component .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
+.js-calc-app-component .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false {
+  border-color: #757575;
+  background-color: #e5e5e5;
+  color: black;
+}
+html .js-set-base-diabled-label-dark-mode-true,
+body .js-set-base-diabled-label-dark-mode-true,
+.app-component .js-set-base-diabled-label-dark-mode-true,
+.js-calc-app-component .js-set-base-diabled-label-dark-mode-true {
+  color: #6d6d6d;
+  pointer-events: none;
+}
+html .js-set-base-diabled-label-dark-mode-false,
+body .js-set-base-diabled-label-dark-mode-false,
+.app-component .js-set-base-diabled-label-dark-mode-false,
+.js-calc-app-component .js-set-base-diabled-label-dark-mode-false {
+  color: #bfbfbf;
+  pointer-events: none;
+}
+html .js-set-base-diabled-input-date-dark-mode-true,
+body .js-set-base-diabled-input-date-dark-mode-true,
+.app-component .js-set-base-diabled-input-date-dark-mode-true,
+.js-calc-app-component .js-set-base-diabled-input-date-dark-mode-true {
+  border-color: #1d1d1d;
+  background-color: #333333;
+  color: #6d6d6d;
+  pointer-events: none;
+}
+html .js-set-base-diabled-input-date-dark-mode-false,
+body .js-set-base-diabled-input-date-dark-mode-false,
+.app-component .js-set-base-diabled-input-date-dark-mode-false,
+.js-calc-app-component .js-set-base-diabled-input-date-dark-mode-false {
+  border-color: #757575;
+  background-color: white;
+  color: #6d6d6d;
+  pointer-events: none;
+}
+html .js-set-item-box-background-color-dark-mode-true,
+body .js-set-item-box-background-color-dark-mode-true,
+.app-component .js-set-item-box-background-color-dark-mode-true,
+.js-calc-app-component .js-set-item-box-background-color-dark-mode-true {
+  background-color: #292929;
+}
+html .js-set-item-box-background-color-dark-mode-false,
+body .js-set-item-box-background-color-dark-mode-false,
+.app-component .js-set-item-box-background-color-dark-mode-false,
+.js-calc-app-component .js-set-item-box-background-color-dark-mode-false {
+  background-color: #e5e5e5;
+}
+html .js-set-base-text-color-dark-mode-true,
+body .js-set-base-text-color-dark-mode-true,
+.app-component .js-set-base-text-color-dark-mode-true,
+.js-calc-app-component .js-set-base-text-color-dark-mode-true {
+  color: #C9D1D9;
+}
+html .js-set-base-text-color-dark-mode-false,
+body .js-set-base-text-color-dark-mode-false,
+.app-component .js-set-base-text-color-dark-mode-false,
+.js-calc-app-component .js-set-base-text-color-dark-mode-false {
+  color: black;
+}
+html .js-set-dark-background-color-theme-teal,
+body .js-set-dark-background-color-theme-teal,
+.app-component .js-set-dark-background-color-theme-teal,
+.js-calc-app-component .js-set-dark-background-color-theme-teal {
+  background-color: #50798b;
+}
+html .js-set-light-background-color-theme-teal,
+body .js-set-light-background-color-theme-teal,
+.app-component .js-set-light-background-color-theme-teal,
+.js-calc-app-component .js-set-light-background-color-theme-teal {
+  background-color: #6691a3;
+}
+html .js-set-dark-background-color-theme-blue,
+body .js-set-dark-background-color-theme-blue,
+.app-component .js-set-dark-background-color-theme-blue,
+.js-calc-app-component .js-set-dark-background-color-theme-blue {
+  background-color: #3d5774;
+}
+html .js-set-light-background-color-theme-blue,
+body .js-set-light-background-color-theme-blue,
+.app-component .js-set-light-background-color-theme-blue,
+.js-calc-app-component .js-set-light-background-color-theme-blue {
+  background-color: #4d6e92;
+}
+html .js-set-background-color-with-hover-theme-teal,
+body .js-set-background-color-with-hover-theme-teal,
+.app-component .js-set-background-color-with-hover-theme-teal,
+.js-calc-app-component .js-set-background-color-with-hover-theme-teal {
+  background-color: #6691a3;
+}
+html .js-set-background-color-with-hover-theme-teal:hover, html .js-set-background-color-with-hover-theme-teal:active,
+body .js-set-background-color-with-hover-theme-teal:hover,
+body .js-set-background-color-with-hover-theme-teal:active,
+.app-component .js-set-background-color-with-hover-theme-teal:hover,
+.app-component .js-set-background-color-with-hover-theme-teal:active,
+.js-calc-app-component .js-set-background-color-with-hover-theme-teal:hover,
+.js-calc-app-component .js-set-background-color-with-hover-theme-teal:active {
+  background-color: #50798b;
+}
+html .js-set-background-color-with-hover-theme-blue,
+body .js-set-background-color-with-hover-theme-blue,
+.app-component .js-set-background-color-with-hover-theme-blue,
+.js-calc-app-component .js-set-background-color-with-hover-theme-blue {
+  background-color: #4d6e92;
+}
+html .js-set-background-color-with-hover-theme-blue:hover, html .js-set-background-color-with-hover-theme-blue:active,
+body .js-set-background-color-with-hover-theme-blue:hover,
+body .js-set-background-color-with-hover-theme-blue:active,
+.app-component .js-set-background-color-with-hover-theme-blue:hover,
+.app-component .js-set-background-color-with-hover-theme-blue:active,
+.js-calc-app-component .js-set-background-color-with-hover-theme-blue:hover,
+.js-calc-app-component .js-set-background-color-with-hover-theme-blue:active {
+  background-color: #3d5774;
+}
+html .js-set-dark-breadcrumb-arrow-color-theme-teal,
+body .js-set-dark-breadcrumb-arrow-color-theme-teal,
+.app-component .js-set-dark-breadcrumb-arrow-color-theme-teal,
+.js-calc-app-component .js-set-dark-breadcrumb-arrow-color-theme-teal {
+  border-left-color: #50798b;
+}
+html .js-set-light-breadcrumb-arrow-color-theme-teal,
+body .js-set-light-breadcrumb-arrow-color-theme-teal,
+.app-component .js-set-light-breadcrumb-arrow-color-theme-teal,
+.js-calc-app-component .js-set-light-breadcrumb-arrow-color-theme-teal {
+  border-left-color: #6691a3;
+}
+html .js-set-dark-breadcrumb-arrow-color-theme-blue,
+body .js-set-dark-breadcrumb-arrow-color-theme-blue,
+.app-component .js-set-dark-breadcrumb-arrow-color-theme-blue,
+.js-calc-app-component .js-set-dark-breadcrumb-arrow-color-theme-blue {
+  border-left-color: #3d5774;
+}
+html .js-set-light-breadcrumb-arrow-color-theme-blue,
+body .js-set-light-breadcrumb-arrow-color-theme-blue,
+.app-component .js-set-light-breadcrumb-arrow-color-theme-blue,
+.js-calc-app-component .js-set-light-breadcrumb-arrow-color-theme-blue {
+  border-left-color: #4d6e92;
+}
+html .js-set-dark-border-color-theme-teal,
+body .js-set-dark-border-color-theme-teal,
+.app-component .js-set-dark-border-color-theme-teal,
+.js-calc-app-component .js-set-dark-border-color-theme-teal {
+  border-color: #50798b;
+}
+html .js-set-light-border-color-theme-teal,
+body .js-set-light-border-color-theme-teal,
+.app-component .js-set-light-border-color-theme-teal,
+.js-calc-app-component .js-set-light-border-color-theme-teal {
+  border-color: #6691a3;
+}
+html .js-set-dark-border-color-theme-blue,
+body .js-set-dark-border-color-theme-blue,
+.app-component .js-set-dark-border-color-theme-blue,
+.js-calc-app-component .js-set-dark-border-color-theme-blue {
+  border-color: #3d5774;
+}
+html .js-set-light-border-color-theme-blue,
+body .js-set-light-border-color-theme-blue,
+.app-component .js-set-light-border-color-theme-blue,
+.js-calc-app-component .js-set-light-border-color-theme-blue {
+  border-color: #4d6e92;
+}
+html .js-set-text-color-theme-teal,
+body .js-set-text-color-theme-teal,
+.app-component .js-set-text-color-theme-teal,
+.js-calc-app-component .js-set-text-color-theme-teal {
+  color: #2588b3;
+}
+html .js-set-text-color-theme-blue,
+body .js-set-text-color-theme-blue,
+.app-component .js-set-text-color-theme-blue,
+.js-calc-app-component .js-set-text-color-theme-blue {
+  color: #245ba3;
+}
+html .js-set-status-box-background-color-gray,
+html .js-calc-status-box-background-color-gray,
+body .js-set-status-box-background-color-gray,
+body .js-calc-status-box-background-color-gray,
+.app-component .js-set-status-box-background-color-gray,
+.app-component .js-calc-status-box-background-color-gray,
+.js-calc-app-component .js-set-status-box-background-color-gray,
+.js-calc-app-component .js-calc-status-box-background-color-gray {
+  background-color: #808080;
+}
+html .js-set-status-box-background-color-blue,
+html .js-calc-status-box-background-color-blue,
+body .js-set-status-box-background-color-blue,
+body .js-calc-status-box-background-color-blue,
+.app-component .js-set-status-box-background-color-blue,
+.app-component .js-calc-status-box-background-color-blue,
+.js-calc-app-component .js-set-status-box-background-color-blue,
+.js-calc-app-component .js-calc-status-box-background-color-blue {
+  background-color: #568dd5;
+}
+html .js-set-status-box-background-color-purple,
+html .js-calc-status-box-background-color-purple,
+body .js-set-status-box-background-color-purple,
+body .js-calc-status-box-background-color-purple,
+.app-component .js-set-status-box-background-color-purple,
+.app-component .js-calc-status-box-background-color-purple,
+.js-calc-app-component .js-set-status-box-background-color-purple,
+.js-calc-app-component .js-calc-status-box-background-color-purple {
+  background-color: #9680ce;
+}
+html .js-set-status-box-background-color-orange,
+html .js-calc-status-box-background-color-orange,
+body .js-set-status-box-background-color-orange,
+body .js-calc-status-box-background-color-orange,
+.app-component .js-set-status-box-background-color-orange,
+.app-component .js-calc-status-box-background-color-orange,
+.js-calc-app-component .js-set-status-box-background-color-orange,
+.js-calc-app-component .js-calc-status-box-background-color-orange {
+  background-color: #ff9900;
+}
+html .js-set-status-box-background-color-green,
+html .js-calc-status-box-background-color-green,
+body .js-set-status-box-background-color-green,
+body .js-calc-status-box-background-color-green,
+.app-component .js-set-status-box-background-color-green,
+.app-component .js-calc-status-box-background-color-green,
+.js-calc-app-component .js-set-status-box-background-color-green,
+.js-calc-app-component .js-calc-status-box-background-color-green {
+  background-color: #007e00;
+}
+html .js-set-status-box-background-color-red,
+html .js-calc-status-box-background-color-red,
+body .js-set-status-box-background-color-red,
+body .js-calc-status-box-background-color-red,
+.app-component .js-set-status-box-background-color-red,
+.app-component .js-calc-status-box-background-color-red,
+.js-calc-app-component .js-set-status-box-background-color-red,
+.js-calc-app-component .js-calc-status-box-background-color-red {
+  background-color: #d14242;
+}
+html .js-set-status-box-text-color-gray,
+body .js-set-status-box-text-color-gray,
+.app-component .js-set-status-box-text-color-gray,
+.js-calc-app-component .js-set-status-box-text-color-gray {
+  color: #808080;
+}
+html .js-set-status-box-text-color-blue,
+body .js-set-status-box-text-color-blue,
+.app-component .js-set-status-box-text-color-blue,
+.js-calc-app-component .js-set-status-box-text-color-blue {
+  color: #568dd5;
+}
+html .js-set-status-box-text-color-purple,
+body .js-set-status-box-text-color-purple,
+.app-component .js-set-status-box-text-color-purple,
+.js-calc-app-component .js-set-status-box-text-color-purple {
+  color: #9680ce;
+}
+html .js-set-status-box-text-color-orange,
+body .js-set-status-box-text-color-orange,
+.app-component .js-set-status-box-text-color-orange,
+.js-calc-app-component .js-set-status-box-text-color-orange {
+  color: #ff9900;
+}
+html .js-set-status-box-text-color-green,
+body .js-set-status-box-text-color-green,
+.app-component .js-set-status-box-text-color-green,
+.js-calc-app-component .js-set-status-box-text-color-green {
+  color: #007e00;
+}
+html .js-set-status-box-text-color-red,
+body .js-set-status-box-text-color-red,
+.app-component .js-set-status-box-text-color-red,
+.js-calc-app-component .js-set-status-box-text-color-red {
+  color: #d14242;
 }
 
 /*# sourceMappingURL=styles.css.map */

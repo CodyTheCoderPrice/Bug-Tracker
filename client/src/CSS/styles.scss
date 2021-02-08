@@ -1,5 +1,3 @@
-// scss_partials
-@use "scss_partials/app";
 // scss_partials/basic
 @use "scss_partials/basic/toggleSwitch";
 // scss_partials/authentication
@@ -32,3 +30,5 @@
 @use "scss_partials/home/projects-bugs-shared/list/listViewSearchFilterSortBar";
 @use "scss_partials/home/projects-bugs-shared/list/listViewTableAndRows";
 @use "scss_partials/home/projects-bugs-shared/list/listViewTableSortArrowsButton";
+// scss_partials
+@use "scss_partials/app";

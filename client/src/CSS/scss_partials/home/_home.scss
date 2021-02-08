@@ -1,8 +1,7 @@
 @use "../utils/variables" as v;
 @use "../utils/mixins" as m;
 
-.home-container,
-.js-calc-home-container {
+.home-container {
 	position: absolute;
 	top: 0;
 	left: 0;

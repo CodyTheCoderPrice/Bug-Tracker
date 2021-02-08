@@ -24,6 +24,7 @@ import {
 	getBarSearchBarBackgroundAndTextColorClassNameForDarkMode,
 	getBarButtonBorderBackgroundTextColorClassNameForDarkMode,
 	getMoreDistinctIconButtonTextColorWithHoverClassNameForDarkMode,
+	getItemViewOptionsButtonClickedBorderBackgroundTextColorClassNameForDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
@@ -476,15 +477,15 @@ export default function ItemViewTopBar(props) {
 				<div
 					className={
 						"item-options-container__button" +
+						getMoreDistinctIconButtonTextColorWithHoverClassNameForDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.itemViewTopBarOptionsDropdown
-							? " item-options-container__button--clicked" +
-							  getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+							? getItemViewOptionsButtonClickedBorderBackgroundTextColorClassNameForDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							  )
-							: getMoreDistinctIconButtonTextColorWithHoverClassNameForDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-							  ))
+							: "")
 					}
 					onClick={(e) => toggleOptionsDropdown(e)}
 				>

@@ -18,7 +18,7 @@ function convertRbgBackgroundColorToHex(rbgBackgroundColor) {
 
 export function appendHexValueForColor(statusList) {
 	const invisibleHomeElement = document.createElement("div");
-	invisibleHomeElement.className = "js-calc-home-container";
+	invisibleHomeElement.className = "js-calc-app-component";
 	invisibleHomeElement.visibility = "hidden";
 	document.body.appendChild(invisibleHomeElement);
 
@@ -56,33 +56,66 @@ export function getBarBackgroundColorClassNameForDarkMode(dark_mode) {
 }
 
 // Dark/Light mode background and text colors for searchFilterSearch/top bar search bar
-export function getBarSearchBarBackgroundAndTextColorClassNameForDarkMode(dark_mode) {
+export function getBarSearchBarBackgroundAndTextColorClassNameForDarkMode(
+	dark_mode
+) {
 	return " js-set-bar-search-bar-background-text-color-dark-mode-" + dark_mode;
 }
 
 // Dark/Light mode border, background, and text color for searchFilterSearch/top bar buttons
-export function getBarButtonBorderBackgroundTextColorClassNameForDarkMode(dark_mode) {
-	return " js-set-bar-button-border-background-text-color-dark-mode-" + dark_mode;
+export function getBarButtonBorderBackgroundTextColorClassNameForDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-bar-button-border-background-text-color-dark-mode-" + dark_mode
+	);
 }
 
 // Dark/Light mode background colors for createItemSidebar component
-export function getCreateItemSidebarBackgroundColorClassNameForDarkMode(dark_mode) {
+export function getCreateItemSidebarBackgroundColorClassNameForDarkMode(
+	dark_mode
+) {
 	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
 }
 
 // Dark/Light mode text colors with hover for base icon buttons
-export function getBaseIconButtonTextColorWithHoverClassNameForDarkMode(dark_mode) {
-	return " js-set-base-icon-button-background-color-with-hover-dark-mode-" + dark_mode;
+export function getBaseIconButtonTextColorWithHoverClassNameForDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-base-icon-button-background-color-with-hover-dark-mode-" +
+		dark_mode
+	);
 }
 
 // Dark/Light mode text colors with hover for more distinct icon buttons
-export function getMoreDistinctIconButtonTextColorWithHoverClassNameForDarkMode(dark_mode) {
-	return " js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-" + dark_mode;
+export function getMoreDistinctIconButtonTextColorWithHoverClassNameForDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-" +
+		dark_mode
+	);
 }
 
 // Dark/Light mode border, background, and text color for base form-input
-export function getBaseFormInputBorderBackgroundTextColorClassNameForDarkMode(dark_mode) {
-	return " js-set-base-form-input-border-background-text-border-text-color-dark-mode-" + dark_mode;
+export function getBaseFormInputBorderBackgroundTextColorClassNameForDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-base-form-input-border-background-text-border-text-color-dark-mode-" +
+		dark_mode
+	);
+}
+
+// Dark/Light mode border, background, and text color for clicked options button in itemVeiw component
+export function getItemViewOptionsButtonClickedBorderBackgroundTextColorClassNameForDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-" +
+		dark_mode
+	);
 }
 
 // Dark/Light mode disable base label
