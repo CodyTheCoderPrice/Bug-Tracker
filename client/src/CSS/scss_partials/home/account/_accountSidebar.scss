@@ -15,6 +15,7 @@
 		// Used by JS during resize to give margin to bottom
 		margin-bottom: 20px;
 		border: v.$base-sidebar-border-width solid black;
+		border-top: none;
 		border-right: none;
 		background: white;
 		height: 390px;
@@ -38,7 +39,7 @@
 
 		&:hover,
 		&:active {
-			color: v.$hover-active-icon-button-gray;
+			color: v.$mode-hover-text-color-base-icon-button-light;
 			font-size: 24px;
 		}
 	}

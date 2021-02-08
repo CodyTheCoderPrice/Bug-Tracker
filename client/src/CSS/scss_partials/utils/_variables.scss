@@ -32,6 +32,8 @@ $dark-gray-level-6: #292929;
 $dark-gray-level-7: #272727;
 $dark-gray-level-8: #1d1d1d;
 $dark-gray-level-9: #181818;
+// Tinted grays
+$tinted-light-gray-1: #C9D1D9;
 // Blue grays
 $very-light-blue-gray: #7390af;
 $light-blue-gray: #607c99;
@@ -59,21 +61,7 @@ $light-green: #ccf5cc;
 // Yellows
 $yellow: #ffff00;
 
-// Backend error color
-$backend-error-color: red;
-// Blurred background color
-$blurred-background-color: black;
-// Focus colors
-$focus-blue: #0059ff;
-// Icon button colors
-$normal-icon-button-gray: $gray-level-2;
-$darker-icon-button-gray: $gray-level-4;
-$hover-active-icon-button-gray: $dark-gray-level-2;
-// Links
-$blues-link: #005ed8;
-$red-link: #f34242;
-
-// Components (General)
+// Components
 $basic-toggle-switch-on-color: $blue;
 $basic-toggle-switch-off-color: $light-gray-level-7;
 $account-sidebar-appearance-theme-button-border-color: $dark-gray-level-1;
@@ -82,11 +70,8 @@ $account-sidebar-appearance-theme-button-arrow-container-color: $light-gray-leve
 $account-sidebar-appearance-theme-button-option-text-color: $dark-gray-level-2;
 $account-sidebar-appearance-theme-button-option-selected-color: $light-blue;
 $list-table-border-color: $gray-level-2;
-$filter-active-color: #0077ff;
-$filter-active-color2: #ae00ff;
-$filter-active-color3: #ffbb00;
 // Dark/Light mode (general)
-$mode-text-color-base-dark: $light-gray-level-9; // dark in name refers to the mode (not the text color)
+$mode-text-color-base-dark: $tinted-light-gray-1; // dark in name refers to the mode (not the text color)
 $mode-text-color-base-light: black; // light in name refers to the mode (not the text color)
 $mode-text-color-base-disabled-form-input-dark: $gray-level-5;
 $mode-text-color-base-disabled-form-input-light: $light-gray-level-10;
@@ -97,6 +82,10 @@ $mode-background-color-search-filter-sort-top-bar-dark: $dark-gray-level-6;
 $mode-background-color-search-filter-sort-top-bar-light: $light-gray-level-5;
 $mode-background-color-create-item-sidebar-dark: $mode-background-color-home-dark;
 $mode-background-color-create-item-sidebar-light: $mode-background-color-home-light;
+$mode-text-color-base-icon-button-dark: $gray-level-9;
+$mode-text-color-base-icon-button-light: $gray-level-2;
+$mode-hover-text-color-base-icon-button-dark: $gray-level-3;
+$mode-hover-text-color-base-icon-button-light: $dark-gray-level-2;
 $mode-background-color-base-form-input-dark: $gray-level-9;
 $mode-background-color-base-form-input-light: $light-gray-level-5;
 $mode-border-color-base-form-input-dark: $dark-gray-level-8;
@@ -119,6 +108,22 @@ $status-purple: #9680ce;
 $status-orange: #ff9900;
 $status-green: #007e00;
 $status-red: #d14242;
+// Filter colors
+$filter-active-color: #0077ff;
+$filter-active-color2: #ae00ff;
+$filter-active-color3: #ffbb00;
+
+// Backend error color
+$backend-error-color: red;
+// Blurred background color
+$blurred-background-color: black;
+// Focus colors
+$focus-blue: #0059ff;
+// Icon button colors
+$darker-icon-button-gray: $gray-level-4;
+// Links
+$blues-link: #005ed8;
+$red-link: #f34242;
 
 //==========
 // Heights

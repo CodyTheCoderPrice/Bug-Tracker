@@ -50,11 +50,29 @@ html .js-set-create-item-sidebar-background-color-dark-mode-false,
 body .js-set-create-item-sidebar-background-color-dark-mode-false {
   background-color: white !important;
 }
+html .js-set-base-icon-button-background-color-with-hover-dark-mode-true,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-true {
+  color: #525252 !important;
+}
+html .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover, html .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active {
+  color: #808080 !important;
+}
+html .js-set-base-icon-button-background-color-with-hover-dark-mode-false,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-false {
+  color: #919191 !important;
+}
+html .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover, html .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover,
+body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active {
+  color: #3a3a3a !important;
+}
 html .js-set-base-form-input-background-border-text-color-dark-mode-true,
 body .js-set-base-form-input-background-border-text-color-dark-mode-true {
   border-color: #1d1d1d !important;
   background-color: #525252 !important;
-  color: #cacaca !important;
+  color: #C9D1D9 !important;
 }
 html .js-set-base-form-input-background-border-text-color-dark-mode-false,
 body .js-set-base-form-input-background-border-text-color-dark-mode-false {
@@ -96,7 +114,7 @@ body .js-set-item-box-background-color-dark-mode-false {
 }
 html .js-set-base-text-color-dark-mode-true,
 body .js-set-base-text-color-dark-mode-true {
-  color: #cacaca !important;
+  color: #C9D1D9 !important;
 }
 html .js-set-base-text-color-dark-mode-false,
 body .js-set-base-text-color-dark-mode-false {
@@ -807,6 +825,7 @@ dropdown can overlap all other components
   right: 0;
   margin-bottom: 20px;
   border: 3px solid black;
+  border-top: none;
   border-right: none;
   background: white;
   height: 390px;
@@ -2309,6 +2328,7 @@ dropdown can overlap all other components
   top: 56px;
   margin-bottom: 20px;
   border: 3px solid black;
+  border-top: none;
   border-width: 2px 3px 3px 0;
   height: 700px;
   width: 500px;
@@ -2437,15 +2457,6 @@ dropdown can overlap all other components
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   cursor: pointer;
-}
-.create-item-component .grayed-out-unclickable-label {
-  color: #bfbfbf;
-  pointer-events: none;
-}
-.create-item-component .grayed-out-unclickable-date {
-  background-color: white;
-  color: #bfbfbf;
-  pointer-events: none;
 }
 
 .search-filter-sort-component,

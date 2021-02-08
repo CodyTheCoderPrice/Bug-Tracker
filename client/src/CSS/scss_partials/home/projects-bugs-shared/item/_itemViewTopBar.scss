@@ -249,7 +249,7 @@
 
 		&:hover,
 		&:active {
-			color: v.$hover-active-icon-button-gray;
+			color: v.$mode-hover-text-color-base-icon-button-light;
 		}
 	}
 
@@ -261,7 +261,7 @@
 		border-color: black;
 		border-bottom: none;
 		background-color: white;
-		color: v.$hover-active-icon-button-gray;
+		color: v.$mode-hover-text-color-base-icon-button-light;
 	}
 
 	.item-options-container__dropdown {

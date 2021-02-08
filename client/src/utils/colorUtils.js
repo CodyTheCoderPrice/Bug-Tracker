@@ -60,6 +60,11 @@ export function getCreateItemSidebarBackgroundColorClassNameForDarkMode(dark_mod
 	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
 }
 
+// Dark/Light mode text colors with hover for base icon buttons
+export function getBaseIconButtonTextColorWithHoverClassNameForDarkMode(dark_mode) {
+	return " js-set-base-icon-button-background-color-with-hover-dark-mode-" + dark_mode;
+}
+
 // Dark/Light mode background, border, and text color for base form-input
 export function getBaseFormInputTextBackgroundBorderTextColorClassNameForDarkMode(dark_mode) {
 	return " js-set-base-form-input-background-border-text-color-dark-mode-" + dark_mode;

@@ -25,7 +25,7 @@ import {
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
 
-import ListTableSortArrowsButton from "../list/ListViewTableSortArrowsButton";
+import SortArrowsButton from "../SortArrowsButton";
 
 export default function ItemViewTopBar(props) {
 	const reduxState = useSelector((state) => state);
@@ -239,10 +239,11 @@ export default function ItemViewTopBar(props) {
 						>
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block list-sort-filter-container__content-dropdown__sort-content-block--larger-top-margin">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<ListTableSortArrowsButton
+									<SortArrowsButton
 										sortTypeId={1}
 										sortFor="Name"
 										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 									/>
 								</span>
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
@@ -251,10 +252,11 @@ export default function ItemViewTopBar(props) {
 							</div>
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<ListTableSortArrowsButton
+									<SortArrowsButton
 										sortTypeId={2}
 										sortFor="Status"
 										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 									/>
 								</span>
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
@@ -263,10 +265,11 @@ export default function ItemViewTopBar(props) {
 							</div>
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<ListTableSortArrowsButton
+									<SortArrowsButton
 										sortTypeId={3}
 										sortFor="Priority"
 										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 									/>
 								</span>
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
@@ -275,10 +278,11 @@ export default function ItemViewTopBar(props) {
 							</div>
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<ListTableSortArrowsButton
+									<SortArrowsButton
 										sortTypeId={4}
 										sortFor="Created on"
 										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 									/>
 								</span>
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
@@ -287,10 +291,11 @@ export default function ItemViewTopBar(props) {
 							</div>
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<ListTableSortArrowsButton
+									<SortArrowsButton
 										sortTypeId={5}
 										sortFor="Start Date"
 										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 									/>
 								</span>
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
@@ -299,10 +304,11 @@ export default function ItemViewTopBar(props) {
 							</div>
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<ListTableSortArrowsButton
+									<SortArrowsButton
 										sortTypeId={6}
 										sortFor="Due Date"
 										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 									/>
 								</span>
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">

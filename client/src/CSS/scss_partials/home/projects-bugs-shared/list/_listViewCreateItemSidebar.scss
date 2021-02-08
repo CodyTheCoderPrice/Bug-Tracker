@@ -21,6 +21,7 @@
 		// Used by JS during resize to give margin to bottom
 		margin-bottom: 20px;
 		border: v.$base-sidebar-border-width solid black;
+		border-top: none;
 		border-width: v.$base-sidebar-border-width - 1 v.$base-sidebar-border-width v.$base-sidebar-border-width 0;
 		height: v.$create-item-sidebar-height;
 		width: v.$create-item-sidebar-width;
@@ -161,18 +162,5 @@
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16px;
 		cursor: pointer;
-	}
-
-	// These classes are used by the custom hook that handles appearance
-	// ...of completion date based of the status of the project
-	.grayed-out-unclickable-label {
-		color: v.$light-gray-level-10;
-		pointer-events: none;
-	}
-
-	.grayed-out-unclickable-date {
-		background-color: white;
-		color: v.$light-gray-level-10;
-		pointer-events: none;
 	}
 }

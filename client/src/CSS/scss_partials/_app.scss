@@ -47,6 +47,24 @@ body {
 		background-color: v.$mode-background-color-create-item-sidebar-light !important;
 	}
 
+	// Dark/Light mode text colors with hover for base icon buttons
+	.js-set-base-icon-button-background-color-with-hover-dark-mode-true {
+		color: v.$mode-text-color-base-icon-button-dark !important;
+
+		&:hover,
+		&:active {
+			color: v.$mode-hover-text-color-base-icon-button-dark !important;
+		}
+	}
+	.js-set-base-icon-button-background-color-with-hover-dark-mode-false {
+		color: v.$mode-text-color-base-icon-button-light !important;
+
+		&:hover,
+		&:active {
+			color: v.$mode-hover-text-color-base-icon-button-light !important;
+		}
+	}
+
 	// Dark/Light mode background, border, and text color for base form-input
 	.js-set-base-form-input-background-border-text-color-dark-mode-true {
 		border-color: v.$mode-border-color-base-form-input-dark !important;

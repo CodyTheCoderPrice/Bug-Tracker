@@ -4,6 +4,8 @@ import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
 
 import { setWhichAccountComponentsDisplay } from "../../../actions";
 
+import { getBaseIconButtonTextColorWithHoverClassNameForDarkMode } from "../../../utils";
+
 // Components
 import AccountModalChangeInfo from "./AccountModalChangeInfo";
 import AccountModalChangeEmail from "./AccountModalChangeEmail";
@@ -22,7 +24,15 @@ export default function AccountModal() {
 	return (
 		<div className="edit-account-modal-component">
 			<div className="edit-account-modal">
-				<div className="exit-button" onClick={backToAccountSidebar}>
+				<div
+					className={
+						"exit-button" +
+						getBaseIconButtonTextColorWithHoverClassNameForDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+					onClick={backToAccountSidebar}
+				>
 					<i className="fa fa-times" aria-hidden="true" alt="icon of an X"></i>
 				</div>
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay

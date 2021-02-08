@@ -20,7 +20,7 @@ import {
 
 // Components
 import ListTableRow from "./ListViewTableRow";
-import ListTableSortArrowsButton from "./ListViewTableSortArrowsButton";
+import SortArrowsButton from "../SortArrowsButton";
 
 export default function ListViewTable(props) {
 	const reduxState = useSelector((state) => state);
@@ -198,10 +198,11 @@ export default function ListViewTable(props) {
 								Name
 							</span>
 							<span className="list-table__header__sort-arrow-container">
-								<ListTableSortArrowsButton
+								<SortArrowsButton
 									sortTypeId={1}
 									sortFor="Name"
 									reduxContainerName={props.reduxContainerName}
+									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
 						</th>
@@ -217,10 +218,11 @@ export default function ListViewTable(props) {
 								Status
 							</span>
 							<span className="list-table__header__sort-arrow-container">
-								<ListTableSortArrowsButton
+								<SortArrowsButton
 									sortTypeId={2}
 									sortFor="Status"
 									reduxContainerName={props.reduxContainerName}
+									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
 						</th>
@@ -236,10 +238,11 @@ export default function ListViewTable(props) {
 								Priority
 							</span>
 							<span className="list-table__header__sort-arrow-container">
-								<ListTableSortArrowsButton
+								<SortArrowsButton
 									sortTypeId={3}
 									sortFor="Priority"
 									reduxContainerName={props.reduxContainerName}
+									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
 						</th>
@@ -255,10 +258,11 @@ export default function ListViewTable(props) {
 								Created on
 							</span>
 							<span className="list-table__header__sort-arrow-container">
-								<ListTableSortArrowsButton
+								<SortArrowsButton
 									sortTypeId={4}
 									sortFor="Created on"
 									reduxContainerName={props.reduxContainerName}
+									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
 						</th>
@@ -274,10 +278,11 @@ export default function ListViewTable(props) {
 								Start Date
 							</span>
 							<span className="list-table__header__sort-arrow-container">
-								<ListTableSortArrowsButton
+								<SortArrowsButton
 									sortTypeId={5}
 									sortFor="Start Date"
 									reduxContainerName={props.reduxContainerName}
+									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
 						</th>
@@ -293,10 +298,11 @@ export default function ListViewTable(props) {
 								Due Date
 							</span>
 							<span className="list-table__header__sort-arrow-container">
-								<ListTableSortArrowsButton
+								<SortArrowsButton
 									sortTypeId={6}
 									sortFor="Due Date"
 									reduxContainerName={props.reduxContainerName}
+									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
 						</th>
