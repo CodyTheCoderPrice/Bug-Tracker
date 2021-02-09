@@ -35,12 +35,12 @@
 	top: v.$back-exit-buttons-top;
 	border: none;
 	background: none;
-	color: v.$mode-text-color-base-icon-button-light;
+	color: v.$mode-base-icon-button-text-color-light;
 	cursor: pointer;
 
 	&:hover,
 	&:active {
-		color: v.$mode-hover-text-color-base-icon-button-light;
+		color: v.$mode-base-icon-button-hover-text-color-light;
 	}
 }
 
