@@ -14,8 +14,9 @@ import {
 
 import {
 	getElementLocation,
+	getHomeBackgroundColorClassNameForLightOrDarkMode,
 	searchFilterSort,
-	getBaseTextColorClassNameForDarkMode,
+	getBaseTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
@@ -126,11 +127,11 @@ export default function ListViewTable(props) {
 				className={
 					"list-table__header__mass-delete-options-container__button" +
 					(reduxState[props.reduxContainerName].massDeleteList.length > 0
-						? getBaseTextColorClassNameForDarkMode(
+						? getBaseTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						  )
 						: " list-table__header__mass-delete-options-container__button--disabled" +
-						  getBaseTextColorClassNameForDarkMode(
+						  getBaseTextColorClassNameForLightOrDarkMode(
 								!reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						  ))
 				}
@@ -167,7 +168,14 @@ export default function ListViewTable(props) {
 			<table className="list-table">
 				<thead className="">
 					<tr className="list-table__row">
-						<th className="list-table__header list-table__header--for-mass-delete">
+						<th
+							className={
+								"list-table__header list-table__header--for-mass-delete" +
+								getHomeBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							<div className="list-table__header__mass-delete-options-container js-mass-delete-buttons-container">
 								{createMassDeleteButton(
 									checkAllItems,
@@ -186,11 +194,18 @@ export default function ListViewTable(props) {
 								)}
 							</div>
 						</th>
-						<th className="list-table__header js-list-table__header">
+						<th
+							className={
+								"list-table__header js-list-table__header" +
+								getHomeBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForDarkMode(
+									getBaseTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -206,11 +221,18 @@ export default function ListViewTable(props) {
 								/>
 							</span>
 						</th>
-						<th className="list-table__header">
+						<th
+							className={
+								"list-table__header" +
+								getHomeBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForDarkMode(
+									getBaseTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -226,11 +248,18 @@ export default function ListViewTable(props) {
 								/>
 							</span>
 						</th>
-						<th className="list-table__header">
+						<th
+							className={
+								"list-table__header" +
+								getHomeBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForDarkMode(
+									getBaseTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -246,11 +275,18 @@ export default function ListViewTable(props) {
 								/>
 							</span>
 						</th>
-						<th className="list-table__header">
+						<th
+							className={
+								"list-table__header" +
+								getHomeBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForDarkMode(
+									getBaseTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -266,11 +302,18 @@ export default function ListViewTable(props) {
 								/>
 							</span>
 						</th>
-						<th className="list-table__header">
+						<th
+							className={
+								"list-table__header" +
+								getHomeBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForDarkMode(
+									getBaseTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -286,11 +329,18 @@ export default function ListViewTable(props) {
 								/>
 							</span>
 						</th>
-						<th className="list-table__header">
+						<th
+							className={
+								"list-table__header" +
+								getHomeBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForDarkMode(
+									getBaseTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -306,11 +356,18 @@ export default function ListViewTable(props) {
 								/>
 							</span>
 						</th>
-						<th className="list-table__header">
+						<th
+							className={
+								"list-table__header" +
+								getHomeBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForDarkMode(
+									getBaseTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -320,7 +377,14 @@ export default function ListViewTable(props) {
 									: "Comments"}
 							</span>
 						</th>
-						<th className="list-table__header js-remaining-space">
+						<th
+							className={
+								"list-table__header js-remaining-space" +
+								getHomeBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							{/*Fills remaining empty space*/}
 						</th>
 					</tr>

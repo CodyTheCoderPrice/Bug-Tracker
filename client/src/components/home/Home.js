@@ -14,7 +14,7 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
-	getHomeBackgroundColorClassNameForDarkMode,
+	getHomeBackgroundColorClassNameForLightOrDarkMode,
 } from "../../utils";
 
 // Components
@@ -95,7 +95,7 @@ export default function Home() {
 		<div
 			className={
 				"home-container" +
-				getHomeBackgroundColorClassNameForDarkMode(
+				getHomeBackgroundColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}

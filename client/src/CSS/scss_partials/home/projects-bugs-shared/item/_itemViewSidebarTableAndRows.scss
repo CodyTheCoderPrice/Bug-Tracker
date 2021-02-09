@@ -72,14 +72,6 @@
 		text-align: center;
 	}
 
-	.list-sidebar__table__row--hover-highlight:hover {
-		background-color: v.$light-gray-level-2;
-	}
-
-	.list-sidebar__table__row--selected {
-		background-color: v.$light-gray-level-7;
-	}
-
 	.list-sidebar__table__row--empty {
 		height: v.$list-item-table-row-height + (v.$list-item-table-row-height * 0.5);
 	}

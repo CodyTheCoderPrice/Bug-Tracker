@@ -25,61 +25,63 @@ body,
 		opacity: 0.7;
 	}
 
-	// Dark/Light mode background colors for home component
-	.js-set-home-background-color-dark-mode-true {
-		background-color: v.$mode-background-color-home-dark;
+	// Light/Dark mode text color for base text elements
+	.js-set-base-text-color-dark-mode-false {
+		color: v.$mode-text-color-base-light;
 	}
+
+	.js-set-base-text-color-dark-mode-true {
+		color: v.$mode-text-color-base-dark;
+	}
+
+	// Light/Dark mode background colors for home component
 	.js-set-home-background-color-dark-mode-false {
 		background-color: v.$mode-background-color-home-light;
 	}
 
-	// Dark/Light mode background colors for searchFilterSearch/top bar
-	.js-set-bar-background-color-dark-mode-true {
-		background-color: v.$mode-background-color-search-filter-sort-top-bar-dark;
+	.js-set-home-background-color-dark-mode-true {
+		background-color: v.$mode-background-color-home-dark;
 	}
+
+	// Light/Dark mode background colors for searchFilterSearch/top bar
 	.js-set-bar-background-color-dark-mode-false {
 		background-color: v.$mode-background-color-search-filter-sort-top-bar-light;
 	}
-
-	// Dark/Light mode background and text colors for searchFilterSearch/top bar search bar
-	.js-set-bar-search-bar-background-text-color-dark-mode-true {
-		background-color: v.$mode-background-color-search-filter-sort-top-bar-search-bar-dark;
-		color: v.$mode-text-color-search-filter-sort-top-bar-search-bar-dark;
+	.js-set-bar-background-color-dark-mode-true {
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-dark;
 	}
+
+	// Light/Dark mode background and text colors for searchFilterSearch/top bar search bar
 	.js-set-bar-search-bar-background-text-color-dark-mode-false {
 		background-color: v.$mode-background-color-search-filter-sort-top-bar-search-bar-light;
 		color: v.$mode-text-color-search-filter-sort-top-bar-search-bar-light;
 	}
-
-	// Dark/Light mode border, background, and text color for searchFilterSearch/top bar buttons
-	.js-set-bar-button-border-background-text-color-dark-mode-true {
-		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-dark;
-		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-dark;
-		color: v.$mode-text-color-search-filter-sort-top-bar-button-dark;
+	.js-set-bar-search-bar-background-text-color-dark-mode-true {
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-search-bar-dark;
+		color: v.$mode-text-color-search-filter-sort-top-bar-search-bar-dark;
 	}
+
+	// Light/Dark mode border, background, and text color for searchFilterSearch/top bar buttons
 	.js-set-bar-button-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-light;
 		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-light;
 		color: v.$mode-text-color-search-filter-sort-top-bar-button-light;
 	}
-
-	// Dark/Light mode background colors for createItemSidebar component
-	.js-set-create-item-sidebar-background-color-dark-mode-true {
-		background-color: v.$mode-background-color-create-item-sidebar-dark;
+	.js-set-bar-button-border-background-text-color-dark-mode-true {
+		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-dark;
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-dark;
+		color: v.$mode-text-color-search-filter-sort-top-bar-button-dark;
 	}
+
+	// Light/Dark mode background colors for createItemSidebar component
 	.js-set-create-item-sidebar-background-color-dark-mode-false {
 		background-color: v.$mode-background-color-create-item-sidebar-light;
 	}
-
-	// Dark/Light mode text colors with hover for base icon buttons
-	.js-set-base-icon-button-background-color-with-hover-dark-mode-true {
-		color: v.$mode-text-color-base-icon-button-dark;
-
-		&:hover,
-		&:active {
-			color: v.$mode-hover-text-color-base-icon-button-dark;
-		}
+	.js-set-create-item-sidebar-background-color-dark-mode-true {
+		background-color: v.$mode-background-color-create-item-sidebar-dark;
 	}
+
+	// Light/Dark mode text colors with hover for base icon buttons
 	.js-set-base-icon-button-background-color-with-hover-dark-mode-false {
 		color: v.$mode-text-color-base-icon-button-light;
 
@@ -88,16 +90,16 @@ body,
 			color: v.$mode-hover-text-color-base-icon-button-light;
 		}
 	}
-
-	// Dark/Light mode text colors with hover for more distinct icon buttons
-	.js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true {
-		color: v.$mode-text-color-more-distinct-icon-button-dark;
+	.js-set-base-icon-button-background-color-with-hover-dark-mode-true {
+		color: v.$mode-text-color-base-icon-button-dark;
 
 		&:hover,
 		&:active {
-			color: v.$mode-hover-text-color-more-distinct-icon-button-dark;
+			color: v.$mode-hover-text-color-base-icon-button-dark;
 		}
 	}
+
+	// Light/Dark mode text colors with hover for more distinct icon buttons
 	.js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false {
 		color: v.$mode-text-color-more-distinct-icon-button-light;
 
@@ -106,71 +108,93 @@ body,
 			color: v.$mode-hover-text-color-more-distinct-icon-button-light;
 		}
 	}
+	.js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true {
+		color: v.$mode-text-color-more-distinct-icon-button-dark;
 
-	// Dark/Light mode border, background, and text color for clicked options button in itemVeiw component
-	.js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-true {
-		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-dark;
-		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-dark;
-		// Same as hover text color for more distinct icon buttons
-		color: v.$mode-hover-text-color-more-distinct-icon-button-dark
+		&:hover,
+		&:active {
+			color: v.$mode-hover-text-color-more-distinct-icon-button-dark;
+		}
 	}
+
+	// Light/Dark mode border, background, and text color for clicked options button in itemVeiw component
 	.js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-light;
 		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-light;
 		// Same as hover text color for more distinct icon buttons
 		color: v.$mode-hover-text-color-more-distinct-icon-button-light;
 	}
-
-	// Dark/Light mode border, background, and text color for base form-input
-	.js-set-base-form-input-border-background-text-border-text-color-dark-mode-true {
-		border-color: v.$mode-border-color-base-form-input-dark;
-		background-color: v.$mode-background-color-base-form-input-dark;
-		color: v.$mode-text-color-base-dark;
+	.js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-true {
+		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-dark;
+		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-dark;
+		// Same as hover text color for more distinct icon buttons
+		color: v.$mode-hover-text-color-more-distinct-icon-button-dark;
 	}
+
+	// Light/Dark mode border, background, and text color for base form-input
 	.js-set-base-form-input-border-background-text-border-text-color-dark-mode-false {
 		border-color: v.$mode-border-color-base-form-input-light;
 		background-color: v.$mode-background-color-base-form-input-light;
 		color: v.$mode-text-color-base-light;
 	}
-
-	// Dark/Light mode disable base label
-	.js-set-base-diabled-label-dark-mode-true {
-		color: v.$mode-text-color-base-disabled-form-input-dark;
-		pointer-events: none;
+	.js-set-base-form-input-border-background-text-border-text-color-dark-mode-true {
+		border-color: v.$mode-border-color-base-form-input-dark;
+		background-color: v.$mode-background-color-base-form-input-dark;
+		color: v.$mode-text-color-base-dark;
 	}
+
+	// Light/Dark mode disable base label
 	.js-set-base-diabled-label-dark-mode-false {
 		color: v.$mode-text-color-base-disabled-form-input-light;
 		pointer-events: none;
 	}
-
-	// Dark/Light mode disable base input date
-	.js-set-base-diabled-input-date-dark-mode-true {
-		border-color: v.$mode-border-color-base-form-input-dark;
-		background-color: v.$mode-background-color-base-disabled-form-input-dark;
+	.js-set-base-diabled-label-dark-mode-true {
 		color: v.$mode-text-color-base-disabled-form-input-dark;
 		pointer-events: none;
 	}
+
+	// Light/Dark mode disable base input date
 	.js-set-base-diabled-input-date-dark-mode-false {
 		border-color: v.$mode-border-color-base-form-input-light;
 		background-color: v.$mode-background-color-base-disabled-form-input-light;
 		color: v.$mode-text-color-base-disabled-form-input-dark;
 		pointer-events: none;
 	}
-
-	// Dark/Light mode background colors for itemView item-box
-	.js-set-item-box-background-color-dark-mode-true {
-		background-color: v.$mode-background-color-item-view-item-box-dark;
+	.js-set-base-diabled-input-date-dark-mode-true {
+		border-color: v.$mode-border-color-base-form-input-dark;
+		background-color: v.$mode-background-color-base-disabled-form-input-dark;
+		color: v.$mode-text-color-base-disabled-form-input-dark;
+		pointer-events: none;
 	}
+
+	// Light/Dark mode hover background colors for list rows
+	.js-set-list-row-hover-background-color-dark-mode-false {
+		&:hover,
+		&:active {
+			background-color: v.$mode-hover-background-color-list-row-light;
+		}
+	}
+	.js-set-list-row-hover-background-color-dark-mode-true {
+		&:hover,
+		&:active {
+			background-color: v.$mode-hover-background-color-list-row-dark;
+		}
+	}
+
+	// Light/Dark mode selected background colorsfor list rows
+	.js-set-list-row-selected-background-color-dark-mode-false {
+		background-color: v.$mode-selected-background-color-list-row-light;
+	}
+	.js-set-list-row-selected-background-color-dark-mode-true {
+		background-color: v.$mode-selected-background-color-list-row-dark;
+	}
+
+	// Light/Dark mode background colors for itemView item-box
 	.js-set-item-box-background-color-dark-mode-false {
 		background-color: v.$mode-background-color-item-view-item-box-light;
 	}
-
-	// Dark/Light mode text color for base text elements
-	.js-set-base-text-color-dark-mode-true {
-		color: v.$mode-text-color-base-dark;
-	}
-	.js-set-base-text-color-dark-mode-false {
-		color: v.$mode-text-color-base-light;
+	.js-set-item-box-background-color-dark-mode-true {
+		background-color: v.$mode-background-color-item-view-item-box-dark;
 	}
 
 	// Theme background colors

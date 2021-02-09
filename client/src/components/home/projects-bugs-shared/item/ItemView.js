@@ -14,7 +14,7 @@ import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	getWindowSize,
-	getItemBoxBackgroundColorClassNameForDarkMode,
+	getItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
 } from "../../../../utils";
 
@@ -181,7 +181,7 @@ export default function ItemView(props) {
 										<div
 											className={
 												"item-box item-box--project-bugs-stats-height item-box--no-left-right-padding" +
-												getItemBoxBackgroundColorClassNameForDarkMode(
+												getItemBoxBackgroundColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 												)
 											}
@@ -212,7 +212,7 @@ export default function ItemView(props) {
 									</div>
 									<div className="outer-dividing-container outer-dividing-container--half-width">
 										<div className={"item-box item-box--project-bugs-stats-height" +
-												getItemBoxBackgroundColorClassNameForDarkMode(
+												getItemBoxBackgroundColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 												)}>
 											<h2

@@ -14,10 +14,12 @@ import {
 } from "../../../../actions";
 
 import {
+	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
+	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	displayGrayedOutNoneIfEmpty,
 	getTextColorClassNameForTheme,
-	getBaseTextColorClassNameForDarkMode,
+	getBaseTextColorClassNameForLightOrDarkMode,
 	getBugsInProjectList,
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
@@ -81,7 +83,7 @@ export default function ListViewTableRow(props) {
 			reduxState[props.reduxContainerName].priorityStatusOptions
 				.statusCompletionId
 				? " list-table__data--completed-color"
-				: getBaseTextColorClassNameForDarkMode(
+				: getBaseTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				  ))
 		);
@@ -108,8 +110,12 @@ export default function ListViewTableRow(props) {
 					null &&
 				reduxState[props.reduxContainerName]?.componentsDisplay.targetItem
 					.id === props.item.id
-					? " list-table__row--selected"
-					: " list-table__row--hover-highlight")
+					? getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					  )
+					: getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					  ))
 			}
 			onClick={openItemView}
 		>

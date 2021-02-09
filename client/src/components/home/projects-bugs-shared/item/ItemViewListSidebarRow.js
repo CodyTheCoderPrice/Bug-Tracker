@@ -12,7 +12,11 @@ import {
 	setWhichBugComponentsDisplay,
 } from "../../../../actions";
 
-import { getTextColorClassNameForTheme } from "../../../../utils";
+import {
+	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
+	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
+	getTextColorClassNameForTheme,
+} from "../../../../utils";
 
 export default function ItemViewListSidebarRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -83,8 +87,12 @@ export default function ItemViewListSidebarRow(props) {
 					null &&
 				reduxState[props.reduxContainerName]?.componentsDisplay.targetItem
 					.id === props.item.id
-					? " list-sidebar__table__row--selected"
-					: " list-sidebar__table__row--hover-highlight")
+					? getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					  )
+					: getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					  ))
 			}
 			onClick={changeTargetItem}
 			onDoubleClick={openListViewIfProject}
@@ -97,7 +105,9 @@ export default function ItemViewListSidebarRow(props) {
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " list-sidebar__table__data__overflow-container--completed-color"
-							: getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color))
+							: getTextColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
+							  ))
 					}
 				>
 					<span className="list-sidebar__table__data__overflow-container__info">

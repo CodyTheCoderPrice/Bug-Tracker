@@ -20,11 +20,11 @@ import {
 	manageSizeOfItemBoxsInPairContainer,
 	populateComboBox,
 	getTextColorClassNameForTheme,
-	getBaseTextColorClassNameForDarkMode,
-	getBaseFormInputBorderBackgroundTextColorClassNameForDarkMode,
-	getItemBoxBackgroundColorClassNameForDarkMode,
-	getBaseDisabledLabelClassNameForDarkMode,
-	getBaseDisableInputDateClassNameForDarkMode,
+	getBaseTextColorClassNameForLightOrDarkMode,
+	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getItemBoxBackgroundColorClassNameForLightOrDarkMode,
+	getBaseDisabledLabelClassNameForLightOrDarkMode,
+	getBaseDisableInputDateClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
 } from "../../../../utils";
 
@@ -250,7 +250,7 @@ export default function ItemViewEditItemInfo(props) {
 					<div
 						className={
 							"item-box item-box--desciption-info-height" +
-							getItemBoxBackgroundColorClassNameForDarkMode(
+							getItemBoxBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -300,7 +300,7 @@ export default function ItemViewEditItemInfo(props) {
 					<div
 						className={
 							"item-box item-box--desciption-info-height" +
-							getItemBoxBackgroundColorClassNameForDarkMode(
+							getItemBoxBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -394,10 +394,10 @@ export default function ItemViewEditItemInfo(props) {
 										(itemInfo.status_id !==
 										reduxState[props.reduxContainerName].priorityStatusOptions
 											.statusCompletionId
-											? getBaseDisabledLabelClassNameForDarkMode(
+											? getBaseDisabledLabelClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
-											: getBaseTextColorClassNameForDarkMode(
+											: getBaseTextColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  ))
 									}
@@ -415,10 +415,10 @@ export default function ItemViewEditItemInfo(props) {
 										(itemInfo.status_id !==
 										reduxState[props.reduxContainerName].priorityStatusOptions
 											.statusCompletionId
-											? getBaseDisableInputDateClassNameForDarkMode(
+											? getBaseDisableInputDateClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
-											: getBaseFormInputBorderBackgroundTextColorClassNameForDarkMode(
+											: getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  ))
 									}

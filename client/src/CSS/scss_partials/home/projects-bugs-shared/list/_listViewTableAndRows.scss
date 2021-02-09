@@ -32,14 +32,6 @@
 		text-align: center;
 	}
 
-	.list-table__row--hover-highlight:hover {
-		background-color: v.$light-gray-level-2;
-	}
-
-	.list-table__row--selected {
-		background-color: v.$light-gray-level-7;
-	}
-
 	.list-table__row--empty {
 		height: v.$list-item-table-row-height +
 			(v.$list-item-table-row-height * 0.5);
