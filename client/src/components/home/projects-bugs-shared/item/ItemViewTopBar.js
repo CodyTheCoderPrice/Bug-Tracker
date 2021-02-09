@@ -24,7 +24,8 @@ import {
 	getBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
 	getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
-	getItemViewOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
@@ -482,7 +483,7 @@ export default function ItemViewTopBar(props) {
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.itemViewTopBarOptionsDropdown
-							? getItemViewOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
+							? getTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							  )
 							: "")
@@ -516,7 +517,12 @@ export default function ItemViewTopBar(props) {
 					}
 				>
 					<span
-						className="item-options-container__dropdown__option js-edit-option"
+						className={
+							"item-options-container__dropdown__option" +
+							getTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
 						onClick={switchBetweenDisplayAndEditInfo}
 					>
 						{reduxState[props.reduxContainerName].componentsDisplay
@@ -527,7 +533,12 @@ export default function ItemViewTopBar(props) {
 							: "Edit Bug"}
 					</span>
 					<span
-						className="item-options-container__dropdown__option item-options-container__dropdown__option--no-border"
+						className={
+							"item-options-container__dropdown__option item-options-container__dropdown__option--no-border" +
+							getTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
 						onClick={openDeleteItemModal}
 					>
 						{props.reduxContainerName === PROJECT_CONTAINER

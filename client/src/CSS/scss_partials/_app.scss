@@ -73,6 +73,20 @@ body,
 		color: v.$mode-text-color-search-filter-sort-top-bar-button-dark;
 	}
 
+	// Light/Dark mode hover background color for topBarOptionsDropdown rows
+	.js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-false {
+		&:hover,
+		&:active {
+			background-color: v.$mode-hover-background-color-top-bar-options-dropdown-row-light;
+		}
+	}
+	.js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-true {
+		&:hover,
+		&:active {
+			background-color: v.$mode-hover-background-color-top-bar-options-dropdown-row-dark;
+		}
+	}
+
 	// Light/Dark mode background colors for createItemSidebar component
 	.js-set-create-item-sidebar-background-color-dark-mode-false {
 		background-color: v.$mode-background-color-create-item-sidebar-light;
@@ -118,13 +132,13 @@ body,
 	}
 
 	// Light/Dark mode border, background, and text color for clicked options button in itemVeiw component
-	.js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-false {
+	.js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-light;
 		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-light;
 		// Same as hover text color for more distinct icon buttons
 		color: v.$mode-hover-text-color-more-distinct-icon-button-light;
 	}
-	.js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-true {
+	.js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-border-color-search-filter-sort-top-bar-button-dark;
 		background-color: v.$mode-background-color-search-filter-sort-top-bar-button-dark;
 		// Same as hover text color for more distinct icon buttons

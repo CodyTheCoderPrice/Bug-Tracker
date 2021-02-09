@@ -79,6 +79,15 @@ export function getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode
 	);
 }
 
+// Light/Dark mode hover background color for topBarOptionsDropdown rows
+export function getTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-" + dark_mode
+	);
+}
+
 // Light/Dark mode background colors for createItemSidebar component
 export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -117,11 +126,11 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDark
 }
 
 // Light/Dark mode border, background, and text color for clicked options button in itemVeiw component
-export function getItemViewOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
+export function getTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-options-button-clicked-border-background-text-color-dark-mode-" +
+		" js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-" +
 		dark_mode
 	);
 }
