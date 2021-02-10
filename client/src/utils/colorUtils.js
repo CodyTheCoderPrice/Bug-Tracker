@@ -48,9 +48,9 @@ export function appendHexValueForColor(statusList) {
 //=================
 // Light/Dark mode
 //=================
-// Light/Dark mode text color for base text elements
-export function getBaseTextColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-base-text-color-dark-mode-" + dark_mode;
+// Light/Dark mode text color for home text elements
+export function getHomeTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-home-text-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode background color for home component
@@ -58,33 +58,24 @@ export function getHomeBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-home-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode background colors for searchFilterSearch/top bar
-export function getBarBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-bar-background-color-dark-mode-" + dark_mode;
+// Light/Dark mode background colors for topBar
+export function getTopBarBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-top-bar-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode background and text colors for searchFilterSearch/top bar search bar
-export function getBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
+// Light/Dark mode background and text colors for topBar search-bar
+export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-set-bar-search-bar-background-text-color-dark-mode-" + dark_mode;
+	return " js-set-top-bar-search-bar-background-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode border, background, and text color for searchFilterSearch/top bar buttons
-export function getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-bar-button-border-background-text-color-dark-mode-" + dark_mode
-	);
-}
-
-// Light/Dark mode hover background color for topBarOptionsDropdown rows
-export function getTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+// Light/Dark mode border, background, and text color for topBar buttons
+export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-" + dark_mode
+		" js-set-top-bar-button-border-background-text-color-dark-mode-" + dark_mode
 	);
 }
 
@@ -125,22 +116,31 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDark
 	);
 }
 
-// Light/Dark mode border, background, and text color for clicked options button in itemVeiw component
-export function getTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
+// Light/Dark mode border, background, and text color for itemViewTopBar options-button
+export function getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-" +
+		" js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-" +
 		dark_mode
 	);
 }
 
-// Light/Dark mode disable base label
+// Light/Dark mode hover background color for itemViewTopBar options-dropdown-row
+export function getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode disabled base label
 export function getBaseDisabledLabelClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-base-diabled-label-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode disable base input date
+// Light/Dark mode disabled base input date
 export function getBaseDisableInputDateClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-base-diabled-input-date-dark-mode-" + dark_mode;
 }
@@ -156,8 +156,8 @@ export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(dar
 }
 
 // Light/Dark mode background colors for itemView item-box
-export function getItemBoxBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-item-box-background-color-dark-mode-" + dark_mode;
+export function getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-item-view-item-box-background-color-dark-mode-" + dark_mode;
 }
 
 

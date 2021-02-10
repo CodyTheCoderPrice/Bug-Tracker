@@ -11,7 +11,7 @@ import {
 	formatDateMMddYYYY,
 	displayGrayedOutMessageIfEmpty,
 	displayGrayedOutNoneIfEmpty,
-	getItemBoxBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
 } from "../../../../utils";
 
@@ -96,7 +96,7 @@ export default function ItemViewDisplayItemInfo(props) {
 					<div
 						className={
 							"item-box item-box--desciption-info-height" +
-							getItemBoxBackgroundColorClassNameForLightOrDarkMode(
+							getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -124,7 +124,7 @@ export default function ItemViewDisplayItemInfo(props) {
 					<div
 						className={
 							"item-box item-box--desciption-info-height" +
-							getItemBoxBackgroundColorClassNameForLightOrDarkMode(
+							getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

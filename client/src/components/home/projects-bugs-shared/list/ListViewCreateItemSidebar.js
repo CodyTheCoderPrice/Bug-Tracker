@@ -20,7 +20,7 @@ import {
 	getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
-	getBaseTextColorClassNameForLightOrDarkMode,
+	getHomeTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBaseDisabledLabelClassNameForLightOrDarkMode,
 	getBaseDisableInputDateClassNameForLightOrDarkMode,
@@ -196,7 +196,7 @@ export default function ListViewCreateItemSidebar(props) {
 							htmlFor="create-item-name"
 							className={
 								"form__label" +
-								getBaseTextColorClassNameForLightOrDarkMode(
+								getHomeTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -206,7 +206,7 @@ export default function ListViewCreateItemSidebar(props) {
 						<span
 							className={
 								"form__char-counter" +
-								getBaseTextColorClassNameForLightOrDarkMode(
+								getHomeTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
@@ -239,7 +239,7 @@ export default function ListViewCreateItemSidebar(props) {
 							htmlFor="create-item-description"
 							className={
 								"form__label" +
-								getBaseTextColorClassNameForLightOrDarkMode(
+								getHomeTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -249,7 +249,7 @@ export default function ListViewCreateItemSidebar(props) {
 						<span
 							className={
 								"form__char-counter" +
-								getBaseTextColorClassNameForLightOrDarkMode(
+								getHomeTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								(reduxState[GENERAL_CONTAINER].globalConstants
@@ -287,7 +287,7 @@ export default function ListViewCreateItemSidebar(props) {
 									htmlFor="create-item-location"
 									className={
 										"form__label" +
-										getBaseTextColorClassNameForLightOrDarkMode(
+										getHomeTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -297,7 +297,7 @@ export default function ListViewCreateItemSidebar(props) {
 								<span
 									className={
 										"form__char-counter" +
-										getBaseTextColorClassNameForLightOrDarkMode(
+										getHomeTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										) +
 										(reduxState[GENERAL_CONTAINER].globalConstants
@@ -338,7 +338,7 @@ export default function ListViewCreateItemSidebar(props) {
 									htmlFor="create-item-start-date"
 									className={
 										"form__group-container__input-container__label" +
-										getBaseTextColorClassNameForLightOrDarkMode(
+										getHomeTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -364,7 +364,7 @@ export default function ListViewCreateItemSidebar(props) {
 									htmlFor="create-item-due-date"
 									className={
 										"form__group-container__input-container__label" +
-										getBaseTextColorClassNameForLightOrDarkMode(
+										getHomeTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -396,7 +396,7 @@ export default function ListViewCreateItemSidebar(props) {
 											? getBaseDisabledLabelClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
-											: getBaseTextColorClassNameForLightOrDarkMode(
+											: getHomeTextColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  ))
 									}
@@ -430,7 +430,7 @@ export default function ListViewCreateItemSidebar(props) {
 									htmlFor="create-item-priority"
 									className={
 										"form__group-container__input-container__label" +
-										getBaseTextColorClassNameForLightOrDarkMode(
+										getHomeTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -454,7 +454,7 @@ export default function ListViewCreateItemSidebar(props) {
 									htmlFor="create-item-status"
 									className={
 										"form__group-container__input-container__label" +
-										getBaseTextColorClassNameForLightOrDarkMode(
+										getHomeTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}

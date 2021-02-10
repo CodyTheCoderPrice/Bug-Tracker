@@ -136,7 +136,7 @@ export function calcHamburgerStyles() {
 export function calcListViewSearchFilterSortBarHeight() {
 	const invisibleSearchFilterSortBarElement = document.createElement("div");
 	invisibleSearchFilterSortBarElement.className =
-		"js-calc-search-filter-sort-component";
+		"js-calc-list-view-top-bar";
 	invisibleSearchFilterSortBarElement.visibility = "hidden";
 	document.body.appendChild(invisibleSearchFilterSortBarElement);
 
@@ -174,7 +174,7 @@ export function calcListViewTableRowHeight() {
 
 export function calcViewItemTopBarHeight() {
 	const invisibleTopBarElement = document.createElement("div");
-	invisibleTopBarElement.className = "js-calc-top-bar-component";
+	invisibleTopBarElement.className = "js-calc-item-vew-top-bar-component";
 	invisibleTopBarElement.visibility = "hidden";
 	document.body.appendChild(invisibleTopBarElement);
 

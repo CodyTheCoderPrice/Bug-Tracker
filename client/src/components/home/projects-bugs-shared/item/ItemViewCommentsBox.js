@@ -11,7 +11,7 @@ import {
 import { createComment, clearBackendErrors } from "../../../../actions";
 
 import {
-	getItemBoxBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
 	getBackgroundColorWithHoverClassNameForTheme,
 	dateToInt,
@@ -93,7 +93,7 @@ export default function ItemViewCommentsBox() {
 			<div
 				className={
 					"item-box" +
-					getItemBoxBackgroundColorClassNameForLightOrDarkMode(
+					getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}

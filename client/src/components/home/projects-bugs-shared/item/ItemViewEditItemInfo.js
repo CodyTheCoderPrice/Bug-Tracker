@@ -20,9 +20,9 @@ import {
 	manageSizeOfItemBoxsInPairContainer,
 	populateComboBox,
 	getTextColorClassNameForTheme,
-	getBaseTextColorClassNameForLightOrDarkMode,
+	getHomeTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getItemBoxBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getBaseDisabledLabelClassNameForLightOrDarkMode,
 	getBaseDisableInputDateClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
@@ -250,7 +250,7 @@ export default function ItemViewEditItemInfo(props) {
 					<div
 						className={
 							"item-box item-box--desciption-info-height" +
-							getItemBoxBackgroundColorClassNameForLightOrDarkMode(
+							getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -300,7 +300,7 @@ export default function ItemViewEditItemInfo(props) {
 					<div
 						className={
 							"item-box item-box--desciption-info-height" +
-							getItemBoxBackgroundColorClassNameForLightOrDarkMode(
+							getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -397,7 +397,7 @@ export default function ItemViewEditItemInfo(props) {
 											? getBaseDisabledLabelClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
-											: getBaseTextColorClassNameForLightOrDarkMode(
+											: getHomeTextColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  ))
 									}

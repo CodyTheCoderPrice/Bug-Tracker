@@ -1735,8 +1735,8 @@ dropdown can overlap all other components
   color: #007e00;
 }
 
-.top-bar-component,
-.js-calc-top-bar-component {
+.item-vew-top-bar-component,
+.js-calc-item-vew-top-bar-component {
   z-index: 2;
   position: fixed;
   top: 56px;
@@ -1748,10 +1748,10 @@ dropdown can overlap all other components
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
-.top-bar-component .outer-search-container,
-.top-bar-component .js-calc-outer-search-container,
-.js-calc-top-bar-component .outer-search-container,
-.js-calc-top-bar-component .js-calc-outer-search-container {
+.item-vew-top-bar-component .outer-search-container,
+.item-vew-top-bar-component .js-calc-outer-search-container,
+.js-calc-item-vew-top-bar-component .outer-search-container,
+.js-calc-item-vew-top-bar-component .js-calc-outer-search-container {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
@@ -1760,12 +1760,12 @@ dropdown can overlap all other components
   border-radius: 5px;
   width: 290px;
 }
-.top-bar-component .outer-search-container--invisible,
-.js-calc-top-bar-component .outer-search-container--invisible {
+.item-vew-top-bar-component .outer-search-container--invisible,
+.js-calc-item-vew-top-bar-component .outer-search-container--invisible {
   visibility: hidden;
 }
-.top-bar-component .outer-search-container__search-bar,
-.js-calc-top-bar-component .outer-search-container__search-bar {
+.item-vew-top-bar-component .outer-search-container__search-bar,
+.js-calc-item-vew-top-bar-component .outer-search-container__search-bar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1779,8 +1779,8 @@ dropdown can overlap all other components
   width: 252px;
   font-size: 14px;
 }
-.top-bar-component .outer-search-container__search-bar-button,
-.js-calc-top-bar-component .outer-search-container__search-bar-button {
+.item-vew-top-bar-component .outer-search-container__search-bar-button,
+.js-calc-item-vew-top-bar-component .outer-search-container__search-bar-button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1792,8 +1792,8 @@ dropdown can overlap all other components
   width: 38px;
   cursor: pointer;
 }
-.top-bar-component .outer-search-container__search-bar-button__icon,
-.js-calc-top-bar-component .outer-search-container__search-bar-button__icon {
+.item-vew-top-bar-component .outer-search-container__search-bar-button__icon,
+.js-calc-item-vew-top-bar-component .outer-search-container__search-bar-button__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1801,22 +1801,22 @@ dropdown can overlap all other components
   color: white;
   font-size: 14px;
 }
-.top-bar-component .search-bar-and-button-thick-border,
-.js-calc-top-bar-component .search-bar-and-button-thick-border {
+.item-vew-top-bar-component .search-bar-and-button-thick-border,
+.js-calc-item-vew-top-bar-component .search-bar-and-button-thick-border {
   border-width: 3px;
   height: 28px;
 }
-.top-bar-component .list-sort-filter-container,
-.js-calc-top-bar-component .list-sort-filter-container {
+.item-vew-top-bar-component .list-sort-filter-container,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container {
   position: absolute;
   left: 320px;
 }
-.top-bar-component .list-sort-filter-container--filter-placement,
-.js-calc-top-bar-component .list-sort-filter-container--filter-placement {
+.item-vew-top-bar-component .list-sort-filter-container--filter-placement,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container--filter-placement {
   left: 415px;
 }
-.top-bar-component .list-sort-filter-container__button,
-.js-calc-top-bar-component .list-sort-filter-container__button {
+.item-vew-top-bar-component .list-sort-filter-container__button,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__button {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -1843,12 +1843,12 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.top-bar-component .list-sort-filter-container__button--filter-width,
-.js-calc-top-bar-component .list-sort-filter-container__button--filter-width {
+.item-vew-top-bar-component .list-sort-filter-container__button--filter-width,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__button--filter-width {
   width: 90px;
 }
-.top-bar-component .list-sort-filter-container__button--clicked,
-.js-calc-top-bar-component .list-sort-filter-container__button--clicked {
+.item-vew-top-bar-component .list-sort-filter-container__button--clicked,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__button--clicked {
   margin: -2px 0px;
   border: 3px solid black;
   border-radius: 5px 5px 0 0;
@@ -1856,29 +1856,29 @@ dropdown can overlap all other components
   height: 45px;
   width: 76px;
 }
-.top-bar-component .list-sort-filter-container__button--clicked-filter-width,
-.js-calc-top-bar-component .list-sort-filter-container__button--clicked-filter-width {
+.item-vew-top-bar-component .list-sort-filter-container__button--clicked-filter-width,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__button--clicked-filter-width {
   width: 86px;
 }
-.top-bar-component .list-sort-filter-container__button__text--active,
-.js-calc-top-bar-component .list-sort-filter-container__button__text--active {
+.item-vew-top-bar-component .list-sort-filter-container__button__text--active,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__button__text--active {
   font-weight: bold;
   color: #0077ff;
 }
-.top-bar-component .list-sort-filter-container__button__text,
-.js-calc-top-bar-component .list-sort-filter-container__button__text {
+.item-vew-top-bar-component .list-sort-filter-container__button__text,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__button__text {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   top: 4px;
   width: 100%;
 }
-.top-bar-component .list-sort-filter-container__button__text--filter-width,
-.js-calc-top-bar-component .list-sort-filter-container__button__text--filter-width {
+.item-vew-top-bar-component .list-sort-filter-container__button__text--filter-width,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__button__text--filter-width {
   width: 90px;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown {
   position: absolute;
   top: 52.2px;
   border: 3px solid black;
@@ -1890,78 +1890,78 @@ dropdown can overlap all other components
   cursor: default;
   visibility: hidden;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block {
   position: relative;
   margin: 12px 0;
   width: 100%;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container {
   display: inline-block;
   margin-left: 8px;
   height: 100%;
   width: 21px;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__title,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__title {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__title,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__sort-content-block__title {
   font-size: 15px;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown--filter-width,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown--filter-width {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown--filter-width,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown--filter-width {
   width: 260px;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown--shorter,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown--shorter {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown--shorter,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown--shorter {
   height: 155px;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown--visible,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown--visible {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown--visible,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown--visible {
   visibility: visible;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown__filter-content,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content {
   float: left;
   margin: 13px 0 0 20px;
   text-align: center;
   font-size: 14px;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown__filter-content--right,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content--right {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content--right,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content--right {
   float: right;
   margin: 13px 20px 0 0;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__title,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__title {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__title,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__title {
   display: block;
   margin: 2px 0px 5px 0px;
   border-bottom: 1px solid gray;
   padding-bottom: 3px;
   font-weight: bold;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block {
   text-align: left;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__checkbox,
-.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__checkbox,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__checkbox,
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__checkbox,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label {
   margin: 5px 3px 5px 3px;
 }
-.top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active,
-.js-calc-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active {
+.item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active,
+.js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active {
   color: #0077ff;
 }
-.top-bar-component .item-options-container,
-.js-calc-top-bar-component .item-options-container {
+.item-vew-top-bar-component .item-options-container,
+.js-calc-item-vew-top-bar-component .item-options-container {
   position: absolute;
   top: 12px;
   right: 50px;
   width: 135px;
 }
-.top-bar-component .item-options-container__button,
-.js-calc-top-bar-component .item-options-container__button {
+.item-vew-top-bar-component .item-options-container__button,
+.js-calc-item-vew-top-bar-component .item-options-container__button {
   z-index: 1;
   position: absolute;
   right: 0px;
@@ -1976,27 +1976,27 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.top-bar-component .item-options-container__button:hover, .top-bar-component .item-options-container__button:active,
-.js-calc-top-bar-component .item-options-container__button:hover,
-.js-calc-top-bar-component .item-options-container__button:active {
+.item-vew-top-bar-component .item-options-container__button:hover, .item-vew-top-bar-component .item-options-container__button:active,
+.js-calc-item-vew-top-bar-component .item-options-container__button:hover,
+.js-calc-item-vew-top-bar-component .item-options-container__button:active {
   color: #3a3a3a;
 }
-.top-bar-component .item-options-container__button__text,
-.js-calc-top-bar-component .item-options-container__button__text {
+.item-vew-top-bar-component .item-options-container__button__text,
+.js-calc-item-vew-top-bar-component .item-options-container__button__text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.top-bar-component .item-options-container__button--clicked,
-.js-calc-top-bar-component .item-options-container__button--clicked {
+.item-vew-top-bar-component .item-options-container__button--clicked,
+.js-calc-item-vew-top-bar-component .item-options-container__button--clicked {
   border-color: black;
   border-bottom: none;
   background-color: white;
   color: #3a3a3a;
 }
-.top-bar-component .item-options-container__dropdown,
-.js-calc-top-bar-component .item-options-container__dropdown {
+.item-vew-top-bar-component .item-options-container__dropdown,
+.js-calc-item-vew-top-bar-component .item-options-container__dropdown {
   position: absolute;
   top: 29px;
   right: 0;
@@ -2007,32 +2007,32 @@ dropdown can overlap all other components
   width: 129px;
   visibility: hidden;
 }
-.top-bar-component .item-options-container__dropdown--visible,
-.js-calc-top-bar-component .item-options-container__dropdown--visible {
+.item-vew-top-bar-component .item-options-container__dropdown--visible,
+.js-calc-item-vew-top-bar-component .item-options-container__dropdown--visible {
   visibility: visible;
 }
-.top-bar-component .item-options-container__dropdown__option,
-.js-calc-top-bar-component .item-options-container__dropdown__option {
+.item-vew-top-bar-component .item-options-container__dropdown__option,
+.js-calc-item-vew-top-bar-component .item-options-container__dropdown__option {
   display: block;
   border-bottom: 1px solid gray;
   padding: 12px;
   cursor: pointer;
 }
-.top-bar-component .item-options-container__dropdown__option:hover, .top-bar-component .item-options-container__dropdown__option:active,
-.js-calc-top-bar-component .item-options-container__dropdown__option:hover,
-.js-calc-top-bar-component .item-options-container__dropdown__option:active {
+.item-vew-top-bar-component .item-options-container__dropdown__option:hover, .item-vew-top-bar-component .item-options-container__dropdown__option:active,
+.js-calc-item-vew-top-bar-component .item-options-container__dropdown__option:hover,
+.js-calc-item-vew-top-bar-component .item-options-container__dropdown__option:active {
   background-color: #ebebeb;
 }
-.top-bar-component .item-options-container__dropdown__option--no-display,
-.js-calc-top-bar-component .item-options-container__dropdown__option--no-display {
+.item-vew-top-bar-component .item-options-container__dropdown__option--no-display,
+.js-calc-item-vew-top-bar-component .item-options-container__dropdown__option--no-display {
   display: none;
 }
-.top-bar-component .item-options-container__dropdown__option--no-border,
-.js-calc-top-bar-component .item-options-container__dropdown__option--no-border {
+.item-vew-top-bar-component .item-options-container__dropdown__option--no-border,
+.js-calc-item-vew-top-bar-component .item-options-container__dropdown__option--no-border {
   border-bottom: none;
 }
-.top-bar-component .x-button,
-.js-calc-top-bar-component .x-button {
+.item-vew-top-bar-component .x-button,
+.js-calc-item-vew-top-bar-component .x-button {
   z-index: 6;
   position: absolute;
   top: 10px;
@@ -2045,9 +2045,9 @@ dropdown can overlap all other components
   top: 11px;
   color: #757575;
 }
-.top-bar-component .x-button:hover, .top-bar-component .x-button:active,
-.js-calc-top-bar-component .x-button:hover,
-.js-calc-top-bar-component .x-button:active {
+.item-vew-top-bar-component .x-button:hover, .item-vew-top-bar-component .x-button:active,
+.js-calc-item-vew-top-bar-component .x-button:hover,
+.js-calc-item-vew-top-bar-component .x-button:active {
   color: #3a3a3a;
 }
 
@@ -2197,8 +2197,8 @@ dropdown can overlap all other components
   cursor: pointer;
 }
 
-.search-filter-sort-component,
-.js-calc-search-filter-sort-component {
+.list-view-top-bar,
+.js-calc-list-view-top-bar {
   z-index: 1;
   position: fixed;
   top: 56px;
@@ -2210,15 +2210,15 @@ dropdown can overlap all other components
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
-.search-filter-sort-component .centering-container,
-.js-calc-search-filter-sort-component .centering-container {
+.list-view-top-bar .centering-container,
+.js-calc-list-view-top-bar .centering-container {
   position: relative;
   float: left;
   height: 46px;
   width: 152px;
 }
-.search-filter-sort-component .centering-container__new-item-button,
-.js-calc-search-filter-sort-component .centering-container__new-item-button {
+.list-view-top-bar .centering-container__new-item-button,
+.js-calc-list-view-top-bar .centering-container__new-item-button {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -2246,20 +2246,20 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.search-filter-sort-component .centering-container__new-item-button--highlighted,
-.js-calc-search-filter-sort-component .centering-container__new-item-button--highlighted {
+.list-view-top-bar .centering-container__new-item-button--highlighted,
+.js-calc-list-view-top-bar .centering-container__new-item-button--highlighted {
   border: 2px solid red;
 }
-.search-filter-sort-component .centering-container__new-item-button__text,
-.js-calc-search-filter-sort-component .centering-container__new-item-button__text {
+.list-view-top-bar .centering-container__new-item-button__text,
+.js-calc-list-view-top-bar .centering-container__new-item-button__text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
 }
-.search-filter-sort-component .centering-container__search-group-container,
-.js-calc-search-filter-sort-component .centering-container__search-group-container {
+.list-view-top-bar .centering-container__search-group-container,
+.js-calc-list-view-top-bar .centering-container__search-group-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2268,8 +2268,8 @@ dropdown can overlap all other components
   border-radius: 5px;
   width: 100%;
 }
-.search-filter-sort-component .centering-container__search-group-container__search-bar,
-.js-calc-search-filter-sort-component .centering-container__search-group-container__search-bar {
+.list-view-top-bar .centering-container__search-group-container__search-bar,
+.js-calc-list-view-top-bar .centering-container__search-group-container__search-bar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2284,8 +2284,8 @@ dropdown can overlap all other components
   width: 100%;
   font-size: 14px;
 }
-.search-filter-sort-component .centering-container__search-group-container__search-bar-button,
-.js-calc-search-filter-sort-component .centering-container__search-group-container__search-bar-button {
+.list-view-top-bar .centering-container__search-group-container__search-bar-button,
+.js-calc-list-view-top-bar .centering-container__search-group-container__search-bar-button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2299,8 +2299,8 @@ dropdown can overlap all other components
   width: 38px;
   cursor: pointer;
 }
-.search-filter-sort-component .centering-container__search-group-container__search-bar-button__icon,
-.js-calc-search-filter-sort-component .centering-container__search-group-container__search-bar-button__icon {
+.list-view-top-bar .centering-container__search-group-container__search-bar-button__icon,
+.js-calc-list-view-top-bar .centering-container__search-group-container__search-bar-button__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2308,19 +2308,19 @@ dropdown can overlap all other components
   color: white;
   font-size: 14px;
 }
-.search-filter-sort-component .filter-area-container,
-.js-calc-search-filter-sort-component .filter-area-container {
+.list-view-top-bar .filter-area-container,
+.js-calc-list-view-top-bar .filter-area-container {
   position: absolute;
   right: 0px;
   width: 109px;
 }
-.search-filter-sort-component .search-bar-and-button-thick-border,
-.js-calc-search-filter-sort-component .search-bar-and-button-thick-border {
+.list-view-top-bar .search-bar-and-button-thick-border,
+.js-calc-list-view-top-bar .search-bar-and-button-thick-border {
   border-width: 3px;
   height: 28px;
 }
-.search-filter-sort-component .filter-area-container__button,
-.js-calc-search-filter-sort-component .filter-area-container__button {
+.list-view-top-bar .filter-area-container__button,
+.js-calc-list-view-top-bar .filter-area-container__button {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -2348,8 +2348,8 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.search-filter-sort-component .filter-area-container__button--clicked,
-.js-calc-search-filter-sort-component .filter-area-container__button--clicked {
+.list-view-top-bar .filter-area-container__button--clicked,
+.js-calc-list-view-top-bar .filter-area-container__button--clicked {
   margin: -2px 0px 0px;
   border-width: 3px;
   border-bottom: none;
@@ -2357,21 +2357,21 @@ dropdown can overlap all other components
   height: 45px;
   width: 86px;
 }
-.search-filter-sort-component .filter-area-container__button__text,
-.js-calc-search-filter-sort-component .filter-area-container__button__text {
+.list-view-top-bar .filter-area-container__button__text,
+.js-calc-list-view-top-bar .filter-area-container__button__text {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   top: 4px;
   width: 100%;
 }
-.search-filter-sort-component .filter-area-container__button__text--active,
-.js-calc-search-filter-sort-component .filter-area-container__button__text--active {
+.list-view-top-bar .filter-area-container__button__text--active,
+.js-calc-list-view-top-bar .filter-area-container__button__text--active {
   font-weight: bold;
   color: #0077ff;
 }
-.search-filter-sort-component .filter-area-container__content-dropdown,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown {
+.list-view-top-bar .filter-area-container__content-dropdown,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown {
   position: absolute;
   top: 52.2px;
   right: 30px;
@@ -2383,78 +2383,78 @@ dropdown can overlap all other components
   cursor: default;
   visibility: hidden;
 }
-.search-filter-sort-component .filter-area-container__content-dropdown--shorter,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown--shorter {
+.list-view-top-bar .filter-area-container__content-dropdown--shorter,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown--shorter {
   height: 155px;
 }
-.search-filter-sort-component .filter-area-container__content-dropdown--visible,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown--visible {
+.list-view-top-bar .filter-area-container__content-dropdown--visible,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown--visible {
   visibility: visible;
 }
-.search-filter-sort-component .filter-area-container__content-dropdown__content,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content {
+.list-view-top-bar .filter-area-container__content-dropdown__content,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown__content {
   float: left;
   margin: 13px 0 0 20px;
   text-align: center;
   font-size: 14px;
 }
-.search-filter-sort-component .filter-area-container__content-dropdown__content--right,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content--right {
+.list-view-top-bar .filter-area-container__content-dropdown__content--right,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown__content--right {
   float: right;
   margin: 13px 20px 0 0;
 }
-.search-filter-sort-component .filter-area-container__content-dropdown__content__title,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content__title {
+.list-view-top-bar .filter-area-container__content-dropdown__content__title,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown__content__title {
   display: block;
   margin: 2px 0px 5px 0px;
   border-bottom: 1px solid gray;
   padding-bottom: 3px;
   font-weight: bold;
 }
-.search-filter-sort-component .filter-area-container__content-dropdown__content__block,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content__block {
+.list-view-top-bar .filter-area-container__content-dropdown__content__block,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown__content__block {
   text-align: left;
 }
-.search-filter-sort-component .filter-area-container__content-dropdown__content__block__checkbox,
-.search-filter-sort-component .filter-area-container__content-dropdown__content__block__label,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content__block__checkbox,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content__block__label {
+.list-view-top-bar .filter-area-container__content-dropdown__content__block__checkbox,
+.list-view-top-bar .filter-area-container__content-dropdown__content__block__label,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown__content__block__checkbox,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown__content__block__label {
   margin: 5px 3px 5px 3px;
 }
-.search-filter-sort-component .filter-area-container__content-dropdown__content__block__label--active,
-.js-calc-search-filter-sort-component .filter-area-container__content-dropdown__content__block__label--active {
+.list-view-top-bar .filter-area-container__content-dropdown__content__block__label--active,
+.js-calc-list-view-top-bar .filter-area-container__content-dropdown__content__block__label--active {
   color: #0077ff;
 }
-.search-filter-sort-component .create-item-message-container,
-.js-calc-search-filter-sort-component .create-item-message-container {
+.list-view-top-bar .create-item-message-container,
+.js-calc-list-view-top-bar .create-item-message-container {
   position: absolute;
   top: 56px;
   left: 95px;
 }
-.search-filter-sort-component .create-item-message-container__arrow-head,
-.js-calc-search-filter-sort-component .create-item-message-container__arrow-head {
+.list-view-top-bar .create-item-message-container__arrow-head,
+.js-calc-list-view-top-bar .create-item-message-container__arrow-head {
   height: 0;
   width: 0;
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
   border-bottom: 14px solid black;
 }
-.search-filter-sort-component .create-item-message-container__arrow-stock,
-.js-calc-search-filter-sort-component .create-item-message-container__arrow-stock {
+.list-view-top-bar .create-item-message-container__arrow-stock,
+.js-calc-list-view-top-bar .create-item-message-container__arrow-stock {
   background-color: black;
   margin-left: 11px;
   height: 50px;
   width: 6px;
 }
-.search-filter-sort-component .create-item-message-container__bend-message-centering-container,
-.js-calc-search-filter-sort-component .create-item-message-container__bend-message-centering-container {
+.list-view-top-bar .create-item-message-container__bend-message-centering-container,
+.js-calc-list-view-top-bar .create-item-message-container__bend-message-centering-container {
   position: relative;
   margin: -12px 0px 0px 11px;
   height: 30px;
   width: 300px;
 }
-.search-filter-sort-component .create-item-message-container__bend-message-centering-container__arrow-bend,
-.js-calc-search-filter-sort-component .create-item-message-container__bend-message-centering-container__arrow-bend {
+.list-view-top-bar .create-item-message-container__bend-message-centering-container__arrow-bend,
+.js-calc-list-view-top-bar .create-item-message-container__bend-message-centering-container__arrow-bend {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
@@ -2462,8 +2462,8 @@ dropdown can overlap all other components
   height: 6px;
   width: 20px;
 }
-.search-filter-sort-component .create-item-message-container__bend-message-centering-container__message,
-.js-calc-search-filter-sort-component .create-item-message-container__bend-message-centering-container__message {
+.list-view-top-bar .create-item-message-container__bend-message-centering-container__message,
+.js-calc-list-view-top-bar .create-item-message-container__bend-message-centering-container__message {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
@@ -2680,16 +2680,16 @@ body .grayed-out-none,
   color: #808080;
   opacity: 0.7;
 }
-html .js-set-base-text-color-dark-mode-false,
-body .js-set-base-text-color-dark-mode-false,
-.app-component .js-set-base-text-color-dark-mode-false,
-.js-calc-app-component .js-set-base-text-color-dark-mode-false {
+html .js-set-home-text-color-dark-mode-false,
+body .js-set-home-text-color-dark-mode-false,
+.app-component .js-set-home-text-color-dark-mode-false,
+.js-calc-app-component .js-set-home-text-color-dark-mode-false {
   color: black;
 }
-html .js-set-base-text-color-dark-mode-true,
-body .js-set-base-text-color-dark-mode-true,
-.app-component .js-set-base-text-color-dark-mode-true,
-.js-calc-app-component .js-set-base-text-color-dark-mode-true {
+html .js-set-home-text-color-dark-mode-true,
+body .js-set-home-text-color-dark-mode-true,
+.app-component .js-set-home-text-color-dark-mode-true,
+.js-calc-app-component .js-set-home-text-color-dark-mode-true {
   color: #C9D1D9;
 }
 html .js-set-home-background-color-dark-mode-false,
@@ -2704,65 +2704,47 @@ body .js-set-home-background-color-dark-mode-true,
 .js-calc-app-component .js-set-home-background-color-dark-mode-true {
   background-color: #333333;
 }
-html .js-set-bar-background-color-dark-mode-false,
-body .js-set-bar-background-color-dark-mode-false,
-.app-component .js-set-bar-background-color-dark-mode-false,
-.js-calc-app-component .js-set-bar-background-color-dark-mode-false {
+html .js-set-top-bar-background-color-dark-mode-false,
+body .js-set-top-bar-background-color-dark-mode-false,
+.app-component .js-set-top-bar-background-color-dark-mode-false,
+.js-calc-app-component .js-set-top-bar-background-color-dark-mode-false {
   background-color: #e5e5e5;
 }
-html .js-set-bar-background-color-dark-mode-true,
-body .js-set-bar-background-color-dark-mode-true,
-.app-component .js-set-bar-background-color-dark-mode-true,
-.js-calc-app-component .js-set-bar-background-color-dark-mode-true {
+html .js-set-top-bar-background-color-dark-mode-true,
+body .js-set-top-bar-background-color-dark-mode-true,
+.app-component .js-set-top-bar-background-color-dark-mode-true,
+.js-calc-app-component .js-set-top-bar-background-color-dark-mode-true {
   background-color: #292929;
 }
-html .js-set-bar-search-bar-background-text-color-dark-mode-false,
-body .js-set-bar-search-bar-background-text-color-dark-mode-false,
-.app-component .js-set-bar-search-bar-background-text-color-dark-mode-false,
-.js-calc-app-component .js-set-bar-search-bar-background-text-color-dark-mode-false {
+html .js-set-top-bar-search-bar-background-text-color-dark-mode-false,
+body .js-set-top-bar-search-bar-background-text-color-dark-mode-false,
+.app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-false,
+.js-calc-app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-false {
   background-color: white;
   color: black;
 }
-html .js-set-bar-search-bar-background-text-color-dark-mode-true,
-body .js-set-bar-search-bar-background-text-color-dark-mode-true,
-.app-component .js-set-bar-search-bar-background-text-color-dark-mode-true,
-.js-calc-app-component .js-set-bar-search-bar-background-text-color-dark-mode-true {
+html .js-set-top-bar-search-bar-background-text-color-dark-mode-true,
+body .js-set-top-bar-search-bar-background-text-color-dark-mode-true,
+.app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true,
+.js-calc-app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true {
   background-color: #363636;
   color: #C9D1D9;
 }
-html .js-set-bar-button-border-background-text-color-dark-mode-false,
-body .js-set-bar-button-border-background-text-color-dark-mode-false,
-.app-component .js-set-bar-button-border-background-text-color-dark-mode-false,
-.js-calc-app-component .js-set-bar-button-border-background-text-color-dark-mode-false {
+html .js-set-top-bar-button-border-background-text-color-dark-mode-false,
+body .js-set-top-bar-button-border-background-text-color-dark-mode-false,
+.app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false,
+.js-calc-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false {
   border-color: black;
   background-color: white;
   color: black;
 }
-html .js-set-bar-button-border-background-text-color-dark-mode-true,
-body .js-set-bar-button-border-background-text-color-dark-mode-true,
-.app-component .js-set-bar-button-border-background-text-color-dark-mode-true,
-.js-calc-app-component .js-set-bar-button-border-background-text-color-dark-mode-true {
+html .js-set-top-bar-button-border-background-text-color-dark-mode-true,
+body .js-set-top-bar-button-border-background-text-color-dark-mode-true,
+.app-component .js-set-top-bar-button-border-background-text-color-dark-mode-true,
+.js-calc-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-true {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
   color: #C9D1D9;
-}
-html .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover, html .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
-body .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
-body .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
-.app-component .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
-.app-component .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
-.js-calc-app-component .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
-.js-calc-app-component .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active {
-  background-color: #ebebeb;
-}
-html .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover, html .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
-body .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover,
-body .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
-.app-component .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover,
-.app-component .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
-.js-calc-app-component .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover,
-.js-calc-app-component .js-set-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active {
-  background-color: #444444;
 }
 html .js-set-create-item-sidebar-background-color-dark-mode-false,
 body .js-set-create-item-sidebar-background-color-dark-mode-false,
@@ -2836,21 +2818,39 @@ body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-tru
 .js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active {
   color: #757575;
 }
-html .js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
-body .js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
-.app-component .js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
-.js-calc-app-component .js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
+html .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
+body .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
+.app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
+.js-calc-app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
   border-color: black;
   background-color: white;
   color: #3a3a3a;
 }
-html .js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
-body .js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
-.app-component .js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
-.js-calc-app-component .js-set-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
+html .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
+body .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
+.app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
+.js-calc-app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
   color: #757575;
+}
+html .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover, html .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
+body .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
+body .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
+.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
+.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
+.js-calc-app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
+.js-calc-app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active {
+  background-color: #ebebeb;
+}
+html .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover, html .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
+body .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover,
+body .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
+.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover,
+.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
+.js-calc-app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover,
+.js-calc-app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active {
+  background-color: #444444;
 }
 html .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
 body .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
@@ -2930,16 +2930,16 @@ body .js-set-list-row-selected-background-color-dark-mode-true,
 .js-calc-app-component .js-set-list-row-selected-background-color-dark-mode-true {
   background-color: #484848;
 }
-html .js-set-item-box-background-color-dark-mode-false,
-body .js-set-item-box-background-color-dark-mode-false,
-.app-component .js-set-item-box-background-color-dark-mode-false,
-.js-calc-app-component .js-set-item-box-background-color-dark-mode-false {
+html .js-set-item-view-item-box-background-color-dark-mode-false,
+body .js-set-item-view-item-box-background-color-dark-mode-false,
+.app-component .js-set-item-view-item-box-background-color-dark-mode-false,
+.js-calc-app-component .js-set-item-view-item-box-background-color-dark-mode-false {
   background-color: #e5e5e5;
 }
-html .js-set-item-box-background-color-dark-mode-true,
-body .js-set-item-box-background-color-dark-mode-true,
-.app-component .js-set-item-box-background-color-dark-mode-true,
-.js-calc-app-component .js-set-item-box-background-color-dark-mode-true {
+html .js-set-item-view-item-box-background-color-dark-mode-true,
+body .js-set-item-view-item-box-background-color-dark-mode-true,
+.app-component .js-set-item-view-item-box-background-color-dark-mode-true,
+.js-calc-app-component .js-set-item-view-item-box-background-color-dark-mode-true {
   background-color: #292929;
 }
 html .js-set-dark-background-color-theme-teal,

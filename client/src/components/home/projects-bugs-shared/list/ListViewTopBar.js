@@ -16,16 +16,16 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
-	getBarBackgroundColorClassNameForLightOrDarkMode,
+	getTopBarBackgroundColorClassNameForLightOrDarkMode,
 	getLightBackgroundColorClassNameForTheme,
 	getLightBorderColorClassNameForTheme,
-	getBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
-	getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
+	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
 
-export default function ListViewSearchFilterSortBar(props) {
+export default function ListViewTopBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -105,8 +105,8 @@ export default function ListViewSearchFilterSortBar(props) {
 	return (
 		<div
 			className={
-				"search-filter-sort-component" +
-				getBarBackgroundColorClassNameForLightOrDarkMode(
+				"list-view-top-bar" +
+				getTopBarBackgroundColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}
@@ -115,7 +115,7 @@ export default function ListViewSearchFilterSortBar(props) {
 				<div
 					className={
 						"centering-container__new-item-button" +
-						getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						((props.reduxContainerName === PROJECT_CONTAINER &&
@@ -151,7 +151,7 @@ export default function ListViewSearchFilterSortBar(props) {
 						value={searchBarText}
 						className={
 							"centering-container__search-group-container__search-bar js-list-search-bar" +
-							getBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
+							getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							) +
 							getLightBorderColorClassNameForTheme(
@@ -185,7 +185,7 @@ export default function ListViewSearchFilterSortBar(props) {
 				<div
 					className={
 						"filter-area-container__button" +
-						getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
@@ -217,7 +217,7 @@ export default function ListViewSearchFilterSortBar(props) {
 				<div
 					className={
 						"filter-area-container__content-dropdown" +
-						getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(props.reduxContainerName === BUG_CONTAINER

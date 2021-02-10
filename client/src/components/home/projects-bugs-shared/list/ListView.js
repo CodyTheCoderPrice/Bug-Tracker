@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 // Components
-import ListViewSearchFilterSortBar from "./ListViewSearchFilterSortBar";
+import ListViewTopBar from "./ListViewTopBar";
 import ListViewCreateItemSidebar from "./ListViewCreateItemSidebar";
 import ListViewTable from "./ListViewTable";
 import ListViewMassDeleteItemsModal from "./ListViewMassDeleteItemsModal";
@@ -12,7 +12,7 @@ export default function ListView(props) {
 
 	return (
 		<div className="list-container-component">
-			<ListViewSearchFilterSortBar
+			<ListViewTopBar
 				reduxContainerName={props.reduxContainerName}
 			/>
 			{reduxState[props.reduxContainerName].componentsDisplay.listViewCreateItemSidbar ? (

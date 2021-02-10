@@ -16,7 +16,7 @@ import {
 	getElementLocation,
 	getHomeBackgroundColorClassNameForLightOrDarkMode,
 	searchFilterSort,
-	getBaseTextColorClassNameForLightOrDarkMode,
+	getHomeTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
@@ -127,11 +127,11 @@ export default function ListViewTable(props) {
 				className={
 					"list-table__header__mass-delete-options-container__button" +
 					(reduxState[props.reduxContainerName].massDeleteList.length > 0
-						? getBaseTextColorClassNameForLightOrDarkMode(
+						? getHomeTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						  )
 						: " list-table__header__mass-delete-options-container__button--disabled" +
-						  getBaseTextColorClassNameForLightOrDarkMode(
+						  getHomeTextColorClassNameForLightOrDarkMode(
 								!reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						  ))
 				}
@@ -205,7 +205,7 @@ export default function ListViewTable(props) {
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForLightOrDarkMode(
+									getHomeTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -232,7 +232,7 @@ export default function ListViewTable(props) {
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForLightOrDarkMode(
+									getHomeTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -259,7 +259,7 @@ export default function ListViewTable(props) {
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForLightOrDarkMode(
+									getHomeTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -286,7 +286,7 @@ export default function ListViewTable(props) {
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForLightOrDarkMode(
+									getHomeTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -313,7 +313,7 @@ export default function ListViewTable(props) {
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForLightOrDarkMode(
+									getHomeTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -340,7 +340,7 @@ export default function ListViewTable(props) {
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForLightOrDarkMode(
+									getHomeTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -367,7 +367,7 @@ export default function ListViewTable(props) {
 							<span
 								className={
 									"list-table__header__span" +
-									getBaseTextColorClassNameForLightOrDarkMode(
+									getHomeTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}

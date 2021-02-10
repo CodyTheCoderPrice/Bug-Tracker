@@ -19,7 +19,7 @@ import {
 	formatDateMMddYYYY,
 	displayGrayedOutNoneIfEmpty,
 	getTextColorClassNameForTheme,
-	getBaseTextColorClassNameForLightOrDarkMode,
+	getHomeTextColorClassNameForLightOrDarkMode,
 	getBugsInProjectList,
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
@@ -83,7 +83,7 @@ export default function ListViewTableRow(props) {
 			reduxState[props.reduxContainerName].priorityStatusOptions
 				.statusCompletionId
 				? " list-table__data--completed-color"
-				: getBaseTextColorClassNameForLightOrDarkMode(
+				: getHomeTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				  ))
 		);

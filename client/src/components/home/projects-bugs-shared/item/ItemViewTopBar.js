@@ -18,14 +18,14 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
-	getBarBackgroundColorClassNameForLightOrDarkMode,
+	getTopBarBackgroundColorClassNameForLightOrDarkMode,
 	getLightBackgroundColorClassNameForTheme,
 	getLightBorderColorClassNameForTheme,
-	getBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
-	getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
+	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
-	getTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
@@ -151,8 +151,8 @@ export default function ItemViewTopBar(props) {
 	return (
 		<div
 			className={
-				"top-bar-component js-top-bar" +
-				getBarBackgroundColorClassNameForLightOrDarkMode(
+				"item-vew-top-bar-component js-top-bar" +
+				getTopBarBackgroundColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}
@@ -179,7 +179,7 @@ export default function ItemViewTopBar(props) {
 					value={searchBarText}
 					className={
 						"outer-search-container__search-bar js-item-search-bar" +
-						getBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
+						getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						getLightBorderColorClassNameForTheme(
@@ -214,7 +214,7 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__button" +
-								getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
@@ -236,7 +236,7 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__content-dropdown" +
-								getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
@@ -336,7 +336,7 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__button list-sort-filter-container__button--filter-width" +
-								getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
@@ -368,7 +368,7 @@ export default function ItemViewTopBar(props) {
 						<div
 							className={
 								"list-sort-filter-container__content-dropdown list-sort-filter-container__content-dropdown--filter-width" +
-								getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								(props.reduxContainerName === BUG_CONTAINER
@@ -483,7 +483,7 @@ export default function ItemViewTopBar(props) {
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.itemViewTopBarOptionsDropdown
-							? getTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
+							? getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							  )
 							: "")
@@ -501,7 +501,7 @@ export default function ItemViewTopBar(props) {
 				<div
 					className={
 						"item-options-container__dropdown" +
-						getBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
@@ -519,7 +519,7 @@ export default function ItemViewTopBar(props) {
 					<span
 						className={
 							"item-options-container__dropdown__option" +
-							getTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+							getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -535,7 +535,7 @@ export default function ItemViewTopBar(props) {
 					<span
 						className={
 							"item-options-container__dropdown__option item-options-container__dropdown__option--no-border" +
-							getTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+							getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

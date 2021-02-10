@@ -1,8 +1,8 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.top-bar-component,
-.js-calc-top-bar-component {
+.item-vew-top-bar-component,
+.js-calc-item-vew-top-bar-component {
 	// Must be more than list-sidebar so item-options-container will display
 	// ...overtop the list-sidebar if the screen gets too small
 	z-index: 2;
@@ -10,7 +10,7 @@
 	top: v.$search-filter-sort-and-top-bar-top;
 	border: v.$top-bar-border-width solid black;
 	border-width: v.$top-bar-border-width 0 v.$item-container-list-sidebar-border-width 0;
-	background-color: v.$mode-search-filter-sort-top-bar-background-color--light;
+	background-color: v.$mode-top-bar-background-color-light;
 	height: v.$top-bar-height;
 	/* height: v.$search-filter-sort-bar-height; */
 	width: 100%;
@@ -47,7 +47,7 @@
 		border: v.$top-bar-button-border-width solid black;
 		border-radius: v.$search-top-bar-buttton-border-radius 0 0 v.$search-top-bar-buttton-border-radius;
 		padding: 0px v.$list-item-search-bar-padding 0px v.$list-item-search-bar-padding;
-		background-color: v.$mode-search-filter-sort-top-bar-background-color--search-bar-light;
+		background-color: v.$mode-top-bar-background-color-search-bar-light;
 		height: v.$list-item-search-bar-height;
 		width: v.$item-search-bar-width - v.$list-item-search-bar-button-width;
 		font-size: v.$list-item-search-bar-font-size;
@@ -100,12 +100,12 @@
 		z-index: 1;
 		position: absolute;
 		top: 9px;
-		border: v.$search-top-bar-base-button-border-width solid v.$mode-search-filter-sort-top-bar-border-color-button-light;
+		border: v.$search-top-bar-base-button-border-width solid v.$mode-top-bar-border-color-button-light;
 		border-radius: v.$search-top-bar-buttton-border-radius;
-		background-color: v.$mode-search-filter-sort-top-bar-background-color--button-light;
+		background-color: v.$mode-top-bar-background-color-button-light;
 		height: v.$top-bar-button-height;
 		width: v.$top-bar-sort-button-width;
-		color: v.$mode-search-filter-sort-top-bar-text-color-button-light;
+		color: v.$mode-top-bar-text-color-button-light;
 		font-size: v.$top-bar-filter-button-font-size;
 		text-align: center;
 		cursor: pointer;
@@ -291,7 +291,7 @@
 
 		&:hover,
 		&:active {
-			background-color: v.$mode-top-bar-options-dropdown-row-hover-background-color-light;
+			background-color: v.$mode-item-view-top-bar-options-dropdown-row-hover-background-color-light;
 		}
 	}
 
