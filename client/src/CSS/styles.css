@@ -2852,7 +2852,7 @@ body, */
 }
 .app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-dark-mode-true,
 .js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-dark-mode-true {
-  border-color: #1d1d1d;
+  border-color: #757575;
   background-color: #525252;
   color: #C9D1D9;
 }
@@ -2875,7 +2875,7 @@ body, */
 }
 .app-component .js-set-create-item-sidebar-diabled-input-date-dark-mode-true,
 .js-calc-app-component .js-set-create-item-sidebar-diabled-input-date-dark-mode-true {
-  border-color: #1d1d1d;
+  border-color: #757575;
   background-color: #333333;
   color: #6d6d6d;
   pointer-events: none;
