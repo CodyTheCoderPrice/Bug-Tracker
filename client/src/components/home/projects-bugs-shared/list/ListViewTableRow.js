@@ -24,6 +24,9 @@ import {
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
 
+// Components
+import CustomCheckbox from "../../../basic/CustomCheckbox";
+
 export default function ListViewTableRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -124,7 +127,19 @@ export default function ListViewTableRow(props) {
 				onClick={(e) => dontPropogateParentOnclick(e)}
 				onDoubleClick={(e) => dontPropogateParentOnclick(e)}
 			>
-				<input
+				<div className="list-table__data__custom-checkbox-centered-container ">
+					<CustomCheckbox
+						centered={true}
+						value={props.item.id}
+						onChangeFunction={onChangeMassDeleteCheckbox}
+						checked={reduxState[
+							props.reduxContainerName
+						].massDeleteList.includes(props.item.id)}
+						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+					/>
+				</div>
+
+				{/* <input
 					type="checkbox"
 					name="item"
 					value={props.item.id}
@@ -132,8 +147,10 @@ export default function ListViewTableRow(props) {
 					checked={reduxState[props.reduxContainerName].massDeleteList.includes(
 						props.item.id
 					)}
-					className="list-table__data__checkbox"
-				/>
+					className={
+						"list-table__data__checkbox"
+					}
+				/> */}
 			</td>
 			<td
 				className={

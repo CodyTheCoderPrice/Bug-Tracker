@@ -70,6 +70,45 @@
   left: 1px;
 }
 
+.custom-checkbox-component {
+  position: relative;
+  height: 13px;
+  width: 13px;
+}
+.custom-checkbox-component .checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  border: 1px solid black;
+  outline: none;
+  background-color: white;
+  padding: 0px;
+  height: 13px;
+  width: 13px;
+  cursor: pointer;
+}
+.custom-checkbox-component .checkbox:hover {
+  border: 1px solid #1e77c0;
+}
+.custom-checkbox-component .checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 11px;
+  pointer-events: none;
+  cursor: pointer;
+}
+.custom-checkbox-component .checkmark:hover {
+  color: #1e77c0;
+}
+
 .register-login-components .background {
   position: absolute;
   top: 0;
@@ -2562,13 +2601,13 @@ dropdown can overlap all other components
 }
 .list-table-component .list-table__data,
 .js-calc-list-table-component .list-table__data {
+  position: relative;
   border-bottom: 1px solid #919191;
   padding: 0px 7px 0px 7px;
   cursor: default;
 }
 .list-table-component .list-table__data--overflow,
 .js-calc-list-table-component .list-table__data--overflow {
-  /* width: v.$list-table-item-name-width; */
   max-width: 250px;
   white-space: nowrap;
   overflow: hidden;
@@ -2583,9 +2622,14 @@ dropdown can overlap all other components
   margin-right: 5px;
   color: #007e00;
 }
-.list-table-component .list-table__data__checkbox,
-.js-calc-list-table-component .list-table__data__checkbox {
-  cursor: pointer;
+.list-table-component .list-table__data__custom-checkbox-centered-container,
+.js-calc-list-table-component .list-table__data__custom-checkbox-centered-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 13px;
+  width: 13px;
 }
 .list-table-component .list-table__data__centering-container,
 .js-calc-list-table-component .list-table__data__centering-container {
@@ -2646,22 +2690,18 @@ dropdown can overlap all other components
   cursor: pointer;
 }
 
-html,
-body,
+/* html,
+body, */
 .app-component,
 .js-calc-app-component {
   width: 100%;
   overflow: hidden;
   color: black;
 }
-html .text-red,
-body .text-red,
 .app-component .text-red,
 .js-calc-app-component .text-red {
   color: red;
 }
-html .grayed-out-none,
-body .grayed-out-none,
 .app-component .grayed-out-none,
 .js-calc-app-component .grayed-out-none {
   -webkit-touch-callout: none;
@@ -2680,210 +2720,174 @@ body .grayed-out-none,
   color: #808080;
   opacity: 0.7;
 }
-html .js-set-home-text-color-dark-mode-false,
-body .js-set-home-text-color-dark-mode-false,
 .app-component .js-set-home-text-color-dark-mode-false,
 .js-calc-app-component .js-set-home-text-color-dark-mode-false {
   color: black;
 }
-html .js-set-home-text-color-dark-mode-true,
-body .js-set-home-text-color-dark-mode-true,
 .app-component .js-set-home-text-color-dark-mode-true,
 .js-calc-app-component .js-set-home-text-color-dark-mode-true {
   color: #C9D1D9;
 }
-html .js-set-home-background-color-dark-mode-false,
-body .js-set-home-background-color-dark-mode-false,
 .app-component .js-set-home-background-color-dark-mode-false,
 .js-calc-app-component .js-set-home-background-color-dark-mode-false {
   background-color: white;
 }
-html .js-set-home-background-color-dark-mode-true,
-body .js-set-home-background-color-dark-mode-true,
 .app-component .js-set-home-background-color-dark-mode-true,
 .js-calc-app-component .js-set-home-background-color-dark-mode-true {
   background-color: #333333;
 }
-html .js-set-top-bar-background-color-dark-mode-false,
-body .js-set-top-bar-background-color-dark-mode-false,
+.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false,
+.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false {
+  border: 1px solid black;
+  background-color: white;
+}
+.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover,
+.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover {
+  border: 1px solid #1e77c0;
+}
+.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false + i,
+.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false + i {
+  color: black;
+}
+.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover + i,
+.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover + i {
+  color: #1e77c0;
+}
+.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true,
+.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true {
+  border: 1px solid #a3a3a3;
+  background-color: #333333;
+}
+.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover,
+.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover {
+  border: 1px solid #3889cc;
+}
+.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true + i,
+.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true + i {
+  color: #C9D1D9;
+}
+.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i,
+.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i {
+  color: #3889cc;
+}
 .app-component .js-set-top-bar-background-color-dark-mode-false,
 .js-calc-app-component .js-set-top-bar-background-color-dark-mode-false {
   background-color: #e5e5e5;
 }
-html .js-set-top-bar-background-color-dark-mode-true,
-body .js-set-top-bar-background-color-dark-mode-true,
 .app-component .js-set-top-bar-background-color-dark-mode-true,
 .js-calc-app-component .js-set-top-bar-background-color-dark-mode-true {
   background-color: #292929;
 }
-html .js-set-top-bar-search-bar-background-text-color-dark-mode-false,
-body .js-set-top-bar-search-bar-background-text-color-dark-mode-false,
 .app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-false {
   background-color: white;
   color: black;
 }
-html .js-set-top-bar-search-bar-background-text-color-dark-mode-true,
-body .js-set-top-bar-search-bar-background-text-color-dark-mode-true,
 .app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true,
 .js-calc-app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true {
   background-color: #363636;
   color: #C9D1D9;
 }
-html .js-set-top-bar-button-border-background-text-color-dark-mode-false,
-body .js-set-top-bar-button-border-background-text-color-dark-mode-false,
 .app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false {
   border-color: black;
   background-color: white;
   color: black;
 }
-html .js-set-top-bar-button-border-background-text-color-dark-mode-true,
-body .js-set-top-bar-button-border-background-text-color-dark-mode-true,
 .app-component .js-set-top-bar-button-border-background-text-color-dark-mode-true,
 .js-calc-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-true {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
   color: #C9D1D9;
 }
-html .js-set-create-item-sidebar-background-color-dark-mode-false,
-body .js-set-create-item-sidebar-background-color-dark-mode-false,
 .app-component .js-set-create-item-sidebar-background-color-dark-mode-false,
 .js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-false {
   background-color: white;
 }
-html .js-set-create-item-sidebar-background-color-dark-mode-true,
-body .js-set-create-item-sidebar-background-color-dark-mode-true,
 .app-component .js-set-create-item-sidebar-background-color-dark-mode-true,
 .js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-true {
   background-color: #333333;
 }
-html .js-set-base-icon-button-background-color-with-hover-dark-mode-false,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-false,
 .app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false,
 .js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false {
   color: #919191;
 }
-html .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover, html .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active,
-.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover,
-.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active,
+.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover, .app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active,
 .js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:hover,
 .js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false:active {
   color: #3a3a3a;
 }
-html .js-set-base-icon-button-background-color-with-hover-dark-mode-true,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-true,
 .app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true,
 .js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true {
   color: #525252;
 }
-html .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover, html .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover,
-body .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active,
-.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover,
-.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active,
+.app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover, .app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active,
 .js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:hover,
 .js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-true:active {
   color: #808080;
 }
-html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false,
 .app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false,
 .js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false {
   color: #757575;
 }
-html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover, html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active,
-.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover,
-.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active,
+.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover, .app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active,
 .js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:hover,
 .js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false:active {
   color: #3a3a3a;
 }
-html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true,
 .app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true,
 .js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true {
   color: #4e4e4e;
 }
-html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover, html .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover,
-body .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active,
-.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover,
-.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active,
+.app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover, .app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active,
 .js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:hover,
 .js-calc-app-component .js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true:active {
   color: #757575;
 }
-html .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
-body .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
 .app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
   border-color: black;
   background-color: white;
   color: #3a3a3a;
 }
-html .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
-body .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
 .app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
 .js-calc-app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
   color: #757575;
 }
-html .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover, html .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
-body .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
-body .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
-.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
-.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
+.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover, .app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active,
 .js-calc-app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
 .js-calc-app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:active {
   background-color: #ebebeb;
 }
-html .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover, html .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
-body .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover,
-body .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
-.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover,
-.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
+.app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover, .app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active,
 .js-calc-app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:hover,
 .js-calc-app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active {
   background-color: #444444;
 }
-html .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
-body .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
 .app-component .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false,
 .js-calc-app-component .js-set-base-form-input-border-background-text-border-text-color-dark-mode-false {
   border-color: #757575;
   background-color: #e5e5e5;
   color: black;
 }
-html .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true,
-body .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true,
 .app-component .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true,
 .js-calc-app-component .js-set-base-form-input-border-background-text-border-text-color-dark-mode-true {
   border-color: #1d1d1d;
   background-color: #525252;
   color: #C9D1D9;
 }
-html .js-set-base-diabled-label-dark-mode-false,
-body .js-set-base-diabled-label-dark-mode-false,
 .app-component .js-set-base-diabled-label-dark-mode-false,
 .js-calc-app-component .js-set-base-diabled-label-dark-mode-false {
   color: #bfbfbf;
   pointer-events: none;
 }
-html .js-set-base-diabled-label-dark-mode-true,
-body .js-set-base-diabled-label-dark-mode-true,
 .app-component .js-set-base-diabled-label-dark-mode-true,
 .js-calc-app-component .js-set-base-diabled-label-dark-mode-true {
   color: #6d6d6d;
   pointer-events: none;
 }
-html .js-set-base-diabled-input-date-dark-mode-false,
-body .js-set-base-diabled-input-date-dark-mode-false,
 .app-component .js-set-base-diabled-input-date-dark-mode-false,
 .js-calc-app-component .js-set-base-diabled-input-date-dark-mode-false {
   border-color: #757575;
@@ -2891,8 +2895,6 @@ body .js-set-base-diabled-input-date-dark-mode-false,
   color: #6d6d6d;
   pointer-events: none;
 }
-html .js-set-base-diabled-input-date-dark-mode-true,
-body .js-set-base-diabled-input-date-dark-mode-true,
 .app-component .js-set-base-diabled-input-date-dark-mode-true,
 .js-calc-app-component .js-set-base-diabled-input-date-dark-mode-true {
   border-color: #1d1d1d;
@@ -2900,254 +2902,162 @@ body .js-set-base-diabled-input-date-dark-mode-true,
   color: #6d6d6d;
   pointer-events: none;
 }
-html .js-set-list-row-hover-background-color-dark-mode-false:hover, html .js-set-list-row-hover-background-color-dark-mode-false:active,
-body .js-set-list-row-hover-background-color-dark-mode-false:hover,
-body .js-set-list-row-hover-background-color-dark-mode-false:active,
-.app-component .js-set-list-row-hover-background-color-dark-mode-false:hover,
-.app-component .js-set-list-row-hover-background-color-dark-mode-false:active,
+.app-component .js-set-list-row-hover-background-color-dark-mode-false:hover, .app-component .js-set-list-row-hover-background-color-dark-mode-false:active,
 .js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-false:hover,
 .js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-false:active {
   background-color: #f8f8f8;
 }
-html .js-set-list-row-hover-background-color-dark-mode-true:hover, html .js-set-list-row-hover-background-color-dark-mode-true:active,
-body .js-set-list-row-hover-background-color-dark-mode-true:hover,
-body .js-set-list-row-hover-background-color-dark-mode-true:active,
-.app-component .js-set-list-row-hover-background-color-dark-mode-true:hover,
-.app-component .js-set-list-row-hover-background-color-dark-mode-true:active,
+.app-component .js-set-list-row-hover-background-color-dark-mode-true:hover, .app-component .js-set-list-row-hover-background-color-dark-mode-true:active,
 .js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-true:hover,
 .js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-true:active {
   background-color: #3a3a3a;
 }
-html .js-set-list-row-selected-background-color-dark-mode-false,
-body .js-set-list-row-selected-background-color-dark-mode-false,
 .app-component .js-set-list-row-selected-background-color-dark-mode-false,
 .js-calc-app-component .js-set-list-row-selected-background-color-dark-mode-false {
   background-color: #e1e1e1;
 }
-html .js-set-list-row-selected-background-color-dark-mode-true,
-body .js-set-list-row-selected-background-color-dark-mode-true,
 .app-component .js-set-list-row-selected-background-color-dark-mode-true,
 .js-calc-app-component .js-set-list-row-selected-background-color-dark-mode-true {
   background-color: #484848;
 }
-html .js-set-item-view-item-box-background-color-dark-mode-false,
-body .js-set-item-view-item-box-background-color-dark-mode-false,
 .app-component .js-set-item-view-item-box-background-color-dark-mode-false,
 .js-calc-app-component .js-set-item-view-item-box-background-color-dark-mode-false {
   background-color: #e5e5e5;
 }
-html .js-set-item-view-item-box-background-color-dark-mode-true,
-body .js-set-item-view-item-box-background-color-dark-mode-true,
 .app-component .js-set-item-view-item-box-background-color-dark-mode-true,
 .js-calc-app-component .js-set-item-view-item-box-background-color-dark-mode-true {
   background-color: #292929;
 }
-html .js-set-dark-background-color-theme-teal,
-body .js-set-dark-background-color-theme-teal,
 .app-component .js-set-dark-background-color-theme-teal,
 .js-calc-app-component .js-set-dark-background-color-theme-teal {
   background-color: #50798b;
 }
-html .js-set-light-background-color-theme-teal,
-body .js-set-light-background-color-theme-teal,
 .app-component .js-set-light-background-color-theme-teal,
 .js-calc-app-component .js-set-light-background-color-theme-teal {
   background-color: #6691a3;
 }
-html .js-set-dark-background-color-theme-blue,
-body .js-set-dark-background-color-theme-blue,
 .app-component .js-set-dark-background-color-theme-blue,
 .js-calc-app-component .js-set-dark-background-color-theme-blue {
   background-color: #3d5774;
 }
-html .js-set-light-background-color-theme-blue,
-body .js-set-light-background-color-theme-blue,
 .app-component .js-set-light-background-color-theme-blue,
 .js-calc-app-component .js-set-light-background-color-theme-blue {
   background-color: #4d6e92;
 }
-html .js-set-background-color-with-hover-theme-teal,
-body .js-set-background-color-with-hover-theme-teal,
 .app-component .js-set-background-color-with-hover-theme-teal,
 .js-calc-app-component .js-set-background-color-with-hover-theme-teal {
   background-color: #6691a3;
 }
-html .js-set-background-color-with-hover-theme-teal:hover, html .js-set-background-color-with-hover-theme-teal:active,
-body .js-set-background-color-with-hover-theme-teal:hover,
-body .js-set-background-color-with-hover-theme-teal:active,
-.app-component .js-set-background-color-with-hover-theme-teal:hover,
-.app-component .js-set-background-color-with-hover-theme-teal:active,
+.app-component .js-set-background-color-with-hover-theme-teal:hover, .app-component .js-set-background-color-with-hover-theme-teal:active,
 .js-calc-app-component .js-set-background-color-with-hover-theme-teal:hover,
 .js-calc-app-component .js-set-background-color-with-hover-theme-teal:active {
   background-color: #50798b;
 }
-html .js-set-background-color-with-hover-theme-blue,
-body .js-set-background-color-with-hover-theme-blue,
 .app-component .js-set-background-color-with-hover-theme-blue,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue {
   background-color: #4d6e92;
 }
-html .js-set-background-color-with-hover-theme-blue:hover, html .js-set-background-color-with-hover-theme-blue:active,
-body .js-set-background-color-with-hover-theme-blue:hover,
-body .js-set-background-color-with-hover-theme-blue:active,
-.app-component .js-set-background-color-with-hover-theme-blue:hover,
-.app-component .js-set-background-color-with-hover-theme-blue:active,
+.app-component .js-set-background-color-with-hover-theme-blue:hover, .app-component .js-set-background-color-with-hover-theme-blue:active,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue:hover,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue:active {
   background-color: #3d5774;
 }
-html .js-set-dark-breadcrumb-arrow-color-theme-teal,
-body .js-set-dark-breadcrumb-arrow-color-theme-teal,
 .app-component .js-set-dark-breadcrumb-arrow-color-theme-teal,
 .js-calc-app-component .js-set-dark-breadcrumb-arrow-color-theme-teal {
   border-left-color: #50798b;
 }
-html .js-set-light-breadcrumb-arrow-color-theme-teal,
-body .js-set-light-breadcrumb-arrow-color-theme-teal,
 .app-component .js-set-light-breadcrumb-arrow-color-theme-teal,
 .js-calc-app-component .js-set-light-breadcrumb-arrow-color-theme-teal {
   border-left-color: #6691a3;
 }
-html .js-set-dark-breadcrumb-arrow-color-theme-blue,
-body .js-set-dark-breadcrumb-arrow-color-theme-blue,
 .app-component .js-set-dark-breadcrumb-arrow-color-theme-blue,
 .js-calc-app-component .js-set-dark-breadcrumb-arrow-color-theme-blue {
   border-left-color: #3d5774;
 }
-html .js-set-light-breadcrumb-arrow-color-theme-blue,
-body .js-set-light-breadcrumb-arrow-color-theme-blue,
 .app-component .js-set-light-breadcrumb-arrow-color-theme-blue,
 .js-calc-app-component .js-set-light-breadcrumb-arrow-color-theme-blue {
   border-left-color: #4d6e92;
 }
-html .js-set-dark-border-color-theme-teal,
-body .js-set-dark-border-color-theme-teal,
 .app-component .js-set-dark-border-color-theme-teal,
 .js-calc-app-component .js-set-dark-border-color-theme-teal {
   border-color: #50798b;
 }
-html .js-set-light-border-color-theme-teal,
-body .js-set-light-border-color-theme-teal,
 .app-component .js-set-light-border-color-theme-teal,
 .js-calc-app-component .js-set-light-border-color-theme-teal {
   border-color: #6691a3;
 }
-html .js-set-dark-border-color-theme-blue,
-body .js-set-dark-border-color-theme-blue,
 .app-component .js-set-dark-border-color-theme-blue,
 .js-calc-app-component .js-set-dark-border-color-theme-blue {
   border-color: #3d5774;
 }
-html .js-set-light-border-color-theme-blue,
-body .js-set-light-border-color-theme-blue,
 .app-component .js-set-light-border-color-theme-blue,
 .js-calc-app-component .js-set-light-border-color-theme-blue {
   border-color: #4d6e92;
 }
-html .js-set-text-color-theme-teal,
-body .js-set-text-color-theme-teal,
 .app-component .js-set-text-color-theme-teal,
 .js-calc-app-component .js-set-text-color-theme-teal {
   color: #2588b3;
 }
-html .js-set-text-color-theme-blue,
-body .js-set-text-color-theme-blue,
 .app-component .js-set-text-color-theme-blue,
 .js-calc-app-component .js-set-text-color-theme-blue {
   color: #245ba3;
 }
-html .js-set-status-box-background-color-gray,
-html .js-calc-status-box-background-color-gray,
-body .js-set-status-box-background-color-gray,
-body .js-calc-status-box-background-color-gray,
 .app-component .js-set-status-box-background-color-gray,
 .app-component .js-calc-status-box-background-color-gray,
 .js-calc-app-component .js-set-status-box-background-color-gray,
 .js-calc-app-component .js-calc-status-box-background-color-gray {
   background-color: #808080;
 }
-html .js-set-status-box-background-color-blue,
-html .js-calc-status-box-background-color-blue,
-body .js-set-status-box-background-color-blue,
-body .js-calc-status-box-background-color-blue,
 .app-component .js-set-status-box-background-color-blue,
 .app-component .js-calc-status-box-background-color-blue,
 .js-calc-app-component .js-set-status-box-background-color-blue,
 .js-calc-app-component .js-calc-status-box-background-color-blue {
   background-color: #568dd5;
 }
-html .js-set-status-box-background-color-purple,
-html .js-calc-status-box-background-color-purple,
-body .js-set-status-box-background-color-purple,
-body .js-calc-status-box-background-color-purple,
 .app-component .js-set-status-box-background-color-purple,
 .app-component .js-calc-status-box-background-color-purple,
 .js-calc-app-component .js-set-status-box-background-color-purple,
 .js-calc-app-component .js-calc-status-box-background-color-purple {
   background-color: #9680ce;
 }
-html .js-set-status-box-background-color-orange,
-html .js-calc-status-box-background-color-orange,
-body .js-set-status-box-background-color-orange,
-body .js-calc-status-box-background-color-orange,
 .app-component .js-set-status-box-background-color-orange,
 .app-component .js-calc-status-box-background-color-orange,
 .js-calc-app-component .js-set-status-box-background-color-orange,
 .js-calc-app-component .js-calc-status-box-background-color-orange {
   background-color: #ff9900;
 }
-html .js-set-status-box-background-color-green,
-html .js-calc-status-box-background-color-green,
-body .js-set-status-box-background-color-green,
-body .js-calc-status-box-background-color-green,
 .app-component .js-set-status-box-background-color-green,
 .app-component .js-calc-status-box-background-color-green,
 .js-calc-app-component .js-set-status-box-background-color-green,
 .js-calc-app-component .js-calc-status-box-background-color-green {
   background-color: #007e00;
 }
-html .js-set-status-box-background-color-red,
-html .js-calc-status-box-background-color-red,
-body .js-set-status-box-background-color-red,
-body .js-calc-status-box-background-color-red,
 .app-component .js-set-status-box-background-color-red,
 .app-component .js-calc-status-box-background-color-red,
 .js-calc-app-component .js-set-status-box-background-color-red,
 .js-calc-app-component .js-calc-status-box-background-color-red {
   background-color: #d14242;
 }
-html .js-set-status-box-text-color-gray,
-body .js-set-status-box-text-color-gray,
 .app-component .js-set-status-box-text-color-gray,
 .js-calc-app-component .js-set-status-box-text-color-gray {
   color: #808080;
 }
-html .js-set-status-box-text-color-blue,
-body .js-set-status-box-text-color-blue,
 .app-component .js-set-status-box-text-color-blue,
 .js-calc-app-component .js-set-status-box-text-color-blue {
   color: #568dd5;
 }
-html .js-set-status-box-text-color-purple,
-body .js-set-status-box-text-color-purple,
 .app-component .js-set-status-box-text-color-purple,
 .js-calc-app-component .js-set-status-box-text-color-purple {
   color: #9680ce;
 }
-html .js-set-status-box-text-color-orange,
-body .js-set-status-box-text-color-orange,
 .app-component .js-set-status-box-text-color-orange,
 .js-calc-app-component .js-set-status-box-text-color-orange {
   color: #ff9900;
 }
-html .js-set-status-box-text-color-green,
-body .js-set-status-box-text-color-green,
 .app-component .js-set-status-box-text-color-green,
 .js-calc-app-component .js-set-status-box-text-color-green {
   color: #007e00;
 }
-html .js-set-status-box-text-color-red,
-body .js-set-status-box-text-color-red,
 .app-component .js-set-status-box-text-color-red,
 .js-calc-app-component .js-set-status-box-text-color-red {
   color: #d14242;

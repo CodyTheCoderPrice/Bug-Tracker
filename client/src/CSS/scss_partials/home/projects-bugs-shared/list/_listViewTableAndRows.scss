@@ -81,13 +81,13 @@
 	}
 
 	.list-table__data {
+		position: relative;
 		border-bottom: v.$list-table-border-width solid v.$list-table-border-color;
 		padding: 0px 7px 0px 7px;
 		cursor: default;
 	}
 
 	.list-table__data--overflow {
-		/* width: v.$list-table-item-name-width; */
 		max-width: v.$list-table-item-name-width;
 		white-space: nowrap;
 		overflow: hidden;
@@ -103,8 +103,11 @@
 		color: v.$status-green;
 	}
 
-	.list-table__data__checkbox {
-		cursor: pointer;
+	.list-table__data__custom-checkbox-centered-container {
+		@include m.dead-center();
+	
+		height: v.$basic-custom-checkbox-height;
+		width: v.$basic-custom-checkbox-height;
 	}
 
 	.list-table__data__centering-container {

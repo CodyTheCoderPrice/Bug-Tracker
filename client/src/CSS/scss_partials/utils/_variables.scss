@@ -39,8 +39,8 @@ $dark-gray-level-11: #181818;
 $tinted-light-gray-level-1: #C9D1D9;
 // Blue grays
 $very-light-blue-gray: #7390af;
-$light-blue-gray: #607c99;
-$blue-gray: #50677f;
+$lighter-blue-gray: #607c99;
+$light-blue-gray: #50677f;
 $dark-blue-gray: #215792;
 // Navy blues
 $lighter-navy-blue: #4d6e92;
@@ -48,8 +48,9 @@ $light-navy-blue: #4d6b8b;
 $navy-blue: #45607e;
 $darker-navy-blue: #3d5774;
 // Basic blues
-$light-blue: #76bffa;
-$blue: #3889cc;
+$lighter-blue: #76bffa;
+$light-blue: #3889cc;
+$blue: #1e77c0;
 // Teals
 $light-teal: #8ba8b3;
 $teal: #6691a3;
@@ -64,22 +65,23 @@ $light-green: #ccf5cc;
 // Yellows
 $yellow: #ffff00;
 
-// Components
-$basic-toggle-switch-on-color: $blue;
-$basic-toggle-switch-off-color: $light-gray-level-7;
-$account-sidebar-appearance-theme-button-border-color: $dark-gray-level-1;
-$account-sidebar-appearance-theme-button-background-color: $light-gray-level-5;
-$account-sidebar-appearance-theme-button-arrow-container-color: $light-gray-level-10;
-$account-sidebar-appearance-theme-button-option-text-color: $dark-gray-level-4;
-$account-sidebar-appearance-theme-button-option-selected-color: $light-blue;
-$list-table-border-color: $gray-level-2;
+//Custom
+
 // Light/Dark mode (general)
 $mode-home-background-color-light: white;
 $mode-home-background-color-dark: $dark-gray-level-6;
 $mode-home-text-color-light: black;
 $mode-home-text-color-dark: $tinted-light-gray-level-1;
-$mode-checkbox-background-color-light: white;
-$mode-checkbox-background-color-dark: $dark-gray-level-2;
+$mode-custom-checkbox-border-color-light: black;
+$mode-custom-checkbox-border-color-dark: $gray-level-1;
+$mode-custom-checkbox-background-color-light: $mode-home-background-color-light;
+$mode-custom-checkbox-background-color-dark: $mode-home-background-color-dark;
+$mode-custom-checkbox-hover-border-color-light: $blue;
+$mode-custom-checkbox-hover-border-color-dark: $light-blue;
+$mode-custom-checkmark-text-color-light: $mode-home-text-color-light;
+$mode-custom-checkmark-text-color-dark: $mode-home-text-color-dark;
+$mode-custom-checkmark-hover-text-color-light: $blue;
+$mode-custom-checkmark-hover-text-color-dark: $light-blue;
 $mode-list-row-hover-background-color-light: $light-gray-level-2;
 $mode-list-row-hover-background-color-dark: $dark-gray-level-4;
 $mode-list-row-selected-background-color-light: $light-gray-level-6;
@@ -133,10 +135,20 @@ $status-purple: #9680ce;
 $status-orange: #ff9900;
 $status-green: #007e00;
 $status-red: #d14242;
-// Filter colors
+// Filter button text colors
 $filter-active-color: #0077ff;
 $filter-active-color2: #ae00ff;
 $filter-active-color3: #ffbb00;
+
+// Components
+$basic-toggle-switch-on-color: $light-blue;
+$basic-toggle-switch-off-color: $light-gray-level-7;
+$account-sidebar-appearance-theme-button-border-color: $dark-gray-level-1;
+$account-sidebar-appearance-theme-button-background-color: $light-gray-level-5;
+$account-sidebar-appearance-theme-button-arrow-container-color: $light-gray-level-10;
+$account-sidebar-appearance-theme-button-option-text-color: $dark-gray-level-4;
+$account-sidebar-appearance-theme-button-option-selected-color: $lighter-blue;
+$list-table-border-color: $gray-level-2;
 
 // Backend error color
 $backend-error-color: red;
@@ -147,17 +159,18 @@ $focus-blue: #0059ff;
 // Icon button colors
 $darker-icon-button-gray: $gray-level-5;
 // Links
-$blues-link: #005ed8;
+$light-blues-link: #005ed8;
 $red-link: #f34242;
 
 //==========
 // Heights
 //==========
+$basic-toggle-switch-height: 24px;
+$basic-custom-checkbox-height: 13px;
 $navbar-height: 56px;
 $navbar-account-button-height: $navbar-height;
 $hamburger-dropdown-item-height: 42px;
 $edit-account-modal-height: 390px;
-$basic-toggle-switch-height: 24px;
 $account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
 $account-sidebar-logout-button-height: 40px;
 $account-modal-settings-content-container-height: $basic-toggle-switch-height;

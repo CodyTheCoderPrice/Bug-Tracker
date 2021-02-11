@@ -1,8 +1,8 @@
 @use "./utils/variables" as v;
 @use "./utils/mixins" as m;
 
-html,
-body,
+/* html,
+body, */
 .app-component,
 .js-calc-app-component {
 	width: 100%;
@@ -25,7 +25,7 @@ body,
 		opacity: 0.7;
 	}
 
-	// Light/Dark mode text color for home text elements
+	// Light/Dark mode text color for Home text elements
 	.js-set-home-text-color-dark-mode-false {
 		color: v.$mode-home-text-color-light;
 	}
@@ -33,7 +33,7 @@ body,
 		color: v.$mode-home-text-color-dark;
 	}
 
-	// Light/Dark mode background colors for home component
+	// Light/Dark mode background colors for Home component
 	.js-set-home-background-color-dark-mode-false {
 		background-color: v.$mode-home-background-color-light;
 	}
@@ -41,7 +41,45 @@ body,
 		background-color: v.$mode-home-background-color-dark;
 	}
 
-	// Light/Dark mode background colors for topBar
+	// Light/Dark mode border and background colors for CustomCheckbox
+	.js-set-custom-checkbox-border-and-background-color-dark-mode-false {
+		border: 1px solid v.$mode-custom-checkbox-border-color-light;
+		background-color: v.$mode-custom-checkbox-background-color-light;
+
+		&:hover {
+			border: 1px solid v.$mode-custom-checkbox-hover-border-color-light;
+		}
+
+		// For checkmark
+		& + i {
+			color: v.$mode-custom-checkmark-text-color-light;
+		}
+
+		// For checkmark
+		&:hover + i {
+			color: v.$mode-custom-checkmark-hover-text-color-light;
+		}
+	}
+	.js-set-custom-checkbox-border-and-background-color-dark-mode-true {
+		border: 1px solid v.$mode-custom-checkbox-border-color-dark;
+		background-color: v.$mode-custom-checkbox-background-color-dark;
+
+		&:hover {
+			border: 1px solid v.$mode-custom-checkbox-hover-border-color-dark;
+		}
+
+		// For checkmark
+		& + i {
+			color: v.$mode-custom-checkmark-text-color-dark;
+		}
+
+		// For checkmark
+		&:hover + i {
+			color: v.$mode-custom-checkmark-hover-text-color-dark;
+		}
+	}
+
+	// Light/Dark mode background colors for TopBar
 	.js-set-top-bar-background-color-dark-mode-false {
 		background-color: v.$mode-top-bar-background-color-light;
 	}
@@ -49,7 +87,7 @@ body,
 		background-color: v.$mode-top-bar-background-color-dark;
 	}
 
-	// Light/Dark mode background and text colors for topBar search-bar
+	// Light/Dark mode background and text colors for TopBar search-bar
 	.js-set-top-bar-search-bar-background-text-color-dark-mode-false {
 		background-color: v.$mode-top-bar-background-color-search-bar-light;
 		color: v.$mode-top-bar-text-color-search-bar-light;
@@ -59,7 +97,7 @@ body,
 		color: v.$mode-top-bar-text-color-search-bar-dark;
 	}
 
-	// Light/Dark mode border, background, and text color for topBar buttons
+	// Light/Dark mode border, background, and text color for TopBar buttons
 	.js-set-top-bar-button-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-top-bar-border-color-button-light;
 		background-color: v.$mode-top-bar-background-color-button-light;
@@ -71,7 +109,7 @@ body,
 		color: v.$mode-top-bar-text-color-button-dark;
 	}
 
-	// Light/Dark mode background colors for createItemSidebar component
+	// Light/Dark mode background colors for CreateItemSidebar component
 	.js-set-create-item-sidebar-background-color-dark-mode-false {
 		background-color: v.$mode-create-item-sidebar-background-color-light;
 	}
@@ -79,7 +117,7 @@ body,
 		background-color: v.$mode-create-item-sidebar-background-color-dark;
 	}
 
-	// Light/Dark mode text colors with hover for base icon buttons
+	// Light/Dark mode text colors with hover for base icon-buttons
 	.js-set-base-icon-button-background-color-with-hover-dark-mode-false {
 		color: v.$mode-base-icon-button-text-color-light;
 
@@ -97,7 +135,7 @@ body,
 		}
 	}
 
-	// Light/Dark mode text colors with hover for more distinct icon buttons
+	// Light/Dark mode text colors with hover for more distinct icon-buttons
 	.js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false {
 		color: v.$mode-more-distinct-icon-button-text-color-light;
 
@@ -115,21 +153,21 @@ body,
 		}
 	}
 
-	// Light/Dark mode border, background, and text color for itemViewTopBar options-button
+	// Light/Dark mode border, background, and text color for ItemViewTopBar options-button
 	.js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-top-bar-border-color-button-light;
 		background-color: v.$mode-top-bar-background-color-button-light;
-		// Same as hover text color for more distinct icon buttons
+		// Same as hover text color for more distinct icon-buttons
 		color: v.$mode-more-distinct-icon-button-hover-text-color-light;
 	}
 	.js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-top-bar-border-color-button-dark;
 		background-color: v.$mode-top-bar-background-color-button-dark;
-		// Same as hover text color for more distinct icon buttons
+		// Same as hover text color for more distinct icon-buttons
 		color: v.$mode-more-distinct-icon-button-hover-text-color-dark;
 	}
 
-	// Light/Dark mode hover background color for itemViewTopBar options-dropdown-row
+	// Light/Dark mode hover background color for ItemViewTopBar options-dropdown-row
 	.js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false {
 		&:hover,
 		&:active {
@@ -193,7 +231,7 @@ body,
 		}
 	}
 
-	// Light/Dark mode selected background colorsfor list rows
+	// Light/Dark mode selected background colors for list rows
 	.js-set-list-row-selected-background-color-dark-mode-false {
 		background-color: v.$mode-list-row-selected-background-color-light;
 	}
@@ -201,7 +239,7 @@ body,
 		background-color: v.$mode-list-row-selected-background-color-dark;
 	}
 
-	// Light/Dark mode background colors for itemView item-box
+	// Light/Dark mode background colors for ItemView item-box
 	.js-set-item-view-item-box-background-color-dark-mode-false {
 		background-color: v.$mode-item-view-item-box-background-color-light;
 	}

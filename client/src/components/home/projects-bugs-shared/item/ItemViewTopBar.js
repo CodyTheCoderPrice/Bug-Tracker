@@ -26,6 +26,7 @@ import {
 	getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
+	getCheckboxBackgroundAndTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarBorderEventListener } from "../../../../utils/hooks";

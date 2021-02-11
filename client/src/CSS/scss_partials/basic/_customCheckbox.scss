@@ -1,0 +1,44 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+.custom-checkbox-component {
+	position: relative;
+	height: v.$basic-custom-checkbox-height;
+	width: v.$basic-custom-checkbox-height;
+
+	.checkbox {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-o-appearance: none;
+		appearance: none;
+
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		margin: 0px;
+		border: 1px solid v.$mode-custom-checkbox-border-color-light;
+		outline: none;
+		background-color: v.$mode-custom-checkbox-background-color-light;
+		padding: 0px;
+		height: v.$basic-custom-checkbox-height;
+		width: v.$basic-custom-checkbox-height;
+		cursor: pointer;
+
+		&:hover {
+			border: 1px solid v.$mode-custom-checkbox-hover-border-color-light;
+		}
+	}
+
+	.checkmark {
+		@include m.dead-center();
+
+		color: v.$mode-custom-checkmark-text-color-light;
+		font-size: 11px;
+		pointer-events: none;
+		cursor: pointer;
+
+		&:hover {
+			color: v.$mode-custom-checkmark-hover-text-color-light;
+		}
+	}
+}
