@@ -65,8 +65,6 @@ $light-green: #ccf5cc;
 // Yellows
 $yellow: #ffff00;
 
-//Custom
-
 // Light/Dark mode (general)
 $mode-home-background-color-light: white;
 $mode-home-background-color-dark: $dark-gray-level-6;
@@ -119,6 +117,8 @@ $mode-create-item-form-input-disabled-background-color-light: $mode-create-item-
 $mode-create-item-form-input-disabled-background-color-dark: $mode-create-item-sidebar-background-color-dark;
 $mode-create-item-form-input-disabled-text-color-light: $light-gray-level-10;
 $mode-create-item-form-input-disabled-text-color-dark: $gray-level-6;
+$mode-list-view-mass-delete-button-text-color-light: $mode-home-text-color-light;
+$mode-list-view-mass-delete-button-text-color-dark: $mode-home-text-color-dark;
 $mode-item-view-item-box-background-color-light: $light-gray-level-5;
 $mode-item-view-item-box-background-color-dark: $dark-gray-level-8;
 // Themes

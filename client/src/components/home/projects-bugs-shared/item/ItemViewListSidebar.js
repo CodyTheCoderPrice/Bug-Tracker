@@ -11,7 +11,7 @@ import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
 import {
 	getHomeBackgroundColorClassNameForLightOrDarkMode,
-	searchFilterSort,
+	getSearchFilterSortList,
 } from "../../../../utils";
 
 // Components
@@ -116,19 +116,7 @@ export default function ItemViewListSidebar(props) {
 						</tr>
 					</thead>
 					<tbody>
-						{/*Spread operator used for deep copy so 
-					  ...original list array is unaffected*/}
-						{searchFilterSort(
-							props.reduxContainerName === PROJECT_CONTAINER
-								? [...reduxState[props.reduxContainerName].list]
-								: [...reduxState[props.reduxContainerName].list].filter(
-										(item) =>
-											item.project_id ===
-											reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
-												.id
-								  ),
-							reduxState[props.reduxContainerName].searchFilterSort
-						).map((item, idx) => {
+						{getSearchFilterSortList(reduxState, props.reduxContainerName).map((item, idx) => {
 							return (
 								<ItemViewListSidebarRow
 									key={idx}

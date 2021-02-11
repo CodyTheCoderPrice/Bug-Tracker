@@ -1,5 +1,9 @@
 import { dateToInt } from "./index";
 
+import {
+	PROJECT_CONTAINER,
+} from "../actions/constants/containerNames";
+
 export function searchFilterSort(projectsOrBugsArray, passedReduxState) {
 	// Functions are nest inside so they do not need to be passed the passedReduxState
 	const search = (projectsOrBugsArray) => {
@@ -94,6 +98,20 @@ export function searchFilterSort(projectsOrBugsArray, passedReduxState) {
 
 	return sort(filter(search(projectsOrBugsArray)));
 }
+
+export function getSearchFilterSortList(passedReduxState, reduxContainerName) {
+	return searchFilterSort(
+		reduxContainerName === PROJECT_CONTAINER
+			? // Spread operator makes deep copy of list so original is not affected
+			  [...passedReduxState[reduxContainerName].list]
+			: [...passedReduxState[reduxContainerName].list].filter(
+					(item) =>
+						item.project_id ===
+						passedReduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+			  ),
+		passedReduxState[reduxContainerName].searchFilterSort
+	);
+};
 
 export function getUpdatedDeepCopyFilterArray(passedReduxState, reduxContainerName, filterName, targetId) {
 	if (typeof targetId !== "number") {

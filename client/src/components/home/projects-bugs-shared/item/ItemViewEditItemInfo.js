@@ -21,10 +21,10 @@ import {
 	populateComboBox,
 	getTextColorClassNameForTheme,
 	getHomeTextColorClassNameForLightOrDarkMode,
-	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getCreateItemSidebarFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
-	getBaseDisabledLabelClassNameForLightOrDarkMode,
-	getBaseDisableInputDateClassNameForLightOrDarkMode,
+	getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode,
+	getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
 } from "../../../../utils";
 
@@ -394,7 +394,7 @@ export default function ItemViewEditItemInfo(props) {
 										(itemInfo.status_id !==
 										reduxState[props.reduxContainerName].priorityStatusOptions
 											.statusCompletionId
-											? getBaseDisabledLabelClassNameForLightOrDarkMode(
+											? getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
 											: getHomeTextColorClassNameForLightOrDarkMode(
@@ -415,10 +415,10 @@ export default function ItemViewEditItemInfo(props) {
 										(itemInfo.status_id !==
 										reduxState[props.reduxContainerName].priorityStatusOptions
 											.statusCompletionId
-											? getBaseDisableInputDateClassNameForLightOrDarkMode(
+											? getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
-											: getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+											: getCreateItemSidebarFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  ))
 									}

@@ -70,7 +70,7 @@
 	}
 
 	.list-table__header__mass-delete-options-container__button--disabled {
-		color: lightgray;
+		opacity: 0.2;
 		cursor: default;
 		pointer-events: none;
 	}

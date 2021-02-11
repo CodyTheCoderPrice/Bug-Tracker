@@ -10,10 +10,12 @@ import {
 import {
 	setWhichGeneralDropdownsDisplay,
 	setProjectOrBugSearchFilterSort,
+	setProjectOrBugMassDeleteList,
 } from "../../actions";
 
 import {
 	getUpdatedDeepCopyFilterArray,
+	getSearchFilterSortList,
 	getHomeBackgroundColorClassNameForLightOrDarkMode,
 } from "../../utils";
 
@@ -78,6 +80,43 @@ export default function Home() {
 		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects,
 		// eslint-disable-next-line
 		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs,
+	]);
+
+	// Updates mass delete list to not include items that are being searchFilterSorted out
+	useEffect(() => {
+		const verifyMassDeleteList = (reduxContainerName) => {
+			if (reduxState[reduxContainerName].massDeleteList.length > 0) {
+				const searchFilterSortListIds = getSearchFilterSortList(
+					reduxState,
+					reduxContainerName
+				).map((item) => item.id);
+
+				// Spread operator makes deep copy of list so original is not affected
+				const verifiedMassDeleteList = [
+					...reduxState[reduxContainerName].massDeleteList,
+				].filter((id) => searchFilterSortListIds.includes(id));
+
+				if (
+					verifiedMassDeleteList.length !==
+					reduxState[reduxContainerName].massDeleteList.length
+				) {
+					dispatch(
+						setProjectOrBugMassDeleteList(
+							reduxContainerName,
+							verifiedMassDeleteList
+						)
+					);
+				}
+			}
+		};
+
+		verifyMassDeleteList(PROJECT_CONTAINER);
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[PROJECT_CONTAINER].searchFilterSort,
+		// eslint-disable-next-line
+		reduxState[BUG_CONTAINER].searchFilterSort,
 	]);
 
 	// Closes general dropdowns whenever they are open and user anywhere

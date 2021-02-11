@@ -15,7 +15,8 @@ import {
 import {
 	getElementLocation,
 	getHomeBackgroundColorClassNameForLightOrDarkMode,
-	searchFilterSort,
+	getSearchFilterSortList,
+	getListViewMassDeleteButtonTextColorClassNameForLightOrDarkMode,
 	getHomeTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
@@ -101,7 +102,7 @@ export default function ListViewTable(props) {
 
 	const checkAllItems = () => {
 		let allItems = [];
-		for (let item of reduxState[props.reduxContainerName].list) {
+		for (let item of getSearchFilterSortList(reduxState, props.reduxContainerName)) {
 			allItems.push(item.id);
 		}
 
@@ -121,19 +122,22 @@ export default function ListViewTable(props) {
 		);
 	};
 
-	const createMassDeleteButton = (onclickfunction, iconClassName, altText) => {
+	const createMassDeleteButton = (
+		shouldBeActive,
+		onclickfunction,
+		iconClassName,
+		altText
+	) => {
 		return (
 			<div
 				className={
 					"list-table__header__mass-delete-options-container__button" +
-					(reduxState[props.reduxContainerName].massDeleteList.length > 0
-						? getHomeTextColorClassNameForLightOrDarkMode(
-								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-						  )
-						: " list-table__header__mass-delete-options-container__button--disabled" +
-						  getHomeTextColorClassNameForLightOrDarkMode(
-								!reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-						  ))
+					getListViewMassDeleteButtonTextColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					) +
+					(shouldBeActive
+						? ""
+						: " list-table__header__mass-delete-options-container__button--disabled")
 				}
 				onClick={onclickfunction}
 			>
@@ -178,16 +182,22 @@ export default function ListViewTable(props) {
 						>
 							<div className="list-table__header__mass-delete-options-container js-mass-delete-buttons-container">
 								{createMassDeleteButton(
+									reduxState[props.reduxContainerName].massDeleteList.length <
+										getSearchFilterSortList(reduxState, props.reduxContainerName).length,
 									checkAllItems,
 									"fa-check-square-o",
 									"Icon of a check mark inside a square"
 								)}
 								{createMassDeleteButton(
+									reduxState[props.reduxContainerName].massDeleteList.length >
+										0,
 									uncheckAllItems,
 									"fa-square-o",
 									"Icon of an empty square"
 								)}
 								{createMassDeleteButton(
+									reduxState[props.reduxContainerName].massDeleteList.length >
+										0,
 									openMassDeleteItemsModal,
 									"fa-trash-o",
 									"Icon of a trash can"
@@ -390,19 +400,7 @@ export default function ListViewTable(props) {
 					</tr>
 				</thead>
 				<tbody>
-					{/*Spread operator used for deep copy so 
-					  ...original list array is unaffected*/}
-					{searchFilterSort(
-						props.reduxContainerName === PROJECT_CONTAINER
-							? [...reduxState[props.reduxContainerName].list]
-							: [...reduxState[props.reduxContainerName].list].filter(
-									(item) =>
-										item.project_id ===
-										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
-											.id
-							  ),
-						reduxState[props.reduxContainerName].searchFilterSort
-					).map((item, idx) => {
+					{getSearchFilterSortList(reduxState, props.reduxContainerName).map((item, idx) => {
 						return (
 							<ListTableRow
 								key={idx}

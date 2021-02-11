@@ -21,7 +21,6 @@ import {
 	getLightBorderColorClassNameForTheme,
 	getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
 	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getCheckboxBackgroundAndTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";

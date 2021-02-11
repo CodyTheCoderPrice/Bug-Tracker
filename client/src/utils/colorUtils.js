@@ -84,13 +84,6 @@ export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkM
 	);
 }
 
-// Light/Dark mode background colors for CreateItemSidebar component
-export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
-}
-
 // Light/Dark mode text colors with hover for base icon-buttons
 export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	dark_mode
@@ -111,14 +104,46 @@ export function getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDa
 	);
 }
 
+// Light/Dark mode background colors for CreateItemSidebar component
+export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
+}
+
 // Light/Dark mode border, background, and text color for base form-input
-export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+export function getCreateItemSidebarFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-base-form-input-border-background-text-border-text-color-dark-mode-" +
+		" js-set-create-item-sidebar-form-input-border-background-text-border-text-color-dark-mode-" +
 		dark_mode
 	);
+}
+
+// Light/Dark mode disabled base label
+export function getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-create-item-sidebar-diabled-label-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode disabled base input date
+export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-create-item-sidebar-diabled-input-date-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode hover background colors for list rows
+export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-row-hover-background-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode selected background colors for list rows
+export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-row-selected-background-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode background colors for ListView mass-delete-button
+export function getListViewMassDeleteButtonTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-view-mass-delete-button-text-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode border, background, and text color for ItemViewTopBar options-button
@@ -138,26 +163,6 @@ export function getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassName
 	return (
 		" js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-" + dark_mode
 	);
-}
-
-// Light/Dark mode disabled base label
-export function getBaseDisabledLabelClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-base-diabled-label-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode disabled base input date
-export function getBaseDisableInputDateClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-base-diabled-input-date-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode hover background colors for list rows
-export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-list-row-hover-background-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode selected background colors for list rows
-export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-list-row-selected-background-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode background colors for ItemView item-box
