@@ -1,19 +1,26 @@
 import React from "react";
-import { isEmpty } from "./index";
 
-export function displayGrayedOutNoneIfEmpty(itemValue) {
-	if (isEmpty(itemValue)) {
-		return <span className="grayed-out-none">None</span>;
-	} else {
-		return itemValue;
-	}
-}
+import {
+	isEmpty,
+	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
+} from "./index";
 
-export function displayGrayedOutMessageIfEmpty(itemValue, message) {
-	if (isEmpty(itemValue)) {
-		return <span className="grayed-out-none">{message}</span>;
+export function displayGrayedOutMessageIfEmpty(value, message, dark_mode) {
+	if (isEmpty(value)) {
+		return (
+			<span
+				className={
+					"universal-text-grayed-out" +
+					getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
+						dark_mode
+					)
+				}
+			>
+				{message}
+			</span>
+		);
 	} else {
-		return itemValue;
+		return value;
 	}
 }
 

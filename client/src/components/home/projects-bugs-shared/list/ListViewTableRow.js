@@ -17,8 +17,9 @@ import {
 	getListRowBorderColorClassNameForLightOrDarkMode,
 	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
 	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
+	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
-	displayGrayedOutNoneIfEmpty,
+	displayGrayedOutMessageIfEmpty,
 	getTextColorClassNameForTheme,
 	getHomeTextColorClassNameForLightOrDarkMode,
 	getBugsInProjectList,
@@ -187,7 +188,10 @@ export default function ListViewTableRow(props) {
 						"list-table__data__info" +
 						(reduxState[props.reduxContainerName].priorityStatusOptions
 							.priorityEmptyId === props.item.priority_id
-							? " grayed-out-none"
+							? " universal-text-grayed-out" +
+							  getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							  )
 							: "")
 					}
 				>
@@ -196,21 +200,29 @@ export default function ListViewTableRow(props) {
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayGrayedOutNoneIfEmpty(
-						formatDateMMddYYYY(props.item.creation_date)
+					{displayGrayedOutMessageIfEmpty(
+						formatDateMMddYYYY(props.item.creation_date),
+						"None",
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayGrayedOutNoneIfEmpty(
-						formatDateMMddYYYY(props.item.start_date)
+					{displayGrayedOutMessageIfEmpty(
+						formatDateMMddYYYY(props.item.start_date),
+						"None",
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayGrayedOutNoneIfEmpty(formatDateMMddYYYY(props.item.due_date))}
+					{displayGrayedOutMessageIfEmpty(
+						formatDateMMddYYYY(props.item.due_date),
+						"None",
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>

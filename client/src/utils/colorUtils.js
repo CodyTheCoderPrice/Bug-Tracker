@@ -63,6 +63,11 @@ export function getCustomCheckboxBorderAndBackgroundColorClassNameForLightOrDark
 	return " js-set-custom-checkbox-border-and-background-color-dark-mode-" + dark_mode;
 }
 
+// Light/Dark mode text colors for universal-text-grayed-out
+export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-universal-text-grayed-out-text-color-dark-mode-" + dark_mode;
+}
+
 // Light/Dark mode background colors for TopBar
 export function getTopBarBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-top-bar-background-color-dark-mode-" + dark_mode;

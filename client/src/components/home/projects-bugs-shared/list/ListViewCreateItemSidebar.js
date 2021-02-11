@@ -211,7 +211,7 @@ export default function ListViewCreateItemSidebar(props) {
 								) +
 								(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
 								itemInfo.name.length
-									? " text-red"
+									? " universal-text-red"
 									: "")
 							}
 						>
@@ -254,7 +254,7 @@ export default function ListViewCreateItemSidebar(props) {
 								) +
 								(reduxState[GENERAL_CONTAINER].globalConstants
 									.descriptionCharLimit < itemInfo.description.length
-									? " text-red"
+									? " universal-text-red"
 									: "")
 							}
 						>
@@ -302,7 +302,7 @@ export default function ListViewCreateItemSidebar(props) {
 										) +
 										(reduxState[GENERAL_CONTAINER].globalConstants
 											.locationCharLimit < itemInfo.location.length
-											? " text-red"
+											? " universal-text-red"
 											: "")
 									}
 								>

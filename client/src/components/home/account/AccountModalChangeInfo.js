@@ -75,7 +75,7 @@ export default function AccountModalChangeInfo() {
 				</label>
 				{accountInfo.first_name.length >
 				reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
-					<span className="form__char-counter text-red">
+					<span className="form__char-counter universal-text-red">
 						{accountInfo.first_name.length +
 							"/" +
 							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
@@ -100,7 +100,7 @@ export default function AccountModalChangeInfo() {
 				</label>
 				{accountInfo.last_name.length >
 				reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
-					<span className="form__char-counter text-red">
+					<span className="form__char-counter universal-text-red">
 						{accountInfo.last_name.length +
 							"/" +
 							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}

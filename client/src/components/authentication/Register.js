@@ -53,7 +53,7 @@ export default function Register() {
 							</label>
 							{accountInfo.first_name.length >
 							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
-								<span className="form__char-counter text-red">
+								<span className="form__char-counter universal-text-red">
 									{accountInfo.first_name.length +
 										"/" +
 										reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
@@ -80,7 +80,7 @@ export default function Register() {
 							</label>
 							{accountInfo.last_name.length >
 							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
-								<span className="form__char-counter text-red">
+								<span className="form__char-counter universal-text-red">
 									{accountInfo.last_name.length +
 										"/" +
 										reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
@@ -121,7 +121,7 @@ export default function Register() {
 					</label>
 					{accountInfo.password.length >
 					reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
-						<span className="form__char-counter text-red">
+						<span className="form__char-counter universal-text-red">
 							{accountInfo.password.length +
 								"/" +
 								reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}

@@ -26,20 +26,21 @@ $gray-level-10: #525252;
 $gray-level-11: #505050;
 $dark-gray-level-1: #4e4e4e;
 $dark-gray-level-2: #484848;
-$dark-gray-level-3: #444444;
-$dark-gray-level-4: #3a3a3a;
-$dark-gray-level-5: #363636;
-$dark-gray-level-6: #333333;
-$dark-gray-level-7: #303030;
-$dark-gray-level-8: #292929;
-$dark-gray-level-9: #272727;
-$dark-gray-level-10: #1d1d1d;
-$dark-gray-level-11: #181818;
+$dark-gray-level-3: #464646;
+$dark-gray-level-4: #444444;
+$dark-gray-level-5: #3a3a3a;
+$dark-gray-level-6: #363636;
+$dark-gray-level-7: #333333;
+$dark-gray-level-8: #303030;
+$dark-gray-level-9: #292929;
+$dark-gray-level-10: #272727;
+$dark-gray-level-11: #1d1d1d;
+$dark-gray-level-12: #181818;
 // Tinted grays
 $tinted-light-gray-level-1: #c9d1d9;
 // Blue grays
 $very-light-blue-gray: #7390af;
-$lighter-blue-gray: #607c99;
+$very-light-blue-gray: #607c99;
 $light-blue-gray: #50677f;
 $dark-blue-gray: #215792;
 // Navy blues
@@ -48,9 +49,11 @@ $light-navy-blue: #4d6b8b;
 $navy-blue: #45607e;
 $darker-navy-blue: #3d5774;
 // Basic blues
-$lighter-blue: #76bffa;
-$light-blue: #3889cc;
-$blue: #1e77c0;
+$basic-blue-level-1: #76bffa;
+$basic-blue-level-2: #57a4e4;
+$basic-blue-level-3: #4b99da;
+$basic-blue-level-4: #3889cc;
+$basic-blue-level-5: #156db4;
 // Teals
 $light-teal: #8ba8b3;
 $teal: #6691a3;
@@ -67,23 +70,25 @@ $yellow: #ffff00;
 
 // Light/Dark mode (general)
 $mode-home-background-color-light: white;
-$mode-home-background-color-dark: $dark-gray-level-6;
+$mode-home-background-color-dark: $dark-gray-level-7;
 $mode-home-text-color-light: black;
 $mode-home-text-color-dark: $tinted-light-gray-level-1;
 $mode-custom-checkbox-border-color-light: black;
 $mode-custom-checkbox-border-color-dark: $gray-level-1;
 $mode-custom-checkbox-background-color-light: $mode-home-background-color-light;
 $mode-custom-checkbox-background-color-dark: $mode-home-background-color-dark;
-$mode-custom-checkbox-hover-border-color-light: $blue;
-$mode-custom-checkbox-hover-border-color-dark: $light-blue;
+$mode-custom-checkbox-hover-border-color-light: $basic-blue-level-5;
+$mode-custom-checkbox-hover-border-color-dark: $basic-blue-level-2;
 $mode-custom-checkmark-text-color-light: $mode-home-text-color-light;
 $mode-custom-checkmark-text-color-dark: $mode-home-text-color-dark;
-$mode-custom-checkmark-hover-text-color-light: $blue;
-$mode-custom-checkmark-hover-text-color-dark: $light-blue;
+$mode-custom-checkmark-hover-text-color-light: $basic-blue-level-5;
+$mode-custom-checkmark-hover-text-color-dark: $basic-blue-level-2;
+$mode-universal-text-grayed-out-text-color-light: $gray-level-4;
+$mode-universal-text-grayed-out-text-color-dark: $gray-level-6;
 $mode-list-row-border-color-light: $gray-level-2;
 $mode-list-row-border-color-dark: $gray-level-6;
 $mode-list-row-hover-background-color-light: $light-gray-level-2;
-$mode-list-row-hover-background-color-dark: $dark-gray-level-4;
+$mode-list-row-hover-background-color-dark: $dark-gray-level-5;
 $mode-list-row-selected-background-color-light: $light-gray-level-6;
 $mode-list-row-selected-background-color-dark: $dark-gray-level-3;
 $mode-list-header-background-color-light: $mode-home-background-color-light;
@@ -92,24 +97,24 @@ $mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light;
 $mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark;
 // Light/Dark mode (specific)
 $mode-top-bar-background-color-light: $light-gray-level-5;
-$mode-top-bar-background-color-dark: $dark-gray-level-8;
+$mode-top-bar-background-color-dark: $dark-gray-level-9;
 $mode-top-bar-background-color-search-bar-light: $mode-home-background-color-light;
-$mode-top-bar-background-color-search-bar-dark: $dark-gray-level-5;
+$mode-top-bar-background-color-search-bar-dark: $dark-gray-level-6;
 $mode-top-bar-text-color-search-bar-light: $mode-home-text-color-light;
 $mode-top-bar-text-color-search-bar-dark: $mode-home-text-color-dark;
 $mode-top-bar-border-color-button-light: $mode-home-text-color-light;
 $mode-top-bar-border-color-button-dark: $gray-level-1;
 $mode-top-bar-background-color-button-light: $mode-home-background-color-light;
-$mode-top-bar-background-color-button-dark: $dark-gray-level-4;
+$mode-top-bar-background-color-button-dark: $dark-gray-level-5;
 $mode-top-bar-text-color-button-light: $mode-home-text-color-light;
 $mode-top-bar-text-color-button-dark: $mode-home-text-color-dark;
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-light: $light-gray-level-4;
-$mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark: $dark-gray-level-3;
+$mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark: $dark-gray-level-4;
 $mode-create-item-sidebar-background-color-light: $mode-home-background-color-light;
 $mode-create-item-sidebar-background-color-dark: $mode-home-background-color-dark;
 $mode-base-icon-button-text-color-light: $gray-level-2;
 $mode-base-icon-button-text-color-dark: $gray-level-10;
-$mode-base-icon-button-hover-text-color-light: $dark-gray-level-4;
+$mode-base-icon-button-hover-text-color-light: $dark-gray-level-5;
 $mode-base-icon-button-hover-text-color-dark: $gray-level-3;
 $mode-more-distinct-icon-button-text-color-light: $gray-level-5;
 $mode-more-distinct-icon-button-text-color-dark: $dark-gray-level-1;
@@ -126,7 +131,7 @@ $mode-create-item-form-input-disabled-text-color-dark: $gray-level-6;
 $mode-list-view-mass-delete-button-text-color-light: $mode-home-text-color-light;
 $mode-list-view-mass-delete-button-text-color-dark: $mode-home-text-color-dark;
 $mode-item-view-item-box-background-color-light: $light-gray-level-5;
-$mode-item-view-item-box-background-color-dark: $dark-gray-level-8;
+$mode-item-view-item-box-background-color-dark: $dark-gray-level-9;
 // Themes
 $theme-teal-background-color-dark: $dark-teal;
 $theme-teal-background-color-light: $teal;
@@ -147,13 +152,13 @@ $filter-active-color2: #ae00ff;
 $filter-active-color3: #ffbb00;
 
 // Components
-$basic-toggle-switch-on-color: $light-blue;
+$basic-toggle-switch-on-color: $basic-blue-level-4;
 $basic-toggle-switch-off-color: $light-gray-level-7;
 $account-sidebar-appearance-theme-button-border-color: $dark-gray-level-1;
 $account-sidebar-appearance-theme-button-background-color: $light-gray-level-5;
 $account-sidebar-appearance-theme-button-arrow-container-color: $light-gray-level-10;
-$account-sidebar-appearance-theme-button-option-text-color: $dark-gray-level-4;
-$account-sidebar-appearance-theme-button-option-selected-color: $lighter-blue;
+$account-sidebar-appearance-theme-button-option-text-color: $dark-gray-level-5;
+$account-sidebar-appearance-theme-button-option-selected-color: $basic-blue-level-1;
 
 // Backend error color
 $backend-error-color: red;

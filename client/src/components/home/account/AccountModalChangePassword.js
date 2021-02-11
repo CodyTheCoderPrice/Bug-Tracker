@@ -69,7 +69,7 @@ export default function AccountModalChangePassword() {
 				</label>
 				{accountInfo.newPassword.length >
 				reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
-					<span className="form__char-counter text-red">
+					<span className="form__char-counter universal-text-red">
 						{accountInfo.newPassword.length +
 							"/" +
 							reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}
@@ -97,7 +97,7 @@ export default function AccountModalChangePassword() {
 				</label>
 				{accountInfo.currentPassword.length >
 				reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
-					<span className="form__char-counter text-red">
+					<span className="form__char-counter universal-text-red">
 						{accountInfo.currentPassword.length +
 							"/" +
 							reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}

@@ -9,22 +9,25 @@ body, */
 	overflow: hidden;
 	color: v.$mode-home-text-color-light;
 
-	//======================================================
-	// Bellow class selectors are used by JS across project
-	//======================================================
+	//===========================
+	// Universal class selectors
+	//===========================
 	// Used to turn character counters red when limit is gone over
-	.text-red {
+	.universal-text-red {
 		color: red;
 	}
 
 	// Used to to gray-out the word "none" for empty item fields
-	.grayed-out-none {
+	.universal-text-grayed-out {
 		@include m.stop-text-selection();
 
-		color: v.$gray-level-3;
+		color: v.$mode-universal-text-grayed-out-text-color-light;
 		opacity: 0.7;
 	}
 
+	//======================================
+	// Class selectors used by JS functions
+	//======================================
 	// Light/Dark mode text color for Home text elements
 	.js-set-home-text-color-dark-mode-false {
 		color: v.$mode-home-text-color-light;
@@ -77,6 +80,14 @@ body, */
 		&:hover + i {
 			color: v.$mode-custom-checkmark-hover-text-color-dark;
 		}
+	}
+
+	// Light/Dark mode text colors for universal-text-grayed-out
+	.js-set-universal-text-grayed-out-text-color-dark-mode-false {
+		color: v.$mode-universal-text-grayed-out-text-color-light;
+	}
+	.js-set-universal-text-grayed-out-text-color-dark-mode-true {
+		color: v.$mode-universal-text-grayed-out-text-color-dark;
 	}
 
 	// Light/Dark mode background colors for TopBar

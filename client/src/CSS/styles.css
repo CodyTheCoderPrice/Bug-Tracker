@@ -93,7 +93,7 @@
   cursor: pointer;
 }
 .custom-checkbox-component .checkbox:hover {
-  border: 1px solid #1e77c0;
+  border: 1px solid #156db4;
 }
 .custom-checkbox-component .checkmark {
   position: absolute;
@@ -106,7 +106,7 @@
   cursor: pointer;
 }
 .custom-checkbox-component .checkmark:hover {
-  color: #1e77c0;
+  color: #156db4;
 }
 
 .register-login-components .background {
@@ -2698,12 +2698,12 @@ body, */
   overflow: hidden;
   color: black;
 }
-.app-component .text-red,
-.js-calc-app-component .text-red {
+.app-component .universal-text-red,
+.js-calc-app-component .universal-text-red {
   color: red;
 }
-.app-component .grayed-out-none,
-.js-calc-app-component .grayed-out-none {
+.app-component .universal-text-grayed-out,
+.js-calc-app-component .universal-text-grayed-out {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -2717,7 +2717,7 @@ body, */
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  color: #808080;
+  color: #7c7c7c;
   opacity: 0.7;
 }
 .app-component .js-set-home-text-color-dark-mode-false,
@@ -2743,7 +2743,7 @@ body, */
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover {
-  border: 1px solid #1e77c0;
+  border: 1px solid #156db4;
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false + i,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false + i {
@@ -2751,7 +2751,7 @@ body, */
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover + i {
-  color: #1e77c0;
+  color: #156db4;
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true {
@@ -2760,7 +2760,7 @@ body, */
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover {
-  border: 1px solid #3889cc;
+  border: 1px solid #57a4e4;
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true + i,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true + i {
@@ -2768,7 +2768,15 @@ body, */
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i {
-  color: #3889cc;
+  color: #57a4e4;
+}
+.app-component .js-set-universal-text-grayed-out-text-color-dark-mode-false,
+.js-calc-app-component .js-set-universal-text-grayed-out-text-color-dark-mode-false {
+  color: #7c7c7c;
+}
+.app-component .js-set-universal-text-grayed-out-text-color-dark-mode-true,
+.js-calc-app-component .js-set-universal-text-grayed-out-text-color-dark-mode-true {
+  color: #6d6d6d;
 }
 .app-component .js-set-top-bar-background-color-dark-mode-false,
 .js-calc-app-component .js-set-top-bar-background-color-dark-mode-false {
@@ -2904,7 +2912,7 @@ body, */
 }
 .app-component .js-set-list-row-selected-background-color-dark-mode-true,
 .js-calc-app-component .js-set-list-row-selected-background-color-dark-mode-true {
-  background-color: #444444;
+  background-color: #464646;
 }
 .app-component .js-set-list-header-background-color-and-box-shadow-dark-mode-false,
 .js-calc-app-component .js-set-list-header-background-color-and-box-shadow-dark-mode-false {

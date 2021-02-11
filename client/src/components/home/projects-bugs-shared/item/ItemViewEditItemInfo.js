@@ -228,7 +228,7 @@ export default function ItemViewEditItemInfo(props) {
 								"name-centering-container__char-count-centering-container__name-char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
 								itemInfo.name.length
-									? " text-red"
+									? " universal-text-red"
 									: "")
 							}
 						>
@@ -272,7 +272,7 @@ export default function ItemViewEditItemInfo(props) {
 								"item-box__form-char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants
 									.descriptionCharLimit < itemInfo.description.length
-									? " text-red"
+									? " universal-text-red"
 									: "")
 							}
 						>
@@ -328,7 +328,7 @@ export default function ItemViewEditItemInfo(props) {
 										"item-box__form-char-counter" +
 										(reduxState[GENERAL_CONTAINER].globalConstants
 											.locationCharLimit < itemInfo.location.length
-											? " text-red"
+											? " universal-text-red"
 											: "")
 									}
 								>

@@ -161,7 +161,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								"item-box__form-char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants
 									.descriptionCharLimit < commentInfo.description.length
-									? " text-red"
+									? " universal-text-red"
 									: "")
 							}
 						>
