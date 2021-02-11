@@ -13,6 +13,7 @@ import {
 } from "../../../../actions";
 
 import {
+	getListRowBorderColorClassNameForLightOrDarkMode,
 	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
 	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
@@ -83,6 +84,9 @@ export default function ItemViewListSidebarRow(props) {
 		<tr
 			className={
 				"list-sidebar__table__row" +
+				getListRowBorderColorClassNameForLightOrDarkMode(
+					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+				) +
 				(reduxState[props.reduxContainerName]?.componentsDisplay.targetItem !==
 					null &&
 				reduxState[props.reduxContainerName]?.componentsDisplay.targetItem

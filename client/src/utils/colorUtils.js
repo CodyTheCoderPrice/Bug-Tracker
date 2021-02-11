@@ -131,6 +131,11 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 	return " js-set-create-item-sidebar-diabled-input-date-dark-mode-" + dark_mode;
 }
 
+// Light/Dark mode border colors for list rows
+export function getListRowBorderColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-row-border-color-dark-mode-" + dark_mode;
+}
+
 // Light/Dark mode hover background colors for list rows
 export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-list-row-hover-background-color-dark-mode-" + dark_mode;
@@ -139,6 +144,11 @@ export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(dark_m
 // Light/Dark mode selected background colors for list rows
 export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-list-row-selected-background-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode box shadow for list headers
+export function getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-header-background-color-and-box-shadow-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode background colors for ListView mass-delete-button

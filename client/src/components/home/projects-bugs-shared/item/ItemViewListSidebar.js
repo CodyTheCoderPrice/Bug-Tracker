@@ -10,7 +10,7 @@ import {
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
 import {
-	getHomeBackgroundColorClassNameForLightOrDarkMode,
+	getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode,
 	getSearchFilterSortList,
 } from "../../../../utils";
 
@@ -102,7 +102,7 @@ export default function ItemViewListSidebar(props) {
 							<th
 								className={
 									"list-sidebar__table__header js-list-sidebar__table__header" +
-									getHomeBackgroundColorClassNameForLightOrDarkMode(
+									getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}

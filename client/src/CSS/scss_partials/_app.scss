@@ -189,6 +189,14 @@ body, */
 		pointer-events: none;
 	}
 
+	// Light/Dark mode border colors for list rows
+	.js-set-list-row-border-color-dark-mode-false {
+		border-color: v.$mode-list-row-border-color-light;
+	}
+	.js-set-list-row-border-color-dark-mode-true {
+		border-color: v.$mode-list-row-border-color-dark;
+	}
+
 	// Light/Dark mode hover background colors for list rows
 	.js-set-list-row-hover-background-color-dark-mode-false {
 		&:hover,
@@ -209,6 +217,16 @@ body, */
 	}
 	.js-set-list-row-selected-background-color-dark-mode-true {
 		background-color: v.$mode-list-row-selected-background-color-dark;
+	}
+
+	// Light/Dark mode box shadow for list headers
+	.js-set-list-header-background-color-and-box-shadow-dark-mode-false {
+		background-color: v.$mode-list-header-background-color-light;
+		box-shadow: v.$mode-list-header-box-shadow-light;
+	}
+	.js-set-list-header-background-color-and-box-shadow-dark-mode-true {
+		background-color: v.$mode-list-header-background-color-dark;
+		box-shadow: v.$mode-list-header-box-shadow-dark;
 	}
 
 	// Light/Dark mode background colors for ListView mass-delete-button

@@ -14,7 +14,7 @@ import {
 
 import {
 	getElementLocation,
-	getHomeBackgroundColorClassNameForLightOrDarkMode,
+	getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode,
 	getSearchFilterSortList,
 	getListViewMassDeleteButtonTextColorClassNameForLightOrDarkMode,
 	getHomeTextColorClassNameForLightOrDarkMode,
@@ -102,7 +102,10 @@ export default function ListViewTable(props) {
 
 	const checkAllItems = () => {
 		let allItems = [];
-		for (let item of getSearchFilterSortList(reduxState, props.reduxContainerName)) {
+		for (let item of getSearchFilterSortList(
+			reduxState,
+			props.reduxContainerName
+		)) {
 			allItems.push(item.id);
 		}
 
@@ -174,8 +177,8 @@ export default function ListViewTable(props) {
 					<tr className="list-table__row">
 						<th
 							className={
-								"list-table__header list-table__header--for-mass-delete" +
-								getHomeBackgroundColorClassNameForLightOrDarkMode(
+								"list-table__header list-table__header--for-mass-delete"  +
+								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -183,7 +186,10 @@ export default function ListViewTable(props) {
 							<div className="list-table__header__mass-delete-options-container js-mass-delete-buttons-container">
 								{createMassDeleteButton(
 									reduxState[props.reduxContainerName].massDeleteList.length <
-										getSearchFilterSortList(reduxState, props.reduxContainerName).length,
+										getSearchFilterSortList(
+											reduxState,
+											props.reduxContainerName
+										).length,
 									checkAllItems,
 									"fa-check-square-o",
 									"Icon of a check mark inside a square"
@@ -207,7 +213,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header js-list-table__header" +
-								getHomeBackgroundColorClassNameForLightOrDarkMode(
+								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -234,7 +240,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getHomeBackgroundColorClassNameForLightOrDarkMode(
+								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -261,7 +267,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getHomeBackgroundColorClassNameForLightOrDarkMode(
+								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -288,7 +294,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getHomeBackgroundColorClassNameForLightOrDarkMode(
+								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -315,7 +321,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getHomeBackgroundColorClassNameForLightOrDarkMode(
+								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -342,7 +348,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getHomeBackgroundColorClassNameForLightOrDarkMode(
+								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -369,7 +375,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getHomeBackgroundColorClassNameForLightOrDarkMode(
+								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -390,7 +396,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header js-remaining-space" +
-								getHomeBackgroundColorClassNameForLightOrDarkMode(
+								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -400,15 +406,17 @@ export default function ListViewTable(props) {
 					</tr>
 				</thead>
 				<tbody>
-					{getSearchFilterSortList(reduxState, props.reduxContainerName).map((item, idx) => {
-						return (
-							<ListTableRow
-								key={idx}
-								item={item}
-								reduxContainerName={props.reduxContainerName}
-							/>
-						);
-					})}
+					{getSearchFilterSortList(reduxState, props.reduxContainerName).map(
+						(item, idx) => {
+							return (
+								<ListTableRow
+									key={idx}
+									item={item}
+									reduxContainerName={props.reduxContainerName}
+								/>
+							);
+						}
+					)}
 					{/*If the list has items, creates an empty space at the bottom of the table*/}
 					{(props.reduxContainerName === PROJECT_CONTAINER &&
 						reduxState[props.reduxContainerName].list.length > 0) ||

@@ -2548,6 +2548,7 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
+  border-bottom: 1px solid #919191;
   padding: 5px;
   height: 50px;
   text-align: center;
@@ -2602,7 +2603,6 @@ dropdown can overlap all other components
 .list-table-component .list-table__data,
 .js-calc-list-table-component .list-table__data {
   position: relative;
-  border-bottom: 1px solid #919191;
   padding: 0px 7px 0px 7px;
   cursor: default;
 }
@@ -2726,7 +2726,7 @@ body, */
 }
 .app-component .js-set-home-text-color-dark-mode-true,
 .js-calc-app-component .js-set-home-text-color-dark-mode-true {
-  color: #C9D1D9;
+  color: #c9d1d9;
 }
 .app-component .js-set-home-background-color-dark-mode-false,
 .js-calc-app-component .js-set-home-background-color-dark-mode-false {
@@ -2764,7 +2764,7 @@ body, */
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true + i,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true + i {
-  color: #C9D1D9;
+  color: #c9d1d9;
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i {
@@ -2786,7 +2786,7 @@ body, */
 .app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true,
 .js-calc-app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true {
   background-color: #363636;
-  color: #C9D1D9;
+  color: #c9d1d9;
 }
 .app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false {
@@ -2798,7 +2798,7 @@ body, */
 .js-calc-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-true {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
-  color: #C9D1D9;
+  color: #c9d1d9;
 }
 .app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false,
 .js-calc-app-component .js-set-base-icon-button-background-color-with-hover-dark-mode-false {
@@ -2854,7 +2854,7 @@ body, */
 .js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-dark-mode-true {
   border-color: #757575;
   background-color: #525252;
-  color: #C9D1D9;
+  color: #c9d1d9;
 }
 .app-component .js-set-create-item-sidebar-diabled-label-dark-mode-false,
 .js-calc-app-component .js-set-create-item-sidebar-diabled-label-dark-mode-false {
@@ -2880,6 +2880,14 @@ body, */
   color: #6d6d6d;
   pointer-events: none;
 }
+.app-component .js-set-list-row-border-color-dark-mode-false,
+.js-calc-app-component .js-set-list-row-border-color-dark-mode-false {
+  border-color: #919191;
+}
+.app-component .js-set-list-row-border-color-dark-mode-true,
+.js-calc-app-component .js-set-list-row-border-color-dark-mode-true {
+  border-color: #6d6d6d;
+}
 .app-component .js-set-list-row-hover-background-color-dark-mode-false:hover, .app-component .js-set-list-row-hover-background-color-dark-mode-false:active,
 .js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-false:hover,
 .js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-false:active {
@@ -2896,7 +2904,17 @@ body, */
 }
 .app-component .js-set-list-row-selected-background-color-dark-mode-true,
 .js-calc-app-component .js-set-list-row-selected-background-color-dark-mode-true {
-  background-color: #484848;
+  background-color: #444444;
+}
+.app-component .js-set-list-header-background-color-and-box-shadow-dark-mode-false,
+.js-calc-app-component .js-set-list-header-background-color-and-box-shadow-dark-mode-false {
+  background-color: white;
+  box-shadow: 0 1px 0 #919191;
+}
+.app-component .js-set-list-header-background-color-and-box-shadow-dark-mode-true,
+.js-calc-app-component .js-set-list-header-background-color-and-box-shadow-dark-mode-true {
+  background-color: #333333;
+  box-shadow: 0 1px 0 #6d6d6d;
 }
 .app-component .js-set-list-view-mass-delete-button-text-color-dark-mode-false,
 .js-calc-app-component .js-set-list-view-mass-delete-button-text-color-dark-mode-false {
@@ -2904,7 +2922,7 @@ body, */
 }
 .app-component .js-set-list-view-mass-delete-button-text-color-dark-mode-true,
 .js-calc-app-component .js-set-list-view-mass-delete-button-text-color-dark-mode-true {
-  color: #C9D1D9;
+  color: #c9d1d9;
 }
 .app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {

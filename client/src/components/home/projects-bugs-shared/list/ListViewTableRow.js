@@ -14,6 +14,7 @@ import {
 } from "../../../../actions";
 
 import {
+	getListRowBorderColorClassNameForLightOrDarkMode,
 	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
 	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
@@ -109,6 +110,9 @@ export default function ListViewTableRow(props) {
 		<tr
 			className={
 				"list-table__row" +
+				getListRowBorderColorClassNameForLightOrDarkMode(
+					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+				) +
 				(reduxState[props.reduxContainerName]?.componentsDisplay.targetItem !==
 					null &&
 				reduxState[props.reduxContainerName]?.componentsDisplay.targetItem
@@ -138,19 +142,6 @@ export default function ListViewTableRow(props) {
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 					/>
 				</div>
-
-				{/* <input
-					type="checkbox"
-					name="item"
-					value={props.item.id}
-					onChange={(e) => onChangeMassDeleteCheckbox(e)}
-					checked={reduxState[props.reduxContainerName].massDeleteList.includes(
-						props.item.id
-					)}
-					className={
-						"list-table__data__checkbox"
-					}
-				/> */}
 			</td>
 			<td
 				className={

@@ -26,7 +26,8 @@
 	.list-table__row,
 	.js-calc-list-table__row {
 		@include m.stop-text-selection();
-
+		
+		border-bottom: 1px solid v.$mode-list-row-border-color-light;
 		padding: 5px;
 		height: v.$list-item-table-row-height;
 		text-align: center;
@@ -46,7 +47,7 @@
 		background-color: v.$mode-home-background-color-light;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
-		box-shadow: 0 1px 0 v.$gray-level-2;
+		box-shadow: v.$mode-list-header-box-shadow-light;
 		width: 300px;
 	}
 
@@ -82,7 +83,6 @@
 
 	.list-table__data {
 		position: relative;
-		border-bottom: v.$list-table-border-width solid v.$list-table-border-color;
 		padding: 0px 7px 0px 7px;
 		cursor: default;
 	}

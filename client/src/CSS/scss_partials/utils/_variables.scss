@@ -36,7 +36,7 @@ $dark-gray-level-9: #272727;
 $dark-gray-level-10: #1d1d1d;
 $dark-gray-level-11: #181818;
 // Tinted grays
-$tinted-light-gray-level-1: #C9D1D9;
+$tinted-light-gray-level-1: #c9d1d9;
 // Blue grays
 $very-light-blue-gray: #7390af;
 $lighter-blue-gray: #607c99;
@@ -80,10 +80,16 @@ $mode-custom-checkmark-text-color-light: $mode-home-text-color-light;
 $mode-custom-checkmark-text-color-dark: $mode-home-text-color-dark;
 $mode-custom-checkmark-hover-text-color-light: $blue;
 $mode-custom-checkmark-hover-text-color-dark: $light-blue;
+$mode-list-row-border-color-light: $gray-level-2;
+$mode-list-row-border-color-dark: $gray-level-6;
 $mode-list-row-hover-background-color-light: $light-gray-level-2;
 $mode-list-row-hover-background-color-dark: $dark-gray-level-4;
 $mode-list-row-selected-background-color-light: $light-gray-level-6;
-$mode-list-row-selected-background-color-dark: $dark-gray-level-2;
+$mode-list-row-selected-background-color-dark: $dark-gray-level-3;
+$mode-list-header-background-color-light: $mode-home-background-color-light;
+$mode-list-header-background-color-dark: $mode-home-background-color-dark;
+$mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light;
+$mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark;
 // Light/Dark mode (specific)
 $mode-top-bar-background-color-light: $light-gray-level-5;
 $mode-top-bar-background-color-dark: $dark-gray-level-8;
@@ -148,7 +154,6 @@ $account-sidebar-appearance-theme-button-background-color: $light-gray-level-5;
 $account-sidebar-appearance-theme-button-arrow-container-color: $light-gray-level-10;
 $account-sidebar-appearance-theme-button-option-text-color: $dark-gray-level-4;
 $account-sidebar-appearance-theme-button-option-selected-color: $lighter-blue;
-$list-table-border-color: $gray-level-2;
 
 // Backend error color
 $backend-error-color: red;
@@ -238,7 +243,8 @@ $register-login-form-input-margin-top: 5px;
 $register-login-form-input-margin-bottom: 5px;
 $account-sidebar-contents-margin-top-bottom: 9px;
 $account-sidebar-dividing-line-margin-top-bottom: 34px;
-$account-sidebar-dividing-line-margin-top-bottom-half: $account-sidebar-dividing-line-margin-top-bottom / 2;
+$account-sidebar-dividing-line-margin-top-bottom-half: $account-sidebar-dividing-line-margin-top-bottom /
+	2;
 $account-sidebar-appearance-contents-container-margin-left-right: 16px;
 $edit-account-form-input-margin-top: 5px;
 $edit-account-create-item-form-input-margin-bottom: 10px;
@@ -272,7 +278,6 @@ $list-search-bar-button-border-width: 2px;
 $top-bar-button-border-width: $list-search-bar-button-border-width;
 $list-item-search-bar-button-focus-border-width: 3px;
 $top-bar-border-width: $search-filter-sort-bar-border-width;
-$list-table-border-width: 1px;
 $edit-item-name-input-border-width: 2px;
 $item-container-list-sidebar-border-width: 2px;
 
