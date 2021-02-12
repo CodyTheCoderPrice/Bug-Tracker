@@ -6,19 +6,19 @@
 	// Must be more than table header so filter button can overlap
 	z-index: 1;
 	position: fixed;
-	top: v.$search-filter-sort-and-top-bar-top;
-	border: v.$search-filter-sort-bar-border-width solid v.$mode-top-bar-border-color-light;
+	top: v.$top-bar-top;
+	border: v.$top-bar-border-width solid v.$mode-top-bar-border-color-light;
 	border-left: none;
 	border-right: none;
 	background-color: v.$mode-top-bar-background-color-light;
-	height: v.$search-filter-sort-bar-height;
+	height: v.$top-bar-height;
 	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 
 	.centering-container {
 		position: relative;
 		float: left;
-		height: v.$search-filter-sort-bar-height;
+		height: v.$top-bar-height;
 		// This width is for the new item button. Searchbars width is changed by JS
 		width: 152px;
 	}
@@ -28,19 +28,19 @@
 		@include m.vertical-center();
 
 		left: 30px;
-		border: v.$search-top-bar-base-button-border-width solid v.$mode-top-bar-button-border-color-light;
-		border-radius: v.$search-top-bar-buttton-border-radius;
+		border: v.$top-bar-base-button-border-width solid v.$mode-top-bar-button-border-color-light;
+		border-radius: v.$top-bar-buttton-border-radius;
 		background-color: v.$mode-top-bar-button-background-color-light;
-		height: v.$search-filter-sort-bar-button-height;
+		height: v.$top-bar-button-height;
 		width: 110px;
 		color: v.$mode-top-bar-button-text-color-light;
-		font-size: v.$search-filter-sort-bar-button-font-size;
+		font-size: v.$top-bar-button-font-size;
 		text-align: center;
 		cursor: pointer;
 	}
 
 	.centering-container__new-item-button--highlighted {
-		border: (v.$search-top-bar-base-button-border-width + 1) solid red;
+		border: (v.$top-bar-base-button-border-width + 1) solid red;
 	}
 
 	.centering-container__new-item-button__text {
@@ -54,7 +54,7 @@
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in app.scss
 		border: 0px solid black;
-		border-radius: v.$search-top-bar-buttton-border-radius;
+		border-radius: v.$top-bar-buttton-border-radius;
 		width: 100%;
 	}
 
@@ -69,15 +69,16 @@
 		// This border color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in app.scss
-		border: v.$list-search-bar-button-border-width solid black;
-		border-radius: v.$search-top-bar-buttton-border-radius 0 0 v.$search-top-bar-buttton-border-radius;
-		padding: 0px v.$list-item-search-bar-padding 0px v.$list-item-search-bar-padding;
+		border: v.$top-bar-search-bar-border-width solid black;
+		border-right: none;
+		border-radius: v.$top-bar-buttton-border-radius 0 0 v.$top-bar-buttton-border-radius;
+		padding: 0px v.$top-bar-search-bar-padding 0px v.$top-bar-search-bar-padding;
 		background-color: v.$mode-top-bar-search-bar-background-color-light;
-		height: v.$list-item-search-bar-height;
-		line-height: v.$list-item-search-bar-height;
+		height: v.$top-bar-search-bar-height;
+		line-height: v.$top-bar-search-bar-height;
 		// Width changed by JS
 		width: 100%;
-		font-size: v.$list-item-search-bar-font-size;
+		font-size: v.$top-bar-search-bar-font-size;
 	}
 
 	.centering-container__search-group-container__search-bar-button {
@@ -91,21 +92,21 @@
 		display: inline-block;
 		// Since a agap between searchbar and button will appear in chrome otherwise
 		margin-left: -1px;
-		border: v.$list-search-bar-button-border-width solid black;
-		border-radius: 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0;
+		//border: v.$top-bar-search-bar-border-width solid black;
+		border-radius: 0 v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius 0;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color to this element.
 		// ...the scss for the colors assigned are in app.scss
 		background-color: black;
-		height: v.$list-item-search-bar-height;
-		width: v.$list-item-search-bar-button-width;
+		height: v.$top-bar-search-bar-height;
+		width: v.$top-bar-search-bar-button-width;
 		cursor: pointer;
 	}
 
 	.centering-container__search-group-container__search-bar-button__icon {
 		@include m.dead-center();
 		color: white;
-		font-size: v.$list-item-search-bar-button-icon-font-size;
+		font-size: v.$top-bar-search-bar-button-icon-font-size;
 	}
 
 	// Lets the searchbar resize know when to stop
@@ -117,8 +118,8 @@
 	}
 
 	.search-bar-and-button-thick-border {
-		border-width: v.$list-item-search-bar-button-focus-border-width;
-		height: v.$search-filter-sort-bar-button-focus-height;
+		border-width: v.$top-bar-search-bar-focus-border-width;
+		height: v.$top-bar-button-focus-height;
 	}
 
 	.filter-area-container__button {
@@ -130,13 +131,13 @@
 		position: absolute;
 		top: 9px;
 		right: 30px;
-		border: v.$search-top-bar-base-button-border-width solid v.$mode-top-bar-button-border-color-light;
-		border-radius: v.$search-top-bar-buttton-border-radius;
+		border: v.$top-bar-base-button-border-width solid v.$mode-top-bar-button-border-color-light;
+		border-radius: v.$top-bar-buttton-border-radius;
 		background-color: v.$mode-top-bar-button-background-color-light;
-		height: v.$search-filter-sort-bar-button-height;
-		width: v.$search-top-bar-filter-button-width;
+		height: v.$top-bar-button-height;
+		width: v.$top-bar-filter-button-width;
 		color: v.$mode-top-bar-button-text-color-light;
-		font-size: v.$search-filter-sort-bar-button-font-size;
+		font-size: v.$top-bar-button-font-size;
 		text-align: center;
 		cursor: pointer;
 	}
@@ -144,11 +145,11 @@
 	.filter-area-container__button--clicked {
 		// Negative margin because border resize moves the element
 		margin: -2px 0px 0px;
-		border-width: v.$search-top-bar-clicked-dropdown-button-border-width;
+		border-width: v.$top-bar-clicked-dropdown-button-border-width;
 		border-bottom: none;
-		border-radius: v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius 0 0;
+		border-radius: v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius 0 0;
 		height: 45px;
-		width: v.$search-top-bar-filter-button-width - (v.$search-top-bar-clicked-dropdown-button-border-width-difference * 2); 
+		width: v.$top-bar-filter-button-width - (v.$top-bar-clicked-dropdown-button-border-width-difference * 2); 
 	}
 
 	.filter-area-container__button__text {
@@ -160,26 +161,31 @@
 
 	.filter-area-container__button__text--active {
 		font-weight: bold;
-		color: v.$filter-active-color;
+		color: v.$filter-button-active-color;
 	}
 
 	.filter-area-container__content-dropdown {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
 		position: absolute;
 		// Additional 0.2px to fix border overflow in chrome and edge
 		top: 52.2px;
 		right: 30px;
 		border: 3px solid black;
-		border-radius: v.$search-top-bar-buttton-border-radius 0 v.$search-top-bar-buttton-border-radius v.$search-top-bar-buttton-border-radius;
+		border-radius: v.$top-bar-buttton-border-radius 0 v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius;
 		background-color: white;
-		height: v.$filter-dropdown-content-container-height;
-		width: v.$search-top-bar-filter-dropdown-content-container-width;
+		height: v.$top-bar-filter-dropdown-content-container-height;
+		width: v.$top-bar-filter-dropdown-content-container-width;
 		cursor: default;
 		// Made visible using JS
 		visibility: hidden;
 	}
 
 	.filter-area-container__content-dropdown--shorter {
-		height: 155px;
+		height: v.$top-bar-filter-dropdown-content-container-shorter-height;
 	}
 
 	.filter-area-container__content-dropdown--visible {
@@ -188,14 +194,14 @@
 
 	.filter-area-container__content-dropdown__content {
 		float: left;
-		margin: v.$search-top-bar-filter-button-dropdown-title-margin-top 0 0 v.$search-top-bar-filter-button-dropdown-title-margin-on-one-side;
+		margin: v.$top-bar-filter-button-dropdown-title-margin-top 0 0 v.$top-bar-filter-button-dropdown-title-margin-on-one-side;
 		text-align: center;
 		font-size: v.$filter-dropdown-content-font-size;
 	}
 
 	.filter-area-container__content-dropdown__content--right {
 		float: right;
-		margin: v.$search-top-bar-filter-button-dropdown-title-margin-top v.$search-top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
+		margin: v.$top-bar-filter-button-dropdown-title-margin-top v.$top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
 	}
 
 	.filter-area-container__content-dropdown__content__title {
@@ -210,18 +216,24 @@
 		text-align: left;
 	}
 
-	.filter-area-container__content-dropdown__content__block__checkbox,
+	.filter-area-container__content-dropdown__content__block__checkbox-container {
+		display: inline-block;
+		margin: v.$top-bar-filter-button-dropdown-checkbox-container-margin;
+	}
+
+
 	.filter-area-container__content-dropdown__content__block__label {
-		margin: 5px 3px 5px 3px;
+		display: inline-block;
+		margin: v.$top-bar-filter-button-dropdown-label-margin;
 	}
 
 	.filter-area-container__content-dropdown__content__block__label--active {
-		color: v.$filter-active-color;
+		color: v.$filter-button-active-color;
 	}
 
 	.create-item-message-container {
 		position: absolute;
-		top: v.$search-filter-sort-bar-height + 10;
+		top: v.$top-bar-height + 10;
 		left: 95px;
 	}
 
@@ -259,7 +271,7 @@
 		@include m.vertical-center();
 
 		left: 25px;
-		font-size: v.$search-filter-sort-create-item-message-font-size;
+		font-size: v.$list-view-top-bar-create-item-message-font-size;
 		color: red;
 	}
 }

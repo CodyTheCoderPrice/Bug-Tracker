@@ -25,6 +25,9 @@ import {
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
 
+// Components
+import CustomCheckbox from "../../../basic/CustomCheckbox";
+
 export default function ListViewTopBar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -247,19 +250,22 @@ export default function ListViewTopBar(props) {
 									key={i}
 									className="filter-area-container__content-dropdown__content__block"
 								>
-									<input
-										type="checkbox"
-										name="priorityFilter"
-										value={obj.id}
-										onChange={(e) => onChangeFilter(e)}
-										checked={
-											!reduxState[
-												props.reduxContainerName
-											].searchFilterSort.priorityFilter.includes(obj.id)
-										}
-										id={"list-priority-filter-" + obj.id}
-										className="filter-area-container__content-dropdown__content__block__checkbox"
-									/>
+									<div className="filter-area-container__content-dropdown__content__block__checkbox-container">
+										<CustomCheckbox
+											name="priorityFilter"
+											value={obj.id}
+											onChangeFunction={onChangeFilter}
+											checked={
+												!reduxState[
+													props.reduxContainerName
+												].searchFilterSort.priorityFilter.includes(obj.id)
+											}
+											dark_mode={
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											}
+											id={"list-priority-filter-" + obj.id}
+										/>
+									</div>
 									<label
 										htmlFor={"list-priority-filter-" + obj.id}
 										className={
@@ -289,19 +295,22 @@ export default function ListViewTopBar(props) {
 									key={i}
 									className="filter-area-container__content-dropdown__content__block"
 								>
-									<input
-										type="checkbox"
-										name="statusFilter"
-										value={obj.id}
-										onChange={(e) => onChangeFilter(e)}
-										checked={
-											!reduxState[
-												props.reduxContainerName
-											].searchFilterSort.statusFilter.includes(obj.id)
-										}
-										id={"list-status-filter-" + obj.id}
-										className="filter-area-container__content-dropdown__content__block__checkbox"
-									/>
+									<div className="filter-area-container__content-dropdown__content__block__checkbox-container">
+										<CustomCheckbox
+											name="statusFilter"
+											value={obj.id}
+											onChangeFunction={onChangeFilter}
+											checked={
+												!reduxState[
+													props.reduxContainerName
+												].searchFilterSort.statusFilter.includes(obj.id)
+											}
+											dark_mode={
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											}
+											id={"list-status-filter-" + obj.id}
+										/>
+									</div>
 									<label
 										htmlFor={"list-status-filter-" + obj.id}
 										className={

@@ -5,7 +5,7 @@
 .js-calc-item-view-component {
 	.item-content-container {
 		position: fixed;
-		top: v.$list-table-and-item-view-top;
+		top: v.$list-item-view-top;
 		left: 0px;
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
@@ -162,7 +162,7 @@
 		@include m.vertical-center();
 
 		width: 100%;
-		font-size: v.$search-filter-sort-create-item-message-font-size;
+		font-size: v.$list-view-top-bar-create-item-message-font-size;
 		text-align: center;
 		color: gray;
 	}

@@ -134,13 +134,14 @@ export default function ListViewTableRow(props) {
 			>
 				<div className="list-table__data__custom-checkbox-centered-container ">
 					<CustomCheckbox
-						centered={true}
+						name="item"
 						value={props.item.id}
 						onChangeFunction={onChangeMassDeleteCheckbox}
 						checked={reduxState[
 							props.reduxContainerName
 						].massDeleteList.includes(props.item.id)}
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						id={null}
 					/>
 				</div>
 			</td>

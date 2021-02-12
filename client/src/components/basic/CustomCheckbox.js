@@ -7,10 +7,11 @@ export default function CustomCheckbox(props) {
 		<div className="custom-checkbox-component">
 			<input
 				type="checkbox"
-				name="props.name"
+				name={props.name}
 				value={props.value}
 				onChange={(e) => props.onChangeFunction(e)}
 				checked={props.checked}
+				id={props.id}
 				className={
 					"checkbox" +
 					getCustomCheckboxBorderAndBackgroundColorClassNameForLightOrDarkMode(

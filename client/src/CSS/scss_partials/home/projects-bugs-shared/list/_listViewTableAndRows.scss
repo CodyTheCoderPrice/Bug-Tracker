@@ -4,7 +4,7 @@
 .list-table-component,
 .js-calc-list-table-component {
 	position: fixed;
-	top: v.$list-table-and-item-view-top;
+	top: v.$list-item-view-top;
 	left: 0px;
 	// Height and width values were found through trial and error
 	// ...to make modal resize (using js) look less jumpy
@@ -29,13 +29,13 @@
 		
 		border-bottom: 1px solid v.$mode-list-row-border-color-light;
 		padding: 5px;
-		height: v.$list-item-table-row-height;
+		height: v.$list-row-height;
 		text-align: center;
 	}
 
 	.list-table__row--empty {
-		height: v.$list-item-table-row-height +
-			(v.$list-item-table-row-height * 0.5);
+		height: v.$list-row-height +
+			(v.$list-row-height * 0.5);
 	}
 
 	.list-table__header {
