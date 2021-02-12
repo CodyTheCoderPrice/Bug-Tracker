@@ -14,10 +14,9 @@ import {
 
 import {
 	getElementLocation,
-	getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode,
+	getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode,
 	getSearchFilterSortList,
 	getListViewMassDeleteButtonTextColorClassNameForLightOrDarkMode,
-	getHomeTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
@@ -177,8 +176,8 @@ export default function ListViewTable(props) {
 					<tr className="list-table__row">
 						<th
 							className={
-								"list-table__header list-table__header--for-mass-delete"  +
-								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+								"list-table__header list-table__header--for-mass-delete" +
+								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -213,21 +212,12 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header js-list-table__header" +
-								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
 						>
-							<span
-								className={
-									"list-table__header__span" +
-									getHomeTextColorClassNameForLightOrDarkMode(
-										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-									)
-								}
-							>
-								Name
-							</span>
+							<span className="list-table__header__span">Name</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
 									sortTypeId={1}
@@ -240,21 +230,12 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
 						>
-							<span
-								className={
-									"list-table__header__span" +
-									getHomeTextColorClassNameForLightOrDarkMode(
-										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-									)
-								}
-							>
-								Status
-							</span>
+							<span className="list-table__header__span">Status</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
 									sortTypeId={2}
@@ -267,21 +248,12 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
 						>
-							<span
-								className={
-									"list-table__header__span" +
-									getHomeTextColorClassNameForLightOrDarkMode(
-										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-									)
-								}
-							>
-								Priority
-							</span>
+							<span className="list-table__header__span">Priority</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
 									sortTypeId={3}
@@ -294,21 +266,12 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
 						>
-							<span
-								className={
-									"list-table__header__span" +
-									getHomeTextColorClassNameForLightOrDarkMode(
-										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-									)
-								}
-							>
-								Created on
-							</span>
+							<span className="list-table__header__span">Created on</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
 									sortTypeId={4}
@@ -321,21 +284,12 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
 						>
-							<span
-								className={
-									"list-table__header__span" +
-									getHomeTextColorClassNameForLightOrDarkMode(
-										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-									)
-								}
-							>
-								Start Date
-							</span>
+							<span className="list-table__header__span">Start Date</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
 									sortTypeId={5}
@@ -348,21 +302,12 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
 						>
-							<span
-								className={
-									"list-table__header__span" +
-									getHomeTextColorClassNameForLightOrDarkMode(
-										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-									)
-								}
-							>
-								Due Date
-							</span>
+							<span className="list-table__header__span">Due Date</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
 									sortTypeId={6}
@@ -375,19 +320,12 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
 						>
-							<span
-								className={
-									"list-table__header__span" +
-									getHomeTextColorClassNameForLightOrDarkMode(
-										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-									)
-								}
-							>
+							<span className="list-table__header__span">
 								{props.reduxContainerName === PROJECT_CONTAINER
 									? "Bugs Completed"
 									: "Comments"}
@@ -396,7 +334,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header js-remaining-space" +
-								getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}

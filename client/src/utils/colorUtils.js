@@ -151,9 +151,14 @@ export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(dar
 	return " js-set-list-row-selected-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode box shadow for list headers
-export function getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-list-header-background-color-and-box-shadow-dark-mode-" + dark_mode;
+// Light/Dark mode box shadow, background, and text color for list headers
+export function getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-header-box-shadow-background-text-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode text color for list tds
+export function getListTdTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-td-text-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode background colors for ListView mass-delete-button

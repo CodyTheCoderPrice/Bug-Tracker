@@ -230,14 +230,24 @@ body, */
 		background-color: v.$mode-list-row-selected-background-color-dark;
 	}
 
-	// Light/Dark mode box shadow for list headers
-	.js-set-list-header-background-color-and-box-shadow-dark-mode-false {
-		background-color: v.$mode-list-header-background-color-light;
+	// Light/Dark mode box shadow, background, and text color for list headers
+	.js-set-list-header-box-shadow-background-text-color-dark-mode-false {
 		box-shadow: v.$mode-list-header-box-shadow-light;
+		background-color: v.$mode-list-header-background-color-light;
+		color: v.$mode-list-header-text-color-light;
 	}
-	.js-set-list-header-background-color-and-box-shadow-dark-mode-true {
-		background-color: v.$mode-list-header-background-color-dark;
+	.js-set-list-header-box-shadow-background-text-color-dark-mode-true {
 		box-shadow: v.$mode-list-header-box-shadow-dark;
+		background-color: v.$mode-list-header-background-color-dark;
+		color: v.$mode-list-header-text-color-dark;
+	}
+
+	// Light/Dark mode text color for list tds
+	.js-set-list-td-text-color-dark-mode-false {
+		color: v.$mode-list-td-text-color-light;
+	}
+	.js-set-list-td-text-color-dark-mode-true {
+		color: v.$mode-list-td-text-color-dark;
 	}
 
 	// Light/Dark mode background colors for ListView mass-delete-button

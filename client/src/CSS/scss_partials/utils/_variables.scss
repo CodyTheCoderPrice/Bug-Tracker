@@ -91,10 +91,14 @@ $mode-list-row-hover-background-color-light: $light-gray-level-2;
 $mode-list-row-hover-background-color-dark: $dark-gray-level-5;
 $mode-list-row-selected-background-color-light: $light-gray-level-6;
 $mode-list-row-selected-background-color-dark: $dark-gray-level-3;
-$mode-list-header-background-color-light: $mode-home-background-color-light;
-$mode-list-header-background-color-dark: $mode-home-background-color-dark;
 $mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light;
 $mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark;
+$mode-list-header-background-color-light: $mode-home-background-color-light;
+$mode-list-header-background-color-dark: $mode-home-background-color-dark;
+$mode-list-header-text-color-light: $mode-home-text-color-light;
+$mode-list-header-text-color-dark: $mode-home-text-color-dark;
+$mode-list-td-text-color-light: $mode-home-text-color-light;
+$mode-list-td-text-color-dark: $mode-home-text-color-dark;
 // Light/Dark mode (specific)
 $mode-top-bar-background-color-light: $light-gray-level-5;
 $mode-top-bar-background-color-dark: $dark-gray-level-9;

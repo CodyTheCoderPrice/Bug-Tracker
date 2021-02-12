@@ -10,7 +10,8 @@ import {
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
 import {
-	getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode,
+	getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode,
+	getHomeTextColorClassNameForLightOrDarkMode,
 	getSearchFilterSortList,
 } from "../../../../utils";
 
@@ -102,7 +103,7 @@ export default function ItemViewListSidebar(props) {
 							<th
 								className={
 									"list-sidebar__table__header js-list-sidebar__table__header" +
-									getListHeaderBackgroundcolorAndBoxShadowClassNameForLightOrDarkMode(
+									getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -116,15 +117,17 @@ export default function ItemViewListSidebar(props) {
 						</tr>
 					</thead>
 					<tbody>
-						{getSearchFilterSortList(reduxState, props.reduxContainerName).map((item, idx) => {
-							return (
-								<ItemViewListSidebarRow
-									key={idx}
-									item={item}
-									reduxContainerName={props.reduxContainerName}
-								/>
-							);
-						})}
+						{getSearchFilterSortList(reduxState, props.reduxContainerName).map(
+							(item, idx) => {
+								return (
+									<ItemViewListSidebarRow
+										key={idx}
+										item={item}
+										reduxContainerName={props.reduxContainerName}
+									/>
+								);
+							}
+						)}
 						{/*Creates an empty space at the bottom*/}
 						<tr className="list-sidebar__table__row--empty" />
 					</tbody>

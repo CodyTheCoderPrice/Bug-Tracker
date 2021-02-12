@@ -82,19 +82,20 @@
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0px;
-		background-color: v.$mode-home-background-color-light;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: v.$mode-list-header-box-shadow-light;
+		background-color: v.$mode-home-background-color-light;
 		width: v.$item-container-list-sidebar-width;
 	}
 
 	.list-sidebar__table__data {
+		position: relative;
 		cursor: default;
 	}
 
 	.list-sidebar__table__data__overflow-container {
-		@include m.horizontal-center();
+		@include m.dead-center();
 
 		width: v.$item-container-list-sidebar-width - 25;
 		max-width: v.$item-container-list-sidebar-width - 25;

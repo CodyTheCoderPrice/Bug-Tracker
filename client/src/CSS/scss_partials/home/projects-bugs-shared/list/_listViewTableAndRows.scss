@@ -44,11 +44,12 @@
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0px;
-		background-color: v.$mode-home-background-color-light;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: v.$mode-list-header-box-shadow-light;
+		background-color: v.$mode-home-background-color-light;
 		width: 300px;
+		color: v.$mode-list-header-text-color-light;
 	}
 
 	.list-table__header--for-mass-delete {
