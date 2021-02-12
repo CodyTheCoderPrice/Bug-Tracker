@@ -324,6 +324,37 @@ body,
 		background-color: v.$mode-item-view-item-box-background-color-dark;
 	}
 
+	// Light/Dark mode border color for ItemViewListSidebar
+	.js-set-item-view-list-sidebar-border-color-mode-false {
+		border-color: v.$mode-item-view-list-sidebar-border-color-light;
+	}
+	.js-set-item-view-list-sidebar-border-color-mode-true {
+		border-color: v.$mode-item-view-list-sidebar-border-color-dark;
+	}
+
+	// Light/Dark mode border and background color (with hover) for ItemViewListSidebar expand-minimize-button
+	.js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false {
+		border-color: v.$mode-item-view-list-sidebar-expand-minimize-button-border-color-light;
+		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-light;
+		color: v.$mode-item-view-list-sidebar-expand-minimize-button-text-color-light;
+
+		&:hover,
+		:active {
+			background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light;
+		}
+	}
+	.js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true {
+		border-color: v.$mode-item-view-list-sidebar-expand-minimize-button-border-color-dark;
+		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-dark;
+		color: v.$mode-item-view-list-sidebar-expand-minimize-button-text-color-dark;
+
+		&:hover,
+		:active {
+			background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-dark;
+		}
+	}
+
+
 	// Theme background colors
 	.js-set-dark-background-color-theme-teal {
 		background-color: v.$theme-teal-background-color-dark;

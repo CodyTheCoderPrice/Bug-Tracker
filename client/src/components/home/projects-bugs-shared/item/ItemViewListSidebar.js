@@ -11,7 +11,8 @@ import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
 import {
 	getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode,
-	getHomeTextColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarBorderColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarExpandMinimizeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getSearchFilterSortList,
 } from "../../../../utils";
 
@@ -64,6 +65,9 @@ export default function ItemViewListSidebar(props) {
 			<div
 				className={
 					"expand-minimize-button js-expand-minimize-button" +
+					getItemViewListSidebarExpandMinimizeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
 						? " "
 						: " expand-minimize-button--minimized")
@@ -92,6 +96,9 @@ export default function ItemViewListSidebar(props) {
 			<div
 				className={
 					"list-sidebar js-list-sidebar" +
+					getItemViewListSidebarBorderColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
 						? " "
 						: " list-sidebar--minimized")

@@ -2278,9 +2278,9 @@ dropdown can overlap all other components
   cursor: pointer;
 }
 .create-item-component .form__submit:focus {
-  box-shadow: 0 0 0 1px #5e5e5e;
-  -moz-box-shadow: 0 0 0 1px #5e5e5e;
-  -webkit-box-shadow: 0 0 0 1px #5e5e5e;
+  box-shadow: 0 0 0 1px #444444;
+  -moz-box-shadow: 0 0 0 1px #444444;
+  -webkit-box-shadow: 0 0 0 1px #444444;
 }
 
 .list-view-top-bar,
@@ -3046,9 +3046,9 @@ html .js-set-create-item-sidebar-submit-button-focus-box-shadow-dark-mode-false:
 body .js-set-create-item-sidebar-submit-button-focus-box-shadow-dark-mode-false:focus,
 .app-component .js-set-create-item-sidebar-submit-button-focus-box-shadow-dark-mode-false:focus,
 .js-calc-app-component .js-set-create-item-sidebar-submit-button-focus-box-shadow-dark-mode-false:focus {
-  box-shadow: 0 0 0 1px #5e5e5e;
-  -moz-box-shadow: 0 0 0 1px #5e5e5e;
-  -webkit-box-shadow: 0 0 0 1px #5e5e5e;
+  box-shadow: 0 0 0 1px #444444;
+  -moz-box-shadow: 0 0 0 1px #444444;
+  -webkit-box-shadow: 0 0 0 1px #444444;
 }
 html .js-set-create-item-sidebar-submit-button-focus-box-shadow-dark-mode-true:focus,
 body .js-set-create-item-sidebar-submit-button-focus-box-shadow-dark-mode-true:focus,
@@ -3189,6 +3189,54 @@ body .js-set-item-view-item-box-background-color-dark-mode-true,
 .app-component .js-set-item-view-item-box-background-color-dark-mode-true,
 .js-calc-app-component .js-set-item-view-item-box-background-color-dark-mode-true {
   background-color: #292929;
+}
+html .js-set-item-view-list-sidebar-border-color-mode-false,
+body .js-set-item-view-list-sidebar-border-color-mode-false,
+.app-component .js-set-item-view-list-sidebar-border-color-mode-false,
+.js-calc-app-component .js-set-item-view-list-sidebar-border-color-mode-false {
+  border-color: black;
+}
+html .js-set-item-view-list-sidebar-border-color-mode-true,
+body .js-set-item-view-list-sidebar-border-color-mode-true,
+.app-component .js-set-item-view-list-sidebar-border-color-mode-true,
+.js-calc-app-component .js-set-item-view-list-sidebar-border-color-mode-true {
+  border-color: black;
+}
+html .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false,
+body .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false,
+.app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false,
+.js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false {
+  border-color: black;
+  background-color: #e5e5e5;
+  color: black;
+}
+html .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false:hover,
+html .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false :active,
+body .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false:hover,
+body .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false :active,
+.app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false:hover,
+.app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false :active,
+.js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false:hover,
+.js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false :active {
+  background-color: #d6d6d6;
+}
+html .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true,
+body .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true,
+.app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true,
+.js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true {
+  border-color: black;
+  background-color: #292929;
+  color: #c9d1d9;
+}
+html .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true:hover,
+html .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true :active,
+body .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true:hover,
+body .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true :active,
+.app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true:hover,
+.app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true :active,
+.js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true:hover,
+.js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true :active {
+  background-color: #232323;
 }
 html .js-set-dark-background-color-theme-teal,
 body .js-set-dark-background-color-theme-teal,

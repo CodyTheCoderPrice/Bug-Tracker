@@ -44,7 +44,7 @@
 		position: fixed;
 		top: v.$list-table-and-item-view-top;
 		left: 0px;
-		border: v.$item-container-list-sidebar-border-width solid black;
+		border: v.$item-container-list-sidebar-border-width solid v.$mode-item-view-list-sidebar-border-color-light;
 		border-left: none;
 		border-bottom: none;
 		height: 90vh;

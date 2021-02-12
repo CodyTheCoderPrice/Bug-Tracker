@@ -195,6 +195,16 @@ export function getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(dar
 	return " js-set-item-view-item-box-background-color-dark-mode-" + dark_mode;
 }
 
+// Light/Dark mode border color for ItemViewListSidebar
+export function getItemViewListSidebarBorderColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-item-view-list-sidebar-border-color-mode-" + dark_mode;
+}
+
+// Light/Dark mode border, background (with hover), and text color for ItemViewListSidebar expand-minimize-button
+export function getItemViewListSidebarExpandMinimizeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-" + dark_mode;
+}
+
 
 //========
 // Themes

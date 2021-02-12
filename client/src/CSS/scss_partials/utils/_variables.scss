@@ -34,8 +34,9 @@ $gray-dark-level-7: #333333;
 $gray-dark-level-8: #303030;
 $gray-dark-level-9: #292929;
 $gray-dark-level-10: #272727;
-$gray-dark-level-11: #1d1d1d;
-$gray-dark-level-12: #181818;
+$gray-dark-level-11: #232323;
+$gray-dark-level-12: #1d1d1d;
+$gray-dark-level-13: #181818;
 // Tinted grays
 $tinted-gray-light-level-1: #c9d1d9;
 // Basic blues
@@ -136,7 +137,7 @@ $mode-create-item-form-input-disabled-background-color-light: $mode-create-item-
 $mode-create-item-form-input-disabled-background-color-dark: $mode-create-item-sidebar-background-color-dark;
 $mode-create-item-form-input-disabled-text-color-light: $gray-light-level-10;
 $mode-create-item-form-input-disabled-text-color-dark: $gray-level-6;
-$mode-create-item-form-submit-button-focus-box-shadow-color-light: 0 0 0 1px $gray-level-8;
+$mode-create-item-form-submit-button-focus-box-shadow-color-light: 0 0 0 1px $gray-dark-level-4;
 $mode-create-item-form-submit-button-focus-box-shadow-color-dark: 0 0 0 1px $gray-light-level-8;
 $mode-list-view-mass-delete-button-text-color-light: $mode-home-text-color-light;
 $mode-list-view-mass-delete-button-text-color-dark: $mode-home-text-color-dark;
@@ -144,10 +145,16 @@ $mode-item-view-top-bar-options-dropdown-row-hover-background-color-light: $gray
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark: $gray-dark-level-4;
 $mode-item-view-item-box-background-color-light: $mode-top-bar-background-color-light;
 $mode-item-view-item-box-background-color-dark: $mode-top-bar-background-color-dark;
+$mode-item-view-list-sidebar-border-color-light: $mode-top-bar-border-color-light;
+$mode-item-view-list-sidebar-border-color-dark: $mode-top-bar-border-color-dark;
+$mode-item-view-list-sidebar-expand-minimize-button-border-color-light: $mode-item-view-list-sidebar-border-color-light;
+$mode-item-view-list-sidebar-expand-minimize-button-border-color-dark: $mode-item-view-list-sidebar-border-color-dark;
 $mode-item-view-list-sidebar-expand-minimize-button-background-color-light: $mode-item-view-item-box-background-color-light;
 $mode-item-view-list-sidebar-expand-minimize-button-background-color-dark: $mode-item-view-item-box-background-color-dark;
+$mode-item-view-list-sidebar-expand-minimize-button-text-color-light: $mode-home-text-color-light;
+$mode-item-view-list-sidebar-expand-minimize-button-text-color-dark: $mode-home-text-color-dark;
 $mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light: $gray-light-level-8;
-$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-dark: $gray-dark-level-7;
+$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-dark: $gray-dark-level-11;
 
 // Themes
 $theme-teal-background-color-dark: $teal-dark-level-1;
