@@ -39,7 +39,7 @@
 	cursor: pointer;
 
 	&:hover,
-	&:active {
+	:active {
 		color: v.$mode-base-icon-button-hover-text-color-light;
 	}
 }

@@ -15,7 +15,7 @@
 	.name-centering-container__form-name-input {
 		@include m.dead-center;
 		border: v.$edit-item-name-input-border-width solid black;
-		border-right: v.$edit-item-name-input-border-width dotted v.$light-gray-level-10;
+		border-right: v.$edit-item-name-input-border-width dotted v.$gray-light-level-10;
 		border-radius: v.$form-input-border-radius 0 0 v.$form-input-border-radius;
 		background-color: white;
 		padding: v.$edit-item-name-input-padding;
@@ -153,7 +153,7 @@
 		float: right;
 		border: 1px solid black;
 		border-radius: v.$base-buttton-border-radius;
-		background-color: v.$light-gray-level-3;
+		background-color: v.$gray-light-level-3;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.
 		padding: 10px 0px 10px 0px;
@@ -163,21 +163,21 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
-			background-color: v.$light-gray-level-5;
+		:active {
+			background-color: v.$gray-light-level-5;
 		}
 	}
 
 	// These classes are used by the custom hook that handles appearance
 	// ...of completion date based of the status of the project
 	.grayed-out-unclickable-label {
-		color: v.$light-gray-level-10;
+		color: v.$gray-light-level-10;
 		pointer-events: none;
 	}
 
 	.grayed-out-unclickable-date {
-		background-color: v.$light-gray-level-5;
-		color: v.$light-gray-level-10;
+		background-color: v.$gray-light-level-5;
+		color: v.$gray-light-level-10;
 		pointer-events: none;
 	}
 

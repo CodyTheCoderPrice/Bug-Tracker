@@ -82,17 +82,17 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
-			background-color: v.$light-gray-level-2;
+		:active {
+			background-color: v.$gray-light-level-2;
 		}
 	}
 
 	.hamburger-dropdown__option--selected {
-		background-color: v.$light-gray-level-5;
+		background-color: v.$gray-light-level-5;
 
 		&:hover,
-		&:active {
-			background-color: v.$light-gray-level-5;
+		:active {
+			background-color: v.$gray-light-level-5;
 		}
 	}
 
@@ -106,7 +106,7 @@
 	}
 
 	.hamburger-dropdown__option__icon {
-		color: v.$dark-gray-level-1;
+		color: v.$gray-dark-level-1;
 	}
 
 	.hamburger-dropdown__option__svg-arrow-option-2 {
@@ -132,9 +132,9 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
+		:active {
 			opacity: 1;
-			color: v.$bright-red;
+			color: v.$red-bright-level-1;
 		}
 	}
 
@@ -159,6 +159,6 @@
 	}
 
 	.hamburger-title--item-name {
-		color: v.$yellow;
+		color: v.$yellow-level-1;
 	}
 }

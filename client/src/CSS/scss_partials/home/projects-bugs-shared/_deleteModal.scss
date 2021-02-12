@@ -58,7 +58,7 @@
 		float: left;
 		border: 1px solid black;
 		border-radius: v.$base-buttton-border-radius;
-		background-color: v.$dark-red;
+		background-color: v.$red-dark-level-1;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
 		padding: 10px 0px 10px 0px;
@@ -71,8 +71,8 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
-			background-color: v.$darker-red;
+		:active {
+			background-color: v.$red-dark-level-2;
 		}
 	}
 
@@ -80,7 +80,7 @@
 		float: right;
 		border: 1px solid black;
 		border-radius: v.$base-buttton-border-radius;
-		background-color: v.$light-gray-level-4;
+		background-color: v.$gray-light-level-4;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.
 		padding: 10px 0px 10px 0px;
@@ -91,8 +91,8 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
-			background-color: v.$light-gray-level-6;
+		:active {
+			background-color: v.$gray-light-level-6;
 		}
 	}
 }

@@ -21,7 +21,7 @@ import {
 	populateComboBox,
 	getTextColorClassNameForTheme,
 	getHomeTextColorClassNameForLightOrDarkMode,
-	getCreateItemSidebarFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getCreateItemSidebarFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode,
@@ -418,7 +418,7 @@ export default function ItemViewEditItemInfo(props) {
 											? getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
-											: getCreateItemSidebarFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+											: getCreateItemSidebarFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  ))
 									}

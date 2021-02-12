@@ -18,7 +18,7 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
-	getTopBarBackgroundColorClassNameForLightOrDarkMode,
+	getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getLightBackgroundColorClassNameForTheme,
 	getLightBorderColorClassNameForTheme,
 	getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
@@ -152,7 +152,7 @@ export default function ItemViewTopBar(props) {
 		<div
 			className={
 				"item-vew-top-bar-component js-top-bar" +
-				getTopBarBackgroundColorClassNameForLightOrDarkMode(
+				getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}

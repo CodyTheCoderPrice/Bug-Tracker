@@ -14,14 +14,14 @@
 		left: v.$item-container-list-sidebar-width + v.$item-container-list-sidebar-border-width;
 		border: v.$item-container-list-sidebar-border-width solid black;
 		border-left: none;
-		background-color: v.$light-gray-level-5;
+		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-light;
 		height: 80px;
 		width: 25px;
 		cursor: pointer;
 
 		&:hover,
-		&:active {
-			background-color: v.$light-gray-level-10;
+		:active {
+			background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light;
 		}
 	}
 

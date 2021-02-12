@@ -21,7 +21,7 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
+		:active {
 			color: black;
 		}
 	}
@@ -75,8 +75,8 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
-			background-color: v.$light-gray-level-1;
+		:active {
+			background-color: v.$gray-light-level-1;
 		}
 	}
 }

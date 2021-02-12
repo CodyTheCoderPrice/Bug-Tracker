@@ -50,7 +50,7 @@
 	}
 
 	.breadcrumb-button__text--item-name {
-		color: v.$yellow;
+		color: v.$yellow-level-1;
 	}
 
 	.breadcrumb-button__end-container {
@@ -118,9 +118,9 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
+		:active {
 			opacity: 1;
-			color: v.$bright-red;
+			color: v.$red-bright-level-1;
 		}
 	}
 }

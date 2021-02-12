@@ -16,7 +16,7 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
-	getTopBarBackgroundColorClassNameForLightOrDarkMode,
+	getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getLightBackgroundColorClassNameForTheme,
 	getLightBorderColorClassNameForTheme,
 	getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
@@ -106,7 +106,7 @@ export default function ListViewTopBar(props) {
 		<div
 			className={
 				"list-view-top-bar" +
-				getTopBarBackgroundColorClassNameForLightOrDarkMode(
+				getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}

@@ -68,16 +68,9 @@ export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(da
 	return " js-set-universal-text-grayed-out-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode background colors for TopBar
-export function getTopBarBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-top-bar-background-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode background and text colors for TopBar search-bar
-export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-top-bar-search-bar-background-text-color-dark-mode-" + dark_mode;
+// Light/Dark mode border and background colors for TopBar
+export function getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-top-bar-border-and-background-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode border, background, and text color for TopBar buttons
@@ -87,6 +80,13 @@ export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkM
 	return (
 		" js-set-top-bar-button-border-background-text-color-dark-mode-" + dark_mode
 	);
+}
+
+// Light/Dark mode background and text colors for TopBar search-bar
+export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-top-bar-search-bar-background-text-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode text colors with hover for base icon-buttons
@@ -116,24 +116,29 @@ export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode border, background, and text color for base form-input
-export function getCreateItemSidebarFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+// Light/Dark mode border, background, and text color for CreateItemSidebar base form-input
+export function getCreateItemSidebarFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-create-item-sidebar-form-input-border-background-text-border-text-color-dark-mode-" +
+		" js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-" +
 		dark_mode
 	);
 }
 
-// Light/Dark mode disabled base label
+// Light/Dark mode CreateItemSidebar disabled base label
 export function getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-create-item-sidebar-diabled-label-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode disabled base input date
+// Light/Dark mode CreateItemSidebar disabled base input date
 export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-create-item-sidebar-diabled-input-date-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode focus box shadow for CreateItemSidebar submit button
+export function getCreateItemSidebaSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-create-item-sidebar-submit-button-focus-box-shadow-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode border colors for list rows

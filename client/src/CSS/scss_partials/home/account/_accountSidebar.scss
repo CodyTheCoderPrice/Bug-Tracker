@@ -38,7 +38,7 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
+		:active {
 			color: v.$mode-base-icon-button-hover-text-color-light;
 			font-size: 24px;
 		}
@@ -77,7 +77,7 @@
 		cursor: pointer;
 
 		&:hover,
-		&:active {
+		:active {
 			text-decoration: underline;
 		}
 	}
