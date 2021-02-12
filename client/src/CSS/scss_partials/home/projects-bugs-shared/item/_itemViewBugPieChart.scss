@@ -1,7 +1,7 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.item-container-bug-pie-chart-component {
+.item-view-bug-pie-chart-component {
 	position: relative;
 	height: 270px;
 	width: 100%;
@@ -35,7 +35,7 @@
 		@include m.horizontal-center();
 
 		padding-top: 12px;
-		width: v.$item-container-project-bugs-item-box-stats-container-width;
+		width: v.$item-view-project-bugs-item-box-stats-container-width;
 	}
 
 	.stats-container__row {
@@ -68,7 +68,7 @@
 		position: relative;
 		display: inline-block;
 		height: v.$status-box-height;
-		width: v.$item-container-project-bugs-item-box-stats-container-width -
+		width: v.$item-view-project-bugs-item-box-stats-container-width -
 			v.$status-box-width;
 	}
 

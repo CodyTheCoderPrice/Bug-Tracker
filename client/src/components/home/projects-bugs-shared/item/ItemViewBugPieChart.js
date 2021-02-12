@@ -173,7 +173,7 @@ export default function ItemViewBugPieChart() {
 	};
 
 	return (
-		<div className="item-container-bug-pie-chart-component">
+		<div className="item-view-bug-pie-chart-component">
 			<table className="centering-table">
 				<tbody>
 					<tr>

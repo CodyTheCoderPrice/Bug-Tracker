@@ -20,7 +20,6 @@ import {
 	manageSizeOfItemBoxsInPairContainer,
 	populateComboBox,
 	getTextColorClassNameForTheme,
-	getHomeTextColorClassNameForLightOrDarkMode,
 	getCreateItemSidebarFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode,
@@ -397,9 +396,7 @@ export default function ItemViewEditItemInfo(props) {
 											? getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
-											: getHomeTextColorClassNameForLightOrDarkMode(
-													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-											  ))
+											: "")
 									}
 								>
 									Completed on:

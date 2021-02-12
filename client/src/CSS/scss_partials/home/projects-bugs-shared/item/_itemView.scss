@@ -1,9 +1,9 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.item-container-component,
-.js-calc-item-container-component {
-	.item-container {
+.item-view-component,
+.js-calc-item-view-component {
+	.item-content-container {
 		position: fixed;
 		top: v.$list-table-and-item-view-top;
 		left: 0px;
@@ -17,8 +17,8 @@
 		overflow-x: auto !important;
 	}
 
-	.item-container--shifted-right {
-		left: v.$item-container-list-sidebar-width + v.$item-container-list-sidebar-border-width;
+	.item-content-container--shifted-right {
+		left: v.$item-view-list-sidebar-width + v.$item-view-list-sidebar-border-width;
 		width: 85vw;
 	}
 
@@ -55,7 +55,7 @@
 	.js-calc-outer-dividing-container {
 		float: left;
 		width: 100%;
-		min-width: v.$item-container-outer-dividing-container-min-width;
+		min-width: v.$item-view-outer-dividing-container-min-width;
 	}
 
 	.outer-dividing-container--half-width {
@@ -73,7 +73,7 @@
 		overflow-wrap: anywhere;
 	}
 
-	// Used to keep bug-pie-chart from going past item-container
+	// Used to keep bug-pie-chart from going past item-view
 	.item-box--no-left-right-padding {
 		padding-left: 0px;
 		padding-right: 0px;

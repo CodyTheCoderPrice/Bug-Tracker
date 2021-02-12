@@ -48,14 +48,9 @@ export function appendHexValueForColor(statusList) {
 //=================
 // Light/Dark mode
 //=================
-// Light/Dark mode text color for Home text elements
-export function getHomeTextColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-home-text-color-dark-mode-" + dark_mode;
-}
-
 // Light/Dark mode background color for Home component
-export function getHomeBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-home-background-color-dark-mode-" + dark_mode;
+export function getHomeBackgroundAndTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-home-background-and-text-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode border and background colors for CustomCheckbox checkbox
@@ -94,7 +89,7 @@ export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-base-icon-button-background-color-with-hover-dark-mode-" +
+		" js-set-base-icon-button-text-color-with-hover-dark-mode-" +
 		dark_mode
 	);
 }
@@ -104,7 +99,7 @@ export function getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDa
 	dark_mode
 ) {
 	return (
-		" js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-" +
+		" js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-" +
 		dark_mode
 	);
 }
@@ -157,8 +152,8 @@ export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(dar
 }
 
 // Light/Dark mode box shadow, background, and text color for list headers
-export function getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-list-header-box-shadow-background-text-color-dark-mode-" + dark_mode;
+export function getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-header-box-shadow-and-background-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode text color for list tds
@@ -166,9 +161,14 @@ export function getListTdTextColorClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-list-td-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode background colors for ListView mass-delete-button
-export function getListViewMassDeleteButtonTextColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-list-view-mass-delete-button-text-color-dark-mode-" + dark_mode;
+// Light/Dark mode text color ListView component
+export function getListViewTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-view-text-text-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode text color ItemView component
+export function getItemViewTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-item-view-text-text-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode border, background, and text color for ItemViewTopBar options-button
@@ -201,8 +201,8 @@ export function getItemViewListSidebarBorderColorClassNameForLightOrDarkMode(dar
 }
 
 // Light/Dark mode border, background (with hover), and text color for ItemViewListSidebar expand-minimize-button
-export function getItemViewListSidebarExpandMinimizeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-" + dark_mode;
+export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-" + dark_mode;
 }
 
 

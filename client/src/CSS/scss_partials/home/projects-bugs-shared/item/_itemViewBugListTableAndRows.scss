@@ -1,8 +1,8 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.item-container-bug-list-component {
-	// Must be more than the item-container in item-container.scss
+.item-view-bug-list-component {
+	// Must be more than the item-view in item-view.scss
 	z-index: 1;
 	width: 100%;
 	font-size: v.$base-font-size;

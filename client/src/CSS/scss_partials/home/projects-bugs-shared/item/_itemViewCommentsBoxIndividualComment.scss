@@ -1,7 +1,7 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.item-container-component {
+.item-view-component {
 	.comment-divider {
 		margin: 30px 0px 30px 0px;
 		border-bottom: 1px solid silver;

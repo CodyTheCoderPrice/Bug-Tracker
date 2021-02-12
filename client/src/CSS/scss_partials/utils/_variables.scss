@@ -39,6 +39,9 @@ $gray-dark-level-12: #1d1d1d;
 $gray-dark-level-13: #181818;
 // Tinted grays
 $tinted-gray-light-level-1: #c9d1d9;
+$tinted-gray-light-level-2: #bfc8d1;
+$tinted-gray-light-level-3: #b7c1ca;
+$tinted-gray-light-level-4: #a9b3bb;
 // Basic blues
 $basic-blue-light-level-1: #76bffa;
 $basic-blue-light-level-2: #57a4e4;
@@ -75,7 +78,7 @@ $yellow-level-1: #ffff00;
 $mode-home-background-color-light: white;
 $mode-home-background-color-dark: $gray-dark-level-7;
 $mode-home-text-color-light: black;
-$mode-home-text-color-dark: $tinted-gray-light-level-1;
+$mode-home-text-color-dark: $tinted-gray-light-level-4;
 $mode-custom-checkbox-border-color-light: black;
 $mode-custom-checkbox-border-color-dark: $gray-level-1;
 $mode-custom-checkbox-background-color-light: $mode-home-background-color-light;
@@ -98,10 +101,6 @@ $mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light;
 $mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark;
 $mode-list-header-background-color-light: $mode-home-background-color-light;
 $mode-list-header-background-color-dark: $mode-home-background-color-dark;
-$mode-list-header-text-color-light: $mode-home-text-color-light;
-$mode-list-header-text-color-dark: $mode-home-text-color-dark;
-$mode-list-td-text-color-light: $mode-home-text-color-light;
-$mode-list-td-text-color-dark: $mode-home-text-color-dark;
 // Light/Dark mode (specific)
 $mode-top-bar-border-color-light: black;
 $mode-top-bar-border-color-dark: black;
@@ -130,7 +129,7 @@ $mode-more-distinct-icon-button-hover-text-color-dark: $gray-level-5;
 $mode-create-item-form-input-border-color-light: $gray-level-5;
 $mode-create-item-form-input-border-color-dark: black;
 $mode-create-item-form-input-background-color-light: $gray-light-level-5;
-$mode-create-item-form-input-background-color-dark: $gray-level-10;
+$mode-create-item-form-input-background-color-dark: $gray-dark-level-1;
 $mode-create-item-form-input-focus-box-shadow-color-light: 0 0 0 1px $basic-blue-level-1;
 $mode-create-item-form-input-focus-box-shadow-color-dark: 0 0 0 1px $basic-blue-light-level-5;
 $mode-create-item-form-input-disabled-background-color-light: $mode-create-item-sidebar-background-color-light;
@@ -139,8 +138,6 @@ $mode-create-item-form-input-disabled-text-color-light: $gray-light-level-10;
 $mode-create-item-form-input-disabled-text-color-dark: $gray-level-6;
 $mode-create-item-form-submit-button-focus-box-shadow-color-light: 0 0 0 1px $gray-dark-level-4;
 $mode-create-item-form-submit-button-focus-box-shadow-color-dark: 0 0 0 1px $gray-light-level-8;
-$mode-list-view-mass-delete-button-text-color-light: $mode-home-text-color-light;
-$mode-list-view-mass-delete-button-text-color-dark: $mode-home-text-color-dark;
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-light: $gray-light-level-4;
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark: $gray-dark-level-4;
 $mode-item-view-item-box-background-color-light: $mode-top-bar-background-color-light;
@@ -151,8 +148,6 @@ $mode-item-view-list-sidebar-expand-minimize-button-border-color-light: $mode-it
 $mode-item-view-list-sidebar-expand-minimize-button-border-color-dark: $mode-item-view-list-sidebar-border-color-dark;
 $mode-item-view-list-sidebar-expand-minimize-button-background-color-light: $mode-item-view-item-box-background-color-light;
 $mode-item-view-list-sidebar-expand-minimize-button-background-color-dark: $mode-item-view-item-box-background-color-dark;
-$mode-item-view-list-sidebar-expand-minimize-button-text-color-light: $mode-home-text-color-light;
-$mode-item-view-list-sidebar-expand-minimize-button-text-color-dark: $mode-home-text-color-dark;
 $mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light: $gray-light-level-8;
 $mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-dark: $gray-dark-level-11;
 
@@ -245,12 +240,12 @@ $status-box-width: 110px;
 $create-item-sidebar-width: 500px;
 $item-search-bar-width: 290px;
 $options-button-width: 36px;
-$item-container-list-sidebar-width: 275px;
+$item-view-list-sidebar-width: 275px;
 $expand-minimize-button-width: 25px;
-$item-container-outer-dividing-container-min-width: 560px;
+$item-view-outer-dividing-container-min-width: 560px;
 $edit-item-name-input-width: 600px;
 $edit-item-name-char-counter-container-width: 50px;
-$item-container-project-bugs-item-box-stats-container-width: 200px;
+$item-view-project-bugs-item-box-stats-container-width: 200px;
 
 //==========
 // Position
@@ -308,7 +303,7 @@ $top-bar-button-border-width: $list-search-bar-button-border-width;
 $list-item-search-bar-button-focus-border-width: 3px;
 $top-bar-border-width: $search-filter-sort-bar-border-width;
 $edit-item-name-input-border-width: 2px;
-$item-container-list-sidebar-border-width: 2px;
+$item-view-list-sidebar-border-width: 2px;
 
 //==============
 // Border-radius
@@ -350,7 +345,7 @@ $search-filter-sort-bar-button-font-size: 14px;
 $top-bar-filter-button-font-size: $search-filter-sort-bar-button-font-size;
 $filter-dropdown-content-font-size: 14px;
 $list-container-empty-list-message-font-size: 32px;
-$item-container-name-font-size: 28px;
+$item-view-name-font-size: 28px;
 $create-item-sidebar-label-font-size: 15px;
 $item-form-text-input-font-size: 13px;
 $common-line-height: 20px;

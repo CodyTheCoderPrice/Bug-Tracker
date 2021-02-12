@@ -30,20 +30,14 @@ body,
 	//======================================
 	// Class selectors used by JS functions
 	//======================================
-	// Light/Dark mode text color for Home text elements
-	.js-set-home-text-color-dark-mode-false {
+	// Light/Dark mode background and text colors for Home component
+	.js-set-home-background-and-text-color-dark-mode-false {
+		background-color: v.$mode-home-background-color-light;
 		color: v.$mode-home-text-color-light;
 	}
-	.js-set-home-text-color-dark-mode-true {
-		color: v.$mode-home-text-color-dark;
-	}
-
-	// Light/Dark mode background colors for Home component
-	.js-set-home-background-color-dark-mode-false {
-		background-color: v.$mode-home-background-color-light;
-	}
-	.js-set-home-background-color-dark-mode-true {
+	.js-set-home-background-and-text-color-dark-mode-true {
 		background-color: v.$mode-home-background-color-dark;
+		color: v.$mode-home-text-color-dark;
 	}
 
 	// Light/Dark mode border and background colors for CustomCheckbox
@@ -125,7 +119,7 @@ body,
 	}
 
 	// Light/Dark mode text colors with hover for base icon-buttons
-	.js-set-base-icon-button-background-color-with-hover-dark-mode-false {
+	.js-set-base-icon-button-text-color-with-hover-dark-mode-false {
 		color: v.$mode-base-icon-button-text-color-light;
 
 		&:hover,
@@ -133,7 +127,7 @@ body,
 			color: v.$mode-base-icon-button-hover-text-color-light;
 		}
 	}
-	.js-set-base-icon-button-background-color-with-hover-dark-mode-true {
+	.js-set-base-icon-button-text-color-with-hover-dark-mode-true {
 		color: v.$mode-base-icon-button-text-color-dark;
 
 		&:hover,
@@ -143,7 +137,7 @@ body,
 	}
 
 	// Light/Dark mode text colors with hover for more distinct icon-buttons
-	.js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-false {
+	.js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-false {
 		color: v.$mode-more-distinct-icon-button-text-color-light;
 
 		&:hover,
@@ -151,7 +145,7 @@ body,
 			color: v.$mode-more-distinct-icon-button-hover-text-color-light;
 		}
 	}
-	.js-set-more-distinct-icon-button-background-color-with-hover-dark-mode-true {
+	.js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-true {
 		color: v.$mode-more-distinct-icon-button-text-color-dark;
 
 		&:hover,
@@ -261,31 +255,13 @@ body,
 	}
 
 	// Light/Dark mode box shadow, background, and text color for list headers
-	.js-set-list-header-box-shadow-background-text-color-dark-mode-false {
+	.js-set-list-header-box-shadow-and-background-color-dark-mode-false {
 		box-shadow: v.$mode-list-header-box-shadow-light;
 		background-color: v.$mode-list-header-background-color-light;
-		color: v.$mode-list-header-text-color-light;
 	}
-	.js-set-list-header-box-shadow-background-text-color-dark-mode-true {
+	.js-set-list-header-box-shadow-and-background-color-dark-mode-true {
 		box-shadow: v.$mode-list-header-box-shadow-dark;
 		background-color: v.$mode-list-header-background-color-dark;
-		color: v.$mode-list-header-text-color-dark;
-	}
-
-	// Light/Dark mode text color for list tds
-	.js-set-list-td-text-color-dark-mode-false {
-		color: v.$mode-list-td-text-color-light;
-	}
-	.js-set-list-td-text-color-dark-mode-true {
-		color: v.$mode-list-td-text-color-dark;
-	}
-
-	// Light/Dark mode background colors for ListView mass-delete-button
-	.js-set-list-view-mass-delete-button-text-color-dark-mode-false {
-		color: v.$mode-list-view-mass-delete-button-text-color-light;
-	}
-	.js-set-list-view-mass-delete-button-text-color-dark-mode-true {
-		color: v.$mode-list-view-mass-delete-button-text-color-dark;
 	}
 
 	// Light/Dark mode border, background, and text color for ItemViewTopBar options-button
@@ -332,21 +308,19 @@ body,
 		border-color: v.$mode-item-view-list-sidebar-border-color-dark;
 	}
 
-	// Light/Dark mode border and background color (with hover) for ItemViewListSidebar expand-minimize-button
-	.js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-false {
+	// Light/Dark mode border, background (with hover), and text color for ItemViewListSidebar expand-minimize-button
+	.js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-false {
 		border-color: v.$mode-item-view-list-sidebar-expand-minimize-button-border-color-light;
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-light;
-		color: v.$mode-item-view-list-sidebar-expand-minimize-button-text-color-light;
 
 		&:hover,
 		:active {
 			background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light;
 		}
 	}
-	.js-set-item-view-list-sidebar-expand-minimize-button-border-background-text-color-mode-true {
+	.js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true {
 		border-color: v.$mode-item-view-list-sidebar-expand-minimize-button-border-color-dark;
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-dark;
-		color: v.$mode-item-view-list-sidebar-expand-minimize-button-text-color-dark;
 
 		&:hover,
 		:active {

@@ -12,7 +12,7 @@ export default function ItemViewBugList() {
 	const reduxState = useSelector((state) => state);
 
 	return (
-		<div className="item-container-bug-list-component">
+		<div className="item-view-bug-list-component">
 			<table className="bug-list-table">
 				<tbody>
 					{/*Spread operator used for deep copy so 

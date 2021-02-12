@@ -3,7 +3,7 @@
 
 // This file is for SCSS used only by the ItemViewEditInfo component
 // ...SCSS shared with other components is in itemView.scss
-.item-container-component {
+.item-view-component {
 	.name-centering-container {
 		position: relative;
 		margin: 20px 0px 9px 0px;
@@ -22,7 +22,7 @@
 		height: v.$edit-item-name-input-height;
 		width: v.$edit-item-name-input-width;
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: v.$item-container-name-font-size;
+		font-size: v.$item-view-name-font-size;
 		font-weight: bold;
 		text-align: center;
 	}
@@ -41,7 +41,7 @@
 		@include m.dead-center;
 
 		color: v.$status-green;
-		font-size: v.$item-container-name-font-size;
+		font-size: v.$item-view-name-font-size;
 	}
 
 	.name-centering-container__char-count-centering-container {

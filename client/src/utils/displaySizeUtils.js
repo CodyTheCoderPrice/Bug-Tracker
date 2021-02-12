@@ -201,7 +201,7 @@ export function calcItemViewListSidebarWidth() {
 export function calcItemViewOuterDividingContainerMinWidth() {
 	const invisibleItemViewComponentElement = document.createElement("div");
 	invisibleItemViewComponentElement.className =
-		"js-calc-item-container-component";
+		"js-calc-item-view-component";
 	invisibleItemViewComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleItemViewComponentElement);
 
@@ -226,7 +226,7 @@ export function calcItemViewOuterDividingContainerMinWidth() {
 export function calcItemViewPaddingContainerPadding() {
 	const invisibleItemViewComponentElement = document.createElement("div");
 	invisibleItemViewComponentElement.className =
-		"js-calc-item-container-component";
+		"js-calc-item-view-component";
 	invisibleItemViewComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleItemViewComponentElement);
 

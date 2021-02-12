@@ -14,6 +14,7 @@ import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	getWindowSize,
+	getItemViewTextColorClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
 } from "../../../../utils";
@@ -42,7 +43,7 @@ export default function ItemView(props) {
 			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth !== null
 		) {
 			const itemViewElement = document.getElementsByClassName(
-				"js-item-container"
+				"js-item-content-container"
 			)[0];
 
 			itemViewElement.style.height =
@@ -137,10 +138,17 @@ export default function ItemView(props) {
 	]);
 
 	return (
-		<div>
+		<div
+			className={
+				"item-view-component" +
+				getItemViewTextColorClassNameForLightOrDarkMode(
+					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+				)
+			}
+		>
 			<ItemViewTopBar reduxContainerName={props.reduxContainerName} />
 			<ItemViewListSidebar reduxContainerName={props.reduxContainerName} />
-			{/* Located outside item-container-component so topBar doesn't cover it */}
+			{/* Located outside item-view-component so topBar doesn't cover it */}
 			{reduxState[props.reduxContainerName].componentsDisplay
 				.itemViewDeleteModal ? (
 				<ItemViewDeleteModal reduxContainerName={props.reduxContainerName} />
@@ -150,102 +158,102 @@ export default function ItemView(props) {
 				true ? (
 				<ItemViewCommentsBoxIndividualCommentDeleteModal />
 			) : null}
-			<div className="item-container-component">
-				<div
-					className={
-						"item-container js-item-container" +
-						(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
-							? " item-container--shifted-right"
-							: "")
-					}
-				>
-					<div className="item-content-container js-item-content-container">
-						<div className="padding-container">
-							{!reduxState[props.reduxContainerName].componentsDisplay
-								.itemViewEditItemInfo ? (
-								<div>
-									<ItemViewDisplayItemInfo
-										reduxContainerName={props.reduxContainerName}
-									/>
-								</div>
-							) : (
-								<div>
-									<ItemViewEditItemInfo
-										reduxContainerName={props.reduxContainerName}
-									/>
-								</div>
-							)}
-							{props.reduxContainerName !== PROJECT_CONTAINER ? null : (
-								<div className="pair-container js-project-bugs-info-pair">
-									<div className="outer-dividing-container outer-dividing-container--half-width">
-										<div
-											className={
-												"item-box item-box--project-bugs-stats-height item-box--no-left-right-padding" +
-												getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
-													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-												)
-											}
-										>
-											<h2
-												className={
-													"item-box__title" +
-													getTextColorClassNameForTheme(
-														reduxState[ACCOUNT_CONTAINER].settings.theme_color
-													)
-												}
-											>
-												Status of Bugs
-											</h2>
-											{[...reduxState[BUG_CONTAINER].list].filter(
-												(item) =>
-													item.project_id ===
-													reduxState[PROJECT_CONTAINER].componentsDisplay
-														.targetItem.id
-											).length > 0 ? (
-												<ItemViewBugPieChart />
-											) : (
-												<div className="item-box__no-bugs-message">
-													This project has no bugs tracked
-												</div>
-											)}
-										</div>
-									</div>
-									<div className="outer-dividing-container outer-dividing-container--half-width">
-										<div className={"item-box item-box--project-bugs-stats-height" +
-												getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
-													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-												)}>
-											<h2
-												className={
-													"item-box__title" +
-													getTextColorClassNameForTheme(
-														reduxState[ACCOUNT_CONTAINER].settings.theme_color
-													)
-												}
-											>
-												Most Recent Bugs Worked On
-											</h2>
-											{[...reduxState[BUG_CONTAINER].list].filter(
-												(item) =>
-													item.project_id ===
-													reduxState[PROJECT_CONTAINER].componentsDisplay
-														.targetItem.id
-											).length > 0 ? (
-												<ItemViewBugList />
-											) : (
-												<div className="item-box__no-bugs-message">
-													This project has no bugs tracked
-												</div>
-											)}
-										</div>
-									</div>
-								</div>
-							)}
-							{props.reduxContainerName === PROJECT_CONTAINER ? null : (
-								<ItemViewCommentsBox />
-							)}
+			<div
+				className={
+					"item-content-container js-item-content-container" +
+					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
+						? " item-content-container--shifted-right"
+						: "")
+				}
+			>
+				<div className="padding-container">
+					{!reduxState[props.reduxContainerName].componentsDisplay
+						.itemViewEditItemInfo ? (
+						<div>
+							<ItemViewDisplayItemInfo
+								reduxContainerName={props.reduxContainerName}
+							/>
 						</div>
-					</div>
+					) : (
+						<div>
+							<ItemViewEditItemInfo
+								reduxContainerName={props.reduxContainerName}
+							/>
+						</div>
+					)}
+					{props.reduxContainerName !== PROJECT_CONTAINER ? null : (
+						<div className="pair-container js-project-bugs-info-pair">
+							<div className="outer-dividing-container outer-dividing-container--half-width">
+								<div
+									className={
+										"item-box item-box--project-bugs-stats-height item-box--no-left-right-padding" +
+										getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										)
+									}
+								>
+									<h2
+										className={
+											"item-box__title" +
+											getTextColorClassNameForTheme(
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
+											)
+										}
+									>
+										Status of Bugs
+									</h2>
+									{[...reduxState[BUG_CONTAINER].list].filter(
+										(item) =>
+											item.project_id ===
+											reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+												.id
+									).length > 0 ? (
+										<ItemViewBugPieChart />
+									) : (
+										<div className="item-box__no-bugs-message">
+											This project has no bugs tracked
+										</div>
+									)}
+								</div>
+							</div>
+							<div className="outer-dividing-container outer-dividing-container--half-width">
+								<div
+									className={
+										"item-box item-box--project-bugs-stats-height" +
+										getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										)
+									}
+								>
+									<h2
+										className={
+											"item-box__title" +
+											getTextColorClassNameForTheme(
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
+											)
+										}
+									>
+										Most Recent Bugs Worked On
+									</h2>
+									{[...reduxState[BUG_CONTAINER].list].filter(
+										(item) =>
+											item.project_id ===
+											reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+												.id
+									).length > 0 ? (
+										<ItemViewBugList />
+									) : (
+										<div className="item-box__no-bugs-message">
+											This project has no bugs tracked
+										</div>
+									)}
+								</div>
+							</div>
+						</div>
+					)}
+					{props.reduxContainerName === PROJECT_CONTAINER ? null : (
+						<ItemViewCommentsBox />
+					)}
 				</div>
 			</div>
 		</div>

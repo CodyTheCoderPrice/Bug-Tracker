@@ -14,9 +14,8 @@ import {
 
 import {
 	getElementLocation,
-	getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode,
+	getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
 	getSearchFilterSortList,
-	getListViewMassDeleteButtonTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
@@ -134,9 +133,6 @@ export default function ListViewTable(props) {
 			<div
 				className={
 					"list-table__header__mass-delete-options-container__button" +
-					getListViewMassDeleteButtonTextColorClassNameForLightOrDarkMode(
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-					) +
 					(shouldBeActive
 						? ""
 						: " list-table__header__mass-delete-options-container__button--disabled")
@@ -177,7 +173,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header list-table__header--for-mass-delete" +
-								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -212,7 +208,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header js-list-table__header" +
-								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -230,7 +226,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -248,7 +244,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -266,7 +262,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -284,7 +280,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -302,7 +298,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -320,7 +316,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header" +
-								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -334,7 +330,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__header js-remaining-space" +
-								getListHeaderBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
+								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}

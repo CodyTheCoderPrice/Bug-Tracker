@@ -1,18 +1,18 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.item-container-list-sidebar-component,
+.item-view-list-sidebar-component,
 .js-calc-list-sidebar-component {
 	// Width must be set here so width can be calculated and stored in redux
-	width: v.$item-container-list-sidebar-width;
+	width: v.$item-view-list-sidebar-width;
 
 	.expand-minimize-button {
-		// Must be more than the item-container in item-container.scss
+		// Must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
 		top: v.$list-table-and-item-view-top + 15;
-		left: v.$item-container-list-sidebar-width + v.$item-container-list-sidebar-border-width;
-		border: v.$item-container-list-sidebar-border-width solid black;
+		left: v.$item-view-list-sidebar-width + v.$item-view-list-sidebar-border-width;
+		border: v.$item-view-list-sidebar-border-width solid black;
 		border-left: none;
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-light;
 		height: 80px;
@@ -26,7 +26,7 @@
 	}
 
 	.expand-minimize-button--minimized {
-		left: v.$item-container-list-sidebar-border-width;
+		left: v.$item-view-list-sidebar-border-width;
 	}
 
 	.expand-minimize-button__centering-container {
@@ -39,17 +39,17 @@
 	}
 
 	.list-sidebar {
-		// Must be more than the item-container in item-container.scss
+		// Must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
 		top: v.$list-table-and-item-view-top;
 		left: 0px;
-		border: v.$item-container-list-sidebar-border-width solid v.$mode-item-view-list-sidebar-border-color-light;
+		border: v.$item-view-list-sidebar-border-width solid v.$mode-item-view-list-sidebar-border-color-light;
 		border-left: none;
 		border-bottom: none;
 		height: 90vh;
 		// Width must be set here again to not go beyond
-		width: v.$item-container-list-sidebar-width;
+		width: v.$item-view-list-sidebar-width;
 		font-size: v.$base-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto !important;
@@ -86,7 +86,7 @@
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: v.$mode-list-header-box-shadow-light;
 		background-color: v.$mode-home-background-color-light;
-		width: v.$item-container-list-sidebar-width;
+		width: v.$item-view-list-sidebar-width;
 	}
 
 	.list-sidebar__table__data {
@@ -97,8 +97,8 @@
 	.list-sidebar__table__data__overflow-container {
 		@include m.dead-center();
 
-		width: v.$item-container-list-sidebar-width - 25;
-		max-width: v.$item-container-list-sidebar-width - 25;
+		width: v.$item-view-list-sidebar-width - 25;
+		max-width: v.$item-view-list-sidebar-width - 25;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
