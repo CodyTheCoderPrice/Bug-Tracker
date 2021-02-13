@@ -76,7 +76,7 @@ $raspberry-red-level-2: #d44141;
 // Yellows
 $yellow-level-1: #ffff00;
 
-// Light/Dark mode (general)
+// Light/Dark mode (General)
 $mode-home-background-color-light: white;
 $mode-home-background-color-dark: $gray-dark-level-7;
 $mode-home-text-color-light: black;
@@ -87,6 +87,14 @@ $mode-blurred-background-opacity-light: 0.8;
 $mode-blurred-background-opacity-dark: 0.6;
 $mode-click-to-close-blurred-background-opacity-light: 0.6;
 $mode-click-to-close-blurred-background-opacity-dark: 0.4;
+$mode-base-icon-button-text-color-light: $gray-level-2;
+$mode-base-icon-button-text-color-dark: $gray-level-10;
+$mode-base-icon-button-hover-text-color-light: $gray-dark-level-5;
+$mode-base-icon-button-hover-text-color-dark: $gray-level-3;
+$mode-more-distinct-icon-button-text-color-light: $gray-level-5;
+$mode-more-distinct-icon-button-text-color-dark: $gray-dark-level-1;
+$mode-more-distinct-icon-button-hover-text-color-light: $mode-base-icon-button-hover-text-color-light;
+$mode-more-distinct-icon-button-hover-text-color-dark: $gray-level-5;
 $mode-custom-checkbox-border-color-light: black;
 $mode-custom-checkbox-border-color-dark: $gray-level-1;
 $mode-custom-checkbox-background-color-light: $mode-home-background-color-light;
@@ -126,14 +134,6 @@ $mode-top-bar-search-bar-text-color-light: $mode-home-text-color-light;
 $mode-top-bar-search-bar-text-color-dark: $mode-home-text-color-dark;
 $mode-create-item-sidebar-background-color-light: $mode-home-background-color-light;
 $mode-create-item-sidebar-background-color-dark: $mode-home-background-color-dark;
-$mode-base-icon-button-text-color-light: $gray-level-2;
-$mode-base-icon-button-text-color-dark: $gray-level-10;
-$mode-base-icon-button-hover-text-color-light: $gray-dark-level-5;
-$mode-base-icon-button-hover-text-color-dark: $gray-level-3;
-$mode-more-distinct-icon-button-text-color-light: $gray-level-5;
-$mode-more-distinct-icon-button-text-color-dark: $gray-dark-level-1;
-$mode-more-distinct-icon-button-hover-text-color-light: $mode-base-icon-button-hover-text-color-light;
-$mode-more-distinct-icon-button-hover-text-color-dark: $gray-level-5;
 $mode-create-item-form-input-border-color-light: $gray-level-5;
 $mode-create-item-form-input-border-color-dark: black;
 $mode-create-item-form-input-background-color-light: $gray-light-level-5;
@@ -150,6 +150,12 @@ $mode-create-item-form-submit-button-focus-box-shadow-color-light: 0 0 0 1px
 	$gray-dark-level-4;
 $mode-create-item-form-submit-button-focus-box-shadow-color-dark: 0 0 0 1px
 	$gray-light-level-8;
+$mode-delete-modal-background-color-light: $mode-home-background-color-light;
+$mode-delete-modal-background-color-dark: $mode-home-background-color-dark;
+$mode-delete-modal-cancel-button-background-color-light: $mode-delete-modal-background-color-light;
+$mode-delete-modal-cancel-button-background-color-dark: $mode-delete-modal-background-color-dark;
+$mode-delete-modal-cancel-button-hover-background-color-light: $gray-light-level-2;
+$mode-delete-modal-cancel-button-hover-background-color-dark: $gray-dark-level-5;
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-light: $gray-light-level-4;
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark: $gray-dark-level-4;
 $mode-item-view-item-box-background-color-light: $mode-top-bar-background-color-light;

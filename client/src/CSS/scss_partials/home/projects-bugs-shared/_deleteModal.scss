@@ -120,12 +120,12 @@
 
 	.centered-buttons-container__button--cancel {
 		float: right;
-		background-color: white;
+		background-color: v.$mode-delete-modal-cancel-button-background-color-light;
 		color: v.$delete-modal-delete-button-background-color;
 
 		&:hover,
 		:active {
-			background-color: v.$gray-light-level-1;
+			background-color: v.$mode-delete-modal-cancel-button-hover-background-color-light;
 		}
 	}
 

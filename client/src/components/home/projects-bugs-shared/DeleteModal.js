@@ -10,7 +10,11 @@ import {
 
 import { clearBackendErrors } from "../../../actions";
 
-import { getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode } from "../../../utils";
+import {
+	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
+	getDeleteModalBackgroundColorClassNameForLightOrDarkMode,
+	getDeleteModalCancelButtonBackgroundColorClassNameForLightOrDarkMode,
+} from "../../../utils";
 
 export default function DeleteModal(props) {
 	const reduxState = useSelector((state) => state);
@@ -68,6 +72,9 @@ export default function DeleteModal(props) {
 			<div
 				className={
 					"delete-modal" +
+					getDeleteModalBackgroundColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					) +
 					(reduxState[PROJECT_CONTAINER].componentsDisplay
 						.listViewDeleteModal === false &&
 					reduxState[PROJECT_CONTAINER].componentsDisplay
@@ -103,7 +110,12 @@ export default function DeleteModal(props) {
 						</span>
 					</div>
 					<div
-						className="centered-buttons-container__button centered-buttons-container__button--cancel"
+						className={
+							"centered-buttons-container__button centered-buttons-container__button--cancel" +
+							getDeleteModalCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
 						onClick={props.closeModalFunction}
 					>
 						<span className="centered-buttons-container__button__text">
