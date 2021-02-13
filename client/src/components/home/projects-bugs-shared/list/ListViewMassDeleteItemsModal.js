@@ -13,7 +13,6 @@ import {
 
 import {
 	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
-	getHomeTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 export default function ListViewMassDeleteItemsModal(props) {
@@ -42,7 +41,7 @@ export default function ListViewMassDeleteItemsModal(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listViewMassDeleteItemsModal: false,
+				listViewDeleteModal: false,
 			})
 		);
 	};
@@ -58,7 +57,7 @@ export default function ListViewMassDeleteItemsModal(props) {
 					)
 				}
 			/>
-			<div className="delete-account-modal">
+			<div className="delete-modal">
 				<div className="warning-container">
 					<span className="warning-container__message">Are you sure?</span>
 				</div>

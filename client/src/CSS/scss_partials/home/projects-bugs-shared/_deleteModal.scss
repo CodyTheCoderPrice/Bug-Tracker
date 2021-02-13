@@ -3,11 +3,10 @@
 
 .delete-modal-component {
 	.blurred-background {
-		// Must be the same or more than listViewSearchFilterSortBar.scss
-		// ...and itemView.scss
-		z-index: 1;
+		// Must be the same or more than listViewTopBar.scss & itemViewTopBar.scss
+		z-index: 2;
 		position: fixed;
-		top: v.$navbar-height;
+		top: 0px;
 		left: 0px;
 		background-color: v.$mode-blurred-background-background-color-light;
 		opacity: v.$mode-blurred-background-opacity-light;
@@ -15,30 +14,69 @@
 		width: 100vw;
 	}
 
-	.delete-account-modal {
-		// Must be the same or more than listViewSearchFilterSortBar.scss
+	.blurred-background--click-to-close {
+		opacity: v.$mode-click-to-close-blurred-background-opacity-light;
+	}
+
+	.delete-modal {
+		// Must be the same or more than listViewTopBar.scss & itemViewTopBar.scss
 		// ...and itemView.scss
-		z-index: 1;
+		z-index: 2;
 		position: fixed;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		border: 5px solid black;
+		//border: 3px solid v.$delete-modal-delete-button-background-color;
+		border-radius: 15px;
 		background-color: white;
-		height: 170px;
-		width: 300px;
+		height: 195px;
+		width: 450px;
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
-	// Needed to move the warning message down
-	.warning-container {
-		margin-top: 45px;
+	.delete-modal--comment-height {
+		height: 165px;
+	}
+
+	.warning-trapazoid-background {
+		@include m.horizontal-center();
+
+		top: 0px;
+		border-top: 26px solid v.$delete-modal-delete-button-background-color;
+		border-left: 45px solid transparent;
+		border-right: 45px solid transparent;
+		height: 0;
+		width: 140px;
+	}
+
+	.warning-header {
+		@include m.horizontal-center();
+
+		top: 2px;
+		margin: 0px;
+		padding: 0px;
+		color: white;
+		font-size: 18px;
+	}
+
+	// Needed to move the warning message down and centered
+	.centered-message-container {
+		@include m.horizontal-center();
+
+		top: 48px;
+		width: 90%;
+	}
+
+	// Allows height to adapt to the length of the text
+	.centered-container__relative-container {
+		position: relative;
 		width: 100%;
 	}
 
-	.warning-container__message {
-		font-size: 22px;
+	.centered-message-container__relative-container__text {
+		font-size: 16px;
+		line-height: 28px;
 	}
 
 	.backend-errors {
@@ -50,21 +88,25 @@
 	.centered-buttons-container {
 		@include m.horizontal-center();
 
-		top: 110px;
-		width: 265px;
+		bottom: 18px;
+		width: 200px;
 	}
 
-	.centered-buttons-container__delete {
+	.centered-buttons-container__button {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		position: relative;
 		float: left;
-		border: 1px solid black;
+		border: 1px solid v.$delete-modal-delete-button-background-color;
 		border-radius: v.$base-buttton-border-radius;
-		background-color: v.$red-dark-level-1;
+		background-color: v.$delete-modal-delete-button-background-color;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
-		padding: 10px 0px 10px 0px;
-		// 2px bigger than cancel button because of inconsistencies
-		// ...with buttons vs divs.
-		width: 127px;
+		padding: 7px 0px 7px 0px;
+		height: v.$delete-modal-delete-button-height;
+		width: v.$delete-modal-delete-button-width;
 		color: white;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16px;
@@ -72,27 +114,22 @@
 
 		&:hover,
 		:active {
-			background-color: v.$red-dark-level-2;
+			background-color: v.$delete-modal-delete-button-hover-background-color;
 		}
 	}
 
-	.centered-buttons-container__cancel {
+	.centered-buttons-container__button--cancel {
 		float: right;
-		border: 1px solid black;
-		border-radius: v.$base-buttton-border-radius;
-		background-color: v.$gray-light-level-4;
-		// Only top and bottom because of inconisistencies
-		// ...with button and div padding.
-		padding: 10px 0px 10px 0px;
-		width: 125px;
-		color: black;
-		text-align: center;
-		font-size: 16px;
-		cursor: pointer;
+		background-color: white;
+		color: v.$delete-modal-delete-button-background-color;
 
 		&:hover,
 		:active {
-			background-color: v.$gray-light-level-6;
+			background-color: v.$gray-light-level-1;
 		}
+	}
+
+	.centered-buttons-container__button__text {
+		@include m.dead-center();
 	}
 }

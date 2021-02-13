@@ -25,9 +25,9 @@ import {
 	calcBreadcrumbBaseFontSize,
 	calcBreadcrumbButtonArrowWidth,
 	calcHamburgerStyles,
-	calcListViewSearchFilterSortBarHeight,
+	calcListViewTopBarHeight,
 	calcListViewTableRowHeight,
-	calcViewItemTopBarHeight,
+	calcItemViewTopBarHeight,
 	calcItemViewListSidebarWidth,
 	calcItemViewOuterDividingContainerMinWidth,
 	calcItemViewPaddingContainerPadding,
@@ -55,9 +55,9 @@ export default function Navbar() {
 				navbarBreadcrumbButtonTextBaseFontSize: breadcrumbBaseFontSize,
 				navbarBreadcrumbArrowWidth: calcBreadcrumbButtonArrowWidth(),
 				navbarHamburgerStyles: calcHamburgerStyles(),
-				listViewSearchFilterSortBarHeight: calcListViewSearchFilterSortBarHeight(),
+				listViewTopBarHeight: calcListViewTopBarHeight(),
 				listViewTableRowHeight: calcListViewTableRowHeight(),
-				itemViewTopBarHeight: calcViewItemTopBarHeight(),
+				itemViewTopBarHeight: calcItemViewTopBarHeight(),
 				itemViewListSidebarWidth: calcItemViewListSidebarWidth(),
 				itemViewOuterDividingContainerMinWidth: calcItemViewOuterDividingContainerMinWidth(),
 				itemViewPaddingContainerPadding: calcItemViewPaddingContainerPadding(),
@@ -112,7 +112,7 @@ export default function Navbar() {
 				...reduxState[PROJECT_CONTAINER].componentsDisplay,
 				listViewCreateItemSidbar: false,
 				itemViewDeleteModal: false,
-				listViewMassDeleteItemsModal: false,
+				listViewDeleteModal: false,
 			})
 		);
 		dispatch(
@@ -120,7 +120,7 @@ export default function Navbar() {
 				...reduxState[BUG_CONTAINER].componentsDisplay,
 				listViewCreateItemSidbar: false,
 				itemViewDeleteModal: false,
-				listViewMassDeleteItemsModal: false,
+				listViewDeleteModal: false,
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));

@@ -9,7 +9,13 @@ import {
 	COMMENT_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 
-import { setWhichGeneralComponentsDisplay } from "../../../../actions";
+import {
+	setWhichGeneralComponentsDisplay,
+	setWhichProjectOrBugComponentsDisplay,
+	deleteProjectOrBug,
+	deleteComment,
+	setWhichCommentComponentsDisplay,
+} from "../../../../actions";
 
 import {
 	manageSizeOfItemBoxsInPairContainer,
@@ -24,11 +30,10 @@ import ItemViewTopBar from "./ItemViewTopBar";
 import ItemViewListSidebar from "./ItemViewListSidebar";
 import ItemViewDisplayItemInfo from "./ItemViewDisplayItemInfo";
 import ItemViewEditItemInfo from "./ItemViewEditItemInfo";
-import ItemViewDeleteModal from "./ItemViewDeleteModal";
+import DeleteModal from "../DeleteModal";
 import ItemViewBugList from "./ItemViewBugList";
 import ItemViewBugPieChart from "./ItemViewBugPieChart";
 import ItemViewCommentsBox from "./ItemViewCommentsBox";
-import ItemViewCommentsBoxIndividualCommentDeleteModal from "./ItemViewCommentsBoxIndividualCommentDeleteModal";
 
 export default function ItemView(props) {
 	const reduxState = useSelector((state) => state);
@@ -137,6 +142,61 @@ export default function ItemView(props) {
 		reduxState[SIZE_CONTAINER].constants.itemViewOuterDividingContainerMinWidth,
 	]);
 
+	const deleteItem = () => {
+		let copyMassDeleteList = [
+			...reduxState[props.reduxContainerName].massDeleteList,
+		];
+
+		// JSON instead of Number since deleting bugs requires the project_id
+		// ...so it is appended below when deleting bugs
+		let idJson = {
+			id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
+		};
+		// Adds project_id when deleting a bug
+		if (props.reduxContainerName === BUG_CONTAINER) {
+			idJson["project_id"] =
+				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id;
+		}
+		dispatch(
+			deleteProjectOrBug(props.reduxContainerName, idJson, copyMassDeleteList)
+		);
+	};
+
+	const closeItemViewDeleteModal = () => {
+		dispatch(
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
+				itemViewDeleteModal: false,
+			})
+		);
+	};
+
+	// Named deleteSelectedComment since deleteComment is an action function
+	const deleteSelectedComment = () => {
+		dispatch(
+			deleteComment(
+				{
+					id:
+						reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted
+							.id,
+					project_id:
+						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
+					bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
+				},
+				reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited
+			)
+		);
+	};
+
+	const closeCommentDeleteModal = () => {
+		dispatch(
+			setWhichCommentComponentsDisplay({
+				commentBeingEdited:
+					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited,
+			})
+		);
+	};
+
 	return (
 		<div
 			className={
@@ -151,12 +211,20 @@ export default function ItemView(props) {
 			{/* Located outside item-view-component so topBar doesn't cover it */}
 			{reduxState[props.reduxContainerName].componentsDisplay
 				.itemViewDeleteModal ? (
-				<ItemViewDeleteModal reduxContainerName={props.reduxContainerName} />
+				<DeleteModal
+					clickToCloseBlurredBackground={false}
+					deleteFunction={deleteItem}
+					closeModalFunction={closeItemViewDeleteModal}
+				/>
 			) : null}
 			{reduxState[BUG_CONTAINER].componentsDisplay.itemView === true &&
 			reduxState[COMMENT_CONTAINER].componentsDisplay.commentDeleteModal ===
 				true ? (
-				<ItemViewCommentsBoxIndividualCommentDeleteModal />
+				<DeleteModal
+					clickToCloseBlurredBackground={false}
+					deleteFunction={deleteSelectedComment}
+					closeModalFunction={closeCommentDeleteModal}
+				/>
 			) : null}
 			<div
 				className={

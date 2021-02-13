@@ -229,7 +229,7 @@ export const deleteMultipleProjects = (
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
-					listViewMassDeleteItemsModal: false,
+					listViewDeleteModal: false,
 					// if the targetItem was a deleted project, then sets it to null
 					targetItem:
 						projectComponentsDisplay.targetItem === null ||

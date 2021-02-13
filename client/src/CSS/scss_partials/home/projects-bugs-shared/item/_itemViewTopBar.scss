@@ -3,8 +3,8 @@
 
 .item-vew-top-bar-component,
 .js-calc-item-vew-top-bar-component {
-	// Must be more than list-sidebar so item-options-container will display
-	// ...overtop the list-sidebar if the screen gets too small
+	// Must be more than list-sidebar so item-options-dropdown-container will
+	// ...display overtop the list-sidebar if the screen gets too small
 	z-index: 2;
 	position: fixed;
 	top: v.$top-bar-top;

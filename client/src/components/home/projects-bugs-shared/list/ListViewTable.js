@@ -33,7 +33,7 @@ export default function ListViewTable(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBarHeight !==
+			reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight !==
 				null
 		) {
 			const listTableContainerElement = document.getElementsByClassName(
@@ -43,7 +43,7 @@ export default function ListViewTable(props) {
 			listTableContainerElement.style.height =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBarHeight +
+				reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight +
 				"px";
 
 			listTableContainerElement.style.width =
@@ -66,7 +66,7 @@ export default function ListViewTable(props) {
 				emptyListMessageContainer.style.height =
 					reduxState[SIZE_CONTAINER].variables.window.height -
 					reduxState[SIZE_CONTAINER].variables.navbar.height -
-					reduxState[SIZE_CONTAINER].constants.listViewSearchFilterSortBarHeight
+					reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight
 						.height -
 					reduxState[SIZE_CONTAINER].constants.listViewTableRowHeight -
 					reduxState[SIZE_CONTAINER].constants.scrollbarWidth +
@@ -118,7 +118,7 @@ export default function ListViewTable(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listViewMassDeleteItemsModal: true,
+				listViewDeleteModal: true,
 			})
 		);
 	};

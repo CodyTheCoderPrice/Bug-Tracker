@@ -1,17 +1,42 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames";
 import { getListViewTextColorClassNameForLightOrDarkMode } from "../../../../utils";
+
+import {
+	setWhichProjectOrBugComponentsDisplay,
+	deleteMultipleProjectsOrBugs,
+} from "../../../../actions";
 
 // Components
 import ListViewTopBar from "./ListViewTopBar";
 import ListViewCreateItemSidebar from "./ListViewCreateItemSidebar";
 import ListViewTable from "./ListViewTable";
-import ListViewMassDeleteItemsModal from "./ListViewMassDeleteItemsModal";
+import DeleteModal from "../DeleteModal";
 
 export default function ListView(props) {
 	const reduxState = useSelector((state) => state);
+	const dispatch = useDispatch();
+
+	const deleteCheckedItems = () => {
+		dispatch(
+			deleteMultipleProjectsOrBugs(
+				props.reduxContainerName,
+				reduxState[props.reduxContainerName].massDeleteList,
+				reduxState[props.reduxContainerName].componentsDisplay
+			)
+		);
+	};
+
+	const closeListViewDeleteModal = () => {
+		dispatch(
+			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
+				...reduxState[props.reduxContainerName].componentsDisplay,
+				listViewDeleteModal: false,
+			})
+		);
+	};
 
 	return (
 		<div
@@ -31,9 +56,11 @@ export default function ListView(props) {
 			) : null}
 			<ListViewTable reduxContainerName={props.reduxContainerName} />
 			{reduxState[props.reduxContainerName].componentsDisplay
-				.listViewMassDeleteItemsModal ? (
-				<ListViewMassDeleteItemsModal
-					reduxContainerName={props.reduxContainerName}
+				.listViewDeleteModal ? (
+				<DeleteModal
+					clickToCloseBlurredBackground={false}
+					deleteFunction={deleteCheckedItems}
+					closeModalFunction={closeListViewDeleteModal}
 				/>
 			) : null}
 		</div>

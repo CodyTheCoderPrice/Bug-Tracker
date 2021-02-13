@@ -49,7 +49,6 @@ $basic-blue-light-level-3: #4b99da;
 $basic-blue-light-level-4: #3889cc;
 $basic-blue-light-level-5: #2d7fc2;
 $basic-blue-light-level-6: #156db4;
-// Dark Blues
 $basic-blue-level-1: #187cff;
 $basic-blue-level-2: #006eff;
 // Navy blues
@@ -66,11 +65,14 @@ $blue-gray-dark-level-1: #215792;
 $teal-light-level-1: #8ba8b3;
 $teal-light-level-2: #6691a3;
 $teal-dark-level-1: #50798b;
-// Reds
-$red-light-level-1: #cf8c8c;
-$red-bright-level-1: #fc1e1e;
-$red-dark-level-1: #d36464;
-$red-dark-level-2: #cc4c4c;
+// Basic reds
+$basic-red-level-1: #FF4E4E;
+$basic-red-level-2: #fc1e1e;
+$basic-red-level-3: #ff0000;
+// Raspberry Red
+$raspberry-red-level-1: #e95454;
+$raspberry-red-level-2: #d44141;
+
 // Yellows
 $yellow-level-1: #ffff00;
 
@@ -182,6 +184,7 @@ $filter-button-active-color-3: #ffbb00;
 $filter-button-active-color: $filter-button-active-color-1;
 
 // Components
+$breadcrumb-hamburger-close-button-text-color: $basic-red-level-2;
 $basic-toggle-switch-on-color: $basic-blue-light-level-4;
 $basic-toggle-switch-off-color: $gray-light-level-7;
 $account-sidebar-appearance-theme-button-border-color: $gray-dark-level-1;
@@ -189,6 +192,10 @@ $account-sidebar-appearance-theme-button-background-color: $gray-light-level-5;
 $account-sidebar-appearance-theme-button-arrow-container-color: $gray-light-level-10;
 $account-sidebar-appearance-theme-button-option-text-color: $gray-dark-level-5;
 $account-sidebar-appearance-theme-button-option-selected-color: $basic-blue-light-level-1;
+$account-modal-capital-delete-text-color: $basic-red-level-3;
+$delete-modal-delete-button-background-color: $basic-red-level-1;
+$delete-modal-delete-button-hover-background-color: $basic-red-level-3;
+
 
 // Backend error color
 $backend-error-color: red;
@@ -212,6 +219,7 @@ $edit-account-modal-height: 390px;
 $account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
 $account-sidebar-logout-button-height: 40px;
 $account-modal-settings-content-container-height: $basic-toggle-switch-height;
+$delete-modal-delete-button-height: 30px;
 $top-bar-height: 46px;
 $top-bar-button-height: 26px;
 $top-bar-search-bar-height: 28px;
@@ -237,6 +245,7 @@ $account-sidebar-appearance-theme-button-selected-container-width: 80px;
 $account-sidebar-appearance-theme-button-arrow-container-width: 24px;
 $account-sidebar-appearance-theme-button-width: $account-sidebar-appearance-theme-button-selected-container-width +
 	$account-sidebar-appearance-theme-button-arrow-container-width;
+$delete-modal-delete-button-width: 90px;
 $top-bar-search-bar-button-width: $top-bar-search-bar-height + 10;
 $top-bar-filter-button-width: 90px;
 $top-bar-filter-dropdown-content-container-width: 260px;

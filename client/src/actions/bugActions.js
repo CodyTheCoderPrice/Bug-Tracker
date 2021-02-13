@@ -210,7 +210,7 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
-					listViewMassDeleteItemsModal: false,
+					listViewDeleteModal: false,
 					// if the targetItem was a deleted bug, then sets it to null
 					targetItem:
 						bugComponentsDisplay.targetItem === null ||

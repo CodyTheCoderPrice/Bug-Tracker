@@ -1,7 +1,7 @@
 @use "../../utils/variables" as v;
 
 .account-modals-blurred-background {
-	// Must be more than listViewSearchFilterSortBar.scss,
+	// Must be more than listViewTopBar.scss,
 	// ...itemViewTopBar.scss, and itemViewSidebarTablesAndRows.scss
 	z-index: 3;
 	position: fixed;

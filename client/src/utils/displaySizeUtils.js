@@ -133,16 +133,16 @@ export function calcHamburgerStyles() {
 	return stylejson;
 }
 
-export function calcListViewSearchFilterSortBarHeight() {
-	const invisibleSearchFilterSortBarElement = document.createElement("div");
-	invisibleSearchFilterSortBarElement.className =
+export function calcListViewTopBarHeight() {
+	const invisibleTopBarElement = document.createElement("div");
+	invisibleTopBarElement.className =
 		"js-calc-list-view-top-bar";
-	invisibleSearchFilterSortBarElement.visibility = "hidden";
-	document.body.appendChild(invisibleSearchFilterSortBarElement);
+	invisibleTopBarElement.visibility = "hidden";
+	document.body.appendChild(invisibleTopBarElement);
 
-	const height = getElementSize(invisibleSearchFilterSortBarElement).height;
-	invisibleSearchFilterSortBarElement.parentNode.removeChild(
-		invisibleSearchFilterSortBarElement
+	const height = getElementSize(invisibleTopBarElement).height;
+	invisibleTopBarElement.parentNode.removeChild(
+		invisibleTopBarElement
 	);
 
 	return height;
@@ -172,7 +172,7 @@ export function calcListViewTableRowHeight() {
 	return height;
 }
 
-export function calcViewItemTopBarHeight() {
+export function calcItemViewTopBarHeight() {
 	const invisibleTopBarElement = document.createElement("div");
 	invisibleTopBarElement.className = "js-calc-item-vew-top-bar-component";
 	invisibleTopBarElement.visibility = "hidden";

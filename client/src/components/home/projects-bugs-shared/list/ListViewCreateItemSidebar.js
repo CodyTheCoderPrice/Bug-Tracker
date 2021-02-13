@@ -51,8 +51,8 @@ export default function ListViewCreateItemSidebar(props) {
 			reduxState[props.reduxContainerName].priorityStatusOptions.statusList[0]
 				.id,
 		start_date: moment.utc().format("YYYY-MM-DD"),
-		due_date: null,
-		completion_date: null,
+		due_date: "",
+		completion_date: "",
 	});
 
 	// Custom hook perserves the completion date whenever it is disabled so it

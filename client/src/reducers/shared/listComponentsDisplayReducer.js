@@ -2,7 +2,7 @@ import { SET_WHICH_LIST_COMPONENTS_DISPLAY } from "../../actions/constants/types
 
 const initialState = {
 	listView: false,
-	listViewMassDeleteItemsModal: false,
+	listViewDeleteModal: false,
 	listViewCreateItemSidbar: false,
 	itemView: false,
 	itemViewEditItemInfo: false,
@@ -21,9 +21,9 @@ export default function (state = initialState, action) {
 					action.displays.listView !== undefined
 						? action.displays.listView
 						: false,
-				listViewMassDeleteItemsModal:
-					action.displays.listViewMassDeleteItemsModal !== undefined
-						? action.displays.listViewMassDeleteItemsModal
+				listViewDeleteModal:
+					action.displays.listViewDeleteModal !== undefined
+						? action.displays.listViewDeleteModal
 						: false,
 				listViewCreateItemSidbar:
 					action.displays.listViewCreateItemSidbar !== undefined
