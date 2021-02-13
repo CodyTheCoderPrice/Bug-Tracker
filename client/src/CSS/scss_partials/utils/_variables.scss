@@ -79,6 +79,12 @@ $mode-home-background-color-light: white;
 $mode-home-background-color-dark: $gray-dark-level-7;
 $mode-home-text-color-light: black;
 $mode-home-text-color-dark: $tinted-gray-light-level-4;
+$mode-blurred-background-background-color-light: black;
+$mode-blurred-background-background-color-dark: $mode-blurred-background-background-color-light;
+$mode-blurred-background-opacity-light: 0.8;
+$mode-blurred-background-opacity-dark: 0.6;
+$mode-click-to-close-blurred-background-opacity-light: 0.6;
+$mode-click-to-close-blurred-background-opacity-dark: 0.4;
 $mode-custom-checkbox-border-color-light: black;
 $mode-custom-checkbox-border-color-dark: $gray-level-1;
 $mode-custom-checkbox-background-color-light: $mode-home-background-color-light;
@@ -186,8 +192,6 @@ $account-sidebar-appearance-theme-button-option-selected-color: $basic-blue-ligh
 
 // Backend error color
 $backend-error-color: red;
-// Blurred background color
-$blurred-background-color: black;
 // Focus colors
 $focus-blue: #0059ff;
 // Icon button colors
@@ -283,7 +287,7 @@ $navbar-breadcrumb-border-width: 2px;
 $navbar-hamburger-border-width: 3px;
 $base-sidebar-border-width: 3px;
 $base-modal-border-width: 3px;
-$account-modal-border-width: 4px;
+$account-modal-border-width: 3px;
 $account-modal-toggle-switch-border-width: 3px;
 $account-sidebar-appearance-theme-button-border-width: 1px;
 $top-bar-border-width: 1px;
@@ -357,11 +361,6 @@ $item-view-top-bar-sort-button-left: $item-view-top-bar-search-bar-width +
 $item-view-top-bar-filter-button-left: $item-view-top-bar-sort-button-left +
 	$top-bar-sort-button-width + ($item-view-top-bar-search-bar-left);
 
-//=========
-// Opacity
-//=========
-$blurred-background-opacity: 0.7;
-$click-to-close-blurred-background-opacity: 0.5;
 
 //===============================
 // Arithmetic (must be at bottom)

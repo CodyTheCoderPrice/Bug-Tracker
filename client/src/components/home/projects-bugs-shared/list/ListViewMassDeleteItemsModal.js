@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GENERAL_CONTAINER } from "../../../../actions/constants/containerNames";
+import {
+	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
+} from "../../../../actions/constants/containerNames";
 
 import {
 	clearBackendErrors,
@@ -8,7 +11,10 @@ import {
 	deleteMultipleProjectsOrBugs,
 } from "../../../../actions";
 
-import { getHomeTextColorClassNameForLightOrDarkMode } from "../../../../utils"; 
+import {
+	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
+	getHomeTextColorClassNameForLightOrDarkMode,
+} from "../../../../utils";
 
 export default function ListViewMassDeleteItemsModal(props) {
 	const reduxState = useSelector((state) => state);
@@ -43,7 +49,15 @@ export default function ListViewMassDeleteItemsModal(props) {
 
 	return (
 		<div className="delete-modal-component">
-			<div className="blurred-background" />
+			<div
+				className={
+					"blurred-background" +
+					getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+						false,
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			/>
 			<div className="delete-account-modal">
 				<div className="warning-container">
 					<span className="warning-container__message">Are you sure?</span>

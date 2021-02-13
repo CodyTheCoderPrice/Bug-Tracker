@@ -17,6 +17,7 @@ import {
 
 import {
 	populateComboBox,
+	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
@@ -151,7 +152,15 @@ export default function ListViewCreateItemSidebar(props) {
 
 	return (
 		<div className="create-item-component">
-			<div className="blurred-background" />
+			<div
+				className={
+					"blurred-background" +
+					getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+						false,
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			/>
 			<div
 				className={
 					"create-item-sidebar js-create-item-sidebar" +

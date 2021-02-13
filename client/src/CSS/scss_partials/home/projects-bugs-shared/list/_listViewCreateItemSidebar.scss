@@ -7,8 +7,8 @@
 		z-index: 1;
 		position: absolute;
 		top: v.$navbar-height;
-		background-color: v.$blurred-background-color;
-		opacity: v.$blurred-background-opacity;
+		background-color: v.$mode-blurred-background-background-color-light;
+		opacity: v.$mode-blurred-background-opacity-light;
 		height: 100vh;
 		width: 100vw;
 	}

@@ -7,13 +7,13 @@
 	position: fixed;
 	left: 0;
 	top: 0;
-	background-color: v.$blurred-background-color;
-	opacity: v.$blurred-background-opacity;
+	background-color: v.$mode-blurred-background-background-color-light;
+	opacity: v.$mode-blurred-background-opacity-light;
 	height: 100vh;
 	width: 100vw;
 }
 
 .account-modals-blurred-background--account-sidebar {
 	top: v.$navbar-height;
-	opacity: v.$click-to-close-blurred-background-opacity;
+	opacity: v.$mode-click-to-close-blurred-background-opacity-light;
 }

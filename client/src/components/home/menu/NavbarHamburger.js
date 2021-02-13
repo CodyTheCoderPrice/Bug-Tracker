@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
 	SIZE_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "../../../actions/constants/containerNames";
@@ -11,6 +12,7 @@ import { setWhichGeneralDropdownsDisplay } from "../../../actions";
 
 import {
 	getElementSize,
+	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	openProjectsListView,
 	openProjectsItemView,
 	openBugsListView,
@@ -159,7 +161,15 @@ export default function NavbarHamburger() {
 				</div>
 			) : (
 				<div>
-					<div className="blurred-background" />
+					<div
+						className={
+							"blurred-background" +
+							getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+								true,
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					/>
 					<div className="hamburger-dropdown js-hamburger-dropdown">
 						<div className="hamburger-dropdown__top-space">
 							<i

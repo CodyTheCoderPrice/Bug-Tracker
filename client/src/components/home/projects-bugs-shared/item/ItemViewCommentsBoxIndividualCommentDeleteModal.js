@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
+	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
@@ -12,6 +13,8 @@ import {
 	deleteComment,
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
+
+import { getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode } from "../../../../utils";
 
 export default function ItemViewCommentsBoxIndividualCommentDeleteModal() {
 	const reduxState = useSelector((state) => state);
@@ -52,7 +55,15 @@ export default function ItemViewCommentsBoxIndividualCommentDeleteModal() {
 
 	return (
 		<div className="delete-modal-component">
-			<div className="blurred-background" />
+			<div
+				className={
+					"blurred-background" +
+					getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+						false,
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			/>
 			<div className="delete-account-modal">
 				<div className="warning-container">
 					<span className="warning-container__message">Are you sure?</span>
