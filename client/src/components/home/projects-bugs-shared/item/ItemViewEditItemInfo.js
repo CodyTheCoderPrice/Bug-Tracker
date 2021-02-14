@@ -27,6 +27,8 @@ import {
 	getItemViewEditItemInfoDisabledLabelClassNameForLightOrDarkMode,
 	getItemViewEditItemInfoDisableInputDateClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
+	getItemViewEditItemInfoSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
+	getItemViewEditItemInfoCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import {
@@ -517,6 +519,9 @@ export default function ItemViewEditItemInfo(props) {
 							type="submit"
 							className={
 								"form-buttons-centered-container__submit-button" +
+								getItemViewEditItemInfoSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								) +
 								getBackgroundColorWithHoverClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
@@ -527,7 +532,12 @@ export default function ItemViewEditItemInfo(props) {
 								: "Edit Bug"}
 						</button>
 						<div
-							className="form-buttons-centered-container__cancel-button"
+							className={
+								"form-buttons-centered-container__cancel-button" +
+								getItemViewEditItemInfoCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
 							onClick={switchToDisplayItemInfo}
 						>
 							Cancel

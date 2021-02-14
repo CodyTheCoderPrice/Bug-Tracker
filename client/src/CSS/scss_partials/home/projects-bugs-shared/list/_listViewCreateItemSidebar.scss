@@ -178,6 +178,7 @@
 		margin-top: 10px;
 		margin-bottom: 15px;
 		outline: none;
+		// Need to get rid of border for a submit button
 		border: 0;
 		border-radius: v.$base-buttton-border-radius;
 		// This background color should only appear if there was a problem

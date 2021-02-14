@@ -191,7 +191,7 @@
 		float: right;
 		border: 1px solid black;
 		border-radius: v.$base-buttton-border-radius;
-		background-color: v.$gray-light-level-3;
+		background-color: v.$mode-item-view-edit-item-info-form-cancel-button-background-color-light;
 		// Only top and bottom because of inconisistencies
 		// ...with button and div padding.
 		padding: 10px 0px 10px 0px;
@@ -202,7 +202,7 @@
 
 		&:hover,
 		:active {
-			background-color: v.$gray-light-level-5;
+			background-color: v.$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-light;
 		}
 	}
 

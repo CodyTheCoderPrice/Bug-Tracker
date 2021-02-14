@@ -269,7 +269,7 @@ body {
 		pointer-events: none;
 	}
 
-	// Light/Dark mode focus box shadow for CreateItemSidebar form-submit
+	// Light/Dark mode focus box shadow for CreateItemSidebar form-submit button
 	.js-set-create-item-sidebar-submit-button-focus-box-shadow-dark-mode-false {
 		&:focus {
 			box-shadow: v.$mode-create-item-sidebar-form-submit-button-focus-box-shadow-color-light;
@@ -457,7 +457,7 @@ body {
 		pointer-events: none;
 	}
 
-	// Light/Dark mode focus box shadow for ItemViewEditItemInfo form-submit
+	// Light/Dark mode focus box shadow for ItemViewEditItemInfo form-submit button
 	.js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-false {
 		&:focus {
 			box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-light;
@@ -472,6 +472,25 @@ body {
 			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-dark;
 		}
 	}
+
+	// Light/Dark mode background color (with hover) for ItemViewEditItemInfo form cancel button
+	.js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-false {
+		background-color: v.$mode-item-view-edit-item-info-form-cancel-button-background-color-light;
+
+		&:hover,
+		:active {
+			background-color: v.$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-light;
+		}
+	}
+	.js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-true {
+		background-color: v.$mode-item-view-edit-item-info-form-cancel-button-background-color-dark;
+
+		&:hover,
+		:active {
+			background-color: v.$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-dark;
+		}
+	}
+	
 
 	// Theme background colors
 	.js-set-dark-background-color-theme-teal {

@@ -189,7 +189,7 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode focus box shadow for CreateItemSidebar form-submit
+// Light/Dark mode focus box shadow for CreateItemSidebar form-submit button
 export function getCreateItemSidebarSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -317,12 +317,22 @@ export function getItemViewEditItemInfoDisableInputDateClassNameForLightOrDarkMo
 	);
 }
 
-// Light/Dark mode focus box shadow for ItemViewEditItemInfo form-submit
+// Light/Dark mode focus box shadow for ItemViewEditItemInfo form-submit button
 export function getItemViewEditItemInfoSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
 		" js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode background color (with hover) for ItemViewEditItemInfo form cancel button
+export function getItemViewEditItemInfoCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-" +
 		dark_mode
 	);
 }

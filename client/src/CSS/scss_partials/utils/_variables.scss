@@ -119,7 +119,7 @@ $mode-list-header-background-color-light: $mode-home-background-color-light;
 $mode-list-header-background-color-dark: $mode-home-background-color-dark;
 $mode-form-input-focus-box-shadow-color-light: $basic-blue-level-3;
 $mode-form-input-focus-box-shadow-color-dark: $basic-blue-light-level-5;
-$mode-form-submit-focus-box-shadow-color-light: $gray-dark-level-4;
+$mode-form-submit-focus-box-shadow-color-light: black;
 $mode-form-submit-focus-box-shadow-color-dark: $gray-light-level-8;
 // Light/Dark mode (specific)
 $mode-top-bar-border-color-light: black;
@@ -178,28 +178,32 @@ $mode-item-view-edit-item-info-form-input-background-color-light: $mode-home-bac
 $mode-item-view-edit-item-info-form-input-background-color-dark: $mode-home-background-color-dark;
 $mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light: $mode-create-item-sidebar-form-input-focus-box-shadow-color-light;
 $mode-item-view-edit-item-info-form-input-focus-box-shadow-color-dark: $mode-create-item-sidebar-form-input-focus-box-shadow-color-dark;
-$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-light: 0 -2px
+$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-light: 0 -1px
 		0 0 $mode-form-input-focus-box-shadow-color-light,
-	-2px 0 0 0 $mode-form-input-focus-box-shadow-color-light,
-	0 2px 0 0 $mode-form-input-focus-box-shadow-color-light;
-$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-dark: 0 -2px
+	-1px 0 0 0 $mode-form-input-focus-box-shadow-color-light,
+	0 1px 0 0 $mode-form-input-focus-box-shadow-color-light;
+$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-dark: 0 -1px
 		0 0 $mode-form-input-focus-box-shadow-color-dark,
-	-2px 0 0 0 $mode-form-input-focus-box-shadow-color-dark,
-	0 2px 0 0 $mode-form-input-focus-box-shadow-color-dark;
-$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-light: 0 -2px
+	-1px 0 0 0 $mode-form-input-focus-box-shadow-color-dark,
+	0 1px 0 0 $mode-form-input-focus-box-shadow-color-dark;
+$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-light: 0 -1px
 		0 0 $mode-form-input-focus-box-shadow-color-light,
-	2px 0 0 0 $mode-form-input-focus-box-shadow-color-light,
-	0 2px 0 0 $mode-form-input-focus-box-shadow-color-light;
-$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-dark: 0 -2px
+	1px 0 0 0 $mode-form-input-focus-box-shadow-color-light,
+	0 1px 0 0 $mode-form-input-focus-box-shadow-color-light;
+$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-dark: 0 -1px
 		0 0 $mode-form-input-focus-box-shadow-color-dark,
-	2px 0 0 0 $mode-form-input-focus-box-shadow-color-dark,
-	0 2px 0 0 $mode-form-input-focus-box-shadow-color-dark;
+	1px 0 0 0 $mode-form-input-focus-box-shadow-color-dark,
+	0 1px 0 0 $mode-form-input-focus-box-shadow-color-dark;
 $mode-item-view-edit-item-info-form-input-disabled-background-color-light: $mode-top-bar-background-color-light;
 $mode-item-view-edit-item-info-form-input-disabled-background-color-dark: $mode-top-bar-background-color-dark;
 $mode-item-view-edit-item-info-form-input-disabled-text-color-light: $mode-create-item-sidebar-form-input-disabled-text-color-light;
 $mode-item-view-edit-item-info-form-input-disabled-text-color-dark: $mode-create-item-sidebar-form-input-disabled-text-color-dark;
 $mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-light: $mode-create-item-sidebar-form-submit-button-focus-box-shadow-color-light;
 $mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-dark: $mode-create-item-sidebar-form-submit-button-focus-box-shadow-color-dark;
+$mode-item-view-edit-item-info-form-cancel-button-background-color-light: $gray-light-level-3;
+$mode-item-view-edit-item-info-form-cancel-button-background-color-dark: $gray-dark-level-4;
+$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-light: $gray-light-level-4;
+$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-dark: $gray-dark-level-3;
 
 // Themes
 $theme-teal-background-color-dark: $teal-dark-level-1;
