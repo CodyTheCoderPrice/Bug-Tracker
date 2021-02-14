@@ -40,7 +40,7 @@
 		&:hover,
 		:active {
 			color: v.$mode-base-icon-button-hover-text-color-light;
-			font-size: 24px;
+			font-size: 23px;
 		}
 	}
 
@@ -109,6 +109,11 @@
 		height: v.$account-sidebar-logout-button-height;
 		width: 80px;
 		cursor: pointer;
+
+		&:hover,
+		:active {
+			background-color: v.$gray-light-level-1;
+		}
 	}
 
 	.button-container__logout-button__text {

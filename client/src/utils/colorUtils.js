@@ -48,14 +48,14 @@ export function appendHexValueForColor(statusList) {
 //=================
 // Light/Dark mode
 //=================
-// Light/Dark mode background color for Home component
+// Light/Dark mode -- Home component -- background and text colors
 export function getHomeBackgroundAndTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-home-background-and-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode background color and opacity for blurred-background
+// Light/Dark mode -- blurred-background -- background color and opacity
 export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 	clickToClose,
 	dark_mode
@@ -68,7 +68,7 @@ export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOr
 	);
 }
 
-// Light/Dark mode text colors with hover for base icon-buttons
+// Light/Dark mode -- base icon-buttons -- text colors with hover
 export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -77,7 +77,7 @@ export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode text colors with hover for more distinct icon-buttons
+// Light/Dark mode -- more distinct icon-buttons -- text colors with hover
 export function getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -87,7 +87,7 @@ export function getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDa
 	);
 }
 
-// Light/Dark mode border and background colors for CustomCheckbox checkbox
+// Light/Dark mode -- CustomCheckbox -- border and background colors
 export function getCustomCheckboxBorderAndBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -96,49 +96,21 @@ export function getCustomCheckboxBorderAndBackgroundColorClassNameForLightOrDark
 	);
 }
 
-// Light/Dark mode text colors for universal-text-grayed-out
+// Light/Dark mode -- universal-text-grayed-out -- text colors
 export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-universal-text-grayed-out-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode border colors for list rows
-export function getListRowBorderColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-list-row-border-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode hover background colors for list rows
-export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-list-row-hover-background-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode selected background colors for list rows
-export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-list-row-selected-background-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode box shadow, background, and text color for list headers
-export function getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-list-header-box-shadow-and-background-color-dark-mode-" + dark_mode
-	);
-}
-
-// Light/Dark mode border and background colors for TopBar
+// Light/Dark mode -- TopBar -- border and background colors
 export function getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-top-bar-border-and-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode border, background, and text color for TopBar buttons
+// Light/Dark mode -- TopBar buttons -- border, background, and text color
 export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -147,7 +119,7 @@ export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkM
 	);
 }
 
-// Light/Dark mode background and text colors for TopBar search-bar
+// Light/Dark mode -- TopBar search-bar -- background and text colors
 export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -156,14 +128,14 @@ export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkM
 	);
 }
 
-// Light/Dark mode background colors for CreateItemSidebar component
+// Light/Dark mode -- CreateItemSidebar component -- background colors
 export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode border, background, text color, and focus box shadow for CreateItemSidebar form-input
+// Light/Dark mode -- CreateItemSidebar form-input -- border, background, text color, and focus box shadow
 export function getCreateItemSidebarFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -173,14 +145,14 @@ export function getCreateItemSidebarFormInputBorderBackgroundTextColorFocusBoxSh
 	);
 }
 
-// Light/Dark mode CreateItemSidebar disabled form-label
+// Light/Dark mode -- CreateItemSidebar -- disabled form-label
 export function getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-create-item-sidebar-diabled-label-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode CreateItemSidebar disabled form-input type date
+// Light/Dark mode -- CreateItemSidebar -- disabled form-input type date
 export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -189,7 +161,7 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode focus box shadow for CreateItemSidebar form-submit button
+// Light/Dark mode -- CreateItemSidebar form-submit button -- focus box shadow
 export function getCreateItemSidebarSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -199,14 +171,42 @@ export function getCreateItemSidebarSubmitButtonFocusBoxShadowClassNameForLightO
 	);
 }
 
-// Light/Dark mode background color for DeleteModal component
+// Light/Dark mode -- list rows -- border colors
+export function getListRowBorderColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-row-border-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- list rows -- hover background colors
+export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-list-row-hover-background-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- list rows -- selected background colors
+export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-list-row-selected-background-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- list headers -- box shadow, background, and text colors
+export function getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-list-header-box-shadow-and-background-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode -- DeleteModal component -- background color
 export function getDeleteModalBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-delete-modal-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode background color (with hover) for DeleteModal cancel-button
+// Light/Dark mode -- DeleteModal cancel-button -- background color (with hover)
 export function getDeleteModalCancelButtonBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -215,17 +215,7 @@ export function getDeleteModalCancelButtonBackgroundColorClassNameForLightOrDark
 	);
 }
 
-// Light/Dark mode text color ListView component
-export function getListViewTextColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-list-view-text-text-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode text color ItemView component
-export function getItemViewTextColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-item-view-text-text-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode border, background, and text color for ItemViewTopBar options-button
+// Light/Dark mode -- temViewTopBar options-button -- border, background, and text colors
 export function getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -235,7 +225,7 @@ export function getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorCl
 	);
 }
 
-// Light/Dark mode hover background color for ItemViewTopBar options-dropdown-row
+// Light/Dark mode -- ItemViewTopBar options-dropdown-row -- hover background color
 export function getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -245,21 +235,21 @@ export function getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassName
 	);
 }
 
-// Light/Dark mode background colors for ItemView item-box
+// Light/Dark mode -- ItemView item-box -- background colors
 export function getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-item-view-item-box-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode border color for ItemViewListSidebar
+// Light/Dark mode -- ItemViewListSidebar -- border colors
 export function getItemViewListSidebarBorderColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-item-view-list-sidebar-border-color-mode-" + dark_mode;
 }
 
-// Light/Dark mode border, background (with hover), and text color for ItemViewListSidebar expand-minimize-button
+// Light/Dark mode -- ItemViewListSidebar expand-minimize-button -- border, background (with hover), and text colors
 export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -269,7 +259,7 @@ export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundCol
 	);
 }
 
-// Light/Dark mode border, background, text color, and focus box shadow for ItemView and ItemViewEditItemInfo form-input
+// Light/Dark mode -- ItemView form-input -- border, background, text color, and focus box shadow
 export function getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -279,7 +269,7 @@ export function getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClass
 	);
 }
 
-// Light/Dark mode border, background, text color, and focus box shadow (top, bottom, left) for ItemView and ItemViewEditItemInfo form-input for name
+// Light/Dark mode --  ItemViewEditItemInfo form-input for name -- border, background, text color, and focus box shadow (top, bottom, left)
 export function getItemViewFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -289,7 +279,7 @@ export function getItemViewFormInputBorderBackgroundTextColorTopBottomLeftFocusB
 	);
 }
 
-// Light/Dark mode box shadow (top, bottom, left) for ItemView and ItemViewEditItemInfo name char-count-container
+// Light/Dark mode -- ItemViewEditItemInfo name char-count-container -- box shadow (top, bottom, left)
 export function getItemViewFormNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -299,45 +289,37 @@ export function getItemViewFormNameCharCountContainerTopBottomRightBoxShadowClas
 	);
 }
 
-// Light/Dark mode ItemView and ItemViewEditItemInfo disabled form-label
-export function getItemViewDisabledLabelClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-item-view-diabled-label-dark-mode-" + dark_mode
-	);
+// Light/Dark mode -- ItemViewEditItemInfo -- disabled form-label
+export function getItemViewDisabledLabelClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-item-view-diabled-label-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode ItemView and ItemViewEditItemInfo disabled form-input type date
+// Light/Dark mode -- ItemViewEditItemInfo -- disabled form-input type date
 export function getItemViewDisableInputDateClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return (
-		" js-set-item-view-diabled-input-date-dark-mode-" + dark_mode
-	);
+	return " js-set-item-view-diabled-input-date-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode focus box shadow for ItemView and ItemViewEditItemInfo form-submit button
+// Light/Dark mode -- ItemView form-submit button -- focus box shadow
 export function getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-submit-button-focus-box-shadow-dark-mode-" +
-		dark_mode
+		" js-set-item-view-submit-button-focus-box-shadow-dark-mode-" + dark_mode
 	);
 }
 
-// Light/Dark mode background color (with hover) for ItemView and ItemViewEditItemInfo form cancel button
+// Light/Dark -- ItemView form cancel button -- mode background color (with hover)
 export function getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-cancel-button-button-background-color-mode-" +
-		dark_mode
+		" js-set-item-view-cancel-button-button-background-color-mode-" + dark_mode
 	);
 }
 
-// Light/Dark mode text color (with hover) for ItemViewCommentBoxIndividualComment icon-button
+// Light/Dark mode -- ItemViewCommentBoxIndividualComment icon-button -- text color (with hover)
 export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {

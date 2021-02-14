@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames";
-import { getListViewTextColorClassNameForLightOrDarkMode } from "../../../../utils";
 
 import {
 	setWhichProjectOrBugComponentsDisplay,
@@ -39,14 +38,7 @@ export default function ListView(props) {
 	};
 
 	return (
-		<div
-			className={
-				"list-view-component" +
-				getListViewTextColorClassNameForLightOrDarkMode(
-					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-				)
-			}
-		>
+		<div className="list-view-component">
 			<ListViewTopBar reduxContainerName={props.reduxContainerName} />
 			{reduxState[props.reduxContainerName].componentsDisplay
 				.listViewCreateItemSidbar ? (

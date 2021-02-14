@@ -107,16 +107,6 @@ $mode-custom-checkmark-hover-text-color-light: $basic-blue-light-level-6;
 $mode-custom-checkmark-hover-text-color-dark: $basic-blue-light-level-2;
 $mode-universal-text-grayed-out-text-color-light: $gray-level-4;
 $mode-universal-text-grayed-out-text-color-dark: $gray-level-6;
-$mode-list-row-border-color-light: $gray-level-2;
-$mode-list-row-border-color-dark: $gray-level-6;
-$mode-list-row-hover-background-color-light: $gray-light-level-2;
-$mode-list-row-hover-background-color-dark: $gray-dark-level-5;
-$mode-list-row-selected-background-color-light: $gray-light-level-6;
-$mode-list-row-selected-background-color-dark: $gray-dark-level-3;
-$mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light;
-$mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark;
-$mode-list-header-background-color-light: $mode-home-background-color-light;
-$mode-list-header-background-color-dark: $mode-home-background-color-dark;
 $mode-form-input-focus-box-shadow-color-light: $basic-blue-level-3;
 $mode-form-input-focus-box-shadow-color-dark: $basic-blue-light-level-5;
 $mode-form-submit-focus-box-shadow-color-light: black;
@@ -154,6 +144,16 @@ $mode-create-item-sidebar-form-submit-button-focus-box-shadow-color-light: 0 0 0
 	1px $mode-form-submit-focus-box-shadow-color-light;
 $mode-create-item-sidebar-form-submit-button-focus-box-shadow-color-dark: 0 0 0
 	1px $mode-form-submit-focus-box-shadow-color-dark;
+$mode-list-row-border-color-light: $gray-level-2;
+$mode-list-row-border-color-dark: $gray-level-6;
+$mode-list-row-hover-background-color-light: $gray-light-level-2;
+$mode-list-row-hover-background-color-dark: $gray-dark-level-5;
+$mode-list-row-selected-background-color-light: $gray-light-level-6;
+$mode-list-row-selected-background-color-dark: $gray-dark-level-3;
+$mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light;
+$mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark;
+$mode-list-header-background-color-light: $mode-home-background-color-light;
+$mode-list-header-background-color-dark: $mode-home-background-color-dark;
 $mode-delete-modal-background-color-light: $mode-home-background-color-light;
 $mode-delete-modal-background-color-dark: $mode-home-background-color-dark;
 $mode-delete-modal-cancel-button-background-color-light: $mode-delete-modal-background-color-light;
@@ -178,12 +178,12 @@ $mode-item-view-form-input-background-color-light: $mode-home-background-color-l
 $mode-item-view-form-input-background-color-dark: $mode-home-background-color-dark;
 $mode-item-view-form-input-focus-box-shadow-color-light: $mode-create-item-sidebar-form-input-focus-box-shadow-color-light;
 $mode-item-view-form-input-focus-box-shadow-color-dark: $mode-create-item-sidebar-form-input-focus-box-shadow-color-dark;
-$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light: 0 -1px
-		0 0 $mode-form-input-focus-box-shadow-color-light,
+$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light: 0 -1px 0
+		0 $mode-form-input-focus-box-shadow-color-light,
 	-1px 0 0 0 $mode-form-input-focus-box-shadow-color-light,
 	0 1px 0 0 $mode-form-input-focus-box-shadow-color-light;
-$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-dark: 0 -1px
-		0 0 $mode-form-input-focus-box-shadow-color-dark,
+$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-dark: 0 -1px 0
+		0 $mode-form-input-focus-box-shadow-color-dark,
 	-1px 0 0 0 $mode-form-input-focus-box-shadow-color-dark,
 	0 1px 0 0 $mode-form-input-focus-box-shadow-color-dark;
 $mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-light: 0 -1px

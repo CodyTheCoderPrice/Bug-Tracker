@@ -20,7 +20,6 @@ import {
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	getWindowSize,
-	getItemViewTextColorClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
 } from "../../../../utils";
@@ -198,14 +197,7 @@ export default function ItemView(props) {
 	};
 
 	return (
-		<div
-			className={
-				"item-view-component" +
-				getItemViewTextColorClassNameForLightOrDarkMode(
-					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-				)
-			}
-		>
+		<div className="item-view-component">
 			<ItemViewTopBar reduxContainerName={props.reduxContainerName} />
 			<ItemViewListSidebar reduxContainerName={props.reduxContainerName} />
 			{/* Located outside item-view-component so topBar doesn't cover it */}
