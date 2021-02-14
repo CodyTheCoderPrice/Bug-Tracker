@@ -79,7 +79,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- CustomCheckbox -- border and background colors 
+	// Light/Dark mode -- CustomCheckbox -- border and background colors
 	.js-set-custom-checkbox-border-and-background-color-dark-mode-false {
 		border: 1px solid v.$mode-custom-checkbox-border-color-light;
 		background-color: v.$mode-custom-checkbox-background-color-light;
@@ -117,6 +117,46 @@ body {
 		}
 	}
 
+	// Light/Dark mode -- ToggleSwitch ON -- border, background, amd text colors
+	.js-set-toggle-switch-on-border-background-text-colors-dark-mode-false {
+		border-color: v.$mode-toggle-switch-on-border-color-light;
+		background-color: v.$mode-toggle-switch-on-background-color-light;
+		color: v.$mode-toggle-switch-on-text-color-light;
+
+		& > .toggle-switch__circle {
+			background-color: v.$mode-toggle-switch-on-circle-background-color-light;
+		}
+	}
+	.js-set-toggle-switch-on-border-background-text-colors-dark-mode-true {
+		border-color: v.$mode-toggle-switch-on-border-color-dark;
+		background-color: v.$mode-toggle-switch-on-background-color-dark;
+		color: v.$mode-toggle-switch-on-text-color-dark;
+
+		& > .toggle-switch__circle {
+			background-color: v.$mode-toggle-switch-on-circle-background-color-dark;
+		}
+	}
+
+	// Light/Dark mode -- ToggleSwitch OFF -- border, background, amd text colors
+	.js-set-toggle-switch-off-border-background-text-colors-dark-mode-false {
+		border-color: v.$mode-toggle-switch-off-border-color-light;
+		background-color: v.$mode-toggle-switch-off-background-color-light;
+		color: v.$mode-toggle-switch-off-text-color-light;
+
+		& > .toggle-switch__circle {
+			background-color: v.$mode-toggle-switch-off-circle-background-color-light;
+		}
+	}
+	.js-set-toggle-switch-off-border-background-text-colors-dark-mode-true {
+		border-color: v.$mode-toggle-switch-off-border-color-dark;
+		background-color: v.$mode-toggle-switch-off-background-color-dark;
+		color: v.$mode-toggle-switch-off-text-color-dark;
+
+		& > .toggle-switch__circle {
+			background-color: v.$mode-toggle-switch-off-circle-background-color-dark;
+		}
+	}
+
 	// Light/Dark mode -- universal-text-grayed-out -- text colors
 	.js-set-universal-text-grayed-out-text-color-dark-mode-false {
 		color: v.$mode-universal-text-grayed-out-text-color-light;
@@ -125,7 +165,7 @@ body {
 		color: v.$mode-universal-text-grayed-out-text-color-dark;
 	}
 
-	// Light/Dark mode -- TopBar -- border and background colors 
+	// Light/Dark mode -- TopBar -- border and background colors
 	.js-set-top-bar-border-and-background-color-dark-mode-false {
 		border-color: v.$mode-top-bar-border-color-light;
 		background-color: v.$mode-top-bar-background-color-light;
@@ -498,7 +538,7 @@ body {
 			background-color: v.$mode-item-view-form-cancel-button-hover-background-color-dark;
 		}
 	}
-	
+
 	// Light/Dark mode -- ItemViewCommentBoxIndividualComment icon-button -- text color (with hover)
 	.js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-false {
 		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-light;

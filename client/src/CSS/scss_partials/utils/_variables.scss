@@ -49,6 +49,7 @@ $basic-blue-light-level-3: #4b99da;
 $basic-blue-light-level-4: #3889cc;
 $basic-blue-light-level-5: #2d7fc2;
 $basic-blue-light-level-6: #156db4;
+$basic-blue-light-level-7: #1360a0;
 $basic-blue-level-1: #187cff;
 $basic-blue-level-2: #006eff;
 $basic-blue-level-3: #0062e2;
@@ -101,6 +102,23 @@ $mode-custom-checkmark-text-color-light: $mode-home-text-color-light;
 $mode-custom-checkmark-text-color-dark: $mode-home-text-color-dark;
 $mode-custom-checkmark-hover-text-color-light: $basic-blue-light-level-6;
 $mode-custom-checkmark-hover-text-color-dark: $basic-blue-light-level-2;
+$mode-toggle-switch-on-background-color-light: $basic-blue-light-level-4;
+$mode-toggle-switch-on-background-color-dark: $basic-blue-light-level-7;
+$mode-toggle-switch-on-border-color-light: $mode-toggle-switch-on-background-color-light; // After background-color since uses it
+$mode-toggle-switch-on-border-color-dark: $mode-toggle-switch-on-background-color-dark; // After background-color since uses it
+$mode-toggle-switch-on-text-color-light: white;
+$mode-toggle-switch-on-text-color-dark: white;
+$mode-toggle-switch-on-circle-background-color-light: white;
+$mode-toggle-switch-on-circle-background-color-dark: $gray-light-level-3;
+$mode-toggle-switch-on-text-color-dark: white;
+$mode-toggle-switch-off-background-color-light: $gray-light-level-7;
+$mode-toggle-switch-off-background-color-dark: $gray-level-7;
+$mode-toggle-switch-off-border-color-light: $mode-toggle-switch-off-background-color-light; // After background-color since uses it
+$mode-toggle-switch-off-border-color-dark: $mode-toggle-switch-off-background-color-dark; // After background-color since uses it
+$mode-toggle-switch-off-text-color-light: $gray-level-6;
+$mode-toggle-switch-off-text-color-dark: $gray-light-level-10;
+$mode-toggle-switch-off-circle-background-color-light: $mode-toggle-switch-on-circle-background-color-light;
+$mode-toggle-switch-off-circle-background-color-dark: $mode-toggle-switch-on-circle-background-color-dark;
 $mode-universal-text-grayed-out-text-color-light: $gray-level-4;
 $mode-universal-text-grayed-out-text-color-dark: $gray-level-6;
 $mode-form-input-focus-box-shadow-color-light: $basic-blue-level-3;
@@ -233,8 +251,6 @@ $filter-button-active-color: $filter-button-active-color-1;
 
 // Components
 $breadcrumb-hamburger-close-button-text-color: $basic-red-level-2;
-$basic-toggle-switch-on-color: $basic-blue-light-level-4;
-$basic-toggle-switch-off-color: $gray-light-level-7;
 $account-sidebar-appearance-theme-button-border-color: $gray-dark-level-1;
 $account-sidebar-appearance-theme-button-background-color: $gray-light-level-5;
 $account-sidebar-appearance-theme-button-arrow-container-color: $gray-light-level-10;

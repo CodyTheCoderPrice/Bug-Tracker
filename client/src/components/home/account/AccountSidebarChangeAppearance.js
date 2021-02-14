@@ -16,7 +16,7 @@ import {
 } from "../../../utils";
 
 // Components
-import ToggleSwitch from "../../basic/toggleSwitch";
+import ToggleSwitch from "../../basic/ToggleSwitch";
 
 export default function AccountSidebarChangeAppearance() {
 	const reduxState = useSelector((state) => state);
@@ -122,9 +122,9 @@ export default function AccountSidebarChangeAppearance() {
 			<div className="content-container">
 				<label className="content-container__label">Dark mode</label>
 				<ToggleSwitch
-					on={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+					dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+					isOn={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 					onChangeFunction={onChangeDarkMode}
-					//special={"dark-mode"}
 				/>
 			</div>
 			<div className="content-container content-container--right">

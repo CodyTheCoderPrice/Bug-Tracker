@@ -14,15 +14,13 @@
   background-color: #3889cc;
   height: 24px;
   width: 52px;
+  color: white;
   cursor: pointer;
-}
-.toggle-switch-component .toggle-switch--dark-mode {
-  border-color: #757575;
-  background-color: #757575;
 }
 .toggle-switch-component .toggle-switch--off {
   border-color: #dddddd;
   background-color: #dddddd;
+  color: #6d6d6d;
 }
 .toggle-switch-component .toggle-switch__text {
   position: absolute;
@@ -42,14 +40,12 @@
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
   left: 4px;
-  color: white;
   font-size: 12px;
   font-weight: bold;
 }
 .toggle-switch-component .toggle-switch__text--off {
   left: auto;
   right: 3px;
-  color: #808080;
 }
 .toggle-switch-component .toggle-switch__circle {
   position: absolute;
@@ -68,6 +64,7 @@
 .toggle-switch-component .toggle-switch__circle--off {
   right: auto;
   left: 1px;
+  background-color: white;
 }
 
 .custom-checkbox-component {
@@ -2959,6 +2956,46 @@ body {
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i {
   color: #57a4e4;
+}
+.app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-false,
+.js-calc-app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-false {
+  border-color: #3889cc;
+  background-color: #3889cc;
+  color: white;
+}
+.app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-false > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-false > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-true,
+.js-calc-app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-true {
+  border-color: #1360a0;
+  background-color: #1360a0;
+  color: white;
+}
+.app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-true > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-true > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-off-border-background-text-colors-dark-mode-false,
+.js-calc-app-component .js-set-toggle-switch-off-border-background-text-colors-dark-mode-false {
+  border-color: #dddddd;
+  background-color: #dddddd;
+  color: #6d6d6d;
+}
+.app-component .js-set-toggle-switch-off-border-background-text-colors-dark-mode-false > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-off-border-background-text-colors-dark-mode-false > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-off-border-background-text-colors-dark-mode-true,
+.js-calc-app-component .js-set-toggle-switch-off-border-background-text-colors-dark-mode-true {
+  border-color: #636363;
+  background-color: #636363;
+  color: #bfbfbf;
+}
+.app-component .js-set-toggle-switch-off-border-background-text-colors-dark-mode-true > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-off-border-background-text-colors-dark-mode-true > .toggle-switch__circle {
+  background-color: #f5f5f5;
 }
 .app-component .js-set-universal-text-grayed-out-text-color-dark-mode-false,
 .js-calc-app-component .js-set-universal-text-grayed-out-text-color-dark-mode-false {

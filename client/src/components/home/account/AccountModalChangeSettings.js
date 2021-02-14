@@ -11,12 +11,10 @@ import {
 	updateAccountSettings,
 } from "../../../actions";
 
-import {
-	getTextColorClassNameForTheme,
-} from "../../../utils";
+import { getTextColorClassNameForTheme } from "../../../utils";
 
 // Components
-import ToggleSwitch from "../../basic/toggleSwitch";
+import ToggleSwitch from "../../basic/ToggleSwitch";
 
 export default function AccountModalChangeSettings() {
 	const reduxState = useSelector((state) => state);
@@ -74,7 +72,8 @@ export default function AccountModalChangeSettings() {
 							Filter out completed projects (by default)
 						</label>
 						<ToggleSwitch
-							on={
+							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+							isOn={
 								reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects
 							}
 							onChangeFunction={onChangeFilterCompletedProjects}
@@ -85,7 +84,8 @@ export default function AccountModalChangeSettings() {
 							Filter out completed bugs (by default)
 						</label>
 						<ToggleSwitch
-							on={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs}
+							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+							isOn={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs}
 							onChangeFunction={onChangeFilterCompletedBugs}
 						/>
 					</div>
