@@ -124,7 +124,7 @@ export default function AccountSidebarChangeAppearance() {
 				<ToggleSwitch
 					on={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 					onChangeFunction={onChangeDarkMode}
-					special={"dark-mode"}
+					//special={"dark-mode"}
 				/>
 			</div>
 			<div className="content-container content-container--right">

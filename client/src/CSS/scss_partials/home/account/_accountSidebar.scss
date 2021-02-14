@@ -17,7 +17,7 @@
 		border: v.$base-sidebar-border-width solid black;
 		border-top: none;
 		border-right: none;
-		background: white;
+		background: v.$mode-account-sidebar-modal-background-color-light;
 		height: 390px;
 		width: v.$account-sidebar-width;
 		text-align: left;

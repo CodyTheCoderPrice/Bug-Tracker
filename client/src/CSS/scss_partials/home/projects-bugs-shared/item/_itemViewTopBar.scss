@@ -283,7 +283,7 @@
 		border: 3px solid black;
 		border-radius: v.$top-bar-buttton-border-radius 0 v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius;
 		background-color: white;
-		color: v.$mode-more-distinct-icon-button-text-color-light;
+		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 		width: 129px;
 		// Defaults as being hidden
 		visibility: hidden;
@@ -317,6 +317,6 @@
 	.x-button {
 		@include m.exit-button();
 		top: 11px;
-		color: v.$mode-more-distinct-icon-button-text-color-light;
+		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 	}
 }

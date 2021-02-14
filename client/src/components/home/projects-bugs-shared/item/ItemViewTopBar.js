@@ -23,7 +23,7 @@ import {
 	getLightBorderColorClassNameForTheme,
 	getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
 	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
@@ -487,7 +487,7 @@ export default function ItemViewTopBar(props) {
 				<div
 					className={
 						"item-options-container__button" +
-						getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+						getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
@@ -559,7 +559,7 @@ export default function ItemViewTopBar(props) {
 			<div
 				className={
 					"x-button" +
-					getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+					getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}

@@ -4,7 +4,10 @@ import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
 
 import { setWhichAccountComponentsDisplay } from "../../../actions";
 
-import { getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode } from "../../../utils";
+import {
+	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
+	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+} from "../../../utils";
 
 // Components
 import AccountModalChangeInfo from "./AccountModalChangeInfo";
@@ -23,7 +26,14 @@ export default function AccountModal() {
 
 	return (
 		<div className="edit-account-modal-component">
-			<div className="edit-account-modal">
+			<div
+				className={
+					"edit-account-modal" +
+					getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			>
 				<div
 					className={
 						"exit-button" +

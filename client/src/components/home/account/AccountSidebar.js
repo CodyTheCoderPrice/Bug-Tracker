@@ -1,8 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-	ACCOUNT_CONTAINER,
-} from "../../../actions/constants/containerNames";
+import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
 
 import {
 	clearBackendErrors,
@@ -11,6 +9,8 @@ import {
 } from "../../../actions";
 
 import {
+	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
+	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	getTextColorClassNameForTheme,
 } from "../../../utils";
@@ -60,13 +60,25 @@ export default function AccountSidebar() {
 
 	return (
 		<div className="account-sidebar-component">
-			<div className="sidebar-container js-account-sidebar">
+			<div
+				className={
+					"sidebar-container js-account-sidebar" +
+					getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			>
 				<div
 					className="settings-button"
 					onClick={openAccountModalForEditingSettings}
 				>
 					<i
-						className="fa fa-cog"
+						className={
+							"fa fa-cog" +
+							getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
 						aria-hidden="true"
 						alt="Icon of a settings cog"
 					/>
@@ -93,7 +105,9 @@ export default function AccountSidebar() {
 							onClick={openAccountModalForEditingAccount}
 							className={
 								"link-container__text" +
-								getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+								getTextColorClassNameForTheme(
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								)
 							}
 						>
 							Edit Account
@@ -110,7 +124,9 @@ export default function AccountSidebar() {
 							<span
 								className={
 									"button-container__logout-button__text" +
-									getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)
+									getTextColorClassNameForTheme(
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+									)
 								}
 							>
 								Logout

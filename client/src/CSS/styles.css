@@ -849,7 +849,7 @@ dropdown can overlap all other components
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 3px solid black;
+  border-radius: 15px;
   background-color: white;
   padding: 30px;
   height: 390px;
@@ -862,7 +862,7 @@ dropdown can overlap all other components
   top: 10px;
   border: none;
   background: none;
-  color: #919191;
+  color: #7c7c7c;
   cursor: pointer;
   top: 12px;
   left: 20px;
@@ -878,7 +878,7 @@ dropdown can overlap all other components
   top: 10px;
   border: none;
   background: none;
-  color: #919191;
+  color: #7c7c7c;
   cursor: pointer;
   right: 20px;
   font-size: 26px;
@@ -2160,7 +2160,7 @@ dropdown can overlap all other components
   border: 3px solid black;
   border-radius: 5px 0 5px 5px;
   background-color: white;
-  color: #757575;
+  color: #6d6d6d;
   width: 129px;
   visibility: hidden;
 }
@@ -2196,12 +2196,12 @@ dropdown can overlap all other components
   top: 10px;
   border: none;
   background: none;
-  color: #919191;
+  color: #7c7c7c;
   cursor: pointer;
   right: 20px;
   font-size: 26px;
   top: 11px;
-  color: #757575;
+  color: #6d6d6d;
 }
 .item-vew-top-bar-component .x-button:hover,
 .item-vew-top-bar-component .x-button :active,
@@ -2246,7 +2246,7 @@ dropdown can overlap all other components
   top: 10px;
   border: none;
   background: none;
-  color: #919191;
+  color: #7c7c7c;
   cursor: pointer;
   right: 20px;
   font-size: 26px;
@@ -2908,7 +2908,7 @@ body {
 }
 .app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-false,
 .js-calc-app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-false {
-  color: #919191;
+  color: #7c7c7c;
 }
 .app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-false:hover,
 .app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-false :active,
@@ -2918,33 +2918,13 @@ body {
 }
 .app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-true,
 .js-calc-app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-true {
-  color: #525252;
+  color: #6d6d6d;
 }
 .app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-true:hover,
 .app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-true :active,
 .js-calc-app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-true:hover,
 .js-calc-app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-true :active {
-  color: #808080;
-}
-.app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-false,
-.js-calc-app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-false {
-  color: #757575;
-}
-.app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-false:hover,
-.app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-false :active,
-.js-calc-app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-false:hover,
-.js-calc-app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-false :active {
-  color: #3a3a3a;
-}
-.app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-true,
-.js-calc-app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-true {
-  color: #4e4e4e;
-}
-.app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-true:hover,
-.app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-true :active,
-.js-calc-app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-true:hover,
-.js-calc-app-component .js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-true :active {
-  color: #757575;
+  color: #a3a3a3;
 }
 .app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false,
 .js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false {
@@ -3019,6 +2999,14 @@ body {
 .js-calc-app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true {
   background-color: #363636;
   color: #a9b3bb;
+}
+.app-component .js-set-account-sidebar-modal-background-color-dark-mode-false,
+.js-calc-app-component .js-set-account-sidebar-modal-background-color-dark-mode-false {
+  background-color: white;
+}
+.app-component .js-set-account-sidebar-modal-background-color-dark-mode-true,
+.js-calc-app-component .js-set-account-sidebar-modal-background-color-dark-mode-true {
+  background-color: #333333;
 }
 .app-component .js-set-create-item-sidebar-background-color-dark-mode-false,
 .js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-false {
@@ -3148,17 +3136,37 @@ body {
 .js-calc-app-component .js-set-delete-modal-cancel-button-background-color-dark-mode-true :active {
   background-color: #3a3a3a;
 }
+.app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false,
+.js-calc-app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false {
+  color: #6d6d6d;
+}
+.app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false:hover,
+.app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false :active,
+.js-calc-app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false:hover,
+.js-calc-app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false :active {
+  color: #333333;
+}
+.app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true,
+.js-calc-app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true {
+  color: #5e5e5e;
+}
+.app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true:hover,
+.app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true :active,
+.js-calc-app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true:hover,
+.js-calc-app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true :active {
+  color: #a3a3a3;
+}
 .app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
   border-color: black;
   background-color: white;
-  color: #3a3a3a;
+  color: #333333;
 }
 .app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true,
 .js-calc-app-component .js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
-  color: #757575;
+  color: #a3a3a3;
 }
 .app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false:hover,
 .app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false :active,

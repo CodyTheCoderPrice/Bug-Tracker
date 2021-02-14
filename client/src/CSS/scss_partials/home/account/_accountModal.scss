@@ -9,9 +9,9 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		border: v.$account-modal-border-width solid black;
-		//border-radius: v.$account-modal-border-radius;
-		background-color: white;
+		//border: v.$account-modal-border-width solid black;
+		border-radius: v.$account-modal-border-radius;
+		background-color: v.$mode-account-sidebar-modal-background-color-light;
 		padding: 30px;
 		height: v.$edit-account-modal-height;
 		width: v.$edit-account-modal-width;

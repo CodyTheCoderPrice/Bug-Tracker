@@ -77,16 +77,6 @@ export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode -- more distinct icon-buttons -- text colors with hover
-export function getMoreDistinctIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-" +
-		dark_mode
-	);
-}
-
 // Light/Dark mode -- CustomCheckbox -- border and background colors
 export function getCustomCheckboxBorderAndBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -125,6 +115,15 @@ export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkM
 ) {
 	return (
 		" js-set-top-bar-search-bar-background-text-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode -- AccountSidebar and AccountModal -- background colors
+export function getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-account-sidebar-modal-background-color-dark-mode-" + dark_mode
 	);
 }
 
@@ -231,6 +230,16 @@ export function getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassName
 ) {
 	return (
 		" js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode -- ItemViewTopBar icon-buttons -- text colors with hover
+export function getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-" +
 		dark_mode
 	);
 }

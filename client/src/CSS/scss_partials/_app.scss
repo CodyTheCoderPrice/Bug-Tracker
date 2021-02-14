@@ -79,24 +79,6 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- more distinct icon-buttons -- text colors with hover
-	.js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-false {
-		color: v.$mode-more-distinct-icon-button-text-color-light;
-
-		&:hover,
-		:active {
-			color: v.$mode-more-distinct-icon-button-hover-text-color-light;
-		}
-	}
-	.js-set-more-distinct-icon-button-text-color-with-hover-dark-mode-true {
-		color: v.$mode-more-distinct-icon-button-text-color-dark;
-
-		&:hover,
-		:active {
-			color: v.$mode-more-distinct-icon-button-hover-text-color-dark;
-		}
-	}
-
 	// Light/Dark mode -- CustomCheckbox -- border and background colors 
 	.js-set-custom-checkbox-border-and-background-color-dark-mode-false {
 		border: 1px solid v.$mode-custom-checkbox-border-color-light;
@@ -173,6 +155,14 @@ body {
 	.js-set-top-bar-search-bar-background-text-color-dark-mode-true {
 		background-color: v.$mode-top-bar-search-bar-background-color-dark;
 		color: v.$mode-top-bar-search-bar-text-color-dark;
+	}
+
+	// Light/Dark mode -- AccountSidebar and AccountModal -- background colors
+	.js-set-account-sidebar-modal-background-color-dark-mode-false {
+		background-color: v.$mode-account-sidebar-modal-background-color-light;
+	}
+	.js-set-account-sidebar-modal-background-color-dark-mode-true {
+		background-color: v.$mode-account-sidebar-modal-background-color-dark;
 	}
 
 	// Light/Dark mode -- CreateItemSidebar component -- background colors
@@ -311,18 +301,36 @@ body {
 		}
 	}
 
+	// Light/Dark mode -- ItemViewTopBar icon-buttons -- text colors with hover
+	.js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false {
+		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
+
+		&:hover,
+		:active {
+			color: v.$mode-item-view-top-bar-icon-button-hover-text-color-light;
+		}
+	}
+	.js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true {
+		color: v.$mode-item-view-top-bar-icon-button-text-color-dark;
+
+		&:hover,
+		:active {
+			color: v.$mode-item-view-top-bar-icon-button-hover-text-color-dark;
+		}
+	}
+
 	// Light/Dark mode -- temViewTopBar options-button -- border, background, and text colors
 	.js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-top-bar-button-border-color-light;
 		background-color: v.$mode-top-bar-button-background-color-light;
 		// Same as hover text color for more distinct icon-buttons
-		color: v.$mode-more-distinct-icon-button-hover-text-color-light;
+		color: v.$mode-item-view-top-bar-icon-button-hover-text-color-light;
 	}
 	.js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-top-bar-button-border-color-dark;
 		background-color: v.$mode-top-bar-button-background-color-dark;
 		// Same as hover text color for more distinct icon-buttons
-		color: v.$mode-more-distinct-icon-button-hover-text-color-dark;
+		color: v.$mode-item-view-top-bar-icon-button-hover-text-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewTopBar options-dropdown-row -- hover background color
