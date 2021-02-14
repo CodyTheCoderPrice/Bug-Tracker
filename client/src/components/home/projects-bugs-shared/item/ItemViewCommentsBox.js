@@ -13,6 +13,8 @@ import { createComment, clearBackendErrors } from "../../../../actions";
 import {
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
+	getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
+	getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
 	dateToInt,
 } from "../../../../utils";
@@ -142,7 +144,12 @@ export default function ItemViewCommentsBox() {
 						onChange={(e) => onChange(e)}
 						value={commentInfo.description}
 						id="create-comment-description"
-						className="item-box__form-textarea item-box__form-textarea--shorter"
+						className={
+							"item-box__form-textarea item-box__form-textarea--shorter" +
+							getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
 					/>
 					<span className="backend-errors backend-errors--comment">
 						{
@@ -158,6 +165,9 @@ export default function ItemViewCommentsBox() {
 							type="submit"
 							className={
 								"form-submit-centering-container__button" +
+								getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								) +
 								getBackgroundColorWithHoverClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)

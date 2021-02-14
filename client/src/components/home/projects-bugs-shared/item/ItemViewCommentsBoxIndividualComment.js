@@ -17,7 +17,11 @@ import {
 import {
 	formatDateMMddYYYY,
 	getTextColorClassNameForTheme,
+	getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
+	getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode,
+	getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
+	getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSubmitFormOnEnter } from "../../../../utils/hooks";
@@ -133,7 +137,12 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 						<div className="comment__block">
 							<span>{formatDateMMddYYYY(props.comment.creation_date)}</span>
 							<div
-								className="comment__block__icon-button"
+								className={
+									"comment__block__icon-button" +
+									getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+								}
 								onClick={switchToEditingComment}
 							>
 								<i
@@ -143,7 +152,12 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								/>
 							</div>
 							<div
-								className="comment__block__icon-button"
+								className={
+									"comment__block__icon-button" +
+									getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+								}
 								onClick={openDeleteCommentModal}
 							>
 								<i
@@ -175,11 +189,21 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 							onChange={(e) => onChange(e)}
 							value={commentInfo.description}
 							id="edit-comment-description"
-							className="item-box__form-textarea item-box__form-textarea--shorter"
+							className={
+								"item-box__form-textarea item-box__form-textarea--shorter" +
+								getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
 						/>
 						<span>{formatDateMMddYYYY(props.comment.creation_date)}</span>
 						<div
-							className="comment__block__icon-button"
+							className={
+								"comment__block__icon-button" +
+								getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
 							onClick={openDeleteCommentModal}
 						>
 							<i
@@ -199,19 +223,27 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 						</span>
 						<div className="comment__centering-container">
 							<div className="comment__centering-container__pair-container">
-								<div
+								<button
+									type="submit"
 									className={
 										"comment__centering-container__pair-container__submit-edit-button" +
+										getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										) +
 										getBackgroundColorWithHoverClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										)
 									}
-									onClick={handleSubmit}
 								>
 									Edit Comment
-								</div>
+								</button>
 								<div
-									className="comment__centering-container__pair-container__cancel-button"
+									className={
+										"comment__centering-container__pair-container__cancel-button" +
+										getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										)
+									}
 									onClick={cancelEditingComment}
 								>
 									Cancel

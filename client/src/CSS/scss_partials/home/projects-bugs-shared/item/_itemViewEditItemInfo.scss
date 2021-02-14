@@ -15,10 +15,10 @@
 	.name-centering-container__form-name-input {
 		@include m.dead-center;
 		outline: none;
-		border: v.$edit-item-name-input-border-width solid v.$mode-item-view-edit-item-info-form-input-border-color-light;
+		border: v.$edit-item-name-input-border-width solid v.$mode-item-view-form-input-border-color-light;
 		border-right: v.$edit-item-name-input-border-width dotted v.$gray-light-level-10;
 		border-radius: v.$form-input-border-radius 0 0 v.$form-input-border-radius;
-		background-color: v.$mode-item-view-edit-item-info-form-input-background-color-light;
+		background-color: v.$mode-item-view-form-input-background-color-light;
 		padding: v.$edit-item-name-input-padding;
 		height: v.$edit-item-name-input-height;
 		width: v.$edit-item-name-input-width;
@@ -28,9 +28,9 @@
 		text-align: center;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-light;
+			box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
 		}
 	}
 
@@ -56,7 +56,7 @@
 
 		margin-left: (v.$edit-item-name-input-width / 2) + v.$edit-item-name-input-border-width +
 			v.$edit-item-name-input-padding + (v.$edit-item-name-char-counter-container-width / 2);
-		border: v.$edit-item-name-input-border-width solid v.$mode-item-view-edit-item-info-form-input-border-color-light;
+		border: v.$edit-item-name-input-border-width solid v.$mode-item-view-form-input-border-color-light;
 		border-left: v.$edit-item-name-input-border-width solid transparent;
 		border-radius: 0 v.$form-input-border-radius v.$form-input-border-radius 0;
 		height: v.$edit-item-name-centering-container-height - (v.$edit-item-name-input-border-width * 2);
@@ -102,44 +102,44 @@
 		
 		margin-top: 3px;
 		outline: none;
-		border: 1px solid v.$mode-item-view-edit-item-info-form-input-border-color-light;
+		border: 1px solid v.$mode-item-view-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
-		background-color: v.$mode-item-view-edit-item-info-form-input-background-color-light;
+		background-color: v.$mode-item-view-form-input-background-color-light;
 		padding: 6px;
 		width: 100%;
 		font-size: v.$item-form-text-input-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
+			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
 		}
 	}
 
 	.item-box__group__field__form-select {
 		outline: none;
-		border: 1px solid v.$mode-item-view-edit-item-info-form-input-border-color-light;
-		background-color: v.$mode-item-view-edit-item-info-form-input-background-color-light;
+		border: 1px solid v.$mode-item-view-form-input-border-color-light;
+		background-color: v.$mode-item-view-form-input-background-color-light;
 		width: 125px;
 		font-size: 14px;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
+			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
 		}
 	}
 
 	.item-box__group__field__form-date {
 		outline: none;
-		border: 1px solid v.$mode-item-view-edit-item-info-form-input-border-color-light;
-		background-color: v.$mode-item-view-edit-item-info-form-input-background-color-light;
+		border: 1px solid v.$mode-item-view-form-input-border-color-light;
+		background-color: v.$mode-item-view-form-input-background-color-light;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
+			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
 		}
 	}
 
@@ -159,51 +159,15 @@
 	}
 
 	.form-buttons-centered-container__submit-button {
-		float: left;
-		outline: none;
-		border: 1px solid black;
-		border-radius: v.$base-buttton-border-radius;
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		background-color: black;
-		// Only top and bottom because of inconsistencies
-		// ...with button vs divs.
-		padding: 10px 0px 10px 0px;
-		// 2px bigger than cancel button because of inconsistencies
-		// ...with buttons vs divs.
-		width: 127px;
-		color: white;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 16px;
-		cursor: pointer;
+		@include m.item-view-form-submit-button();
 
-		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-light;
-		}
+		float: left;
 	}
 
 	.form-buttons-centered-container__cancel-button {
-		@include m.stop-text-selection();
+		@include m.item-view-form-cancel-button();
 
 		float: right;
-		border: 1px solid black;
-		border-radius: v.$base-buttton-border-radius;
-		background-color: v.$mode-item-view-edit-item-info-form-cancel-button-background-color-light;
-		// Only top and bottom because of inconisistencies
-		// ...with button and div padding.
-		padding: 10px 0px 10px 0px;
-		width: 125px;
-		text-align: center;
-		font-size: 16px;
-		cursor: pointer;
-
-		&:hover,
-		:active {
-			background-color: v.$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-light;
-		}
 	}
 
 	.backend-errors {

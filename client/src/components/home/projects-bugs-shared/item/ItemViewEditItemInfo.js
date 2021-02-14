@@ -20,15 +20,15 @@ import {
 	manageSizeOfItemBoxsInPairContainer,
 	populateComboBox,
 	getTextColorClassNameForTheme,
-	getItemViewEditItemInfoFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode,
-	getItemViewEditItemInfoNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode,
-	getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
+	getItemViewFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode,
+	getItemViewFormNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode,
+	getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
-	getItemViewEditItemInfoDisabledLabelClassNameForLightOrDarkMode,
-	getItemViewEditItemInfoDisableInputDateClassNameForLightOrDarkMode,
+	getItemViewDisabledLabelClassNameForLightOrDarkMode,
+	getItemViewDisableInputDateClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
-	getItemViewEditItemInfoSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
-	getItemViewEditItemInfoCancelButtonBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
+	getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import {
@@ -219,7 +219,7 @@ export default function ItemViewEditItemInfo(props) {
 						onBlur={() => setIsFocusOnName(false)}
 						className={
 							"name-centering-container__form-name-input" +
-							getItemViewEditItemInfoFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode(
+							getItemViewFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							) +
 							(reduxState[props.reduxContainerName].componentsDisplay.targetItem
@@ -236,7 +236,7 @@ export default function ItemViewEditItemInfo(props) {
 						className={
 							"name-centering-container__char-count-centering-container" +
 							(isFocusOnName
-								? getItemViewEditItemInfoNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode(
+								? getItemViewFormNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								  )
 								: "")
@@ -307,7 +307,7 @@ export default function ItemViewEditItemInfo(props) {
 							id="edit-item-description"
 							className={
 								"item-box__form-textarea" +
-								getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+								getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -369,7 +369,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-location"
 									className={
 										"item-box__group__field__form-text" +
-										getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -398,7 +398,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-start-date"
 									className={
 										"item-box__group__field__form-date" +
-										getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -419,7 +419,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-due-date"
 									className={
 										"item-box__group__field__form-date" +
-										getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -433,7 +433,7 @@ export default function ItemViewEditItemInfo(props) {
 										(itemInfo.status_id !==
 										reduxState[props.reduxContainerName].priorityStatusOptions
 											.statusCompletionId
-											? getItemViewEditItemInfoDisabledLabelClassNameForLightOrDarkMode(
+											? getItemViewDisabledLabelClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
 											: "")
@@ -449,13 +449,13 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-completion-date"
 									className={
 										"item-box__group__field__form-date  js-completion-date" +
-										getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										) +
 										(itemInfo.status_id !==
 										reduxState[props.reduxContainerName].priorityStatusOptions
 											.statusCompletionId
-											? getItemViewEditItemInfoDisableInputDateClassNameForLightOrDarkMode(
+											? getItemViewDisableInputDateClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
 											: "")
@@ -477,7 +477,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-priority"
 									className={
 										"item-box__group__field__form-select js-item-priority-select" +
-										getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -496,7 +496,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-status"
 									className={
 										"item-box__group__field__form-select js-item-status-select" +
-										getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										) +
 										getSelectTextColorClassName()
@@ -519,7 +519,7 @@ export default function ItemViewEditItemInfo(props) {
 							type="submit"
 							className={
 								"form-buttons-centered-container__submit-button" +
-								getItemViewEditItemInfoSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+								getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								getBackgroundColorWithHoverClassNameForTheme(
@@ -534,7 +534,7 @@ export default function ItemViewEditItemInfo(props) {
 						<div
 							className={
 								"form-buttons-centered-container__cancel-button" +
-								getItemViewEditItemInfoCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+								getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}

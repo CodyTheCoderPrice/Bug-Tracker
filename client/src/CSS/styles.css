@@ -1428,8 +1428,8 @@ dropdown can overlap all other components
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
   outline: none;
+  border: 1px solid black;
   border-radius: 10px;
   background-color: black;
   padding: 10px 0px 10px 0px;
@@ -1438,6 +1438,11 @@ dropdown can overlap all other components
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   cursor: pointer;
+}
+.item-view-component .form-submit-centering-container__button:focus {
+  box-shadow: 0 0 0 1px black;
+  -moz-box-shadow: 0 0 0 1px black;
+  -webkit-box-shadow: 0 0 0 1px black;
 }
 
 .item-view-component .comment-divider {
@@ -1451,7 +1456,7 @@ dropdown can overlap all other components
 .item-view-component .comment__block__icon-button {
   display: inline;
   margin-left: 10px;
-  color: gray;
+  color: #6d6d6d;
   cursor: pointer;
 }
 .item-view-component .comment__block__icon-button:hover,
@@ -1472,7 +1477,7 @@ dropdown can overlap all other components
   width: 265px;
 }
 .item-view-component .comment__centering-container__pair-container__submit-edit-button {
-  float: left;
+  outline: none;
   border: 1px solid black;
   border-radius: 10px;
   background-color: black;
@@ -1481,24 +1486,41 @@ dropdown can overlap all other components
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  text-align: center;
   cursor: pointer;
+  float: left;
+}
+.item-view-component .comment__centering-container__pair-container__submit-edit-button:focus {
+  box-shadow: 0 0 0 1px black;
+  -moz-box-shadow: 0 0 0 1px black;
+  -webkit-box-shadow: 0 0 0 1px black;
 }
 .item-view-component .comment__centering-container__pair-container__cancel-button {
-  float: right;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
   border: 1px solid black;
   border-radius: 10px;
-  background-color: white;
+  background-color: #f5f5f5;
   padding: 10px 0px 10px 0px;
   width: 125px;
-  color: black;
   text-align: center;
   font-size: 16px;
   cursor: pointer;
+  float: right;
 }
 .item-view-component .comment__centering-container__pair-container__cancel-button:hover,
 .item-view-component .comment__centering-container__pair-container__cancel-button :active {
-  background-color: #fbfbfb;
+  background-color: #ebebeb;
 }
 
 .item-view-component .item-name {
@@ -1678,7 +1700,6 @@ dropdown can overlap all other components
   width: 265px;
 }
 .item-view-component .form-buttons-centered-container__submit-button {
-  float: left;
   outline: none;
   border: 1px solid black;
   border-radius: 10px;
@@ -1689,6 +1710,7 @@ dropdown can overlap all other components
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   cursor: pointer;
+  float: left;
 }
 .item-view-component .form-buttons-centered-container__submit-button:focus {
   box-shadow: 0 0 0 1px black;
@@ -1709,7 +1731,6 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  float: right;
   border: 1px solid black;
   border-radius: 10px;
   background-color: #f5f5f5;
@@ -1718,6 +1739,7 @@ dropdown can overlap all other components
   text-align: center;
   font-size: 16px;
   cursor: pointer;
+  float: right;
 }
 .item-view-component .form-buttons-centered-container__cancel-button:hover,
 .item-view-component .form-buttons-centered-container__cancel-button :active {
@@ -3184,119 +3206,139 @@ body {
 .js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true :active {
   background-color: #232323;
 }
-.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-false,
-.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-false {
+.app-component .js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-false,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-false {
   border-color: black;
   background-color: white;
   color: black;
 }
-.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-false:focus,
-.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-false:focus {
+.app-component .js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-false:focus,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-false:focus {
   box-shadow: 0 0 0 1px #0062e2;
   -moz-box-shadow: 0 0 0 1px #0062e2;
   -webkit-box-shadow: 0 0 0 1px #0062e2;
 }
-.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-true,
-.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-true {
+.app-component .js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-true,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-true {
   border-color: black;
   background-color: #333333;
   color: #a9b3bb;
 }
-.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-true:focus,
-.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-true:focus {
+.app-component .js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-true:focus,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-true:focus {
   box-shadow: 0 0 0 1px #2d7fc2;
   -moz-box-shadow: 0 0 0 1px #2d7fc2;
   -webkit-box-shadow: 0 0 0 1px #2d7fc2;
 }
-.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false,
-.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false {
+.app-component .js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false {
   border-color: black;
   background-color: white;
   color: black;
 }
-.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false:focus,
-.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false:focus {
+.app-component .js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false:focus,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false:focus {
   box-shadow: 0 -1px 0 0 #0062e2, -1px 0 0 0 #0062e2, 0 1px 0 0 #0062e2;
   -moz-box-shadow: 0 -1px 0 0 #0062e2, -1px 0 0 0 #0062e2, 0 1px 0 0 #0062e2;
   -webkit-box-shadow: 0 -1px 0 0 #0062e2, -1px 0 0 0 #0062e2, 0 1px 0 0 #0062e2;
 }
-.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true,
-.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true {
+.app-component .js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true {
   border-color: black;
   background-color: #333333;
   color: #a9b3bb;
 }
-.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true:focus,
-.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true:focus {
+.app-component .js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true:focus,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true:focus {
   box-shadow: 0 -1px 0 0 #2d7fc2, -1px 0 0 0 #2d7fc2, 0 1px 0 0 #2d7fc2;
   -moz-box-shadow: 0 -1px 0 0 #2d7fc2, -1px 0 0 0 #2d7fc2, 0 1px 0 0 #2d7fc2;
   -webkit-box-shadow: 0 -1px 0 0 #2d7fc2, -1px 0 0 0 #2d7fc2, 0 1px 0 0 #2d7fc2;
 }
-.app-component .js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false,
-.js-calc-app-component .js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false {
+.app-component .js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false,
+.js-calc-app-component .js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false {
   box-shadow: 0 -1px 0 0 #0062e2, 1px 0 0 0 #0062e2, 0 1px 0 0 #0062e2;
   -moz-box-shadow: 0 -1px 0 0 #0062e2, 1px 0 0 0 #0062e2, 0 1px 0 0 #0062e2;
   -webkit-box-shadow: 0 -1px 0 0 #0062e2, 1px 0 0 0 #0062e2, 0 1px 0 0 #0062e2;
 }
-.app-component .js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true,
-.js-calc-app-component .js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true {
+.app-component .js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true,
+.js-calc-app-component .js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true {
   box-shadow: 0 -1px 0 0 #2d7fc2, 1px 0 0 0 #2d7fc2, 0 1px 0 0 #2d7fc2;
   -moz-box-shadow: 0 -1px 0 0 #2d7fc2, 1px 0 0 0 #2d7fc2, 0 1px 0 0 #2d7fc2;
   -webkit-box-shadow: 0 -1px 0 0 #2d7fc2, 1px 0 0 0 #2d7fc2, 0 1px 0 0 #2d7fc2;
 }
-.app-component .js-set-item-view-edit-item-info-diabled-label-dark-mode-false,
-.js-calc-app-component .js-set-item-view-edit-item-info-diabled-label-dark-mode-false {
+.app-component .js-set-item-view-diabled-label-dark-mode-false,
+.js-calc-app-component .js-set-item-view-diabled-label-dark-mode-false {
   color: #bfbfbf;
   pointer-events: none;
 }
-.app-component .js-set-item-view-edit-item-info-diabled-label-dark-mode-true,
-.js-calc-app-component .js-set-item-view-edit-item-info-diabled-label-dark-mode-true {
+.app-component .js-set-item-view-diabled-label-dark-mode-true,
+.js-calc-app-component .js-set-item-view-diabled-label-dark-mode-true {
   color: #6d6d6d;
   pointer-events: none;
 }
-.app-component .js-set-item-view-edit-item-info-diabled-input-date-dark-mode-false,
-.js-calc-app-component .js-set-item-view-edit-item-info-diabled-input-date-dark-mode-false {
+.app-component .js-set-item-view-diabled-input-date-dark-mode-false,
+.js-calc-app-component .js-set-item-view-diabled-input-date-dark-mode-false {
   background-color: #e5e5e5;
   color: #6d6d6d;
   pointer-events: none;
 }
-.app-component .js-set-item-view-edit-item-info-diabled-input-date-dark-mode-true,
-.js-calc-app-component .js-set-item-view-edit-item-info-diabled-input-date-dark-mode-true {
+.app-component .js-set-item-view-diabled-input-date-dark-mode-true,
+.js-calc-app-component .js-set-item-view-diabled-input-date-dark-mode-true {
   background-color: #292929;
   color: #6d6d6d;
   pointer-events: none;
 }
-.app-component .js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-false:focus,
-.js-calc-app-component .js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-false:focus {
+.app-component .js-set-item-view-submit-button-focus-box-shadow-dark-mode-false:focus,
+.js-calc-app-component .js-set-item-view-submit-button-focus-box-shadow-dark-mode-false:focus {
   box-shadow: 0 0 0 1px black;
   -moz-box-shadow: 0 0 0 1px black;
   -webkit-box-shadow: 0 0 0 1px black;
 }
-.app-component .js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-true:focus,
-.js-calc-app-component .js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-true:focus {
+.app-component .js-set-item-view-submit-button-focus-box-shadow-dark-mode-true:focus,
+.js-calc-app-component .js-set-item-view-submit-button-focus-box-shadow-dark-mode-true:focus {
   box-shadow: 0 0 0 1px #d6d6d6;
   -moz-box-shadow: 0 0 0 1px #d6d6d6;
   -webkit-box-shadow: 0 0 0 1px #d6d6d6;
 }
-.app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-false,
-.js-calc-app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-false {
+.app-component .js-set-item-view-cancel-button-button-background-color-mode-false,
+.js-calc-app-component .js-set-item-view-cancel-button-button-background-color-mode-false {
   background-color: #f5f5f5;
 }
-.app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-false:hover,
-.app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-false :active,
-.js-calc-app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-false:hover,
-.js-calc-app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-false :active {
+.app-component .js-set-item-view-cancel-button-button-background-color-mode-false:hover,
+.app-component .js-set-item-view-cancel-button-button-background-color-mode-false :active,
+.js-calc-app-component .js-set-item-view-cancel-button-button-background-color-mode-false:hover,
+.js-calc-app-component .js-set-item-view-cancel-button-button-background-color-mode-false :active {
   background-color: #ebebeb;
 }
-.app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-true,
-.js-calc-app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-true {
+.app-component .js-set-item-view-cancel-button-button-background-color-mode-true,
+.js-calc-app-component .js-set-item-view-cancel-button-button-background-color-mode-true {
   background-color: #444444;
 }
-.app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-true:hover,
-.app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-true :active,
-.js-calc-app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-true:hover,
-.js-calc-app-component .js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-true :active {
+.app-component .js-set-item-view-cancel-button-button-background-color-mode-true:hover,
+.app-component .js-set-item-view-cancel-button-button-background-color-mode-true :active,
+.js-calc-app-component .js-set-item-view-cancel-button-button-background-color-mode-true:hover,
+.js-calc-app-component .js-set-item-view-cancel-button-button-background-color-mode-true :active {
   background-color: #464646;
+}
+.app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-false,
+.js-calc-app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-false {
+  color: #6d6d6d;
+}
+.app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-false:hover,
+.app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-false :active,
+.js-calc-app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-false:hover,
+.js-calc-app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-false :active {
+  color: black;
+}
+.app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true,
+.js-calc-app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true {
+  color: #7c7c7c;
+}
+.app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true:hover,
+.app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true :active,
+.js-calc-app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true:hover,
+.js-calc-app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true :active {
+  color: #a9b3bb;
 }
 .app-component .js-set-dark-background-color-theme-teal,
 .js-calc-app-component .js-set-dark-background-color-theme-teal {

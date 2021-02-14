@@ -269,70 +269,80 @@ export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundCol
 	);
 }
 
-// Light/Dark mode border, background, text color, and focus box shadow for ItemViewEditItemInfo form-input
-export function getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+// Light/Dark mode border, background, text color, and focus box shadow for ItemView and ItemViewEditItemInfo form-input
+export function getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-" +
+		" js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-" +
 		dark_mode
 	);
 }
 
-// Light/Dark mode border, background, text color, and focus box shadow (top, bottom, left) for ItemViewEditItemInfo form-input for name
-export function getItemViewEditItemInfoFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode(
+// Light/Dark mode border, background, text color, and focus box shadow (top, bottom, left) for ItemView and ItemViewEditItemInfo form-input for name
+export function getItemViewFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-" +
+		" js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-" +
 		dark_mode
 	);
 }
 
-// Light/Dark mode box shadow (top, bottom, left) for ItemViewEditItemInfo name char-count-container
-export function getItemViewEditItemInfoNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode(
+// Light/Dark mode box shadow (top, bottom, left) for ItemView and ItemViewEditItemInfo name char-count-container
+export function getItemViewFormNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-" +
+		" js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-" +
 		dark_mode
 	);
 }
 
-// Light/Dark mode ItemViewEditItemInfo disabled form-label
-export function getItemViewEditItemInfoDisabledLabelClassNameForLightOrDarkMode(
+// Light/Dark mode ItemView and ItemViewEditItemInfo disabled form-label
+export function getItemViewDisabledLabelClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-edit-item-info-diabled-label-dark-mode-" + dark_mode
+		" js-set-item-view-diabled-label-dark-mode-" + dark_mode
 	);
 }
 
-// Light/Dark mode ItemViewEditItemInfo disabled form-input type date
-export function getItemViewEditItemInfoDisableInputDateClassNameForLightOrDarkMode(
+// Light/Dark mode ItemView and ItemViewEditItemInfo disabled form-input type date
+export function getItemViewDisableInputDateClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-edit-item-info-diabled-input-date-dark-mode-" + dark_mode
+		" js-set-item-view-diabled-input-date-dark-mode-" + dark_mode
 	);
 }
 
-// Light/Dark mode focus box shadow for ItemViewEditItemInfo form-submit button
-export function getItemViewEditItemInfoSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+// Light/Dark mode focus box shadow for ItemView and ItemViewEditItemInfo form-submit button
+export function getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-" +
+		" js-set-item-view-submit-button-focus-box-shadow-dark-mode-" +
 		dark_mode
 	);
 }
 
-// Light/Dark mode background color (with hover) for ItemViewEditItemInfo form cancel button
-export function getItemViewEditItemInfoCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+// Light/Dark mode background color (with hover) for ItemView and ItemViewEditItemInfo form cancel button
+export function getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-" +
+		" js-set-item-view-cancel-button-button-background-color-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode text color (with hover) for ItemViewCommentBoxIndividualComment icon-button
+export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-" +
 		dark_mode
 	);
 }

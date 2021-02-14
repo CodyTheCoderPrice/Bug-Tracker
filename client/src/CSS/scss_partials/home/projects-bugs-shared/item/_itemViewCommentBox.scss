@@ -12,22 +12,6 @@
 
 	.form-submit-centering-container__button {
 		@include m.dead-center();
-		border: 1px solid black;
-		outline: none;
-		border-radius: v.$base-buttton-border-radius;
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		background-color: black;
-		// Only top and bottom because of inconsistencies
-		// ...with button vs divs.
-		padding: 10px 0px 10px 0px;
-		// 2px bigger than cancel button because of inconsistencies
-		// ...with buttons vs divs.
-		width: 127px;
-		color: white;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 16px;
-		cursor: pointer;
+		@include m.item-view-form-submit-button();
 	}
 }

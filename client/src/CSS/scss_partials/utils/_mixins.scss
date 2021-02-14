@@ -1,4 +1,5 @@
 @use "./variables" as v;
+
 @mixin stop-text-selection() {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */
@@ -59,8 +60,54 @@
 	font-size: 26px;
 }
 
-@mixin backend-error {
+@mixin backend-error() {
 	display: block;
 	color: v.$backend-error-color;
 	text-align: center;
+}
+
+@mixin item-view-form-submit-button() {
+	outline: none;
+	border: 1px solid black;
+	border-radius: v.$base-buttton-border-radius;
+	// This background color should only appear if there was a problem
+	// ...assigning a different background color to this element.
+	// ...the scss for the colors assigned are in app.scss
+	background-color: black;
+	// Only top and bottom because of inconsistencies
+	// ...with button vs divs.
+	padding: 10px 0px 10px 0px;
+	// 2px bigger than cancel button because of inconsistencies
+	// ...with buttons vs divs.
+	width: 127px;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+
+	&:focus {
+		box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
+		-moz-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
+		-webkit-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
+	}
+}
+
+@mixin item-view-form-cancel-button() {
+	@include stop-text-selection();
+
+	border: 1px solid black;
+	border-radius: v.$base-buttton-border-radius;
+	background-color: v.$mode-item-view-form-cancel-button-background-color-light;
+	// Only top and bottom because of inconisistencies
+	// ...with button and div padding.
+	padding: 10px 0px 10px 0px;
+	width: 125px;
+	text-align: center;
+	font-size: 16px;
+	cursor: pointer;
+
+	&:hover,
+	:active {
+		background-color: v.$mode-item-view-form-cancel-button-hover-background-color-light;
+	}
 }

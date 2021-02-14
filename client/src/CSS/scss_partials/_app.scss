@@ -375,122 +375,139 @@ body {
 		}
 	}
 
-	// Light/Dark mode border, background, text color, and focus box shadow for ItemViewEditItemInfo form-input
-	.js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-false {
-		border-color: v.$mode-item-view-edit-item-info-form-input-border-color-light;
-		background-color: v.$mode-item-view-edit-item-info-form-input-background-color-light;
+	// Light/Dark mode border, background, text color, and focus box shadow for ItemView and ItemViewEditItemInfo form-input
+	.js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-false {
+		border-color: v.$mode-item-view-form-input-border-color-light;
+		background-color: v.$mode-item-view-form-input-background-color-light;
 		color: v.$mode-home-text-color-light;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
+			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
 		}
 	}
-	.js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-true {
-		border-color: v.$mode-item-view-edit-item-info-form-input-border-color-dark;
-		background-color: v.$mode-item-view-edit-item-info-form-input-background-color-dark;
+	.js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-true {
+		border-color: v.$mode-item-view-form-input-border-color-dark;
+		background-color: v.$mode-item-view-form-input-background-color-dark;
 		color: v.$mode-home-text-color-dark;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-dark;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-dark;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-dark;
+			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-dark;
+			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-dark;
+			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-dark;
 		}
 	}
 
-	// Light/Dark mode border, background, text color, and focus box shadow (top, bottom, left) for ItemViewEditItemInfo form-input for name
-	.js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false {
-		border-color: v.$mode-item-view-edit-item-info-form-input-border-color-light;
-		background-color: v.$mode-item-view-edit-item-info-form-input-background-color-light;
+	// Light/Dark mode border, background, text color, and focus box shadow (top, bottom, left) for ItemView and ItemViewEditItemInfo form-input for name
+	.js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false {
+		border-color: v.$mode-item-view-form-input-border-color-light;
+		background-color: v.$mode-item-view-form-input-background-color-light;
 		color: v.$mode-home-text-color-light;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-light;
+			box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
 		}
 	}
-	.js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true {
-		border-color: v.$mode-item-view-edit-item-info-form-input-border-color-dark;
-		background-color: v.$mode-item-view-edit-item-info-form-input-background-color-dark;
+	.js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true {
+		border-color: v.$mode-item-view-form-input-border-color-dark;
+		background-color: v.$mode-item-view-form-input-background-color-dark;
 		color: v.$mode-home-text-color-dark;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-dark;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-dark;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-dark;
+			box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-dark;
+			-moz-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-dark;
+			-webkit-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-dark;
 		}
 	}
 
-	// Light/Dark mode box shadow (top, bottom, left) for ItemViewEditItemInfo name char-count-container
-	.js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false {
-		box-shadow: v.$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-light;
-		-moz-box-shadow: v.$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-light;
-		-webkit-box-shadow: v.$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-light;
+	// Light/Dark mode box shadow (top, bottom, left) for ItemView and ItemViewEditItemInfo name char-count-container
+	.js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false {
+		box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-light;
+		-moz-box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-light;
+		-webkit-box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-light;
 	}
-	.js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true {
-		box-shadow: v.$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-dark;
-		-moz-box-shadow: v.$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-dark;
-		-webkit-box-shadow: v.$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-dark;
-	}
-
-	// Light/Dark mode ItemViewEditItemInfo disabled form-label
-	.js-set-item-view-edit-item-info-diabled-label-dark-mode-false {
-		color: v.$mode-item-view-edit-item-info-form-input-disabled-text-color-light;
-		pointer-events: none;
-	}
-	.js-set-item-view-edit-item-info-diabled-label-dark-mode-true {
-		color: v.$mode-item-view-edit-item-info-form-input-disabled-text-color-dark;
-		pointer-events: none;
+	.js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true {
+		box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-dark;
+		-moz-box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-dark;
+		-webkit-box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-dark;
 	}
 
-	// Light/Dark mode ItemViewEditItemInfo disabled form-input type date
-	.js-set-item-view-edit-item-info-diabled-input-date-dark-mode-false {
-		background-color: v.$mode-item-view-edit-item-info-form-input-disabled-background-color-light;
-		color: v.$mode-item-view-edit-item-info-form-input-disabled-text-color-dark;
+	// Light/Dark mode ItemView and ItemViewEditItemInfo disabled form-label
+	.js-set-item-view-diabled-label-dark-mode-false {
+		color: v.$mode-item-view-form-input-disabled-text-color-light;
 		pointer-events: none;
 	}
-	.js-set-item-view-edit-item-info-diabled-input-date-dark-mode-true {
-		background-color: v.$mode-item-view-edit-item-info-form-input-disabled-background-color-dark;
-		color: v.$mode-item-view-edit-item-info-form-input-disabled-text-color-dark;
+	.js-set-item-view-diabled-label-dark-mode-true {
+		color: v.$mode-item-view-form-input-disabled-text-color-dark;
 		pointer-events: none;
 	}
 
-	// Light/Dark mode focus box shadow for ItemViewEditItemInfo form-submit button
-	.js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-false {
+	// Light/Dark mode ItemView and ItemViewEditItemInfo disabled form-input type date
+	.js-set-item-view-diabled-input-date-dark-mode-false {
+		background-color: v.$mode-item-view-form-input-disabled-background-color-light;
+		color: v.$mode-item-view-form-input-disabled-text-color-dark;
+		pointer-events: none;
+	}
+	.js-set-item-view-diabled-input-date-dark-mode-true {
+		background-color: v.$mode-item-view-form-input-disabled-background-color-dark;
+		color: v.$mode-item-view-form-input-disabled-text-color-dark;
+		pointer-events: none;
+	}
+
+	// Light/Dark mode focus box shadow for ItemView and ItemViewEditItemInfo form-submit button
+	.js-set-item-view-submit-button-focus-box-shadow-dark-mode-false {
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-light;
+			box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
 		}
 	}
-	.js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-true {
+	.js-set-item-view-submit-button-focus-box-shadow-dark-mode-true {
 		&:focus {
-			box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-dark;
-			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-dark;
-			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-dark;
+			box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-dark;
+			-moz-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-dark;
+			-webkit-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-dark;
 		}
 	}
 
-	// Light/Dark mode background color (with hover) for ItemViewEditItemInfo form cancel button
-	.js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-false {
-		background-color: v.$mode-item-view-edit-item-info-form-cancel-button-background-color-light;
+	// Light/Dark mode background color (with hover) for ItemView and ItemViewEditItemInfo form cancel button
+	.js-set-item-view-cancel-button-button-background-color-mode-false {
+		background-color: v.$mode-item-view-form-cancel-button-background-color-light;
 
 		&:hover,
 		:active {
-			background-color: v.$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-light;
+			background-color: v.$mode-item-view-form-cancel-button-hover-background-color-light;
 		}
 	}
-	.js-set-item-view-edit-item-info-cancel-button-button-background-color-mode-true {
-		background-color: v.$mode-item-view-edit-item-info-form-cancel-button-background-color-dark;
+	.js-set-item-view-cancel-button-button-background-color-mode-true {
+		background-color: v.$mode-item-view-form-cancel-button-background-color-dark;
 
 		&:hover,
 		:active {
-			background-color: v.$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-dark;
+			background-color: v.$mode-item-view-form-cancel-button-hover-background-color-dark;
 		}
 	}
 	
+	// Light/Dark mode text color (with hover) for ItemViewCommentBoxIndividualComment icon-button
+	.js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-false {
+		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-light;
+
+		&:hover,
+		:active {
+			color: v.$mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-light;
+		}
+	}
+	.js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true {
+		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-dark;
+
+		&:hover,
+		:active {
+			color: v.$mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-dark;
+		}
+	}
 
 	// Theme background colors
 	.js-set-dark-background-color-theme-teal {

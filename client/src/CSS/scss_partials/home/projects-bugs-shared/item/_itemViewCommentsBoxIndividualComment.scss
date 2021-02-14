@@ -9,7 +9,7 @@
 
 	.comment__block {
 		// Must be realtive so setting comment__centering-container__pair-container
-		// ...top moves it within the context of comment_block 
+		// ...top moves it within the context of comment_block
 		position: relative;
 		margin: 10px 0px 10px 0px;
 	}
@@ -17,12 +17,12 @@
 	.comment__block__icon-button {
 		display: inline;
 		margin-left: 10px;
-		color: gray;
+		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-light;
 		cursor: pointer;
 
 		&:hover,
 		:active {
-			color: black;
+			color: v.$mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-light;
 		}
 	}
 
@@ -40,43 +40,14 @@
 	}
 
 	.comment__centering-container__pair-container__submit-edit-button {
+		@include m.item-view-form-submit-button();
+
 		float: left;
-		border: 1px solid black;
-		border-radius: v.$base-buttton-border-radius;
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		background-color: black;
-		// Only top and bottom because of inconsistencies
-		// ...with button vs divs.
-		padding: 10px 0px 10px 0px;
-		// 2px bigger than cancel button because of inconsistencies
-		// ...with buttons vs divs.
-		width: 127px;
-		color: white;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 16px;
-		text-align: center;
-		cursor: pointer;
 	}
 
 	.comment__centering-container__pair-container__cancel-button {
-		float: right;
-		border: 1px solid black;
-		border-radius: v.$base-buttton-border-radius;
-		background-color: white;
-		// Only top and bottom because of inconisistencies
-		// ...with button and div padding.
-		padding: 10px 0px 10px 0px;
-		width: 125px;
-		color: black;
-		text-align: center;
-		font-size: 16px;
-		cursor: pointer;
+		@include m.item-view-form-cancel-button();
 
-		&:hover,
-		:active {
-			background-color: v.$gray-light-level-1;
-		}
+		float: right;
 	}
 }

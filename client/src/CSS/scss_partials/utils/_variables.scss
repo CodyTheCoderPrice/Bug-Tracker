@@ -172,38 +172,42 @@ $mode-item-view-list-sidebar-expand-minimize-button-background-color-light: $mod
 $mode-item-view-list-sidebar-expand-minimize-button-background-color-dark: $mode-item-view-item-box-background-color-dark;
 $mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light: $gray-light-level-8;
 $mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-dark: $gray-dark-level-11;
-$mode-item-view-edit-item-info-form-input-border-color-light: black;
-$mode-item-view-edit-item-info-form-input-border-color-dark: black;
-$mode-item-view-edit-item-info-form-input-background-color-light: $mode-home-background-color-light;
-$mode-item-view-edit-item-info-form-input-background-color-dark: $mode-home-background-color-dark;
-$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light: $mode-create-item-sidebar-form-input-focus-box-shadow-color-light;
-$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-dark: $mode-create-item-sidebar-form-input-focus-box-shadow-color-dark;
-$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-light: 0 -1px
+$mode-item-view-form-input-border-color-light: black;
+$mode-item-view-form-input-border-color-dark: black;
+$mode-item-view-form-input-background-color-light: $mode-home-background-color-light;
+$mode-item-view-form-input-background-color-dark: $mode-home-background-color-dark;
+$mode-item-view-form-input-focus-box-shadow-color-light: $mode-create-item-sidebar-form-input-focus-box-shadow-color-light;
+$mode-item-view-form-input-focus-box-shadow-color-dark: $mode-create-item-sidebar-form-input-focus-box-shadow-color-dark;
+$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light: 0 -1px
 		0 0 $mode-form-input-focus-box-shadow-color-light,
 	-1px 0 0 0 $mode-form-input-focus-box-shadow-color-light,
 	0 1px 0 0 $mode-form-input-focus-box-shadow-color-light;
-$mode-item-view-edit-item-info-form-input-top-bottom-left-focus-box-shadow-color-dark: 0 -1px
+$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-dark: 0 -1px
 		0 0 $mode-form-input-focus-box-shadow-color-dark,
 	-1px 0 0 0 $mode-form-input-focus-box-shadow-color-dark,
 	0 1px 0 0 $mode-form-input-focus-box-shadow-color-dark;
-$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-light: 0 -1px
+$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-light: 0 -1px
 		0 0 $mode-form-input-focus-box-shadow-color-light,
 	1px 0 0 0 $mode-form-input-focus-box-shadow-color-light,
 	0 1px 0 0 $mode-form-input-focus-box-shadow-color-light;
-$mode-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-color-dark: 0 -1px
+$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-dark: 0 -1px
 		0 0 $mode-form-input-focus-box-shadow-color-dark,
 	1px 0 0 0 $mode-form-input-focus-box-shadow-color-dark,
 	0 1px 0 0 $mode-form-input-focus-box-shadow-color-dark;
-$mode-item-view-edit-item-info-form-input-disabled-background-color-light: $mode-top-bar-background-color-light;
-$mode-item-view-edit-item-info-form-input-disabled-background-color-dark: $mode-top-bar-background-color-dark;
-$mode-item-view-edit-item-info-form-input-disabled-text-color-light: $mode-create-item-sidebar-form-input-disabled-text-color-light;
-$mode-item-view-edit-item-info-form-input-disabled-text-color-dark: $mode-create-item-sidebar-form-input-disabled-text-color-dark;
-$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-light: $mode-create-item-sidebar-form-submit-button-focus-box-shadow-color-light;
-$mode-item-view-edit-item-info-form-submit-button-focus-box-shadow-color-dark: $mode-create-item-sidebar-form-submit-button-focus-box-shadow-color-dark;
-$mode-item-view-edit-item-info-form-cancel-button-background-color-light: $gray-light-level-3;
-$mode-item-view-edit-item-info-form-cancel-button-background-color-dark: $gray-dark-level-4;
-$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-light: $gray-light-level-4;
-$mode-item-view-edit-item-info-form-cancel-button-hover-background-color-dark: $gray-dark-level-3;
+$mode-item-view-form-input-disabled-background-color-light: $mode-top-bar-background-color-light;
+$mode-item-view-form-input-disabled-background-color-dark: $mode-top-bar-background-color-dark;
+$mode-item-view-form-input-disabled-text-color-light: $mode-create-item-sidebar-form-input-disabled-text-color-light;
+$mode-item-view-form-input-disabled-text-color-dark: $mode-create-item-sidebar-form-input-disabled-text-color-dark;
+$mode-item-view-form-submit-button-focus-box-shadow-color-light: $mode-create-item-sidebar-form-submit-button-focus-box-shadow-color-light;
+$mode-item-view-form-submit-button-focus-box-shadow-color-dark: $mode-create-item-sidebar-form-submit-button-focus-box-shadow-color-dark;
+$mode-item-view-form-cancel-button-background-color-light: $gray-light-level-3;
+$mode-item-view-form-cancel-button-background-color-dark: $gray-dark-level-4;
+$mode-item-view-form-cancel-button-hover-background-color-light: $gray-light-level-4;
+$mode-item-view-form-cancel-button-hover-background-color-dark: $gray-dark-level-3;
+$mode-item-view-comment-box-individual-comment-icon-button-text-color-light: $gray-level-6;
+$mode-item-view-comment-box-individual-comment-icon-button-text-color-dark: $gray-level-4;
+$mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-light: $mode-home-text-color-light;
+$mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-dark: $mode-home-text-color-dark;
 
 // Themes
 $theme-teal-background-color-dark: $teal-dark-level-1;
