@@ -61,12 +61,12 @@
 
 	.form__text-input {
 		margin-top: v.$edit-account-form-input-margin-top;
-		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
+		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-base-border-width solid v.$mode-create-item-form-input-border-color-light;
+		border: v.$form-input-text-base-border-width solid v.$mode-create-item-sidebar-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
-		background: v.$mode-create-item-form-input-background-color-light;
+		background: v.$mode-create-item-sidebar-form-input-background-color-light;
 		padding: 8px;
 		width: 100%;
 		font-size: 14px;
@@ -76,7 +76,7 @@
 			border: v.$form-input-text-focus-border-width solid v.$focus-blue;
 			margin-top: v.$edit-account-form-input-margin-top -
 				v.$form-input-text-focus-border-width-difference;
-			margin-bottom: v.$edit-account-create-item-form-input-margin-bottom -
+			margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom -
 				v.$form-input-text-focus-border-width-difference;
 		}
 	}
@@ -87,7 +87,7 @@
 
 	.form__submit {
 		margin-top: 15px;
-		margin-bottom: v.$edit-account-create-item-form-input-margin-bottom;
+		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: 0;
 		border-radius: v.$base-buttton-border-radius;

@@ -163,24 +163,24 @@ export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode border, background, and text color for CreateItemSidebar base form-input
+// Light/Dark mode border, background, text color, and focus box shadow for CreateItemSidebar form-input
 export function getCreateItemSidebarFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-" +
+		" js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-" +
 		dark_mode
 	);
 }
 
-// Light/Dark mode CreateItemSidebar disabled base label
+// Light/Dark mode CreateItemSidebar disabled form-label
 export function getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-create-item-sidebar-diabled-label-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode CreateItemSidebar disabled base input date
+// Light/Dark mode CreateItemSidebar disabled form-input type date
 export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -189,8 +189,8 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode focus box shadow for CreateItemSidebar submit button
-export function getCreateItemSidebaSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+// Light/Dark mode focus box shadow for CreateItemSidebar form-submit
+export function getCreateItemSidebarSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
@@ -265,6 +265,64 @@ export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundCol
 ) {
 	return (
 		" js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode border, background, text color, and focus box shadow for ItemViewEditItemInfo form-input
+export function getItemViewEditItemInfoFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode border, background, text color, and focus box shadow (top, bottom, left) for ItemViewEditItemInfo form-input for name
+export function getItemViewEditItemInfoFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode box shadow (top, bottom, left) for ItemViewEditItemInfo name char-count-container
+export function getItemViewEditItemInfoNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode ItemViewEditItemInfo disabled form-label
+export function getItemViewEditItemInfoDisabledLabelClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-edit-item-info-diabled-label-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode ItemViewEditItemInfo disabled form-input type date
+export function getItemViewEditItemInfoDisableInputDateClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-edit-item-info-diabled-input-date-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode focus box shadow for ItemViewEditItemInfo form-submit
+export function getItemViewEditItemInfoSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-" +
 		dark_mode
 	);
 }

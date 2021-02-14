@@ -18,7 +18,8 @@
 	}
 
 	.item-content-container--shifted-right {
-		left: v.$item-view-list-sidebar-width + v.$item-view-list-sidebar-border-width;
+		left: v.$item-view-list-sidebar-width +
+			v.$item-view-list-sidebar-border-width;
 		width: 85vw;
 	}
 
@@ -143,15 +144,22 @@
 
 		outline: none;
 		margin-bottom: 10px;
-		border: 1px solid black;
+		border: 1px solid
+			v.$mode-item-view-edit-item-info-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
-		background-color: white;
+		background-color: v.$mode-item-view-edit-item-info-form-input-background-color-light;
 		padding: 4px 8px 4px 8px;
 		height: 180px;
 		width: 100%;
 		line-height: v.$common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: v.$base-font-size;
+
+		&:focus {
+			box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-item-view-edit-item-info-form-input-focus-box-shadow-color-light;
+		}
 	}
 
 	.item-box__form-textarea--shorter {

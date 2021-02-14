@@ -1040,7 +1040,7 @@ dropdown can overlap all other components
   left: 50%;
   transform: translate(-50%);
   top: 0px;
-  border-top: 26px solid #FF4E4E;
+  border-top: 26px solid #ff4e4e;
   border-left: 45px solid transparent;
   border-right: 45px solid transparent;
   height: 0;
@@ -1090,9 +1090,9 @@ dropdown can overlap all other components
   box-sizing: border-box;
   position: relative;
   float: left;
-  border: 1px solid #FF4E4E;
+  border: 1px solid #ff4e4e;
   border-radius: 10px;
-  background-color: #FF4E4E;
+  background-color: #ff4e4e;
   padding: 7px 0px 7px 0px;
   height: 30px;
   width: 90px;
@@ -1108,7 +1108,7 @@ dropdown can overlap all other components
 .delete-modal-component .centered-buttons-container__button--cancel {
   float: right;
   background-color: white;
-  color: #FF4E4E;
+  color: #ff4e4e;
 }
 .delete-modal-component .centered-buttons-container__button--cancel:hover,
 .delete-modal-component .centered-buttons-container__button--cancel :active {
@@ -1264,6 +1264,12 @@ dropdown can overlap all other components
   line-height: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
+}
+.item-view-component .item-box__form-textarea:focus,
+.js-calc-item-view-component .item-box__form-textarea:focus {
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
 }
 .item-view-component .item-box__form-textarea--shorter,
 .js-calc-item-view-component .item-box__form-textarea--shorter {
@@ -1549,6 +1555,7 @@ dropdown can overlap all other components
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  outline: none;
   border: 2px solid black;
   border-right: 2px dotted #bfbfbf;
   border-radius: 5px 0 0 5px;
@@ -1560,6 +1567,11 @@ dropdown can overlap all other components
   font-size: 28px;
   font-weight: bold;
   text-align: center;
+}
+.item-view-component .name-centering-container__form-name-input:focus {
+  box-shadow: 0 -2px 0 0 #0062e2, -2px 0 0 0 #0062e2, 0 2px 0 0 #0062e2;
+  -moz-box-shadow: 0 -2px 0 0 #0062e2, -2px 0 0 0 #0062e2, 0 2px 0 0 #0062e2;
+  -webkit-box-shadow: 0 -2px 0 0 #0062e2, -2px 0 0 0 #0062e2, 0 2px 0 0 #0062e2;
 }
 .item-view-component .name-centering-container__completed-icon-centering-container {
   position: absolute;
@@ -1612,9 +1624,11 @@ dropdown can overlap all other components
   margin: 5px 2px 4px 0px;
 }
 .item-view-component .item-box__group__field__form-text {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  outline: none;
   margin-top: 3px;
+  outline: none;
   border: 1px solid black;
   border-radius: 5px;
   background-color: white;
@@ -1623,15 +1637,32 @@ dropdown can overlap all other components
   font-size: 13px;
   font-family: Arial, Helvetica, sans-serif;
 }
+.item-view-component .item-box__group__field__form-text:focus {
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
+}
 .item-view-component .item-box__group__field__form-select {
+  outline: none;
   border: 1px solid black;
   background-color: white;
   width: 125px;
   font-size: 14px;
 }
+.item-view-component .item-box__group__field__form-select:focus {
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
+}
 .item-view-component .item-box__group__field__form-date {
+  outline: none;
   border: 1px solid black;
   background-color: white;
+}
+.item-view-component .item-box__group__field__form-date:focus {
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
 }
 .item-view-component .form-buttons-outer-container {
   position: relative;
@@ -1648,9 +1679,9 @@ dropdown can overlap all other components
 }
 .item-view-component .form-buttons-centered-container__submit-button {
   float: left;
+  outline: none;
   border: 1px solid black;
   border-radius: 10px;
-  outline: none;
   background-color: black;
   padding: 10px 0px 10px 0px;
   width: 127px;
@@ -1658,6 +1689,11 @@ dropdown can overlap all other components
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   cursor: pointer;
+}
+.item-view-component .form-buttons-centered-container__submit-button:focus {
+  box-shadow: 0 0 0 1px #444444;
+  -moz-box-shadow: 0 0 0 1px #444444;
+  -webkit-box-shadow: 0 0 0 1px #444444;
 }
 .item-view-component .form-buttons-centered-container__cancel-button {
   -webkit-touch-callout: none;
@@ -1686,15 +1722,6 @@ dropdown can overlap all other components
 .item-view-component .form-buttons-centered-container__cancel-button:hover,
 .item-view-component .form-buttons-centered-container__cancel-button :active {
   background-color: #e5e5e5;
-}
-.item-view-component .grayed-out-unclickable-label {
-  color: #bfbfbf;
-  pointer-events: none;
-}
-.item-view-component .grayed-out-unclickable-date {
-  background-color: #e5e5e5;
-  color: #bfbfbf;
-  pointer-events: none;
 }
 .item-view-component .backend-errors {
   display: block;
@@ -2242,9 +2269,9 @@ dropdown can overlap all other components
   font-family: Arial, Helvetica, sans-serif;
 }
 .create-item-component .form__text-input:focus {
-  box-shadow: 0 0 0 1px #187cff;
-  -moz-box-shadow: 0 0 0 1px #187cff;
-  -webkit-box-shadow: 0 0 0 1px #187cff;
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
 }
 .create-item-component .form__textarea {
   -webkit-box-sizing: border-box;
@@ -2268,9 +2295,9 @@ dropdown can overlap all other components
   font-family: Arial, Helvetica, sans-serif;
 }
 .create-item-component .form__textarea:focus {
-  box-shadow: 0 0 0 1px #187cff;
-  -moz-box-shadow: 0 0 0 1px #187cff;
-  -webkit-box-shadow: 0 0 0 1px #187cff;
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
 }
 .create-item-component .form__group-container {
   float: left;
@@ -2292,9 +2319,9 @@ dropdown can overlap all other components
   font-size: 13px;
 }
 .create-item-component .form__group-container__input-container__date:focus {
-  box-shadow: 0 0 0 1px #187cff;
-  -moz-box-shadow: 0 0 0 1px #187cff;
-  -webkit-box-shadow: 0 0 0 1px #187cff;
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
 }
 .create-item-component .form__group-container__input-container__select {
   margin-top: 2px;
@@ -2306,9 +2333,9 @@ dropdown can overlap all other components
   font-size: 13px;
 }
 .create-item-component .form__group-container__input-container__select:focus {
-  box-shadow: 0 0 0 1px #187cff;
-  -moz-box-shadow: 0 0 0 1px #187cff;
-  -webkit-box-shadow: 0 0 0 1px #187cff;
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
 }
 .create-item-component .form__submit {
   margin-top: 10px;
@@ -2944,15 +2971,11 @@ body {
   border-color: #6d6d6d;
 }
 .app-component .js-set-list-row-hover-background-color-dark-mode-false:hover,
-.app-component .js-set-list-row-hover-background-color-dark-mode-false :active,
-.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-false:hover,
-.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-false :active {
+.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-false:hover {
   background-color: #f8f8f8;
 }
 .app-component .js-set-list-row-hover-background-color-dark-mode-true:hover,
-.app-component .js-set-list-row-hover-background-color-dark-mode-true :active,
-.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-true:hover,
-.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-true :active {
+.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-true:hover {
   background-color: #3a3a3a;
 }
 .app-component .js-set-list-row-selected-background-color-dark-mode-false,
@@ -3013,26 +3036,26 @@ body {
 .js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-true {
   background-color: #333333;
 }
-.app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-false,
-.js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-false {
+.app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-false,
+.js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-false {
   border-color: #757575;
   background-color: #e5e5e5;
   color: black;
 }
-.app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-false:focus,
-.js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-false:focus {
-  box-shadow: 0 0 0 1px #187cff;
-  -moz-box-shadow: 0 0 0 1px #187cff;
-  -webkit-box-shadow: 0 0 0 1px #187cff;
+.app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-false:focus,
+.js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-false:focus {
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
 }
-.app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-true,
-.js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-true {
+.app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-true,
+.js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-true {
   border-color: black;
   background-color: #4e4e4e;
   color: #a9b3bb;
 }
-.app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-true:focus,
-.js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-border-text-color-focus-box-shadow-dark-mode-true:focus {
+.app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-true:focus,
+.js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-true:focus {
   box-shadow: 0 0 0 1px #2d7fc2;
   -moz-box-shadow: 0 0 0 1px #2d7fc2;
   -webkit-box-shadow: 0 0 0 1px #2d7fc2;
@@ -3160,6 +3183,100 @@ body {
 .js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true:hover,
 .js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true :active {
   background-color: #232323;
+}
+.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-false,
+.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-false {
+  border-color: black;
+  background-color: white;
+  color: black;
+}
+.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-false:focus,
+.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-false:focus {
+  box-shadow: 0 0 0 1px #0062e2;
+  -moz-box-shadow: 0 0 0 1px #0062e2;
+  -webkit-box-shadow: 0 0 0 1px #0062e2;
+}
+.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-true,
+.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-true {
+  border-color: black;
+  background-color: #333333;
+  color: #a9b3bb;
+}
+.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-true:focus,
+.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-focus-box-shadow-dark-mode-true:focus {
+  box-shadow: 0 0 0 1px #2d7fc2;
+  -moz-box-shadow: 0 0 0 1px #2d7fc2;
+  -webkit-box-shadow: 0 0 0 1px #2d7fc2;
+}
+.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false,
+.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false {
+  border-color: black;
+  background-color: white;
+  color: black;
+}
+.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false:focus,
+.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false:focus {
+  box-shadow: 0 -2px 0 0 #0062e2, -2px 0 0 0 #0062e2, 0 2px 0 0 #0062e2;
+  -moz-box-shadow: 0 -2px 0 0 #0062e2, -2px 0 0 0 #0062e2, 0 2px 0 0 #0062e2;
+  -webkit-box-shadow: 0 -2px 0 0 #0062e2, -2px 0 0 0 #0062e2, 0 2px 0 0 #0062e2;
+}
+.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true,
+.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true {
+  border-color: black;
+  background-color: #333333;
+  color: #a9b3bb;
+}
+.app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true:focus,
+.js-calc-app-component .js-set-item-view-edit-item-info-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true:focus {
+  box-shadow: 0 -2px 0 0 #2d7fc2, -2px 0 0 0 #2d7fc2, 0 2px 0 0 #2d7fc2;
+  -moz-box-shadow: 0 -2px 0 0 #2d7fc2, -2px 0 0 0 #2d7fc2, 0 2px 0 0 #2d7fc2;
+  -webkit-box-shadow: 0 -2px 0 0 #2d7fc2, -2px 0 0 0 #2d7fc2, 0 2px 0 0 #2d7fc2;
+}
+.app-component .js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false,
+.js-calc-app-component .js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false {
+  box-shadow: 0 -2px 0 0 #0062e2, 2px 0 0 0 #0062e2, 0 2px 0 0 #0062e2;
+  -moz-box-shadow: 0 -2px 0 0 #0062e2, 2px 0 0 0 #0062e2, 0 2px 0 0 #0062e2;
+  -webkit-box-shadow: 0 -2px 0 0 #0062e2, 2px 0 0 0 #0062e2, 0 2px 0 0 #0062e2;
+}
+.app-component .js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true,
+.js-calc-app-component .js-set-item-view-edit-item-info-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true {
+  box-shadow: 0 -2px 0 0 #2d7fc2, 2px 0 0 0 #2d7fc2, 0 2px 0 0 #2d7fc2;
+  -moz-box-shadow: 0 -2px 0 0 #2d7fc2, 2px 0 0 0 #2d7fc2, 0 2px 0 0 #2d7fc2;
+  -webkit-box-shadow: 0 -2px 0 0 #2d7fc2, 2px 0 0 0 #2d7fc2, 0 2px 0 0 #2d7fc2;
+}
+.app-component .js-set-item-view-edit-item-info-diabled-label-dark-mode-false,
+.js-calc-app-component .js-set-item-view-edit-item-info-diabled-label-dark-mode-false {
+  color: #bfbfbf;
+  pointer-events: none;
+}
+.app-component .js-set-item-view-edit-item-info-diabled-label-dark-mode-true,
+.js-calc-app-component .js-set-item-view-edit-item-info-diabled-label-dark-mode-true {
+  color: #6d6d6d;
+  pointer-events: none;
+}
+.app-component .js-set-item-view-edit-item-info-diabled-input-date-dark-mode-false,
+.js-calc-app-component .js-set-item-view-edit-item-info-diabled-input-date-dark-mode-false {
+  background-color: #e5e5e5;
+  color: #6d6d6d;
+  pointer-events: none;
+}
+.app-component .js-set-item-view-edit-item-info-diabled-input-date-dark-mode-true,
+.js-calc-app-component .js-set-item-view-edit-item-info-diabled-input-date-dark-mode-true {
+  background-color: #292929;
+  color: #6d6d6d;
+  pointer-events: none;
+}
+.app-component .js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-false:focus,
+.js-calc-app-component .js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-false:focus {
+  box-shadow: 0 0 0 1px #444444;
+  -moz-box-shadow: 0 0 0 1px #444444;
+  -webkit-box-shadow: 0 0 0 1px #444444;
+}
+.app-component .js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-true:focus,
+.js-calc-app-component .js-set-item-view-edit-item-info-submit-button-focus-box-shadow-dark-mode-true:focus {
+  box-shadow: 0 0 0 1px #d6d6d6;
+  -moz-box-shadow: 0 0 0 1px #d6d6d6;
+  -webkit-box-shadow: 0 0 0 1px #d6d6d6;
 }
 .app-component .js-set-dark-background-color-theme-teal,
 .js-calc-app-component .js-set-dark-background-color-theme-teal {
