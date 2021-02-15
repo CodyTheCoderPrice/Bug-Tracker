@@ -12,6 +12,7 @@ import {
 
 import {
 	capitalizeFistLetterOfEachWord,
+	getAccountSidebarThemeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getDarkBackgroundColorClassNameForTheme,
 } from "../../../utils";
 
@@ -130,15 +131,20 @@ export default function AccountSidebarChangeAppearance() {
 			<div className="content-container content-container--right">
 				<label className="content-container__label">Theme</label>
 				<div
-					className="content-container__theme-button"
+					className={
+						"content-container__theme-button" +
+						getAccountSidebarThemeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 					onClick={(e) => toggleThemeDropdown(e)}
 				>
 					<div
 						className={
-							"content-container__theme-button__selected-container" +
+							"content-container__theme-button__current-container" +
 							(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 								.accountModalChangeSettingsThemeDropdown
-								? " content-container__theme-button__selected-container--dropdown-present"
+								? " content-container__theme-button__current-container--dropdown-present"
 								: "")
 						}
 					>

@@ -722,9 +722,10 @@ dropdown can overlap all other components
   float: left;
   margin-left: 10px;
   width: 104px;
+  color: #3a3a3a;
   cursor: pointer;
 }
-.account-sidebar-change-theme-component .content-container__theme-button__selected-container {
+.account-sidebar-change-theme-component .content-container__theme-button__current-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -787,7 +788,6 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  color: #3a3a3a;
   font-size: 12px;
   font-weight: bold;
 }
@@ -801,6 +801,7 @@ dropdown can overlap all other components
   background-color: #bfbfbf;
   height: 22px;
   width: 24px;
+  color: #3a3a3a;
 }
 .account-sidebar-change-theme-component .content-container__theme-button__arrow-container__icon {
   position: absolute;
@@ -820,7 +821,6 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  color: #3a3a3a;
 }
 .account-sidebar-change-theme-component .content-container__theme-button__dropdown-container {
   -webkit-box-sizing: border-box;
@@ -3045,13 +3045,71 @@ body {
 .js-calc-app-component .js-set-account-sidebar-modal-background-color-dark-mode-true {
   background-color: #333333;
 }
-.app-component .js-set-create-item-sidebar-background-color-dark-mode-false,
-.js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-false {
+.app-component .js-set-account-sidebar-modal-background-color-dark-mode-false,
+.js-calc-app-component .js-set-account-sidebar-modal-background-color-dark-mode-false {
   background-color: white;
 }
-.app-component .js-set-create-item-sidebar-background-color-dark-mode-true,
-.js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-true {
+.app-component .js-set-account-sidebar-modal-background-color-dark-mode-true,
+.js-calc-app-component .js-set-account-sidebar-modal-background-color-dark-mode-true {
   background-color: #333333;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false {
+  color: #3a3a3a;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__current-container,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__current-container {
+  border-color: #4e4e4e;
+  background-color: #e5e5e5;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__arrow-container,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__arrow-container {
+  border-color: #4e4e4e;
+  background-color: #bfbfbf;
+  color: #3a3a3a;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__dropdown-container,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__dropdown-container {
+  background-color: #e5e5e5;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__dropdown-container > span > .content-container__theme-button__option--selected,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__dropdown-container > span > .content-container__theme-button__option--selected {
+  background: #76bffa;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true {
+  color: #303030;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__current-container,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__current-container {
+  border-color: #272727;
+  background-color: #b1b1b1;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__arrow-container,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__arrow-container {
+  border-color: #272727;
+  background-color: #919191;
+  color: #272727;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__dropdown-container,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__dropdown-container {
+  background-color: #b1b1b1;
+}
+.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__dropdown-container > span > .content-container__theme-button__option--selected,
+.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__dropdown-container > span > .content-container__theme-button__option--selected {
+  background: #57a4e4;
+}
+.app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:hover,
+.app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false :active,
+.js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:hover,
+.js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false :active {
+  background-color: #fbfbfb;
+}
+.app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true:hover,
+.app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true :active,
+.js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true:hover,
+.js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true :active {
+  background-color: #3a3a3a;
 }
 .app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-false,
 .js-calc-app-component .js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-false {

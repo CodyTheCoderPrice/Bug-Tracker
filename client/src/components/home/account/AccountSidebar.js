@@ -13,6 +13,7 @@ import {
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	getTextColorClassNameForTheme,
+	getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 
 import { useSidebarResize } from "../../../utils/hooks";
@@ -118,7 +119,12 @@ export default function AccountSidebar() {
 					<div className="horizontal-dividing-line horizontal-dividing-line--half-top-margin" />
 					<div className="button-container">
 						<div
-							className="button-container__logout-button"
+							className={
+								"button-container__logout-button" +
+								getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
 							onClick={(e) => handleLogoutAccount(e)}
 						>
 							<span

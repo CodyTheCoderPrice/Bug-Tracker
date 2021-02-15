@@ -205,12 +205,72 @@ body {
 		background-color: v.$mode-account-sidebar-modal-background-color-dark;
 	}
 
-	// Light/Dark mode -- CreateItemSidebar component -- background colors
-	.js-set-create-item-sidebar-background-color-dark-mode-false {
-		background-color: v.$mode-create-item-sidebar-background-color-light;
+	// Light/Dark mode -- AccountSidebar and AccountModal -- background colors
+	.js-set-account-sidebar-modal-background-color-dark-mode-false {
+		background-color: v.$mode-account-sidebar-modal-background-color-light;
 	}
-	.js-set-create-item-sidebar-background-color-dark-mode-true {
-		background-color: v.$mode-create-item-sidebar-background-color-dark;
+	.js-set-account-sidebar-modal-background-color-dark-mode-true {
+		background-color: v.$mode-account-sidebar-modal-background-color-dark;
+	}
+
+	// Light/Dark mode -- AccountSidebar theme-button -- border, background, text colors
+	.js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false {
+		color: v.$mode-account-sidebar-theme-button-text-color-light;
+
+		& > .content-container__theme-button__current-container {
+			border-color: v.$mode-account-sidebar-theme-button-border-color-light;
+			background-color: v.$mode-account-sidebar-theme-button-current-container-background-color-light;
+		}
+
+		& > .content-container__theme-button__arrow-container {
+			border-color: v.$mode-account-sidebar-theme-button-border-color-light;
+			background-color: v.$mode-account-sidebar-theme-button-arrow-container-background-color-light;
+			color: v.$mode-account-sidebar-theme-button-arrow-container-text-color-light;
+		}
+
+		& > .content-container__theme-button__dropdown-container {
+			background-color: v.$mode-account-sidebar-theme-button-dropdown-container-background-color-light;
+
+			& > span > .content-container__theme-button__option--selected {
+				background: v.$mode-account-sidebar-theme-button-option-selected-background-color-light;
+			}
+		}
+	}
+	.js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true {
+		color: v.$mode-account-sidebar-theme-button-text-color-dark;
+
+		& > .content-container__theme-button__current-container {
+			border-color: v.$mode-account-sidebar-theme-button-border-color-dark;
+			background-color: v.$mode-account-sidebar-theme-button-current-container-background-color-dark;
+		}
+
+		& > .content-container__theme-button__arrow-container {
+			border-color: v.$mode-account-sidebar-theme-button-border-color-dark;
+			background-color: v.$mode-account-sidebar-theme-button-arrow-container-background-color-dark;
+			color: v.$mode-account-sidebar-theme-button-arrow-container-text-color-dark;
+		}
+
+		& > .content-container__theme-button__dropdown-container {
+			background-color: v.$mode-account-sidebar-theme-button-dropdown-container-background-color-dark;
+
+			& > span > .content-container__theme-button__option--selected {
+				background: v.$mode-account-sidebar-theme-button-option-selected-background-color-dark;
+			}
+		}
+	}
+
+	// Light/Dark mode -- AccountSidebar logout-button -- hover background colors
+	.js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false {
+		&:hover,
+		:active {
+			background-color: v.$mode-account-sidebar-logout-button-hover-background-color-light;
+		}
+	}
+	.js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true {
+		&:hover,
+		:active {
+			background-color: v.$mode-account-sidebar-logout-button-hover-background-color-dark;
+		}
 	}
 
 	// Light/Dark mode -- CreateItemSidebar form-input -- border, background, text color, and focus box shadow

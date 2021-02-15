@@ -140,6 +140,24 @@ export function getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkM
 	);
 }
 
+// Light/Dark mode -- AccountSidebar theme-button -- border, background, text colors
+export function getAccountSidebarThemeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode -- AccountSidebar logout-button -- hover background colors
+export function getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-account-sidebar-logout-button-hover-background-color-dark-mode-" + dark_mode
+	);
+}
+
 // Light/Dark mode -- CreateItemSidebar component -- background colors
 export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode

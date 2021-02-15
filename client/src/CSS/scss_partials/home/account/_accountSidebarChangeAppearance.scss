@@ -31,10 +31,11 @@
 		float: left;
 		margin-left: 10px;
 		width: v.$account-sidebar-appearance-theme-button-width;
+		color: v.$mode-account-sidebar-theme-button-text-color-light; 
 		cursor: pointer;
 	}
 
-	.content-container__theme-button__selected-container {
+	.content-container__theme-button__current-container {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -42,9 +43,9 @@
 
 		position: relative;
 		float: left;
-		border: solid v.$account-sidebar-appearance-theme-button-border-color v.$account-sidebar-appearance-theme-button-border-width;
+		border: solid v.$mode-account-sidebar-theme-button-border-color-light v.$account-sidebar-appearance-theme-button-border-width;
 		border-right: none;
-		background-color: v.$account-sidebar-appearance-theme-button-background-color;
+		background-color: v.$mode-account-sidebar-theme-button-current-container-background-color-light;
 		height: v.$account-sidebar-appearance-theme-button-selected-arrow-container-height;
 		width: v.$account-sidebar-appearance-theme-button-selected-container-width;
 	}
@@ -66,7 +67,7 @@
 	}
 
 	.content-container__theme-button__option--selected {
-		background-color: v.$account-sidebar-appearance-theme-button-option-selected-color;
+		background-color: v.$mode-account-sidebar-theme-button-option-selected-background-color-light;
 	}
 
 	.content-container__theme-button__option__centering-container {
@@ -98,7 +99,6 @@
 		@include m.vertical-center();
 		@include m.stop-text-selection();
 
-		color: v.$account-sidebar-appearance-theme-button-option-text-color;
 		font-size: 12px;
 		font-weight: bold;
 		
@@ -112,17 +112,16 @@
 
 		position: relative;
 		float: left;
-		border: solid v.$account-sidebar-appearance-theme-button-border-color v.$account-sidebar-appearance-theme-button-border-width;
-		background-color: v.$account-sidebar-appearance-theme-button-arrow-container-color;
+		border: solid v.$mode-account-sidebar-theme-button-border-color-light v.$account-sidebar-appearance-theme-button-border-width;
+		background-color: v.$mode-account-sidebar-theme-button-arrow-container-background-color-light;
 		height: v.$account-sidebar-appearance-theme-button-selected-arrow-container-height;
 		width: v.$account-sidebar-appearance-theme-button-arrow-container-width;
+		color: v.$mode-account-sidebar-theme-button-arrow-container-text-color-light;
 	}
 
 	.content-container__theme-button__arrow-container__icon {
 		@include m.dead-center();
 		@include m.stop-text-selection();
-
-		color: v.$account-sidebar-appearance-theme-button-option-text-color;
 	}
 
 	.content-container__theme-button__dropdown-container {
@@ -134,18 +133,13 @@
 		z-index: 1;
 		position: absolute;
 		top: v.$account-sidebar-appearance-theme-button-dropdown-container-top;
-		border: solid v.$account-sidebar-appearance-theme-button-border-color v.$account-sidebar-appearance-theme-button-border-width;
+		border: solid v.$mode-account-sidebar-theme-button-border-color-light v.$account-sidebar-appearance-theme-button-border-width;
 		border-top: none;
-		background-color: v.$account-sidebar-appearance-theme-button-background-color;
+		background-color: v.$mode-account-sidebar-theme-button-dropdown-container-background-color-light;
 		width: v.$account-sidebar-appearance-theme-button-width;
 	}
 
 	.backend-errors {
 		@include m.backend-error();
-		//@include m.horizontal-center();
-
-		//position: absolute;
-		//top: 35px;
-		//width: 500px;
 	}
 }
