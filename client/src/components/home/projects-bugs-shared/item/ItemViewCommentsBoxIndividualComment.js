@@ -19,9 +19,10 @@ import {
 	getTextColorClassNameForTheme,
 	getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
 	getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode,
-	getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
-	getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSubmitFormOnEnter } from "../../../../utils/hooks";
@@ -212,7 +213,14 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								alt="Icon of a trash can"
 							/>
 						</div>
-						<span className="backend-errors backend-errors--edit-comment">
+						<span
+							className={
+								"backend-errors backend-errors--edit-comment" +
+								getBackendErrorsTextColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							{
 								reduxState[GENERAL_CONTAINER].backendErrors
 									.validationEditCommentDescription
@@ -227,7 +235,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 									type="submit"
 									className={
 										"comment__centering-container__pair-container__submit-edit-button" +
-										getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+										getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										) +
 										getBackgroundColorWithHoverClassNameForTheme(
@@ -240,7 +248,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								<div
 									className={
 										"comment__centering-container__pair-container__cancel-button" +
-										getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+										getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}

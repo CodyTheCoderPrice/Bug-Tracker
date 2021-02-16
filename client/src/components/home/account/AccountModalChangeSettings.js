@@ -11,7 +11,10 @@ import {
 	updateAccountSettings,
 } from "../../../actions";
 
-import { getTextColorClassNameForTheme } from "../../../utils";
+import {
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getTextColorClassNameForTheme,
+} from "../../../utils";
 
 // Components
 import ToggleSwitch from "../../basic/ToggleSwitch";
@@ -85,13 +88,22 @@ export default function AccountModalChangeSettings() {
 						</label>
 						<ToggleSwitch
 							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-							isOn={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs}
+							isOn={
+								reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs
+							}
 							onChangeFunction={onChangeFilterCompletedBugs}
 						/>
 					</div>
 				</div>
 			</div>
-			<span className="backend-errors">
+			<span
+				className={
+					"backend-errors" +
+					getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			>
 				{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverSettings}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}

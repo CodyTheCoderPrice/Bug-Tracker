@@ -14,6 +14,7 @@ import {
 	capitalizeFistLetterOfEachWord,
 	getAccountSidebarThemeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getDarkBackgroundColorClassNameForTheme,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 
 // Components
@@ -207,7 +208,14 @@ export default function AccountSidebarChangeAppearance() {
 					)}
 				</div>
 			</div>
-			<span className="backend-errors">
+			<span
+				className={
+					"backend-errors" +
+					getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			>
 				{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverSettings}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}

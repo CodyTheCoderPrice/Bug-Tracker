@@ -13,6 +13,9 @@ import {
 
 import {
 	getBackgroundColorWithHoverClassNameForTheme,
+	getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
 } from "../../../utils";
 
@@ -87,9 +90,21 @@ export default function AccountModalChangeInfo() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.first_name}
 					id="edit-account-info-first-name"
-					className="form__text-input"
+					className={
+						"form__text-input" +
+						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 				/>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountFirstName
@@ -112,9 +127,21 @@ export default function AccountModalChangeInfo() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.last_name}
 					id="edit-account-info-last-name"
-					className="form__text-input"
+					className={
+						"form__text-input" +
+						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 				/>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountLastName
@@ -124,6 +151,9 @@ export default function AccountModalChangeInfo() {
 					type="submit"
 					className={
 						"form__submit" +
+						getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
 						getBackgroundColorWithHoverClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -131,7 +161,14 @@ export default function AccountModalChangeInfo() {
 				>
 					Update
 				</button>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}

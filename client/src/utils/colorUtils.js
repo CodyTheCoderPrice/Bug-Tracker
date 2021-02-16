@@ -55,6 +55,13 @@ export function getHomeBackgroundAndTextColorClassNameForLightOrDarkMode(
 	return " js-set-home-background-and-text-color-dark-mode-" + dark_mode;
 }
 
+// Light/Dark mode -- backend-errors -- text colors
+export function getBackendErrorsTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-backend-errors-text-color-dark-mode-" + dark_mode;
+}
+
 // Light/Dark mode -- blurred-background -- background color and opacity
 export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 	clickToClose,
@@ -104,6 +111,26 @@ export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-universal-text-grayed-out-text-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- base form-input -- border, background, text color, and focus box shadow
+export function getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-base-form-input-border-background-text-color-focus-box-shadow-dark-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode -- base form-submit button -- focus box shadow
+export function getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-base-form-submit-button-focus-box-shadow-dark-mode-" +
+		dark_mode
+	);
 }
 
 // Light/Dark mode -- TopBar -- border and background colors
@@ -158,21 +185,29 @@ export function getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLig
 	);
 }
 
+// Light/Dark mode -- AccountModalDeleteAccount capital-delete -- text colors
+export function getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode -- AccountModalDeleteAccount form-submit button -- background (with hover) colors
+export function getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-" + dark_mode
+	);
+}
+
 // Light/Dark mode -- CreateItemSidebar component -- background colors
 export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode -- CreateItemSidebar form-input -- border, background, text color, and focus box shadow
-export function getCreateItemSidebarFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-create-item-sidebar-form-input-border-background-text-color-focus-box-shadow-dark-mode-" +
-		dark_mode
-	);
 }
 
 // Light/Dark mode -- CreateItemSidebar -- disabled form-label
@@ -188,16 +223,6 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 ) {
 	return (
 		" js-set-create-item-sidebar-diabled-input-date-dark-mode-" + dark_mode
-	);
-}
-
-// Light/Dark mode -- CreateItemSidebar form-submit button -- focus box shadow
-export function getCreateItemSidebarSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-create-item-sidebar-submit-button-focus-box-shadow-dark-mode-" +
-		dark_mode
 	);
 }
 
@@ -342,20 +367,20 @@ export function getItemViewDisableInputDateClassNameForLightOrDarkMode(
 }
 
 // Light/Dark mode -- ItemView form-submit button -- focus box shadow
-export function getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+export function getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-submit-button-focus-box-shadow-dark-mode-" + dark_mode
+		" js-set-item-view-form-submit-button-focus-box-shadow-dark-mode-" + dark_mode
 	);
 }
 
 // Light/Dark -- ItemView form cancel button -- mode background color (with hover)
-export function getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+export function getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-cancel-button-button-background-color-mode-" + dark_mode
+		" js-set-item-view-form-cancel-button-button-background-color-mode-" + dark_mode
 	);
 }
 

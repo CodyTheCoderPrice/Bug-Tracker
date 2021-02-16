@@ -22,13 +22,14 @@ import {
 	getTextColorClassNameForTheme,
 	getItemViewFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode,
 	getItemViewFormNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewDisabledLabelClassNameForLightOrDarkMode,
 	getItemViewDisableInputDateClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
-	getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
-	getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
+	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import {
@@ -257,7 +258,14 @@ export default function ItemViewEditItemInfo(props) {
 						</span>
 					</div>
 				</div>
-				<span className="backend-errors backend-errors--item-name">
+				<span
+					className={
+						"backend-errors backend-errors--item-name" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationItemName}
 				</span>
 				<div className="item-creation-date">
@@ -312,7 +320,14 @@ export default function ItemViewEditItemInfo(props) {
 								)
 							}
 						/>
-						<span className="backend-errors">
+						<span
+							className={
+								"backend-errors" +
+								getBackendErrorsTextColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+							}
+						>
 							{
 								reduxState[GENERAL_CONTAINER].backendErrors
 									.validationItemDescription
@@ -374,7 +389,14 @@ export default function ItemViewEditItemInfo(props) {
 										)
 									}
 								/>
-								<span className="backend-errors">
+								<span
+									className={
+										"backend-errors" +
+										getBackendErrorsTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										)
+									}
+								>
 									{
 										reduxState[GENERAL_CONTAINER].backendErrors
 											.validationItemLocation
@@ -507,7 +529,14 @@ export default function ItemViewEditItemInfo(props) {
 					</div>
 				</div>
 			</div>
-			<span className="backend-errors backend-errors--edit-item">
+			<span
+				className={
+					"backend-errors backend-errors--edit-item" +
+					getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			>
 				{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
 				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
@@ -519,7 +548,7 @@ export default function ItemViewEditItemInfo(props) {
 							type="submit"
 							className={
 								"form-buttons-centered-container__submit-button" +
-								getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+								getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								getBackgroundColorWithHoverClassNameForTheme(
@@ -534,7 +563,7 @@ export default function ItemViewEditItemInfo(props) {
 						<div
 							className={
 								"form-buttons-centered-container__cancel-button" +
-								getItemViewCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+								getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}

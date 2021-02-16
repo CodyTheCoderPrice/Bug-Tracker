@@ -14,7 +14,8 @@ import {
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
 	getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
-	getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
 	dateToInt,
 } from "../../../../utils";
@@ -151,7 +152,14 @@ export default function ItemViewCommentsBox() {
 							)
 						}
 					/>
-					<span className="backend-errors backend-errors--comment">
+					<span
+						className={
+							"backend-errors backend-errors--comment" +
+							getBackendErrorsTextColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					>
 						{
 							reduxState[GENERAL_CONTAINER].backendErrors
 								.validationCreateCommentDescription
@@ -165,7 +173,7 @@ export default function ItemViewCommentsBox() {
 							type="submit"
 							className={
 								"form-submit-centering-container__button" +
-								getItemViewSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+								getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								getBackgroundColorWithHoverClassNameForTheme(

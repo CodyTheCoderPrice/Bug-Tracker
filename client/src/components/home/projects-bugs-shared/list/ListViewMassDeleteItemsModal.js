@@ -13,6 +13,7 @@ import {
 
 import {
 	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 export default function ListViewMassDeleteItemsModal(props) {
@@ -61,7 +62,14 @@ export default function ListViewMassDeleteItemsModal(props) {
 				<div className="warning-container">
 					<span className="warning-container__message">Are you sure?</span>
 				</div>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.server}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 				</span>

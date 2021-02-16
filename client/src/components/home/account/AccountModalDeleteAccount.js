@@ -12,7 +12,12 @@ import {
 } from "../../../actions";
 
 import {
-	getBackgroundColorWithHoverClassNameForTheme,
+	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLightOrDarkMode,
+	getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
+	getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
 } from "../../../utils";
 
@@ -52,7 +57,15 @@ export default function AccountModalDeleteAccount() {
 
 	return (
 		<div>
-			<div className="back-button" onClick={backToEditInfo}>
+			<div
+				className={
+					"back-button" +
+					getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+				onClick={backToEditInfo}
+			>
 				<i
 					className="fa fa-arrow-left"
 					aria-hidden="true"
@@ -62,7 +75,17 @@ export default function AccountModalDeleteAccount() {
 			<h1 className="title">Delete Account</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
 				<label htmlFor="delete-account-type-out" className="form__label">
-					Enter <span className="form__label__captial-delete">DELETE</span>{" "}
+					Enter{" "}
+					<span
+						className={
+							"form__label__captial-delete" +
+							getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					>
+						DELETE
+					</span>{" "}
 					below:
 				</label>
 				<input
@@ -71,9 +94,21 @@ export default function AccountModalDeleteAccount() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.deleteTypedOut}
 					id="delete-account-type-out"
-					className="form__text-input"
+					className={
+						"form__text-input" +
+						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 				/>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountTypeOutCheck
@@ -88,23 +123,45 @@ export default function AccountModalDeleteAccount() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.currentPassword}
 					id="delete-account-password"
-					className="form__text-input"
+					className={
+						"form__text-input" +
+						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 				/>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
 				</span>
 				<button
 					type="submit"
 					className={
-						"form__submit" +
-						getBackgroundColorWithHoverClassNameForTheme(
-							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						"form__submit form__submit--delete" +
+						getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
+						getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
 				>
 					Delete
 				</button>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}

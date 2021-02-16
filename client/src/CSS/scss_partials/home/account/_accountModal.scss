@@ -15,7 +15,7 @@
 		padding: 30px;
 		height: v.$edit-account-modal-height;
 		width: v.$edit-account-modal-width;
-		
+
 		//text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
 	}
@@ -50,7 +50,7 @@
 		margin-left: 2px;
 		margin-right: 2px;
 		font-size: 16px;
-		color: v.$account-modal-capital-delete-text-color;
+		color: v.$mode-account-modal-delete-account-capital-delete-text-color-light;
 	}
 
 	.form__char-counter {
@@ -63,21 +63,20 @@
 		margin-top: v.$edit-account-form-input-margin-top;
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-base-border-width solid v.$mode-create-item-sidebar-form-input-border-color-light;
+		border: v.$form-input-text-base-border-width solid
+			v.$mode-base-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
-		background: v.$mode-create-item-sidebar-form-input-background-color-light;
+		background: v.$mode-base-form-input-background-color-light;
 		padding: 8px;
 		width: 100%;
 		font-size: 14px;
 		text-align: center;
 
 		&:focus {
-			border: v.$form-input-text-focus-border-width solid v.$focus-blue;
-			margin-top: v.$edit-account-form-input-margin-top -
-				v.$form-input-text-focus-border-width-difference;
-			margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom -
-				v.$form-input-text-focus-border-width-difference;
+			box-shadow: v.$mode-base-form-input-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-base-form-input-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-base-form-input-focus-box-shadow-color-light;
 		}
 	}
 
@@ -100,6 +99,21 @@
 		color: white;
 		font-size: 16px;
 		cursor: pointer;
+
+		&:focus {
+			box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-light;
+			-moz-box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-light;
+			-webkit-box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-light;
+		}
+	}
+
+	.form__submit--delete {
+		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-light;
+
+		&:hover,
+		:active {
+			background-color: v.$mode-account-modal-delete-account-form-delete-button-hover-background-color-light;
+		}
 	}
 
 	.modal-links-container {

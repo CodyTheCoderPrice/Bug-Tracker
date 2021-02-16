@@ -12,6 +12,10 @@ import {
 } from "../../../actions";
 
 import {
+	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
 	getTextColorClassNameForTheme,
 } from "../../../utils";
@@ -52,8 +56,20 @@ export default function AccountModalChangeEmail() {
 
 	return (
 		<div>
-			<div className="back-button" onClick={backToEditInfo}>
-				<i className="fa fa-arrow-left" aria-hidden="true" alt="Icon of an arrow pointing to the left" />
+			<div
+				className={
+					"back-button" +
+					getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+				onClick={backToEditInfo}
+			>
+				<i
+					className="fa fa-arrow-left"
+					aria-hidden="true"
+					alt="Icon of an arrow pointing to the left"
+				/>
 			</div>
 			<h1 className="title">Edit Email</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
@@ -66,9 +82,21 @@ export default function AccountModalChangeEmail() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.email}
 					id="edit-account-email-email"
-					className="form__text-input"
+					className={
+						"form__text-input" +
+						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 				/>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
 				</span>
 				<label htmlFor="edit-account-email-password" className="form__label">
@@ -80,15 +108,30 @@ export default function AccountModalChangeEmail() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.currentPassword}
 					id="edit-account-email-password"
-					className="form__text-input"
+					className={
+						"form__text-input" +
+						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 				/>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
 				</span>
 				<button
 					type="submit"
 					className={
 						"form__submit" +
+						getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
 						getBackgroundColorWithHoverClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -96,7 +139,14 @@ export default function AccountModalChangeEmail() {
 				>
 					Update
 				</button>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
@@ -106,7 +156,12 @@ export default function AccountModalChangeEmail() {
 			<div className="modal-links-container">
 				<span
 					onClick={backToEditInfo}
-					className={"modal-link" + getTextColorClassNameForTheme(reduxState[ACCOUNT_CONTAINER].settings.theme_color)}
+					className={
+						"modal-link" +
+						getTextColorClassNameForTheme(
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						)
+					}
 				>
 					Back
 				</span>

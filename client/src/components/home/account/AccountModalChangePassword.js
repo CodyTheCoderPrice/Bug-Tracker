@@ -12,6 +12,10 @@ import {
 } from "../../../actions";
 
 import {
+	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
 	getBackgroundColorWithHoverClassNameForTheme,
 	getTextColorClassNameForTheme,
 } from "../../../utils";
@@ -52,7 +56,15 @@ export default function AccountModalChangePassword() {
 
 	return (
 		<div>
-			<div className="back-button" onClick={backToEditInfo}>
+			<div
+				className={
+					"back-button" +
+					getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+				onClick={backToEditInfo}
+			>
 				<i
 					className="fa fa-arrow-left"
 					aria-hidden="true"
@@ -81,9 +93,21 @@ export default function AccountModalChangePassword() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.newPassword}
 					id="edit-account-password-new-password"
-					className="form__text-input"
+					className={
+						"form__text-input" +
+						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 				/>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
 							.validationAccountNewPassword
@@ -109,15 +133,30 @@ export default function AccountModalChangePassword() {
 					onChange={(e) => onChange(e)}
 					value={accountInfo.currentPassword}
 					id="edit-account-password-current-password"
-					className="form__text-input"
+					className={
+						"form__text-input" +
+						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 				/>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
 				</span>
 				<button
 					type="submit"
 					className={
 						"form__submit" +
+						getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
 						getBackgroundColorWithHoverClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -125,7 +164,14 @@ export default function AccountModalChangePassword() {
 				>
 					Update
 				</button>
-				<span className="backend-errors">
+				<span
+					className={
+						"backend-errors" +
+						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
