@@ -15,6 +15,7 @@ import {
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
@@ -97,6 +98,9 @@ export default function AccountModalDeleteAccount() {
 						"form__text-input" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
+						getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
 				/>
@@ -125,6 +129,9 @@ export default function AccountModalDeleteAccount() {
 					className={
 						"form__text-input" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
+						getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

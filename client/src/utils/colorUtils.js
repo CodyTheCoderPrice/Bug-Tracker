@@ -187,6 +187,16 @@ export function getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLi
 	);
 }
 
+// Light/Dark mode -- AccountModalDeleteAccount form-input -- focus background colors
+export function getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-" +
+		dark_mode
+	);
+}
+
 // Light/Dark mode -- AccountModalDeleteAccount form-submit button -- background (with hover) colors
 export function getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode

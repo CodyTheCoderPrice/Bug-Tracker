@@ -930,10 +930,10 @@ dropdown can overlap all other components
   margin-bottom: 10px;
 }
 .edit-account-modal-component .form__submit--delete {
-  background-color: #df4f4f;
+  background-color: #e95454;
 }
 .edit-account-modal-component .form__submit--delete:hover, .edit-account-modal-component .form__submit--delete:active, .edit-account-modal-component .form__submit--delete:focus {
-  background-color: #d64949;
+  background-color: #d44141;
 }
 .edit-account-modal-component .modal-links-container {
   position: absolute;
@@ -3094,25 +3094,33 @@ body {
 .js-calc-app-component .js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-true {
   color: #d31818;
 }
+.app-component .js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-false:focus,
+.js-calc-app-component .js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-false:focus {
+  border-color: #e95454;
+}
+.app-component .js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-true:focus,
+.js-calc-app-component .js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-true:focus {
+  border-color: #993636;
+}
 .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false {
-  background-color: #df4f4f;
+  background-color: #e95454;
 }
 .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:hover, .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:active, .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:focus,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:hover,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:active,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:focus {
-  background-color: #d64949;
+  background-color: #d44141;
 }
 .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true {
-  background-color: #b13232;
+  background-color: #a83c3c;
 }
 .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:hover, .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:active, .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:focus,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:hover,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:active,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:focus {
-  background-color: #a52f2f;
+  background-color: #993636;
 }
 .app-component .js-set-create-item-sidebar-background-color-dark-mode-false,
 .js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-false {

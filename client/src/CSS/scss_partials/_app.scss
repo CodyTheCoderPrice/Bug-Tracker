@@ -306,6 +306,18 @@ body {
 		color: v.$mode-account-modal-delete-account-capital-delete-text-color-dark;
 	}
 
+	// Light/Dark mode -- AccountModalDeleteAccount form-input -- focus background colors
+	.js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-false {
+		&:focus {
+			border-color: v.$mode-account-modal-delete-account-form-input-focus-border-color-light;
+		}
+	}
+	.js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-true {
+		&:focus {
+			border-color: v.$mode-account-modal-delete-account-form-input-focus-border-color-dark;
+		}
+	}
+
 	// Light/Dark mode -- AccountModalDeleteAccount form-submit button -- background (with hover) colors
 	.js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false {
 		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-light;
