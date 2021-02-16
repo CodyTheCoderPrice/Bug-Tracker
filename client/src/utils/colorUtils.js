@@ -113,22 +113,12 @@ export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
 	return " js-set-universal-text-grayed-out-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode -- base form-input -- border, background, text color, and focus box shadow
-export function getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+// Light/Dark mode -- base form-input -- border (with focus), background, and text color
+export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-base-form-input-border-background-text-color-focus-box-shadow-dark-mode-" +
-		dark_mode
-	);
-}
-
-// Light/Dark mode -- base form-submit button -- focus box shadow
-export function getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-base-form-submit-button-focus-box-shadow-dark-mode-" +
+		" js-set-base-form-input-border-background-text-color-dark-mode-" +
 		dark_mode
 	);
 }
@@ -172,7 +162,8 @@ export function getAccountSidebarThemeButtonBorderBackgroundTextColorClassNameFo
 	dark_mode
 ) {
 	return (
-		" js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-" + dark_mode
+		" js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-" +
+		dark_mode
 	);
 }
 
@@ -181,7 +172,8 @@ export function getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLig
 	dark_mode
 ) {
 	return (
-		" js-set-account-sidebar-logout-button-hover-background-color-dark-mode-" + dark_mode
+		" js-set-account-sidebar-logout-button-hover-background-color-dark-mode-" +
+		dark_mode
 	);
 }
 
@@ -190,7 +182,8 @@ export function getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLi
 	dark_mode
 ) {
 	return (
-		" js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-" + dark_mode
+		" js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-" +
+		dark_mode
 	);
 }
 
@@ -199,7 +192,8 @@ export function getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClass
 	dark_mode
 ) {
 	return (
-		" js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-" + dark_mode
+		" js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-" +
+		dark_mode
 	);
 }
 
@@ -324,28 +318,18 @@ export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundCol
 	);
 }
 
-// Light/Dark mode -- ItemView form-input -- border, background, text color, and focus box shadow
-export function getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+// Light/Dark mode --  ItemViewEditItemInfo form-input for name -- border (with focus -- top, bottom, left), background, text color
+export function getItemViewFormNameInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-" +
+		" js-set-item-view-form-input-border-background-text-color-dark-mode-" +
 		dark_mode
 	);
 }
 
-// Light/Dark mode --  ItemViewEditItemInfo form-input for name -- border, background, text color, and focus box shadow (top, bottom, left)
-export function getItemViewFormInputBorderBackgroundTextColorTopBottomLeftFocusBoxShadowClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-" +
-		dark_mode
-	);
-}
-
-// Light/Dark mode -- ItemViewEditItemInfo name char-count-container -- box shadow (top, bottom, left)
-export function getItemViewFormNameCharCountContainerTopBottomRightBoxShadowClassNameForLightOrDarkMode(
+// Light/Dark mode -- ItemViewEditItemInfo name char-count-container -- border color (top, bottom, right)
+export function getItemViewFormNameCharCountContainerFocusBorderColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
@@ -366,21 +350,13 @@ export function getItemViewDisableInputDateClassNameForLightOrDarkMode(
 	return " js-set-item-view-diabled-input-date-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode -- ItemView form-submit button -- focus box shadow
-export function getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-item-view-form-submit-button-focus-box-shadow-dark-mode-" + dark_mode
-	);
-}
-
 // Light/Dark -- ItemView form cancel button -- mode background color (with hover)
 export function getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-form-cancel-button-button-background-color-mode-" + dark_mode
+		" js-set-item-view-form-cancel-button-button-background-color-mode-" +
+		dark_mode
 	);
 }
 
@@ -397,14 +373,23 @@ export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNa
 //========
 // Themes
 //========
+// Theme border color
+export function getLightBorderColorClassNameForTheme(theme_color) {
+	return " js-set-light-border-color-theme-" + theme_color;
+}
+export function getDarkBorderColorClassNameForTheme(theme_color) {
+	return " js-set-dark-border-color-theme-" + theme_color;
+}
+
+
 // Theme background color
+export function getLightBackgroundColorClassNameForTheme(theme_color) {
+	return " js-set-light-background-color-theme-" + theme_color;
+}
 export function getDarkBackgroundColorClassNameForTheme(theme_color) {
 	return " js-set-dark-background-color-theme-" + theme_color;
 }
 
-export function getLightBackgroundColorClassNameForTheme(theme_color) {
-	return " js-set-light-background-color-theme-" + theme_color;
-}
 
 // Theme background color with hover
 export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
@@ -412,21 +397,16 @@ export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
 }
 
 // Theme breadcrumb arrow color
+export function getLightBreadcrumbArrowColorClassNameForTheme(theme_color) {
+	return " js-set-light-breadcrumb-arrow-color-theme-" + theme_color;
+}
 export function getDarkBreadcrumbArrowColorClassNameForTheme(theme_color) {
 	return " js-set-dark-breadcrumb-arrow-color-theme-" + theme_color;
 }
 
-export function getLightBreadcrumbArrowColorClassNameForTheme(theme_color) {
-	return " js-set-light-breadcrumb-arrow-color-theme-" + theme_color;
-}
-
-// Theme border color
-export function getDarkBorderColorClassNameForTheme(theme_color) {
-	return " js-set-dark-border-color-theme-" + theme_color;
-}
-
-export function getLightBorderColorClassNameForTheme(theme_color) {
-	return " js-set-light-border-color-theme-" + theme_color;
+// Theme form-submit button colors
+export function getformSubmitButtonColorClassNameForTheme(theme_color) {
+	return " js-set-form-submit-button-color-theme-" + theme_color;
 }
 
 // Theme text and link color

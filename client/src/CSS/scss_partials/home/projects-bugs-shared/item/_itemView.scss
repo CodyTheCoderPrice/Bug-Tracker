@@ -158,9 +158,7 @@
 		resize: none;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			border-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
 

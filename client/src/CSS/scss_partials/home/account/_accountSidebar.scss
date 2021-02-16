@@ -39,7 +39,7 @@
 		cursor: pointer;
 
 		&:hover,
-		:active {
+		&:active {
 			color: v.$mode-base-icon-button-hover-text-color-light;
 			font-size: 23px;
 		}
@@ -78,7 +78,7 @@
 		cursor: pointer;
 
 		&:hover,
-		:active {
+		&:active {
 			text-decoration: underline;
 		}
 	}
@@ -112,7 +112,7 @@
 		cursor: pointer;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-account-sidebar-logout-button-hover-background-color-light;
 		}
 	}

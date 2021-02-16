@@ -260,7 +260,7 @@
 		cursor: pointer;
 
 		&:hover,
-		:active {
+		&:active {
 			color: v.$mode-base-icon-button-hover-text-color-light;
 		}
 	}
@@ -300,7 +300,7 @@
 		cursor: pointer;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-item-view-top-bar-options-dropdown-row-hover-background-color-light;
 		}
 	}

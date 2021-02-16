@@ -63,7 +63,7 @@
 		margin-top: v.$edit-account-form-input-margin-top;
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-base-border-width solid
+		border: v.$form-input-text-border-width solid
 			v.$mode-base-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
@@ -74,9 +74,7 @@
 		text-align: center;
 
 		&:focus {
-			box-shadow: v.$mode-base-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-base-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-base-form-input-focus-box-shadow-color-light;
+			border-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
 
@@ -85,33 +83,18 @@
 	}
 
 	.form__submit {
+		@include m.base-form-submit-button();
+
 		margin-top: 15px;
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
-		outline: none;
-		border: 0;
-		border-radius: v.$base-buttton-border-radius;
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		background-color: black;
-		padding: 10px;
-		width: 100%;
-		color: white;
-		font-size: 16px;
-		cursor: pointer;
-
-		&:focus {
-			box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-light;
-		}
 	}
 
 	.form__submit--delete {
 		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-light;
 
 		&:hover,
-		:active {
+		&:active,
+		&:focus {
 			background-color: v.$mode-account-modal-delete-account-form-delete-button-hover-background-color-light;
 		}
 	}

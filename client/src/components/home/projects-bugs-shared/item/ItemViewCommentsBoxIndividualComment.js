@@ -17,10 +17,10 @@ import {
 import {
 	formatDateMMddYYYY,
 	getTextColorClassNameForTheme,
-	getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
+	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
+	getformSubmitButtonColorClassNameForTheme,
 	getBackgroundColorWithHoverClassNameForTheme,
 	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
@@ -192,7 +192,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 							id="edit-comment-description"
 							className={
 								"item-box__form-textarea item-box__form-textarea--shorter" +
-								getItemViewFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+								getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -235,10 +235,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 									type="submit"
 									className={
 										"comment__centering-container__pair-container__submit-edit-button" +
-										getItemViewFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-										) +
-										getBackgroundColorWithHoverClassNameForTheme(
+										getformSubmitButtonColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										)
 									}

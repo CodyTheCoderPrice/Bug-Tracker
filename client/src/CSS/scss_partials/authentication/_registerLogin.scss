@@ -66,7 +66,8 @@
 		margin-top: v.$register-login-form-input-margin-top;
 		margin-bottom: v.$register-login-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-base-border-width solid v.$mode-base-form-input-border-color-light;
+		border: v.$form-input-text-border-width solid
+			v.$mode-base-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
 		background: v.$mode-base-form-input-background-color-light;
 		padding: 8px;
@@ -75,11 +76,7 @@
 		text-align: center;
 
 		&:focus {
-			border: v.$form-input-text-focus-border-width solid v.$focus-blue;
-			margin-top: v.$register-login-form-input-margin-top -
-				v.$form-input-text-focus-border-width-difference;
-			margin-bottom: v.$register-login-form-input-margin-bottom -
-				v.$form-input-text-focus-border-width-difference;
+			border-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
 
@@ -93,7 +90,7 @@
 		outline: none;
 		border: 0;
 		border-radius: v.$base-buttton-border-radius;
-		background-color: v.$teal-light-level-1;
+		background-color: v.$register-login-submit-button-border-background-color;
 		padding: 10px;
 		width: 100%;
 		color: white;
@@ -101,8 +98,9 @@
 		cursor: pointer;
 
 		&:hover,
-		:active {
-			background-color: v.$teal-dark-level-1;
+		&:active,
+		&:focus {
+			background-color: v.$register-login-submit-button-hover-border-background-color;
 		}
 	}
 

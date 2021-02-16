@@ -82,7 +82,7 @@
 		cursor: pointer;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$gray-light-level-2;
 		}
 	}
@@ -91,7 +91,7 @@
 		background-color: v.$gray-light-level-5;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$gray-light-level-5;
 		}
 	}
@@ -132,7 +132,7 @@
 		cursor: pointer;
 
 		&:hover,
-		:active {
+		&:active {
 			opacity: 1;
 			color: v.$breadcrumb-hamburger-close-button-text-color;
 		}

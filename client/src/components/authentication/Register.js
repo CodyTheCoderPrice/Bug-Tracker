@@ -49,7 +49,7 @@ export default function Register() {
 					<div className="form__pair-container">
 						<div className="form__pair-container__single-container">
 							<label htmlFor="register-first-name" className="form__label">
-								First Name
+								First name
 							</label>
 							{accountInfo.first_name.length >
 							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
@@ -76,7 +76,7 @@ export default function Register() {
 						</div>
 						<div className="form__pair-container__single-container form__pair-container__single-container--right">
 							<label htmlFor="register-last-name" className="form__label">
-								Last Name
+								Last name
 							</label>
 							{accountInfo.last_name.length >
 							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (

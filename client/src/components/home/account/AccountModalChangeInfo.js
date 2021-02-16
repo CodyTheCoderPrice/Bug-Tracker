@@ -13,9 +13,9 @@ import {
 
 import {
 	getBackgroundColorWithHoverClassNameForTheme,
-	getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode,
+	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode,
+	getformSubmitButtonColorClassNameForTheme,
 	getTextColorClassNameForTheme,
 } from "../../../utils";
 
@@ -92,7 +92,7 @@ export default function AccountModalChangeInfo() {
 					id="edit-account-info-first-name"
 					className={
 						"form__text-input" +
-						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -129,7 +129,7 @@ export default function AccountModalChangeInfo() {
 					id="edit-account-info-last-name"
 					className={
 						"form__text-input" +
-						getBaseFormInputBorderBackgroundTextColorFocusBoxShadowClassNameForLightOrDarkMode(
+						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -151,10 +151,7 @@ export default function AccountModalChangeInfo() {
 					type="submit"
 					className={
 						"form__submit" +
-						getBaseFormSubmitButtonFocusBoxShadowClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-						) +
-						getBackgroundColorWithHoverClassNameForTheme(
+						getformSubmitButtonColorClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

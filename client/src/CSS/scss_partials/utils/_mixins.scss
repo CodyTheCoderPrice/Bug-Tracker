@@ -40,7 +40,7 @@
 	cursor: pointer;
 
 	&:hover,
-	:active {
+	&:active {
 		color: v.$mode-base-icon-button-hover-text-color-light;
 	}
 }
@@ -66,7 +66,29 @@
 	text-align: center;
 }
 
+@mixin base-form-submit-button() {
+	outline: none;
+	border: 0;
+	// Need to get rid of border for a submit button
+	border-radius: v.$base-buttton-border-radius;
+	// This background color should only appear if there was a problem
+	// ...assigning a different background color to this element.
+	// ...the scss for the colors assigned are in app.scss
+	background-color: black;
+	padding: 10px;
+	width: 100%;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+}
+
 @mixin item-view-form-submit-button() {
+	// Must be border-box because the zoom on the webpage can resize the border otherwise
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
 	outline: none;
 	border: 1px solid black;
 	border-radius: v.$base-buttton-border-radius;
@@ -84,16 +106,15 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	cursor: pointer;
-
-	&:focus {
-		box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
-		-moz-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
-		-webkit-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
-	}
 }
 
 @mixin item-view-form-cancel-button() {
 	@include stop-text-selection();
+
+	// Must be border-box because the zoom on the webpage can resize the border otherwise
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 
 	border: 1px solid black;
 	border-radius: v.$base-buttton-border-radius;
@@ -107,7 +128,7 @@
 	cursor: pointer;
 
 	&:hover,
-	:active {
+	&:active {
 		background-color: v.$mode-item-view-form-cancel-button-hover-background-color-light;
 	}
 }

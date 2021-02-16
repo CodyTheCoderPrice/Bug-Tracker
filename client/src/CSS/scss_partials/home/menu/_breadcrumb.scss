@@ -118,7 +118,7 @@
 		cursor: pointer;
 
 		&:hover,
-		:active {
+		&:active {
 			opacity: 1;
 			color: v.$breadcrumb-hamburger-close-button-text-color;
 		}

@@ -28,9 +28,7 @@
 		text-align: center;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
+			border-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
 
@@ -111,9 +109,7 @@
 		font-family: Arial, Helvetica, sans-serif;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			border-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
 
@@ -125,9 +121,7 @@
 		font-size: 14px;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			border-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
 
@@ -137,9 +131,7 @@
 		background-color: v.$mode-item-view-form-input-background-color-light;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			border-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
 

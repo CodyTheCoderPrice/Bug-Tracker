@@ -12,9 +12,6 @@ body {
 	width: 100%;
 	color: v.$mode-home-text-color-light;
 
-	//===========================
-	// Universal class selectors
-	//===========================
 	// Used to turn character counters red when limit is gone over
 	.universal-text-red {
 		color: red;
@@ -28,9 +25,9 @@ body {
 		opacity: 0.7;
 	}
 
-	//======================================
-	// Class selectors used by JS functions
-	//======================================
+	//=================
+	// Light/Dark mode
+	//=================
 	// Light/Dark mode -- Home component -- background and text colors
 	.js-set-home-background-and-text-color-dark-mode-false {
 		background-color: v.$mode-home-background-color-light;
@@ -74,7 +71,7 @@ body {
 		color: v.$mode-base-icon-button-text-color-light;
 
 		&:hover,
-		:active {
+		&:active {
 			color: v.$mode-base-icon-button-hover-text-color-light;
 		}
 	}
@@ -82,7 +79,7 @@ body {
 		color: v.$mode-base-icon-button-text-color-dark;
 
 		&:hover,
-		:active {
+		&:active {
 			color: v.$mode-base-icon-button-hover-text-color-dark;
 		}
 	}
@@ -173,43 +170,23 @@ body {
 		color: v.$mode-universal-text-grayed-out-text-color-dark;
 	}
 
-	// Light/Dark mode -- base form-input -- border, background, text color, and focus box shadow
-	.js-set-base-form-input-border-background-text-color-focus-box-shadow-dark-mode-false {
+	// Light/Dark mode -- base form-input -- border (with focus), background, and text color
+	.js-set-base-form-input-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-base-form-input-border-color-light;
 		background-color: v.$mode-base-form-input-background-color-light;
 		color: v.$mode-home-text-color-light;
 
 		&:focus {
-			box-shadow: v.$mode-base-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-base-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-base-form-input-focus-box-shadow-color-light;
+			border-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
-	.js-set-base-form-input-border-background-text-color-focus-box-shadow-dark-mode-true {
+	.js-set-base-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-base-form-input-border-color-dark;
 		background-color: v.$mode-base-form-input-background-color-dark;
 		color: v.$mode-home-text-color-dark;
 
 		&:focus {
-			box-shadow: v.$mode-base-form-input-focus-box-shadow-color-dark;
-			-moz-box-shadow: v.$mode-base-form-input-focus-box-shadow-color-dark;
-			-webkit-box-shadow: v.$mode-base-form-input-focus-box-shadow-color-dark;
-		}
-	}
-
-	// Light/Dark mode -- base form-submit button -- focus box shadow
-	.js-set-base-form-submit-button-focus-box-shadow-dark-mode-false {
-		&:focus {
-			box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-light;
-		}
-	}
-	.js-set-base-form-submit-button-focus-box-shadow-dark-mode-true {
-		&:focus {
-			box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-dark;
-			-moz-box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-dark;
-			-webkit-box-shadow: v.$mode-base-form-submit-button-focus-box-shadow-color-dark;
+			border-color: v.$mode-base-form-input-focus-border-color-dark;
 		}
 	}
 
@@ -310,13 +287,13 @@ body {
 	// Light/Dark mode -- AccountSidebar logout-button -- hover background colors
 	.js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false {
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-account-sidebar-logout-button-hover-background-color-light;
 		}
 	}
 	.js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true {
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-account-sidebar-logout-button-hover-background-color-dark;
 		}
 	}
@@ -334,7 +311,8 @@ body {
 		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-light;
 
 		&:hover,
-		:active {
+		&:active,
+		&:focus {
 			background-color: v.$mode-account-modal-delete-account-form-delete-button-hover-background-color-light;
 		}
 	}
@@ -342,7 +320,8 @@ body {
 		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-dark;
 
 		&:hover,
-		:active {
+		&:active,
+		&:focus {
 			background-color: v.$mode-account-modal-delete-account-form-delete-button-hover-background-color-dark;
 		}
 	}
@@ -430,7 +409,7 @@ body {
 		background-color: v.$mode-delete-modal-cancel-button-background-color-light;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-delete-modal-cancel-button-hover-background-color-light;
 		}
 	}
@@ -438,7 +417,7 @@ body {
 		background-color: v.$mode-delete-modal-cancel-button-background-color-dark;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-delete-modal-cancel-button-hover-background-color-dark;
 		}
 	}
@@ -448,7 +427,7 @@ body {
 		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 
 		&:hover,
-		:active {
+		&:active {
 			color: v.$mode-item-view-top-bar-icon-button-hover-text-color-light;
 		}
 	}
@@ -456,7 +435,7 @@ body {
 		color: v.$mode-item-view-top-bar-icon-button-text-color-dark;
 
 		&:hover,
-		:active {
+		&:active {
 			color: v.$mode-item-view-top-bar-icon-button-hover-text-color-dark;
 		}
 	}
@@ -478,13 +457,13 @@ body {
 	// Light/Dark mode -- ItemViewTopBar options-dropdown-row -- hover background color
 	.js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false {
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-item-view-top-bar-options-dropdown-row-hover-background-color-light;
 		}
 	}
 	.js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true {
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark;
 		}
 	}
@@ -511,7 +490,7 @@ body {
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-light;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light;
 		}
 	}
@@ -520,69 +499,45 @@ body {
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-dark;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-dark;
 		}
 	}
 
-	// Light/Dark mode -- ItemView form-input -- border, background, text color, and focus box shadow
-	.js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-false {
+	// Light/Dark mode --  ItemViewEditItemInfo form-input for name -- border (with focus -- top, bottom, left), background, text color
+	.js-set-item-view-form-input-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-item-view-form-input-border-color-light;
 		background-color: v.$mode-item-view-form-input-background-color-light;
 		color: v.$mode-home-text-color-light;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-light;
+			border-top-color: v.$mode-base-form-input-focus-border-color-light;
+			border-bottom-color: v.$mode-base-form-input-focus-border-color-light;
+			border-left-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
-	.js-set-item-view-form-input-border-background-text-color-focus-box-shadow-dark-mode-true {
+	.js-set-item-view-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-item-view-form-input-border-color-dark;
 		background-color: v.$mode-item-view-form-input-background-color-dark;
 		color: v.$mode-home-text-color-dark;
 
 		&:focus {
-			box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-dark;
-			-moz-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-dark;
-			-webkit-box-shadow: v.$mode-item-view-form-input-focus-box-shadow-color-dark;
+			border-top-color: v.$mode-base-form-input-focus-border-color-dark;
+			border-bottom-color: v.$mode-base-form-input-focus-border-color-dark;
+			border-left-color: v.$mode-base-form-input-focus-border-color-dark;
 		}
 	}
 
-	// Light/Dark mode --  ItemViewEditItemInfo form-input for name -- border, background, text color, and focus box shadow (top, bottom, left)
-	.js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-false {
-		border-color: v.$mode-item-view-form-input-border-color-light;
-		background-color: v.$mode-item-view-form-input-background-color-light;
-		color: v.$mode-home-text-color-light;
-
-		&:focus {
-			box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-light;
-		}
-	}
-	.js-set-item-view-form-input-border-background-text-color-top-bottom-left-focus-box-shadow-dark-mode-true {
-		border-color: v.$mode-item-view-form-input-border-color-dark;
-		background-color: v.$mode-item-view-form-input-background-color-dark;
-		color: v.$mode-home-text-color-dark;
-
-		&:focus {
-			box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-dark;
-			-moz-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-dark;
-			-webkit-box-shadow: v.$mode-item-view-form-input-top-bottom-left-focus-box-shadow-color-dark;
-		}
-	}
-
-	// Light/Dark mode -- ItemViewEditItemInfo name char-count-container -- box shadow (top, bottom, left)
+	// Light/Dark mode -- ItemViewEditItemInfo name char-count-container -- border color (top, bottom, right)
 	.js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false {
-		box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-light;
-		-moz-box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-light;
-		-webkit-box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-light;
+		border-top-color: v.$mode-base-form-input-focus-border-color-light;
+		border-bottom-color: v.$mode-base-form-input-focus-border-color-light;
+		border-right-color: v.$mode-base-form-input-focus-border-color-light;
 	}
 	.js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true {
-		box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-dark;
-		-moz-box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-dark;
-		-webkit-box-shadow: v.$mode-item-view-form-name-char-count-container-top-bottom-right-box-shadow-color-dark;
+		border-top-color: v.$mode-base-form-input-focus-border-color-dark;
+		border-bottom-color: v.$mode-base-form-input-focus-border-color-dark;
+		border-right-color: v.$mode-base-form-input-focus-border-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewEditItemInfo -- disabled form-label
@@ -607,28 +562,12 @@ body {
 		pointer-events: none;
 	}
 
-	// Light/Dark mode -- ItemView form-submit button -- focus box shadow
-	.js-set-item-view-form-submit-button-focus-box-shadow-dark-mode-false {
-		&:focus {
-			box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
-			-moz-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
-			-webkit-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-light;
-		}
-	}
-	.js-set-item-view-form-submit-button-focus-box-shadow-dark-mode-true {
-		&:focus {
-			box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-dark;
-			-moz-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-dark;
-			-webkit-box-shadow: v.$mode-item-view-form-submit-button-focus-box-shadow-color-dark;
-		}
-	}
-
 	// Light/Dark -- ItemView form cancel button -- mode background color (with hover)
 	.js-set-item-view-form-cancel-button-button-background-color-mode-false {
 		background-color: v.$mode-item-view-form-cancel-button-background-color-light;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-item-view-form-cancel-button-hover-background-color-light;
 		}
 	}
@@ -636,7 +575,7 @@ body {
 		background-color: v.$mode-item-view-form-cancel-button-background-color-dark;
 
 		&:hover,
-		:active {
+		&:active {
 			background-color: v.$mode-item-view-form-cancel-button-hover-background-color-dark;
 		}
 	}
@@ -646,7 +585,7 @@ body {
 		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-light;
 
 		&:hover,
-		:active {
+		&:active {
 			color: v.$mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-light;
 		}
 	}
@@ -654,77 +593,100 @@ body {
 		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-dark;
 
 		&:hover,
-		:active {
+		&:active {
 			color: v.$mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-dark;
 		}
 	}
 
+	//========
+	// Themes
+	//========
+	// Theme border colors
+	.js-set-light-border-color-theme-teal {
+		border-color: v.$theme-light-border-background-color-teal;
+	}
+	.js-set-dark-border-color-theme-teal {
+		border-color: v.$theme-dark-border-background-color-teal;
+	}
+	.js-set-light-border-color-theme-blue {
+		border-color: v.$theme-light-border-background-color-blue;
+	}
+	.js-set-dark-border-color-theme-blue {
+		border-color: v.$theme-dark-border-background-color-blue;
+	}
+
 	// Theme background colors
-	.js-set-dark-background-color-theme-teal {
-		background-color: v.$theme-teal-background-color-dark;
-	}
 	.js-set-light-background-color-theme-teal {
-		background-color: v.$theme-teal-background-color-light;
+		background-color: v.$theme-light-border-background-color-teal;
 	}
-	.js-set-dark-background-color-theme-blue {
-		background-color: v.$theme-blue-background-color-dark;
+	.js-set-dark-background-color-theme-teal {
+		background-color: v.$theme-dark-border-background-color-teal;
 	}
 	.js-set-light-background-color-theme-blue {
-		background-color: v.$theme-blue-background-color-light;
+		background-color: v.$theme-light-border-background-color-blue;
+	}
+	.js-set-dark-background-color-theme-blue {
+		background-color: v.$theme-dark-border-background-color-blue;
 	}
 
 	// Theme background colors with hover
 	.js-set-background-color-with-hover-theme-teal {
-		background-color: v.$theme-teal-background-color-light;
+		background-color: v.$theme-light-border-background-color-teal;
 
 		&:hover,
-		:active {
-			background-color: v.$theme-teal-background-color-dark;
+		&:active {
+			background-color: v.$theme-dark-border-background-color-teal;
 		}
 	}
 	.js-set-background-color-with-hover-theme-blue {
-		background-color: v.$theme-blue-background-color-light;
+		background-color: v.$theme-light-border-background-color-blue;
 
 		&:hover,
-		:active {
-			background-color: v.$theme-blue-background-color-dark;
+		&:active {
+			background-color: v.$theme-dark-border-background-color-blue;
 		}
 	}
 
 	// Theme breadcrumb arrow colors
-	.js-set-dark-breadcrumb-arrow-color-theme-teal {
-		border-left-color: v.$theme-teal-background-color-dark;
-	}
 	.js-set-light-breadcrumb-arrow-color-theme-teal {
-		border-left-color: v.$theme-teal-background-color-light;
+		border-left-color: v.$theme-light-border-background-color-teal;
 	}
-	.js-set-dark-breadcrumb-arrow-color-theme-blue {
-		border-left-color: v.$theme-blue-background-color-dark;
+	.js-set-dark-breadcrumb-arrow-color-theme-teal {
+		border-left-color: v.$theme-dark-border-background-color-teal;
 	}
 	.js-set-light-breadcrumb-arrow-color-theme-blue {
-		border-left-color: v.$theme-blue-background-color-light;
+		border-left-color: v.$theme-light-border-background-color-blue;
+	}
+	.js-set-dark-breadcrumb-arrow-color-theme-blue {
+		border-left-color: v.$theme-dark-border-background-color-blue;
 	}
 
-	// Theme border colors
-	.js-set-dark-border-color-theme-teal {
-		border-color: v.$theme-teal-background-color-dark;
+	// Theme form-submit button colors
+	.js-set-form-submit-button-color-theme-teal {
+		background-color: v.$theme-light-border-background-color-teal;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: v.$theme-dark-border-background-color-teal;
+		}
 	}
-	.js-set-light-border-color-theme-teal {
-		border-color: v.$theme-teal-background-color-light;
-	}
-	.js-set-dark-border-color-theme-blue {
-		border-color: v.$theme-blue-background-color-dark;
-	}
-	.js-set-light-border-color-theme-blue {
-		border-color: v.$theme-blue-background-color-light;
+	.js-set-form-submit-button-color-theme-blue {
+		background-color: v.$theme-dark-border-background-color-blue;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: v.$theme-dark-border-background-color-blue;
+		}
 	}
 
 	// Theme text and link color
 	.js-set-text-color-theme-teal {
-		color: v.$theme-teal-text-color;
+		color: v.$theme-text-color-teal;
 	}
 	.js-set-text-color-theme-blue {
-		color: v.$theme-blue-text-color;
+		color: v.$theme-text-color-blue;
 	}
 
 	// Status boxes
