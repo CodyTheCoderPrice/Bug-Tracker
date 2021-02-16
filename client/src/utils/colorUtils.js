@@ -272,12 +272,30 @@ export function getDeleteModalBackgroundColorClassNameForLightOrDarkMode(
 	return " js-set-delete-modal-background-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode -- DeleteModal cancel-button -- background color (with hover)
-export function getDeleteModalCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+// Light/Dark mode -- DeleteModal delete-button -- background (with hover) color
+export function getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-delete-modal-cancel-button-background-color-dark-mode-" + dark_mode
+		" js-set-delete-modal-delete-button-background-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode -- DeleteModal cancel-button -- border, background (with hover), text color
+export function getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode -- DeleteModal warning-trapazoid -- border color 
+export function getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-delete-modal-trapazoid-border-color-dark-mode-" + dark_mode
 	);
 }
 

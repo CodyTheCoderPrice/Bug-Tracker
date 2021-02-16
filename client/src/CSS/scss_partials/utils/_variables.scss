@@ -85,7 +85,11 @@ $faded-red-level-4: #ad3f3f;
 $faded-red-level-5: #a83c3c;
 $faded-red-level-6: #993636;
 // Fiery reds
-$fiery-red-level-1: #d31818;
+$fiery-red-level-1: #e21b1b;
+$fiery-red-level-2: #ce1919;
+$fiery-red-level-3: #c21818;
+$fiery-red-level-4: #b11616;
+$fiery-red-level-5: #a11414;
 // Raspberry Reds
 $raspberry-red-level-1: #e95454;
 $raspberry-red-level-2: #d44141;
@@ -182,9 +186,9 @@ $mode-account-sidebar-logout-button-hover-background-color-dark: $gray-dark-leve
 $mode-account-modal-delete-account-capital-delete-text-color-light: $mode-backend-errors-text-color-light;
 $mode-account-modal-delete-account-capital-delete-text-color-dark: $mode-backend-errors-text-color-dark;
 $mode-account-modal-delete-account-form-input-focus-border-color-light: $raspberry-red-level-1;
-$mode-account-modal-delete-account-form-input-focus-border-color-dark: $faded-red-level-6;
+$mode-account-modal-delete-account-form-input-focus-border-color-dark: $fiery-red-level-5;
 $mode-account-modal-delete-account-form-delete-button-background-color-light: $raspberry-red-level-1;
-$mode-account-modal-delete-account-form-delete-button-background-color-dark: $faded-red-level-5;
+$mode-account-modal-delete-account-form-delete-button-background-color-dark: $faded-red-level-4;
 $mode-account-modal-delete-account-form-delete-button-hover-background-color-light: $raspberry-red-level-2;
 $mode-account-modal-delete-account-form-delete-button-hover-background-color-dark: $faded-red-level-6;
 $mode-create-item-sidebar-background-color-light: $mode-home-background-color-light;
@@ -205,10 +209,20 @@ $mode-list-header-background-color-light: $mode-home-background-color-light;
 $mode-list-header-background-color-dark: $mode-home-background-color-dark;
 $mode-delete-modal-background-color-light: $mode-home-background-color-light;
 $mode-delete-modal-background-color-dark: $mode-home-background-color-dark;
+
+$mode-delete-modal-delete-button-background-color-light: $mode-account-modal-delete-account-form-delete-button-background-color-light;
+$mode-delete-modal-delete-button-background-color-dark: $mode-account-modal-delete-account-form-delete-button-background-color-dark;
+$mode-delete-modal-delete-button-hover-background-color-light: $mode-account-modal-delete-account-form-delete-button-hover-background-color-light;
+$mode-delete-modal-delete-button-hover-background-color-dark: $mode-account-modal-delete-account-form-delete-button-hover-background-color-dark;
+$mode-delete-modal-cancel-button-border-text-color-light: $mode-delete-modal-delete-button-background-color-light;
+$mode-delete-modal-cancel-button-border-text-color-dark: $mode-delete-modal-delete-button-background-color-dark;
 $mode-delete-modal-cancel-button-background-color-light: $mode-delete-modal-background-color-light;
 $mode-delete-modal-cancel-button-background-color-dark: $mode-delete-modal-background-color-dark;
 $mode-delete-modal-cancel-button-hover-background-color-light: $gray-light-level-2;
 $mode-delete-modal-cancel-button-hover-background-color-dark: $gray-dark-level-5;
+$mode-delete-modal-trapazoid-border-color-light: $mode-delete-modal-delete-button-background-color-light;
+$mode-delete-modal-trapazoid-border-color-dark: $mode-delete-modal-delete-button-background-color-dark;
+
 $mode-item-view-top-bar-icon-button-text-color-light: $gray-level-6;
 $mode-item-view-top-bar-icon-button-text-color-dark: $gray-level-8;
 $mode-item-view-top-bar-icon-button-hover-text-color-light: $gray-dark-level-7;
@@ -267,8 +281,6 @@ $register-login-submit-button-border-background-color: $teal-light-level-1;
 $register-login-submit-button-hover-border-background-color: $teal-light-level-2;
 $register-login-bottom-link-text-color: $basic-blue-level-1;
 $breadcrumb-hamburger-close-button-text-color: $basic-red-light-level-2;
-$delete-modal-delete-button-background-color: $raspberry-red-level-1;
-$delete-modal-delete-button-hover-background-color: $raspberry-red-level-2;
 
 // Icon button colors
 $darker-icon-button-gray: $gray-level-5;

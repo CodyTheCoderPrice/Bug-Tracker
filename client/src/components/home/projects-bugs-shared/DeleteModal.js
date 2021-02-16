@@ -13,8 +13,10 @@ import { clearBackendErrors } from "../../../actions";
 import {
 	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getDeleteModalBackgroundColorClassNameForLightOrDarkMode,
+	getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getDeleteModalCancelButtonBackgroundColorClassNameForLightOrDarkMode,
+	getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDarkMode,
+	getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 
 export default function DeleteModal(props) {
@@ -88,7 +90,14 @@ export default function DeleteModal(props) {
 						: "")
 				}
 			>
-				<div className="warning-trapazoid-background" />
+				<div
+					className={
+						"warning-trapazoid-background" +
+						getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				/>
 				<h2 className="warning-header">Warning</h2>
 				<div className="centered-message-container">
 					<div className="centered-message-container__relative-container">
@@ -110,7 +119,12 @@ export default function DeleteModal(props) {
 				</span>
 				<div className="centered-buttons-container">
 					<div
-						className="centered-buttons-container__button"
+						className={
+							"centered-buttons-container__button" +
+							getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
 						onClick={props.deleteFunction}
 					>
 						<span className="centered-buttons-container__button__text">
@@ -120,7 +134,7 @@ export default function DeleteModal(props) {
 					<div
 						className={
 							"centered-buttons-container__button centered-buttons-container__button--cancel" +
-							getDeleteModalCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+							getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

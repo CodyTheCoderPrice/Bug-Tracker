@@ -419,22 +419,52 @@ body {
 		background-color: v.$mode-delete-modal-background-color-dark;
 	}
 
-	// Light/Dark mode -- DeleteModal cancel-button -- background color (with hover)
-	.js-set-delete-modal-cancel-button-background-color-dark-mode-false {
+	// Light/Dark mode -- DeleteModal delete-button -- background (with hover) color 
+	.js-set-delete-modal-delete-button-background-color-dark-mode-false {
+		background-color: v.$mode-delete-modal-delete-button-background-color-light;
+
+		&:hover,
+		&:active {
+			background-color: v.$mode-delete-modal-delete-button-hover-background-color-light;
+		}
+	}
+	.js-set-delete-modal-delete-button-background-color-dark-mode-true {
+		background-color: v.$mode-delete-modal-delete-button-background-color-dark;
+
+		&:hover,
+		&:active {
+			background-color: v.$mode-delete-modal-delete-button-hover-background-color-dark;
+		}
+	}
+
+	// Light/Dark mode -- DeleteModal cancel-button -- border, background (with hover), text color
+	.js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-false {
+		border-color: v.$mode-delete-modal-cancel-button-border-text-color-light;
 		background-color: v.$mode-delete-modal-cancel-button-background-color-light;
+		color: v.$mode-delete-modal-cancel-button-border-text-color-light;
 
 		&:hover,
 		&:active {
 			background-color: v.$mode-delete-modal-cancel-button-hover-background-color-light;
 		}
 	}
-	.js-set-delete-modal-cancel-button-background-color-dark-mode-true {
+	.js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-true {
+		border-color: v.$mode-delete-modal-cancel-button-border-text-color-dark;
 		background-color: v.$mode-delete-modal-cancel-button-background-color-dark;
+		color: v.$mode-delete-modal-cancel-button-border-text-color-dark;
 
 		&:hover,
 		&:active {
 			background-color: v.$mode-delete-modal-cancel-button-hover-background-color-dark;
 		}
+	}
+
+	// Light/Dark mode -- DeleteModal warning-trapazoid -- border color 
+	.js-set-delete-modal-trapazoid-border-color-dark-mode-false {
+		border-top-color: v.$mode-delete-modal-trapazoid-border-color-light;
+	}
+	.js-set-delete-modal-trapazoid-border-color-dark-mode-true {
+		border-top-color: v.$mode-delete-modal-trapazoid-border-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewTopBar icon-buttons -- text colors with hover

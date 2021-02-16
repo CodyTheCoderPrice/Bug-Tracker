@@ -26,7 +26,6 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		//border: 3px solid v.$delete-modal-delete-button-background-color;
 		border-radius: 15px;
 		background-color: white;
 		height: 195px;
@@ -43,7 +42,7 @@
 		@include m.horizontal-center();
 
 		top: 0px;
-		border-top: 26px solid v.$delete-modal-delete-button-background-color;
+		border-top: 26px solid v.$mode-delete-modal-trapazoid-border-color-light;
 		border-left: 45px solid transparent;
 		border-right: 45px solid transparent;
 		height: 0;
@@ -99,9 +98,8 @@
 
 		position: relative;
 		float: left;
-		border: 1px solid v.$delete-modal-delete-button-background-color;
 		border-radius: v.$base-buttton-border-radius;
-		background-color: v.$delete-modal-delete-button-background-color;
+		background-color: v.$mode-delete-modal-delete-button-background-color-light;
 		// Only top and bottom because of inconsistencies
 		// ...with button vs divs.
 		padding: 7px 0px 7px 0px;
@@ -114,14 +112,15 @@
 
 		&:hover,
 		&:active {
-			background-color: v.$delete-modal-delete-button-hover-background-color;
+			background-color: v.$mode-delete-modal-delete-button-hover-background-color-light;
 		}
 	}
 
 	.centered-buttons-container__button--cancel {
 		float: right;
+		border: 1px solid v.$mode-delete-modal-cancel-button-border-text-color-light;
 		background-color: v.$mode-delete-modal-cancel-button-background-color-light;
-		color: v.$delete-modal-delete-button-background-color;
+		color: v.$mode-delete-modal-cancel-button-border-text-color-light;
 
 		&:hover,
 		&:active {
