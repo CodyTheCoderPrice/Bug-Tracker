@@ -21,12 +21,12 @@ import {
 	getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
+	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode,
 	getformSubmitButtonColorClassNameForTheme,
-	getBackgroundColorWithHoverClassNameForTheme,
 } from "../../../../utils";
 
 import {
@@ -210,7 +210,9 @@ export default function ListViewCreateItemSidebar(props) {
 								"form__char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
 								itemInfo.name.length
-									? " universal-text-red"
+									? getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									  )
 									: "")
 							}
 						>
@@ -249,7 +251,9 @@ export default function ListViewCreateItemSidebar(props) {
 								"form__char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants
 									.descriptionCharLimit < itemInfo.description.length
-									? " universal-text-red"
+									? getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									  )
 									: "")
 							}
 						>
@@ -293,7 +297,9 @@ export default function ListViewCreateItemSidebar(props) {
 										"form__char-counter" +
 										(reduxState[GENERAL_CONTAINER].globalConstants
 											.locationCharLimit < itemInfo.location.length
-											? " universal-text-red"
+											? getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											  )
 											: "")
 									}
 								>

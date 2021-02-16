@@ -12,11 +12,6 @@ body {
 	width: 100%;
 	color: v.$mode-home-text-color-light;
 
-	// Used to turn character counters red when limit is gone over
-	.universal-text-red {
-		color: red;
-	}
-
 	// Used to to gray-out the word "none" for empty item fields
 	.universal-text-grayed-out {
 		@include m.stop-text-selection();
@@ -44,6 +39,14 @@ body {
 	}
 	.js-set-backend-errors-text-color-dark-mode-true {
 		color: v.$mode-backend-errors-text-color-dark;
+	}
+
+	// Light/Dark mode -- char-count limit reached -- text colors
+	.js-set-char-count-limit-reached-text-color-dark-mode-false {
+		color: v.$mode-char-count-limit-reached-text-color-light;
+	}
+	.js-set-char-count-limit-reached-text-color-dark-mode-true {
+		color: v.$mode-char-count-limit-reached-text-color-dark;
 	}
 
 	// Light/Dark mode -- blurred-background -- background color and opacity

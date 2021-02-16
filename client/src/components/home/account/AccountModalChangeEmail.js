@@ -16,7 +16,6 @@ import {
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorClassNameForTheme,
-	getBackgroundColorWithHoverClassNameForTheme,
 	getTextColorClassNameForTheme,
 } from "../../../utils";
 

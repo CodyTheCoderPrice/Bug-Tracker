@@ -62,6 +62,13 @@ export function getBackendErrorsTextColorClassNameForLightOrDarkMode(
 	return " js-set-backend-errors-text-color-dark-mode-" + dark_mode;
 }
 
+// Light/Dark mode -- char-count limit reached -- text colors
+export function getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-char-count-limit-reached-text-color-dark-mode-" + dark_mode;
+}
+
 // Light/Dark mode -- blurred-background -- background color and opacity
 export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 	clickToClose,

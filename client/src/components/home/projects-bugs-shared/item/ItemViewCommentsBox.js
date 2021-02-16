@@ -13,10 +13,10 @@ import { createComment, clearBackendErrors } from "../../../../actions";
 import {
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForTheme,
+	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorClassNameForTheme,
-	getBackgroundColorWithHoverClassNameForTheme,
 	dateToInt,
 } from "../../../../utils";
 
@@ -131,7 +131,9 @@ export default function ItemViewCommentsBox() {
 							"item-box__form-char-counter" +
 							(reduxState[GENERAL_CONTAINER].globalConstants
 								.descriptionCharLimit < commentInfo.description.length
-								? " universal-text-red"
+								? getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								  )
 								: "")
 						}
 					>

@@ -111,7 +111,8 @@
 
 	.bottom-question__link {
 		margin-left: 10px;
-		color: blue;
+		color: v.$register-login-bottom-link-text-color;
+		font-size: 18px;
 		text-decoration: none;
 		cursor: pointer;
 	}

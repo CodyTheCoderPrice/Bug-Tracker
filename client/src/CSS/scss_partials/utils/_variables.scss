@@ -44,28 +44,29 @@ $tinted-gray-light-level-2: #bfc8d1;
 $tinted-gray-light-level-3: #b7c1ca;
 $tinted-gray-light-level-4: #a9b3bb;
 // Basic blues
-$basic-blue-light-level-1: #76bffa;
-$basic-blue-light-level-2: #57a4e4;
-$basic-blue-light-level-3: #4b99da;
-$basic-blue-light-level-4: #3889cc;
-$basic-blue-light-level-5: #2d7fc2;
-$basic-blue-light-level-6: #156db4;
-$basic-blue-light-level-7: #1360a0;
-$basic-blue-light-level-8: #125892;
-$basic-blue-level-1: #4193ff;
-$basic-blue-level-2: #006eff;
-$basic-blue-level-3: #0062e2;
-$basic-blue-level-4: #0056c7;
-// Navy blues
-$navy-blue-light-level-1: #4d6e92;
-$navy-blue-light-level-2: #4d6b8b;
-$navy-blue-dark-level-1: #45607e;
-$navy-blue-dark-level-2: #3d5774;
-// Blue grays
-$blue-gray-light-level-1: #7390af;
-$blue-gray-light-level-2: #607c99;
-$blue-gray-light-level-3: #50677f;
-$blue-gray-dark-level-1: #215792;
+$basic-blue-level-1: #0000ff;
+// Baby blues
+$baby-blue-level-1: #76bffa;
+// Carolina blues
+$carolina-blue-level-1: #57a4e4;
+$carolina-blue-level-2: #529bd6;
+$carolina-blue-level-3: #4d91c9;
+$carolina-blue-level-4: #4885b8;
+$carolina-blue-level-5: #3f75a1;
+$carolina-blue-level-6: #38678d;
+// Egyptian blues
+$egyptian-blue-level-1: #006eff;
+$egyptian-blue-level-2: #0062e2;
+$egyptian-blue-level-3: #0056c7;
+// Imperial blues
+$imperial-blue-level-1: #1f70b3;
+$imperial-blue-level-2: #1e6aa8;
+$imperial-blue-level-3: #1c629c;
+// Queen blues
+$queen-blue-light-level-1: #4d6e92;
+$queen-blue-light-level-2: #4d6b8b;
+$queen-blue-dark-level-1: #45607e;
+$queen-blue-dark-level-2: #3d5774;
 // Teals
 $teal-light-level-1: #8ba8b3;
 $teal-light-level-2: #6691a3;
@@ -76,11 +77,6 @@ $basic-red-light-level-2: #fc1e1e;
 $basic-red-level-1: #ff0000;
 $basic-red-level-2: #e20000;
 $basic-red-level-3: #c50000;
-// Fiery reds
-$fiery-red-level-1: #d31818;
-// Raspberry Reds
-$raspberry-red-level-1: #e95454;
-$raspberry-red-level-2: #d44141;
 // Faded reds
 $faded-red-level-1: #df4f4f;
 $faded-red-level-2: #ce4a4a;
@@ -88,6 +84,11 @@ $faded-red-level-3: #bb4444;
 $faded-red-level-4: #ad3f3f;
 $faded-red-level-5: #a83c3c;
 $faded-red-level-6: #993636;
+// Fiery reds
+$fiery-red-level-1: #d31818;
+// Raspberry Reds
+$raspberry-red-level-1: #e95454;
+$raspberry-red-level-2: #d44141;
 // Yellows
 $yellow-level-1: #ffff00;
 
@@ -98,6 +99,8 @@ $mode-home-text-color-light: black;
 $mode-home-text-color-dark: $tinted-gray-light-level-4;
 $mode-backend-errors-text-color-light: $basic-red-level-1;
 $mode-backend-errors-text-color-dark: $fiery-red-level-1;
+$mode-char-count-limit-reached-text-color-light: $mode-backend-errors-text-color-light;
+$mode-char-count-limit-reached-text-color-dark: $mode-backend-errors-text-color-dark;
 $mode-blurred-background-background-color-light: black;
 $mode-blurred-background-background-color-dark: $mode-blurred-background-background-color-light;
 $mode-blurred-background-opacity-light: 0.8;
@@ -112,14 +115,14 @@ $mode-custom-checkbox-border-color-light: black;
 $mode-custom-checkbox-border-color-dark: $gray-level-1;
 $mode-custom-checkbox-background-color-light: $mode-home-background-color-light;
 $mode-custom-checkbox-background-color-dark: $mode-home-background-color-dark;
-$mode-custom-checkbox-hover-border-color-light: $basic-blue-light-level-6;
-$mode-custom-checkbox-hover-border-color-dark: $basic-blue-light-level-2;
+$mode-custom-checkbox-hover-border-color-light: $carolina-blue-level-4;
+$mode-custom-checkbox-hover-border-color-dark: $carolina-blue-level-1;
 $mode-custom-checkmark-text-color-light: $mode-home-text-color-light;
 $mode-custom-checkmark-text-color-dark: $mode-home-text-color-dark;
-$mode-custom-checkmark-hover-text-color-light: $basic-blue-light-level-6;
-$mode-custom-checkmark-hover-text-color-dark: $basic-blue-light-level-2;
-$mode-toggle-switch-on-background-color-light: $basic-blue-light-level-4;
-$mode-toggle-switch-on-background-color-dark: $basic-blue-light-level-7;
+$mode-custom-checkmark-hover-text-color-light: $mode-custom-checkbox-hover-border-color-light;
+$mode-custom-checkmark-hover-text-color-dark: $mode-custom-checkbox-hover-border-color-dark;
+$mode-toggle-switch-on-background-color-light: $carolina-blue-level-4;
+$mode-toggle-switch-on-background-color-dark: $carolina-blue-level-6;
 $mode-toggle-switch-on-border-color-light: $mode-toggle-switch-on-background-color-light; // After background-color since uses it
 $mode-toggle-switch-on-border-color-dark: $mode-toggle-switch-on-background-color-dark; // After background-color since uses it
 $mode-toggle-switch-on-text-color-light: white;
@@ -139,8 +142,8 @@ $mode-universal-text-grayed-out-text-color-light: $gray-level-4;
 $mode-universal-text-grayed-out-text-color-dark: $gray-level-6;
 $mode-base-form-input-border-color-light: $gray-level-5;
 $mode-base-form-input-border-color-dark: black;
-$mode-base-form-input-focus-border-color-light: $basic-blue-level-3;
-$mode-base-form-input-focus-border-color-dark: $basic-blue-light-level-5;
+$mode-base-form-input-focus-border-color-light: $egyptian-blue-level-2;
+$mode-base-form-input-focus-border-color-dark: $imperial-blue-level-1;
 $mode-base-form-input-background-color-light: $gray-light-level-5;
 $mode-base-form-input-background-color-dark: $gray-dark-level-1;
 // Light/Dark mode (specific)
@@ -166,8 +169,8 @@ $mode-account-sidebar-theme-button-text-color-light: $gray-dark-level-5;
 $mode-account-sidebar-theme-button-text-color-dark: $gray-dark-level-8;
 $mode-account-sidebar-theme-button-current-container-background-color-light: $gray-light-level-5;
 $mode-account-sidebar-theme-button-current-container-background-color-dark: $gray-light-level-11;
-$mode-account-sidebar-theme-button-option-selected-background-color-light: $basic-blue-light-level-1;
-$mode-account-sidebar-theme-button-option-selected-background-color-dark: $basic-blue-light-level-2;
+$mode-account-sidebar-theme-button-option-selected-background-color-light: $baby-blue-level-1;
+$mode-account-sidebar-theme-button-option-selected-background-color-dark: $carolina-blue-level-1;
 $mode-account-sidebar-theme-button-arrow-container-background-color-light: $gray-light-level-10;
 $mode-account-sidebar-theme-button-arrow-container-background-color-dark: $gray-level-2;
 $mode-account-sidebar-theme-button-arrow-container-text-color-light: $gray-dark-level-5;
@@ -243,8 +246,8 @@ $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-dark
 $theme-light-border-background-color-teal: $teal-light-level-2;
 $theme-dark-border-background-color-teal: $teal-dark-level-1;
 $theme-text-color-teal: #2588b3;
-$theme-light-border-background-color-blue: $navy-blue-light-level-1;
-$theme-dark-border-background-color-blue: $navy-blue-dark-level-2;
+$theme-light-border-background-color-blue: $queen-blue-light-level-1;
+$theme-dark-border-background-color-blue: $queen-blue-dark-level-2;
 $theme-text-color-blue: #245ba3;
 // Status colors
 $status-gray: $gray-level-3;
@@ -262,6 +265,7 @@ $filter-button-active-color: $filter-button-active-color-1;
 // Components
 $register-login-submit-button-border-background-color: $teal-light-level-1;
 $register-login-submit-button-hover-border-background-color: $teal-light-level-2;
+$register-login-bottom-link-text-color: $basic-blue-level-1;
 $breadcrumb-hamburger-close-button-text-color: $basic-red-light-level-2;
 $delete-modal-delete-button-background-color: $raspberry-red-level-1;
 $delete-modal-delete-button-hover-background-color: $raspberry-red-level-2;

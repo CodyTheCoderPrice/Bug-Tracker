@@ -22,12 +22,12 @@ import {
 	getTextColorClassNameForTheme,
 	getItemViewFormNameInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewFormNameCharCountContainerFocusBorderColorClassNameForLightOrDarkMode,
+	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewDisabledLabelClassNameForLightOrDarkMode,
 	getItemViewDisableInputDateClassNameForLightOrDarkMode,
-	getBackgroundColorWithHoverClassNameForTheme,
 	getformSubmitButtonColorClassNameForTheme,
 	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
@@ -248,7 +248,9 @@ export default function ItemViewEditItemInfo(props) {
 								"name-centering-container__char-count-centering-container__name-char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
 								itemInfo.name.length
-									? " universal-text-red"
+									? getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									  )
 									: "")
 							}
 						>
@@ -299,7 +301,9 @@ export default function ItemViewEditItemInfo(props) {
 								"item-box__form-char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants
 									.descriptionCharLimit < itemInfo.description.length
-									? " universal-text-red"
+									? getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									  )
 									: "")
 							}
 						>
@@ -367,7 +371,9 @@ export default function ItemViewEditItemInfo(props) {
 										"item-box__form-char-counter" +
 										(reduxState[GENERAL_CONTAINER].globalConstants
 											.locationCharLimit < itemInfo.location.length
-											? " universal-text-red"
+											? getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											  )
 											: "")
 									}
 								>

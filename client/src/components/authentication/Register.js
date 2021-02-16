@@ -8,6 +8,8 @@ import {
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
 
+import { getCharCountLimitReachedTextColorClassNameForLightOrDarkMode } from "../../utils";
+
 export default function Register() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -53,7 +55,14 @@ export default function Register() {
 							</label>
 							{accountInfo.first_name.length >
 							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
-								<span className="form__char-counter universal-text-red">
+								<span
+									className={
+										"form__char-counter" +
+										getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+											false
+										)
+									}
+								>
 									{accountInfo.first_name.length +
 										"/" +
 										reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
@@ -80,7 +89,14 @@ export default function Register() {
 							</label>
 							{accountInfo.last_name.length >
 							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
-								<span className="form__char-counter universal-text-red">
+								<span
+									className={
+										"form__char-counter" +
+										getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+											false
+										)
+									}
+								>
 									{accountInfo.last_name.length +
 										"/" +
 										reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
@@ -121,7 +137,14 @@ export default function Register() {
 					</label>
 					{accountInfo.password.length >
 					reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
-						<span className="form__char-counter universal-text-red">
+						<span
+							className={
+								"form__char-counter" +
+								getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+									false
+								)
+							}
+						>
 							{accountInfo.password.length +
 								"/" +
 								reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}
