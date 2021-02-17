@@ -3417,99 +3417,107 @@ body {
 .js-calc-app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true:active {
   color: #a9b3bb;
 }
-.app-component .js-set-light-border-color-theme-teal,
-.js-calc-app-component .js-set-light-border-color-theme-teal {
+.app-component .js-set-brighter-border-color-theme-blue-turkish,
+.js-calc-app-component .js-set-brighter-border-color-theme-blue-turkish {
   border-color: #6691a3;
 }
-.app-component .js-set-dark-border-color-theme-teal,
-.js-calc-app-component .js-set-dark-border-color-theme-teal {
+.app-component .js-set-base-border-color-theme-blue-turkish,
+.js-calc-app-component .js-set-base-border-color-theme-blue-turkish {
   border-color: #50798b;
 }
-.app-component .js-set-light-border-color-theme-blue,
-.js-calc-app-component .js-set-light-border-color-theme-blue {
+.app-component .js-set-brighter-border-color-theme-blue-queen,
+.js-calc-app-component .js-set-brighter-border-color-theme-blue-queen {
   border-color: #4d6e92;
 }
-.app-component .js-set-dark-border-color-theme-blue,
-.js-calc-app-component .js-set-dark-border-color-theme-blue {
+.app-component .js-set-base-border-color-theme-blue-queen,
+.js-calc-app-component .js-set-base-border-color-theme-blue-queen {
   border-color: #3d5774;
 }
-.app-component .js-set-light-background-color-theme-teal,
-.js-calc-app-component .js-set-light-background-color-theme-teal {
+.app-component .js-set-brighter-background-color-theme-blue-turkish,
+.js-calc-app-component .js-set-brighter-background-color-theme-blue-turkish {
   background-color: #6691a3;
 }
-.app-component .js-set-dark-background-color-theme-teal,
-.js-calc-app-component .js-set-dark-background-color-theme-teal {
+.app-component .js-set-base-background-color-theme-blue-turkish,
+.js-calc-app-component .js-set-base-background-color-theme-blue-turkish {
   background-color: #50798b;
 }
-.app-component .js-set-light-background-color-theme-blue,
-.js-calc-app-component .js-set-light-background-color-theme-blue {
+.app-component .js-set-brighter-background-color-theme-blue-queen,
+.js-calc-app-component .js-set-brighter-background-color-theme-blue-queen {
   background-color: #4d6e92;
 }
-.app-component .js-set-dark-background-color-theme-blue,
-.js-calc-app-component .js-set-dark-background-color-theme-blue {
+.app-component .js-set-base-background-color-theme-blue-queen,
+.js-calc-app-component .js-set-base-background-color-theme-blue-queen {
   background-color: #3d5774;
 }
-.app-component .js-set-background-color-with-hover-theme-teal,
-.js-calc-app-component .js-set-background-color-with-hover-theme-teal {
+.app-component .js-set-background-color-with-hover-theme-blue-turkish,
+.js-calc-app-component .js-set-background-color-with-hover-theme-blue-turkish {
   background-color: #6691a3;
 }
-.app-component .js-set-background-color-with-hover-theme-teal:hover, .app-component .js-set-background-color-with-hover-theme-teal:active,
-.js-calc-app-component .js-set-background-color-with-hover-theme-teal:hover,
-.js-calc-app-component .js-set-background-color-with-hover-theme-teal:active {
+.app-component .js-set-background-color-with-hover-theme-blue-turkish:hover, .app-component .js-set-background-color-with-hover-theme-blue-turkish:active,
+.js-calc-app-component .js-set-background-color-with-hover-theme-blue-turkish:hover,
+.js-calc-app-component .js-set-background-color-with-hover-theme-blue-turkish:active {
   background-color: #50798b;
 }
-.app-component .js-set-background-color-with-hover-theme-blue,
-.js-calc-app-component .js-set-background-color-with-hover-theme-blue {
+.app-component .js-set-background-color-with-hover-theme-blue-queen,
+.js-calc-app-component .js-set-background-color-with-hover-theme-blue-queen {
   background-color: #4d6e92;
 }
-.app-component .js-set-background-color-with-hover-theme-blue:hover, .app-component .js-set-background-color-with-hover-theme-blue:active,
-.js-calc-app-component .js-set-background-color-with-hover-theme-blue:hover,
-.js-calc-app-component .js-set-background-color-with-hover-theme-blue:active {
+.app-component .js-set-background-color-with-hover-theme-blue-queen:hover, .app-component .js-set-background-color-with-hover-theme-blue-queen:active,
+.js-calc-app-component .js-set-background-color-with-hover-theme-blue-queen:hover,
+.js-calc-app-component .js-set-background-color-with-hover-theme-blue-queen:active {
   background-color: #3d5774;
 }
-.app-component .js-set-light-breadcrumb-arrow-color-theme-teal,
-.js-calc-app-component .js-set-light-breadcrumb-arrow-color-theme-teal {
+.app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish,
+.js-calc-app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish {
   border-left-color: #6691a3;
 }
-.app-component .js-set-dark-breadcrumb-arrow-color-theme-teal,
-.js-calc-app-component .js-set-dark-breadcrumb-arrow-color-theme-teal {
+.app-component .js-set-base-breadcrumb-arrow-color-theme-blue-turkish,
+.js-calc-app-component .js-set-base-breadcrumb-arrow-color-theme-blue-turkish {
   border-left-color: #50798b;
 }
-.app-component .js-set-light-breadcrumb-arrow-color-theme-blue,
-.js-calc-app-component .js-set-light-breadcrumb-arrow-color-theme-blue {
+.app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-queen,
+.js-calc-app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-queen {
   border-left-color: #4d6e92;
 }
-.app-component .js-set-dark-breadcrumb-arrow-color-theme-blue,
-.js-calc-app-component .js-set-dark-breadcrumb-arrow-color-theme-blue {
+.app-component .js-set-base-breadcrumb-arrow-color-theme-blue-queen,
+.js-calc-app-component .js-set-base-breadcrumb-arrow-color-theme-blue-queen {
   border-left-color: #3d5774;
 }
-.app-component .js-set-form-submit-button-color-theme-teal,
-.js-calc-app-component .js-set-form-submit-button-color-theme-teal {
+.app-component .js-set-form-submit-button-color-theme-blue-turkish,
+.js-calc-app-component .js-set-form-submit-button-color-theme-blue-turkish {
   background-color: #6691a3;
 }
-.app-component .js-set-form-submit-button-color-theme-teal:hover, .app-component .js-set-form-submit-button-color-theme-teal:active, .app-component .js-set-form-submit-button-color-theme-teal:focus,
-.js-calc-app-component .js-set-form-submit-button-color-theme-teal:hover,
-.js-calc-app-component .js-set-form-submit-button-color-theme-teal:active,
-.js-calc-app-component .js-set-form-submit-button-color-theme-teal:focus {
+.app-component .js-set-form-submit-button-color-theme-blue-turkish:hover, .app-component .js-set-form-submit-button-color-theme-blue-turkish:active, .app-component .js-set-form-submit-button-color-theme-blue-turkish:focus,
+.js-calc-app-component .js-set-form-submit-button-color-theme-blue-turkish:hover,
+.js-calc-app-component .js-set-form-submit-button-color-theme-blue-turkish:active,
+.js-calc-app-component .js-set-form-submit-button-color-theme-blue-turkish:focus {
   background-color: #50798b;
 }
-.app-component .js-set-form-submit-button-color-theme-blue,
-.js-calc-app-component .js-set-form-submit-button-color-theme-blue {
+.app-component .js-set-form-submit-button-color-theme-blue-queen,
+.js-calc-app-component .js-set-form-submit-button-color-theme-blue-queen {
+  background-color: #4d6e92;
+}
+.app-component .js-set-form-submit-button-color-theme-blue-queen:hover, .app-component .js-set-form-submit-button-color-theme-blue-queen:active, .app-component .js-set-form-submit-button-color-theme-blue-queen:focus,
+.js-calc-app-component .js-set-form-submit-button-color-theme-blue-queen:hover,
+.js-calc-app-component .js-set-form-submit-button-color-theme-blue-queen:active,
+.js-calc-app-component .js-set-form-submit-button-color-theme-blue-queen:focus {
   background-color: #3d5774;
 }
-.app-component .js-set-form-submit-button-color-theme-blue:hover, .app-component .js-set-form-submit-button-color-theme-blue:active, .app-component .js-set-form-submit-button-color-theme-blue:focus,
-.js-calc-app-component .js-set-form-submit-button-color-theme-blue:hover,
-.js-calc-app-component .js-set-form-submit-button-color-theme-blue:active,
-.js-calc-app-component .js-set-form-submit-button-color-theme-blue:focus {
-  background-color: #3d5774;
+.app-component .js-set-text-color-mode-light-theme-blue-turkish,
+.js-calc-app-component .js-set-text-color-mode-light-theme-blue-turkish {
+  color: #2692ad;
 }
-.app-component .js-set-text-color-theme-teal,
-.js-calc-app-component .js-set-text-color-theme-teal {
-  color: #2588b3;
+.app-component .js-set-text-color-mode-dark-theme-blue-turkish,
+.js-calc-app-component .js-set-text-color-mode-dark-theme-blue-turkish {
+  color: #2ba6c5;
 }
-.app-component .js-set-text-color-theme-blue,
-.js-calc-app-component .js-set-text-color-theme-blue {
+.app-component .js-set-text-color-mode-light-theme-blue-queen,
+.js-calc-app-component .js-set-text-color-mode-light-theme-blue-queen {
   color: #245ba3;
+}
+.app-component .js-set-text-color-mode-dark-theme-blue-queen,
+.js-calc-app-component .js-set-text-color-mode-dark-theme-blue-queen {
+  color: #266ac4;
 }
 .app-component .js-set-status-box-background-color-gray,
 .app-component .js-calc-status-box-background-color-gray,

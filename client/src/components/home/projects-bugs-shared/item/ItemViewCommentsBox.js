@@ -12,7 +12,7 @@ import { createComment, clearBackendErrors } from "../../../../actions";
 
 import {
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
@@ -110,7 +110,8 @@ export default function ItemViewCommentsBox() {
 						<h2
 							className={
 								"item-box__title item-box__title--no-bottom-margin" +
-								getTextColorClassNameForTheme(
+								getTextColorClassNameForThemeWithLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}

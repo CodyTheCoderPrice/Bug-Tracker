@@ -47,6 +47,9 @@ $tinted-gray-light-level-4: #a9b3bb;
 $basic-blue-level-1: #0000ff;
 // Baby blues
 $baby-blue-level-1: #76bffa;
+// B'dazzled blues
+$bdazzled-blue-level-1: #266ac4;
+$bdazzled-blue-level-2: #245ba3;
 // Carolina blues
 $carolina-blue-level-1: #57a4e4;
 $carolina-blue-level-2: #529bd6;
@@ -67,10 +70,13 @@ $queen-blue-light-level-1: #4d6e92;
 $queen-blue-light-level-2: #4d6b8b;
 $queen-blue-dark-level-1: #45607e;
 $queen-blue-dark-level-2: #3d5774;
-// Teals
-$teal-light-level-1: #8ba8b3;
-$teal-light-level-2: #6691a3;
-$teal-dark-level-1: #50798b;
+// Turkish blues
+$turkish-blue-light-level-1: #8ba8b3;
+$turkish-blue-light-level-2: #6691a3;
+$turkish-blue-dark-level-1: #50798b;
+// Turquoise blues
+$turquoise-blue-light-level-1: #2ba6c5;
+$turquoise-blue-light-level-2: #2692ad;
 // Basic reds
 $basic-red-light-level-1: #ff3e3e;
 $basic-red-light-level-2: #fc1e1e;
@@ -209,7 +215,6 @@ $mode-list-header-background-color-light: $mode-home-background-color-light;
 $mode-list-header-background-color-dark: $mode-home-background-color-dark;
 $mode-delete-modal-background-color-light: $mode-home-background-color-light;
 $mode-delete-modal-background-color-dark: $mode-home-background-color-dark;
-
 $mode-delete-modal-delete-button-background-color-light: $mode-account-modal-delete-account-form-delete-button-background-color-light;
 $mode-delete-modal-delete-button-background-color-dark: $mode-account-modal-delete-account-form-delete-button-background-color-dark;
 $mode-delete-modal-delete-button-hover-background-color-light: $mode-account-modal-delete-account-form-delete-button-hover-background-color-light;
@@ -222,7 +227,6 @@ $mode-delete-modal-cancel-button-hover-background-color-light: $gray-light-level
 $mode-delete-modal-cancel-button-hover-background-color-dark: $gray-dark-level-5;
 $mode-delete-modal-trapazoid-border-color-light: $mode-delete-modal-delete-button-background-color-light;
 $mode-delete-modal-trapazoid-border-color-dark: $mode-delete-modal-delete-button-background-color-dark;
-
 $mode-item-view-top-bar-icon-button-text-color-light: $gray-level-6;
 $mode-item-view-top-bar-icon-button-text-color-dark: $gray-level-8;
 $mode-item-view-top-bar-icon-button-hover-text-color-light: $gray-dark-level-7;
@@ -257,12 +261,18 @@ $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-ligh
 $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-dark: $mode-home-text-color-dark;
 
 // Themes
-$theme-light-border-background-color-teal: $teal-light-level-2;
-$theme-dark-border-background-color-teal: $teal-dark-level-1;
-$theme-text-color-teal: #2588b3;
-$theme-light-border-background-color-blue: $queen-blue-light-level-1;
-$theme-dark-border-background-color-blue: $queen-blue-dark-level-2;
-$theme-text-color-blue: #245ba3;
+$theme-brighter-border-background-color-blue-turkish: $turkish-blue-light-level-2;
+$theme-base-border-background-color-blue-turkish: $turkish-blue-dark-level-1;
+$theme-text-color-blue-turkish: $turquoise-blue-light-level-1;
+$theme-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
+$theme-base-border-background-color-blue-queen: $queen-blue-dark-level-2;
+$theme-text-color-blue_dark: $bdazzled-blue-level-1;
+// Themes + Light/Dark mode
+$theme-mode-teal-text-color-light: $turquoise-blue-light-level-2;
+$theme-mode-teal-text-color-dark: $turquoise-blue-light-level-1;
+$theme-mode-blue-queen-text-color-light: $bdazzled-blue-level-2;
+$theme-mode-blue-queen-text-color-dark: $bdazzled-blue-level-1;
+
 // Status colors
 $status-gray: $gray-level-3;
 $status-blue: #568dd5;
@@ -277,8 +287,8 @@ $filter-button-active-color-3: #ffbb00;
 $filter-button-active-color: $filter-button-active-color-1;
 
 // Components
-$register-login-submit-button-border-background-color: $teal-light-level-1;
-$register-login-submit-button-hover-border-background-color: $teal-light-level-2;
+$register-login-submit-button-border-background-color: $turkish-blue-light-level-1;
+$register-login-submit-button-hover-border-background-color: $turkish-blue-light-level-2;
 $register-login-bottom-link-text-color: $basic-blue-level-1;
 $breadcrumb-hamburger-close-button-text-color: $basic-red-light-level-2;
 

@@ -20,7 +20,7 @@ import {
 	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
@@ -188,7 +188,8 @@ export default function ListViewCreateItemSidebar(props) {
 					<h1
 						className={
 							"title" +
-							getTextColorClassNameForTheme(
+							getTextColorClassNameForThemeWithLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)
 						}

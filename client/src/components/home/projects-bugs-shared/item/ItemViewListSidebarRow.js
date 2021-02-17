@@ -16,7 +16,7 @@ import {
 	getListRowBorderColorClassNameForLightOrDarkMode,
 	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
 	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
 export default function ItemViewListSidebarRow(props) {
@@ -109,7 +109,8 @@ export default function ItemViewListSidebarRow(props) {
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " list-sidebar__table__data__overflow-container--completed-color"
-							: getTextColorClassNameForTheme(
+							: getTextColorClassNameForThemeWithLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}

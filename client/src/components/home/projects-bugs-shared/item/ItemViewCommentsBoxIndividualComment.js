@@ -16,7 +16,7 @@ import {
 
 import {
 	formatDateMMddYYYY,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
@@ -128,7 +128,8 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 					<div>
 						<div className="comment__block">
 							<span
-								className={getTextColorClassNameForTheme(
+								className={getTextColorClassNameForThemeWithLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)}
 							>

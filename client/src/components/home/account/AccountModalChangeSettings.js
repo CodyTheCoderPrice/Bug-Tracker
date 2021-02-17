@@ -13,7 +13,7 @@ import {
 
 import {
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
 
 // Components
@@ -62,7 +62,8 @@ export default function AccountModalChangeSettings() {
 				<h2
 					className={
 						"category-container__heading" +
-						getTextColorClassNameForTheme(
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
@@ -113,7 +114,8 @@ export default function AccountModalChangeSettings() {
 					onClick={backToAccountSidebar}
 					className={
 						"modal-link" +
-						getTextColorClassNameForTheme(
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

@@ -17,7 +17,7 @@ import {
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorClassNameForTheme,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
 
 export default function AccountModalChangePassword() {
@@ -194,7 +194,8 @@ export default function AccountModalChangePassword() {
 					onClick={backToEditInfo}
 					className={
 						"modal-link" +
-						getTextColorClassNameForTheme(
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

@@ -12,7 +12,7 @@ import {
 	displayGrayedOutMessageIfEmpty,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
 export default function ItemViewDisplayItemInfo(props) {
@@ -63,7 +63,8 @@ export default function ItemViewDisplayItemInfo(props) {
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " name-completed-color"
-							: getTextColorClassNameForTheme(
+							: getTextColorClassNameForThemeWithLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
@@ -103,10 +104,10 @@ export default function ItemViewDisplayItemInfo(props) {
 					>
 						<h2
 							className={
-								"item-box__title" +
-								getTextColorClassNameForTheme(
+								"item-box__title" /* +
+								getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
-								)
+								) */
 							}
 						>
 							Description
@@ -132,10 +133,10 @@ export default function ItemViewDisplayItemInfo(props) {
 					>
 						<h2
 							className={
-								"item-box__title" +
-								getTextColorClassNameForTheme(
+								"item-box__title" /* +
+								getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
-								)
+								) */
 							}
 						>
 							Info

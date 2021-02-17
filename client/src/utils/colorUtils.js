@@ -286,17 +286,16 @@ export function getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForL
 	dark_mode
 ) {
 	return (
-		" js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-" + dark_mode
+		" js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-" +
+		dark_mode
 	);
 }
 
-// Light/Dark mode -- DeleteModal warning-trapazoid -- border color 
+// Light/Dark mode -- DeleteModal warning-trapazoid -- border color
 export function getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return (
-		" js-set-delete-modal-trapazoid-border-color-dark-mode-" + dark_mode
-	);
+	return " js-set-delete-modal-trapazoid-border-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode -- temViewTopBar options-button -- border, background, and text colors
@@ -410,21 +409,19 @@ export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNa
 //========
 // Theme border color
 export function getLightBorderColorClassNameForTheme(theme_color) {
-	return " js-set-light-border-color-theme-" + theme_color;
+	return " js-set-brighter-border-color-theme-" + theme_color;
 }
 export function getDarkBorderColorClassNameForTheme(theme_color) {
-	return " js-set-dark-border-color-theme-" + theme_color;
+	return " js-set-base-border-color-theme-" + theme_color;
 }
-
 
 // Theme background color
 export function getLightBackgroundColorClassNameForTheme(theme_color) {
-	return " js-set-light-background-color-theme-" + theme_color;
+	return " js-set-brighter-background-color-theme-" + theme_color;
 }
 export function getDarkBackgroundColorClassNameForTheme(theme_color) {
-	return " js-set-dark-background-color-theme-" + theme_color;
+	return " js-set-base-background-color-theme-" + theme_color;
 }
-
 
 // Theme background color with hover
 export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
@@ -433,10 +430,10 @@ export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
 
 // Theme breadcrumb arrow color
 export function getLightBreadcrumbArrowColorClassNameForTheme(theme_color) {
-	return " js-set-light-breadcrumb-arrow-color-theme-" + theme_color;
+	return " js-set-brighter-breadcrumb-arrow-color-theme-" + theme_color;
 }
 export function getDarkBreadcrumbArrowColorClassNameForTheme(theme_color) {
-	return " js-set-dark-breadcrumb-arrow-color-theme-" + theme_color;
+	return " js-set-base-breadcrumb-arrow-color-theme-" + theme_color;
 }
 
 // Theme form-submit button colors
@@ -444,7 +441,14 @@ export function getformSubmitButtonColorClassNameForTheme(theme_color) {
 	return " js-set-form-submit-button-color-theme-" + theme_color;
 }
 
-// Theme text and link color
-export function getTextColorClassNameForTheme(theme_color) {
-	return " js-set-text-color-theme-" + theme_color;
+//==========================
+// Themes + Light/Dark mode
+//==========================
+// Theme text color
+export function getTextColorClassNameForThemeWithLightOrDarkMode(dark_mode, theme_color) {
+	return (
+		(dark_mode
+			? " js-set-text-color-mode-dark-theme-"
+			: " js-set-text-color-mode-light-theme-") + theme_color
+	);
 }

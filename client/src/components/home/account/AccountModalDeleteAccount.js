@@ -18,7 +18,7 @@ import {
 	getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
 
 export default function AccountModalDeleteAccount() {
@@ -176,7 +176,8 @@ export default function AccountModalDeleteAccount() {
 					onClick={backToEditInfo}
 					className={
 						"modal-link" +
-						getTextColorClassNameForTheme(
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

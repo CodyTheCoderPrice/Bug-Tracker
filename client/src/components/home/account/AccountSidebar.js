@@ -12,7 +12,7 @@ import {
 	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 
@@ -106,7 +106,8 @@ export default function AccountSidebar() {
 							onClick={openAccountModalForEditingAccount}
 							className={
 								"link-container__text" +
-								getTextColorClassNameForTheme(
+								getTextColorClassNameForThemeWithLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}
@@ -130,7 +131,8 @@ export default function AccountSidebar() {
 							<span
 								className={
 									"button-container__logout-button__text" +
-									getTextColorClassNameForTheme(
+									getTextColorClassNameForThemeWithLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									)
 								}

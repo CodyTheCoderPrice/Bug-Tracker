@@ -19,7 +19,7 @@ import {
 	formatDateYYYYmmDD,
 	manageSizeOfItemBoxsInPairContainer,
 	populateComboBox,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewFormNameInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewFormNameCharCountContainerFocusBorderColorClassNameForLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
@@ -228,7 +228,8 @@ export default function ItemViewEditItemInfo(props) {
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId
 								? " name-completed-color"
-								: getTextColorClassNameForTheme(
+								: getTextColorClassNameForThemeWithLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								  ))
 						}
@@ -287,10 +288,10 @@ export default function ItemViewEditItemInfo(props) {
 						<label htmlFor="edit-item-description">
 							<h2
 								className={
-									"item-box__title item-box__title--no-bottom-margin" +
-									getTextColorClassNameForTheme(
+									"item-box__title item-box__title--no-bottom-margin" /* +
+									getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
-									)
+									) */
 								}
 							>
 								Description
@@ -350,10 +351,10 @@ export default function ItemViewEditItemInfo(props) {
 					>
 						<h2
 							className={
-								"item-box__title" +
-								getTextColorClassNameForTheme(
+								"item-box__title" /* +
+								getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
-								)
+								) */
 							}
 						>
 							Info

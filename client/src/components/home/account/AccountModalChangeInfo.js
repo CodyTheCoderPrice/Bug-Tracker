@@ -16,7 +16,7 @@ import {
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorClassNameForTheme,
-	getTextColorClassNameForTheme,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
 
 export default function AccountModalChangeInfo() {
@@ -190,7 +190,8 @@ export default function AccountModalChangeInfo() {
 					onClick={openEditEmailModal}
 					className={
 						"modal-link modal-link--no-left-margin" +
-						getTextColorClassNameForTheme(
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
@@ -202,7 +203,8 @@ export default function AccountModalChangeInfo() {
 					onClick={openEditPasswordModal}
 					className={
 						"modal-link" +
-						getTextColorClassNameForTheme(
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
@@ -214,7 +216,8 @@ export default function AccountModalChangeInfo() {
 					onClick={openDeleteAccountModal}
 					className={
 						"modal-link modal-link--no-right-margin" +
-						getTextColorClassNameForTheme(
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

@@ -647,91 +647,100 @@ body {
 	// Themes
 	//========
 	// Theme border colors
-	.js-set-light-border-color-theme-teal {
-		border-color: v.$theme-light-border-background-color-teal;
+	.js-set-brighter-border-color-theme-blue-turkish {
+		border-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
-	.js-set-dark-border-color-theme-teal {
-		border-color: v.$theme-dark-border-background-color-teal;
+	.js-set-base-border-color-theme-blue-turkish {
+		border-color: v.$theme-base-border-background-color-blue-turkish;
 	}
-	.js-set-light-border-color-theme-blue {
-		border-color: v.$theme-light-border-background-color-blue;
+	.js-set-brighter-border-color-theme-blue-queen {
+		border-color: v.$theme-brighter-border-background-color-blue-queen;
 	}
-	.js-set-dark-border-color-theme-blue {
-		border-color: v.$theme-dark-border-background-color-blue;
+	.js-set-base-border-color-theme-blue-queen {
+		border-color: v.$theme-base-border-background-color-blue-queen;
 	}
 
 	// Theme background colors
-	.js-set-light-background-color-theme-teal {
-		background-color: v.$theme-light-border-background-color-teal;
+	.js-set-brighter-background-color-theme-blue-turkish {
+		background-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
-	.js-set-dark-background-color-theme-teal {
-		background-color: v.$theme-dark-border-background-color-teal;
+	.js-set-base-background-color-theme-blue-turkish {
+		background-color: v.$theme-base-border-background-color-blue-turkish;
 	}
-	.js-set-light-background-color-theme-blue {
-		background-color: v.$theme-light-border-background-color-blue;
+	.js-set-brighter-background-color-theme-blue-queen {
+		background-color: v.$theme-brighter-border-background-color-blue-queen;
 	}
-	.js-set-dark-background-color-theme-blue {
-		background-color: v.$theme-dark-border-background-color-blue;
+	.js-set-base-background-color-theme-blue-queen {
+		background-color: v.$theme-base-border-background-color-blue-queen;
 	}
 
 	// Theme background colors with hover
-	.js-set-background-color-with-hover-theme-teal {
-		background-color: v.$theme-light-border-background-color-teal;
+	.js-set-background-color-with-hover-theme-blue-turkish {
+		background-color: v.$theme-brighter-border-background-color-blue-turkish;
 
 		&:hover,
 		&:active {
-			background-color: v.$theme-dark-border-background-color-teal;
+			background-color: v.$theme-base-border-background-color-blue-turkish;
 		}
 	}
-	.js-set-background-color-with-hover-theme-blue {
-		background-color: v.$theme-light-border-background-color-blue;
+	.js-set-background-color-with-hover-theme-blue-queen {
+		background-color: v.$theme-brighter-border-background-color-blue-queen;
 
 		&:hover,
 		&:active {
-			background-color: v.$theme-dark-border-background-color-blue;
+			background-color: v.$theme-base-border-background-color-blue-queen;
 		}
 	}
 
 	// Theme breadcrumb arrow colors
-	.js-set-light-breadcrumb-arrow-color-theme-teal {
-		border-left-color: v.$theme-light-border-background-color-teal;
+	.js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish {
+		border-left-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
-	.js-set-dark-breadcrumb-arrow-color-theme-teal {
-		border-left-color: v.$theme-dark-border-background-color-teal;
+	.js-set-base-breadcrumb-arrow-color-theme-blue-turkish {
+		border-left-color: v.$theme-base-border-background-color-blue-turkish;
 	}
-	.js-set-light-breadcrumb-arrow-color-theme-blue {
-		border-left-color: v.$theme-light-border-background-color-blue;
+	.js-set-brighter-breadcrumb-arrow-color-theme-blue-queen {
+		border-left-color: v.$theme-brighter-border-background-color-blue-queen;
 	}
-	.js-set-dark-breadcrumb-arrow-color-theme-blue {
-		border-left-color: v.$theme-dark-border-background-color-blue;
+	.js-set-base-breadcrumb-arrow-color-theme-blue-queen {
+		border-left-color: v.$theme-base-border-background-color-blue-queen;
 	}
 
 	// Theme form-submit button colors
-	.js-set-form-submit-button-color-theme-teal {
-		background-color: v.$theme-light-border-background-color-teal;
+	.js-set-form-submit-button-color-theme-blue-turkish {
+		background-color: v.$theme-brighter-border-background-color-blue-turkish;
 
 		&:hover,
 		&:active,
 		&:focus {
-			background-color: v.$theme-dark-border-background-color-teal;
+			background-color: v.$theme-base-border-background-color-blue-turkish;
 		}
 	}
-	.js-set-form-submit-button-color-theme-blue {
-		background-color: v.$theme-dark-border-background-color-blue;
+	.js-set-form-submit-button-color-theme-blue-queen {
+		background-color: v.$theme-brighter-border-background-color-blue-queen;
 
 		&:hover,
 		&:active,
 		&:focus {
-			background-color: v.$theme-dark-border-background-color-blue;
+			background-color: v.$theme-base-border-background-color-blue-queen;
 		}
 	}
 
-	// Theme text and link color
-	.js-set-text-color-theme-teal {
-		color: v.$theme-text-color-teal;
+	//==========================
+	// Themes + Light/Dark mode
+	//==========================
+	// Theme text color
+	.js-set-text-color-mode-light-theme-blue-turkish {
+		color: v.$theme-mode-teal-text-color-light;
 	}
-	.js-set-text-color-theme-blue {
-		color: v.$theme-text-color-blue;
+	.js-set-text-color-mode-dark-theme-blue-turkish {
+		color: v.$theme-mode-teal-text-color-dark;
+	}
+	.js-set-text-color-mode-light-theme-blue-queen {
+		color: v.$theme-mode-blue-queen-text-color-light;
+	}
+	.js-set-text-color-mode-dark-theme-blue-queen {
+		color: v.$theme-mode-blue-queen-text-color-dark;
 	}
 
 	// Status boxes
