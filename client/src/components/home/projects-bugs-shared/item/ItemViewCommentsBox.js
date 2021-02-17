@@ -14,7 +14,7 @@ import {
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
-	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorClassNameForTheme,
 	dateToInt,
@@ -150,7 +150,7 @@ export default function ItemViewCommentsBox() {
 						id="create-comment-description"
 						className={
 							"item-box__form-textarea item-box__form-textarea--shorter" +
-							getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+							getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

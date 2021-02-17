@@ -342,12 +342,22 @@ export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundCol
 	);
 }
 
+// Light/Dark mode -- ItemView form-input -- border, background, and text color
+export function getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-form-input-border-background-text-color-dark-mode-" +
+		dark_mode
+	);
+}
+
 // Light/Dark mode --  ItemViewEditItemInfo form-input for name -- border (with focus -- top, bottom, left), background, text color
 export function getItemViewFormNameInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-item-view-form-input-border-background-text-color-dark-mode-" +
+		" js-set-item-view-form-name-input-border-background-text-color-dark-mode-" +
 		dark_mode
 	);
 }

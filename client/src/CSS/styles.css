@@ -2909,7 +2909,7 @@ body {
 .app-component .js-set-top-bar-border-and-background-color-dark-mode-true,
 .js-calc-app-component .js-set-top-bar-border-and-background-color-dark-mode-true {
   border-color: black;
-  background-color: #292929;
+  background-color: #232323;
 }
 .app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false {
@@ -3161,7 +3161,7 @@ body {
 }
 .app-component .js-set-item-view-item-box-background-color-dark-mode-true,
 .js-calc-app-component .js-set-item-view-item-box-background-color-dark-mode-true {
-  background-color: #292929;
+  background-color: #232323;
 }
 .app-component .js-set-item-view-list-sidebar-border-color-mode-false,
 .js-calc-app-component .js-set-item-view-list-sidebar-border-color-mode-false {
@@ -3184,24 +3184,22 @@ body {
 .app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true,
 .js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true {
   border-color: black;
-  background-color: #292929;
+  background-color: #232323;
 }
 .app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true:hover, .app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true:active,
 .js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true:hover,
 .js-calc-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true:active {
   background-color: #232323;
 }
-.app-component .js-set-item-view-form-input-border-background-text-color-dark-mode-false,
-.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-dark-mode-false {
+.app-component .js-set-item-view-form-input-border-background-text-color-mode-false,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-mode-false {
   border-color: black;
   background-color: white;
   color: black;
 }
-.app-component .js-set-item-view-form-input-border-background-text-color-dark-mode-false:focus,
-.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-dark-mode-false:focus {
-  border-top-color: #0062e2;
-  border-bottom-color: #0062e2;
-  border-left-color: #0062e2;
+.app-component .js-set-item-view-form-input-border-background-text-color-mode-false:focus,
+.js-calc-app-component .js-set-item-view-form-input-border-background-text-color-mode-false:focus {
+  border-color: #0062e2;
 }
 .app-component .js-set-item-view-form-input-border-background-text-color-dark-mode-true,
 .js-calc-app-component .js-set-item-view-form-input-border-background-text-color-dark-mode-true {
@@ -3211,9 +3209,31 @@ body {
 }
 .app-component .js-set-item-view-form-input-border-background-text-color-dark-mode-true:focus,
 .js-calc-app-component .js-set-item-view-form-input-border-background-text-color-dark-mode-true:focus {
-  border-top-color: #1f70b3;
-  border-bottom-color: #1f70b3;
-  border-left-color: #1f70b3;
+  border-color: #1f70b3;
+}
+.app-component .js-set-item-view-form-name-input-border-background-text-color-dark-mode-false,
+.js-calc-app-component .js-set-item-view-form-name-input-border-background-text-color-dark-mode-false {
+  border-color: black;
+  background-color: white;
+  color: black;
+}
+.app-component .js-set-item-view-form-name-input-border-background-text-color-dark-mode-false:focus,
+.js-calc-app-component .js-set-item-view-form-name-input-border-background-text-color-dark-mode-false:focus {
+  border-top-color: #0062e2;
+  border-bottom-color: #0062e2;
+  border-left-color: #0062e2;
+}
+.app-component .js-set-item-view-form-name-input-border-background-text-color-dark-mode-true,
+.js-calc-app-component .js-set-item-view-form-name-input-border-background-text-color-dark-mode-true {
+  border-color: black;
+  background-color: #333333;
+  color: #a9b3bb;
+}
+.app-component .js-set-item-view-form-name-input-border-background-text-color-dark-mode-true:focus,
+.js-calc-app-component .js-set-item-view-form-name-input-border-background-text-color-dark-mode-true:focus {
+  border-top-color: #0062e2;
+  border-bottom-color: #0062e2;
+  border-left-color: #0062e2;
 }
 .app-component .js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false,
 .js-calc-app-component .js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false {
@@ -3245,7 +3265,7 @@ body {
 }
 .app-component .js-set-item-view-diabled-input-date-dark-mode-true,
 .js-calc-app-component .js-set-item-view-diabled-input-date-dark-mode-true {
-  background-color: #292929;
+  background-color: #232323;
   color: #6d6d6d;
   pointer-events: none;
 }

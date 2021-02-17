@@ -503,8 +503,28 @@ body {
 		}
 	}
 
+	// Light/Dark mode -- ItemView form-input -- border, background, and text color
+	.js-set-item-view-form-input-border-background-text-color-mode-false {
+		border-color: v.$mode-item-view-form-input-border-color-light;
+		background-color: v.$mode-item-view-form-input-background-color-light;
+		color: v.$mode-home-text-color-light;
+
+		&:focus {
+			border-color: v.$mode-base-form-input-focus-border-color-light;
+		}
+	}
+	.js-set-item-view-form-input-border-background-text-color-dark-mode-true {
+		border-color: v.$mode-item-view-form-input-border-color-dark;
+		background-color: v.$mode-item-view-form-input-background-color-dark;
+		color: v.$mode-home-text-color-dark;
+
+		&:focus {
+			border-color: v.$mode-base-form-input-focus-border-color-dark;
+		}
+	}
+
 	// Light/Dark mode --  ItemViewEditItemInfo form-input for name -- border (with focus -- top, bottom, left), background, text color
-	.js-set-item-view-form-input-border-background-text-color-dark-mode-false {
+	.js-set-item-view-form-name-input-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-item-view-form-input-border-color-light;
 		background-color: v.$mode-item-view-form-input-background-color-light;
 		color: v.$mode-home-text-color-light;
@@ -515,15 +535,15 @@ body {
 			border-left-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
-	.js-set-item-view-form-input-border-background-text-color-dark-mode-true {
+	.js-set-item-view-form-name-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-item-view-form-input-border-color-dark;
 		background-color: v.$mode-item-view-form-input-background-color-dark;
 		color: v.$mode-home-text-color-dark;
 
 		&:focus {
-			border-top-color: v.$mode-base-form-input-focus-border-color-dark;
-			border-bottom-color: v.$mode-base-form-input-focus-border-color-dark;
-			border-left-color: v.$mode-base-form-input-focus-border-color-dark;
+			border-top-color: v.$mode-base-form-input-focus-border-color-light;
+			border-bottom-color: v.$mode-base-form-input-focus-border-color-light;
+			border-left-color: v.$mode-base-form-input-focus-border-color-light;
 		}
 	}
 

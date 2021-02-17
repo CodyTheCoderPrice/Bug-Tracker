@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
@@ -6,13 +6,10 @@ import {
 } from "../../../actions/constants/containerNames";
 
 import {
-	setWhichGeneralDropdownsDisplay,
 	updateAccountSettings,
 } from "../../../actions";
 
 import {
-	capitalizeFistLetterOfEachWord,
-	getAccountSidebarThemeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getDarkBackgroundColorClassNameForTheme,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";

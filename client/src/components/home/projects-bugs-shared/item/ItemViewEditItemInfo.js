@@ -24,7 +24,7 @@ import {
 	getItemViewFormNameCharCountContainerFocusBorderColorClassNameForLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewDisabledLabelClassNameForLightOrDarkMode,
 	getItemViewDisableInputDateClassNameForLightOrDarkMode,
@@ -320,7 +320,7 @@ export default function ItemViewEditItemInfo(props) {
 							id="edit-item-description"
 							className={
 								"item-box__form-textarea" +
-								getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+								getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -391,7 +391,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-location"
 									className={
 										"item-box__group__field__form-text" +
-										getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -427,7 +427,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-start-date"
 									className={
 										"item-box__group__field__form-date" +
-										getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -448,7 +448,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-due-date"
 									className={
 										"item-box__group__field__form-date" +
-										getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -478,7 +478,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-completion-date"
 									className={
 										"item-box__group__field__form-date  js-completion-date" +
-										getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										) +
 										(itemInfo.status_id !==
@@ -506,7 +506,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-priority"
 									className={
 										"item-box__group__field__form-select js-item-priority-select" +
-										getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -525,7 +525,7 @@ export default function ItemViewEditItemInfo(props) {
 									id="edit-item-status"
 									className={
 										"item-box__group__field__form-select js-item-status-select" +
-										getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+										getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										) +
 										getSelectTextColorClassName()
