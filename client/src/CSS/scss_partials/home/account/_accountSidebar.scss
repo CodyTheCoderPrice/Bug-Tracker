@@ -19,7 +19,7 @@
 		border-top: none;
 		border-right: none;
 		background: v.$mode-account-sidebar-modal-background-color-light;
-		height: 390px;
+		height: 402px;
 		width: v.$account-sidebar-width;
 		text-align: left;
 		font-family: Arial, Helvetica, sans-serif;
@@ -34,7 +34,7 @@
 		left: 13px;
 		border: none;
 		background: none;
-		color: v.$darker-icon-button-gray;
+		color: v.$mode-base-icon-button-text-color-light;
 		font-size: 22px;
 		cursor: pointer;
 

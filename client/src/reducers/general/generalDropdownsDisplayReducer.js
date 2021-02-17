@@ -3,7 +3,6 @@ import { SET_WHICH_GENERAL_DROPDOWNS_DISPLAY } from "../../actions/constants/typ
 // Default state for which general dropdownsshould be displayed by the app
 const initialState = {
 	navbarHamburherDropdown: false,
-	accountModalChangeSettingsThemeDropdown: false,
 	listViewSearchFilterSearchBarFilterDropdown: false,
 	itemViewTopBarSortDropdown: false,
 	itemViewTopBarFilterDropdown: false,
@@ -34,10 +33,6 @@ export default function (state = initialState, action) {
 				navbarHamburherDropdown:
 					action.displays.navbarHamburherDropdown !== undefined
 						? action.displays.navbarHamburherDropdown
-						: false,
-				accountModalChangeSettingsThemeDropdown:
-					action.displays.accountModalChangeSettingsThemeDropdown !== undefined
-						? action.displays.accountModalChangeSettingsThemeDropdown
 						: false,
 				listViewSearchFilterSearchBarFilterDropdown:
 					action.displays.listViewSearchFilterSearchBarFilterDropdown !==

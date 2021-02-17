@@ -20,7 +20,7 @@ export default function CustomCheckbox(props) {
 				}
 			/>
 			{props.checked ? (
-				<i className={"fa fa-check checkmark"} aria-hidden="true" />
+				<i className="fa fa-check checkmark" aria-hidden="true" />
 			) : null}
 		</div>
 	);

@@ -164,16 +164,6 @@ export function getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkM
 	);
 }
 
-// Light/Dark mode -- AccountSidebar theme-button -- border, background, text colors
-export function getAccountSidebarThemeButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-" +
-		dark_mode
-	);
-}
-
 // Light/Dark mode -- AccountSidebar logout-button -- hover background colors
 export function getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode

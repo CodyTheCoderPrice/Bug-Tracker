@@ -166,6 +166,7 @@
 
 	.category-container__border-container__content-container__label {
 		float: left;
+		margin-right: 10px;
 		// Subtracting 2px for better alignment
 		height: v.$account-modal-settings-content-container-height - 2;
 		font-size: v.$base-font-size;

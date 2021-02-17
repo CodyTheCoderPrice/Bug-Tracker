@@ -76,7 +76,7 @@ $turkish-blue-light-level-2: #6691a3;
 $turkish-blue-dark-level-1: #50798b;
 // Turquoise blues
 $turquoise-blue-light-level-1: #2ba6c5;
-$turquoise-blue-light-level-2: #2692ad;
+$turquoise-blue-light-level-2: #258faa;
 // Basic reds
 $basic-red-light-level-1: #ff3e3e;
 $basic-red-light-level-2: #fc1e1e;
@@ -173,20 +173,6 @@ $mode-top-bar-search-bar-text-color-light: $mode-home-text-color-light;
 $mode-top-bar-search-bar-text-color-dark: $mode-home-text-color-dark;
 $mode-account-sidebar-modal-background-color-light: $mode-home-background-color-light;
 $mode-account-sidebar-modal-background-color-dark: $mode-home-background-color-dark;
-$mode-account-sidebar-theme-button-border-color-light: $gray-dark-level-1;
-$mode-account-sidebar-theme-button-border-color-dark: $gray-dark-level-10;
-$mode-account-sidebar-theme-button-text-color-light: $gray-dark-level-5;
-$mode-account-sidebar-theme-button-text-color-dark: $gray-dark-level-8;
-$mode-account-sidebar-theme-button-current-container-background-color-light: $gray-light-level-5;
-$mode-account-sidebar-theme-button-current-container-background-color-dark: $gray-light-level-11;
-$mode-account-sidebar-theme-button-option-selected-background-color-light: $baby-blue-level-1;
-$mode-account-sidebar-theme-button-option-selected-background-color-dark: $carolina-blue-level-1;
-$mode-account-sidebar-theme-button-arrow-container-background-color-light: $gray-light-level-10;
-$mode-account-sidebar-theme-button-arrow-container-background-color-dark: $gray-level-2;
-$mode-account-sidebar-theme-button-arrow-container-text-color-light: $gray-dark-level-5;
-$mode-account-sidebar-theme-button-arrow-container-text-color-dark: $gray-dark-level-10;
-$mode-account-sidebar-theme-button-dropdown-container-background-color-light: $mode-account-sidebar-theme-button-current-container-background-color-light;
-$mode-account-sidebar-theme-button-dropdown-container-background-color-dark: $mode-account-sidebar-theme-button-current-container-background-color-dark;
 $mode-account-sidebar-logout-button-hover-background-color-light: $gray-light-level-1;
 $mode-account-sidebar-logout-button-hover-background-color-dark: $gray-dark-level-5;
 $mode-account-modal-delete-account-capital-delete-text-color-light: $mode-backend-errors-text-color-light;
@@ -285,18 +271,11 @@ $filter-button-active-color-1: #0077ff;
 $filter-button-active-color-2: #ae00ff;
 $filter-button-active-color-3: #ffbb00;
 $filter-button-active-color: $filter-button-active-color-1;
-
 // Components
 $register-login-submit-button-border-background-color: $turkish-blue-light-level-1;
 $register-login-submit-button-hover-border-background-color: $turkish-blue-light-level-2;
 $register-login-bottom-link-text-color: $basic-blue-level-1;
 $breadcrumb-hamburger-close-button-text-color: $basic-red-light-level-2;
-
-// Icon button colors
-$darker-icon-button-gray: $gray-level-5;
-// Links
-$light-blues-link: #005ed8;
-$red-link: #f34242;
 
 //==========
 // Heights
@@ -326,15 +305,16 @@ $edit-item-project-bugs-stats-item-box-height: 320px;
 //=========
 // Widths
 //=========
+$basic-toggle-switch-width: 52px;
 $navbar-account-button-width: 130px;
 $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;
 $navbar-hamburger-button-width: 36px;
 $account-sidebar-width: 430px;
 $edit-account-modal-width: 460px;
-$account-sidebar-appearance-theme-button-selected-container-width: 80px;
+$account-sidebar-appearance-theme-button-current-container-width: 30px;
 $account-sidebar-appearance-theme-button-arrow-container-width: 24px;
-$account-sidebar-appearance-theme-button-width: $account-sidebar-appearance-theme-button-selected-container-width +
+$account-sidebar-appearance-theme-button-width: $account-sidebar-appearance-theme-button-current-container-width +
 	$account-sidebar-appearance-theme-button-arrow-container-width;
 $delete-modal-delete-button-width: 90px;
 $top-bar-search-bar-button-width: $top-bar-search-bar-height + 10;
@@ -468,7 +448,7 @@ $navbar-hamburger-title-left: $navbar-hamburger-button-left +
 	$navbar-hamburger-button-width + 6px;
 $account-sidebar-appearance-theme-button-option-height: $account-sidebar-appearance-theme-button-selected-arrow-container-height -
 	($account-sidebar-appearance-theme-button-border-width * 2);
-$account-sidebar-appearance-theme-button-option-width: $account-sidebar-appearance-theme-button-selected-container-width -
+$account-sidebar-appearance-theme-button-option-width: $account-sidebar-appearance-theme-button-current-container-width -
 	($account-sidebar-appearance-theme-button-border-width * 2);
 $account-sidebar-appearance-theme-button-option-larger-width: $account-sidebar-appearance-theme-button-width -
 	($account-sidebar-appearance-theme-button-border-width * 2);

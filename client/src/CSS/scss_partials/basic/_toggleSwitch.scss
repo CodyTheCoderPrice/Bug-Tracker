@@ -13,12 +13,11 @@
 
 		position: relative;
 		float: left;
-		margin-left: 6px;
 		border: solid v.$mode-toggle-switch-on-border-color-light 3px;
 		border-radius: 25px;
 		background-color: v.$mode-toggle-switch-on-background-color-light;
 		height: v.$basic-toggle-switch-height;
-		width: 52px;
+		width: v.$basic-toggle-switch-width;
 		color: v.$mode-toggle-switch-on-text-color-light;
 		cursor: pointer;
 	}

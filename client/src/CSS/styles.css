@@ -8,7 +8,6 @@
   box-sizing: border-box;
   position: relative;
   float: left;
-  margin-left: 6px;
   border: solid #4885b8 3px;
   border-radius: 25px;
   background-color: #4885b8;
@@ -601,7 +600,7 @@ dropdown can overlap all other components
   border-top: none;
   border-right: none;
   background: white;
-  height: 390px;
+  height: 402px;
   width: 430px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
@@ -614,7 +613,7 @@ dropdown can overlap all other components
   left: 13px;
   border: none;
   background: none;
-  color: #757575;
+  color: #7c7c7c;
   font-size: 22px;
   cursor: pointer;
 }
@@ -688,109 +687,30 @@ dropdown can overlap all other components
 .account-sidebar-change-theme-component .content-container {
   display: inline-block;
   margin: 0 0 17px 16px;
-  height: 24px;
 }
 .account-sidebar-change-theme-component .content-container--right {
   float: right;
   margin: 0 16px 17px 0;
 }
 .account-sidebar-change-theme-component .content-container__label {
-  float: left;
-  height: 22px;
+  display: block;
+  margin-bottom: 6px;
   font-size: 16px;
-  line-height: 22px;
-  vertical-align: middle;
 }
-.account-sidebar-change-theme-component .content-container__theme-button {
+.account-sidebar-change-theme-component .content-container__theme-option {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  position: relative;
-  float: left;
-  margin-left: 10px;
-  width: 104px;
-  color: #3a3a3a;
-  cursor: pointer;
-}
-.account-sidebar-change-theme-component .content-container__theme-button__current-container {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  float: left;
-  border: solid #4e4e4e 1px;
-  border-right: none;
-  background-color: #e5e5e5;
-  height: 22px;
-  width: 80px;
-}
-.account-sidebar-change-theme-component .content-container__theme-button__option {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  height: 20px;
-  width: 78px;
-}
-.account-sidebar-change-theme-component .content-container__theme-button__option--larger {
-  height: 30px;
-  width: 102px;
-}
-.account-sidebar-change-theme-component .content-container__theme-button__option--selected {
-  background-color: #76bffa;
-}
-.account-sidebar-change-theme-component .content-container__theme-button__option__centering-container {
   position: relative;
   display: inline-block;
-  margin-left: 5px;
-  height: 100%;
-  width: 15px;
-}
-.account-sidebar-change-theme-component .content-container__theme-button__option__centering-container__circle {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: 100px;
+  margin-right: 6px;
+  border-radius: 10px;
   background-color: black;
-  height: 14px;
-  width: 14px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
 }
-.account-sidebar-change-theme-component .content-container__theme-button__option__centering-container__text {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  font-size: 12px;
-  font-weight: bold;
-}
-.account-sidebar-change-theme-component .content-container__theme-button__arrow-container {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  float: left;
-  border: solid #4e4e4e 1px;
-  background-color: #bfbfbf;
-  height: 22px;
-  width: 24px;
-  color: #3a3a3a;
-}
-.account-sidebar-change-theme-component .content-container__theme-button__arrow-container__icon {
+.account-sidebar-change-theme-component .content-container__theme-option__selected-checkmark {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -808,18 +728,11 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
+  color: white;
 }
-.account-sidebar-change-theme-component .content-container__theme-button__dropdown-container {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  z-index: 1;
-  position: absolute;
-  top: 22px;
-  border: solid #4e4e4e 1px;
-  border-top: none;
-  background-color: #e5e5e5;
-  width: 104px;
+.account-sidebar-change-theme-component .content-container__toggle-switch-centering-container {
+  width: 52px;
+  margin: 0 auto;
 }
 .account-sidebar-change-theme-component .backend-errors {
   display: block;
@@ -991,6 +904,7 @@ dropdown can overlap all other components
 }
 .edit-account-modal-component .category-container__border-container__content-container__label {
   float: left;
+  margin-right: 10px;
   height: 22px;
   font-size: 15px;
   vertical-align: middle;
@@ -2095,7 +2009,7 @@ dropdown can overlap all other components
   background: none;
   height: 29px;
   width: 36px;
-  color: #757575;
+  color: #7c7c7c;
   font-size: 28px;
   text-align: center;
   cursor: pointer;
@@ -3035,52 +2949,6 @@ body {
 .js-calc-app-component .js-set-account-sidebar-modal-background-color-dark-mode-true {
   background-color: #333333;
 }
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false {
-  color: #3a3a3a;
-}
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__current-container,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__current-container {
-  border-color: #4e4e4e;
-  background-color: #e5e5e5;
-}
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__arrow-container,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__arrow-container {
-  border-color: #4e4e4e;
-  background-color: #bfbfbf;
-  color: #3a3a3a;
-}
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__dropdown-container,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__dropdown-container {
-  background-color: #e5e5e5;
-}
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__dropdown-container > span > .content-container__theme-button__option--selected,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-false > .content-container__theme-button__dropdown-container > span > .content-container__theme-button__option--selected {
-  background: #76bffa;
-}
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true {
-  color: #303030;
-}
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__current-container,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__current-container {
-  border-color: #272727;
-  background-color: #b1b1b1;
-}
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__arrow-container,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__arrow-container {
-  border-color: #272727;
-  background-color: #919191;
-  color: #272727;
-}
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__dropdown-container,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__dropdown-container {
-  background-color: #b1b1b1;
-}
-.app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__dropdown-container > span > .content-container__theme-button__option--selected,
-.js-calc-app-component .js-set-account-sidebar-theme-button-border-background-text-color-dark-mode-true > .content-container__theme-button__dropdown-container > span > .content-container__theme-button__option--selected {
-  background: #57a4e4;
-}
 .app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:hover, .app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:active,
 .js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:hover,
 .js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:active {
@@ -3505,7 +3373,7 @@ body {
 }
 .app-component .js-set-text-color-mode-light-theme-blue-turkish,
 .js-calc-app-component .js-set-text-color-mode-light-theme-blue-turkish {
-  color: #2692ad;
+  color: #258faa;
 }
 .app-component .js-set-text-color-mode-dark-theme-blue-turkish,
 .js-calc-app-component .js-set-text-color-mode-dark-theme-blue-turkish {
