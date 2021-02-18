@@ -14,7 +14,7 @@ import {
 import {
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
-	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorClassNameForTheme,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
@@ -102,8 +102,9 @@ export default function AccountModalChangePassword() {
 					id="edit-account-password-new-password"
 					className={
 						"form__text-input" +
-						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				/>
@@ -149,8 +150,9 @@ export default function AccountModalChangePassword() {
 					id="edit-account-password-current-password"
 					className={
 						"form__text-input" +
-						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				/>

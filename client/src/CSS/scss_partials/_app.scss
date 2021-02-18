@@ -173,24 +173,16 @@ body {
 		color: v.$mode-universal-text-grayed-out-text-color-dark;
 	}
 
-	// Light/Dark mode -- base form-input -- border (with focus), background, and text color
+	// Light/Dark mode -- base form-input -- border, background, and text color
 	.js-set-base-form-input-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-base-form-input-border-color-light;
 		background-color: v.$mode-base-form-input-background-color-light;
 		color: v.$mode-home-text-color-light;
-
-		&:focus {
-			border-color: v.$mode-base-form-input-focus-border-color-light;
-		}
 	}
 	.js-set-base-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-base-form-input-border-color-dark;
 		background-color: v.$mode-base-form-input-background-color-dark;
 		color: v.$mode-home-text-color-dark;
-
-		&:focus {
-			border-color: v.$mode-base-form-input-focus-border-color-dark;
-		}
 	}
 
 	// Light/Dark mode -- TopBar -- border and background colors
@@ -373,7 +365,7 @@ body {
 		background-color: v.$mode-delete-modal-background-color-dark;
 	}
 
-	// Light/Dark mode -- DeleteModal delete-button -- background (with hover) color 
+	// Light/Dark mode -- DeleteModal delete-button -- background (with hover) color
 	.js-set-delete-modal-delete-button-background-color-dark-mode-false {
 		background-color: v.$mode-delete-modal-delete-button-background-color-light;
 
@@ -413,7 +405,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- DeleteModal warning-trapazoid -- border color 
+	// Light/Dark mode -- DeleteModal warning-trapazoid -- border color
 	.js-set-delete-modal-trapazoid-border-color-dark-mode-false {
 		border-top-color: v.$mode-delete-modal-trapazoid-border-color-light;
 	}
@@ -508,55 +500,11 @@ body {
 		border-color: v.$mode-item-view-form-input-border-color-light;
 		background-color: v.$mode-item-view-form-input-background-color-light;
 		color: v.$mode-home-text-color-light;
-
-		&:focus {
-			border-color: v.$mode-base-form-input-focus-border-color-light;
-		}
 	}
 	.js-set-item-view-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-item-view-form-input-border-color-dark;
 		background-color: v.$mode-item-view-form-input-background-color-dark;
 		color: v.$mode-home-text-color-dark;
-
-		&:focus {
-			border-color: v.$mode-base-form-input-focus-border-color-dark;
-		}
-	}
-
-	// Light/Dark mode --  ItemViewEditItemInfo form-input for name -- border (with focus -- top, bottom, left), background, text color
-	.js-set-item-view-form-name-input-border-background-text-color-dark-mode-false {
-		border-color: v.$mode-item-view-form-input-border-color-light;
-		background-color: v.$mode-item-view-form-input-background-color-light;
-		color: v.$mode-home-text-color-light;
-
-		&:focus {
-			border-top-color: v.$mode-base-form-input-focus-border-color-light;
-			border-bottom-color: v.$mode-base-form-input-focus-border-color-light;
-			border-left-color: v.$mode-base-form-input-focus-border-color-light;
-		}
-	}
-	.js-set-item-view-form-name-input-border-background-text-color-dark-mode-true {
-		border-color: v.$mode-item-view-form-input-border-color-dark;
-		background-color: v.$mode-item-view-form-input-background-color-dark;
-		color: v.$mode-home-text-color-dark;
-
-		&:focus {
-			border-top-color: v.$mode-base-form-input-focus-border-color-light;
-			border-bottom-color: v.$mode-base-form-input-focus-border-color-light;
-			border-left-color: v.$mode-base-form-input-focus-border-color-light;
-		}
-	}
-
-	// Light/Dark mode -- ItemViewEditItemInfo name char-count-container -- border color (top, bottom, right)
-	.js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-false {
-		border-top-color: v.$mode-base-form-input-focus-border-color-light;
-		border-bottom-color: v.$mode-base-form-input-focus-border-color-light;
-		border-right-color: v.$mode-base-form-input-focus-border-color-light;
-	}
-	.js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-true {
-		border-top-color: v.$mode-base-form-input-focus-border-color-dark;
-		border-bottom-color: v.$mode-base-form-input-focus-border-color-dark;
-		border-right-color: v.$mode-base-form-input-focus-border-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewEditItemInfo -- disabled form-label
@@ -620,7 +568,7 @@ body {
 	//========
 	// Themes
 	//========
-	// Theme border colors
+	// Theme -- border colors
 	.js-set-brighter-border-color-theme-blue-turkish {
 		border-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
@@ -634,7 +582,7 @@ body {
 		border-color: v.$theme-base-border-background-color-blue-queen;
 	}
 
-	// Theme background colors
+	// Theme -- background colors
 	.js-set-brighter-background-color-theme-blue-turkish {
 		background-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
@@ -648,7 +596,7 @@ body {
 		background-color: v.$theme-base-border-background-color-blue-queen;
 	}
 
-	// Theme background colors with hover
+	// Theme -- background (with hover) colors
 	.js-set-background-color-with-hover-theme-blue-turkish {
 		background-color: v.$theme-brighter-border-background-color-blue-turkish;
 
@@ -666,7 +614,7 @@ body {
 		}
 	}
 
-	// Theme breadcrumb arrow colors
+	// Theme -- breadcrumb arrow -- border colors
 	.js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish {
 		border-left-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
@@ -680,7 +628,7 @@ body {
 		border-left-color: v.$theme-base-border-background-color-blue-queen;
 	}
 
-	// Theme form-submit button colors
+	// Theme -- form-submit button -- background (with hover/focus) colors
 	.js-set-form-submit-button-color-theme-blue-turkish {
 		background-color: v.$theme-brighter-border-background-color-blue-turkish;
 
@@ -703,18 +651,78 @@ body {
 	//==========================
 	// Themes + Light/Dark mode
 	//==========================
-	// Theme text color
+	// Theme + Light/Dark mode --  text color
 	.js-set-text-color-mode-light-theme-blue-turkish {
-		color: v.$theme-mode-teal-text-color-light;
+		color: v.$theme-mode-blue-turkish-text-color-light;
 	}
 	.js-set-text-color-mode-dark-theme-blue-turkish {
-		color: v.$theme-mode-teal-text-color-dark;
+		color: v.$theme-mode-blue-turkish-text-color-dark;
 	}
 	.js-set-text-color-mode-light-theme-blue-queen {
 		color: v.$theme-mode-blue-queen-text-color-light;
 	}
 	.js-set-text-color-mode-dark-theme-blue-queen {
 		color: v.$theme-mode-blue-queen-text-color-dark;
+	}
+
+	// Theme + Light/Dark mode -- focus border color
+	.js-set-focus-border-color-mode-light-theme-blue-turkish {
+		&:focus {
+			border-color: v.$theme-mode-blue-turkish-focus-border-color-light;
+		}
+	}
+	.js-set-focus-border-color-mode-dark-theme-blue-turkish {
+		&:focus {
+			border-color: v.$theme-mode-blue-turkish-focus-border-color-dark;
+		}
+	}
+	.js-set-focus-border-color-mode-light-theme-blue-queen {
+		&:focus {
+			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+		}
+	}
+	.js-set-focus-border-color-mode-dark-theme-blue-queen {
+		&:focus {
+			border-color: v.$theme-mode-blue-queen-focus-border-color-dark;
+		}
+	}
+
+	// Theme + Light/Dark mode -- ItemViewEditItemInfo form-input for name -- focus border color
+	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turkish {
+		&:focus {
+			border-color: v.$theme-mode-blue-turkish-focus-border-color-light;
+		}
+
+		&:focus + .name-centering-container__char-count-centering-container {
+			border-color: v.$theme-mode-blue-turkish-focus-border-color-light
+		}
+	}
+	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish {
+		&:focus {
+			border-color: v.$theme-mode-blue-turkish-focus-border-color-dark;
+		}
+
+		&:focus + .name-centering-container__char-count-centering-container {
+			border-color: v.$theme-mode-blue-turkish-focus-border-color-dark;
+		}
+	}
+	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-queen {
+		&:focus {
+			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+		}
+
+		&:focus + .name-centering-container__char-count-centering-container {
+			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+		}
+	}
+	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-queen {
+		&:focus {
+			border-color: v.$theme-mode-blue-queen-focus-border-color-dark;
+		}
+
+		&:focus + .name-centering-container__char-count-centering-container {
+			border-color: v.$theme-mode-blue-queen-focus-border-color-dark;
+		}
 	}
 
 	// Status boxes

@@ -120,7 +120,7 @@ export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
 	return " js-set-universal-text-grayed-out-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode -- base form-input -- border (with focus), background, and text color
+// Light/Dark mode -- base form-input -- border, background, and text color
 export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -352,26 +352,6 @@ export function getItemViewFormInputBorderBackgroundTextColorClassNameForLightOr
 	);
 }
 
-// Light/Dark mode --  ItemViewEditItemInfo form-input for name -- border (with focus -- top, bottom, left), background, text color
-export function getItemViewFormNameInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-item-view-form-name-input-border-background-text-color-dark-mode-" +
-		dark_mode
-	);
-}
-
-// Light/Dark mode -- ItemViewEditItemInfo name char-count-container -- border color (top, bottom, right)
-export function getItemViewFormNameCharCountContainerFocusBorderColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-item-view-form-name-char-count-container-top-bottom-right-box-shadow-dark-mode-" +
-		dark_mode
-	);
-}
-
 // Light/Dark mode -- ItemViewEditItemInfo -- disabled form-label
 export function getItemViewDisabledLabelClassNameForLightOrDarkMode(dark_mode) {
 	return " js-set-item-view-diabled-label-dark-mode-" + dark_mode;
@@ -407,7 +387,7 @@ export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNa
 //========
 // Themes
 //========
-// Theme border color
+// Theme border colors
 export function getLightBorderColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-border-color-theme-" + theme_color;
 }
@@ -415,7 +395,7 @@ export function getDarkBorderColorClassNameForTheme(theme_color) {
 	return " js-set-base-border-color-theme-" + theme_color;
 }
 
-// Theme background color
+// Theme background colors
 export function getLightBackgroundColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-background-color-theme-" + theme_color;
 }
@@ -423,12 +403,12 @@ export function getDarkBackgroundColorClassNameForTheme(theme_color) {
 	return " js-set-base-background-color-theme-" + theme_color;
 }
 
-// Theme background color with hover
+// Theme background (with hover) colors
 export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
 	return " js-set-background-color-with-hover-theme-" + theme_color;
 }
 
-// Theme breadcrumb arrow color
+// Theme -- breadcrumb arrow -- border colors
 export function getLightBreadcrumbArrowColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-breadcrumb-arrow-color-theme-" + theme_color;
 }
@@ -436,7 +416,7 @@ export function getDarkBreadcrumbArrowColorClassNameForTheme(theme_color) {
 	return " js-set-base-breadcrumb-arrow-color-theme-" + theme_color;
 }
 
-// Theme form-submit button colors
+// Theme -- form-submit button -- background (with hover/focus) colors
 export function getformSubmitButtonColorClassNameForTheme(theme_color) {
 	return " js-set-form-submit-button-color-theme-" + theme_color;
 }
@@ -444,11 +424,74 @@ export function getformSubmitButtonColorClassNameForTheme(theme_color) {
 //==========================
 // Themes + Light/Dark mode
 //==========================
-// Theme text color
-export function getTextColorClassNameForThemeWithLightOrDarkMode(dark_mode, theme_color) {
+// Theme + Light/Dark mode -- text color
+export function getTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
 	return (
 		(dark_mode
 			? " js-set-text-color-mode-dark-theme-"
 			: " js-set-text-color-mode-light-theme-") + theme_color
+	);
+}
+
+// Theme + Light/Dark mode -- focus border color
+export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		(dark_mode
+			? " js-set-focus-border-color-mode-dark-theme-"
+			: " js-set-focus-border-color-mode-light-theme-") + theme_color
+	);
+}
+
+// Theme + Light/Dark mode -- base form-input -- border (with focus), background, and text colors
+export function getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+			dark_mode
+		) +
+		getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
+			dark_mode,
+			theme_color
+		)
+	);
+}
+
+// Theme + Light/Dark mode -- ItemView form-input -- border (with focus), background, and text color
+export function getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+			dark_mode
+		) +
+		getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
+			dark_mode,
+			theme_color
+		)
+	);
+}
+
+// Theme + Light/Dark mode -- ItemViewEditItemInfo form-input for name -- border (with focus), background, and text color
+export function getItemViewEditItemInfoFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+			dark_mode
+		) +
+		(dark_mode
+			? " js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-"
+			: " js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-") +
+		theme_color
 	);
 }

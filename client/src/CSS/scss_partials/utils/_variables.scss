@@ -61,6 +61,7 @@ $carolina-blue-level-6: #38678d;
 $egyptian-blue-level-1: #006eff;
 $egyptian-blue-level-2: #0062e2;
 $egyptian-blue-level-3: #0056c7;
+$egyptian-blue-level-4: #0050b9;
 // Imperial blues
 $imperial-blue-level-1: #1f70b3;
 $imperial-blue-level-2: #1e6aa8;
@@ -77,6 +78,8 @@ $turkish-blue-dark-level-1: #50798b;
 // Turquoise blues
 $turquoise-blue-light-level-1: #2ba6c5;
 $turquoise-blue-light-level-2: #258faa;
+$turquoise-blue-light-level-3: #1f7a91;
+
 // Basic reds
 $basic-red-light-level-1: #ff3e3e;
 $basic-red-light-level-2: #fc1e1e;
@@ -152,8 +155,6 @@ $mode-universal-text-grayed-out-text-color-light: $gray-level-4;
 $mode-universal-text-grayed-out-text-color-dark: $gray-level-6;
 $mode-base-form-input-border-color-light: $gray-level-5;
 $mode-base-form-input-border-color-dark: black;
-$mode-base-form-input-focus-border-color-light: $egyptian-blue-level-2;
-$mode-base-form-input-focus-border-color-dark: $imperial-blue-level-1;
 $mode-base-form-input-background-color-light: $gray-light-level-5;
 $mode-base-form-input-background-color-dark: $gray-dark-level-1;
 // Light/Dark mode (specific)
@@ -254,10 +255,14 @@ $theme-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
 $theme-base-border-background-color-blue-queen: $queen-blue-dark-level-2;
 $theme-text-color-blue_dark: $bdazzled-blue-level-1;
 // Themes + Light/Dark mode
-$theme-mode-teal-text-color-light: $turquoise-blue-light-level-2;
-$theme-mode-teal-text-color-dark: $turquoise-blue-light-level-1;
+$theme-mode-blue-turkish-text-color-light: $turquoise-blue-light-level-2;
+$theme-mode-blue-turkish-text-color-dark: $turquoise-blue-light-level-1;
 $theme-mode-blue-queen-text-color-light: $bdazzled-blue-level-2;
 $theme-mode-blue-queen-text-color-dark: $bdazzled-blue-level-1;
+$theme-mode-blue-turkish-focus-border-color-light: $turquoise-blue-light-level-2;
+$theme-mode-blue-turkish-focus-border-color-dark: $turquoise-blue-light-level-3;
+$theme-mode-blue-queen-focus-border-color-light: $egyptian-blue-level-2;
+$theme-mode-blue-queen-focus-border-color-dark: $egyptian-blue-level-4;
 
 // Status colors
 $status-gray: $gray-level-3;
