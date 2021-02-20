@@ -1202,21 +1202,18 @@ dropdown can overlap all other components
 }
 .item-view-bug-list-component .bug-list-table__data {
   position: relative;
+  width: 50%;
 }
-.item-view-bug-list-component .bug-list-table__data__overflow-container {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50px;
-  max-width: 50px;
+.item-view-bug-list-component .bug-list-table__data--overflow {
+  max-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.item-view-bug-list-component .bug-list-table__data__overflow-container--completed-color {
+.item-view-bug-list-component .bug-list-table__data--completed-color {
   color: #007e00;
 }
-.item-view-bug-list-component .bug-list-table__data__overflow-container__info__completed-icon {
+.item-view-bug-list-component .bug-list-table__data__info__completed-icon {
   margin-right: 5px;
   color: #007e00;
 }
@@ -1234,7 +1231,7 @@ dropdown can overlap all other components
   background-color: black;
   color: white;
   height: 27px;
-  width: 100%;
+  width: 150px;
 }
 .item-view-bug-list-component .bug-list-table__data__centering-container__status-box__centered-info {
   position: absolute;
