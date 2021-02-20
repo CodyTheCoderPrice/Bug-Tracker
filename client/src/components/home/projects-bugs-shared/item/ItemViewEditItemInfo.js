@@ -23,6 +23,7 @@ import {
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getBaseSecondaryTextColorClassNameForLightOrDarkMode,
 	getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewDisabledLabelClassNameForLightOrDarkMode,
@@ -258,7 +259,14 @@ export default function ItemViewEditItemInfo(props) {
 				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationItemName}
 				</span>
-				<div className="item-creation-date">
+				<div
+					className={
+						"item-creation-date" +
+						getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					Created on: {itemInfo.creation_date}
 				</div>
 			</div>

@@ -84,7 +84,14 @@ export default function ItemViewDisplayItemInfo(props) {
 							.name
 					}
 				</h1>
-				<div className="item-creation-date">
+				<div
+					className={
+						"item-creation-date" +
+						getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					Created on:{" "}
 					{formatDateMMddYYYY(
 						reduxState[props.reduxContainerName].componentsDisplay.targetItem

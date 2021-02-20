@@ -12,8 +12,9 @@ import {
 } from "../../../actions";
 
 import {
-	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
+	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 
 // Components
@@ -58,7 +59,14 @@ export default function AccountModalChangeSettings() {
 	return (
 		<div>
 			<h1 className="title">Account Settings</h1>
-			<div className="category-container category-container--larger-top-margin">
+			<div
+				className={
+					"category-container category-container--larger-top-margin" +
+					getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			>
 				<h2
 					className={
 						"category-container__heading" +
@@ -70,31 +78,27 @@ export default function AccountModalChangeSettings() {
 				>
 					Filter
 				</h2>
-				<div className="category-container__border-container">
-					<div className="category-container__border-container__content-container category-container__border-container__content-container--smaller-top-margin">
-						<label className="category-container__border-container__content-container__label">
-							Filter out completed projects (by default)
-						</label>
-						<ToggleSwitch
-							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-							isOn={
-								reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects
-							}
-							onChangeFunction={onChangeFilterCompletedProjects}
-						/>
-					</div>
-					<div className="category-container__border-container__content-container">
-						<label className="category-container__border-container__content-container__label">
-							Filter out completed bugs (by default)
-						</label>
-						<ToggleSwitch
-							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-							isOn={
-								reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs
-							}
-							onChangeFunction={onChangeFilterCompletedBugs}
-						/>
-					</div>
+				<div className="category-container__content-container category-container__content-container--smaller-top-margin">
+					<label className="category-container__content-container__label">
+						Filter out completed projects (by default)
+					</label>
+					<ToggleSwitch
+						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						isOn={
+							reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects
+						}
+						onChangeFunction={onChangeFilterCompletedProjects}
+					/>
+				</div>
+				<div className="category-container__content-container">
+					<label className="category-container__content-container__label">
+						Filter out completed bugs (by default)
+					</label>
+					<ToggleSwitch
+						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						isOn={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs}
+						onChangeFunction={onChangeFilterCompletedBugs}
+					/>
 				</div>
 			</div>
 			<span

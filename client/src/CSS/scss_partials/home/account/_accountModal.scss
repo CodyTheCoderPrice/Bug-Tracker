@@ -130,6 +130,10 @@
 	.category-container {
 		position: relative;
 		margin: 20px 0px 10px;
+		position: relative;
+		border: solid black 2px;
+		border-radius: 10px;
+		padding: 15px 20px;
 	}
 
 	.category-container--larger-top-margin {
@@ -137,34 +141,27 @@
 	}
 
 	.category-container__heading {
-		// Must be higher than category-container__border-container
+		// Must be higher than category-container
 		z-index: 1;
 		position: absolute;
-		top: -10px;
-		left: 15px;
+		top: -12px;
+		left: 20px;
 		margin: 0px;
 		background-color: white;
 		padding: 0px 8px;
 		font-size: v.$base-font-size + 3;
 	}
 
-	.category-container__border-container {
-		position: relative;
-		border: solid black 2px;
-		border-radius: 10px;
-		padding: 15px 20px;
-	}
-
-	.category-container__border-container__content-container {
+	.category-container__content-container {
 		margin-top: 15px;
 		height: v.$account-modal-settings-content-container-height;
 	}
 
-	.category-container__border-container__content-container--smaller-top-margin {
+	.category-container__content-container--smaller-top-margin {
 		margin-top: 5px;
 	}
 
-	.category-container__border-container__content-container__label {
+	.category-container__content-container__label {
 		float: left;
 		margin-right: 10px;
 		// Subtracting 2px for better alignment

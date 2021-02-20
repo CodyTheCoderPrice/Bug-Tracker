@@ -140,31 +140,6 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDark
 	);
 }
 
-// Light/Dark mode -- TopBar -- border and background colors
-export function getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-top-bar-border-and-background-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode -- TopBar buttons -- border, background, and text color
-export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-top-bar-button-border-background-text-color-dark-mode-" + dark_mode
-	);
-}
-
-// Light/Dark mode -- TopBar search-bar -- background and text colors
-export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-top-bar-search-bar-background-text-color-dark-mode-" + dark_mode
-	);
-}
-
 // Light/Dark mode -- AccountSidebar and AccountModal -- background colors
 export function getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -214,6 +189,41 @@ export function getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClass
 	);
 }
 
+// Light/Dark mode -- AccountModalChangeSettings category container -- border, background, text color
+export function getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode -- TopBar -- border and background colors
+export function getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-top-bar-border-and-background-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- TopBar buttons -- border, background, and text color
+export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-top-bar-button-border-background-text-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode -- TopBar search-bar -- background and text colors
+export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-top-bar-search-bar-background-text-color-dark-mode-" + dark_mode
+	);
+}
+
 // Light/Dark mode -- CreateItemSidebar component -- background colors
 export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -238,7 +248,9 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 }
 
 // Light/Dark mode -- list rows -- border and text colors
-export function getListRowBorderAndTextColorClassNameForLightOrDarkMode(dark_mode) {
+export function getListRowBorderAndTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
 	return " js-set-list-row-border-and-text-color-dark-mode-" + dark_mode;
 }
 
