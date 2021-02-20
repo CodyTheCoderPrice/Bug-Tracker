@@ -48,11 +48,18 @@ export function appendHexValueForColor(statusList) {
 //=================
 // Light/Dark mode
 //=================
-// Light/Dark mode -- Home component -- background and text colors
-export function getHomeBackgroundAndTextColorClassNameForLightOrDarkMode(
+// Light/Dark mode -- Base -- background and text colors
+export function getBaseBackgroundAndTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-set-home-background-and-text-color-dark-mode-" + dark_mode;
+	return " js-set-base-background-and-text-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- Base secondary -- text colors
+export function getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-base-secondary-text-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode -- backend-errors -- text colors
@@ -117,7 +124,10 @@ export function getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkM
 export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-set-universal-text-grayed-out-text-color-dark-mode-" + dark_mode;
+	return (
+		" universal-text-grayed-out js-set-universal-text-grayed-out-text-color-dark-mode-" +
+		dark_mode
+	);
 }
 
 // Light/Dark mode -- base form-input -- border, background, and text color
@@ -227,9 +237,9 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode -- list rows -- border colors
-export function getListRowBorderColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-set-list-row-border-color-dark-mode-" + dark_mode;
+// Light/Dark mode -- list rows -- border and text colors
+export function getListRowBorderAndTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-set-list-row-border-and-text-color-dark-mode-" + dark_mode;
 }
 
 // Light/Dark mode -- list rows -- hover background colors

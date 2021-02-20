@@ -10,7 +10,7 @@ body {
 .app-component,
 .js-calc-app-component {
 	width: 100%;
-	color: v.$mode-home-text-color-light;
+	color: v.$mode-base-primary-text-color-light;
 
 	// Used to to gray-out the word "none" for empty item fields
 	.universal-text-grayed-out {
@@ -23,14 +23,22 @@ body {
 	//=================
 	// Light/Dark mode
 	//=================
-	// Light/Dark mode -- Home component -- background and text colors
-	.js-set-home-background-and-text-color-dark-mode-false {
-		background-color: v.$mode-home-background-color-light;
-		color: v.$mode-home-text-color-light;
+	// Light/Dark mode -- Base -- background and text colors
+	.js-set-base-background-and-text-color-dark-mode-false {
+		background-color: v.$mode-base-background-color-light;
+		color: v.$mode-base-primary-text-color-light;
 	}
-	.js-set-home-background-and-text-color-dark-mode-true {
-		background-color: v.$mode-home-background-color-dark;
-		color: v.$mode-home-text-color-dark;
+	.js-set-base-background-and-text-color-dark-mode-true {
+		background-color: v.$mode-base-background-color-dark;
+		color: v.$mode-base-primary-text-color-dark;
+	}
+
+	// Light/Dark mode -- Base secondary -- text colors
+	.js-set-base-secondary-text-color-dark-mode-false {
+		color: v.$mode-base-secondary-text-color-light;
+	}
+	.js-set-base-secondary-text-color-dark-mode-true {
+		color: v.$mode-base-secondary-text-color-dark;
 	}
 
 	// Light/Dark mode -- backend-errors -- text colors
@@ -177,12 +185,12 @@ body {
 	.js-set-base-form-input-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-base-form-input-border-color-light;
 		background-color: v.$mode-base-form-input-background-color-light;
-		color: v.$mode-home-text-color-light;
+		color: v.$mode-base-primary-text-color-light;
 	}
 	.js-set-base-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-base-form-input-border-color-dark;
 		background-color: v.$mode-base-form-input-background-color-dark;
-		color: v.$mode-home-text-color-dark;
+		color: v.$mode-base-primary-text-color-dark;
 	}
 
 	// Light/Dark mode -- TopBar -- border and background colors
@@ -317,12 +325,14 @@ body {
 		pointer-events: none;
 	}
 
-	// Light/Dark mode -- list rows -- border colors
-	.js-set-list-row-border-color-dark-mode-false {
+	// Light/Dark mode -- list rows -- border and text colors
+	.js-set-list-row-border-and-text-color-dark-mode-false {
 		border-color: v.$mode-list-row-border-color-light;
+		color: v.$mode-base-secondary-text-color-light;
 	}
-	.js-set-list-row-border-color-dark-mode-true {
+	.js-set-list-row-border-and-text-color-dark-mode-true {
 		border-color: v.$mode-list-row-border-color-dark;
+		color: v.$mode-base-secondary-text-color-dark;
 	}
 
 	// Light/Dark mode -- list rows -- hover background colors
@@ -499,12 +509,12 @@ body {
 	.js-set-item-view-form-input-border-background-text-color-mode-false {
 		border-color: v.$mode-item-view-form-input-border-color-light;
 		background-color: v.$mode-item-view-form-input-background-color-light;
-		color: v.$mode-home-text-color-light;
+		color: v.$mode-base-primary-text-color-light;
 	}
 	.js-set-item-view-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-item-view-form-input-border-color-dark;
 		background-color: v.$mode-item-view-form-input-background-color-dark;
-		color: v.$mode-home-text-color-dark;
+		color: v.$mode-base-primary-text-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewEditItemInfo -- disabled form-label

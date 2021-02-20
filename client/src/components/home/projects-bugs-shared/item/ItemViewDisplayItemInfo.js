@@ -209,8 +209,7 @@ export default function ItemViewDisplayItemInfo(props) {
 											.priorityEmptyId ===
 										reduxState[props.reduxContainerName].componentsDisplay
 											.targetItem.priority_id
-											? " universal-text-grayed-out" +
-											  getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
+											? getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
 											: "")

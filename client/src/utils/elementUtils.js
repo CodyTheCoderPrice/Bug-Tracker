@@ -5,16 +5,21 @@ import {
 	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
 } from "./index";
 
+export function displayMessageIfEmpty(value, message, dark_mode) {
+	if (isEmpty(value)) {
+		return message;
+	} else {
+		return value;
+	}
+}
+
 export function displayGrayedOutMessageIfEmpty(value, message, dark_mode) {
 	if (isEmpty(value)) {
 		return (
 			<span
-				className={
-					"universal-text-grayed-out" +
-					getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
-						dark_mode
-					)
-				}
+				className={getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
+					dark_mode
+				)}
 			>
 				{message}
 			</span>

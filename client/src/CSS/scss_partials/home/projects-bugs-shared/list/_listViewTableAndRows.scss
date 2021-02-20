@@ -33,6 +33,10 @@
 		text-align: center;
 	}
 
+	.list-table__row--non-header {
+		color: v.$mode-base-secondary-text-color-light;
+	}
+
 	.list-table__row--empty {
 		height: v.$list-row-height +
 			(v.$list-row-height * 0.5);
@@ -47,7 +51,7 @@
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: v.$mode-list-header-box-shadow-light;
-		background-color: v.$mode-home-background-color-light;
+		background-color: v.$mode-base-background-color-light;
 		width: 300px;
 	}
 
@@ -148,7 +152,7 @@
 
 		width: 90%;
 		text-align: center;
-		font-size: v.$list-container-empty-list-message-font-size;
+		font-size: v.$list-view-empty-list-message-font-size;
 		color: gray;
 	}
 }

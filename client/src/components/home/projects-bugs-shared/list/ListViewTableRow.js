@@ -14,12 +14,11 @@ import {
 } from "../../../../actions";
 
 import {
-	getListRowBorderColorClassNameForLightOrDarkMode,
+	getListRowBorderAndTextColorClassNameForLightOrDarkMode,
 	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
 	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
-	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
-	displayGrayedOutMessageIfEmpty,
+	displayMessageIfEmpty,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getBugsInProjectList,
 	getNumberOfBugsForStatus,
@@ -107,8 +106,8 @@ export default function ListViewTableRow(props) {
 	return (
 		<tr
 			className={
-				"list-table__row" +
-				getListRowBorderColorClassNameForLightOrDarkMode(
+				"list-table__row list-table__row--non-header" +
+				getListRowBorderAndTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				) +
 				(reduxState[props.reduxContainerName]?.componentsDisplay.targetItem !==
@@ -182,45 +181,31 @@ export default function ListViewTableRow(props) {
 				</div>
 			</td>
 			<td className={getTableDataClassName()}>
-				<span
-					className={
-						"list-table__data__info" +
-						(reduxState[props.reduxContainerName].priorityStatusOptions
-							.priorityEmptyId === props.item.priority_id
-							? " universal-text-grayed-out" +
-							  getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-							  )
-							: "")
-					}
-				>
+				<span className={"list-table__data__info"}>
 					{props.item.priority_option}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayGrayedOutMessageIfEmpty(
+					{displayMessageIfEmpty(
 						formatDateMMddYYYY(props.item.creation_date),
-						"None",
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						"-"
 					)}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayGrayedOutMessageIfEmpty(
+					{displayMessageIfEmpty(
 						formatDateMMddYYYY(props.item.start_date),
-						"None",
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						"-"
 					)}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayGrayedOutMessageIfEmpty(
+					{displayMessageIfEmpty(
 						formatDateMMddYYYY(props.item.due_date),
-						"None",
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						"-"
 					)}
 				</span>
 			</td>
