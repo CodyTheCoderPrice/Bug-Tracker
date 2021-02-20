@@ -21,7 +21,6 @@ import {
 	manageSizeOfItemBoxsInPairContainer,
 	getWindowSize,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
-	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
@@ -254,10 +253,7 @@ export default function ItemView(props) {
 								>
 									<h2
 										className={
-											"item-box__title" /* +
-											getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
-												reduxState[ACCOUNT_CONTAINER].settings.theme_color
-											) */
+											"item-box__title"
 										}
 									>
 										Status of Bugs
@@ -287,10 +283,7 @@ export default function ItemView(props) {
 								>
 									<h2
 										className={
-											"item-box__title" /* +
-											getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
-												reduxState[ACCOUNT_CONTAINER].settings.theme_color
-											) */
+											"item-box__title"
 										}
 									>
 										Most Recent Bugs Worked On

@@ -11,7 +11,7 @@ import {
 	formatDateMMddYYYY,
 	displayGrayedOutMessageIfEmpty,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
-	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
+	getBaseSecondaryTextColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
@@ -102,17 +102,15 @@ export default function ItemViewDisplayItemInfo(props) {
 							)
 						}
 					>
-						<h2
+						<h2 className={"item-box__title"}>Description</h2>
+						<span
 							className={
-								"item-box__title" /* +
-								getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
-									reduxState[ACCOUNT_CONTAINER].settings.theme_color
-								) */
+								"item-box__description" +
+								getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
 							}
 						>
-							Description
-						</h2>
-						<span className="item-box__description">
 							{displayGrayedOutMessageIfEmpty(
 								reduxState[props.reduxContainerName].componentsDisplay
 									.targetItem.description,
@@ -131,24 +129,22 @@ export default function ItemViewDisplayItemInfo(props) {
 							)
 						}
 					>
-						<h2
-							className={
-								"item-box__title" /* +
-								getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
-									reduxState[ACCOUNT_CONTAINER].settings.theme_color
-								) */
-							}
-						>
-							Info
-						</h2>
+						<h2 className={"item-box__title"}>Info</h2>
 						{props.reduxContainerName === BUG_CONTAINER ? (
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Location:</span>
-								<span className="item-box__group__field_content">
+								<span
+									className={
+										"item-box__group__field_content" +
+										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										)
+									}
+								>
 									{displayGrayedOutMessageIfEmpty(
 										reduxState[props.reduxContainerName].componentsDisplay
 											.targetItem.location,
-										"None",
+										"none",
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)}
 								</span>
@@ -159,27 +155,41 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span className="item-box__group__field__type">
 									Start Date:
 								</span>
-								<span className="item-box__group__field_content">
+								<span
+									className={
+										"item-box__group__field_content" +
+										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										)
+									}
+								>
 									{displayGrayedOutMessageIfEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
-												.targetItem.start_date,
-											"None",
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-										)
+												.targetItem.start_date
+										),
+										"none",
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)}
 								</span>
 							</div>
 							<div className="item-box__group__field">
 								<span className="item-box__group__field__type">Due Date:</span>
-								<span className="item-box__group__field_content">
+								<span
+									className={
+										"item-box__group__field_content" +
+										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										)
+									}
+								>
 									{displayGrayedOutMessageIfEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
-												.targetItem.due_date,
-											"None",
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-										)
+												.targetItem.due_date
+										),
+										"none",
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)}
 								</span>
 							</div>
@@ -187,14 +197,21 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span className="item-box__group__field__type">
 									Completed on:
 								</span>
-								<span className="item-box__group__field_content">
+								<span
+									className={
+										"item-box__group__field_content" +
+										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										)
+									}
+								>
 									{displayGrayedOutMessageIfEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
-												.targetItem.completion_date,
-											"None",
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-										)
+												.targetItem.completion_date
+										),
+										"none",
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)}
 								</span>
 							</div>
@@ -205,14 +222,9 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										(reduxState[props.reduxContainerName].priorityStatusOptions
-											.priorityEmptyId ===
-										reduxState[props.reduxContainerName].componentsDisplay
-											.targetItem.priority_id
-											? getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
-													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-											  )
-											: "")
+										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										)
 									}
 								>
 									{

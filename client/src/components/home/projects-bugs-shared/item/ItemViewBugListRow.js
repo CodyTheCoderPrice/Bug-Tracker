@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { getElementSize } from "../../../../utils";
+import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames";
+
+import {
+	getElementSize,
+	getBaseSecondaryTextColorClassNameForLightOrDarkMode,
+} from "../../../../utils";
 
 export default function ItemViewBugListRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -41,7 +46,14 @@ export default function ItemViewBugListRow(props) {
 	};
 
 	return (
-		<tr className="bug-list-table__row">
+		<tr
+			className={
+				"bug-list-table__row" +
+				getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+				)
+			}
+		>
 			<td className="bug-list-table__data js-bug-name-table-data">
 				<div
 					className={

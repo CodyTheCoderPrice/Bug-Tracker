@@ -5,7 +5,7 @@ import {
 	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
 } from "./index";
 
-export function displayMessageIfEmpty(value, message, dark_mode) {
+export function displayMessageIfEmpty(value, message) {
 	if (isEmpty(value)) {
 		return message;
 	} else {
@@ -14,6 +14,8 @@ export function displayMessageIfEmpty(value, message, dark_mode) {
 }
 
 export function displayGrayedOutMessageIfEmpty(value, message, dark_mode) {
+	console.log(value + " --> " + dark_mode);
+
 	if (isEmpty(value)) {
 		return (
 			<span

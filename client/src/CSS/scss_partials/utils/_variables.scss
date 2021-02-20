@@ -39,15 +39,16 @@ $gray-dark-level-11: #232323;
 $gray-dark-level-12: #1d1d1d;
 $gray-dark-level-13: #181818;
 // Tinted grays
-$tinted-gray-light-level-1: #c9d1d9;
-$tinted-gray-light-level-2: #bfc8d1;
-$tinted-gray-light-level-3: #b7c1ca;
-$tinted-gray-light-level-4: #b2bbc4;
-$tinted-gray-light-level-5: #a9b3bb;
-$tinted-gray-light-level-6: #9ca5ac;
-$tinted-gray-light-level-7: #8f989e;
-$tinted-gray-light-level-8: #868e94;
-$tinted-gray-light-level-9: #80878d;
+$tinted-gray-light-level-1: #c7d1db;
+$tinted-gray-light-level-2: #c1cad4;
+$tinted-gray-light-level-3: #bfc8d1;
+$tinted-gray-light-level-4: #b7c1ca;
+$tinted-gray-light-level-5: #b2bbc4;
+$tinted-gray-light-level-6: #a9b3bb;
+$tinted-gray-light-level-7: #9ca5ac;
+$tinted-gray-light-level-8: #8f989e;
+$tinted-gray-light-level-9: #868e94;
+$tinted-gray-light-level-10: #80878d;
 // Basic blues
 $basic-blue-level-1: #0000ff;
 // Baby blues
@@ -114,9 +115,9 @@ $yellow-level-1: #ffff00;
 $mode-base-background-color-light: white;
 $mode-base-background-color-dark: $gray-dark-level-7;
 $mode-base-primary-text-color-light: black;
-$mode-base-primary-text-color-dark: $tinted-gray-light-level-2;
-$mode-base-secondary-text-color-light: $gray-dark-level-5;
-$mode-base-secondary-text-color-dark: $tinted-gray-light-level-4;
+$mode-base-primary-text-color-dark: $tinted-gray-light-level-1;
+$mode-base-secondary-text-color-light: $gray-dark-level-10;
+$mode-base-secondary-text-color-dark: $tinted-gray-light-level-6;
 $mode-backend-errors-text-color-light: $basic-red-level-1;
 $mode-backend-errors-text-color-dark: $fiery-red-level-1;
 $mode-char-count-limit-reached-text-color-light: $mode-backend-errors-text-color-light;
