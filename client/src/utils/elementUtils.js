@@ -14,8 +14,6 @@ export function displayMessageIfEmpty(value, message) {
 }
 
 export function displayGrayedOutMessageIfEmpty(value, message, dark_mode) {
-	console.log(value + " --> " + dark_mode);
-
 	if (isEmpty(value)) {
 		return (
 			<span

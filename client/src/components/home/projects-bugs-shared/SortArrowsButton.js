@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { setProjectOrBugSearchFilterSort } from "../../../actions";
 
 // Light mode
-import sortArrowsBothEmptyThemeLight from "../../../images/sort-arrows-both-empty-theme-light.svg";
-import sortArrowsTopFilledThemeLight from "../../../images/sort-arrows-top-filled-theme-light.svg";
-import sortArrowsBottomFilledThemeLight from "../../../images/sort-arrows-bottom-filled-theme-light.svg";
+import sortArrowsBothEmptyModeLight from "../../../images/sort-arrows-both-empty-for-mode-light.svg";
+import sortArrowsTopFilledModeLight from "../../../images/sort-arrows-top-filled-for-mode-light.svg";
+import sortArrowsBottomFilledModeLight from "../../../images/sort-arrows-bottom-filled-for-mode-light.svg";
 // Dark mode
-import sortArrowsBothEmptyThemeDark from "../../../images/sort-arrows-both-empty-theme-dark.svg";
-import sortArrowsTopFilledThemeDark from "../../../images/sort-arrows-top-filled-theme-dark.svg";
-import sortArrowsBottomFilledThemeDark from "../../../images/sort-arrows-bottom-filled-theme-dark.svg";
+import sortArrowsBothEmptyModeDark from "../../../images/sort-arrows-both-empty-for-mode-dark.svg";
+import sortArrowsTopFilledModeDark from "../../../images/sort-arrows-top-filled-for-mode-dark.svg";
+import sortArrowsBottomFilledModeDark from "../../../images/sort-arrows-bottom-filled-for-mode-dark.svg";
 
 export default function SortArrowsButton(props) {
 	const reduxState = useSelector((state) => state);
@@ -43,17 +43,17 @@ export default function SortArrowsButton(props) {
 		if (!props.dark_mode) {
 			return reduxState[props.reduxContainerName].searchFilterSort
 				.sortByTypeId !== props.sortTypeId
-				? sortArrowsBothEmptyThemeLight
+				? sortArrowsBothEmptyModeLight
 				: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
-				? sortArrowsTopFilledThemeLight
-				: sortArrowsBottomFilledThemeLight;
+				? sortArrowsTopFilledModeLight
+				: sortArrowsBottomFilledModeLight;
 		} else {
 			return reduxState[props.reduxContainerName].searchFilterSort
 				.sortByTypeId !== props.sortTypeId
-				? sortArrowsBothEmptyThemeDark
+				? sortArrowsBothEmptyModeDark
 				: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
-				? sortArrowsTopFilledThemeDark
-				: sortArrowsBottomFilledThemeDark;
+				? sortArrowsTopFilledModeDark
+				: sortArrowsBottomFilledModeDark;
 		}
 	};
 

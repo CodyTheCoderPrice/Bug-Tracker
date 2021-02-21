@@ -140,6 +140,15 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDark
 	);
 }
 
+// Light/Dark mode -- NavbarHamburger dropdown -- background (with hover and selected) colors
+export function getNavbarHamburgerDropdownBackgroundColorWithHoverAndSelectedClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-" + dark_mode
+	);
+}
+
 // Light/Dark mode -- AccountSidebar and AccountModal -- background colors
 export function getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode

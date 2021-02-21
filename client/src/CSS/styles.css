@@ -444,6 +444,9 @@ dropdown can overlap all other components
 }
 .hamburger-container .hamburger-dropdown__top-space,
 .js-calc-hamburger-container .hamburger-dropdown__top-space {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
   display: block;
   height: 34px;
@@ -458,9 +461,12 @@ dropdown can overlap all other components
 }
 .hamburger-container .hamburger-dropdown__option,
 .js-calc-hamburger-container .hamburger-dropdown__option {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
   display: block;
-  border-top: 1px solid gray;
+  border-top: 1px solid #a3a3a3;
   padding-left: 12px;
   height: 42px;
   line-height: 42px;
@@ -475,20 +481,20 @@ dropdown can overlap all other components
 }
 .hamburger-container .hamburger-dropdown__option--selected,
 .js-calc-hamburger-container .hamburger-dropdown__option--selected {
-  background-color: #e5e5e5;
+  background-color: #9de0ff;
 }
 .hamburger-container .hamburger-dropdown__option--selected:hover, .hamburger-container .hamburger-dropdown__option--selected:active,
 .js-calc-hamburger-container .hamburger-dropdown__option--selected:hover,
 .js-calc-hamburger-container .hamburger-dropdown__option--selected:active {
-  background-color: #e5e5e5;
+  background-color: #9de0ff;
 }
 .hamburger-container .hamburger-dropdown__option--item-name,
 .js-calc-hamburger-container .hamburger-dropdown__option--item-name {
-  color: blue;
+  color: #0000ff;
 }
 .hamburger-container .hamburger-dropdown__option--last-button-round-bottom-border,
 .js-calc-hamburger-container .hamburger-dropdown__option--last-button-round-bottom-border {
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 7px 7px;
 }
 .hamburger-container .hamburger-dropdown__option__icon,
 .js-calc-hamburger-container .hamburger-dropdown__option__icon {
@@ -525,7 +531,7 @@ dropdown can overlap all other components
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
   padding: 1px 0px 0px 5px;
-  color: #808080;
+  color: #7c7c7c;
   opacity: 0.6;
   font-size: 17px;
   cursor: pointer;
@@ -2162,12 +2168,14 @@ dropdown can overlap all other components
   font-size: 15px;
 }
 .create-item-component .form__text-input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   margin-top: 2px;
   margin-bottom: 10px;
   outline: none;
   border: 1px solid #757575;
   border-radius: 5px;
-  box-sizing: border-box;
   background: #e5e5e5;
   padding: 6px;
   width: 100%;
@@ -2905,6 +2913,66 @@ body {
   border-color: black;
   background-color: #4e4e4e;
   color: #c7d1db;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false {
+  background-color: white;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option {
+  border-color: #a3a3a3;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option:hover, .app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option:active,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option:hover,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option:active {
+  background-color: #f8f8f8;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
+  color: #4e4e4e;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected {
+  background-color: #9de0ff;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected:hover, .app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected:active,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected:hover,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected:active {
+  background-color: #9de0ff;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--item-name,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--item-name {
+  color: #0000ff;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true {
+  background-color: #333333;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option {
+  border-color: #555555;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option:hover, .app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option:active,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option:hover,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option:active {
+  background-color: #3a3a3a;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
+  color: #636363;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected {
+  background-color: #123f63;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected:hover, .app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected:active,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected:hover,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected:active {
+  background-color: #123f63;
+}
+.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--item-name,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--item-name {
+  color: #00e1ff;
 }
 .app-component .js-set-account-sidebar-modal-background-color-dark-mode-false,
 .js-calc-app-component .js-set-account-sidebar-modal-background-color-dark-mode-false {

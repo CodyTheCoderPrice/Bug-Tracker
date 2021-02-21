@@ -52,26 +52,37 @@ $tinted-gray-light-level-10: #80878d;
 // Basic blues
 $basic-blue-level-1: #0000ff;
 // Baby blues
-$baby-blue-level-1: #76bffa;
+$baby-blue-level-1: #9de0ff;
 // B'dazzled blues
 $bdazzled-blue-level-1: #266ac4;
 $bdazzled-blue-level-2: #245ba3;
 // Carolina blues
-$carolina-blue-level-1: #57a4e4;
-$carolina-blue-level-2: #529bd6;
-$carolina-blue-level-3: #4d91c9;
-$carolina-blue-level-4: #4885b8;
-$carolina-blue-level-5: #3f75a1;
-$carolina-blue-level-6: #38678d;
+$carolina-blue-level-1: #61b8ff;
+$carolina-blue-level-2: #57a4e4;
+$carolina-blue-level-3: #529bd6;
+$carolina-blue-level-4: #4d91c9;
+$carolina-blue-level-5: #4885b8;
+$carolina-blue-level-6: #3f75a1;
+$carolina-blue-level-7: #38678d;
+// Cyan blues
+$cyan-blue-level-1: #00e1ff;
 // Egyptian blues
 $egyptian-blue-level-1: #006eff;
 $egyptian-blue-level-2: #0062e2;
 $egyptian-blue-level-3: #0056c7;
 $egyptian-blue-level-4: #0050b9;
 // Imperial blues
-$imperial-blue-level-1: #1f70b3;
-$imperial-blue-level-2: #1e6aa8;
-$imperial-blue-level-3: #1c629c;
+$imperial-blue-level-1: #2588d8;
+$imperial-blue-level-2: #2380cc;
+$imperial-blue-level-3: #2179c0;
+$imperial-blue-level-4: #1f70b3;
+$imperial-blue-level-5: #1e6aa8;
+$imperial-blue-level-6: #1c629c;
+$imperial-blue-level-7: #195a8f;
+$imperial-blue-level-8: #165181;
+$imperial-blue-level-9: #154b77;
+$imperial-blue-level-10: #15466e;
+$imperial-blue-level-11: #123f63;
 // Queen blues
 $queen-blue-light-level-1: #4d6e92;
 $queen-blue-light-level-2: #4d6b8b;
@@ -109,7 +120,8 @@ $fiery-red-level-5: #a11414;
 $raspberry-red-level-1: #e95454;
 $raspberry-red-level-2: #d44141;
 // Yellows
-$yellow-level-1: #ffff00;
+$basic-yellow-level-1: #ffff00;
+$basic-yellow-level-2: #e2e200;
 
 // Light/Dark mode (General)
 $mode-base-background-color-light: white;
@@ -136,14 +148,14 @@ $mode-custom-checkbox-border-color-light: black;
 $mode-custom-checkbox-border-color-dark: $gray-level-1;
 $mode-custom-checkbox-background-color-light: $mode-base-background-color-light;
 $mode-custom-checkbox-background-color-dark: $mode-base-background-color-dark;
-$mode-custom-checkbox-hover-border-color-light: $carolina-blue-level-4;
-$mode-custom-checkbox-hover-border-color-dark: $carolina-blue-level-1;
+$mode-custom-checkbox-hover-border-color-light: $carolina-blue-level-5;
+$mode-custom-checkbox-hover-border-color-dark: $carolina-blue-level-2;
 $mode-custom-checkmark-text-color-light: $mode-base-primary-text-color-light;
 $mode-custom-checkmark-text-color-dark: $mode-base-primary-text-color-dark;
 $mode-custom-checkmark-hover-text-color-light: $mode-custom-checkbox-hover-border-color-light;
 $mode-custom-checkmark-hover-text-color-dark: $mode-custom-checkbox-hover-border-color-dark;
-$mode-toggle-switch-on-background-color-light: $carolina-blue-level-4;
-$mode-toggle-switch-on-background-color-dark: $carolina-blue-level-6;
+$mode-toggle-switch-on-background-color-light: $carolina-blue-level-5;
+$mode-toggle-switch-on-background-color-dark: $carolina-blue-level-7;
 $mode-toggle-switch-on-border-color-light: $mode-toggle-switch-on-background-color-light; // After background-color since uses it
 $mode-toggle-switch-on-border-color-dark: $mode-toggle-switch-on-background-color-dark; // After background-color since uses it
 $mode-toggle-switch-on-text-color-light: white;
@@ -166,6 +178,18 @@ $mode-base-form-input-border-color-dark: black;
 $mode-base-form-input-background-color-light: $gray-light-level-5;
 $mode-base-form-input-background-color-dark: $gray-dark-level-1;
 // Light/Dark mode (specific)
+$mode-navbar-hamburger-dropdown-background-color-light: $mode-base-background-color-light;
+$mode-navbar-hamburger-dropdown-background-color-dark: $mode-base-background-color-dark;
+$mode-navbar-hamburger-dropdown-option-border-color-light: $gray-level-1;
+$mode-navbar-hamburger-dropdown-option-border-color-dark: $gray-level-9;
+$mode-navbar-hamburger-dropdown-option-hover-background-color-light: $gray-light-level-2;
+$mode-navbar-hamburger-dropdown-option-hover-background-color-dark: $gray-dark-level-5;
+$mode-navbar-hamburger-dropdown-option-selected-background-color-light: $baby-blue-level-1;
+$mode-navbar-hamburger-dropdown-option-selected-background-color-dark: $imperial-blue-level-11;
+$mode-navbar-hamburger-dropdown-option-name-text-color-light: $basic-blue-level-1;
+$mode-navbar-hamburger-dropdown-option-name-text-color-dark: $cyan-blue-level-1;
+$mode-navbar-hamburger-dropdown-option-icon-text-color-light: $gray-dark-level-1;
+$mode-navbar-hamburger-dropdown-option-icon-text-color-dark: $gray-level-7;
 $mode-account-sidebar-modal-background-color-light: $mode-base-background-color-light;
 $mode-account-sidebar-modal-background-color-dark: $mode-base-background-color-dark;
 $mode-account-sidebar-logout-button-hover-background-color-light: $gray-light-level-1;
@@ -299,7 +323,7 @@ $basic-toggle-switch-height: 24px;
 $basic-custom-checkbox-height: 13px;
 $navbar-height: 56px;
 $navbar-account-button-height: $navbar-height;
-$hamburger-dropdown-item-height: 42px;
+$hamburger-dropdown-option-height: 42px;
 $edit-account-modal-height: 390px;
 $account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
 $account-sidebar-logout-button-height: 40px;

@@ -78,13 +78,17 @@
 	}
 
 	.form__text-input {
+		// Must be border-box because the zoom on the webpage can resize the border otherwise
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
 		margin-top: v.$create-item-sidebar-text-input-margin-top;
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: v.$form-input-text-border-width solid
 			v.$mode-base-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
-		box-sizing: border-box;
 		background: v.$mode-base-form-input-background-color-light;
 		padding: v.$create-item-sidebar-padding;
 		width: 100%;

@@ -193,6 +193,66 @@ body {
 		color: v.$mode-base-primary-text-color-dark;
 	}
 
+	// Light/Dark mode -- NavbarHamburger dropdown -- background (with hover and selected) colors
+	.js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false {
+		background-color: v.$mode-account-sidebar-modal-background-color-light;
+
+		& > .hamburger-dropdown__option {
+			border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-light;
+
+			&:hover,
+			&:active {
+				background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-light;
+			}
+
+			& > .hamburger-dropdown__option__icon {
+				color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-light;
+			}
+		}
+
+		& > .hamburger-dropdown__option--selected {
+			background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
+
+			&:hover,
+			&:active {
+				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
+			}
+		}
+
+		& > .hamburger-dropdown__option--item-name {
+			color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-light;
+		}
+	}
+	.js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true {
+		background-color: v.$mode-account-sidebar-modal-background-color-dark;
+
+		& > .hamburger-dropdown__option {
+			border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-dark;
+
+			&:hover,
+			&:active {
+				background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-dark;
+			}
+
+			& > .hamburger-dropdown__option__icon {
+				color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-dark;
+			}
+		}
+
+		& > .hamburger-dropdown__option--selected {
+			background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-dark;
+
+			&:hover,
+			&:active {
+				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-dark;
+			}
+		}
+
+		& > .hamburger-dropdown__option--item-name {
+			color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-dark;
+		}
+	}
+
 	// Light/Dark mode -- AccountSidebar and AccountModal -- background colors
 	.js-set-account-sidebar-modal-background-color-dark-mode-false {
 		background-color: v.$mode-account-sidebar-modal-background-color-light;
@@ -272,7 +332,7 @@ body {
 		}
 
 		& > .category-container__content-container > label {
-			color: v.$mode-base-secondary-text-color-light
+			color: v.$mode-base-secondary-text-color-light;
 		}
 	}
 	.js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true {
@@ -283,7 +343,7 @@ body {
 		}
 
 		& > .category-container__content-container > label {
-			color: v.$mode-base-secondary-text-color-dark
+			color: v.$mode-base-secondary-text-color-dark;
 		}
 	}
 

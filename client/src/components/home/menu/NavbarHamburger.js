@@ -8,11 +8,15 @@ import {
 	BUG_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
-import { setWhichGeneralDropdownsDisplay } from "../../../actions";
+import {
+	setWhichGeneralDropdownsDisplay,
+	setWhichAccountComponentsDisplay,
+} from "../../../actions";
 
 import {
 	getElementSize,
 	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
+	getNavbarHamburgerDropdownBackgroundColorWithHoverAndSelectedClassNameForLightOrDarkMode,
 	openProjectsListView,
 	openProjectsItemView,
 	openBugsListView,
@@ -21,7 +25,8 @@ import {
 	closeBugItemView,
 } from "../../../utils";
 
-import bendyArrowRight from "../../../images/bendy-arrow-taller-longer-icon.svg";
+import bendyArrowModeLight from "../../../images/bendy-arrow-for-mode-light.svg";
+import bendyArrowModeDark from "../../../images/bendy-arrow-for-mode-dark.svg";
 
 export default function NavbarHamburger() {
 	const reduxState = useSelector((state) => state);
@@ -132,6 +137,8 @@ export default function NavbarHamburger() {
 					.navbarHamburherDropdown,
 			})
 		);
+
+		dispatch(setWhichAccountComponentsDisplay({}));
 	};
 
 	const getTitle = () => {
@@ -170,7 +177,16 @@ export default function NavbarHamburger() {
 							)
 						}
 					/>
-					<div className="hamburger-dropdown js-hamburger-dropdown">
+					<div
+						className={
+							"hamburger-dropdown js-hamburger-dropdown" +
+							getNavbarHamburgerDropdownBackgroundColorWithHoverAndSelectedClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+						// Keeps onClick function set on Home component from firing
+						onClick={(e) => e.stopPropagation()}
+					>
 						<div className="hamburger-dropdown__top-space">
 							<i
 								className="fa fa-bars hamburger-dropdown__top-space__icon"
@@ -200,86 +216,94 @@ export default function NavbarHamburger() {
 
 						{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
 						null ? null : (
-							<div>
-								<div
-									className={
-										"hamburger-dropdown__option hamburger-dropdown__option--item-name" +
-										(reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-											? " hamburger-dropdown__option--selected"
-											: "")
+							<div
+								className={
+									"hamburger-dropdown__option hamburger-dropdown__option--item-name" +
+									(reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
+										? " hamburger-dropdown__option--selected"
+										: "")
+								}
+								onClick={() => openProjectsItemView(reduxState, dispatch)}
+							>
+								<img
+									className="hamburger-dropdown__option__svg-arrow-option-2"
+									src={
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											? bendyArrowModeDark
+											: bendyArrowModeLight
 									}
-									onClick={() => openProjectsItemView(reduxState, dispatch)}
-								>
-									<img
-										className="hamburger-dropdown__option__svg-arrow-option-2"
-										src={bendyArrowRight}
-										alt="Arrow pointing from the button above to this button signifying this is to open a particular project"
-									/>
-									{
-										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
-											.name
-									}
-									<i
-										className="fa fa-times hamburger-dropdown__option__close-button"
-										aria-hidden="true"
-										onClick={(e) =>
-											closeProjectItemView(e, reduxState, dispatch)
-										}
-									/>
-								</div>
+									alt="Arrow pointing from the button above to this button signifying this is to open a particular project"
+								/>
+								{
+									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+										.name
+								}
+								<i
+									className="fa fa-times hamburger-dropdown__option__close-button"
+									aria-hidden="true"
+									onClick={(e) => closeProjectItemView(e, reduxState, dispatch)}
+								/>
+							</div>
+						)}
 
-								<div
-									className={
-										"hamburger-dropdown__option" +
-										(reduxState[BUG_CONTAINER].componentsDisplay.listView
-											? " hamburger-dropdown__option--selected"
-											: "") +
-										(reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
-										null
-											? " hamburger-dropdown__option--last-button-round-bottom-border"
-											: "")
+						{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
+						null ? null : (
+							<div
+								className={
+									"hamburger-dropdown__option" +
+									(reduxState[BUG_CONTAINER].componentsDisplay.listView
+										? " hamburger-dropdown__option--selected"
+										: "") +
+									(reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
+									null
+										? " hamburger-dropdown__option--last-button-round-bottom-border"
+										: "")
+								}
+								onClick={() => openBugsListView(reduxState, dispatch)}
+							>
+								<img
+									className="hamburger-dropdown__option__svg-arrow-option-3"
+									src={
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											? bendyArrowModeDark
+											: bendyArrowModeLight
 									}
-									onClick={() => openBugsListView(reduxState, dispatch)}
-								>
-									<img
-										className="hamburger-dropdown__option__svg-arrow-option-3"
-										src={bendyArrowRight}
-										alt="Arrow pointing from the button above to this button signifying this is to open a table of bugs belonging to that particular project"
-									/>
-									<i
-										className="fa fa-bug hamburger-dropdown__option__icon"
-										aria-hidden="true"
-									/>{" "}
-									Bugs
-								</div>
+									alt="Arrow pointing from the button above to this button signifying this is to open a table of bugs belonging to that particular project"
+								/>
+								<i
+									className="fa fa-bug hamburger-dropdown__option__icon"
+									aria-hidden="true"
+								/>{" "}
+								Bugs
+							</div>
+						)}
 
-								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
-								null ? null : (
-									<div
-										className={
-											"hamburger-dropdown__option hamburger-dropdown__option--item-name hamburger-dropdown__option--last-button-round-bottom-border" +
-											(reduxState[BUG_CONTAINER].componentsDisplay.itemView
-												? " hamburger-dropdown__option--selected"
-												: "")
-										}
-										onClick={() => openBugsItemView(reduxState, dispatch)}
-									>
-										<img
-											className="hamburger-dropdown__option__svg-arrow-option-4"
-											src={bendyArrowRight}
-											alt="Arrow pointing from the button above to this button signifying this is to open a particular bug"
-										/>
-										{
-											reduxState[BUG_CONTAINER].componentsDisplay.targetItem
-												.name
-										}
-										<i
-											className="fa fa-times hamburger-dropdown__option__close-button"
-											aria-hidden="true"
-											onClick={(e) => closeBugItemView(e, reduxState, dispatch)}
-										/>
-									</div>
-								)}
+						{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
+						null ? null : (
+							<div
+								className={
+									"hamburger-dropdown__option hamburger-dropdown__option--item-name hamburger-dropdown__option--last-button-round-bottom-border" +
+									(reduxState[BUG_CONTAINER].componentsDisplay.itemView
+										? " hamburger-dropdown__option--selected"
+										: "")
+								}
+								onClick={() => openBugsItemView(reduxState, dispatch)}
+							>
+								<img
+									className="hamburger-dropdown__option__svg-arrow-option-4"
+									src={
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											? bendyArrowModeDark
+											: bendyArrowModeLight
+									}
+									alt="Arrow pointing from the button above to this button signifying this is to open a particular bug"
+								/>
+								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
+								<i
+									className="fa fa-times hamburger-dropdown__option__close-button"
+									aria-hidden="true"
+									onClick={(e) => closeBugItemView(e, reduxState, dispatch)}
+								/>
 							</div>
 						)}
 					</div>

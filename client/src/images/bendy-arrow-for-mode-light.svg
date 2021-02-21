@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="15.134"
-   height="12.406"
-   viewBox="0 0 4.004204 3.282421"
+   width="18.801001"
+   height="14.673"
+   viewBox="0 0 4.9744313 3.8822315"
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="16"
-     inkscape:cx="14.245971"
-     inkscape:cy="9.4506345"
+     inkscape:zoom="32"
+     inkscape:cx="6.0616128"
+     inkscape:cy="7.8077892"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -54,47 +54,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:0;paint-order:stroke fill markers"
-       id="rect837"
-       width="0.73748577"
-       height="3.0008042"
-       x="0.091725081"
-       y="3.6725295"
-       ry="0.36874288" />
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:0;paint-order:stroke fill markers"
-       id="rect839"
-       width="3.2042484"
-       height="0.71205521"
-       x="0.091725081"
-       y="5.961277"
-       ry="0.3560276" />
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:0;paint-order:stroke fill markers"
-       id="rect841"
-       width="2.5684848"
-       height="0.86463851"
-       x="4.1547399"
-       y="3.5108008"
-       ry="0"
-       transform="rotate(25.225896)" />
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:0;paint-order:stroke fill markers"
-       id="rect841-6"
-       width="2.5684848"
-       height="0.86463851"
-       x="-1.1633345"
-       y="-7.8675141"
-       ry="0.35602799"
-       transform="matrix(0.90463449,-0.42618827,-0.42618827,-0.90463449,0,0)"
-       rx="0" />
     <g
        id="g914"
-       transform="translate(-0.63944651,-2.0117109)">
+       transform="translate(0.33073576,-1.4117109)">
       <path
          style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         d="M 1.0363215,2.0117109 V 3.9494206 H 4.0845052"
+         d="M 0.06613923,1.4117109 V 3.9494206 H 4.0845052"
          id="path868"
          sodipodi:nodetypes="ccc" />
       <path
