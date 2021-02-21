@@ -187,11 +187,13 @@ export default function NavbarHamburger() {
 						// Keeps onClick function set on Home component from firing
 						onClick={(e) => e.stopPropagation()}
 					>
-						<div className="hamburger-dropdown__top-space">
+						<div
+							className="hamburger-dropdown__top-space"
+							onClick={toggleHamburgerDropdown}
+						>
 							<i
 								className="fa fa-bars hamburger-dropdown__top-space__icon"
 								aria-hidden="true"
-								onClick={toggleHamburgerDropdown}
 							/>
 						</div>
 						<div

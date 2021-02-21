@@ -31,6 +31,7 @@
 		background-color: white;
 		height: 38px;
 		width: v.$navbar-hamburger-button-width;
+		cursor: pointer;
 	}
 
 	.hamburger-button-container__icon {
@@ -73,6 +74,7 @@
 		@include m.dead-center();
 
 		font-size: 24px;
+		cursor: pointer;
 	}
 
 	.hamburger-dropdown__option {
@@ -168,6 +170,7 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ". . .   ";
+		cursor: pointer;
 	}
 
 	.hamburger-title--item-name {
