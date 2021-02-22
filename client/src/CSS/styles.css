@@ -2309,9 +2309,9 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.list-view-top-bar .centering-container__new-item-button--highlighted,
-.js-calc-list-view-top-bar .centering-container__new-item-button--highlighted {
-  border: 2px solid red;
+.list-view-top-bar .centering-container__new-item-button--tutorial,
+.js-calc-list-view-top-bar .centering-container__new-item-button--tutorial {
+  border: 2px solid #006eff;
 }
 .list-view-top-bar .centering-container__new-item-button__text,
 .js-calc-list-view-top-bar .centering-container__new-item-button__text {
@@ -2495,51 +2495,51 @@ dropdown can overlap all other components
 .js-calc-list-view-top-bar .filter-area-container__content-dropdown__content__block__label--active {
   color: #0077ff;
 }
-.list-view-top-bar .create-item-message-container,
-.js-calc-list-view-top-bar .create-item-message-container {
+.list-view-top-bar .new-item-tutorial-container,
+.js-calc-list-view-top-bar .new-item-tutorial-container {
   position: absolute;
   top: 56px;
   left: 95px;
 }
-.list-view-top-bar .create-item-message-container__arrow-head,
-.js-calc-list-view-top-bar .create-item-message-container__arrow-head {
+.list-view-top-bar .new-item-tutorial-container__arrow-head,
+.js-calc-list-view-top-bar .new-item-tutorial-container__arrow-head {
   height: 0;
   width: 0;
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
   border-bottom: 14px solid black;
 }
-.list-view-top-bar .create-item-message-container__arrow-stock,
-.js-calc-list-view-top-bar .create-item-message-container__arrow-stock {
+.list-view-top-bar .new-item-tutorial-container__arrow-stock,
+.js-calc-list-view-top-bar .new-item-tutorial-container__arrow-stock {
   background-color: black;
   margin-left: 11px;
-  height: 50px;
+  height: 66px;
   width: 6px;
 }
-.list-view-top-bar .create-item-message-container__bend-message-centering-container,
-.js-calc-list-view-top-bar .create-item-message-container__bend-message-centering-container {
-  position: relative;
+.list-view-top-bar .new-item-tutorial-container__bend-message-centering-container,
+.js-calc-list-view-top-bar .new-item-tutorial-container__bend-message-centering-container {
+  position: absolute;
   margin: -12px 0px 0px 11px;
   height: 30px;
-  width: 300px;
+  width: 400px;
 }
-.list-view-top-bar .create-item-message-container__bend-message-centering-container__arrow-bend,
-.js-calc-list-view-top-bar .create-item-message-container__bend-message-centering-container__arrow-bend {
+.list-view-top-bar .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-list-view-top-bar .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
   background-color: black;
   height: 6px;
-  width: 20px;
+  width: 40px;
 }
-.list-view-top-bar .create-item-message-container__bend-message-centering-container__message,
-.js-calc-list-view-top-bar .create-item-message-container__bend-message-centering-container__message {
+.list-view-top-bar .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-list-view-top-bar .new-item-tutorial-container__bend-message-centering-container__text {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
-  left: 25px;
+  left: 48px;
   font-size: 24px;
-  color: red;
+  color: #006eff;
 }
 
 .list-table-component,
@@ -2709,7 +2709,7 @@ dropdown can overlap all other components
   width: 90%;
   text-align: center;
   font-size: 32px;
-  color: gray;
+  color: #757575;
 }
 
 .list-table-component--no-scroll {
@@ -2919,64 +2919,64 @@ body {
   background-color: #4e4e4e;
   color: #c7d1db;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
   background-color: white;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option {
   border-color: #a3a3a3;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option:hover, .app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option:active,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option:hover,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option:active {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:hover, .app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:active,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:hover,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:active {
   background-color: #f8f8f8;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
   color: #4e4e4e;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected {
   background-color: #9de0ff;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected:hover, .app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected:active,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected:hover,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--selected:active {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:hover, .app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:active,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:hover,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:active {
   background-color: #9de0ff;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--item-name,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false > .hamburger-dropdown__option--item-name {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--item-name,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--item-name {
   color: #0000ff;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true {
   background-color: #333333;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option {
   border-color: #555555;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option:hover, .app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option:active,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option:hover,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option:active {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:hover, .app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:active,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:hover,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:active {
   background-color: #3a3a3a;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
   color: #636363;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected {
   background-color: #123f63;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected:hover, .app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected:active,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected:hover,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--selected:active {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:hover, .app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:active,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:hover,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:active {
   background-color: #123f63;
 }
-.app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--item-name,
-.js-calc-app-component .js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true > .hamburger-dropdown__option--item-name {
+.app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--item-name,
+.js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--item-name {
   color: #00e1ff;
 }
 .app-component .js-set-account-sidebar-modal-background-color-dark-mode-false,
@@ -3096,6 +3096,46 @@ body {
 .js-calc-app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true {
   background-color: #363636;
   color: #c7d1db;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-false,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-false {
+  border-color: #006eff;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-true,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-true {
+  border-color: #00e1ff;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__arrow-stock {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #006eff;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: #c7d1db;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__arrow-stock {
+  background-color: #c7d1db;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: #c7d1db;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #00e1ff;
 }
 .app-component .js-set-create-item-sidebar-background-color-dark-mode-false,
 .js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-false {

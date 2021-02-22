@@ -140,12 +140,12 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDark
 	);
 }
 
-// Light/Dark mode -- NavbarHamburger dropdown -- background (with hover and selected) colors
-export function getNavbarHamburgerDropdownBackgroundColorWithHoverAndSelectedClassNameForLightOrDarkMode(
+// Light/Dark mode -- NavbarHamburger dropdown -- border, background (with hover and selected), and text colors
+export function getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-" + dark_mode
+		" js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-" + dark_mode
 	);
 }
 
@@ -230,6 +230,24 @@ export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkM
 ) {
 	return (
 		" js-set-top-bar-search-bar-background-text-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode -- TopBar new-item-button during tutorial -- border color
+export function getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-" + dark_mode
+	);
+}
+
+// Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text colors
+export function getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-" + dark_mode
 	);
 }
 

@@ -225,6 +225,10 @@ $mode-top-bar-search-bar-background-color-light: $mode-base-background-color-lig
 $mode-top-bar-search-bar-background-color-dark: $gray-dark-level-6;
 $mode-top-bar-search-bar-text-color-light: $mode-base-primary-text-color-light;
 $mode-top-bar-search-bar-text-color-dark: $mode-base-primary-text-color-dark;
+$mode-top-bar-new-item-tutorial-border-text-color-light: $egyptian-blue-level-1;
+$mode-top-bar-new-item-tutorial-border-text-color-dark: $cyan-blue-level-1;
+$mode-top-bar-new-item-tutorial-arrow-background-color-light: $mode-base-primary-text-color-light;
+$mode-top-bar-new-item-tutorial-arrow-background-color-dark: $mode-base-primary-text-color-dark;
 $mode-create-item-sidebar-background-color-light: $mode-base-background-color-light;
 $mode-create-item-sidebar-background-color-dark: $mode-base-background-color-dark;
 $mode-create-item-sidebar-form-disabled-background-color-light: $mode-create-item-sidebar-background-color-light;
@@ -320,6 +324,7 @@ $register-login-submit-button-border-background-color: $old-copper-blue-level-1;
 $register-login-submit-button-hover-border-background-color: $old-copper-blue-level-2;
 $register-login-bottom-link-text-color: $basic-blue-level-1;
 $breadcrumb-hamburger-close-button-text-color: $basic-red-light-level-2;
+$table-empty-list-message-text-color: $gray-level-5;
 
 //==========
 // Heights
@@ -413,6 +418,7 @@ $account-modal-toggle-switch-border-width: 3px;
 $account-sidebar-appearance-theme-button-border-width: 1px;
 $top-bar-border-width: 1px;
 $top-bar-base-button-border-width: 1px;
+$top-bar-tutorial-button-border-width: $top-bar-base-button-border-width + 1;
 $top-bar-clicked-dropdown-button-border-width: 3px;
 $top-bar-clicked-dropdown-button-border-width-difference: $top-bar-clicked-dropdown-button-border-width -
 	$top-bar-base-button-border-width;
@@ -454,7 +460,7 @@ $account-sidebar-account-info-font-size: 15px;
 $account-sidebar-appearance-label-font-size: 16px;
 $account-sidebar-link-font-size: 15px;
 $edit-account-modal-link-font-size: 20px;
-$list-view-top-bar-create-item-message-font-size: 24px;
+$list-view-top-bar-new-item-tutorial-font-size: 24px;
 $top-bar-search-bar-font-size: 14px;
 $top-bar-search-bar-button-icon-font-size: 14px;
 $top-bar-button-font-size: 14px;

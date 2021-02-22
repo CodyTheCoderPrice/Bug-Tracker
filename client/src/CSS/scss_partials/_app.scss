@@ -193,8 +193,8 @@ body {
 		color: v.$mode-base-primary-text-color-dark;
 	}
 
-	// Light/Dark mode -- NavbarHamburger dropdown -- background (with hover and selected) colors
-	.js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-false {
+	// Light/Dark mode -- NavbarHamburger dropdown -- border, background (with hover and selected), and text colors
+	.js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
 		background-color: v.$mode-account-sidebar-modal-background-color-light;
 
 		& > .hamburger-dropdown__option {
@@ -223,7 +223,7 @@ body {
 			color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-light;
 		}
 	}
-	.js-set-navbar-hamburger-dropdown-background-with-hover-and-selected-color-dark-mode-true {
+	.js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true {
 		background-color: v.$mode-account-sidebar-modal-background-color-dark;
 
 		& > .hamburger-dropdown__option {
@@ -377,6 +377,56 @@ body {
 	.js-set-top-bar-search-bar-background-text-color-dark-mode-true {
 		background-color: v.$mode-top-bar-search-bar-background-color-dark;
 		color: v.$mode-top-bar-search-bar-text-color-dark;
+	}
+
+	// Light/Dark mode -- TopBar new-item-button during tutorial -- border color
+	.js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-false {
+		border-color: v.$mode-top-bar-new-item-tutorial-border-text-color-light;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-true {
+		border-color: v.$mode-top-bar-new-item-tutorial-border-text-color-dark;
+	}
+
+	// Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text colors
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false {
+		& > .new-item-tutorial-container__arrow-head {
+			border-bottom-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
+		}
+
+		& > .new-item-tutorial-container__arrow-stock {
+			background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
+		}
+
+		& > .new-item-tutorial-container__bend-message-centering-container {
+			&
+				> .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+				background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
+			}
+
+			& > .new-item-tutorial-container__bend-message-centering-container__text {
+				color: v.$mode-top-bar-new-item-tutorial-border-text-color-light;
+			}
+		}
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true {
+		& > .new-item-tutorial-container__arrow-head {
+			border-bottom-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-dark;
+		}
+
+		& > .new-item-tutorial-container__arrow-stock {
+			background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-dark;
+		}
+
+		& > .new-item-tutorial-container__bend-message-centering-container {
+			&
+				> .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+				background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-dark;
+			}
+
+			& > .new-item-tutorial-container__bend-message-centering-container__text {
+				color: v.$mode-top-bar-new-item-tutorial-border-text-color-dark;
+			}
+		}
 	}
 
 	// Light/Dark mode -- CreateItemSidebar component -- background colors

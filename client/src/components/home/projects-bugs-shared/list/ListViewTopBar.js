@@ -17,10 +17,12 @@ import {
 import {
 	getUpdatedDeepCopyFilterArray,
 	getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
+	getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDarkMode,
 	getLightBackgroundColorClassNameForTheme,
 	getLightBorderColorClassNameForTheme,
 	getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
 	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
@@ -126,7 +128,10 @@ export default function ListViewTopBar(props) {
 						(props.reduxContainerName === BUG_CONTAINER &&
 							reduxState[props.reduxContainerName].list.length > 0)
 							? ""
-							: " centering-container__new-item-button--highlighted")
+							: " centering-container__new-item-button--tutorial" +
+							  getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							  ))
 					}
 					onClick={openCreateItemSidebar}
 				>
@@ -335,12 +340,19 @@ export default function ListViewTopBar(props) {
 				reduxState[props.reduxContainerName].list.length > 0) ||
 			(props.reduxContainerName === BUG_CONTAINER &&
 				reduxState[props.reduxContainerName].list.length > 0) ? null : (
-				<div className="create-item-message-container">
-					<div className="create-item-message-container__arrow-head" />
-					<div className="create-item-message-container__arrow-stock" />
-					<div className="create-item-message-container__bend-message-centering-container">
-						<div className="create-item-message-container__bend-message-centering-container__arrow-bend" />
-						<div className="create-item-message-container__bend-message-centering-container__message">
+				<div
+					className={
+						"new-item-tutorial-container" +
+						getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
+					<div className="new-item-tutorial-container__arrow-head" />
+					<div className="new-item-tutorial-container__arrow-stock" />
+					<div className="new-item-tutorial-container__bend-message-centering-container">
+						<div className="new-item-tutorial-container__bend-message-centering-container__arrow-bend" />
+						<div className="new-item-tutorial-container__bend-message-centering-container__text">
 							{props.reduxContainerName === PROJECT_CONTAINER
 								? "Click to create a project."
 								: "Click to track a bug."}
