@@ -21,6 +21,7 @@ import {
 	getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
@@ -342,7 +343,11 @@ export default function ItemViewTopBar(props) {
 										.priorityFilter.length > 0 ||
 									reduxState[props.reduxContainerName].searchFilterSort
 										.statusFilter.length > 0
-										? " list-sort-filter-container__button__text--active"
+										? " list-sort-filter-container__button__text--active" +
+										  getTextColorClassNameForThemeWithLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
+										  )
 										: "")
 								}
 							>
@@ -410,7 +415,13 @@ export default function ItemViewTopBar(props) {
 													(reduxState[
 														props.reduxContainerName
 													].searchFilterSort.priorityFilter.includes(obj.id)
-														? " list-sort-filter-container__content-dropdown__filter-content__block__label--active"
+														? " list-sort-filter-container__content-dropdown__filter-content__block__label--active" +
+														  getTextColorClassNameForThemeWithLightOrDarkMode(
+																reduxState[ACCOUNT_CONTAINER].settings
+																	.dark_mode,
+																reduxState[ACCOUNT_CONTAINER].settings
+																	.theme_color
+														  )
 														: "")
 												}
 											>
@@ -455,7 +466,13 @@ export default function ItemViewTopBar(props) {
 													(reduxState[
 														props.reduxContainerName
 													].searchFilterSort.statusFilter.includes(obj.id)
-														? " list-sort-filter-container__content-dropdown__filter-content__block__label--active"
+														? " list-sort-filter-container__content-dropdown__filter-content__block__label--active" +
+														  getTextColorClassNameForThemeWithLightOrDarkMode(
+																reduxState[ACCOUNT_CONTAINER].settings
+																	.dark_mode,
+																reduxState[ACCOUNT_CONTAINER].settings
+																	.theme_color
+														  )
 														: "")
 												}
 											>

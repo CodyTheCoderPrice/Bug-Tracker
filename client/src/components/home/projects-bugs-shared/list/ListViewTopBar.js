@@ -20,6 +20,7 @@ import {
 	getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDarkMode,
 	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
@@ -193,7 +194,11 @@ export default function ListViewTopBar(props) {
 								.priorityFilter.length > 0 ||
 							reduxState[props.reduxContainerName].searchFilterSort.statusFilter
 								.length > 0
-								? " filter-area-container__button__text--active"
+								? " filter-area-container__button__text--active" +
+								  getTextColorClassNameForThemeWithLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								  )
 								: "")
 						}
 					>
@@ -261,7 +266,11 @@ export default function ListViewTopBar(props) {
 											(reduxState[
 												props.reduxContainerName
 											].searchFilterSort.priorityFilter.includes(obj.id)
-												? " filter-area-container__content-dropdown__content__block__label--active"
+												? " filter-area-container__content-dropdown__content__block__label--active" +
+												  getTextColorClassNameForThemeWithLightOrDarkMode(
+														reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
+												  )
 												: "")
 										}
 									>
@@ -306,7 +315,11 @@ export default function ListViewTopBar(props) {
 											(reduxState[
 												props.reduxContainerName
 											].searchFilterSort.statusFilter.includes(obj.id)
-												? " filter-area-container__content-dropdown__content__block__label--active"
+												? " filter-area-container__content-dropdown__content__block__label--active" +
+												  getTextColorClassNameForThemeWithLightOrDarkMode(
+														reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
+												  )
 												: "")
 										}
 									>

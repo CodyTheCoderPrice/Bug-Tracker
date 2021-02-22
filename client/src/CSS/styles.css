@@ -1907,7 +1907,7 @@ dropdown can overlap all other components
 .item-vew-top-bar-component .list-sort-filter-container__button__text--active,
 .js-calc-item-vew-top-bar-component .list-sort-filter-container__button__text--active {
   font-weight: bold;
-  color: #0077ff;
+  color: #258faa;
 }
 .item-vew-top-bar-component .list-sort-filter-container__button__text,
 .js-calc-item-vew-top-bar-component .list-sort-filter-container__button__text {
@@ -2001,7 +2001,7 @@ dropdown can overlap all other components
 }
 .item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active,
 .js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active {
-  color: #0077ff;
+  color: #258faa;
 }
 .item-vew-top-bar-component .item-options-container,
 .js-calc-item-vew-top-bar-component .item-options-container {
@@ -2431,7 +2431,7 @@ dropdown can overlap all other components
 .list-view-top-bar .filter-area-container__button__text--active,
 .js-calc-list-view-top-bar .filter-area-container__button__text--active {
   font-weight: bold;
-  color: #0077ff;
+  color: #258faa;
 }
 .list-view-top-bar .filter-area-container__content-dropdown,
 .js-calc-list-view-top-bar .filter-area-container__content-dropdown {
@@ -2493,7 +2493,7 @@ dropdown can overlap all other components
 }
 .list-view-top-bar .filter-area-container__content-dropdown__content__block__label--active,
 .js-calc-list-view-top-bar .filter-area-container__content-dropdown__content__block__label--active {
-  color: #0077ff;
+  color: #258faa;
 }
 .list-view-top-bar .new-item-tutorial-container,
 .js-calc-list-view-top-bar .new-item-tutorial-container {
@@ -3511,7 +3511,7 @@ body {
 }
 .app-component .js-set-text-color-mode-dark-theme-blue-queen,
 .js-calc-app-component .js-set-text-color-mode-dark-theme-blue-queen {
-  color: #266ac4;
+  color: #3184f0;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > input,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > input {

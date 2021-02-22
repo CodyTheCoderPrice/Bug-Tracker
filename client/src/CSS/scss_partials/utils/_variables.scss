@@ -54,8 +54,11 @@ $basic-blue-level-1: #0000ff;
 // Baby blues
 $baby-blue-level-1: #9de0ff;
 // B'dazzled blues
-$bdazzled-blue-level-1: #266ac4;
-$bdazzled-blue-level-2: #245ba3;
+$bdazzled-blue-level-1: #3184f0;
+$bdazzled-blue-level-2: #2e7de6;
+$bdazzled-blue-level-3: #2972d1;
+$bdazzled-blue-level-4: #266ac4;
+$bdazzled-blue-level-5: #245ba3;
 // Carolina blues
 $carolina-blue-level-1: #61b8ff;
 $carolina-blue-level-2: #57a4e4;
@@ -304,7 +307,7 @@ $theme-mode-blue-turkish-text-color-light: $turquoise-blue-light-level-4;
 $theme-mode-blue-turkish-text-color-dark: $turquoise-blue-light-level-1;
 $theme-mode-blue-queen-focus-border-color-light: $egyptian-blue-level-2;
 $theme-mode-blue-queen-focus-border-color-dark: $egyptian-blue-level-4;
-$theme-mode-blue-queen-text-color-light: $bdazzled-blue-level-2;
+$theme-mode-blue-queen-text-color-light: $bdazzled-blue-level-5;
 $theme-mode-blue-queen-text-color-dark: $bdazzled-blue-level-1;
 
 // Status colors
@@ -314,17 +317,14 @@ $status-purple: #9680ce;
 $status-orange: #ff9900;
 $status-green: #007e00;
 $status-red: #d14242;
-// Filter button text colors
-$filter-button-active-color-1: #0077ff;
-$filter-button-active-color-2: #ae00ff;
-$filter-button-active-color-3: #ffbb00;
-$filter-button-active-color: $filter-button-active-color-1;
+
 // Components
 $register-login-submit-button-border-background-color: $old-copper-blue-level-1;
 $register-login-submit-button-hover-border-background-color: $old-copper-blue-level-2;
 $register-login-bottom-link-text-color: $basic-blue-level-1;
 $breadcrumb-hamburger-close-button-text-color: $basic-red-light-level-2;
 $table-empty-list-message-text-color: $gray-level-5;
+$filter-button-active-color: $theme-mode-blue-turkish-focus-border-color-light;
 
 //==========
 // Heights
