@@ -32,4 +32,4 @@
 @use "scss_partials/home/projects-bugs-shared/list/listViewTableAndRows";
 @use "scss_partials/home/projects-bugs-shared/list/listViewTableSortArrowsButton";
 // scss_partials
-@use "scss_partials/app";
+@use "scss_partials/app"; // Must be at bottom so class selectors take priority

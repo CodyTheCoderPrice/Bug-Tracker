@@ -19,9 +19,7 @@ import {
 import {
 	getUpdatedDeepCopyFilterArray,
 	getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
-	getLightBackgroundColorClassNameForTheme,
-	getLightBorderColorClassNameForTheme,
-	getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
+	getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
@@ -163,7 +161,8 @@ export default function ItemViewTopBar(props) {
 			<div
 				className={
 					"outer-search-container" +
-					getLightBorderColorClassNameForTheme(
+					getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 						reduxState[ACCOUNT_CONTAINER].settings.theme_color
 					) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay
@@ -180,23 +179,10 @@ export default function ItemViewTopBar(props) {
 					onChange={(e) => onChangeSearchBar(e)}
 					onKeyDown={(e) => searchBarKeyDown(e)}
 					value={searchBarText}
-					className={
-						"outer-search-container__search-bar js-item-search-bar" +
-						getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-						) +
-						getLightBorderColorClassNameForTheme(
-							reduxState[ACCOUNT_CONTAINER].settings.theme_color
-						)
-					}
+					className="outer-search-container__search-bar js-item-search-bar"
 				/>
 				<div
-					className={
-						"outer-search-container__search-bar-button js-item-search-button" +
-						getLightBackgroundColorClassNameForTheme(
-							reduxState[ACCOUNT_CONTAINER].settings.theme_color
-						)
-					}
+					className="outer-search-container__search-bar-button js-item-search-button"
 					onClick={updateSearchKeyWordString}
 				>
 					<span className="outer-search-container__search-bar-button__icon">

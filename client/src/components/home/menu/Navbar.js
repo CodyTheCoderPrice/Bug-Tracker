@@ -31,7 +31,7 @@ import {
 	calcItemViewListSidebarWidth,
 	calcItemViewOuterDividingContainerMinWidth,
 	calcItemViewPaddingContainerPadding,
-	getDarkBackgroundColorClassNameForTheme,
+	getBaseBackgroundColorClassNameForTheme,
 } from "../../../utils";
 
 // Components
@@ -153,7 +153,7 @@ export default function Navbar() {
 			<div
 				className={
 					"navbar js-navbar" +
-					getDarkBackgroundColorClassNameForTheme(
+					getBaseBackgroundColorClassNameForTheme(
 						reduxState[ACCOUNT_CONTAINER].settings.theme_color
 					)
 				}

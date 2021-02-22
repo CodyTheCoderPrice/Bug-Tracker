@@ -3087,16 +3087,6 @@ body {
   background-color: #3a3a3a;
   color: #c7d1db;
 }
-.app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-false,
-.js-calc-app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-false {
-  background-color: white;
-  color: black;
-}
-.app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true,
-.js-calc-app-component .js-set-top-bar-search-bar-background-text-color-dark-mode-true {
-  background-color: #363636;
-  color: #c7d1db;
-}
 .app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-false,
 .js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-false {
   border-color: #006eff;
@@ -3491,6 +3481,22 @@ body {
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-queen:focus {
   background-color: #3d5774;
 }
+.app-component .js-set-focus-border-color-mode-light-theme-blue-turkish:focus,
+.js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-turkish:focus {
+  border-color: #258faa;
+}
+.app-component .js-set-focus-border-color-mode-dark-theme-blue-turkish:focus,
+.js-calc-app-component .js-set-focus-border-color-mode-dark-theme-blue-turkish:focus {
+  border-color: #1f7a91;
+}
+.app-component .js-set-focus-border-color-mode-light-theme-blue-queen:focus,
+.js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-queen:focus {
+  border-color: #0062e2;
+}
+.app-component .js-set-focus-border-color-mode-dark-theme-blue-queen:focus,
+.js-calc-app-component .js-set-focus-border-color-mode-dark-theme-blue-queen:focus {
+  border-color: #0050b9;
+}
 .app-component .js-set-text-color-mode-light-theme-blue-turkish,
 .js-calc-app-component .js-set-text-color-mode-light-theme-blue-turkish {
   color: #258faa;
@@ -3507,21 +3513,49 @@ body {
 .js-calc-app-component .js-set-text-color-mode-dark-theme-blue-queen {
   color: #266ac4;
 }
-.app-component .js-set-focus-border-color-mode-light-theme-blue-turkish:focus,
-.js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-turkish:focus {
-  border-color: #258faa;
+.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > input,
+.js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > input {
+  border-color: #6595a8;
+  background-color: white;
+  color: black;
 }
-.app-component .js-set-focus-border-color-mode-dark-theme-blue-turkish:focus,
-.js-calc-app-component .js-set-focus-border-color-mode-dark-theme-blue-turkish:focus {
-  border-color: #1f7a91;
+.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > div,
+.js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > div {
+  border-color: #6595a8;
+  background-color: #6595a8;
 }
-.app-component .js-set-focus-border-color-mode-light-theme-blue-queen:focus,
-.js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-queen:focus {
-  border-color: #0062e2;
+.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > input,
+.js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > input {
+  border-color: #6595a8;
+  background-color: #363636;
+  color: #c7d1db;
 }
-.app-component .js-set-focus-border-color-mode-dark-theme-blue-queen:focus,
-.js-calc-app-component .js-set-focus-border-color-mode-dark-theme-blue-queen:focus {
-  border-color: #0050b9;
+.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > div,
+.js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > div {
+  border-color: #6595a8;
+  background-color: #6595a8;
+}
+.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > input,
+.js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > input {
+  border-color: #4d6e92;
+  background-color: white;
+  color: black;
+}
+.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > div,
+.js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > div {
+  border-color: #4d6e92;
+  background-color: #4d6e92;
+}
+.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > input,
+.js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > input {
+  border-color: #4d6e92;
+  background-color: #363636;
+  color: #c7d1db;
+}
+.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > div,
+.js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > div {
+  border-color: #4d6e92;
+  background-color: #4d6e92;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turkish:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turkish:focus {

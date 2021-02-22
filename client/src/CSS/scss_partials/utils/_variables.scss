@@ -221,10 +221,6 @@ $mode-top-bar-button-background-color-light: $mode-base-background-color-light;
 $mode-top-bar-button-background-color-dark: $gray-dark-level-5;
 $mode-top-bar-button-text-color-light: $mode-base-primary-text-color-light;
 $mode-top-bar-button-text-color-dark: $mode-base-primary-text-color-dark;
-$mode-top-bar-search-bar-background-color-light: $mode-base-background-color-light;
-$mode-top-bar-search-bar-background-color-dark: $gray-dark-level-6;
-$mode-top-bar-search-bar-text-color-light: $mode-base-primary-text-color-light;
-$mode-top-bar-search-bar-text-color-dark: $mode-base-primary-text-color-dark;
 $mode-top-bar-new-item-tutorial-border-text-color-light: $egyptian-blue-level-1;
 $mode-top-bar-new-item-tutorial-border-text-color-dark: $cyan-blue-level-1;
 $mode-top-bar-new-item-tutorial-arrow-background-color-light: $mode-base-primary-text-color-light;
@@ -235,6 +231,10 @@ $mode-create-item-sidebar-form-disabled-background-color-light: $mode-create-ite
 $mode-create-item-sidebar-form-disabled-background-color-dark: $mode-create-item-sidebar-background-color-dark;
 $mode-create-item-sidebar-form-disabled-text-color-light: $gray-light-level-10;
 $mode-create-item-sidebar-form-disabled-text-color-dark: $gray-level-6;
+$mode-top-bar-search-bar-background-color-light: $mode-base-background-color-light;
+$mode-top-bar-search-bar-background-color-dark: $gray-dark-level-6;
+$mode-top-bar-search-bar-text-color-light: $mode-base-primary-text-color-light;
+$mode-top-bar-search-bar-text-color-dark: $mode-base-primary-text-color-dark;
 $mode-list-row-border-color-light: $gray-level-2;
 $mode-list-row-border-color-dark: $gray-level-6;
 $mode-list-row-hover-background-color-light: $gray-light-level-2;
@@ -298,14 +298,14 @@ $theme-base-border-background-color-blue-turkish: $turkish-blue-level-4;
 $theme-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
 $theme-base-border-background-color-blue-queen: $queen-blue-dark-level-2;
 // Themes + Light/Dark mode
-$theme-mode-blue-turkish-text-color-light: $turquoise-blue-light-level-4;
-$theme-mode-blue-turkish-text-color-dark: $turquoise-blue-light-level-1;
-$theme-mode-blue-queen-text-color-light: $bdazzled-blue-level-2;
-$theme-mode-blue-queen-text-color-dark: $bdazzled-blue-level-1;
 $theme-mode-blue-turkish-focus-border-color-light: $turquoise-blue-light-level-4;
 $theme-mode-blue-turkish-focus-border-color-dark: $turquoise-blue-light-level-5;
+$theme-mode-blue-turkish-text-color-light: $turquoise-blue-light-level-4;
+$theme-mode-blue-turkish-text-color-dark: $turquoise-blue-light-level-1;
 $theme-mode-blue-queen-focus-border-color-light: $egyptian-blue-level-2;
 $theme-mode-blue-queen-focus-border-color-dark: $egyptian-blue-level-4;
+$theme-mode-blue-queen-text-color-light: $bdazzled-blue-level-2;
+$theme-mode-blue-queen-text-color-dark: $bdazzled-blue-level-1;
 
 // Status colors
 $status-gray: $gray-level-3;

@@ -224,15 +224,6 @@ export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkM
 	);
 }
 
-// Light/Dark mode -- TopBar search-bar -- background and text colors
-export function getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-top-bar-search-bar-background-text-color-dark-mode-" + dark_mode
-	);
-}
-
 // Light/Dark mode -- TopBar new-item-button during tutorial -- border color
 export function getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -437,18 +428,18 @@ export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNa
 // Themes
 //========
 // Theme border colors
-export function getLightBorderColorClassNameForTheme(theme_color) {
+export function getBrighterBorderColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-border-color-theme-" + theme_color;
 }
-export function getDarkBorderColorClassNameForTheme(theme_color) {
+export function getBaseBorderColorClassNameForTheme(theme_color) {
 	return " js-set-base-border-color-theme-" + theme_color;
 }
 
 // Theme background colors
-export function getLightBackgroundColorClassNameForTheme(theme_color) {
+export function getBrighterBackgroundColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-background-color-theme-" + theme_color;
 }
-export function getDarkBackgroundColorClassNameForTheme(theme_color) {
+export function getBaseBackgroundColorClassNameForTheme(theme_color) {
 	return " js-set-base-background-color-theme-" + theme_color;
 }
 
@@ -458,10 +449,10 @@ export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
 }
 
 // Theme -- breadcrumb arrow -- border colors
-export function getLightBreadcrumbArrowColorClassNameForTheme(theme_color) {
+export function getBrighterBreadcrumbArrowColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-breadcrumb-arrow-color-theme-" + theme_color;
 }
-export function getDarkBreadcrumbArrowColorClassNameForTheme(theme_color) {
+export function getBaseBreadcrumbArrowColorClassNameForTheme(theme_color) {
 	return " js-set-base-breadcrumb-arrow-color-theme-" + theme_color;
 }
 
@@ -473,6 +464,18 @@ export function getformSubmitButtonColorClassNameForTheme(theme_color) {
 //==========================
 // Themes + Light/Dark mode
 //==========================
+// Theme + Light/Dark mode -- focus border color
+export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		(dark_mode
+			? " js-set-focus-border-color-mode-dark-theme-"
+			: " js-set-focus-border-color-mode-light-theme-") + theme_color
+	);
+}
+
 // Theme + Light/Dark mode -- text color
 export function getTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
@@ -485,16 +488,14 @@ export function getTextColorClassNameForThemeWithLightOrDarkMode(
 	);
 }
 
-// Theme + Light/Dark mode -- focus border color
-export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
+// Theme + Light/Dark mode -- TopBar search-bar -- border, background, and text colors
+export function getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
 ) {
-	return (
-		(dark_mode
-			? " js-set-focus-border-color-mode-dark-theme-"
-			: " js-set-focus-border-color-mode-light-theme-") + theme_color
-	);
+	return (dark_mode
+		? " js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-"
+		: " js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-") + theme_color;
 }
 
 // Theme + Light/Dark mode -- base form-input -- border (with focus), background, and text colors

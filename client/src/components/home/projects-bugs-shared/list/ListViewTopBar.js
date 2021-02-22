@@ -18,10 +18,8 @@ import {
 	getUpdatedDeepCopyFilterArray,
 	getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDarkMode,
-	getLightBackgroundColorClassNameForTheme,
-	getLightBorderColorClassNameForTheme,
-	getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode,
 	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
@@ -146,7 +144,8 @@ export default function ListViewTopBar(props) {
 				<div
 					className={
 						"centering-container__search-group-container js-list-search-bar-and-button-search-group-container" +
-						getLightBorderColorClassNameForTheme(
+						getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
@@ -157,26 +156,10 @@ export default function ListViewTopBar(props) {
 						onChange={(e) => onChangeSearchBar(e)}
 						onKeyDown={(e) => searchBarKeyDown(e)}
 						value={searchBarText}
-						className={
-							"centering-container__search-group-container__search-bar js-list-search-bar" +
-							getTopBarSearchBarBackgroundAndTextColorClassNameForLightOrDarkMode(
-								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-							) +
-							getLightBorderColorClassNameForTheme(
-								reduxState[ACCOUNT_CONTAINER].settings.theme_color
-							)
-						}
+						className="centering-container__search-group-container__search-bar js-list-search-bar"
 					/>
 					<div
-						className={
-							"centering-container__search-group-container__search-bar-button js-list-search-button" +
-							getLightBackgroundColorClassNameForTheme(
-								reduxState[ACCOUNT_CONTAINER].settings.theme_color
-							) +
-							getLightBorderColorClassNameForTheme(
-								reduxState[ACCOUNT_CONTAINER].settings.theme_color
-							)
-						}
+						className="centering-container__search-group-container__search-bar-button js-list-search-button"
 						onClick={updateSearchKeyWordString}
 					>
 						<span className="centering-container__search-group-container__search-bar-button__icon">

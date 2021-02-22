@@ -12,10 +12,10 @@ import { setDisplaySizeVariablesBreadcrumbFontSize } from "../../../actions";
 
 import {
 	getElementSize,
-	getDarkBackgroundColorClassNameForTheme,
-	getLightBackgroundColorClassNameForTheme,
-	getDarkBreadcrumbArrowColorClassNameForTheme,
-	getLightBreadcrumbArrowColorClassNameForTheme,
+	getBaseBackgroundColorClassNameForTheme,
+	getBrighterBackgroundColorClassNameForTheme,
+	getBaseBreadcrumbArrowColorClassNameForTheme,
+	getBrighterBreadcrumbArrowColorClassNameForTheme,
 	openProjectsListView,
 	openProjectsItemView,
 	openBugsListView,
@@ -156,10 +156,10 @@ export default function NavbarBreadcrumb(props) {
 					className={
 						"breadcrumb-button js-breadcrumb-project-list-button" +
 						(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-							? getLightBackgroundColorClassNameForTheme(
+							? getBrighterBackgroundColorClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  )
-							: getDarkBackgroundColorClassNameForTheme(
+							: getBaseBackgroundColorClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
@@ -179,7 +179,7 @@ export default function NavbarBreadcrumb(props) {
 						// ... its light color extend past the arrow
 						className={
 							"breadcrumb-button__end-container" +
-							getDarkBackgroundColorClassNameForTheme(
+							getBaseBackgroundColorClassNameForTheme(
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)
 						}
@@ -190,10 +190,10 @@ export default function NavbarBreadcrumb(props) {
 								className={
 									"breadcrumb-button__end-container__round-border" +
 									(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-										? getLightBackgroundColorClassNameForTheme(
+										? getBrighterBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  )
-										: getDarkBackgroundColorClassNameForTheme(
+										: getBaseBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  ))
 								}
@@ -204,10 +204,10 @@ export default function NavbarBreadcrumb(props) {
 									className={
 										"breadcrumb-button__end-container__arrow" +
 										(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-											? getLightBreadcrumbArrowColorClassNameForTheme(
+											? getBrighterBreadcrumbArrowColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
-											: getDarkBreadcrumbArrowColorClassNameForTheme(
+											: getBaseBreadcrumbArrowColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  ))
 									}
@@ -227,10 +227,10 @@ export default function NavbarBreadcrumb(props) {
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 									null &&
 								reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-									? getLightBackgroundColorClassNameForTheme(
+									? getBrighterBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  )
-									: getDarkBackgroundColorClassNameForTheme(
+									: getBaseBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
@@ -248,7 +248,7 @@ export default function NavbarBreadcrumb(props) {
 								// ...have its different color extend past arrow
 								className={
 									"breadcrumb-button__end-container" +
-									getDarkBackgroundColorClassNameForTheme(
+									getBaseBackgroundColorClassNameForTheme(
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									)
 								}
@@ -259,10 +259,10 @@ export default function NavbarBreadcrumb(props) {
 										(reduxState[PROJECT_CONTAINER].componentsDisplay
 											.targetItem !== null &&
 										reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-											? getLightBreadcrumbArrowColorClassNameForTheme(
+											? getBrighterBreadcrumbArrowColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
-											: getDarkBreadcrumbArrowColorClassNameForTheme(
+											: getBaseBreadcrumbArrowColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  ))
 									}
@@ -281,10 +281,10 @@ export default function NavbarBreadcrumb(props) {
 								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-list-button" +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem !==
 									null && reduxState[BUG_CONTAINER].componentsDisplay.listView
-									? getLightBackgroundColorClassNameForTheme(
+									? getBrighterBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  )
-									: getDarkBackgroundColorClassNameForTheme(
+									: getBaseBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
@@ -304,7 +304,7 @@ export default function NavbarBreadcrumb(props) {
 								// ...have its different color extend past arrow
 								className={
 									"breadcrumb-button__end-container" +
-									getDarkBackgroundColorClassNameForTheme(
+									getBaseBackgroundColorClassNameForTheme(
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									)
 								}
@@ -315,10 +315,10 @@ export default function NavbarBreadcrumb(props) {
 										className={
 											"breadcrumb-button__end-container__round-border" +
 											(reduxState[BUG_CONTAINER].componentsDisplay.listView
-												? getLightBackgroundColorClassNameForTheme(
+												? getBrighterBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )
-												: getDarkBackgroundColorClassNameForTheme(
+												: getBaseBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  ))
 										}
@@ -331,10 +331,10 @@ export default function NavbarBreadcrumb(props) {
 												(reduxState[PROJECT_CONTAINER].componentsDisplay
 													.targetItem !== null &&
 												reduxState[BUG_CONTAINER].componentsDisplay.listView
-													? getLightBreadcrumbArrowColorClassNameForTheme(
+													? getBrighterBreadcrumbArrowColorClassNameForTheme(
 															reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													  )
-													: getDarkBreadcrumbArrowColorClassNameForTheme(
+													: getBaseBreadcrumbArrowColorClassNameForTheme(
 															reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													  ))
 											}
@@ -353,10 +353,10 @@ export default function NavbarBreadcrumb(props) {
 									(reduxState[PROJECT_CONTAINER].componentsDisplay
 										.targetItem !== null &&
 									reduxState[BUG_CONTAINER].componentsDisplay.itemView
-										? getLightBackgroundColorClassNameForTheme(
+										? getBrighterBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  )
-										: getDarkBackgroundColorClassNameForTheme(
+										: getBaseBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  ))
 								}
@@ -371,7 +371,7 @@ export default function NavbarBreadcrumb(props) {
 									// ...have its different color extend past arrow
 									className={
 										"breadcrumb-button__end-container" +
-										getDarkBackgroundColorClassNameForTheme(
+										getBaseBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										)
 									}
@@ -380,10 +380,10 @@ export default function NavbarBreadcrumb(props) {
 										className={
 											"breadcrumb-button__end-container__round-border" +
 											(reduxState[BUG_CONTAINER].componentsDisplay.itemView
-												? getLightBackgroundColorClassNameForTheme(
+												? getBrighterBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )
-												: getDarkBackgroundColorClassNameForTheme(
+												: getBaseBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  ))
 										}

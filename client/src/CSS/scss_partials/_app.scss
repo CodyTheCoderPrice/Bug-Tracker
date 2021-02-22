@@ -369,16 +369,6 @@ body {
 		color: v.$mode-top-bar-button-text-color-dark;
 	}
 
-	// Light/Dark mode -- TopBar search-bar -- background and text colors
-	.js-set-top-bar-search-bar-background-text-color-dark-mode-false {
-		background-color: v.$mode-top-bar-search-bar-background-color-light;
-		color: v.$mode-top-bar-search-bar-text-color-light;
-	}
-	.js-set-top-bar-search-bar-background-text-color-dark-mode-true {
-		background-color: v.$mode-top-bar-search-bar-background-color-dark;
-		color: v.$mode-top-bar-search-bar-text-color-dark;
-	}
-
 	// Light/Dark mode -- TopBar new-item-button during tutorial -- border color
 	.js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-false {
 		border-color: v.$mode-top-bar-new-item-tutorial-border-text-color-light;
@@ -795,20 +785,6 @@ body {
 	//==========================
 	// Themes + Light/Dark mode
 	//==========================
-	// Theme + Light/Dark mode --  text color
-	.js-set-text-color-mode-light-theme-blue-turkish {
-		color: v.$theme-mode-blue-turkish-text-color-light;
-	}
-	.js-set-text-color-mode-dark-theme-blue-turkish {
-		color: v.$theme-mode-blue-turkish-text-color-dark;
-	}
-	.js-set-text-color-mode-light-theme-blue-queen {
-		color: v.$theme-mode-blue-queen-text-color-light;
-	}
-	.js-set-text-color-mode-dark-theme-blue-queen {
-		color: v.$theme-mode-blue-queen-text-color-dark;
-	}
-
 	// Theme + Light/Dark mode -- focus border color
 	.js-set-focus-border-color-mode-light-theme-blue-turkish {
 		&:focus {
@@ -828,6 +804,70 @@ body {
 	.js-set-focus-border-color-mode-dark-theme-blue-queen {
 		&:focus {
 			border-color: v.$theme-mode-blue-queen-focus-border-color-dark;
+		}
+	}
+
+	// Theme + Light/Dark mode --  text color
+	.js-set-text-color-mode-light-theme-blue-turkish {
+		color: v.$theme-mode-blue-turkish-text-color-light;
+	}
+	.js-set-text-color-mode-dark-theme-blue-turkish {
+		color: v.$theme-mode-blue-turkish-text-color-dark;
+	}
+	.js-set-text-color-mode-light-theme-blue-queen {
+		color: v.$theme-mode-blue-queen-text-color-light;
+	}
+	.js-set-text-color-mode-dark-theme-blue-queen {
+		color: v.$theme-mode-blue-queen-text-color-dark;
+	}
+
+	// Theme + Light/Dark mode -- TopBar search-bar -- border, background, and text colors
+	.js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish {
+		& > input {
+			border-color: v.$theme-brighter-border-background-color-blue-turkish;
+			background-color: v.$mode-top-bar-search-bar-background-color-light;
+			color: v.$mode-top-bar-search-bar-text-color-light;
+		}
+
+		& > div {
+			border-color: v.$theme-brighter-border-background-color-blue-turkish;
+			background-color: v.$theme-brighter-border-background-color-blue-turkish;
+		}
+	}
+	.js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish {
+		& > input {
+			border-color: v.$theme-brighter-border-background-color-blue-turkish;
+			background-color: v.$mode-top-bar-search-bar-background-color-dark;
+			color: v.$mode-top-bar-search-bar-text-color-dark;
+		}
+
+		& > div {
+			border-color: v.$theme-brighter-border-background-color-blue-turkish;
+			background-color: v.$theme-brighter-border-background-color-blue-turkish;
+		}
+	}
+	.js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen {
+		& > input {
+			border-color: v.$theme-brighter-border-background-color-blue-queen;
+			background-color: v.$mode-top-bar-search-bar-background-color-light;
+			color: v.$mode-top-bar-search-bar-text-color-light;
+		}
+
+		& > div {
+			border-color: v.$theme-brighter-border-background-color-blue-queen;
+			background-color: v.$theme-brighter-border-background-color-blue-queen;
+		}
+	}
+	.js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen {
+		& > input {
+			border-color: v.$theme-brighter-border-background-color-blue-queen;
+			background-color: v.$mode-top-bar-search-bar-background-color-dark;
+			color: v.$mode-top-bar-search-bar-text-color-dark;
+		}
+
+		& > div {
+			border-color: v.$theme-brighter-border-background-color-blue-queen;
+			background-color: v.$theme-brighter-border-background-color-blue-queen;
 		}
 	}
 

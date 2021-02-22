@@ -10,7 +10,7 @@ import {
 } from "../../../actions";
 
 import {
-	getDarkBackgroundColorClassNameForTheme,
+	getBaseBackgroundColorClassNameForTheme,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 
@@ -52,7 +52,7 @@ export default function AccountSidebarChangeAppearance() {
 			<div
 				className={
 					"content-container__theme-option" +
-					getDarkBackgroundColorClassNameForTheme(theme.color)
+					getBaseBackgroundColorClassNameForTheme(theme.color)
 				}
 				onClick={(e) => onChangeTheme(e, theme_id)}
 			>
