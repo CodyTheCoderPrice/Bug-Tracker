@@ -57,7 +57,7 @@
 		font-size: v.$slightly-larger-font-size;
 	}
 
-	.form__text-input {
+	.form__input-text {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -76,7 +76,7 @@
 		text-align: center;
 
 		&:focus {
-			border-color: v.$theme-mode-blue-turkish-focus-border-color-light;
+			border-color: v.$register-login-input-text-focus-border-color;
 		}
 	}
 

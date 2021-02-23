@@ -2,76 +2,20 @@ import { useState, useEffect } from "react";
 import { SIZE_CONTAINER } from "../../actions/constants/containerNames";
 
 import {
-	toggleClassName,
 	getElementSize,
 	getElementStyle,
 	stripNonDigits,
 } from "../index";
 
-export function useSearchBarBorderEventListener(
-	searchBarClassName,
-	searchButtonClassName,
-	searchBarAndButtonModifierClassName,
-) {
-	// Adds event listener to give the searchBarInnerContainer a border
-	useEffect(() => {
-		const toggleContainerBorder = (shouldDisplay) => {
-			toggleClassName(
-				shouldDisplay,
-				document.getElementsByClassName(
-					searchBarClassName
-				)[0],
-				searchBarAndButtonModifierClassName
-			);
-
-			toggleClassName(
-				shouldDisplay,
-				document.getElementsByClassName(
-					searchButtonClassName
-				)[0],
-				searchBarAndButtonModifierClassName
-			);
-		};
-
-		const searchBar = document.getElementsByClassName(searchBarClassName)[0];
-
-		searchBar.addEventListener("focus", () => {
-			toggleContainerBorder(true);
-		});
-
-		searchBar.addEventListener("blur", () => {
-			toggleContainerBorder(false);
-		});
-
-		return () => {
-			searchBar.removeEventListener("focus", () => {
-				toggleContainerBorder(true);
-			});
-
-			searchBar.removeEventListener("blur", () => {
-				toggleContainerBorder(false);
-			});
-		};
-		// eslint-disable-next-line
-	}, []);
-}
-
-export function useSearchBarResizeAndBorderEventListener(
+export function useSearchBarResize(
 	passedReduxState,
+	BarButtonCenteringContainerClassName,
+	centeredBarButtonContainerClassName,
 	searchBarClassName,
 	searchButtonClassName,
-	searchBarAndButtonInnerContainerClassName,
-	searchBarAndButtonModifierClassName,
-	createNewButtonContainerClassName,
-	sortFilterGroupContainerClassName,
-	searchBarAndButtonCenteringContainerClassName
+	newItemButtonContainerClassName,
+	filterAreaContainerClassName
 ) {
-	useSearchBarBorderEventListener(
-		searchBarClassName,
-		searchButtonClassName,
-		searchBarAndButtonModifierClassName,
-	);
-
 	// Used for optimization in search-bar resize
 	const [
 		regularlyUsedSizesAndStyles,
@@ -89,12 +33,12 @@ export function useSearchBarResizeAndBorderEventListener(
 				setRegularlyUsedSizesAndStyles({
 					newProjectsButtonContainer: getElementSize(
 						document.getElementsByClassName(
-							createNewButtonContainerClassName
+							newItemButtonContainerClassName
 						)[0]
 					),
 					sortAndFilterContainer: getElementSize(
 						document.getElementsByClassName(
-							sortFilterGroupContainerClassName
+							filterAreaContainerClassName
 						)[0]
 					),
 					searchBar: {
@@ -115,11 +59,11 @@ export function useSearchBarResizeAndBorderEventListener(
 			}
 
 			const searchBarCenteringContainer = document.getElementsByClassName(
-				searchBarAndButtonCenteringContainerClassName
+				BarButtonCenteringContainerClassName
 			)[0];
 
 			const searchBarInnerContainer = document.getElementsByClassName(
-				searchBarAndButtonInnerContainerClassName
+				centeredBarButtonContainerClassName
 			)[0];
 
 			// Used to make the searchBar take up remaining space

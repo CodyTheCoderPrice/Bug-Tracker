@@ -27,8 +27,6 @@ import {
 	getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
-import { useSearchBarBorderEventListener } from "../../../../utils/hooks";
-
 import SortArrowsButton from "../SortArrowsButton";
 
 // Components
@@ -40,12 +38,6 @@ export default function ItemViewTopBar(props) {
 
 	const [searchBarText, setSearchBarText] = useState(
 		reduxState[props.reduxContainerName].searchFilterSort.searchKeyWordString
-	);
-
-	useSearchBarBorderEventListener(
-		"js-item-search-bar",
-		"js-item-search-button",
-		"search-bar-and-button-thick-border"
 	);
 
 	const onChangeSearchBar = (e) => {

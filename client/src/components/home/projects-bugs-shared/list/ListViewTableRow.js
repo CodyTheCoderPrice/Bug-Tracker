@@ -143,7 +143,7 @@ export default function ListViewTableRow(props) {
 			</td>
 			<td
 				className={
-					"list-table__data list-table__data--overflow" +
+					"list-table__data list-table__data--name-overflow" +
 					(props.item.status_id ===
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId

@@ -24,7 +24,7 @@ import {
 	getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
-import { useSearchBarResizeAndBorderEventListener } from "../../../../utils/hooks";
+import { useSearchBarResize } from "../../../../utils/hooks";
 
 // Components
 import CustomCheckbox from "../../../basic/CustomCheckbox";
@@ -40,15 +40,14 @@ export default function ListViewTopBar(props) {
 	// Custom hook resizes the searchbar to take up the space
 	// ...in the middle of the search-sort-filter-bar. Also adds
 	// ... an event listener to highlight the searchbar
-	useSearchBarResizeAndBorderEventListener(
+	useSearchBarResize(
 		reduxState,
+		"js-list-search-bar-centering-container",
+		"js-list-centered-search-bar-button-container",
 		"js-list-search-bar",
 		"js-list-search-button",
-		"js-list-search-bar-and-button-search-group-container",
-		"search-bar-and-button-thick-border",
 		"js-new-item-button-centering-container",
-		"js-list-filter-area-container",
-		"js-list-search-bar-centering-container"
+		"js-list-filter-area-container"
 	);
 
 	const openCreateItemSidebar = () => {
@@ -144,7 +143,7 @@ export default function ListViewTopBar(props) {
 			<div className="centering-container js-list-search-bar-centering-container">
 				<div
 					className={
-						"centering-container__search-group-container js-list-search-bar-and-button-search-group-container" +
+						"centering-container__bar-button-container js-list-centered-search-bar-button-container" +
 						getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -157,13 +156,13 @@ export default function ListViewTopBar(props) {
 						onChange={(e) => onChangeSearchBar(e)}
 						onKeyDown={(e) => searchBarKeyDown(e)}
 						value={searchBarText}
-						className="centering-container__search-group-container__search-bar js-list-search-bar"
+						className="centering-container__bar-button-container__search-bar js-list-search-bar"
 					/>
 					<div
-						className="centering-container__search-group-container__search-bar-button js-list-search-button"
+						className="centering-container__bar-button-container__search-bar-button js-list-search-button"
 						onClick={updateSearchKeyWordString}
 					>
-						<span className="centering-container__search-group-container__search-bar-button__icon">
+						<span className="centering-container__bar-button-container__search-bar-button__icon">
 							<i
 								className="fa fa-search"
 								aria-hidden="true"

@@ -11,10 +11,7 @@
 	.breadcrumb-button {
 		position: relative;
 		float: left;
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		background-color: black;
+		background-color: v.$default-theme-base-border-background-color;
 		height: v.$navbar-height;
 		cursor: pointer;
 	}

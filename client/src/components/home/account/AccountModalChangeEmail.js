@@ -82,7 +82,7 @@ export default function AccountModalChangeEmail() {
 					value={accountInfo.email}
 					id="edit-account-email-email"
 					className={
-						"form__text-input" +
+						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -109,7 +109,7 @@ export default function AccountModalChangeEmail() {
 					value={accountInfo.currentPassword}
 					id="edit-account-email-password"
 					className={
-						"form__text-input" +
+						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color

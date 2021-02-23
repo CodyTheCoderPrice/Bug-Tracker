@@ -77,13 +77,13 @@
 		font-size: v.$create-item-sidebar-label-font-size;
 	}
 
-	.form__text-input {
+	.form__input-text {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
-		margin-top: v.$create-item-sidebar-text-input-margin-top;
+		margin-top: v.$create-item-sidebar-input-text-margin-top;
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: v.$form-input-text-border-width solid
@@ -92,11 +92,11 @@
 		background: v.$mode-base-form-input-background-color-light;
 		padding: v.$create-item-sidebar-padding;
 		width: 100%;
-		font-size: v.$item-form-text-input-font-size;
+		font-size: v.$item-form-input-text-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 
 		&:focus {
-			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+			border-color: v.$default-theme-mode-focus-border-color;
 		}
 	}
 
@@ -106,7 +106,7 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
-		margin-top: v.$create-item-sidebar-text-input-margin-top;
+		margin-top: v.$create-item-sidebar-input-text-margin-top;
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: v.$form-input-text-border-width solid
@@ -117,13 +117,13 @@
 			v.$create-item-sidebar-padding;
 		height: 150px;
 		width: 100%;
-		font-size: v.$item-form-text-input-font-size;
+		font-size: v.$item-form-input-text-font-size;
 		line-height: v.$common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
 		resize: none;
 
 		&:focus {
-			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+			border-color: v.$default-theme-mode-focus-border-color;
 		}
 	}
 
@@ -152,7 +152,7 @@
 		font-size: 13px;
 
 		&:focus {
-			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+			border-color: v.$default-theme-mode-focus-border-color;
 		}
 	}
 
@@ -167,7 +167,7 @@
 		font-size: 13px;
 
 		&:focus {
-			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+			border-color: v.$default-theme-mode-focus-border-color;
 		}
 	}
 

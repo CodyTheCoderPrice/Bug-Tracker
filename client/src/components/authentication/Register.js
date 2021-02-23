@@ -74,7 +74,7 @@ export default function Register() {
 								onChange={(e) => onChange(e)}
 								value={accountInfo.first_name}
 								id="register-first-name"
-								className="form__text-input"
+								className="form__input-text"
 							/>
 							<span className="backend-errors">
 								{
@@ -108,7 +108,7 @@ export default function Register() {
 								onChange={(e) => onChange(e)}
 								value={accountInfo.last_name}
 								id="register-last-name"
-								className="form__text-input"
+								className="form__input-text"
 							/>
 							<span className="backend-errors">
 								{
@@ -127,7 +127,7 @@ export default function Register() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
 						id="register-email"
-						className="form__text-input"
+						className="form__input-text"
 					/>
 					<span className="backend-errors">
 						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
@@ -156,7 +156,7 @@ export default function Register() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
 						id="register-password"
-						className="form__text-input"
+						className="form__input-text"
 					/>
 					<span className="backend-errors">
 						{

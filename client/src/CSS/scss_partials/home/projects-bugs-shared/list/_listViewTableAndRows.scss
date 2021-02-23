@@ -90,8 +90,9 @@
 		cursor: default;
 	}
 
-	.list-table__data--overflow {
+	.list-table__data--name-overflow {
 		max-width: v.$list-table-item-name-width;
+		color: v.$default-theme-mode-text-color;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -124,8 +125,7 @@
 
 		border-radius: v.$status-box-border-radius;
 		// This background color should only appear if there was a problem
-		// ...assigning a different background color to a status-box.
-		// ...the scss for the colors assigned are in app.scss
+		// ...assigning a different background color using JS
 		background-color: black;
 		height: v.$status-box-height;
 		width: v.$status-box-width;

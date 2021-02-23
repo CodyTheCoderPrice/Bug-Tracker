@@ -159,7 +159,7 @@
 		resize: none;
 
 		&:focus {
-			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+			border-color: v.$default-theme-mode-focus-border-color;
 		}
 	}
 

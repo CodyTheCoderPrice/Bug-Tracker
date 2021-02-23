@@ -9,7 +9,8 @@
 	position: fixed;
 	top: v.$top-bar-top;
 	border: v.$top-bar-border-width solid v.$mode-top-bar-border-color-light;
-	border-width: v.$top-bar-border-width 0 v.$item-view-list-sidebar-border-width 0;
+	border-width: v.$top-bar-border-width 0 v.$item-view-list-sidebar-border-width
+		0;
 	background-color: v.$mode-top-bar-background-color-light;
 	height: v.$top-bar-height;
 	/* height: v.$top-bar-height; */
@@ -21,11 +22,6 @@
 		@include m.vertical-center();
 
 		left: v.$item-view-top-bar-search-bar-left;
-		// This border color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		border: 0px solid black;
-		border-radius: v.$top-bar-buttton-border-radius;
 		width: v.$item-view-top-bar-search-bar-width;
 	}
 
@@ -41,17 +37,20 @@
 
 		display: inline-block;
 		outline: none;
-		// This border color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		border: v.$top-bar-search-bar-border-width solid black;
+		border: v.$top-bar-search-bar-border-width solid v.$default-theme-base-border-background-color;
 		border-right: none;
-		border-radius: v.$top-bar-buttton-border-radius 0 0 v.$top-bar-buttton-border-radius;
+		border-radius: v.$top-bar-buttton-border-radius 0 0
+			v.$top-bar-buttton-border-radius;
 		padding: 0px v.$top-bar-search-bar-padding 0px v.$top-bar-search-bar-padding;
 		background-color: v.$mode-top-bar-search-bar-background-color-light;
 		height: v.$top-bar-search-bar-height;
-		width: v.$item-view-top-bar-search-bar-width - v.$top-bar-search-bar-button-width;
+		width: v.$item-view-top-bar-search-bar-width -
+			v.$top-bar-search-bar-button-width;
 		font-size: v.$top-bar-search-bar-font-size;
+
+		&:focus {
+			border-width: v.$top-bar-search-bar-focus-border-width;
+		}
 	}
 
 	.outer-search-container__search-bar-button {
@@ -63,11 +62,9 @@
 		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
 		display: inline-block;
-		border-radius: 0 v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius 0;
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		background-color: black;
+		border-radius: 0 v.$top-bar-buttton-border-radius
+			v.$top-bar-buttton-border-radius 0;
+		background-color: v.$default-theme-base-border-background-color;
 		height: v.$top-bar-search-bar-height;
 		width: v.$top-bar-search-bar-button-width;
 		cursor: pointer;
@@ -77,11 +74,6 @@
 		@include m.dead-center();
 		color: white;
 		font-size: v.$top-bar-search-bar-button-icon-font-size;
-	}
-
-	.search-bar-and-button-thick-border {
-		border-width: v.$top-bar-search-bar-focus-border-width;
-		height: v.$top-bar-button-focus-height;
 	}
 
 	.list-sort-filter-container {
@@ -101,7 +93,8 @@
 		z-index: 1;
 		position: absolute;
 		top: 9px;
-		border: v.$top-bar-base-button-border-width solid v.$mode-top-bar-button-border-color-light;
+		border: v.$top-bar-base-button-border-width solid
+			v.$mode-top-bar-button-border-color-light;
 		border-radius: v.$top-bar-buttton-border-radius;
 		background-color: v.$mode-top-bar-button-background-color-light;
 		height: v.$top-bar-button-height;
@@ -120,14 +113,17 @@
 		// Negative margin because border resize moves the element
 		margin: -2px 0px;
 		border: v.$top-bar-clicked-dropdown-button-border-width solid black;
-		border-radius: v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius 0 0;
+		border-radius: v.$top-bar-buttton-border-radius
+			v.$top-bar-buttton-border-radius 0 0;
 		border-bottom: none;
 		height: 45px;
-		width: v.$top-bar-sort-button-width - (v.$top-bar-clicked-dropdown-button-border-width-difference * 2);
+		width: v.$top-bar-sort-button-width -
+			(v.$top-bar-clicked-dropdown-button-border-width-difference * 2);
 	}
 
 	.list-sort-filter-container__button--clicked-filter-width {
-		width: v.$top-bar-filter-button-width - (v.$top-bar-clicked-dropdown-button-border-width-difference * 2);
+		width: v.$top-bar-filter-button-width -
+			(v.$top-bar-clicked-dropdown-button-border-width-difference * 2);
 	}
 
 	.list-sort-filter-container__button__text--active {
@@ -156,7 +152,8 @@
 		// Additional 0.2px to fix border overflow in chrome and edge
 		top: 52.2px;
 		border: 3px solid black;
-		border-radius: 0 v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius;
+		border-radius: 0 v.$top-bar-buttton-border-radius
+			v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$top-bar-filter-dropdown-content-container-height;
 		width: v.$top-bar-sort-dropdown-content-container-width;
@@ -198,14 +195,16 @@
 
 	.list-sort-filter-container__content-dropdown__filter-content {
 		float: left;
-		margin: v.$top-bar-filter-button-dropdown-title-margin-top 0 0 v.$top-bar-filter-button-dropdown-title-margin-on-one-side;
+		margin: v.$top-bar-filter-button-dropdown-title-margin-top 0 0
+			v.$top-bar-filter-button-dropdown-title-margin-on-one-side;
 		text-align: center;
 		font-size: v.$filter-dropdown-content-font-size;
 	}
 
 	.list-sort-filter-container__content-dropdown__filter-content--right {
 		float: right;
-		margin: v.$top-bar-filter-button-dropdown-title-margin-top v.$top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
+		margin: v.$top-bar-filter-button-dropdown-title-margin-top
+			v.$top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
 	}
 
 	.list-sort-filter-container__content-dropdown__filter-content__title {
@@ -249,7 +248,8 @@
 		right: 0px;
 		// Border given color through JS
 		border: v.$top-bar-clicked-dropdown-button-border-width solid transparent;
-		border-radius: v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius 0 0;
+		border-radius: v.$top-bar-buttton-border-radius
+			v.$top-bar-buttton-border-radius 0 0;
 		border-bottom: none;
 		background: none;
 		height: 29px;
@@ -281,7 +281,8 @@
 		top: 29px;
 		right: 0;
 		border: 3px solid black;
-		border-radius: v.$top-bar-buttton-border-radius 0 v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius;
+		border-radius: v.$top-bar-buttton-border-radius 0
+			v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius;
 		background-color: white;
 		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 		width: 129px;

@@ -32,9 +32,8 @@
 		display: inline-block;
 		margin-right: 6px;
 		border-radius: 10px;
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to a the circle.
-		// ...the scss for the colors assigned are in app.scss
+		// This background color should only appear if there was a problem 
+		// ...assigning a different background color using JS
 		background-color: black;
 		height: 30px;
 		width: 30px;

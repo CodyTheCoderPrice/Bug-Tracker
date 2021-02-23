@@ -98,7 +98,7 @@ export default function AccountModalChangeInfo() {
 					value={accountInfo.first_name}
 					id="edit-account-info-first-name"
 					className={
-						"form__text-input" +
+						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -143,7 +143,7 @@ export default function AccountModalChangeInfo() {
 					value={accountInfo.last_name}
 					id="edit-account-info-last-name"
 					className={
-						"form__text-input" +
+						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color

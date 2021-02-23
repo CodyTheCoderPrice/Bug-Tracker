@@ -228,7 +228,7 @@ export default function ListViewCreateItemSidebar(props) {
 							value={itemInfo.name}
 							id="create-item-name"
 							className={
-								"form__text-input" +
+								"form__input-text" +
 								getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -318,7 +318,7 @@ export default function ListViewCreateItemSidebar(props) {
 									value={itemInfo.location}
 									id="create-item-location"
 									className={
-										"form__text-input" +
+										"form__input-text" +
 										getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color

@@ -95,7 +95,7 @@ export default function AccountModalDeleteAccount() {
 					value={accountInfo.deleteTypedOut}
 					id="delete-account-type-out"
 					className={
-						"form__text-input" +
+						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
@@ -127,7 +127,7 @@ export default function AccountModalDeleteAccount() {
 					value={accountInfo.currentPassword}
 					id="delete-account-password"
 					className={
-						"form__text-input" +
+						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +

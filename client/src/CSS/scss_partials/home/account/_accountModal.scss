@@ -59,7 +59,7 @@
 		font-size: v.$slightly-larger-font-size;
 	}
 
-	.form__text-input {
+	.form__input-text {
 		margin-top: v.$edit-account-form-input-margin-top;
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
@@ -74,7 +74,7 @@
 		text-align: center;
 
 		&:focus {
-			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+			border-color: v.$default-theme-mode-focus-border-color;
 		}
 	}
 

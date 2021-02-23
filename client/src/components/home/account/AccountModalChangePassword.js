@@ -101,7 +101,7 @@ export default function AccountModalChangePassword() {
 					value={accountInfo.newPassword}
 					id="edit-account-password-new-password"
 					className={
-						"form__text-input" +
+						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -149,7 +149,7 @@ export default function AccountModalChangePassword() {
 					value={accountInfo.currentPassword}
 					id="edit-account-password-current-password"
 					className={
-						"form__text-input" +
+						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color

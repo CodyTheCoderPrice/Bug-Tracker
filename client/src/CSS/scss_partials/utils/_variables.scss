@@ -133,7 +133,7 @@ $raspberry-red-level-2: #d44141;
 $basic-yellow-level-1: #ffff00;
 $basic-yellow-level-2: #e2e200;
 
-// Light/Dark mode (General)
+// Light/Dark mode (general)
 $mode-base-background-color-light: white;
 $mode-base-background-color-dark: $gray-dark-level-7;
 $mode-base-primary-text-color-light: black;
@@ -318,13 +318,19 @@ $status-orange: #ff9900;
 $status-green: #007e00;
 $status-red: #d14242;
 
-// Components
+// Components (general)
+$default-theme-brighter-border-background-color: $theme-brighter-border-background-color-blue-turkish;
+$default-theme-base-border-background-color: $theme-base-border-background-color-blue-turkish;
+$default-theme-mode-focus-border-color: $theme-mode-blue-turkish-focus-border-color-light;
+$default-theme-mode-text-color: $theme-mode-blue-turkish-text-color-light;
+// Components (specific)
+$register-login-input-text-focus-border-color: $default-theme-mode-focus-border-color;
 $register-login-submit-button-border-background-color: $old-copper-blue-level-1;
 $register-login-submit-button-hover-border-background-color: $old-copper-blue-level-2;
 $register-login-bottom-link-text-color: $basic-blue-level-1;
 $breadcrumb-hamburger-close-button-text-color: $basic-red-light-level-2;
+$filter-button-active-color: $default-theme-mode-text-color;
 $table-empty-list-message-text-color: $gray-level-5;
-$filter-button-active-color: $theme-mode-blue-turkish-focus-border-color-light;
 
 //==========
 // Heights
@@ -401,7 +407,7 @@ $top-bar-filter-button-dropdown-title-margin-top: 13px;
 $top-bar-filter-button-dropdown-title-margin-on-one-side: 20px;
 $top-bar-filter-button-dropdown-checkbox-container-margin: 0px 3px;
 $top-bar-filter-button-dropdown-label-margin: 4px 3px;
-$create-item-sidebar-text-input-margin-top: 2px;
+$create-item-sidebar-input-text-margin-top: 2px;
 $display-item-field-margin-left: 11px;
 $item-view-item-box-char-counter-margin: 5px 2px 4px 0px;
 
@@ -469,7 +475,7 @@ $filter-dropdown-content-font-size: 14px;
 $list-view-empty-list-message-font-size: 32px;
 $item-view-name-font-size: 28px;
 $create-item-sidebar-label-font-size: 15px;
-$item-form-text-input-font-size: 13px;
+$item-form-input-text-font-size: 13px;
 $common-line-height: 20px;
 
 //==========
@@ -504,10 +510,5 @@ $account-sidebar-appearance-theme-button-option-larger-width: $account-sidebar-a
 	($account-sidebar-appearance-theme-button-border-width * 2);
 $account-sidebar-appearance-theme-button-dropdown-container-top: $account-sidebar-appearance-theme-button-option-height +
 	($account-sidebar-appearance-theme-button-border-width * 2);
-$top-bar-button-focus-height: $top-bar-button-height +
-	(
-		($top-bar-search-bar-focus-border-width - $top-bar-search-bar-border-width) *
-			2
-	);
 $edit-item-name-centering-container-height: $edit-item-name-input-height +
 	($edit-item-name-input-border-width * 2) + ($edit-item-name-input-padding * 2);

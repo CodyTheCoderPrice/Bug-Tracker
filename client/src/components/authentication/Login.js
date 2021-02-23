@@ -53,7 +53,7 @@ export default function Login() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.email}
 						id="login-email"
-						className="form__text-input"
+						className="form__input-text"
 					/>
 					<span className="backend-errors">
 						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
@@ -67,7 +67,7 @@ export default function Login() {
 						onChange={(e) => onChange(e)}
 						value={accountInfo.password}
 						id="login-password"
-						className="form__text-input"
+						className="form__input-text"
 					/>
 					<span className="backend-errors">
 						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword}

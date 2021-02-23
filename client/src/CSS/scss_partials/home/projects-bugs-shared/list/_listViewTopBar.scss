@@ -50,17 +50,13 @@
 		white-space: nowrap;
 	}
 
-	.centering-container__search-group-container {
+	.centering-container__bar-button-container {
 		@include m.dead-center();
-		// This border color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		border: 0px solid black;
-		border-radius: v.$top-bar-buttton-border-radius;
+
 		width: 100%;
 	}
 
-	.centering-container__search-group-container__search-bar {
+	.centering-container__bar-button-container__search-bar {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -68,10 +64,9 @@
 
 		display: inline-block;
 		outline: none;
-		// This border color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		border: v.$top-bar-search-bar-border-width solid black;
+
+		border: v.$top-bar-search-bar-border-width solid
+			v.$default-theme-base-border-background-color;
 		border-right: none;
 		border-radius: v.$top-bar-buttton-border-radius 0 0
 			v.$top-bar-buttton-border-radius;
@@ -82,9 +77,13 @@
 		// Width changed by JS
 		width: 100%;
 		font-size: v.$top-bar-search-bar-font-size;
+
+		&:focus {
+			border-width: v.$top-bar-search-bar-focus-border-width;
+		}
 	}
 
-	.centering-container__search-group-container__search-bar-button {
+	.centering-container__bar-button-container__search-bar-button {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -98,16 +97,13 @@
 		//border: v.$top-bar-search-bar-border-width solid black;
 		border-radius: 0 v.$top-bar-buttton-border-radius
 			v.$top-bar-buttton-border-radius 0;
-		// This background color should only appear if there was a problem
-		// ...assigning a different background color to this element.
-		// ...the scss for the colors assigned are in app.scss
-		background-color: black;
+		background-color: v.$default-theme-base-border-background-color;
 		height: v.$top-bar-search-bar-height;
 		width: v.$top-bar-search-bar-button-width;
 		cursor: pointer;
 	}
 
-	.centering-container__search-group-container__search-bar-button__icon {
+	.centering-container__bar-button-container__search-bar-button__icon {
 		@include m.dead-center();
 		color: white;
 		font-size: v.$top-bar-search-bar-button-icon-font-size;
@@ -119,11 +115,6 @@
 		position: absolute;
 		right: 0px;
 		width: 109px;
-	}
-
-	.search-bar-and-button-thick-border {
-		border-width: v.$top-bar-search-bar-focus-border-width;
-		height: v.$top-bar-button-focus-height;
 	}
 
 	.filter-area-container__button {

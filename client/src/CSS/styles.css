@@ -151,7 +151,7 @@
   margin: 4px 2px 0px 0px;
   font-size: 16px;
 }
-.register-login-components .form__text-input {
+.register-login-components .form__input-text {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -166,7 +166,7 @@
   font-size: 14px;
   text-align: center;
 }
-.register-login-components .form__text-input:focus {
+.register-login-components .form__input-text:focus {
   border-color: #258faa;
 }
 .register-login-components .backend-errors {
@@ -218,7 +218,7 @@
   top: 0;
 }
 .navbar-container .navbar {
-  background-color: black;
+  background-color: #537c8d;
   height: 56px;
   width: 100%;
 }
@@ -271,7 +271,7 @@ dropdown can overlap all other components
 .js-calc-breadcrumb-container .breadcrumb-button {
   position: relative;
   float: left;
-  background-color: black;
+  background-color: #537c8d;
   height: 56px;
   cursor: pointer;
 }
@@ -819,7 +819,7 @@ dropdown can overlap all other components
   margin: 5px 2px 0px 0px;
   font-size: 16px;
 }
-.edit-account-modal-component .form__text-input {
+.edit-account-modal-component .form__input-text {
   margin-top: 5px;
   margin-bottom: 10px;
   outline: none;
@@ -832,8 +832,8 @@ dropdown can overlap all other components
   font-size: 14px;
   text-align: center;
 }
-.edit-account-modal-component .form__text-input:focus {
-  border-color: #0062e2;
+.edit-account-modal-component .form__input-text:focus {
+  border-color: #258faa;
 }
 .edit-account-modal-component .backend-errors {
   display: block;
@@ -844,7 +844,7 @@ dropdown can overlap all other components
   outline: none;
   border: 0;
   border-radius: 10px;
-  background-color: black;
+  background-color: #6595a8;
   padding: 10px;
   width: 100%;
   color: white;
@@ -853,6 +853,9 @@ dropdown can overlap all other components
   cursor: pointer;
   margin-top: 15px;
   margin-bottom: 10px;
+}
+.edit-account-modal-component .form__submit:hover, .edit-account-modal-component .form__submit:active, .edit-account-modal-component .form__submit:focus {
+  background-color: #537c8d;
 }
 .edit-account-modal-component .form__submit--delete {
   background-color: #e95454;
@@ -1177,7 +1180,7 @@ dropdown can overlap all other components
 }
 .item-view-component .item-box__form-textarea:focus,
 .js-calc-item-view-component .item-box__form-textarea:focus {
-  border-color: #0062e2;
+  border-color: #258faa;
 }
 .item-view-component .item-box__form-textarea--shorter,
 .js-calc-item-view-component .item-box__form-textarea--shorter {
@@ -1340,13 +1343,16 @@ dropdown can overlap all other components
   outline: none;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: black;
+  background-color: #6595a8;
   padding: 10px 0px 10px 0px;
   width: 127px;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   cursor: pointer;
+}
+.item-view-component .form-submit-centering-container__button:hover, .item-view-component .form-submit-centering-container__button:active, .item-view-component .form-submit-centering-container__button:focus {
+  background-color: #537c8d;
 }
 
 .item-view-component .comment-divider {
@@ -1386,7 +1392,7 @@ dropdown can overlap all other components
   outline: none;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: black;
+  background-color: #6595a8;
   padding: 10px 0px 10px 0px;
   width: 127px;
   color: white;
@@ -1394,6 +1400,9 @@ dropdown can overlap all other components
   font-size: 16px;
   cursor: pointer;
   float: left;
+}
+.item-view-component .comment__centering-container__pair-container__submit-edit-button:hover, .item-view-component .comment__centering-container__pair-container__submit-edit-button:active, .item-view-component .comment__centering-container__pair-container__submit-edit-button:focus {
+  background-color: #537c8d;
 }
 .item-view-component .comment__centering-container__pair-container__cancel-button {
   -webkit-touch-callout: none;
@@ -1495,10 +1504,10 @@ dropdown can overlap all other components
   text-align: center;
 }
 .item-view-component .name-centering-container__form-name-input:focus {
-  border-color: #0062e2;
+  border-color: #258faa;
 }
 .item-view-component .name-centering-container__form-name-input:focus + .name-centering-container__char-count-centering-container {
-  border-color: #0062e2;
+  border-color: #258faa;
 }
 .item-view-component .name-centering-container__completed-icon-centering-container {
   position: absolute;
@@ -1565,7 +1574,7 @@ dropdown can overlap all other components
   font-family: Arial, Helvetica, sans-serif;
 }
 .item-view-component .item-box__group__field__form-text:focus {
-  border-color: #0062e2;
+  border-color: #258faa;
 }
 .item-view-component .item-box__group__field__form-select {
   outline: none;
@@ -1575,7 +1584,7 @@ dropdown can overlap all other components
   font-size: 14px;
 }
 .item-view-component .item-box__group__field__form-select:focus {
-  border-color: #0062e2;
+  border-color: #258faa;
 }
 .item-view-component .item-box__group__field__form-date {
   outline: none;
@@ -1583,7 +1592,7 @@ dropdown can overlap all other components
   background-color: white;
 }
 .item-view-component .item-box__group__field__form-date:focus {
-  border-color: #0062e2;
+  border-color: #258faa;
 }
 .item-view-component .form-buttons-outer-container {
   position: relative;
@@ -1605,7 +1614,7 @@ dropdown can overlap all other components
   outline: none;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: black;
+  background-color: #6595a8;
   padding: 10px 0px 10px 0px;
   width: 127px;
   color: white;
@@ -1613,6 +1622,9 @@ dropdown can overlap all other components
   font-size: 16px;
   cursor: pointer;
   float: left;
+}
+.item-view-component .form-buttons-centered-container__submit-button:hover, .item-view-component .form-buttons-centered-container__submit-button:active, .item-view-component .form-buttons-centered-container__submit-button:focus {
+  background-color: #537c8d;
 }
 .item-view-component .form-buttons-centered-container__cancel-button {
   -webkit-touch-callout: none;
@@ -1799,8 +1811,6 @@ dropdown can overlap all other components
   top: 50%;
   transform: translate(0%, -50%);
   left: 15px;
-  border: 0px solid black;
-  border-radius: 5px;
   width: 290px;
 }
 .item-vew-top-bar-component .outer-search-container--invisible,
@@ -1814,7 +1824,7 @@ dropdown can overlap all other components
   box-sizing: border-box;
   display: inline-block;
   outline: none;
-  border: 2px solid black;
+  border: 2px solid #537c8d;
   border-right: none;
   border-radius: 5px 0 0 5px;
   padding: 0px 8px 0px 8px;
@@ -1822,6 +1832,10 @@ dropdown can overlap all other components
   height: 28px;
   width: 252px;
   font-size: 14px;
+}
+.item-vew-top-bar-component .outer-search-container__search-bar:focus,
+.js-calc-item-vew-top-bar-component .outer-search-container__search-bar:focus {
+  border-width: 3px;
 }
 .item-vew-top-bar-component .outer-search-container__search-bar-button,
 .js-calc-item-vew-top-bar-component .outer-search-container__search-bar-button {
@@ -1831,7 +1845,7 @@ dropdown can overlap all other components
   position: absolute;
   display: inline-block;
   border-radius: 0 5px 5px 0;
-  background-color: black;
+  background-color: #537c8d;
   height: 28px;
   width: 38px;
   cursor: pointer;
@@ -1844,11 +1858,6 @@ dropdown can overlap all other components
   transform: translate(-50%, -50%);
   color: white;
   font-size: 14px;
-}
-.item-vew-top-bar-component .search-bar-and-button-thick-border,
-.js-calc-item-vew-top-bar-component .search-bar-and-button-thick-border {
-  border-width: 3px;
-  height: 28px;
 }
 .item-vew-top-bar-component .list-sort-filter-container,
 .js-calc-item-vew-top-bar-component .list-sort-filter-container {
@@ -2172,7 +2181,7 @@ dropdown can overlap all other components
   margin: 5px 2px 2px 0px;
   font-size: 15px;
 }
-.create-item-component .form__text-input {
+.create-item-component .form__input-text {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2187,8 +2196,8 @@ dropdown can overlap all other components
   font-size: 13px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.create-item-component .form__text-input:focus {
-  border-color: #0062e2;
+.create-item-component .form__input-text:focus {
+  border-color: #258faa;
 }
 .create-item-component .form__textarea {
   -webkit-box-sizing: border-box;
@@ -2209,7 +2218,7 @@ dropdown can overlap all other components
   resize: none;
 }
 .create-item-component .form__textarea:focus {
-  border-color: #0062e2;
+  border-color: #258faa;
 }
 .create-item-component .form__group-container {
   float: left;
@@ -2231,7 +2240,7 @@ dropdown can overlap all other components
   font-size: 13px;
 }
 .create-item-component .form__group-container__input-container__date:focus {
-  border-color: #0062e2;
+  border-color: #258faa;
 }
 .create-item-component .form__group-container__input-container__select {
   margin-top: 2px;
@@ -2243,13 +2252,13 @@ dropdown can overlap all other components
   font-size: 13px;
 }
 .create-item-component .form__group-container__input-container__select:focus {
-  border-color: #0062e2;
+  border-color: #258faa;
 }
 .create-item-component .form__submit {
   outline: none;
   border: 0;
   border-radius: 10px;
-  background-color: black;
+  background-color: #6595a8;
   padding: 10px;
   width: 100%;
   color: white;
@@ -2258,6 +2267,9 @@ dropdown can overlap all other components
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 15px;
+}
+.create-item-component .form__submit:hover, .create-item-component .form__submit:active, .create-item-component .form__submit:focus {
+  background-color: #537c8d;
 }
 
 .list-view-top-bar,
@@ -2321,24 +2333,22 @@ dropdown can overlap all other components
   transform: translate(-50%, -50%);
   white-space: nowrap;
 }
-.list-view-top-bar .centering-container__search-group-container,
-.js-calc-list-view-top-bar .centering-container__search-group-container {
+.list-view-top-bar .centering-container__bar-button-container,
+.js-calc-list-view-top-bar .centering-container__bar-button-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 0px solid black;
-  border-radius: 5px;
   width: 100%;
 }
-.list-view-top-bar .centering-container__search-group-container__search-bar,
-.js-calc-list-view-top-bar .centering-container__search-group-container__search-bar {
+.list-view-top-bar .centering-container__bar-button-container__search-bar,
+.js-calc-list-view-top-bar .centering-container__bar-button-container__search-bar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
   outline: none;
-  border: 2px solid black;
+  border: 2px solid #537c8d;
   border-right: none;
   border-radius: 5px 0 0 5px;
   padding: 0px 8px 0px 8px;
@@ -2348,8 +2358,12 @@ dropdown can overlap all other components
   width: 100%;
   font-size: 14px;
 }
-.list-view-top-bar .centering-container__search-group-container__search-bar-button,
-.js-calc-list-view-top-bar .centering-container__search-group-container__search-bar-button {
+.list-view-top-bar .centering-container__bar-button-container__search-bar:focus,
+.js-calc-list-view-top-bar .centering-container__bar-button-container__search-bar:focus {
+  border-width: 3px;
+}
+.list-view-top-bar .centering-container__bar-button-container__search-bar-button,
+.js-calc-list-view-top-bar .centering-container__bar-button-container__search-bar-button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2357,13 +2371,13 @@ dropdown can overlap all other components
   display: inline-block;
   margin-left: -1px;
   border-radius: 0 5px 5px 0;
-  background-color: black;
+  background-color: #537c8d;
   height: 28px;
   width: 38px;
   cursor: pointer;
 }
-.list-view-top-bar .centering-container__search-group-container__search-bar-button__icon,
-.js-calc-list-view-top-bar .centering-container__search-group-container__search-bar-button__icon {
+.list-view-top-bar .centering-container__bar-button-container__search-bar-button__icon,
+.js-calc-list-view-top-bar .centering-container__bar-button-container__search-bar-button__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2376,11 +2390,6 @@ dropdown can overlap all other components
   position: absolute;
   right: 0px;
   width: 109px;
-}
-.list-view-top-bar .search-bar-and-button-thick-border,
-.js-calc-list-view-top-bar .search-bar-and-button-thick-border {
-  border-width: 3px;
-  height: 28px;
 }
 .list-view-top-bar .filter-area-container__button,
 .js-calc-list-view-top-bar .filter-area-container__button {
@@ -2640,9 +2649,10 @@ dropdown can overlap all other components
   padding: 0px 7px 0px 7px;
   cursor: default;
 }
-.list-table-component .list-table__data--overflow,
-.js-calc-list-table-component .list-table__data--overflow {
+.list-table-component .list-table__data--name-overflow,
+.js-calc-list-table-component .list-table__data--name-overflow {
   max-width: 250px;
+  color: #258faa;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
