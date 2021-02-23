@@ -105,7 +105,7 @@ $turquoise-blue-light-level-1: #30bfe2;
 $turquoise-blue-light-level-2: #2eb3d4;
 $turquoise-blue-light-level-3: #2ba6c5;
 $turquoise-blue-light-level-4: #258faa;
-$turquoise-blue-light-level-5: #1f7a91;
+$turquoise-blue-light-level-5: #2388a1;
 
 // Basic reds
 $basic-red-light-level-1: #ff3e3e;
@@ -158,12 +158,8 @@ $mode-custom-checkbox-border-color-light: black;
 $mode-custom-checkbox-border-color-dark: $gray-level-1;
 $mode-custom-checkbox-background-color-light: $mode-base-background-color-light;
 $mode-custom-checkbox-background-color-dark: $mode-base-background-color-dark;
-$mode-custom-checkbox-hover-border-color-light: $carolina-blue-level-5;
-$mode-custom-checkbox-hover-border-color-dark: $carolina-blue-level-2;
 $mode-custom-checkmark-text-color-light: $mode-base-primary-text-color-light;
 $mode-custom-checkmark-text-color-dark: $mode-base-primary-text-color-dark;
-$mode-custom-checkmark-hover-text-color-light: $mode-custom-checkbox-hover-border-color-light;
-$mode-custom-checkmark-hover-text-color-dark: $mode-custom-checkbox-hover-border-color-dark;
 $mode-toggle-switch-on-background-color-light: $carolina-blue-level-5;
 $mode-toggle-switch-on-background-color-dark: $carolina-blue-level-7;
 $mode-toggle-switch-on-border-color-light: $mode-toggle-switch-on-background-color-light; // After background-color since uses it
@@ -303,7 +299,7 @@ $theme-base-border-background-color-blue-queen: $queen-blue-dark-level-2;
 // Themes + Light/Dark mode
 $theme-mode-blue-turkish-focus-border-color-light: $turquoise-blue-light-level-4;
 $theme-mode-blue-turkish-focus-border-color-dark: $turquoise-blue-light-level-5;
-$theme-mode-blue-turkish-text-color-light: $turquoise-blue-light-level-4;
+$theme-mode-blue-turkish-text-color-light: $turquoise-blue-light-level-5;
 $theme-mode-blue-turkish-text-color-dark: $turquoise-blue-light-level-1;
 $theme-mode-blue-queen-focus-border-color-light: $egyptian-blue-level-2;
 $theme-mode-blue-queen-focus-border-color-dark: $egyptian-blue-level-4;

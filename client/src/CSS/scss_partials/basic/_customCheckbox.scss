@@ -25,7 +25,7 @@
 		cursor: pointer;
 
 		&:hover {
-			border: 1px solid v.$mode-custom-checkbox-hover-border-color-light;
+			border: 1px solid v.$default-theme-mode-text-color;
 		}
 	}
 
@@ -38,7 +38,7 @@
 		cursor: pointer;
 
 		&:hover {
-			color: v.$mode-custom-checkmark-hover-text-color-light;
+			color: v.$default-theme-mode-text-color;
 		}
 	}
 }

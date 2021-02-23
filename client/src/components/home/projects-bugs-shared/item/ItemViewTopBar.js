@@ -397,6 +397,9 @@ export default function ItemViewTopBar(props) {
 													dark_mode={
 														reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 													}
+													theme_color={
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
+													}
 													id={"list-priority-filter-" + obj.id}
 												/>
 											</div>
@@ -447,6 +450,9 @@ export default function ItemViewTopBar(props) {
 													}
 													dark_mode={
 														reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+													}
+													theme_color={
+														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													}
 													id={"list-status-filter-" + obj.id}
 												/>

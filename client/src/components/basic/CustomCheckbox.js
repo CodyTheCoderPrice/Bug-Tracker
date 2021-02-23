@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getCustomCheckboxBorderAndBackgroundColorClassNameForLightOrDarkMode } from "../../utils";
+import { getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode } from "../../utils";
 
 export default function CustomCheckbox(props) {
 	return (
@@ -14,8 +14,9 @@ export default function CustomCheckbox(props) {
 				id={props.id}
 				className={
 					"checkbox" +
-					getCustomCheckboxBorderAndBackgroundColorClassNameForLightOrDarkMode(
-						props.dark_mode
+					getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						props.dark_mode,
+						props.theme_color
 					)
 				}
 			/>

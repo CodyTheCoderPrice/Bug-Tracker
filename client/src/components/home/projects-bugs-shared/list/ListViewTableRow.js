@@ -137,6 +137,7 @@ export default function ListViewTableRow(props) {
 							props.reduxContainerName
 						].massDeleteList.includes(props.item.id)}
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
 						id={null}
 					/>
 				</div>
@@ -203,10 +204,7 @@ export default function ListViewTableRow(props) {
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayMessageIfEmpty(
-						formatDateMMddYYYY(props.item.due_date),
-						"-"
-					)}
+					{displayMessageIfEmpty(formatDateMMddYYYY(props.item.due_date), "-")}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>

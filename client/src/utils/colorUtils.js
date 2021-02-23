@@ -98,15 +98,6 @@ export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode -- CustomCheckbox -- border and background colors
-export function getCustomCheckboxBorderAndBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-custom-checkbox-border-and-background-color-dark-mode-" + dark_mode
-	);
-}
-
 // Light/Dark mode -- ToggleSwitch -- border, background, amd text colors
 export function getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	isOn,
@@ -145,7 +136,8 @@ export function getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForL
 	dark_mode
 ) {
 	return (
-		" js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-" + dark_mode
+		" js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-" +
+		dark_mode
 	);
 }
 
@@ -229,7 +221,8 @@ export function getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDark
 	dark_mode
 ) {
 	return (
-		" js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-" + dark_mode
+		" js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-" +
+		dark_mode
 	);
 }
 
@@ -238,7 +231,8 @@ export function getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrD
 	dark_mode
 ) {
 	return (
-		" js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-" + dark_mode
+		" js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-" +
+		dark_mode
 	);
 }
 
@@ -488,14 +482,30 @@ export function getTextColorClassNameForThemeWithLightOrDarkMode(
 	);
 }
 
+// Theme + Light/Dark mode -- CustomCheckbox -- border, background, text colors
+export function getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		(dark_mode
+			? " js-set-custom-checkbox-border-background-text-color-mode-dark-theme-"
+			: " js-set-custom-checkbox-border-background-text-color-mode-light-theme-") +
+		theme_color
+	);
+}
+
 // Theme + Light/Dark mode -- TopBar search-bar -- border, background, and text colors
 export function getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
 ) {
-	return (dark_mode
-		? " js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-"
-		: " js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-") + theme_color;
+	return (
+		(dark_mode
+			? " js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-"
+			: " js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-") +
+		theme_color
+	);
 }
 
 // Theme + Light/Dark mode -- base form-input -- border (with focus), background, and text colors

@@ -95,44 +95,6 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- CustomCheckbox -- border and background colors
-	.js-set-custom-checkbox-border-and-background-color-dark-mode-false {
-		border: 1px solid v.$mode-custom-checkbox-border-color-light;
-		background-color: v.$mode-custom-checkbox-background-color-light;
-
-		&:hover {
-			border: 1px solid v.$mode-custom-checkbox-hover-border-color-light;
-		}
-
-		// For checkmark
-		& + i {
-			color: v.$mode-custom-checkmark-text-color-light;
-		}
-
-		// For checkmark
-		&:hover + i {
-			color: v.$mode-custom-checkmark-hover-text-color-light;
-		}
-	}
-	.js-set-custom-checkbox-border-and-background-color-dark-mode-true {
-		border: 1px solid v.$mode-custom-checkbox-border-color-dark;
-		background-color: v.$mode-custom-checkbox-background-color-dark;
-
-		&:hover {
-			border: 1px solid v.$mode-custom-checkbox-hover-border-color-dark;
-		}
-
-		// For checkmark
-		& + i {
-			color: v.$mode-custom-checkmark-text-color-dark;
-		}
-
-		// For checkmark
-		&:hover + i {
-			color: v.$mode-custom-checkmark-hover-text-color-dark;
-		}
-	}
-
 	// Light/Dark mode -- ToggleSwitch ON -- border, background, amd text colors
 	.js-set-toggle-switch-on-border-background-text-colors-dark-mode-false {
 		border-color: v.$mode-toggle-switch-on-border-color-light;
@@ -819,6 +781,80 @@ body {
 	}
 	.js-set-text-color-mode-dark-theme-blue-queen {
 		color: v.$theme-mode-blue-queen-text-color-dark;
+	}
+
+	// Theme + Light/Dark mode -- CustomCheckbox -- border, background, text colors
+	.js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish {
+		border-color: v.$mode-custom-checkbox-border-color-light;
+		background-color: v.$mode-custom-checkbox-background-color-light;
+
+		&:hover {
+			border-color: v.$theme-mode-blue-turkish-text-color-light;
+		}
+
+		// For checkmark
+		& + i {
+			color: v.$mode-custom-checkmark-text-color-light;
+		}
+
+		// For checkmark
+		&:hover + i {
+			color: v.$theme-mode-blue-turkish-text-color-light;
+		}
+	}
+	.js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish {
+		border-color: v.$mode-custom-checkbox-border-color-dark;
+		background-color: v.$mode-custom-checkbox-background-color-dark;
+
+		&:hover {
+			border-color: v.$theme-mode-blue-turkish-text-color-dark;
+		}
+
+		// For checkmark
+		& + i {
+			color: v.$mode-custom-checkmark-text-color-dark;
+		}
+
+		// For checkmark
+		&:hover + i {
+			color: v.$theme-mode-blue-turkish-text-color-dark;
+		}
+	}
+	.js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen {
+		border-color: v.$mode-custom-checkbox-border-color-light;
+		background-color: v.$mode-custom-checkbox-background-color-light;
+
+		&:hover {
+			border-color: v.$theme-mode-blue-queen-text-color-light;
+		}
+
+		// For checkmark
+		& + i {
+			color: v.$mode-custom-checkmark-text-color-light;
+		}
+
+		// For checkmark
+		&:hover + i {
+			color: v.$theme-mode-blue-queen-text-color-light;
+		}
+	}
+	.js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen {
+		border-color: v.$mode-custom-checkbox-border-color-dark;
+		background-color: v.$mode-custom-checkbox-background-color-dark;
+
+		&:hover {
+			border-color: v.$theme-mode-blue-queen-text-color-dark;
+		}
+
+		// For checkmark
+		& + i {
+			color: v.$mode-custom-checkmark-text-color-dark;
+		}
+
+		// For checkmark
+		&:hover + i {
+			color: v.$theme-mode-blue-queen-text-color-dark;
+		}
 	}
 
 	// Theme + Light/Dark mode -- TopBar search-bar -- border, background, and text colors

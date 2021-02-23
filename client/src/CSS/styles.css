@@ -89,7 +89,7 @@
   cursor: pointer;
 }
 .custom-checkbox-component .checkbox:hover {
-  border: 1px solid #4885b8;
+  border: 1px solid #2388a1;
 }
 .custom-checkbox-component .checkmark {
   position: absolute;
@@ -102,7 +102,7 @@
   cursor: pointer;
 }
 .custom-checkbox-component .checkmark:hover {
-  color: #4885b8;
+  color: #2388a1;
 }
 
 .register-login-components .background {
@@ -1916,7 +1916,7 @@ dropdown can overlap all other components
 .item-vew-top-bar-component .list-sort-filter-container__button__text--active,
 .js-calc-item-vew-top-bar-component .list-sort-filter-container__button__text--active {
   font-weight: bold;
-  color: #258faa;
+  color: #2388a1;
 }
 .item-vew-top-bar-component .list-sort-filter-container__button__text,
 .js-calc-item-vew-top-bar-component .list-sort-filter-container__button__text {
@@ -2010,7 +2010,7 @@ dropdown can overlap all other components
 }
 .item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active,
 .js-calc-item-vew-top-bar-component .list-sort-filter-container__content-dropdown__filter-content__block__label--active {
-  color: #258faa;
+  color: #2388a1;
 }
 .item-vew-top-bar-component .item-options-container,
 .js-calc-item-vew-top-bar-component .item-options-container {
@@ -2440,7 +2440,7 @@ dropdown can overlap all other components
 .list-view-top-bar .filter-area-container__button__text--active,
 .js-calc-list-view-top-bar .filter-area-container__button__text--active {
   font-weight: bold;
-  color: #258faa;
+  color: #2388a1;
 }
 .list-view-top-bar .filter-area-container__content-dropdown,
 .js-calc-list-view-top-bar .filter-area-container__content-dropdown {
@@ -2502,7 +2502,7 @@ dropdown can overlap all other components
 }
 .list-view-top-bar .filter-area-container__content-dropdown__content__block__label--active,
 .js-calc-list-view-top-bar .filter-area-container__content-dropdown__content__block__label--active {
-  color: #258faa;
+  color: #2388a1;
 }
 .list-view-top-bar .new-item-tutorial-container,
 .js-calc-list-view-top-bar .new-item-tutorial-container {
@@ -2652,7 +2652,7 @@ dropdown can overlap all other components
 .list-table-component .list-table__data--name-overflow,
 .js-calc-list-table-component .list-table__data--name-overflow {
   max-width: 250px;
-  color: #258faa;
+  color: #2388a1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2834,40 +2834,6 @@ body {
 .js-calc-app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-true:hover,
 .js-calc-app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-true:active {
   color: #a3a3a3;
-}
-.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false,
-.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false {
-  border: 1px solid black;
-  background-color: white;
-}
-.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover,
-.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover {
-  border: 1px solid #4885b8;
-}
-.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false + i,
-.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false + i {
-  color: black;
-}
-.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover + i,
-.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-false:hover + i {
-  color: #4885b8;
-}
-.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true,
-.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true {
-  border: 1px solid #a3a3a3;
-  background-color: #333333;
-}
-.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover,
-.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover {
-  border: 1px solid #57a4e4;
-}
-.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true + i,
-.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true + i {
-  color: #c7d1db;
-}
-.app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i,
-.js-calc-app-component .js-set-custom-checkbox-border-and-background-color-dark-mode-true:hover + i {
-  color: #57a4e4;
 }
 .app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-false,
 .js-calc-app-component .js-set-toggle-switch-on-border-background-text-colors-dark-mode-false {
@@ -3497,7 +3463,7 @@ body {
 }
 .app-component .js-set-focus-border-color-mode-dark-theme-blue-turkish:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-dark-theme-blue-turkish:focus {
-  border-color: #1f7a91;
+  border-color: #2388a1;
 }
 .app-component .js-set-focus-border-color-mode-light-theme-blue-queen:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-queen:focus {
@@ -3509,7 +3475,7 @@ body {
 }
 .app-component .js-set-text-color-mode-light-theme-blue-turkish,
 .js-calc-app-component .js-set-text-color-mode-light-theme-blue-turkish {
-  color: #258faa;
+  color: #2388a1;
 }
 .app-component .js-set-text-color-mode-dark-theme-blue-turkish,
 .js-calc-app-component .js-set-text-color-mode-dark-theme-blue-turkish {
@@ -3521,6 +3487,74 @@ body {
 }
 .app-component .js-set-text-color-mode-dark-theme-blue-queen,
 .js-calc-app-component .js-set-text-color-mode-dark-theme-blue-queen {
+  color: #3184f0;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish {
+  border-color: black;
+  background-color: white;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish:hover,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish:hover {
+  border-color: #2388a1;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish + i,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish + i {
+  color: black;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish:hover + i,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish:hover + i {
+  color: #2388a1;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish {
+  border-color: #a3a3a3;
+  background-color: #333333;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish:hover,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish:hover {
+  border-color: #30bfe2;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish + i,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish + i {
+  color: #c7d1db;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish:hover + i,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish:hover + i {
+  color: #30bfe2;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen {
+  border-color: black;
+  background-color: white;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen:hover,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen:hover {
+  border-color: #245ba3;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen + i,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen + i {
+  color: black;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen:hover + i,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen:hover + i {
+  color: #245ba3;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen {
+  border-color: #a3a3a3;
+  background-color: #333333;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover {
+  border-color: #3184f0;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen + i,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen + i {
+  color: #c7d1db;
+}
+.app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover + i,
+.js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover + i {
   color: #3184f0;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > input,
@@ -3577,11 +3611,11 @@ body {
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish:focus {
-  border-color: #1f7a91;
+  border-color: #2388a1;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish:focus + .name-centering-container__char-count-centering-container,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish:focus + .name-centering-container__char-count-centering-container {
-  border-color: #1f7a91;
+  border-color: #2388a1;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-queen:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-queen:focus {
