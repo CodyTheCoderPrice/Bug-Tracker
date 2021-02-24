@@ -2,8 +2,8 @@ import { SET_SEARCH_FILTER_SORT } from "../../actions/constants/types";
 
 const initialState = {
 	searchKeyWordString: "",
-	sortByAscending: true,
-	sortByTypeId: 2,
+	sortAscending: true,
+	sortId: 2,
 	priorityFilter: [],
 	statusFilter: [],
 };
@@ -13,8 +13,8 @@ export default function (state = initialState, action) {
 		case SET_SEARCH_FILTER_SORT:
 			return {
 				searchKeyWordString: action.searchFilterSort.searchKeyWordString,
-				sortByAscending: action.searchFilterSort.sortByAscending,
-				sortByTypeId: action.searchFilterSort.sortByTypeId,
+				sortAscending: action.searchFilterSort.sortAscending,
+				sortId: action.searchFilterSort.sortId,
 				priorityFilter: action.searchFilterSort.priorityFilter,
 				statusFilter: action.searchFilterSort.statusFilter,
 			};

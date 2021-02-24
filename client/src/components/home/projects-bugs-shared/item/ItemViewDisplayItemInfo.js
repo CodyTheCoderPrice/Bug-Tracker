@@ -139,7 +139,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						<h2 className={"item-box__title"}>Info</h2>
 						{props.reduxContainerName === BUG_CONTAINER ? (
 							<div className="item-box__group__field">
-								<span className="item-box__group__field__type">Location:</span>
+								<span className="item-box__group__field__category">Location:</span>
 								<span
 									className={
 										"item-box__group__field_content" +
@@ -159,7 +159,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						) : null}
 						<div className="item-box__group">
 							<div className="item-box__group__field">
-								<span className="item-box__group__field__type">
+								<span className="item-box__group__field__category">
 									Start Date:
 								</span>
 								<span
@@ -181,7 +181,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								</span>
 							</div>
 							<div className="item-box__group__field">
-								<span className="item-box__group__field__type">Due Date:</span>
+								<span className="item-box__group__field__category">Due Date:</span>
 								<span
 									className={
 										"item-box__group__field_content" +
@@ -201,7 +201,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								</span>
 							</div>
 							<div className="item-box__group__field">
-								<span className="item-box__group__field__type">
+								<span className="item-box__group__field__category">
 									Completed on:
 								</span>
 								<span
@@ -225,7 +225,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						</div>
 						<div className="item-box__group item-box__group--right">
 							<div className="item-box__group__field">
-								<span className="item-box__group__field__type">Priority:</span>
+								<span className="item-box__group__field__category">Priority:</span>
 								<span
 									className={
 										"item-box__group__field_content" +
@@ -242,7 +242,7 @@ export default function ItemViewDisplayItemInfo(props) {
 							</div>
 							<div className="item-box__group__field">
 								<div className="item-box__group__field__centering-container">
-									<span className="item-box__group__field__centering-container__type item-box__group__field__type">
+									<span className="item-box__group__field__centering-container__category">
 										Status:
 									</span>
 								</div>

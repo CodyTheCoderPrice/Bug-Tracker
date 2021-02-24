@@ -1440,7 +1440,7 @@ dropdown can overlap all other components
   text-align: center;
   font-size: 28px;
 }
-.item-view-component .item-box__group__field__type {
+.item-view-component .item-box__group__field__category {
   font-weight: bold;
 }
 .item-view-component .item-box__group__field__centering-container {
@@ -1449,7 +1449,7 @@ dropdown can overlap all other components
   height: 27px;
   width: 55px;
 }
-.item-view-component .item-box__group__field__centering-container__type {
+.item-view-component .item-box__group__field__centering-container__category {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);

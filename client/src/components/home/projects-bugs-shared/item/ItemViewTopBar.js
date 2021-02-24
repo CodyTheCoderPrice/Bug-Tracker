@@ -236,7 +236,7 @@ export default function ItemViewTopBar(props) {
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
 									<SortArrowsButton
-										sortTypeId={1}
+										sortId={1}
 										sortFor="Name"
 										reduxContainerName={props.reduxContainerName}
 										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
@@ -249,7 +249,7 @@ export default function ItemViewTopBar(props) {
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
 									<SortArrowsButton
-										sortTypeId={2}
+										sortId={2}
 										sortFor="Status"
 										reduxContainerName={props.reduxContainerName}
 										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
@@ -262,7 +262,7 @@ export default function ItemViewTopBar(props) {
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
 									<SortArrowsButton
-										sortTypeId={3}
+										sortId={3}
 										sortFor="Priority"
 										reduxContainerName={props.reduxContainerName}
 										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
@@ -275,7 +275,7 @@ export default function ItemViewTopBar(props) {
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
 									<SortArrowsButton
-										sortTypeId={4}
+										sortId={4}
 										sortFor="Created on"
 										reduxContainerName={props.reduxContainerName}
 										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
@@ -288,7 +288,7 @@ export default function ItemViewTopBar(props) {
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
 									<SortArrowsButton
-										sortTypeId={5}
+										sortId={5}
 										sortFor="Start Date"
 										reduxContainerName={props.reduxContainerName}
 										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
@@ -301,7 +301,7 @@ export default function ItemViewTopBar(props) {
 							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
 								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
 									<SortArrowsButton
-										sortTypeId={6}
+										sortId={6}
 										sortFor="Due Date"
 										reduxContainerName={props.reduxContainerName}
 										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}

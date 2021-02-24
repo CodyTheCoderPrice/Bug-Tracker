@@ -33,8 +33,8 @@ export function searchFilterSort(projectsOrBugsArray, passedReduxState) {
 	};
 
 	const sort = (projectsOrBugsArray) => {
-		if (passedReduxState.sortByAscending) {
-			switch (passedReduxState.sortByTypeId) {
+		if (passedReduxState.sortAscending) {
+			switch (passedReduxState.sortId) {
 				case 1:
 					return projectsOrBugsArray.sort((a, b) => {
 						return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
@@ -64,7 +64,7 @@ export function searchFilterSort(projectsOrBugsArray, passedReduxState) {
 					return projectsOrBugsArray;
 			}
 		} else {
-			switch (passedReduxState.sortByTypeId) {
+			switch (passedReduxState.sortId) {
 				case 1:
 					return projectsOrBugsArray.sort((a, b) => {
 						return b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1;

@@ -76,6 +76,11 @@ export default function AccountModalChangeSettings() {
 						)
 					}
 				>
+					<i
+						className="fa fa-filter"
+						aria-hidden="true"
+						alt="Icon of a filter"
+					/>{" "}
 					Filter
 				</h2>
 				<div className="category-container__content-container category-container__content-container--smaller-top-margin">

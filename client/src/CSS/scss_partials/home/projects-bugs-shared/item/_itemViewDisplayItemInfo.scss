@@ -10,7 +10,7 @@
 		font-size: v.$item-view-name-font-size;
 	}
 
-	.item-box__group__field__type {
+	.item-box__group__field__category {
 		font-weight: bold;
 	}
 
@@ -21,7 +21,7 @@
 		width: 55px;
 	}
 
-	.item-box__group__field__centering-container__type {
+	.item-box__group__field__centering-container__category {
 		@include m.vertical-center();
 	}
 

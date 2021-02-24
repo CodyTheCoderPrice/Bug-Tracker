@@ -18,22 +18,22 @@ export default function SortArrowsButton(props) {
 
 	const changeSorting = () => {
 		if (
-			reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !==
-			props.sortTypeId
+			reduxState[props.reduxContainerName].searchFilterSort.sortId !==
+			props.sortId
 		) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(props.reduxContainerName, {
 					...reduxState[props.reduxContainerName].searchFilterSort,
-					sortByAscending: true,
-					sortByTypeId: props.sortTypeId,
+					sortAscending: true,
+					sortId: props.sortId,
 				})
 			);
 		} else {
 			dispatch(
 				setProjectOrBugSearchFilterSort(props.reduxContainerName, {
 					...reduxState[props.reduxContainerName].searchFilterSort,
-					sortByAscending: !reduxState[props.reduxContainerName]
-						.searchFilterSort.sortByAscending,
+					sortAscending: !reduxState[props.reduxContainerName]
+						.searchFilterSort.sortAscending,
 				})
 			);
 		}
@@ -42,16 +42,16 @@ export default function SortArrowsButton(props) {
 	const getSortingArrowImage = () => {
 		if (!props.dark_mode) {
 			return reduxState[props.reduxContainerName].searchFilterSort
-				.sortByTypeId !== props.sortTypeId
+				.sortId !== props.sortId
 				? sortArrowsBothEmptyModeLight
-				: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
+				: reduxState[props.reduxContainerName].searchFilterSort.sortAscending
 				? sortArrowsTopFilledModeLight
 				: sortArrowsBottomFilledModeLight;
 		} else {
 			return reduxState[props.reduxContainerName].searchFilterSort
-				.sortByTypeId !== props.sortTypeId
+				.sortId !== props.sortId
 				? sortArrowsBothEmptyModeDark
-				: reduxState[props.reduxContainerName].searchFilterSort.sortByAscending
+				: reduxState[props.reduxContainerName].searchFilterSort.sortAscending
 				? sortArrowsTopFilledModeDark
 				: sortArrowsBottomFilledModeDark;
 		}
@@ -62,11 +62,11 @@ export default function SortArrowsButton(props) {
 			className="sort-arrow"
 			src={getSortingArrowImage()}
 			alt={
-				(reduxState[props.reduxContainerName].searchFilterSort.sortByTypeId !==
-				props.sortTypeId
+				(reduxState[props.reduxContainerName].searchFilterSort.sortId !==
+				props.sortId
 					? "No"
 					: reduxState[props.reduxContainerName].searchFilterSort
-							.sortByAscending
+							.sortAscending
 					? "Ascending"
 					: "Descending") +
 				" sorting for " +
