@@ -67,21 +67,18 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 						]
 					);
 
-					const defaultTheme = await pool.query(
-						"SELECT theme_id FROM theme WHERE marks_default = true"
-					);
-					const defaultThemeID =
-						defaultTheme.rows.length > 0 ? defaultTheme.rows[0].theme_id : 1;
-
+					// theme_id, project_sort_id, and bug_sort_id are absent so they will be set to their default values
 					const newSetting = await pool.query(
-						`INSERT INTO setting (account_id, filter_completed_projects, filter_completed_bugs, dark_mode, theme_id, last_edited_timestamp)
-								VALUES($1, $2, $3, $4, $5, $6)`,
+						`INSERT INTO setting (account_id, filter_completed_projects_by_default, filter_completed_bugs_by_default, dark_mode, 
+												project_sort_ascending, bug_sort_ascending, last_edited_timestamp)
+							VALUES($1, $2, $3, $4, $5, $6, $7)`,
 						[
 							newAccount.rows[0].account_id,
 							false,
 							true,
 							false,
-							defaultThemeID,
+							true,
+							true,
 							last_edited_timestamp,
 						]
 					);
@@ -229,7 +226,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 async function getAccountSettings(account_id) {
 	try {
 		return await await pool.query(
-			`SELECT setting_id, filter_completed_projects, filter_completed_bugs, dark_mode, theme_id, 
+			`SELECT setting_id, filter_completed_projects_by_default, filter_completed_bugs_by_default, dark_mode, theme_id,
+				project_sort_id, project_sort_ascending, bug_sort_id, bug_sort_ascending, 
 				(SELECT color FROM theme WHERE theme_id = s.theme_id) AS theme_color,
 					 last_edited_timestamp FROM setting AS s WHERE account_id = $1`,
 			[account_id]
@@ -569,25 +567,34 @@ router.route("/update-settings").post(tokenAuthorization, async (req, res) => {
 		const { account_id } = req;
 		// Passed in the post body
 		const {
-			filter_completed_projects,
-			filter_completed_bugs,
+			filter_completed_projects_by_default,
+			filter_completed_bugs_by_default,
 			dark_mode,
 			theme_id,
+			project_sort_id,
+			project_sort_ascending,
+			bug_sort_id,
+			bug_sort_ascending,
 		} = req.body;
 		// Current time in unix/epoch timestamp
 		const last_edited_timestamp = moment.utc().format("X");
 
 		const updatedSettings = await pool.query(
-			`UPDATE setting SET filter_completed_projects = $1, filter_completed_bugs = $2, dark_mode = $3, theme_id = $4, last_edited_timestamp = $5 
-					WHERE account_id = $6 
-						RETURNING account_id, filter_completed_projects, filter_completed_bugs, dark_mode, theme_id, 
-							(SELECT color FROM theme WHERE theme_id = $4) AS theme_color,
-								last_edited_timestamp`,
+			`UPDATE setting SET filter_completed_projects_by_default = $1, filter_completed_bugs_by_default = $2, dark_mode = $3, theme_id = $4, 
+				project_sort_id = $5, project_sort_ascending = $6, bug_sort_id = $7, bug_sort_ascending = $8, last_edited_timestamp = $9
+					WHERE account_id = $10 
+						RETURNING account_id, filter_completed_projects_by_default, filter_completed_bugs_by_default, dark_mode, theme_id, 
+							(SELECT color FROM theme WHERE theme_id = $4) AS theme_color, project_sort_id, project_sort_ascending, 
+								bug_sort_id, bug_sort_ascending, last_edited_timestamp`,
 			[
-				filter_completed_projects,
-				filter_completed_bugs,
+				filter_completed_projects_by_default,
+				filter_completed_bugs_by_default,
 				dark_mode,
 				theme_id,
+				project_sort_id,
+				project_sort_ascending,
+				bug_sort_id,
+				bug_sort_ascending,
 				last_edited_timestamp,
 				account_id,
 			]

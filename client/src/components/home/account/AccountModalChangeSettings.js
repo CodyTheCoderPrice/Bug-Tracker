@@ -36,8 +36,8 @@ export default function AccountModalChangeSettings() {
 		dispatch(
 			updateAccountSettings({
 				...reduxState[ACCOUNT_CONTAINER].settings,
-				filter_completed_projects: !reduxState[ACCOUNT_CONTAINER].settings
-					.filter_completed_projects,
+				filter_completed_projects_by_default: !reduxState[ACCOUNT_CONTAINER].settings
+					.filter_completed_projects_by_default,
 			})
 		);
 	};
@@ -46,8 +46,8 @@ export default function AccountModalChangeSettings() {
 		dispatch(
 			updateAccountSettings({
 				...reduxState[ACCOUNT_CONTAINER].settings,
-				filter_completed_bugs: !reduxState[ACCOUNT_CONTAINER].settings
-					.filter_completed_bugs,
+				filter_completed_bugs_by_default: !reduxState[ACCOUNT_CONTAINER].settings
+					.filter_completed_bugs_by_default,
 			})
 		);
 	};
@@ -90,7 +90,7 @@ export default function AccountModalChangeSettings() {
 					<ToggleSwitch
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 						isOn={
-							reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects
+							reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects_by_default
 						}
 						onChangeFunction={onChangeFilterCompletedProjects}
 					/>
@@ -101,7 +101,7 @@ export default function AccountModalChangeSettings() {
 					</label>
 					<ToggleSwitch
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-						isOn={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs}
+						isOn={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default}
 						onChangeFunction={onChangeFilterCompletedBugs}
 					/>
 				</div>

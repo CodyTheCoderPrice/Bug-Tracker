@@ -37,7 +37,7 @@ export default function Home() {
 	// Updates list filters to match the account settings
 	useEffect(() => {
 		if (
-			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects !==
+			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects_by_default !==
 			reduxState[PROJECT_CONTAINER].searchFilterSort.statusFilter.includes(
 				reduxState[PROJECT_CONTAINER].priorityStatusOptions.statusCompletionId
 			)
@@ -57,7 +57,7 @@ export default function Home() {
 		}
 
 		if (
-			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs !==
+			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default !==
 			reduxState[BUG_CONTAINER].searchFilterSort.statusFilter.includes(
 				reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
 			)
@@ -77,9 +77,9 @@ export default function Home() {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects,
+		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects_by_default,
 		// eslint-disable-next-line
-		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs,
+		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default,
 	]);
 
 	// Updates mass delete list to not include items that are being searchFilterSorted out

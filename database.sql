@@ -17,13 +17,38 @@ CREATE TABLE theme(
 	marks_default BOOLEAN DEFAULT false
 );
 
+INSERT INTO theme (order_number, color, marks_default)
+	VALUES 
+		(0, 'blue-turkish', true),
+		(1, 'blue-queen', false);
+
+CREATE TABLE sort(
+	sort_id SERIAL PRIMARY KEY,
+	order_number SMALLINT,
+	category TEXT,
+	marks_default BOOLEAN DEFAULT false
+);
+
+INSERT INTO sort (order_number, category, marks_default)
+	VALUES 
+		(0, 'Name', false),
+		(1, 'Status', true),
+		(2, 'Priority', false),
+		(3, 'Created on', false),
+		(4, 'Start Date', false),
+		(5, 'Due Date', false);
+
 CREATE TABLE setting(
     setting_id SERIAL PRIMARY KEY,
     account_id INTEGER,
-    filter_completed_projects boolean,
-	filter_completed_bugs boolean,
+    filter_completed_projects_by_default boolean,
+	filter_completed_bugs_by_default boolean,
     dark_mode boolean,
 	theme_id INTEGER DEFAULT 1,
+	project_sort_id INTEGER DEFAULT 2,
+	project_sort_ascending BOOLEAN DEFAULT true,
+	bug_sort_id INTEGER DEFAULT 2,
+	bug_sort_ascending BOOLEAN DEFAULT true,
 	last_edited_timestamp BIGINT,
 	CONSTRAINT fk_account
     FOREIGN KEY(account_id) 
@@ -32,13 +57,16 @@ CREATE TABLE setting(
 	CONSTRAINT fk_theme
 	FOREIGN KEY(theme_id) 
 	REFERENCES theme(theme_id)
+	ON DELETE SET DEFAULT,
+	CONSTRAINT fk_project_sort
+	FOREIGN KEY(project_sort_id) 
+	REFERENCES sort(sort_id)
+	ON DELETE SET DEFAULT,
+	CONSTRAINT fk_bug_sort
+	FOREIGN KEY(bug_sort_id) 
+	REFERENCES sort(sort_id)
 	ON DELETE SET DEFAULT
 );
-
-INSERT INTO theme (order_number, color, marks_default)
-	VALUES 
-		(0, 'Navy Blue', true),
-		(1, 'Teal', false);
 
 CREATE TABLE project(
     project_id SERIAL PRIMARY KEY,
