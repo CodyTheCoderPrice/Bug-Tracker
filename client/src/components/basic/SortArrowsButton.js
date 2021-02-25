@@ -1,16 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { setProjectOrBugSearchFilterSort } from "../../../actions";
+import { setProjectOrBugSearchFilterSort } from "../../actions";
 
 // Light mode
-import sortArrowsBothEmptyModeLight from "../../../images/sort-arrows-both-empty-for-mode-light.svg";
-import sortArrowsTopFilledModeLight from "../../../images/sort-arrows-top-filled-for-mode-light.svg";
-import sortArrowsBottomFilledModeLight from "../../../images/sort-arrows-bottom-filled-for-mode-light.svg";
+import sortArrowsBothEmptyModeLight from "../../images/sort-arrows-both-empty-for-mode-light.svg";
+import sortArrowsTopFilledModeLight from "../../images/sort-arrows-top-filled-for-mode-light.svg";
+import sortArrowsBottomFilledModeLight from "../../images/sort-arrows-bottom-filled-for-mode-light.svg";
 // Dark mode
-import sortArrowsBothEmptyModeDark from "../../../images/sort-arrows-both-empty-for-mode-dark.svg";
-import sortArrowsTopFilledModeDark from "../../../images/sort-arrows-top-filled-for-mode-dark.svg";
-import sortArrowsBottomFilledModeDark from "../../../images/sort-arrows-bottom-filled-for-mode-dark.svg";
+import sortArrowsBothEmptyModeDark from "../../images/sort-arrows-both-empty-for-mode-dark.svg";
+import sortArrowsTopFilledModeDark from "../../images/sort-arrows-top-filled-for-mode-dark.svg";
+import sortArrowsBottomFilledModeDark from "../../images/sort-arrows-bottom-filled-for-mode-dark.svg";
 
 export default function SortArrowsButton(props) {
 	const reduxState = useSelector((state) => state);
@@ -60,6 +60,7 @@ export default function SortArrowsButton(props) {
 	return (
 		<img
 			className="sort-arrow"
+			id={props.uniqueId}
 			src={getSortingArrowImage()}
 			alt={
 				(reduxState[props.reduxContainerName].searchFilterSort.sortId !==

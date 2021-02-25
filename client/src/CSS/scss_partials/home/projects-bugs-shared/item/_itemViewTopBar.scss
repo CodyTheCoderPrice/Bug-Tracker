@@ -76,19 +76,19 @@
 		font-size: v.$top-bar-search-bar-button-icon-font-size;
 	}
 
-	.list-sort-filter-container {
+	.list-filter-or-sort-container {
 		position: absolute;
-		left: v.$item-view-top-bar-sort-button-left;
-	}
-
-	.list-sort-filter-container--filter-placement {
 		left: v.$item-view-top-bar-filter-button-left;
 	}
 
-	.list-sort-filter-container__button {
+	.list-filter-or-sort-container--sort-placement {
+		left: v.$item-view-top-bar-sort-button-left;
+	}
+
+	.list-filter-or-sort-container__button {
 		@include m.stop-text-selection();
 
-		// Must be more than list-sort-filter-container__content-dropdown
+		// Must be more than list-filter-or-sort-container__content-dropdown
 		// ...so its top border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
@@ -98,18 +98,14 @@
 		border-radius: v.$top-bar-buttton-border-radius;
 		background-color: v.$mode-top-bar-button-background-color-light;
 		height: v.$top-bar-button-height;
-		width: v.$top-bar-sort-button-width;
+		width: v.$item-view-top-bar-filter-sort-button-width;
 		color: v.$mode-top-bar-button-text-color-light;
 		font-size: v.$top-bar-filter-button-font-size;
 		text-align: center;
 		cursor: pointer;
 	}
 
-	.list-sort-filter-container__button--filter-width {
-		width: v.$top-bar-filter-button-width;
-	}
-
-	.list-sort-filter-container__button--clicked {
+	.list-filter-or-sort-container__button--clicked {
 		// Negative margin because border resize moves the element
 		margin: -2px 0px;
 		border: v.$top-bar-clicked-dropdown-button-border-width solid black;
@@ -117,32 +113,23 @@
 			v.$top-bar-buttton-border-radius 0 0;
 		border-bottom: none;
 		height: 45px;
-		width: v.$top-bar-sort-button-width -
+		width: v.$item-view-top-bar-filter-sort-button-width -
 			(v.$top-bar-clicked-dropdown-button-border-width-difference * 2);
 	}
 
-	.list-sort-filter-container__button--clicked-filter-width {
-		width: v.$top-bar-filter-button-width -
-			(v.$top-bar-clicked-dropdown-button-border-width-difference * 2);
-	}
-
-	.list-sort-filter-container__button__text--active {
+	.list-filter-or-sort-container__button__text--active {
 		font-weight: bold;
 		color: v.$filter-button-active-color;
 	}
 
-	.list-sort-filter-container__button__text {
+	.list-filter-or-sort-container__button__text {
 		// Used horizontal-center since resize would move the text
 		@include m.horizontal-center();
 		top: 4px;
 		width: 100%;
 	}
 
-	.list-sort-filter-container__button__text--filter-width {
-		width: v.$top-bar-filter-button-width;
-	}
-
-	.list-sort-filter-container__content-dropdown {
+	.list-filter-or-sort-container__content-dropdown {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -156,19 +143,31 @@
 			v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$top-bar-filter-dropdown-content-container-height;
-		width: v.$top-bar-sort-dropdown-content-container-width;
+		width: v.$top-bar-filter-dropdown-content-container-width;
 		cursor: default;
 		// Made visible using JS
 		visibility: hidden;
 	}
 
-	.list-sort-filter-container__content-dropdown__sort-content-block {
+	.list-filter-or-sort-container__content-dropdown--sort-width {
+		width: v.$item-view-top-bar-sort-dropdown-content-container-width;
+	}
+
+	.list-filter-or-sort-container__content-dropdown--shorter {
+		height: v.$top-bar-filter-dropdown-content-container-shorter-height;
+	}
+
+	.list-filter-or-sort-container__content-dropdown--visible {
+		visibility: visible;
+	}
+
+	.list-filter-or-sort-container__content-dropdown__sort-content-block {
 		position: relative;
 		margin: 12.5px 0;
 		width: 100%;
 	}
 
-	.list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container {
+	.list-filter-or-sort-container__content-dropdown__sort-content-block__sort-arrows-container {
 		display: inline-block;
 		margin-left: 8px;
 		height: 100%;
@@ -177,23 +176,11 @@
 		width: 21px;
 	}
 
-	.list-sort-filter-container__content-dropdown__sort-content-block__title {
+	.list-filter-or-sort-container__content-dropdown__sort-content-block__title {
 		font-size: 15px;
 	}
 
-	.list-sort-filter-container__content-dropdown--filter-width {
-		width: v.$top-bar-filter-dropdown-content-container-width;
-	}
-
-	.list-sort-filter-container__content-dropdown--shorter {
-		height: v.$top-bar-filter-dropdown-content-container-shorter-height;
-	}
-
-	.list-sort-filter-container__content-dropdown--visible {
-		visibility: visible;
-	}
-
-	.list-sort-filter-container__content-dropdown__filter-content {
+	.list-filter-or-sort-container__content-dropdown__filter-content {
 		float: left;
 		margin: v.$top-bar-filter-button-dropdown-title-margin-top 0 0
 			v.$top-bar-filter-button-dropdown-title-margin-on-one-side;
@@ -201,13 +188,13 @@
 		font-size: v.$filter-dropdown-content-font-size;
 	}
 
-	.list-sort-filter-container__content-dropdown__filter-content--right {
+	.list-filter-or-sort-container__content-dropdown__filter-content--right {
 		float: right;
 		margin: v.$top-bar-filter-button-dropdown-title-margin-top
 			v.$top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
 	}
 
-	.list-sort-filter-container__content-dropdown__filter-content__title {
+	.list-filter-or-sort-container__content-dropdown__filter-content__title {
 		display: block;
 		margin: 2px 0px 5px 0px;
 		border-bottom: 1px solid gray;
@@ -215,21 +202,21 @@
 		font-weight: bold;
 	}
 
-	.list-sort-filter-container__content-dropdown__filter-content__block {
+	.list-filter-or-sort-container__content-dropdown__filter-content__block {
 		text-align: left;
 	}
 
-	.list-sort-filter-container__content-dropdown__filter-content__block__checkbox-container {
+	.list-filter-or-sort-container__content-dropdown__filter-content__block__checkbox-container {
 		display: inline-block;
 		margin: v.$top-bar-filter-button-dropdown-checkbox-container-margin;
 	}
 
-	.list-sort-filter-container__content-dropdown__filter-content__block__label {
+	.list-filter-or-sort-container__content-dropdown__filter-content__block__label {
 		display: inline-block;
 		margin: v.$top-bar-filter-button-dropdown-label-margin;
 	}
 
-	.list-sort-filter-container__content-dropdown__filter-content__block__label--active {
+	.list-filter-or-sort-container__content-dropdown__filter-content__block__label--active {
 		color: v.$filter-button-active-color;
 	}
 

@@ -61,7 +61,7 @@ export default function AccountModalChangeSettings() {
 			<h1 className="title">Account Settings</h1>
 			<div
 				className={
-					"category-container category-container--larger-top-margin" +
+					"category-container" +
 					getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
@@ -82,6 +82,54 @@ export default function AccountModalChangeSettings() {
 						alt="Icon of a filter"
 					/>{" "}
 					Filter
+				</h2>
+				<div className="category-container__content-container category-container__content-container--smaller-top-margin">
+					<label className="category-container__content-container__label">
+						Filter out completed projects (by default)
+					</label>
+					<ToggleSwitch
+						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						isOn={
+							reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects_by_default
+						}
+						onChangeFunction={onChangeFilterCompletedProjects}
+					/>
+				</div>
+				<div className="category-container__content-container">
+					<label className="category-container__content-container__label">
+						Filter out completed bugs (by default)
+					</label>
+					<ToggleSwitch
+						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						isOn={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default}
+						onChangeFunction={onChangeFilterCompletedBugs}
+					/>
+				</div>
+			</div>
+
+			<div
+				className={
+					"category-container" +
+					getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			>
+				<h2
+					className={
+						"category-container__heading" +
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						)
+					}
+				>
+					<i
+						className="fa fa fa-sort"
+						aria-hidden="true"
+						alt="Icon of a filter"
+					/>{" "}
+					Sort
 				</h2>
 				<div className="category-container__content-container category-container__content-container--smaller-top-margin">
 					<label className="category-container__content-container__label">

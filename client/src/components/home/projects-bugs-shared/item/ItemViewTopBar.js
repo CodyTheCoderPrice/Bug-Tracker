@@ -27,10 +27,9 @@ import {
 	getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
-import SortArrowsButton from "../SortArrowsButton";
-
 // Components
 import CustomCheckbox from "../../../basic/CustomCheckbox";
+import SortArrowsButton from "../../../basic/SortArrowsButton";
 
 export default function ItemViewTopBar(props) {
 	const reduxState = useSelector((state) => state);
@@ -59,17 +58,6 @@ export default function ItemViewTopBar(props) {
 		}
 	};
 
-	const toggleSortDropdown = (e) => {
-		e.stopPropagation();
-
-		dispatch(
-			setWhichGeneralDropdownsDisplay({
-				itemViewTopBarSortDropdown: !reduxState[GENERAL_CONTAINER]
-					.dropdownsDisplay.itemViewTopBarSortDropdown,
-			})
-		);
-	};
-
 	const toggleFilterDropdown = (e) => {
 		e.stopPropagation();
 
@@ -77,6 +65,17 @@ export default function ItemViewTopBar(props) {
 			setWhichGeneralDropdownsDisplay({
 				itemViewTopBarFilterDropdown: !reduxState[GENERAL_CONTAINER]
 					.dropdownsDisplay.itemViewTopBarFilterDropdown,
+			})
+		);
+	};
+
+	const toggleSortDropdown = (e) => {
+		e.stopPropagation();
+
+		dispatch(
+			setWhichGeneralDropdownsDisplay({
+				itemViewTopBarSortDropdown: !reduxState[GENERAL_CONTAINER]
+					.dropdownsDisplay.itemViewTopBarSortDropdown,
 			})
 		);
 	};
@@ -104,6 +103,10 @@ export default function ItemViewTopBar(props) {
 				),
 			})
 		);
+	};
+
+	const fireSortArrowOnClick = (sortArrowButtonId) => {
+		document.getElementById(sortArrowButtonId).click();
 	};
 
 	const switchBetweenDisplayAndEditInfo = () => {
@@ -192,150 +195,28 @@ export default function ItemViewTopBar(props) {
 			(reduxState[SIZE_CONTAINER].variables.window !== null &&
 				reduxState[SIZE_CONTAINER].variables.window.width < 602) ? null : (
 				<div>
-					<div className="list-sort-filter-container">
+					<div className="list-filter-or-sort-container">
 						<div
 							className={
-								"list-sort-filter-container__button" +
-								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								) +
-								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-									.itemViewTopBarSortDropdown
-									? " list-sort-filter-container__button--clicked"
-									: "")
-							}
-							onClick={(e) => toggleSortDropdown(e)}
-						>
-							<span className={"list-sort-filter-container__button__text"}>
-								<i
-									className="fa fa-sort"
-									aria-hidden="true"
-									alt="Icon representing sorting"
-								/>{" "}
-								Sort
-							</span>
-						</div>
-						<div
-							className={
-								"list-sort-filter-container__content-dropdown" +
-								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								) +
-								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-									.itemViewTopBarSortDropdown
-									? " list-sort-filter-container__content-dropdown--visible"
-									: "")
-							}
-							onClick={
-								/*Keeps clicking dropdown from closing itself*/
-								(e) => {
-									e.stopPropagation();
-								}
-							}
-						>
-							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<SortArrowsButton
-										sortId={1}
-										sortFor="Name"
-										reduxContainerName={props.reduxContainerName}
-										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-									/>
-								</span>
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
-									Name
-								</span>
-							</div>
-							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<SortArrowsButton
-										sortId={2}
-										sortFor="Status"
-										reduxContainerName={props.reduxContainerName}
-										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-									/>
-								</span>
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
-									Status
-								</span>
-							</div>
-							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<SortArrowsButton
-										sortId={3}
-										sortFor="Priority"
-										reduxContainerName={props.reduxContainerName}
-										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-									/>
-								</span>
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
-									Priority
-								</span>
-							</div>
-							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<SortArrowsButton
-										sortId={4}
-										sortFor="Created on"
-										reduxContainerName={props.reduxContainerName}
-										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-									/>
-								</span>
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
-									Created on
-								</span>
-							</div>
-							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<SortArrowsButton
-										sortId={5}
-										sortFor="Start Date"
-										reduxContainerName={props.reduxContainerName}
-										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-									/>
-								</span>
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
-									Start Date
-								</span>
-							</div>
-							<div className="list-sort-filter-container__content-dropdown__sort-content-block">
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__sort-arrows-container">
-									<SortArrowsButton
-										sortId={6}
-										sortFor="Due Date"
-										reduxContainerName={props.reduxContainerName}
-										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-									/>
-								</span>
-								<span className="list-sort-filter-container__content-dropdown__sort-content-block__title">
-									Due Date
-								</span>
-							</div>
-						</div>
-					</div>
-
-					<div className="list-sort-filter-container list-sort-filter-container--filter-placement">
-						<div
-							className={
-								"list-sort-filter-container__button list-sort-filter-container__button--filter-width" +
+								"list-filter-or-sort-container__button" +
 								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 									.itemViewTopBarFilterDropdown
-									? " list-sort-filter-container__button--clicked list-sort-filter-container__button--clicked-filter-width"
+									? " list-filter-or-sort-container__button--clicked list-filter-or-sort-container__button--clicked-filter-width"
 									: "")
 							}
 							onClick={(e) => toggleFilterDropdown(e)}
 						>
 							<span
 								className={
-									"list-sort-filter-container__button__text list-sort-filter-container__button__text--filter-width" +
+									"list-filter-or-sort-container__button__text" +
 									(reduxState[props.reduxContainerName].searchFilterSort
 										.priorityFilter.length > 0 ||
 									reduxState[props.reduxContainerName].searchFilterSort
 										.statusFilter.length > 0
-										? " list-sort-filter-container__button__text--active" +
+										? " list-filter-or-sort-container__button__text--active" +
 										  getTextColorClassNameForThemeWithLightOrDarkMode(
 												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -353,16 +234,16 @@ export default function ItemViewTopBar(props) {
 						</div>
 						<div
 							className={
-								"list-sort-filter-container__content-dropdown list-sort-filter-container__content-dropdown--filter-width" +
+								"list-filter-or-sort-container__content-dropdown" +
 								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								) +
 								(props.reduxContainerName === BUG_CONTAINER
-									? " list-sort-filter-container__content-dropdown--shorter"
+									? " list-filter-or-sort-container__content-dropdown--shorter"
 									: "") +
 								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 									.itemViewTopBarFilterDropdown
-									? " list-sort-filter-container__content-dropdown--visible"
+									? " list-filter-or-sort-container__content-dropdown--visible"
 									: "")
 							}
 							onClick={
@@ -372,8 +253,8 @@ export default function ItemViewTopBar(props) {
 								}
 							}
 						>
-							<div className="list-sort-filter-container__content-dropdown__filter-content">
-								<span className="list-sort-filter-container__content-dropdown__filter-content__title">
+							<div className="list-filter-or-sort-container__content-dropdown__filter-content">
+								<span className="list-filter-or-sort-container__content-dropdown__filter-content__title">
 									Priority
 								</span>
 								{reduxState[
@@ -382,9 +263,9 @@ export default function ItemViewTopBar(props) {
 									return (
 										<div
 											key={i}
-											className="list-sort-filter-container__content-dropdown__filter-content__block"
+											className="list-filter-or-sort-container__content-dropdown__filter-content__block"
 										>
-											<div className="list-sort-filter-container__content-dropdown__filter-content__block__checkbox-container">
+											<div className="list-filter-or-sort-container__content-dropdown__filter-content__block__checkbox-container">
 												<CustomCheckbox
 													name="priorityFilter"
 													value={obj.id}
@@ -406,11 +287,11 @@ export default function ItemViewTopBar(props) {
 											<label
 												htmlFor={"list-priority-filter-" + obj.id}
 												className={
-													"list-sort-filter-container__content-dropdown__filter-content__block__label" +
+													"list-filter-or-sort-container__content-dropdown__filter-content__block__label" +
 													(reduxState[
 														props.reduxContainerName
 													].searchFilterSort.priorityFilter.includes(obj.id)
-														? " list-sort-filter-container__content-dropdown__filter-content__block__label--active" +
+														? " list-filter-or-sort-container__content-dropdown__filter-content__block__label--active" +
 														  getTextColorClassNameForThemeWithLightOrDarkMode(
 																reduxState[ACCOUNT_CONTAINER].settings
 																	.dark_mode,
@@ -426,8 +307,8 @@ export default function ItemViewTopBar(props) {
 									);
 								})}
 							</div>
-							<div className="list-sort-filter-container__content-dropdown__filter-content list-sort-filter-container__content-dropdown__filter-content--right">
-								<span className="list-sort-filter-container__content-dropdown__filter-content__title">
+							<div className="list-filter-or-sort-container__content-dropdown__filter-content list-filter-or-sort-container__content-dropdown__filter-content--right">
+								<span className="list-filter-or-sort-container__content-dropdown__filter-content__title">
 									Status
 								</span>
 								{reduxState[
@@ -436,9 +317,9 @@ export default function ItemViewTopBar(props) {
 									return (
 										<div
 											key={i}
-											className="list-sort-filter-container__content-dropdown__filter-content__block"
+											className="list-filter-or-sort-container__content-dropdown__filter-content__block"
 										>
-											<div className="list-sort-filter-container__content-dropdown__filter-content__block__checkbox-container">
+											<div className="list-filter-or-sort-container__content-dropdown__filter-content__block__checkbox-container">
 												<CustomCheckbox
 													name="statusFilter"
 													value={obj.id}
@@ -460,11 +341,11 @@ export default function ItemViewTopBar(props) {
 											<label
 												htmlFor={"list-status-filter-" + obj.id}
 												className={
-													"list-sort-filter-container__content-dropdown__filter-content__block__label" +
+													"list-filter-or-sort-container__content-dropdown__filter-content__block__label" +
 													(reduxState[
 														props.reduxContainerName
 													].searchFilterSort.statusFilter.includes(obj.id)
-														? " list-sort-filter-container__content-dropdown__filter-content__block__label--active" +
+														? " list-filter-or-sort-container__content-dropdown__filter-content__block__label--active" +
 														  getTextColorClassNameForThemeWithLightOrDarkMode(
 																reduxState[ACCOUNT_CONTAINER].settings
 																	.dark_mode,
@@ -479,6 +360,164 @@ export default function ItemViewTopBar(props) {
 										</div>
 									);
 								})}
+							</div>
+						</div>
+					</div>
+
+					<div className="list-filter-or-sort-container list-filter-or-sort-container--sort-placement">
+						<div
+							className={
+								"list-filter-or-sort-container__button" +
+								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								) +
+								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+									.itemViewTopBarSortDropdown
+									? " list-filter-or-sort-container__button--clicked"
+									: "")
+							}
+							onClick={(e) => toggleSortDropdown(e)}
+						>
+							<span className={"list-filter-or-sort-container__button__text"}>
+								<i
+									className="fa fa-sort"
+									aria-hidden="true"
+									alt="Icon representing sorting"
+								/>{" "}
+								Sort
+							</span>
+						</div>
+						<div
+							className={
+								"list-filter-or-sort-container__content-dropdown list-filter-or-sort-container__content-dropdown--sort-width" +
+								getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								) +
+								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
+									.itemViewTopBarSortDropdown
+									? " list-filter-or-sort-container__content-dropdown--visible"
+									: "")
+							}
+							onClick={
+								/*Keeps clicking dropdown from closing itself*/
+								(e) => {
+									e.stopPropagation();
+								}
+							}
+						>
+							<div className="list-filter-or-sort-container__content-dropdown__sort-content-block">
+								<span className="list-filter-or-sort-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<SortArrowsButton
+										sortId={1}
+										sortFor="Name"
+										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+										uniqueId="item-view-sort-arrow-name"
+									/>
+								</span>
+								<span
+									className="list-filter-or-sort-container__content-dropdown__sort-content-block__title"
+									onClick={() =>
+										fireSortArrowOnClick("item-view-sort-arrow-name")
+									}
+								>
+									Name
+								</span>
+							</div>
+							<div className="list-filter-or-sort-container__content-dropdown__sort-content-block">
+								<span className="list-filter-or-sort-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<SortArrowsButton
+										sortId={2}
+										sortFor="Status"
+										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+										uniqueId="item-view-sort-arrow-status"
+									/>
+								</span>
+								<span
+									className="list-filter-or-sort-container__content-dropdown__sort-content-block__title"
+									onClick={() =>
+										fireSortArrowOnClick("item-view-sort-arrow-status")
+									}
+								>
+									Status
+								</span>
+							</div>
+							<div className="list-filter-or-sort-container__content-dropdown__sort-content-block">
+								<span className="list-filter-or-sort-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<SortArrowsButton
+										sortId={3}
+										sortFor="Priority"
+										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+										uniqueId="item-view-sort-arrow-priority"
+									/>
+								</span>
+								<span
+									className="list-filter-or-sort-container__content-dropdown__sort-content-block__title"
+									onClick={() =>
+										fireSortArrowOnClick("item-view-sort-arrow-priority")
+									}
+								>
+									Priority
+								</span>
+							</div>
+							<div className="list-filter-or-sort-container__content-dropdown__sort-content-block">
+								<span className="list-filter-or-sort-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<SortArrowsButton
+										sortId={4}
+										sortFor="Created on"
+										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+										uniqueId="item-view-sort-arrow-created-on"
+									/>
+								</span>
+								<span
+									className="list-filter-or-sort-container__content-dropdown__sort-content-block__title"
+									onClick={() =>
+										fireSortArrowOnClick("item-view-sort-arrow-created-on")
+									}
+								>
+									Created on
+								</span>
+							</div>
+							<div className="list-filter-or-sort-container__content-dropdown__sort-content-block">
+								<span className="list-filter-or-sort-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<SortArrowsButton
+										sortId={5}
+										sortFor="Start Date"
+										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+										uniqueId="item-view-sort-arrow-start-date"
+									/>
+								</span>
+								<span
+									className="list-filter-or-sort-container__content-dropdown__sort-content-block__title"
+									onClick={() =>
+										fireSortArrowOnClick("item-view-sort-arrow-start-date")
+									}
+								>
+									Start Date
+								</span>
+							</div>
+							<div className="list-filter-or-sort-container__content-dropdown__sort-content-block">
+								<span className="list-filter-or-sort-container__content-dropdown__sort-content-block__sort-arrows-container">
+									<SortArrowsButton
+										sortId={6}
+										sortFor="Due Date"
+										reduxContainerName={props.reduxContainerName}
+										dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+										uniqueId="item-view-sort-arrow-due-date"
+									/>
+								</span>
+								<span
+									className="list-filter-or-sort-container__content-dropdown__sort-content-block__title"
+									onClick={() =>
+										fireSortArrowOnClick("item-view-sort-arrow-due-date")
+									}
+								>
+									Due Date
+								</span>
 							</div>
 						</div>
 					</div>

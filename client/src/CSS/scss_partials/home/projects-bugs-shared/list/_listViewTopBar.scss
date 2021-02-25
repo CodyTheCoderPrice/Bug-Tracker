@@ -131,7 +131,7 @@
 		border-radius: v.$top-bar-buttton-border-radius;
 		background-color: v.$mode-top-bar-button-background-color-light;
 		height: v.$top-bar-button-height;
-		width: v.$top-bar-filter-button-width;
+		width: v.$list-view-top-bar-filter-button-width;
 		color: v.$mode-top-bar-button-text-color-light;
 		font-size: v.$top-bar-button-font-size;
 		text-align: center;
@@ -146,7 +146,7 @@
 		border-radius: v.$top-bar-buttton-border-radius
 			v.$top-bar-buttton-border-radius 0 0;
 		height: 45px;
-		width: v.$top-bar-filter-button-width -
+		width: v.$list-view-top-bar-filter-button-width -
 			(v.$top-bar-clicked-dropdown-button-border-width-difference * 2);
 	}
 

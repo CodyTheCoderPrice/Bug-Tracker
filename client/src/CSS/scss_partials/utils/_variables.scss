@@ -369,10 +369,10 @@ $account-sidebar-appearance-theme-button-width: $account-sidebar-appearance-them
 	$account-sidebar-appearance-theme-button-arrow-container-width;
 $delete-modal-delete-button-width: 90px;
 $top-bar-search-bar-button-width: $top-bar-search-bar-height + 10;
-$top-bar-filter-button-width: 90px;
 $top-bar-filter-dropdown-content-container-width: 260px;
-$top-bar-sort-button-width: 80px;
-$top-bar-sort-dropdown-content-container-width: 120px;
+$list-view-top-bar-filter-button-width: 90px;
+$item-view-top-bar-filter-sort-button-width: 80px;
+$item-view-top-bar-sort-dropdown-content-container-width: 120px;
 $list-table-min-width: 1100px;
 $list-table-item-name-width: 250px;
 $status-box-width: 110px;
@@ -485,10 +485,11 @@ $back-exit-buttons-left-right: 20px;
 $top-bar-top: $navbar-height;
 $list-item-view-top: $top-bar-top + $top-bar-height + $top-bar-border-width;
 $item-view-top-bar-search-bar-left: 15px;
-$item-view-top-bar-sort-button-left: $item-view-top-bar-search-bar-width +
+$item-view-top-bar-filter-button-left: $item-view-top-bar-search-bar-width +
 	($item-view-top-bar-search-bar-left * 2);
-$item-view-top-bar-filter-button-left: $item-view-top-bar-sort-button-left +
-	$top-bar-sort-button-width + ($item-view-top-bar-search-bar-left);
+$item-view-top-bar-sort-button-left: $item-view-top-bar-filter-button-left +
+	$item-view-top-bar-filter-sort-button-width +
+	($item-view-top-bar-search-bar-left);
 
 //===============================
 // Arithmetic (must be at bottom)

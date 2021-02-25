@@ -1,6 +1,7 @@
 // scss_partials/basic
 @use "scss_partials/basic/toggleSwitch";
 @use "scss_partials/basic/customCheckbox";
+@use "scss_partials/basic/sortArrowsButton";
 // scss_partials/authentication
 @use "scss_partials/authentication/registerLogin";
 // scss_partials/home
@@ -30,6 +31,5 @@
 @use "scss_partials/home/projects-bugs-shared/list/listViewCreateItemSidebar";
 @use "scss_partials/home/projects-bugs-shared/list/listViewTopBar";
 @use "scss_partials/home/projects-bugs-shared/list/listViewTableAndRows";
-@use "scss_partials/home/projects-bugs-shared/list/listViewTableSortArrowsButton";
 // scss_partials
 @use "scss_partials/app"; // Must be at bottom so class selectors take priority

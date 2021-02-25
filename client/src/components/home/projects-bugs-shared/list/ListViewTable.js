@@ -20,7 +20,7 @@ import {
 
 // Components
 import ListTableRow from "./ListViewTableRow";
-import SortArrowsButton from "../SortArrowsButton";
+import SortArrowsButton from "../../../basic/SortArrowsButton";
 
 export default function ListViewTable(props) {
 	const reduxState = useSelector((state) => state);
