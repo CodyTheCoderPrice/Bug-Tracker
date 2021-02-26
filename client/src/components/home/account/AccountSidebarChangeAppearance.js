@@ -5,9 +5,7 @@ import {
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
-import {
-	updateAccountSettings,
-} from "../../../actions";
+import { updateAccountSettings } from "../../../actions";
 
 import {
 	getBaseBackgroundColorClassNameForTheme,
@@ -34,11 +32,11 @@ export default function AccountSidebarChangeAppearance() {
 		}
 	};
 
-	const onChangeDarkMode = () => {
+	const onChangeDarkMode = (e) => {
 		dispatch(
 			updateAccountSettings({
 				...reduxState[ACCOUNT_CONTAINER].settings,
-				dark_mode: !reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+				dark_mode: e.target.checked,
 			})
 		);
 	};
@@ -79,9 +77,11 @@ export default function AccountSidebarChangeAppearance() {
 				<label className="content-container__label">Dark mode</label>
 				<div className="content-container__toggle-switch-centering-container">
 					<ToggleSwitch
-						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-						isOn={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						name="light-dark-mode"
 						onChangeFunction={onChangeDarkMode}
+						isOn={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						id="account-settings-light-dark-mode"
+						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 					/>
 				</div>
 			</div>

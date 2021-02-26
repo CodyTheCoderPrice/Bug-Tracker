@@ -100,14 +100,10 @@ export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 
 // Light/Dark mode -- ToggleSwitch -- border, background, amd text colors
 export function getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkMode(
-	isOn,
 	dark_mode
 ) {
 	return (
-		(isOn
-			? " js-set-toggle-switch-on-border-background-text-colors-dark-mode-"
-			: " js-set-toggle-switch-off-border-background-text-colors-dark-mode-") +
-		dark_mode
+		" js-set-toggle-switch-border-background-text-colors-dark-mode-" + dark_mode
 	);
 }
 

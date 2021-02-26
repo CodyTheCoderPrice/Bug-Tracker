@@ -32,24 +32,22 @@ export default function AccountModalChangeSettings() {
 		// eslint-disable-next-line
 	}, []);
 
-	const onChangeFilterCompletedProjects = () => {
-		dispatch(
-			updateAccountSettings({
-				...reduxState[ACCOUNT_CONTAINER].settings,
-				filter_completed_projects_by_default: !reduxState[ACCOUNT_CONTAINER].settings
-					.filter_completed_projects_by_default,
-			})
-		);
-	};
-
-	const onChangeFilterCompletedBugs = () => {
-		dispatch(
-			updateAccountSettings({
-				...reduxState[ACCOUNT_CONTAINER].settings,
-				filter_completed_bugs_by_default: !reduxState[ACCOUNT_CONTAINER].settings
-					.filter_completed_bugs_by_default,
-			})
-		);
+	const onChangeFilter = (e) => {
+		if (e.target.name === "filter-completed-projects") {
+			dispatch(
+				updateAccountSettings({
+					...reduxState[ACCOUNT_CONTAINER].settings,
+					filter_completed_projects_by_default: e.target.checked,
+				})
+			);
+		} else if (e.target.name === "filter-completed-bugs") {
+			dispatch(
+				updateAccountSettings({
+					...reduxState[ACCOUNT_CONTAINER].settings,
+					filter_completed_bugs_by_default: e.target.checked,
+				})
+			);
+		}
 	};
 
 	const backToAccountSidebar = () => {
@@ -88,11 +86,14 @@ export default function AccountModalChangeSettings() {
 						Filter out completed projects (by default)
 					</label>
 					<ToggleSwitch
-						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						name="filter-completed-projects"
+						onChangeFunction={onChangeFilter}
 						isOn={
-							reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects_by_default
+							reduxState[ACCOUNT_CONTAINER].settings
+								.filter_completed_projects_by_default
 						}
-						onChangeFunction={onChangeFilterCompletedProjects}
+						id="account-settings-filter-completed-projects"
+						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 					/>
 				</div>
 				<div className="category-container__content-container">
@@ -100,14 +101,19 @@ export default function AccountModalChangeSettings() {
 						Filter out completed bugs (by default)
 					</label>
 					<ToggleSwitch
+						name="filter-completed-bugs"
+						onChangeFunction={onChangeFilter}
+						isOn={
+							reduxState[ACCOUNT_CONTAINER].settings
+								.filter_completed_bugs_by_default
+						}
+						id="account-settings-filter-completed-bugs"
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-						isOn={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default}
-						onChangeFunction={onChangeFilterCompletedBugs}
 					/>
 				</div>
 			</div>
 
-			<div
+			{/* <div
 				className={
 					"category-container" +
 					getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -136,11 +142,13 @@ export default function AccountModalChangeSettings() {
 						Filter out completed projects (by default)
 					</label>
 					<ToggleSwitch
-						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						name="sort-projects-ascending"
 						isOn={
-							reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects_by_default
+							reduxState[ACCOUNT_CONTAINER].settings
+								.filter_completed_projects_by_default
 						}
 						onChangeFunction={onChangeFilterCompletedProjects}
+						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 					/>
 				</div>
 				<div className="category-container__content-container">
@@ -148,12 +156,16 @@ export default function AccountModalChangeSettings() {
 						Filter out completed bugs (by default)
 					</label>
 					<ToggleSwitch
-						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-						isOn={reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default}
+						name="sort-bugs-ascending"
+						isOn={
+							reduxState[ACCOUNT_CONTAINER].settings
+								.filter_completed_bugs_by_default
+						}
 						onChangeFunction={onChangeFilterCompletedBugs}
+						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 					/>
 				</div>
-			</div>
+			</div> */}
 			<span
 				className={
 					"backend-errors" +

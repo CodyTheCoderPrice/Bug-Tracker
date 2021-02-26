@@ -3,39 +3,31 @@ import React from "react";
 import { getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkMode } from "../../utils";
 
 export default function ToggleSwitch(props) {
+	const clickCheckbox = () => {
+		document.getElementById(props.id).click();
+	};
+
 	return (
-		<div className="toggle-switch-component">
-			{props.isOn ? (
-				<div
-					className={
-						"toggle-switch" +
-						getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkMode(
-							props.isOn,
-							props.dark_mode
-						)
-					}
-					onClick={props.onChangeFunction}
-				>
-					<span className="toggle-switch__text">ON</span>
-					<span className="toggle-switch__circle toggle-switch__circle--on" />
-				</div>
-			) : (
-				<div
-					className={
-						"toggle-switch toggle-switch--off" +
-						getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkMode(
-							props.isOn,
-							props.dark_mode
-						)
-					}
-					onClick={props.onChangeFunction}
-				>
-					<span className="toggle-switch__text toggle-switch__text--off">
-						OFF
-					</span>
-					<span className="toggle-switch__circle toggle-switch__circle--off" />
-				</div>
-			)}
+		<div
+			className={
+				"toggle-switch-component" +
+				getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkMode(
+					props.dark_mode
+				)
+			}
+		>
+			<input
+				type="checkbox"
+				name={props.name}
+				onChange={(e) => props.onChangeFunction(e)}
+				checked={props.isOn}
+				id={props.id}
+				className="invisible-checkbox"
+			/>
+			<div className="toggle-switch" onClick={clickCheckbox}>
+				<span className="toggle-switch__text">{props.isOn ? "ON" : "OFF"}</span>
+				<span className="toggle-switch__circle" />
+			</div>
 		</div>
 	);
 }

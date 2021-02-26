@@ -95,43 +95,47 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ToggleSwitch ON -- border, background, amd text colors
-	.js-set-toggle-switch-on-border-background-text-colors-dark-mode-false {
-		border-color: v.$mode-toggle-switch-on-border-color-light;
-		background-color: v.$mode-toggle-switch-on-background-color-light;
-		color: v.$mode-toggle-switch-on-text-color-light;
+	// Light/Dark mode -- ToggleSwitch -- border, background, amd text colors
+	.js-set-toggle-switch-border-background-text-colors-dark-mode-false {
+		& > .toggle-switch {
+			border-color: v.$mode-toggle-switch-off-border-color-light;
+			background-color: v.$mode-toggle-switch-off-background-color-light;
+			color: v.$mode-toggle-switch-off-text-color-light;
+		}
 
-		& > .toggle-switch__circle {
+		& > .invisible-checkbox:checked + .toggle-switch {
+			border-color: v.$mode-toggle-switch-on-border-color-light;
+			background-color: v.$mode-toggle-switch-on-background-color-light;
+			color: v.$mode-toggle-switch-on-text-color-light;
+		}
+
+		& > .toggle-switch > .toggle-switch__circle {
+			background-color: v.$mode-toggle-switch-off-circle-background-color-light;
+		}
+
+		& > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
 			background-color: v.$mode-toggle-switch-on-circle-background-color-light;
 		}
 	}
-	.js-set-toggle-switch-on-border-background-text-colors-dark-mode-true {
-		border-color: v.$mode-toggle-switch-on-border-color-dark;
-		background-color: v.$mode-toggle-switch-on-background-color-dark;
-		color: v.$mode-toggle-switch-on-text-color-dark;
-
-		& > .toggle-switch__circle {
-			background-color: v.$mode-toggle-switch-on-circle-background-color-dark;
+	.js-set-toggle-switch-border-background-text-colors-dark-mode-true {
+		& > .toggle-switch {
+			border-color: v.$mode-toggle-switch-off-border-color-dark;
+			background-color: v.$mode-toggle-switch-off-background-color-dark;
+			color: v.$mode-toggle-switch-off-text-color-dark;
 		}
-	}
 
-	// Light/Dark mode -- ToggleSwitch OFF -- border, background, amd text colors
-	.js-set-toggle-switch-off-border-background-text-colors-dark-mode-false {
-		border-color: v.$mode-toggle-switch-off-border-color-light;
-		background-color: v.$mode-toggle-switch-off-background-color-light;
-		color: v.$mode-toggle-switch-off-text-color-light;
-
-		& > .toggle-switch__circle {
-			background-color: v.$mode-toggle-switch-off-circle-background-color-light;
+		& > .invisible-checkbox:checked + .toggle-switch {
+			border-color: v.$mode-toggle-switch-on-border-color-dark;
+			background-color: v.$mode-toggle-switch-on-background-color-dark;
+			color: v.$mode-toggle-switch-on-text-color-dark;
 		}
-	}
-	.js-set-toggle-switch-off-border-background-text-colors-dark-mode-true {
-		border-color: v.$mode-toggle-switch-off-border-color-dark;
-		background-color: v.$mode-toggle-switch-off-background-color-dark;
-		color: v.$mode-toggle-switch-off-text-color-dark;
 
-		& > .toggle-switch__circle {
+		& > .toggle-switch > .toggle-switch__circle {
 			background-color: v.$mode-toggle-switch-off-circle-background-color-dark;
+		}
+
+		& > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+			background-color: v.$mode-toggle-switch-on-circle-background-color-dark;
 		}
 	}
 

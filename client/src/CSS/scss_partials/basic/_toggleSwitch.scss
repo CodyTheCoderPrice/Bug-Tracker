@@ -5,6 +5,10 @@
 	position: relative;
 	display: inline-block;
 
+	.invisible-checkbox {
+		display: none;
+	}
+
 	.toggle-switch {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
@@ -13,34 +17,34 @@
 
 		position: relative;
 		float: left;
-		border: solid v.$mode-toggle-switch-on-border-color-light 3px;
+		border: solid v.$mode-toggle-switch-off-border-color-light 3px;
 		border-radius: 25px;
-		background-color: v.$mode-toggle-switch-on-background-color-light;
+		background-color: v.$mode-toggle-switch-off-background-color-light;
 		height: v.$basic-toggle-switch-height;
 		width: v.$basic-toggle-switch-width;
-		color: v.$mode-toggle-switch-on-text-color-light;
+		color: v.$mode-toggle-switch-off-text-color-light;
 		cursor: pointer;
 	}
 
-	.toggle-switch--off {
-		border-color: v.$mode-toggle-switch-off-border-color-light;
-		background-color: v.$mode-toggle-switch-off-background-color-light;
-		color: v.$mode-toggle-switch-off-text-color-light;
+	.invisible-checkbox:checked + .toggle-switch {
+		border-color: v.$mode-toggle-switch-on-border-color-light;
+		background-color: v.$mode-toggle-switch-on-background-color-light;
+		color: v.$mode-toggle-switch-on-text-color-light;
 	}
-	
+
 	.toggle-switch__text {
 		@include m.vertical-center();
 		@include m.stop-text-selection();
-
-		left: 4px;
+		
+		right: 3px;
 		font-size: 12px;
 		font-weight: bold;
 	}
 
-	.toggle-switch__text--off {
-		// Resets left
-		left: auto;
-		right: 3px;
+	.invisible-checkbox:checked + .toggle-switch > .toggle-switch__text {
+		// Resets right
+		right: auto;
+		left: 4px;
 	}
 
 	.toggle-switch__circle {
@@ -51,17 +55,18 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
-		right: 1px;
+		left: 1px;
 		border: solid silver 1px;
 		border-radius: 100px;
-		background-color: v.$mode-toggle-switch-on-circle-background-color-light;
+		background-color: v.$mode-toggle-switch-off-circle-background-color-light;
 		height: 18px;
 		width: 18px;
 	}
 
-	.toggle-switch__circle--off {
-		right: auto;
-		left: 1px;
-		background-color: v.$mode-toggle-switch-off-circle-background-color-light;
+	.invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+		// Resets left
+		left: auto;
+		right: 1px;
+		background-color: v.$mode-toggle-switch-on-circle-background-color-light;
 	}
 }
