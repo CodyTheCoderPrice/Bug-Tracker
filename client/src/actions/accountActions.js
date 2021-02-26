@@ -9,6 +9,7 @@ import {
 	SET_ACCOUNT,
 	SET_ACCOUNT_SETTINGS,
 	SET_ACCOUNT_SETTING_THEMES,
+	SET_ACCOUNT_SETTING_SORT_CATEGORIES,
 } from "./constants/types";
 // Redux dispatch functions
 import {
@@ -75,6 +76,21 @@ export const setAccountSettingThemes = (accountSettingThemes) => (dispatch) => {
 		container: ACCOUNT_CONTAINER,
 		type: SET_ACCOUNT_SETTING_THEMES,
 		accountSettingThemes: accountSettingThemes,
+	});
+};
+
+/**
+ * Sets account setting sort categories inside the account container of the
+ * redux state
+ *
+ * @param {JSON} accountSettingSortCategories - JSON containing the account setting
+ * sort categories
+ */
+export const setAccountSettingSortCategories = (accountSettingSortCategories) => (dispatch) => {
+	dispatch({
+		container: ACCOUNT_CONTAINER,
+		type: SET_ACCOUNT_SETTING_SORT_CATEGORIES,
+		accountSettingSortCategories: accountSettingSortCategories,
 	});
 };
 
@@ -218,6 +234,30 @@ export const retrieveAccountSettingThemes = () => (dispatch) => {
 };
 
 /**
+ * Calls api/account/retrieve-sort-categories route to retrieve the sort
+ * categories from the database and store it in the account container of
+ * the redux state
+ */
+export const retrieveSortCategories = () => (dispatch) => {
+	const header = createHeader();
+	axios
+		.post("/api/account/retrieve-setting-sort-categories", null, header)
+		.then((res) => {
+			const { accountSettingSortCategories } = res.data;
+			dispatch(setAccountSettingSortCategories(accountSettingSortCategories));
+		})
+		.catch((err) => {
+			// sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
+
+			if (err.response.data.backendErrors.jwToken !== undefined) {
+				// jwToken was invalid (likely expired), so user is logged out
+				dispatch(logoutAccount());
+			}
+		});
+};
+
+/**
  * Calls api/account/retrieve-everything route to retrieve all account data
  * from the database and store each data set in their corresponding redux
  * state containers
@@ -233,6 +273,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 				account,
 				accountSettings,
 				accountSettingThemes,
+				accountSettingSortCategories,
 				projects,
 				bugs,
 				comments,
@@ -242,6 +283,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 			dispatch(setAccount(account));
 			dispatch(setAccountSettings(accountSettings));
 			dispatch(setAccountSettingThemes(accountSettingThemes));
+			dispatch(setAccountSettingSortCategories(accountSettingSortCategories));
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));

@@ -3,6 +3,7 @@ import authReducer from "./authReducer";
 import accountReducer from "./accountReducer";
 import accountSettingsReducer from "./accountSettingsReducer";
 import accountSettingThemesReducer from "./accountSettingThemesReducer";
+import accountSettingSortCategoriesReducer from "./accountSettingSortCategoriesReducer";
 
 import { ACCOUNT_CONTAINER } from "../../actions/constants/containerNames";
 import { RESET_CONTAINER } from "../../actions/constants/types";
@@ -15,6 +16,10 @@ const initialState = {
 	accountInfo: accountReducer(undefined, {}),
 	settings: accountSettingsReducer(undefined, {}),
 	settingThemes: accountSettingThemesReducer(undefined, {}),
+	accountSettingSortCategories: accountSettingSortCategoriesReducer(
+		undefined,
+		{}
+	),
 };
 
 /**
@@ -45,7 +50,14 @@ export function accountContainerReducer(state = initialState, action) {
 					auth: authReducer(state.auth, action),
 					accountInfo: accountReducer(state.accountInfo, action),
 					settings: accountSettingsReducer(state.settings, action),
-					settingThemes: accountSettingThemesReducer(state.settingThemes, action),
+					settingThemes: accountSettingThemesReducer(
+						state.settingThemes,
+						action
+					),
+					accountSettingSortCategories: accountSettingSortCategoriesReducer(
+						state.accountSettingSortCategories,
+						action
+					),
 				};
 			}
 		default:

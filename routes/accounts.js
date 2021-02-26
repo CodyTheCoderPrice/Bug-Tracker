@@ -138,6 +138,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			account,
 			accountSettings,
 			accountSettingThemes,
+			accountSettingSortCategories,
 			priorityStatus,
 			allProjectsForAccount,
 			allBugsForAccount,
@@ -166,6 +167,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 					account: account.rows[0],
 					accountSettings: accountSettings.rows[0],
 					accountSettingThemes: accountSettingThemes.rows,
+					accountSettingSortCategories: accountSettingSortCategories.rows,
 					projects: allProjectsForAccount.rows,
 					bugs: allBugsForAccount.rows,
 					comments: allCommentsForAccount.rows,
@@ -308,6 +310,48 @@ router
 		}
 	});
 
+//===========================
+//  Retrieve sort categories
+//===========================
+// Abstracted and later exported for reuse inside this and other route files
+async function getAccountSettingSortCategories() {
+	try {
+		return await await pool.query(
+			`SELECT sort_id, order_number, category, marks_default
+				FROM sort
+					ORDER BY order_number`
+		);
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router
+	.route("/retrieve-setting-sort-categories")
+	.post(tokenAuthorization, async (req, res) => {
+		let backendErrors = {};
+
+		try {
+			const accountSettingSortCategories = await getAccountSettingSortCategories();
+
+			// If null, then something went wrong, therefore throw err
+			if (accountSettingSortCategories === null) {
+				throw err;
+			}
+
+			return res.json({
+				success: true,
+				accountSettingSortCategories: accountSettingSortCategories.rows,
+			});
+		} catch (err) {
+			console.error(err.message);
+			backendErrors.serverAccount =
+				"Server error while retrieving sort categories";
+			return res.status(500).json({ success: false, backendErrors });
+		}
+	});
+
 //==================================
 //  Retrieve everything for account
 //==================================
@@ -319,6 +363,8 @@ async function getEverythingForAccount(account_id) {
 		const accountSettings = await getAccountSettings(account_id);
 
 		const accountSettingThemes = await getAccountSettingThemes();
+
+		const accountSettingSortCategories = await getAccountSettingSortCategories();
 
 		const priorityStatus = await getPriorityStatus();
 
@@ -334,23 +380,11 @@ async function getEverythingForAccount(account_id) {
 			account.rows[0].account_id
 		);
 
-		// If any are null, then something went wrong, therefore throw err
-		if (
-			account === null ||
-			accountSettings === null ||
-			accountSettingThemes === null ||
-			priorityStatus === null ||
-			allProjectsForAccount === null ||
-			allBugsForAccount === null ||
-			allCommentsForAccount === null
-		) {
-			throw err;
-		}
-
 		return {
 			account: account,
 			accountSettings: accountSettings,
 			accountSettingThemes: accountSettingThemes,
+			accountSettingSortCategories: accountSettingSortCategories,
 			priorityStatus: priorityStatus,
 			allProjectsForAccount: allProjectsForAccount,
 			allBugsForAccount: allBugsForAccount,
@@ -375,6 +409,7 @@ router
 				account,
 				accountSettings,
 				accountSettingThemes,
+				accountSettingSortCategories,
 				priorityStatus,
 				allProjectsForAccount,
 				allBugsForAccount,
@@ -389,6 +424,7 @@ router
 				account: account.rows[0],
 				accountSettings: accountSettings.rows[0],
 				accountSettingThemes: accountSettingThemes.rows,
+				accountSettingSortCategories: accountSettingSortCategories.rows,
 				projects: allProjectsForAccount.rows,
 				bugs: allBugsForAccount.rows,
 				comments: allCommentsForAccount.rows,
