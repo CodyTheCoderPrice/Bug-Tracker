@@ -34,7 +34,8 @@ export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Updates list filters to match the account settings
+	// Updates list filters to match account settings on app start up or after
+	// ...filter account settings have been changed
 	useEffect(() => {
 		if (
 			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects_by_default !==
@@ -81,6 +82,52 @@ export default function Home() {
 		// eslint-disable-next-line
 		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default,
 	]);
+
+	// Updates list sort to match account settings on app start up or after
+	// ...sort account settings have been changed
+	useEffect(() => {
+		if (
+			reduxState[ACCOUNT_CONTAINER].settings.project_sort_id !==
+			reduxState[PROJECT_CONTAINER].searchFilterSort.sortId || 
+			reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending !==
+			reduxState[PROJECT_CONTAINER].searchFilterSort.sortAscending
+		) {
+			dispatch(
+				setProjectOrBugSearchFilterSort(PROJECT_CONTAINER, {
+					...reduxState[PROJECT_CONTAINER].searchFilterSort,
+					sortId: reduxState[ACCOUNT_CONTAINER].settings.project_sort_id,
+					sortAscending: reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending
+				})
+			);
+		}
+
+		if (
+			reduxState[ACCOUNT_CONTAINER].settings.bug_sort_id !==
+			reduxState[BUG_CONTAINER].searchFilterSort.sortId || 
+			reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending !==
+			reduxState[BUG_CONTAINER].searchFilterSort.sortAscending
+		) {
+			dispatch(
+				setProjectOrBugSearchFilterSort(BUG_CONTAINER, {
+					...reduxState[BUG_CONTAINER].searchFilterSort,
+					sortId: reduxState[ACCOUNT_CONTAINER].settings.bug_sort_id,
+					sortAscending: reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending
+				})
+			);
+		}
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[ACCOUNT_CONTAINER].settings.project_sort_id,
+		// eslint-disable-next-line
+		reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending,
+		// eslint-disable-next-line
+		reduxState[ACCOUNT_CONTAINER].settings.bug_sort_id,
+		// eslint-disable-next-line
+		reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending,
+	]);
+
+	
 
 	// Updates mass delete list to not include items that are being searchFilterSorted out
 	useEffect(() => {
