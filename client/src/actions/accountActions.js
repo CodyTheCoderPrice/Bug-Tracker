@@ -132,6 +132,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 				account,
 				accountSettings,
 				accountSettingThemes,
+				accountSettingSortCategories,
 				projects,
 				bugs,
 				comments,
@@ -150,6 +151,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setAccount(account));
 			dispatch(setAccountSettings(accountSettings));
 			dispatch(setAccountSettingThemes(accountSettingThemes));
+			dispatch(setAccountSettingSortCategories(accountSettingSortCategories));
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));

@@ -167,4 +167,23 @@
 		// Subtracting 2px for better alignment
 		line-height: v.$account-modal-settings-content-container-height - 2;
 	}
+
+	.category-container__content-container__toggle-switch-container {
+		float: left;
+	}
+
+	.category-container__content-container__sort-select {
+		float: left;
+		margin: 2px 20px 0 0;
+		outline: none;
+		border: 1px solid gray;
+		background: v.$mode-base-form-input-background-color-light;
+		width: 100px;
+		// one pixel smaller than associated label
+		font-size: v.$base-font-size - 2;
+
+		&:focus {
+			border-color: v.$default-theme-mode-focus-border-color;
+		}
+	}
 }

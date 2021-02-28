@@ -14,6 +14,7 @@ import {
 import {
 	getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
+	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 
@@ -32,22 +33,14 @@ export default function AccountModalChangeSettings() {
 		// eslint-disable-next-line
 	}, []);
 
-	const onChangeFilter = (e) => {
-		if (e.target.name === "filter-completed-projects") {
-			dispatch(
-				updateAccountSettings({
-					...reduxState[ACCOUNT_CONTAINER].settings,
-					filter_completed_projects_by_default: e.target.checked,
-				})
-			);
-		} else if (e.target.name === "filter-completed-bugs") {
-			dispatch(
-				updateAccountSettings({
-					...reduxState[ACCOUNT_CONTAINER].settings,
-					filter_completed_bugs_by_default: e.target.checked,
-				})
-			);
-		}
+	const onChangeSettings = (e) => {
+		dispatch(
+			updateAccountSettings({
+				...reduxState[ACCOUNT_CONTAINER].settings,
+				[e.target.name]:
+					e.target.tagName === "SELECT" ? e.target.value : e.target.checked,
+			})
+		);
 	};
 
 	const backToAccountSidebar = () => {
@@ -83,37 +76,41 @@ export default function AccountModalChangeSettings() {
 				</h2>
 				<div className="category-container__content-container category-container__content-container--smaller-top-margin">
 					<label className="category-container__content-container__label">
-						Filter out completed projects (by default)
+						Filter out completed projects
 					</label>
-					<ToggleSwitch
-						name="filter-completed-projects"
-						onChangeFunction={onChangeFilter}
-						isOn={
-							reduxState[ACCOUNT_CONTAINER].settings
-								.filter_completed_projects_by_default
-						}
-						id="account-settings-filter-completed-projects"
-						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-					/>
+					<div className="category-container__content-container__toggle-switch-container">
+						<ToggleSwitch
+							name="filter_completed_projects_by_default"
+							onChangeFunction={onChangeSettings}
+							isOn={
+								reduxState[ACCOUNT_CONTAINER].settings
+									.filter_completed_projects_by_default
+							}
+							id="account-settings-filter-completed-projects"
+							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						/>
+					</div>
 				</div>
 				<div className="category-container__content-container">
 					<label className="category-container__content-container__label">
-						Filter out completed bugs (by default)
+						Filter out completed bugs
 					</label>
-					<ToggleSwitch
-						name="filter-completed-bugs"
-						onChangeFunction={onChangeFilter}
-						isOn={
-							reduxState[ACCOUNT_CONTAINER].settings
-								.filter_completed_bugs_by_default
-						}
-						id="account-settings-filter-completed-bugs"
-						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-					/>
+					<div className="category-container__content-container__toggle-switch-container">
+						<ToggleSwitch
+							name="filter_completed_bugs_by_default"
+							onChangeFunction={onChangeSettings}
+							isOn={
+								reduxState[ACCOUNT_CONTAINER].settings
+									.filter_completed_bugs_by_default
+							}
+							id="account-settings-filter-completed-bugs"
+							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						/>
+					</div>
 				</div>
 			</div>
 
-			{/* <div
+			<div
 				className={
 					"category-container" +
 					getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -139,33 +136,87 @@ export default function AccountModalChangeSettings() {
 				</h2>
 				<div className="category-container__content-container category-container__content-container--smaller-top-margin">
 					<label className="category-container__content-container__label">
-						Filter out completed projects (by default)
+						Sort projects by
 					</label>
-					<ToggleSwitch
-						name="sort-projects-ascending"
-						isOn={
-							reduxState[ACCOUNT_CONTAINER].settings
-								.filter_completed_projects_by_default
+					<select
+						name="project_sort_id"
+						value={reduxState[ACCOUNT_CONTAINER].settings.project_sort_id}
+						onChange={(e) => onChangeSettings(e)}
+						id="account-settings-sort-projects-category"
+						className={
+							"category-container__content-container__sort-select" +
+							getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+								reduxState[ACCOUNT_CONTAINER].settings.theme_color
+							)
 						}
-						onChangeFunction={onChangeFilterCompletedProjects}
-						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-					/>
+					>
+						{reduxState[ACCOUNT_CONTAINER].settingSortCategories.map(
+							(obj, idx) => {
+								return (
+									<option key={idx} value={obj.sort_id}>
+										{obj.category}
+									</option>
+								);
+							}
+						)}
+					</select>
+					<label className="category-container__content-container__label">
+						Sort ascending
+					</label>
+					<div className="category-container__content-container__toggle-switch-container">
+						<ToggleSwitch
+							name="project_sort_ascending"
+							onChangeFunction={onChangeSettings}
+							isOn={
+								reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending
+							}
+							id="account-settings-sort-projects-ascending"
+							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						/>
+					</div>
 				</div>
 				<div className="category-container__content-container">
-					<label className="category-container__content-container__label">
-						Filter out completed bugs (by default)
+				<label className="category-container__content-container__label">
+						Sort bugs by
 					</label>
-					<ToggleSwitch
-						name="sort-bugs-ascending"
-						isOn={
-							reduxState[ACCOUNT_CONTAINER].settings
-								.filter_completed_bugs_by_default
+					<select
+						name="bug_sort_id"
+						value={reduxState[ACCOUNT_CONTAINER].settings.bug_sort_id}
+						onChange={(e) => onChangeSettings(e)}
+						id="account-settings-sort-bugs-category"
+						className={
+							"category-container__content-container__sort-select" +
+							getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+								reduxState[ACCOUNT_CONTAINER].settings.theme_color
+							)
 						}
-						onChangeFunction={onChangeFilterCompletedBugs}
-						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-					/>
+					>
+						{reduxState[ACCOUNT_CONTAINER].settingSortCategories.map(
+							(obj, idx) => {
+								return (
+									<option key={idx} value={obj.sort_id}>
+										{obj.category}
+									</option>
+								);
+							}
+						)}
+					</select>
+					<label className="category-container__content-container__label">
+						Sort ascending
+					</label>
+					<div className="category-container__content-container__toggle-switch-container">
+						<ToggleSwitch
+							name="bug_sort_ascending"
+							onChangeFunction={onChangeSettings}
+							isOn={reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending}
+							id="account-settings-sort-bugs-ascending"
+							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						/>
+					</div>
 				</div>
-			</div> */}
+			</div>
 			<span
 				className={
 					"backend-errors" +

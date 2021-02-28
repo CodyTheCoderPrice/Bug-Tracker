@@ -16,7 +16,7 @@ const initialState = {
 	accountInfo: accountReducer(undefined, {}),
 	settings: accountSettingsReducer(undefined, {}),
 	settingThemes: accountSettingThemesReducer(undefined, {}),
-	accountSettingSortCategories: accountSettingSortCategoriesReducer(
+	settingSortCategories: accountSettingSortCategoriesReducer(
 		undefined,
 		{}
 	),
@@ -54,8 +54,8 @@ export function accountContainerReducer(state = initialState, action) {
 						state.settingThemes,
 						action
 					),
-					accountSettingSortCategories: accountSettingSortCategoriesReducer(
-						state.accountSettingSortCategories,
+					settingSortCategories: accountSettingSortCategoriesReducer(
+						state.settingSortCategories,
 						action
 					),
 				};
