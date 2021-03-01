@@ -161,23 +161,25 @@ export default function AccountModalChangeSettings() {
 							}
 						)}
 					</select>
-					<label className="category-container__content-container__label">
-						Sort ascending
-					</label>
-					<div className="category-container__content-container__toggle-switch-container">
-						<ToggleSwitch
-							name="project_sort_ascending"
-							onChangeFunction={onChangeSettings}
-							isOn={
-								reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending
-							}
-							id="account-settings-sort-projects-ascending"
-							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-						/>
+					<div className="sort-ascending-float-right-container">
+						<label className="category-container__content-container__label">
+							Sort ascending
+						</label>
+						<div className="category-container__content-container__toggle-switch-container">
+							<ToggleSwitch
+								name="project_sort_ascending"
+								onChangeFunction={onChangeSettings}
+								isOn={
+									reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending
+								}
+								id="account-settings-sort-projects-ascending"
+								dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+							/>
+						</div>
 					</div>
 				</div>
 				<div className="category-container__content-container">
-				<label className="category-container__content-container__label">
+					<label className="category-container__content-container__label">
 						Sort bugs by
 					</label>
 					<select
@@ -203,17 +205,19 @@ export default function AccountModalChangeSettings() {
 							}
 						)}
 					</select>
-					<label className="category-container__content-container__label">
-						Sort ascending
-					</label>
-					<div className="category-container__content-container__toggle-switch-container">
-						<ToggleSwitch
-							name="bug_sort_ascending"
-							onChangeFunction={onChangeSettings}
-							isOn={reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending}
-							id="account-settings-sort-bugs-ascending"
-							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-						/>
+					<div className="sort-ascending-float-right-container">
+						<label className="category-container__content-container__label">
+							Sort ascending
+						</label>
+						<div className="category-container__content-container__toggle-switch-container">
+							<ToggleSwitch
+								name="bug_sort_ascending"
+								onChangeFunction={onChangeSettings}
+								isOn={reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending}
+								id="account-settings-sort-bugs-ascending"
+								dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

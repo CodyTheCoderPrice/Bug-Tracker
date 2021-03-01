@@ -915,11 +915,12 @@ dropdown can overlap all other components
   font-size: 18px;
 }
 .edit-account-modal-component .category-container__content-container {
-  margin-top: 15px;
+  margin-top: 20px;
   height: 24px;
+  color: #272727;
 }
 .edit-account-modal-component .category-container__content-container--smaller-top-margin {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 .edit-account-modal-component .category-container__content-container__label {
   float: left;
@@ -934,7 +935,7 @@ dropdown can overlap all other components
 }
 .edit-account-modal-component .category-container__content-container__sort-select {
   float: left;
-  margin: 2px 20px 0 0;
+  margin: 2px 35px 0 0;
   outline: none;
   border: 1px solid gray;
   background: #e5e5e5;
@@ -943,6 +944,9 @@ dropdown can overlap all other components
 }
 .edit-account-modal-component .category-container__content-container__sort-select:focus {
   border-color: #258faa;
+}
+.edit-account-modal-component .sort-ascending-float-right-container {
+  float: right;
 }
 
 .delete-modal-component .blurred-background {
@@ -3028,8 +3032,8 @@ body {
 .js-calc-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false > .category-container__heading {
   background-color: white;
 }
-.app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container > label,
-.js-calc-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container > label {
+.app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container,
+.js-calc-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container {
   color: #272727;
 }
 .app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true,
@@ -3040,8 +3044,8 @@ body {
 .js-calc-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__heading {
   background-color: #333333;
 }
-.app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__content-container > label,
-.js-calc-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__content-container > label {
+.app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__content-container,
+.js-calc-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__content-container {
   color: #a9b3bb;
 }
 .app-component .js-set-top-bar-border-and-background-color-dark-mode-false,

@@ -149,12 +149,13 @@
 	}
 
 	.category-container__content-container {
-		margin-top: 15px;
+		margin-top: 20px;
 		height: v.$account-modal-settings-content-container-height;
+		color: v.$mode-base-secondary-text-color-light;
 	}
 
 	.category-container__content-container--smaller-top-margin {
-		margin-top: 5px;
+		margin-top: 10px;
 	}
 
 	.category-container__content-container__label {
@@ -174,7 +175,7 @@
 
 	.category-container__content-container__sort-select {
 		float: left;
-		margin: 2px 20px 0 0;
+		margin: 2px 35px 0 0;
 		outline: none;
 		border: 1px solid gray;
 		background: v.$mode-base-form-input-background-color-light;
@@ -185,5 +186,9 @@
 		&:focus {
 			border-color: v.$default-theme-mode-focus-border-color;
 		}
+	}
+
+	.sort-ascending-float-right-container {
+		float: right;
 	}
 }

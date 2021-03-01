@@ -297,7 +297,7 @@ body {
 			background-color: v.$mode-base-background-color-light;
 		}
 
-		& > .category-container__content-container > label {
+		& > .category-container__content-container {
 			color: v.$mode-base-secondary-text-color-light;
 		}
 	}
@@ -308,7 +308,7 @@ body {
 			background-color: v.$mode-base-background-color-dark;
 		}
 
-		& > .category-container__content-container > label {
+		& > .category-container__content-container {
 			color: v.$mode-base-secondary-text-color-dark;
 		}
 	}
