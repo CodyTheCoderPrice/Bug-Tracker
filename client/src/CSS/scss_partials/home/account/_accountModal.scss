@@ -169,17 +169,21 @@
 		line-height: v.$account-modal-settings-content-container-height - 2;
 	}
 
+	.category-container__content-container__label-sort-bug-margin-right {
+		margin-right: 30px;
+	}
+
 	.category-container__content-container__toggle-switch-container {
 		float: left;
 	}
 
 	.category-container__content-container__sort-select {
 		float: left;
-		margin: 2px 35px 0 0;
+		margin: 2px 15px 0 0;
 		outline: none;
 		border: 1px solid gray;
 		background: v.$mode-base-form-input-background-color-light;
-		width: 100px;
+		width: 120px;
 		// one pixel smaller than associated label
 		font-size: v.$base-font-size - 2;
 

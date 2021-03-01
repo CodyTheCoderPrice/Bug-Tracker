@@ -47,6 +47,18 @@ export default function AccountModalChangeSettings() {
 		dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 	};
 
+	const getSortSelectOptions = () => {
+		return reduxState[ACCOUNT_CONTAINER].settingSortCategories.map(
+			(obj, idx) => {
+				return (
+					<option key={idx} value={obj.sort_id}>
+						{obj.category + (obj.marks_default ? " (default)" : "")}
+					</option>
+				);
+			}
+		);
+	};
+
 	return (
 		<div>
 			<h1 className="title">Account Settings</h1>
@@ -151,15 +163,7 @@ export default function AccountModalChangeSettings() {
 							)
 						}
 					>
-						{reduxState[ACCOUNT_CONTAINER].settingSortCategories.map(
-							(obj, idx) => {
-								return (
-									<option key={idx} value={obj.sort_id}>
-										{obj.category}
-									</option>
-								);
-							}
-						)}
+						{getSortSelectOptions()}
 					</select>
 					<div className="sort-ascending-float-right-container">
 						<label className="category-container__content-container__label">
@@ -179,7 +183,7 @@ export default function AccountModalChangeSettings() {
 					</div>
 				</div>
 				<div className="category-container__content-container">
-					<label className="category-container__content-container__label">
+					<label className="category-container__content-container__label category-container__content-container__label-sort-bug-margin-right">
 						Sort bugs by
 					</label>
 					<select
@@ -195,15 +199,7 @@ export default function AccountModalChangeSettings() {
 							)
 						}
 					>
-						{reduxState[ACCOUNT_CONTAINER].settingSortCategories.map(
-							(obj, idx) => {
-								return (
-									<option key={idx} value={obj.sort_id}>
-										{obj.category}
-									</option>
-								);
-							}
-						)}
+						{getSortSelectOptions()}
 					</select>
 					<div className="sort-ascending-float-right-container">
 						<label className="category-container__content-container__label">

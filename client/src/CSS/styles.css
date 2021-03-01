@@ -930,16 +930,19 @@ dropdown can overlap all other components
   vertical-align: middle;
   line-height: 22px;
 }
+.edit-account-modal-component .category-container__content-container__label-sort-bug-margin-right {
+  margin-right: 30px;
+}
 .edit-account-modal-component .category-container__content-container__toggle-switch-container {
   float: left;
 }
 .edit-account-modal-component .category-container__content-container__sort-select {
   float: left;
-  margin: 2px 35px 0 0;
+  margin: 2px 15px 0 0;
   outline: none;
   border: 1px solid gray;
   background: #e5e5e5;
-  width: 100px;
+  width: 120px;
   font-size: 13px;
 }
 .edit-account-modal-component .category-container__content-container__sort-select:focus {
