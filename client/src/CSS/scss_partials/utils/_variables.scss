@@ -198,6 +198,10 @@ $mode-navbar-hamburger-dropdown-option-icon-text-color-light: $gray-dark-level-1
 $mode-navbar-hamburger-dropdown-option-icon-text-color-dark: $gray-level-7;
 $mode-account-sidebar-modal-background-color-light: $mode-base-background-color-light;
 $mode-account-sidebar-modal-background-color-dark: $mode-base-background-color-dark;
+$mode-account-sidebar-horizontal-dividing-line-border-color-light: $gray-light-level-11;
+$mode-account-sidebar-horizontal-dividing-line-border-color-dark: $gray-level-7;
+$mode-account-sidebar-logout-button-border-color-light: $mode-account-sidebar-horizontal-dividing-line-border-color-light;
+$mode-account-sidebar-logout-button-border-color-dark: $mode-account-sidebar-horizontal-dividing-line-border-color-dark;
 $mode-account-sidebar-logout-button-hover-background-color-light: $gray-light-level-1;
 $mode-account-sidebar-logout-button-hover-background-color-dark: $gray-dark-level-5;
 $mode-account-modal-delete-account-capital-delete-text-color-light: $mode-backend-errors-text-color-light;

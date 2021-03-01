@@ -13,7 +13,8 @@ import {
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
-	getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLightOrDarkMode,
+	getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode,
+	getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 
 import { useSidebarResize } from "../../../utils/hooks";
@@ -115,14 +116,28 @@ export default function AccountSidebar() {
 							Edit Account
 						</span>
 					</div>
-					<div className="horizontal-dividing-line" />
+					<div
+						className={
+							"horizontal-dividing-line" +
+							getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					/>
 					<AccountSidebarChangeAppearance />
-					<div className="horizontal-dividing-line horizontal-dividing-line--half-top-margin" />
+					<div
+						className={
+							"horizontal-dividing-line horizontal-dividing-line--half-top-margin" +
+							getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					/>
 					<div className="button-container">
 						<div
 							className={
 								"button-container__logout-button" +
-								getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLightOrDarkMode(
+								getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}

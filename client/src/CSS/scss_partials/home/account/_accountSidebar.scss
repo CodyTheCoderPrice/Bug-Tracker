@@ -86,7 +86,7 @@
 	.horizontal-dividing-line {
 		position: relative;
 		margin: v.$account-sidebar-dividing-line-margin-top-bottom 0px;
-		border-top: solid silver 2px;
+		border-top: solid v.$mode-account-sidebar-horizontal-dividing-line-border-color-light 2px;
 	}
 
 	// Used to allow backend-errors to be positioned half way between content
@@ -105,7 +105,7 @@
 	.button-container__logout-button {
 		@include m.horizontal-center();
 
-		border: solid silver 1px;
+		border: solid v.$mode-account-sidebar-logout-button-border-color-light 1px;
 		border-radius: 5px;
 		height: v.$account-sidebar-logout-button-height;
 		width: 80px;

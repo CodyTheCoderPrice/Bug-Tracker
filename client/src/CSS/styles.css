@@ -674,7 +674,7 @@ dropdown can overlap all other components
 .account-sidebar-component .horizontal-dividing-line {
   position: relative;
   margin: 34px 0px;
-  border-top: solid silver 2px;
+  border-top: solid #b1b1b1 2px;
 }
 .account-sidebar-component .horizontal-dividing-line--half-top-margin {
   margin-top: 17px;
@@ -688,7 +688,7 @@ dropdown can overlap all other components
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  border: solid silver 1px;
+  border: solid #b1b1b1 1px;
   border-radius: 5px;
   height: 40px;
   width: 80px;
@@ -2981,14 +2981,30 @@ body {
 .js-calc-app-component .js-set-account-sidebar-modal-background-color-dark-mode-true {
   background-color: #333333;
 }
-.app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:hover, .app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:active,
-.js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:hover,
-.js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false:active {
+.app-component .js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false,
+.js-calc-app-component .js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false {
+  border-color: #b1b1b1;
+}
+.app-component .js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-true,
+.js-calc-app-component .js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-true {
+  border-color: #636363;
+}
+.app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-false,
+.js-calc-app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-false {
+  border-color: #b1b1b1;
+}
+.app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-false:hover, .app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-false:active,
+.js-calc-app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-false:hover,
+.js-calc-app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-false:active {
   background-color: #fbfbfb;
 }
-.app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true:hover, .app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true:active,
-.js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true:hover,
-.js-calc-app-component .js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true:active {
+.app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true,
+.js-calc-app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true {
+  border-color: #636363;
+}
+.app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:hover, .app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:active,
+.js-calc-app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:hover,
+.js-calc-app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:active {
   background-color: #3a3a3a;
 }
 .app-component .js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-false,

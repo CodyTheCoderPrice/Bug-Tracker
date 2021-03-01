@@ -146,12 +146,22 @@ export function getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkM
 	);
 }
 
-// Light/Dark mode -- AccountSidebar logout-button -- hover background colors
-export function getAccountSidebarLogoutButtonHoverBackgroundColorClassNameForLightOrDarkMode(
+// Light/Dark mode -- AccountSidebar horizontal-dividing-line -- border colors
+export function getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-account-sidebar-logout-button-hover-background-color-dark-mode-" +
+		" js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-" +
+		dark_mode
+	);
+}
+
+// Light/Dark mode -- AccountSidebar logout-button -- border hover background colors
+export function getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-" +
 		dark_mode
 	);
 }

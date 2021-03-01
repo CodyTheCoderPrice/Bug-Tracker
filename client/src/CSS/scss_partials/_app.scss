@@ -235,14 +235,26 @@ body {
 		background-color: v.$mode-account-sidebar-modal-background-color-dark;
 	}
 
-	// Light/Dark mode -- AccountSidebar logout-button -- hover background colors
-	.js-set-account-sidebar-logout-button-hover-background-color-dark-mode-false {
+	// Light/Dark mode -- AccountSidebar horizontal-dividing-line -- border colors
+	.js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false {
+		border-color: v.$mode-account-sidebar-horizontal-dividing-line-border-color-light;
+	}
+	.js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-true {
+		border-color: v.$mode-account-sidebar-horizontal-dividing-line-border-color-dark;
+	}
+
+	// Light/Dark mode -- AccountSidebar logout-button -- border and hover background colors
+	.js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-false {
+		border-color: v.$mode-account-sidebar-logout-button-border-color-light;
+
 		&:hover,
 		&:active {
 			background-color: v.$mode-account-sidebar-logout-button-hover-background-color-light;
 		}
 	}
-	.js-set-account-sidebar-logout-button-hover-background-color-dark-mode-true {
+	.js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true {
+		border-color: v.$mode-account-sidebar-logout-button-border-color-dark;
+
 		&:hover,
 		&:active {
 			background-color: v.$mode-account-sidebar-logout-button-hover-background-color-dark;
