@@ -94,6 +94,15 @@ $queen-blue-light-level-1: #4d6e92;
 $queen-blue-light-level-2: #4d6b8b;
 $queen-blue-dark-level-1: #45607e;
 $queen-blue-dark-level-2: #3d5774;
+// Sky blues
+$sky-blue-light-level-1: #1fb3e4;
+$sky-blue-light-level-2: #1eaad8;
+$sky-blue-light-level-3: #1da3cf;
+$sky-blue-light-level-4: #1b99c4;
+$sky-blue-level-1: #0091c2;
+$sky-blue-level-2: #0083af;
+$sky-blue-level-3: #017ca5;
+$sky-blue-level-4: #007399;
 // Turkish blues
 $turkish-blue-level-1: #74acc2;
 $turkish-blue-level-2: #6ca0b4;
@@ -300,6 +309,8 @@ $theme-brighter-border-background-color-blue-turkish: $turkish-blue-level-3;
 $theme-base-border-background-color-blue-turkish: $turkish-blue-level-4;
 $theme-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
 $theme-base-border-background-color-blue-queen: $queen-blue-dark-level-2;
+$theme-brighter-border-background-color-blue-sky: $sky-blue-light-level-2;
+$theme-base-border-background-color-blue-sky: $sky-blue-level-1;
 // Themes + Light/Dark mode
 $theme-mode-blue-turkish-focus-border-color-light: $turquoise-blue-light-level-4;
 $theme-mode-blue-turkish-focus-border-color-dark: $turquoise-blue-light-level-5;
@@ -309,6 +320,10 @@ $theme-mode-blue-queen-focus-border-color-light: $egyptian-blue-level-2;
 $theme-mode-blue-queen-focus-border-color-dark: $egyptian-blue-level-4;
 $theme-mode-blue-queen-text-color-light: $bdazzled-blue-level-5;
 $theme-mode-blue-queen-text-color-dark: $bdazzled-blue-level-1;
+$theme-mode-blue-sky-focus-border-color-light: $sky-blue-light-level-3;
+$theme-mode-blue-sky-focus-border-color-dark: $sky-blue-level-3;
+$theme-mode-blue-sky-text-color-light: $sky-blue-level-2;
+$theme-mode-blue-sky-text-color-dark: $sky-blue-light-level-1;
 
 // Status colors
 $status-gray: $gray-level-3;
