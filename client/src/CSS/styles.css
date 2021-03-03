@@ -228,7 +228,7 @@
   top: 0;
 }
 .navbar-container .navbar {
-  background-color: #537c8d;
+  background-color: #6595a8;
   height: 56px;
   width: 100%;
 }
@@ -281,7 +281,7 @@ dropdown can overlap all other components
 .js-calc-breadcrumb-container .breadcrumb-button {
   position: relative;
   float: left;
-  background-color: #537c8d;
+  background-color: #6595a8;
   height: 56px;
   cursor: pointer;
 }
@@ -854,7 +854,7 @@ dropdown can overlap all other components
   outline: none;
   border: 0;
   border-radius: 10px;
-  background-color: #6595a8;
+  background-color: #72aac0;
   padding: 10px;
   width: 100%;
   color: white;
@@ -865,7 +865,7 @@ dropdown can overlap all other components
   margin-bottom: 10px;
 }
 .edit-account-modal-component .form__submit:hover, .edit-account-modal-component .form__submit:active, .edit-account-modal-component .form__submit:focus {
-  background-color: #537c8d;
+  background-color: #6595a8;
 }
 .edit-account-modal-component .form__submit--delete {
   background-color: #e95454;
@@ -1372,7 +1372,7 @@ dropdown can overlap all other components
   outline: none;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: #6595a8;
+  background-color: #72aac0;
   padding: 10px 0px 10px 0px;
   width: 127px;
   color: white;
@@ -1381,7 +1381,7 @@ dropdown can overlap all other components
   cursor: pointer;
 }
 .item-view-component .form-submit-centering-container__button:hover, .item-view-component .form-submit-centering-container__button:active, .item-view-component .form-submit-centering-container__button:focus {
-  background-color: #537c8d;
+  background-color: #6595a8;
 }
 
 .item-view-component .comment-divider {
@@ -1421,7 +1421,7 @@ dropdown can overlap all other components
   outline: none;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: #6595a8;
+  background-color: #72aac0;
   padding: 10px 0px 10px 0px;
   width: 127px;
   color: white;
@@ -1431,7 +1431,7 @@ dropdown can overlap all other components
   float: left;
 }
 .item-view-component .comment__centering-container__pair-container__submit-edit-button:hover, .item-view-component .comment__centering-container__pair-container__submit-edit-button:active, .item-view-component .comment__centering-container__pair-container__submit-edit-button:focus {
-  background-color: #537c8d;
+  background-color: #6595a8;
 }
 .item-view-component .comment__centering-container__pair-container__cancel-button {
   -webkit-touch-callout: none;
@@ -1643,7 +1643,7 @@ dropdown can overlap all other components
   outline: none;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: #6595a8;
+  background-color: #72aac0;
   padding: 10px 0px 10px 0px;
   width: 127px;
   color: white;
@@ -1653,7 +1653,7 @@ dropdown can overlap all other components
   float: left;
 }
 .item-view-component .form-buttons-centered-container__submit-button:hover, .item-view-component .form-buttons-centered-container__submit-button:active, .item-view-component .form-buttons-centered-container__submit-button:focus {
-  background-color: #537c8d;
+  background-color: #6595a8;
 }
 .item-view-component .form-buttons-centered-container__cancel-button {
   -webkit-touch-callout: none;
@@ -1853,7 +1853,7 @@ dropdown can overlap all other components
   box-sizing: border-box;
   display: inline-block;
   outline: none;
-  border: 2px solid #537c8d;
+  border: 2px solid #6595a8;
   border-right: none;
   border-radius: 5px 0 0 5px;
   padding: 0px 8px 0px 8px;
@@ -1874,7 +1874,7 @@ dropdown can overlap all other components
   position: absolute;
   display: inline-block;
   border-radius: 0 5px 5px 0;
-  background-color: #537c8d;
+  background-color: #6595a8;
   height: 28px;
   width: 38px;
   cursor: pointer;
@@ -2275,7 +2275,7 @@ dropdown can overlap all other components
   outline: none;
   border: 0;
   border-radius: 10px;
-  background-color: #6595a8;
+  background-color: #72aac0;
   padding: 10px;
   width: 100%;
   color: white;
@@ -2286,7 +2286,7 @@ dropdown can overlap all other components
   margin-bottom: 15px;
 }
 .create-item-component .form__submit:hover, .create-item-component .form__submit:active, .create-item-component .form__submit:focus {
-  background-color: #537c8d;
+  background-color: #6595a8;
 }
 
 .list-view-top-bar,
@@ -2365,7 +2365,7 @@ dropdown can overlap all other components
   box-sizing: border-box;
   display: inline-block;
   outline: none;
-  border: 2px solid #537c8d;
+  border: 2px solid #6595a8;
   border-right: none;
   border-radius: 5px 0 0 5px;
   padding: 0px 8px 0px 8px;
@@ -2388,7 +2388,7 @@ dropdown can overlap all other components
   display: inline-block;
   margin-left: -1px;
   border-radius: 0 5px 5px 0;
-  background-color: #537c8d;
+  background-color: #6595a8;
   height: 28px;
   width: 38px;
   cursor: pointer;
@@ -3399,19 +3399,19 @@ body {
 }
 .app-component .js-set-brighter-border-color-theme-blue-turkish,
 .js-calc-app-component .js-set-brighter-border-color-theme-blue-turkish {
-  border-color: #6595a8;
+  border-color: #72aac0;
 }
 .app-component .js-set-base-border-color-theme-blue-turkish,
 .js-calc-app-component .js-set-base-border-color-theme-blue-turkish {
-  border-color: #537c8d;
+  border-color: #6595a8;
 }
 .app-component .js-set-brighter-border-color-theme-blue-queen,
 .js-calc-app-component .js-set-brighter-border-color-theme-blue-queen {
-  border-color: #4d6e92;
+  border-color: #587ba0;
 }
 .app-component .js-set-base-border-color-theme-blue-queen,
 .js-calc-app-component .js-set-base-border-color-theme-blue-queen {
-  border-color: #3d5774;
+  border-color: #45607e;
 }
 .app-component .js-set-brighter-border-color-theme-blue-sky,
 .js-calc-app-component .js-set-brighter-border-color-theme-blue-sky {
@@ -3423,19 +3423,19 @@ body {
 }
 .app-component .js-set-brighter-background-color-theme-blue-turkish,
 .js-calc-app-component .js-set-brighter-background-color-theme-blue-turkish {
-  background-color: #6595a8;
+  background-color: #72aac0;
 }
 .app-component .js-set-base-background-color-theme-blue-turkish,
 .js-calc-app-component .js-set-base-background-color-theme-blue-turkish {
-  background-color: #537c8d;
+  background-color: #6595a8;
 }
 .app-component .js-set-brighter-background-color-theme-blue-queen,
 .js-calc-app-component .js-set-brighter-background-color-theme-blue-queen {
-  background-color: #4d6e92;
+  background-color: #587ba0;
 }
 .app-component .js-set-base-background-color-theme-blue-queen,
 .js-calc-app-component .js-set-base-background-color-theme-blue-queen {
-  background-color: #3d5774;
+  background-color: #45607e;
 }
 .app-component .js-set-brighter-background-color-theme-blue-sky,
 .js-calc-app-component .js-set-brighter-background-color-theme-blue-sky {
@@ -3447,21 +3447,21 @@ body {
 }
 .app-component .js-set-background-color-with-hover-theme-blue-turkish,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue-turkish {
-  background-color: #6595a8;
+  background-color: #72aac0;
 }
 .app-component .js-set-background-color-with-hover-theme-blue-turkish:hover, .app-component .js-set-background-color-with-hover-theme-blue-turkish:active,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue-turkish:hover,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue-turkish:active {
-  background-color: #537c8d;
+  background-color: #6595a8;
 }
 .app-component .js-set-background-color-with-hover-theme-blue-queen,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue-queen {
-  background-color: #4d6e92;
+  background-color: #587ba0;
 }
 .app-component .js-set-background-color-with-hover-theme-blue-queen:hover, .app-component .js-set-background-color-with-hover-theme-blue-queen:active,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue-queen:hover,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue-queen:active {
-  background-color: #3d5774;
+  background-color: #45607e;
 }
 .app-component .js-set-background-color-with-hover-theme-blue-sky,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue-sky {
@@ -3474,19 +3474,19 @@ body {
 }
 .app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish,
 .js-calc-app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish {
-  border-left-color: #6595a8;
+  border-left-color: #72aac0;
 }
 .app-component .js-set-base-breadcrumb-arrow-color-theme-blue-turkish,
 .js-calc-app-component .js-set-base-breadcrumb-arrow-color-theme-blue-turkish {
-  border-left-color: #537c8d;
+  border-left-color: #6595a8;
 }
 .app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-queen,
 .js-calc-app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-queen {
-  border-left-color: #4d6e92;
+  border-left-color: #587ba0;
 }
 .app-component .js-set-base-breadcrumb-arrow-color-theme-blue-queen,
 .js-calc-app-component .js-set-base-breadcrumb-arrow-color-theme-blue-queen {
-  border-left-color: #3d5774;
+  border-left-color: #45607e;
 }
 .app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-sky,
 .js-calc-app-component .js-set-brighter-breadcrumb-arrow-color-theme-blue-sky {
@@ -3498,23 +3498,23 @@ body {
 }
 .app-component .js-set-form-submit-button-color-theme-blue-turkish,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-turkish {
-  background-color: #6595a8;
+  background-color: #72aac0;
 }
 .app-component .js-set-form-submit-button-color-theme-blue-turkish:hover, .app-component .js-set-form-submit-button-color-theme-blue-turkish:active, .app-component .js-set-form-submit-button-color-theme-blue-turkish:focus,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-turkish:hover,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-turkish:active,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-turkish:focus {
-  background-color: #537c8d;
+  background-color: #6595a8;
 }
 .app-component .js-set-form-submit-button-color-theme-blue-queen,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-queen {
-  background-color: #4d6e92;
+  background-color: #587ba0;
 }
 .app-component .js-set-form-submit-button-color-theme-blue-queen:hover, .app-component .js-set-form-submit-button-color-theme-blue-queen:active, .app-component .js-set-form-submit-button-color-theme-blue-queen:focus,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-queen:hover,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-queen:active,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-queen:focus {
-  background-color: #3d5774;
+  background-color: #45607e;
 }
 .app-component .js-set-form-submit-button-color-theme-blue-sky,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-sky {
@@ -3678,47 +3678,47 @@ body {
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > input,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > input {
-  border-color: #537c8d;
+  border-color: #6595a8;
   background-color: white;
   color: black;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > div {
-  border-color: #537c8d;
-  background-color: #537c8d;
+  border-color: #6595a8;
+  background-color: #6595a8;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > input,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > input {
-  border-color: #537c8d;
+  border-color: #6595a8;
   background-color: #363636;
   color: #c7d1db;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > div {
-  border-color: #537c8d;
-  background-color: #537c8d;
+  border-color: #6595a8;
+  background-color: #6595a8;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > input,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > input {
-  border-color: #3d5774;
+  border-color: #45607e;
   background-color: white;
   color: black;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > div {
-  border-color: #3d5774;
-  background-color: #3d5774;
+  border-color: #45607e;
+  background-color: #45607e;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > input,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > input {
-  border-color: #3d5774;
+  border-color: #45607e;
   background-color: #363636;
   color: #c7d1db;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > div {
-  border-color: #3d5774;
-  background-color: #3d5774;
+  border-color: #45607e;
+  background-color: #45607e;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-sky > input,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-sky > input {
