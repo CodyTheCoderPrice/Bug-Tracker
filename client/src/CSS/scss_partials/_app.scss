@@ -699,6 +699,13 @@ body {
 	.js-set-base-border-color-theme-blue-sky {
 		border-color: v.$theme-base-border-background-color-blue-sky;
 	}
+	.js-set-brighter-border-color-theme-purple-rain {
+		border-color: v.$theme-brighter-border-background-color-purple-rain;
+	}
+	.js-set-base-border-color-theme-purple-rain {
+		border-color: v.$theme-base-border-background-color-purple-rain;
+	}
+	
 
 	// Theme -- background colors
 	.js-set-brighter-background-color-theme-blue-turkish {
@@ -718,6 +725,12 @@ body {
 	}
 	.js-set-base-background-color-theme-blue-sky {
 		background-color: v.$theme-base-border-background-color-blue-sky;
+	}
+	.js-set-brighter-background-color-theme-purple-rain {
+		background-color: v.$theme-brighter-border-background-color-purple-rain;
+	}
+	.js-set-base-background-color-theme-purple-rain {
+		background-color: v.$theme-base-border-background-color-purple-rain;
 	}
 
 	// Theme -- background (with hover) colors
@@ -745,6 +758,14 @@ body {
 			background-color: v.$theme-base-border-background-color-blue-sky;
 		}
 	}
+	.js-set-background-color-with-hover-theme-purple-rain {
+		background-color: v.$theme-brighter-border-background-color-purple-rain;
+
+		&:hover,
+		&:active {
+			background-color: v.$theme-base-border-background-color-purple-rain;
+		}
+	}
 
 	// Theme -- breadcrumb arrow -- border colors
 	.js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish {
@@ -764,6 +785,12 @@ body {
 	}
 	.js-set-base-breadcrumb-arrow-color-theme-blue-sky {
 		border-left-color: v.$theme-base-border-background-color-blue-sky;
+	}
+	.js-set-brighter-breadcrumb-arrow-color-theme-purple-rain {
+		border-left-color: v.$theme-brighter-border-background-color-purple-rain;
+	}
+	.js-set-base-breadcrumb-arrow-color-theme-purple-rain {
+		border-left-color: v.$theme-base-border-background-color-purple-rain;
 	}
 
 	// Theme -- form-submit button -- background (with hover/focus) colors
@@ -792,6 +819,15 @@ body {
 		&:active,
 		&:focus {
 			background-color: v.$theme-base-border-background-color-blue-sky;
+		}
+	}
+	.js-set-form-submit-button-color-theme-purple-rain {
+		background-color: v.$theme-brighter-border-background-color-purple-rain;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: v.$theme-base-border-background-color-purple-rain;
 		}
 	}
 
@@ -829,6 +865,16 @@ body {
 			border-color: v.$theme-mode-blue-sky-focus-border-color-dark;
 		}
 	}
+	.js-set-focus-border-color-mode-light-theme-purple-rain {
+		&:focus {
+			border-color: v.$theme-mode-purple-rain-focus-border-color-light;
+		}
+	}
+	.js-set-focus-border-color-mode-dark-theme-purple-rain {
+		&:focus {
+			border-color: v.$theme-mode-purple-rain-focus-border-color-dark;
+		}
+	}
 
 	// Theme + Light/Dark mode --  text color
 	.js-set-text-color-mode-light-theme-blue-turkish {
@@ -848,6 +894,12 @@ body {
 	}
 	.js-set-text-color-mode-dark-theme-blue-sky {
 		color: v.$theme-mode-blue-sky-text-color-dark;
+	}
+	.js-set-text-color-mode-light-theme-purple-rain {
+		color: v.$theme-mode-purple-rain-text-color-light;
+	}
+	.js-set-text-color-mode-dark-theme-purple-rain {
+		color: v.$theme-mode-purple-rain-text-color-dark;
 	}
 
 	// Theme + Light/Dark mode -- CustomCheckbox -- border, background, text colors
@@ -959,6 +1011,42 @@ body {
 			color: v.$theme-mode-blue-sky-text-color-dark;
 		}
 	}
+	.js-set-custom-checkbox-border-background-text-color-mode-light-theme-purple-rain {
+		border-color: v.$mode-custom-checkbox-border-color-light;
+		background-color: v.$mode-custom-checkbox-background-color-light;
+
+		&:hover {
+			border-color: v.$theme-mode-purple-rain-text-color-light;
+		}
+
+		// For checkmark
+		& + i {
+			color: v.$mode-custom-checkmark-text-color-light;
+		}
+
+		// For checkmark
+		&:hover + i {
+			color: v.$theme-mode-purple-rain-text-color-light;
+		}
+	}
+	.js-set-custom-checkbox-border-background-text-color-mode-dark-theme-purple-rain {
+		border-color: v.$mode-custom-checkbox-border-color-dark;
+		background-color: v.$mode-custom-checkbox-background-color-dark;
+
+		&:hover {
+			border-color: v.$theme-mode-purple-rain-text-color-dark;
+		}
+
+		// For checkmark
+		& + i {
+			color: v.$mode-custom-checkmark-text-color-dark;
+		}
+
+		// For checkmark
+		&:hover + i {
+			color: v.$theme-mode-purple-rain-text-color-dark;
+		}
+	}
 
 	// Theme + Light/Dark mode -- TopBar search-bar -- border, background, and text colors
 	.js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish {
@@ -1033,6 +1121,30 @@ body {
 			background-color: v.$theme-base-border-background-color-blue-sky;
 		}
 	}
+	.js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-purple-rain {
+		& > input {
+			border-color: v.$theme-base-border-background-color-purple-rain;
+			background-color: v.$mode-top-bar-search-bar-background-color-light;
+			color: v.$mode-top-bar-search-bar-text-color-light;
+		}
+
+		& > div {
+			border-color: v.$theme-base-border-background-color-purple-rain;
+			background-color: v.$theme-base-border-background-color-purple-rain;
+		}
+	}
+	.js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-purple-rain {
+		& > input {
+			border-color: v.$theme-base-border-background-color-purple-rain;
+			background-color: v.$mode-top-bar-search-bar-background-color-dark;
+			color: v.$mode-top-bar-search-bar-text-color-dark;
+		}
+
+		& > div {
+			border-color: v.$theme-base-border-background-color-purple-rain;
+			background-color: v.$theme-base-border-background-color-purple-rain;
+		}
+	}
 
 	// Theme + Light/Dark mode -- ItemViewEditItemInfo form-input for name -- focus border color
 	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turkish {
@@ -1087,6 +1199,24 @@ body {
 
 		&:focus + .name-centering-container__char-count-centering-container {
 			border-color: v.$theme-mode-blue-sky-focus-border-color-dark;
+		}
+	}
+	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-purple-rain {
+		&:focus {
+			border-color: v.$theme-mode-purple-rain-focus-border-color-light;
+		}
+
+		&:focus + .name-centering-container__char-count-centering-container {
+			border-color: v.$theme-mode-purple-rain-focus-border-color-light;
+		}
+	}
+	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-purple-rain {
+		&:focus {
+			border-color: v.$theme-mode-purple-rain-focus-border-color-dark;
+		}
+
+		&:focus + .name-centering-container__char-count-centering-container {
+			border-color: v.$theme-mode-purple-rain-focus-border-color-dark;
 		}
 	}
 

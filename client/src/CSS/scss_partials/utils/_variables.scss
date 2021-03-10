@@ -120,7 +120,13 @@ $turquoise-blue-light-level-2: #2eb3d4;
 $turquoise-blue-light-level-3: #2ba6c5;
 $turquoise-blue-light-level-4: #258faa;
 $turquoise-blue-light-level-5: #2388a1;
-
+// Candy purples
+$candy-purple-level-1: #b68bdb;
+// Rain purples
+$rain-purple-light-level-1: #9460c2;
+$rain-purple-light-level-2: #8b5ab6;
+$rain-purple-level-1: #7e52a5;
+$rain-purple-level-2: #694489;
 // Basic reds
 $basic-red-light-level-1: #ff3e3e;
 $basic-red-light-level-2: #fc1e1e;
@@ -310,12 +316,14 @@ $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-ligh
 $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-dark: $mode-base-primary-text-color-dark;
 
 // Themes
-$theme-brighter-border-background-color-blue-turkish: $turkish-blue-level-2;
-$theme-base-border-background-color-blue-turkish: $turkish-blue-level-4;
+$theme-brighter-border-background-color-blue-turkish: $turkish-blue-level-3;
+$theme-base-border-background-color-blue-turkish: $turkish-blue-level-5;
 $theme-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
 $theme-base-border-background-color-blue-queen: $queen-blue-dark-level-1;
 $theme-brighter-border-background-color-blue-sky: $sky-blue-light-level-2;
 $theme-base-border-background-color-blue-sky: $sky-blue-level-1;
+$theme-brighter-border-background-color-purple-rain: $rain-purple-light-level-2;
+$theme-base-border-background-color-purple-rain: $rain-purple-level-2;
 // Themes + Light/Dark mode
 $theme-mode-blue-turkish-focus-border-color-light: $turquoise-blue-light-level-4;
 $theme-mode-blue-turkish-focus-border-color-dark: $turquoise-blue-light-level-5;
@@ -329,6 +337,10 @@ $theme-mode-blue-sky-focus-border-color-light: $sky-blue-light-level-3;
 $theme-mode-blue-sky-focus-border-color-dark: $sky-blue-level-3;
 $theme-mode-blue-sky-text-color-light: $sky-blue-level-2;
 $theme-mode-blue-sky-text-color-dark: $sky-blue-light-level-1;
+$theme-mode-purple-rain-focus-border-color-light: $rain-purple-light-level-2;
+$theme-mode-purple-rain-focus-border-color-dark: $rain-purple-light-level-1;
+$theme-mode-purple-rain-text-color-light: $rain-purple-level-1;
+$theme-mode-purple-rain-text-color-dark: $candy-purple-level-1;
 
 // Status colors
 $status-gray: $gray-level-3;
