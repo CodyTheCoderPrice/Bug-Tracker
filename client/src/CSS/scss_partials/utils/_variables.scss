@@ -96,11 +96,17 @@ $maganese-blue-level-3: #03A89E;
 $maganese-blue-level-4: #049c92;
 $maganese-blue-level-5: #048f86;
 $maganese-blue-level-6: #04857c;
-// Natural-Turquoise blues
-$natural-turquoise-blue-level-1: #45C3B8;
 // Old-Copper blues
 $old-copper-blue-level-1: #87b2bd;
 $old-copper-blue-level-2: #7aa2ac;
+// Peacock blues
+$peacock-blue-level-1: #30bfe2;
+$peacock-blue-level-2: #2eb3d4;
+$peacock-blue-level-3: #2ba6c5;
+$peacock-blue-level-4: #258faa;
+$peacock-blue-level-5: #2388a1;
+$peacock-blue-level-6: #217e96;
+$peacock-blue-level-7: #1e768b;
 // Queen blues
 $queen-blue-light-level-1: #587ba0;
 $queen-blue-light-level-2: #537396;
@@ -112,10 +118,12 @@ $sky-blue-light-level-1: #1fb3e4;
 $sky-blue-light-level-2: #1eaad8;
 $sky-blue-light-level-3: #1da3cf;
 $sky-blue-light-level-4: #1b99c4;
-$sky-blue-level-1: #0091c2;
-$sky-blue-level-2: #0083af;
-$sky-blue-level-3: #017ca5;
-$sky-blue-level-4: #007399;
+$sky-blue-level-1: #0097c9;
+$sky-blue-level-2: #0091c2;
+$sky-blue-level-3: #0083af;
+$sky-blue-level-4: #017ca5;
+$sky-blue-level-5: #007399;
+$sky-blue-level-6: #006a8d;
 // Turkish blues
 $turkish-blue-level-1: #74acc2;
 $turkish-blue-level-2: #72aac0;
@@ -124,18 +132,17 @@ $turkish-blue-level-4: #608d9e;
 $turkish-blue-level-5: #537c8d;
 $turkish-blue-level-6: #50798b;
 // Turquoise blues
-$turquoise-blue-light-level-1: #30bfe2;
-$turquoise-blue-light-level-2: #2eb3d4;
-$turquoise-blue-light-level-3: #2ba6c5;
-$turquoise-blue-light-level-4: #258faa;
-$turquoise-blue-light-level-5: #2388a1;
+$turquoise-blue-level-1: #45C3B8;
 // Candy purples
 $candy-purple-level-1: #b68bdb;
+$candy-purple-level-2: #a982cc;
 // Rain purples
 $rain-purple-light-level-1: #9460c2;
 $rain-purple-light-level-2: #8b5ab6;
-$rain-purple-level-1: #7e52a5;
-$rain-purple-level-2: #694489;
+$rain-purple-level-1: #8c5cb6;
+$rain-purple-level-2: #8556ad;
+$rain-purple-level-3: #7e52a5;
+$rain-purple-level-4: #694489;
 // Basic reds
 $basic-red-light-level-1: #ff3e3e;
 $basic-red-light-level-2: #fc1e1e;
@@ -330,31 +337,31 @@ $theme-base-border-background-color-blue-turkish: $turkish-blue-level-4;
 $theme-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
 $theme-base-border-background-color-blue-queen: $queen-blue-dark-level-1;
 $theme-brighter-border-background-color-blue-sky: $sky-blue-light-level-2;
-$theme-base-border-background-color-blue-sky: $sky-blue-level-1;
-$theme-brighter-border-background-color-blue-turquoise: $natural-turquoise-blue-level-1;
+$theme-base-border-background-color-blue-sky: $sky-blue-level-2;
+$theme-brighter-border-background-color-blue-turquoise: $turquoise-blue-level-1;
 $theme-base-border-background-color-blue-turquoise: $maganese-blue-level-3;
 $theme-brighter-border-background-color-purple-rain: $rain-purple-light-level-2;
-$theme-base-border-background-color-purple-rain: $rain-purple-level-2;
+$theme-base-border-background-color-purple-rain: $rain-purple-level-4;
 // Themes + Light/Dark mode
-$theme-mode-blue-turkish-focus-border-color-light: $turquoise-blue-light-level-4;
-$theme-mode-blue-turkish-focus-border-color-dark: $turquoise-blue-light-level-5;
-$theme-mode-blue-turkish-text-color-light: $turquoise-blue-light-level-5;
-$theme-mode-blue-turkish-text-color-dark: $turquoise-blue-light-level-2;
-$theme-mode-blue-queen-focus-border-color-light: $egyptian-blue-level-2;
-$theme-mode-blue-queen-focus-border-color-dark: $egyptian-blue-level-4;
-$theme-mode-blue-queen-text-color-light: $bdazzled-blue-level-5;
-$theme-mode-blue-queen-text-color-dark: $bdazzled-blue-level-1;
-$theme-mode-blue-sky-focus-border-color-light: $sky-blue-light-level-3;
-$theme-mode-blue-sky-focus-border-color-dark: $sky-blue-level-3;
-$theme-mode-blue-sky-text-color-light: $sky-blue-level-2;
+$theme-mode-blue-turkish-focus-border-color-light: $peacock-blue-level-4;
+$theme-mode-blue-turkish-focus-border-color-dark: $peacock-blue-level-7;
+$theme-mode-blue-turkish-text-color-light: $peacock-blue-level-5;
+$theme-mode-blue-turkish-text-color-dark: $peacock-blue-level-2;
+$theme-mode-blue-queen-focus-border-color-light: $imperial-blue-level-3;
+$theme-mode-blue-queen-focus-border-color-dark: $imperial-blue-level-6;
+$theme-mode-blue-queen-text-color-light: $imperial-blue-level-7;
+$theme-mode-blue-queen-text-color-dark: $imperial-blue-level-1;
+$theme-mode-blue-sky-focus-border-color-light: $sky-blue-level-1;
+$theme-mode-blue-sky-focus-border-color-dark: $sky-blue-level-6;
+$theme-mode-blue-sky-text-color-light: $sky-blue-level-3;
 $theme-mode-blue-sky-text-color-dark: $sky-blue-light-level-1;
 $theme-mode-blue-turquoise-focus-border-color-light: $maganese-blue-level-3;
 $theme-mode-blue-turquoise-focus-border-color-dark: $maganese-blue-level-6;
 $theme-mode-blue-turquoise-text-color-light: $maganese-blue-level-6;
 $theme-mode-blue-turquoise-text-color-dark: $maganese-blue-level-1;
 $theme-mode-purple-rain-focus-border-color-light: $rain-purple-light-level-2;
-$theme-mode-purple-rain-focus-border-color-dark: $rain-purple-light-level-1;
-$theme-mode-purple-rain-text-color-light: $rain-purple-level-1;
+$theme-mode-purple-rain-focus-border-color-dark: $rain-purple-level-2;
+$theme-mode-purple-rain-text-color-light: $rain-purple-level-3;
 $theme-mode-purple-rain-text-color-dark: $candy-purple-level-1;
 
 // Status colors

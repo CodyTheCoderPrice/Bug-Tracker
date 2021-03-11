@@ -3618,23 +3618,23 @@ body {
 }
 .app-component .js-set-focus-border-color-mode-dark-theme-blue-turkish:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-dark-theme-blue-turkish:focus {
-  border-color: #2388a1;
+  border-color: #1e768b;
 }
 .app-component .js-set-focus-border-color-mode-light-theme-blue-queen:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-queen:focus {
-  border-color: #0062e2;
+  border-color: #2179c0;
 }
 .app-component .js-set-focus-border-color-mode-dark-theme-blue-queen:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-dark-theme-blue-queen:focus {
-  border-color: #0050b9;
+  border-color: #1c629c;
 }
 .app-component .js-set-focus-border-color-mode-light-theme-blue-sky:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-sky:focus {
-  border-color: #1da3cf;
+  border-color: #0097c9;
 }
 .app-component .js-set-focus-border-color-mode-dark-theme-blue-sky:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-dark-theme-blue-sky:focus {
-  border-color: #017ca5;
+  border-color: #006a8d;
 }
 .app-component .js-set-focus-border-color-mode-light-theme-blue-turquoise:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-turquoise:focus {
@@ -3650,7 +3650,7 @@ body {
 }
 .app-component .js-set-focus-border-color-mode-dark-theme-purple-rain:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-dark-theme-purple-rain:focus {
-  border-color: #9460c2;
+  border-color: #8556ad;
 }
 .app-component .js-set-text-color-mode-light-theme-blue-turkish,
 .js-calc-app-component .js-set-text-color-mode-light-theme-blue-turkish {
@@ -3662,11 +3662,11 @@ body {
 }
 .app-component .js-set-text-color-mode-light-theme-blue-queen,
 .js-calc-app-component .js-set-text-color-mode-light-theme-blue-queen {
-  color: #245ba3;
+  color: #195a8f;
 }
 .app-component .js-set-text-color-mode-dark-theme-blue-queen,
 .js-calc-app-component .js-set-text-color-mode-dark-theme-blue-queen {
-  color: #3184f0;
+  color: #2588d8;
 }
 .app-component .js-set-text-color-mode-light-theme-blue-sky,
 .js-calc-app-component .js-set-text-color-mode-light-theme-blue-sky {
@@ -3733,7 +3733,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen:hover,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen:hover {
-  border-color: #245ba3;
+  border-color: #195a8f;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen + i {
@@ -3741,7 +3741,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen:hover + i {
-  color: #245ba3;
+  color: #195a8f;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen {
@@ -3750,7 +3750,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover {
-  border-color: #3184f0;
+  border-color: #2588d8;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen + i {
@@ -3758,7 +3758,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover + i {
-  color: #3184f0;
+  color: #2588d8;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-sky,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-sky {
@@ -3982,43 +3982,43 @@ body {
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish:focus {
-  border-color: #2388a1;
+  border-color: #1e768b;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish:focus + .name-centering-container__char-count-centering-container,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish:focus + .name-centering-container__char-count-centering-container {
-  border-color: #2388a1;
+  border-color: #1e768b;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-queen:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-queen:focus {
-  border-color: #0062e2;
+  border-color: #2179c0;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-queen:focus + .name-centering-container__char-count-centering-container,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-queen:focus + .name-centering-container__char-count-centering-container {
-  border-color: #0062e2;
+  border-color: #2179c0;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-queen:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-queen:focus {
-  border-color: #0050b9;
+  border-color: #1c629c;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-queen:focus + .name-centering-container__char-count-centering-container,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-queen:focus + .name-centering-container__char-count-centering-container {
-  border-color: #0050b9;
+  border-color: #1c629c;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-sky:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-sky:focus {
-  border-color: #1da3cf;
+  border-color: #0097c9;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-sky:focus + .name-centering-container__char-count-centering-container,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-sky:focus + .name-centering-container__char-count-centering-container {
-  border-color: #1da3cf;
+  border-color: #0097c9;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-sky:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-sky:focus {
-  border-color: #017ca5;
+  border-color: #006a8d;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-sky:focus + .name-centering-container__char-count-centering-container,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-sky:focus + .name-centering-container__char-count-centering-container {
-  border-color: #017ca5;
+  border-color: #006a8d;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turquoise:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turquoise:focus {
@@ -4046,11 +4046,11 @@ body {
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-purple-rain:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-purple-rain:focus {
-  border-color: #9460c2;
+  border-color: #8556ad;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-purple-rain:focus + .name-centering-container__char-count-centering-container,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-purple-rain:focus + .name-centering-container__char-count-centering-container {
-  border-color: #9460c2;
+  border-color: #8556ad;
 }
 .app-component .js-set-status-box-background-color-gray,
 .app-component .js-calc-status-box-background-color-gray,
