@@ -20,7 +20,10 @@ CREATE TABLE theme(
 INSERT INTO theme (order_number, color, marks_default)
 	VALUES 
 		(0, 'blue-turkish', true),
-		(1, 'blue-queen', false);
+		(1, 'blue-queen', false),
+		(2, 'blue-sky', false),
+		(3, 'blue-turquoise', false),
+		(4, 'purple-rain', false);
 
 CREATE TABLE sort(
 	sort_id SERIAL PRIMARY KEY,

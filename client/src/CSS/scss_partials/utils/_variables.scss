@@ -89,6 +89,15 @@ $imperial-blue-level-8: #165181;
 $imperial-blue-level-9: #154b77;
 $imperial-blue-level-10: #15466e;
 $imperial-blue-level-11: #123f63;
+// Maganese blues
+$maganese-blue-level-1: #04beb2;
+$maganese-blue-level-2: #04b6aa;
+$maganese-blue-level-3: #03A89E;
+$maganese-blue-level-4: #049c92;
+$maganese-blue-level-5: #048f86;
+$maganese-blue-level-6: #04857c;
+// Natural-Turquoise blues
+$natural-turquoise-blue-level-1: #45C3B8;
 // Old-Copper blues
 $old-copper-blue-level-1: #87b2bd;
 $old-copper-blue-level-2: #7aa2ac;
@@ -111,7 +120,7 @@ $sky-blue-level-4: #007399;
 $turkish-blue-level-1: #74acc2;
 $turkish-blue-level-2: #72aac0;
 $turkish-blue-level-3: #6ca0b4;
-$turkish-blue-level-4: #6595a8;
+$turkish-blue-level-4: #608d9e;
 $turkish-blue-level-5: #537c8d;
 $turkish-blue-level-6: #50798b;
 // Turquoise blues
@@ -317,18 +326,20 @@ $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-dark
 
 // Themes
 $theme-brighter-border-background-color-blue-turkish: $turkish-blue-level-3;
-$theme-base-border-background-color-blue-turkish: $turkish-blue-level-5;
+$theme-base-border-background-color-blue-turkish: $turkish-blue-level-4;
 $theme-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
 $theme-base-border-background-color-blue-queen: $queen-blue-dark-level-1;
 $theme-brighter-border-background-color-blue-sky: $sky-blue-light-level-2;
 $theme-base-border-background-color-blue-sky: $sky-blue-level-1;
+$theme-brighter-border-background-color-blue-turquoise: $natural-turquoise-blue-level-1;
+$theme-base-border-background-color-blue-turquoise: $maganese-blue-level-3;
 $theme-brighter-border-background-color-purple-rain: $rain-purple-light-level-2;
 $theme-base-border-background-color-purple-rain: $rain-purple-level-2;
 // Themes + Light/Dark mode
 $theme-mode-blue-turkish-focus-border-color-light: $turquoise-blue-light-level-4;
 $theme-mode-blue-turkish-focus-border-color-dark: $turquoise-blue-light-level-5;
 $theme-mode-blue-turkish-text-color-light: $turquoise-blue-light-level-5;
-$theme-mode-blue-turkish-text-color-dark: $turquoise-blue-light-level-1;
+$theme-mode-blue-turkish-text-color-dark: $turquoise-blue-light-level-2;
 $theme-mode-blue-queen-focus-border-color-light: $egyptian-blue-level-2;
 $theme-mode-blue-queen-focus-border-color-dark: $egyptian-blue-level-4;
 $theme-mode-blue-queen-text-color-light: $bdazzled-blue-level-5;
@@ -337,6 +348,10 @@ $theme-mode-blue-sky-focus-border-color-light: $sky-blue-light-level-3;
 $theme-mode-blue-sky-focus-border-color-dark: $sky-blue-level-3;
 $theme-mode-blue-sky-text-color-light: $sky-blue-level-2;
 $theme-mode-blue-sky-text-color-dark: $sky-blue-light-level-1;
+$theme-mode-blue-turquoise-focus-border-color-light: $maganese-blue-level-3;
+$theme-mode-blue-turquoise-focus-border-color-dark: $maganese-blue-level-6;
+$theme-mode-blue-turquoise-text-color-light: $maganese-blue-level-6;
+$theme-mode-blue-turquoise-text-color-dark: $maganese-blue-level-1;
 $theme-mode-purple-rain-focus-border-color-light: $rain-purple-light-level-2;
 $theme-mode-purple-rain-focus-border-color-dark: $rain-purple-light-level-1;
 $theme-mode-purple-rain-text-color-light: $rain-purple-level-1;
