@@ -17,9 +17,9 @@
 
 		position: relative;
 		float: left;
-		border: solid v.$mode-toggle-switch-off-border-color-light 3px;
+		border: solid v.$mode-toggle-switch-off-border-background-color-light 3px;
 		border-radius: 25px;
-		background-color: v.$mode-toggle-switch-off-background-color-light;
+		background-color: v.$mode-toggle-switch-off-border-background-color-light;
 		height: v.$basic-toggle-switch-height;
 		width: v.$basic-toggle-switch-width;
 		color: v.$mode-toggle-switch-off-text-color-light;
@@ -27,8 +27,8 @@
 	}
 
 	.invisible-checkbox:checked + .toggle-switch {
-		border-color: v.$mode-toggle-switch-on-border-color-light;
-		background-color: v.$mode-toggle-switch-on-background-color-light;
+		border-color: v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light;
+		background-color: v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light;
 		color: v.$mode-toggle-switch-on-text-color-light;
 	}
 

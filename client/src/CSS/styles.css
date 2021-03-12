@@ -20,8 +20,8 @@
   cursor: pointer;
 }
 .toggle-switch-component .invisible-checkbox:checked + .toggle-switch {
-  border-color: #4885b8;
-  background-color: #4885b8;
+  border-color: #72aac0;
+  background-color: #72aac0;
   color: white;
 }
 .toggle-switch-component .toggle-switch__text {
@@ -2845,46 +2845,6 @@ body {
 .js-calc-app-component .js-set-base-icon-button-text-color-with-hover-dark-mode-true:active {
   color: #a3a3a3;
 }
-.app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-false > .toggle-switch,
-.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-false > .toggle-switch {
-  border-color: #dddddd;
-  background-color: #dddddd;
-  color: #6d6d6d;
-}
-.app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-false > .invisible-checkbox:checked + .toggle-switch,
-.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-false > .invisible-checkbox:checked + .toggle-switch {
-  border-color: #4885b8;
-  background-color: #4885b8;
-  color: white;
-}
-.app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-false > .toggle-switch > .toggle-switch__circle,
-.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-false > .toggle-switch > .toggle-switch__circle {
-  background-color: white;
-}
-.app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-false > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
-.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-false > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
-  background-color: white;
-}
-.app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-true > .toggle-switch,
-.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-true > .toggle-switch {
-  border-color: #636363;
-  background-color: #636363;
-  color: #bfbfbf;
-}
-.app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-true > .invisible-checkbox:checked + .toggle-switch,
-.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-true > .invisible-checkbox:checked + .toggle-switch {
-  border-color: #38678d;
-  background-color: #38678d;
-  color: white;
-}
-.app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-true > .toggle-switch > .toggle-switch__circle,
-.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-true > .toggle-switch > .toggle-switch__circle {
-  background-color: #f5f5f5;
-}
-.app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-true > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
-.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-dark-mode-true > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
-  background-color: #f5f5f5;
-}
 .app-component .js-set-universal-text-grayed-out-text-color-dark-mode-false,
 .js-calc-app-component .js-set-universal-text-grayed-out-text-color-dark-mode-false {
   color: #7c7c7c;
@@ -3427,7 +3387,7 @@ body {
 }
 .app-component .js-set-base-border-color-theme-blue-turquoise,
 .js-calc-app-component .js-set-base-border-color-theme-blue-turquoise {
-  border-color: #03A89E;
+  border-color: #03a89e;
 }
 .app-component .js-set-brighter-border-color-theme-purple-rain,
 .js-calc-app-component .js-set-brighter-border-color-theme-purple-rain {
@@ -3467,7 +3427,7 @@ body {
 }
 .app-component .js-set-base-background-color-theme-blue-turquoise,
 .js-calc-app-component .js-set-base-background-color-theme-blue-turquoise {
-  background-color: #03A89E;
+  background-color: #03a89e;
 }
 .app-component .js-set-brighter-background-color-theme-purple-rain,
 .js-calc-app-component .js-set-brighter-background-color-theme-purple-rain {
@@ -3511,7 +3471,7 @@ body {
 .app-component .js-set-background-color-with-hover-theme-blue-turquoise:hover, .app-component .js-set-background-color-with-hover-theme-blue-turquoise:active,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue-turquoise:hover,
 .js-calc-app-component .js-set-background-color-with-hover-theme-blue-turquoise:active {
-  background-color: #03A89E;
+  background-color: #03a89e;
 }
 .app-component .js-set-background-color-with-hover-theme-purple-rain,
 .js-calc-app-component .js-set-background-color-with-hover-theme-purple-rain {
@@ -3552,7 +3512,7 @@ body {
 }
 .app-component .js-set-base-breadcrumb-arrow-color-theme-blue-turquoise,
 .js-calc-app-component .js-set-base-breadcrumb-arrow-color-theme-blue-turquoise {
-  border-left-color: #03A89E;
+  border-left-color: #03a89e;
 }
 .app-component .js-set-brighter-breadcrumb-arrow-color-theme-purple-rain,
 .js-calc-app-component .js-set-brighter-breadcrumb-arrow-color-theme-purple-rain {
@@ -3600,7 +3560,7 @@ body {
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-turquoise:hover,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-turquoise:active,
 .js-calc-app-component .js-set-form-submit-button-color-theme-blue-turquoise:focus {
-  background-color: #03A89E;
+  background-color: #03a89e;
 }
 .app-component .js-set-form-submit-button-color-theme-purple-rain,
 .js-calc-app-component .js-set-form-submit-button-color-theme-purple-rain {
@@ -3611,6 +3571,206 @@ body {
 .js-calc-app-component .js-set-form-submit-button-color-theme-purple-rain:active,
 .js-calc-app-component .js-set-form-submit-button-color-theme-purple-rain:focus {
   background-color: #694489;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish > .toggle-switch {
+  border-color: #dddddd;
+  background-color: #dddddd;
+  color: #6d6d6d;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #72aac0;
+  background-color: #72aac0;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish > .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .toggle-switch {
+  border-color: #6d6d6d;
+  background-color: #6d6d6d;
+  color: #e1e1e1;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #2388a1;
+  background-color: #2388a1;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen > .toggle-switch {
+  border-color: #dddddd;
+  background-color: #dddddd;
+  color: #6d6d6d;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #3f75a1;
+  background-color: #3f75a1;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen > .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen > .toggle-switch {
+  border-color: #6d6d6d;
+  background-color: #6d6d6d;
+  color: #e1e1e1;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #38678d;
+  background-color: #38678d;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen > .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky > .toggle-switch {
+  border-color: #dddddd;
+  background-color: #dddddd;
+  color: #6d6d6d;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #0097c9;
+  background-color: #0097c9;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky > .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky > .toggle-switch {
+  border-color: #6d6d6d;
+  background-color: #6d6d6d;
+  color: #e1e1e1;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #018bb9;
+  background-color: #018bb9;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky > .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise > .toggle-switch {
+  border-color: #dddddd;
+  background-color: #dddddd;
+  color: #6d6d6d;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #049c92;
+  background-color: #049c92;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise > .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise > .toggle-switch {
+  border-color: #6d6d6d;
+  background-color: #6d6d6d;
+  color: #e1e1e1;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #04857c;
+  background-color: #04857c;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise > .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain > .toggle-switch {
+  border-color: #dddddd;
+  background-color: #dddddd;
+  color: #6d6d6d;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #8b5ab6;
+  background-color: #8b5ab6;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain > .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .toggle-switch {
+  border-color: #6d6d6d;
+  background-color: #6d6d6d;
+  color: #e1e1e1;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch {
+  border-color: #734a97;
+  background-color: #734a97;
+  color: white;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
+}
+.app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle,
+.js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+  background-color: #f5f5f5;
 }
 .app-component .js-set-focus-border-color-mode-light-theme-blue-turkish:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-turkish:focus {
@@ -3638,7 +3798,7 @@ body {
 }
 .app-component .js-set-focus-border-color-mode-light-theme-blue-turquoise:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-turquoise:focus {
-  border-color: #03A89E;
+  border-color: #03a89e;
 }
 .app-component .js-set-focus-border-color-mode-dark-theme-blue-turquoise:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-dark-theme-blue-turquoise:focus {
@@ -3930,25 +4090,25 @@ body {
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turquoise > input,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turquoise > input {
-  border-color: #03A89E;
+  border-color: #03a89e;
   background-color: white;
   color: black;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turquoise > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turquoise > div {
-  border-color: #03A89E;
-  background-color: #03A89E;
+  border-color: #03a89e;
+  background-color: #03a89e;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > input,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > input {
-  border-color: #03A89E;
+  border-color: #03a89e;
   background-color: #363636;
   color: #d6e1ec;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > div {
-  border-color: #03A89E;
-  background-color: #03A89E;
+  border-color: #03a89e;
+  background-color: #03a89e;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-purple-rain > input,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-purple-rain > input {
@@ -4022,11 +4182,11 @@ body {
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turquoise:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turquoise:focus {
-  border-color: #03A89E;
+  border-color: #03a89e;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turquoise:focus + .name-centering-container__char-count-centering-container,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turquoise:focus + .name-centering-container__char-count-centering-container {
-  border-color: #03A89E;
+  border-color: #03a89e;
 }
 .app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turquoise:focus,
 .js-calc-app-component .js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turquoise:focus {

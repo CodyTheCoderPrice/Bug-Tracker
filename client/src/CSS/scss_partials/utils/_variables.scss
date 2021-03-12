@@ -92,7 +92,7 @@ $imperial-blue-level-11: #123f63;
 // Maganese blues
 $maganese-blue-level-1: #04beb2;
 $maganese-blue-level-2: #04b6aa;
-$maganese-blue-level-3: #03A89E;
+$maganese-blue-level-3: #03a89e;
 $maganese-blue-level-4: #049c92;
 $maganese-blue-level-5: #048f86;
 $maganese-blue-level-6: #04857c;
@@ -120,10 +120,11 @@ $sky-blue-light-level-3: #1da3cf;
 $sky-blue-light-level-4: #1b99c4;
 $sky-blue-level-1: #0097c9;
 $sky-blue-level-2: #0091c2;
-$sky-blue-level-3: #0083af;
-$sky-blue-level-4: #017ca5;
-$sky-blue-level-5: #007399;
-$sky-blue-level-6: #006a8d;
+$sky-blue-level-3: #018bb9;
+$sky-blue-level-4: #0083af;
+$sky-blue-level-5: #017ca5;
+$sky-blue-level-6: #007399;
+$sky-blue-level-7: #006a8d;
 // Turkish blues
 $turkish-blue-level-1: #74acc2;
 $turkish-blue-level-2: #72aac0;
@@ -132,18 +133,22 @@ $turkish-blue-level-4: #608d9e;
 $turkish-blue-level-5: #537c8d;
 $turkish-blue-level-6: #50798b;
 // Turquoise blues
-$turquoise-blue-level-1: #45C3B8;
+$turquoise-blue-level-1: #45c3b8;
 $turquoise-blue-level-2: #44bdb3;
 // Candy purples
 $candy-purple-level-1: #b68bdb;
 $candy-purple-level-2: #a982cc;
 // Rain purples
-$rain-purple-light-level-1: #9460c2;
-$rain-purple-light-level-2: #8b5ab6;
+$rain-purple-light-level-1: #a56bd8;
+$rain-purple-light-level-2: #9c65cc;
+$rain-purple-light-level-3: #9460c2;
+$rain-purple-light-level-4: #8b5ab6;
 $rain-purple-level-1: #8c5cb6;
 $rain-purple-level-2: #8556ad;
 $rain-purple-level-3: #7e52a5;
-$rain-purple-level-4: #694489;
+$rain-purple-level-4: #794e9e;
+$rain-purple-level-5: #734a97;
+$rain-purple-level-6: #694489;
 // Basic reds
 $basic-red-light-level-1: #ff3e3e;
 $basic-red-light-level-2: #fc1e1e;
@@ -197,23 +202,17 @@ $mode-custom-checkbox-background-color-light: $mode-base-background-color-light;
 $mode-custom-checkbox-background-color-dark: $mode-base-background-color-dark;
 $mode-custom-checkmark-text-color-light: $mode-base-primary-text-color-light;
 $mode-custom-checkmark-text-color-dark: $mode-base-primary-text-color-dark;
-$mode-toggle-switch-on-background-color-light: $carolina-blue-level-5;
-$mode-toggle-switch-on-background-color-dark: $carolina-blue-level-7;
-$mode-toggle-switch-on-border-color-light: $mode-toggle-switch-on-background-color-light; // After background-color since uses it
-$mode-toggle-switch-on-border-color-dark: $mode-toggle-switch-on-background-color-dark; // After background-color since uses it
 $mode-toggle-switch-on-text-color-light: white;
 $mode-toggle-switch-on-text-color-dark: white;
 $mode-toggle-switch-on-circle-background-color-light: white;
 $mode-toggle-switch-on-circle-background-color-dark: $gray-light-level-3;
 $mode-toggle-switch-on-text-color-dark: white;
-$mode-toggle-switch-off-background-color-light: $gray-light-level-7;
-$mode-toggle-switch-off-background-color-dark: $gray-level-7;
-$mode-toggle-switch-off-border-color-light: $mode-toggle-switch-off-background-color-light; // After background-color since uses it
-$mode-toggle-switch-off-border-color-dark: $mode-toggle-switch-off-background-color-dark; // After background-color since uses it
+$mode-toggle-switch-off-border-background-color-light: $gray-light-level-7;
+$mode-toggle-switch-off-border-background-color-dark: $gray-level-6;
 $mode-toggle-switch-off-text-color-light: $gray-level-6;
-$mode-toggle-switch-off-text-color-dark: $gray-light-level-10;
-$mode-toggle-switch-off-circle-background-color-light: $mode-toggle-switch-on-circle-background-color-light;
-$mode-toggle-switch-off-circle-background-color-dark: $mode-toggle-switch-on-circle-background-color-dark;
+$mode-toggle-switch-off-text-color-dark: $gray-light-level-6;
+$mode-toggle-switch-off-circle-background-color-light: $mode-toggle-switch-on-circle-background-color-light; // Equivalent on variable is bellow with Themes + Light/Dark mode
+$mode-toggle-switch-off-circle-background-color-dark: $mode-toggle-switch-on-circle-background-color-dark; // Equivalent on variable is bellow with Themes + Light/Dark mode
 $mode-universal-text-grayed-out-text-color-light: $gray-level-4;
 $mode-universal-text-grayed-out-text-color-dark: $gray-level-6;
 $mode-base-form-input-border-color-light: $gray-level-5;
@@ -341,26 +340,36 @@ $theme-brighter-border-background-color-blue-sky: $sky-blue-light-level-2;
 $theme-base-border-background-color-blue-sky: $sky-blue-level-2;
 $theme-brighter-border-background-color-blue-turquoise: $turquoise-blue-level-2;
 $theme-base-border-background-color-blue-turquoise: $maganese-blue-level-3;
-$theme-brighter-border-background-color-purple-rain: $rain-purple-light-level-2;
-$theme-base-border-background-color-purple-rain: $rain-purple-level-4;
+$theme-brighter-border-background-color-purple-rain: $rain-purple-light-level-4;
+$theme-base-border-background-color-purple-rain: $rain-purple-level-6;
 // Themes + Light/Dark mode
+$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light: $turkish-blue-level-2;
+$theme-mode-blue-turkish-toggle-switch-on-border-background-color-dark: $peacock-blue-level-5;
 $theme-mode-blue-turkish-focus-border-color-light: $peacock-blue-level-4;
 $theme-mode-blue-turkish-focus-border-color-dark: $peacock-blue-level-7;
 $theme-mode-blue-turkish-text-color-light: $peacock-blue-level-5;
 $theme-mode-blue-turkish-text-color-dark: $peacock-blue-level-2;
+$theme-mode-blue-queen-toggle-switch-on-border-background-color-light: $carolina-blue-level-6;
+$theme-mode-blue-queen-toggle-switch-on-border-background-color-dark: $carolina-blue-level-7;
 $theme-mode-blue-queen-focus-border-color-light: $imperial-blue-level-3;
 $theme-mode-blue-queen-focus-border-color-dark: $imperial-blue-level-6;
 $theme-mode-blue-queen-text-color-light: $imperial-blue-level-7;
 $theme-mode-blue-queen-text-color-dark: $imperial-blue-level-1;
+$theme-mode-blue-sky-toggle-switch-on-border-background-color-light: $sky-blue-level-1;
+$theme-mode-blue-sky-toggle-switch-on-border-background-color-dark: $sky-blue-level-3;
 $theme-mode-blue-sky-focus-border-color-light: $sky-blue-level-1;
-$theme-mode-blue-sky-focus-border-color-dark: $sky-blue-level-6;
-$theme-mode-blue-sky-text-color-light: $sky-blue-level-3;
+$theme-mode-blue-sky-focus-border-color-dark: $sky-blue-level-7;
+$theme-mode-blue-sky-text-color-light: $sky-blue-level-4;
 $theme-mode-blue-sky-text-color-dark: $sky-blue-light-level-1;
+$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-light: $maganese-blue-level-4;
+$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-dark: $maganese-blue-level-6;
 $theme-mode-blue-turquoise-focus-border-color-light: $maganese-blue-level-3;
 $theme-mode-blue-turquoise-focus-border-color-dark: $maganese-blue-level-6;
 $theme-mode-blue-turquoise-text-color-light: $maganese-blue-level-6;
 $theme-mode-blue-turquoise-text-color-dark: $maganese-blue-level-1;
-$theme-mode-purple-rain-focus-border-color-light: $rain-purple-light-level-2;
+$theme-mode-purple-rain-toggle-switch-on-border-background-color-light: $rain-purple-light-level-4;
+$theme-mode-purple-rain-toggle-switch-on-border-background-color-dark: $rain-purple-level-5;
+$theme-mode-purple-rain-focus-border-color-light: $rain-purple-light-level-4;
 $theme-mode-purple-rain-focus-border-color-dark: $rain-purple-level-2;
 $theme-mode-purple-rain-text-color-light: $rain-purple-level-3;
 $theme-mode-purple-rain-text-color-dark: $candy-purple-level-1;

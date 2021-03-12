@@ -82,6 +82,7 @@ export default function AccountSidebarChangeAppearance() {
 						isOn={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 						id="account-settings-light-dark-mode"
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+						theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
 					/>
 				</div>
 			</div>

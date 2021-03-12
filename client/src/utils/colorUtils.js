@@ -98,15 +98,6 @@ export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode -- ToggleSwitch -- border, background, amd text colors
-export function getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-toggle-switch-border-background-text-colors-dark-mode-" + dark_mode
-	);
-}
-
 // Light/Dark mode -- universal-text-grayed-out -- text colors
 export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -464,6 +455,19 @@ export function getformSubmitButtonColorClassNameForTheme(theme_color) {
 //==========================
 // Themes + Light/Dark mode
 //==========================
+// Theme + Light/Dark mode -- ToggleSwitch -- border, background, amd text colors
+export function getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		(dark_mode
+			? " js-set-toggle-switch-border-background-text-colors-mode-dark-theme-"
+			: " js-set-toggle-switch-border-background-text-colors-mode-light-theme-") +
+		theme_color
+	);
+}
+
 // Theme + Light/Dark mode -- focus border color
 export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,

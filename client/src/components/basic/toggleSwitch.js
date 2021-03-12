@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkMode } from "../../utils";
+import { getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode } from "../../utils";
 
 export default function ToggleSwitch(props) {
 	const clickCheckbox = () => {
@@ -11,8 +11,9 @@ export default function ToggleSwitch(props) {
 		<div
 			className={
 				"toggle-switch-component" +
-				getToggleSwitchBorderBackgroundTextColorClassNameForLightOrDarkMode(
-					props.dark_mode
+				getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+					props.dark_mode,
+					props.theme_color
 				)
 			}
 		>

@@ -100,6 +100,7 @@ export default function AccountModalChangeSettings() {
 							}
 							id="account-settings-filter-completed-projects"
 							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+							theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
 						/>
 					</div>
 				</div>
@@ -117,6 +118,7 @@ export default function AccountModalChangeSettings() {
 							}
 							id="account-settings-filter-completed-bugs"
 							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+							theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
 						/>
 					</div>
 				</div>
@@ -178,6 +180,7 @@ export default function AccountModalChangeSettings() {
 								}
 								id="account-settings-sort-projects-ascending"
 								dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+								theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
 							/>
 						</div>
 					</div>
@@ -212,6 +215,7 @@ export default function AccountModalChangeSettings() {
 								isOn={reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending}
 								id="account-settings-sort-bugs-ascending"
 								dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
+								theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
 							/>
 						</div>
 					</div>

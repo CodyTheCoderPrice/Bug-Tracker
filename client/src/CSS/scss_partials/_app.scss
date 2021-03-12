@@ -95,50 +95,6 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ToggleSwitch -- border, background, amd text colors
-	.js-set-toggle-switch-border-background-text-colors-dark-mode-false {
-		& > .toggle-switch {
-			border-color: v.$mode-toggle-switch-off-border-color-light;
-			background-color: v.$mode-toggle-switch-off-background-color-light;
-			color: v.$mode-toggle-switch-off-text-color-light;
-		}
-
-		& > .invisible-checkbox:checked + .toggle-switch {
-			border-color: v.$mode-toggle-switch-on-border-color-light;
-			background-color: v.$mode-toggle-switch-on-background-color-light;
-			color: v.$mode-toggle-switch-on-text-color-light;
-		}
-
-		& > .toggle-switch > .toggle-switch__circle {
-			background-color: v.$mode-toggle-switch-off-circle-background-color-light;
-		}
-
-		& > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
-			background-color: v.$mode-toggle-switch-on-circle-background-color-light;
-		}
-	}
-	.js-set-toggle-switch-border-background-text-colors-dark-mode-true {
-		& > .toggle-switch {
-			border-color: v.$mode-toggle-switch-off-border-color-dark;
-			background-color: v.$mode-toggle-switch-off-background-color-dark;
-			color: v.$mode-toggle-switch-off-text-color-dark;
-		}
-
-		& > .invisible-checkbox:checked + .toggle-switch {
-			border-color: v.$mode-toggle-switch-on-border-color-dark;
-			background-color: v.$mode-toggle-switch-on-background-color-dark;
-			color: v.$mode-toggle-switch-on-text-color-dark;
-		}
-
-		& > .toggle-switch > .toggle-switch__circle {
-			background-color: v.$mode-toggle-switch-off-circle-background-color-dark;
-		}
-
-		& > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
-			background-color: v.$mode-toggle-switch-on-circle-background-color-dark;
-		}
-	}
-
 	// Light/Dark mode -- universal-text-grayed-out -- text colors
 	.js-set-universal-text-grayed-out-text-color-dark-mode-false {
 		color: v.$mode-universal-text-grayed-out-text-color-light;
@@ -866,6 +822,124 @@ body {
 	//==========================
 	// Themes + Light/Dark mode
 	//==========================
+	@mixin theme-mode-toggle-switch(
+		$theme-mode-toggle-switch-on-border-background-color-light,
+		$theme-mode-toggle-switch-on-border-background-color-dark,
+		$is-light
+	) {
+		& > .toggle-switch {
+			@if $is-light {
+				border-color: v.$mode-toggle-switch-off-border-background-color-light;
+				background-color: v.$mode-toggle-switch-off-border-background-color-light;
+				color: v.$mode-toggle-switch-off-text-color-light;
+			} @else {
+				border-color: v.$mode-toggle-switch-off-border-background-color-dark;
+				background-color: v.$mode-toggle-switch-off-border-background-color-dark;
+				color: v.$mode-toggle-switch-off-text-color-dark;
+			}
+		}
+
+		& > .invisible-checkbox:checked + .toggle-switch {
+			@if $is-light {
+				border-color: $theme-mode-toggle-switch-on-border-background-color-light;
+				background-color: $theme-mode-toggle-switch-on-border-background-color-light;
+				color: v.$mode-toggle-switch-on-text-color-light;
+			} @else {
+				border-color: $theme-mode-toggle-switch-on-border-background-color-dark;
+				background-color: $theme-mode-toggle-switch-on-border-background-color-dark;
+				color: v.$mode-toggle-switch-on-text-color-dark;
+			}
+		}
+
+		& > .toggle-switch > .toggle-switch__circle {
+			@if $is-light {
+				background-color: v.$mode-toggle-switch-off-circle-background-color-light;
+			} @else {
+				background-color: v.$mode-toggle-switch-off-circle-background-color-dark;
+			}
+		}
+
+		& > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
+			@if $is-light {
+				background-color: v.$mode-toggle-switch-on-circle-background-color-light;
+			} @else {
+				background-color: v.$mode-toggle-switch-on-circle-background-color-dark;
+			}
+		}
+	}
+	// Theme + Light/Dark mode -- ToggleSwitch -- border, background, amd text colors
+	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-dark,
+			$is-light: false
+		);
+	}
+	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-blue-queen-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-blue-queen-toggle-switch-on-border-background-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-blue-queen-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-blue-queen-toggle-switch-on-border-background-color-dark,
+			$is-light: false
+		);
+	}
+	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-blue-sky-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-blue-sky-toggle-switch-on-border-background-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-blue-sky-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-blue-sky-toggle-switch-on-border-background-color-dark,
+			$is-light: false
+		);
+	}
+	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-dark,
+			$is-light: false
+		);
+	}
+	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-purple-rain-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-purple-rain-toggle-switch-on-border-background-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain {
+		@include theme-mode-toggle-switch(
+			v.$theme-mode-purple-rain-toggle-switch-on-border-background-color-light,
+			v.$theme-mode-purple-rain-toggle-switch-on-border-background-color-dark,
+			$is-light: false
+		);
+	}
+	
+
 	// Theme + Light/Dark mode -- focus border color
 	.js-set-focus-border-color-mode-light-theme-blue-turkish {
 		&:focus {
