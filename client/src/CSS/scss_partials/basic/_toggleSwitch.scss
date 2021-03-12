@@ -27,8 +27,8 @@
 	}
 
 	.invisible-checkbox:checked + .toggle-switch {
-		border-color: v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light;
-		background-color: v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light;
+		border-color: v.$default-theme-mode-toggle-switch-on-border-background-color;
+		background-color: v.$default-theme-mode-toggle-switch-on-border-background-color;
 		color: v.$mode-toggle-switch-on-text-color-light;
 	}
 

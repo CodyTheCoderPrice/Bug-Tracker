@@ -17,11 +17,11 @@ import {
 import {
 	getUpdatedDeepCopyFilterArray,
 	getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
-	getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDarkMode,
+	getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode,
 	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
-	getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrDarkMode,
+	getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSearchBarResize } from "../../../../utils/hooks";
@@ -127,8 +127,9 @@ export default function ListViewTopBar(props) {
 							reduxState[props.reduxContainerName].list.length > 0)
 							? ""
 							: " centering-container__new-item-button--tutorial" +
-							  getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							  getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
 					onClick={openCreateItemSidebar}
@@ -344,8 +345,9 @@ export default function ListViewTopBar(props) {
 				<div
 					className={
 						"new-item-tutorial-container" +
-						getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
 				>

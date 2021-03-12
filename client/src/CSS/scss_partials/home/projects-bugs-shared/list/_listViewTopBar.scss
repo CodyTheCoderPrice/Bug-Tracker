@@ -42,7 +42,7 @@
 
 	.centering-container__new-item-button--tutorial {
 		border: v.$top-bar-tutorial-button-border-width solid
-			v.$mode-top-bar-new-item-tutorial-border-text-color-light;
+			v.$default-theme-mode-new-item-tutorial-border-text-color;
 	}
 
 	.centering-container__new-item-button__text {
@@ -273,6 +273,6 @@
 
 		left: 48px;
 		font-size: v.$list-view-top-bar-new-item-tutorial-font-size;
-		color: v.$mode-top-bar-new-item-tutorial-border-text-color-light;
+		color: v.$default-theme-mode-new-item-tutorial-border-text-color;
 	}
 }

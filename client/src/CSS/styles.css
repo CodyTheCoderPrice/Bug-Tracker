@@ -2340,7 +2340,7 @@ dropdown can overlap all other components
 }
 .list-view-top-bar .centering-container__new-item-button--tutorial,
 .js-calc-list-view-top-bar .centering-container__new-item-button--tutorial {
-  border: 2px solid #006eff;
+  border: 2px solid #0785a5;
 }
 .list-view-top-bar .centering-container__new-item-button__text,
 .js-calc-list-view-top-bar .centering-container__new-item-button__text {
@@ -2565,7 +2565,7 @@ dropdown can overlap all other components
   transform: translate(0%, -50%);
   left: 48px;
   font-size: 24px;
-  color: #006eff;
+  color: #0785a5;
 }
 
 .list-table-component,
@@ -2736,7 +2736,7 @@ dropdown can overlap all other components
   width: 90%;
   text-align: center;
   font-size: 32px;
-  color: #757575;
+  color: #808080;
 }
 
 .list-table-component--no-scroll {
@@ -3048,46 +3048,6 @@ body {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
   color: #d6e1ec;
-}
-.app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-false,
-.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-false {
-  border-color: #006eff;
-}
-.app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-true,
-.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-true {
-  border-color: #00e1ff;
-}
-.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__arrow-head,
-.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__arrow-head {
-  border-bottom-color: black;
-}
-.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__arrow-stock,
-.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__arrow-stock {
-  background-color: black;
-}
-.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
-.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-  background-color: black;
-}
-.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
-.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
-  color: #006eff;
-}
-.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__arrow-head,
-.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__arrow-head {
-  border-bottom-color: #d6e1ec;
-}
-.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__arrow-stock,
-.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__arrow-stock {
-  background-color: #d6e1ec;
-}
-.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
-.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-  background-color: #d6e1ec;
-}
-.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
-.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
-  color: #00e1ff;
 }
 .app-component .js-set-create-item-sidebar-background-color-dark-mode-false,
 .js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-false {
@@ -3772,6 +3732,206 @@ body {
 .js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
   background-color: #f5f5f5;
 }
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turkish,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turkish {
+  border-color: #0785a5;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turkish,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turkish {
+  border-color: #2ba6c5;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-queen,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-queen {
+  border-color: #1f70b3;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-queen,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-queen {
+  border-color: #278de0;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-sky,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-sky {
+  border-color: #0097c9;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-sky,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-sky {
+  border-color: #00b0eb;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turquoise,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turquoise {
+  border-color: #03a89e;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turquoise,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turquoise {
+  border-color: #05cfc2;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-purple-rain,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-purple-rain {
+  border-color: #8c5cb6;
+}
+.app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-purple-rain,
+.js-calc-app-component .js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-purple-rain {
+  border-color: #b68bdb;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish > .new-item-tutorial-container__arrow-stock {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #0785a5;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__arrow-stock {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #2ba6c5;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen > .new-item-tutorial-container__arrow-stock {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #1f70b3;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__arrow-stock {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #278de0;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky > .new-item-tutorial-container__arrow-stock {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #0097c9;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__arrow-stock {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #00b0eb;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise > .new-item-tutorial-container__arrow-stock {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #03a89e;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__arrow-stock {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #05cfc2;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain > .new-item-tutorial-container__arrow-stock {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: black;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #8c5cb6;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__arrow-head,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__arrow-head {
+  border-bottom-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__arrow-stock,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__arrow-stock {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+  background-color: #d6e1ec;
+}
+.app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
+.js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
+  color: #b68bdb;
+}
 .app-component .js-set-focus-border-color-mode-light-theme-blue-turkish:focus,
 .js-calc-app-component .js-set-focus-border-color-mode-light-theme-blue-turkish:focus {
   border-color: #258faa;
@@ -3826,7 +3986,7 @@ body {
 }
 .app-component .js-set-text-color-mode-dark-theme-blue-queen,
 .js-calc-app-component .js-set-text-color-mode-dark-theme-blue-queen {
-  color: #2588d8;
+  color: #2380cc;
 }
 .app-component .js-set-text-color-mode-light-theme-blue-sky,
 .js-calc-app-component .js-set-text-color-mode-light-theme-blue-sky {
@@ -3910,7 +4070,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover {
-  border-color: #2588d8;
+  border-color: #2380cc;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen + i {
@@ -3918,7 +4078,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover + i {
-  color: #2588d8;
+  color: #2380cc;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-sky,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-sky {

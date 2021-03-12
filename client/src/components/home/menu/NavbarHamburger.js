@@ -184,13 +184,9 @@ export default function NavbarHamburger() {
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
-						// Keeps onClick function set on Home component from firing
-						onClick={(e) => e.stopPropagation()}
+						onClick={toggleHamburgerDropdown}
 					>
-						<div
-							className="hamburger-dropdown__top-space"
-							onClick={toggleHamburgerDropdown}
-						>
+						<div className="hamburger-dropdown__top-space">
 							<i
 								className="fa fa-bars hamburger-dropdown__top-space__icon"
 								aria-hidden="true"

@@ -213,26 +213,6 @@ export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkM
 	);
 }
 
-// Light/Dark mode -- TopBar new-item-button during tutorial -- border color
-export function getTopBarNewItemButtonTutorialBorderColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-" +
-		dark_mode
-	);
-}
-
-// Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text colors
-export function getTopBarNewItemTutorialBorderArrowTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-" +
-		dark_mode
-	);
-}
-
 // Light/Dark mode -- CreateItemSidebar component -- background colors
 export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -464,6 +444,32 @@ export function getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLig
 		(dark_mode
 			? " js-set-toggle-switch-border-background-text-colors-mode-dark-theme-"
 			: " js-set-toggle-switch-border-background-text-colors-mode-light-theme-") +
+		theme_color
+	);
+}
+
+// Theme + Light/Dark mode -- TopBar new-item-button during tutorial -- border color
+export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		(dark_mode
+			? " js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-"
+			: " js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-") +
+		theme_color
+	);
+}
+
+// Theme + Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text colors
+export function getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		(dark_mode
+			? " js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-"
+			: " js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-") +
 		theme_color
 	);
 }

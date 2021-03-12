@@ -116,63 +116,68 @@ body {
 	}
 
 	// Light/Dark mode -- NavbarHamburger dropdown -- border, background (with hover and selected), and text colors
-	.js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
-		background-color: v.$mode-account-sidebar-modal-background-color-light;
+	@mixin mode-hamburger-dropdown($is-light) {
+		@if $is-light {
+			background-color: v.$mode-account-sidebar-modal-background-color-light;
+		} @else {
+			background-color: v.$mode-account-sidebar-modal-background-color-dark;
+		}
 
 		& > .hamburger-dropdown__option {
-			border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-light;
+			@if $is-light {
+				border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-light;
+			} @else {
+				border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-dark;
+			}
 
 			&:hover,
 			&:active {
-				background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-light;
+				@if $is-light {
+					background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-light;
+				} @else {
+					background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-dark;
+				}
 			}
 
 			& > .hamburger-dropdown__option__icon {
-				color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-light;
+				@if $is-light {
+					color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-light;
+				} @else {
+					color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-dark;
+				}
 			}
 		}
 
 		& > .hamburger-dropdown__option--selected {
-			background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
-
-			&:hover,
-			&:active {
+			@if $is-light {
 				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
-			}
-		}
-
-		& > .hamburger-dropdown__option--item-name {
-			color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-light;
-		}
-	}
-	.js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true {
-		background-color: v.$mode-account-sidebar-modal-background-color-dark;
-
-		& > .hamburger-dropdown__option {
-			border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-dark;
-
-			&:hover,
-			&:active {
-				background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-dark;
-			}
-
-			& > .hamburger-dropdown__option__icon {
-				color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-dark;
-			}
-		}
-
-		& > .hamburger-dropdown__option--selected {
-			background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-dark;
-
-			&:hover,
-			&:active {
+			} @else {
 				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-dark;
 			}
+
+			&:hover,
+			&:active {
+				@if $is-light {
+					background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
+				} @else {
+					background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-dark;
+				}
+			}
 		}
 
 		& > .hamburger-dropdown__option--item-name {
-			color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-dark;
+			@if $is-light {
+				color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-light;
+			} @else {
+				color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-dark;
+			}
 		}
+	}
+	.js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
+		@include mode-hamburger-dropdown($is-light: true);
+	}
+	.js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true {
+		@include mode-hamburger-dropdown($is-light: false);
 	}
 
 	// Light/Dark mode -- AccountSidebar and AccountModal -- background colors
@@ -301,56 +306,6 @@ body {
 		border-color: v.$mode-top-bar-button-border-color-dark;
 		background-color: v.$mode-top-bar-button-background-color-dark;
 		color: v.$mode-top-bar-button-text-color-dark;
-	}
-
-	// Light/Dark mode -- TopBar new-item-button during tutorial -- border color
-	.js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-false {
-		border-color: v.$mode-top-bar-new-item-tutorial-border-text-color-light;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-dark-mode-true {
-		border-color: v.$mode-top-bar-new-item-tutorial-border-text-color-dark;
-	}
-
-	// Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text colors
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-false {
-		& > .new-item-tutorial-container__arrow-head {
-			border-bottom-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
-		}
-
-		& > .new-item-tutorial-container__arrow-stock {
-			background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
-		}
-
-		& > .new-item-tutorial-container__bend-message-centering-container {
-			&
-				> .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-				background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
-			}
-
-			& > .new-item-tutorial-container__bend-message-centering-container__text {
-				color: v.$mode-top-bar-new-item-tutorial-border-text-color-light;
-			}
-		}
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-dark-mode-true {
-		& > .new-item-tutorial-container__arrow-head {
-			border-bottom-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-dark;
-		}
-
-		& > .new-item-tutorial-container__arrow-stock {
-			background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-dark;
-		}
-
-		& > .new-item-tutorial-container__bend-message-centering-container {
-			&
-				> .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-				background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-dark;
-			}
-
-			& > .new-item-tutorial-container__bend-message-centering-container__text {
-				color: v.$mode-top-bar-new-item-tutorial-border-text-color-dark;
-			}
-		}
 	}
 
 	// Light/Dark mode -- CreateItemSidebar component -- background colors
@@ -938,7 +893,150 @@ body {
 			$is-light: false
 		);
 	}
-	
+
+	// Theme + Light/Dark mode -- TopBar new-item-button during tutorial -- border color
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turkish {
+		border-color: v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turkish {
+		border-color: v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-queen {
+		border-color: v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-light;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-queen {
+		border-color: v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-sky {
+		border-color: v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-light;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-sky {
+		border-color: v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turquoise {
+		border-color: v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turquoise {
+		border-color: v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-purple-rain {
+		border-color: v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-light;
+	}
+	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-purple-rain {
+		border-color: v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark;
+	}
+
+	// Theme + Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text colors
+	@mixin mode-top-bar-tutorial(
+		$theme-mode-top-bar-new-item-tutorial-border-text-color-light,
+		$theme-mode-top-bar-new-item-tutorial-border-text-color-dark,
+		$is-light
+	) {
+		& > .new-item-tutorial-container__arrow-head {
+			@if $is-light {
+				border-bottom-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
+			} @else {
+				border-bottom-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-dark;
+			}
+		}
+
+		& > .new-item-tutorial-container__arrow-stock {
+			@if $is-light {
+				background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
+			} @else {
+				background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-dark;
+			}
+		}
+
+		& > .new-item-tutorial-container__bend-message-centering-container {
+			&
+				> .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+				@if $is-light {
+					background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
+				} @else {
+					background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-dark;
+				}
+			}
+
+			& > .new-item-tutorial-container__bend-message-centering-container__text {
+				@if $is-light {
+					color: $theme-mode-top-bar-new-item-tutorial-border-text-color-light;
+				} @else {
+					color: $theme-mode-top-bar-new-item-tutorial-border-text-color-dark;
+				}
+			}
+		}
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
 
 	// Theme + Light/Dark mode -- focus border color
 	.js-set-focus-border-color-mode-light-theme-blue-turkish {
