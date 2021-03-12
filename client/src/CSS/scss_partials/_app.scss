@@ -115,6 +115,48 @@ body {
 		color: v.$mode-base-primary-text-color-dark;
 	}
 
+	// Light/Dark mode -- list rows -- border and text colors
+	.js-set-list-row-border-and-text-color-dark-mode-false {
+		border-color: v.$mode-list-row-border-color-light;
+		color: v.$mode-base-secondary-text-color-light;
+	}
+	.js-set-list-row-border-and-text-color-dark-mode-true {
+		border-color: v.$mode-list-row-border-color-dark;
+		color: v.$mode-base-secondary-text-color-dark;
+	}
+
+	// Light/Dark mode -- list rows -- hover background colors
+	.js-set-list-row-hover-background-color-dark-mode-false {
+		// Only hover since active causes td to cover border
+		&:hover {
+			background-color: v.$mode-list-row-hover-background-color-light;
+		}
+	}
+	.js-set-list-row-hover-background-color-dark-mode-true {
+		// Only hover since active causes td to cover border
+		&:hover {
+			background-color: v.$mode-list-row-hover-background-color-dark;
+		}
+	}
+
+	// Light/Dark mode -- list rows -- selected background colors
+	.js-set-list-row-selected-background-color-dark-mode-false {
+		background-color: v.$mode-list-row-selected-background-color-light;
+	}
+	.js-set-list-row-selected-background-color-dark-mode-true {
+		background-color: v.$mode-list-row-selected-background-color-dark;
+	}
+
+	// Light/Dark mode -- list headers -- box shadow, background, and text colors
+	.js-set-list-header-box-shadow-and-background-color-dark-mode-false {
+		box-shadow: v.$mode-list-header-box-shadow-light;
+		background-color: v.$mode-list-header-background-color-light;
+	}
+	.js-set-list-header-box-shadow-and-background-color-dark-mode-true {
+		box-shadow: v.$mode-list-header-box-shadow-dark;
+		background-color: v.$mode-list-header-background-color-dark;
+	}
+
 	// Light/Dark mode -- NavbarHamburger dropdown -- border, background (with hover and selected), and text colors
 	@mixin mode-hamburger-dropdown($is-light) {
 		@if $is-light {
@@ -338,48 +380,6 @@ body {
 		pointer-events: none;
 	}
 
-	// Light/Dark mode -- list rows -- border and text colors
-	.js-set-list-row-border-and-text-color-dark-mode-false {
-		border-color: v.$mode-list-row-border-color-light;
-		color: v.$mode-base-secondary-text-color-light;
-	}
-	.js-set-list-row-border-and-text-color-dark-mode-true {
-		border-color: v.$mode-list-row-border-color-dark;
-		color: v.$mode-base-secondary-text-color-dark;
-	}
-
-	// Light/Dark mode -- list rows -- hover background colors
-	.js-set-list-row-hover-background-color-dark-mode-false {
-		// Only hover since active causes td to cover border
-		&:hover {
-			background-color: v.$mode-list-row-hover-background-color-light;
-		}
-	}
-	.js-set-list-row-hover-background-color-dark-mode-true {
-		// Only hover since active causes td to cover border
-		&:hover {
-			background-color: v.$mode-list-row-hover-background-color-dark;
-		}
-	}
-
-	// Light/Dark mode -- list rows -- selected background colors
-	.js-set-list-row-selected-background-color-dark-mode-false {
-		background-color: v.$mode-list-row-selected-background-color-light;
-	}
-	.js-set-list-row-selected-background-color-dark-mode-true {
-		background-color: v.$mode-list-row-selected-background-color-dark;
-	}
-
-	// Light/Dark mode -- list headers -- box shadow, background, and text colors
-	.js-set-list-header-box-shadow-and-background-color-dark-mode-false {
-		box-shadow: v.$mode-list-header-box-shadow-light;
-		background-color: v.$mode-list-header-background-color-light;
-	}
-	.js-set-list-header-box-shadow-and-background-color-dark-mode-true {
-		box-shadow: v.$mode-list-header-box-shadow-dark;
-		background-color: v.$mode-list-header-background-color-dark;
-	}
-
 	// Light/Dark mode -- DeleteModal component -- background color
 	.js-set-delete-modal-background-color-dark-mode-false {
 		background-color: v.$mode-delete-modal-background-color-light;
@@ -434,6 +434,14 @@ body {
 	}
 	.js-set-delete-modal-trapazoid-border-color-dark-mode-true {
 		border-top-color: v.$mode-delete-modal-trapazoid-border-color-dark;
+	}
+
+	// Light/Dark mode -- ListView empty-list-message -- text colors
+	.js-set-list-view-empty-list-message-text-color-dark-mode-false {
+		color: v.$mode-list-view-empty-list-message-text-color-light;
+	}
+	.js-set-list-view-empty-list-message-text-color-dark-mode-true {
+		color: v.$mode-list-view-empty-list-message-text-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewTopBar icon-buttons -- text colors with hover

@@ -2736,7 +2736,7 @@ dropdown can overlap all other components
   width: 90%;
   text-align: center;
   font-size: 32px;
-  color: #808080;
+  color: #757575;
 }
 
 .list-table-component--no-scroll {
@@ -2781,7 +2781,7 @@ body {
 .app-component .js-set-base-background-and-text-color-dark-mode-true,
 .js-calc-app-component .js-set-base-background-and-text-color-dark-mode-true {
   background-color: #2e2e2e;
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-base-secondary-text-color-dark-mode-false,
 .js-calc-app-component .js-set-base-secondary-text-color-dark-mode-false {
@@ -2863,7 +2863,43 @@ body {
 .js-calc-app-component .js-set-base-form-input-border-background-text-color-dark-mode-true {
   border-color: black;
   background-color: #484848;
-  color: #d6e1ec;
+  color: #c7d1db;
+}
+.app-component .js-set-list-row-border-and-text-color-dark-mode-false,
+.js-calc-app-component .js-set-list-row-border-and-text-color-dark-mode-false {
+  border-color: #919191;
+  color: #272727;
+}
+.app-component .js-set-list-row-border-and-text-color-dark-mode-true,
+.js-calc-app-component .js-set-list-row-border-and-text-color-dark-mode-true {
+  border-color: #6d6d6d;
+  color: #c1cad4;
+}
+.app-component .js-set-list-row-hover-background-color-dark-mode-false:hover,
+.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-false:hover {
+  background-color: #f8f8f8;
+}
+.app-component .js-set-list-row-hover-background-color-dark-mode-true:hover,
+.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-true:hover {
+  background-color: #363636;
+}
+.app-component .js-set-list-row-selected-background-color-dark-mode-false,
+.js-calc-app-component .js-set-list-row-selected-background-color-dark-mode-false {
+  background-color: #e1e1e1;
+}
+.app-component .js-set-list-row-selected-background-color-dark-mode-true,
+.js-calc-app-component .js-set-list-row-selected-background-color-dark-mode-true {
+  background-color: #444444;
+}
+.app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-false,
+.js-calc-app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-false {
+  box-shadow: 0 1px 0 #919191;
+  background-color: white;
+}
+.app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-true,
+.js-calc-app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-true {
+  box-shadow: 0 1px 0 #6d6d6d;
+  background-color: #2e2e2e;
 }
 .app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
@@ -3047,7 +3083,7 @@ body {
 .js-calc-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-true {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-create-item-sidebar-background-color-dark-mode-false,
 .js-calc-app-component .js-set-create-item-sidebar-background-color-dark-mode-false {
@@ -3078,42 +3114,6 @@ body {
   background-color: #2e2e2e;
   color: #6d6d6d;
   pointer-events: none;
-}
-.app-component .js-set-list-row-border-and-text-color-dark-mode-false,
-.js-calc-app-component .js-set-list-row-border-and-text-color-dark-mode-false {
-  border-color: #919191;
-  color: #272727;
-}
-.app-component .js-set-list-row-border-and-text-color-dark-mode-true,
-.js-calc-app-component .js-set-list-row-border-and-text-color-dark-mode-true {
-  border-color: #6d6d6d;
-  color: #c1cad4;
-}
-.app-component .js-set-list-row-hover-background-color-dark-mode-false:hover,
-.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-false:hover {
-  background-color: #f8f8f8;
-}
-.app-component .js-set-list-row-hover-background-color-dark-mode-true:hover,
-.js-calc-app-component .js-set-list-row-hover-background-color-dark-mode-true:hover {
-  background-color: #363636;
-}
-.app-component .js-set-list-row-selected-background-color-dark-mode-false,
-.js-calc-app-component .js-set-list-row-selected-background-color-dark-mode-false {
-  background-color: #e1e1e1;
-}
-.app-component .js-set-list-row-selected-background-color-dark-mode-true,
-.js-calc-app-component .js-set-list-row-selected-background-color-dark-mode-true {
-  background-color: #444444;
-}
-.app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-false,
-.js-calc-app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-false {
-  box-shadow: 0 1px 0 #919191;
-  background-color: white;
-}
-.app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-true,
-.js-calc-app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-true {
-  box-shadow: 0 1px 0 #6d6d6d;
-  background-color: #2e2e2e;
 }
 .app-component .js-set-delete-modal-background-color-dark-mode-false,
 .js-calc-app-component .js-set-delete-modal-background-color-dark-mode-false {
@@ -3170,6 +3170,14 @@ body {
 .app-component .js-set-delete-modal-trapazoid-border-color-dark-mode-true,
 .js-calc-app-component .js-set-delete-modal-trapazoid-border-color-dark-mode-true {
   border-top-color: #ad3f3f;
+}
+.app-component .js-set-list-view-empty-list-message-text-color-dark-mode-false,
+.js-calc-app-component .js-set-list-view-empty-list-message-text-color-dark-mode-false {
+  color: #757575;
+}
+.app-component .js-set-list-view-empty-list-message-text-color-dark-mode-true,
+.js-calc-app-component .js-set-list-view-empty-list-message-text-color-dark-mode-true {
+  color: #80878d;
 }
 .app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false,
 .js-calc-app-component .js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false {
@@ -3257,7 +3265,7 @@ body {
 .js-calc-app-component .js-set-item-view-form-input-border-background-text-color-dark-mode-true {
   border-color: black;
   background-color: #2e2e2e;
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-item-view-diabled-label-dark-mode-false,
 .js-calc-app-component .js-set-item-view-diabled-label-dark-mode-false {
@@ -3315,7 +3323,7 @@ body {
 .app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true:hover, .app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true:active,
 .js-calc-app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true:hover,
 .js-calc-app-component .js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true:active {
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-brighter-border-color-theme-blue-turkish,
 .js-calc-app-component .js-set-brighter-border-color-theme-blue-turkish {
@@ -3790,15 +3798,15 @@ body {
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__arrow-head,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__arrow-head {
-  border-bottom-color: #d6e1ec;
+  border-bottom-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__arrow-stock,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__arrow-stock {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
@@ -3822,15 +3830,15 @@ body {
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__arrow-head,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__arrow-head {
-  border-bottom-color: #d6e1ec;
+  border-bottom-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__arrow-stock,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__arrow-stock {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
@@ -3854,15 +3862,15 @@ body {
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__arrow-head,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__arrow-head {
-  border-bottom-color: #d6e1ec;
+  border-bottom-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__arrow-stock,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__arrow-stock {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
@@ -3886,15 +3894,15 @@ body {
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__arrow-head,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__arrow-head {
-  border-bottom-color: #d6e1ec;
+  border-bottom-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__arrow-stock,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__arrow-stock {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
@@ -3918,15 +3926,15 @@ body {
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__arrow-head,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__arrow-head {
-  border-bottom-color: #d6e1ec;
+  border-bottom-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__arrow-stock,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__arrow-stock {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-  background-color: #d6e1ec;
+  background-color: #c7d1db;
 }
 .app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
 .js-calc-app-component .js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
@@ -4040,7 +4048,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish + i {
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish:hover + i {
@@ -4074,7 +4082,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen + i {
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen:hover + i {
@@ -4108,7 +4116,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-sky + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-sky + i {
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-sky:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-sky:hover + i {
@@ -4142,7 +4150,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turquoise + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turquoise + i {
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turquoise:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turquoise:hover + i {
@@ -4176,7 +4184,7 @@ body {
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-purple-rain + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-purple-rain + i {
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-purple-rain:hover + i,
 .js-calc-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-purple-rain:hover + i {
@@ -4197,7 +4205,7 @@ body {
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > input {
   border-color: #608d9e;
   background-color: #363636;
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > div {
@@ -4219,7 +4227,7 @@ body {
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > input {
   border-color: #45607e;
   background-color: #363636;
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > div {
@@ -4241,7 +4249,7 @@ body {
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-sky > input {
   border-color: #0091c2;
   background-color: #363636;
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-sky > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-sky > div {
@@ -4263,7 +4271,7 @@ body {
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > input {
   border-color: #03a89e;
   background-color: #363636;
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > div {
@@ -4285,7 +4293,7 @@ body {
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-purple-rain > input {
   border-color: #694489;
   background-color: #363636;
-  color: #d6e1ec;
+  color: #c7d1db;
 }
 .app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-purple-rain > div,
 .js-calc-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-purple-rain > div {

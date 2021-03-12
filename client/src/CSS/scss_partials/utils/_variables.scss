@@ -42,16 +42,16 @@ $gray-dark-level-14: #181818;
 // Tinted grays
 $tinted-gray-light-level-1: #d6e1ec;
 $tinted-gray-light-level-2: #ced9e4;
-$tinted-gray-light-level-3: #c7d1db;
+$tinted-gray-light-level-1: #c7d1db;
 $tinted-gray-light-level-4: #c1cad4;
 $tinted-gray-light-level-5: #bfc8d1;
 $tinted-gray-light-level-6: #b7c1ca;
 $tinted-gray-light-level-7: #b2bbc4;
 $tinted-gray-light-level-8: #a9b3bb;
 $tinted-gray-light-level-9: #9ca5ac;
-$tinted-gray-light-level-30: #8f989e;
-$tinted-gray-light-level-31: #868e94;
-$tinted-gray-light-level-32: #80878d;
+$tinted-gray-light-level-10: #8f989e;
+$tinted-gray-light-level-11: #868e94;
+$tinted-gray-light-level-12: #80878d;
 // Basic blues
 $basic-blue-level-1: #0000ff;
 // Baby blues
@@ -234,6 +234,16 @@ $mode-base-form-input-border-color-light: $gray-level-5;
 $mode-base-form-input-border-color-dark: black;
 $mode-base-form-input-background-color-light: $gray-light-level-5;
 $mode-base-form-input-background-color-dark: $gray-dark-level-2;
+$mode-list-row-border-color-light: $gray-level-2;
+$mode-list-row-border-color-dark: $gray-level-6;
+$mode-list-row-hover-background-color-light: $gray-light-level-2;
+$mode-list-row-hover-background-color-dark: $gray-dark-level-6;
+$mode-list-row-selected-background-color-light: $gray-light-level-6;
+$mode-list-row-selected-background-color-dark: $gray-dark-level-4;
+$mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light;
+$mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark;
+$mode-list-header-background-color-light: $mode-base-background-color-light;
+$mode-list-header-background-color-dark: $mode-base-background-color-dark;
 // Light/Dark mode (specific)
 $mode-navbar-hamburger-dropdown-background-color-light: $mode-base-background-color-light;
 $mode-navbar-hamburger-dropdown-background-color-dark: $mode-base-background-color-dark;
@@ -287,16 +297,6 @@ $mode-top-bar-search-bar-background-color-light: $mode-base-background-color-lig
 $mode-top-bar-search-bar-background-color-dark: $gray-dark-level-6;
 $mode-top-bar-search-bar-text-color-light: $mode-base-primary-text-color-light;
 $mode-top-bar-search-bar-text-color-dark: $mode-base-primary-text-color-dark;
-$mode-list-row-border-color-light: $gray-level-2;
-$mode-list-row-border-color-dark: $gray-level-6;
-$mode-list-row-hover-background-color-light: $gray-light-level-2;
-$mode-list-row-hover-background-color-dark: $gray-dark-level-6;
-$mode-list-row-selected-background-color-light: $gray-light-level-6;
-$mode-list-row-selected-background-color-dark: $gray-dark-level-4;
-$mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light;
-$mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark;
-$mode-list-header-background-color-light: $mode-base-background-color-light;
-$mode-list-header-background-color-dark: $mode-base-background-color-dark;
 $mode-delete-modal-background-color-light: $mode-base-background-color-light;
 $mode-delete-modal-background-color-dark: $mode-base-background-color-dark;
 $mode-delete-modal-delete-button-background-color-light: $mode-account-modal-delete-account-form-delete-button-background-color-light;
@@ -311,6 +311,8 @@ $mode-delete-modal-cancel-button-hover-background-color-light: $gray-light-level
 $mode-delete-modal-cancel-button-hover-background-color-dark: $gray-dark-level-5;
 $mode-delete-modal-trapazoid-border-color-light: $mode-delete-modal-delete-button-background-color-light;
 $mode-delete-modal-trapazoid-border-color-dark: $mode-delete-modal-delete-button-background-color-dark;
+$mode-list-view-empty-list-message-text-color-light: $gray-level-5;
+$mode-list-view-empty-list-message-text-color-dark: $tinted-gray-light-level-12;
 $mode-item-view-top-bar-icon-button-text-color-light: $gray-level-6;
 $mode-item-view-top-bar-icon-button-text-color-dark: $gray-level-8;
 $mode-item-view-top-bar-icon-button-hover-text-color-light: $gray-dark-level-7;
@@ -419,7 +421,6 @@ $register-login-submit-button-hover-border-background-color: $old-copper-blue-le
 $register-login-bottom-link-text-color: $basic-blue-level-1;
 $breadcrumb-hamburger-close-button-text-color: $basic-red-light-level-2;
 $filter-button-active-color: $default-theme-mode-text-color;
-$table-empty-list-message-text-color: $gray-level-3;
 
 //==========
 // Heights

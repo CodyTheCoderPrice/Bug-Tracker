@@ -16,6 +16,7 @@ import {
 	getElementLocation,
 	getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
 	getSearchFilterSortList,
+	getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
@@ -33,8 +34,7 @@ export default function ListViewTable(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight !==
-				null
+			reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight !== null
 		) {
 			const listTableContainerElement = document.getElementsByClassName(
 				"js-list-table-container"
@@ -66,8 +66,7 @@ export default function ListViewTable(props) {
 				emptyListMessageContainer.style.height =
 					reduxState[SIZE_CONTAINER].variables.window.height -
 					reduxState[SIZE_CONTAINER].variables.navbar.height -
-					reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight
-						.height -
+					reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight.height -
 					reduxState[SIZE_CONTAINER].constants.listViewTableRowHeight -
 					reduxState[SIZE_CONTAINER].constants.scrollbarWidth +
 					"px";
@@ -374,7 +373,14 @@ export default function ListViewTable(props) {
 						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
 				).length > 0) ? null : (
 				<div className="empty-list-message-centering-container js-empty-list-message-container">
-					<div className="empty-list-message-centering-container__message">
+					<div
+						className={
+							"empty-list-message-centering-container__message" +
+							getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					>
 						{props.reduxContainerName === PROJECT_CONTAINER
 							? "Account has no projects created."
 							: "This project has no bugs tracked"}

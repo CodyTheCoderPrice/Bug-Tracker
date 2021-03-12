@@ -118,6 +118,36 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDark
 	);
 }
 
+// Light/Dark mode -- list rows -- border and text colors
+export function getListRowBorderAndTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-list-row-border-and-text-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- list rows -- hover background colors
+export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-list-row-hover-background-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- list rows -- selected background colors
+export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-list-row-selected-background-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- list headers -- box shadow, background, and text colors
+export function getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-list-header-box-shadow-and-background-color-dark-mode-" + dark_mode
+	);
+}
+
 // Light/Dark mode -- NavbarHamburger dropdown -- border, background (with hover and selected), and text colors
 export function getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -236,36 +266,6 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode -- list rows -- border and text colors
-export function getListRowBorderAndTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-list-row-border-and-text-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode -- list rows -- hover background colors
-export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-list-row-hover-background-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode -- list rows -- selected background colors
-export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-list-row-selected-background-color-dark-mode-" + dark_mode;
-}
-
-// Light/Dark mode -- list headers -- box shadow, background, and text colors
-export function getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-list-header-box-shadow-and-background-color-dark-mode-" + dark_mode
-	);
-}
-
 // Light/Dark mode -- DeleteModal component -- background color
 export function getDeleteModalBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -297,6 +297,16 @@ export function getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-delete-modal-trapazoid-border-color-dark-mode-" + dark_mode;
+}
+
+// Light/Dark mode -- ListView empty-list-message -- text colors
+export function getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-list-view-empty-list-message-text-color-dark-mode-" +
+		dark_mode
+	);
 }
 
 // Light/Dark mode -- temViewTopBar options-button -- border, background, and text colors
