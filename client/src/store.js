@@ -32,7 +32,7 @@ const rootPersistConfig = {
 		// Persisted despite account info and comments being re-fetched on
 		// ...page refresh so it is not null while data is retrieved from server
 		ACCOUNT_CONTAINER,
-		COMMENT_CONTAINER
+		COMMENT_CONTAINER,
 	],
 };
 
@@ -50,7 +50,7 @@ const projectContainerPersistConfig = {
 	storage: storage,
 	// Projects and priorityStatusOptions are persisted despite being re-fetched
 	// ...on page refresh so they are not null while data is retrieved from server
-	blacklist: ["massDeleteList", "searchFilterSort"],
+	blacklist: ["searchFilterSort"],
 };
 
 const bugContainerPersistConfig = {
@@ -58,7 +58,7 @@ const bugContainerPersistConfig = {
 	storage: storage,
 	// Projects and priorityStatusOptions are persisted despite being re-fetched
 	// ...on page refresh so they are not null while data is retrieved from server
-	blacklist: ["massDeleteList", "searchFilterSort"],
+	blacklist: ["searchFilterSort"],
 };
 
 // rootReducer is created here instead of in the reducer index.js

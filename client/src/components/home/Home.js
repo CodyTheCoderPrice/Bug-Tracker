@@ -37,11 +37,18 @@ export default function Home() {
 	// Updates list filters to match account settings on app start up or after
 	// ...filter account settings have been changed
 	useEffect(() => {
+		// Won't set filter to settings if target item status is completed so
+		// ...user is not confused where the target item went from the list
 		if (
-			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects_by_default !==
-			reduxState[PROJECT_CONTAINER].searchFilterSort.statusFilter.includes(
-				reduxState[PROJECT_CONTAINER].priorityStatusOptions.statusCompletionId
-			)
+			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null ||
+			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.status_id !==
+				reduxState[PROJECT_CONTAINER].priorityStatusOptions
+					.statusCompletionId &&
+			reduxState[ACCOUNT_CONTAINER].settings
+				.filter_completed_projects_by_default !==
+				reduxState[PROJECT_CONTAINER].searchFilterSort.statusFilter.includes(
+					reduxState[PROJECT_CONTAINER].priorityStatusOptions.statusCompletionId
+				)
 		) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(PROJECT_CONTAINER, {
@@ -57,11 +64,17 @@ export default function Home() {
 			);
 		}
 
+		// Won't set filter to settings if target item status is completed so
+		// ...user is not confused where the target item went from the list
 		if (
-			reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default !==
-			reduxState[BUG_CONTAINER].searchFilterSort.statusFilter.includes(
-				reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
-			)
+			reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null ||
+			reduxState[BUG_CONTAINER].componentsDisplay.targetItem.status_id !==
+				reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId &&
+			reduxState[ACCOUNT_CONTAINER].settings
+				.filter_completed_bugs_by_default !==
+				reduxState[BUG_CONTAINER].searchFilterSort.statusFilter.includes(
+					reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
+				)
 		) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(BUG_CONTAINER, {
@@ -88,30 +101,32 @@ export default function Home() {
 	useEffect(() => {
 		if (
 			reduxState[ACCOUNT_CONTAINER].settings.project_sort_id !==
-			reduxState[PROJECT_CONTAINER].searchFilterSort.sortId || 
+				reduxState[PROJECT_CONTAINER].searchFilterSort.sortId ||
 			reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending !==
-			reduxState[PROJECT_CONTAINER].searchFilterSort.sortAscending
+				reduxState[PROJECT_CONTAINER].searchFilterSort.sortAscending
 		) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(PROJECT_CONTAINER, {
 					...reduxState[PROJECT_CONTAINER].searchFilterSort,
 					sortId: reduxState[ACCOUNT_CONTAINER].settings.project_sort_id,
-					sortAscending: reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending
+					sortAscending:
+						reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending,
 				})
 			);
 		}
 
 		if (
 			reduxState[ACCOUNT_CONTAINER].settings.bug_sort_id !==
-			reduxState[BUG_CONTAINER].searchFilterSort.sortId || 
+				reduxState[BUG_CONTAINER].searchFilterSort.sortId ||
 			reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending !==
-			reduxState[BUG_CONTAINER].searchFilterSort.sortAscending
+				reduxState[BUG_CONTAINER].searchFilterSort.sortAscending
 		) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(BUG_CONTAINER, {
 					...reduxState[BUG_CONTAINER].searchFilterSort,
 					sortId: reduxState[ACCOUNT_CONTAINER].settings.bug_sort_id,
-					sortAscending: reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending
+					sortAscending:
+						reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending,
 				})
 			);
 		}
@@ -126,8 +141,6 @@ export default function Home() {
 		// eslint-disable-next-line
 		reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending,
 	]);
-
-	
 
 	// Updates mass delete list to not include items that are being searchFilterSorted out
 	useEffect(() => {
