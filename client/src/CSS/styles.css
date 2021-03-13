@@ -3031,13 +3031,13 @@ body {
 }
 .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true {
-  background-color: #ad3f3f;
+  background-color: #bb4444;
 }
 .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:hover, .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:active, .app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:focus,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:hover,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:active,
 .js-calc-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:focus {
-  background-color: #993636;
+  background-color: #a83c3c;
 }
 .app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false {
@@ -3134,12 +3134,12 @@ body {
 }
 .app-component .js-set-delete-modal-delete-button-background-color-dark-mode-true,
 .js-calc-app-component .js-set-delete-modal-delete-button-background-color-dark-mode-true {
-  background-color: #ad3f3f;
+  background-color: #bb4444;
 }
 .app-component .js-set-delete-modal-delete-button-background-color-dark-mode-true:hover, .app-component .js-set-delete-modal-delete-button-background-color-dark-mode-true:active,
 .js-calc-app-component .js-set-delete-modal-delete-button-background-color-dark-mode-true:hover,
 .js-calc-app-component .js-set-delete-modal-delete-button-background-color-dark-mode-true:active {
-  background-color: #993636;
+  background-color: #a83c3c;
 }
 .app-component .js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-false,
 .js-calc-app-component .js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-false {
@@ -3154,9 +3154,9 @@ body {
 }
 .app-component .js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-true,
 .js-calc-app-component .js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-true {
-  border-color: #ad3f3f;
+  border-color: #bb4444;
   background-color: #2e2e2e;
-  color: #ad3f3f;
+  color: #bb4444;
 }
 .app-component .js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-true:hover, .app-component .js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-true:active,
 .js-calc-app-component .js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-true:hover,
@@ -3169,7 +3169,7 @@ body {
 }
 .app-component .js-set-delete-modal-trapazoid-border-color-dark-mode-true,
 .js-calc-app-component .js-set-delete-modal-trapazoid-border-color-dark-mode-true {
-  border-top-color: #ad3f3f;
+  border-top-color: #bb4444;
 }
 .app-component .js-set-list-view-empty-list-message-text-color-dark-mode-false,
 .js-calc-app-component .js-set-list-view-empty-list-message-text-color-dark-mode-false {
