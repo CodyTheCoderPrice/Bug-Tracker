@@ -41,14 +41,15 @@ export default function Home() {
 		// ...user is not confused where the target item went from the list
 		if (
 			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null ||
-			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.status_id !==
+			(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.status_id !==
 				reduxState[PROJECT_CONTAINER].priorityStatusOptions
 					.statusCompletionId &&
-			reduxState[ACCOUNT_CONTAINER].settings
-				.filter_completed_projects_by_default !==
-				reduxState[PROJECT_CONTAINER].searchFilterSort.statusFilter.includes(
-					reduxState[PROJECT_CONTAINER].priorityStatusOptions.statusCompletionId
-				)
+				reduxState[ACCOUNT_CONTAINER].settings
+					.filter_completed_projects_by_default !==
+					reduxState[PROJECT_CONTAINER].searchFilterSort.statusFilter.includes(
+						reduxState[PROJECT_CONTAINER].priorityStatusOptions
+							.statusCompletionId
+					))
 		) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(PROJECT_CONTAINER, {
@@ -68,13 +69,13 @@ export default function Home() {
 		// ...user is not confused where the target item went from the list
 		if (
 			reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null ||
-			reduxState[BUG_CONTAINER].componentsDisplay.targetItem.status_id !==
+			(reduxState[BUG_CONTAINER].componentsDisplay.targetItem.status_id !==
 				reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId &&
-			reduxState[ACCOUNT_CONTAINER].settings
-				.filter_completed_bugs_by_default !==
-				reduxState[BUG_CONTAINER].searchFilterSort.statusFilter.includes(
-					reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
-				)
+				reduxState[ACCOUNT_CONTAINER].settings
+					.filter_completed_bugs_by_default !==
+					reduxState[BUG_CONTAINER].searchFilterSort.statusFilter.includes(
+						reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
+					))
 		) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(BUG_CONTAINER, {
