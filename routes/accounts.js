@@ -106,6 +106,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 	let backendErrors = {};
 
 	try {
+		console.log("Got here 1");
+
 		const { email, password } = req.body;
 
 		// Only grabs id and password since getEverythingFromAccount() called
@@ -116,22 +118,30 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			[email]
 		);
 
+		console.log("Got here 2");
+
 		// Verifies email is registered
 		if (accountIdAndPassword.rowCount === 0) {
 			backendErrors = { validationAccountEmail: "Email unregistered" };
 			return res.status(401).json({ success: false, backendErrors });
 		}
 
+		console.log("Got here 3");
+
 		const passwordMatch = await bcrypt.compare(
 			password,
 			accountIdAndPassword.rows[0].hash_pass
 		);
+
+		console.log("Got here 4");
 
 		// Verfies that password is correct
 		if (!passwordMatch) {
 			backendErrors = { validationAccountPassword: "Incorrect password" };
 			return res.status(401).json({ success: false, backendErrors });
 		}
+
+		console.log("Got here 5");
 
 		// Everything for account is pulled here so login is only one http call
 		const {
@@ -144,6 +154,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			allBugsForAccount,
 			allCommentsForAccount,
 		} = await getEverythingForAccount(accountIdAndPassword.rows[0].account_id);
+
+		console.log("Got here 6");
 
 		// What the hashed jwToken will contain
 		const tokenPayload = {
