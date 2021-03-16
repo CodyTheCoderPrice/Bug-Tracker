@@ -4,9 +4,10 @@ const env = process.env.NODE_ENV || "development";
 
 // Used for connection to Postgres database hosted on Heroku
 let connectionString = {
-	connectionString:
-		process.env.DATABASE_URL,
-	ssl: false,
+	connectionString: process.env.DATABASE_URL,
+	ssl: {
+		rejectUnauthorized: false,
+	},
 };
 
 // If running locally, connection string will be raplced by the following
