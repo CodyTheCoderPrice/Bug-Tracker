@@ -132,6 +132,10 @@ export default function ListViewTopBar(props) {
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
+					alt={
+						"Button to open sidebar for creating a new " +
+						(props.reduxContainerName === PROJECT_CONTAINER ? "project" : "bug")
+					}
 					onClick={openCreateItemSidebar}
 				>
 					<span className="centering-container__new-item-button__text">
@@ -161,6 +165,7 @@ export default function ListViewTopBar(props) {
 					/>
 					<div
 						className="centering-container__bar-button-container__search-bar-button js-list-search-button"
+						alt="Button for searchbar"
 						onClick={updateSearchKeyWordString}
 					>
 						<span className="centering-container__bar-button-container__search-bar-button__icon">
@@ -184,6 +189,12 @@ export default function ListViewTopBar(props) {
 							.listViewSearchFilterSearchBarFilterDropdown
 							? " filter-area-container__button--clicked"
 							: "")
+					}
+					alt={
+						"Button to open filter dropdown for filtering " +
+						(props.reduxContainerName === PROJECT_CONTAINER
+							? "projects"
+							: "bugs")
 					}
 					onClick={(e) => toggleFilterDropdown(e)}
 				>

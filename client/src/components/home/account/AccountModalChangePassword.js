@@ -184,7 +184,7 @@ export default function AccountModalChangePassword() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
-					alt="Account modal link to return to editing account info"
+					alt="Link to return to editing account info"
 					onClick={backToEditInfo}
 				>
 					Back

@@ -196,7 +196,7 @@ export default function AccountModalChangeInfo() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
-					alt="Account modal link to switch to editing account email"
+					alt="Link to switch to editing account email"
 					onClick={openEditEmailModal}
 				>
 					Edit Email
@@ -210,7 +210,7 @@ export default function AccountModalChangeInfo() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
-					alt="Account modal link to switch to editing account password"
+					alt="Link to switch to editing account password"
 					onClick={openEditPasswordModal}
 				>
 					Edit Password
@@ -224,7 +224,7 @@ export default function AccountModalChangeInfo() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
-					alt="Account modal link to switch to begin process to delete account"
+					alt="Link to switch to begin process to delete account"
 					onClick={openDeleteAccountModal}
 				>
 					Delete Account

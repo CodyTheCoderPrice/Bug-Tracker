@@ -180,6 +180,13 @@ export default function ListViewCreateItemSidebar(props) {
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
+					alt={
+						"Button to close the new " +
+						(props.reduxContainerName === PROJECT_CONTAINER
+							? "project"
+							: "bug") +
+						" sidebar"
+					}
 					onClick={closeCreateItemSidebar}
 				>
 					<i className="fa fa-times" aria-hidden="true" alt="Icon of an X"></i>

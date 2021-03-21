@@ -76,12 +76,14 @@ export default function ListViewMassDeleteItemsModal(props) {
 				<div className="centered-buttons-container">
 					<div
 						className="centered-buttons-container__delete"
+						alt="Button to confirm deletion"
 						onClick={deleteCheckedItems}
 					>
 						Delete
 					</div>
 					<div
 						className="centered-buttons-container__cancel"
+						alt="Button to cancel deletion"
 						onClick={closeMassDeleteItemsModal}
 					>
 						Cancel

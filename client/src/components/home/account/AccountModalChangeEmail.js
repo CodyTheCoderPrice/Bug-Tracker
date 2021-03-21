@@ -137,7 +137,6 @@ export default function AccountModalChangeEmail() {
 			</form>
 			<div className="modal-links-container">
 				<span
-					onClick={backToEditInfo}
 					className={
 						"modal-link" +
 						getTextColorClassNameForThemeWithLightOrDarkMode(
@@ -145,6 +144,8 @@ export default function AccountModalChangeEmail() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
+					alt="Link to return to editing account info"
+					onClick={backToEditInfo}
 				>
 					Back
 				</span>

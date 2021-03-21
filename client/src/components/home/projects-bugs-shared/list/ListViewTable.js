@@ -126,7 +126,8 @@ export default function ListViewTable(props) {
 		shouldBeActive,
 		onclickfunction,
 		iconClassName,
-		altText
+		buttonAltText,
+		iconAltText
 	) => {
 		return (
 			<div
@@ -136,9 +137,14 @@ export default function ListViewTable(props) {
 						? ""
 						: " list-table__header__mass-delete-options-container__button--disabled")
 				}
+				alt={buttonAltText}
 				onClick={onclickfunction}
 			>
-				<i className={"fa " + iconClassName} aria-hidden="true" alt={altText} />
+				<i
+					className={"fa " + iconClassName}
+					aria-hidden="true"
+					alt={iconAltText}
+				/>
 			</div>
 		);
 	};
@@ -186,6 +192,10 @@ export default function ListViewTable(props) {
 										).length,
 									checkAllItems,
 									"fa-check-square-o",
+									"Button to check all " +
+										(props.reduxContainerName === PROJECT_CONTAINER
+											? "projects"
+											: "bugs"),
 									"Icon of a check mark inside a square"
 								)}
 								{createMassDeleteButton(
@@ -193,6 +203,10 @@ export default function ListViewTable(props) {
 										0,
 									uncheckAllItems,
 									"fa-square-o",
+									"Button to uncheck all " +
+										(props.reduxContainerName === PROJECT_CONTAINER
+											? "projects"
+											: "bugs"),
 									"Icon of an empty square"
 								)}
 								{createMassDeleteButton(
@@ -200,6 +214,10 @@ export default function ListViewTable(props) {
 										0,
 									openMassDeleteItemsModal,
 									"fa-trash-o",
+									"Button to delete all checked " +
+										(props.reduxContainerName === PROJECT_CONTAINER
+											? "projects"
+											: "bugs"),
 									"Icon of a trash can"
 								)}
 							</div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { PROJECT_CONTAINER } from "../../actions/constants/containerNames";
 
 import { setProjectOrBugSearchFilterSort } from "../../actions";
 
@@ -32,8 +33,8 @@ export default function SortArrowsButton(props) {
 			dispatch(
 				setProjectOrBugSearchFilterSort(props.reduxContainerName, {
 					...reduxState[props.reduxContainerName].searchFilterSort,
-					sortAscending: !reduxState[props.reduxContainerName]
-						.searchFilterSort.sortAscending,
+					sortAscending: !reduxState[props.reduxContainerName].searchFilterSort
+						.sortAscending,
 				})
 			);
 		}
@@ -41,15 +42,15 @@ export default function SortArrowsButton(props) {
 
 	const getSortingArrowImage = () => {
 		if (!props.dark_mode) {
-			return reduxState[props.reduxContainerName].searchFilterSort
-				.sortId !== props.sortId
+			return reduxState[props.reduxContainerName].searchFilterSort.sortId !==
+				props.sortId
 				? sortArrowsBothEmptyModeLight
 				: reduxState[props.reduxContainerName].searchFilterSort.sortAscending
 				? sortArrowsTopFilledModeLight
 				: sortArrowsBottomFilledModeLight;
 		} else {
-			return reduxState[props.reduxContainerName].searchFilterSort
-				.sortId !== props.sortId
+			return reduxState[props.reduxContainerName].searchFilterSort.sortId !==
+				props.sortId
 				? sortArrowsBothEmptyModeDark
 				: reduxState[props.reduxContainerName].searchFilterSort.sortAscending
 				? sortArrowsTopFilledModeDark
@@ -63,16 +64,22 @@ export default function SortArrowsButton(props) {
 			id={props.uniqueId}
 			src={getSortingArrowImage()}
 			alt={
+				(props.reduxContainerName === PROJECT_CONTAINER
+					? "Projects "
+					: "Bugs ") +
 				(reduxState[props.reduxContainerName].searchFilterSort.sortId !==
 				props.sortId
-					? "No"
-					: reduxState[props.reduxContainerName].searchFilterSort
-							.sortAscending
-					? "Ascending"
-					: "Descending") +
-				" sorting for " +
+					? "not being sorted for "
+					: reduxState[props.reduxContainerName].searchFilterSort.sortAscending
+					? "being sorted in ascending order for "
+					: "being sorted in descending order for ") +
 				props.sortFor +
-				" column."
+				" column. Click to sort them in " +
+				(reduxState[props.reduxContainerName].searchFilterSort.sortAscending !==
+				true
+					? "ascending"
+					: "descending") +
+				" order."
 			}
 			onClick={changeSorting}
 		/>

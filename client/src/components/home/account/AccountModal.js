@@ -55,7 +55,7 @@ export default function AccountModal() {
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
-						alt="Account modal button to return to editing account info"
+						alt="Button to return to editing account info"
 						onClick={backToEditInfo}
 					>
 						<i
@@ -72,7 +72,7 @@ export default function AccountModal() {
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
-					alt="Account modal button to close the account modal"
+					alt="Button to close the account modal"
 					onClick={backToAccountSidebar}
 				>
 					<i className="fa fa-times" aria-hidden="true" alt="icon of an X"></i>
