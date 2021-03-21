@@ -159,6 +159,7 @@ export default function NavbarHamburger() {
 				.navbarHamburherDropdown ? (
 				<div
 					className="hamburger-button-container"
+					alt="Navbar hamburger button to open dropdown for different pages"
 					onClick={(e) => toggleHamburgerDropdown(e)}
 				>
 					<i
@@ -184,6 +185,7 @@ export default function NavbarHamburger() {
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
+						alt="Navbar hamburger dropdown option to close dropdown"
 						onClick={toggleHamburgerDropdown}
 					>
 						<div className="hamburger-dropdown__top-space">
@@ -203,6 +205,7 @@ export default function NavbarHamburger() {
 									? " hamburger-dropdown__option--last-button-round-bottom-border"
 									: "")
 							}
+							alt="Navbar hamburger dropdown option to open projects list"
 							onClick={() => openProjectsListView(reduxState, dispatch)}
 						>
 							<i
@@ -220,6 +223,12 @@ export default function NavbarHamburger() {
 									(reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
 										? " hamburger-dropdown__option--selected"
 										: "")
+								}
+								alt={
+									"Navbar hamburger dropdown option to open the " +
+									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+										.name +
+									" project"
 								}
 								onClick={() => openProjectsItemView(reduxState, dispatch)}
 							>
@@ -239,6 +248,12 @@ export default function NavbarHamburger() {
 								<i
 									className="fa fa-times hamburger-dropdown__option__close-button"
 									aria-hidden="true"
+									alt={
+										"Icon of an X. If clicked, will close the " +
+										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+											.name +
+										" project"
+									}
 									onClick={(e) => closeProjectItemView(e, reduxState, dispatch)}
 								/>
 							</div>
@@ -257,6 +272,7 @@ export default function NavbarHamburger() {
 										? " hamburger-dropdown__option--last-button-round-bottom-border"
 										: "")
 								}
+								alt="Navbar hamburger dropdown option to open the bugs list"
 								onClick={() => openBugsListView(reduxState, dispatch)}
 							>
 								<img
@@ -285,6 +301,11 @@ export default function NavbarHamburger() {
 										? " hamburger-dropdown__option--selected"
 										: "")
 								}
+								alt={
+									"Navbar hamburger dropdown option to open the " +
+									reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name +
+									" bug"
+								}
 								onClick={() => openBugsItemView(reduxState, dispatch)}
 							>
 								<img
@@ -300,6 +321,12 @@ export default function NavbarHamburger() {
 								<i
 									className="fa fa-times hamburger-dropdown__option__close-button"
 									aria-hidden="true"
+									alt={
+										"Icon of an X. If clicked, will close the " +
+										reduxState[BUG_CONTAINER].componentsDisplay.targetItem
+											.name +
+										" bug"
+									}
 									onClick={(e) => closeBugItemView(e, reduxState, dispatch)}
 								/>
 							</div>

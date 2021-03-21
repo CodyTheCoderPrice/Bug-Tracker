@@ -101,6 +101,7 @@ export default function AccountModalChangeSettings() {
 							id="account-settings-filter-completed-projects"
 							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 							theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
+							alt="Account settings modal toggle switch to switch between whether or not to filter out completed projects"
 						/>
 					</div>
 				</div>
@@ -119,6 +120,7 @@ export default function AccountModalChangeSettings() {
 							id="account-settings-filter-completed-bugs"
 							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 							theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
+							alt="Account settings modal toggle switch to switch between whether or not to filter out completed bugs"
 						/>
 					</div>
 				</div>
@@ -181,6 +183,7 @@ export default function AccountModalChangeSettings() {
 								id="account-settings-sort-projects-ascending"
 								dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
+								alt="Account settings modal toggle switch to switch between sorting projects by acending or descending"
 							/>
 						</div>
 					</div>
@@ -216,6 +219,7 @@ export default function AccountModalChangeSettings() {
 								id="account-settings-sort-bugs-ascending"
 								dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
+								alt="Account settings modal toggle switch to switch between sorting bugs by acending or descending"
 							/>
 						</div>
 					</div>

@@ -163,6 +163,7 @@ export default function NavbarBreadcrumb(props) {
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
+					alt="Navbar breadcrumb button to open projects list"
 					onClick={() => openProjectsListView(reduxState, dispatch)}
 				>
 					<div className="breadcrumb-button__text js-breadcrumb-project-list-button-text">
@@ -234,6 +235,12 @@ export default function NavbarBreadcrumb(props) {
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
+							alt={
+								"Navbar breadcrumb button to open the " +
+								reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+									.name +
+								" project"
+							}
 							onClick={() => openProjectsItemView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-project-item-button-text">
@@ -271,6 +278,12 @@ export default function NavbarBreadcrumb(props) {
 								<i
 									className="fa fa-times breadcrumb-button__end-container__close-button"
 									aria-hidden="true"
+									alt={
+										"Icon of an X. If clicked, will close the " +
+										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+											.name +
+										" project"
+									}
 									onClick={(e) => closeProjectItemView(e, reduxState, dispatch)}
 								/>
 							</div>
@@ -288,6 +301,7 @@ export default function NavbarBreadcrumb(props) {
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
+							alt="Navbar breadcrumb button to open the bugs list"
 							onClick={() => openBugsListView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text js-breadcrumb-bug-list-button-text">
@@ -360,6 +374,11 @@ export default function NavbarBreadcrumb(props) {
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  ))
 								}
+								alt={
+									"Navbar breadcrumb button to open the " +
+									reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name +
+									" bug"
+								}
 								onClick={() => openBugsItemView(reduxState, dispatch)}
 							>
 								<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-bug-item-button-text">
@@ -391,6 +410,12 @@ export default function NavbarBreadcrumb(props) {
 									<i
 										className="fa fa-times breadcrumb-button__end-container__close-button"
 										aria-hidden="true"
+										alt={
+											"Icon of an X. If clicked, will close the " +
+											reduxState[BUG_CONTAINER].componentsDisplay.targetItem
+												.name +
+											" bug"
+										}
 										onClick={(e) => closeBugItemView(e, reduxState, dispatch)}
 									/>
 								</div>

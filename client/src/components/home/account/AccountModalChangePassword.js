@@ -12,7 +12,6 @@ import {
 } from "../../../actions";
 
 import {
-	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
@@ -56,21 +55,6 @@ export default function AccountModalChangePassword() {
 
 	return (
 		<div>
-			<div
-				className={
-					"back-button" +
-					getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-					)
-				}
-				onClick={backToEditInfo}
-			>
-				<i
-					className="fa fa-arrow-left"
-					aria-hidden="true"
-					alt="Icon of an arrow pointing to the left"
-				/>
-			</div>
 			<h1 className="title">Edit Password</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
 				<label
@@ -193,7 +177,6 @@ export default function AccountModalChangePassword() {
 			</form>
 			<div className="modal-links-container">
 				<span
-					onClick={backToEditInfo}
 					className={
 						"modal-link" +
 						getTextColorClassNameForThemeWithLightOrDarkMode(
@@ -201,6 +184,8 @@ export default function AccountModalChangePassword() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
+					alt="Account modal link to return to editing account info"
+					onClick={backToEditInfo}
 				>
 					Back
 				</span>

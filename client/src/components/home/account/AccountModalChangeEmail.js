@@ -12,7 +12,6 @@ import {
 } from "../../../actions";
 
 import {
-	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorClassNameForTheme,
@@ -55,21 +54,6 @@ export default function AccountModalChangeEmail() {
 
 	return (
 		<div>
-			<div
-				className={
-					"back-button" +
-					getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-					)
-				}
-				onClick={backToEditInfo}
-			>
-				<i
-					className="fa fa-arrow-left"
-					aria-hidden="true"
-					alt="Icon of an arrow pointing to the left"
-				/>
-			</div>
 			<h1 className="title">Edit Email</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
 				<label htmlFor="edit-account-email-email" className="form__label">

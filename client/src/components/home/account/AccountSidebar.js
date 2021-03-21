@@ -72,6 +72,7 @@ export default function AccountSidebar() {
 			>
 				<div
 					className="settings-button"
+					alt="Account sidebar button to open account settings"
 					onClick={openAccountModalForEditingSettings}
 				>
 					<i
@@ -104,7 +105,6 @@ export default function AccountSidebar() {
 					</div>
 					<div className="link-container">
 						<span
-							onClick={openAccountModalForEditingAccount}
 							className={
 								"link-container__text" +
 								getTextColorClassNameForThemeWithLightOrDarkMode(
@@ -112,6 +112,8 @@ export default function AccountSidebar() {
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}
+							alt="Account sidebar link to edit account"
+							onClick={openAccountModalForEditingAccount}
 						>
 							Edit Account
 						</span>
@@ -141,6 +143,7 @@ export default function AccountSidebar() {
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
+							alt="Account sidebar button to logout"
 							onClick={(e) => handleLogoutAccount(e)}
 						>
 							<span

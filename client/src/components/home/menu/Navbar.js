@@ -161,7 +161,10 @@ export default function Navbar() {
 				<NavbarBreadcrumb visible={shouldBreadcrumbBeVisible()} />
 				{shouldBreadcrumbBeVisible() ? null : <NavbarHamburger />}
 
-				<div className="navbar__account-button js-account-button">
+				<div
+					className="navbar__account-button js-account-button"
+					alt="Navbar button to open account sidebar"
+				>
 					<div
 						className="navbar__account-button__text"
 						onClick={openAccountSidebar}

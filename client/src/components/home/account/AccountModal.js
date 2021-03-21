@@ -20,6 +20,14 @@ export default function AccountModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	const backToEditInfo = () => {
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountModalChangeInfo: true,
+			})
+		);
+	};
+
 	const backToAccountSidebar = () => {
 		dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 	};
@@ -34,6 +42,29 @@ export default function AccountModal() {
 					)
 				}
 			>
+				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
+					.accountModalChangeEmail === true ||
+				reduxState[ACCOUNT_CONTAINER].componentsDisplay
+					.accountModalChangePassword === true ||
+				reduxState[ACCOUNT_CONTAINER].componentsDisplay
+					.accountModalDeleteAccount === true ? (
+					<div
+						className={
+							"back-button" +
+							getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+						alt="Account modal button to return to editing account info"
+						onClick={backToEditInfo}
+					>
+						<i
+							className="fa fa-arrow-left"
+							aria-hidden="true"
+							alt="Icon of an arrow pointing to the left"
+						/>
+					</div>
+				) : null}
 				<div
 					className={
 						"exit-button" +
@@ -41,6 +72,7 @@ export default function AccountModal() {
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
+					alt="Account modal button to close the account modal"
 					onClick={backToAccountSidebar}
 				>
 					<i className="fa fa-times" aria-hidden="true" alt="icon of an X"></i>

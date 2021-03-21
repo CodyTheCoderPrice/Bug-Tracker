@@ -189,7 +189,6 @@ export default function AccountModalChangeInfo() {
 			</form>
 			<div className="modal-links-container">
 				<span
-					onClick={openEditEmailModal}
 					className={
 						"modal-link modal-link--no-left-margin" +
 						getTextColorClassNameForThemeWithLightOrDarkMode(
@@ -197,12 +196,13 @@ export default function AccountModalChangeInfo() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
+					alt="Account modal link to switch to editing account email"
+					onClick={openEditEmailModal}
 				>
 					Edit Email
 				</span>
 				<span className="link-spacer">|</span>
 				<span
-					onClick={openEditPasswordModal}
 					className={
 						"modal-link" +
 						getTextColorClassNameForThemeWithLightOrDarkMode(
@@ -210,12 +210,13 @@ export default function AccountModalChangeInfo() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
+					alt="Account modal link to switch to editing account password"
+					onClick={openEditPasswordModal}
 				>
 					Edit Password
 				</span>
 				<span className="link-spacer">|</span>
 				<span
-					onClick={openDeleteAccountModal}
 					className={
 						"modal-link modal-link--no-right-margin" +
 						getTextColorClassNameForThemeWithLightOrDarkMode(
@@ -223,6 +224,8 @@ export default function AccountModalChangeInfo() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
+					alt="Account modal link to switch to begin process to delete account"
+					onClick={openDeleteAccountModal}
 				>
 					Delete Account
 				</span>

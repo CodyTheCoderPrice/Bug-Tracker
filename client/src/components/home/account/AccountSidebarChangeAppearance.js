@@ -52,6 +52,7 @@ export default function AccountSidebarChangeAppearance() {
 					"content-container__theme-option" +
 					getBaseBackgroundColorClassNameForTheme(theme.color)
 				}
+				alt={"Account sidebar button to change the site's color theme to " + theme.color}
 				onClick={(e) => onChangeTheme(e, theme_id)}
 			>
 				{reduxState[ACCOUNT_CONTAINER].settings.theme_id === theme_id ? (
@@ -83,6 +84,7 @@ export default function AccountSidebarChangeAppearance() {
 						id="account-settings-light-dark-mode"
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 						theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
+						alt="Account sidebar toggle switch to switch between light and dark mode"
 					/>
 				</div>
 			</div>

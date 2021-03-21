@@ -25,7 +25,7 @@ export default function ToggleSwitch(props) {
 				id={props.id}
 				className="invisible-checkbox"
 			/>
-			<div className="toggle-switch" onClick={clickCheckbox}>
+			<div className="toggle-switch" alt={props.alt} onClick={clickCheckbox}>
 				<span className="toggle-switch__text">{props.isOn ? "ON" : "OFF"}</span>
 				<span className="toggle-switch__circle" />
 			</div>

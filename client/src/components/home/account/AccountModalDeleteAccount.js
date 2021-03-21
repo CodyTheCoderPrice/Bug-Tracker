@@ -12,7 +12,6 @@ import {
 } from "../../../actions";
 
 import {
-	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode,
@@ -57,21 +56,6 @@ export default function AccountModalDeleteAccount() {
 
 	return (
 		<div>
-			<div
-				className={
-					"back-button" +
-					getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-					)
-				}
-				onClick={backToEditInfo}
-			>
-				<i
-					className="fa fa-arrow-left"
-					aria-hidden="true"
-					alt="Icon of an arrow pointing to the left"
-				/>
-			</div>
 			<h1 className="title">Delete Account</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
 				<label htmlFor="delete-account-type-out" className="form__label">
@@ -173,7 +157,6 @@ export default function AccountModalDeleteAccount() {
 			</form>
 			<div className="modal-links-container">
 				<span
-					onClick={backToEditInfo}
 					className={
 						"modal-link" +
 						getTextColorClassNameForThemeWithLightOrDarkMode(
@@ -181,6 +164,8 @@ export default function AccountModalDeleteAccount() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
+					alt="Account modal link to return to editing account info"
+					onClick={backToEditInfo}
 				>
 					Back
 				</span>
