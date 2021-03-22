@@ -506,9 +506,9 @@ dropdown can overlap all other components
 .js-calc-hamburger-container .hamburger-dropdown__option--item-name {
   color: #0000ff;
 }
-.hamburger-container .hamburger-dropdown__option--last-button-round-bottom-border,
-.js-calc-hamburger-container .hamburger-dropdown__option--last-button-round-bottom-border {
-  border-radius: 0 0 7px 7px;
+.hamburger-container .hamburger-dropdown__option--last-option-round-bottom-border,
+.js-calc-hamburger-container .hamburger-dropdown__option--last-option-round-bottom-border {
+  border-radius: 0 0 10px 10px;
 }
 .hamburger-container .hamburger-dropdown__option__icon,
 .js-calc-hamburger-container .hamburger-dropdown__option__icon {
@@ -2103,9 +2103,14 @@ dropdown can overlap all other components
 .js-calc-item-vew-top-bar-component .item-options-container__dropdown__option--no-display {
   display: none;
 }
-.item-vew-top-bar-component .item-options-container__dropdown__option--no-border,
-.js-calc-item-vew-top-bar-component .item-options-container__dropdown__option--no-border {
+.item-vew-top-bar-component .item-options-container__dropdown__option--first-option-round-top-border,
+.js-calc-item-vew-top-bar-component .item-options-container__dropdown__option--first-option-round-top-border {
+  border-radius: 5px 5px 0 0;
+}
+.item-vew-top-bar-component .item-options-container__dropdown__option--last-option-round-bottom-border,
+.js-calc-item-vew-top-bar-component .item-options-container__dropdown__option--last-option-round-bottom-border {
   border-bottom: none;
+  border-radius: 0 0 5px 5px;
 }
 .item-vew-top-bar-component .x-button,
 .js-calc-item-vew-top-bar-component .x-button {

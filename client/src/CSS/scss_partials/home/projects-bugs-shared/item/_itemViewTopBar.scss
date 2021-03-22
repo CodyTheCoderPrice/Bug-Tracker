@@ -37,7 +37,8 @@
 
 		display: inline-block;
 		outline: none;
-		border: v.$top-bar-search-bar-border-width solid v.$default-theme-base-border-background-color;
+		border: v.$top-bar-search-bar-border-width solid
+			v.$default-theme-base-border-background-color;
 		border-right: none;
 		border-radius: v.$top-bar-buttton-border-radius 0 0
 			v.$top-bar-buttton-border-radius;
@@ -297,9 +298,20 @@
 		display: none;
 	}
 
-	// Should be applied to the last option
-	.item-options-container__dropdown__option--no-border {
+	.item-options-container__dropdown__option--first-option-round-top-border {
+		// Found that subtracting 3px from $navbar-hamburger-border-radius
+		// ...gave best results
+		border-radius: v.$top-bar-buttton-border-radius
+			v.$top-bar-buttton-border-radius 0 0;
+	}
+
+	.item-options-container__dropdown__option--last-option-round-bottom-border {
+		// No bottom border since no options bellow
 		border-bottom: none;
+		// Found that subtracting 3px from $navbar-hamburger-border-radius
+		// ...gave best results
+		border-radius: 0 0 v.$top-bar-buttton-border-radius
+			v.$top-bar-buttton-border-radius;
 	}
 
 	.x-button {

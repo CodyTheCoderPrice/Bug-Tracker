@@ -202,7 +202,7 @@ export default function NavbarHamburger() {
 									: "") +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
 								null
-									? " hamburger-dropdown__option--last-button-round-bottom-border"
+									? " hamburger-dropdown__option--last-option-round-bottom-border"
 									: "")
 							}
 							alt="Navbar hamburger dropdown option to open projects list"
@@ -269,7 +269,7 @@ export default function NavbarHamburger() {
 										: "") +
 									(reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
 									null
-										? " hamburger-dropdown__option--last-button-round-bottom-border"
+										? " hamburger-dropdown__option--last-option-round-bottom-border"
 										: "")
 								}
 								alt="Navbar hamburger dropdown option to open the bugs list"
@@ -296,7 +296,7 @@ export default function NavbarHamburger() {
 						null ? null : (
 							<div
 								className={
-									"hamburger-dropdown__option hamburger-dropdown__option--item-name hamburger-dropdown__option--last-button-round-bottom-border" +
+									"hamburger-dropdown__option hamburger-dropdown__option--item-name hamburger-dropdown__option--last-option-round-bottom-border" +
 									(reduxState[BUG_CONTAINER].componentsDisplay.itemView
 										? " hamburger-dropdown__option--selected"
 										: "")

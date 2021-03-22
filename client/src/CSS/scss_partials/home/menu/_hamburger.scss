@@ -112,11 +112,9 @@
 		color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-light;
 	}
 
-	.hamburger-dropdown__option--last-button-round-bottom-border {
-		// Found that subtracting 3px from $navbar-hamburger-border-radius
-		// ...gave best results
-		border-radius: 0 0 v.$navbar-hamburger-border-radius - 3
-			v.$navbar-hamburger-border-radius - 3;
+	.hamburger-dropdown__option--last-option-round-bottom-border {
+		border-radius: 0 0 v.$navbar-hamburger-border-radius
+			v.$navbar-hamburger-border-radius;
 	}
 
 	.hamburger-dropdown__option__icon {

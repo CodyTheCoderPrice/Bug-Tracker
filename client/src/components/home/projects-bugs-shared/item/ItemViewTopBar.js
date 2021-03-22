@@ -584,7 +584,7 @@ export default function ItemViewTopBar(props) {
 				>
 					<span
 						className={
-							"item-options-container__dropdown__option" +
+							"item-options-container__dropdown__option item-options-container__dropdown__option--first-option-round-top-border" +
 							getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
@@ -610,7 +610,7 @@ export default function ItemViewTopBar(props) {
 					</span>
 					<span
 						className={
-							"item-options-container__dropdown__option item-options-container__dropdown__option--no-border" +
+							"item-options-container__dropdown__option item-options-container__dropdown__option--last-option-round-bottom-border" +
 							getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
