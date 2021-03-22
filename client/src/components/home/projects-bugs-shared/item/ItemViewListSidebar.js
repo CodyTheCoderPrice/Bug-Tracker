@@ -72,6 +72,10 @@ export default function ItemViewListSidebar(props) {
 						? " "
 						: " expand-minimize-button--minimized")
 				}
+				alt={
+					"Button to open and close the sidebar contianing the list of " +
+					(props.reduxContainerName === PROJECT_CONTAINER ? "projects" : "bugs")
+				}
 				onClick={toggleListSidebar}
 			>
 				<div className="expand-minimize-button__centering-container">

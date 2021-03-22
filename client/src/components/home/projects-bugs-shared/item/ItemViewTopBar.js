@@ -179,6 +179,7 @@ export default function ItemViewTopBar(props) {
 				/>
 				<div
 					className="outer-search-container__search-bar-button js-item-search-button"
+					alt="Button for searchbar"
 					onClick={updateSearchKeyWordString}
 				>
 					<span className="outer-search-container__search-bar-button__icon">
@@ -206,6 +207,12 @@ export default function ItemViewTopBar(props) {
 									.itemViewTopBarFilterDropdown
 									? " list-filter-or-sort-container__button--clicked list-filter-or-sort-container__button--clicked-filter-width"
 									: "")
+							}
+							alt={
+								"Button to open filter dropdown for filtering the list of " +
+								(props.reduxContainerName === PROJECT_CONTAINER
+									? "projects"
+									: "bugs")
 							}
 							onClick={(e) => toggleFilterDropdown(e)}
 						>
@@ -376,6 +383,12 @@ export default function ItemViewTopBar(props) {
 									? " list-filter-or-sort-container__button--clicked"
 									: "")
 							}
+							alt={
+								"Button to open sort dropdown for sorting the list of " +
+								(props.reduxContainerName === PROJECT_CONTAINER
+									? "projects"
+									: "bugs")
+							}
 							onClick={(e) => toggleSortDropdown(e)}
 						>
 							<span className={"list-filter-or-sort-container__button__text"}>
@@ -537,6 +550,10 @@ export default function ItemViewTopBar(props) {
 							  )
 							: "")
 					}
+					alt={
+						"Button to open a dropdown of options for the " +
+						(props.reduxContainerName === PROJECT_CONTAINER ? "project" : "bug")
+					}
 					onClick={(e) => toggleOptionsDropdown(e)}
 				>
 					<span className="item-options-container__button__text">
@@ -572,6 +589,16 @@ export default function ItemViewTopBar(props) {
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
+						alt={
+							"Dropdown option to " +
+							(reduxState[props.reduxContainerName].componentsDisplay
+								.itemViewEditItemInfo === false
+								? "begin editing "
+								: "canel editing ") +
+							(props.reduxContainerName === PROJECT_CONTAINER
+								? "the project"
+								: "the bug")
+						}
 						onClick={switchBetweenDisplayAndEditInfo}
 					>
 						{reduxState[props.reduxContainerName].componentsDisplay
@@ -588,6 +615,12 @@ export default function ItemViewTopBar(props) {
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
+						alt={
+							"Dropdown option to begin deleting the" +
+							(props.reduxContainerName === PROJECT_CONTAINER
+								? "project"
+								: "bug")
+						}
 						onClick={openDeleteItemModal}
 					>
 						{props.reduxContainerName === PROJECT_CONTAINER
@@ -602,6 +635,10 @@ export default function ItemViewTopBar(props) {
 					getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
+				}
+				alt={
+					"Button to close the " +
+					(props.reduxContainerName === PROJECT_CONTAINER ? "project" : "bug")
 				}
 				onClick={closeItemView}
 			>

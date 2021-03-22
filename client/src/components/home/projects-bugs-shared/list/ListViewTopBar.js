@@ -191,7 +191,7 @@ export default function ListViewTopBar(props) {
 							: "")
 					}
 					alt={
-						"Button to open filter dropdown for filtering " +
+						"Button to open filter dropdown for filtering the list of " +
 						(props.reduxContainerName === PROJECT_CONTAINER
 							? "projects"
 							: "bugs")

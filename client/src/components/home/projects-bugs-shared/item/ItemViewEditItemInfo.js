@@ -573,6 +573,7 @@ export default function ItemViewEditItemInfo(props) {
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
+							alt={"Button to cancel editing the " + (props.reduxContainerName === PROJECT_CONTAINER ? "project" : "bug")}
 							onClick={switchToDisplayItemInfo}
 						>
 							Cancel

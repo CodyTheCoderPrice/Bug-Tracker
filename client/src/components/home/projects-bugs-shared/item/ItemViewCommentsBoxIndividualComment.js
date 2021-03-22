@@ -145,6 +145,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
+								alt="Button to begin editing the comment above"
 								onClick={switchToEditingComment}
 							>
 								<i
@@ -160,6 +161,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
+								alt="Button to delete the comment above"
 								onClick={openDeleteCommentModal}
 							>
 								<i
@@ -209,6 +211,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
+							alt="Button to delete the comment above"
 							onClick={openDeleteCommentModal}
 						>
 							<i
@@ -253,6 +256,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
+									alt="Button to cancel editing the above comment"
 									onClick={cancelEditingComment}
 								>
 									Cancel
