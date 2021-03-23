@@ -3573,8 +3573,8 @@ body {
 }
 .app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch,
 .js-calc-app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .invisible-checkbox:checked + .toggle-switch {
-  border-color: #2388a1;
-  background-color: #2388a1;
+  border-color: #4486a0;
+  background-color: #4486a0;
   color: white;
 }
 .app-component .js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish > .toggle-switch > .toggle-switch__circle,
