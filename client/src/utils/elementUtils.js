@@ -29,27 +29,16 @@ export function displayGrayedOutMessageIfEmpty(value, message, dark_mode) {
 	}
 }
 
-export function populateComboBox(
-	comboBoxElement,
-	populateList,
-	defaultSelectedValueId
+export function getSelectOptions(
+	objectList,
+	objectIdProperty,
+	objectOptionProptery
 ) {
-	for (let i = 0; i < populateList.length; i++) {
-		let optionElement = document.createElement("option");
-
-		// Makes the first item of the populateList the default selection
-		if (i === 0) {
-			optionElement.selected = "selected";
-		}
-
-		optionElement.value = populateList[i].id;
-		optionElement.textContent = populateList[i].option;
-		if (populateList[i].color !== undefined) {
-			optionElement.className =
-				"js-set-status-box-text-color-" + populateList[i].color;
-		}
-		comboBoxElement.appendChild(optionElement);
-	}
-
-	comboBoxElement.value = defaultSelectedValueId;
+	return objectList.map((obj, idx) => {
+		return (
+			<option key={idx} value={obj[objectIdProperty]}>
+				{obj[objectOptionProptery]}
+			</option>
+		);
+	});
 }

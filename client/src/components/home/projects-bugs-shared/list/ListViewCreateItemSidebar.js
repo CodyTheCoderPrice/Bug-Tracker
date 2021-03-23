@@ -16,7 +16,6 @@ import {
 } from "../../../../actions";
 
 import {
-	populateComboBox,
 	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
@@ -26,6 +25,8 @@ import {
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode,
+	getSelectOptions,
+	getSelectOptionsWithStatusColors,
 	getformSubmitButtonColorClassNameForTheme,
 } from "../../../../utils";
 
@@ -77,20 +78,6 @@ export default function ListViewCreateItemSidebar(props) {
 		return () => {
 			dispatch(clearBackendErrors());
 		};
-		// eslint-disable-next-line
-	}, []);
-
-	useEffect(() => {
-		populateComboBox(
-			document.getElementsByClassName("js-priority-select")[0],
-			reduxState[props.reduxContainerName].priorityStatusOptions.priorityList,
-			1
-		);
-		populateComboBox(
-			document.getElementsByClassName("js-status-select")[0],
-			reduxState[props.reduxContainerName].priorityStatusOptions.statusList,
-			1
-		);
 		// eslint-disable-next-line
 	}, []);
 
@@ -450,7 +437,14 @@ export default function ListViewCreateItemSidebar(props) {
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										)
 									}
-								></select>
+								>
+									{getSelectOptions(
+										reduxState[props.reduxContainerName].priorityStatusOptions
+											.priorityList,
+										"id",
+										"option"
+									)}
+								</select>
 							</div>
 							<div className="form__group-container__input-container">
 								<label
@@ -471,7 +465,14 @@ export default function ListViewCreateItemSidebar(props) {
 										) +
 										getSelectTextColorClassName()
 									}
-								></select>
+								>
+									{getSelectOptionsWithStatusColors(
+										reduxState[props.reduxContainerName].priorityStatusOptions
+											.statusList,
+										"id",
+										"option"
+									)}
+								</select>
 							</div>
 						</div>
 						<button

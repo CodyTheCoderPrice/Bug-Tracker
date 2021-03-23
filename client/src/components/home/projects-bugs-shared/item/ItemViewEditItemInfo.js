@@ -18,7 +18,6 @@ import {
 	formatDateMMddYYYY,
 	formatDateYYYYmmDD,
 	manageSizeOfItemBoxsInPairContainer,
-	populateComboBox,
 	getItemViewEditItemInfoFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
@@ -28,6 +27,8 @@ import {
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewDisabledLabelClassNameForLightOrDarkMode,
 	getItemViewDisableInputDateClassNameForLightOrDarkMode,
+	getSelectOptions,
+	getSelectOptionsWithStatusColors,
 	getformSubmitButtonColorClassNameForTheme,
 	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
@@ -101,20 +102,6 @@ export default function ItemViewEditItemInfo(props) {
 		return () => {
 			dispatch(clearBackendErrors());
 		};
-		// eslint-disable-next-line
-	}, []);
-
-	useEffect(() => {
-		populateComboBox(
-			document.getElementsByClassName("js-item-priority-select")[0],
-			reduxState[props.reduxContainerName].priorityStatusOptions.priorityList,
-			itemInfo.priority_id
-		);
-		populateComboBox(
-			document.getElementsByClassName("js-item-status-select")[0],
-			reduxState[props.reduxContainerName].priorityStatusOptions.statusList,
-			itemInfo.status_id
-		);
 		// eslint-disable-next-line
 	}, []);
 
@@ -511,7 +498,14 @@ export default function ItemViewEditItemInfo(props) {
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										)
 									}
-								></select>
+								>
+									{getSelectOptions(
+										reduxState[props.reduxContainerName].priorityStatusOptions
+											.priorityList,
+										"id",
+										"option"
+									)}
+								</select>
 							</div>
 							<div className="item-box__group__field">
 								<label
@@ -532,7 +526,14 @@ export default function ItemViewEditItemInfo(props) {
 										) +
 										getSelectTextColorClassName()
 									}
-								></select>
+								>
+									{getSelectOptionsWithStatusColors(
+										reduxState[props.reduxContainerName].priorityStatusOptions
+											.statusList,
+										"id",
+										"option"
+									)}
+								</select>
 							</div>
 						</div>
 					</div>
@@ -573,7 +574,12 @@ export default function ItemViewEditItemInfo(props) {
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
-							alt={"Button to cancel editing the " + (props.reduxContainerName === PROJECT_CONTAINER ? "project" : "bug")}
+							alt={
+								"Button to cancel editing the " +
+								(props.reduxContainerName === PROJECT_CONTAINER
+									? "project"
+									: "bug")
+							}
 							onClick={switchToDisplayItemInfo}
 						>
 							Cancel
