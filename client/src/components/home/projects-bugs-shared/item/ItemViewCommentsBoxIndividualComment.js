@@ -191,6 +191,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 									.descriptionCharLimit}
 						</span>
 						<textarea
+							autoFocus
 							name="description"
 							onChange={(e) => onChange(e)}
 							value={commentInfo.description}

@@ -92,6 +92,7 @@ export default function AccountModalChangeInfo() {
 					</span>
 				) : null}
 				<input
+					autoFocus
 					type="text"
 					name="first_name"
 					onChange={(e) => onChange(e)}

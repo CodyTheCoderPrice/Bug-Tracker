@@ -216,6 +216,7 @@ export default function ListViewCreateItemSidebar(props) {
 								reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
 						</span>
 						<input
+							autoFocus
 							type="text"
 							name="name"
 							onChange={(e) => onChange(e)}

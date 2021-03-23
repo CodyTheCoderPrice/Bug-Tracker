@@ -60,6 +60,7 @@ export default function AccountModalChangeEmail() {
 					Email:{" "}
 				</label>
 				<input
+					autoFocus
 					type="email"
 					name="email"
 					onChange={(e) => onChange(e)}

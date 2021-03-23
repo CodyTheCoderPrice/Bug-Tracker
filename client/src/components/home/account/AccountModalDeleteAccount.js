@@ -73,6 +73,7 @@ export default function AccountModalDeleteAccount() {
 					below:
 				</label>
 				<input
+					autoFocus
 					type="text"
 					name="deleteTypedOut"
 					onChange={(e) => onChange(e)}

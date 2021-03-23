@@ -196,6 +196,7 @@ export default function ItemViewEditItemInfo(props) {
 						</div>
 					)}
 					<input
+						autoFocus
 						type="text"
 						name="name"
 						onChange={(e) => onChange(e)}

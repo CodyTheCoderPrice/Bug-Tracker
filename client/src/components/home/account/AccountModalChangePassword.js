@@ -79,6 +79,7 @@ export default function AccountModalChangePassword() {
 					</span>
 				) : null}
 				<input
+					autoFocus
 					type="password"
 					name="newPassword"
 					onChange={(e) => onChange(e)}

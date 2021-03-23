@@ -48,6 +48,7 @@ export default function Login() {
 						Email
 					</label>
 					<input
+						autoFocus
 						type="email"
 						name="email"
 						onChange={(e) => onChange(e)}
@@ -70,7 +71,10 @@ export default function Login() {
 						className="form__input-text"
 					/>
 					<span className="backend-errors">
-						{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword}
+						{
+							reduxState[GENERAL_CONTAINER].backendErrors
+								.validationAccountPassword
+						}
 					</span>
 					<button type="submit" className="form__submit">
 						LOGIN
