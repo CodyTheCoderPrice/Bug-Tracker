@@ -251,13 +251,7 @@ export default function ItemView(props) {
 										)
 									}
 								>
-									<h2
-										className={
-											"item-box__title"
-										}
-									>
-										Status of Bugs
-									</h2>
+									<h2 className={"item-box__title"}>Status of Bugs</h2>
 									{[...reduxState[BUG_CONTAINER].list].filter(
 										(item) =>
 											item.project_id ===
@@ -281,11 +275,7 @@ export default function ItemView(props) {
 										)
 									}
 								>
-									<h2
-										className={
-											"item-box__title"
-										}
-									>
+									<h2 className={"item-box__title"}>
 										Most Recent Bugs Worked On
 									</h2>
 									{[...reduxState[BUG_CONTAINER].list].filter(

@@ -625,8 +625,8 @@ dropdown can overlap all other components
   width: 430px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .account-sidebar-component .settings-button {
   position: absolute;
@@ -1074,8 +1074,8 @@ dropdown can overlap all other components
   width: 100vw;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  overflow-y: auto !important;
-  overflow-x: auto !important;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 .item-view-component .item-content-container--shifted-right,
 .js-calc-item-view-component .item-content-container--shifted-right {
@@ -1760,8 +1760,8 @@ dropdown can overlap all other components
   width: 275px;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .item-view-list-sidebar-component .list-sidebar--minimized,
 .js-calc-list-sidebar-component .list-sidebar--minimized {
@@ -2154,8 +2154,8 @@ dropdown can overlap all other components
   width: 500px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .create-item-component .create-item-sidebar--taller {
   height: 800px;
@@ -2582,8 +2582,8 @@ dropdown can overlap all other components
   width: 100%;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  overflow-y: auto !important;
-  overflow-x: auto !important;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 .list-table-component .list-table,
 .list-table-component .js-calc-list-table,
@@ -2745,8 +2745,8 @@ dropdown can overlap all other components
 }
 
 .list-table-component--no-scroll {
-  overflow-y: hidden !important;
-  overflow-x: hidden !important;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 html,
