@@ -13,9 +13,9 @@ const initialState = {
  * @param {JSON} state - JSON of current size info for the Window and Navbar
  * HTML elements
  * @param {JSON} action - JSON containing a container name and type (used to
- * determin where and what to do in the redux state), and any data addition
- * data needed based on the container name and type (typically data to updated
- * in the redux state)
+ * determin where and what task to do in the redux state), also contians any
+ * addition data needed for the task (typically data to be updated in the
+ * redux state)
  * @returns {JSON} - JSON of size info for the Window and Navbar HTML elements
  * to be stored in the size container of the redux state
  */

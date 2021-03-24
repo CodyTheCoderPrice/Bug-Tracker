@@ -9,9 +9,9 @@ const initialState = {}
  * 
  * @param {JSON} state - JSON for account setting themes data in the redux state
  * @param {JSON} action - JSON containing a container name and type (used to
- * determin where and what to do in the redux state), and any data addition
- * data needed based on the container name and type (typically data to updated
- * in the redux state)
+ * determin where and what task to do in the redux state), also contians any
+ * addition data needed for the task (typically data to be updated in the
+ * redux state)
  * @returns {JSON} - JSON for account setting themes to be stored in the account
  * container of the redux state
  */

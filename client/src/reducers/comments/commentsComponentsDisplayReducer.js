@@ -1,18 +1,32 @@
 import { SET_WHICH_COMMENT_COMPONENTS_DISPLAY } from "../../actions/constants/types";
 
+// Default state for which comment components should be displayed by the app
 const initialState = {
 	commentDeleteModal: false,
 	commentToBeDeleted: null,
 	commentBeingEdited: null,
 };
 
-// Ternary operator is used to set undefined components to false since
-// ...usually if one component is being set true, most others are being set false
-// ...this allows passing only the components you want to display
+/**
+ * Used to set JSON in the comment container of the redux state for which
+ * comment components should display by the app
+ *
+ * @param {JSON} state - JSON for which comment components are currently being
+ * displayed by the app
+ * @param {JSON} action - JSON containing a container name and type (used to
+ * determin where and what task to do in the redux state), also contians any
+ * addition data needed for the task (typically data to be updated in the
+ * redux state)
+ * @returns {JSON} - JSON for which comment components should display by the
+ * app, to be stored in the comment container of the redux state
+ */
 export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_COMMENT_COMPONENTS_DISPLAY:
 			return {
+				// Ternary operator is used to set undefined components to
+				// ...false, so you only have to pass the components you want
+				// ...to set to true, to make using this redux action easier
 				commentDeleteModal:
 					action.displays.commentDeleteModal !== undefined
 						? action.displays.commentDeleteModal

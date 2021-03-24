@@ -19,11 +19,11 @@ const initialState = {
  * @param {JSON} state - JSON for which general components are currently being
  * displayed by the app
  * @param {JSON} action - JSON containing a container name and type (used to
- * determin where and what to do in the redux state), and any data addition
- * data needed based on the container name and type (typically data to updated
- * in the redux state)
- * @returns {JSON} - JSON for which general components should displayed by the
- * app to be stored in the general container of the redux state
+ * determin where and what task to do in the redux state), also contians any
+ * addition data needed for the task (typically data to be updated in the
+ * redux state)
+ * @returns {JSON} - JSON for which general components should display by the
+ * app, to be stored in the general container of the redux state
  */
 export default function (state = initialState, action) {
 	switch (action.type) {
