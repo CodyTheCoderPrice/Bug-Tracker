@@ -1090,12 +1090,12 @@ dropdown can overlap all other components
 }
 .item-view-component .name-completed-color,
 .js-calc-item-view-component .name-completed-color {
-  color: #007e00;
+  color: #008600;
 }
 .item-view-component .name-completed-icon,
 .js-calc-item-view-component .name-completed-icon {
   margin-right: 5px;
-  color: #007e00;
+  color: #008600;
 }
 .item-view-component .item-creation-date,
 .js-calc-item-view-component .item-creation-date {
@@ -1252,11 +1252,11 @@ dropdown can overlap all other components
   text-overflow: ellipsis;
 }
 .item-view-bug-list-component .bug-list-table__data--completed-color {
-  color: #007e00;
+  color: #008600;
 }
 .item-view-bug-list-component .bug-list-table__data__info__completed-icon {
   margin-right: 5px;
-  color: #007e00;
+  color: #008600;
 }
 .item-view-bug-list-component .bug-list-table__data__centering-container {
   position: relative;
@@ -1552,7 +1552,7 @@ dropdown can overlap all other components
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #007e00;
+  color: #008600;
   font-size: 28px;
 }
 .item-view-component .name-centering-container__char-count-centering-container {
@@ -1811,12 +1811,12 @@ dropdown can overlap all other components
 }
 .item-view-list-sidebar-component .list-sidebar__table__data__overflow-container--completed-color,
 .js-calc-list-sidebar-component .list-sidebar__table__data__overflow-container--completed-color {
-  color: #007e00;
+  color: #008600;
 }
 .item-view-list-sidebar-component .list-sidebar__table__data__overflow-container__info__completed-icon,
 .js-calc-list-sidebar-component .list-sidebar__table__data__overflow-container__info__completed-icon {
   margin-right: 5px;
-  color: #007e00;
+  color: #008600;
 }
 
 .item-vew-top-bar-component,
@@ -2681,12 +2681,12 @@ dropdown can overlap all other components
 }
 .list-table-component .list-table__data--completed-color,
 .js-calc-list-table-component .list-table__data--completed-color {
-  color: #007e00;
+  color: #008600;
 }
 .list-table-component .list-table__data__info__completed-icon,
 .js-calc-list-table-component .list-table__data__info__completed-icon {
   margin-right: 5px;
-  color: #007e00;
+  color: #008600;
 }
 .list-table-component .list-table__data__custom-checkbox-centered-container,
 .js-calc-list-table-component .list-table__data__custom-checkbox-centered-container {
@@ -4413,7 +4413,7 @@ body {
 .app-component .js-calc-status-box-background-color-green,
 .js-calc-app-component .js-set-status-box-background-color-green,
 .js-calc-app-component .js-calc-status-box-background-color-green {
-  background-color: #007e00;
+  background-color: #008600;
 }
 .app-component .js-set-status-box-background-color-red,
 .app-component .js-calc-status-box-background-color-red,
@@ -4439,7 +4439,7 @@ body {
 }
 .app-component .js-set-status-box-text-color-green,
 .js-calc-app-component .js-set-status-box-text-color-green {
-  color: #007e00;
+  color: #008600;
 }
 .app-component .js-set-status-box-text-color-red,
 .js-calc-app-component .js-set-status-box-text-color-red {
