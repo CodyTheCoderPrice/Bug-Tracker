@@ -16,7 +16,7 @@ function convertRbgBackgroundColorToHex(rbgBackgroundColor) {
 		: null;
 }
 
-export function appendHexValueForColor(statusList) {
+export function appendHexValueForColorsToStatusList(statusList) {
 	const invisibleHomeElement = document.createElement("div");
 	invisibleHomeElement.className = "js-calc-app-component";
 	invisibleHomeElement.visibility = "hidden";
