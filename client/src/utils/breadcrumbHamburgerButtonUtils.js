@@ -1,8 +1,10 @@
+// This util imports container names as it works with the redux state
 import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "../actions/constants/containerNames";
 
+// This util imports actions as it edits the redux state
 import {
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
@@ -11,6 +13,14 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../actions";
 
+/**
+ * Will open the ListView component for projects while closing components that
+ * either shouldn't ever be open at the same time as it, or can also be open at 
+ * the same time, but the user would expect to close when it is being openned.
+ * 
+ * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Function} dispatch - Redux store's dispatch function from useDispatch
+ */
 export function openProjectsListView(passedReduxState, dispatch) {
 	if (passedReduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true) {
 		dispatch(
