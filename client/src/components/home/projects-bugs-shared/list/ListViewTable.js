@@ -57,7 +57,7 @@ export default function ListViewTable(props) {
 					reduxState[props.reduxContainerName].list.filter(
 						(item) =>
 							item.project_id ===
-							reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+							reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 					).length < 1)
 			) {
 				const emptyListMessageContainer = document.getElementsByClassName(
@@ -166,7 +166,7 @@ export default function ListViewTable(props) {
 					reduxState[props.reduxContainerName].list.filter(
 						(item) =>
 							item.project_id ===
-							reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+							reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 					).length < 1)
 					? " list-table-component--no-scroll"
 					: "")
@@ -375,7 +375,7 @@ export default function ListViewTable(props) {
 						reduxState[props.reduxContainerName].list.filter(
 							(item) =>
 								item.project_id ===
-								reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+								reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 						).length > 0) ? (
 						<tr className="list-table__row--empty" />
 					) : null}
@@ -388,7 +388,7 @@ export default function ListViewTable(props) {
 				reduxState[props.reduxContainerName].list.filter(
 					(item) =>
 						item.project_id ===
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 				).length > 0) ? null : (
 				<div className="empty-list-message-centering-container js-empty-list-message-container">
 					<div

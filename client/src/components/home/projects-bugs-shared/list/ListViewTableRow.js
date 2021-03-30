@@ -62,17 +62,17 @@ export default function ListViewTableRow(props) {
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listView: false,
 				itemView: true,
-				targetItem: props.item,
+				itemViewCurrentItem: props.item,
 			})
 		);
 
 		// Resets bug components display when a different project is opened
-		// ...to prevent erros with bug targetItem not belonging to project
+		// ...to prevent erros with bug itemViewCurrentItem not belonging to project
 		if (
 			props.reduxContainerName === PROJECT_CONTAINER &&
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem !==
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem !==
 				null &&
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.id !==
 				props.item.id
 		) {
 			dispatch(setWhichBugComponentsDisplay({}));
@@ -110,9 +110,9 @@ export default function ListViewTableRow(props) {
 				getListRowBorderAndTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				) +
-				(reduxState[props.reduxContainerName]?.componentsDisplay.targetItem !==
+				(reduxState[props.reduxContainerName]?.componentsDisplay.itemViewCurrentItem !==
 					null &&
-				reduxState[props.reduxContainerName]?.componentsDisplay.targetItem
+				reduxState[props.reduxContainerName]?.componentsDisplay.itemViewCurrentItem
 					.id === props.item.id
 					? getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode

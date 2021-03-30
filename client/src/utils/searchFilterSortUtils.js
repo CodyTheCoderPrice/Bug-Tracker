@@ -107,7 +107,7 @@ export function getSearchFilterSortList(passedReduxState, reduxContainerName) {
 			: [...passedReduxState[reduxContainerName].list].filter(
 					(item) =>
 						item.project_id ===
-						passedReduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+						passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 			  ),
 		passedReduxState[reduxContainerName].searchFilterSort
 	);

@@ -42,7 +42,7 @@ export default function ItemViewDisplayItemInfo(props) {
 		].priorityStatusOptions.statusList.filter(
 			(status) =>
 				status.id ===
-				reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 					.status_id
 		);
 
@@ -58,7 +58,7 @@ export default function ItemViewDisplayItemInfo(props) {
 				<h1
 					className={
 						"item-name" +
-						(reduxState[props.reduxContainerName].componentsDisplay.targetItem
+						(reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 							.status_id ===
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
@@ -69,7 +69,7 @@ export default function ItemViewDisplayItemInfo(props) {
 							  ))
 					}
 				>
-					{reduxState[props.reduxContainerName].componentsDisplay.targetItem
+					{reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 						.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
@@ -80,7 +80,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						/>
 					)}
 					{
-						reduxState[props.reduxContainerName].componentsDisplay.targetItem
+						reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 							.name
 					}
 				</h1>
@@ -94,7 +94,7 @@ export default function ItemViewDisplayItemInfo(props) {
 				>
 					Created on:{" "}
 					{formatDateMMddYYYY(
-						reduxState[props.reduxContainerName].componentsDisplay.targetItem
+						reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 							.creation_date
 					)}
 				</div>
@@ -120,7 +120,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						>
 							{displayGrayedOutMessageIfEmpty(
 								reduxState[props.reduxContainerName].componentsDisplay
-									.targetItem.description,
+									.itemViewCurrentItem.description,
 								"Description Is Empty.",
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)}
@@ -150,7 +150,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								>
 									{displayGrayedOutMessageIfEmpty(
 										reduxState[props.reduxContainerName].componentsDisplay
-											.targetItem.location,
+											.itemViewCurrentItem.location,
 										"none",
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)}
@@ -173,7 +173,7 @@ export default function ItemViewDisplayItemInfo(props) {
 									{displayGrayedOutMessageIfEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
-												.targetItem.start_date
+												.itemViewCurrentItem.start_date
 										),
 										"none",
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
@@ -193,7 +193,7 @@ export default function ItemViewDisplayItemInfo(props) {
 									{displayGrayedOutMessageIfEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
-												.targetItem.due_date
+												.itemViewCurrentItem.due_date
 										),
 										"none",
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
@@ -215,7 +215,7 @@ export default function ItemViewDisplayItemInfo(props) {
 									{displayGrayedOutMessageIfEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
-												.targetItem.completion_date
+												.itemViewCurrentItem.completion_date
 										),
 										"none",
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
@@ -236,7 +236,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								>
 									{
 										reduxState[props.reduxContainerName].componentsDisplay
-											.targetItem.priority_option
+											.itemViewCurrentItem.priority_option
 									}
 								</span>
 							</div>
@@ -255,7 +255,7 @@ export default function ItemViewDisplayItemInfo(props) {
 									<span className="item-box__group__field__status-box__centered-content">
 										{
 											reduxState[props.reduxContainerName].componentsDisplay
-												.targetItem.status_option
+												.itemViewCurrentItem.status_option
 										}
 									</span>
 								</div>

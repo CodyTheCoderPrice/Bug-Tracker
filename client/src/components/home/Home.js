@@ -45,8 +45,8 @@ export default function Home() {
 				reduxState[PROJECT_CONTAINER].searchFilterSort.statusFilter.includes(
 					reduxState[PROJECT_CONTAINER].priorityStatusOptions.statusCompletionId
 				) &&
-			(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null ||
-				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.status_id !==
+			(reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem === null ||
+				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.status_id !==
 					reduxState[PROJECT_CONTAINER].priorityStatusOptions
 						.statusCompletionId)
 		) {
@@ -72,8 +72,8 @@ export default function Home() {
 				reduxState[BUG_CONTAINER].searchFilterSort.statusFilter.includes(
 					reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
 				) &&
-			(reduxState[BUG_CONTAINER].componentsDisplay.targetItem === null ||
-				reduxState[BUG_CONTAINER].componentsDisplay.targetItem.status_id !==
+			(reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem === null ||
+				reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.status_id !==
 					reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId)
 		) {
 			dispatch(

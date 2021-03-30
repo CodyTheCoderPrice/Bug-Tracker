@@ -25,21 +25,21 @@ export default function ItemViewListSidebarRow(props) {
 
 	const changeTargetItem = () => {
 		if (
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem ===
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem ===
 				null ||
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.id !==
 				props.item.id
 		) {
 			dispatch(
 				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 					listView: false,
 					itemView: true,
-					targetItem: props.item,
+					itemViewCurrentItem: props.item,
 				})
 			);
 
 			// Resets bug components display when a different project is opened
-			// ...to prevent erros with bug targetItem not belonging to project
+			// ...to prevent erros with bug itemViewCurrentItem not belonging to project
 			if (props.reduxContainerName === PROJECT_CONTAINER) {
 				dispatch(setWhichBugComponentsDisplay({}));
 			}
@@ -50,29 +50,29 @@ export default function ItemViewListSidebarRow(props) {
 		if (props.reduxContainerName === PROJECT_CONTAINER) {
 			dispatch(
 				setWhichProjectComponentsDisplay({
-					targetItem: props.item,
+					itemViewCurrentItem: props.item,
 				})
 			);
 
 			dispatch(
 				setWhichBugComponentsDisplay({
 					listView: true,
-					// If the project targetItem is not changing, then keep the bug targetItem the same
-					targetItem:
+					// If the project itemViewCurrentItem is not changing, then keep the bug itemViewCurrentItem the same
+					itemViewCurrentItem:
 						props.item.id ===
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
-							? reduxState[BUG_CONTAINER].componentsDisplay.targetItem
+						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
+							? reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
 							: null,
 				})
 			);
 
 			// Resets bug components display when a different project is opened
-			// ...to prevent erros with bug targetItem not belonging to project
+			// ...to prevent erros with bug itemViewCurrentItem not belonging to project
 			if (
 				props.reduxContainerName === PROJECT_CONTAINER &&
-				reduxState[props.reduxContainerName].componentsDisplay.targetItem !==
+				reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem !==
 					null &&
-				reduxState[props.reduxContainerName].componentsDisplay.targetItem.id !==
+				reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.id !==
 					props.item.id
 			) {
 				dispatch(setWhichBugComponentsDisplay({}));
@@ -87,9 +87,9 @@ export default function ItemViewListSidebarRow(props) {
 				getListRowBorderAndTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				) +
-				(reduxState[props.reduxContainerName]?.componentsDisplay.targetItem !==
+				(reduxState[props.reduxContainerName]?.componentsDisplay.itemViewCurrentItem !==
 					null &&
-				reduxState[props.reduxContainerName]?.componentsDisplay.targetItem
+				reduxState[props.reduxContainerName]?.componentsDisplay.itemViewCurrentItem
 					.id === props.item.id
 					? getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode

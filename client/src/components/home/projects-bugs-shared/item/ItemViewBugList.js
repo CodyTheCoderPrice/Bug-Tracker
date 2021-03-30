@@ -21,7 +21,7 @@ export default function ItemViewBugList() {
 						.filter(
 							(item) =>
 								item.project_id ===
-								reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+								reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 						)
 						.sort((a, b) => {
 							return b.last_edited_timestamp - a.last_edited_timestamp;

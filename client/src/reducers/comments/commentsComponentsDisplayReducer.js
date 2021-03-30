@@ -2,8 +2,12 @@ import { SET_WHICH_COMMENT_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 
 // Default state for which comment components should be displayed by the app
 const initialState = {
+	// Should the DeleteModal for comments display
 	commentDeleteModal: false,
+	// Which comment will be deleted by DeleteModal for comments
 	commentToBeDeleted: null,
+	// Which comment is being edited in ItemViewCommentsBoxIndividualComment
+	// ...if null, then no comment is being edited
 	commentBeingEdited: null,
 };
 

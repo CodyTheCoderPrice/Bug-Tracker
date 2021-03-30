@@ -33,8 +33,8 @@ export default function ItemViewCommentsBox() {
 		description: "",
 		// Following ids are used by the backend to ensure
 		// ...the comment will belong to the correct account
-		project_id: reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
-		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
+		project_id: reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
+		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
 	});
 
 	// Keeps track of the current comment list size so componet can tell
@@ -62,8 +62,8 @@ export default function ItemViewCommentsBox() {
 				// Default commentInfo values
 				description: "",
 				project_id:
-					reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
-				bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
+					reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
+				bug_id: reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
 			});
 		}
 		setPreviousCommentsListSize(reduxState[COMMENT_CONTAINER].list.length);
@@ -121,7 +121,7 @@ export default function ItemViewCommentsBox() {
 								[...reduxState[COMMENT_CONTAINER].list].filter(
 									(item) =>
 										item.bug_id ===
-										reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id
+										reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 								).length
 							}
 							)
@@ -191,7 +191,7 @@ export default function ItemViewCommentsBox() {
 					.filter(
 						(item) =>
 							item.bug_id ===
-							reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id
+							reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 					)
 					.sort((a, b) => {
 						return dateToInt(b.creation_date) - dateToInt(a.creation_date);
@@ -202,10 +202,10 @@ export default function ItemViewCommentsBox() {
 								key={idx}
 								comment={comment}
 								project_id={
-									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+									reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 								}
 								bug_id={
-									reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id
+									reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 								}
 							/>
 						);

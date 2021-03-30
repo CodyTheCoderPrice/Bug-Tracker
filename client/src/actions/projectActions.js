@@ -113,11 +113,11 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
-					// if targetItem was set to the pre-edited project, then it
+					// if itemViewCurrentItem was set to the pre-edited project, then it
 					// ...is updated to the post-edited project
-					targetItem:
-						projectComponentsDisplay.targetItem.id !== projectInfo.id
-							? projectComponentsDisplay.targetItem
+					itemViewCurrentItem:
+						projectComponentsDisplay.itemViewCurrentItem.id !== projectInfo.id
+							? projectComponentsDisplay.itemViewCurrentItem
 							: projects.filter((project) => {
 									return project.id === projectInfo.id;
 							  })[0],
@@ -230,14 +230,14 @@ export const deleteMultipleProjects = (
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
 					listViewDeleteModal: false,
-					// if the targetItem was a deleted project, then sets it to null
-					targetItem:
-						projectComponentsDisplay.targetItem === null ||
+					// if the itemViewCurrentItem was a deleted project, then sets it to null
+					itemViewCurrentItem:
+						projectComponentsDisplay.itemViewCurrentItem === null ||
 						massDeleteList.filter(
-							(itemId) => itemId === projectComponentsDisplay.targetItem.id
+							(itemId) => itemId === projectComponentsDisplay.itemViewCurrentItem.id
 						).length > 0
 							? null
-							: projectComponentsDisplay.targetItem,
+							: projectComponentsDisplay.itemViewCurrentItem,
 				})
 			);
 		})

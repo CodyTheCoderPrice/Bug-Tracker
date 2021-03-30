@@ -118,7 +118,7 @@ export default function ListViewCreateItemSidebar(props) {
 		// Gives bugs (not projects) a project_id for backend table relations
 		if (props.reduxContainerName === BUG_CONTAINER) {
 			itemInfoDeepCopy["project_id"] =
-				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id;
+				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id;
 		}
 		dispatch(
 			createProjectOrBug(

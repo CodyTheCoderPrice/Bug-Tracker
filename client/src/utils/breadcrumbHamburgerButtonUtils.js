@@ -15,27 +15,35 @@ import {
 } from "../actions";
 
 /**
- * Will open the ListView component for projects while closing components that
- * either shouldn't ever be open at the same time as it, or can also be open at
- * the same time, but the user would expect to close when it is being openned.
+ * Will open the project ListView component while closing all components that
+ * shouldn't ever be open at the same time as it, as well as the AccountSidebar
+ * and ListViewCreateItemSidebar for projects (if they were open)
+ * 
  *
  * @param {JSON} passedReduxState - Current redux state from useSelector
  * @param {Function} dispatch - Redux store's dispatch function from useDispatch
  */
 export function openProjectsListView(passedReduxState, dispatch) {
 	if (passedReduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true) {
+		// Closes all account components
 		dispatch(setWhichAccountComponentsDisplay({}));
+		// Opens project ListView and keeps same itemViewCurrentItem to allow switching
+		// ...back to the project ItemView (if itemViewCurrentItem is not null) using
+		// ...the navbar. Closes all other project components.
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				listView: true,
-				targetItem:
-					passedReduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
+		// Closes eeps same itemViewCurrentItem, since if not null, 
+		// ...then project ItemView for that itemViewCurrentItem is being maintained to
+		// ...allow switching back to it using the navbar
 		dispatch(
 			setWhichBugComponentsDisplay({
-				targetItem:
-					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));
@@ -49,8 +57,8 @@ export function openProjectsListView(passedReduxState, dispatch) {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				listView: true,
-				targetItem:
-					passedReduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
 	}
@@ -62,14 +70,14 @@ export function openProjectsItemView(passedReduxState, dispatch) {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				itemView: true,
-				targetItem:
-					passedReduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
 		dispatch(
 			setWhichBugComponentsDisplay({
-				targetItem:
-					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));
@@ -86,15 +94,15 @@ export function openBugsListView(passedReduxState, dispatch) {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				targetItem:
-					passedReduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
 		dispatch(
 			setWhichBugComponentsDisplay({
 				listView: true,
-				targetItem:
-					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));
@@ -108,8 +116,8 @@ export function openBugsListView(passedReduxState, dispatch) {
 		dispatch(
 			setWhichBugComponentsDisplay({
 				listView: true,
-				targetItem:
-					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
 	}
@@ -120,15 +128,15 @@ export function openBugsItemView(passedReduxState, dispatch) {
 		dispatch(setWhichAccountComponentsDisplay({}));
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				targetItem:
-					passedReduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
 		dispatch(
 			setWhichBugComponentsDisplay({
 				itemView: true,
-				targetItem:
-					passedReduxState[BUG_CONTAINER].componentsDisplay.targetItem,
+				itemViewCurrentItem:
+					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));
@@ -148,7 +156,7 @@ export function closeProjectItemView(e, passedReduxState, dispatch) {
 			...passedReduxState[PROJECT_CONTAINER].componentsDisplay,
 			listView: true,
 			itemView: false,
-			targetItem: null,
+			itemViewCurrentItem: null,
 		})
 	);
 	dispatch(setWhichBugComponentsDisplay({}));
@@ -170,7 +178,7 @@ export function closeBugItemView(e, passedReduxState, dispatch) {
 					? true
 					: false,
 			itemView: false,
-			targetItem: null,
+			itemViewCurrentItem: null,
 		})
 	);
 	dispatch(setWhichCommentComponentsDisplay({}));

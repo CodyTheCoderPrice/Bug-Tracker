@@ -145,11 +145,11 @@ export default function NavbarHamburger() {
 		if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView) {
 			return "Projects";
 		} else if (reduxState[PROJECT_CONTAINER].componentsDisplay.itemView) {
-			return reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.name;
+			return reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.name;
 		} else if (reduxState[BUG_CONTAINER].componentsDisplay.listView) {
 			return "Bugs";
 		} else if (reduxState[BUG_CONTAINER].componentsDisplay.itemView) {
-			return reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name;
+			return reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name;
 		}
 	};
 
@@ -200,7 +200,7 @@ export default function NavbarHamburger() {
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
 									? " hamburger-dropdown__option--selected"
 									: "") +
-								(reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
+								(reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 								null
 									? " hamburger-dropdown__option--last-option-round-bottom-border"
 									: "")
@@ -215,7 +215,7 @@ export default function NavbarHamburger() {
 							Projects
 						</div>
 
-						{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
+						{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 						null ? null : (
 							<div
 								className={
@@ -226,7 +226,7 @@ export default function NavbarHamburger() {
 								}
 								alt={
 									"Navbar hamburger dropdown option to open the " +
-									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+									reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
 										.name +
 									" project"
 								}
@@ -242,7 +242,7 @@ export default function NavbarHamburger() {
 									alt="Arrow pointing from the button above to this button signifying this is to open a particular project"
 								/>
 								{
-									reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+									reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
 										.name
 								}
 								<i
@@ -250,7 +250,7 @@ export default function NavbarHamburger() {
 									aria-hidden="true"
 									alt={
 										"Icon of an X. If clicked, will close the " +
-										reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+										reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
 											.name +
 										" project"
 									}
@@ -259,7 +259,7 @@ export default function NavbarHamburger() {
 							</div>
 						)}
 
-						{reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem ===
+						{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 						null ? null : (
 							<div
 								className={
@@ -267,7 +267,7 @@ export default function NavbarHamburger() {
 									(reduxState[BUG_CONTAINER].componentsDisplay.listView
 										? " hamburger-dropdown__option--selected"
 										: "") +
-									(reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
+									(reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 									null
 										? " hamburger-dropdown__option--last-option-round-bottom-border"
 										: "")
@@ -292,7 +292,7 @@ export default function NavbarHamburger() {
 							</div>
 						)}
 
-						{reduxState[BUG_CONTAINER].componentsDisplay.targetItem ===
+						{reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 						null ? null : (
 							<div
 								className={
@@ -303,7 +303,7 @@ export default function NavbarHamburger() {
 								}
 								alt={
 									"Navbar hamburger dropdown option to open the " +
-									reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name +
+									reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name +
 									" bug"
 								}
 								onClick={() => openBugsItemView(reduxState, dispatch)}
@@ -317,13 +317,13 @@ export default function NavbarHamburger() {
 									}
 									alt="Arrow pointing from the button above to this button signifying this is to open a particular bug"
 								/>
-								{reduxState[BUG_CONTAINER].componentsDisplay.targetItem.name}
+								{reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name}
 								<i
 									className="fa fa-times hamburger-dropdown__option__close-button"
 									aria-hidden="true"
 									alt={
 										"Icon of an X. If clicked, will close the " +
-										reduxState[BUG_CONTAINER].componentsDisplay.targetItem
+										reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
 											.name +
 										" bug"
 									}

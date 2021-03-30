@@ -2,14 +2,15 @@ import { SET_WHICH_GENERAL_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 
 // Default state for which general components should be displayed by the app
 const initialState = {
+	// The following four relate to components and if they should be displayed
 	register: false,
 	login: true,
 	home: false,
-	// Has the user set itemViewListSidebar, or has it only been auto decided
-	// ...based on the size of the window
-	itemViewListSidebarUserSet: false,
 	// In general container since value should be the same for projects and bugs
 	itemViewListSidebar: true,
+	// Has user set if ItemViewListSidebar should be displayed, or has it only
+	// ...been auto decided based on the size of the window.
+	itemViewListSidebarUserSet: false,
 };
 
 /**
@@ -40,15 +41,15 @@ export default function (state = initialState, action) {
 				login:
 					action.displays.login !== undefined ? action.displays.login : false,
 				home: action.displays.home !== undefined ? action.displays.home : false,
-				itemViewListSidebarUserSet:
-					action.displays.itemViewListSidebarUserSet !== undefined
-						? action.displays.itemViewListSidebarUserSet
-						: false,
 				// If undefined then true since default is true
 				itemViewListSidebar:
 					action.displays.itemViewListSidebar !== undefined
 						? action.displays.itemViewListSidebar
 						: true,
+				itemViewListSidebarUserSet:
+					action.displays.itemViewListSidebarUserSet !== undefined
+						? action.displays.itemViewListSidebarUserSet
+						: false,
 			};
 		default:
 			return state;

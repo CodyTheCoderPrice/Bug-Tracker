@@ -19,7 +19,7 @@ export default function ItemViewBugPieChart() {
 		const bugsInProjectList = [...reduxState[BUG_CONTAINER].list].filter(
 			(item) =>
 				item.project_id ===
-				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 		);
 
 		const statusList =
@@ -36,7 +36,7 @@ export default function ItemViewBugPieChart() {
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem,
+		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
 		// eslint-disable-next-line
 		reduxState[BUG_CONTAINER].list,
 	]);
@@ -127,7 +127,7 @@ export default function ItemViewBugPieChart() {
 	const getAllStatusStatisticsElement = () => {
 		const bugsInProjectList = getBugsInProjectList(
 			reduxState,
-			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id
+			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
 		);
 
 		return (
@@ -157,7 +157,7 @@ export default function ItemViewBugPieChart() {
 									>
 										{getNumberOfBugsForStatus(
 											reduxState,
-											reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+											reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
 												.id,
 											statusObject.id
 										)}{" "}

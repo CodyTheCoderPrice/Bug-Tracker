@@ -148,12 +148,12 @@ export default function ItemView(props) {
 		// JSON instead of Number since deleting bugs requires the project_id
 		// ...so it is appended below when deleting bugs
 		let idJson = {
-			id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
+			id: reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.id,
 		};
 		// Adds project_id when deleting a bug
 		if (props.reduxContainerName === BUG_CONTAINER) {
 			idJson["project_id"] =
-				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id;
+				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id;
 		}
 		dispatch(
 			deleteProjectOrBug(props.reduxContainerName, idJson, copyMassDeleteList)
@@ -178,8 +178,8 @@ export default function ItemView(props) {
 						reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted
 							.id,
 					project_id:
-						reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id,
-					bug_id: reduxState[BUG_CONTAINER].componentsDisplay.targetItem.id,
+						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
+					bug_id: reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
 				},
 				reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited
 			)
@@ -255,7 +255,7 @@ export default function ItemView(props) {
 									{[...reduxState[BUG_CONTAINER].list].filter(
 										(item) =>
 											item.project_id ===
-											reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+											reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
 												.id
 									).length > 0 ? (
 										<ItemViewBugPieChart />
@@ -281,7 +281,7 @@ export default function ItemView(props) {
 									{[...reduxState[BUG_CONTAINER].list].filter(
 										(item) =>
 											item.project_id ===
-											reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem
+											reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
 												.id
 									).length > 0 ? (
 										<ItemViewBugList />

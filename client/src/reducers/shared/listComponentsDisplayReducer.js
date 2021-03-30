@@ -3,13 +3,18 @@ import { SET_WHICH_LIST_COMPONENTS_DISPLAY } from "../../actions/constants/types
 // Default state for either which project or bug components (reducer used by
 // ...both containers) should be displayed by the app
 const initialState = {
+	// The following four relate to components and if they should be displayed
 	listView: false,
+	// Should DeleteModal for ListView be displayed
 	listViewDeleteModal: false,
 	listViewCreateItemSidbar: false,
 	itemView: false,
+	// Which item is currently attachted to the itemView
+	itemViewCurrentItem: null,
+	// Is the current item for ItemView being edited
 	itemViewEditItemInfo: false,
+	// Should DeleteModal for ItemView be displayed
 	itemViewDeleteModal: false,
-	targetItem: null,
 };
 
 /**
@@ -58,9 +63,9 @@ export default function (state = initialState, action) {
 					action.displays.itemViewDeleteModal !== undefined
 						? action.displays.itemViewDeleteModal
 						: false,
-				targetItem:
-					action.displays.targetItem !== undefined
-						? action.displays.targetItem
+				itemViewCurrentItem:
+					action.displays.itemViewCurrentItem !== undefined
+						? action.displays.itemViewCurrentItem
 						: null,
 			};
 		default:

@@ -2,6 +2,7 @@ import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 
 // Default state for which account components should be displayed by the app
 const initialState = {
+	// All the following relate to components and if they should be displayed
 	accountSidebar: false,
 	accountModalChangeInfo: false,
 	accountModalChangeEmail: false,

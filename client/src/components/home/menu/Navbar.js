@@ -129,7 +129,7 @@ export default function Navbar() {
 				.navbarBreadcrumbButtonTextFontSize === null ||
 			reduxState[GENERAL_CONTAINER].globalConstants
 				.navbarBreadcrumbMinimumFontSize === null ||
-			reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem === null ||
+			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem === null ||
 			reduxState[SIZE_CONTAINER].variables.navbarBreadcrumbButtonTextFontSize >
 				reduxState[GENERAL_CONTAINER].globalConstants
 					.navbarBreadcrumbMinimumFontSize

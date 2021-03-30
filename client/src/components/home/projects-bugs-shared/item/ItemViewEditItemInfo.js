@@ -43,43 +43,43 @@ export default function ItemViewEditItemInfo(props) {
 	const dispatch = useDispatch();
 
 	const [itemInfo, setItemInfo] = useState({
-		id: reduxState[props.reduxContainerName].componentsDisplay.targetItem.id,
+		id: reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.id,
 		name:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.name,
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.name,
 		description:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.description,
 		// Only used for bugs (backend will ignore this property for projects)
 		location:
 			props.reduxContainerName === BUG_CONTAINER
-				? reduxState[props.reduxContainerName].componentsDisplay.targetItem
+				? reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 						.location
 				: "",
 		priority_id:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.priority_id,
 		priorityOption:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.priority_option,
 		status_id:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.status_id,
 		statusOption:
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.status_option,
 		creation_date: formatDateMMddYYYY(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.creation_date
 		),
 		start_date: formatDateYYYYmmDD(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.start_date
 		),
 		due_date: formatDateYYYYmmDD(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem.due_date
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.due_date
 		),
 		completion_date: formatDateYYYYmmDD(
-			reduxState[props.reduxContainerName].componentsDisplay.targetItem
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.completion_date
 		),
 	});
@@ -169,7 +169,7 @@ export default function ItemViewEditItemInfo(props) {
 		// Adds project_id when updating a bug
 		if (props.reduxContainerName === BUG_CONTAINER) {
 			itemInfoDeepCopy["project_id"] =
-				reduxState[PROJECT_CONTAINER].componentsDisplay.targetItem.id;
+				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id;
 		}
 		dispatch(
 			updateProjectOrBug(
@@ -184,7 +184,7 @@ export default function ItemViewEditItemInfo(props) {
 		<form className="js-edit-item-form" noValidate onSubmit={handleSubmit}>
 			<div className="outer-dividing-container">
 				<div className="name-centering-container">
-					{reduxState[props.reduxContainerName].componentsDisplay.targetItem
+					{reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 						.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
@@ -208,7 +208,7 @@ export default function ItemViewEditItemInfo(props) {
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							) +
-							(reduxState[props.reduxContainerName].componentsDisplay.targetItem
+							(reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 								.status_id ===
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId

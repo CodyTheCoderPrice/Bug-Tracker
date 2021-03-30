@@ -134,7 +134,7 @@ export default function ItemViewTopBar(props) {
 				...reduxState[props.reduxContainerName].componentsDisplay,
 				listView: true,
 				itemView: false,
-				targetItem: null,
+				itemViewCurrentItem: null,
 			})
 		);
 

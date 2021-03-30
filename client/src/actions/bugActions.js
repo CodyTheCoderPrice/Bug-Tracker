@@ -108,11 +108,11 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
-					// if targetItem was set to the pre-edited bug, then it
+					// if itemViewCurrentItem was set to the pre-edited bug, then it
 					// ...is updated to the post-edited bug
-					targetItem:
-						bugComponentsDisplay.targetItem.id !== bugInfo.id
-							? bugComponentsDisplay.targetItem
+					itemViewCurrentItem:
+						bugComponentsDisplay.itemViewCurrentItem.id !== bugInfo.id
+							? bugComponentsDisplay.itemViewCurrentItem
 							: bugs.filter((bug) => {
 									return bug.id === bugInfo.id;
 							  })[0],
@@ -211,14 +211,14 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
 					listViewDeleteModal: false,
-					// if the targetItem was a deleted bug, then sets it to null
-					targetItem:
-						bugComponentsDisplay.targetItem === null ||
+					// if the itemViewCurrentItem was a deleted bug, then sets it to null
+					itemViewCurrentItem:
+						bugComponentsDisplay.itemViewCurrentItem === null ||
 						massDeleteList.filter(
-							(itemId) => itemId === bugComponentsDisplay.targetItem.id
+							(itemId) => itemId === bugComponentsDisplay.itemViewCurrentItem.id
 						).length > 0
 							? null
-							: bugComponentsDisplay.targetItem,
+							: bugComponentsDisplay.itemViewCurrentItem,
 				})
 			);
 		})
