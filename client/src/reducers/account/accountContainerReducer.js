@@ -31,7 +31,7 @@ const initialState = {
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} - JSON containing all data for the account container of the
+ * @returns {JSON} JSON containing all data for the account container of the
  * redux state
  */
 export function accountContainerReducer(state = initialState, action) {

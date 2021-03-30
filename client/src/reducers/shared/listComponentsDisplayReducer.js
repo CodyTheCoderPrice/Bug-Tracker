@@ -23,7 +23,7 @@ const initialState = {
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} - JSON for either which project or bug components (reducer
+ * @returns {JSON} JSON for either which project or bug components (reducer
  * used by both containers) should display by the app, to be stored in either
  * the project or bug container of the redux state
  */

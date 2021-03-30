@@ -12,7 +12,7 @@ const initialState = null;
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {Number} - Number of current font size of the breadcrumb menu
+ * @returns {Number} Number of current font size of the breadcrumb menu
  * button text elements to be stored in the size container of the redux state
  */
 export default function (state = initialState, action) {

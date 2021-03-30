@@ -14,7 +14,7 @@ const initialState = []
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} - JSON for the comment list to be stored in the comment
+ * @returns {JSON} JSON for the comment list to be stored in the comment
  * container of the redux state
  */
 export default function (state = initialState, action) {

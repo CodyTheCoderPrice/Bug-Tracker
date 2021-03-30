@@ -20,7 +20,7 @@ const initialState = {
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} - JSON containing all data for the comment container of the
+ * @returns {JSON} JSON containing all data for the comment container of the
  * redux state
  */
 export function commentContainerReducer(state = initialState, action) {

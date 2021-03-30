@@ -18,7 +18,7 @@ const initialState = {
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} - JSON for the global constants currently being stored
+ * @returns {JSON} JSON for the global constants currently being stored
  * in the general container of the redux state
  */
 export default function () {

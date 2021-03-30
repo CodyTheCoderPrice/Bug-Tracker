@@ -13,7 +13,7 @@ const initialState = {}
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} - JSON for account setting sort categories to be stored in
+ * @returns {JSON} JSON for account setting sort categories to be stored in
  * the account container of the redux state
  */
 export default function (state = initialState, action) {
