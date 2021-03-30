@@ -1,7 +1,9 @@
 import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 
-// Default state for html element sizes that remain the same
+// Default state for html element sizes that remain constant after being first set
 const initialState = {
+	// All the following relate to css sizes of different HTML elements. They
+	// ...are set during a useEffect that calls functions to get their values
 	scrollbarWidth: null,
 	navbarAccountButtonWidth: null,
 	navbarBreadcrumbArrowWidth: null,

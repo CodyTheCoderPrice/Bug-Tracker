@@ -1,6 +1,6 @@
 import { SET_DISPLAY_SIZE_VARIABLES_WINDOW_NAVBAR } from "../../../actions/constants/types";
 
-// Default state for the Window and NAvbar HTML elements
+// Default state for the current side of the Window and Navbar HTML elements
 const initialState = {
 	window: null,
 	navbar: null,

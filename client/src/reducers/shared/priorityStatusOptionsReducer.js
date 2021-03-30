@@ -4,10 +4,15 @@ import { appendHexValueForColorsToStatusList } from "../../utils/colorUtils";
 // Default state for either project or bug priority/status data (reducer used by
 // ...both containers) from the priority and status tables in the database
 const initialState = {
+	// Priority table data from the database
 	priorityList: null,
+	// Which id in the priorityList represent empty
 	priorityEmptyId: null,
+	// Status table data from the database
 	statusList: null,
+	// Which id in the statusList represent empty
 	statusEmptyId: null,
+	// Which id in the statusList represent completion
 	statusCompletionId: null,
 };
 

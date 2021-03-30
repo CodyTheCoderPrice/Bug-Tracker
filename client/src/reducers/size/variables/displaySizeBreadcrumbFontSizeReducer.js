@@ -1,6 +1,6 @@
 import { SET_DISPLAY_SIZE_VARIABLES_BREADCRUMB_FONT_SIZE } from "../../../actions/constants/types";
 
-// Default state for the Window and Navbar HTML elements
+// Default state for the current breadcrumb menu button text font size.
 const initialState = null;
 
 /**

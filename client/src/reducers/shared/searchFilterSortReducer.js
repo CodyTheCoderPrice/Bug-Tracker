@@ -3,10 +3,15 @@ import { SET_SEARCH_FILTER_SORT } from "../../actions/constants/types";
 // Default state for either the project or bug search/filter/sort data (reducer
 // ...used by both containers)
 const initialState = {
+	// Words being searched in the search bar
 	searchKeyWordString: "",
+	// Should list be sorted in ascending order (or descending order)
 	sortAscending: true,
+	// Which sort option is the list currently being sorted by
 	sortId: 2,
+	// Which priority options are currently being filtered out of the list
 	priorityFilter: [],
+	// Which status options are currently being filtered out of the list
 	statusFilter: [],
 };
 

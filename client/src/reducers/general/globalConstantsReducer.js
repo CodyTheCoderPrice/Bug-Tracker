@@ -1,10 +1,13 @@
 // Default state for global constants (set here and never changed)
 const initialState = {
+	// The following five relate to char restraints for input fields
 	nameCharLimit: 35,
 	passwordCharMin: 6,
 	passwordCharLimit: 30,
 	descriptionCharLimit: 500,
 	locationCharLimit: 100,
+	// Min font size when resizing breadcrumb text. USed to know ehn to switch
+	// ...to the NavbarHamburger menu
 	navbarBreadcrumbMinimumFontSize: 12,
 };
 

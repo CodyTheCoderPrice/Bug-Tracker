@@ -1,7 +1,8 @@
 import { SET_WHICH_GENERAL_DROPDOWNS_DISPLAY } from "../../actions/constants/types";
 
-// Default state for which general dropdownsshould be displayed by the app
+// Default state for which general dropdowns should be displayed by the app
 const initialState = {
+	// All the following relate to dropdown elements and if they should be displayed
 	navbarHamburherDropdown: false,
 	listViewSearchFilterSearchBarFilterDropdown: false,
 	itemViewTopBarSortDropdown: false,
@@ -26,8 +27,8 @@ export default function (state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_GENERAL_DROPDOWNS_DISPLAY:
 			return {
-				// Ternary operator is used to set undefined components to
-				// ...their default, so you only have to pass the components
+				// Ternary operator is used to set undefined dropdown elements to
+				// ...their default, so you only have to pass the dropdown elements
 				// ...you want to set differently, to make using this redux
 				// ...action easier
 				navbarHamburherDropdown:

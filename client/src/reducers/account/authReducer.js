@@ -4,7 +4,9 @@ const isEmpty = require("is-empty");
 // Default state for user authentication (set as not authenticated since no
 // ...acount is logged in by default)
 const initialState = {
+	// Is the account currently authenticated by the backend
 	isAuthenticated: false,
+	// The account info
 	info: {},
 };
 
