@@ -23,7 +23,7 @@ const initialState = {
  * @returns {JSON} JSON containing authentication data for the current user
  * of the site to be stored in the account container of the redux state
  */
-export default function (state = initialState, action) {
+export default function authReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_AUTHENTICATION:
 			return {

@@ -16,7 +16,7 @@ const initialState = {}
  * @returns {JSON} JSON for account setting sort categories to be stored in
  * the account container of the redux state
  */
-export default function (state = initialState, action) {
+export default function accountSettingSortCategoriesReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_ACCOUNT_SETTING_SORT_CATEGORIES:
 			return action.accountSettingSortCategories;

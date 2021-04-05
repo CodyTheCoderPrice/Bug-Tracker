@@ -24,7 +24,7 @@ const initialState = {
  * @returns {JSON} JSON for which comment components should display by the
  * app, to be stored in the comment container of the redux state
  */
-export default function (state = initialState, action) {
+export default function commentsComponentsDisplayReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_COMMENT_COMPONENTS_DISPLAY:
 			return {

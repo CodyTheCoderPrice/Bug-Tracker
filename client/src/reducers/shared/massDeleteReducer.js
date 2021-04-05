@@ -21,7 +21,7 @@ const initialState = [];
  * used by both containers) to be stored in either the project or bug container
  * of the redux state
  */
-export default function (state = initialState, action) {
+export default function massDeleteReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_MASS_DELETE_LIST:
 			// Ternary operator is used to reset the list if passed undefined

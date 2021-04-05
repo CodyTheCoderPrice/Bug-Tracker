@@ -24,7 +24,7 @@ const initialState = {
  * @returns {JSON} JSON for which account components should display by the
  * app, to be stored in the account container of the redux state
  */
-export default function (state = initialState, action) {
+export default function accountComponentsDisplayReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY:
 			return {

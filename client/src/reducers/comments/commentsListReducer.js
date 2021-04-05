@@ -17,7 +17,7 @@ const initialState = []
  * @returns {JSON} JSON for the comment list to be stored in the comment
  * container of the redux state
  */
-export default function (state = initialState, action) {
+export default function commentsListReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_COMMENTS:
 			return action.list;

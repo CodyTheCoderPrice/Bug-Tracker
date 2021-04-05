@@ -29,7 +29,7 @@ const initialState = {
  * @returns {JSON} JSON of constant html element sizes to be stored in the
  * size container of the redux state
  */
-export default function (state = initialState, action) {
+export default function displaySizeConstantsReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_DISPLAY_SIZE_CONSTANTS:
 			return {

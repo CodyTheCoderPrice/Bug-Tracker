@@ -15,7 +15,7 @@ const initialState = {};
  * @returns {JSON} JSON for form backend errors to be stored in the general
  * container of the redux state
  */
-export default function (state = initialState, action) {
+export default function backendErrorReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_BACKEND_ERRORS:
 			return action.backendErrors;

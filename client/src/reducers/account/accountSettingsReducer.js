@@ -16,7 +16,7 @@ const initialState = {}
  * @returns {JSON} JSON for account settings to be stored in the account
  * container of the redux state
  */
-export default function (state = initialState, action) {
+export default function accountSettingsReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_ACCOUNT_SETTINGS:
 			return action.accountSettings;

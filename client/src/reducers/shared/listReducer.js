@@ -21,7 +21,7 @@ const initialState = []
  * both containers) to be stored in either the project or bug container of the
  * redux state
  */
-export default function (state = initialState, action) {
+export default function listReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_LIST:
 			return action.list;

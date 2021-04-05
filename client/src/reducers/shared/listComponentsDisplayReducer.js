@@ -32,7 +32,7 @@ const initialState = {
  * used by both containers) should display by the app, to be stored in either
  * the project or bug container of the redux state
  */
-export default function (state = initialState, action) {
+export default function listComponentsDisplayReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_LIST_COMPONENTS_DISPLAY:
 			return {

@@ -26,7 +26,7 @@ const initialState = {
  * @returns {JSON} JSON for which general components should display by the
  * app, to be stored in the general container of the redux state
  */
-export default function (state = initialState, action) {
+export default function generalComponentsDisplayReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_GENERAL_COMPONENTS_DISPLAY:
 			return {

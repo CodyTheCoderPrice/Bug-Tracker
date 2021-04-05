@@ -19,7 +19,7 @@ const initialState = {
  * @returns {JSON} JSON of size info for the Window and Navbar HTML elements
  * to be stored in the size container of the redux state
  */
-export default function (state = initialState, action) {
+export default function displaySizeWindowAndNavbarReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_DISPLAY_SIZE_VARIABLES_WINDOW_NAVBAR:
 			return {

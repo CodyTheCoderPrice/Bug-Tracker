@@ -32,7 +32,7 @@ const initialState = {
  * (reducer used by both containers) to be stored in either the project or bug
  * container of the redux state
  */
-export default function (state = initialState, action) {
+export default function priorityStatusOptionsReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_PRIORITY_STATUS:
 			return {

@@ -15,7 +15,7 @@ const initialState = {}
  * @returns {JSON} JSON for account setting themes to be stored in the account
  * container of the redux state
  */
-export default function (state = initialState, action) {
+export default function accountSettingThemesReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_ACCOUNT_SETTING_THEMES:
 			return action.accountSettingThemes;

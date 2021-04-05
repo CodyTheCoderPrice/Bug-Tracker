@@ -23,7 +23,7 @@ const initialState = {
  * @returns {JSON} JSON for which general dropdowns should display by the
  * app to be stored in the general container of the redux state
  */
-export default function (state = initialState, action) {
+export default function generalDropdownsDisplayReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_WHICH_GENERAL_DROPDOWNS_DISPLAY:
 			return {

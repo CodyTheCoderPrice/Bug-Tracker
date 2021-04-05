@@ -15,7 +15,7 @@ const initialState = null;
  * @returns {Number} Number of current font size of the breadcrumb menu
  * button text elements to be stored in the size container of the redux state
  */
-export default function (state = initialState, action) {
+export default function displaySizeBreadcrumbFontSizeReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_DISPLAY_SIZE_VARIABLES_BREADCRUMB_FONT_SIZE:
 			return action.fontSize;

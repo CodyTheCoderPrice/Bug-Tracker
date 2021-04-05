@@ -28,7 +28,7 @@ const initialState = {
  * @returns {JSON} JSON of variable (changing) html element sizes to be
  * stored in the size container of the redux state
  */
-export default function sizeContainerReducer(state = initialState, action) {
+export default function displaySizeVariablesReducer(state = initialState, action) {
 	switch (action.container) {
 		case SIZE_CONTAINER:
 			// This if statement is in all container reducers to allow for the

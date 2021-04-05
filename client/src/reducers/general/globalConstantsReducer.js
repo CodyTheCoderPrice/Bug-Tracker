@@ -24,10 +24,10 @@ const initialState = {
  * @returns {JSON} JSON for the global constants currently being stored
  * in the general container of the redux state
  */
-export default function () {
+export default function globalConstantsReducer() {
 	/*
-	Since this reducer is for constants that are set in the inital state and
-	never changed, simply just return the state and do nothing else
+	Since this reducer is for constants that are set in the inital state, it
+	simply just returns the state and does nothing else
 	*/
 	return initialState;
 }
