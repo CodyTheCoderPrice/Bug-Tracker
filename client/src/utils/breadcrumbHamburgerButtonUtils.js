@@ -226,10 +226,11 @@ export function closeProjectItemView(e, passedReduxState, dispatch) {
 	e.stopPropagation();
 	// Closes all account components
 	dispatch(setWhichAccountComponentsDisplay({}));
-	// Closes all project components except the project 
+	// Closes all project components except the project
 	// ...ListViewCreateItemSidebar (if it is open)
 	dispatch(
 		setWhichProjectComponentsDisplay({
+			listView: true,
 			listViewCreateItemSidbar:
 				passedReduxState[PROJECT_CONTAINER].componentsDisplay
 					.listViewCreateItemSidbar,
@@ -256,7 +257,7 @@ export function closeBugItemView(e, passedReduxState, dispatch) {
 	e.stopPropagation();
 	dispatch(setWhichAccountComponentsDisplay({}));
 	// Closes bug ItemView tab. If the user is on the bug ItemView, they are
-	// ...moved to the bug ListView. If the bug ListViewCreateItemSidebar is 
+	// ...moved to the bug ListView. If the bug ListViewCreateItemSidebar is
 	// ...open, it remains open
 	dispatch(
 		setWhichBugComponentsDisplay({
