@@ -1,46 +1,88 @@
 import { getElementStyle } from "./index";
 
-function componentToHex(color) {
-	let hex = color.toString(16);
-	return hex.length === 1 ? "0" + hex : hex;
+/**
+ * Converts r, b, or g of a rbg color value to a hex section.
+ * 
+ * @param {Number} rbgSection - either r, b, or g for rbg value
+ * @returns {String} The rbgSection converted into a hex section
+ */
+function rbgSectionToHex(rbgSection) {
+	// converts to hex
+	let hexSection = rbgSection.toString(16);
+	// if length is 1, then concatinates 0 to the front
+	return hexSection.length === 1 ? "0" + hexSection : hexSection;
 }
 
+/**
+ * Takes r, b, and g of rbg color value to convert to the equivalent hex color
+ * value
+ * 
+ * @param {Number} r - Red value for rbg color value
+ * @param {Number} g - Green value for rbg color value
+ * @param {Number} b - Blue value for rbg color value
+ * @returns {String} The equivalent hex color value of a rbg color value
+ */
 function rgbToHex(r, g, b) {
-	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+	return "#" + rbgSectionToHex(r) + rbgSectionToHex(g) + rbgSectionToHex(b);
 }
 
-function convertRbgBackgroundColorToHex(rbgBackgroundColor) {
-	const rbgValues = rbgBackgroundColor.match(/\d+/g);
+/**
+ * Takes in the rbg color value as a string and returns equivalent hex color
+ * value as a string
+ * 
+ * @param {String} rbgColorValue - rbg color value
+ * @returns {String} Equivalent hex color value of rbg color value
+ */
+function convertRbgColorStringToHexString(rbgColorValue) {
+	// Seperates the r, b, and g sections into an array
+	const rbgValues = rbgColorValue.match(/\d+/g);
 	return rbgValues.length >= 3
 		? rgbToHex(Number(rbgValues[0]), Number(rbgValues[1]), Number(rbgValues[2]))
 		: null;
 }
 
+/**
+ * Appends to each status in the status list, the hex color values for that 
+ * status's bakcground color
+ * 
+ * @param {Array} statusList - Status list inside priorityStatusOptions of
+ * either the project or bug container of the redux state
+ * @returns {Array} Status list with the hex color values for each status's
+ * bakcground color appended to each status
+ */
 export function appendHexValueForColorsToStatusList(statusList) {
-	const invisibleHomeElement = document.createElement("div");
-	invisibleHomeElement.className = "js-calc-app-component";
-	invisibleHomeElement.visibility = "hidden";
-	document.body.appendChild(invisibleHomeElement);
+	// Creating a temporary app element (seperate from the real app element)
+	// ...since statusBoxes element css depends on being child of app element.
+	// ...The elements created in this function are made invisible so the user
+	// ...never sees them, and they will all be deleted at the end.
+	const invisibleAppElement = document.createElement("div");
+	invisibleAppElement.className = "js-calc-app-component";
+	invisibleAppElement.visibility = "hidden";
+	document.body.appendChild(invisibleAppElement);
 
 	for (let i = 0; i < statusList.length; i++) {
+		// Creates statusBox element for the status
 		const invisibleStatusColorDiv = document.createElement("div");
 		invisibleStatusColorDiv.className =
 			"js-calc-status-box-background-color-" + statusList[i].color;
 		invisibleStatusColorDiv.visibility = "hidden";
-		invisibleHomeElement.appendChild(invisibleStatusColorDiv);
+		invisibleAppElement.appendChild(invisibleStatusColorDiv);
 
-		const hex = convertRbgBackgroundColorToHex(
+		// getElementStyle(invisibleStatusColorDiv).getPropertyValue("background-color")
+		// ...returns rbg color value, so convertRbgColorStringToHexString is used
+		const hex = convertRbgColorStringToHexString(
 			getElementStyle(invisibleStatusColorDiv).getPropertyValue(
 				"background-color"
 			)
 		);
 
+		// Appends hex color value to the status
 		statusList[i]["colorHex"] = hex;
-
-		invisibleHomeElement.removeChild(invisibleStatusColorDiv);
 	}
 
-	invisibleHomeElement.parentNode.removeChild(invisibleHomeElement);
+	// By removing invisibleAppElement from the body, when function ends, it
+	// ...will be deleted, along with all it's children (statusBox elements)
+	invisibleAppElement.parentNode.removeChild(invisibleAppElement);
 
 	return statusList;
 }

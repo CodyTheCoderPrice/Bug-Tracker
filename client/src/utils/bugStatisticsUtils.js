@@ -10,7 +10,7 @@ import {
  * @param {Number} projectId - Id of the project that the bugs belong to
  * @param {NUMBER} statusId - Id of the status option in question for finding
  * the number of bugs for
- * @returns The number of bugs within a project that have a particular status
+ * @returns {NUMBER} The number of bugs within a project that have a particular status
  */
 export function getNumberOfBugsForStatus(
 	passedReduxState,
@@ -28,7 +28,7 @@ export function getNumberOfBugsForStatus(
  * 
  * @param {JSON} passedReduxState - Current redux state from useSelector
  * @param {Number} projectId - Id of the project thats bugs are to be retrieved
- * @returns List of bugs for a particular project
+ * @returns {Array} List of bugs for a particular project
  */
 export function getBugsInProjectList(passedReduxState, projectId) {
 	// Spread operator makes deep copy of bug list so original is not affected
