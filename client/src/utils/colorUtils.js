@@ -42,8 +42,8 @@ function convertRbgColorStringToHexString(rbgColorValue) {
 }
 
 /**
- * Appends to each status in the status list, the hex color values for that 
- * status's bakcground color
+ * Appends to each status in the status list the hex color values for that 
+ * status's backcground color
  * 
  * @param {Array} statusList - Status list inside priorityStatusOptions of
  * either the project or bug container of the redux state
@@ -51,17 +51,19 @@ function convertRbgColorStringToHexString(rbgColorValue) {
  * bakcground color appended to each status
  */
 export function appendHexValueForColorsToStatusList(statusList) {
-	// Creating a temporary app element (seperate from the real app element)
-	// ...since statusBoxes element css depends on being child of app element.
-	// ...The elements created in this function are made invisible so the user
-	// ...never sees them, and they will all be deleted at the end.
+	// Creating temporary second app element to later append temporary statusBox
+	// ...elements to so their css can work. Using second app element ensures
+	// ...temporary statusBox elements do not affect the real app element, as
+	// ...well as making the removal of all elements created in this function
+	// ...from the body quick and easy. Elements are made invisible so the
+	// ...user never sees them.
 	const invisibleAppElement = document.createElement("div");
 	invisibleAppElement.className = "js-calc-app-component";
 	invisibleAppElement.visibility = "hidden";
 	document.body.appendChild(invisibleAppElement);
 
 	for (let i = 0; i < statusList.length; i++) {
-		// Creates statusBox element for the status
+		// Temporary statusBox element used for getting background color
 		const invisibleStatusColorDiv = document.createElement("div");
 		invisibleStatusColorDiv.className =
 			"js-calc-status-box-background-color-" + statusList[i].color;
@@ -80,8 +82,8 @@ export function appendHexValueForColorsToStatusList(statusList) {
 		statusList[i]["colorHex"] = hex;
 	}
 
-	// By removing invisibleAppElement from the body, when function ends, it
-	// ...will be deleted, along with all it's children (statusBox elements)
+	// Removes invisibleAppElement from body, which also removes all statusBox
+	// ...elements. When function ends, they will all be deleted
 	invisibleAppElement.parentNode.removeChild(invisibleAppElement);
 
 	return statusList;
@@ -90,40 +92,76 @@ export function appendHexValueForColorsToStatusList(statusList) {
 //=================
 // Light/Dark mode
 //=================
-// Light/Dark mode -- Base -- background and text colors
+/**
+ * Get light/dark mode className for the entire app's primary base background 
+ * and text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {String} Light/dark mode className for the entire app's primary
+ * base background and text color
+ */
 export function getBaseBackgroundAndTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-base-background-and-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode -- Base secondary -- text colors
+/**
+ * Get light/dark mode className for the entire app's secondary base text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {String} Light/dark mode className for the entire app's secondary
+ * base text color
+ */
 export function getBaseSecondaryTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-base-secondary-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode -- backend-errors -- text colors
+/**
+ * Get light/dark mode className for backend error element's text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {String} Light/dark mode className fbackend error element's text
+ * color
+ */
 export function getBackendErrorsTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-backend-errors-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode -- char-count limit reached -- text colors
+/**
+ * Get light/dark mode className for char-count element's (when limit reached)
+ * text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {String} Light/dark mode className for char-count element's (when
+ * limit reached) text color
+ */
 export function getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-char-count-limit-reached-text-color-dark-mode-" + dark_mode;
 }
 
-// Light/Dark mode -- blurred-background -- background color and opacity
+/**
+ * Get light/dark mode className for blurred-background element's background
+ * color and opacity
+ * 
+ * @param {Boolean} clickToClose - Whether the blurred-background element will
+ * close if clicked
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {String} Light/dark mode className for blurred-background element's
+ * background color and opacity
+ */
 export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 	clickToClose,
 	dark_mode
 ) {
 	return (
+		// Click-to-close blurred-background elements have different css
 		(clickToClose
 			? " js-set-click-to-close-blurred-background-background-color-and-opacity-dark-mode-"
 			: " js-set-blurred-background-background-color-and-opacity-dark-mode-") +
@@ -131,7 +169,14 @@ export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOr
 	);
 }
 
-// Light/Dark mode -- base icon-buttons -- text colors with hover
+/**
+ * Get light/dark mode className for base icon-button element's text color with
+ * hover
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {String} Light/dark mode className for base icon-button element's
+ * text color with hover
+ */
 export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	dark_mode
 ) {
@@ -140,7 +185,14 @@ export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 	);
 }
 
-// Light/Dark mode -- universal-text-grayed-out -- text colors
+/**
+ * Get light/dark mode className for univseral-grayed-out-text element's text
+ * color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {String} Light/dark mode className for univseral-grayed-out-text
+ * element's text color
+ */
 export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
