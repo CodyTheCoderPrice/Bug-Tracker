@@ -12,19 +12,29 @@ https://cody-price-bug-tracker.herokuapp.com/
 
 3. Access your local Postgres database, then run all the commands found inside the databse.sql file in the root directory of this project (in order) to set up the database
 
-3. Replace my Postgres database account information with your own inside the db.js file in the root directory
+4. Replace my Postgres database account information with your own inside the db.js file in the root directory (Bug-Tracker)
 
-4. Add the following to package.json inside the client folder -- "proxy": "http://localhost:5000"
+5. Add the following to package.json inside the client directory -- "proxy": "http://localhost:5000"
 
-5. Maneuver to this project's client folder using a command line or terminal
+6. Maneuver to this project's client directory (Bug-Tracker\client) using a command line or terminal
 
-7. Run the following command in the client folder: npm install
+7. Run the following command (while in the client directory) -- npm install
 
-5. Maneuver to this project's root directory using a command line or terminal
+8. Maneuver to this project's root directory (Bug-Tracker) using a command line or terminal
 
-7. Run the following command in the root directory: npm install
+9. Run the following command (while in the root directory) -- npm install
 
-6. Run the following command in the root directory: npm run devNodemon
+10. Run the following command (while still in the root directory) -- npm run devNodemon
+
+## When editing project
+
+In order for any changes to scss files to be compiled and updated in the styles.css file:
+
+1. Maneuver to this project's CSS directory (Bug-Tracker\client\src\CSS) using a command line or terminal
+
+2. Run the following command (while in the CSS directory) -- sass ./styles.scss ./styles.css --watch
+
+Now any changes to scss files will be updated in style.css as long as the scss file is imported into styles.scss use @use
 
 ## Resources
 
