@@ -25,7 +25,7 @@ body {
 	//=================
 	// Light/Dark mode
 	//=================
-	// Light/Dark mode -- Base primary -- background and text colors
+	// Light/Dark mode -- Base primary -- background and text color
 	.js-set-base-background-and-text-color-dark-mode-false {
 		background-color: v.$mode-base-background-color-light;
 		color: v.$mode-base-primary-text-color-light;
@@ -35,7 +35,7 @@ body {
 		color: v.$mode-base-primary-text-color-dark;
 	}
 
-	// Light/Dark mode -- Base secondary -- text colors
+	// Light/Dark mode -- Base secondary -- text color
 	.js-set-base-secondary-text-color-dark-mode-false {
 		color: v.$mode-base-secondary-text-color-light;
 	}
@@ -43,7 +43,7 @@ body {
 		color: v.$mode-base-secondary-text-color-dark;
 	}
 
-	// Light/Dark mode -- backend-errors -- text colors
+	// Light/Dark mode -- backend-errors -- text color
 	.js-set-backend-errors-text-color-dark-mode-false {
 		color: v.$mode-backend-errors-text-color-light;
 	}
@@ -51,7 +51,7 @@ body {
 		color: v.$mode-backend-errors-text-color-dark;
 	}
 
-	// Light/Dark mode -- char-count limit reached -- text colors
+	// Light/Dark mode -- char-count limit reached -- text color
 	.js-set-char-count-limit-reached-text-color-dark-mode-false {
 		color: v.$mode-char-count-limit-reached-text-color-light;
 	}
@@ -79,7 +79,7 @@ body {
 		opacity: v.$mode-click-to-close-blurred-background-opacity-dark;
 	}
 
-	// Light/Dark mode -- base icon-buttons -- text colors with hover
+	// Light/Dark mode -- base icon-buttons -- text color with hover
 	.js-set-base-icon-button-text-color-with-hover-dark-mode-false {
 		color: v.$mode-base-icon-button-text-color-light;
 
@@ -97,7 +97,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- universal-text-grayed-out -- text colors
+	// Light/Dark mode -- universal-text-grayed-out -- text color
 	.js-set-universal-text-grayed-out-text-color-dark-mode-false {
 		color: v.$mode-universal-text-grayed-out-text-color-light;
 	}
@@ -117,7 +117,17 @@ body {
 		color: v.$mode-base-primary-text-color-dark;
 	}
 
-	// Light/Dark mode -- list rows -- border and text colors
+	// Light/Dark mode -- list headers -- box shadow, background, and text color
+	.js-set-list-header-box-shadow-and-background-color-dark-mode-false {
+		box-shadow: v.$mode-list-header-box-shadow-light;
+		background-color: v.$mode-list-header-background-color-light;
+	}
+	.js-set-list-header-box-shadow-and-background-color-dark-mode-true {
+		box-shadow: v.$mode-list-header-box-shadow-dark;
+		background-color: v.$mode-list-header-background-color-dark;
+	}
+
+	// Light/Dark mode -- list rows -- border and text color
 	.js-set-list-row-border-and-text-color-dark-mode-false {
 		border-color: v.$mode-list-row-border-color-light;
 		color: v.$mode-base-secondary-text-color-light;
@@ -127,7 +137,7 @@ body {
 		color: v.$mode-base-secondary-text-color-dark;
 	}
 
-	// Light/Dark mode -- list rows -- hover background colors
+	// Light/Dark mode -- list rows -- hover background color
 	.js-set-list-row-hover-background-color-dark-mode-false {
 		// Only hover since active causes td to cover border
 		&:hover {
@@ -141,7 +151,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- list rows -- selected background colors
+	// Light/Dark mode -- list rows -- selected background color
 	.js-set-list-row-selected-background-color-dark-mode-false {
 		background-color: v.$mode-list-row-selected-background-color-light;
 	}
@@ -149,17 +159,7 @@ body {
 		background-color: v.$mode-list-row-selected-background-color-dark;
 	}
 
-	// Light/Dark mode -- list headers -- box shadow, background, and text colors
-	.js-set-list-header-box-shadow-and-background-color-dark-mode-false {
-		box-shadow: v.$mode-list-header-box-shadow-light;
-		background-color: v.$mode-list-header-background-color-light;
-	}
-	.js-set-list-header-box-shadow-and-background-color-dark-mode-true {
-		box-shadow: v.$mode-list-header-box-shadow-dark;
-		background-color: v.$mode-list-header-background-color-dark;
-	}
-
-	// Light/Dark mode -- NavbarHamburger dropdown -- border, background (with hover and selected), and text colors
+	// Light/Dark mode -- NavbarHamburger dropdown -- border, background (with hover and selected), and text color
 	@mixin mode-hamburger-dropdown($is-light) {
 		@if $is-light {
 			background-color: v.$mode-account-sidebar-modal-background-color-light;
@@ -224,7 +224,7 @@ body {
 		@include mode-hamburger-dropdown($is-light: false);
 	}
 
-	// Light/Dark mode -- AccountSidebar and AccountModal -- background colors
+	// Light/Dark mode -- AccountSidebar and AccountModal -- background color
 	.js-set-account-sidebar-modal-background-color-dark-mode-false {
 		background-color: v.$mode-account-sidebar-modal-background-color-light;
 	}
@@ -232,7 +232,7 @@ body {
 		background-color: v.$mode-account-sidebar-modal-background-color-dark;
 	}
 
-	// Light/Dark mode -- AccountSidebar and AccountModal -- background colors
+	// Light/Dark mode -- AccountSidebar and AccountModal -- background color
 	.js-set-account-sidebar-modal-background-color-dark-mode-false {
 		background-color: v.$mode-account-sidebar-modal-background-color-light;
 	}
@@ -240,7 +240,7 @@ body {
 		background-color: v.$mode-account-sidebar-modal-background-color-dark;
 	}
 
-	// Light/Dark mode -- AccountSidebar horizontal-dividing-line -- border colors
+	// Light/Dark mode -- AccountSidebar horizontal-dividing-line -- border color
 	.js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false {
 		border-color: v.$mode-account-sidebar-horizontal-dividing-line-border-color-light;
 	}
@@ -248,7 +248,7 @@ body {
 		border-color: v.$mode-account-sidebar-horizontal-dividing-line-border-color-dark;
 	}
 
-	// Light/Dark mode -- AccountSidebar logout-button -- border and hover background colors
+	// Light/Dark mode -- AccountSidebar logout-button -- border and hover background color
 	.js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-false {
 		border-color: v.$mode-account-sidebar-logout-button-border-color-light;
 
@@ -266,7 +266,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- AccountModalDeleteAccount capital-delete -- text colors
+	// Light/Dark mode -- AccountModalDeleteAccount capital-delete -- text color
 	.js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-false {
 		color: v.$mode-account-modal-delete-account-capital-delete-text-color-light;
 	}
@@ -274,7 +274,7 @@ body {
 		color: v.$mode-account-modal-delete-account-capital-delete-text-color-dark;
 	}
 
-	// Light/Dark mode -- AccountModalDeleteAccount form-input -- focus background colors
+	// Light/Dark mode -- AccountModalDeleteAccount form-input -- focus background color
 	.js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-false {
 		&:focus {
 			border-color: v.$mode-account-modal-delete-account-form-input-focus-border-color-light;
@@ -286,7 +286,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- AccountModalDeleteAccount form-submit button -- background (with hover) colors
+	// Light/Dark mode -- AccountModalDeleteAccount form-submit button -- background (with hover) color
 	.js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false {
 		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-light;
 
@@ -330,7 +330,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- TopBar -- border and background colors
+	// Light/Dark mode -- TopBar -- border and background color
 	.js-set-top-bar-border-and-background-color-dark-mode-false {
 		border-color: v.$mode-top-bar-border-color-light;
 		background-color: v.$mode-top-bar-background-color-light;
@@ -352,7 +352,7 @@ body {
 		color: v.$mode-top-bar-button-text-color-dark;
 	}
 
-	// Light/Dark mode -- CreateItemSidebar component -- background colors
+	// Light/Dark mode -- CreateItemSidebar -- background color
 	.js-set-create-item-sidebar-background-color-dark-mode-false {
 		background-color: v.$mode-create-item-sidebar-background-color-light;
 	}
@@ -360,7 +360,7 @@ body {
 		background-color: v.$mode-create-item-sidebar-background-color-dark;
 	}
 
-	// Light/Dark mode -- CreateItemSidebar -- disabled form-label
+	// Light/Dark mode -- CreateItemSidebar form-label -- disabled text color with no pointer events
 	.js-set-create-item-sidebar-diabled-label-dark-mode-false {
 		color: v.$mode-create-item-sidebar-form-disabled-text-color-light;
 		pointer-events: none;
@@ -370,7 +370,7 @@ body {
 		pointer-events: none;
 	}
 
-	// Light/Dark mode -- CreateItemSidebar -- disabled form-input type date
+	// Light/Dark mode -- CreateItemSidebar form-input-date -- disabled background and text color with no pointer events
 	.js-set-create-item-sidebar-diabled-input-date-dark-mode-false {
 		background-color: v.$mode-create-item-sidebar-form-disabled-background-color-light;
 		color: v.$mode-create-item-sidebar-form-disabled-text-color-dark;
@@ -382,7 +382,7 @@ body {
 		pointer-events: none;
 	}
 
-	// Light/Dark mode -- DeleteModal component -- background color
+	// Light/Dark mode -- DeleteModal -- background color
 	.js-set-delete-modal-background-color-dark-mode-false {
 		background-color: v.$mode-delete-modal-background-color-light;
 	}
@@ -438,7 +438,7 @@ body {
 		border-top-color: v.$mode-delete-modal-trapazoid-border-color-dark;
 	}
 
-	// Light/Dark mode -- ListView empty-list-message -- text colors
+	// Light/Dark mode -- ListView empty-list-message -- text color
 	.js-set-list-view-empty-list-message-text-color-dark-mode-false {
 		color: v.$mode-list-view-empty-list-message-text-color-light;
 	}
@@ -446,7 +446,7 @@ body {
 		color: v.$mode-list-view-empty-list-message-text-color-dark;
 	}
 
-	// Light/Dark mode -- ItemViewTopBar icon-buttons -- text colors with hover
+	// Light/Dark mode -- ItemViewTopBar icon-button -- text color with hover
 	.js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false {
 		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 
@@ -464,7 +464,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- temViewTopBar options-button -- border, background, and text colors
+	// Light/Dark mode -- ItemViewTopBar options-button -- clicked border, background, and text color
 	.js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-top-bar-button-border-color-light;
 		background-color: v.$mode-top-bar-button-background-color-light;
@@ -492,7 +492,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ItemView item-box -- background colors
+	// Light/Dark mode -- ItemView item-box -- background color
 	.js-set-item-view-item-box-background-color-dark-mode-false {
 		background-color: v.$mode-item-view-item-box-background-color-light;
 	}
@@ -500,7 +500,7 @@ body {
 		background-color: v.$mode-item-view-item-box-background-color-dark;
 	}
 
-	// Light/Dark mode -- ItemViewListSidebar -- border colors
+	// Light/Dark mode -- ItemViewListSidebar -- border color
 	.js-set-item-view-list-sidebar-border-color-mode-false {
 		border-color: v.$mode-item-view-list-sidebar-border-color-light;
 	}
@@ -508,7 +508,7 @@ body {
 		border-color: v.$mode-item-view-list-sidebar-border-color-dark;
 	}
 
-	// Light/Dark mode -- ItemViewListSidebar expand-minimize-button -- border, background (with hover), and text colors
+	// Light/Dark mode -- ItemViewListSidebar expand-minimize-button -- border, background (with hover), and text color
 	.js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-false {
 		border-color: v.$mode-item-view-list-sidebar-expand-minimize-button-border-color-light;
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-light;
@@ -540,7 +540,7 @@ body {
 		color: v.$mode-base-primary-text-color-dark;
 	}
 
-	// Light/Dark mode -- ItemViewEditItemInfo -- disabled form-label
+	// Light/Dark mode -- ItemViewEditItemInfo form-label -- disabled text color with no pointer events
 	.js-set-item-view-diabled-label-dark-mode-false {
 		color: v.$mode-item-view-form-disabled-text-color-light;
 		pointer-events: none;
@@ -550,7 +550,7 @@ body {
 		pointer-events: none;
 	}
 
-	// Light/Dark mode -- ItemViewEditItemInfo -- disabled form-input type date
+	// Light/Dark mode -- ItemViewEditItemInfo form-input-date -- disabled background and text color with no pointer events
 	.js-set-item-view-diabled-input-date-dark-mode-false {
 		background-color: v.$mode-item-view-form-disabled-background-color-light;
 		color: v.$mode-item-view-form-disabled-text-color-dark;
@@ -562,8 +562,8 @@ body {
 		pointer-events: none;
 	}
 
-	// Light/Dark -- ItemView form cancel button -- mode background color (with hover)
-	.js-set-item-view-form-cancel-button-button-background-color-mode-false {
+	// Light/Dark -- ItemViewEditItemInfo and ItemViewCommentBoxIndividualComment form-cancel-button -- background color with hover
+	.js-set-item-view-form-cancel-button-button-background-color-with-hover-mode-false {
 		background-color: v.$mode-item-view-form-cancel-button-background-color-light;
 
 		&:hover,
@@ -571,7 +571,7 @@ body {
 			background-color: v.$mode-item-view-form-cancel-button-hover-background-color-light;
 		}
 	}
-	.js-set-item-view-form-cancel-button-button-background-color-mode-true {
+	.js-set-item-view-form-cancel-button-button-background-color-with-hover-mode-true {
 		background-color: v.$mode-item-view-form-cancel-button-background-color-dark;
 
 		&:hover,
@@ -580,8 +580,8 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ItemViewCommentBoxIndividualComment icon-button -- text color (with hover)
-	.js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-false {
+	// Light/Dark mode -- ItemViewCommentBoxIndividualComment icon-button -- text color with hover
+	.js-set-item-view-comment-box-individual-comment-icon-button-text-color-with-hover-mode-false {
 		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-light;
 
 		&:hover,
@@ -589,7 +589,7 @@ body {
 			color: v.$mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-light;
 		}
 	}
-	.js-set-item-view-comment-box-individual-comment-icon-button-text-color-mode-true {
+	.js-set-item-view-comment-box-individual-comment-icon-button-text-color-with-hover-mode-true {
 		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-dark;
 
 		&:hover,
@@ -601,7 +601,7 @@ body {
 	//========
 	// Themes
 	//========
-	// Theme -- border colors
+	// Theme -- border color
 	.js-set-brighter-border-color-theme-blue-turkish {
 		border-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
@@ -633,7 +633,7 @@ body {
 		border-color: v.$theme-base-border-background-color-purple-rain;
 	}
 
-	// Theme -- background colors
+	// Theme -- background color
 	.js-set-brighter-background-color-theme-blue-turkish {
 		background-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
@@ -665,7 +665,7 @@ body {
 		background-color: v.$theme-base-border-background-color-purple-rain;
 	}
 
-	// Theme -- background (with hover) colors
+	// Theme -- background (with hover) color
 	@mixin theme-background-color-with-hover(
 		$theme-brighter-background-color,
 		$theme-base-background-color
@@ -708,7 +708,7 @@ body {
 		);
 	}
 
-	// Theme -- breadcrumb arrow -- border colors
+	// Theme -- breadcrumb arrow -- border color
 	.js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish {
 		border-left-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
@@ -740,7 +740,7 @@ body {
 		border-left-color: v.$theme-base-border-background-color-purple-rain;
 	}
 
-	// Theme -- form-submit button -- background (with hover/focus) colors
+	// Theme -- form-submit button -- background (with hover/focus) color
 	@mixin theme-form-submit-button-background-color-with-hover-focus(
 		$theme-brighter-background-color,
 		$theme-base-background-color
@@ -832,7 +832,7 @@ body {
 			}
 		}
 	}
-	// Theme + Light/Dark mode -- ToggleSwitch -- border, background, amd text colors
+	// Theme + Light/Dark mode -- ToggleSwitch -- border, background, amd text color
 	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light,
@@ -936,7 +936,7 @@ body {
 		border-color: v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark;
 	}
 
-	// Theme + Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text colors
+	// Theme + Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text color
 	@mixin mode-top-bar-tutorial(
 		$theme-mode-top-bar-new-item-tutorial-border-text-color-light,
 		$theme-mode-top-bar-new-item-tutorial-border-text-color-dark,
@@ -1132,7 +1132,7 @@ body {
 		color: v.$theme-mode-purple-rain-text-color-dark;
 	}
 
-	// Theme + Light/Dark mode -- CustomCheckbox -- border, background, text colors
+	// Theme + Light/Dark mode -- CustomCheckbox -- border, background, text color
 	@mixin theme-mode-custom-checkbox(
 		$theme-mode-text-color-light,
 		$theme-mode-text-color-dark,
@@ -1243,7 +1243,7 @@ body {
 		);
 	}
 
-	// Theme + Light/Dark mode -- TopBar search-bar -- border, background, and text colors
+	// Theme + Light/Dark mode -- TopBar search-bar -- border, background, and text color
 	@mixin theme-mode-top-bar-search-bar(
 		$theme-border-background-color,
 		$is-light
@@ -1420,7 +1420,7 @@ body {
 
 	// Status boxes
 	// Used for changing the background color of status-boxes
-	// ...also used to store colors in redux for bug-pie-chart
+	// ...also used to store color in redux for bug-pie-chart
 	.js-set-status-box-background-color-gray,
 	.js-calc-status-box-background-color-gray {
 		background-color: v.$status-gray;

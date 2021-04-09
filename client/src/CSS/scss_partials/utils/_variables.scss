@@ -250,8 +250,8 @@ $mode-list-row-hover-background-color-light: $gray-light-level-2;
 $mode-list-row-hover-background-color-dark: $gray-dark-level-6;
 $mode-list-row-selected-background-color-light: $gray-light-level-6;
 $mode-list-row-selected-background-color-dark: $gray-dark-level-4;
-$mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light;
-$mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark;
+$mode-list-header-box-shadow-light: 0 1px 0 $mode-list-row-border-color-light; // Must be bellow $mode-list-row-border-color-light
+$mode-list-header-box-shadow-dark: 0 1px 0 $mode-list-row-border-color-dark; // Must be bellow $mode-list-row-border-color-dark
 $mode-list-header-background-color-light: $mode-base-background-color-light;
 $mode-list-header-background-color-dark: $mode-base-background-color-dark;
 // Light/Dark mode (specific)
