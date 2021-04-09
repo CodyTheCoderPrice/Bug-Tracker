@@ -16,7 +16,7 @@ import {
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getformSubmitButtonColorClassNameForTheme,
+	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	dateToInt,
 } from "../../../../utils";
 
@@ -177,7 +177,7 @@ export default function ItemViewCommentsBox() {
 							type="submit"
 							className={
 								"form-submit-centering-container__button" +
-								getformSubmitButtonColorClassNameForTheme(
+								getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}

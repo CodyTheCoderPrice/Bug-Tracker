@@ -29,7 +29,7 @@ import {
 	getItemViewDisableInputDateClassNameForLightOrDarkMode,
 	getSelectOptions,
 	getSelectOptionsWithStatusColors,
-	getformSubmitButtonColorClassNameForTheme,
+	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
@@ -559,7 +559,7 @@ export default function ItemViewEditItemInfo(props) {
 							type="submit"
 							className={
 								"form-buttons-centered-container__submit-button" +
-								getformSubmitButtonColorClassNameForTheme(
+								getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}

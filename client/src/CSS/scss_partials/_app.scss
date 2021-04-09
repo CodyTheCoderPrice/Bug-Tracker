@@ -665,7 +665,7 @@ body {
 		background-color: v.$theme-base-border-background-color-purple-rain;
 	}
 
-	// Theme -- background (with hover) color
+	// Theme -- background color with hover
 	@mixin theme-background-color-with-hover(
 		$theme-brighter-background-color,
 		$theme-base-background-color
@@ -708,7 +708,7 @@ body {
 		);
 	}
 
-	// Theme -- breadcrumb arrow -- border color
+	// Theme -- NavbarBreadcrumb arrow -- border color
 	.js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish {
 		border-left-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
@@ -740,7 +740,7 @@ body {
 		border-left-color: v.$theme-base-border-background-color-purple-rain;
 	}
 
-	// Theme -- form-submit button -- background (with hover/focus) color
+	// Theme -- form-submit button -- background color with hover and focus
 	@mixin theme-form-submit-button-background-color-with-hover-focus(
 		$theme-brighter-background-color,
 		$theme-base-background-color
@@ -753,31 +753,31 @@ body {
 			background-color: $theme-base-background-color;
 		}
 	}
-	.js-set-form-submit-button-color-theme-blue-turkish {
+	.js-set-form-submit-button-color-with-hover-focus-theme-blue-turkish {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-blue-turkish,
 			v.$theme-base-border-background-color-blue-turkish
 		);
 	}
-	.js-set-form-submit-button-color-theme-blue-queen {
+	.js-set-form-submit-button-color-with-hover-focus-theme-blue-queen {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-blue-queen,
 			v.$theme-base-border-background-color-blue-queen
 		);
 	}
-	.js-set-form-submit-button-color-theme-blue-sky {
+	.js-set-form-submit-button-color-with-hover-focus-theme-blue-sky {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-blue-sky,
 			v.$theme-base-border-background-color-blue-sky
 		);
 	}
-	.js-set-form-submit-button-color-theme-blue-turquoise {
+	.js-set-form-submit-button-color-with-hover-focus-theme-blue-turquoise {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-blue-turquoise,
 			v.$theme-base-border-background-color-blue-turquoise
 		);
 	}
-	.js-set-form-submit-button-color-theme-purple-rain {
+	.js-set-form-submit-button-color-with-hover-focus-theme-purple-rain {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-purple-rain,
 			v.$theme-base-border-background-color-purple-rain

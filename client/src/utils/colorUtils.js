@@ -743,39 +743,97 @@ export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNa
 //========
 // Themes
 //========
-// Theme border color
+/**
+ * Get brighter theme className for border color 
+ * 
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Brighter theme className for border color 
+ */
 export function getBrighterBorderColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-border-color-theme-" + theme_color;
 }
+/**
+ * Get base theme className for border color 
+ * 
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Base theme className for border color 
+ */
 export function getBaseBorderColorClassNameForTheme(theme_color) {
 	return " js-set-base-border-color-theme-" + theme_color;
 }
 
-// Theme background color
+
+/**
+ * Get brighter theme className for background color 
+ * 
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Brighter theme className for background color 
+ */
 export function getBrighterBackgroundColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-background-color-theme-" + theme_color;
 }
+/**
+ * Get base theme className for background color 
+ * 
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Base theme className for background color 
+ */
 export function getBaseBackgroundColorClassNameForTheme(theme_color) {
 	return " js-set-base-background-color-theme-" + theme_color;
 }
 
-// Theme background (with hover) color
+
+/**
+ * Get theme className for background color with hover (background color is
+ * brighter theme, while hover background color is base theme)
+ * 
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme className for background color with hover
+ */
 export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
 	return " js-set-background-color-with-hover-theme-" + theme_color;
 }
 
-// Theme -- breadcrumb arrow -- border color
+
+/**
+ * Get brighter theme className for NavbarBreadcrumb arrow element's border
+ * color (since the arrow is made entirely of a border, this changes the entire
+ * color of the arrow)
+ * 
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Brighter theme className for NavbarBreadcrumb arrow
+ * element's border color
+ */
 export function getBrighterBreadcrumbArrowColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-breadcrumb-arrow-color-theme-" + theme_color;
 }
+/**
+ * Get base theme className for NavbarBreadcrumb arrow element's border color
+ * (since the arrow is made entirely of a border, this changes the entire color
+ * of the arrow)
+ * 
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Base theme className for NavbarBreadcrumb arrow element's
+ * border color
+ */
 export function getBaseBreadcrumbArrowColorClassNameForTheme(theme_color) {
 	return " js-set-base-breadcrumb-arrow-color-theme-" + theme_color;
 }
 
-// Theme -- form-submit button -- background (with hover/focus) color
-export function getformSubmitButtonColorClassNameForTheme(theme_color) {
-	return " js-set-form-submit-button-color-theme-" + theme_color;
+
+/**
+ * Get theme className for form-submit-button element's background color with
+ * hover and focus (background color is brighter theme, while hover/focus
+ * background color is base theme)
+ * 
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme className for form-submit-button element's
+ * background color with hover and focus
+ */
+export function getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(theme_color) {
+	return " js-set-form-submit-button-color-with-hover-focus-theme-" + theme_color;
 }
+
 
 //==========================
 // Themes + Light/Dark mode

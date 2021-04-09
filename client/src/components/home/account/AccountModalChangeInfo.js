@@ -15,7 +15,7 @@ import {
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getformSubmitButtonColorClassNameForTheme,
+	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
 
@@ -168,7 +168,7 @@ export default function AccountModalChangeInfo() {
 					type="submit"
 					className={
 						"form__submit" +
-						getformSubmitButtonColorClassNameForTheme(
+						getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

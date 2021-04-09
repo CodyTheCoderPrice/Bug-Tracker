@@ -27,7 +27,7 @@ import {
 	getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode,
 	getSelectOptions,
 	getSelectOptionsWithStatusColors,
-	getformSubmitButtonColorClassNameForTheme,
+	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 } from "../../../../utils";
 
 import {
@@ -480,7 +480,7 @@ export default function ListViewCreateItemSidebar(props) {
 							type="submit"
 							className={
 								"form__submit" +
-								getformSubmitButtonColorClassNameForTheme(
+								getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}
