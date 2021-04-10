@@ -330,7 +330,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- TopBar -- border and background color
+	// Light/Dark mode -- ListViewTopBar and ItemViewTopBar -- border and background color
 	.js-set-top-bar-border-and-background-color-dark-mode-false {
 		border-color: v.$mode-top-bar-border-color-light;
 		background-color: v.$mode-top-bar-background-color-light;
@@ -340,7 +340,7 @@ body {
 		background-color: v.$mode-top-bar-background-color-dark;
 	}
 
-	// Light/Dark mode -- TopBar buttons -- border, background, and text color
+	// Light/Dark mode -- ListViewTopBar and ItemViewTopBar buttons -- border, background, and text color
 	.js-set-top-bar-button-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-top-bar-button-border-color-light;
 		background-color: v.$mode-top-bar-button-background-color-light;
@@ -740,7 +740,7 @@ body {
 		border-left-color: v.$theme-base-border-background-color-purple-rain;
 	}
 
-	// Theme -- form-submit button -- background color with hover and focus
+	// Theme -- form-submit-button -- background color with hover and focus
 	@mixin theme-form-submit-button-background-color-with-hover-focus(
 		$theme-brighter-background-color,
 		$theme-base-background-color
@@ -832,7 +832,7 @@ body {
 			}
 		}
 	}
-	// Theme + Light/Dark mode -- ToggleSwitch -- border, background, amd text color
+	// Theme + Light/Dark mode -- ToggleSwitch -- border, background, and text color
 	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light,
@@ -904,7 +904,7 @@ body {
 		);
 	}
 
-	// Theme + Light/Dark mode -- TopBar new-item-button during tutorial -- border color
+	// Theme + Light/Dark mode -- ListViewTopBar new-item-button (during tutorial) -- border color
 	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turkish {
 		border-color: v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light;
 	}
@@ -936,7 +936,7 @@ body {
 		border-color: v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark;
 	}
 
-	// Theme + Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text color
+	// Theme + Light/Dark mode -- ListViewTopBar new-item-tutorial -- border, arrow, and text color
 	@mixin mode-top-bar-tutorial(
 		$theme-mode-top-bar-new-item-tutorial-border-text-color-light,
 		$theme-mode-top-bar-new-item-tutorial-border-text-color-dark,
@@ -1048,7 +1048,7 @@ body {
 		);
 	}
 
-	// Theme + Light/Dark mode -- focus border color
+	// Theme + Light/Dark mode -- form-input -- focus border color
 	.js-set-focus-border-color-mode-light-theme-blue-turkish {
 		&:focus {
 			border-color: v.$theme-mode-blue-turkish-focus-border-color-light;
@@ -1243,7 +1243,7 @@ body {
 		);
 	}
 
-	// Theme + Light/Dark mode -- TopBar search-bar -- border, background, and text color
+	// Theme + Light/Dark mode -- ListViewTopBar and ItemViewTopBar search-bar -- border, background, and text color
 	@mixin theme-mode-top-bar-search-bar(
 		$theme-border-background-color,
 		$is-light
@@ -1325,7 +1325,7 @@ body {
 		);
 	}
 
-	// Theme + Light/Dark mode -- ItemViewEditItemInfo form-input for name -- focus border color
+	// Theme + Light/Dark mode -- ItemViewEditItemInfo form-input (for name) -- focus border color
 	@mixin theme-mode-Item-view-form-input-for-name(
 		$theme-mode-focus-border-color-light,
 		$theme-mode-focus-border-color-dark,

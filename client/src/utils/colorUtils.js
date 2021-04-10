@@ -838,7 +838,15 @@ export function getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(theme
 //==========================
 // Themes + Light/Dark mode
 //==========================
-// Theme + Light/Dark mode -- ToggleSwitch -- border, background, amd text color
+/**
+ * Get theme with light/dark mode className for ToggleSwitch element's border,
+ * background, and text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for ToggleSwitch
+ * element's border, background, amd text color
+ */
 export function getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
@@ -851,7 +859,15 @@ export function getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLig
 	);
 }
 
-// Theme + Light/Dark mode -- TopBar new-item-button during tutorial -- border color
+/**
+ * Get theme with light/dark mode className for ListViewTopBar new-item-button
+ * (during tutorial) element's border color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for ListViewTopBar
+ * new-item-button (during tutorial) element's border color
+ */
 export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
@@ -864,7 +880,15 @@ export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLi
 	);
 }
 
-// Theme + Light/Dark mode -- TopBar new-item-tutorial -- border, arrow, and text color
+/**
+ * Get theme with light/dark mode className for ListViewTopBar
+ * new-item-tutorial element's border, arrow, and text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for ListViewTopBar
+ * new-item-tutorial element's border, arrow, and text color
+ */
 export function getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
@@ -877,7 +901,15 @@ export function getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThe
 	);
 }
 
-// Theme + Light/Dark mode -- focus border color
+/**
+ * Get theme with light/dark mode className for form-input element's focus
+ * border color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for form-input 
+ * element's focus border color
+ */
 export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
@@ -889,7 +921,15 @@ export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
 	);
 }
 
-// Theme + Light/Dark mode -- text color
+/**
+ * Get theme with light/dark mode className for the entire app's theme based
+ * text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for the entire app's 
+ * theme based text color
+ */
 export function getTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
@@ -901,7 +941,15 @@ export function getTextColorClassNameForThemeWithLightOrDarkMode(
 	);
 }
 
-// Theme + Light/Dark mode -- CustomCheckbox -- border, background, text color
+/**
+ * Get theme with light/dark mode className for CustomCheckbox element's 
+ * border, background, text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for CustomCheckbox 
+ * element's border, background, text color
+ */
 export function getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
@@ -914,7 +962,15 @@ export function getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithL
 	);
 }
 
-// Theme + Light/Dark mode -- TopBar search-bar -- border, background, and text color
+/**
+ * Get theme with light/dark mode className for ListViewTopBar and
+ * ItemViewTopBar search-bar element's border, background, and text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for ListViewTopBar 
+ * and ItemViewTopBar search-bar element's border, background, and text color
+ */
 export function getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
@@ -927,7 +983,15 @@ export function getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWith
 	);
 }
 
-// Theme + Light/Dark mode -- base form-input -- border (with focus), background, and text color
+/**
+ * Get theme with light/dark mode className for base form-input element's 
+ * border (with focus), background, and text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for base form-input 
+ * element's border (with focus), background, and text color
+ */
 export function getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
@@ -943,7 +1007,15 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLi
 	);
 }
 
-// Theme + Light/Dark mode -- ItemView form-input -- border (with focus), background, and text color
+/**
+ * Get theme with light/dark mode className for ItemView form-input element's 
+ * border (with focus), background, and text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for ItemView 
+ * form-input element's border (with focus), background, and text color
+ */
 export function getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
@@ -959,7 +1031,16 @@ export function getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWi
 	);
 }
 
-// Theme + Light/Dark mode -- ItemViewEditItemInfo form-input for name -- border (with focus), background, and text color
+/**
+ * Get theme with light/dark mode className for ItemViewEditItemInfo form-input 
+ * (for name) element's border (with focus), background, and text color
+ * 
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {String} theme_color - The current theme the app is set to use
+ * @returns {String} Theme with light/dark mode className for 
+ * ItemViewEditItemInfo form-input (for name) element's border (with focus), 
+ * background, and text color
+ */
 export function getItemViewEditItemInfoFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
