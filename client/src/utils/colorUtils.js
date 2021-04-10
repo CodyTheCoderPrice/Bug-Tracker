@@ -45,9 +45,9 @@ function convertRbgColorStringToHexString(rbgColorValue) {
  * Appends to each status in the status list the hex color values for that
  * status's backcground color
  *
- * @param {Array} statusList - Status list inside priorityStatusOptions of
+ * @param {Object[]} statusList - Status list inside priorityStatusOptions of
  * either the project or bug container of the redux state
- * @returns {Array} Status list with the hex color values for each status's
+ * @returns {Object[]} Status list with the hex color values for each status's
  * bakcground color appended to each status
  */
 export function appendHexValueForColorsToStatusList(statusList) {
