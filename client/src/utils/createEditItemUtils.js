@@ -1,18 +1,30 @@
 import React from "react";
 
-export function getSelectOptionsWithStatusColors(
-	objectList,
-	objectIdProperty,
-	objectOptionProptery
+/**
+ * Get JSX containing option elements for status (with status.color
+ * as css text color) from statusList to go inside a select element
+ *
+ * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {String} reduxContainerName - Redux container for which
+ * priorityStatusOptions to use (either props.reduxContainerName,
+ * PROJECT_CONTAINER, or BUG_CONTAINER)
+ * @returns {JSX} JSX containing option elements for status (with status.color
+ * as css text color) from statusList to go inside a select element
+ */
+export function getStatusOptionsForSelectWithStatusColors(
+	passedReduxState,
+	reduxContainerName
 ) {
-	return objectList.map((obj, idx) => {
+	return passedReduxState[
+		reduxContainerName
+	].priorityStatusOptions.statusList.map((status, idx) => {
 		return (
 			<option
-				className={"js-set-status-box-text-color-" + obj.color}
+				className={"js-set-status-box-text-color-" + status.color}
 				key={idx}
-				value={obj[objectIdProperty]}
+				value={status.id}
 			>
-				{obj[objectOptionProptery]}
+				{status.option}
 			</option>
 		);
 	});

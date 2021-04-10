@@ -28,7 +28,7 @@ import {
 	getItemViewDisabledLabelClassNameForLightOrDarkMode,
 	getItemViewDisableInputDateClassNameForLightOrDarkMode,
 	getSelectOptions,
-	getSelectOptionsWithStatusColors,
+	getStatusOptionsForSelectWithStatusColors,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
@@ -43,17 +43,20 @@ export default function ItemViewEditItemInfo(props) {
 	const dispatch = useDispatch();
 
 	const [itemInfo, setItemInfo] = useState({
-		id: reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.id,
+		id:
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
+				.id,
 		name:
-			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.name,
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
+				.name,
 		description:
 			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.description,
 		// Only used for bugs (backend will ignore this property for projects)
 		location:
 			props.reduxContainerName === BUG_CONTAINER
-				? reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-						.location
+				? reduxState[props.reduxContainerName].componentsDisplay
+						.itemViewCurrentItem.location
 				: "",
 		priority_id:
 			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
@@ -76,7 +79,8 @@ export default function ItemViewEditItemInfo(props) {
 				.start_date
 		),
 		due_date: formatDateYYYYmmDD(
-			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.due_date
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
+				.due_date
 		),
 		completion_date: formatDateYYYYmmDD(
 			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
@@ -184,8 +188,8 @@ export default function ItemViewEditItemInfo(props) {
 		<form className="js-edit-item-form" noValidate onSubmit={handleSubmit}>
 			<div className="outer-dividing-container">
 				<div className="name-centering-container">
-					{reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-						.status_id !==
+					{reduxState[props.reduxContainerName].componentsDisplay
+						.itemViewCurrentItem.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
 						<div className="name-centering-container__completed-icon-centering-container">
@@ -208,8 +212,8 @@ export default function ItemViewEditItemInfo(props) {
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							) +
-							(reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-								.status_id ===
+							(reduxState[props.reduxContainerName].componentsDisplay
+								.itemViewCurrentItem.status_id ===
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId
 								? " name-completed-color"
@@ -528,11 +532,9 @@ export default function ItemViewEditItemInfo(props) {
 										getSelectTextColorClassName()
 									}
 								>
-									{getSelectOptionsWithStatusColors(
-										reduxState[props.reduxContainerName].priorityStatusOptions
-											.statusList,
-										"id",
-										"option"
+									{getStatusOptionsForSelectWithStatusColors(
+										reduxState,
+										props.reduxContainerName
 									)}
 								</select>
 							</div>
