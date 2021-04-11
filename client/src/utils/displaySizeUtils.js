@@ -1,5 +1,11 @@
 import { stripNonDigits, toggleClassName } from "../utils";
 
+/**
+ * Gets an object containing properties for the window's height and width
+ * 
+ * @returns {Object} Object containing properties for the window's height and
+ * width
+ */
 export function getWindowSize() {
 	const height =
 		window.innerHeight ||
@@ -12,10 +18,26 @@ export function getWindowSize() {
 	return { height: height, width: width };
 }
 
+/**
+ * Gets an object containing properties for the passed element's height and
+ * width
+ * 
+ * @param {Element} element - Element to get height and width for
+ * @returns {Object} Object containing properties for the passed element's height and
+ * width
+ */
 export function getElementSize(element) {
 	return { height: element.offsetHeight, width: element.offsetWidth };
 }
 
+/**
+ * Gets an object containing properties for the passed element's location (top,
+ * bottom, right, left)
+ * 
+ * @param {Element} element - Element to get location for
+ * @returns {Object} Object containing properties for the passed element's
+ * location
+ */
 export function getElementLocation(element) {
 	const rect = element.getBoundingClientRect();
 	return {
@@ -26,10 +48,22 @@ export function getElementLocation(element) {
 	};
 }
 
+/**
+ * Gets an object containing properties for the passed element's styles
+ * 
+ * @param {Element} element - Element to get styles for
+ * @returns {Object} Object containing properties for the passed element's
+ * styles
+ */
 export function getElementStyle(element) {
 	return element.currentStyle || window.getComputedStyle(element);
 }
 
+/**
+ * Gets the width of the scroll bar
+ * 
+ * @returns {Number} Width of the scroll bar
+ */
 export function calcScrollbarWidth() {
 	const outerElement = document.createElement("div");
 	outerElement.style.visibility = "hidden";
@@ -49,7 +83,19 @@ export function calcScrollbarWidth() {
 	return scrollbarWidth;
 }
 
+/**
+ * Get the base font size (what's set in css file) of NavbarBreadcrumb
+ * breadcrumb-text element
+ * 
+ * @returns {Number} Base fonst size of NavbarBreadcrumb breadcrumb-text
+ * element
+ */
 export function calcBreadcrumbBaseFontSize() {
+	// Creating temporary second NavbarBreadcrumb element to later append 
+	// ...temporary breadcrumb-text element to so their css can work. Using 
+	// ...seperate NavbarBreadcrumb element ensures real NavbarBreadcrumb
+	// ...element remains unaffected. Elements are invisible so user never sees
+	// ...them.
 	const invisibleBreadcrumbContainerElement = document.createElement("div");
 	invisibleBreadcrumbContainerElement.className =
 		"js-calc-breadcrumb-container";
@@ -63,9 +109,13 @@ export function calcBreadcrumbBaseFontSize() {
 		invisibleBreadcrumbTextElement
 	);
 
+	// Removes "px" from string and converts to a number
 	const baseFontSize = stripNonDigits(
 		getElementStyle(invisibleBreadcrumbTextElement).fontSize
 	);
+
+	// Removing from it's own parentNode, removes it from the body, along with
+	// ...all it's childNodes (invisibleBreadcrumbTextElement) 
 	invisibleBreadcrumbContainerElement.parentNode.removeChild(
 		invisibleBreadcrumbContainerElement
 	);

@@ -85,7 +85,7 @@ export default function ItemView(props) {
 			reduxState[SIZE_CONTAINER].constants.itemViewPaddingContainerPadding !==
 				null
 		) {
-			// Instead of putting inn the optimization to re-run once no longer
+			// Instead of putting in the optimization to re-run once no longer
 			// ...null since it would also re-run every window resize
 			const windowSize =
 				reduxState[SIZE_CONTAINER].variables.window === null

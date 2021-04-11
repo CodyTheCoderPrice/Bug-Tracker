@@ -52,11 +52,9 @@ function convertRbgColorStringToHexString(rbgColorValue) {
  */
 export function appendHexValueForColorsToStatusList(statusList) {
 	// Creating temporary second app element to later append temporary statusBox
-	// ...elements to so their css can work. Using second app element ensures
-	// ...temporary statusBox elements do not affect the real app element, as
-	// ...well as making the removal of all elements created in this function
-	// ...from the body quick and easy. Elements are made invisible so the
-	// ...user never sees them.
+	// ...elements to so their css can work. Using seperate app element ensures
+	// ...real app element remains unaffected. Elements are invisible so user
+	// ...never sees them.
 	const invisibleAppElement = document.createElement("div");
 	invisibleAppElement.className = "js-calc-app-component";
 	invisibleAppElement.visibility = "hidden";
@@ -82,8 +80,8 @@ export function appendHexValueForColorsToStatusList(statusList) {
 		statusList[i]["colorHex"] = hex;
 	}
 
-	// Removes invisibleAppElement from body, which also removes all statusBox
-	// ...elements. When function ends, they will all be deleted
+	// Removing invisibleAppElement from it's own parentNode, removes it from
+	// ...the body, also with all it's childNodes (all temp statusBox elements)
 	invisibleAppElement.parentNode.removeChild(invisibleAppElement);
 
 	return statusList;
