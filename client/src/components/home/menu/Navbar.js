@@ -21,16 +21,16 @@ import {
 import {
 	getWindowSize,
 	getElementSize,
-	calcScrollbarWidth,
-	calcBreadcrumbBaseFontSize,
-	calcBreadcrumbButtonArrowWidth,
-	calcHamburgerStyles,
-	calcListViewTopBarHeight,
-	calcListViewTableRowHeight,
-	calcItemViewTopBarHeight,
-	calcItemViewListSidebarWidth,
-	calcItemViewOuterDividingContainerMinWidth,
-	calcItemViewPaddingContainerPadding,
+	getScrollbarWidth,
+	getBreadcrumbBaseFontSize,
+	getBreadcrumbButtonArrowWidth,
+	getHamburgerStyles,
+	getListViewTopBarHeight,
+	getListViewTableRowHeight,
+	getItemViewTopBarHeight,
+	getItemViewListSidebarWidth,
+	getItemViewOuterDividingContainerMinWidth,
+	getItemViewPaddingContainerPadding,
 	getBaseBackgroundColorClassNameForTheme,
 } from "../../../utils";
 
@@ -44,23 +44,23 @@ export default function Navbar() {
 
 	// Makes sure the current size of the window and navbar are stored in redux
 	useEffect(() => {
-		const breadcrumbBaseFontSize = calcBreadcrumbBaseFontSize();
+		const breadcrumbBaseFontSize = getBreadcrumbBaseFontSize();
 
 		dispatch(
 			setDisplaySizeConstants({
-				scrollbarWidth: calcScrollbarWidth(),
+				scrollbarWidth: getScrollbarWidth(),
 				navbarAccountButtonWidth: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
 				).width,
 				navbarBreadcrumbButtonTextBaseFontSize: breadcrumbBaseFontSize,
-				navbarBreadcrumbArrowWidth: calcBreadcrumbButtonArrowWidth(),
-				navbarHamburgerStyles: calcHamburgerStyles(),
-				listViewTopBarHeight: calcListViewTopBarHeight(),
-				listViewTableRowHeight: calcListViewTableRowHeight(),
-				itemViewTopBarHeight: calcItemViewTopBarHeight(),
-				itemViewListSidebarWidth: calcItemViewListSidebarWidth(),
-				itemViewOuterDividingContainerMinWidth: calcItemViewOuterDividingContainerMinWidth(),
-				itemViewPaddingContainerPadding: calcItemViewPaddingContainerPadding(),
+				navbarBreadcrumbArrowWidth: getBreadcrumbButtonArrowWidth(),
+				navbarHamburgerStyles: getHamburgerStyles(),
+				listViewTopBarHeight: getListViewTopBarHeight(),
+				listViewTableRowHeight: getListViewTableRowHeight(),
+				itemViewTopBarHeight: getItemViewTopBarHeight(),
+				itemViewListSidebarWidth: getItemViewListSidebarWidth(),
+				itemViewOuterDividingContainerMinWidth: getItemViewOuterDividingContainerMinWidth(),
+				itemViewPaddingContainerPadding: getItemViewPaddingContainerPadding(),
 			})
 		);
 

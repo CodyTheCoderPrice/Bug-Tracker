@@ -3,7 +3,7 @@
 
 // SCSS for classNames only used by the hamburger component
 .hamburger-container,
-.js-calc-hamburger-container {
+.js-get-hamburger-container {
 	.blurred-background {
 		// Must be same as navbar-container--increased-z-index in navbar.scss
 		z-index: 3;
@@ -17,7 +17,7 @@
 	}
 
 	.hamburger-button-container,
-	.js-calc-hamburger-button-container {
+	.js-get-hamburger-button-container {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -151,7 +151,7 @@
 	}
 
 	.hamburger-title,
-	.js-calc-hamburger-title {
+	.js-get-hamburger-title {
 		@include m.stop-text-selection();
 
 		position: absolute;

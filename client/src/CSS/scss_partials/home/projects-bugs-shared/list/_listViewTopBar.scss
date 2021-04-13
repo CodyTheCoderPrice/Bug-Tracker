@@ -2,7 +2,7 @@
 @use "../../../utils/mixins" as m;
 
 .list-view-top-bar,
-.js-calc-list-view-top-bar {
+.js-get-list-view-top-bar {
 	// Must be more than table header so filter button can overlap
 	z-index: 1;
 	position: fixed;

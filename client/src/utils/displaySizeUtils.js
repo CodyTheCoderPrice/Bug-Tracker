@@ -1,7 +1,7 @@
 import { stripNonDigits, toggleClassName } from "../utils";
 
 /**
- * Gets an object containing properties for the window's height and width
+ * Get an object containing properties for the window's height and width
  * 
  * @returns {Object} Object containing properties for the window's height and
  * width
@@ -19,7 +19,7 @@ export function getWindowSize() {
 }
 
 /**
- * Gets an object containing properties for the passed element's height and
+ * Get an object containing properties for the passed element's height and
  * width
  * 
  * @param {Element} element - Element to get height and width for
@@ -31,7 +31,7 @@ export function getElementSize(element) {
 }
 
 /**
- * Gets an object containing properties for the passed element's location (top,
+ * Get an object containing properties for the passed element's location (top,
  * bottom, right, left)
  * 
  * @param {Element} element - Element to get location for
@@ -49,7 +49,7 @@ export function getElementLocation(element) {
 }
 
 /**
- * Gets an object containing properties for the passed element's styles
+ * Get an object containing properties for the passed element's styles
  * 
  * @param {Element} element - Element to get styles for
  * @returns {Object} Object containing properties for the passed element's
@@ -60,11 +60,11 @@ export function getElementStyle(element) {
 }
 
 /**
- * Gets the width of the scroll bar
+ * Get the width of the scroll bar
  * 
  * @returns {Number} Width of the scroll bar
  */
-export function calcScrollbarWidth() {
+export function getScrollbarWidth() {
 	const outerElement = document.createElement("div");
 	outerElement.style.visibility = "hidden";
 	// Adds scroll bar
@@ -90,7 +90,7 @@ export function calcScrollbarWidth() {
  * @returns {Number} Base fonst size of NavbarBreadcrumb breadcrumb-text
  * element
  */
-export function calcBreadcrumbBaseFontSize() {
+export function getBreadcrumbBaseFontSize() {
 	// Creating temporary second NavbarBreadcrumb element to later append 
 	// ...temporary breadcrumb-text element to so their css can work. Using 
 	// ...seperate NavbarBreadcrumb element ensures real NavbarBreadcrumb
@@ -98,13 +98,13 @@ export function calcBreadcrumbBaseFontSize() {
 	// ...or the elements appended to it.
 	const invisibleBreadcrumbContainerElement = document.createElement("div");
 	invisibleBreadcrumbContainerElement.className =
-		"js-calc-breadcrumb-container";
+		"js-get-breadcrumb-container";
 	invisibleBreadcrumbContainerElement.visibility = "hidden";
 	document.body.appendChild(invisibleBreadcrumbContainerElement);
 
 	// Temporary breadcrumb-text element used for getting base font size
 	const tempBreadcrumbTextElement = document.createElement("div");
-	tempBreadcrumbTextElement.className = "js-calc-breadcrumb-text";
+	tempBreadcrumbTextElement.className = "js-get-breadcrumb-text";
 	// Css requires being child of a breadcrumb-continer element
 	invisibleBreadcrumbContainerElement.appendChild(
 		tempBreadcrumbTextElement
@@ -124,16 +124,16 @@ export function calcBreadcrumbBaseFontSize() {
 	return baseFontSize;
 }
 
-export function calcBreadcrumbButtonArrowWidth() {
+export function getBreadcrumbButtonArrowWidth() {
 	const invisibleBreadcrumbContainerElement = document.createElement("div");
 	invisibleBreadcrumbContainerElement.className =
-		"js-calc-breadcrumb-container";
+		"js-get-breadcrumb-container";
 	invisibleBreadcrumbContainerElement.visibility = "hidden";
 	document.body.appendChild(invisibleBreadcrumbContainerElement);
 
 	const invisibleBreadcrumbButtonArrowElement = document.createElement("div");
 	invisibleBreadcrumbButtonArrowElement.className =
-		"js-calc-breadcrumb-button-arrow";
+		"js-get-breadcrumb-button-arrow";
 	invisibleBreadcrumbButtonArrowElement.visibility = "hidden";
 	invisibleBreadcrumbContainerElement.appendChild(
 		invisibleBreadcrumbButtonArrowElement
@@ -149,19 +149,19 @@ export function calcBreadcrumbButtonArrowWidth() {
 	return arrowWidth;
 }
 
-export function calcHamburgerStyles() {
+export function getHamburgerStyles() {
 	const invisibleHamburgerContainerElement = document.createElement("div");
-	invisibleHamburgerContainerElement.className = "js-calc-hamburger-container";
+	invisibleHamburgerContainerElement.className = "js-get-hamburger-container";
 	invisibleHamburgerContainerElement.visibility = "hidden";
 	document.body.appendChild(invisibleHamburgerContainerElement);
 
 	const invisibleHamburgerElement = document.createElement("div");
-	invisibleHamburgerElement.className = "js-calc-hamburger-button-container";
+	invisibleHamburgerElement.className = "js-get-hamburger-button-container";
 	invisibleHamburgerElement.visibility = "hidden";
 	invisibleHamburgerContainerElement.appendChild(invisibleHamburgerElement);
 
 	const invisibleHamburgerTitleElement = document.createElement("div");
-	invisibleHamburgerTitleElement.className = "js-calc-hamburger-title";
+	invisibleHamburgerTitleElement.className = "js-get-hamburger-title";
 	invisibleHamburgerTitleElement.visibility = "hidden";
 	invisibleHamburgerContainerElement.appendChild(
 		invisibleHamburgerTitleElement
@@ -184,10 +184,10 @@ export function calcHamburgerStyles() {
 	return stylejson;
 }
 
-export function calcListViewTopBarHeight() {
+export function getListViewTopBarHeight() {
 	const invisibleTopBarElement = document.createElement("div");
 	invisibleTopBarElement.className =
-		"js-calc-list-view-top-bar";
+		"js-get-list-view-top-bar";
 	invisibleTopBarElement.visibility = "hidden";
 	document.body.appendChild(invisibleTopBarElement);
 
@@ -199,19 +199,19 @@ export function calcListViewTopBarHeight() {
 	return height;
 }
 
-export function calcListViewTableRowHeight() {
+export function getListViewTableRowHeight() {
 	const invisibleListViewComponentElement = document.createElement("div");
-	invisibleListViewComponentElement.className = "js-calc-list-table-component";
+	invisibleListViewComponentElement.className = "js-get-list-table-component";
 	invisibleListViewComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleListViewComponentElement);
 
 	const invisibleListTableElement = document.createElement("div");
-	invisibleListTableElement.className = "js-calc-list-table";
+	invisibleListTableElement.className = "js-get-list-table";
 	invisibleListTableElement.visibility = "hidden";
 	invisibleListViewComponentElement.appendChild(invisibleListTableElement);
 
 	const invisibleListTableRowElement = document.createElement("div");
-	invisibleListTableRowElement.className = "js-calc-list-table__row";
+	invisibleListTableRowElement.className = "js-get-list-table__row";
 	invisibleListTableRowElement.visibility = "hidden";
 	invisibleListTableElement.appendChild(invisibleListTableRowElement);
 
@@ -223,9 +223,9 @@ export function calcListViewTableRowHeight() {
 	return height;
 }
 
-export function calcItemViewTopBarHeight() {
+export function getItemViewTopBarHeight() {
 	const invisibleTopBarElement = document.createElement("div");
-	invisibleTopBarElement.className = "js-calc-item-vew-top-bar-component";
+	invisibleTopBarElement.className = "js-get-item-vew-top-bar-component";
 	invisibleTopBarElement.visibility = "hidden";
 	document.body.appendChild(invisibleTopBarElement);
 
@@ -235,9 +235,9 @@ export function calcItemViewTopBarHeight() {
 	return height;
 }
 
-export function calcItemViewListSidebarWidth() {
+export function getItemViewListSidebarWidth() {
 	const invisibleListSidebarElement = document.createElement("div");
-	invisibleListSidebarElement.className = "js-calc-list-sidebar-component";
+	invisibleListSidebarElement.className = "js-get-list-sidebar-component";
 	invisibleListSidebarElement.visibility = "hidden";
 	document.body.appendChild(invisibleListSidebarElement);
 
@@ -249,16 +249,16 @@ export function calcItemViewListSidebarWidth() {
 	return width;
 }
 
-export function calcItemViewOuterDividingContainerMinWidth() {
+export function getItemViewOuterDividingContainerMinWidth() {
 	const invisibleItemViewComponentElement = document.createElement("div");
 	invisibleItemViewComponentElement.className =
-		"js-calc-item-view-component";
+		"js-get-item-view-component";
 	invisibleItemViewComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleItemViewComponentElement);
 
 	const invisibleOuterDividingContainerElement = document.createElement("div");
 	invisibleOuterDividingContainerElement.className =
-		"js-calc-outer-dividing-container";
+		"js-get-outer-dividing-container";
 	invisibleOuterDividingContainerElement.visibility = "hidden";
 	invisibleItemViewComponentElement.appendChild(
 		invisibleOuterDividingContainerElement
@@ -274,15 +274,15 @@ export function calcItemViewOuterDividingContainerMinWidth() {
 	return minWidth;
 }
 
-export function calcItemViewPaddingContainerPadding() {
+export function getItemViewPaddingContainerPadding() {
 	const invisibleItemViewComponentElement = document.createElement("div");
 	invisibleItemViewComponentElement.className =
-		"js-calc-item-view-component";
+		"js-get-item-view-component";
 	invisibleItemViewComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleItemViewComponentElement);
 
 	const invisiblePaddingContainerElement = document.createElement("div");
-	invisiblePaddingContainerElement.className = "js-calc-padding-container";
+	invisiblePaddingContainerElement.className = "js-get-padding-container";
 	invisiblePaddingContainerElement.visibility = "hidden";
 	invisibleItemViewComponentElement.appendChild(
 		invisiblePaddingContainerElement

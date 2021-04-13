@@ -56,7 +56,7 @@ export function appendHexValueForColorsToStatusList(statusList) {
 	// ...real app element remains unaffected. Made invisible so user never
 	// ...sees it or the elements appended to it.
 	const invisibleAppElement = document.createElement("div");
-	invisibleAppElement.className = "js-calc-app-component";
+	invisibleAppElement.className = "js-get-app-component";
 	invisibleAppElement.visibility = "hidden";
 	document.body.appendChild(invisibleAppElement);
 
@@ -64,7 +64,7 @@ export function appendHexValueForColorsToStatusList(statusList) {
 		// Temporary status-box element used for getting background color
 		const tempStatusColorDiv = document.createElement("div");
 		tempStatusColorDiv.className =
-			"js-calc-status-box-background-color-" + statusList[i].color;
+			"js-get-status-box-background-color-" + statusList[i].color;
 		// Css requires being child of an app element
 		invisibleAppElement.appendChild(tempStatusColorDiv);
 

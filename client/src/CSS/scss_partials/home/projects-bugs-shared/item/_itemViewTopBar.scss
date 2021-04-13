@@ -2,7 +2,7 @@
 @use "../../../utils/mixins" as m;
 
 .item-vew-top-bar-component,
-.js-calc-item-vew-top-bar-component {
+.js-get-item-vew-top-bar-component {
 	// Must be more than list-sidebar so item-options-dropdown-container will
 	// ...display overtop the list-sidebar if the screen gets too small
 	z-index: 2;
@@ -18,7 +18,7 @@
 	font-family: Arial, Helvetica, sans-serif;
 
 	.outer-search-container,
-	.js-calc-outer-search-container {
+	.js-get-outer-search-container {
 		@include m.vertical-center();
 
 		left: v.$item-view-top-bar-search-bar-left;

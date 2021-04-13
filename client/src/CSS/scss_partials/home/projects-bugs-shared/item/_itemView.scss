@@ -2,7 +2,7 @@
 @use "../../../utils/mixins" as m;
 
 .item-view-component,
-.js-calc-item-view-component {
+.js-get-item-view-component {
 	.item-content-container {
 		position: fixed;
 		top: v.$list-item-view-top;
@@ -26,7 +26,7 @@
 	// Must be a seperate div inside .item-content-container so the padding
 	// ...does not affect the resize so it goes beyond the modal
 	.padding-container,
-	.js-calc-padding-container {
+	.js-get-padding-container {
 		padding: 0px 25px 25px 25px;
 	}
 
@@ -53,7 +53,7 @@
 
 	// Seperates item-boxs
 	.outer-dividing-container,
-	.js-calc-outer-dividing-container {
+	.js-get-outer-dividing-container {
 		float: left;
 		width: 100%;
 		min-width: v.$item-view-outer-dividing-container-min-width;

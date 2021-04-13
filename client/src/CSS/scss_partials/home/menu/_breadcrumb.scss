@@ -3,7 +3,7 @@
 
 // SCSS for classNames only used by the breadcrumb component
 .breadcrumb-container,
-.js-calc-breadcrumb-container {
+.js-get-breadcrumb-container {
 	.invisible {
 		visibility: hidden;
 	}
@@ -29,7 +29,7 @@
 	}
 
 	.breadcrumb-button__text,
-	.js-calc-breadcrumb-text {
+	.js-get-breadcrumb-text {
 		@include m.stop-text-selection();
 
 		position: relative;
@@ -71,7 +71,7 @@
 	}
 
 	.breadcrumb-button__end-container__arrow,
-	.js-calc-breadcrumb-button-arrow {
+	.js-get-breadcrumb-button-arrow {
 		// Must have higher z-index than border-arrow below
 		z-index: 5;
 		position: absolute;

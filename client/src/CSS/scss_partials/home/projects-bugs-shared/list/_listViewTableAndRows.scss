@@ -2,7 +2,7 @@
 @use "../../../utils/mixins" as m;
 
 .list-table-component,
-.js-calc-list-table-component {
+.js-get-list-table-component {
 	position: fixed;
 	top: v.$list-item-view-top;
 	left: 0px;
@@ -16,7 +16,7 @@
 	overflow-x: auto;
 
 	.list-table,
-	.js-calc-list-table {
+	.js-get-list-table {
 		position: relative;
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
@@ -24,7 +24,7 @@
 	}
 
 	.list-table__row,
-	.js-calc-list-table__row {
+	.js-get-list-table__row {
 		@include m.stop-text-selection();
 		
 		border-bottom: 1px solid v.$mode-list-row-border-color-light;
