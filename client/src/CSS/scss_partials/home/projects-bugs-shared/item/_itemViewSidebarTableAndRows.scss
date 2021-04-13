@@ -67,7 +67,7 @@
 
 	.list-sidebar__table__row {
 		border-bottom: 1px solid v.$mode-list-row-border-color-light;
-		padding: 5px;
+		padding: v.$list-row-padding;
 		height: v.$list-row-height;
 		text-align: center;
 	}

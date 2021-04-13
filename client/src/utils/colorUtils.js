@@ -51,22 +51,23 @@ function convertRbgColorStringToHexString(rbgColorValue) {
  * bakcground color appended to each status
  */
 export function appendHexValueForColorsToStatusList(statusList) {
-	// Creating temporary second app element to later append temporary statusBox
-	// ...elements to so their css can work. Using seperate app element ensures
-	// ...real app element remains unaffected. Made invisible so user never
-	// ...sees it or the elements appended to it.
-	const invisibleAppElement = document.createElement("div");
-	invisibleAppElement.className = "js-get-app-component";
-	invisibleAppElement.visibility = "hidden";
-	document.body.appendChild(invisibleAppElement);
+	// Creating temporary stand-in app-component element to later append 
+	// ...temporary status-box elements to for CSS. Using stand-in element
+	// ...ensures real element remains unaffected and function can be called
+	// ...without needing real element in the DOM. Made invisible so user
+	// ...never sees stand-in element or its child elements.
+	const invisibleTempAppElement = document.createElement("div");
+	invisibleTempAppElement.className = "js-get-app-component";
+	invisibleTempAppElement.visibility = "hidden";
+	document.body.appendChild(invisibleTempAppElement);
 
 	for (let i = 0; i < statusList.length; i++) {
-		// Temporary status-box element used for getting background color
+		// Temporary status-box element used to get background color
 		const tempStatusColorDiv = document.createElement("div");
 		tempStatusColorDiv.className =
 			"js-get-status-box-background-color-" + statusList[i].color;
-		// Css requires being child of an app element
-		invisibleAppElement.appendChild(tempStatusColorDiv);
+		// Css requires being child of an app-component element
+		invisibleTempAppElement.appendChild(tempStatusColorDiv);
 
 		// getElementStyle(tempStatusColorDiv).getPropertyValue("background-color")
 		// ...returns rbg color value, so convertRbgColorStringToHexString is used
@@ -80,9 +81,9 @@ export function appendHexValueForColorsToStatusList(statusList) {
 		statusList[i]["colorHex"] = hex;
 	}
 
-	// Parent node is the body, so removing from own parentNode, removes from
-	// ...the body, along with childNodes (all temp status-box elements)
-	invisibleAppElement.parentNode.removeChild(invisibleAppElement);
+	// Removing stand-in element from DOM by removing from it's own parentNode
+	// ...(also removes all stand-in element's child elements)
+	invisibleTempAppElement.parentNode.removeChild(invisibleTempAppElement);
 
 	return statusList;
 }

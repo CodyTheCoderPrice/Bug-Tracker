@@ -1774,7 +1774,7 @@ dropdown can overlap all other components
 .item-view-list-sidebar-component .list-sidebar__table__row,
 .js-get-list-sidebar-component .list-sidebar__table__row {
   border-bottom: 1px solid #919191;
-  padding: 5px;
+  padding: 0px 5px;
   height: 50px;
   text-align: center;
 }
@@ -2611,7 +2611,7 @@ dropdown can overlap all other components
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
   border-bottom: 1px solid #919191;
-  padding: 5px;
+  padding: 0px 5px;
   height: 50px;
   text-align: center;
 }

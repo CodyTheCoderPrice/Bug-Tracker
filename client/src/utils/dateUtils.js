@@ -35,6 +35,5 @@ export function formatDateMMddYYYY(date) {
  * @returns {Number} Date converted to a number
  */
 export function dateToInt(date) {
-	console.log(typeof moment());
 	return (!isEmpty(date)) ? Number(moment.utc(date)) : 0;
 }
