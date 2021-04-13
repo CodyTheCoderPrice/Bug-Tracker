@@ -94,28 +94,29 @@ export function calcBreadcrumbBaseFontSize() {
 	// Creating temporary second NavbarBreadcrumb element to later append 
 	// ...temporary breadcrumb-text element to so their css can work. Using 
 	// ...seperate NavbarBreadcrumb element ensures real NavbarBreadcrumb
-	// ...element remains unaffected. Elements are invisible so user never sees
-	// ...them.
+	// ...element remains unaffected. Made invisible so user never sees it
+	// ...or the elements appended to it.
 	const invisibleBreadcrumbContainerElement = document.createElement("div");
 	invisibleBreadcrumbContainerElement.className =
 		"js-calc-breadcrumb-container";
 	invisibleBreadcrumbContainerElement.visibility = "hidden";
 	document.body.appendChild(invisibleBreadcrumbContainerElement);
 
-	const invisibleBreadcrumbTextElement = document.createElement("div");
-	invisibleBreadcrumbTextElement.className = "js-calc-breadcrumb-text";
-	invisibleBreadcrumbTextElement.visibility = "hidden";
+	// Temporary breadcrumb-text element used for getting base font size
+	const tempBreadcrumbTextElement = document.createElement("div");
+	tempBreadcrumbTextElement.className = "js-calc-breadcrumb-text";
+	// Css requires being child of a breadcrumb-continer element
 	invisibleBreadcrumbContainerElement.appendChild(
-		invisibleBreadcrumbTextElement
+		tempBreadcrumbTextElement
 	);
 
 	// Removes "px" from string and converts to a number
 	const baseFontSize = stripNonDigits(
-		getElementStyle(invisibleBreadcrumbTextElement).fontSize
+		getElementStyle(tempBreadcrumbTextElement).fontSize
 	);
 
-	// Removing from it's own parentNode, removes it from the body, along with
-	// ...all it's childNodes (invisibleBreadcrumbTextElement) 
+	// Parent node is the body, so removing from own parentNode, removes from
+	// ...the body, along with childNodes (tempBreadcrumbTextElement) 
 	invisibleBreadcrumbContainerElement.parentNode.removeChild(
 		invisibleBreadcrumbContainerElement
 	);

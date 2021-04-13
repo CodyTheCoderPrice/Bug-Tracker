@@ -53,25 +53,25 @@ function convertRbgColorStringToHexString(rbgColorValue) {
 export function appendHexValueForColorsToStatusList(statusList) {
 	// Creating temporary second app element to later append temporary statusBox
 	// ...elements to so their css can work. Using seperate app element ensures
-	// ...real app element remains unaffected. Elements are invisible so user
-	// ...never sees them.
+	// ...real app element remains unaffected. Made invisible so user never
+	// ...sees it or the elements appended to it.
 	const invisibleAppElement = document.createElement("div");
 	invisibleAppElement.className = "js-calc-app-component";
 	invisibleAppElement.visibility = "hidden";
 	document.body.appendChild(invisibleAppElement);
 
 	for (let i = 0; i < statusList.length; i++) {
-		// Temporary statusBox element used for getting background color
-		const invisibleStatusColorDiv = document.createElement("div");
-		invisibleStatusColorDiv.className =
+		// Temporary status-box element used for getting background color
+		const tempStatusColorDiv = document.createElement("div");
+		tempStatusColorDiv.className =
 			"js-calc-status-box-background-color-" + statusList[i].color;
-		invisibleStatusColorDiv.visibility = "hidden";
-		invisibleAppElement.appendChild(invisibleStatusColorDiv);
+		// Css requires being child of an app element
+		invisibleAppElement.appendChild(tempStatusColorDiv);
 
-		// getElementStyle(invisibleStatusColorDiv).getPropertyValue("background-color")
+		// getElementStyle(tempStatusColorDiv).getPropertyValue("background-color")
 		// ...returns rbg color value, so convertRbgColorStringToHexString is used
 		const hex = convertRbgColorStringToHexString(
-			getElementStyle(invisibleStatusColorDiv).getPropertyValue(
+			getElementStyle(tempStatusColorDiv).getPropertyValue(
 				"background-color"
 			)
 		);
@@ -80,8 +80,8 @@ export function appendHexValueForColorsToStatusList(statusList) {
 		statusList[i]["colorHex"] = hex;
 	}
 
-	// Removing invisibleAppElement from it's own parentNode, removes it from
-	// ...the body, also with all it's childNodes (all temp statusBox elements)
+	// Parent node is the body, so removing from own parentNode, removes from
+	// ...the body, along with childNodes (all temp status-box elements)
 	invisibleAppElement.parentNode.removeChild(invisibleAppElement);
 
 	return statusList;
