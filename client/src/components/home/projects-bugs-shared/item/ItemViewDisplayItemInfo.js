@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
-	BUG_CONTAINER,
 	SIZE_CONTAINER,
 	ACCOUNT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 
 import {
@@ -23,11 +23,16 @@ export default function ItemViewDisplayItemInfo(props) {
 			reduxState[SIZE_CONTAINER].constants
 				.itemViewOuterDividingContainerMinWidth !== null
 		) {
+			// Since ItemViewDisplayItemInfo and ItemViewEditItemInfo create
+			// ...their own js-description-info-pair-container element, this
+			// ...function needs to be re-run in each component
 			manageSizeOfItemBoxsInPairContainer(
-				document.getElementsByClassName("js-description-info-pair")[0],
-				"outer-dividing-container--half-width",
+				document.getElementsByClassName(
+					"js-description-info-pair-container"
+				)[0],
 				reduxState[SIZE_CONTAINER].constants
-					.itemViewOuterDividingContainerMinWidth
+					.itemViewOuterDividingContainerMinWidth,
+				"outer-dividing-container--half-width"
 			);
 		}
 		// eslint-disable-next-line
@@ -42,8 +47,8 @@ export default function ItemViewDisplayItemInfo(props) {
 		].priorityStatusOptions.statusList.filter(
 			(status) =>
 				status.id ===
-				reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-					.status_id
+				reduxState[props.reduxContainerName].componentsDisplay
+					.itemViewCurrentItem.status_id
 		);
 
 		return (
@@ -58,8 +63,8 @@ export default function ItemViewDisplayItemInfo(props) {
 				<h1
 					className={
 						"item-name" +
-						(reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-							.status_id ===
+						(reduxState[props.reduxContainerName].componentsDisplay
+							.itemViewCurrentItem.status_id ===
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " name-completed-color"
@@ -69,8 +74,8 @@ export default function ItemViewDisplayItemInfo(props) {
 							  ))
 					}
 				>
-					{reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-						.status_id !==
+					{reduxState[props.reduxContainerName].componentsDisplay
+						.itemViewCurrentItem.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
 						<i
@@ -80,8 +85,8 @@ export default function ItemViewDisplayItemInfo(props) {
 						/>
 					)}
 					{
-						reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-							.name
+						reduxState[props.reduxContainerName].componentsDisplay
+							.itemViewCurrentItem.name
 					}
 				</h1>
 				<div
@@ -94,12 +99,12 @@ export default function ItemViewDisplayItemInfo(props) {
 				>
 					Created on:{" "}
 					{formatDateMMddYYYY(
-						reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-							.creation_date
+						reduxState[props.reduxContainerName].componentsDisplay
+							.itemViewCurrentItem.creation_date
 					)}
 				</div>
 			</div>
-			<div className="pair-container js-description-info-pair">
+			<div className="pair-container js-description-info-pair-container">
 				<div className="outer-dividing-container">
 					<div
 						className={
@@ -139,7 +144,9 @@ export default function ItemViewDisplayItemInfo(props) {
 						<h2 className={"item-box__title"}>Info</h2>
 						{props.reduxContainerName === BUG_CONTAINER ? (
 							<div className="item-box__group__field">
-								<span className="item-box__group__field__category">Location:</span>
+								<span className="item-box__group__field__category">
+									Location:
+								</span>
 								<span
 									className={
 										"item-box__group__field_content" +
@@ -181,7 +188,9 @@ export default function ItemViewDisplayItemInfo(props) {
 								</span>
 							</div>
 							<div className="item-box__group__field">
-								<span className="item-box__group__field__category">Due Date:</span>
+								<span className="item-box__group__field__category">
+									Due Date:
+								</span>
 								<span
 									className={
 										"item-box__group__field_content" +
@@ -225,7 +234,9 @@ export default function ItemViewDisplayItemInfo(props) {
 						</div>
 						<div className="item-box__group item-box__group--right">
 							<div className="item-box__group__field">
-								<span className="item-box__group__field__category">Priority:</span>
+								<span className="item-box__group__field__category">
+									Priority:
+								</span>
 								<span
 									className={
 										"item-box__group__field_content" +

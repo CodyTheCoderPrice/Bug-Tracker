@@ -117,22 +117,17 @@ export default function ItemView(props) {
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].constants
-				.itemViewOuterDividingContainerMinWidth !== null
+				.itemViewOuterDividingContainerMinWidth !== null &&
+			props.reduxContainerName === PROJECT_CONTAINER
 		) {
 			manageSizeOfItemBoxsInPairContainer(
-				document.getElementsByClassName("js-description-info-pair")[0],
-				"outer-dividing-container--half-width",
+				document.getElementsByClassName(
+					"js-bug-info-pair-container-for-project"
+				)[0],
 				reduxState[SIZE_CONTAINER].constants
-					.itemViewOuterDividingContainerMinWidth
+					.itemViewOuterDividingContainerMinWidth,
+				"outer-dividing-container--half-width"
 			);
-			if (props.reduxContainerName === PROJECT_CONTAINER) {
-				manageSizeOfItemBoxsInPairContainer(
-					document.getElementsByClassName("js-project-bugs-info-pair")[0],
-					"outer-dividing-container--half-width",
-					reduxState[SIZE_CONTAINER].constants
-						.itemViewOuterDividingContainerMinWidth
-				);
-			}
 		}
 		// eslint-disable-next-line
 	}, [
@@ -148,7 +143,9 @@ export default function ItemView(props) {
 		// JSON instead of Number since deleting bugs requires the project_id
 		// ...so it is appended below when deleting bugs
 		let idJson = {
-			id: reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.id,
+			id:
+				reduxState[props.reduxContainerName].componentsDisplay
+					.itemViewCurrentItem.id,
 		};
 		// Adds project_id when deleting a bug
 		if (props.reduxContainerName === BUG_CONTAINER) {
@@ -178,8 +175,10 @@ export default function ItemView(props) {
 						reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted
 							.id,
 					project_id:
-						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
-					bug_id: reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
+						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
+							.id,
+					bug_id:
+						reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
 				},
 				reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited
 			)
@@ -241,7 +240,7 @@ export default function ItemView(props) {
 						</div>
 					)}
 					{props.reduxContainerName !== PROJECT_CONTAINER ? null : (
-						<div className="pair-container js-project-bugs-info-pair">
+						<div className="pair-container js-bug-info-pair-container-for-project">
 							<div className="outer-dividing-container outer-dividing-container--half-width">
 								<div
 									className={
@@ -255,8 +254,8 @@ export default function ItemView(props) {
 									{[...reduxState[BUG_CONTAINER].list].filter(
 										(item) =>
 											item.project_id ===
-											reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-												.id
+											reduxState[PROJECT_CONTAINER].componentsDisplay
+												.itemViewCurrentItem.id
 									).length > 0 ? (
 										<ItemViewBugPieChart />
 									) : (
@@ -281,8 +280,8 @@ export default function ItemView(props) {
 									{[...reduxState[BUG_CONTAINER].list].filter(
 										(item) =>
 											item.project_id ===
-											reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-												.id
+											reduxState[PROJECT_CONTAINER].componentsDisplay
+												.itemViewCurrentItem.id
 									).length > 0 ? (
 										<ItemViewBugList />
 									) : (

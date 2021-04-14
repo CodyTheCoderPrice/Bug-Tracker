@@ -108,7 +108,7 @@ export default function ListViewTopBar(props) {
 	return (
 		<div
 			className={
-				"list-view-top-bar" +
+				"list-view-top-bar-component" +
 				getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)

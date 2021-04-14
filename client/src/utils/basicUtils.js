@@ -9,12 +9,13 @@ export function isEmpty(value) {
 }
 
 /**
- * Will make sure the element has the className when passing true for the first
- * paramater. Otherwise will make sure it doesn't.
+ * If first parameter is true, then ensures element has the passed className. 
+ * Otherwise will make sure it doesn't. This does not affect other classNames
+ * the element has.
  *
  * @param {Boolean} shouldHaveClassName - Should the element have the className
  * @param {Element} element - The element that will have it's className toggled
- * @param {String} nameOfToggledClass - The className the element eiter should
+ * @param {String} nameOfToggledClass - The className the element either should
  * or shouldn't have
  */
 export function toggleClassName(

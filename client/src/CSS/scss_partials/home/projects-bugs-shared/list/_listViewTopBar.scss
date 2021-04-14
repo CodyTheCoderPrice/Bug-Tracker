@@ -1,8 +1,8 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.list-view-top-bar,
-.js-get-list-view-top-bar {
+.list-view-top-bar-component,
+.js-get-list-view-top-bar-component {
 	// Must be more than table header so filter button can overlap
 	z-index: 1;
 	position: fixed;

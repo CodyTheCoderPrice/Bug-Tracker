@@ -127,11 +127,16 @@ export default function ItemViewEditItemInfo(props) {
 			reduxState[SIZE_CONTAINER].constants
 				.itemViewOuterDividingContainerMinWidth !== null
 		) {
+			// Since ItemViewDisplayItemInfo and ItemViewEditItemInfo create
+			// ...their own js-description-info-pair-container element, this
+			// ...function needs to be re-run in each component
 			manageSizeOfItemBoxsInPairContainer(
-				document.getElementsByClassName("js-description-info-pair")[0],
-				"outer-dividing-container--half-width",
+				document.getElementsByClassName(
+					"js-description-info-pair-container"
+				)[0],
 				reduxState[SIZE_CONTAINER].constants
-					.itemViewOuterDividingContainerMinWidth
+					.itemViewOuterDividingContainerMinWidth,
+				"outer-dividing-container--half-width"
 			);
 		}
 		// eslint-disable-next-line
@@ -262,7 +267,7 @@ export default function ItemViewEditItemInfo(props) {
 					Created on: {itemInfo.creation_date}
 				</div>
 			</div>
-			<div className="pair-container js-description-info-pair">
+			<div className="pair-container js-description-info-pair-container">
 				<div className="outer-dividing-container">
 					<div
 						className={

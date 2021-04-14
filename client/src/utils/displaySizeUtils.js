@@ -91,7 +91,7 @@ export function getScrollbarWidth() {
  * element
  */
 export function getBreadcrumbBaseFontSize() {
-	// Creating temporary stand-in breadcrumb-container element to later append 
+	// Creating temporary stand-in breadcrumb-container element to later append
 	// ...temporary breadcrumb-text elements to for CSS. Using stand-in element
 	// ...ensures real element remains unaffected and function can be called
 	// ...without needing real element in the DOM. Made invisible so user
@@ -130,7 +130,7 @@ export function getBreadcrumbBaseFontSize() {
  * @returns {Number} Width of NavbarBreadcrumb breadcrumb-button-arrow element
  */
 export function getBreadcrumbButtonArrowWidth() {
-	// Creating temporary stand-in breadcrumb-container element to later append 
+	// Creating temporary stand-in breadcrumb-container element to later append
 	// ...temporary breadcrumb-button-arrow elements to for CSS. Using stand-in
 	// ...element ensures real element remains unaffected and function can be
 	// ...called without needing real element in the DOM. Made invisible so
@@ -161,39 +161,43 @@ export function getBreadcrumbButtonArrowWidth() {
 }
 
 /**
- * Get critical styles (left positions and base font size) from NavbarHamburger 
+ * Get critical styles (left positions and base font size) from NavbarHamburger
  * hamburger-button-container and hamburger-title elements
  *
  * @returns {Number} Critical styles (left positions and base font size) from
  * NavbarHamburger hamburger-button-container and hamburger-title elements
  */
 export function getCriticalHamburgerStyles() {
-	// Creating temporary stand-in hamburger-container element to later append 
+	// Creating temporary stand-in hamburger-container element to later append
 	// ...temporary hamburger-button-container and hamburger-title elements to
 	// ...for CSS. Using stand-in element ensures real element remains
 	// ...unaffected and function can be called without needing real element in
 	// ...the DOM. Made invisible so user never sees stand-in element or its
 	// ...child elements.
 	const invisibleTempHamburgerContainerElement = document.createElement("div");
-	invisibleTempHamburgerContainerElement.className = "js-get-hamburger-container";
+	invisibleTempHamburgerContainerElement.className =
+		"js-get-hamburger-container";
 	invisibleTempHamburgerContainerElement.visibility = "hidden";
 	document.body.appendChild(invisibleTempHamburgerContainerElement);
 
 	// Temporary hamburger-button-container element used to get left position
 	const tempHamburgerButtonContainerElement = document.createElement("div");
-	tempHamburgerButtonContainerElement.className = "js-get-hamburger-button-container";
+	tempHamburgerButtonContainerElement.className =
+		"js-get-hamburger-button-container";
 	// Css requires being child of a hamburger-container element
-	invisibleTempHamburgerContainerElement.appendChild(tempHamburgerButtonContainerElement);
-	const hamburgerButtonElementStyles = getElementStyle(tempHamburgerButtonContainerElement);
+	invisibleTempHamburgerContainerElement.appendChild(
+		tempHamburgerButtonContainerElement
+	);
+	const hamburgerButtonElementStyles = getElementStyle(
+		tempHamburgerButtonContainerElement
+	);
 
-	// Temporary hamburger-title element used to get left position and base 
+	// Temporary hamburger-title element used to get left position and base
 	// ...font size
 	const tempHamburgerTitleElement = document.createElement("div");
 	tempHamburgerTitleElement.className = "js-get-hamburger-title";
 	// Css requires being child of a hamburger-container element
-	invisibleTempHamburgerContainerElement.appendChild(
-		tempHamburgerTitleElement
-	);
+	invisibleTempHamburgerContainerElement.appendChild(tempHamburgerTitleElement);
 	const hamburgerTitleElementStyles = getElementStyle(
 		tempHamburgerTitleElement
 	);
@@ -214,45 +218,48 @@ export function getCriticalHamburgerStyles() {
 }
 
 /**
- * Get height of ListViewTopBar list-view-top-bar element
+ * Get height (size not style) of ListViewTopBar list-view-top-bar-component
+ * element
  *
- * @returns {Number} Height of ListViewTopBar list-view-top-bar element
+ * @returns {Number} Height of ListViewTopBar list-view-top-bar-component
+ * element
  */
 export function getListViewTopBarHeight() {
-	// Creating temporary stand-in list-view-top-bar element used to get height.
-	// ...Using stand-in element allows function can be called without needing
-	// ...real element in the DOM. Made invisible so user never sees stand-in
-	// ...element or its child elements.
-	const invisibleTopBarElement = document.createElement("div");
-	invisibleTopBarElement.className = "js-get-list-view-top-bar";
-	invisibleTopBarElement.visibility = "hidden";
-	document.body.appendChild(invisibleTopBarElement);
+	// Creating temporary stand-in list-view-top-bar-component element used to
+	// ...get height. Using stand-in element allows function can be called
+	// ...without needing real element in the DOM. Made invisible so user never
+	// ...sees stand-in element or its child elements.
+	const invisibleTempTopBarElement = document.createElement("div");
+	invisibleTempTopBarElement.className = "js-get-list-view-top-bar-component";
+	invisibleTempTopBarElement.visibility = "hidden";
+	document.body.appendChild(invisibleTempTopBarElement);
 
-	const height = getElementSize(invisibleTopBarElement).height;
+	const height = getElementSize(invisibleTempTopBarElement).height;
 
 	// Removing stand-in element from DOM by removing from it's own parentNode
-	invisibleTopBarElement.parentNode.removeChild(invisibleTopBarElement);
+	invisibleTempTopBarElement.parentNode.removeChild(invisibleTempTopBarElement);
 
 	return height;
 }
 
 /**
- * Get height (size, not style) of ListViewTable list-table__row element
+ * Get height (size not style) of ListViewTable list-table__row element
  *
  * @returns {Number} Height of ListViewTable list-table__row element
  */
 export function getListViewTableRowHeight() {
-	// Creating temporary stand-in list-table-component element to later append 
+	// Creating temporary stand-in list-table-component element to later append
 	// ...temporary list-table__row element to for CSS. Using stand-in element
-	// ...ensures real element remains unaffected and function can be called 
+	// ...ensures real element remains unaffected and function can be called
 	// ...without needing real element in the DOM. Made invisible so user never
 	// ...sees stand-in element or its child elements.
 	const invisibleTempListViewComponentElement = document.createElement("div");
-	invisibleTempListViewComponentElement.className = "js-get-list-table-component";
+	invisibleTempListViewComponentElement.className =
+		"js-get-list-table-component";
 	invisibleTempListViewComponentElement.visibility = "hidden";
 	document.body.appendChild(invisibleTempListViewComponentElement);
 
-	// Temporary list-table__row element used to get height.
+	// Temporary list-table__row element used to get height
 	const tempListTableRowElement = document.createElement("tr");
 	tempListTableRowElement.className = "js-get-list-table__row";
 	// Css requires being child of a list-table-component element
@@ -268,106 +275,178 @@ export function getListViewTableRowHeight() {
 	return height;
 }
 
+/**
+ * Get height (size not style) of ItemViewTopBar item-view-top-bar-component
+ * element
+ *
+ * @returns {Number} Height of ItemViewTopBar item-view-top-bar-component
+ * element
+ */
 export function getItemViewTopBarHeight() {
-	const invisibleTopBarElement = document.createElement("div");
-	invisibleTopBarElement.className = "js-get-item-vew-top-bar-component";
-	invisibleTopBarElement.visibility = "hidden";
-	document.body.appendChild(invisibleTopBarElement);
+	// Creating temporary stand-in list-view-top-bar-component element used to
+	// ...get height. Using stand-in element allows function can be called
+	// ...without needing real element in the DOM. Made invisible so user never
+	// ...sees stand-in element or its child elements.
+	const invisibleTempTopBarElement = document.createElement("div");
+	invisibleTempTopBarElement.className = "js-get-item-vew-top-bar-component";
+	invisibleTempTopBarElement.visibility = "hidden";
+	document.body.appendChild(invisibleTempTopBarElement);
 
-	const height = getElementSize(invisibleTopBarElement).height;
-	invisibleTopBarElement.parentNode.removeChild(invisibleTopBarElement);
+	const height = getElementSize(invisibleTempTopBarElement).height;
+
+	// Removing stand-in element from DOM by removing from it's own parentNode
+	invisibleTempTopBarElement.parentNode.removeChild(invisibleTempTopBarElement);
 
 	return height;
 }
 
+/**
+ * Get width (size not style) of ItemViewListSidebar list-sidebar-component
+ * element
+ *
+ * @returns {Number} Width of ItemViewListSidebar list-sidebar-component
+ * element
+ */
 export function getItemViewListSidebarWidth() {
-	const invisibleListSidebarElement = document.createElement("div");
-	invisibleListSidebarElement.className = "js-get-list-sidebar-component";
-	invisibleListSidebarElement.visibility = "hidden";
-	document.body.appendChild(invisibleListSidebarElement);
+	// Creating temporary stand-in list-sidebar-component element used to get
+	// ...width. Using stand-in element allows function can be called without
+	// ...needing real element in the DOM. Made invisible so user never sees
+	// ...stand-in element or its child elements.
+	const invisibleTempListSidebarElement = document.createElement("div");
+	invisibleTempListSidebarElement.className = "js-get-list-sidebar-component";
+	invisibleTempListSidebarElement.visibility = "hidden";
+	document.body.appendChild(invisibleTempListSidebarElement);
 
-	const width = getElementSize(invisibleListSidebarElement).width;
-	invisibleListSidebarElement.parentNode.removeChild(
-		invisibleListSidebarElement
+	const width = getElementSize(invisibleTempListSidebarElement).width;
+
+	// Removing stand-in element from DOM by removing from it's own parentNode
+	invisibleTempListSidebarElement.parentNode.removeChild(
+		invisibleTempListSidebarElement
 	);
 
 	return width;
 }
 
+/**
+ * Get minWidth of ItemView outer-dividing-container
+ *
+ * @returns {Number} Height of ItemView outer-dividing-container
+ */
 export function getItemViewOuterDividingContainerMinWidth() {
-	const invisibleItemViewComponentElement = document.createElement("div");
-	invisibleItemViewComponentElement.className = "js-get-item-view-component";
-	invisibleItemViewComponentElement.visibility = "hidden";
-	document.body.appendChild(invisibleItemViewComponentElement);
+	// Creating temporary stand-in item-view-component element to later append
+	// ...temporary outer-dividing-container element to for CSS. Using stand-in
+	// ...element ensures real element remains unaffected and function can be
+	// ...called without needing real element in the DOM. Made invisible so
+	// ...user never sees stand-in element or its child elements.
+	const invisibleTempItemViewComponentElement = document.createElement("div");
+	invisibleTempItemViewComponentElement.className =
+		"js-get-item-view-component";
+	invisibleTempItemViewComponentElement.visibility = "hidden";
+	document.body.appendChild(invisibleTempItemViewComponentElement);
 
-	const invisibleOuterDividingContainerElement = document.createElement("div");
-	invisibleOuterDividingContainerElement.className =
+	// Temporary outer-dividing-container element used to get minWidth
+	const tempOuterDividingContainerElement = document.createElement("div");
+	tempOuterDividingContainerElement.className =
 		"js-get-outer-dividing-container";
-	invisibleOuterDividingContainerElement.visibility = "hidden";
-	invisibleItemViewComponentElement.appendChild(
-		invisibleOuterDividingContainerElement
+	// Css requires being child of a item-view-component element
+	invisibleTempItemViewComponentElement.appendChild(
+		tempOuterDividingContainerElement
 	);
 
 	const minWidth = stripNonDigits(
-		getElementStyle(invisibleOuterDividingContainerElement).minWidth
+		getElementStyle(tempOuterDividingContainerElement).minWidth
 	);
-	invisibleItemViewComponentElement.parentNode.removeChild(
-		invisibleItemViewComponentElement
+
+	// Removing stand-in element from DOM by removing from it's own parentNode
+	invisibleTempItemViewComponentElement.parentNode.removeChild(
+		invisibleTempItemViewComponentElement
 	);
 
 	return minWidth;
 }
 
+/**
+ * Get padding of ItemView padding-container
+ *
+ * @returns {Number} Height of ItemView padding-container
+ */
 export function getItemViewPaddingContainerPadding() {
-	const invisibleItemViewComponentElement = document.createElement("div");
-	invisibleItemViewComponentElement.className = "js-get-item-view-component";
-	invisibleItemViewComponentElement.visibility = "hidden";
-	document.body.appendChild(invisibleItemViewComponentElement);
+	// Creating temporary stand-in item-view-component element to later append
+	// ...temporary padding-container element to for CSS. Using stand-in
+	// ...element ensures real element remains unaffected and function can be
+	// ...called without needing real element in the DOM. Made invisible so
+	// ...user never sees stand-in element or its child elements.
+	const invisibleTempItemViewComponentElement = document.createElement("div");
+	invisibleTempItemViewComponentElement.className =
+		"js-get-item-view-component";
+	invisibleTempItemViewComponentElement.visibility = "hidden";
+	document.body.appendChild(invisibleTempItemViewComponentElement);
 
-	const invisiblePaddingContainerElement = document.createElement("div");
-	invisiblePaddingContainerElement.className = "js-get-padding-container";
-	invisiblePaddingContainerElement.visibility = "hidden";
-	invisibleItemViewComponentElement.appendChild(
-		invisiblePaddingContainerElement
+	// Temporary padding-container element used to get padding
+	const tempPaddingContainerElement = document.createElement("div");
+	tempPaddingContainerElement.className = "js-get-padding-container";
+	// Css requires being child of a item-view-component element
+	invisibleTempItemViewComponentElement.appendChild(
+		tempPaddingContainerElement
 	);
 
 	const padding = stripNonDigits(
-		getElementStyle(invisiblePaddingContainerElement).paddingLeft
+		getElementStyle(tempPaddingContainerElement).paddingLeft
 	);
-	invisibleItemViewComponentElement.parentNode.removeChild(
-		invisibleItemViewComponentElement
+
+	// Removing stand-in element from DOM by removing from it's own parentNode
+	invisibleTempItemViewComponentElement.parentNode.removeChild(
+		invisibleTempItemViewComponentElement
 	);
 
 	return padding;
 }
 
+/**
+ * Manages the size of two item-box elements inside a pair-container element. 
+ * If there is enough space, then fitting them next to one another, otherwise 
+ * the first on top of the second.
+ *
+ * @param {Element} pairContainerElement - pair-container element that contains 
+ * two item-box elements
+ * @param {Number} outerDivingContainerMinWidth - minWidth for 
+ * outer-dividing-container elements that contains item-box elements (pair-contain -> 
+ * outer-dividing-container -> item-box)
+ * @param {String} toggledClassNameForOuterDividingContainerHalfWidth - 
+ * className that gives an outer-dividing-container element half width
+ */
 export function manageSizeOfItemBoxsInPairContainer(
-	pairElement,
-	toggledClassNameForWidth,
-	outerDivingContainerMinWidth
+	pairContainerElement,
+	outerDivingContainerMinWidth,
+	toggledClassNameForOuterDividingContainerHalfWidth
 ) {
-	const childNodes = pairElement.childNodes;
-	// Item box width is determing by its outerDividingContainer
+	// Grabbing childNodes keeps from having to pass them as parameters
+	const childNodes = pairContainerElement.childNodes;
+	// item-box width determined by parent element (outer-dividing-container)
 	const firstOuterDividingContianerElement = childNodes[0];
 	const secondOuterDividingContianerElement = childNodes[1];
 
-	// Toggles each item box's className for width
 	const myObserver = new ResizeObserver(() => {
-		// If both item-boxs can fit next to one another
+		// Whether or not both item-box elements can fit next to one another
 		const shouldHaveClassName =
-			getElementSize(pairElement).width > outerDivingContainerMinWidth * 2;
+			getElementSize(pairContainerElement).width >
+			outerDivingContainerMinWidth * 2;
 
+		// If shouldHaveClassName is true, then halfs item-box widths allowing
+		// ...them to fit next to one another. Otherwise they are kept full 
+		// ...width which places the first on top of the second.
 		toggleClassName(
 			shouldHaveClassName,
 			firstOuterDividingContianerElement,
-			toggledClassNameForWidth
+			toggledClassNameForOuterDividingContainerHalfWidth
 		);
 		toggleClassName(
 			shouldHaveClassName,
 			secondOuterDividingContianerElement,
-			toggledClassNameForWidth
+			toggledClassNameForOuterDividingContainerHalfWidth
 		);
 	});
 
-	myObserver.observe(pairElement);
+	// When pairContainerElement changes size, myObserver code above is run
+	myObserver.observe(pairContainerElement);
 }

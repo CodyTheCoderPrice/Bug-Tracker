@@ -2294,8 +2294,8 @@ dropdown can overlap all other components
   background-color: #608d9e;
 }
 
-.list-view-top-bar,
-.js-get-list-view-top-bar {
+.list-view-top-bar-component,
+.js-get-list-view-top-bar-component {
   z-index: 1;
   position: fixed;
   top: 56px;
@@ -2307,15 +2307,15 @@ dropdown can overlap all other components
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
-.list-view-top-bar .centering-container,
-.js-get-list-view-top-bar .centering-container {
+.list-view-top-bar-component .centering-container,
+.js-get-list-view-top-bar-component .centering-container {
   position: relative;
   float: left;
   height: 46px;
   width: 152px;
 }
-.list-view-top-bar .centering-container__new-item-button,
-.js-get-list-view-top-bar .centering-container__new-item-button {
+.list-view-top-bar-component .centering-container__new-item-button,
+.js-get-list-view-top-bar-component .centering-container__new-item-button {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -2343,28 +2343,28 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.list-view-top-bar .centering-container__new-item-button--tutorial,
-.js-get-list-view-top-bar .centering-container__new-item-button--tutorial {
+.list-view-top-bar-component .centering-container__new-item-button--tutorial,
+.js-get-list-view-top-bar-component .centering-container__new-item-button--tutorial {
   border: 2px solid #0785a5;
 }
-.list-view-top-bar .centering-container__new-item-button__text,
-.js-get-list-view-top-bar .centering-container__new-item-button__text {
+.list-view-top-bar-component .centering-container__new-item-button__text,
+.js-get-list-view-top-bar-component .centering-container__new-item-button__text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
 }
-.list-view-top-bar .centering-container__bar-button-container,
-.js-get-list-view-top-bar .centering-container__bar-button-container {
+.list-view-top-bar-component .centering-container__bar-button-container,
+.js-get-list-view-top-bar-component .centering-container__bar-button-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
-.list-view-top-bar .centering-container__bar-button-container__search-bar,
-.js-get-list-view-top-bar .centering-container__bar-button-container__search-bar {
+.list-view-top-bar-component .centering-container__bar-button-container__search-bar,
+.js-get-list-view-top-bar-component .centering-container__bar-button-container__search-bar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2380,12 +2380,12 @@ dropdown can overlap all other components
   width: 100%;
   font-size: 14px;
 }
-.list-view-top-bar .centering-container__bar-button-container__search-bar:focus,
-.js-get-list-view-top-bar .centering-container__bar-button-container__search-bar:focus {
+.list-view-top-bar-component .centering-container__bar-button-container__search-bar:focus,
+.js-get-list-view-top-bar-component .centering-container__bar-button-container__search-bar:focus {
   border-width: 3px;
 }
-.list-view-top-bar .centering-container__bar-button-container__search-bar-button,
-.js-get-list-view-top-bar .centering-container__bar-button-container__search-bar-button {
+.list-view-top-bar-component .centering-container__bar-button-container__search-bar-button,
+.js-get-list-view-top-bar-component .centering-container__bar-button-container__search-bar-button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2398,8 +2398,8 @@ dropdown can overlap all other components
   width: 38px;
   cursor: pointer;
 }
-.list-view-top-bar .centering-container__bar-button-container__search-bar-button__icon,
-.js-get-list-view-top-bar .centering-container__bar-button-container__search-bar-button__icon {
+.list-view-top-bar-component .centering-container__bar-button-container__search-bar-button__icon,
+.js-get-list-view-top-bar-component .centering-container__bar-button-container__search-bar-button__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2407,14 +2407,14 @@ dropdown can overlap all other components
   color: white;
   font-size: 14px;
 }
-.list-view-top-bar .filter-area-container,
-.js-get-list-view-top-bar .filter-area-container {
+.list-view-top-bar-component .filter-area-container,
+.js-get-list-view-top-bar-component .filter-area-container {
   position: absolute;
   right: 0px;
   width: 109px;
 }
-.list-view-top-bar .filter-area-container__button,
-.js-get-list-view-top-bar .filter-area-container__button {
+.list-view-top-bar-component .filter-area-container__button,
+.js-get-list-view-top-bar-component .filter-area-container__button {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -2442,8 +2442,8 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.list-view-top-bar .filter-area-container__button--clicked,
-.js-get-list-view-top-bar .filter-area-container__button--clicked {
+.list-view-top-bar-component .filter-area-container__button--clicked,
+.js-get-list-view-top-bar-component .filter-area-container__button--clicked {
   margin: -2px 0px 0px;
   border-width: 3px;
   border-bottom: none;
@@ -2451,21 +2451,21 @@ dropdown can overlap all other components
   height: 45px;
   width: 86px;
 }
-.list-view-top-bar .filter-area-container__button__text,
-.js-get-list-view-top-bar .filter-area-container__button__text {
+.list-view-top-bar-component .filter-area-container__button__text,
+.js-get-list-view-top-bar-component .filter-area-container__button__text {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   top: 4px;
   width: 100%;
 }
-.list-view-top-bar .filter-area-container__button__text--active,
-.js-get-list-view-top-bar .filter-area-container__button__text--active {
+.list-view-top-bar-component .filter-area-container__button__text--active,
+.js-get-list-view-top-bar-component .filter-area-container__button__text--active {
   font-weight: bold;
   color: #2388a1;
 }
-.list-view-top-bar .filter-area-container__content-dropdown,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown {
+.list-view-top-bar-component .filter-area-container__content-dropdown,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2480,82 +2480,82 @@ dropdown can overlap all other components
   cursor: default;
   visibility: hidden;
 }
-.list-view-top-bar .filter-area-container__content-dropdown--shorter,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown--shorter {
+.list-view-top-bar-component .filter-area-container__content-dropdown--shorter,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown--shorter {
   height: 160px;
 }
-.list-view-top-bar .filter-area-container__content-dropdown--visible,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown--visible {
+.list-view-top-bar-component .filter-area-container__content-dropdown--visible,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown--visible {
   visibility: visible;
 }
-.list-view-top-bar .filter-area-container__content-dropdown__content,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown__content {
+.list-view-top-bar-component .filter-area-container__content-dropdown__content,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content {
   float: left;
   margin: 13px 0 0 20px;
   text-align: center;
   font-size: 14px;
 }
-.list-view-top-bar .filter-area-container__content-dropdown__content--right,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown__content--right {
+.list-view-top-bar-component .filter-area-container__content-dropdown__content--right,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content--right {
   float: right;
   margin: 13px 20px 0 0;
 }
-.list-view-top-bar .filter-area-container__content-dropdown__content__title,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown__content__title {
+.list-view-top-bar-component .filter-area-container__content-dropdown__content__title,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__title {
   display: block;
   margin: 2px 0px 5px 0px;
   border-bottom: 1px solid gray;
   padding-bottom: 3px;
   font-weight: bold;
 }
-.list-view-top-bar .filter-area-container__content-dropdown__content__block,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown__content__block {
+.list-view-top-bar-component .filter-area-container__content-dropdown__content__block,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__block {
   text-align: left;
 }
-.list-view-top-bar .filter-area-container__content-dropdown__content__block__checkbox-container,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown__content__block__checkbox-container {
+.list-view-top-bar-component .filter-area-container__content-dropdown__content__block__checkbox-container,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__block__checkbox-container {
   display: inline-block;
   margin: 0px 3px;
 }
-.list-view-top-bar .filter-area-container__content-dropdown__content__block__label,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown__content__block__label {
+.list-view-top-bar-component .filter-area-container__content-dropdown__content__block__label,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__block__label {
   display: inline-block;
   margin: 4px 3px;
 }
-.list-view-top-bar .filter-area-container__content-dropdown__content__block__label--active,
-.js-get-list-view-top-bar .filter-area-container__content-dropdown__content__block__label--active {
+.list-view-top-bar-component .filter-area-container__content-dropdown__content__block__label--active,
+.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__block__label--active {
   color: #2388a1;
 }
-.list-view-top-bar .new-item-tutorial-container,
-.js-get-list-view-top-bar .new-item-tutorial-container {
+.list-view-top-bar-component .new-item-tutorial-container,
+.js-get-list-view-top-bar-component .new-item-tutorial-container {
   position: absolute;
   top: 56px;
   left: 95px;
 }
-.list-view-top-bar .new-item-tutorial-container__arrow-head,
-.js-get-list-view-top-bar .new-item-tutorial-container__arrow-head {
+.list-view-top-bar-component .new-item-tutorial-container__arrow-head,
+.js-get-list-view-top-bar-component .new-item-tutorial-container__arrow-head {
   height: 0;
   width: 0;
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
   border-bottom: 14px solid black;
 }
-.list-view-top-bar .new-item-tutorial-container__arrow-stock,
-.js-get-list-view-top-bar .new-item-tutorial-container__arrow-stock {
+.list-view-top-bar-component .new-item-tutorial-container__arrow-stock,
+.js-get-list-view-top-bar-component .new-item-tutorial-container__arrow-stock {
   background-color: black;
   margin-left: 11px;
   height: 66px;
   width: 6px;
 }
-.list-view-top-bar .new-item-tutorial-container__bend-message-centering-container,
-.js-get-list-view-top-bar .new-item-tutorial-container__bend-message-centering-container {
+.list-view-top-bar-component .new-item-tutorial-container__bend-message-centering-container,
+.js-get-list-view-top-bar-component .new-item-tutorial-container__bend-message-centering-container {
   position: absolute;
   margin: -12px 0px 0px 11px;
   height: 30px;
   width: 400px;
 }
-.list-view-top-bar .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
-.js-get-list-view-top-bar .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+.list-view-top-bar-component .new-item-tutorial-container__bend-message-centering-container__arrow-bend,
+.js-get-list-view-top-bar-component .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
@@ -2563,8 +2563,8 @@ dropdown can overlap all other components
   height: 6px;
   width: 40px;
 }
-.list-view-top-bar .new-item-tutorial-container__bend-message-centering-container__text,
-.js-get-list-view-top-bar .new-item-tutorial-container__bend-message-centering-container__text {
+.list-view-top-bar-component .new-item-tutorial-container__bend-message-centering-container__text,
+.js-get-list-view-top-bar-component .new-item-tutorial-container__bend-message-centering-container__text {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
