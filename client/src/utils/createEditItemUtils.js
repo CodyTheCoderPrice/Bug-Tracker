@@ -1,15 +1,45 @@
+// Needed for returning JSX in functions
 import React from "react";
 
 /**
- * Get JSX containing option elements for status (with status.color
- * as css text color) from statusList to go inside a select element
+ * Get JSX containing option elements for priority to go inside select element
+ * relating to either projects or a bugs
  *
  * @param {JSON} passedReduxState - Current redux state from useSelector
- * @param {String} reduxContainerName - Redux container for which
+ * @param {String} reduxContainerName - Redux container of which
+ * priorityStatusOptions to use (either props.reduxContainerName,
+ * PROJECT_CONTAINER, or BUG_CONTAINER)
+ * @returns {JSX} JSX containing option elements for priority to go inside a
+ * select element relating to either projects or a bugs.
+ */
+ export function getPriorityOptionsForSelect(
+	passedReduxState,
+	reduxContainerName
+) {
+	return passedReduxState[
+		reduxContainerName
+	].priorityStatusOptions.priorityList.map((priority, idx) => {
+		return (
+			<option
+				key={idx}
+				value={priority.id}
+			>
+				{priority.option}
+			</option>
+		);
+	});
+}
+
+/**
+ * Get JSX containing option elements for status (with status.color as css text 
+ * color) to go inside select element relating to either projects or a bugs
+ *
+ * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {String} reduxContainerName - Redux container of which
  * priorityStatusOptions to use (either props.reduxContainerName,
  * PROJECT_CONTAINER, or BUG_CONTAINER)
  * @returns {JSX} JSX containing option elements for status (with status.color
- * as css text color) from statusList to go inside a select element
+ * as css text color) to go inside a select element
  */
 export function getStatusOptionsForSelectWithStatusColors(
 	passedReduxState,

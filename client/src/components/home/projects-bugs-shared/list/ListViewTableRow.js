@@ -18,7 +18,7 @@ import {
 	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
 	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
-	displayMessageIfEmpty,
+	getMessageIfValueIsEmpty,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getBugsInProjectList,
 	getNumberOfBugsForStatus,
@@ -188,7 +188,7 @@ export default function ListViewTableRow(props) {
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayMessageIfEmpty(
+					{getMessageIfValueIsEmpty(
 						formatDateMMddYYYY(props.item.creation_date),
 						"-"
 					)}
@@ -196,7 +196,7 @@ export default function ListViewTableRow(props) {
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayMessageIfEmpty(
+					{getMessageIfValueIsEmpty(
 						formatDateMMddYYYY(props.item.start_date),
 						"-"
 					)}
@@ -204,7 +204,7 @@ export default function ListViewTableRow(props) {
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{displayMessageIfEmpty(formatDateMMddYYYY(props.item.due_date), "-")}
+					{getMessageIfValueIsEmpty(formatDateMMddYYYY(props.item.due_date), "-")}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>

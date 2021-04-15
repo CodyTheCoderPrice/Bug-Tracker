@@ -25,7 +25,7 @@ import {
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode,
-	getSelectOptions,
+	getPriorityOptionsForSelect,
 	getStatusOptionsForSelectWithStatusColors,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 } from "../../../../utils";
@@ -439,11 +439,9 @@ export default function ListViewCreateItemSidebar(props) {
 										)
 									}
 								>
-									{getSelectOptions(
-										reduxState[props.reduxContainerName].priorityStatusOptions
-											.priorityList,
-										"id",
-										"option"
+									{getPriorityOptionsForSelect(
+										reduxState,
+										props.reduxContainerName
 									)}
 								</select>
 							</div>

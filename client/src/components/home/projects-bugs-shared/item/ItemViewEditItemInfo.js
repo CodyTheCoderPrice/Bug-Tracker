@@ -27,7 +27,7 @@ import {
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewDisabledLabelClassNameForLightOrDarkMode,
 	getItemViewDisableInputDateClassNameForLightOrDarkMode,
-	getSelectOptions,
+	getPriorityOptionsForSelect,
 	getStatusOptionsForSelectWithStatusColors,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
@@ -509,11 +509,9 @@ export default function ItemViewEditItemInfo(props) {
 										)
 									}
 								>
-									{getSelectOptions(
-										reduxState[props.reduxContainerName].priorityStatusOptions
-											.priorityList,
-										"id",
-										"option"
+									{getPriorityOptionsForSelect(
+										reduxState,
+										props.reduxContainerName
 									)}
 								</select>
 							</div>

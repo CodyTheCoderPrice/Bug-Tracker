@@ -1,5 +1,6 @@
 /**
- * Returns whether a value is null, undefined, or an empty string
+ * Returns true if value is null, undefined, or an empty string. Otherwise
+ * returns false.
  *
  * @param {Boolean} value - Value of any type
  * @returns {Boolean} Whether the value is null, undefined, or an empty string

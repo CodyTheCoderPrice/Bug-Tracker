@@ -1,3 +1,4 @@
+// Needed for returning JSX in functions
 import React from "react";
 
 import {
@@ -5,7 +6,16 @@ import {
 	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
 } from "./index";
 
-export function displayMessageIfEmpty(value, message) {
+/**
+ * Checks if value is empty. If it is not, then it is returned. Otherwise the
+ * message is returned.
+ * 
+ * @param {Any} value - value to be returned if it is not empty
+ * @param {String} message - message to be returned if value is empty
+ * @returns {Any} Returns the value if it is not empty. Otherwise returns the
+ * message.
+ */
+export function getMessageIfValueIsEmpty(value, message) {
 	if (isEmpty(value)) {
 		return message;
 	} else {
@@ -13,7 +23,18 @@ export function displayMessageIfEmpty(value, message) {
 	}
 }
 
-export function displayGrayedOutMessageIfEmpty(value, message, dark_mode) {
+/**
+ * Checks if value is empty. If it is not, then it is returned. Otherwise the
+ * message is returned in JSX span to be displayed as grayed out.
+ * 
+ * @param {Any} value - value to be returned if it is not empty
+ * @param {String} message - message to be returned (if value is empty) in JSX
+ * span to be displayed as grayed out
+ * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {Any} Returns the value if it is not empty. Otherwise returns the
+ * message in JSX span to be displayed as grayed out.
+ */
+export function displayGrayedOutMessageIfValueIsEmpty(value, message, dark_mode) {
 	if (isEmpty(value)) {
 		return (
 			<span
@@ -27,18 +48,4 @@ export function displayGrayedOutMessageIfEmpty(value, message, dark_mode) {
 	} else {
 		return value;
 	}
-}
-
-export function getSelectOptions(
-	objectList,
-	objectIdProperty,
-	objectOptionProptery
-) {
-	return objectList.map((obj, idx) => {
-		return (
-			<option key={idx} value={obj[objectIdProperty]}>
-				{obj[objectOptionProptery]}
-			</option>
-		);
-	});
 }

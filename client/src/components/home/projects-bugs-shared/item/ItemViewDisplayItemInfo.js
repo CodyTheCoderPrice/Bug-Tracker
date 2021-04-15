@@ -9,7 +9,7 @@ import {
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	formatDateMMddYYYY,
-	displayGrayedOutMessageIfEmpty,
+	displayGrayedOutMessageIfValueIsEmpty,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getBaseSecondaryTextColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
@@ -123,7 +123,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								)
 							}
 						>
-							{displayGrayedOutMessageIfEmpty(
+							{displayGrayedOutMessageIfValueIsEmpty(
 								reduxState[props.reduxContainerName].componentsDisplay
 									.itemViewCurrentItem.description,
 								"Description Is Empty.",
@@ -155,7 +155,7 @@ export default function ItemViewDisplayItemInfo(props) {
 										)
 									}
 								>
-									{displayGrayedOutMessageIfEmpty(
+									{displayGrayedOutMessageIfValueIsEmpty(
 										reduxState[props.reduxContainerName].componentsDisplay
 											.itemViewCurrentItem.location,
 										"none",
@@ -177,7 +177,7 @@ export default function ItemViewDisplayItemInfo(props) {
 										)
 									}
 								>
-									{displayGrayedOutMessageIfEmpty(
+									{displayGrayedOutMessageIfValueIsEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
 												.itemViewCurrentItem.start_date
@@ -199,7 +199,7 @@ export default function ItemViewDisplayItemInfo(props) {
 										)
 									}
 								>
-									{displayGrayedOutMessageIfEmpty(
+									{displayGrayedOutMessageIfValueIsEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
 												.itemViewCurrentItem.due_date
@@ -221,7 +221,7 @@ export default function ItemViewDisplayItemInfo(props) {
 										)
 									}
 								>
-									{displayGrayedOutMessageIfEmpty(
+									{displayGrayedOutMessageIfValueIsEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
 												.itemViewCurrentItem.completion_date
