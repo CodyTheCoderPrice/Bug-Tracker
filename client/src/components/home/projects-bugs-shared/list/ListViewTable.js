@@ -15,7 +15,7 @@ import {
 import {
 	getElementLocation,
 	getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
-	getSearchFilterSortList,
+	getSearchedFilteredSortedList,
 	getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
@@ -99,7 +99,7 @@ export default function ListViewTable(props) {
 
 	const checkAllItems = () => {
 		let allItems = [];
-		for (let item of getSearchFilterSortList(
+		for (let item of getSearchedFilteredSortedList(
 			reduxState,
 			props.reduxContainerName
 		)) {
@@ -186,7 +186,7 @@ export default function ListViewTable(props) {
 							<div className="list-table__header__mass-delete-options-container js-mass-delete-buttons-container">
 								{createMassDeleteButton(
 									reduxState[props.reduxContainerName].massDeleteList.length <
-										getSearchFilterSortList(
+										getSearchedFilteredSortedList(
 											reduxState,
 											props.reduxContainerName
 										).length,
@@ -357,7 +357,7 @@ export default function ListViewTable(props) {
 					</tr>
 				</thead>
 				<tbody>
-					{getSearchFilterSortList(reduxState, props.reduxContainerName).map(
+					{getSearchedFilteredSortedList(reduxState, props.reduxContainerName).map(
 						(item, idx) => {
 							return (
 								<ListTableRow

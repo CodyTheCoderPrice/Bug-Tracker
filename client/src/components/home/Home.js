@@ -15,7 +15,7 @@ import {
 
 import {
 	getUpdatedDeepCopyFilterArray,
-	getSearchFilterSortList,
+	getSearchedFilteredSortedList,
 	getBaseBackgroundAndTextColorClassNameForLightOrDarkMode,
 } from "../../utils";
 
@@ -146,7 +146,7 @@ export default function Home() {
 	useEffect(() => {
 		const verifyMassDeleteList = (reduxContainerName) => {
 			if (reduxState[reduxContainerName].massDeleteList.length > 0) {
-				const searchFilterSortListIds = getSearchFilterSortList(
+				const searchFilterSortListIds = getSearchedFilteredSortedList(
 					reduxState,
 					reduxContainerName
 				).map((item) => item.id);

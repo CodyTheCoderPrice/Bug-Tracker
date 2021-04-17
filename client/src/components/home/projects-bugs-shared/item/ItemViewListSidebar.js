@@ -13,7 +13,7 @@ import {
 	getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewListSidebarBorderColorClassNameForLightOrDarkMode,
 	getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundColorClassNameForLightOrDarkMode,
-	getSearchFilterSortList,
+	getSearchedFilteredSortedList,
 } from "../../../../utils";
 
 // Components
@@ -128,7 +128,7 @@ export default function ItemViewListSidebar(props) {
 						</tr>
 					</thead>
 					<tbody>
-						{getSearchFilterSortList(reduxState, props.reduxContainerName).map(
+						{getSearchedFilteredSortedList(reduxState, props.reduxContainerName).map(
 							(item, idx) => {
 								return (
 									<ItemViewListSidebarRow
