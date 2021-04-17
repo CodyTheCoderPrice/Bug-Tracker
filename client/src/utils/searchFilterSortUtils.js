@@ -148,7 +148,11 @@ export function getSearchedFilteredSortedList(passedReduxState, reduxContainerNa
 };
 
 /**
- * Get a deep copy of a filter array (either priorityFilter or statusFilter) from either the project or bug containers searchFilterSort
+ * Get a deep copy of a filter array (either priorityFilter or statusFilter 
+ * depending on filterName parameter) from searchFilterSort of either the 
+ * project or bug container of redux state (depending on reduxContainerName
+ * parameter) updated to have the targetId added if it was not already present,
+ * or removed it it was.
  * 
  * @param {JSON} passedReduxState - Current redux state from useSelector
  * @param {String} reduxContainerName - Redux container for which 
@@ -160,14 +164,17 @@ export function getSearchedFilteredSortedList(passedReduxState, reduxContainerNa
  * @returns 
  */
 export function getUpdatedDeepCopyFilterArray(passedReduxState, reduxContainerName, filterName, targetId) {
+	// Converting strings to numbers so priority/status filters contain a 
+	// ...single data type (for consistency)
 	if (typeof targetId !== "number") {
 		targetId = Number(targetId);
 	}
 
-	/* ADD TRY CATCH */
+	// Spread operator makes deep copy of list so original is not affected
 	let deepCopyFilterArray = [
 		...passedReduxState[reduxContainerName].searchFilterSort[filterName],
 	];
+
 	const index = deepCopyFilterArray.indexOf(targetId);
 
 	if (index === -1) {
