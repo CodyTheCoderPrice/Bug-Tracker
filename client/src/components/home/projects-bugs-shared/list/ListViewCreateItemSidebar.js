@@ -63,8 +63,8 @@ export default function ListViewCreateItemSidebar(props) {
 		itemInfo,
 		setItemInfo,
 		"js-completion-date",
-		reduxState[props.reduxContainerName].priorityStatusOptions
-			.statusCompletionId
+		reduxState,
+		props.reduxContainerName
 	);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works

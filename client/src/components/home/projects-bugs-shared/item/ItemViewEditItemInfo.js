@@ -94,8 +94,8 @@ export default function ItemViewEditItemInfo(props) {
 		itemInfo,
 		setItemInfo,
 		"js-completion-date",
-		reduxState[props.reduxContainerName].priorityStatusOptions
-			.statusCompletionId
+		reduxState,
+		props.reduxContainerName
 	);
 
 	// Custome hook will cause form to submit whenever the enter key is pressed

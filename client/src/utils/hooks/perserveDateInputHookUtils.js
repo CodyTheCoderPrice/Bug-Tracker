@@ -1,38 +1,64 @@
 import { useState, useEffect } from "react";
 
+/**
+ * During the process of creating/editing an item, if a completion date value
+ * is set but the status is then changed (which turns off completion date),
+ * this hook will set completion_date in the itemInfoState to an empty string,
+ * but preserve a copy of the value, so if status is later set back to
+ * completed, the previous completion date will be restored.
+ *
+ * @param {JSON} itemInfoState - State variable from the itemInfo useState
+ * @param {Function} setItemInfoFunction - Setter function variable from the
+ * itemInfo useState
+ * @param {String} completionDateUniqueClassName - Unique className assigned to
+ * the input date element for completion date
+ * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {String} reduxContainerName - Redux container of which
+ * priorityStatusOptions to use (either props.reduxContainerName,
+ * PROJECT_CONTAINER, or BUG_CONTAINER)
+ */
 export function usePerserveCompletetionDate(
-	itemInfo,
-	setItemInfo,
-	completionDateClassName,
-	completedIndex
+	itemInfoState,
+	setItemInfoFunction,
+	completionDateUniqueClassName,
+	passedReduxState,
+	reduxContainerName
 ) {
-	// perserves a record of the completion_date when the date input is toggled off.
 	const [preservedCompletionDate, setPerservedCompletionDate] = useState(
-		itemInfo.completion_date
+		itemInfoState.completion_date
 	);
 
-	// Tracks the pervious status to know when to update perservedCompletionDate
-	const [previousStatusId, setPreviousStatusId] = useState(itemInfo.status);
+	// Used to known when to update preservedCompletionDate
+	const [previousStatusId, setPreviousStatusId] = useState(
+		itemInfoState.status
+	);
 
 	useEffect(() => {
-		// Sets the preservedCompletionDate
-		if (previousStatusId === completedIndex) {
+		if (
+			previousStatusId ===
+			passedReduxState[reduxContainerName].priorityStatusOptions
+				.statusCompletionId
+		) {
 			setPerservedCompletionDate(
-				document.getElementsByClassName(completionDateClassName)[0].value
+				document.getElementsByClassName(completionDateUniqueClassName)[0].value
 			);
 		}
 
-		// Updates completion_date with the preservedCompletionDate
-		if (itemInfo.status_id !== completedIndex) {
-			setItemInfo({ ...itemInfo, completion_date: "" });
-		} else {
-			setItemInfo({
-				...itemInfo,
+		if (
+			itemInfoState.status_id !==
+			passedReduxState[reduxContainerName].priorityStatusOptions
+				.statusCompletionId
+		) {
+			setItemInfoFunction({ ...itemInfoState, completion_date: "" });
+		} else if (itemInfoState.completion_date !== preservedCompletionDate) {
+			console.log("Got here");
+			setItemInfoFunction({
+				...itemInfoState,
 				completion_date: preservedCompletionDate,
 			});
 		}
 
-		setPreviousStatusId(itemInfo.status_id);
+		setPreviousStatusId(itemInfoState.status_id);
 		// eslint-disable-next-line
-	}, [itemInfo.status_id]);
+	}, [itemInfoState.status_id]);
 }
