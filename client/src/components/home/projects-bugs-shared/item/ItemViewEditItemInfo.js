@@ -499,6 +499,7 @@ export default function ItemViewEditItemInfo(props) {
 								</label>
 								<select
 									name="priority_id"
+									value={itemInfo.priority_id}
 									onChange={(e) => onChange(e)}
 									id="edit-item-priority"
 									className={
@@ -524,6 +525,7 @@ export default function ItemViewEditItemInfo(props) {
 								</label>
 								<select
 									name="status_id"
+									value={itemInfo.status_id}
 									onChange={(e) => onChange(e)}
 									id="edit-item-status"
 									className={
