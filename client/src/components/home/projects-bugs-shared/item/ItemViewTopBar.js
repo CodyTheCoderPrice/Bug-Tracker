@@ -178,11 +178,11 @@ export default function ItemViewTopBar(props) {
 					className="outer-search-container__search-bar js-item-search-bar"
 				/>
 				<div
-					className="outer-search-container__search-bar-button js-item-search-button"
+					className="outer-search-container__search-button js-item-search-button"
 					alt="Button for searchbar"
 					onClick={updateSearchKeyWordString}
 				>
-					<span className="outer-search-container__search-bar-button__icon">
+					<span className="outer-search-container__search-button__icon">
 						<i
 							className="fa fa-search"
 							aria-hidden="true"

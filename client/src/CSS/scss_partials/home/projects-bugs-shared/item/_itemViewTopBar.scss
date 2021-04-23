@@ -46,7 +46,7 @@
 		background-color: v.$mode-top-bar-search-bar-background-color-light;
 		height: v.$top-bar-search-bar-height;
 		width: v.$item-view-top-bar-search-bar-width -
-			v.$top-bar-search-bar-button-width;
+			v.$top-bar-search-button-width;
 		font-size: v.$top-bar-search-bar-font-size;
 
 		&:focus {
@@ -54,7 +54,7 @@
 		}
 	}
 
-	.outer-search-container__search-bar-button {
+	.outer-search-container__search-button {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -67,14 +67,14 @@
 			v.$top-bar-buttton-border-radius 0;
 		background-color: v.$default-theme-base-border-background-color;
 		height: v.$top-bar-search-bar-height;
-		width: v.$top-bar-search-bar-button-width;
+		width: v.$top-bar-search-button-width;
 		cursor: pointer;
 	}
 
-	.outer-search-container__search-bar-button__icon {
+	.outer-search-container__search-button__icon {
 		@include m.dead-center();
 		color: white;
-		font-size: v.$top-bar-search-bar-button-icon-font-size;
+		font-size: v.$top-bar-search-button-icon-font-size;
 	}
 
 	.list-filter-or-sort-container {

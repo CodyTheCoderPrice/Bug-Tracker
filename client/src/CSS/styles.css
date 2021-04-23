@@ -1866,8 +1866,8 @@ dropdown can overlap all other components
 .js-get-item-vew-top-bar-component .outer-search-container__search-bar:focus {
   border-width: 3px;
 }
-.item-vew-top-bar-component .outer-search-container__search-bar-button,
-.js-get-item-vew-top-bar-component .outer-search-container__search-bar-button {
+.item-vew-top-bar-component .outer-search-container__search-button,
+.js-get-item-vew-top-bar-component .outer-search-container__search-button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1879,8 +1879,8 @@ dropdown can overlap all other components
   width: 38px;
   cursor: pointer;
 }
-.item-vew-top-bar-component .outer-search-container__search-bar-button__icon,
-.js-get-item-vew-top-bar-component .outer-search-container__search-bar-button__icon {
+.item-vew-top-bar-component .outer-search-container__search-button__icon,
+.js-get-item-vew-top-bar-component .outer-search-container__search-button__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2355,16 +2355,16 @@ dropdown can overlap all other components
   transform: translate(-50%, -50%);
   white-space: nowrap;
 }
-.list-view-top-bar-component .centering-container__bar-button-container,
-.js-get-list-view-top-bar-component .centering-container__bar-button-container {
+.list-view-top-bar-component .centering-container__bar-and-button-container,
+.js-get-list-view-top-bar-component .centering-container__bar-and-button-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
-.list-view-top-bar-component .centering-container__bar-button-container__search-bar,
-.js-get-list-view-top-bar-component .centering-container__bar-button-container__search-bar {
+.list-view-top-bar-component .centering-container__bar-and-button-container__search-bar,
+.js-get-list-view-top-bar-component .centering-container__bar-and-button-container__search-bar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2380,12 +2380,12 @@ dropdown can overlap all other components
   width: 100%;
   font-size: 14px;
 }
-.list-view-top-bar-component .centering-container__bar-button-container__search-bar:focus,
-.js-get-list-view-top-bar-component .centering-container__bar-button-container__search-bar:focus {
+.list-view-top-bar-component .centering-container__bar-and-button-container__search-bar:focus,
+.js-get-list-view-top-bar-component .centering-container__bar-and-button-container__search-bar:focus {
   border-width: 3px;
 }
-.list-view-top-bar-component .centering-container__bar-button-container__search-bar-button,
-.js-get-list-view-top-bar-component .centering-container__bar-button-container__search-bar-button {
+.list-view-top-bar-component .centering-container__bar-and-button-container__search-button,
+.js-get-list-view-top-bar-component .centering-container__bar-and-button-container__search-button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2398,8 +2398,8 @@ dropdown can overlap all other components
   width: 38px;
   cursor: pointer;
 }
-.list-view-top-bar-component .centering-container__bar-button-container__search-bar-button__icon,
-.js-get-list-view-top-bar-component .centering-container__bar-button-container__search-bar-button__icon {
+.list-view-top-bar-component .centering-container__bar-and-button-container__search-button__icon,
+.js-get-list-view-top-bar-component .centering-container__bar-and-button-container__search-button__icon {
   position: absolute;
   top: 50%;
   left: 50%;
