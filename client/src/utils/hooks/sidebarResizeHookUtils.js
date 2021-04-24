@@ -1,24 +1,34 @@
 import { useState, useEffect } from "react";
+
+// This util imports container names as it works with the redux state
 import { SIZE_CONTAINER } from "../../actions/constants/containerNames";
 
 import { getElementStyle, stripNonDigits } from "../index";
 
-export function useSidebarResize(passedReduxState, nameOfSidebarClass) {
-	// Used to decide when to resize the sidebar, and to reset its size
+/**
+ * Custom hook that resizes a sidebar element's height to fit within the 
+ * available verticle space between the bottom of the Navbar and window
+ * 
+ * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {String} sidebarContainerClassName - Unique className assigned to the
+ * sidebar-container element
+ */
+export function useSidebarResize(passedReduxState, sidebarContainerClassName) {
+	// Optimizes hook by storing constant element sizes and styles
 	const [
 		originalSidebarSizeAndStyle,
 		setOriginalSidebarSizeAndStyle,
 	] = useState(null);
 
-	// Adjusts the height of the sidebar to fit the screen
 	useEffect(() => {
 		if (
 			passedReduxState[SIZE_CONTAINER].variables.window !== null &&
 			passedReduxState[SIZE_CONTAINER].variables.navbar !== null
 		) {
-			let sidebarElement = document.getElementsByClassName(nameOfSidebarClass)[0];
+			let sidebarElement = document.getElementsByClassName(
+				sidebarContainerClassName
+			)[0];
 
-			// Makes sure originalSidebarSizeAndStyle gets set
 			if (originalSidebarSizeAndStyle === null) {
 				const sidebarStyle = getElementStyle(sidebarElement);
 				setOriginalSidebarSizeAndStyle({
@@ -32,20 +42,19 @@ export function useSidebarResize(passedReduxState, nameOfSidebarClass) {
 				return;
 			}
 
-			const adjustedWindowHeight =
+			// Margin used to keep gap between bottom of sidebar and window
+			const availableHeight =
 				passedReduxState[SIZE_CONTAINER].variables.window.height -
 				passedReduxState[SIZE_CONTAINER].variables.navbar.height -
 				originalSidebarSizeAndStyle.marginBottom -
 				originalSidebarSizeAndStyle.borderBottom;
 
-			if (originalSidebarSizeAndStyle.height > adjustedWindowHeight) {
-				sidebarElement.style.height = adjustedWindowHeight + "px";
+			if (originalSidebarSizeAndStyle.height > availableHeight) {
+				sidebarElement.style.height = availableHeight + "px";
 			} else {
 				sidebarElement.style.height = originalSidebarSizeAndStyle.height + "px";
 			}
 		}
 		// eslint-disable-next-line
 	}, [passedReduxState[SIZE_CONTAINER].variables, originalSidebarSizeAndStyle]);
-
-	return [];
 }

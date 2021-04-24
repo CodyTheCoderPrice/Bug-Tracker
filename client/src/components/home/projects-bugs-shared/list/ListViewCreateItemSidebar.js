@@ -68,7 +68,7 @@ export default function ListViewCreateItemSidebar(props) {
 	);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
-	useSidebarResize(reduxState, "js-create-item-sidebar");
+	useSidebarResize(reduxState, "js-create-item-sidebar-container");
 
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnter("js-create-item-form");
@@ -151,7 +151,7 @@ export default function ListViewCreateItemSidebar(props) {
 			/>
 			<div
 				className={
-					"create-item-sidebar js-create-item-sidebar" +
+					"create-item-sidebar js-create-item-sidebar-container" +
 					getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +

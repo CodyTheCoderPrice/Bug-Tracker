@@ -35,7 +35,7 @@ export default function AccountSidebar() {
 	}, []);
 
 	// Custom hook resizes the sidebar so that the overflow functionality works
-	useSidebarResize(reduxState, "js-account-sidebar");
+	useSidebarResize(reduxState, "js-account-sidebar-container");
 
 	const openAccountModalForEditingAccount = () => {
 		dispatch(
@@ -64,7 +64,7 @@ export default function AccountSidebar() {
 		<div className="account-sidebar-component">
 			<div
 				className={
-					"sidebar-container js-account-sidebar" +
+					"sidebar-container js-account-sidebar-container" +
 					getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
