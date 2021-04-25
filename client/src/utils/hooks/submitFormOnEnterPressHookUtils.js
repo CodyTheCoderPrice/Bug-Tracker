@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 
-export function useSubmitFormOnEnter(formClassName) {
+/**
+ * Custom hook that will cause a form to submit on an enter key press, given 
+ * that one of it's child input element's is in focus
+ * 
+ * @param {String} formClassName - Unique className assigned to a form element
+ */
+export function useSubmitFormOnEnterPress(formClassName) {
 	useEffect(() => {
 		document
 			.getElementsByClassName(formClassName)[0]

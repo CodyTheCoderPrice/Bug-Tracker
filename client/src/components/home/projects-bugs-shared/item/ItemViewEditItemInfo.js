@@ -35,7 +35,7 @@ import {
 
 import {
 	usePerserveCompletetionDate,
-	useSubmitFormOnEnter,
+	useSubmitFormOnEnterPress,
 } from "../../../../utils/hooks";
 
 export default function ItemViewEditItemInfo(props) {
@@ -99,7 +99,7 @@ export default function ItemViewEditItemInfo(props) {
 	);
 
 	// Custome hook will cause form to submit whenever the enter key is pressed
-	useSubmitFormOnEnter("js-edit-item-form");
+	useSubmitFormOnEnterPress("js-edit-item-form");
 
 	// clears prior backend errors when closing the component
 	useEffect(() => {

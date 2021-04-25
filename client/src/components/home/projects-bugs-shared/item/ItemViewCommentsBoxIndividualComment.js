@@ -25,7 +25,7 @@ import {
 	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
-import { useSubmitFormOnEnter } from "../../../../utils/hooks";
+import { useSubmitFormOnEnterPress } from "../../../../utils/hooks";
 
 export default function ItemViewCommentsBoxIndividualComment(props) {
 	const reduxState = useSelector((state) => state);
@@ -40,7 +40,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 	});
 
 	// Custome hook will cause form to submit whenever the enter key is pressed
-	useSubmitFormOnEnter("js-edit-comment-form");
+	useSubmitFormOnEnterPress("js-edit-comment-form");
 
 	// clears prior backend errors when closing the component
 	useEffect(() => {

@@ -33,7 +33,7 @@ import {
 import {
 	usePerserveCompletetionDate,
 	useSidebarResize,
-	useSubmitFormOnEnter,
+	useSubmitFormOnEnterPress,
 } from "../../../../utils/hooks";
 
 export default function ListViewCreateItemSidebar(props) {
@@ -71,7 +71,7 @@ export default function ListViewCreateItemSidebar(props) {
 	useSidebarResize(reduxState, "js-create-item-sidebar-container");
 
 	// Custome hook will cause form to submit whenever the enter key is pressed
-	useSubmitFormOnEnter("js-create-item-form");
+	useSubmitFormOnEnterPress("js-create-item-form");
 
 	// clears prior backend errors when closing the component
 	useEffect(() => {

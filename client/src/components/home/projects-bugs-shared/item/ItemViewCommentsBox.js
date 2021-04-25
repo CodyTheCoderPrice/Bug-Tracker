@@ -20,7 +20,7 @@ import {
 	dateToInt,
 } from "../../../../utils";
 
-import { useSubmitFormOnEnter } from "../../../../utils/hooks";
+import { useSubmitFormOnEnterPress } from "../../../../utils/hooks";
 
 // Components
 import ItemViewCommentsBoxIndividualComment from "./ItemViewCommentsBoxIndividualComment";
@@ -44,7 +44,7 @@ export default function ItemViewCommentsBox() {
 	);
 
 	// Custome hook will cause form to submit whenever the enter key is pressed
-	useSubmitFormOnEnter("js-create-comment-form");
+	useSubmitFormOnEnterPress("js-create-comment-form");
 
 	// clears prior backend errors when closing the component
 	useEffect(() => {
