@@ -1,4 +1,4 @@
-// This util imports container names as it works with the redux state
+// Util uses container names to work with the redux state
 import {
 	BUG_CONTAINER,
 } from "../actions/constants/containerNames";

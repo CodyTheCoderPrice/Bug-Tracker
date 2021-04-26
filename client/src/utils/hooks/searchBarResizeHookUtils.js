@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// This util imports container names as it works with the redux state
+// Util uses container names to work with the redux state
 import { SIZE_CONTAINER } from "../../actions/constants/containerNames";
 
 import { getElementSize, getElementStyle, stripNonDigits } from "../index";
