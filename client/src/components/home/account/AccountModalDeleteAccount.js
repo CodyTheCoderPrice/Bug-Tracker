@@ -29,7 +29,8 @@ export default function AccountModalDeleteAccount() {
 		currentPassword: "",
 	});
 
-	// clears prior backend errors when closing the component
+	// Clears current backend errors when closing the component. Otherwise the
+	// ...backend errors may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
 			dispatch(clearBackendErrors());

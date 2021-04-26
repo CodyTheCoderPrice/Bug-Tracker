@@ -42,7 +42,8 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnterPress("js-edit-comment-form");
 
-	// clears prior backend errors when closing the component
+	// Clears current backend errors when closing the component. Otherwise the
+	// ...backend errors may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
 			dispatch(clearBackendErrors());

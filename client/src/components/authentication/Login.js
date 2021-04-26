@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+// Component uses container names to work with the redux state
 import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
 
 import {
@@ -8,6 +9,17 @@ import {
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
 
+/**
+ * React functional component used for logging into the app. Component 
+ * displays a form that prompts the user for an email and password to an 
+ * account. Invalid login info and/or server issues will display error 
+ * messages to explain what went wrong. Component also displays a background
+ * image, as well as a link to switch to the Register funcitonal component.
+ * 
+ * Component should be used inside an element with the app-component className.
+ * This is a stand alone component, meaning it was not intended to be active 
+ * while a sibling component/element is also active.
+ */
 export default function Login() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -17,7 +29,8 @@ export default function Login() {
 		password: "",
 	});
 
-	// clears prior backend errors when closing the component
+	// Clears current backend errors when closing the component. Otherwise the
+	// ...backend errors may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
 			dispatch(clearBackendErrors());
@@ -40,6 +53,7 @@ export default function Login() {
 
 	return (
 		<div className="register-login-components">
+			{/*Same background image as Register component*/}
 			<div className="background" />
 			<div className="border-container">
 				<h1 className="title">Login</h1>

@@ -20,7 +20,8 @@ export default function ListViewMassDeleteItemsModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// clears prior backend errors when closing the component
+	// Clears current backend errors when closing the component. Otherwise the
+	// ...backend errors may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
 			dispatch(clearBackendErrors());
