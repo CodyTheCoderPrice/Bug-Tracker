@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Component uses container names to work with the redux state
 import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
-
 import {
 	loginAccount,
 	clearBackendErrors,
@@ -19,6 +18,8 @@ import {
  * Component should be used inside an element with the app-component className.
  * This is a stand alone component, meaning it was not intended to be active 
  * while a sibling component/element is also active.
+ * 
+ * @component
  */
 export default function Login() {
 	const reduxState = useSelector((state) => state);

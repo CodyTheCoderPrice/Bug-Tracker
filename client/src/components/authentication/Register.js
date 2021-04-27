@@ -2,26 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Component uses container names to work with the redux state
 import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
-
 import {
 	registerAccount,
 	clearBackendErrors,
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
-
 import { getCharCountLimitReachedTextColorClassNameForLightOrDarkMode } from "../../utils";
 
 /**
  * React functional component used for regestering an account for the app.
- * Component displays a form that prompts the user for a first name, last name, 
+ * Component displays a form that prompts the user for a first name, last name,
  * unique email, and password. Invalid register info and/or server issues will
  * display error messages to explain what went wrong. Component also displays a
- * background image, as well as a link to switch to the Login funcitonal 
+ * background image, as well as a link to switch to the Login funcitonal
  * component.
- * 
+ *
  * Component should be used inside an element with the app-component className.
- * This is a stand alone component, meaning it was not intended to be active 
+ * This is a stand alone component, meaning it was not intended to be active
  * while a sibling component/element is also active.
+ * 
+ * @component
  */
 export default function Register() {
 	const reduxState = useSelector((state) => state);

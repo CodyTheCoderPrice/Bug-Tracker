@@ -259,7 +259,7 @@ export default function ListViewTopBar(props) {
 											name="priorityFilter"
 											value={obj.id}
 											onChangeFunction={onChangeFilter}
-											checked={
+											isChecked={
 												!reduxState[
 													props.reduxContainerName
 												].searchFilterSort.priorityFilter.includes(obj.id)
@@ -311,7 +311,7 @@ export default function ListViewTopBar(props) {
 											name="statusFilter"
 											value={obj.id}
 											onChangeFunction={onChangeFilter}
-											checked={
+											isChecked={
 												!reduxState[
 													props.reduxContainerName
 												].searchFilterSort.statusFilter.includes(obj.id)
