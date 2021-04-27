@@ -136,7 +136,7 @@ export default function ListViewTableRow(props) {
 						isChecked={reduxState[
 							props.reduxContainerName
 						].massDeleteList.includes(props.item.id)}
-						id={null}
+						uniqueId={null}
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 						theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
 					/>

@@ -264,13 +264,13 @@ export default function ListViewTopBar(props) {
 													props.reduxContainerName
 												].searchFilterSort.priorityFilter.includes(obj.id)
 											}
+											uniqueId={"list-priority-filter-" + obj.id}
 											dark_mode={
 												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											}
 											theme_color={
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											}
-											id={"list-priority-filter-" + obj.id}
 										/>
 									</div>
 									<label
@@ -316,13 +316,13 @@ export default function ListViewTopBar(props) {
 													props.reduxContainerName
 												].searchFilterSort.statusFilter.includes(obj.id)
 											}
+											uniqueId={"list-status-filter-" + obj.id}
 											dark_mode={
 												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											}
 											theme_color={
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											}
-											id={"list-status-filter-" + obj.id}
 										/>
 									</div>
 									<label

@@ -57,7 +57,8 @@ export default function ListViewTable(props) {
 					reduxState[props.reduxContainerName].list.filter(
 						(item) =>
 							item.project_id ===
-							reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
+							reduxState[PROJECT_CONTAINER].componentsDisplay
+								.itemViewCurrentItem.id
 					).length < 1)
 			) {
 				const emptyListMessageContainer = document.getElementsByClassName(
@@ -166,7 +167,8 @@ export default function ListViewTable(props) {
 					reduxState[props.reduxContainerName].list.filter(
 						(item) =>
 							item.project_id ===
-							reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
+							reduxState[PROJECT_CONTAINER].componentsDisplay
+								.itemViewCurrentItem.id
 					).length < 1)
 					? " list-table-component--no-scroll"
 					: "")
@@ -233,9 +235,10 @@ export default function ListViewTable(props) {
 							<span className="list-table__header__span">Name</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
+									reduxContainerName={props.reduxContainerName}
 									sortId={1}
 									sortFor="Name"
-									reduxContainerName={props.reduxContainerName}
+									uniqueId={null}
 									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
@@ -251,9 +254,10 @@ export default function ListViewTable(props) {
 							<span className="list-table__header__span">Status</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
+									reduxContainerName={props.reduxContainerName}
 									sortId={2}
 									sortFor="Status"
-									reduxContainerName={props.reduxContainerName}
+									uniqueId={null}
 									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
@@ -269,9 +273,10 @@ export default function ListViewTable(props) {
 							<span className="list-table__header__span">Priority</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
+									reduxContainerName={props.reduxContainerName}
 									sortId={3}
 									sortFor="Priority"
-									reduxContainerName={props.reduxContainerName}
+									uniqueId={null}
 									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
@@ -287,9 +292,10 @@ export default function ListViewTable(props) {
 							<span className="list-table__header__span">Created on</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
+									reduxContainerName={props.reduxContainerName}
 									sortId={4}
 									sortFor="Created on"
-									reduxContainerName={props.reduxContainerName}
+									uniqueId={null}
 									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
@@ -305,9 +311,10 @@ export default function ListViewTable(props) {
 							<span className="list-table__header__span">Start Date</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
+									reduxContainerName={props.reduxContainerName}
 									sortId={5}
 									sortFor="Start Date"
-									reduxContainerName={props.reduxContainerName}
+									uniqueId={null}
 									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
@@ -323,9 +330,10 @@ export default function ListViewTable(props) {
 							<span className="list-table__header__span">Due Date</span>
 							<span className="list-table__header__sort-arrow-container">
 								<SortArrowsButton
+									reduxContainerName={props.reduxContainerName}
 									sortId={6}
 									sortFor="Due Date"
-									reduxContainerName={props.reduxContainerName}
+									uniqueId={null}
 									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								/>
 							</span>
@@ -357,17 +365,18 @@ export default function ListViewTable(props) {
 					</tr>
 				</thead>
 				<tbody>
-					{getSearchedFilteredSortedList(reduxState, props.reduxContainerName).map(
-						(item, idx) => {
-							return (
-								<ListTableRow
-									key={idx}
-									item={item}
-									reduxContainerName={props.reduxContainerName}
-								/>
-							);
-						}
-					)}
+					{getSearchedFilteredSortedList(
+						reduxState,
+						props.reduxContainerName
+					).map((item, idx) => {
+						return (
+							<ListTableRow
+								key={idx}
+								item={item}
+								reduxContainerName={props.reduxContainerName}
+							/>
+						);
+					})}
 					{/*If the list has items, creates an empty space at the bottom of the table*/}
 					{(props.reduxContainerName === PROJECT_CONTAINER &&
 						reduxState[props.reduxContainerName].list.length > 0) ||
@@ -375,7 +384,8 @@ export default function ListViewTable(props) {
 						reduxState[props.reduxContainerName].list.filter(
 							(item) =>
 								item.project_id ===
-								reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
+								reduxState[PROJECT_CONTAINER].componentsDisplay
+									.itemViewCurrentItem.id
 						).length > 0) ? (
 						<tr className="list-table__row--empty" />
 					) : null}
@@ -388,7 +398,8 @@ export default function ListViewTable(props) {
 				reduxState[props.reduxContainerName].list.filter(
 					(item) =>
 						item.project_id ===
-						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
+						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
+							.id
 				).length > 0) ? null : (
 				<div className="empty-list-message-centering-container js-empty-list-message-container">
 					<div

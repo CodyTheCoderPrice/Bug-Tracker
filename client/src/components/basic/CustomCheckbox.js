@@ -5,18 +5,20 @@ import { getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithLightOrD
 /**
  * React functional component for a custom checkbox element with border,
  * background, and text colors specific to the theme + light/dark mode.
+ * 
  * Component needs several properties passed in order to work. An example of
  * those properties is below.
  * 
  * @component
  * @example
- * name = "nameHere"
+ * name = "priorityFilter"
  * value = 1
  * onChangeFunction=(e) => { 
- * 	// Do something
+ * 	// Do something (i.e. update redux)
  * }
- * id = "idHere"
- * isChecked = booleanVariable
+ * uniqueId = "list-priority-filter-for-1"
+ * isChecked = !reduxState[PROJECT_CONTAINER].searchFilterSort.priorityFilter
+ * 		.includes(1)
  * dark_mode = reduxState[ACCOUNT_CONTAINER].settings.dark_mode
  * theme_color = reduxState[ACCOUNT_CONTAINER].settings.theme_color
  */
@@ -26,7 +28,7 @@ export default function CustomCheckbox(props) {
 		value,
 		onChangeFunction,
 		isChecked,
-		id,
+		uniqueId,
 		dark_mode,
 		theme_color,
 	} = props;
@@ -39,7 +41,7 @@ export default function CustomCheckbox(props) {
 				value={value}
 				onChange={(e) => onChangeFunction(e)}
 				checked={isChecked}
-				id={id}
+				id={uniqueId}
 				className={
 					"checkbox" +
 					getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -64,8 +66,8 @@ CustomCheckbox.propTypes = {
 	onChangeFunction: PropTypes.func.isRequired,
 	// Checkbox input element's checked attribute
 	isChecked: PropTypes.bool.isRequired,
-	// Checkbox input element's id attribute
-	id: PropTypes.string,
+	// Checkbox input element's uniqueId attribute
+	uniqueId: PropTypes.string,
 	// Whether or not the app is in dark mode
 	dark_mode: PropTypes.bool.isRequired,
 	// Current theme the app is using
