@@ -99,10 +99,10 @@ export default function AccountModalChangeSettings() {
 								reduxState[ACCOUNT_CONTAINER].settings
 									.filter_completed_projects_by_default
 							}
-							id="account-settings-filter-completed-projects"
+							uniqueId="account-settings-filter-completed-projects"
+							alt="Toggle switch to change between whether or not to filter out completed projects"
 							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 							theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
-							alt="Toggle switch to change between whether or not to filter out completed projects"
 						/>
 					</div>
 				</div>
@@ -118,10 +118,10 @@ export default function AccountModalChangeSettings() {
 								reduxState[ACCOUNT_CONTAINER].settings
 									.filter_completed_bugs_by_default
 							}
-							id="account-settings-filter-completed-bugs"
+							uniqueId="account-settings-filter-completed-bugs"
+							alt="Toggle switch to change between whether or not to filter out completed bugs"
 							dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 							theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
-							alt="Toggle switch to change between whether or not to filter out completed bugs"
 						/>
 					</div>
 				</div>
@@ -181,10 +181,10 @@ export default function AccountModalChangeSettings() {
 								isOn={
 									reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending
 								}
-								id="account-settings-sort-projects-ascending"
+								uniqueId="account-settings-sort-projects-ascending"
+								alt="Toggle switch to change between sorting projects by acending or descending"
 								dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
-								alt="Toggle switch to change between sorting projects by acending or descending"
 							/>
 						</div>
 					</div>
@@ -217,10 +217,10 @@ export default function AccountModalChangeSettings() {
 								name="bug_sort_ascending"
 								onChangeFunction={onChangeSettings}
 								isOn={reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending}
-								id="account-settings-sort-bugs-ascending"
+								uniqueId="account-settings-sort-bugs-ascending"
+								alt="Toggle switch to change between sorting bugs by acending or descending"
 								dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 								theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
-								alt="Toggle switch to change between sorting bugs by acending or descending"
 							/>
 						</div>
 					</div>

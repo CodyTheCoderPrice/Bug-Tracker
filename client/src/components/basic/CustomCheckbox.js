@@ -16,8 +16,8 @@ import { getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithLightOrD
  * onChangeFunction=(e) => { 
  * 	// Do something (i.e. update redux)
  * }
- * uniqueId = "list-priority-filter-for-1"
  * isChecked = !reduxState[PROJECT_CONTAINER].searchFilterSort.priorityFilter
+ * uniqueId = "list-priority-filter-for-1"
  * 		.includes(1)
  * dark_mode = reduxState[ACCOUNT_CONTAINER].settings.dark_mode
  * theme_color = reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -58,15 +58,15 @@ export default function CustomCheckbox(props) {
 }
 
 CustomCheckbox.propTypes = {
-	// Checkbox input element's name attribute
+	// CustomCheckbox input element's name attribute
 	name: PropTypes.string.isRequired,
-	// Checkbox input element's value attribute
+	// CustomCheckboxinput element's value attribute
 	value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-	// Checkbox input element's onChange attribute
+	// CustomCheckbox input element's onChange attribute
 	onChangeFunction: PropTypes.func.isRequired,
-	// Checkbox input element's checked attribute
+	// CustomCheckbox input element's checked attribute
 	isChecked: PropTypes.bool.isRequired,
-	// Checkbox input element's uniqueId attribute
+	// CustomCheckbox input element's id attribute
 	uniqueId: PropTypes.string,
 	// Whether or not the app is in dark mode
 	dark_mode: PropTypes.bool.isRequired,

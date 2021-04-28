@@ -81,10 +81,10 @@ export default function AccountSidebarChangeAppearance() {
 						name="light-dark-mode"
 						onChangeFunction={onChangeDarkMode}
 						isOn={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-						id="account-settings-light-dark-mode"
+						uniqueId="account-settings-light-dark-mode"
+						alt="Toggle switch to change between light and dark mode"
 						dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
 						theme_color={reduxState[ACCOUNT_CONTAINER].settings.theme_color}
-						alt="Toggle switch to change between light and dark mode"
 					/>
 				</div>
 			</div>
