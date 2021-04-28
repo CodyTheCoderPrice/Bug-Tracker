@@ -19,9 +19,15 @@ import {
  * Sets JSON object in general container of the redux state for how general
  * components should be displayed in the app
  *
- * @param {JSON} displays - JSON containing info for how general components
- * should be displyed in the app. Any general components excluded from this
- * param will be set to their default value.
+ * @param {{
+ * 	register: (Boolean|undefined),
+ * 	login: (Boolean|undefined),
+ * 	home: (Boolean|undefined),
+ * 	itemViewListSidebar: (Boolean|undefined),
+ * 	itemViewListSidebarUserSet: (Boolean|undefined)}} displays - JSON
+ * containing info for how general components should be displyed in the app.
+ * Any general components set to undefined or excluded from this param will be
+ * set to their default value.
  *
  * @example
  * // Sets home component to true, and all other general components to their
@@ -44,9 +50,15 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * Sets JSON object in general container of the redux state for how general
  * dropdowns should be displayed in the app
  *
- * @param {JSON} displays - JSON containing info for how general dropdowns
- * should be displyed in the app. Any general dropdowns excluded from this
- * param will be set to their default value.
+ * @param {{
+ * 	navbarHamburherDropdown: (Boolean|undefined),
+ * 	listViewSearchFilterSearchBarFilterDropdown: (Boolean|undefined),
+ * 	itemViewTopBarSortDropdown: (Boolean|undefined),
+ * 	itemViewTopBarFilterDropdown: (Boolean|undefined),
+ * 	itemViewTopBarOptionsDropdown: (Boolean|undefined)}} displays - JSON
+ * containing info for how general dropdowns should be displyed in the app. Any
+ * general dropdowns set to undefined or excluded from this param will be set
+ * to their default value.
  *
  * @example
  * // Sets navbarHamburherDropdown to true, and all other general dropdowns to
@@ -71,9 +83,16 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * Sets JSON object in account container of the redux state for how account
  * components should be displayed in the app
  *
- * @param {JSON} displays - JSON containing info for how account components
- * should be displyed in the app. Any account components excluded from this
- * param will be set to their default value.
+ * @param {{
+ * 	accountSidebar: (Boolean|undefined),
+ * 	accountModalChangeInfo: (Boolean|undefined),
+ * 	accountModalChangeEmail: (Boolean|undefined),
+ * 	accountModalChangePassword: (Boolean|undefined),
+ * 	accountModalDeleteAccount: (Boolean|undefined),
+ * 	accountModalChangeSettings: (Boolean|undefined)}} displays - JSON
+ * containing info for how account components should be displyed in the app.
+ * Any account components set to undefined or excluded from this param will be
+ * set to their default value.
  *
  * @example
  * // Sets accountSidebar to true, and all other account components to their
@@ -96,9 +115,32 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
  * Sets JSON object in project container of the redux state for how project
  * components should be displayed in the app
  *
- * @param {JSON} displays - JSON containing info for how project components
- * should be displyed in the app. Any project components excluded from this
- * param will be set to their default value.
+ * @param {{
+ * 	listView: (Boolean|undefined),
+ * 	listViewDeleteModal: (Boolean|undefined),
+ * 	listViewCreateItemSidbar: (Boolean|undefined),
+ * 	itemView: (Boolean|undefined),
+ * 	itemView: (Boolean|undefined),
+ * 	itemViewEditItemInfo: (Boolean|undefined),
+ * 	itemViewDeleteModal: (Boolean|undefined),
+ * 	itemViewCurrentItem: ({
+ * 		account_id: Number,
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		status_option: String,
+ * 		last_edited_timestamp: Number
+ * 	}|null|undefined)
+ * }} displays - JSON containing info for how project components should be
+ * displyed in the app. Any project components set to undefined or excluded
+ * from this param will be set to their default value.
  *
  * @example
  * // Sets listView to true, and all other project components to their default
@@ -121,12 +163,36 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * Sets JSON object in bug container of the redux state for how bug
  * components should be displayed in the app
  *
- * @param {JSON} displays - JSON containing info for how bug components
- * should be displyed in the app. Any bug components excluded from this
- * param will be set to their default value.
+ * @param {{
+ * 	listView: (Boolean|undefined),
+ * 	listViewDeleteModal: (Boolean|undefined),
+ * 	listViewCreateItemSidbar: (Boolean|undefined),
+ * 	itemView: (Boolean|undefined),
+ * 	itemView: (Boolean|undefined),
+ * 	itemViewEditItemInfo: (Boolean|undefined),
+ * 	itemViewDeleteModal: (Boolean|undefined),
+ * 	itemViewCurrentItem: ({
+ * 		account_id: Number,
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		location: String,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		status_option: String,
+ * 		last_edited_timestamp: Number
+ * 	}|null|undefined)
+ * }} displays - JSON containing info for how bug components should be displyed
+ * in the app. Any bug components set to undefined or excluded from this param 
+ * will be set to their default value.
  *
  * @example
- * // Sets listView to true, and all other bug components to their default 
+ * // Sets listView to true, and all other bug components to their default
  * // ...values
  * dispatch(setWhichBugComponentsDisplay({ listView: true }));
  *
@@ -146,12 +212,30 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * Sets JSON object in comment container of the redux state for how comment
  * components should be displayed in the app
  *
- * @param {JSON} displays - JSON containing info for how comment components
- * should be displyed in the app. Any comment components excluded from this
- * param will be set to their default value.
+ * @param {{
+ * 	commentDeleteModal: (Boolean|undefined),
+ * 	commentToBeDeleted: ({
+ * 		bug_id: Number,
+ * 		id: Number,
+ * 		description: String,
+ * 		location: String,
+ * 		creation_date: String,
+ * 		last_edited_timestamp: Number,
+ * 	}|null|undefined),
+ * 	commentToBeDeleted: ({
+ * 		bug_id: Number,
+ * 		id: Number,
+ * 		description: String,
+ * 		location: String,
+ * 		creation_date: String,
+ * 		last_edited_timestamp: Number,
+ * 	}|null|undefined)
+ * }} displays - JSON containing info for how comment components should be 
+ * displyed in the app. Any comment components set to undefined or excluded 
+ * from this param will be set to their default value.
  *
  * @example
- * // Sets listView to true, and all other comment components to their default 
+ * // Sets listView to true, and all other comment components to their default
  * // ...values
  * dispatch(setWhichCommentComponentsDisplay({ listView: true }));
  *

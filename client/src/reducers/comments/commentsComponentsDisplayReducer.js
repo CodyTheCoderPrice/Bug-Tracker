@@ -4,10 +4,11 @@ import { SET_WHICH_COMMENT_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 const initialState = {
 	// Should the DeleteModal for comments display
 	commentDeleteModal: false,
-	// Which comment will be deleted by DeleteModal for comments
+	// Which comment will be deleted by DeleteModal for comments. If null, then
+	// ...no comment is possibly being deleted.
 	commentToBeDeleted: null,
-	// Which comment is being edited in ItemViewCommentsBoxIndividualComment
-	// ...if null, then no comment is being edited
+	// Which comment is being edited in ItemViewCommentsBoxIndividualComment.
+	// ...If null, then no comment is being edited.
 	commentBeingEdited: null,
 };
 

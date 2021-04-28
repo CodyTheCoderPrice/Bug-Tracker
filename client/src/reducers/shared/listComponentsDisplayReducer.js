@@ -9,12 +9,12 @@ const initialState = {
 	listViewDeleteModal: false,
 	listViewCreateItemSidbar: false,
 	itemView: false,
-	// Which item is currently attachted to the itemView
-	itemViewCurrentItem: null,
 	// Is the current item for ItemView being edited
 	itemViewEditItemInfo: false,
 	// Should DeleteModal for ItemView be displayed
 	itemViewDeleteModal: false,
+	// Which item is currently attachted to the itemView
+	itemViewCurrentItem: null,
 };
 
 /**
