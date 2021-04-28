@@ -20,7 +20,17 @@ import {
  * components should be displayed in the app
  *
  * @param {JSON} displays - JSON containing info for how general components
- * should be displyed in the app
+ * should be displyed in the app. Any general components excluded from this
+ * param will be set to their default value.
+ *
+ * @example
+ * // Sets home component to true, and all other general components to their
+ * // ...default values
+ * dispatch(setWhichGeneralComponentsDisplay({ home: true }));
+ *
+ * @example
+ * // Sets all general components to their default values
+ * dispatch(setWhichGeneralComponentsDisplay({}));
  */
 export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
@@ -35,7 +45,19 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * dropdowns should be displayed in the app
  *
  * @param {JSON} displays - JSON containing info for how general dropdowns
- * should be displyed in the app
+ * should be displyed in the app. Any general dropdowns excluded from this
+ * param will be set to their default value.
+ *
+ * @example
+ * // Sets navbarHamburherDropdown to true, and all other general dropdowns to
+ * // ...their default values
+ * dispatch(
+ *		setWhichGeneralDropdownsDisplay({ navbarHamburherDropdown: true })
+ *	);
+ *
+ * @example
+ * // Sets all general dropdowns to their default values
+ * dispatch(setWhichGeneralDropdownsDisplay({}));
  */
 export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 	dispatch({
@@ -50,7 +72,17 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * components should be displayed in the app
  *
  * @param {JSON} displays - JSON containing info for how account components
- * should be displyed in the app
+ * should be displyed in the app. Any account components excluded from this
+ * param will be set to their default value.
+ *
+ * @example
+ * // Sets accountSidebar to true, and all other account components to their
+ * // ...default values
+ * dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
+ *
+ * @example
+ * // Sets all account components to their default values
+ * dispatch(setWhichGeneralDropdownsDisplay({}));
  */
 export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
@@ -65,7 +97,17 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
  * components should be displayed in the app
  *
  * @param {JSON} displays - JSON containing info for how project components
- * should be displyed in the app
+ * should be displyed in the app. Any project components excluded from this
+ * param will be set to their default value.
+ *
+ * @example
+ * // Sets listView to true, and all other project components to their default
+ * // ...values
+ * dispatch(setWhichProjectComponentsDisplay({ listView: true }));
+ *
+ * @example
+ * // Sets all project components to their default values
+ * dispatch(setWhichProjectComponentsDisplay({}));
  */
 export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
@@ -80,7 +122,17 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * components should be displayed in the app
  *
  * @param {JSON} displays - JSON containing info for how bug components
- * should be displyed in the app
+ * should be displyed in the app. Any bug components excluded from this
+ * param will be set to their default value.
+ *
+ * @example
+ * // Sets listView to true, and all other bug components to their default 
+ * // ...values
+ * dispatch(setWhichBugComponentsDisplay({ listView: true }));
+ *
+ * @example
+ * // Sets all bug components to their default values
+ * dispatch(setWhichBugComponentsDisplay({}));
  */
 export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
@@ -95,7 +147,17 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * components should be displayed in the app
  *
  * @param {JSON} displays - JSON containing info for how comment components
- * should be displyed in the app
+ * should be displyed in the app. Any comment components excluded from this
+ * param will be set to their default value.
+ *
+ * @example
+ * // Sets listView to true, and all other comment components to their default 
+ * // ...values
+ * dispatch(setWhichCommentComponentsDisplay({ listView: true }));
+ *
+ * @example
+ * // Sets all comment components to their default values
+ * dispatch(setWhichCommentComponentsDisplay({}));
  */
 export const setWhichCommentComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
