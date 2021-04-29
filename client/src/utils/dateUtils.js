@@ -9,8 +9,8 @@ import {
 /**
  * Format date in YYYY-MM-DD, or an empty string if date is empty
  * 
- * @param {(Date|String)} date - Date (type date or string) to be formatted
- * @returns {String} Either the date formated in YYYY-MM-DD, or an empty string
+ * @param {(Date|string)} date - Date (type date or string) to be formatted
+ * @returns {string} Either the date formated in YYYY-MM-DD, or an empty string
  * if date is empty
  */
 export function formatDateYYYYmmDD(date) {
@@ -20,8 +20,8 @@ export function formatDateYYYYmmDD(date) {
 /**
  * Format date in MM-DD-YYYY, or an empty string if date is empty
  * 
- * @param {(Date|String)} date - Date (type date or string) to be formatted
- * @returns {String} Either the date formated in MM-DD-YYYY, or an empty string
+ * @param {(Date|string)} date - Date (type date or string) to be formatted
+ * @returns {string} Either the date formated in MM-DD-YYYY, or an empty string
  * if date is empty
  */
 export function formatDateMMddYYYY(date) {
@@ -31,8 +31,8 @@ export function formatDateMMddYYYY(date) {
 /**
  * Converts date to an number
  * 
- * @param {(Date|String)} date - Date (type date or string) to be formatted
- * @returns {Number} Date converted to a number
+ * @param {(Date|string)} date - Date (type date or string) to be formatted
+ * @returns {number} Date converted to a number
  */
 export function dateToInt(date) {
 	return (!isEmpty(date)) ? Number(moment.utc(date)) : 0;

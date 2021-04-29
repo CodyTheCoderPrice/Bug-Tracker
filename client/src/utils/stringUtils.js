@@ -3,8 +3,8 @@
  * Removes all non-digits from a string, and then returns it as a number. If 
  * string does not have any digits, then the number 0 is returned.
  * 
- * @param {String} str - Any string
- * @returns {Number} String parameter with all non-digits removed and converted
+ * @param {string} str - Any string
+ * @returns {number} String parameter with all non-digits removed and converted
  * to a number
  */
 export function stripNonDigits(str) {
@@ -14,7 +14,7 @@ export function stripNonDigits(str) {
 /**
  * Capitalizes the first letter of each word inside a string, then returns it
  * 
- * @param {String} str - Any string 
+ * @param {string} str - Any string 
  * @returns String parameter with the first letter of each word capitalized
  */
 export function capitalizeFistLetterOfEachWord(str) {

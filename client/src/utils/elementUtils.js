@@ -11,7 +11,7 @@ import {
  * message is returned.
  * 
  * @param {Any} value - value to be returned if it is not empty
- * @param {String} message - message to be returned if value is empty
+ * @param {string} message - message to be returned if value is empty
  * @returns {Any} Returns the value if it is not empty. Otherwise returns the
  * message.
  */
@@ -28,9 +28,9 @@ export function getMessageIfValueIsEmpty(value, message) {
  * message is returned in JSX span to be displayed as grayed out.
  * 
  * @param {Any} value - value to be returned if it is not empty
- * @param {String} message - message to be returned (if value is empty) in JSX
+ * @param {string} message - message to be returned (if value is empty) in JSX
  * span to be displayed as grayed out
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {Any} Returns the value if it is not empty. Otherwise returns the
  * message in JSX span to be displayed as grayed out.
  */

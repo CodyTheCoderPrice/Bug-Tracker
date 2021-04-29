@@ -10,10 +10,10 @@ import { useState, useEffect } from "react";
  * @param {JSON} itemInfoState - State variable from the itemInfo useState
  * @param {Function} setItemInfoFunction - Setter function variable from the
  * itemInfo useState
- * @param {String} completionDateUniqueClassName - Unique className assigned to
+ * @param {string} completionDateUniqueClassName - Unique className assigned to
  * the input date element for completion date
  * @param {JSON} passedReduxState - Current redux state from useSelector
- * @param {String} reduxContainerName - Redux container of which
+ * @param {string} reduxContainerName - Redux container of which
  * priorityStatusOptions to use (either props.reduxContainerName,
  * PROJECT_CONTAINER, or BUG_CONTAINER)
  */

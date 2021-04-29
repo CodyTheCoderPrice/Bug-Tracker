@@ -20,11 +20,11 @@ import {
  * components should be displayed in the app
  *
  * @param {{
- * 	register: (Boolean|undefined),
- * 	login: (Boolean|undefined),
- * 	home: (Boolean|undefined),
- * 	itemViewListSidebar: (Boolean|undefined),
- * 	itemViewListSidebarUserSet: (Boolean|undefined)}} displays - JSON
+ * 	register: (boolean|undefined),
+ * 	login: (boolean|undefined),
+ * 	home: (boolean|undefined),
+ * 	itemViewListSidebar: (boolean|undefined),
+ * 	itemViewListSidebarUserSet: (boolean|undefined)}} displays - JSON
  * containing info for how general components should be displyed in the app.
  * Any general components set to undefined or excluded from this param will be
  * set to their default value.
@@ -51,11 +51,11 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * dropdowns should be displayed in the app
  *
  * @param {{
- * 	navbarHamburherDropdown: (Boolean|undefined),
- * 	listViewSearchFilterSearchBarFilterDropdown: (Boolean|undefined),
- * 	itemViewTopBarSortDropdown: (Boolean|undefined),
- * 	itemViewTopBarFilterDropdown: (Boolean|undefined),
- * 	itemViewTopBarOptionsDropdown: (Boolean|undefined)}} displays - JSON
+ * 	navbarHamburherDropdown: (boolean|undefined),
+ * 	listViewSearchFilterSearchBarFilterDropdown: (boolean|undefined),
+ * 	itemViewTopBarSortDropdown: (boolean|undefined),
+ * 	itemViewTopBarFilterDropdown: (boolean|undefined),
+ * 	itemViewTopBarOptionsDropdown: (boolean|undefined)}} displays - JSON
  * containing info for how general dropdowns should be displyed in the app. Any
  * general dropdowns set to undefined or excluded from this param will be set
  * to their default value.
@@ -84,12 +84,12 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * components should be displayed in the app
  *
  * @param {{
- * 	accountSidebar: (Boolean|undefined),
- * 	accountModalChangeInfo: (Boolean|undefined),
- * 	accountModalChangeEmail: (Boolean|undefined),
- * 	accountModalChangePassword: (Boolean|undefined),
- * 	accountModalDeleteAccount: (Boolean|undefined),
- * 	accountModalChangeSettings: (Boolean|undefined)}} displays - JSON
+ * 	accountSidebar: (boolean|undefined),
+ * 	accountModalChangeInfo: (boolean|undefined),
+ * 	accountModalChangeEmail: (boolean|undefined),
+ * 	accountModalChangePassword: (boolean|undefined),
+ * 	accountModalDeleteAccount: (boolean|undefined),
+ * 	accountModalChangeSettings: (boolean|undefined)}} displays - JSON
  * containing info for how account components should be displyed in the app.
  * Any account components set to undefined or excluded from this param will be
  * set to their default value.
@@ -116,27 +116,27 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
  * components should be displayed in the app
  *
  * @param {{
- * 	listView: (Boolean|undefined),
- * 	listViewDeleteModal: (Boolean|undefined),
- * 	listViewCreateItemSidbar: (Boolean|undefined),
- * 	itemView: (Boolean|undefined),
- * 	itemView: (Boolean|undefined),
- * 	itemViewEditItemInfo: (Boolean|undefined),
- * 	itemViewDeleteModal: (Boolean|undefined),
+ * 	listView: (boolean|undefined),
+ * 	listViewDeleteModal: (boolean|undefined),
+ * 	listViewCreateItemSidbar: (boolean|undefined),
+ * 	itemView: (boolean|undefined),
+ * 	itemView: (boolean|undefined),
+ * 	itemViewEditItemInfo: (boolean|undefined),
+ * 	itemViewDeleteModal: (boolean|undefined),
  * 	itemViewCurrentItem: ({
- * 		account_id: Number,
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		status_option: String,
- * 		last_edited_timestamp: String
+ * 		account_id: number,
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		status_option: string,
+ * 		last_edited_timestamp: string
  * 	}|null|undefined)
  * }} displays - JSON containing info for how project components should be
  * displyed in the app. Any project components set to undefined or excluded
@@ -164,28 +164,28 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * components should be displayed in the app
  *
  * @param {{
- * 	listView: (Boolean|undefined),
- * 	listViewDeleteModal: (Boolean|undefined),
- * 	listViewCreateItemSidbar: (Boolean|undefined),
- * 	itemView: (Boolean|undefined),
- * 	itemView: (Boolean|undefined),
- * 	itemViewEditItemInfo: (Boolean|undefined),
- * 	itemViewDeleteModal: (Boolean|undefined),
+ * 	listView: (boolean|undefined),
+ * 	listViewDeleteModal: (boolean|undefined),
+ * 	listViewCreateItemSidbar: (boolean|undefined),
+ * 	itemView: (boolean|undefined),
+ * 	itemView: (boolean|undefined),
+ * 	itemViewEditItemInfo: (boolean|undefined),
+ * 	itemViewDeleteModal: (boolean|undefined),
  * 	itemViewCurrentItem: ({
- * 		account_id: Number,
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		location: String,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		status_option: String,
- * 		last_edited_timestamp: String
+ * 		account_id: number,
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		location: string,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		status_option: string,
+ * 		last_edited_timestamp: string
  * 	}|null|undefined)
  * }} displays - JSON containing info for how bug components should be displyed
  * in the app. Any bug components set to undefined or excluded from this param 
@@ -213,22 +213,22 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * components should be displayed in the app
  *
  * @param {{
- * 	commentDeleteModal: (Boolean|undefined),
+ * 	commentDeleteModal: (boolean|undefined),
  * 	commentToBeDeleted: ({
- * 		bug_id: Number,
- * 		id: Number,
- * 		description: String,
- * 		location: String,
- * 		creation_date: String,
- * 		last_edited_timestamp: String,
+ * 		bug_id: number,
+ * 		id: number,
+ * 		description: string,
+ * 		location: string,
+ * 		creation_date: string,
+ * 		last_edited_timestamp: string,
  * 	}|null|undefined),
  * 	commentToBeDeleted: ({
- * 		bug_id: Number,
- * 		id: Number,
- * 		description: String,
- * 		location: String,
- * 		creation_date: String,
- * 		last_edited_timestamp: String,
+ * 		bug_id: number,
+ * 		id: number,
+ * 		description: string,
+ * 		location: string,
+ * 		creation_date: string,
+ * 		last_edited_timestamp: string,
  * 	}|null|undefined)
  * }} displays - JSON containing info for how comment components should be 
  * displyed in the app. Any comment components set to undefined or excluded 

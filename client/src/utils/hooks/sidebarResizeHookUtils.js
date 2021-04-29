@@ -10,7 +10,7 @@ import { getElementStyle, stripNonDigits } from "../index";
  * available verticle space between the bottom of the Navbar and window
  * 
  * @param {JSON} passedReduxState - Current redux state from useSelector
- * @param {String} sidebarContainerClassName - Unique className assigned to the
+ * @param {string} sidebarContainerClassName - Unique className assigned to the
  * sidebar-container element
  */
 export function useSidebarResize(passedReduxState, sidebarContainerClassName) {

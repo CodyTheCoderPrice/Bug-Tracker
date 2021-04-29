@@ -33,15 +33,15 @@ export const setBugs = (list) => (dispatch) => {
  * listViewCreateItemSidbar
  *
  * @param {{
- * 		project_id: Number,
- * 		name: String,
- * 		description: String,
- * 		location: String,
- * 		priority_id: Number,
- * 		status_id: Number,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
+ * 		project_id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		location: string,
+ * 		priority_id: number,
+ * 		status_id: number,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
  * }} bugInfo - JSON containing the info to create a new bug
  * @param {{
  * listView: boolean,
@@ -51,20 +51,20 @@ export const setBugs = (list) => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		project_id: Number,
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		location: String,
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		status_option: String,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
- * 		last_edited_timestamp: String,
+ * 		project_id: number,
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		location: string,
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		status_option: string,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
+ * 		last_edited_timestamp: string,
  * 	}|null),
  * }} bugComponentsDisplay - JSON from redux state containing which bug 
  * components are currently being displayed
@@ -150,17 +150,17 @@ export const retrieveBugs = () => (dispatch) => {
  * itemViewEditItemInfo
  *
  * @param {{
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		location: String,
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		location: string,
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
  * }} bugInfo - JSON containing the info to update a bug
  * @param {{
  * listView: boolean,
@@ -170,20 +170,20 @@ export const retrieveBugs = () => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		project_id: Number,
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		location: String,
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		status_option: String,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
- * 		last_edited_timestamp: String,
+ * 		project_id: number,
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		location: string,
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		status_option: string,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
+ * 		last_edited_timestamp: string,
  * 	}|null),
  * }} bugComponentsDisplay - JSON from redux state containing which bug 
  * components are currently being displayed
@@ -259,11 +259,11 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * itemViewDeleteModal
  *
  * @param {{ 
- * id: Number, 
- * project_id: Number
+ * id: number, 
+ * project_id: number
  * }} idJson - JSON containing the id of the bug to be deletedand the id of the
  * project it belongs to
- * @param {Number[]} massDeleteList - array of ids for bugs to be mass deleted 
+ * @param {number[]} massDeleteList - array of ids for bugs to be mass deleted 
  * (needed since if massDeleteList contains the to be deleted project, it will 
  * need to be updated)
  * 
@@ -316,7 +316,7 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
  * in the redux state, empty the massDeleteList in the bug container of the
  * redux state, and close the itemViewDeleteModal
  *
- * @param {Number[]} massDeleteList - array of ids for bugs to be mass deleted
+ * @param {number[]} massDeleteList - array of ids for bugs to be mass deleted
  * @param {{
  * listView: boolean,
  * listViewDeleteModal: boolean,
@@ -325,21 +325,21 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		account_id: (Number|undefined),
- * 		project_id: (Number|undefined),
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		location: (String|undefined),
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		status_option: String,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
- * 		last_edited_timestamp: String,
+ * 		account_id: (number|undefined),
+ * 		project_id: (number|undefined),
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		location: (string|undefined),
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		status_option: string,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
+ * 		last_edited_timestamp: string,
  * 	}|null),
  * }} bugComponentsDisplay - JSON from redux state containing which bug 
  * components are currently being displayed (may need updating if a deleted 

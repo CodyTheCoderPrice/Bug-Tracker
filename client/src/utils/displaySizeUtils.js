@@ -62,7 +62,7 @@ export function getElementStyle(element) {
 /**
  * Get the width of the scroll bar
  *
- * @returns {Number} Width of the scroll bar
+ * @returns {number} Width of the scroll bar
  */
 export function getScrollbarWidth() {
 	const outerElement = document.createElement("div");
@@ -87,7 +87,7 @@ export function getScrollbarWidth() {
  * Get the base font size of NavbarBreadcrumb breadcrumb-text element (what's
  * set in breadcrumb.scss file)
  *
- * @returns {Number} Base fonst size of NavbarBreadcrumb breadcrumb-text
+ * @returns {number} Base fonst size of NavbarBreadcrumb breadcrumb-text
  * element
  */
 export function getBreadcrumbBaseFontSize() {
@@ -127,7 +127,7 @@ export function getBreadcrumbBaseFontSize() {
 /**
  * Get width of NavbarBreadcrumb breadcrumb-button-arrow element
  *
- * @returns {Number} Width of NavbarBreadcrumb breadcrumb-button-arrow element
+ * @returns {number} Width of NavbarBreadcrumb breadcrumb-button-arrow element
  */
 export function getBreadcrumbButtonArrowWidth() {
 	// Creating temporary stand-in breadcrumb-container element to later append
@@ -164,7 +164,7 @@ export function getBreadcrumbButtonArrowWidth() {
  * Get critical styles (left positions and base font size) from NavbarHamburger
  * hamburger-button-container and hamburger-title elements
  *
- * @returns {Number} Critical styles (left positions and base font size) from
+ * @returns {number} Critical styles (left positions and base font size) from
  * NavbarHamburger hamburger-button-container and hamburger-title elements
  */
 export function getCriticalHamburgerStyles() {
@@ -221,7 +221,7 @@ export function getCriticalHamburgerStyles() {
  * Get height (size not style) of ListViewTopBar list-view-top-bar-component
  * element
  *
- * @returns {Number} Height of ListViewTopBar list-view-top-bar-component
+ * @returns {number} Height of ListViewTopBar list-view-top-bar-component
  * element
  */
 export function getListViewTopBarHeight() {
@@ -245,7 +245,7 @@ export function getListViewTopBarHeight() {
 /**
  * Get height (size not style) of ListViewTable list-table__row element
  *
- * @returns {Number} Height of ListViewTable list-table__row element
+ * @returns {number} Height of ListViewTable list-table__row element
  */
 export function getListViewTableRowHeight() {
 	// Creating temporary stand-in list-table-component element to later append
@@ -279,7 +279,7 @@ export function getListViewTableRowHeight() {
  * Get height (size not style) of ItemViewTopBar item-view-top-bar-component
  * element
  *
- * @returns {Number} Height of ItemViewTopBar item-view-top-bar-component
+ * @returns {number} Height of ItemViewTopBar item-view-top-bar-component
  * element
  */
 export function getItemViewTopBarHeight() {
@@ -304,7 +304,7 @@ export function getItemViewTopBarHeight() {
  * Get width (size not style) of ItemViewListSidebar list-sidebar-component
  * element
  *
- * @returns {Number} Width of ItemViewListSidebar list-sidebar-component
+ * @returns {number} Width of ItemViewListSidebar list-sidebar-component
  * element
  */
 export function getItemViewListSidebarWidth() {
@@ -330,7 +330,7 @@ export function getItemViewListSidebarWidth() {
 /**
  * Get minWidth of ItemView outer-dividing-container
  *
- * @returns {Number} Height of ItemView outer-dividing-container
+ * @returns {number} Height of ItemView outer-dividing-container
  */
 export function getItemViewOuterDividingContainerMinWidth() {
 	// Creating temporary stand-in item-view-component element to later append
@@ -368,7 +368,7 @@ export function getItemViewOuterDividingContainerMinWidth() {
 /**
  * Get padding of ItemView padding-container
  *
- * @returns {Number} Height of ItemView padding-container
+ * @returns {number} Height of ItemView padding-container
  */
 export function getItemViewPaddingContainerPadding() {
 	// Creating temporary stand-in item-view-component element to later append
@@ -409,10 +409,10 @@ export function getItemViewPaddingContainerPadding() {
  *
  * @param {Element} pairContainerElement - pair-container element that contains 
  * two item-box elements
- * @param {Number} outerDivingContainerMinWidth - minWidth for 
+ * @param {number} outerDivingContainerMinWidth - minWidth for 
  * outer-dividing-container elements that contains item-box elements (pair-contain -> 
  * outer-dividing-container -> item-box)
- * @param {String} toggledClassNameForOuterDividingContainerHalfWidth - 
+ * @param {string} toggledClassNameForOuterDividingContainerHalfWidth - 
  * className that gives an outer-dividing-container element half width
  */
 export function manageSizeOfItemBoxsInPairContainer(

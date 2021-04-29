@@ -64,7 +64,7 @@ export const setDisplaySizeVariablesWindowAndNavbar = (sizes) => (dispatch) => {
  * changes. The font size is used to know when the switch to the hamburger menu
  * (i.e. when breadcrumb button text element's font size gets to be too small)
  *
- * @param {Number} fontSize - Number of current font size of the breadcrumb menu
+ * @param {number} fontSize - Number of current font size of the breadcrumb menu
  * button text elements
  */
 export const setDisplaySizeVariablesBreadcrumbFontSize = (fontSize) => (

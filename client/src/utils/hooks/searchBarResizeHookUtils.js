@@ -11,19 +11,19 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
  * button
  *
  * @param {JSON} passedReduxState - Current redux state from useSelector
- * @param {String} searchBarAndButtonCenteringContainerClassName - Unique
+ * @param {string} searchBarAndButtonCenteringContainerClassName - Unique
  * className assigned to the element used for centering the element (next
  * parameter) that contains both search-bar and search-button elements
- * @param {String} centeredSearchBarAndButtonContainerClassName - Unique
+ * @param {string} centeredSearchBarAndButtonContainerClassName - Unique
  * className assigned to the element that contains both search-bar and
  * search-button elements (following 2 parameters)
- * @param {String} searchBarClassName - Unique className assigned to the
+ * @param {string} searchBarClassName - Unique className assigned to the
  * search-bar element
- * @param {String} searchButtonClassName - Unique className assigned to the
+ * @param {string} searchButtonClassName - Unique className assigned to the
  * search-button element
- * @param {String} newItemButtonContainerClassName - Unique className assigned
+ * @param {string} newItemButtonContainerClassName - Unique className assigned
  * to the element used for centering the new-item-button element
- * @param {String} filterAreaContainerClassName - Unique className assigned
+ * @param {string} filterAreaContainerClassName - Unique className assigned
  * to the element used for positioning the filter-button and filter-dropdown
  * elements
  */

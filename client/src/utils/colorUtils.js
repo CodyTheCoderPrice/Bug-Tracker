@@ -3,8 +3,8 @@ import { getElementStyle } from "./index";
 /**
  * Converts r, b, or g of a rbg color value to a hex section.
  *
- * @param {Number} rbgSection - either r, b, or g for rbg value
- * @returns {String} The rbgSection converted into a hex section
+ * @param {number} rbgSection - either r, b, or g for rbg value
+ * @returns {string} The rbgSection converted into a hex section
  */
 function rbgSectionToHex(rbgSection) {
 	// converts to hex
@@ -17,10 +17,10 @@ function rbgSectionToHex(rbgSection) {
  * Takes r, b, and g of rbg color value to convert to the equivalent hex color
  * value
  *
- * @param {Number} r - Red value for rbg color value
- * @param {Number} g - Green value for rbg color value
- * @param {Number} b - Blue value for rbg color value
- * @returns {String} The equivalent hex color value of a rbg color value
+ * @param {number} r - Red value for rbg color value
+ * @param {number} g - Green value for rbg color value
+ * @param {number} b - Blue value for rbg color value
+ * @returns {string} The equivalent hex color value of a rbg color value
  */
 function rgbToHex(r, g, b) {
 	return "#" + rbgSectionToHex(r) + rbgSectionToHex(g) + rbgSectionToHex(b);
@@ -30,8 +30,8 @@ function rgbToHex(r, g, b) {
  * Takes in the rbg color value as a string and returns equivalent hex color
  * value as a string
  *
- * @param {String} rbgColorValue - rbg color value
- * @returns {String} Equivalent hex color value of rbg color value
+ * @param {string} rbgColorValue - rbg color value
+ * @returns {string} Equivalent hex color value of rbg color value
  */
 function convertRbgColorStringToHexString(rbgColorValue) {
 	// Seperates the r, b, and g sections into an array
@@ -95,8 +95,8 @@ export function appendHexValueForColorsToStatusList(statusList) {
  * Get light/dark mode className for the entire app's primary base background
  * and text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for the entire app's primary
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for the entire app's primary
  * base background and text color
  */
 export function getBaseBackgroundAndTextColorClassNameForLightOrDarkMode(
@@ -108,8 +108,8 @@ export function getBaseBackgroundAndTextColorClassNameForLightOrDarkMode(
 /**
  * Get light/dark mode className for the entire app's secondary base text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for the entire app's secondary
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for the entire app's secondary
  * base text color
  */
 export function getBaseSecondaryTextColorClassNameForLightOrDarkMode(
@@ -121,8 +121,8 @@ export function getBaseSecondaryTextColorClassNameForLightOrDarkMode(
 /**
  * Get light/dark mode className for backend error element's text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className fbackend error element's text
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className fbackend error element's text
  * color
  */
 export function getBackendErrorsTextColorClassNameForLightOrDarkMode(
@@ -135,8 +135,8 @@ export function getBackendErrorsTextColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for char-count element's (when limit reached)
  * text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for char-count element's (when
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for char-count element's (when
  * limit reached) text color
  */
 export function getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
@@ -149,10 +149,10 @@ export function getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for blurred-background element's background
  * color and opacity
  *
- * @param {Boolean} clickToClose - Whether the blurred-background element will
+ * @param {boolean} clickToClose - Whether the blurred-background element will
  * close if clicked
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for blurred-background element's
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for blurred-background element's
  * background color and opacity
  */
 export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
@@ -172,8 +172,8 @@ export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOr
  * Get light/dark mode className for base icon-button element's text color with
  * hover
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for base icon-button element's
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for base icon-button element's
  * text color with hover
  */
 export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
@@ -188,8 +188,8 @@ export function getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
  * Get light/dark mode className for univseral-grayed-out-text element's text
  * color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for univseral-grayed-out-text
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for univseral-grayed-out-text
  * element's text color
  */
 export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
@@ -205,8 +205,8 @@ export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for base form-input element's border,
  * background, and text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for base form-input element's
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for base form-input element's
  * border, background, and text color
  */
 export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -222,8 +222,8 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDark
  * Get light/dark mode className for list header element's box shadow,
  * background, and text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for list header element's box
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for list header element's box
  * shadow, background, and text color
  */
 export function getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
@@ -237,8 +237,8 @@ export function getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkM
 /**
  * Get light/dark mode className for list row element's border and text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for list row element's border
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for list row element's border
  * and text color
  */
 export function getListRowBorderAndTextColorClassNameForLightOrDarkMode(
@@ -250,8 +250,8 @@ export function getListRowBorderAndTextColorClassNameForLightOrDarkMode(
 /**
  * Get light/dark mode className for list row element's hover background color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for list row element's hover
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for list row element's hover
  * background color
  */
 export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
@@ -264,8 +264,8 @@ export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for list row element's selected background
  * color (i.e when item for the row is the target item)
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for list row element's selected
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for list row element's selected
  * background color
  */
 export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
@@ -278,8 +278,8 @@ export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for NavbarHamburger dropdown element's border,
  * background (with hover and selected), and text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for NavbarHamburger dropdown
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for NavbarHamburger dropdown
  * element's border, background (with hover and selected), and text color
  */
 export function getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -295,8 +295,8 @@ export function getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForL
  * Get light/dark mode className for AccountSidebar and AccountModal element's
  * background color (both components have same background color css)
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for AccountSidebar and
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for AccountSidebar and
  * AccountModal element's background color
  */
 export function getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode(
@@ -311,8 +311,8 @@ export function getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkM
  * Get light/dark mode className for AccountSidebar horizontal-dividing-line
  * element's border color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for AccountSidebar
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for AccountSidebar
  * horizontal-dividing-line element's border color
  */
 export function getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode(
@@ -328,8 +328,8 @@ export function getAccountSidebarHorizontalDividingLineBorderColorClassNameForLi
  * Get light/dark mode className for AccountSidebar logout-button element's
  * border and hover background color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for AccountSidebar logout-button
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for AccountSidebar logout-button
  * element's border and hover background color
  */
 export function getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassNameForLightOrDarkMode(
@@ -345,8 +345,8 @@ export function getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassName
  * Get light/dark mode className for AccountModalDeleteAccount capital-delete
  * element's text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for AccountModalDeleteAccount
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for AccountModalDeleteAccount
  * capital-delete element's text color
  */
 export function getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLightOrDarkMode(
@@ -362,8 +362,8 @@ export function getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLi
  * Get light/dark mode className for AccountModalDeleteAccount form-input
  * element's focus background color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for AccountModalDeleteAccount
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for AccountModalDeleteAccount
  * form-input element's focus background color
  */
 export function getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode(
@@ -379,8 +379,8 @@ export function getAccountModalDeleteAccountFormInputFocusBorderColorClassNameFo
  * Get light/dark mode className for AccountModalDeleteAccount
  * form-submit-button element's background (with hover) color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for AccountModalDeleteAccount
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for AccountModalDeleteAccount
  * form-submit-button element's background (with hover) color
  */
 export function getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode(
@@ -396,8 +396,8 @@ export function getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClass
  * Get light/dark mode className for AccountModalChangeSettings
  * category-container element's border, background, text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for AccountModalChangeSettings
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for AccountModalChangeSettings
  * category-container element's border, background, text color
  */
 export function getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -414,8 +414,8 @@ export function getAccountModalChangeSettingsCategoryContainerBorderBackgroundTe
  * element's border and background color (both components have same css for
  * border and background color)
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ListViewTopBar and
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ListViewTopBar and
  * ItemViewTopBar element's border and background color
  */
 export function getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
@@ -429,8 +429,8 @@ export function getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
  * element's border, background, and text color (both components have same
  * button css for border, background, and text color)
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ListViewTopBar and
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ListViewTopBar and
  * ItemViewTopBar button element's border, background, and text color
  */
 export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -444,8 +444,8 @@ export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkM
 /**
  * Get light/dark mode className for CreateItemSidebar element's background color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for CreateItemSidebar element's
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for CreateItemSidebar element's
  * background color
  */
 export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
@@ -458,8 +458,8 @@ export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for CreateItemSidebar form-label element's
  * disabled text color with no pointer events
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for CreateItemSidebar form-label
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for CreateItemSidebar form-label
  * element's disabled text color with no pointer events
  */
 export function getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
@@ -472,8 +472,8 @@ export function getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
  * Get light/dark mode className for CreateItemSidebar form-input-date
  * element's disabled background and text color with no pointer events
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for CreateItemSidebar
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for CreateItemSidebar
  * form-input-date element's disabled background and text color with no pointer
  * events
  */
@@ -488,8 +488,8 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 /**
  * Get light/dark mode className for DeleteModal element's background color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for DeleteModal element's
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for DeleteModal element's
  * background color
  */
 export function getDeleteModalBackgroundColorClassNameForLightOrDarkMode(
@@ -502,8 +502,8 @@ export function getDeleteModalBackgroundColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for DeleteModal delete-button element's
  * background (with hover) color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for DeleteModal delete-button
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for DeleteModal delete-button
  * element's background (with hover) color
  */
 export function getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDarkMode(
@@ -518,8 +518,8 @@ export function getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDark
  * Get light/dark mode className for DeleteModal cancel-button element's
  * border, background (with hover), text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for DeleteModal cancel-button
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for DeleteModal cancel-button
  * element's border, background (with hover), text color
  */
 export function getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -535,8 +535,8 @@ export function getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForL
  * Get light/dark mode className for DeleteModal warning-trapazoid element's
  * border color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for DeleteModal
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for DeleteModal
  * warning-trapazoid element's border color
  */
 export function getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode(
@@ -549,8 +549,8 @@ export function getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for ListView empty-list-message element's text
  * color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ListView empty-list-message
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ListView empty-list-message
  * element's text color
  */
 export function getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode(
@@ -565,8 +565,8 @@ export function getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for ItemViewTopBar icon-button element's text
  * color with hover
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemViewTopBar icon-button
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewTopBar icon-button
  * element's text color with hover
  */
  export function getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
@@ -582,8 +582,8 @@ export function getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for ItemViewTopBar options-button element's
  * clicked (dropdown is active) border, background, and text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemViewTopBar
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewTopBar
  * options-button element's clicked border, background, and text color
  */
 export function getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -599,8 +599,8 @@ export function getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorCl
  * Get light/dark mode className for ItemViewTopBar options-dropdown-row
  * element's hover background color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemViewTopBar
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewTopBar
  * options-dropdown-row element's hover background color
  */
 export function getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
@@ -616,8 +616,8 @@ export function getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassName
  * Get light/dark mode className for ItemView item-box element's background
  * color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemView item-box element's
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemView item-box element's
  * background color
  */
 export function getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
@@ -629,8 +629,8 @@ export function getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
 /**
  * Get light/dark mode className for ItemViewListSidebar element's border color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemViewListSidebar
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewListSidebar
  * element's border color
  */
 export function getItemViewListSidebarBorderColorClassNameForLightOrDarkMode(
@@ -643,8 +643,8 @@ export function getItemViewListSidebarBorderColorClassNameForLightOrDarkMode(
  * Get light/dark mode className for ItemViewListSidebar expand-minimize-button
  * element's border, background (with hover), and text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemViewListSidebar
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewListSidebar
  * expand-minimize-button element's border, background (with hover), and text
  * color
  */
@@ -661,8 +661,8 @@ export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundCol
  * Get light/dark mode className for ItemView form-input element's border,
  * background, and text color
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemView form-input
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemView form-input
  * element's border, background, and text color
  */
 export function getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -678,8 +678,8 @@ export function getItemViewFormInputBorderBackgroundTextColorClassNameForLightOr
  * Get light/dark mode className for ItemViewEditItemInfo form-label element's
  * disabled text color with no pointer events
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemViewEditItemInfo
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewEditItemInfo
  * form-label element's disabled text color with no pointer events
  */
 export function getItemViewDisabledLabelClassNameForLightOrDarkMode(dark_mode) {
@@ -690,8 +690,8 @@ export function getItemViewDisabledLabelClassNameForLightOrDarkMode(dark_mode) {
  * Get light/dark mode className for ItemViewEditItemInfo form-input-date
  * element's disabled background and text color with no pointer events
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemViewEditItemInfo
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewEditItemInfo
  * form-input-date element's disabled background and text color with no pointer
  * events
  */
@@ -707,8 +707,8 @@ export function getItemViewDisableInputDateClassNameForLightOrDarkMode(
  * color with hover (both components have same form-cancel-button css for
  * background color with hover)
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for ItemViewEditItemInfo and
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewEditItemInfo and
  * ItemViewCommentBoxIndividualComment form-cancel-button element's background
  * color with hover
  */
@@ -725,8 +725,8 @@ export function getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDar
  * Get light/dark mode className for ItemViewCommentBoxIndividualComment
  * icon-button element's text color with hover
  *
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {String} Light/dark mode className for
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for
  * ItemViewCommentBoxIndividualComment icon-button element's text color with
  * hover
  */
@@ -745,8 +745,8 @@ export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNa
 /**
  * Get brighter theme className for border color 
  * 
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Brighter theme className for border color 
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Brighter theme className for border color 
  */
 export function getBrighterBorderColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-border-color-theme-" + theme_color;
@@ -754,8 +754,8 @@ export function getBrighterBorderColorClassNameForTheme(theme_color) {
 /**
  * Get base theme className for border color 
  * 
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Base theme className for border color 
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Base theme className for border color 
  */
 export function getBaseBorderColorClassNameForTheme(theme_color) {
 	return " js-set-base-border-color-theme-" + theme_color;
@@ -765,8 +765,8 @@ export function getBaseBorderColorClassNameForTheme(theme_color) {
 /**
  * Get brighter theme className for background color 
  * 
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Brighter theme className for background color 
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Brighter theme className for background color 
  */
 export function getBrighterBackgroundColorClassNameForTheme(theme_color) {
 	return " js-set-brighter-background-color-theme-" + theme_color;
@@ -774,8 +774,8 @@ export function getBrighterBackgroundColorClassNameForTheme(theme_color) {
 /**
  * Get base theme className for background color 
  * 
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Base theme className for background color 
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Base theme className for background color 
  */
 export function getBaseBackgroundColorClassNameForTheme(theme_color) {
 	return " js-set-base-background-color-theme-" + theme_color;
@@ -786,8 +786,8 @@ export function getBaseBackgroundColorClassNameForTheme(theme_color) {
  * Get theme className for background color with hover (background color is
  * brighter theme, while hover background color is base theme)
  * 
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme className for background color with hover
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme className for background color with hover
  */
 export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
 	return " js-set-background-color-with-hover-theme-" + theme_color;
@@ -799,8 +799,8 @@ export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
  * color (since the arrow is made entirely of a border, this changes the entire
  * color of the arrow)
  * 
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Brighter theme className for NavbarBreadcrumb arrow
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Brighter theme className for NavbarBreadcrumb arrow
  * element's border color
  */
 export function getBrighterBreadcrumbArrowColorClassNameForTheme(theme_color) {
@@ -811,8 +811,8 @@ export function getBrighterBreadcrumbArrowColorClassNameForTheme(theme_color) {
  * (since the arrow is made entirely of a border, this changes the entire color
  * of the arrow)
  * 
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Base theme className for NavbarBreadcrumb arrow element's
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Base theme className for NavbarBreadcrumb arrow element's
  * border color
  */
 export function getBaseBreadcrumbArrowColorClassNameForTheme(theme_color) {
@@ -825,8 +825,8 @@ export function getBaseBreadcrumbArrowColorClassNameForTheme(theme_color) {
  * hover and focus (background color is brighter theme, while hover/focus
  * background color is base theme)
  * 
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme className for form-submit-button element's
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme className for form-submit-button element's
  * background color with hover and focus
  */
 export function getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(theme_color) {
@@ -841,9 +841,9 @@ export function getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(theme
  * Get theme with light/dark mode className for ToggleSwitch element's border,
  * background, and text color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for ToggleSwitch
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for ToggleSwitch
  * element's border, background, amd text color
  */
 export function getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -862,9 +862,9 @@ export function getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLig
  * Get theme with light/dark mode className for ListViewTopBar new-item-button
  * (during tutorial) element's border color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for ListViewTopBar
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for ListViewTopBar
  * new-item-button (during tutorial) element's border color
  */
 export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode(
@@ -883,9 +883,9 @@ export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLi
  * Get theme with light/dark mode className for ListViewTopBar
  * new-item-tutorial element's border, arrow, and text color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for ListViewTopBar
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for ListViewTopBar
  * new-item-tutorial element's border, arrow, and text color
  */
 export function getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -904,9 +904,9 @@ export function getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThe
  * Get theme with light/dark mode className for form-input element's focus
  * border color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for form-input 
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for form-input 
  * element's focus border color
  */
 export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
@@ -924,9 +924,9 @@ export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
  * Get theme with light/dark mode className for the entire app's theme based
  * text color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for the entire app's 
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for the entire app's 
  * theme based text color
  */
 export function getTextColorClassNameForThemeWithLightOrDarkMode(
@@ -944,9 +944,9 @@ export function getTextColorClassNameForThemeWithLightOrDarkMode(
  * Get theme with light/dark mode className for CustomCheckbox element's 
  * border, background, text color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for CustomCheckbox 
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for CustomCheckbox 
  * element's border, background, text color
  */
 export function getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -965,9 +965,9 @@ export function getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithL
  * Get theme with light/dark mode className for ListViewTopBar and
  * ItemViewTopBar search-bar element's border, background, and text color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for ListViewTopBar 
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for ListViewTopBar 
  * and ItemViewTopBar search-bar element's border, background, and text color
  */
 export function getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -986,9 +986,9 @@ export function getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWith
  * Get theme with light/dark mode className for base form-input element's 
  * border (with focus), background, and text color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for base form-input 
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for base form-input 
  * element's border (with focus), background, and text color
  */
 export function getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -1010,9 +1010,9 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLi
  * Get theme with light/dark mode className for ItemView form-input element's 
  * border (with focus), background, and text color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for ItemView 
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for ItemView 
  * form-input element's border (with focus), background, and text color
  */
 export function getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -1034,9 +1034,9 @@ export function getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWi
  * Get theme with light/dark mode className for ItemViewEditItemInfo form-input 
  * (for name) element's border (with focus), background, and text color
  * 
- * @param {Boolean} dark_mode - Whether the app is in dark mode or not
- * @param {String} theme_color - The current theme the app is set to use
- * @returns {String} Theme with light/dark mode className for 
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {string} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for 
  * ItemViewEditItemInfo form-input (for name) element's border (with focus), 
  * background, and text color
  */

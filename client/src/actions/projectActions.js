@@ -34,13 +34,13 @@ export const setProjects = (list) => (dispatch) => {
  * state, and close the listViewCreateItemSidbar
  *
  * @param {{
- * 		name: String,
- * 		description: String,
- * 		priority_id: Number,
- * 		status_id: Number,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
+ * 		name: string,
+ * 		description: string,
+ * 		priority_id: number,
+ * 		status_id: number,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
  * }} projectInfo - JSON containing the info to create a new project
  * @param {{
  * listView: boolean,
@@ -50,19 +50,19 @@ export const setProjects = (list) => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		account_id: Number,
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		status_option: String,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
- * 		last_edited_timestamp: String,
+ * 		account_id: number,
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		status_option: string,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
+ * 		last_edited_timestamp: string,
  * 	}|null),
  * }} projectComponentsDisplay - JSON from redux state containing which project
  * components are currently being displayed
@@ -148,16 +148,16 @@ export const retrieveProjects = () => (dispatch) => {
  * close the itemViewEditItemInfo
  *
  * @param {{
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
  * }} projectInfo - JSON containing the info to update a project
  * @param {{
  * listView: boolean,
@@ -167,19 +167,19 @@ export const retrieveProjects = () => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		account_id: Number,
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		status_option: String,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
- * 		last_edited_timestamp: String,
+ * 		account_id: number,
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		status_option: string,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
+ * 		last_edited_timestamp: string,
  * 	}|null),
  * }} projectComponentsDisplay - JSON from redux state containing which project
  * components are currently being displayed
@@ -255,8 +255,8 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
  * updated projects, bugs, and comments list in their corresponding containers 
  * in the redux state, and close the itemViewDeleteModal
  *
- * @param {Number} projectId - JSON containing the id of the project to be deleted
- * @param {Number[]} massDeleteList - array of ids for projects to be mass
+ * @param {number} projectId - JSON containing the id of the project to be deleted
+ * @param {number[]} massDeleteList - array of ids for projects to be mass
  * deleted (needed since if massDeleteList contains the to be deleted project,
  * it will need to be updated)
  * 
@@ -315,7 +315,7 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
  * corresponding containers in the redux state, empty the massDeleteList in the
  * project container of the redux state, and close the itemViewDeleteModal
  *
- * @param {Number[]} massDeleteList  - array of ids for projects to be mass
+ * @param {number[]} massDeleteList  - array of ids for projects to be mass
  * deleted
  * @param {{
  * listView: boolean,
@@ -325,21 +325,21 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		account_id: (Number|undefined),
- * 		project_id: (Number|undefined),
- * 		id: Number,
- * 		name: String,
- * 		description: String,
- * 		location: (String|undefined),
- * 		priority_id: Number,
- * 		priority_option: String,
- * 		status_id: Number,
- * 		status_option: String,
- * 		creation_date: String,
- * 		start_date: (String|null),
- * 		due_date: (String|null),
- * 		completion_date: (String|null),
- * 		last_edited_timestamp: String,
+ * 		account_id: (number|undefined),
+ * 		project_id: (number|undefined),
+ * 		id: number,
+ * 		name: string,
+ * 		description: string,
+ * 		location: (string|undefined),
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		status_option: string,
+ * 		creation_date: string,
+ * 		start_date: (string|null),
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
+ * 		last_edited_timestamp: string,
  * 	}|null),
  * }} projectComponentsDisplay - JSON from redux state containing which project
  * components are currently being displayed (may need updating if a deleted 
