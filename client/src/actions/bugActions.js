@@ -32,9 +32,66 @@ export const setBugs = (list) => (dispatch) => {
  * updated bugs list in the bug container of the redux state, and close the
  * listViewCreateItemSidbar
  *
- * @param {JSON} bugInfo - JSON containing the info to create a new bug
- * @param {JSON} bugComponentsDisplay - JSON from redux state containing
- * which bug components are currently being displayed
+ * @param {{
+ * 		project_id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		location: String,
+ * 		priority_id: Number,
+ * 		status_id: Number,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * }} bugInfo - JSON containing the info to create a new bug
+ * @param {{
+ * listView: boolean,
+ * listViewDeleteModal: boolean,
+ * listViewCreateItemSidbar: boolean,
+ * itemView: boolean,
+ * itemViewEditItemInfo: boolean,
+ * itemViewDeleteModal: boolean,
+ * itemViewCurrentItem: ({
+ * 		project_id: Number,
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		location: String,
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		status_option: String,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * 		last_edited_timestamp: String,
+ * 	}|null),
+ * }} bugComponentsDisplay - JSON from redux state containing which bug 
+ * components are currently being displayed
+ * 
+ * @example
+ * // Creates bug
+ * dispatch(
+ * 	createBug({ 
+ * 		project_id: 372,
+ * 		name: "Cool bug", 
+ * 		description: "Cool description", 
+ * 		location: "Cool location", 
+ * 		priority_id: 2, 
+ * 		status_id: 2, 
+ * 		start_date: "2021-04-29", 
+ * 		due_date: "2021-05-12", 
+ * 		completion_date: ""
+ * 	}, {
+ * 		listView: true, 
+ * 		listViewDeleteModal: false, 
+ * 		listViewCreateItemSidbar: true, 
+ * 		itemView: false, 
+ * 		itemViewEditItemInfo: false,
+ * 		itemViewDeleteModal: false,
+ * 		itemViewCurrentItem: null
+ * 	})
+ * );
  */
 export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 	const header = createHeader();
@@ -92,9 +149,71 @@ export const retrieveBugs = () => (dispatch) => {
  * updated bugs list in the bug container of the redux state, and close the
  * itemViewEditItemInfo
  *
- * @param {JSON} bugInfo - JSON containing the info to update a bug
- * @param {JSON} bugComponentsDisplay - JSON from redux state containing
- * which bug components are currently being displayed
+ * @param {{
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		location: String,
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * }} bugInfo - JSON containing the info to update a bug
+ * @param {{
+ * listView: boolean,
+ * listViewDeleteModal: boolean,
+ * listViewCreateItemSidbar: boolean,
+ * itemView: boolean,
+ * itemViewEditItemInfo: boolean,
+ * itemViewDeleteModal: boolean,
+ * itemViewCurrentItem: ({
+ * 		project_id: Number,
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		location: String,
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		status_option: String,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * 		last_edited_timestamp: String,
+ * 	}|null),
+ * }} bugComponentsDisplay - JSON from redux state containing which bug 
+ * components are currently being displayed
+ * 
+ * @example
+ * // Updates bug
+ * dispatch(
+ * 	updateBug({
+ * 		id: 373
+ * 		name: "Cool bug updated",
+ * 		description: "Cool bug updated",
+ * 		location: "Cool location updated", 
+ * 		priority_id: 2, 
+ * 		priorityOption: "Low",
+ * 		status_id: 2,
+ * 		statusOption: "Open",
+ * 		creation_date: "04-29-2021",
+ * 		start_date: "2021-04-29",
+ * 		due_date: "2021-05-21",
+ * 		completion_date: ""
+ * 	}, {
+ * 		listView: true,
+ * 		listViewDeleteModal: false,
+ * 		listViewCreateItemSidbar: true,
+ * 		itemView: false,
+ * 		itemViewEditItemInfo: false,
+ * 		itemViewDeleteModal: false,
+ * 		itemViewCurrentItem: null
+ * 	})
+ * );
  */
 export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 	const header = createHeader();
@@ -135,11 +254,22 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * Calls /api/bug/delete route to delete a bug in the database, store the
  * updated bugs and comments list in their corresponding containers in the
  * redux state, update the massDeleteList (if it contained the deleted bug) in
- * the bug container of the redux state, and close the itemViewDeleteModal
+ * the bug container of the redux state, store the updated bugs and comments 
+ * list in their corresponding containers in the redux state, and close the
+ * itemViewDeleteModal
  *
- * @param {JSON} idJson - JSON containing the id of the bug to be deleted
- * and the id of the project it belongs to
- * @param {Number[]} massDeleteList - array of ids for bugs to be mass deleted
+ * @param {{ 
+ * id: Number, 
+ * project_id: Number
+ * }} idJson - JSON containing the id of the bug to be deletedand the id of the
+ * project it belongs to
+ * @param {Number[]} massDeleteList - array of ids for bugs to be mass deleted 
+ * (needed since if massDeleteList contains the to be deleted project, it will 
+ * need to be updated)
+ * 
+ * @example
+ * // Deletes bug and updates massDeleteList to no longer contain deleted bug
+ * dispatch(deleteBug({ id: 134, project_id: 341 }, [ 134, 96, 93 ]));
  */
 export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
 	const header = createHeader();
@@ -187,8 +317,48 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
  * redux state, and close the itemViewDeleteModal
  *
  * @param {Number[]} massDeleteList - array of ids for bugs to be mass deleted
- * @param {JSON} bugComponentsDisplay - JSON from redux state containing
- * which bug components are currently being displayed
+ * @param {{
+ * listView: boolean,
+ * listViewDeleteModal: boolean,
+ * listViewCreateItemSidbar: boolean,
+ * itemView: boolean,
+ * itemViewEditItemInfo: boolean,
+ * itemViewDeleteModal: boolean,
+ * itemViewCurrentItem: ({
+ * 		account_id: (Number|undefined),
+ * 		project_id: (Number|undefined),
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		location: (String|undefined),
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		status_option: String,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * 		last_edited_timestamp: String,
+ * 	}|null),
+ * }} bugComponentsDisplay - JSON from redux state containing which bug 
+ * components are currently being displayed (may need updating if a deleted 
+ * item is the itemViewCurrentItem)
+ * 
+ * @example
+ * // Deletes all bugs in massDeleteList
+ * dispatch(
+ * 	deleteMultipleBugs([ 93, 96, 133 ],
+ * 	{
+ * 		listView: true,
+ * 		listViewDeleteModal: false,
+ * 		listViewCreateItemSidbar: true,
+ * 		itemView: false,
+ * 		itemViewEditItemInfo: false,
+ * 		itemViewDeleteModal: false,
+ * 		itemViewCurrentItem: null
+ * 	})
+ * );
  */
 export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 	dispatch

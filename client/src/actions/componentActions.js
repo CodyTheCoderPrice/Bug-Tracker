@@ -136,7 +136,7 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
  * 		priority_option: String,
  * 		status_id: Number,
  * 		status_option: String,
- * 		last_edited_timestamp: Number
+ * 		last_edited_timestamp: String
  * 	}|null|undefined)
  * }} displays - JSON containing info for how project components should be
  * displyed in the app. Any project components set to undefined or excluded
@@ -185,7 +185,7 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * 		priority_option: String,
  * 		status_id: Number,
  * 		status_option: String,
- * 		last_edited_timestamp: Number
+ * 		last_edited_timestamp: String
  * 	}|null|undefined)
  * }} displays - JSON containing info for how bug components should be displyed
  * in the app. Any bug components set to undefined or excluded from this param 
@@ -220,7 +220,7 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * 		description: String,
  * 		location: String,
  * 		creation_date: String,
- * 		last_edited_timestamp: Number,
+ * 		last_edited_timestamp: String,
  * 	}|null|undefined),
  * 	commentToBeDeleted: ({
  * 		bug_id: Number,
@@ -228,7 +228,7 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * 		description: String,
  * 		location: String,
  * 		creation_date: String,
- * 		last_edited_timestamp: Number,
+ * 		last_edited_timestamp: String,
  * 	}|null|undefined)
  * }} displays - JSON containing info for how comment components should be 
  * displyed in the app. Any comment components set to undefined or excluded 

@@ -306,7 +306,17 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
  * the database, store the updated account info in the account container of the
  * redux state, and re-open to the accountSidebar
  *
- * @param {JSON} accountInfo - JSON containing the new account name
+ * @param {{first_name: string, last_name: string}} accountInfo - JSON 
+ * containing the new account name.
+ * 
+ * @example
+ * // Updates account name to John Smith
+ * dispatch(
+ * 	updateAccountInfo({
+ * 		first_name: "John",
+ * 		last_name: "Smith",
+ * 	})
+ * );
  */
 export const updateAccountInfo = (accountInfo) => (dispatch) => {
 	const header = createHeader();

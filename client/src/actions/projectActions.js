@@ -33,9 +33,61 @@ export const setProjects = (list) => (dispatch) => {
  * store the updated projects list in the project container of the redux 
  * state, and close the listViewCreateItemSidbar
  *
- * @param {JSON} projectInfo - JSON containing the info to create a new project
- * @param {JSON} projectComponentsDisplay - JSON from redux state containing
- * which project components are currently being displayed
+ * @param {{
+ * 		name: String,
+ * 		description: String,
+ * 		priority_id: Number,
+ * 		status_id: Number,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * }} projectInfo - JSON containing the info to create a new project
+ * @param {{
+ * listView: boolean,
+ * listViewDeleteModal: boolean,
+ * listViewCreateItemSidbar: boolean,
+ * itemView: boolean,
+ * itemViewEditItemInfo: boolean,
+ * itemViewDeleteModal: boolean,
+ * itemViewCurrentItem: ({
+ * 		account_id: Number,
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		status_option: String,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * 		last_edited_timestamp: String,
+ * 	}|null),
+ * }} projectComponentsDisplay - JSON from redux state containing which project
+ * components are currently being displayed
+ * 
+ * @example
+ * // Creates project
+ * dispatch(
+ * 	createProject({ 
+ * 		name: "Cool project", 
+ * 		description: "Cool description", 
+ * 		priority_id: 4, 
+ * 		status_id: 4, 
+ * 		start_date: "2021-04-29", 
+ * 		due_date: "2021-05-21", 
+ * 		completion_date: "" 
+ * 	}, {
+ * 		listView: true, 
+ * 		listViewDeleteModal: false, 
+ * 		listViewCreateItemSidbar: true, 
+ * 		itemView: false, 
+ * 		itemViewEditItemInfo: false,
+ * 		itemViewDeleteModal: false,
+ * 		itemViewCurrentItem: null
+ * 	})
+ * );
  */
 export const createProject = (projectInfo, projectComponentsDisplay) => (
 	dispatch
@@ -95,9 +147,68 @@ export const retrieveProjects = () => (dispatch) => {
  * the updated projects list in the project container of the redux state, and
  * close the itemViewEditItemInfo
  *
- * @param {JSON} projectInfo - JSON containing the info to update a project
- * @param {JSON} projectComponentsDisplay - JSON from redux state containing
- * which project components are currently being displayed
+ * @param {{
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * }} projectInfo - JSON containing the info to update a project
+ * @param {{
+ * listView: boolean,
+ * listViewDeleteModal: boolean,
+ * listViewCreateItemSidbar: boolean,
+ * itemView: boolean,
+ * itemViewEditItemInfo: boolean,
+ * itemViewDeleteModal: boolean,
+ * itemViewCurrentItem: ({
+ * 		account_id: Number,
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		status_option: String,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * 		last_edited_timestamp: String,
+ * 	}|null),
+ * }} projectComponentsDisplay - JSON from redux state containing which project
+ * components are currently being displayed
+ * 
+ * @example
+ * // Updates project
+ * dispatch(
+ * 	updateProjec({
+ * 		id: 373
+ * 		name: "Cool project updated",
+ * 		description: "Cool description updated",
+ * 		priority_id: 4,
+ * 		priorityOption: "High",
+ * 		status_id: 4,
+ * 		statusOption: "Testing",
+ * 		creation_date: "04-29-2021",
+ * 		start_date: "2021-04-29",
+ * 		due_date: "2021-05-21",
+ * 		completion_date: ""
+ * 	}, {
+ * 		listView: true,
+ * 		listViewDeleteModal: false,
+ * 		listViewCreateItemSidbar: true,
+ * 		itemView: false,
+ * 		itemViewEditItemInfo: false,
+ * 		itemViewDeleteModal: false,
+ * 		itemViewCurrentItem: null
+ * 	})
+ * );
  */
 export const updateProject = (projectInfo, projectComponentsDisplay) => (
 	dispatch
@@ -140,18 +251,24 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
  * Calls /api/project/delete route to delete a project in the database, store
  * the updated projects, bugs, and comments list in their corresponding
  * containers in the redux state, update the massDeleteList (if it contained
- * the deleted project) in the project container of the redux state, and close
- * the itemViewDeleteModal
+ * the deleted project) in the project container of the redux state, store the 
+ * updated projects, bugs, and comments list in their corresponding containers 
+ * in the redux state, and close the itemViewDeleteModal
  *
- * @param {JSON} idJson - JSON containing the id of the project to be deleted
- * (explaination for why JSON instead of Number in ItemViewDeleteModal)
+ * @param {Number} projectId - JSON containing the id of the project to be deleted
  * @param {Number[]} massDeleteList - array of ids for projects to be mass
- * deleted
+ * deleted (needed since if massDeleteList contains the to be deleted project,
+ * it will need to be updated)
+ * 
+ * @example
+ * // Deletes project and updates massDeleteList to no longer contain deleted 
+ * // ...project
+ * dispatch(deleteProject({ id: 379 }, [ 341, 330, 379 ]));
  */
-export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
+export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 	const header = createHeader();
 	axios
-		.post("/api/project/delete", idJson, header)
+		.post("/api/project/delete", { id: projectId }, header)
 		.then((res) => {
 			// since deleting a project also deletes bugs and comments it had,
 			// ...the bugs and comments lists are also updated in redux state
@@ -161,7 +278,7 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
 			dispatch(setComments(comments));
 
 			const deletedProjectIndexInMassDeleteList = massDeleteList.indexOf(
-				idJson.id
+				projectId
 			);
 
 			// checks if the deleted project id was in the massDeleteList, and
@@ -200,8 +317,48 @@ export const deleteProject = (idJson, massDeleteList) => (dispatch) => {
  *
  * @param {Number[]} massDeleteList  - array of ids for projects to be mass
  * deleted
- * @param {JSON} projectComponentsDisplay - JSON from redux state containing
- * which project components are currently being displayed
+ * @param {{
+ * listView: boolean,
+ * listViewDeleteModal: boolean,
+ * listViewCreateItemSidbar: boolean,
+ * itemView: boolean,
+ * itemViewEditItemInfo: boolean,
+ * itemViewDeleteModal: boolean,
+ * itemViewCurrentItem: ({
+ * 		account_id: (Number|undefined),
+ * 		project_id: (Number|undefined),
+ * 		id: Number,
+ * 		name: String,
+ * 		description: String,
+ * 		location: (String|undefined),
+ * 		priority_id: Number,
+ * 		priority_option: String,
+ * 		status_id: Number,
+ * 		status_option: String,
+ * 		creation_date: String,
+ * 		start_date: (String|null),
+ * 		due_date: (String|null),
+ * 		completion_date: (String|null),
+ * 		last_edited_timestamp: String,
+ * 	}|null),
+ * }} projectComponentsDisplay - JSON from redux state containing which project
+ * components are currently being displayed (may need updating if a deleted 
+ * item is the itemViewCurrentItem)
+ * 
+ * @example
+ * // Deletes all projects in massDeleteList
+ * dispatch(
+ * 	deleteMultipleProjects([ 341, 330, 379 ],
+ * 	{
+ * 		listView: true,
+ * 		listViewDeleteModal: false,
+ * 		listViewCreateItemSidbar: true,
+ * 		itemView: false,
+ * 		itemViewEditItemInfo: false,
+ * 		itemViewDeleteModal: false,
+ * 		itemViewCurrentItem: null
+ * 	})
+ * );
  */
 export const deleteMultipleProjects = (
 	massDeleteList,

@@ -115,12 +115,18 @@ export default function ListViewCreateItemSidebar(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
 		let itemInfoDeepCopy = { ...itemInfo };
-		// Gives bugs (not projects) a project_id for backend table relations
-		if (props.reduxContainerName === BUG_CONTAINER) {
+
+		if (props.reduxContainerName === PROJECT_CONTAINER) {
+			// Removes location property as projects do not need it
+			delete itemInfoDeepCopy.location;
+		} else if (props.reduxContainerName === BUG_CONTAINER) {
+			// Gives bugs a project_id for backend table relations
 			itemInfoDeepCopy["project_id"] =
 				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id;
 		}
+		
 		dispatch(
 			createProjectOrBug(
 				props.reduxContainerName,

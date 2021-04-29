@@ -175,12 +175,18 @@ export default function ItemViewEditItemInfo(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		
 		let itemInfoDeepCopy = { ...itemInfo };
-		// Adds project_id when updating a bug
-		if (props.reduxContainerName === BUG_CONTAINER) {
+
+		if (props.reduxContainerName === PROJECT_CONTAINER) {
+			// Removes location property as projects do not need it
+			delete itemInfoDeepCopy.location;
+		} else if (props.reduxContainerName === BUG_CONTAINER) {
+			// Gives bugs a project_id for backend table relations
 			itemInfoDeepCopy["project_id"] =
 				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id;
 		}
+
 		dispatch(
 			updateProjectOrBug(
 				props.reduxContainerName,
