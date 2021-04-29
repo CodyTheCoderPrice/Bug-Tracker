@@ -124,9 +124,8 @@ import { dateToInt } from "./index";
  * the user has set
  * 
  * @param {JSON} passedReduxState - Current redux state from useSelector
- * @param {string} reduxContainerName - Redux container (either 
- * props.reduxContainerName, PROJECT_CONTAINER, or BUG_CONTAINER) for which 
- * list and searchFilterSort to use
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux 
+ * container for which list and searchFilterSort to use
  * @returns {Object[]} List of projects or bugs filtered to only have items that fit 
  * current searchFilterSort configuration the user has set
  */
@@ -155,9 +154,8 @@ export function getSearchedFilteredSortedList(passedReduxState, reduxContainerNa
  * or removed it it was.
  * 
  * @param {JSON} passedReduxState - Current redux state from useSelector
- * @param {string} reduxContainerName - Redux container for which 
- * searchFilterSort to update (either props.reduxContainerName, 
- * PROJECT_CONTAINER, or BUG_CONTAINER)
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux 
+ * container for which searchFilterSort to update
  * @param {string} filterName - Which filter to update (either priorityFilter or statusFilter)
  * @param {(number|string)} targetId - Number (or string of number) for which 
  * prioirty/status id to add or remove from the filter

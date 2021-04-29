@@ -23,7 +23,7 @@ import {
  * Depending on which container name is passed (project or bug) the components
  * display JSON will be stored in that contianer in the redux state
  *
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} containerName - name of
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
  * @param {{
  * 	listView: (boolean|undefined),
@@ -69,10 +69,10 @@ import {
  * dispatch(setWhichProjectOrBugComponentsDisplay("BUG_CONTAINER", {}));
  */
 export const setWhichProjectOrBugComponentsDisplay = (
-	containerName,
+	reduxContainerName,
 	displays
 ) => (dispatch) => {
-	switch (containerName) {
+	switch (reduxContainerName) {
 		case PROJECT_CONTAINER:
 			dispatch(setWhichProjectComponentsDisplay(displays));
 			break;
@@ -89,7 +89,7 @@ export const setWhichProjectOrBugComponentsDisplay = (
  * is stored in that container of the redux state containing the necessary info
  * to search, filter, and sort a list of items (projects or bugs)
  *
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} containerName - name of
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
  * @param {{
  * 	priorityFilter: number[],
@@ -113,10 +113,10 @@ export const setWhichProjectOrBugComponentsDisplay = (
  * );
  */
 export const setProjectOrBugSearchFilterSort = (
-	containerName,
+	reduxContainerName,
 	searchFilterSort
 ) => (dispatch) => {
-	switch (containerName) {
+	switch (reduxContainerName) {
 		case PROJECT_CONTAINER:
 			dispatch({
 				container: PROJECT_CONTAINER,
@@ -141,7 +141,7 @@ export const setProjectOrBugSearchFilterSort = (
  * for either projects or bugs to be mass deleted is stored in that container
  * of the redux state
  *
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} containerName - name of
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
  * @param {number[]} massDeleteList - array of ids for either projects or bugs
  * to be mass deleted
@@ -151,10 +151,10 @@ export const setProjectOrBugSearchFilterSort = (
  * dispatch(setProjectOrBugMassDeleteList("BUG_CONTAINER", [ 341, 328, 331 ]));
  */
 export const setProjectOrBugMassDeleteList = (
-	containerName,
+	reduxContainerName,
 	massDeleteList
 ) => (dispatch) => {
-	switch (containerName) {
+	switch (reduxContainerName) {
 		case PROJECT_CONTAINER:
 			dispatch({
 				container: PROJECT_CONTAINER,
@@ -178,7 +178,7 @@ export const setProjectOrBugMassDeleteList = (
  * Depending on which container name is passed (project or bug) with create an 
  * item (project or bug) in that container of the redux state
  *
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} containerName - name of
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
  * @param {{
  * 		project_id: (number|undefined),
@@ -241,11 +241,11 @@ export const setProjectOrBugMassDeleteList = (
  * );
  */
 export const createProjectOrBug = (
-	containerName,
+	reduxContainerName,
 	itemInfo,
 	componentsDisplay
 ) => (dispatch) => {
-	switch (containerName) {
+	switch (reduxContainerName) {
 		case PROJECT_CONTAINER:
 			dispatch(createProject(itemInfo, componentsDisplay));
 			break;
@@ -261,7 +261,7 @@ export const createProjectOrBug = (
  * Depending on which container name is passed (project or bug) will update the
  * item (project or bug) in that container of the redux state
  *
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} containerName - name of
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
  * @param {{
  * 		id: number,
@@ -330,11 +330,11 @@ export const createProjectOrBug = (
  * );
  */
 export const updateProjectOrBug = (
-	containerName,
+	reduxContainerName,
 	itemInfo,
 	componentsDisplay
 ) => (dispatch) => {
-	switch (containerName) {
+	switch (reduxContainerName) {
 		case PROJECT_CONTAINER:
 			dispatch(updateProject(itemInfo, componentsDisplay));
 			break;
@@ -353,7 +353,7 @@ export const updateProjectOrBug = (
  * other containers of the redux state as needed, and close the 
  * itemViewDeleteModal
  *
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} containerName - name of
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
  * @param {{ 
  * id: number, 
@@ -376,10 +376,10 @@ export const updateProjectOrBug = (
  * 	)
  * );
  */
-export const deleteProjectOrBug = (containerName, idJson, massDeleteList) => (
+export const deleteProjectOrBug = (reduxContainerName, idJson, massDeleteList) => (
 	dispatch
 ) => {
-	switch (containerName) {
+	switch (reduxContainerName) {
 		case PROJECT_CONTAINER:
 			dispatch(deleteProject(idJson.id, massDeleteList));
 			break;
@@ -396,7 +396,7 @@ export const deleteProjectOrBug = (containerName, idJson, massDeleteList) => (
  * items (projects or bugs) in the massDelteList, update all lists in the redux
  * state as needed, and close the itemViewDeleteModal
  *
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} containerName - name of
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
  * @param {number[]} massDeleteList - array of ids for projects or bugs to be
  * mass deleted
@@ -445,11 +445,11 @@ export const deleteProjectOrBug = (containerName, idJson, massDeleteList) => (
  * );
  */
 export const deleteMultipleProjectsOrBugs = (
-	containerName,
+	reduxContainerName,
 	massDeleteList,
 	componentsDisplay
 ) => (dispatch) => {
-	switch (containerName) {
+	switch (reduxContainerName) {
 		case PROJECT_CONTAINER:
 			dispatch(deleteMultipleProjects(massDeleteList, componentsDisplay));
 			break;

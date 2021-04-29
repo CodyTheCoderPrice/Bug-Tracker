@@ -13,9 +13,8 @@ import { useState, useEffect } from "react";
  * @param {string} completionDateUniqueClassName - Unique className assigned to
  * the input date element for completion date
  * @param {JSON} passedReduxState - Current redux state from useSelector
- * @param {string} reduxContainerName - Redux container of which
- * priorityStatusOptions to use (either props.reduxContainerName,
- * PROJECT_CONTAINER, or BUG_CONTAINER)
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
+ * container of which priorityStatusOptions to use
  */
 export function usePerserveCompletetionDate(
 	itemInfoState,
