@@ -50,7 +50,6 @@ export function usePerserveCompletetionDate(
 		) {
 			setItemInfoFunction({ ...itemInfoState, completion_date: "" });
 		} else if (itemInfoState.completion_date !== preservedCompletionDate) {
-			console.log("Got here");
 			setItemInfoFunction({
 				...itemInfoState,
 				completion_date: preservedCompletionDate,
