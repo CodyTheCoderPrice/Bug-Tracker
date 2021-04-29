@@ -181,6 +181,9 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			};
 		}
 
+		// Including bug_id in WHERE clause to ensure users can't delete 
+		// ...comments that belong to other accounts (as it was checked above 
+		// ...that the bug belongs to the user)
 		const deletedComment = await pool.query(
 			`DELETE FROM comment WHERE bug_id = $1 AND comment_id = $2`,
 			[bug_id, id]

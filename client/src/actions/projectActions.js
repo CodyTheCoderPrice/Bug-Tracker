@@ -368,7 +368,7 @@ export const deleteMultipleProjects = (
 	axios
 		.post(
 			"/api/project/delete-multiple",
-			{ projectsArray: massDeleteList },
+			{ arrayOfProjectIdsToBeDeleted: massDeleteList },
 			header
 		)
 		.then((res) => {

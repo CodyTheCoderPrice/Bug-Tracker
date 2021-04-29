@@ -205,6 +205,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		// Passed in the post body
 		const { id } = req.body;
 
+		// Including account_id in WHERE clause to ensure users can't delete 
+		// ...projects that belong to other accounts
 		const deletedProject = await pool.query(
 			`DELETE FROM project WHERE account_id = $1 AND project_id = $2`,
 			[account_id, id]
@@ -256,21 +258,23 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		// Declared in the tokenAuthorization middleware
 		const { account_id } = req;
 		// Passed in the post body
-		const { projectsArray } = req.body;
+		const { arrayOfProjectIdsToBeDeleted } = req.body;
 
 		let projectArrayQueryString = "";
 
-		for (let i = 1; i < projectsArray.length + 1; i++) {
+		for (let i = 1; i < arrayOfProjectIdsToBeDeleted.length + 1; i++) {
 			projectArrayQueryString += "$" + i;
-			if (i < projectsArray.length) {
+			if (i < arrayOfProjectIdsToBeDeleted.length) {
 				projectArrayQueryString += ", ";
 			}
 		}
 
-		const deletedProject = await pool.query(
+		// Including account_id in WHERE clause to ensure users can't delete 
+		// ...projects that belong to other accounts
+		const deletedProjects = await pool.query(
 			`DELETE FROM project WHERE project_id IN (${projectArrayQueryString}) 
-			AND account_id = $${projectsArray.length + 1}`,
-			[...projectsArray, account_id]
+			AND account_id = $${arrayOfProjectIdsToBeDeleted.length + 1}`,
+			[...arrayOfProjectIdsToBeDeleted, account_id]
 		);
 
 		// Following data is pulled from DB since project deletion means they

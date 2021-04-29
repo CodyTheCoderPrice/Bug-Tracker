@@ -238,6 +238,9 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			throw { message: "Bug does not belong to account" };
 		}
 
+		// Including project_id in WHERE clause to ensure users can't delete 
+		// ...bugs that belong to other accounts (as it was checked above that
+		// ...the project belongs to the user)
 		const deletedBug = await pool.query(
 			`DELETE FROM bug WHERE project_id = $1 AND bug_id = $2`,
 			[project_id, id]
@@ -283,33 +286,36 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		// Declared in the tokenAuthorization middleware
 		const { account_id } = req;
 		// Passed in the post body
-		const { bugsArray } = req.body;
+		const { arrayOfBugIdsToBeDeleted } = req.body;
 
 		let bugArrayQueryString = "";
 
-		for (let i = 1; i < bugsArray.length + 1; i++) {
+		for (let i = 1; i < arrayOfBugIdsToBeDeleted.length + 1; i++) {
 			bugArrayQueryString += "$" + i;
-			if (i < bugsArray.length) {
+			if (i < arrayOfBugIdsToBeDeleted.length) {
 				bugArrayQueryString += ", ";
 			}
 		}
 
-		const projectBelongsToAccountCheck = await pool.query(
+		// By getting all account_id that the bugs belong to, we can later 
+		// ...check that they all belong to the same/correct account. This 
+		// ...ensures users can't delete bugs that belong to other accounts.
+		const accountsBugsBelongTo = await pool.query(
 			`WITH p AS (SELECT project_id FROM bug WHERE bug_id IN (${bugArrayQueryString}))
 			SELECT account_id FROM project WHERE project_id IN (SELECT project_id FROM p)`,
-			[...bugsArray]
+			[...arrayOfBugIdsToBeDeleted]
 		);
 
 		if (
-			projectBelongsToAccountCheck.rowCount !== 1 ||
-			projectBelongsToAccountCheck.rows[0].account_id !== account_id
+			accountsBugsBelongTo.rowCount !== 1 ||
+			accountsBugsBelongTo.rows[0].account_id !== account_id
 		) {
 			throw { message: "Bug does not belong to account" };
 		}
 
 		const deletedBug = await pool.query(
 			`DELETE FROM bug WHERE bug_id IN (${bugArrayQueryString})`,
-			[...bugsArray]
+			[...arrayOfBugIdsToBeDeleted]
 		);
 
 		// Following data is pulled from DB since project deletion means they

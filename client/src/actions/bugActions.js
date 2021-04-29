@@ -365,7 +365,7 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 ) => {
 	const header = createHeader();
 	axios
-		.post("/api/bug/delete-multiple", { bugsArray: massDeleteList }, header)
+		.post("/api/bug/delete-multiple", { arrayOfBugIdsToBeDeleted: massDeleteList }, header)
 		.then((res) => {
 			// since deleting a bug also deletes the comments it had, the
 			// ...comments lists is also updated in redux state
