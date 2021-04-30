@@ -16,7 +16,7 @@ import {
 } from "./constants/types";
 
 /**
- * Sets JSON object in general container of the redux state for how general
+ * Sets Object object in general container of the redux state for how general
  * components should be displayed in the app
  *
  * @param {{
@@ -24,7 +24,7 @@ import {
  * 	login: (boolean|undefined),
  * 	home: (boolean|undefined),
  * 	itemViewListSidebar: (boolean|undefined),
- * 	itemViewListSidebarUserSet: (boolean|undefined)}} displays - JSON
+ * 	itemViewListSidebarUserSet: (boolean|undefined)}} displays - Object
  * containing info for how general components should be displyed in the app.
  * Any general components set to undefined or excluded from this param will be
  * set to their default value.
@@ -47,7 +47,7 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets JSON object in general container of the redux state for how general
+ * Sets Object object in general container of the redux state for how general
  * dropdowns should be displayed in the app
  *
  * @param {{
@@ -55,7 +55,7 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * 	listViewSearchFilterSearchBarFilterDropdown: (boolean|undefined),
  * 	itemViewTopBarSortDropdown: (boolean|undefined),
  * 	itemViewTopBarFilterDropdown: (boolean|undefined),
- * 	itemViewTopBarOptionsDropdown: (boolean|undefined)}} displays - JSON
+ * 	itemViewTopBarOptionsDropdown: (boolean|undefined)}} displays - Object
  * containing info for how general dropdowns should be displyed in the app. Any
  * general dropdowns set to undefined or excluded from this param will be set
  * to their default value.
@@ -80,7 +80,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets JSON object in account container of the redux state for how account
+ * Sets Object object in account container of the redux state for how account
  * components should be displayed in the app
  *
  * @param {{
@@ -89,7 +89,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * 	accountModalChangeEmail: (boolean|undefined),
  * 	accountModalChangePassword: (boolean|undefined),
  * 	accountModalDeleteAccount: (boolean|undefined),
- * 	accountModalChangeSettings: (boolean|undefined)}} displays - JSON
+ * 	accountModalChangeSettings: (boolean|undefined)}} displays - Object
  * containing info for how account components should be displyed in the app.
  * Any account components set to undefined or excluded from this param will be
  * set to their default value.
@@ -112,7 +112,7 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets JSON object in project container of the redux state for how project
+ * Sets Object object in project container of the redux state for how project
  * components should be displayed in the app
  *
  * @param {{
@@ -138,7 +138,7 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
  * 		status_option: string,
  * 		last_edited_timestamp: string
  * 	}|null|undefined)
- * }} displays - JSON containing info for how project components should be
+ * }} displays - Object containing info for how project components should be
  * displyed in the app. Any project components set to undefined or excluded
  * from this param will be set to their default value.
  *
@@ -160,7 +160,7 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets JSON object in bug container of the redux state for how bug
+ * Sets Object object in bug container of the redux state for how bug
  * components should be displayed in the app
  *
  * @param {{
@@ -187,7 +187,7 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * 		status_option: string,
  * 		last_edited_timestamp: string
  * 	}|null|undefined)
- * }} displays - JSON containing info for how bug components should be displyed
+ * }} displays - Object containing info for how bug components should be displyed
  * in the app. Any bug components set to undefined or excluded from this param 
  * will be set to their default value.
  *
@@ -209,7 +209,7 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets JSON object in comment container of the redux state for how comment
+ * Sets Object object in comment container of the redux state for how comment
  * components should be displayed in the app
  *
  * @param {{
@@ -230,7 +230,7 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * 		creation_date: string,
  * 		last_edited_timestamp: string,
  * 	}|null|undefined)
- * }} displays - JSON containing info for how comment components should be 
+ * }} displays - Object containing info for how comment components should be 
  * displyed in the app. Any comment components set to undefined or excluded 
  * from this param will be set to their default value.
  *

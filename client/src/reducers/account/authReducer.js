@@ -11,16 +11,16 @@ const initialState = {
 };
 
 /**
- * Used to set JSON containing authentication data for the current user of the
+ * Used to set Object containing authentication data for the current user of the
  * site in the account container of the redux state
  * 
- * @param {JSON} state - JSON for the current user authentication data in the
+ * @param {Object} state - Object for the current user authentication data in the
  * redux state
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} JSON containing authentication data for the current user
+ * @returns {Object} Object containing authentication data for the current user
  * of the site to be stored in the account container of the redux state
  */
 export default function authReducer(state = initialState, action) {

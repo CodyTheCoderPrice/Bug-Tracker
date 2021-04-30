@@ -5,16 +5,16 @@ import { SET_COMMENTS } from "../../actions/constants/types";
 const initialState = []
 
 /**
- * Used to set JSON containing the account's comment list from the database
+ * Used to set Object containing the account's comment list from the database
  * in the comment container of the redux state
  * 
  *
- * @param {JSON} state - JSON for the current comments list in the redux state
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} state - Object for the current comments list in the redux state
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} JSON for the comment list to be stored in the comment
+ * @returns {Object} Object for the comment list to be stored in the comment
  * container of the redux state
  */
 export default function commentsListReducer(state = initialState, action) {

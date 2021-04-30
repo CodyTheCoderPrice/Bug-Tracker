@@ -17,7 +17,7 @@ import {
 /**
  * Sets the bugs list inside the bug container of the redux state
  *
- * @param {JSON} list - JSON containing the bugs list
+ * @param {Object} list - Object containing the bugs list
  */
 export const setBugs = (list) => (dispatch) => {
 	dispatch({
@@ -42,7 +42,7 @@ export const setBugs = (list) => (dispatch) => {
  * 		start_date: (string|null),
  * 		due_date: (string|null),
  * 		completion_date: (string|null),
- * }} bugInfo - JSON containing the info to create a new bug
+ * }} bugInfo - Object containing the info to create a new bug
  * @param {{
  * listView: boolean,
  * listViewDeleteModal: boolean,
@@ -66,7 +66,7 @@ export const setBugs = (list) => (dispatch) => {
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} bugComponentsDisplay - JSON from redux state containing which bug 
+ * }} bugComponentsDisplay - Object from redux state containing which bug 
  * components are currently being displayed
  * 
  * @example
@@ -161,7 +161,7 @@ export const retrieveBugs = () => (dispatch) => {
  * 		start_date: (string|null),
  * 		due_date: (string|null),
  * 		completion_date: (string|null),
- * }} bugInfo - JSON containing the info to update a bug
+ * }} bugInfo - Object containing the info to update a bug
  * @param {{
  * listView: boolean,
  * listViewDeleteModal: boolean,
@@ -185,7 +185,7 @@ export const retrieveBugs = () => (dispatch) => {
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} bugComponentsDisplay - JSON from redux state containing which bug 
+ * }} bugComponentsDisplay - Object from redux state containing which bug 
  * components are currently being displayed
  * 
  * @example
@@ -261,7 +261,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * @param {{ 
  * id: number, 
  * project_id: number
- * }} idJson - JSON containing the id of the bug to be deletedand the id of the
+ * }} idJson - Object containing the id of the bug to be deletedand the id of the
  * project it belongs to
  * @param {number[]} massDeleteList - array of ids for bugs to be mass deleted 
  * (needed since if massDeleteList contains the to be deleted project, it will 
@@ -341,7 +341,7 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} bugComponentsDisplay - JSON from redux state containing which bug 
+ * }} bugComponentsDisplay - Object from redux state containing which bug 
  * components are currently being displayed (may need updating if a deleted 
  * item is the itemViewCurrentItem)
  * 

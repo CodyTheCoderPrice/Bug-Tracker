@@ -140,7 +140,7 @@ export default function ItemView(props) {
 			...reduxState[props.reduxContainerName].massDeleteList,
 		];
 
-		// JSON instead of Number since deleting bugs requires the project_id
+		// Object instead of Number since deleting bugs requires the project_id
 		// ...so it is appended below when deleting bugs
 		let idJson = {
 			id:

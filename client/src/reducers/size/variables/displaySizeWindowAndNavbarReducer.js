@@ -7,16 +7,16 @@ const initialState = {
 };
 
 /**
- * Used to set JSON containing current size info for the Window and Navbar
+ * Used to set Object containing current size info for the Window and Navbar
  * HTML elements
  * 
- * @param {JSON} state - JSON of current size info for the Window and Navbar
+ * @param {Object} state - Object of current size info for the Window and Navbar
  * HTML elements
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} JSON of size info for the Window and Navbar HTML elements
+ * @returns {Object} Object of size info for the Window and Navbar HTML elements
  * to be stored in the size container of the redux state
  */
 export default function displaySizeWindowAndNavbarReducer(state = initialState, action) {

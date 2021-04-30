@@ -26,12 +26,12 @@ export * from "./switchActions";
 export * from "./resetActions";
 
 /**
- * Sets JSON object containing the size info of multiple html elements (thats
+ * Sets Object object containing the size info of multiple html elements (thats
  * size remains constant) in the size container of the redux state. This info
  * is mostly used to calulcate the resizing of other html elements, but is
  * sometimes used for other things
  *
- * @param {JSON} sizes - JSON containing size info for multiple html elements
+ * @param {Object} sizes - Object containing size info for multiple html elements
  * (thats size remains constant)
  */
 export const setDisplaySizeConstants = (sizes) => (dispatch) => {
@@ -43,12 +43,12 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 };
 
 /**
- * Sets JSON object containing the current size info of the Window and Navbar
+ * Sets Object object containing the current size info of the Window and Navbar
  * elements in the size container of the redux state. These sizes are updated
  * everytime they change. This info is mostly used to calulcate the resizing of
  * other html elements, but is sometimes used for other things
  *
- * @param {JSON} sizes - JSON containing current size info for Widnow and Navbar
+ * @param {Object} sizes - Object containing current size info for Widnow and Navbar
  */
 export const setDisplaySizeVariablesWindowAndNavbar = (sizes) => (dispatch) => {
 	dispatch({
@@ -78,17 +78,17 @@ export const setDisplaySizeVariablesBreadcrumbFontSize = (fontSize) => (
 };
 
 /**
- * Sets JSON objects containing the developer set data for the project and the
+ * Sets Object objects containing the developer set data for the project and the
  * bug priority/status tables (4 total) of the database used by the app to
  * convert priority/status integer values for projects/bugs to the string
  * options they represent, populate priority/status comboboxes, and dynamically
- * know if any particular option represents empty or completed. These JSON
+ * know if any particular option represents empty or completed. These Object
  * objects are stored in their corresponding containers of the redux state
  *
- * @param {JSON} projectPriorityStatus - JSON containing the developer set data
+ * @param {Object} projectPriorityStatus - Object containing the developer set data
  * in the project priority/status tables of the database, to be stored in the
  * project contianer of the redux state
- * @param {JSON} bugPriorityStatus - JSON containing the developer set data
+ * @param {Object} bugPriorityStatus - Object containing the developer set data
  * in the bug priority/status tables of the database, to be stored in the
  * bug contianer of the redux state
  */
@@ -125,11 +125,11 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 };
 
 /**
- * Sets JSON object containing info on what went wrong during an http request
+ * Sets Object object containing info on what went wrong during an http request
  * to be displayed to the user (typically input validation errors), in the
  * general container of the redux state
  *
- * @param {JSON} backendErrors - JSON containing info on what went wrong during
+ * @param {Object} backendErrors - Object containing info on what went wrong during
  * an http request
  */
 export const seBackendErrors = (backendErrors) => (dispatch) => {
@@ -145,7 +145,7 @@ export const seBackendErrors = (backendErrors) => (dispatch) => {
 };
 
 /**
- * Clears JSON object for backend errors in the general container of the redux
+ * Clears Object object for backend errors in the general container of the redux
  * state
  */
 export const clearBackendErrors = () => (dispatch) => {
@@ -161,7 +161,7 @@ export const clearBackendErrors = () => (dispatch) => {
  * so the server can both decode it to get the account_id for the call
  * as well as authenticate the call without being sent a password
  *
- * @returns {JSON} header containing jwToken from localStorage
+ * @returns {Object} header containing jwToken from localStorage
  */
 export const createHeader = () => {
 	return { headers: { jwToken: localStorage.jwToken } };

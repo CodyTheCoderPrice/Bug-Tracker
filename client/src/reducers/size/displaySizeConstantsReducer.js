@@ -18,15 +18,15 @@ const initialState = {
 };
 
 /**
- * Used to set JSON containing constant html element sizes in the size
+ * Used to set Object containing constant html element sizes in the size
  * container of the redux state
  * 
- * @param {JSON} state - JSON of constant html element sizes
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} state - Object of constant html element sizes
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} JSON of constant html element sizes to be stored in the
+ * @returns {Object} Object of constant html element sizes to be stored in the
  * size container of the redux state
  */
 export default function displaySizeConstantsReducer(state = initialState, action) {

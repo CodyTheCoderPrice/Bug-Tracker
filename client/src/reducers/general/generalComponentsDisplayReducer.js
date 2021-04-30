@@ -14,16 +14,16 @@ const initialState = {
 };
 
 /**
- * Used to set JSON in the general container of the redux state for which
+ * Used to set Object in the general container of the redux state for which
  * general components should display by the app
  *
- * @param {JSON} state - JSON for which general components are currently being
+ * @param {Object} state - Object for which general components are currently being
  * displayed by the app
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} JSON for which general components should display by the
+ * @returns {Object} Object for which general components should display by the
  * app, to be stored in the general container of the redux state
  */
 export default function generalComponentsDisplayReducer(state = initialState, action) {

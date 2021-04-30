@@ -18,15 +18,15 @@ const initialState = {
 };
 
 /**
- * Used to set JSON for the bug container of the redux state
+ * Used to set Object for the bug container of the redux state
  *
- * @param {JSON} state - JSON containing all current data for the bug
+ * @param {Object} state - Object containing all current data for the bug
  * container of the redux state
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} JSON containing all data for the bug container of the
+ * @returns {Object} Object containing all data for the bug container of the
  * redux state
  */
 export function bugContainerReducer(state = initialState, action) {

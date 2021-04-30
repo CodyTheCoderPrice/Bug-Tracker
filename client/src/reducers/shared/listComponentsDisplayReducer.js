@@ -18,17 +18,17 @@ const initialState = {
 };
 
 /**
- * Used to set JSON in either the project or bug container (reducer used by
+ * Used to set Object in either the project or bug container (reducer used by
  * both) of the redux state for either which project or bug components should
  * display by the app
  *
- * @param {JSON} state - JSON for either which project or bug components
+ * @param {Object} state - Object for either which project or bug components
  * (reducer used by both containers) are currently being displayed by the app
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} JSON for either which project or bug components (reducer
+ * @returns {Object} Object for either which project or bug components (reducer
  * used by both containers) should display by the app, to be stored in either
  * the project or bug container of the redux state
  */

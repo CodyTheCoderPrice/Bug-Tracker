@@ -9,7 +9,7 @@ import { getElementStyle, stripNonDigits } from "../index";
  * Custom hook that resizes a sidebar element's height to fit within the 
  * available verticle space between the bottom of the Navbar and window
  * 
- * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {string} sidebarContainerClassName - Unique className assigned to the
  * sidebar-container element
  */

@@ -7,12 +7,12 @@ import { useState, useEffect } from "react";
  * but preserve a copy of the value, so if status is later set back to
  * completed, the previous completion date will be restored.
  *
- * @param {JSON} itemInfoState - State variable from the itemInfo useState
+ * @param {Object} itemInfoState - State variable from the itemInfo useState
  * @param {Function} setItemInfoFunction - Setter function variable from the
  * itemInfo useState
  * @param {string} completionDateUniqueClassName - Unique className assigned to
  * the input date element for completion date
- * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
  * container of which priorityStatusOptions to use
  */

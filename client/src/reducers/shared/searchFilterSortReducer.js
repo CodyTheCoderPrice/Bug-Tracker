@@ -16,18 +16,18 @@ const initialState = {
 };
 
 /**
- * Used to set JSON containing either the project or bug search/filter/sort
+ * Used to set Object containing either the project or bug search/filter/sort
  * data (reducer used by both containers) in either the project or bug
  * container of the redux state
  *
  *
- * @param {JSON} state - JSON for either the current project or bug 
+ * @param {Object} state - Object for either the current project or bug 
  * search/filter/sort data (reducer used by both containers) in the redux state
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} JSON for either the project or bug search/filter/sort data
+ * @returns {Object} Object for either the project or bug search/filter/sort data
  * (reducer used by both containers) to be stored in either the project or bug
  * container of the redux state
  */

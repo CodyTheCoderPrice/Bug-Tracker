@@ -8,7 +8,7 @@ const initialState = null;
  * 
  * @param {number} state - Number of current font size of the breadcrumb menu
  * button text elements
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)

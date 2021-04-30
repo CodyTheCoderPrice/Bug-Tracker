@@ -33,7 +33,7 @@ import {
  *	account_id: number,
  * 	iat: number, 
  * 	exp: number 
- * }} decodedToken - JSON containing JWT authentication info for account
+ * }} decodedToken - Object containing JWT authentication info for account
  * 
  * @example
  * dispatch(
@@ -62,7 +62,7 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
  * 	last_name: string, 
  * 	join_date: string, 
  * 	last_edited_timestamp: string 
- * }} account - JSON containing the account info
+ * }} account - Object containing the account info
  * 
  * @example
  * dispatch(
@@ -99,7 +99,7 @@ export const setAccount = (account) => (dispatch) => {
  * 	bug_sort_id: number, 
  * 	bug_sort_ascending: boolean, 
  * 	last_edited_timestamp: string 
- * }} accountSettings - JSON containing the account settings
+ * }} accountSettings - Object containing the account settings
  * 
  * @example
  * dispatch(
@@ -134,7 +134,7 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
  * 	order_number: number, 
  * 	color: string, 
  * 	marks_default: boolean 
- * }[]} accountSettingThemes - Array of JSON containing the account setting 
+ * }[]} accountSettingThemes - Array of Object containing the account setting 
  * themes
  * 
  * @example
@@ -165,7 +165,7 @@ export const setAccountSettingThemes = (accountSettingThemes) => (dispatch) => {
  * 	order_number: number, 
  * 	category: string, 
  * 	marks_default: boolean
- * }[]} accountSettingSortCategories - Array of JSON containing the account 
+ * }[]} accountSettingSortCategories - Array of Object containing the account 
  * setting sort categories
  * 
  * @example
@@ -197,7 +197,7 @@ export const setAccountSettingSortCategories = (accountSettingSortCategories) =>
  * 	last_name: string, 
  * 	email: string, 
  * 	password: string 
- * }} accountInfo - JSON containing the info to create a new account
+ * }} accountInfo - Object containing the info to create a new account
  * 
  * @example
  * dispatch(
@@ -231,7 +231,7 @@ export const registerAccount = (accountInfo) => (dispatch) => {
  * @param {{ 
  * 	email: string, 
  * 	password: string 
- * }} accountInfo - JSON containing the account info for login
+ * }} accountInfo - Object containing the account info for login
  * 
  * @example
  * dispatch(
@@ -444,7 +444,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
  * @param {{ 
  * 	first_name: string, 
  * 	last_name: string
- * }} newAccountNames - JSON containing the new account names (first and last)
+ * }} newAccountNames - Object containing the new account names (first and last)
  * 
  * @example
  * // Updates account name to John Smith
@@ -485,7 +485,7 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
  * @param {{ 
  * 	email: string, 
  * 	currentPassword: string 
- * }} newEmailCurrentPassword - JSON containing the new account email, along 
+ * }} newEmailCurrentPassword - Object containing the new account email, along 
  * with current account password (correct password required to update)
  * 
  * @example
@@ -526,7 +526,7 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
  * @param {{ 
  * 	newPassword: string, 
  * 	currentPassword: string 
- * }} newPasswordCurrentPassword - JSON containing the new account password and 
+ * }} newPasswordCurrentPassword - Object containing the new account password and 
  * current account password (correct password required to update)
  *
  * @example
@@ -545,7 +545,7 @@ export const updateAccountPassword = (newPasswordCurrentPassword) => (dispatch) 
 		.then((res) => {
 			const { account } = res.data;
 			// still updates the redux state despite not storing the new
-			// ...password since the new account JSON will contained an
+			// ...password since the new account Object will contained an
 			// ...updated last_edited_timestamp
 			dispatch(setAccount(account));
 			// closes the accountModal and re-opens the accountSidebar
@@ -569,7 +569,7 @@ export const updateAccountPassword = (newPasswordCurrentPassword) => (dispatch) 
  * @param {{
  *  capitalizedDeleteTypedOut: string, 
  * 	currentPassword: string 
- * }} deleteCheckAndCurrentPassword - JSON containing the delete check and 
+ * }} deleteCheckAndCurrentPassword - Object containing the delete check and 
  * current account password (correct password required to update)
  * 
  * @example
@@ -610,7 +610,7 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
  * 	bug_sort_id: number, 
  * 	bug_sort_ascending: boolean, 
  * 	last_edited_timestamp: string 
- * }} accountSettings - JSON containing the new account settings
+ * }} accountSettings - Object containing the new account settings
  * 
  * @example
  * // Updates filter_completed_bugs_by_default to false (in this example, we 

@@ -15,7 +15,7 @@ import {
 /**
  * Sets the comments list inside the comment container of the redux state
  *
- * @param {JSON} list - JSON containing the comments list
+ * @param {Object} list - Object containing the comments list
  */
 export const setComments = (list) => (dispatch) => {
 	dispatch({
@@ -30,7 +30,7 @@ export const setComments = (list) => (dispatch) => {
  * the database, then stores the updated commentss list in the comment
  * container of the redux state
  *
- * @param {JSON} commentInfo - JSON containing the info to create a new comment
+ * @param {Object} commentInfo - Object containing the info to create a new comment
  */
 export const createComment = (commentInfo) => (dispatch) => {
 	const header = createHeader();
@@ -79,7 +79,7 @@ export const retrieveComments = () => (dispatch) => {
  * the updated comments list in the comment container of the redux state, and
  * close edit mode for the comment
  *
- * @param {JSON} commentInfo - JSON containing the info to create a new comment
+ * @param {Object} commentInfo - Object containing the info to create a new comment
  */
 export const updateComment = (commentInfo) => (dispatch) => {
 	const header = createHeader();
@@ -108,9 +108,9 @@ export const updateComment = (commentInfo) => (dispatch) => {
  * the updated comments list in the comment containers in the redux state, and
  * close the commentDeleteModal
  * 
- * @param {JSON} idJson - JSON containing the id of the comment to be deleted
+ * @param {Object} idJson - Object containing the id of the comment to be deleted
  * and the id of the bug and project the it belongs to
- * @param {JSON} commentBeingEdited - JSON containing the info a comment being
+ * @param {Object} commentBeingEdited - Object containing the info a comment being
  * edited (if one is, otherwise value is null)
  */
 export const deleteComment = (idJson, commentBeingEdited) => (dispatch) => {

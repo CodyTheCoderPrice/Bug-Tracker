@@ -20,7 +20,7 @@ import {
  * and the project ListViewCreateItemSidebar (if they were open)
  *
  *
- * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {Function} dispatch - Redux store's dispatch function from useDispatch
  */
 export function openProjectsListView(passedReduxState, dispatch) {
@@ -76,7 +76,7 @@ export function openProjectsListView(passedReduxState, dispatch) {
  * shouldn't ever be open at the same time as it, as well as the AccountSidebar
  * (if it is open)
  *
- * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {Function} dispatch - Redux store's dispatch function from useDispatch
  */
 export function openProjectsItemView(passedReduxState, dispatch) {
@@ -120,7 +120,7 @@ export function openProjectsItemView(passedReduxState, dispatch) {
  * and the bug ListViewCreateItemSidebar (if they were open)
  *
  *
- * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {Function} dispatch - Redux store's dispatch function from useDispatch
  */
 export function openBugsListView(passedReduxState, dispatch) {
@@ -175,7 +175,7 @@ export function openBugsListView(passedReduxState, dispatch) {
  * shouldn't ever be open at the same time as it, as well as the AccountSidebar
  * (if it is open)
  *
- * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {Function} dispatch - Redux store's dispatch function from useDispatch
  */
 export function openBugsItemView(passedReduxState, dispatch) {
@@ -218,7 +218,7 @@ export function openBugsItemView(passedReduxState, dispatch) {
  * the ListView if not already there).
  *
  * @param {Event} e - The event created by the onClick
- * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {Function} dispatch - Redux store's dispatch function from useDispatch
  */
 export function closeProjectItemView(e, passedReduxState, dispatch) {
@@ -249,7 +249,7 @@ export function closeProjectItemView(e, passedReduxState, dispatch) {
  * to the bug ListView. Otherwise they stay on the current view.
  *
  * @param {Event} e - The event created by the onClick
- * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {Function} dispatch - Redux store's dispatch function from useDispatch
  */
 export function closeBugItemView(e, passedReduxState, dispatch) {

@@ -15,17 +15,17 @@ const initialState = {
 };
 
 /**
- * Used to set JSON containing variable (changing) html element sizes in the
+ * Used to set Object containing variable (changing) html element sizes in the
  * size container of the redux state
  *
- * @param {JSON} state - JSON of variable (changing) html element sizes used
+ * @param {Object} state - Object of variable (changing) html element sizes used
  * mostly to calulcate the resizing of other html elements, but is sometimes
  * used for other things
- * @param {JSON} action - JSON containing a container name and type (used to
+ * @param {Object} action - Object containing a container name and type (used to
  * determin where and what task to do in the redux state), also contians any
  * addition data needed for the task (typically data to be updated in the
  * redux state)
- * @returns {JSON} JSON of variable (changing) html element sizes to be
+ * @returns {Object} Object of variable (changing) html element sizes to be
  * stored in the size container of the redux state
  */
 export default function displaySizeVariablesReducer(state = initialState, action) {
@@ -37,7 +37,7 @@ export default function displaySizeVariablesReducer(state = initialState, action
 				return initialState;
 			} else {
 				return {
-					// Must pass JSON object conatining only window and navbar
+					// Must pass Object object conatining only window and navbar
 					// ...or else default return will be entire variables state
 					...displaySizeWindowAndNavbarReducer(
 						{ window: state.window, navbar: state.navbar },

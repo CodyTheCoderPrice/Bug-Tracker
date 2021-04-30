@@ -6,7 +6,7 @@ import {
 /**
  * Gets the number of bugs within a project that have a particular status
  * 
- * @param {JSON} passedReduxState - Current redux state from useSelector 
+ * @param {Object} passedReduxState - Current redux state from useSelector 
  * @param {number} projectId - Id of the project that the bugs belong to
  * @param {number} statusId - Id of the status option in question for finding
  * the number of bugs for
@@ -26,7 +26,7 @@ export function getNumberOfBugsForStatus(
 /**
  * Gets a list of all bugs for a particular project
  * 
- * @param {JSON} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {number} projectId - Id of the project thats bugs are to be retrieved
  * @returns {Object[]} List of bugs for a particular project
  */

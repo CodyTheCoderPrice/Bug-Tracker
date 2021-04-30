@@ -18,9 +18,10 @@ import {
 /**
  * Sets the projects list inside the project container of the redux state
  *
- * @param {JSON} list - JSON containing the projects list
+ * @param {{ id: 326, account_id: 54, name: "Health App", description: "Mobile app to set fitness goals and track progress built using Android Studio, Java, and SQLite.", priority_id: 4, status_id: 5, creation_date: "2019-03-05T05:00:00.000Z", start_date: "2019-03-05T05:00:00.000Z", due_date: "2019-05-17T04:00:00.000Z", completion_date: null, priority_option: "High", status_option: "Testing",  }} list - Array of Object containing the projects list
  */
 export const setProjects = (list) => (dispatch) => {
+	console.log(list[0]);
 	dispatch({
 		container: PROJECT_CONTAINER,
 		type: SET_LIST,
@@ -41,7 +42,7 @@ export const setProjects = (list) => (dispatch) => {
  * 		start_date: (string|null),
  * 		due_date: (string|null),
  * 		completion_date: (string|null),
- * }} projectInfo - JSON containing the info to create a new project
+ * }} projectInfo - Object containing the info to create a new project
  * @param {{
  * listView: boolean,
  * listViewDeleteModal: boolean,
@@ -64,7 +65,7 @@ export const setProjects = (list) => (dispatch) => {
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} projectComponentsDisplay - JSON from redux state containing which project
+ * }} projectComponentsDisplay - Object from redux state containing which project
  * components are currently being displayed
  * 
  * @example
@@ -158,7 +159,7 @@ export const retrieveProjects = () => (dispatch) => {
  * 		start_date: (string|null),
  * 		due_date: (string|null),
  * 		completion_date: (string|null),
- * }} projectInfo - JSON containing the info to update a project
+ * }} projectInfo - Object containing the info to update a project
  * @param {{
  * listView: boolean,
  * listViewDeleteModal: boolean,
@@ -181,7 +182,7 @@ export const retrieveProjects = () => (dispatch) => {
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} projectComponentsDisplay - JSON from redux state containing which project
+ * }} projectComponentsDisplay - Object from redux state containing which project
  * components are currently being displayed
  * 
  * @example
@@ -255,7 +256,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
  * updated projects, bugs, and comments list in their corresponding containers 
  * in the redux state, and close the itemViewDeleteModal
  *
- * @param {number} projectId - JSON containing the id of the project to be deleted
+ * @param {number} projectId - Object containing the id of the project to be deleted
  * @param {number[]} massDeleteList - array of ids for projects to be mass
  * deleted (needed since if massDeleteList contains the to be deleted project,
  * it will need to be updated)
@@ -341,7 +342,7 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} projectComponentsDisplay - JSON from redux state containing which project
+ * }} projectComponentsDisplay - Object from redux state containing which project
  * components are currently being displayed (may need updating if a deleted 
  * item is the itemViewCurrentItem)
  * 
