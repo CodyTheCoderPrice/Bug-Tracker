@@ -229,8 +229,8 @@ async function getAccountSettings(account_id) {
 	try {
 		return await await pool.query(
 			`SELECT setting_id, filter_completed_projects_by_default, filter_completed_bugs_by_default, dark_mode, theme_id,
-				project_sort_id, project_sort_ascending, bug_sort_id, bug_sort_ascending, 
 				(SELECT color FROM theme WHERE theme_id = s.theme_id) AS theme_color,
+				project_sort_id, project_sort_ascending, bug_sort_id, bug_sort_ascending, 
 					 last_edited_timestamp FROM setting AS s WHERE account_id = $1`,
 			[account_id]
 		);
@@ -619,7 +619,7 @@ router.route("/update-settings").post(tokenAuthorization, async (req, res) => {
 			`UPDATE setting SET filter_completed_projects_by_default = $1, filter_completed_bugs_by_default = $2, dark_mode = $3, theme_id = $4, 
 				project_sort_id = $5, project_sort_ascending = $6, bug_sort_id = $7, bug_sort_ascending = $8, last_edited_timestamp = $9
 					WHERE account_id = $10 
-						RETURNING account_id, filter_completed_projects_by_default, filter_completed_bugs_by_default, dark_mode, theme_id, 
+						RETURNING setting_id, filter_completed_projects_by_default, filter_completed_bugs_by_default, dark_mode, theme_id, 
 							(SELECT color FROM theme WHERE theme_id = $4) AS theme_color, project_sort_id, project_sort_ascending, 
 								bug_sort_id, bug_sort_ascending, last_edited_timestamp`,
 			[

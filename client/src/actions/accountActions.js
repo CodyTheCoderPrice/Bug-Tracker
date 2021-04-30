@@ -29,7 +29,20 @@ import {
  * Sets the accounts authentication information inside the account container
  * of the redux state
  *
- * @param {JSON} decodedToken - JSON containing authentication info for account
+ * @param {{
+ *	account_id: number,
+ * 	iat: number, 
+ * 	exp: number 
+ * }} decodedToken - JSON containing JWT authentication info for account
+ * 
+ * @example
+ * dispatch(
+ * 	setAuthentication({ 
+ * 		account_id: 80, 
+ * 		iat: 1619803038, 
+ * 		exp: 1619889438 
+ * 	})
+ * );
  */
 export const setAuthentication = (decodedToken) => (dispatch) => {
 	dispatch({
@@ -42,7 +55,26 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 /**
  * Sets the account info inside the account container of the redux state
  *
- * @param {JSON} account - JSON containing the account info
+ * @param {{ 
+ * 	account_id: number, 
+ * 	email: string, 
+ * 	first_name: string, 
+ * 	last_name: string, 
+ * 	join_date: string, 
+ * 	last_edited_timestamp: string 
+ * }} account - JSON containing the account info
+ * 
+ * @example
+ * dispatch(
+ * 	setAccount({ 
+ * 		account_id: 80, 
+ * 		email: "JohnSmith@gmail.com", 
+ * 		first_name: "John", 
+ * 		last_name: "Smith", 
+ * 		join_date: "2021-04-30T04:00:00.000Z", 
+ * 		last_edited_timestamp: "1619802932" 
+ * 	})
+ * );
  */
 export const setAccount = (account) => (dispatch) => {
 	dispatch({
@@ -55,7 +87,36 @@ export const setAccount = (account) => (dispatch) => {
 /**
  * Sets the account settings inside the account container of the redux state
  *
- * @param {JSON} accountSettings - JSON containing the account settings
+ * @param {{ 
+ * 	setting_id: number, 
+ * 	filter_completed_projects_by_default: boolean, 
+ * 	filter_completed_bugs_by_default: boolean, 
+ * 	dark_mode: boolean, 
+ * 	theme_id: number, 
+ * 	theme_color: string, 
+ * 	project_sort_id: number, 
+ * 	project_sort_ascending: boolean, 
+ * 	bug_sort_id: number, 
+ * 	bug_sort_ascending: boolean, 
+ * 	last_edited_timestamp: string 
+ * }} accountSettings - JSON containing the account settings
+ * 
+ * @example
+ * dispatch(
+ * 	setAccountSettings({ 
+ * 		setting_id: 4, 
+ * 		filter_completed_projects_by_default: false, 
+ * 		filter_completed_bugs_by_default: true, 
+ * 		dark_mode: false, 
+ * 		theme_id: 1, 
+ * 		theme_color: "blue-turkish", 
+ * 		project_sort_id: 2, 
+ * 		project_sort_ascending: true, 
+ * 		bug_sort_id: 2, 
+ * 		bug_sort_ascending: true, 
+ * 		last_edited_timestamp: "1619803044"
+ * 	})
+ * );
  */
 export const setAccountSettings = (accountSettings) => (dispatch) => {
 	dispatch({
@@ -68,8 +129,24 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
 /**
  * Sets account setting themes inside the account container of the redux state
  *
- * @param {JSON} accountSettingThemes - JSON containing the account setting
+ * @param {{ 
+ * 	theme_id: number, 
+ * 	order_number: number, 
+ * 	color: string, 
+ * 	marks_default: boolean 
+ * }[]} accountSettingThemes - Array of JSON containing the account setting 
  * themes
+ * 
+ * @example
+ * dispatch(
+ * 	setAccountSettingThemes([ 
+ * 		{ theme_id: 1, order_number: 0, color: "blue-turkish", marks_default: true },
+ * 		{ theme_id: 2, order_number: 1, color: "blue-queen", marks_default: false },
+ * 		{ theme_id: 4, order_number: 2, color: "blue-sky", marks_default: false },
+ * 		{ theme_id: 6, order_number: 3, color: "blue-turquoise", marks_default: false },
+ * 		{ theme_id: 5, order_number: 4, color: "purple-rain", marks_default: false },
+ * 	])
+ * );
  */
 export const setAccountSettingThemes = (accountSettingThemes) => (dispatch) => {
 	dispatch({
@@ -83,8 +160,25 @@ export const setAccountSettingThemes = (accountSettingThemes) => (dispatch) => {
  * Sets account setting sort categories inside the account container of the
  * redux state
  *
- * @param {JSON} accountSettingSortCategories - JSON containing the account setting
- * sort categories
+ * @param {{ 
+ * 	sort_id: number, 
+ * 	order_number: number, 
+ * 	category: string, 
+ * 	marks_default: boolean
+ * }[]} accountSettingSortCategories - Array of JSON containing the account 
+ * setting sort categories
+ * 
+ * @example
+ * dispatch(
+ * 	setAccountSettingSortCategories([ 
+ * 		{ sort_id: 1, order_number: 0, category: "Name", marks_default: false },
+ * 		{ sort_id: 2, order_number: 1, category: "Status", marks_default: true },
+ * 		{ sort_id: 3, order_number: 2, category: "Priority", marks_default: false },
+ * 		{ sort_id: 4, order_number: 3, category: "Created on", marks_default: false },
+ * 		{ sort_id: 5, order_number: 4, category: "Start Date", marks_default: false },
+ * 		{ sort_id: 6, order_number: 5, category: "Due Date", marks_default: false },
+ * 	])
+ * );
  */
 export const setAccountSettingSortCategories = (accountSettingSortCategories) => (dispatch) => {
 	dispatch({
@@ -98,7 +192,22 @@ export const setAccountSettingSortCategories = (accountSettingSortCategories) =>
  * Calls api/account/register route to register a new account in the database
  * and open the login page
  *
- * @param {JSON} accountInfo - JSON containing the info to create a new account
+ * @param {{ 
+ * 	first_name: string, 
+ * 	last_name: string, 
+ * 	email: string, 
+ * 	password: string 
+ * }} accountInfo - JSON containing the info to create a new account
+ * 
+ * @example
+ * dispatch(
+ * 	registerAccount({ 
+ * 		first_name: "John", 
+ * 		last_name: "Smith", 
+ * 		email: "JohnSmith@gmail.com", 
+ * 		password: "PleaseDontGuessMyPassword"
+ * 	})
+ * );
  */
 export const registerAccount = (accountInfo) => (dispatch) => {
 	axios
@@ -119,7 +228,18 @@ export const registerAccount = (accountInfo) => (dispatch) => {
  * store each data set in their corresponding redux state containers, and open
  * the home page
  *
- * @param {JSON} accountInfo - JSON containing the account info for login
+ * @param {{ 
+ * 	email: string, 
+ * 	password: string 
+ * }} accountInfo - JSON containing the account info for login
+ * 
+ * @example
+ * dispatch(
+ * 	loginAccount({  
+ * 		email: "JohnSmith@gmail.com", 
+ * 		password: "PleaseDontGuessMyPassword"
+ * 	})
+ * );
  */
 export const loginAccount = (accountInfo) => (dispatch) => {
 	axios
@@ -168,6 +288,9 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 /**
  * Calls api/account/retrieve route to retrieve the account info from the
  * database and store it in the account container of the redux state
+ * 
+ * @example
+ * dispatch(retrieveAccount());
  */
 export const retrieveAccount = () => (dispatch) => {
 	const header = createHeader();
@@ -191,6 +314,9 @@ export const retrieveAccount = () => (dispatch) => {
 /**
  * Calls api/account/retrieve-settings route to retrieve the account settings
  * from the database and store it in the account container of the redux state
+ * 
+ * @example
+ * dispatch(retrieveAccountSettings());
  */
 export const retrieveAccountSettings = () => (dispatch) => {
 	const header = createHeader();
@@ -215,6 +341,9 @@ export const retrieveAccountSettings = () => (dispatch) => {
  * Calls api/account/retrieve-setting-themes route to retrieve the account
  * setting themes from the database and store it in the account container of
  * the redux state
+ * 
+ * @example
+ * dispatch(retrieveAccountSettingThemes());
  */
 export const retrieveAccountSettingThemes = () => (dispatch) => {
 	const header = createHeader();
@@ -239,6 +368,9 @@ export const retrieveAccountSettingThemes = () => (dispatch) => {
  * Calls api/account/retrieve-sort-categories route to retrieve the sort
  * categories from the database and store it in the account container of
  * the redux state
+ * 
+ * @example
+ * dispatch(retrieveSortCategories());
  */
 export const retrieveSortCategories = () => (dispatch) => {
 	const header = createHeader();
@@ -263,6 +395,9 @@ export const retrieveSortCategories = () => (dispatch) => {
  * Calls api/account/retrieve-everything route to retrieve all account data
  * from the database and store each data set in their corresponding redux
  * state containers
+ * 
+ * @example
+ * dispatch(retrieveEverythingForAccount());
  */
 export const retrieveEverythingForAccount = () => (dispatch) => {
 	const header = createHeader();
@@ -306,8 +441,10 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
  * the database, store the updated account info in the account container of the
  * redux state, and re-open to the accountSidebar
  *
- * @param {{first_name: string, last_name: string}} accountInfo - JSON 
- * containing the new account name.
+ * @param {{ 
+ * 	first_name: string, 
+ * 	last_name: string
+ * }} newAccountNames - JSON containing the new account names (first and last)
  * 
  * @example
  * // Updates account name to John Smith
@@ -318,10 +455,10 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
  * 	})
  * );
  */
-export const updateAccountInfo = (accountInfo) => (dispatch) => {
+export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 	const header = createHeader();
 	axios
-		.post("/api/account/update-info", accountInfo, header)
+		.post("/api/account/update-info", newAccountNames, header)
 		.then((res) => {
 			const { account } = res.data;
 			// updates the redux state with the new account name
@@ -345,12 +482,25 @@ export const updateAccountInfo = (accountInfo) => (dispatch) => {
  * the database, store the updated account email in the account container of
  * the redux state, and re-open to the accountSidebar
  *
- * @param {JSON} accountInfo - JSON containing the new account email
+ * @param {{ 
+ * 	email: string, 
+ * 	currentPassword: string 
+ * }} newEmailCurrentPassword - JSON containing the new account email, along 
+ * with current account password (correct password required to update)
+ * 
+ * @example
+ * // Updates account email to "JohnSmithSecondEmail@gmail.com"
+ * dispatch(
+ * 	updateAccountEmail({ 
+ * 		email: "JohnSmithSecondEmail@gmail.com", 
+ * 		currentPassword: "PleaseDontGuessMyPassword",
+ * 	})
+ * );
  */
-export const updateAccountEmail = (accountInfo) => (dispatch) => {
+export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 	const header = createHeader();
 	axios
-		.post("/api/account/update-email", accountInfo, header)
+		.post("/api/account/update-email", newEmailCurrentPassword, header)
 		.then((res) => {
 			const { account } = res.data;
 			// updates the redux state with the new account email
@@ -373,12 +523,25 @@ export const updateAccountEmail = (accountInfo) => (dispatch) => {
  * Calls api/account/update-password route to update the password for the
  * account in the database and re-open to the accountSidebar
  *
- * @param {JSON} accountInfo - JSON containing the new account password
+ * @param {{ 
+ * 	newPassword: string, 
+ * 	currentPassword: string 
+ * }} newPasswordCurrentPassword - JSON containing the new account password and 
+ * current account password (correct password required to update)
+ *
+ * @example
+ * // Updates account password to "OhNoSomeoneGuessedMyPassword"
+ * dispatch(
+ * 	updateAccountPassword({ 
+ * 		newPassword: "OhNoSomeoneGuessedMyPassword", 
+ * 		currentPassword: "PleaseDontGuessMyPassword"
+ * 	})
+ * ); 
  */
-export const updateAccountPassword = (accountInfo) => (dispatch) => {
+export const updateAccountPassword = (newPasswordCurrentPassword) => (dispatch) => {
 	const header = createHeader();
 	axios
-		.post("/api/account/update-password", accountInfo, header)
+		.post("/api/account/update-password", newPasswordCurrentPassword, header)
 		.then((res) => {
 			const { account } = res.data;
 			// still updates the redux state despite not storing the new
@@ -403,12 +566,24 @@ export const updateAccountPassword = (accountInfo) => (dispatch) => {
  * Calls api/account/delete route to delete the account in the database and log
  * the user out (which resets the redux state and opens the login page)
  *
- * @param {JSON} accountInfo - JSON containing the new account password and delete check
+ * @param {{
+ *  capitalizedDeleteTypedOut: string, 
+ * 	currentPassword: string 
+ * }} deleteCheckAndCurrentPassword - JSON containing the delete check and 
+ * current account password (correct password required to update)
+ * 
+ * @example
+ * dispatch(
+ * 	deleteAccount({ 
+ * 		capitalizedDeleteTypedOut: "DELETE", 
+ * 		currentPassword: "PleaseDontGuessMyPassword"
+ * 	})
+ * ); 
  */
-export const deleteAccount = (accountInfo) => (dispatch) => {
+export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
 	const header = createHeader();
 	axios
-		.post("/api/account/delete", accountInfo, header)
+		.post("/api/account/delete", deleteCheckAndCurrentPassword, header)
 		.then((res) => {
 			dispatch(logoutAccount());
 		})
@@ -423,9 +598,41 @@ export const deleteAccount = (accountInfo) => (dispatch) => {
  * the database, store the updated account settings in the account container of
  * the redux state
  *
- * @param {JSON} accountSettings - JSON containing the new account settings
+ * @param {{ 
+ * 	setting_id: number, 
+ * 	filter_completed_projects_by_default: boolean, 
+ * 	filter_completed_bugs_by_default: boolean, 
+ * 	dark_mode: boolean, 
+ * 	theme_id: number, 
+ * 	theme_color: string, 
+ * 	project_sort_id: number, 
+ * 	project_sort_ascending: boolean, 
+ * 	bug_sort_id: number, 
+ * 	bug_sort_ascending: boolean, 
+ * 	last_edited_timestamp: string 
+ * }} accountSettings - JSON containing the new account settings
+ * 
+ * @example
+ * // Updates filter_completed_bugs_by_default to false (in this example, we 
+ * // ...are assuming it was true beforehand)
+ * dispatch(
+ * 	updateAccountSettings({ 
+ * 		setting_id: 4, 
+ * 		filter_completed_projects_by_default: false, 
+ * 		filter_completed_bugs_by_default: false, 
+ * 		dark_mode: false, 
+ * 		theme_id: 1, 
+ * 		theme_color: "blue-turkish", 
+ * 		project_sort_id: 2, 
+ * 		project_sort_ascending: true, 
+ * 		bug_sort_id: 2, 
+ * 		bug_sort_ascending: true, 
+ * 		last_edited_timestamp: "1619803044"
+ * 	})
+ * );
  */
 export const updateAccountSettings = (accountSettings) => (dispatch) => {
+	console.log(accountSettings);
 	const header = createHeader();
 	axios
 		.post("/api/account/update-settings", accountSettings, header)
@@ -451,6 +658,9 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 /**
  * Logs an account out by removing their jwToken from the localStorage and
  * resetting the redux state (which also opens the login page)
+ * 
+ * @example
+ * dispatch(logoutAccount());
  */
 export const logoutAccount = () => (dispatch) => {
 	localStorage.removeItem("jwToken");

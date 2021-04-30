@@ -226,7 +226,7 @@ export default function ListViewTable(props) {
 						</th>
 						<th
 							className={
-								"list-table__header js-list-table__header" +
+								"list-table__header" +
 								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)

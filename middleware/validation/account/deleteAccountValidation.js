@@ -4,22 +4,24 @@ const isEmpty = require("is-empty");
 /**
  * An exported middleware function for routes in the routes folder, this
  * middleware validates the user form input for deleting an account
- * 
+ *
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
- * @param {Function} next - Express function to be ran after this one 
+ * @param {Function} next - Express function to be ran after this one
  */
 module.exports = (req, res, next) => {
 	let backendErrors = {};
 
 	try {
-		let { deleteTypedOut, currentPassword } = req.body;
+		let { capitalizedDeleteTypedOut, currentPassword } = req.body;
 
 		// Convert empty fields to empty string so Validator module can be used
-		deleteTypedOut = !isEmpty(deleteTypedOut) ? deleteTypedOut : "";
+		capitalizedDeleteTypedOut = !isEmpty(capitalizedDeleteTypedOut)
+			? capitalizedDeleteTypedOut
+			: "";
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
-		if (deleteTypedOut !== "DELETE") {
+		if (capitalizedDeleteTypedOut !== "DELETE") {
 			backendErrors.validationAccountTypeOutCheck = "Doesn't match: DELETE";
 		}
 

@@ -25,7 +25,7 @@ export default function AccountModalDeleteAccount() {
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		deleteTypedOut: "",
+		capitalizedDeleteTypedOut: "",
 		currentPassword: "",
 	});
 
@@ -76,9 +76,9 @@ export default function AccountModalDeleteAccount() {
 				<input
 					autoFocus
 					type="text"
-					name="deleteTypedOut"
+					name="capitalizedDeleteTypedOut"
 					onChange={(e) => onChange(e)}
-					value={accountInfo.deleteTypedOut}
+					value={accountInfo.capitalizedDeleteTypedOut}
 					id="delete-account-type-out"
 					className={
 						"form__input-text" +
