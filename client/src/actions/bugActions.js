@@ -17,13 +17,15 @@ import {
 /**
  * Sets the bugs list inside the bug container of the redux state
  *
- * @param {Object} list - Object containing the bugs list
+ * @param {Object} bugList - Object containing the bugs list
  */
-export const setBugs = (list) => (dispatch) => {
+export const setBugs = (bugList) => (dispatch) => {
 	dispatch({
 		container: BUG_CONTAINER,
 		type: SET_LIST,
-		list: list,
+		// Property called list instead of bugList since redux reducer is
+		// ...shared with setProjects in projectActions
+		list: bugList,
 	});
 };
 

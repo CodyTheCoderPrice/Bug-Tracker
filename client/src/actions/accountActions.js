@@ -134,7 +134,7 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
  * 	order_number: number, 
  * 	color: string, 
  * 	marks_default: boolean 
- * }[]} accountSettingThemes - Array of Object containing the account setting 
+ * }[]} accountSettingThemes - Array of Objects containing the account setting 
  * themes
  * 
  * @example
@@ -165,7 +165,7 @@ export const setAccountSettingThemes = (accountSettingThemes) => (dispatch) => {
  * 	order_number: number, 
  * 	category: string, 
  * 	marks_default: boolean
- * }[]} accountSettingSortCategories - Array of Object containing the account 
+ * }[]} accountSettingSortCategories - Array of Objects containing the account 
  * setting sort categories
  * 
  * @example
@@ -444,7 +444,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
  * @param {{ 
  * 	first_name: string, 
  * 	last_name: string
- * }} newAccountNames - Object containing the new account names (first and last)
+ * }} newAccountNames - Object containing new account names (first and last)
  * 
  * @example
  * // Updates account name to John Smith
@@ -526,8 +526,8 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
  * @param {{ 
  * 	newPassword: string, 
  * 	currentPassword: string 
- * }} newPasswordCurrentPassword - Object containing the new account password and 
- * current account password (correct password required to update)
+ * }} newPasswordCurrentPassword - Object containing the new account password 
+ * and current account password (correct password required to update)
  *
  * @example
  * // Updates account password to "OhNoSomeoneGuessedMyPassword"

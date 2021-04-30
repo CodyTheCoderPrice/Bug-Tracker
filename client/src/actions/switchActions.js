@@ -50,9 +50,9 @@ import {
  * 		status_option: string,
  * 		last_edited_timestamp: string
  * 	}|null|undefined)
- * }} displays - Object containing info for how either project or bug components
- * should be displyed in the app. Any project or bug components set to
- * undefined or excluded from this param will be set to their default value.
+ * }} displays - Object containing info for how either project or bug 
+ * components should be displyed in the app. Any project or bug components set
+ * to undefined or excluded from this param will be set to their default value.
  *
  * @example
  * // Inside project container of the redux state - sets listView to true, and
@@ -97,8 +97,8 @@ export const setWhichProjectOrBugComponentsDisplay = (
  * 	sortAscending: boolean,
  * 	sortId: number,
  * statusFilter: number[],
- * }} searchFilterSort - Object containing the necessary info to search, filter,
- * and sort a list for projects or bugs
+ * }} searchFilterSort - Object containing the necessary info to search, 
+ * filter, and sort a list for projects or bugs
  *
  * @example
  * // Inside bug container of the redux state - sets searchFilterSort object
@@ -215,8 +215,8 @@ export const setProjectOrBugMassDeleteList = (
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} componentsDisplay - Object from redux state containing which project or bug
- * components are currently being displayed
+ * }} componentsDisplay - Object from redux state containing which project or 
+ * bug components are currently being displayed
  *
  * @example
  * // Inside project container of the redux state - creates project
@@ -300,8 +300,8 @@ export const createProjectOrBug = (
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} componentsDisplay - Object from redux state containing which project or bug
- * components are currently being displayed
+ * }} componentsDisplay - Object from redux state containing which project or 
+ * bug components are currently being displayed
  * 
  * @example
  * // Inside project container of the redux state - updates project
@@ -424,8 +424,8 @@ export const deleteProjectOrBug = (reduxContainerName, idJson, massDeleteList) =
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} componentsDisplay - Object from redux state containing which project or bug
- * components are currently being displayed (may need updating if a deleted 
+ * }} componentsDisplay - Object from redux state containing which project or 
+ * bug components are currently being displayed (may need updating if a deleted 
  * item is the itemViewCurrentItem)
  * 
  * @example

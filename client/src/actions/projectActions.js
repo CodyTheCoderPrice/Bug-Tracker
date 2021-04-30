@@ -18,14 +18,63 @@ import {
 /**
  * Sets the projects list inside the project container of the redux state
  *
- * @param {{ id: 326, account_id: 54, name: "Health App", description: "Mobile app to set fitness goals and track progress built using Android Studio, Java, and SQLite.", priority_id: 4, status_id: 5, creation_date: "2019-03-05T05:00:00.000Z", start_date: "2019-03-05T05:00:00.000Z", due_date: "2019-05-17T04:00:00.000Z", completion_date: null, priority_option: "High", status_option: "Testing",  }} list - Array of Object containing the projects list
+ * @param {{ 
+ * 	id: number, 
+ * 	account_id: number, 
+ * 	name: string, 
+ * 	description: string, 
+ * 	priority_id: number, 
+ * 	status_id: number, 
+ * 	creation_date: string, 
+ * 	start_date: string, 
+ * 	due_date: (string|null), 
+ * 	completion_date: (string|null), 
+ * 	last_edited_timestamp: string, 
+ * 	priority_option: string, 
+ * 	status_option: string
+ * }[]} projectList - Array of Objects containing the projects list
+ * 
+ * @example
+ * // Sets a list of two projects
+ * dispatch(
+ * 	setProjects([
+ * 		{ id: 326, 
+ * 		account_id: 54, 
+ * 		name: "Project one", 
+ * 		description: "Simple description", 
+ * 		priority_id: 4, 
+ * 		status_id: 5, 
+ * 		creation_date: "2019-03-05T05:00:00.000Z", 
+ * 		start_date: "2019-03-05T05:00:00.000Z", 
+ * 		due_date: "2019-05-17T04:00:00.000Z", 
+ * 		completion_date: null, 
+ * 		last_edited_timestamp: "1610389329", 
+ * 		priority_option: "High", 
+ * 		status_option: "Testing" },
+ * 		{ id: 328, 
+ * 		account_id: 54, 
+ * 		name: "Project two", 
+ * 		description: "Basic description", 
+ * 		priority_id: 2, 
+ * 		status_id: 3, 
+ * 		creation_date: "2019-09-08T04:00:00.000Z", 
+ * 		start_date: "2019-09-08T04:00:00.000Z", 
+ * 		due_date: null, 
+ * 		completion_date: null, 
+ * 		last_edited_timestamp: "1615672259", 
+ * 		priority_option: "Low", 
+ * 		status_option: "Planning" }
+ * 	])
+ * );
  */
-export const setProjects = (list) => (dispatch) => {
-	console.log(list[0]);
+export const setProjects = (projectList) => (dispatch) => {
+	console.log(projectList);
 	dispatch({
 		container: PROJECT_CONTAINER,
 		type: SET_LIST,
-		list: list,
+		// Property called list instead of projectList since redux reducer is
+		// ...shared with setBugs in bugActions
+		list: projectList,
 	});
 };
 
@@ -65,11 +114,10 @@ export const setProjects = (list) => (dispatch) => {
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} projectComponentsDisplay - Object from redux state containing which project
- * components are currently being displayed
+ * }} projectComponentsDisplay - Object from redux state containing which 
+ * project components are currently being displayed
  * 
  * @example
- * // Creates project
  * dispatch(
  * 	createProject({ 
  * 		name: "Cool project", 
@@ -123,6 +171,9 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 /**
  * Calls /api/project/retrieve route to retrieve the projects list from the
  * database and store it in the project container of the redux state
+ * 
+ * @example
+ * dispatch(retrieveProjects());
  */
 export const retrieveProjects = () => (dispatch) => {
 	const header = createHeader();
@@ -182,11 +233,10 @@ export const retrieveProjects = () => (dispatch) => {
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} projectComponentsDisplay - Object from redux state containing which project
- * components are currently being displayed
+ * }} projectComponentsDisplay - Object from redux state containing which 
+ * project components are currently being displayed
  * 
  * @example
- * // Updates project
  * dispatch(
  * 	updateProjec({
  * 		id: 373
@@ -342,12 +392,11 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} projectComponentsDisplay - Object from redux state containing which project
- * components are currently being displayed (may need updating if a deleted 
- * item is the itemViewCurrentItem)
+ * }} projectComponentsDisplay - Object from redux state containing which 
+ * project components are currently being displayed (may need updating if a 
+ * deleted item is the itemViewCurrentItem)
  * 
  * @example
- * // Deletes all projects in massDeleteList
  * dispatch(
  * 	deleteMultipleProjects([ 341, 330, 379 ],
  * 	{
