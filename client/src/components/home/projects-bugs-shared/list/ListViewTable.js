@@ -224,120 +224,34 @@ export default function ListViewTable(props) {
 								)}
 							</div>
 						</th>
-						<th
-							className={
-								"list-table__header" +
-								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
+						{reduxState[ACCOUNT_CONTAINER].settingSortCategories.map(
+							(sortObject, idx) => {
+								return (
+									<th
+										key={idx}
+										className={
+											"list-table__header" +
+											getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											)
+										}
+									>
+										<span className="list-table__header__span">{sortObject.category}</span>
+										<span className="list-table__header__sort-arrow-container">
+											<SortArrowsButton
+												reduxContainerName={props.reduxContainerName}
+												sortId={sortObject.sort_id}
+												sortFor={sortObject.category}
+												uniqueId={null}
+												dark_mode={
+													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+												}
+											/>
+										</span>
+									</th>
+								);
 							}
-						>
-							<span className="list-table__header__span">Name</span>
-							<span className="list-table__header__sort-arrow-container">
-								<SortArrowsButton
-									reduxContainerName={props.reduxContainerName}
-									sortId={1}
-									sortFor="Name"
-									uniqueId={null}
-									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-								/>
-							</span>
-						</th>
-						<th
-							className={
-								"list-table__header" +
-								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
-							}
-						>
-							<span className="list-table__header__span">Status</span>
-							<span className="list-table__header__sort-arrow-container">
-								<SortArrowsButton
-									reduxContainerName={props.reduxContainerName}
-									sortId={2}
-									sortFor="Status"
-									uniqueId={null}
-									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-								/>
-							</span>
-						</th>
-						<th
-							className={
-								"list-table__header" +
-								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
-							}
-						>
-							<span className="list-table__header__span">Priority</span>
-							<span className="list-table__header__sort-arrow-container">
-								<SortArrowsButton
-									reduxContainerName={props.reduxContainerName}
-									sortId={3}
-									sortFor="Priority"
-									uniqueId={null}
-									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-								/>
-							</span>
-						</th>
-						<th
-							className={
-								"list-table__header" +
-								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
-							}
-						>
-							<span className="list-table__header__span">Created on</span>
-							<span className="list-table__header__sort-arrow-container">
-								<SortArrowsButton
-									reduxContainerName={props.reduxContainerName}
-									sortId={4}
-									sortFor="Created on"
-									uniqueId={null}
-									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-								/>
-							</span>
-						</th>
-						<th
-							className={
-								"list-table__header" +
-								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
-							}
-						>
-							<span className="list-table__header__span">Start Date</span>
-							<span className="list-table__header__sort-arrow-container">
-								<SortArrowsButton
-									reduxContainerName={props.reduxContainerName}
-									sortId={5}
-									sortFor="Start Date"
-									uniqueId={null}
-									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-								/>
-							</span>
-						</th>
-						<th
-							className={
-								"list-table__header" +
-								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
-							}
-						>
-							<span className="list-table__header__span">Due Date</span>
-							<span className="list-table__header__sort-arrow-container">
-								<SortArrowsButton
-									reduxContainerName={props.reduxContainerName}
-									sortId={6}
-									sortFor="Due Date"
-									uniqueId={null}
-									dark_mode={reduxState[ACCOUNT_CONTAINER].settings.dark_mode}
-								/>
-							</span>
-						</th>
+						)}
 						<th
 							className={
 								"list-table__header" +
