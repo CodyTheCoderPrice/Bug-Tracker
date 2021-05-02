@@ -17,7 +17,57 @@ import {
 /**
  * Sets the bugs list inside the bug container of the redux state
  *
- * @param {Object} bugList - Object containing the bugs list
+ * @param {{
+ * 	id: number, 
+ * 	project_id: number, 
+ * 	name: string, 
+ * 	description: string, 
+ *	location: string, 	
+ * 	priority_id: number, 
+ * 	status_id: number, 
+ * 	creation_date: string, 
+ * 	start_date: string, 
+ * 	due_date: (string|null), 
+ * 	completion_date: (string|null), 
+ * 	last_edited_timestamp: string, 
+ * 	priority_option: string, 
+ * 	status_option: string
+ * }[]} bugList - Array of Objects containing the bugs list
+ * 
+ * @example
+ * // Sets a list of two bugs belonging to a project with the id 373
+ * dispatch(
+ * 	setProjects([
+ * 		{ id: 50, 
+ * 		project_id: 373, 
+ * 		name: "Api request errors", 
+ * 		description: "Requests to the api returns errors", 
+ * 		location: "Backend", 
+ * 		priority_id: 4, 
+ * 		status_id: 5, 
+ * 		creation_date: "2019-03-05T05:00:00.000Z", 
+ * 		start_date: "2019-03-05T05:00:00.000Z", 
+ * 		due_date: "2019-05-17T04:00:00.000Z", 
+ * 		completion_date: null, 
+ * 		last_edited_timestamp: "1610389329", 
+ * 		priority_option: "High", 
+ * 		status_option: "Testing" },
+ * 		{ id: 51, 
+ * 		project_id: 373, 
+ * 		name: "Bootstrap not displaying correctly", 
+ * 		description: "Data does not fit correctly into bootstrap table", 
+ * 		location: "Home page",
+ * 		priority_id: 2, 
+ * 		status_id: 3, 
+ * 		creation_date: "2019-09-08T04:00:00.000Z", 
+ * 		start_date: "2019-09-08T04:00:00.000Z", 
+ * 		due_date: null, 
+ * 		completion_date: null, 
+ * 		last_edited_timestamp: "1615672259", 
+ * 		priority_option: "Low", 
+ * 		status_option: "Planning" }
+ * 	])
+ * );
  */
 export const setBugs = (bugList) => (dispatch) => {
 	dispatch({
@@ -72,13 +122,12 @@ export const setBugs = (bugList) => (dispatch) => {
  * components are currently being displayed
  * 
  * @example
- * // Creates bug
  * dispatch(
  * 	createBug({ 
- * 		project_id: 372,
- * 		name: "Cool bug", 
- * 		description: "Cool description", 
- * 		location: "Cool location", 
+ * 		project_id: 373,
+ * 		name: "Wrong todos being deleted", 
+ * 		description: "Clicking the delete button deletes the wrong todo", 
+ * 		location: "Todos page", 
  * 		priority_id: 2, 
  * 		status_id: 2, 
  * 		start_date: "2021-04-29", 
@@ -172,8 +221,8 @@ export const retrieveBugs = () => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		project_id: number,
  * 		id: number,
+ * 		project_id: number,
  * 		name: string,
  * 		description: string,
  * 		location: string,
@@ -191,21 +240,21 @@ export const retrieveBugs = () => (dispatch) => {
  * components are currently being displayed
  * 
  * @example
- * // Updates bug
+ * /// updates bug of id 50 to have the following data
  * dispatch(
  * 	updateBug({
- * 		id: 373
- * 		name: "Cool bug updated",
- * 		description: "Cool bug updated",
- * 		location: "Cool location updated", 
- * 		priority_id: 2, 
- * 		priorityOption: "Low",
- * 		status_id: 2,
- * 		statusOption: "Open",
+ * 		id: 50,  
+ * 		name: "Create todo Api error", 
+ * 		description: "Api requests for creating todos throws errors", 
+ * 		location: "Backend",  
+ * 		priority_id: 4, 
+ * 		priority_option: "High",
+ * 		status_id: 4,
+ * 		statusOption: "Closed",
  * 		creation_date: "04-29-2021",
  * 		start_date: "2021-04-29",
  * 		due_date: "2021-05-21",
- * 		completion_date: ""
+ * 		completion_date: "2021-05-10"
  * 	}, {
  * 		listView: true,
  * 		listViewDeleteModal: false,
@@ -218,6 +267,7 @@ export const retrieveBugs = () => (dispatch) => {
  * );
  */
 export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
+	console.log(bugInfo);
 	const header = createHeader();
 	axios
 		.post("/api/bug/update", bugInfo, header)
@@ -263,8 +313,8 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * @param {{ 
  * id: number, 
  * project_id: number
- * }} idJson - Object containing the id of the bug to be deletedand the id of the
- * project it belongs to
+ * }} idJson - Object containing the id of the bug to be deletedand the id of 
+ * the project it belongs to
  * @param {number[]} massDeleteList - array of ids for bugs to be mass deleted 
  * (needed since if massDeleteList contains the to be deleted project, it will 
  * need to be updated)
@@ -348,7 +398,6 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
  * item is the itemViewCurrentItem)
  * 
  * @example
- * // Deletes all bugs in massDeleteList
  * dispatch(
  * 	deleteMultipleBugs([ 93, 96, 133 ],
  * 	{

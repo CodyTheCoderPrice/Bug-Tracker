@@ -447,11 +447,11 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
  * }} newAccountNames - Object containing new account names (first and last)
  * 
  * @example
- * // Updates account name to John Smith
+ * // Updates account name to Jane Doe
  * dispatch(
  * 	updateAccountInfo({
- * 		first_name: "John",
- * 		last_name: "Smith",
+ * 		first_name: "Jane",
+ * 		last_name: "Doe",
  * 	})
  * );
  */

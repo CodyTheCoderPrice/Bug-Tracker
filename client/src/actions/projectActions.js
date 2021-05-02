@@ -38,10 +38,10 @@ import {
  * // Sets a list of two projects
  * dispatch(
  * 	setProjects([
- * 		{ id: 326, 
+ * 		{ id: 373, 
  * 		account_id: 54, 
- * 		name: "Project one", 
- * 		description: "Simple description", 
+ * 		name: "Todo website", 
+ * 		description: "Website to keep track of todos", 
  * 		priority_id: 4, 
  * 		status_id: 5, 
  * 		creation_date: "2019-03-05T05:00:00.000Z", 
@@ -51,10 +51,10 @@ import {
  * 		last_edited_timestamp: "1610389329", 
  * 		priority_option: "High", 
  * 		status_option: "Testing" },
- * 		{ id: 328, 
+ * 		{ id: 374, 
  * 		account_id: 54, 
- * 		name: "Project two", 
- * 		description: "Basic description", 
+ * 		name: "Health app", 
+ * 		description: "App to track your health", 
  * 		priority_id: 2, 
  * 		status_id: 3, 
  * 		creation_date: "2019-09-08T04:00:00.000Z", 
@@ -68,7 +68,6 @@ import {
  * );
  */
 export const setProjects = (projectList) => (dispatch) => {
-	console.log(projectList);
 	dispatch({
 		container: PROJECT_CONTAINER,
 		type: SET_LIST,
@@ -120,8 +119,8 @@ export const setProjects = (projectList) => (dispatch) => {
  * @example
  * dispatch(
  * 	createProject({ 
- * 		name: "Cool project", 
- * 		description: "Cool description", 
+ * 		name: "Ecommerce Website", 
+ * 		description: "Website for selling items", 
  * 		priority_id: 4, 
  * 		status_id: 4, 
  * 		start_date: "2021-04-29", 
@@ -237,11 +236,12 @@ export const retrieveProjects = () => (dispatch) => {
  * project components are currently being displayed
  * 
  * @example
+ * // updates project of id 373 to have the following data
  * dispatch(
- * 	updateProjec({
+ * 	updateProject({
  * 		id: 373
- * 		name: "Cool project updated",
- * 		description: "Cool description updated",
+ * 		name: "Todo tracker website",
+ * 		description: "Website for tracking todos",
  * 		priority_id: 4,
  * 		priorityOption: "High",
  * 		status_id: 4,
@@ -306,7 +306,8 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
  * updated projects, bugs, and comments list in their corresponding containers 
  * in the redux state, and close the itemViewDeleteModal
  *
- * @param {number} projectId - Object containing the id of the project to be deleted
+ * @param {number} projectId - Object containing the id of the project to be 
+ * deleted
  * @param {number[]} massDeleteList - array of ids for projects to be mass
  * deleted (needed since if massDeleteList contains the to be deleted project,
  * it will need to be updated)

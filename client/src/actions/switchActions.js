@@ -222,8 +222,8 @@ export const setProjectOrBugMassDeleteList = (
  * // Inside project container of the redux state - creates project
  * dispatch(
  * 	createProjectOrBug("PROJECT_CONTAINER", {
- * 		name: "Cool project",
- * 		description: "Cool description",
+ * 		name: "Todo website",
+ * 		description: "Website to keep track of todos",
  * 		priority_id: 4,
  * 		status_id: 4,
  * 		start_date: "2021-04-29",
@@ -304,12 +304,13 @@ export const createProjectOrBug = (
  * bug components are currently being displayed
  * 
  * @example
- * // Inside project container of the redux state - updates project
+ * // Inside project container of the redux state - updates project of id 373 
+ * // ...to have the following data
  * dispatch(
  * 	updateProjectOrBug("PROJECT_CONTAINER", {
  * 		id: 373
- * 		name: "Cool project updated",
- * 		description: "Cool description updated",
+ * 		name: "Todo tracker website",
+ * 		description: "Website for tracking todos",
  * 		priority_id: 4,
  * 		priorityOption: "High",
  * 		status_id: 4,
