@@ -65,18 +65,17 @@ import { dateToInt } from "./index";
 					return projectsOrBugsArray.sort((a, b) => {
 						return a.priority_id - b.priority_id;
 					});
-				// Dates have the soonest date considered as sorted by ascending
 				case 4:
 					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(b.creation_date) - dateToInt(a.creation_date);
+						return dateToInt(a.creation_date) - dateToInt(b.creation_date);
 					});
 				case 5:
 					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(b.start_date) - dateToInt(a.start_date);
+						return dateToInt(a.start_date) - dateToInt(b.start_date);
 					});
 				case 6:
 					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(b.due_date) - dateToInt(a.due_date);
+						return dateToInt(a.due_date) - dateToInt(b.due_date);
 					});
 				default:
 					return projectsOrBugsArray;
@@ -95,18 +94,17 @@ import { dateToInt } from "./index";
 					return projectsOrBugsArray.sort((a, b) => {
 						return b.priority_id - a.priority_id;
 					});
-				// Dates have the oldest date considered as sorted by descending
 				case 4:
 					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(a.creation_date) - dateToInt(b.creation_date);
+						return dateToInt(b.creation_date) - dateToInt(a.creation_date);
 					});
 				case 5:
 					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(a.start_date) - dateToInt(b.start_date);
+						return dateToInt(b.start_date) - dateToInt(a.start_date);
 					});
 				case 6:
 					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(a.due_date) - dateToInt(b.due_date);
+						return dateToInt(b.due_date) - dateToInt(a.due_date);
 					});
 				default:
 					return projectsOrBugsArray;
