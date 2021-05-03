@@ -35,7 +35,8 @@ import {
  * }[]} bugList - Array of Objects containing the bugs list
  * 
  * @example
- * // Sets a list of two bugs belonging to a project with the id 373
+ * // Sets a list of two bugs belonging to a project with the id 373. The 
+ * // ...dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setProjects([
  * 		{ id: 50, 
@@ -122,6 +123,7 @@ export const setBugs = (bugList) => (dispatch) => {
  * components are currently being displayed
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	createBug({ 
  * 		project_id: 373,
@@ -175,6 +177,10 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 /**
  * Calls /api/bug/retrieve route to retrieve the bugs list from the database
  * and store it in the bug container of the redux state
+ * 
+ * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(retrieveBugs());
  */
 export const retrieveBugs = () => (dispatch) => {
 	const header = createHeader();
@@ -240,7 +246,8 @@ export const retrieveBugs = () => (dispatch) => {
  * components are currently being displayed
  * 
  * @example
- * /// updates bug of id 50 to have the following data
+ * // updates bug of id 50 to have the following data. The dispatch function is
+ * // ...from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateBug({
  * 		id: 50,  
@@ -320,7 +327,8 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * need to be updated)
  * 
  * @example
- * // Deletes bug and updates massDeleteList to no longer contain deleted bug
+ * // Deletes bug and updates massDeleteList to no longer contain deleted bug.
+ * // ...The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(deleteBug({ id: 134, project_id: 341 }, [ 134, 96, 93 ]));
  */
 export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
@@ -398,6 +406,7 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
  * item is the itemViewCurrentItem)
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	deleteMultipleBugs([ 93, 96, 133 ],
  * 	{

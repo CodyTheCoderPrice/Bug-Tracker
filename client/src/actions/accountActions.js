@@ -36,6 +36,7 @@ import {
  * }} decodedToken - Object containing JWT authentication info for account
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setAuthentication({ 
  * 		account_id: 80, 
@@ -65,6 +66,7 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
  * }} account - Object containing the account info
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setAccount({ 
  * 		account_id: 80, 
@@ -102,6 +104,7 @@ export const setAccount = (account) => (dispatch) => {
  * }} accountSettings - Object containing the account settings
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setAccountSettings({ 
  * 		setting_id: 4, 
@@ -138,6 +141,7 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
  * themes
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setAccountSettingThemes([ 
  * 		{ theme_id: 1, order_number: 0, color: "blue-turkish", marks_default: true },
@@ -169,6 +173,7 @@ export const setAccountSettingThemes = (accountSettingThemes) => (dispatch) => {
  * setting sort categories
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setAccountSettingSortCategories([ 
  * 		{ sort_id: 1, order_number: 0, category: "Name", marks_default: false },
@@ -200,6 +205,7 @@ export const setAccountSettingSortCategories = (accountSettingSortCategories) =>
  * }} accountInfo - Object containing the info to create a new account
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	registerAccount({ 
  * 		first_name: "John", 
@@ -234,6 +240,7 @@ export const registerAccount = (accountInfo) => (dispatch) => {
  * }} accountInfo - Object containing the account info for login
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	loginAccount({  
  * 		email: "JohnSmith@gmail.com", 
@@ -290,6 +297,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
  * database and store it in the account container of the redux state
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(retrieveAccount());
  */
 export const retrieveAccount = () => (dispatch) => {
@@ -316,6 +324,7 @@ export const retrieveAccount = () => (dispatch) => {
  * from the database and store it in the account container of the redux state
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(retrieveAccountSettings());
  */
 export const retrieveAccountSettings = () => (dispatch) => {
@@ -343,6 +352,7 @@ export const retrieveAccountSettings = () => (dispatch) => {
  * the redux state
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(retrieveAccountSettingThemes());
  */
 export const retrieveAccountSettingThemes = () => (dispatch) => {
@@ -370,6 +380,7 @@ export const retrieveAccountSettingThemes = () => (dispatch) => {
  * the redux state
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(retrieveSortCategories());
  */
 export const retrieveSortCategories = () => (dispatch) => {
@@ -397,6 +408,7 @@ export const retrieveSortCategories = () => (dispatch) => {
  * state containers
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(retrieveEverythingForAccount());
  */
 export const retrieveEverythingForAccount = () => (dispatch) => {
@@ -447,7 +459,8 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
  * }} newAccountNames - Object containing new account names (first and last)
  * 
  * @example
- * // Updates account name to Jane Doe
+ * // Updates account name to Jane Doe. The dispatch function is from 
+ * // ...useDispatch() imported from react-redux.
  * dispatch(
  * 	updateAccountInfo({
  * 		first_name: "Jane",
@@ -489,7 +502,8 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
  * with current account password (correct password required to update)
  * 
  * @example
- * // Updates account email to "JohnSmithSecondEmail@gmail.com"
+ * // Updates account email to "JohnSmithSecondEmail@gmail.com". The dispatch 
+ * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateAccountEmail({ 
  * 		email: "JohnSmithSecondEmail@gmail.com", 
@@ -530,7 +544,8 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
  * and current account password (correct password required to update)
  *
  * @example
- * // Updates account password to "OhNoSomeoneGuessedMyPassword"
+ * // Updates account password to "OhNoSomeoneGuessedMyPassword". The dispatch
+ * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateAccountPassword({ 
  * 		newPassword: "OhNoSomeoneGuessedMyPassword", 
@@ -573,6 +588,7 @@ export const updateAccountPassword = (newPasswordCurrentPassword) => (dispatch) 
  * current account password (correct password required to update)
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	deleteAccount({ 
  * 		capitalizedDeleteTypedOut: "DELETE", 
@@ -613,8 +629,9 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
  * }} accountSettings - Object containing the new account settings
  * 
  * @example
- * // Updates filter_completed_bugs_by_default to false (in this example, we 
- * // ...are assuming it was true beforehand)
+ * // Updates filter_completed_bugs_by_default to false (assuming it was true 
+ * // ...beforehand). The dispatch function is from useDispatch() imported from
+ * // ...react-redux.
  * dispatch(
  * 	updateAccountSettings({ 
  * 		setting_id: 4, 
@@ -660,6 +677,7 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
  * resetting the redux state (which also opens the login page)
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(logoutAccount());
  */
 export const logoutAccount = () => (dispatch) => {

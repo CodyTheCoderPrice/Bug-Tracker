@@ -35,7 +35,8 @@ import {
  * }[]} projectList - Array of Objects containing the projects list
  * 
  * @example
- * // Sets a list of two projects
+ * // Sets a list of two projects. The dispatch function is from useDispatch()
+ * // ...imported from react-redux.
  * dispatch(
  * 	setProjects([
  * 		{ id: 373, 
@@ -117,6 +118,7 @@ export const setProjects = (projectList) => (dispatch) => {
  * project components are currently being displayed
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	createProject({ 
  * 		name: "Ecommerce Website", 
@@ -172,6 +174,7 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
  * database and store it in the project container of the redux state
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(retrieveProjects());
  */
 export const retrieveProjects = () => (dispatch) => {
@@ -236,7 +239,8 @@ export const retrieveProjects = () => (dispatch) => {
  * project components are currently being displayed
  * 
  * @example
- * // updates project of id 373 to have the following data
+ * // updates project of id 373 to have the following data. The dispatch 
+ * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateProject({
  * 		id: 373
@@ -314,7 +318,8 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
  * 
  * @example
  * // Deletes project and updates massDeleteList to no longer contain deleted 
- * // ...project
+ * // ...project. The dispatch function is from useDispatch() imported from
+ * // ...react-redux.
  * dispatch(deleteProject({ id: 379 }, [ 341, 330, 379 ]));
  */
 export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
@@ -398,6 +403,7 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
  * deleted item is the itemViewCurrentItem)
  * 
  * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	deleteMultipleProjects([ 341, 330, 379 ],
  * 	{
