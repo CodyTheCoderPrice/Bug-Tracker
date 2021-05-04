@@ -365,8 +365,8 @@ export const updateProjectOrBug = (
  * @param {{ 
  * id: number, 
  * project_id: (number|undefined)
- * }} idJson - Object containing the id of the project or bug to be deleted (if 
- * bug, then also the id of the project it belongs to)
+ * }} idsObject - Object containing the id of the project or bug to be deleted 
+ * (if bug, then also the id of the project it belongs to)
  * @param {number[]} massDeleteList - array of ids for projects or bugs to be
  * mass deleted (needed since if massDeleteList contains the to be deleted 
  * project or bug, it will need to be updated)
@@ -384,15 +384,15 @@ export const updateProjectOrBug = (
  * 	)
  * );
  */
-export const deleteProjectOrBug = (reduxContainerName, idJson, massDeleteList) => (
+export const deleteProjectOrBug = (reduxContainerName, idsObject, massDeleteList) => (
 	dispatch
 ) => {
 	switch (reduxContainerName) {
 		case PROJECT_CONTAINER:
-			dispatch(deleteProject(idJson.id, massDeleteList));
+			dispatch(deleteProject(idsObject.id, massDeleteList));
 			break;
 		case BUG_CONTAINER:
-			dispatch(deleteBug(idJson, massDeleteList));
+			dispatch(deleteBug(idsObject, massDeleteList));
 			break;
 		default:
 			break;

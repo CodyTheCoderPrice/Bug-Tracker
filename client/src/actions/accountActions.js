@@ -649,7 +649,6 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
  * );
  */
 export const updateAccountSettings = (accountSettings) => (dispatch) => {
-	console.log(accountSettings);
 	const header = createHeader();
 	axios
 		.post("/api/account/update-settings", accountSettings, header)

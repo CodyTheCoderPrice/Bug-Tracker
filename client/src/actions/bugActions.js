@@ -38,8 +38,8 @@ import {
  * // Sets a list of two bugs belonging to a project with the id 373. The 
  * // ...dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	setProjects([
- * 		{ id: 50, 
+ * 	setProjects([{ 
+ * 		id: 50, 
  * 		project_id: 373, 
  * 		name: "Api request errors", 
  * 		description: "Requests to the api returns errors", 
@@ -52,8 +52,9 @@ import {
  * 		completion_date: null, 
  * 		last_edited_timestamp: "1610389329", 
  * 		priority_option: "High", 
- * 		status_option: "Testing" },
- * 		{ id: 51, 
+ * 		status_option: "Testing" 
+ * 	}, { 
+ * 		id: 51, 
  * 		project_id: 373, 
  * 		name: "Bootstrap not displaying correctly", 
  * 		description: "Data does not fit correctly into bootstrap table", 
@@ -66,8 +67,8 @@ import {
  * 		completion_date: null, 
  * 		last_edited_timestamp: "1615672259", 
  * 		priority_option: "Low", 
- * 		status_option: "Planning" }
- * 	])
+ * 		status_option: "Planning" 
+ * 	}])
  * );
  */
 export const setBugs = (bugList) => (dispatch) => {
@@ -246,8 +247,8 @@ export const retrieveBugs = () => (dispatch) => {
  * components are currently being displayed
  * 
  * @example
- * // updates bug of id 50 to have the following data. The dispatch function is
- * // ...from useDispatch() imported from react-redux.
+ * // updates bug with id 50 to have the following data. The dispatch function 
+ * // ...is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateBug({
  * 		id: 50,  
@@ -274,7 +275,6 @@ export const retrieveBugs = () => (dispatch) => {
  * );
  */
 export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
-	console.log(bugInfo);
 	const header = createHeader();
 	axios
 		.post("/api/bug/update", bugInfo, header)
@@ -320,8 +320,8 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * @param {{ 
  * id: number, 
  * project_id: number
- * }} idJson - Object containing the id of the bug to be deletedand the id of 
- * the project it belongs to
+ * }} idsObject - Object containing the id of the bug to be deletedand the id 
+ * of the project it belongs to
  * @param {number[]} massDeleteList - array of ids for bugs to be mass deleted 
  * (needed since if massDeleteList contains the to be deleted project, it will 
  * need to be updated)
@@ -331,10 +331,10 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * // ...The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(deleteBug({ id: 134, project_id: 341 }, [ 134, 96, 93 ]));
  */
-export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
+export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 	const header = createHeader();
 	axios
-		.post("/api/bug/delete", idJson, header)
+		.post("/api/bug/delete", idsObject, header)
 		.then((res) => {
 			// since deleting a bug also deletes the comments it had, the
 			// ...comments lists is also updated in redux state
@@ -342,7 +342,7 @@ export const deleteBug = (idJson, massDeleteList) => (dispatch) => {
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
 
-			const deletedBugIndexInMassDeleteList = massDeleteList.indexOf(idJson.id);
+			const deletedBugIndexInMassDeleteList = massDeleteList.indexOf(idsObject.id);
 
 			// checks if the deleted bug id was in the massDeleteList, and if
 			// ...so removes it and updates the massDeleteList in the bug

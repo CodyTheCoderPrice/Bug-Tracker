@@ -142,18 +142,18 @@ export default function ItemView(props) {
 
 		// Object instead of Number since deleting bugs requires the project_id
 		// ...so it is appended below when deleting bugs
-		let idJson = {
+		let idsObject = {
 			id:
 				reduxState[props.reduxContainerName].componentsDisplay
 					.itemViewCurrentItem.id,
 		};
 		// Adds project_id when deleting a bug
 		if (props.reduxContainerName === BUG_CONTAINER) {
-			idJson["project_id"] =
+			idsObject["project_id"] =
 				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id;
 		}
 		dispatch(
-			deleteProjectOrBug(props.reduxContainerName, idJson, copyMassDeleteList)
+			deleteProjectOrBug(props.reduxContainerName, idsObject, copyMassDeleteList)
 		);
 	};
 
@@ -201,6 +201,7 @@ export default function ItemView(props) {
 			{/* Located outside item-view-component so topBar doesn't cover it */}
 			{reduxState[props.reduxContainerName].componentsDisplay
 				.itemViewDeleteModal ? (
+				// Delete modal for items
 				<DeleteModal
 					clickToCloseBlurredBackground={false}
 					deleteFunction={deleteItem}
@@ -210,6 +211,7 @@ export default function ItemView(props) {
 			{reduxState[BUG_CONTAINER].componentsDisplay.itemView === true &&
 			reduxState[COMMENT_CONTAINER].componentsDisplay.commentDeleteModal ===
 				true ? (
+				// Delete modal for comments
 				<DeleteModal
 					clickToCloseBlurredBackground={false}
 					deleteFunction={deleteSelectedComment}

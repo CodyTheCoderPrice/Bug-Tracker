@@ -32,11 +32,13 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 	const dispatch = useDispatch();
 
 	const [commentInfo, setCommentInfo] = useState({
-		description: props.comment.description,
-		// Following ids are used by the backend to ensure
-		// ...the comment will belong to the correct account
+		id: props.comment.id,
+		// Passing project and bug id so backend can verify the comment will 
+		// ...belong to a bug/project that belongs to the account
 		project_id: reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
 		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
+		description: props.comment.description,
+		
 	});
 
 	// Custome hook will cause form to submit whenever the enter key is pressed
@@ -57,10 +59,12 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 	// ...will not belond to the correct comment anymore
 	useEffect(() => {
 		setCommentInfo({
+			id: props.comment.id,
 			// Default commentInfo values
-			description: props.comment.description,
 			project_id: reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
 			bug_id: reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
+			description: props.comment.description,
+			
 		});
 		// eslint-disable-next-line
 	}, [
@@ -89,8 +93,6 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 		dispatch(
 			updateComment({
 				...commentInfo,
-				id:
-					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited.id,
 			})
 		);
 	};

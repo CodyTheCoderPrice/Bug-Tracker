@@ -30,12 +30,12 @@ export default function ItemViewCommentsBox() {
 	const dispatch = useDispatch();
 
 	const [commentInfo, setCommentInfo] = useState({
-		description: "",
-		// Following ids are used by the backend to ensure
-		// ...the comment will belong to the correct account
+		// Passing project and bug id so backend can verify the comment will 
+		// ...belong to a bug/project that belongs to the account
 		project_id:
 			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
 		bug_id: reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
+		description: "",
 	});
 
 	// Keeps track of the current comment list size so componet can tell

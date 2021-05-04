@@ -38,8 +38,8 @@ import {
  * // Sets a list of two projects. The dispatch function is from useDispatch()
  * // ...imported from react-redux.
  * dispatch(
- * 	setProjects([
- * 		{ id: 373, 
+ * 	setProjects([{ 
+ * 		id: 373, 
  * 		account_id: 54, 
  * 		name: "Todo website", 
  * 		description: "Website to keep track of todos", 
@@ -51,8 +51,9 @@ import {
  * 		completion_date: null, 
  * 		last_edited_timestamp: "1610389329", 
  * 		priority_option: "High", 
- * 		status_option: "Testing" },
- * 		{ id: 374, 
+ * 		status_option: "Testing" 
+ * 	}, { 
+ * 		id: 374, 
  * 		account_id: 54, 
  * 		name: "Health app", 
  * 		description: "App to track your health", 
@@ -64,8 +65,8 @@ import {
  * 		completion_date: null, 
  * 		last_edited_timestamp: "1615672259", 
  * 		priority_option: "Low", 
- * 		status_option: "Planning" }
- * 	])
+ * 		status_option: "Planning" 
+ * 	}])
  * );
  */
 export const setProjects = (projectList) => (dispatch) => {
@@ -239,7 +240,7 @@ export const retrieveProjects = () => (dispatch) => {
  * project components are currently being displayed
  * 
  * @example
- * // updates project of id 373 to have the following data. The dispatch 
+ * // updates project with id 373 to have the following data. The dispatch 
  * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateProject({
