@@ -322,7 +322,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * project_id: number
  * }} idsObject - Object containing the id of the bug to be deletedand the id 
  * of the project it belongs to
- * @param {number[]} massDeleteList - array of ids for bugs to be mass deleted 
+ * @param {number[]} massDeleteList - Array of ids for bugs to be mass deleted 
  * (needed since if massDeleteList contains the to be deleted project, it will 
  * need to be updated)
  * 
@@ -376,7 +376,7 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
  * in the redux state, empty the massDeleteList in the bug container of the
  * redux state, and close the itemViewDeleteModal
  *
- * @param {number[]} massDeleteList - array of ids for bugs to be mass deleted
+ * @param {number[]} massDeleteList - Array of ids for bugs to be mass deleted
  * @param {{
  * listView: boolean,
  * listViewDeleteModal: boolean,

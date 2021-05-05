@@ -20,15 +20,26 @@ const initialState = {
  * data (reducer used by both containers) in either the project or bug
  * container of the redux state
  *
- *
- * @param {Object} state - Object for either the current project or bug 
- * search/filter/sort data (reducer used by both containers) in the redux state
+ * @param {{
+ * 	priorityFilter: number[],
+ * 	searchKeyWordString: string,
+ * 	sortAscending: boolean,
+ * 	sortId: number,
+ * statusFilter: number[],
+ * }} state - Object for either the current project or bug search/filter/sort
+ * data (reducer used by both containers) in the redux state
  * @param {Object} action - Object containing a type and container name, which 
  * determin what to do and where to do it. Also contians any addition data
  * needed for the task (typically data to be updated in the redux state).
- * @returns {Object} Object for either the project or bug search/filter/sort data
- * (reducer used by both containers) to be stored in either the project or bug
- * container of the redux state
+ * @returns {{
+ * 	priorityFilter: number[],
+ * 	searchKeyWordString: string,
+ * 	sortAscending: boolean,
+ * 	sortId: number,
+ * statusFilter: number[],
+ * }} Object for either the project or bug search/filter/sort data (reducer 
+ * used by both containers) to be stored in either the project or bug container
+ * of the redux state
  */
 export default function searchFilterSortReducer(state = initialState, action) {
 	switch (action.type) {

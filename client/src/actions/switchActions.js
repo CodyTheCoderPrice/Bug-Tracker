@@ -140,13 +140,13 @@ export const setProjectOrBugSearchFilterSort = (
 };
 
 /**
- * Depending on which container name is passed (project or bug) an array of ids
+ * Depending on which container name is passed (project or bug) an Array of ids
  * for either projects or bugs to be mass deleted is stored in that container
  * of the redux state
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
- * @param {number[]} massDeleteList - array of ids for either projects or bugs
+ * @param {number[]} massDeleteList - Array of ids for either projects or bugs
  * to be mass deleted
  *
  * @example
@@ -367,7 +367,7 @@ export const updateProjectOrBug = (
  * project_id: (number|undefined)
  * }} idsObject - Object containing the id of the project or bug to be deleted
  * (if bug, then also the id of the project it belongs to)
- * @param {number[]} massDeleteList - array of ids for projects or bugs to be
+ * @param {number[]} massDeleteList - Array of ids for projects or bugs to be
  * mass deleted (needed since if massDeleteList contains the to be deleted
  * project or bug, it will need to be updated)
  *
@@ -408,7 +408,7 @@ export const deleteProjectOrBug = (
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
- * @param {number[]} massDeleteList - array of ids for projects or bugs to be
+ * @param {number[]} massDeleteList - Array of ids for projects or bugs to be
  * mass deleted
  * @param {{
  * listView: boolean,

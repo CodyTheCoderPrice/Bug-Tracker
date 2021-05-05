@@ -313,7 +313,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
  *
  * @param {number} projectId - Object containing the id of the project to be 
  * deleted
- * @param {number[]} massDeleteList - array of ids for projects to be mass
+ * @param {number[]} massDeleteList - Array of ids for projects to be mass
  * deleted (needed since if massDeleteList contains the to be deleted project,
  * it will need to be updated)
  * 
@@ -373,7 +373,7 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
  * corresponding containers in the redux state, empty the massDeleteList in the
  * project container of the redux state, and close the itemViewDeleteModal
  *
- * @param {number[]} massDeleteList  - array of ids for projects to be mass
+ * @param {number[]} massDeleteList  - Array of ids for projects to be mass
  * deleted
  * @param {{
  * listView: boolean,

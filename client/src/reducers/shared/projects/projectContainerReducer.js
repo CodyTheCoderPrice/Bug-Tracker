@@ -25,58 +25,13 @@ const initialState = {
 /**
  * Used to set Object for the project container of the redux state
  *
- * @param {{
- * 	listView: boolean,
- * 	listViewDeleteModal: boolean,
- * 	listViewCreateItemSidbar: boolean,
- * 	itemView: boolean,
- * 	itemView: boolean,
- * 	itemViewEditItemInfo: boolean,
- * 	itemViewDeleteModal: boolean,
- * 	itemViewCurrentItem: ({
- * 		account_id: number,
- * 		id: number,
- * 		name: string,
- * 		description: string,
- * 		creation_date: string,
- * 		start_date: (string|null),
- * 		due_date: (string|null),
- * 		completion_date: (string|null),
- * 		priority_id: number,
- * 		priority_option: string,
- * 		status_id: number,
- * 		status_option: string,
- * 		last_edited_timestamp: string
- * 	}|null)
- * }} state - Object containing all current data for the project container of
- * the redux state
+ * @param {object} state - Object containing all current data for the project 
+ * container of the redux state
  * @param {Object} action - Object containing a type and container name, which 
  * determin what to do and where to do it. Also contians any addition data
  * needed for the task (typically data to be updated in the redux state).
- * @returns {{
- * 	listView: boolean,
- * 	listViewDeleteModal: boolean,
- * 	listViewCreateItemSidbar: boolean,
- * 	itemView: boolean,
- * 	itemView: boolean,
- * 	itemViewEditItemInfo: boolean,
- * 	itemViewDeleteModal: boolean,
- * 	itemViewCurrentItem: ({
- * 		account_id: number,
- * 		id: number,
- * 		name: string,
- * 		description: string,
- * 		creation_date: string,
- * 		start_date: (string|null),
- * 		due_date: (string|null),
- * 		completion_date: (string|null),
- * 		priority_id: number,
- * 		priority_option: string,
- * 		status_id: number,
- * 		status_option: string,
- * 		last_edited_timestamp: string
- * 	}|null)
- * }} Object containing all data for the project container of the redux state
+ * @returns {object} Object containing all data for the project container of 
+ * the redux state
  */
 export function projectContainerReducer(state = initialState, action) {
 	switch (action.container) {
