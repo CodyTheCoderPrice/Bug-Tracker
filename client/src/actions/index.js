@@ -269,9 +269,9 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 };
 
 /**
- * Sets Object containing info on what went wrong during an http request to be
- * displayed to the user (typically input validation errors), to be stored in
- * the general container of the redux state
+ * Sets Object for backend errors containing info on what went wrong during an 
+ * http request (typically input validation errors) to be displayed to the 
+ * user, stored in the general container of the redux state
  *
  * @param {{
  * 	server: (string|undefined),

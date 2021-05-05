@@ -4,8 +4,9 @@ import { SET_BACKEND_ERRORS } from "../../actions/constants/types";
 const initialState = {};
 
 /**
- * Used to set Object for form backend errors in the general container of the redux
- * state
+ * Used to set Object for backend errors containing info on what went wrong 
+ * during an http request (typically input validation errors) to be displayed 
+ * to the user, stored in the general container of the redux state
  * 
  * @param {{
  * 	server: (string|undefined),
@@ -33,7 +34,7 @@ const initialState = {};
  * 	validationComment: (string|undefined),
  * 	validationCreateCommentDescription: (string|undefined),
  * 	validationEditCommentDescription: (string|undefined),
- * }} state - Object for the current form backend errors in the redux state
+ * }} state - Object for the current backend errors in the redux state
  * @param {Object} action - Object containing a type and container name, which 
  * determin what to do and where to do it. Also contians any addition data
  * needed for the task (typically data to be updated in the redux state).
@@ -63,8 +64,8 @@ const initialState = {};
  * 	validationComment: (string|undefined),
  * 	validationCreateCommentDescription: (string|undefined),
  * 	validationEditCommentDescription: (string|undefined),
- * }} Object for form backend errors to be stored in the general container of
- * the redux state
+ * }} Object for backend errors to be stored in the general container of the 
+ * redux state
  */
 export default function backendErrorReducer(state = initialState, action) {
 	switch (action.type) {

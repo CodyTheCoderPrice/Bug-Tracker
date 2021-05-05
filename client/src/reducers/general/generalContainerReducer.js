@@ -24,8 +24,8 @@ const initialState = {
  * @param {Object} action - Object containing a type and container name, which 
  * determin what to do and where to do it. Also contians any addition data
  * needed for the task (typically data to be updated in the redux state).
- * @returns {Object} Object containing all data for the general container of the
- * redux state
+ * @returns {Object} Object containing all data for the general container of 
+ * the redux state
  */
 export function generalContainerReducer(state = initialState, action) {
 	switch (action.container) {
