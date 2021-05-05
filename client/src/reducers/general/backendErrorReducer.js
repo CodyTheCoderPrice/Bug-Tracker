@@ -7,12 +7,64 @@ const initialState = {};
  * Used to set Object for form backend errors in the general container of the redux
  * state
  * 
- * @param {Object} state - Object for the current form backend errors in the redux state
+ * @param {{
+ * 	server: (string|undefined),
+ *  serverAccount: (string|undefined),
+ * 	serverSettings: (string|undefined),
+ * 	serverItem: (string|undefined),
+ * 	serverPriorityStatus: (string|undefined),
+ * 	serverConnection: (string|undefined),
+ * 	jwToken: (string|undefined),
+ * 	authorization: (string|undefined),
+ * 	account: (string|undefined),
+ * 	validationAccount: (string|undefined),
+ * 	validationAccountFirstName: (string|undefined),
+ * 	validationAccountLastName: (string|undefined),
+ * 	validationAccountEmail: (string|undefined),
+ * 	validationAccountPassword: (string|undefined),
+ * 	validationAccountNewEmail: (string|undefined),
+ * 	validationAccountNewPassword: (string|undefined),
+ * 	currentPassword: (string|undefined),
+ * 	validationAccountTypeOutCheck: (string|undefined),
+ * 	validationItem: (string|undefined),
+ * 	validationItemName: (string|undefined),
+ * 	validationItemDescription: (string|undefined),
+ * 	validationItemLocation: (string|undefined),
+ * 	validationComment: (string|undefined),
+ * 	validationCreateCommentDescription: (string|undefined),
+ * 	validationEditCommentDescription: (string|undefined),
+ * }} state - Object for the current form backend errors in the redux state
  * @param {Object} action - Object containing a type and container name, which 
  * determin what to do and where to do it. Also contians any addition data
  * needed for the task (typically data to be updated in the redux state).
- * @returns {Object} Object for form backend errors to be stored in the general
- * container of the redux state
+ * @returns {{
+ * 	server: (string|undefined),
+ *  serverAccount: (string|undefined),
+ * 	serverSettings: (string|undefined),
+ * 	serverItem: (string|undefined),
+ * 	serverPriorityStatus: (string|undefined),
+ * 	serverConnection: (string|undefined),
+ * 	jwToken: (string|undefined),
+ * 	authorization: (string|undefined),
+ * 	account: (string|undefined),
+ * 	validationAccount: (string|undefined),
+ * 	validationAccountFirstName: (string|undefined),
+ * 	validationAccountLastName: (string|undefined),
+ * 	validationAccountEmail: (string|undefined),
+ * 	validationAccountPassword: (string|undefined),
+ * 	validationAccountNewEmail: (string|undefined),
+ * 	validationAccountNewPassword: (string|undefined),
+ * 	currentPassword: (string|undefined),
+ * 	validationAccountTypeOutCheck: (string|undefined),
+ * 	validationItem: (string|undefined),
+ * 	validationItemName: (string|undefined),
+ * 	validationItemDescription: (string|undefined),
+ * 	validationItemLocation: (string|undefined),
+ * 	validationComment: (string|undefined),
+ * 	validationCreateCommentDescription: (string|undefined),
+ * 	validationEditCommentDescription: (string|undefined),
+ * }} Object for form backend errors to be stored in the general container of
+ * the redux state
  */
 export default function backendErrorReducer(state = initialState, action) {
 	switch (action.type) {

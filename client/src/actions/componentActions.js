@@ -16,7 +16,7 @@ import {
 } from "./constants/types";
 
 /**
- * Sets Object object in general container of the redux state for how general
+ * Sets Object in general container of the redux state for how general
  * components should be displayed in the app
  *
  * @param {{
@@ -49,7 +49,7 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object object in general container of the redux state for how general
+ * Sets Object in general container of the redux state for how general
  * dropdowns should be displayed in the app
  *
  * @param {{
@@ -84,7 +84,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object object in account container of the redux state for how account
+ * Sets Object in account container of the redux state for how account
  * components should be displayed in the app
  *
  * @param {{
@@ -118,7 +118,7 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object object in project container of the redux state for how project
+ * Sets Object in project container of the redux state for how project
  * components should be displayed in the app
  *
  * @param {{
@@ -168,7 +168,7 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object object in bug container of the redux state for how bug
+ * Sets Object in bug container of the redux state for how bug
  * components should be displayed in the app
  *
  * @param {{
@@ -195,9 +195,9 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * 		status_option: string,
  * 		last_edited_timestamp: string
  * 	}|null|undefined)
- * }} displays - Object containing info for how bug components should be displyed
- * in the app. Any bug components set to undefined or excluded from this param 
- * will be set to their default value.
+ * }} displays - Object containing info for how bug components should be 
+ * displyed in the app. Any bug components set to undefined or excluded from 
+ * this param will be set to their default value.
  *
  * @example
  * // Sets listView to true, and all other bug components to their default
@@ -219,7 +219,7 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object object in comment container of the redux state for how comment
+ * Sets Object in comment container of the redux state for how comment
  * components should be displayed in the app
  *
  * @param {{

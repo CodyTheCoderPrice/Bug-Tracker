@@ -36,7 +36,7 @@ export default function displaySizeVariablesReducer(state = initialState, action
 				return initialState;
 			} else {
 				return {
-					// Must pass Object object conatining only window and navbar
+					// Must pass Object conatining only window and navbar
 					// ...or else default return will be entire variables state
 					...displaySizeWindowAndNavbarReducer(
 						{ window: state.window, navbar: state.navbar },

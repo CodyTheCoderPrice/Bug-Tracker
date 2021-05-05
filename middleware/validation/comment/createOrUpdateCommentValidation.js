@@ -18,8 +18,9 @@ module.exports = (req, res, next) => {
 		// Convert empty fields to empty string so Validator module can be used
 		description = !isEmpty(description) ? description : "";
 
-		// Which backendErrors property is set depends on isEditing (new comment or editted one)
-		// ...since error will be displayed in different places on frontend accordingly 
+		// Which backendErrors property is set depends on isEditing. Since 
+		// ...errors for new comments are displayed in different place on 
+		// ...frontend than comments being edited 
 		if (!Validator.isLength(description, { min: 1 })) {
 			backendErrors[
 				isEditing === false

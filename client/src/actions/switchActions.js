@@ -50,13 +50,13 @@ import {
  * 		status_option: string,
  * 		last_edited_timestamp: string
  * 	}|null|undefined)
- * }} displays - Object containing info for how either project or bug 
+ * }} displays - Object containing info for how either project or bug
  * components should be displyed in the app. Any project or bug components set
  * to undefined or excluded from this param will be set to their default value.
  *
  * @example
  * // Inside project container of the redux state - sets listView to true, and
- * // ...all other bug components to their default values. The dispatch 
+ * // ...all other bug components to their default values. The dispatch
  * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setWhichProjectOrBugComponentsDisplay("PROJECT_CONTAINER", {
@@ -66,7 +66,7 @@ import {
  *
  * @example
  * // Inside bug container of the redux state - sets all bug components to
- * // ...their default values. The dispatch function is from useDispatch() 
+ * // ...their default values. The dispatch function is from useDispatch()
  * // ...imported from react-redux.
  * dispatch(setWhichProjectOrBugComponentsDisplay("BUG_CONTAINER", {}));
  */
@@ -87,9 +87,9 @@ export const setWhichProjectOrBugComponentsDisplay = (
 };
 
 /**
- * Depending on which container name is passed (project or bug) a Object object 
- * is stored in that container of the redux state containing the necessary info
- * to search, filter, and sort a list of items (projects or bugs)
+ * Depending on which container name is passed (project or bug) a Object is
+ * stored in that container of the redux state containing the necessary info to
+ * search, filter, and sort a list of items (projects or bugs)
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
@@ -99,7 +99,7 @@ export const setWhichProjectOrBugComponentsDisplay = (
  * 	sortAscending: boolean,
  * 	sortId: number,
  * statusFilter: number[],
- * }} searchFilterSort - Object containing the necessary info to search, 
+ * }} searchFilterSort - Object containing the necessary info to search,
  * filter, and sort a list for projects or bugs
  *
  * @example
@@ -150,7 +150,7 @@ export const setProjectOrBugSearchFilterSort = (
  * to be mass deleted
  *
  * @example
- * // Inside bug container of the redux state - sets massDeleteList. The 
+ * // Inside bug container of the redux state - sets massDeleteList. The
  * // ...dispatch function is from useDispatch() imported from react-redux.
  * dispatch(setProjectOrBugMassDeleteList("BUG_CONTAINER", [ 341, 328, 331 ]));
  */
@@ -179,7 +179,7 @@ export const setProjectOrBugMassDeleteList = (
 };
 
 /**
- * Depending on which container name is passed (project or bug) with create an 
+ * Depending on which container name is passed (project or bug) with create an
  * item (project or bug) in that container of the redux state
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
@@ -219,11 +219,11 @@ export const setProjectOrBugMassDeleteList = (
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} componentsDisplay - Object from redux state containing which project or 
+ * }} componentsDisplay - Object from redux state containing which project or
  * bug components are currently being displayed
  *
  * @example
- * // Inside project container of the redux state - creates project. The 
+ * // Inside project container of the redux state - creates project. The
  * // ...dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	createProjectOrBug("PROJECT_CONTAINER", {
@@ -305,12 +305,12 @@ export const createProjectOrBug = (
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} componentsDisplay - Object from redux state containing which project or 
+ * }} componentsDisplay - Object from redux state containing which project or
  * bug components are currently being displayed
- * 
+ *
  * @example
- * // Inside project container of the redux state - updates project of id 373 
- * // ...to have the following data. The dispatch function is from 
+ * // Inside project container of the redux state - updates project of id 373
+ * // ...to have the following data. The dispatch function is from
  * // ...useDispatch() imported from react-redux.
  * dispatch(
  * 	updateProjectOrBug("PROJECT_CONTAINER", {
@@ -355,38 +355,40 @@ export const updateProjectOrBug = (
 
 /**
  * Depending on which container name is passed (project or bug) will delete the
- * item (project or bug) and update the massDeleteList (if it contained the to 
+ * item (project or bug) and update the massDeleteList (if it contained the to
  * be deleted item) in that container of the redux state, will update lists in
- * other containers of the redux state as needed, and close the 
+ * other containers of the redux state as needed, and close the
  * itemViewDeleteModal
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
- * @param {{ 
- * id: number, 
+ * @param {{
+ * id: number,
  * project_id: (number|undefined)
- * }} idsObject - Object containing the id of the project or bug to be deleted 
+ * }} idsObject - Object containing the id of the project or bug to be deleted
  * (if bug, then also the id of the project it belongs to)
  * @param {number[]} massDeleteList - array of ids for projects or bugs to be
- * mass deleted (needed since if massDeleteList contains the to be deleted 
+ * mass deleted (needed since if massDeleteList contains the to be deleted
  * project or bug, it will need to be updated)
- * 
+ *
  * @example
  * // Inside bug container of the redux state - deletes bug and updates
  * // ...massDeleteList to no longer contain deleted bug. The dispatch
  * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	deleteProjectOrBug("BUG_CONTAINER", {
- * 		id: 133, 
+ * 		id: 133,
  * 		project_id: 341
- * 	}, 
+ * 	},
  * 	[ 93, 96, 133 ]
  * 	)
  * );
  */
-export const deleteProjectOrBug = (reduxContainerName, idsObject, massDeleteList) => (
-	dispatch
-) => {
+export const deleteProjectOrBug = (
+	reduxContainerName,
+	idsObject,
+	massDeleteList
+) => (dispatch) => {
 	switch (reduxContainerName) {
 		case PROJECT_CONTAINER:
 			dispatch(deleteProject(idsObject.id, massDeleteList));
@@ -432,12 +434,12 @@ export const deleteProjectOrBug = (reduxContainerName, idsObject, massDeleteList
  * 		completion_date: (string|null),
  * 		last_edited_timestamp: string,
  * 	}|null),
- * }} componentsDisplay - Object from redux state containing which project or 
- * bug components are currently being displayed (may need updating if a deleted 
+ * }} componentsDisplay - Object from redux state containing which project or
+ * bug components are currently being displayed (may need updating if a deleted
  * item is the itemViewCurrentItem)
- * 
+ *
  * @example
- * // Inside bug container of the redux state - deletes all bugs in 
+ * // Inside bug container of the redux state - deletes all bugs in
  * // ...massDeleteList. The dispatch function is from useDispatch() imported
  * // ...from react-redux.
  * dispatch(

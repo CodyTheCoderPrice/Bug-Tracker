@@ -28,13 +28,13 @@ module.exports = (req, res, next) => {
 			backendErrors.validationItemName = "Name longer than 35 characters";
 		}
 
-		if (!Validator.isLength(location, { max: 100 })) {
-			backendErrors.validationItemLocation = "Location longer than 100 characters";
-		}
-
 		if (!Validator.isLength(description, { max: 500 })) {
 			backendErrors.validationItemDescription =
 				"Description longer than 500 characters";
+		}
+
+		if (!Validator.isLength(location, { max: 100 })) {
+			backendErrors.validationItemLocation = "Location longer than 100 characters";
 		}
 
 		if (!isEmpty(backendErrors)) {

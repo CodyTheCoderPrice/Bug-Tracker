@@ -10,13 +10,31 @@ const initialState = {
  * Used to set Object containing current size info for the Window and Navbar
  * HTML elements
  * 
- * @param {Object} state - Object of current size info for the Window and Navbar
+ * @param {{
+ * 	window: ({ 
+ * 		height: number, 
+ * 		width: number 
+ * 	}|null), 
+ * 	navbar: ({ 
+ * 		height: number, 
+ * 		width: number 
+ * 	}|null)
+ * }} state - Object of current size info for the Window and Navbar
  * HTML elements
  * @param {Object} action - Object containing a type and container name, which 
  * determin what to do and where to do it. Also contians any addition data
  * needed for the task (typically data to be updated in the redux state).
- * @returns {Object} Object of size info for the Window and Navbar HTML elements
- * to be stored in the size container of the redux state
+ * @returns {{
+ * 	window: ({ 
+ * 		height: number, 
+ * 		width: number 
+ * 	}|null), 
+ * 	navbar: ({ 
+ * 		height: number, 
+ * 		width: number 
+ * 	}|null)
+ * }} Object of size info for the Window and Navbar HTML elements to be stored 
+ * in the size container of the redux state
  */
 export default function displaySizeWindowAndNavbarReducer(state = initialState, action) {
 	switch (action.type) {

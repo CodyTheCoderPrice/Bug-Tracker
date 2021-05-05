@@ -83,7 +83,7 @@ export default function AccountModalChangeEmail() {
 						)
 					}
 				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail}
+					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountNewEmail}
 				</span>
 				<label htmlFor="edit-account-email-password" className="form__label">
 					Current Password:{" "}

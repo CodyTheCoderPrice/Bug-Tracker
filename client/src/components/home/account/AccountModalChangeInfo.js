@@ -117,7 +117,7 @@ export default function AccountModalChangeInfo() {
 				>
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
-							.validationAccountFirstName
+							.validationAccountNewFirstName
 					}
 				</span>
 				<label htmlFor="edit-account-info-last-name" className="form__label">
@@ -162,7 +162,7 @@ export default function AccountModalChangeInfo() {
 				>
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
-							.validationAccountLastName
+							.validationAccountNewLastName
 					}
 				</span>
 				<button

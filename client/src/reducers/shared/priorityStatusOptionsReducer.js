@@ -22,14 +22,50 @@ const initialState = {
  * database, in either the project or bug container of the redux state
  *
  *
- * @param {Object} state - Object for either the current project or bug 
- * priority/status data (reducer used by both containers) in the redux state
+ * @param {{
+ * 	priorityList: ([
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 	]|null),
+ * 	priorityEmptyId: (number|null),
+ * 	statusList: ([
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 	]|null),
+ * 	statusEmptyId: (number|null),
+ * 	statusCompletionId: (number|null),
+ * }} state - Object for either the current project or bug priority/status data
+ * (reducer used by both containers) in the redux state
  * @param {Object} action - Object containing a type and container name, which 
  * determin what to do and where to do it. Also contians any addition data
  * needed for the task (typically data to be updated in the redux state).
- * @returns {Object} Object for either the project or bug priority/status data
- * (reducer used by both containers) to be stored in either the project or bug
- * container of the redux state
+ * @returns {{
+ * 	priorityList: ([
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 	]|null),
+ * 	priorityEmptyId: (number|null),
+ * 	statusList: ([
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 	]|null),
+ * 	statusEmptyId: (number|null),
+ * 	statusCompletionId: (number|null),
+ * }} Object for either the project or bug priority/status data (reducer used 
+ * by both containers) to be stored in either the project or bug container of
+ * the redux state
  */
 export default function priorityStatusOptionsReducer(state = initialState, action) {
 	switch (action.type) {

@@ -21,15 +21,15 @@ module.exports = (req, res, next) => {
 		last_name = !isEmpty(last_name) ? last_name : "";
 
 		if (Validator.isEmpty(first_name)) {
-			backendErrors.validationAccountFirstName = "First name required";
+			backendErrors.validationAccountNewFirstName = "First name required";
 		} else if (!Validator.isLength(first_name, { max: 35 })) {
-			backendErrors.validationAccountFirstName = "First name longer than 35 characters";
+			backendErrors.validationAccountNewFirstName = "First name longer than 35 characters";
 		}
 
 		if (Validator.isEmpty(last_name)) {
-			backendErrors.validationAccountLastName = "Last name required";
+			backendErrors.validationAccountNewLastName = "Last name required";
 		} else if (!Validator.isLength(last_name, { max: 35 })) {
-			backendErrors.validationAccountLastName = "Last name longer than 35 characters";
+			backendErrors.validationAccountNewLastName = "Last name longer than 35 characters";
 		}
 
 		if (!isEmpty(backendErrors)) {

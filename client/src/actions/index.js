@@ -26,13 +26,49 @@ export * from "./switchActions";
 export * from "./resetActions";
 
 /**
- * Sets Object object containing the size info of multiple html elements (thats
+ * Sets Object containing the size info of multiple html elements (thats
  * size remains constant) in the size container of the redux state. This info
  * is mostly used to calulcate the resizing of other html elements, but is
  * sometimes used for other things
  *
- * @param {Object} sizes - Object containing size info for multiple html elements
- * (thats size remains constant)
+ * @param {{
+ * 	scrollbarWidth: (number|null),
+ * 	navbarAccountButtonWidth: (number|null),
+ * 	navbarBreadcrumbButtonTextBaseFontSize: (number|null),
+ * 	navbarBreadcrumbArrowWidth: (number|null),
+ * 	navbarHamburgerStyles: ({
+ * 		buttonLeft: number,
+ * 		titleLeft: number,
+ * 		titleBaseFontSize: number }|null),
+ * 	listViewTopBarHeight: (number|null),
+ * 	listViewTableRowHeight: (number|null),
+ * 	itemViewTopBarHeight: (number|null),
+ * 	itemViewListSidebarWidth: (number|null),
+ * 	itemViewOuterDividingContainerMinWidth: (number|null),
+ * 	itemViewPaddingContainerPadding: (number|null)
+ * }} sizes - Object containing size info for multiple html elements (whose
+ * size remains constant)
+ *
+ * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(
+ * 	setDisplaySizeConstants({
+ * 		scrollbarWidth: 17,
+ * 		navbarAccountButtonWidth: 170,
+ * 		navbarBreadcrumbButtonTextBaseFontSize: 18,
+ * 		navbarBreadcrumbArrowWidth: 20,
+ * 		navbarHamburgerStyles: {
+ * 			buttonLeft: 10,
+ * 			titleLeft: 52,
+ * 			titleBaseFontSize: 18 },
+ * 		listViewTopBarHeight: 48,
+ * 		listViewTableRowHeight: 50,
+ * 		itemViewTopBarHeight: 48,
+ * 		itemViewListSidebarWidth: 275,
+ * 		itemViewOuterDividingContainerMinWidth: 560,
+ * 		itemViewPaddingContainerPadding: 25
+ * 	})
+ * );
  */
 export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 	dispatch({
@@ -43,12 +79,36 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 };
 
 /**
- * Sets Object object containing the current size info of the Window and Navbar
+ * Sets Object containing the current size info of the Window and Navbar
  * elements in the size container of the redux state. These sizes are updated
  * everytime they change. This info is mostly used to calulcate the resizing of
  * other html elements, but is sometimes used for other things
  *
- * @param {Object} sizes - Object containing current size info for Widnow and Navbar
+ * @param {{
+ * 	window: ({
+ * 		height: number,
+ * 		width: number
+ * 	}|null),
+ * 	navbar: ({
+ * 		height: number,
+ * 		width: number
+ * 	}|null)
+ * }} sizes - Object containing current size info for Widnow and Navbar
+ *
+ * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(
+ * 	setDisplaySizeVariablesWindowAndNavbar({
+ * 		window: {
+ * 			height: 453,
+ * 			width: 1536
+ * 		},
+ * 		navbar: {
+ * 			height: 56,
+ * 			width: 1536
+ * 		}
+ * 	})
+ * );
  */
 export const setDisplaySizeVariablesWindowAndNavbar = (sizes) => (dispatch) => {
 	dispatch({
@@ -66,6 +126,10 @@ export const setDisplaySizeVariablesWindowAndNavbar = (sizes) => (dispatch) => {
  *
  * @param {number} fontSize - Number of current font size of the breadcrumb menu
  * button text elements
+ *
+ * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(setDisplaySizeVariablesBreadcrumbFontSize(18));
  */
 export const setDisplaySizeVariablesBreadcrumbFontSize = (fontSize) => (
 	dispatch
@@ -78,19 +142,95 @@ export const setDisplaySizeVariablesBreadcrumbFontSize = (fontSize) => (
 };
 
 /**
- * Sets Object objects containing the developer set data for the project and the
- * bug priority/status tables (4 total) of the database used by the app to
- * convert priority/status integer values for projects/bugs to the string
- * options they represent, populate priority/status comboboxes, and dynamically
- * know if any particular option represents empty or completed. These Object
- * objects are stored in their corresponding containers of the redux state
+ * Sets Objects containing the developer set data for the project and the bug
+ * priority/status tables (4 total) of the database used by the app to convert
+ * priority/status integer values for projects/bugs to the string options they
+ * represent, populate priority/status comboboxes, and dynamically know if any
+ * particular option represents empty or completed. These Objects are stored in
+ * their corresponding containers of the redux state
  *
- * @param {Object} projectPriorityStatus - Object containing the developer set data
- * in the project priority/status tables of the database, to be stored in the
- * project contianer of the redux state
- * @param {Object} bugPriorityStatus - Object containing the developer set data
- * in the bug priority/status tables of the database, to be stored in the
- * bug contianer of the redux state
+ * @param {{
+ * 	priorityList: [
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 	],
+ * 	priorityEmptyId: (number|null),
+ * 	statusList: [
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 	],
+ * 	statusEmptyId: (number|null),
+ * 	statusCompletionId: number,
+ * }} projectPriorityStatus - Object containing the developer set data in the
+ * project priority/status tables of the database, to be stored in the project
+ * contianer of the redux state
+ * @param {{
+ * 	priorityList: [
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 		{ id: number, option: string },
+ * 	],
+ * 	priorityEmptyId: (number|null),
+ * 	statusList: [
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 		{ id: number, option: string, color: string },
+ * 	],
+ * 	statusEmptyId: (number|null),
+ * 	statusCompletionId: number,
+ * }} bugPriorityStatus - Object containing the developer set data in the bug
+ * priority/status tables of the database, to be stored in the bug contianer of
+ * the redux state
+ *
+ * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(
+ * 	setPriorityStatus({
+ * 		priorityList: [
+ * 			{ id: 1, option: "None" },
+ * 			{ id: 2, option: "Low" },
+ * 			{ id: 3, option: "Medium" },
+ * 			{ id: 4, option: "High" },
+ * 		],
+ * 		priorityEmptyId: 1,
+ * 		statusList: [
+ * 			{ id: 1, option: "None", color: "gray" },
+ * 			{ id: 2, option: "On Hold", color: "red" },
+ * 			{ id: 3, option: "Planning", color: "blue" },
+ * 			{ id: 4, option: "Developing", color: "purple" },
+ * 			{ id: 5, option: "Testing", color: "orange" },
+ * 			{ id: 6, option: "Completed", color: "green" },
+ * 		],
+ * 		statusEmptyId: 1,
+ * 		statusCompletionId: 6,
+ * 	}, {
+ * 		priorityList: [
+ * 			{ id: 1, option: "None" },
+ * 			{ id: 2, option: "Low" },
+ * 			{ id: 3, option: "Medium" },
+ * 			{ id: 4, option: "High" },
+ * 		],
+ * 		priorityEmptyId: 1,
+ * 		statusList: [
+ * 			{ id: 1, option: "Open", color: "blue" },
+ * 			{ id: 2, option: "In Progress", color: "purple" },
+ * 			{ id: 3, option: "Testing", color: "orange" },
+ * 			{ id: 4, option: "Closed", color: "green" },
+ * 		],
+ * 		statusEmptyId: null,
+ * 		statusCompletionId: 4,
+ * 	})
+ * );
  */
 export const setPriorityStatus = (projectPriorityStatus, bugPriorityStatus) => (
 	dispatch
@@ -111,6 +251,10 @@ export const setPriorityStatus = (projectPriorityStatus, bugPriorityStatus) => (
  * Calls /api/priority-status/retrieve route to retrieve the project and the
  * bug priority/status tables (4 total) info from the database and store it
  * in their corresponding containers of the redux state
+ *
+ * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(retrievePriorityStatusArrays({}));
  */
 export const retrievePriorityStatusArrays = () => (dispatch) => {
 	axios
@@ -125,12 +269,55 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 };
 
 /**
- * Sets Object object containing info on what went wrong during an http request
- * to be displayed to the user (typically input validation errors), in the
- * general container of the redux state
+ * Sets Object containing info on what went wrong during an http request to be
+ * displayed to the user (typically input validation errors), to be stored in
+ * the general container of the redux state
  *
- * @param {Object} backendErrors - Object containing info on what went wrong during
- * an http request
+ * @param {{
+ * 	server: (string|undefined),
+ *  serverAccount: (string|undefined),
+ * 	serverSettings: (string|undefined),
+ * 	serverItem: (string|undefined),
+ * 	serverPriorityStatus: (string|undefined),
+ *  serverConnection: (string|undefined),
+ * 	jwToken: (string|undefined),
+ * 	authorization: (string|undefined),
+ * 	account: (string|undefined),
+ * 	validationAccount: (string|undefined),
+ * 	validationAccountFirstName: (string|undefined),
+ * 	validationAccountLastName: (string|undefined),
+ * 	validationAccountEmail: (string|undefined),
+ * 	validationAccountPassword: (string|undefined),
+ * 	validationAccountNewEmail: (string|undefined),
+ * 	validationAccountNewPassword: (string|undefined),
+ * 	currentPassword: (string|undefined),
+ * 	validationAccountTypeOutCheck: (string|undefined),
+ * 	validationItem: (string|undefined),
+ * 	validationItemName: (string|undefined),
+ * 	validationItemDescription: (string|undefined),
+ * 	validationItemLocation: (string|undefined),
+ * 	validationComment: (string|undefined),
+ * 	validationCreateCommentDescription: (string|undefined),
+ * 	validationEditCommentDescription: (string|undefined),
+ * }} backendErrors - Object containing info on what went wrong during an http
+ * request
+ *
+ * @example
+ * // Backend errors for invalid input when registering an account. The
+ * // ...dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(
+ * 	seBackendErrors({
+ * 		validationAccountFirstName: "First name required",
+ * 		validationAccountLastName: "Last name longer than 35 characters",
+ * 		validationAccountEmail: "Email is invalid",
+ * 		validationAccountPassword: "Password not between 6-30 characters"
+ * 	})
+ * );
+ *
+ * @example
+ * // Clears backend errors. The dispatch function is from useDispatch()
+ * // ...imported from react-redux.
+ * dispatch(seBackendErrors({}));
  */
 export const seBackendErrors = (backendErrors) => (dispatch) => {
 	dispatch({
@@ -145,15 +332,14 @@ export const seBackendErrors = (backendErrors) => (dispatch) => {
 };
 
 /**
- * Clears Object object for backend errors in the general container of the redux
- * state
+ * Clears Object for backend errors in the general container of the redux state
+ * 
+ * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(clearBackendErrors());
  */
 export const clearBackendErrors = () => (dispatch) => {
-	dispatch({
-		container: GENERAL_CONTAINER,
-		type: SET_BACKEND_ERRORS,
-		backendErrors: {},
-	});
+	dispatch(seBackendErrors({}));
 };
 
 /**
@@ -161,7 +347,11 @@ export const clearBackendErrors = () => (dispatch) => {
  * so the server can both decode it to get the account_id for the call
  * as well as authenticate the call without being sent a password
  *
- * @returns {Object} header containing jwToken from localStorage
+ * @returns {{ 
+ * 	headers: {
+ * 		jwToken: string
+ * 	}
+ * }} header containing jwToken from localStorage
  */
 export const createHeader = () => {
 	return { headers: { jwToken: localStorage.jwToken } };
