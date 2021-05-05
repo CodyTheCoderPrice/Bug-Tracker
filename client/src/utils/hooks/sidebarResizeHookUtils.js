@@ -12,6 +12,9 @@ import { getElementStyle, stripNonDigits } from "../index";
  * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {string} sidebarContainerClassName - Unique className assigned to the
  * sidebar-container element
+ * 
+ * @example
+ * useSidebarResize(reduxState, "js-account-sidebar-container");
  */
 export function useSidebarResize(passedReduxState, sidebarContainerClassName) {
 	// Optimizes hook by storing constant element sizes and styles

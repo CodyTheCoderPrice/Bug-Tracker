@@ -26,6 +26,17 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
  * @param {string} filterAreaContainerClassName - Unique className assigned
  * to the element used for positioning the filter-button and filter-dropdown
  * elements
+ * 
+ * @example
+ * seListViewSearchBarResize(
+ * 	reduxState,
+ * 	"js-list-search-bar-and-button-centering-container",
+ * 	"js-list-centered-search-bar-and-button-container",
+ * 	"js-list-search-bar",
+ * 	"js-list-search-button",
+ * 	"js-new-item-button-centering-container",
+ * 	"js-list-filter-area-container"
+ * );
  */
 export function useListViewSearchBarResize(
 	passedReduxState,

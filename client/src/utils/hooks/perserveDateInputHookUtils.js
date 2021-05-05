@@ -7,7 +7,20 @@ import { useState, useEffect } from "react";
  * but preserve a copy of the value, so if status is later set back to
  * completed, the previous completion date will be restored.
  *
- * @param {Object} itemInfoState - State variable from the itemInfo useState
+ * @param {{
+ * 	id: (number|undefined), 
+ *  name: string, 
+ * 	description: string, 
+ * 	location: string, 
+ * 	priority_id: number,
+ * 	priorityOption: (string|undefined), 
+ * 	status_id: number, 
+ * 	statusOption: (string|undefined), 
+ * 	creation_date: (string|undefined),
+ * 	start_date: string, 
+ * 	due_date: string,
+ * 	completion_date: string 
+ * }} itemInfoState - State variable from the itemInfo useState
  * @param {Function} setItemInfoFunction - Setter function variable from the
  * itemInfo useState
  * @param {string} completionDateUniqueClassName - Unique className assigned to
@@ -15,6 +28,29 @@ import { useState, useEffect } from "react";
  * @param {Object} passedReduxState - Current redux state from useSelector
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
  * container of which priorityStatusOptions to use
+ * 
+ * @example
+ * // Used while editing a bug
+ * usePerserveCompletetionDate(
+ * 	{
+ * 		id: 95,
+ * 		name: "Redux persist bug",
+ * 		description: "Certain containers not being persisted in redux",
+ * 		location: "Redux",
+ * 		priority_id: 4,
+ * 		priorityOption: "High",
+ * 		status_id: 3,
+ * 		statusOption: "Testing",
+ * 		creation_date: "10-22-2020",
+ * 		start_date: "2020-10-22",
+ * 		due_date: "2020-10-24",
+ * 		completion_date: ""
+ * 	},
+ * 	setItemInfo,
+ * 	"js-completion-date",
+ * 	reduxState,
+ * 	"BUG_CONTAINER"
+ * );
  */
 export function usePerserveCompletetionDate(
 	itemInfoState,

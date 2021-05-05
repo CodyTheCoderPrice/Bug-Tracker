@@ -5,6 +5,9 @@ import { useEffect } from "react";
  * that one of it's child input element's is in focus
  * 
  * @param {string} formClassName - Unique className assigned to a form element
+ * 
+ * @example
+ * useSubmitFormOnEnterPress("js-create-item-form");
  */
 export function useSubmitFormOnEnterPress(formClassName) {
 	useEffect(() => {
