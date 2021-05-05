@@ -7,12 +7,26 @@ const initialState = {}
  * Used to set Object containing account data from the database in the account
  * container of the redux state
  * 
- * @param {Object} state - Object for the current account data in the redux state
+ * @param {({ 
+ * 	account_id: number, 
+ * 	email: string, 
+ * 	first_name: string, 
+ * 	last_name: string, 
+ * 	join_date: string, 
+ * 	last_edited_timestamp: string 
+ * } | {})} state - Object for the current account data in the redux state
  * @param {Object} action - Object containing a type and container name, which 
  * determin what to do and where to do it. Also contians any addition data
  * needed for the task (typically data to be updated in the redux state).
- * @returns {Object} Object for an account to be stored in the account container
- * of the redux state
+ * @returns {({ 
+ * 	account_id: number, 
+ * 	email: string, 
+ * 	first_name: string, 
+ * 	last_name: string, 
+ * 	join_date: string, 
+ * 	last_edited_timestamp: string 
+ * } | {})} Object for an account to be stored in the account container of the 
+ * redux state
  */
 export default function accountReducer(state = initialState, action) {
 	switch (action.type) {

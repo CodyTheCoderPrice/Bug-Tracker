@@ -11,16 +11,30 @@ const initialState = {
 };
 
 /**
- * Used to set Object containing authentication data for the current user of the
- * site in the account container of the redux state
+ * Used to set Object containing authentication data for the current user of 
+ * the site in the account container of the redux state
  * 
- * @param {Object} state - Object for the current user authentication data in the
- * redux state
+ * @param {{
+ * 	isAuthenticated: boolean,
+ * 	info: ({
+ *		account_id: number,
+ * 		iat: number, 
+ * 		exp: number 
+ * 	} | {})
+ * }} state - Object for the current user authentication data in the redux 
+ * state
  * @param {Object} action - Object containing a type and container name, which 
  * determin what to do and where to do it. Also contians any addition data
  * needed for the task (typically data to be updated in the redux state).
- * @returns {Object} Object containing authentication data for the current user
- * of the site to be stored in the account container of the redux state
+ * @returns {{
+ * 	isAuthenticated: boolean,
+ * 	info: ({
+ *		account_id: number,
+ * 		iat: number, 
+ * 		exp: number 
+ * 	} | {})
+ * }} Object containing authentication data for the current user of the site to
+ * be stored in the account container of the redux state
  */
 export default function authReducer(state = initialState, action) {
 	switch (action.type) {
