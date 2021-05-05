@@ -17,14 +17,25 @@ const initialState = {
  * Used to set Object in the general container of the redux state for which
  * general components should display by the app
  *
- * @param {Object} state - Object for which general components are currently being
+ * @param {{
+ * 	register: boolean,
+ * 	login: boolean,
+ * 	home: boolean,
+ * 	itemViewListSidebar: boolean,
+ * 	itemViewListSidebarUserSet: boolean
+ * }} state - Object for which general components are currently being 
  * displayed by the app
- * @param {Object} action - Object containing a container name and type (used to
- * determin where and what task to do in the redux state), also contians any
- * addition data needed for the task (typically data to be updated in the
- * redux state)
- * @returns {Object} Object for which general components should display by the
- * app, to be stored in the general container of the redux state
+ * @param {Object} action - Object containing a type and container name, which 
+ * determin what to do and where to do it. Also contians any addition data
+ * needed for the task (typically data to be updated in the redux state).
+ * @returns {{
+ * 	register: boolean,
+ * 	login: boolean,
+ * 	home: boolean,
+ * 	itemViewListSidebar: boolean,
+ * 	itemViewListSidebarUserSet: boolean
+ * }} Object for which general components should display by the app, to be 
+ * stored in the general container of the redux state
  */
 export default function generalComponentsDisplayReducer(state = initialState, action) {
 	switch (action.type) {

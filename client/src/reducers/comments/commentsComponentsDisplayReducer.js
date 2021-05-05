@@ -16,14 +16,49 @@ const initialState = {
  * Used to set Object in the comment container of the redux state for which
  * comment components should display by the app
  *
- * @param {Object} state - Object for which comment components are currently being
- * displayed by the app
- * @param {Object} action - Object containing a container name and type (used to
- * determin where and what task to do in the redux state), also contians any
- * addition data needed for the task (typically data to be updated in the
- * redux state)
- * @returns {Object} Object for which comment components should display by the
- * app, to be stored in the comment container of the redux state
+ * @param {{
+ * 	commentDeleteModal: boolean,
+ * 	commentToBeDeleted: ({
+ * 		bug_id: number,
+ * 		id: number,
+ * 		description: string,
+ * 		location: string,
+ * 		creation_date: string,
+ * 		last_edited_timestamp: string,
+ * 	}|null),
+ * 	commentToBeDeleted: ({
+ * 		bug_id: number,
+ * 		id: number,
+ * 		description: string,
+ * 		location: string,
+ * 		creation_date: string,
+ * 		last_edited_timestamp: string,
+ * 	}|null)
+ * }} state - Object for which comment components are currently being displayed
+ * by the app
+ * @param {Object} action - Object containing a type and container name, which 
+ * determin what to do and where to do it. Also contians any addition data
+ * needed for the task (typically data to be updated in the redux state).
+ * @returns {{
+ * 	commentDeleteModal: boolean,
+ * 	commentToBeDeleted: ({
+ * 		bug_id: number,
+ * 		id: number,
+ * 		description: string,
+ * 		location: string,
+ * 		creation_date: string,
+ * 		last_edited_timestamp: string,
+ * 	}|null),
+ * 	commentToBeDeleted: ({
+ * 		bug_id: number,
+ * 		id: number,
+ * 		description: string,
+ * 		location: string,
+ * 		creation_date: string,
+ * 		last_edited_timestamp: string,
+ * 	}|null)
+ * }} Object for which comment components should display by the app, to be 
+ * stored in the comment container of the redux state
  */
 export default function commentsComponentsDisplayReducer(state = initialState, action) {
 	switch (action.type) {

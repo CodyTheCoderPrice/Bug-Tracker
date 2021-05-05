@@ -16,10 +16,9 @@ const initialState = {
  * 
  * @param {Object} state - Object for the current user authentication data in the
  * redux state
- * @param {Object} action - Object containing a container name and type (used to
- * determin where and what task to do in the redux state), also contians any
- * addition data needed for the task (typically data to be updated in the
- * redux state)
+ * @param {Object} action - Object containing a type and container name, which 
+ * determin what to do and where to do it. Also contians any addition data
+ * needed for the task (typically data to be updated in the redux state).
  * @returns {Object} Object containing authentication data for the current user
  * of the site to be stored in the account container of the redux state
  */

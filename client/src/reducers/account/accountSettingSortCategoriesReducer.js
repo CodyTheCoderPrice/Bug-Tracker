@@ -9,10 +9,9 @@ const initialState = {}
  * 
  * @param {Object} state - Object for account setting sort categories data in the
  * redux state
- * @param {Object} action - Object containing a container name and type (used to
- * determin where and what task to do in the redux state), also contians any
- * addition data needed for the task (typically data to be updated in the
- * redux state)
+ * @param {Object} action - Object containing a type and container name, which 
+ * determin what to do and where to do it. Also contians any addition data
+ * needed for the task (typically data to be updated in the redux state).
  * @returns {Object} Object for account setting sort categories to be stored in
  * the account container of the redux state
  */

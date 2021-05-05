@@ -15,14 +15,27 @@ const initialState = {
  * Used to set Object in the account container of the redux state for which
  * account components should display by the app
  *
- * @param {Object} state - Object for which account components are currently being
- * displayed by the app
- * @param {Object} action - Object containing a container name and type (used to
- * determin where and what task to do in the redux state), also contians any
- * addition data needed for the task (typically data to be updated in the
- * redux state)
- * @returns {Object} Object for which account components should display by the
- * app, to be stored in the account container of the redux state
+ * @param {{
+ * 	accountSidebar: boolean,
+ * 	accountModalChangeInfo: boolean,
+ * 	accountModalChangeEmail: boolean,
+ * 	accountModalChangePassword: boolean,
+ * 	accountModalDeleteAccount: boolean,
+ * 	accountModalChangeSettings: boolean
+ * }} state - Object for which account components are currently being displayed
+ * by the app
+ * @param {Object} action - Object containing a type and container name, which 
+ * determin what to do and where to do it. Also contians any addition data
+ * needed for the task (typically data to be updated in the redux state).
+ * @returns {{
+ * 	accountSidebar: boolean,
+ * 	accountModalChangeInfo: boolean,
+ * 	accountModalChangeEmail: boolean,
+ * 	accountModalChangePassword: boolean,
+ * 	accountModalDeleteAccount: boolean,
+ * 	accountModalChangeSettings: boolean
+ * }} Object for which account components should display by the app, to be 
+ * stored in the account container of the redux state
  */
 export default function accountComponentsDisplayReducer(state = initialState, action) {
 	switch (action.type) {

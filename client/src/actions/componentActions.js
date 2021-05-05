@@ -24,18 +24,20 @@ import {
  * 	login: (boolean|undefined),
  * 	home: (boolean|undefined),
  * 	itemViewListSidebar: (boolean|undefined),
- * 	itemViewListSidebarUserSet: (boolean|undefined)}} displays - Object
- * containing info for how general components should be displyed in the app.
- * Any general components set to undefined or excluded from this param will be
- * set to their default value.
+ * 	itemViewListSidebarUserSet: (boolean|undefined)
+ * }} displays - Object containing info for how general components should be 
+ * displyed in the app. Any general components set to undefined or excluded 
+ * from this param will be set to their default value.
  *
  * @example
  * // Sets home component to true, and all other general components to their
- * // ...default values
+ * // ...default values. The dispatch function is from useDispatch() imported
+ * // ...from react-redux.
  * dispatch(setWhichGeneralComponentsDisplay({ home: true }));
  *
  * @example
- * // Sets all general components to their default values
+ * // Sets all general components to their default values. The dispatch
+ * // ...function is from useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralComponentsDisplay({}));
  */
 export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
@@ -55,20 +57,22 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * 	listViewSearchFilterSearchBarFilterDropdown: (boolean|undefined),
  * 	itemViewTopBarSortDropdown: (boolean|undefined),
  * 	itemViewTopBarFilterDropdown: (boolean|undefined),
- * 	itemViewTopBarOptionsDropdown: (boolean|undefined)}} displays - Object
- * containing info for how general dropdowns should be displyed in the app. Any
- * general dropdowns set to undefined or excluded from this param will be set
- * to their default value.
+ * 	itemViewTopBarOptionsDropdown: (boolean|undefined)
+ * }} displays - Object containing info for how general dropdowns should be 
+ * displyed in the app. Any general dropdowns set to undefined or excluded from
+ * this param will be set to their default value.
  *
  * @example
  * // Sets navbarHamburherDropdown to true, and all other general dropdowns to
- * // ...their default values
+ * // ...their default values. The dispatch function is from useDispatch()
+ * // ...imported from react-redux.
  * dispatch(
  *		setWhichGeneralDropdownsDisplay({ navbarHamburherDropdown: true })
  *	);
  *
  * @example
- * // Sets all general dropdowns to their default values
+ * // Sets all general dropdowns to their default values. The dispatch function
+ * // ...is from useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralDropdownsDisplay({}));
  */
 export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
@@ -89,18 +93,20 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * 	accountModalChangeEmail: (boolean|undefined),
  * 	accountModalChangePassword: (boolean|undefined),
  * 	accountModalDeleteAccount: (boolean|undefined),
- * 	accountModalChangeSettings: (boolean|undefined)}} displays - Object
- * containing info for how account components should be displyed in the app.
- * Any account components set to undefined or excluded from this param will be
- * set to their default value.
+ * 	accountModalChangeSettings: (boolean|undefined)
+ * }} displays - Object containing info for how account components should be 
+ * displyed in the app. Any account components set to undefined or excluded 
+ * from this param will be set to their default value.
  *
  * @example
  * // Sets accountSidebar to true, and all other account components to their
- * // ...default values
+ * // ...default values. The dispatch function is from useDispatch() imported
+ * // ...from react-redux.
  * dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
  *
  * @example
- * // Sets all account components to their default values
+ * // Sets all account components to their default values. The dispatch 
+ * // ...function is from useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralDropdownsDisplay({}));
  */
 export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
@@ -144,11 +150,13 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
  *
  * @example
  * // Sets listView to true, and all other project components to their default
- * // ...values
+ * // ...values. The dispatch function is from useDispatch() imported from
+ * // ...react-redux.
  * dispatch(setWhichProjectComponentsDisplay({ listView: true }));
  *
  * @example
- * // Sets all project components to their default values
+ * // Sets all project components to their default values. The dispatch 
+ * // ...function is from useDispatch() imported from react-redux.
  * dispatch(setWhichProjectComponentsDisplay({}));
  */
 export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
@@ -193,11 +201,13 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  *
  * @example
  * // Sets listView to true, and all other bug components to their default
- * // ...values
+ * // ...values. The dispatch function is from useDispatch() imported from
+ * // ...react-redux.
  * dispatch(setWhichBugComponentsDisplay({ listView: true }));
  *
  * @example
- * // Sets all bug components to their default values
+ * // Sets all bug components to their default values. The dispatch function is 
+ * // ...from useDispatch() imported from react-redux.
  * dispatch(setWhichBugComponentsDisplay({}));
  */
 export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
@@ -236,11 +246,13 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  *
  * @example
  * // Sets listView to true, and all other comment components to their default
- * // ...values
+ * // ...values. The dispatch function is from useDispatch() imported from
+ * // ...react-redux.
  * dispatch(setWhichCommentComponentsDisplay({ listView: true }));
  *
  * @example
- * // Sets all comment components to their default values
+ * // Sets all comment components to their default values. The dispatch 
+ * // ...function is from useDispatch() imported from react-redux.
  * dispatch(setWhichCommentComponentsDisplay({}));
  */
 export const setWhichCommentComponentsDisplay = (displays) => (dispatch) => {
