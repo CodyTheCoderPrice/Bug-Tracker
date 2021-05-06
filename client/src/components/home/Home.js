@@ -202,7 +202,7 @@ export default function Home() {
 		>
 			<Navbar />
 			{/*Account components*/}
-			{/*Displays blurred background when an account component is open*/}
+			{/*Displays blurred background when any account component is open*/}
 			{Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
 				true
 			) > -1 ? (

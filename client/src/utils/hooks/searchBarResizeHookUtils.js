@@ -10,7 +10,8 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
  * available space in the top bar between the new item button and filter
  * button
  *
- * @param {Object} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from 
+ * useSelector((state) => state)
  * @param {string} searchBarAndButtonCenteringContainerClassName - Unique
  * className assigned to the element used for centering the element (next
  * parameter) that contains both search-bar and search-button elements

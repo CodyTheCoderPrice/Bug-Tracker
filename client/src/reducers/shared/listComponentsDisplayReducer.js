@@ -27,7 +27,6 @@ const initialState = {
  * 	listViewDeleteModal: boolean,
  * 	listViewCreateItemSidbar: boolean,
  * 	itemView: boolean,
- * 	itemView: boolean,
  * 	itemViewEditItemInfo: boolean,
  * 	itemViewDeleteModal: boolean,
  * 	itemViewCurrentItem: ({
@@ -55,7 +54,6 @@ const initialState = {
  * 	listView: boolean,
  * 	listViewDeleteModal: boolean,
  * 	listViewCreateItemSidbar: boolean,
- * 	itemView: boolean,
  * 	itemView: boolean,
  * 	itemViewEditItemInfo: boolean,
  * 	itemViewDeleteModal: boolean,

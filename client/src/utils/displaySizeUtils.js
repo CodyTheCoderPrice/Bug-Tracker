@@ -432,9 +432,9 @@ export function manageSizeOfItemBoxsInPairContainer(
 			getElementSize(pairContainerElement).width >
 			outerDivingContainerMinWidth * 2;
 
-		// If shouldHaveClassName is true, then halfs item-box widths allowing
-		// ...them to fit next to one another. Otherwise they are kept full 
-		// ...width which places the first on top of the second.
+		// If shouldHaveClassName is true, then cuts item-box widths in half 
+		// ...allowing them to fit next to one another. Otherwise they are kept 
+		// ...full width which places the first on top of the second.
 		toggleClassName(
 			shouldHaveClassName,
 			firstOuterDividingContianerElement,

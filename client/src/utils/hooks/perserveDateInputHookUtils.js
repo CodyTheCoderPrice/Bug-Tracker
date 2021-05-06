@@ -25,7 +25,8 @@ import { useState, useEffect } from "react";
  * itemInfo useState
  * @param {string} completionDateUniqueClassName - Unique className assigned to
  * the input date element for completion date
- * @param {Object} passedReduxState - Current redux state from useSelector
+ * @param {Object} passedReduxState - Current redux state from 
+ * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
  * container of which priorityStatusOptions to use
  * 

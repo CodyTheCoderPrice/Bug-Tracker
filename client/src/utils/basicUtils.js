@@ -18,6 +18,24 @@ export function isEmpty(value) {
  * @param {Element} element - The element that will have it's className toggled
  * @param {string} nameOfToggledClass - The className the element either should
  * or shouldn't have
+ * 
+ * @example
+ * // Ensures element with className "js-button" also has the className 
+ * // ..."hide-button"
+ * toggleClassName(
+ * 	true,
+ * 	document.getElementsByClassName("js-button")[0],
+ * 	"hide-button"
+ * )
+ * 
+ * @example
+ * // Ensures element with className "js-button" doesn't have the className 
+ * // ..."hide-button"
+ * toggleClassName(
+ * 	false,
+ * 	document.getElementsByClassName("js-button")[0],
+ * 	"hide-button"
+ * )
  */
 export function toggleClassName(
 	shouldHaveClassName,

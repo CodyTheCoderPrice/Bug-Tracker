@@ -15,21 +15,29 @@ import {
 } from "../actions";
 
 /**
- * Will open the project ListView component while closing all components that
- * shouldn't ever be open at the same time as it, as well as the AccountSidebar
- * and the project ListViewCreateItemSidebar (if they were open)
+ * Sets project ListView component to true while setting all other project,
+ * account, bug, and comment components to false. Sets project/bug
+ * itemViewEditItemInfo to false, and keeps project/bug itemViewCurrentItem the
+ * same so the current Navbar button options remain unaffected.
  *
- *
- * @param {Object} passedReduxState - Current redux state from useSelector
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch
+ * @param {Object} passedReduxState - Current redux state from 
+ * useSelector((state) => state)
+ * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
  */
 export function openProjectsListView(passedReduxState, dispatch) {
-	if (passedReduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true) {
-		// Closes all account components
+	if (
+		passedReduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true ||
+		passedReduxState[PROJECT_CONTAINER].componentsDisplay
+			.listViewCreateItemSidbar === true ||
+		passedReduxState[PROJECT_CONTAINER].componentsDisplay
+			.listViewDeleteModal === true ||
+		Object.values(
+			passedReduxState[ACCOUNT_CONTAINER].componentsDisplay
+		).indexOf(true) > -1
+	) {
 		dispatch(setWhichAccountComponentsDisplay({}));
-		// Opens project ListView and keeps same itemViewCurrentItem to allow
-		// ...switching back to the project ItemView (if itemViewCurrentItem is
-		// ...not null) using the navbar. Closes all other project components
+		// Keeps same itemViewCurrentItem, so if it's not null, the user can
+		// ...switch back to project ItemView using navbar.
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				listView: true,
@@ -38,54 +46,38 @@ export function openProjectsListView(passedReduxState, dispatch) {
 						.itemViewCurrentItem,
 			})
 		);
-		// Keeps same itemViewCurrentItem to allow switching back to the bug
-		// ...ItemView (if itemViewCurrentItem is not null) using the navbar.
-		// ...Closes all bug components.
+		// Keeps itemViewCurrentItem the same, so if it's not null, the user
+		// ...can switch back to bug ItemView using navbar.
 		dispatch(
 			setWhichBugComponentsDisplay({
 				itemViewCurrentItem:
 					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
-		// Closes all comment components
 		dispatch(setWhichCommentComponentsDisplay({}));
-	} else if (
-		passedReduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ===
-			true ||
-		passedReduxState[PROJECT_CONTAINER].componentsDisplay
-			.listViewCreateItemSidbar === true
-	) {
-		// Closes all account components
-		dispatch(setWhichAccountComponentsDisplay({}));
-		// Opens project ListView and keeps same itemViewCurrentItem to allow
-		// ...switching back to the project ItemView (if itemViewCurrentItem is
-		// ...not null) using the navbar. Closes all other project components
-		dispatch(
-			setWhichProjectComponentsDisplay({
-				listView: true,
-				itemViewCurrentItem:
-					passedReduxState[PROJECT_CONTAINER].componentsDisplay
-						.itemViewCurrentItem,
-			})
-		);
 	}
 }
 
 /**
- * Will open the project ItemView component while closing all components that
- * shouldn't ever be open at the same time as it, as well as the AccountSidebar
- * (if it is open)
+ * Sets project ItemView component to true while setting all other project,
+ * account, bug, and comment components to false. Keeps project
+ * itemViewEditItemInfo the same, but sets bug itemViewEditItemInfo to false.
+ * Keeps project/bug itemViewCurrentItem the same so the current Navbar button
+ * options remain unaffected.
  *
- * @param {Object} passedReduxState - Current redux state from useSelector
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch
+ * @param {Object} passedReduxState - Current redux state from 
+ * useSelector((state) => state)
+ * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
  */
 export function openProjectsItemView(passedReduxState, dispatch) {
-	if (passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemView !== true) {
-		// Closes all account components
+	if (
+		passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemView !== true ||
+		Object.values(
+			passedReduxState[ACCOUNT_CONTAINER].componentsDisplay
+		).indexOf(true) > -1
+	) {
 		dispatch(setWhichAccountComponentsDisplay({}));
-		// Opens project ItemView and keeps same itemViewCurrentItem which will
-		// ...have been set previously in the project ListView. Closes all
-		// ...other project components
+		// Keeps itemViewCurrentItem the same as project ItemView depends on it
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				itemView: true,
@@ -94,42 +86,42 @@ export function openProjectsItemView(passedReduxState, dispatch) {
 						.itemViewCurrentItem,
 			})
 		);
-		// Keeps same itemViewCurrentItem to allow switching back to the bug
-		// ...ItemView (if itemViewCurrentItem is not null) using the navbar.
-		// ...Closes all bug components.
+		// Keeps itemViewCurrentItem the same, so if it's not null, the user
+		// ...can switch back to bug ItemView using navbar.
 		dispatch(
 			setWhichBugComponentsDisplay({
 				itemViewCurrentItem:
 					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
-		// Closes all comment components
 		dispatch(setWhichCommentComponentsDisplay({}));
-	} else if (
-		passedReduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ===
-		true
-	) {
-		// Closes all account components
-		dispatch(setWhichAccountComponentsDisplay({}));
 	}
 }
 
 /**
- * Will open the bug ListView component while closing all components that
- * shouldn't ever be open at the same time as it, as well as the AccountSidebar
- * and the bug ListViewCreateItemSidebar (if they were open)
+ * Sets bug ListView component to true while setting all other bug, account,
+ * project, and comment components to false. Sets project/bug
+ * itemViewEditItemInfo to false, and keeps project/bug itemViewCurrentItem the
+ * same so the current Navbar button options remain unaffected.
  *
- *
- * @param {Object} passedReduxState - Current redux state from useSelector
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch
+ * @param {Object} passedReduxState - Current redux state from 
+ * useSelector((state) => state)
+ * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
  */
 export function openBugsListView(passedReduxState, dispatch) {
-	if (passedReduxState[BUG_CONTAINER].componentsDisplay.listView !== true) {
-		// Closes all account components
+	if (
+		passedReduxState[BUG_CONTAINER].componentsDisplay.listView !== true ||
+		passedReduxState[BUG_CONTAINER].componentsDisplay
+			.listViewCreateItemSidbar === true ||
+		passedReduxState[BUG_CONTAINER].componentsDisplay.listViewDeleteModal ===
+			true ||
+		Object.values(
+			passedReduxState[ACCOUNT_CONTAINER].componentsDisplay
+		).indexOf(true) > -1
+	) {
 		dispatch(setWhichAccountComponentsDisplay({}));
-		// Keeps same itemViewCurrentItem to allow switching back to the
-		// ...project ItemView (if itemViewCurrentItem is not null) using the
-		// ...navbar. Closes all project components
+		// Keeps same itemViewCurrentItem, so if it's not null, the user can
+		// ...switch back to project ItemView using navbar.
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				itemViewCurrentItem:
@@ -137,9 +129,8 @@ export function openBugsListView(passedReduxState, dispatch) {
 						.itemViewCurrentItem,
 			})
 		);
-		// Opens bug ListView and keeps same itemViewCurrentItem to allow
-		// ...switching back to the bug ItemView (if itemViewCurrentItem is
-		// ...not null) using the navbar. Closes all other bug components
+		// Keeps itemViewCurrentItem the same, so if it's not null, the user
+		// ...can switch back to bug ItemView using navbar.
 		dispatch(
 			setWhichBugComponentsDisplay({
 				listView: true,
@@ -147,44 +138,31 @@ export function openBugsListView(passedReduxState, dispatch) {
 					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
-		// Closes all comment components
 		dispatch(setWhichCommentComponentsDisplay({}));
-	} else if (
-		passedReduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ===
-			true ||
-		passedReduxState[BUG_CONTAINER].componentsDisplay
-			.listViewCreateItemSidbar === true
-	) {
-		// Closes all account components
-		dispatch(setWhichAccountComponentsDisplay({}));
-		// Opens bug ListView and keeps same itemViewCurrentItem to allow
-		// ...switching back to the bug ItemView (if itemViewCurrentItem is
-		// ...not null) using the navbar. Closes all other bug components
-		dispatch(
-			setWhichBugComponentsDisplay({
-				listView: true,
-				itemViewCurrentItem:
-					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
-			})
-		);
 	}
 }
 
 /**
- * Will open the bug ItemView component while closing all components that
- * shouldn't ever be open at the same time as it, as well as the AccountSidebar
- * (if it is open)
+ * Sets bug ItemView component to true while setting all other bug, account,
+ * project, and comment components to false. Keeps bug itemViewEditItemInfo the
+ * same, but sets project itemViewEditItemInfo to false. Keeps project/bug
+ * itemViewCurrentItem the same so the current Navbar button options remain
+ * unaffected.
  *
- * @param {Object} passedReduxState - Current redux state from useSelector
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch
+ * @param {Object} passedReduxState - Current redux state from 
+ * useSelector((state) => state)
+ * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
  */
 export function openBugsItemView(passedReduxState, dispatch) {
-	if (passedReduxState[BUG_CONTAINER].componentsDisplay.itemView !== true) {
-		// Closes all account components
+	if (
+		passedReduxState[BUG_CONTAINER].componentsDisplay.itemView !== true ||
+		Object.values(
+			passedReduxState[ACCOUNT_CONTAINER].componentsDisplay
+		).indexOf(true) > -1
+	) {
 		dispatch(setWhichAccountComponentsDisplay({}));
-		// Keeps same itemViewCurrentItem to allow switching back to the
-		// ...project ItemView (if itemViewCurrentItem is not null) using the
-		// ...navbar. Closes all project components
+		// Keeps itemViewCurrentItem the same, so if it's not null, the user
+		// ...can switch back to project ItemView using navbar.
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				itemViewCurrentItem:
@@ -192,9 +170,7 @@ export function openBugsItemView(passedReduxState, dispatch) {
 						.itemViewCurrentItem,
 			})
 		);
-		// Opens bug ItemView and keeps same itemViewCurrentItem which will
-		// ...have been set previously in the project ListView. Closes all
-		// ...other bug components
+		// Keeps itemViewCurrentItem the same as bug ItemView depends on it
 		dispatch(
 			setWhichBugComponentsDisplay({
 				itemView: true,
@@ -202,32 +178,29 @@ export function openBugsItemView(passedReduxState, dispatch) {
 					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
 		);
-		// Closes all comment components
 		dispatch(setWhichCommentComponentsDisplay({}));
-	} else if (
-		passedReduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ===
-		true
-	) {
-		// Closes all account components
-		dispatch(setWhichAccountComponentsDisplay({}));
 	}
 }
 
 /**
- * Closes all views tabs except the project ListView (which moves the user to
- * the ListView if not already there).
+ * Sets project ListView component to true while keeping project
+ * ListViewCreateItemSidbar component the same. Sets all other project, 
+ * account, bug, and comment components to false. Keeps the project 
+ * massDeleteList the same, but empties the bug massDeleteList. Sets the 
+ * project/bug itemViewCurrentItem to null.
  *
  * @param {Event} e - The event created by the onClick
- * @param {Object} passedReduxState - Current redux state from useSelector
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch
+ * @param {Object} passedReduxState - Current redux state from 
+ * useSelector((state) => state)
+ * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
  */
 export function closeProjectItemView(e, passedReduxState, dispatch) {
 	// Stops onClicks of parent elements from being triggered
 	e.stopPropagation();
-	// Closes all account components
+
 	dispatch(setWhichAccountComponentsDisplay({}));
-	// Closes all project components except the project
-	// ...ListViewCreateItemSidebar (if it is open)
+	// Keeps listViewCreateItemSidbar the same since the user would not expect 
+	// ...it to be closed by this function.
 	dispatch(
 		setWhichProjectComponentsDisplay({
 			listView: true,
@@ -236,29 +209,30 @@ export function closeProjectItemView(e, passedReduxState, dispatch) {
 					.listViewCreateItemSidbar,
 		})
 	);
-	// Closes all bug components
 	dispatch(setWhichBugComponentsDisplay({}));
-	// Clears the bug massDeleteList
 	dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER));
-	// Closes all comment components
 	dispatch(setWhichCommentComponentsDisplay({}));
 }
 
 /**
- * Closes the bug ItemView tab. If user is on the bug ItemView, they are moved
- * to the bug ListView. Otherwise they stay on the current view.
+ * Keeps all project components the same. Sets bug ListView component to true 
+ * if either the bug ListView or ItemView component is open. Keeps bug 
+ * ListViewCreateItemSidbar component the same.  Closes all other bug 
+ * components and sets bug itemViewCurrentItem to null. Sets all account and
+ * comment components to false.
  *
  * @param {Event} e - The event created by the onClick
- * @param {Object} passedReduxState - Current redux state from useSelector
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch
+ * @param {Object} passedReduxState - Current redux state from 
+ * useSelector((state) => state)
+ * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
  */
 export function closeBugItemView(e, passedReduxState, dispatch) {
 	// Stops onClicks of parent elements from being triggered
 	e.stopPropagation();
+
 	dispatch(setWhichAccountComponentsDisplay({}));
-	// Closes bug ItemView tab. If the user is on the bug ItemView, they are
-	// ...moved to the bug ListView. If the bug ListViewCreateItemSidebar is
-	// ...open, it remains open
+	// Keeps listViewCreateItemSidbar the same since the user would not expect 
+	// ...it to be closed by this function.
 	dispatch(
 		setWhichBugComponentsDisplay({
 			listView:
@@ -271,6 +245,5 @@ export function closeBugItemView(e, passedReduxState, dispatch) {
 					.listViewCreateItemSidbar,
 		})
 	);
-	// Closes all comment components
 	dispatch(setWhichCommentComponentsDisplay({}));
 }
