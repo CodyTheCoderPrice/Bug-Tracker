@@ -5,9 +5,12 @@ import { getElementStyle } from "./index";
  *
  * @param {number} rbgSection - either r, b, or g for rbg value
  * @returns {string} The rbgSection converted into a hex section
+ * 
+ * @example
+ * // Returns "8d"
+ * rbgSectionToHexSection(141);
  */
-function rbgSectionToHex(rbgSection) {
-	// converts to hex
+function rbgSectionToHexSection(rbgSection) {
 	let hexSection = rbgSection.toString(16);
 	// if length is 1, then concatinates 0 to the front
 	return hexSection.length === 1 ? "0" + hexSection : hexSection;
@@ -21,9 +24,13 @@ function rbgSectionToHex(rbgSection) {
  * @param {number} g - Green value for rbg color value
  * @param {number} b - Blue value for rbg color value
  * @returns {string} The equivalent hex color value of a rbg color value
+ * 
+ * @example
+ * // Returns "#568dd5"
+ * rgbToHex(86, 141, 213);
  */
 function rgbToHex(r, g, b) {
-	return "#" + rbgSectionToHex(r) + rbgSectionToHex(g) + rbgSectionToHex(b);
+	return "#" + rbgSectionToHexSection(r) + rbgSectionToHexSection(g) + rbgSectionToHexSection(b);
 }
 
 /**
@@ -32,6 +39,10 @@ function rgbToHex(r, g, b) {
  *
  * @param {string} rbgColorValue - rbg color value
  * @returns {string} Equivalent hex color value of rbg color value
+ * 
+ * @example
+ * // Returns "#568dd5"
+ * convertRbgColorStringToHexString("rgb(86, 141, 213)");
  */
 function convertRbgColorStringToHexString(rbgColorValue) {
 	// Seperates the r, b, and g sections into an array
@@ -45,10 +56,40 @@ function convertRbgColorStringToHexString(rbgColorValue) {
  * Appends to each status in the status list the hex color values for that
  * status's backcground color
  *
- * @param {Object[]} statusList - Status list inside priorityStatusOptions of
- * either the project or bug container of the redux state
- * @returns {Object[]} Status list with the hex color values for each status's
- * bakcground color appended to each status
+ * @param {{
+ * 	id: number,
+ * 	option: string,
+ * 	color: string
+ * }[]} statusList - Status list inside priorityStatusOptions of either the 
+ * project or bug container of the redux state
+ * @returns {{
+ * 	id: number,
+ * 	option: string,
+ * 	color: string,
+ * 	colorHex: string
+ * }[]} Status list with the hex color values for each status's bakcground 
+ * color appended to each status
+ * 
+ * @example
+ * appendHexValueForColorsToStatusList([
+ * 	{
+ * 		id: 1,
+ * 		option: "Open",
+ * 		color: "blue"
+ * 	}, {
+ * 		id: 2, 
+ * 		option: "In Progress",
+ * 		color: "purple"
+ * 	}, {
+ * 		id: 3,
+ * 		option: "Testing",
+ * 		color: "orange"
+ * 	}, {
+ * 		id: 4,
+ * 		option: "Closed",
+ * 		color: "green"
+ * 	}
+ * ]);
  */
 export function appendHexValueForColorsToStatusList(statusList) {
 	// Creating temporary stand-in app-component element to later append 
@@ -745,7 +786,11 @@ export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNa
 /**
  * Get brighter theme className for border color 
  * 
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Brighter theme className for border color 
  */
 export function getBrighterBorderColorClassNameForTheme(theme_color) {
@@ -754,7 +799,11 @@ export function getBrighterBorderColorClassNameForTheme(theme_color) {
 /**
  * Get base theme className for border color 
  * 
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Base theme className for border color 
  */
 export function getBaseBorderColorClassNameForTheme(theme_color) {
@@ -765,7 +814,11 @@ export function getBaseBorderColorClassNameForTheme(theme_color) {
 /**
  * Get brighter theme className for background color 
  * 
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Brighter theme className for background color 
  */
 export function getBrighterBackgroundColorClassNameForTheme(theme_color) {
@@ -774,7 +827,11 @@ export function getBrighterBackgroundColorClassNameForTheme(theme_color) {
 /**
  * Get base theme className for background color 
  * 
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Base theme className for background color 
  */
 export function getBaseBackgroundColorClassNameForTheme(theme_color) {
@@ -786,7 +843,11 @@ export function getBaseBackgroundColorClassNameForTheme(theme_color) {
  * Get theme className for background color with hover (background color is
  * brighter theme, while hover background color is base theme)
  * 
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme className for background color with hover
  */
 export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
@@ -799,7 +860,11 @@ export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
  * color (since the arrow is made entirely of a border, this changes the entire
  * color of the arrow)
  * 
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Brighter theme className for NavbarBreadcrumb arrow
  * element's border color
  */
@@ -811,7 +876,11 @@ export function getBrighterBreadcrumbArrowColorClassNameForTheme(theme_color) {
  * (since the arrow is made entirely of a border, this changes the entire color
  * of the arrow)
  * 
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Base theme className for NavbarBreadcrumb arrow element's
  * border color
  */
@@ -825,7 +894,11 @@ export function getBaseBreadcrumbArrowColorClassNameForTheme(theme_color) {
  * hover and focus (background color is brighter theme, while hover/focus
  * background color is base theme)
  * 
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme className for form-submit-button element's
  * background color with hover and focus
  */
@@ -842,7 +915,11 @@ export function getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(theme
  * background, and text color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for ToggleSwitch
  * element's border, background, amd text color
  */
@@ -863,7 +940,11 @@ export function getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLig
  * (during tutorial) element's border color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for ListViewTopBar
  * new-item-button (during tutorial) element's border color
  */
@@ -884,7 +965,11 @@ export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLi
  * new-item-tutorial element's border, arrow, and text color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for ListViewTopBar
  * new-item-tutorial element's border, arrow, and text color
  */
@@ -905,7 +990,11 @@ export function getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThe
  * border color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for form-input 
  * element's focus border color
  */
@@ -925,7 +1014,11 @@ export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
  * text color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for the entire app's 
  * theme based text color
  */
@@ -945,7 +1038,11 @@ export function getTextColorClassNameForThemeWithLightOrDarkMode(
  * border, background, text color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for CustomCheckbox 
  * element's border, background, text color
  */
@@ -966,7 +1063,11 @@ export function getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithL
  * ItemViewTopBar search-bar element's border, background, and text color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for ListViewTopBar 
  * and ItemViewTopBar search-bar element's border, background, and text color
  */
@@ -987,7 +1088,11 @@ export function getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWith
  * border (with focus), background, and text color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for base form-input 
  * element's border (with focus), background, and text color
  */
@@ -1011,7 +1116,11 @@ export function getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLi
  * border (with focus), background, and text color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for ItemView 
  * form-input element's border (with focus), background, and text color
  */
@@ -1035,7 +1144,11 @@ export function getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWi
  * (for name) element's border (with focus), background, and text color
  * 
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {string} theme_color - The current theme the app is set to use
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for 
  * ItemViewEditItemInfo form-input (for name) element's border (with focus), 
  * background, and text color
