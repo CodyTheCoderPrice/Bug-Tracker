@@ -1,27 +1,64 @@
 // Util uses container names to work with the redux state
-import {
-	PROJECT_CONTAINER,
-} from "../actions/constants/containerNames";
+import { PROJECT_CONTAINER } from "../actions/constants/containerNames";
 
 import { dateToInt } from "./index";
 
 /**
- * Takes an array of projects or bugs and returns it filtered to only items 
+ * Takes an array of projects or bugs and returns it filtered to only items
  * that fit current searchFilterSort configuration the user has set
- * 
- * @param {Object[]} projectsOrBugsArray - Array of projects or bugs
- * @param {Object} reduxSearchFilterSort - SearchFilterSort inside either project
- * or bug container of the redux state
- * @returns {Object[]} Array of projects or bugs filtered to only items that 
- * fit current searchFilterSort configuration the user has set
+ *
+ * @param {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} projectsOrBugsArray - Array of projects or bugs
+ * @param {{
+ * 	searchKeyWordString: string,
+ * 	sortAscending: boolean,
+ * 	sortId: number,
+ * 	priorityFilter: number[],
+ * 	statusFilter: number[]
+ * }} reduxSearchFilterSort - SearchFilterSort inside either project or bug
+ * container of the redux state
+ * @returns {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} Array of projects or bugs filtered to only items that fit current
+ * searchFilterSort configuration the user has set
  */
- export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
-
+export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
 	// Function is nest so it doesn't need to have reduxSearchFilterSort as a param
 	function search(projectsOrBugsArray) {
 		// Checks if searchKeyWordString contains more than just white spaces
 		if (/\S/.test(reduxSearchFilterSort.searchKeyWordString)) {
-			const keyWords = reduxSearchFilterSort.searchKeyWordString.toLowerCase().split(/\s+/);
+			const keyWords = reduxSearchFilterSort.searchKeyWordString
+				.toLowerCase()
+				.split(/\s+/);
 			// eslint-disable-next-line
 			return projectsOrBugsArray.filter((projectOrBug) => {
 				for (let word of keyWords) {
@@ -35,19 +72,21 @@ import { dateToInt } from "./index";
 		} else {
 			return projectsOrBugsArray;
 		}
-	};
+	}
 
 	// Function is nest so it doesn't need to have reduxSearchFilterSort as a param
 	function filter(projectsOrBugsArray) {
 		return projectsOrBugsArray.filter((projectOrBug) => {
 			return (
-				// priorityFilter & statusFilter arrays include ids for 
+				// priorityFilter & statusFilter arrays include ids for
 				// ...prioirties and statuses the user wants filtered out
-				!reduxSearchFilterSort.priorityFilter.includes(projectOrBug.priority_id) &&
+				!reduxSearchFilterSort.priorityFilter.includes(
+					projectOrBug.priority_id
+				) &&
 				!reduxSearchFilterSort.statusFilter.includes(projectOrBug.status_id)
 			);
 		});
-	};
+	}
 
 	// Function is nest so it doesn't need to have reduxSearchFilterSort as a param
 	function sort(projectsOrBugsArray) {
@@ -110,27 +149,46 @@ import { dateToInt } from "./index";
 					return projectsOrBugsArray;
 			}
 		}
-	};
+	}
 
 	// The order of these functions does not matter
 	return sort(filter(search(projectsOrBugsArray)));
 }
 
 /**
- * Get list of projects or bugs (depending on reduxContainerName parameter) 
+ * Get list of projects or bugs (depending on reduxContainerName parameter)
  * filtered to only have items that fit current searchFilterSort configuration
  * the user has set
- * 
- * @param {Object} passedReduxState - Current redux state from 
+ *
+ * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux 
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
  * container for which list and searchFilterSort to use
- * @returns {Object[]} List of projects or bugs filtered to only have items that fit 
- * current searchFilterSort configuration the user has set
+ * @returns {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} List of projects or bugs filtered to only have items that fit current
+ * searchFilterSort configuration the user has set
  */
-export function getSearchedFilteredSortedList(passedReduxState, reduxContainerName) {
+export function getSearchedFilteredSortedList(
+	passedReduxState,
+	reduxContainerName
+) {
 	return searchFilterSort(
-		// If PROJECT_CONTAINER, then pass project list. Otherwise pass bug 
+		// If PROJECT_CONTAINER, then pass project list. Otherwise pass bug
 		// ...list with bugs not belonging to current project filtered out.
 		reduxContainerName === PROJECT_CONTAINER
 			? // Spread operator makes deep copy of list so original is not affected
@@ -138,31 +196,38 @@ export function getSearchedFilteredSortedList(passedReduxState, reduxContainerNa
 			: [...passedReduxState[reduxContainerName].list].filter(
 					(item) =>
 						item.project_id ===
-						passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id
+						passedReduxState[PROJECT_CONTAINER].componentsDisplay
+							.itemViewCurrentItem.id
 			  ),
 		// PROJECT_CONTAINER & BUG_CONTAINER have different searchFilterSort
 		passedReduxState[reduxContainerName].searchFilterSort
 	);
-};
+}
 
 /**
- * Get a deep copy of a filter array (either priorityFilter or statusFilter 
- * depending on filterName parameter) from searchFilterSort of either the 
+ * Get a deep copy of a filter array (either priorityFilter or statusFilter
+ * depending on filterName parameter) from searchFilterSort of either the
  * project or bug container of redux state (depending on reduxContainerName
  * parameter) updated to have the targetId added if it was not already present,
  * or removed it it was.
- * 
- * @param {Object} passedReduxState - Current redux state from 
+ *
+ * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux 
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
  * container for which searchFilterSort to update
- * @param {string} filterName - Which filter to update (either priorityFilter or statusFilter)
- * @param {(number|string)} targetId - Number (or string of number) for which 
+ * @param {("priorityFilter"|"statusFilter")} filterName - Which filter to 
+ * update
+ * @param {(number|string)} targetId - Number (or string of number) for which
  * prioirty/status id to add or remove from the filter
- * @returns 
+ * @returns
  */
-export function getUpdatedDeepCopyFilterArray(passedReduxState, reduxContainerName, filterName, targetId) {
-	// Converting strings to numbers so priority/status filters contain a 
+export function getUpdatedDeepCopyFilterArray(
+	passedReduxState,
+	reduxContainerName,
+	filterName,
+	targetId
+) {
+	// Converting strings to numbers so priority/status filters contain a
 	// ...single data type (for consistency)
 	if (typeof targetId !== "number") {
 		targetId = Number(targetId);

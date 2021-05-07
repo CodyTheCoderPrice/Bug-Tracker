@@ -18,7 +18,7 @@ import {
 	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
 	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
-	getMessageIfValueIsEmpty,
+	getAlternativeIfValueIsEmpty,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getBugsInProjectList,
 	getNumberOfBugsForStatus,
@@ -70,10 +70,10 @@ export default function ListViewTableRow(props) {
 		// ...to prevent erros with bug itemViewCurrentItem not belonging to project
 		if (
 			props.reduxContainerName === PROJECT_CONTAINER &&
-			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem !==
-				null &&
-			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem.id !==
-				props.item.id
+			reduxState[props.reduxContainerName].componentsDisplay
+				.itemViewCurrentItem !== null &&
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
+				.id !== props.item.id
 		) {
 			dispatch(setWhichBugComponentsDisplay({}));
 		}
@@ -110,10 +110,10 @@ export default function ListViewTableRow(props) {
 				getListRowBorderAndTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				) +
-				(reduxState[props.reduxContainerName]?.componentsDisplay.itemViewCurrentItem !==
-					null &&
-				reduxState[props.reduxContainerName]?.componentsDisplay.itemViewCurrentItem
-					.id === props.item.id
+				(reduxState[props.reduxContainerName]?.componentsDisplay
+					.itemViewCurrentItem !== null &&
+				reduxState[props.reduxContainerName]?.componentsDisplay
+					.itemViewCurrentItem.id === props.item.id
 					? getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  )
@@ -188,7 +188,7 @@ export default function ListViewTableRow(props) {
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{getMessageIfValueIsEmpty(
+					{getAlternativeIfValueIsEmpty(
 						formatDateMMddYYYY(props.item.creation_date),
 						"-"
 					)}
@@ -196,7 +196,7 @@ export default function ListViewTableRow(props) {
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{getMessageIfValueIsEmpty(
+					{getAlternativeIfValueIsEmpty(
 						formatDateMMddYYYY(props.item.start_date),
 						"-"
 					)}
@@ -204,7 +204,10 @@ export default function ListViewTableRow(props) {
 			</td>
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
-					{getMessageIfValueIsEmpty(formatDateMMddYYYY(props.item.due_date), "-")}
+					{getAlternativeIfValueIsEmpty(
+						formatDateMMddYYYY(props.item.due_date),
+						"-"
+					)}
 				</span>
 			</td>
 			<td className={getTableDataClassName()}>

@@ -3,8 +3,10 @@ import { stripNonDigits, toggleClassName } from "../utils";
 /**
  * Get an object containing properties for the window's height and width
  *
- * @returns {Object} Object containing properties for the window's height and
- * width
+ * @returns {{
+ * 	height: number,
+ * 	width: number
+ * }} Object containing properties for the window's height and width
  */
 export function getWindowSize() {
 	const height =
@@ -23,8 +25,10 @@ export function getWindowSize() {
  * width
  *
  * @param {Element} element - Element to get height and width for
- * @returns {Object} Object containing properties for the passed element's height and
- * width
+ * @returns {{
+ * 	height: number,
+ * 	width: number
+ * }} Object containing properties for the passed element's height and width
  */
 export function getElementSize(element) {
 	return { height: element.offsetHeight, width: element.offsetWidth };
@@ -35,8 +39,12 @@ export function getElementSize(element) {
  * bottom, right, left)
  *
  * @param {Element} element - Element to get location for
- * @returns {Object} Object containing properties for the passed element's
- * location
+ * @returns {{
+ * 	top: rect.top,
+ * 	right: rect.right,
+ * 	bottom: rect.bottom,
+ * 	left: rect.left,
+ * }} Object containing properties for the passed element's location
  */
 export function getElementLocation(element) {
 	const rect = element.getBoundingClientRect();
@@ -403,17 +411,26 @@ export function getItemViewPaddingContainerPadding() {
 }
 
 /**
- * Manages the size of two item-box elements inside a pair-container element. 
- * If there is enough space, then fitting them next to one another, otherwise 
+ * Manages the size of two item-box elements inside a pair-container element.
+ * If there is enough space, then fitting them next to one another, otherwise
  * the first on top of the second.
  *
- * @param {Element} pairContainerElement - pair-container element that contains 
+ * @param {Element} pairContainerElement - pair-container element that contains
  * two item-box elements
- * @param {number} outerDivingContainerMinWidth - minWidth for 
- * outer-dividing-container elements that contains item-box elements (pair-contain -> 
+ * @param {number} outerDivingContainerMinWidth - minWidth for
+ * outer-dividing-container elements that contains item-box elements (pair-contain ->
  * outer-dividing-container -> item-box)
- * @param {string} toggledClassNameForOuterDividingContainerHalfWidth - 
+ * @param {string} toggledClassNameForOuterDividingContainerHalfWidth -
  * className that gives an outer-dividing-container element half width
+ * 
+ * @example
+ * manageSizeOfItemBoxsInPairContainer(
+ * 	document.getElementsByClassName(
+ * 		"js-description-info-pair-container"
+ * 	)[0],
+ * 	560,
+ * 	"outer-dividing-container--half-width"
+ * );
  */
 export function manageSizeOfItemBoxsInPairContainer(
 	pairContainerElement,
@@ -432,8 +449,8 @@ export function manageSizeOfItemBoxsInPairContainer(
 			getElementSize(pairContainerElement).width >
 			outerDivingContainerMinWidth * 2;
 
-		// If shouldHaveClassName is true, then cuts item-box widths in half 
-		// ...allowing them to fit next to one another. Otherwise they are kept 
+		// If shouldHaveClassName is true, then cuts item-box widths in half
+		// ...allowing them to fit next to one another. Otherwise they are kept
 		// ...full width which places the first on top of the second.
 		toggleClassName(
 			shouldHaveClassName,

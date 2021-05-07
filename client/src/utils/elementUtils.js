@@ -8,16 +8,26 @@ import {
 
 /**
  * Checks if value is empty. If it is not, then it is returned. Otherwise the
- * message is returned.
+ * alternative is returned.
+ *
+ * @param {(string|number|boolean)} value - value to be returned if it is not 
+ * empty
+ * @param {(string|number|JSX)} alternative - alternative value to be returned
+ * if value is empty
+ * @returns {(string|number|boolean|JSX)} Returns the value if it is not empty.
+ * Otherwise returns the alternative value.
  * 
- * @param {Any} value - value to be returned if it is not empty
- * @param {string} message - message to be returned if value is empty
- * @returns {Any} Returns the value if it is not empty. Otherwise returns the
- * message.
+ * @example
+ * // Returns "03-19-2020"
+ * getAlternativeIfValueIsEmpty("03-19-2020", "-");
+ * 
+ * @example
+ * // Returns "-"
+ * getAlternativeIfValueIsEmpty(null, "-");
  */
-export function getMessageIfValueIsEmpty(value, message) {
+export function getAlternativeIfValueIsEmpty(value, alternative) {
 	if (isEmpty(value)) {
-		return message;
+		return alternative;
 	} else {
 		return value;
 	}
@@ -25,16 +35,28 @@ export function getMessageIfValueIsEmpty(value, message) {
 
 /**
  * Checks if value is empty. If it is not, then it is returned. Otherwise the
- * message is returned in JSX span to be displayed as grayed out.
- * 
- * @param {Any} value - value to be returned if it is not empty
- * @param {string} message - message to be returned (if value is empty) in JSX
+ * alternative is returned in JSX span to be displayed as grayed out.
+ *
+ * @param {(string|number|boolean)} value - value to be returned if it is not empty
+ * @param {string} alternative - alternative value to be returned (if value is empty) in JSX
  * span to be displayed as grayed out
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {Any} Returns the value if it is not empty. Otherwise returns the
- * message in JSX span to be displayed as grayed out.
+ * @returns {(string|number|boolean|JSX)} Returns the value if it is not empty. Otherwise returns the
+ * alternative value in JSX span tag to be displayed as grayed out.
+ * 
+ * @example
+ * // Returns "03-19-2020"
+ * getAlternativeIfValueIsEmpty("03-19-2020", "none");
+ * 
+ * @example
+ * // Returns "none" in span tag to be displayed as grayed out
+ * getAlternativeIfValueIsEmpty(null, "none");
  */
-export function displayGrayedOutMessageIfValueIsEmpty(value, message, dark_mode) {
+export function displayGrayedOutAlternativeIfValueIsEmpty(
+	value,
+	alternative,
+	dark_mode
+) {
 	if (isEmpty(value)) {
 		return (
 			<span
@@ -42,7 +64,7 @@ export function displayGrayedOutMessageIfValueIsEmpty(value, message, dark_mode)
 					dark_mode
 				)}
 			>
-				{message}
+				{alternative}
 			</span>
 		);
 	} else {
