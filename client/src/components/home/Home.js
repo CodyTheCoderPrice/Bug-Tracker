@@ -6,39 +6,47 @@ import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "../../actions/constants/containerNames";
-
 import {
 	setWhichGeneralDropdownsDisplay,
 	setProjectOrBugSearchFilterSort,
 	setProjectOrBugMassDeleteList,
 } from "../../actions";
-
 import {
 	getUpdatedDeepCopyFilterArray,
 	getSearchedFilteredSortedList,
 	getBaseBackgroundAndTextColorClassNameForLightOrDarkMode,
 } from "../../utils";
 
-// Components
-// Navbar
+// Components used by this component
 import Navbar from "./menu/Navbar";
-// Account
 import AccountBlurredBackground from "./account/AccountBlurredBackground";
 import AccountSidebar from "./account/AccountSidebar";
 import AccountModal from "./account/AccountModal";
-// Projects & Bugs
 import ListView from "./projects-bugs-shared/list/ListView";
 import ItemView from "./projects-bugs-shared/item/ItemView";
 
+/**
+ * React functional component used to home all components available to a logged
+ * in user. At the top is the Navbar menu. Below that will be either the 
+ * project ListView, bug ListView, project ItemView, or bug ItemView depending 
+ * on which the users selects to have open.
+ *
+ * Component should be used inside an element with the app-component className.
+ * This is a stand alone component, meaning it was not intended to be 
+ * present/visible while a sibling component/element is also present/visible.
+ * 
+ * @component
+ */
 export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Updates list filters to match account settings on app start up or after
-	// ...filter account settings have been changed
+	// Updates statusFilter in project/bug searchFilterSort to match account 
+	// ...settings on app start-up/refresh, or after settings have been changed
 	useEffect(() => {
-		// Won't set filter to settings if target item status is completed so
-		// ...user is not confused where the target item went from the list
+		// Won't set statusFilter to match settings if itemViewCurrentItem has
+		// ...completed status (can only happen on refresh), otherwise it will 
+		// ...disappear which is confusing for the user
 		if (
 			reduxState[ACCOUNT_CONTAINER].settings
 				.filter_completed_projects_by_default !==

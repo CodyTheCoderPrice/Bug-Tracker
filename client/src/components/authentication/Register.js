@@ -18,8 +18,8 @@ import { getCharCountLimitReachedTextColorClassNameForLightOrDarkMode } from "..
  * component.
  *
  * Component should be used inside an element with the app-component className.
- * This is a stand alone component, meaning it was not intended to be active
- * while a sibling component/element is also active.
+ * This is a stand alone component, meaning it was not intended to be 
+ * present/visible while a sibling component/element is also present/visible.
  * 
  * @component
  */
