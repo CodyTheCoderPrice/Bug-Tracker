@@ -72,8 +72,9 @@ export default function Home() {
 			);
 		}
 
-		// Won't set filter to settings if target item status is completed so
-		// ...user is not confused where the target item went from the list
+		// Won't set statusFilter to match settings if itemViewCurrentItem has
+		// ...completed status (can only happen on refresh), otherwise it will 
+		// ...disappear which is confusing for the user
 		if (
 			reduxState[ACCOUNT_CONTAINER].settings
 				.filter_completed_bugs_by_default !==
@@ -104,8 +105,9 @@ export default function Home() {
 		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default,
 	]);
 
-	// Updates list sort to match account settings on app start up or after
-	// ...sort account settings have been changed
+	// Updates sortId & sortAscending in project/bug searchFilterSort to match
+	// ...account settings on app start-up/refresh, or after settings have been 
+	// ...changed
 	useEffect(() => {
 		if (
 			reduxState[ACCOUNT_CONTAINER].settings.project_sort_id !==
@@ -150,7 +152,9 @@ export default function Home() {
 		reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending,
 	]);
 
-	// Updates mass delete list to not include items that are being searchFilterSorted out
+	// Updates mass delete list to not include any project/bug items that have
+	// ...just been searchFilterSorted out, so the user does not accidentally 
+	// ...delete items that are no longer visible on the ListView
 	useEffect(() => {
 		const verifyMassDeleteList = (reduxContainerName) => {
 			if (reduxState[reduxContainerName].massDeleteList.length > 0) {
@@ -159,7 +163,7 @@ export default function Home() {
 					reduxContainerName
 				).map((item) => item.id);
 
-				// Spread operator makes deep copy of list so original is not affected
+				// Creating deep copy of list so original stays unaffected
 				const verifiedMassDeleteList = [
 					...reduxState[reduxContainerName].massDeleteList,
 				].filter((id) => searchFilterSortListIds.includes(id));
@@ -179,6 +183,7 @@ export default function Home() {
 		};
 
 		verifyMassDeleteList(PROJECT_CONTAINER);
+		verifyMassDeleteList(BUG_CONTAINER);
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
@@ -187,7 +192,6 @@ export default function Home() {
 		reduxState[BUG_CONTAINER].searchFilterSort,
 	]);
 
-	// Closes general dropdowns whenever they are open and user anywhere
 	const closeDropdownsWhenOpen = () => {
 		if (
 			Object.values(reduxState[GENERAL_CONTAINER].dropdownsDisplay).indexOf(
@@ -206,6 +210,8 @@ export default function Home() {
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}
+			/*Closes open dropdowns whenever the user clicks anywhere away 
+			from the dropdown*/
 			onClick={closeDropdownsWhenOpen}
 		>
 			<Navbar />
