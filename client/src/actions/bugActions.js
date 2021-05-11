@@ -171,6 +171,7 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -198,6 +199,7 @@ export const retrieveBugs = () => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -305,6 +307,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -366,6 +369,7 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -459,6 +463,7 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };

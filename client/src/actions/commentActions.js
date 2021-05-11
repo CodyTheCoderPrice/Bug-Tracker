@@ -89,6 +89,7 @@ export const createComment = (commentInfo) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -116,6 +117,7 @@ export const retrieveComments = () => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -161,6 +163,7 @@ export const updateComment = (commentInfo) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -246,6 +249,7 @@ export const deleteComment = (idsObject, commentBeingEdited) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };

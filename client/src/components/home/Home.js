@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+// Component uses container names to work with the redux state
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
@@ -16,7 +17,6 @@ import {
 	getSearchedFilteredSortedList,
 	getBaseBackgroundAndTextColorClassNameForLightOrDarkMode,
 } from "../../utils";
-
 // Components used by this component
 import Navbar from "./menu/Navbar";
 import AccountBlurredBackground from "./account/AccountBlurredBackground";
@@ -33,7 +33,7 @@ import ItemView from "./projects-bugs-shared/item/ItemView";
  *
  * Component should be used inside an element with the app-component className.
  * This is a stand alone component, meaning it was not intended to be 
- * present/visible while a sibling component/element is also present/visible.
+ * active/visible while a sibling component/element is also active/visible.
  * 
  * @component
  */

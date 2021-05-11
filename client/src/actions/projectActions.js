@@ -166,6 +166,7 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -193,6 +194,7 @@ export const retrieveProjects = () => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -299,6 +301,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -363,6 +366,7 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -463,6 +467,7 @@ export const deleteMultipleProjects = (
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };

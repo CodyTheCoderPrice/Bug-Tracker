@@ -315,6 +315,7 @@ export const retrieveAccount = () => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -342,6 +343,7 @@ export const retrieveAccountSettings = () => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -370,6 +372,7 @@ export const retrieveAccountSettingThemes = () => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -398,6 +401,7 @@ export const retrieveSortCategories = () => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -444,6 +448,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -486,6 +491,7 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -529,6 +535,7 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -573,6 +580,7 @@ export const updateAccountPassword = (newPasswordCurrentPassword) => (dispatch) 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
@@ -667,13 +675,15 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 			if (err.response.data.backendErrors.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
+				console.log("Logged out user due to invalid/expired jwToken");
 			}
 		});
 };
 
 /**
- * Logs an account out by removing their jwToken from the localStorage and
- * resetting the redux state (which also opens the login page)
+ * Logs account out by removing their jwToken from the localStorage and
+ * resetting the redux state (which resets the app and also opens the login 
+ * page)
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -682,6 +692,4 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 export const logoutAccount = () => (dispatch) => {
 	localStorage.removeItem("jwToken");
 	dispatch(resetRedux());
-
-	console.log("Message: logged out");
 };
