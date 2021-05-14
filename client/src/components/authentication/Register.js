@@ -43,15 +43,32 @@ export default function Register() {
 		// eslint-disable-next-line
 	}, []);
 
+	/**
+	 * Function for onChange handler of input elements. Updates accountInfo 
+	 * state's object's property (that of input element's name attribute) to 
+	 * have the value that's been entered into the input element.
+	 * 
+	 * @param {Event} e - Event created by element's onChange handler
+	 */
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
+	/**
+	 * Function for onSubmit handler of form element. Calls registerAccount 
+	 * action to attempt account register with current info inside the 
+	 * accountInfo state.
+	 * 
+	 * @param {Event} e - Event created by element's onSubmit handler
+	 */
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(registerAccount(accountInfo));
 	};
 
+	/**
+	 * Switches to the Login component
+	 */
 	const openLogin = () => {
 		dispatch(setWhichGeneralComponentsDisplay({ login: true }));
 	};
@@ -87,7 +104,7 @@ export default function Register() {
 								autoFocus
 								type="text"
 								name="first_name"
-								onChange={(e) => onChange(e)}
+								onChange={onChange}
 								value={accountInfo.first_name}
 								id="register-first-name"
 								className="form__input-text"
@@ -121,7 +138,7 @@ export default function Register() {
 							<input
 								type="text"
 								name="last_name"
-								onChange={(e) => onChange(e)}
+								onChange={onChange}
 								value={accountInfo.last_name}
 								id="register-last-name"
 								className="form__input-text"
@@ -140,7 +157,7 @@ export default function Register() {
 					<input
 						type="email"
 						name="email"
-						onChange={(e) => onChange(e)}
+						onChange={onChange}
 						value={accountInfo.email}
 						id="register-email"
 						className="form__input-text"
@@ -169,7 +186,7 @@ export default function Register() {
 					<input
 						type="password"
 						name="password"
-						onChange={(e) => onChange(e)}
+						onChange={onChange}
 						value={accountInfo.password}
 						id="register-password"
 						className="form__input-text"

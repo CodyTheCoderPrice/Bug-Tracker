@@ -77,7 +77,7 @@ export default function AccountModalDeleteAccount() {
 					autoFocus
 					type="text"
 					name="capitalizedDeleteTypedOut"
-					onChange={(e) => onChange(e)}
+					onChange={onChange}
 					value={accountInfo.capitalizedDeleteTypedOut}
 					id="delete-account-type-out"
 					className={
@@ -109,7 +109,7 @@ export default function AccountModalDeleteAccount() {
 				<input
 					type="password"
 					name="currentPassword"
-					onChange={(e) => onChange(e)}
+					onChange={onChange}
 					value={accountInfo.currentPassword}
 					id="delete-account-password"
 					className={

@@ -96,7 +96,7 @@ export default function AccountModalChangeInfo() {
 					autoFocus
 					type="text"
 					name="first_name"
-					onChange={(e) => onChange(e)}
+					onChange={onChange}
 					value={accountInfo.first_name}
 					id="edit-account-info-first-name"
 					className={
@@ -141,7 +141,7 @@ export default function AccountModalChangeInfo() {
 				<input
 					type="text"
 					name="last_name"
-					onChange={(e) => onChange(e)}
+					onChange={onChange}
 					value={accountInfo.last_name}
 					id="edit-account-info-last-name"
 					className={

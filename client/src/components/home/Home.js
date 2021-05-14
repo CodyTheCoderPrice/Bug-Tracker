@@ -192,6 +192,10 @@ export default function Home() {
 		reduxState[BUG_CONTAINER].searchFilterSort,
 	]);
 
+	/**
+	 * If any dropdown components (managed within GENERAL_CONTAINER of redux
+	 * state) are open, this function will close them.
+	 */
 	const closeDropdownsWhenOpen = () => {
 		if (
 			Object.values(reduxState[GENERAL_CONTAINER].dropdownsDisplay).indexOf(

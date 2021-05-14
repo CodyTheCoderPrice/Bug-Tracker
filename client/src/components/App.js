@@ -21,8 +21,8 @@ import "../CSS/styles.css";
 
 /**
  * React functional component used to run the app. This component has three
- * child components, being <Register>, <Login>, and <Home>. Only one of them
- * will be displayed at any point in time.
+ * child components -- Register, Login, and Home. Only one of
+ * them will be displayed at any point in time.
  *
  * This is the highest level component of this app, meaning it should not be
  * the child of any other components.
@@ -68,7 +68,11 @@ function App() {
 		// eslint-disable-next-line
 	}, [reduxState[GENERAL_CONTAINER].componentsDisplay]);
 
-	// Development mode tool for logging redux state
+	/**
+	 * If app is in development mode, function will log redux state
+	 * 
+	 * @param {Event} e - Event created by element's onMouseDown handler
+	 */
 	function logReduxState(e) {
 		if (process.env.NODE_ENV === "development" && e.button === 1) {
 			console.log(reduxState);

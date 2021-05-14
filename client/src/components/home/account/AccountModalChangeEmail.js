@@ -64,7 +64,7 @@ export default function AccountModalChangeEmail() {
 					autoFocus
 					type="email"
 					name="email"
-					onChange={(e) => onChange(e)}
+					onChange={onChange}
 					value={accountInfo.email}
 					id="edit-account-email-email"
 					className={
@@ -91,7 +91,7 @@ export default function AccountModalChangeEmail() {
 				<input
 					type="password"
 					name="currentPassword"
-					onChange={(e) => onChange(e)}
+					onChange={onChange}
 					value={accountInfo.currentPassword}
 					id="edit-account-email-password"
 					className={

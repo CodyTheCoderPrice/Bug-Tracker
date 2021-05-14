@@ -196,7 +196,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 						<textarea
 							autoFocus
 							name="description"
-							onChange={(e) => onChange(e)}
+							onChange={onChange}
 							value={commentInfo.description}
 							id="edit-comment-description"
 							className={

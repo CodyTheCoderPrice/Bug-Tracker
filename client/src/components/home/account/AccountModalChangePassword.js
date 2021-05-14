@@ -83,7 +83,7 @@ export default function AccountModalChangePassword() {
 					autoFocus
 					type="password"
 					name="newPassword"
-					onChange={(e) => onChange(e)}
+					onChange={onChange}
 					value={accountInfo.newPassword}
 					id="edit-account-password-new-password"
 					className={
@@ -131,7 +131,7 @@ export default function AccountModalChangePassword() {
 				<input
 					type="password"
 					name="currentPassword"
-					onChange={(e) => onChange(e)}
+					onChange={onChange}
 					value={accountInfo.currentPassword}
 					id="edit-account-password-current-password"
 					className={

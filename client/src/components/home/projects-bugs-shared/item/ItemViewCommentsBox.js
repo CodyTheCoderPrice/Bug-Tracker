@@ -150,7 +150,7 @@ export default function ItemViewCommentsBox() {
 					</span>
 					<textarea
 						name="description"
-						onChange={(e) => onChange(e)}
+						onChange={onChange}
 						value={commentInfo.description}
 						id="create-comment-description"
 						className={

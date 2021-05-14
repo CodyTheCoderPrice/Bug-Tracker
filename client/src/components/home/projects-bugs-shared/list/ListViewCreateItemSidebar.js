@@ -226,7 +226,7 @@ export default function ListViewCreateItemSidebar(props) {
 							autoFocus
 							type="text"
 							name="name"
-							onChange={(e) => onChange(e)}
+							onChange={onChange}
 							value={itemInfo.name}
 							id="create-item-name"
 							className={
@@ -268,7 +268,7 @@ export default function ListViewCreateItemSidebar(props) {
 						</span>
 						<textarea
 							name="description"
-							onChange={(e) => onChange(e)}
+							onChange={onChange}
 							value={itemInfo.description}
 							id="create-item-description"
 							className={
@@ -316,7 +316,7 @@ export default function ListViewCreateItemSidebar(props) {
 								<input
 									type="text"
 									name="location"
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									value={itemInfo.location}
 									id="create-item-location"
 									className={
@@ -354,7 +354,7 @@ export default function ListViewCreateItemSidebar(props) {
 									type="date"
 									name="start_date"
 									value={itemInfo.start_date}
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="create-item-start-date"
 									className={
 										"form__group-container__input-container__date" +
@@ -376,7 +376,7 @@ export default function ListViewCreateItemSidebar(props) {
 									type="date"
 									name="due_date"
 									alue={itemInfo.due_date}
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="create-item-due-date"
 									className={
 										"form__group-container__input-container__date" +
@@ -407,7 +407,7 @@ export default function ListViewCreateItemSidebar(props) {
 									type="date"
 									name="completion_date"
 									value={itemInfo.completion_date}
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="create-item-completion-date"
 									className={
 										"form__group-container__input-container__date js-completion-date" +
@@ -436,7 +436,7 @@ export default function ListViewCreateItemSidebar(props) {
 								</label>
 								<select
 									name="priority_id"
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="create-item-priority"
 									className={
 										"form__group-container__input-container__select js-priority-select" +
@@ -461,7 +461,7 @@ export default function ListViewCreateItemSidebar(props) {
 								</label>
 								<select
 									name="status_id"
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="create-item-status"
 									className={
 										"form__group-container__input-container__select js-status-select" +

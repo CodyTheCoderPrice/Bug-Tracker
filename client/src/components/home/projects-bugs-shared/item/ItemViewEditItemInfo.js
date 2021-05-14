@@ -215,7 +215,7 @@ export default function ItemViewEditItemInfo(props) {
 						autoFocus
 						type="text"
 						name="name"
-						onChange={(e) => onChange(e)}
+						onChange={onChange}
 						value={itemInfo.name}
 						id="edit-item-name"
 						className={
@@ -314,7 +314,7 @@ export default function ItemViewEditItemInfo(props) {
 						</span>
 						<textarea
 							name="description"
-							onChange={(e) => onChange(e)}
+							onChange={onChange}
 							value={itemInfo.description}
 							id="edit-item-description"
 							className={
@@ -386,7 +386,7 @@ export default function ItemViewEditItemInfo(props) {
 								<input
 									type="text"
 									name="location"
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									value={itemInfo.location}
 									id="edit-item-location"
 									className={
@@ -424,7 +424,7 @@ export default function ItemViewEditItemInfo(props) {
 									type="date"
 									name="start_date"
 									value={itemInfo.start_date}
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="edit-item-start-date"
 									className={
 										"item-box__group__field__form-date" +
@@ -446,7 +446,7 @@ export default function ItemViewEditItemInfo(props) {
 									type="date"
 									name="due_date"
 									value={itemInfo.due_date}
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="edit-item-due-date"
 									className={
 										"item-box__group__field__form-date" +
@@ -477,7 +477,7 @@ export default function ItemViewEditItemInfo(props) {
 									type="date"
 									name="completion_date"
 									value={itemInfo.completion_date}
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="edit-item-completion-date"
 									className={
 										"item-box__group__field__form-date  js-completion-date" +
@@ -507,7 +507,7 @@ export default function ItemViewEditItemInfo(props) {
 								<select
 									name="priority_id"
 									value={itemInfo.priority_id}
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="edit-item-priority"
 									className={
 										"item-box__group__field__form-select js-item-priority-select" +
@@ -533,7 +533,7 @@ export default function ItemViewEditItemInfo(props) {
 								<select
 									name="status_id"
 									value={itemInfo.status_id}
-									onChange={(e) => onChange(e)}
+									onChange={onChange}
 									id="edit-item-status"
 									className={
 										"item-box__group__field__form-select js-item-status-select" +

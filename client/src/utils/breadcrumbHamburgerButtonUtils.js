@@ -189,7 +189,7 @@ export function openBugsItemView(passedReduxState, dispatch) {
  * massDeleteList the same, but empties the bug massDeleteList. Sets the 
  * project/bug itemViewCurrentItem to null.
  *
- * @param {Event} e - The event created by the onClick
+ * @param {Event} e - Event created by element's onClick handler
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
  * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
@@ -221,7 +221,7 @@ export function closeProjectItemView(e, passedReduxState, dispatch) {
  * components and sets bug itemViewCurrentItem to null. Sets all account and
  * comment components to false.
  *
- * @param {Event} e - The event created by the onClick
+ * @param {Event} e - Event created by element's onClick handler
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
  * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
