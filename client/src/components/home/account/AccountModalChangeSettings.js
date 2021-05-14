@@ -158,7 +158,7 @@ export default function AccountModalChangeSettings() {
 					<select
 						name="project_sort_id"
 						value={reduxState[ACCOUNT_CONTAINER].settings.project_sort_id}
-						onChange={(e) => onChangeSettings(e)}
+						onChange={onChangeSettings}
 						id="account-settings-sort-projects-category"
 						className={
 							"category-container__content-container__sort-select" +
@@ -196,7 +196,7 @@ export default function AccountModalChangeSettings() {
 					<select
 						name="bug_sort_id"
 						value={reduxState[ACCOUNT_CONTAINER].settings.bug_sort_id}
-						onChange={(e) => onChangeSettings(e)}
+						onChange={onChangeSettings}
 						id="account-settings-sort-bugs-category"
 						className={
 							"category-container__content-container__sort-select" +

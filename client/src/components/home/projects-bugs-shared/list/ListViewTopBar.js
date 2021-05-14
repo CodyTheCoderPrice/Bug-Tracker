@@ -158,8 +158,8 @@ export default function ListViewTopBar(props) {
 					<input
 						type="text"
 						name="searchBarText"
-						onChange={(e) => onChangeSearchBar(e)}
-						onKeyDown={(e) => searchBarKeyDown(e)}
+						onChange={onChangeSearchBar}
+						onKeyDown={searchBarKeyDown}
 						value={searchBarText}
 						className="centering-container__bar-and-button-container__search-bar js-list-search-bar"
 					/>
@@ -196,7 +196,7 @@ export default function ListViewTopBar(props) {
 							? "projects"
 							: "bugs")
 					}
-					onClick={(e) => toggleFilterDropdown(e)}
+					onClick={toggleFilterDropdown}
 				>
 					<span
 						className={

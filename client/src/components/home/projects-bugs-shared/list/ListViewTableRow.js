@@ -125,8 +125,8 @@ export default function ListViewTableRow(props) {
 		>
 			<td
 				className="list-table__data"
-				onClick={(e) => dontPropogateParentOnclick(e)}
-				onDoubleClick={(e) => dontPropogateParentOnclick(e)}
+				onClick={dontPropogateParentOnclick}
+				onDoubleClick={dontPropogateParentOnclick}
 			>
 				<div className="list-table__data__custom-checkbox-centered-container ">
 					<CustomCheckbox

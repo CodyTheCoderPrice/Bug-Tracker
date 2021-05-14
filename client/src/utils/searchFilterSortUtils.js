@@ -156,9 +156,9 @@ export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
 }
 
 /**
- * Get list of projects or bugs (depending on reduxContainerName parameter)
- * filtered to only have items that fit current searchFilterSort configuration
- * the user has set
+ * Get list of projects or bugs (based on reduxContainerName param) filtered to
+ * only have items that fit current searchFilterSort configuration the user has
+ * set
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
@@ -206,10 +206,9 @@ export function getSearchedFilteredSortedList(
 
 /**
  * Get a deep copy of a filter array (either priorityFilter or statusFilter
- * depending on filterName parameter) from searchFilterSort of either the
- * project or bug container of redux state (depending on reduxContainerName
- * parameter) updated to have the targetId added if it was not already present,
- * or removed it it was.
+ * based on filterName param) from searchFilterSort of either the project or 
+ * bug container of redux state (based on reduxContainerName param) updated to
+ * have the targetId added if it was not already present, or removed it it was.
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)

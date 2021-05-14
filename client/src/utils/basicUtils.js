@@ -10,9 +10,9 @@ export function isEmpty(value) {
 }
 
 /**
- * If first parameter is true, then ensures element has the passed className. 
- * Otherwise will make sure it doesn't. This does not affect other classNames
- * the element has.
+ * If shouldHaveClassName param is true, then ensures element has the passed
+ * className. Otherwise will make sure it doesn't. This does not affect other 
+ * classNames the element has.
  *
  * @param {boolean} shouldHaveClassName - Should the element have the className
  * @param {Element} element - The element that will have it's className toggled

@@ -145,7 +145,7 @@ export default function AccountSidebar() {
 								)
 							}
 							alt="Button to logout"
-							onClick={(e) => handleLogoutAccount(e)}
+							onClick={handleLogoutAccount}
 						>
 							<span
 								className={

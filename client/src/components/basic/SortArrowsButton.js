@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { PROJECT_CONTAINER } from "../../actions/constants/containerNames";
 import { setProjectOrBugSearchFilterSort } from "../../actions";
 
-// Light mode arrows svgs
+// Light mode arrows SVGs
 import sortArrowsBothEmptyModeLight from "../../images/sort-arrows-both-empty-for-mode-light.svg";
 import sortArrowsTopFilledModeLight from "../../images/sort-arrows-top-filled-for-mode-light.svg";
 import sortArrowsBottomFilledModeLight from "../../images/sort-arrows-bottom-filled-for-mode-light.svg";
-// Dark mode arrows svgs
+// Dark mode arrows SVGs
 import sortArrowsBothEmptyModeDark from "../../images/sort-arrows-both-empty-for-mode-dark.svg";
 import sortArrowsTopFilledModeDark from "../../images/sort-arrows-top-filled-for-mode-dark.svg";
 import sortArrowsBottomFilledModeDark from "../../images/sort-arrows-bottom-filled-for-mode-dark.svg";
@@ -37,6 +37,12 @@ export default function SortArrowsButton(props) {
 
 	const { reduxContainerName, sortId, sortFor, uniqueId, dark_mode } = props;
 
+	/**
+	 * Function for onClick handler of img element. Updates searchFilterSort in
+	 * either project or bug container (based on reduxContainerName prop) of 
+	 * the redux state to sort by sortId prop (if it's not already) or to 
+	 * toggle sortAscending (if already sorting by sortId prop).
+	 */
 	const changeSorting = () => {
 		if (reduxState[reduxContainerName].searchFilterSort.sortId !== sortId) {
 			dispatch(
@@ -57,8 +63,17 @@ export default function SortArrowsButton(props) {
 		}
 	};
 
+	/**
+	 * Function to be called inside src attribute of img element. Function will
+	 * return the url location for the appropriate SVG, based on dark_mode prop 
+	 * and whether searchFilterSort in either project or bug container (based 
+	 * on reduxContainerName prop) of redux state is being sorted by sortId 
+	 * prop, and whether it is being sorted by ascending.
+	 * 
+	 * @returns {String} Location url for an SVG image
+	 */
 	const getSortingArrowImage = () => {
-		// Light and dark mode have different sort arrow svgs
+		// Light and dark mode have different sort arrow SVGs
 		if (!dark_mode) {
 			return reduxState[reduxContainerName].searchFilterSort.sortId !== sortId
 				? sortArrowsBothEmptyModeLight
@@ -74,6 +89,14 @@ export default function SortArrowsButton(props) {
 		}
 	};
 
+	/**
+	 * Function to be called inside alt attribute of img element. Function will
+	 * return the appropriate alt text, based on if sorting either projects or 
+	 * bugs (based on reduxContainerName prop), whether they are being sorted 
+	 * by sortId prop, and whether sorting by ascending.
+	 * 
+	 * @returns {String} Alt text for img element
+	 */
 	const getAltText = () => {
 		return (
 			(reduxContainerName === PROJECT_CONTAINER ? "Projects " : "Bugs ") +

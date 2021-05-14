@@ -32,6 +32,10 @@ export default function ToggleSwitch(props) {
 		theme_color,
 	} = props;
 
+	/**
+	 * Function for onClick handler of div element with toggle-switch className.
+	 * Clicks the checkbox input element by using the uniqueId prop.
+	 */
 	const clickCheckbox = () => {
 		document.getElementById(uniqueId).click();
 	};
@@ -47,11 +51,11 @@ export default function ToggleSwitch(props) {
 			}
 		>
 			{/*ToggleSwitch is really a hidden checkbox that is operated by
-			 clicking the toggle-switch div below*/}
+			 clicking the div element with toggle-switch className below*/}
 			<input
 				type="checkbox"
 				name={name}
-				onChange={(e) => onChangeFunction(e)}
+				onChange={onChangeFunction}
 				checked={isOn}
 				id={uniqueId}
 				className="invisible-checkbox"

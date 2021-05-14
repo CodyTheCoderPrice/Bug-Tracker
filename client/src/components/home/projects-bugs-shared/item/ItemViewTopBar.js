@@ -172,8 +172,8 @@ export default function ItemViewTopBar(props) {
 				<input
 					type="text"
 					name="searchBarText"
-					onChange={(e) => onChangeSearchBar(e)}
-					onKeyDown={(e) => searchBarKeyDown(e)}
+					onChange={onChangeSearchBar}
+					onKeyDown={searchBarKeyDown}
 					value={searchBarText}
 					className="outer-search-container__search-bar js-item-search-bar"
 				/>
@@ -214,7 +214,7 @@ export default function ItemViewTopBar(props) {
 									? "projects"
 									: "bugs")
 							}
-							onClick={(e) => toggleFilterDropdown(e)}
+							onClick={toggleFilterDropdown}
 						>
 							<span
 								className={
@@ -389,7 +389,7 @@ export default function ItemViewTopBar(props) {
 									? "projects"
 									: "bugs")
 							}
-							onClick={(e) => toggleSortDropdown(e)}
+							onClick={toggleSortDropdown}
 						>
 							<span className={"list-filter-or-sort-container__button__text"}>
 								<i
@@ -554,7 +554,7 @@ export default function ItemViewTopBar(props) {
 						"Button to open a dropdown of options for the " +
 						(props.reduxContainerName === PROJECT_CONTAINER ? "project" : "bug")
 					}
-					onClick={(e) => toggleOptionsDropdown(e)}
+					onClick={toggleOptionsDropdown}
 				>
 					<span className="item-options-container__button__text">
 						<i

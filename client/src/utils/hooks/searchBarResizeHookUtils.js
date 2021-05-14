@@ -14,10 +14,10 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
  * useSelector((state) => state)
  * @param {string} searchBarAndButtonCenteringContainerClassName - Unique
  * className assigned to the element used for centering the element (next
- * parameter) that contains both search-bar and search-button elements
+ * param) that contains both search-bar and search-button elements
  * @param {string} centeredSearchBarAndButtonContainerClassName - Unique
  * className assigned to the element that contains both search-bar and
- * search-button elements (following 2 parameters)
+ * search-button elements (following 2 params)
  * @param {string} searchBarClassName - Unique className assigned to the
  * search-bar element
  * @param {string} searchButtonClassName - Unique className assigned to the

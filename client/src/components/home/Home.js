@@ -28,8 +28,8 @@ import ItemView from "./projects-bugs-shared/item/ItemView";
 /**
  * React functional component used to home all components available to a logged
  * in user. At the top is the Navbar menu. Below that will be either the 
- * project ListView, bug ListView, project ItemView, or bug ItemView depending 
- * on which the users selects to have open.
+ * project ListView, bug ListView, project ItemView, or bug ItemView based on 
+ * which the users selects to have open.
  *
  * Component should be used inside an element with the app-component className.
  * This is a stand alone component, meaning it was not intended to be 

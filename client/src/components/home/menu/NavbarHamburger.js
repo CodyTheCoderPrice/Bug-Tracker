@@ -160,7 +160,7 @@ export default function NavbarHamburger() {
 				<div
 					className="hamburger-button-container"
 					alt="Navbar hamburger button to open dropdown for different pages"
-					onClick={(e) => toggleHamburgerDropdown(e)}
+					onClick={toggleHamburgerDropdown}
 				>
 					<i
 						className="fa fa-bars hamburger-button-container__icon"

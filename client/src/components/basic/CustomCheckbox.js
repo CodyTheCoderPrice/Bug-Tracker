@@ -39,7 +39,7 @@ export default function CustomCheckbox(props) {
 				type="checkbox"
 				name={name}
 				value={value}
-				onChange={(e) => onChangeFunction(e)}
+				onChange={onChangeFunction}
 				checked={isChecked}
 				id={uniqueId}
 				className={
