@@ -27,25 +27,25 @@ import ItemView from "./projects-bugs-shared/item/ItemView";
 
 /**
  * React functional component used to home all components available to a logged
- * in user. At the top is the Navbar menu. Below that will be either the 
- * project ListView, bug ListView, project ItemView, or bug ItemView based on 
+ * in user. At the top is the Navbar menu. Below that will be either the
+ * project ListView, bug ListView, project ItemView, or bug ItemView based on
  * which the users selects to have open.
  *
- * Component should be used inside an element with the app-component className.
- * This is a stand alone component, meaning it was not intended to be 
- * active/visible while a sibling component/element is also active/visible.
- * 
+ * This component should only be used inside the App component, and is not 
+ * intended to be active/visible while any sibling components/elements are also
+ * active/visible.
+ *
  * @component
  */
 export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Updates statusFilter in project/bug searchFilterSort to match account 
+	// Updates statusFilter in project/bug searchFilterSort to match account
 	// ...settings on app start-up/refresh, or after settings have been changed
 	useEffect(() => {
 		// Won't set statusFilter to match settings if itemViewCurrentItem has
-		// ...completed status (can only happen on refresh), otherwise it will 
+		// ...completed status (can only happen on refresh), otherwise it will
 		// ...disappear which is confusing for the user
 		if (
 			reduxState[ACCOUNT_CONTAINER].settings
@@ -53,8 +53,10 @@ export default function Home() {
 				reduxState[PROJECT_CONTAINER].searchFilterSort.statusFilter.includes(
 					reduxState[PROJECT_CONTAINER].priorityStatusOptions.statusCompletionId
 				) &&
-			(reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem === null ||
-				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.status_id !==
+			(reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
+				null ||
+				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
+					.status_id !==
 					reduxState[PROJECT_CONTAINER].priorityStatusOptions
 						.statusCompletionId)
 		) {
@@ -73,7 +75,7 @@ export default function Home() {
 		}
 
 		// Won't set statusFilter to match settings if itemViewCurrentItem has
-		// ...completed status (can only happen on refresh), otherwise it will 
+		// ...completed status (can only happen on refresh), otherwise it will
 		// ...disappear which is confusing for the user
 		if (
 			reduxState[ACCOUNT_CONTAINER].settings
@@ -81,8 +83,10 @@ export default function Home() {
 				reduxState[BUG_CONTAINER].searchFilterSort.statusFilter.includes(
 					reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId
 				) &&
-			(reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem === null ||
-				reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.status_id !==
+			(reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem ===
+				null ||
+				reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
+					.status_id !==
 					reduxState[BUG_CONTAINER].priorityStatusOptions.statusCompletionId)
 		) {
 			dispatch(
@@ -106,7 +110,7 @@ export default function Home() {
 	]);
 
 	// Updates sortId & sortAscending in project/bug searchFilterSort to match
-	// ...account settings on app start-up/refresh, or after settings have been 
+	// ...account settings on app start-up/refresh, or after settings have been
 	// ...changed
 	useEffect(() => {
 		if (
@@ -153,7 +157,7 @@ export default function Home() {
 	]);
 
 	// Updates mass delete list to not include any project/bug items that have
-	// ...just been searchFilterSorted out, so the user does not accidentally 
+	// ...just been searchFilterSorted out, so the user does not accidentally
 	// ...delete items that are no longer visible on the ListView
 	useEffect(() => {
 		const verifyMassDeleteList = (reduxContainerName) => {
@@ -193,6 +197,25 @@ export default function Home() {
 	]);
 
 	/**
+	 * Gets whether the AccountModal comment should display, based on if any of
+	 * the five components that use the modal are set to true in the account
+	 * container of the redux state.
+	 *
+	 * @returns {Boolean} Whether the AccountModal component should display
+	 */
+	const getShouldAccountModalDisplay = () => {
+		return (
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalChangeInfo ||
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalChangeEmail ||
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay
+				.accountModalChangePassword ||
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay
+				.accountModalDeleteAccount ||
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalChangeSettings
+		);
+	};
+
+	/**
 	 * If any dropdown components (managed within GENERAL_CONTAINER of redux
 	 * state) are open, this function will close them.
 	 */
@@ -218,9 +241,8 @@ export default function Home() {
 			from the dropdown*/
 			onClick={closeDropdownsWhenOpen}
 		>
+			{/*Below component order doesn't matter due to how css was written*/}
 			<Navbar />
-			{/*Account components*/}
-			{/*Displays blurred background when any account component is open*/}
 			{Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
 				true
 			) > -1 ? (
@@ -229,13 +251,8 @@ export default function Home() {
 			{reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ? (
 				<AccountSidebar />
 			) : null}
-			{/*If any account component other than accountSidebar is true, display modal*/}
-			{Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
-				true
-			) > -1 &&
-			!reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ? (
-				<AccountModal />
-			) : null}
+			{/*If an account component that isn't the */}
+			{getShouldAccountModalDisplay() ? <AccountModal /> : null}
 			{/*Project components*/}
 			{reduxState[PROJECT_CONTAINER].componentsDisplay.listView ? (
 				<ListView reduxContainerName={PROJECT_CONTAINER} />

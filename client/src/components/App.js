@@ -56,21 +56,23 @@ function App() {
 			reduxState[GENERAL_CONTAINER].componentsDisplay.register,
 			reduxState[GENERAL_CONTAINER].componentsDisplay.login,
 			reduxState[GENERAL_CONTAINER].componentsDisplay.home,
-		].filter(boolean => boolean === true).length;
+		].filter((boolean) => boolean === true).length;
 
 		if (
 			numberOfChildComponentsBeingDisplayed < 1 ||
 			numberOfChildComponentsBeingDisplayed > 1
 		) {
 			dispatch(logoutAccount());
-			console.log("Reset app due to incorrect number of <App> child components being displayed");
+			console.log(
+				"Reset app due to incorrect number of <App> child components being displayed"
+			);
 		}
 		// eslint-disable-next-line
 	}, [reduxState[GENERAL_CONTAINER].componentsDisplay]);
 
 	/**
 	 * If app is in development mode, function will log redux state
-	 * 
+	 *
 	 * @param {Event} e - Event created by element's onMouseDown handler
 	 */
 	function logReduxState(e) {
@@ -80,7 +82,11 @@ function App() {
 	}
 
 	return (
-		<div onMouseDown={logReduxState} className="app-component">
+		<div
+			onMouseDown={logReduxState}
+			// app-component className is critical for a lot of css throughout
+			className="app-component"
+		>
 			{reduxState[GENERAL_CONTAINER].componentsDisplay.register ? (
 				<Register />
 			) : null}

@@ -17,9 +17,9 @@ import { getCharCountLimitReachedTextColorClassNameForLightOrDarkMode } from "..
  * background image, as well as a link to switch to the Login funcitonal
  * component.
  *
- * Component should be used inside an element with the app-component className.
- * This is a stand alone component, meaning it was not intended to be 
- * active/visible while a sibling component/element is also active/visible.
+ * This component should only be used inside the App component, and is not 
+ * intended to be active/visible while any sibling components/elements are also
+ * active/visible.
  * 
  * @component
  */

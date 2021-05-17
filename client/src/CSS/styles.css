@@ -336,7 +336,7 @@ dropdown can overlap all other components
 }
 .breadcrumb-container .breadcrumb-button__end-container__round-border,
 .js-get-breadcrumb-container .breadcrumb-button__end-container__round-border {
-  z-index: 5;
+  z-index: 6;
   position: absolute;
   top: -2px;
   left: -5px;
@@ -350,7 +350,7 @@ dropdown can overlap all other components
 .breadcrumb-container .js-get-breadcrumb-button-arrow,
 .js-get-breadcrumb-container .breadcrumb-button__end-container__arrow,
 .js-get-breadcrumb-container .js-get-breadcrumb-button-arrow {
-  z-index: 5;
+  z-index: 6;
   position: absolute;
   top: -2px;
   left: -2px;
@@ -362,7 +362,7 @@ dropdown can overlap all other components
 }
 .breadcrumb-container .breadcrumb-button__end-container__border-arrow,
 .js-get-breadcrumb-container .breadcrumb-button__end-container__border-arrow {
-  z-index: 4;
+  z-index: 5;
   position: absolute;
   top: -2px;
   left: 0px;
@@ -387,7 +387,7 @@ dropdown can overlap all other components
   user-select: none;
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
-  z-index: 6;
+  z-index: 7;
   position: absolute;
   top: 20px;
   left: -8px;
@@ -603,7 +603,7 @@ dropdown can overlap all other components
   width: 100vw;
 }
 
-.account-modals-blurred-background--account-sidebar {
+.account-modals-blurred-background--below-navbar {
   top: 56px;
   opacity: 0.6;
 }
@@ -612,7 +612,7 @@ dropdown can overlap all other components
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  z-index: 3;
+  z-index: 4;
   position: fixed;
   top: 56px;
   right: 0;
@@ -762,7 +762,7 @@ dropdown can overlap all other components
 }
 
 .edit-account-modal-component .edit-account-modal {
-  z-index: 3;
+  z-index: 4;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -775,7 +775,7 @@ dropdown can overlap all other components
   font-family: Arial, Helvetica, sans-serif;
 }
 .edit-account-modal-component .back-button {
-  z-index: 6;
+  z-index: 100;
   position: absolute;
   top: 10px;
   border: none;
@@ -790,7 +790,7 @@ dropdown can overlap all other components
   color: #3a3a3a;
 }
 .edit-account-modal-component .exit-button {
-  z-index: 6;
+  z-index: 100;
   position: absolute;
   top: 10px;
   border: none;
@@ -2114,7 +2114,7 @@ dropdown can overlap all other components
 }
 .item-vew-top-bar-component .x-button,
 .js-get-item-vew-top-bar-component .x-button {
-  z-index: 6;
+  z-index: 100;
   position: absolute;
   top: 10px;
   border: none;
@@ -2164,7 +2164,7 @@ dropdown can overlap all other components
   height: 1000px;
 }
 .create-item-component .x-button {
-  z-index: 6;
+  z-index: 100;
   position: absolute;
   top: 10px;
   border: none;

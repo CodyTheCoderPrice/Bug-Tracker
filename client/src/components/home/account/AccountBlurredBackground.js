@@ -1,17 +1,31 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
-
+// Component uses container names to work with the redux state
 import { setWhichAccountComponentsDisplay } from "../../../actions";
-
 import { getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode } from "../../../utils";
 
-// This blurred background is its own functional component for optimization
-// ...reasons so every account modal
+
+/**
+ * React functional component of a blurred background to be paired with account
+ * components. The blurred background is placed between (z-index) account 
+ * component(s) and components underneath them. This keeps account component(s)
+ * clickable, while making components underneath them unclickable. If 
+ * AccountSidebar is active, then clicking the blurred background will close 
+ * all account components.
+ * 
+ * This component should only active if at least one account component is also 
+ * active as a sibling.
+ * 
+ * @component
+ */
 export default function AccountBlurredBackground() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	/**
+	 * Closes all account components
+	 */
 	const closeAccountComponents = () => {
 		dispatch(setWhichAccountComponentsDisplay({}));
 	};
@@ -21,7 +35,7 @@ export default function AccountBlurredBackground() {
 			className={
 				"account-modals-blurred-background" +
 				(reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar
-					? " account-modals-blurred-background--account-sidebar" +
+					? " account-modals-blurred-background--below-navbar" +
 					  getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 							true,
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode

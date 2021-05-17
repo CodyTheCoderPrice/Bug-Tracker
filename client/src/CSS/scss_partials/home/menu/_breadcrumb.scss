@@ -59,7 +59,8 @@
 	}
 
 	.breadcrumb-button__end-container__round-border {
-		z-index: 5;
+		// Should be the same as arrow below
+		z-index: 6;
 		position: absolute;
 		top: -(v.$navbar-breadcrumb-border-width);
 		left: -5px;
@@ -73,7 +74,7 @@
 	.breadcrumb-button__end-container__arrow,
 	.js-get-breadcrumb-button-arrow {
 		// Must have higher z-index than border-arrow below
-		z-index: 5;
+		z-index: 6;
 		position: absolute;
 		top: v.$navbar-breadcrumb-arrow-top;
 		left: v.$navbar-breadcrumb-arrow-left;
@@ -88,7 +89,7 @@
 
 	.breadcrumb-button__end-container__border-arrow {
 		// Must have higher z-index of navbar-button
-		z-index: 4;
+		z-index: 5;
 		position: absolute;
 		top: v.$navbar-breadcrumb-arrow-top;
 		left: v.$navbar-breadcrumb-arrow-left + v.$navbar-breadcrumb-border-width;
@@ -105,7 +106,7 @@
 		@include m.stop-text-selection();
 
 		// Must have higher z-index than both arrows above
-		z-index: 6;
+		z-index: 7;
 		position: absolute;
 		top: 20px;
 		left: -8px;

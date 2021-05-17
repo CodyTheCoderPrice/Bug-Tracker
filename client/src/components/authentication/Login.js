@@ -15,9 +15,9 @@ import {
  * messages to explain what went wrong. Component also displays a background
  * image, as well as a link to switch to the Register funcitonal component.
  * 
- * Component should be used inside an element with the app-component className.
- * This is a stand alone component, meaning it was not intended to be 
- * active/visible while a sibling component/element is also active/visible.
+ * Component should be used only by the App component, where this component is 
+ * not intended to be active/visible while any sibling components/elements are 
+ * also active/visible.
  * 
  * @component
  */
