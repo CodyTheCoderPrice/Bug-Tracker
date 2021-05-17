@@ -1,25 +1,69 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
-
+// Component uses container names to work with the redux state
 import { setWhichAccountComponentsDisplay } from "../../../actions";
-
 import {
 	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	filterObject,
+	getStringOfAllArrayValues,
 } from "../../../utils";
-
-// Components
+// Other components used by this component
 import AccountModalChangeInfo from "./AccountModalChangeInfo";
 import AccountModalChangeEmail from "./AccountModalChangeEmail";
 import AccountModalChangePassword from "./AccountModalChangePassword";
 import AccountModalDeleteAccount from "./AccountModalDeleteAccount";
 import AccountModalChangeSettings from "./AccountModalChangeSettings";
 
+/**
+ * React functional component for everything shared between all five account 
+ * modals. This consists of the modal background, and the top buttons used for
+ * navigating between modals and closing the modals to return AccountSidebar
+ * component.
+ *
+ * This component should only be active if an account modal is set to true in 
+ * the componentsDisplay of the account container of the redux state. Only one
+ * account modal should be set to true at one time.
+ *
+ * @component
+ */
 export default function AccountModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	// Prevents multiple account modals from displaying simultaneously
+	useEffect(() => {
+		let accountModalsSetToTrue = filterObject(
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay,
+			(boolean) => boolean === true
+		);
+		// Removes accountSidebar (if present) as it's not a modal
+		delete accountModalsSetToTrue.accountSidebar;
+
+		const keysOfAccountModalsSetToTrue = Object.keys(accountModalsSetToTrue);
+
+		if (keysOfAccountModalsSetToTrue.length > 1) {
+			dispatch(
+				setWhichAccountComponentsDisplay({
+					[keysOfAccountModalsSetToTrue[0]]:
+						accountModalsSetToTrue[keysOfAccountModalsSetToTrue[0]],
+				})
+			);
+			console.log(
+				"Warning: " +
+					getStringOfAllArrayValues(keysOfAccountModalsSetToTrue) +
+					" were all set to true in the account container of redux state. To avoid CSS issues with AccountModal component, redux was updated so only " +
+					keysOfAccountModalsSetToTrue[0] +
+					" is true."
+			);
+		}
+		// eslint-disable-next-line
+	}, [reduxState[ACCOUNT_CONTAINER].componentsDisplay]);
+
+	/**
+	 * Switches back to accountModalChangeInfo while close other modals
+	 */
 	const backToEditInfo = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
@@ -28,6 +72,9 @@ export default function AccountModal() {
 		);
 	};
 
+	/**
+	 * Re-opens AccountSidebar component while closing AccountModal component
+	 */
 	const backToAccountSidebar = () => {
 		dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 	};
@@ -42,6 +89,8 @@ export default function AccountModal() {
 					)
 				}
 			>
+				{/*accountModalChangeInfo doesn't get a back-button since it 
+				wouldn't be any different than the exit-button*/}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
 					.accountModalChangeEmail === true ||
 				reduxState[ACCOUNT_CONTAINER].componentsDisplay

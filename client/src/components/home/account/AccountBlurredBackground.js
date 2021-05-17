@@ -7,15 +7,15 @@ import { getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMod
 
 
 /**
- * React functional component of a blurred background to be paired with account
- * components. The blurred background is placed between (z-index) account 
- * component(s) and components underneath them. This keeps account component(s)
- * clickable, while making components underneath them unclickable. If 
- * AccountSidebar is active, then clicking the blurred background will close 
- * all account components.
+ * React functional component of a blurred background to be paired with 
+ * AccountSidebar or AccountModal components. The blurred background is placed
+ * between (z-index) these account component(s) and components underneath them.
+ * This keeps these account components clickable, while making components 
+ * underneath them unclickable. If AccountSidebar is active, then clicking the
+ * blurred background will close all account components.
  * 
- * This component should only active if at least one account component is also 
- * active as a sibling.
+ * This component should only active if at least one account component 
+ * (AccountSidebar or AccountModal components) is also active as a sibling.
  * 
  * @component
  */

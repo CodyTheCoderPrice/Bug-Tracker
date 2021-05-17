@@ -17,7 +17,7 @@ import {
 	getSearchedFilteredSortedList,
 	getBaseBackgroundAndTextColorClassNameForLightOrDarkMode,
 } from "../../utils";
-// Components used by this component
+// Other components used by this component
 import Navbar from "./menu/Navbar";
 import AccountBlurredBackground from "./account/AccountBlurredBackground";
 import AccountSidebar from "./account/AccountSidebar";
@@ -251,7 +251,6 @@ export default function Home() {
 			{reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ? (
 				<AccountSidebar />
 			) : null}
-			{/*If an account component that isn't the */}
 			{getShouldAccountModalDisplay() ? <AccountModal /> : null}
 			{/*Project components*/}
 			{reduxState[PROJECT_CONTAINER].componentsDisplay.listView ? (

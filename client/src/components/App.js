@@ -10,7 +10,7 @@ import {
 	setWhichGeneralComponentsDisplay,
 	logoutAccount,
 } from "../actions";
-// Components used by this component
+// Other components used by this component
 import Register from "./authentication/Register";
 import Login from "./authentication/Login";
 import Home from "./home/Home";
