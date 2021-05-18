@@ -434,14 +434,14 @@ export function getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClass
 }
 
 /**
- * Get light/dark mode className for AccountModalChangeSettings
+ * Get light/dark mode className for AccountModalEditSettings
  * category-container element's border, background, text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for AccountModalChangeSettings
+ * @returns {string} Light/dark mode className for AccountModalEditSettings
  * category-container element's border, background, text color
  */
-export function getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
+export function getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (

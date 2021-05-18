@@ -2,8 +2,8 @@
 import { setWhichAccountComponentsDisplay } from "../actions";
 
 /**
- * Opens AccountModalChangeInfo component while closing all other account
- * components (other than AccountModal as AccountModalChangeInfo depends on it)
+ * Opens AccountModalEditInfo component while closing all other account 
+ * components (other than AccountModal as AccountModalEditInfo depends on it)
  *
  * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
@@ -11,7 +11,7 @@ import { setWhichAccountComponentsDisplay } from "../actions";
 export function openOnlyEditInfoModal(dispatch) {
 	dispatch(
 		setWhichAccountComponentsDisplay({
-			accountModalChangeInfo: true,
+			accountModalEditInfo: true,
 		})
 	);
 }

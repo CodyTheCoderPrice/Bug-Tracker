@@ -205,13 +205,13 @@ export default function Home() {
 	 */
 	const getShouldAccountModalDisplay = () => {
 		return (
-			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalChangeInfo ||
-			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalChangeEmail ||
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalEditInfo ||
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalEditEmail ||
 			reduxState[ACCOUNT_CONTAINER].componentsDisplay
-				.accountModalChangePassword ||
+				.accountModalEditPassword ||
 			reduxState[ACCOUNT_CONTAINER].componentsDisplay
 				.accountModalDeleteAccount ||
-			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalChangeSettings
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalEditSettings
 		);
 	};
 

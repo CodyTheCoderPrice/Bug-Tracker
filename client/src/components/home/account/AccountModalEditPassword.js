@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// Component uses container names to work with the redux state
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
+
 import {
-	updateAccountEmail,
+	updateAccountPassword,
 	clearBackendErrors,
 } from "../../../actions";
+
 import {
+	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
@@ -17,12 +19,12 @@ import {
 	openOnlyEditInfoModal,
 } from "../../../utils";
 
-export default function AccountModalChangeEmail() {
+export default function AccountModalEditPassword() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		email: reduxState[ACCOUNT_CONTAINER].accountInfo.email,
+		newPassword: "",
 		currentPassword: "",
 	});
 
@@ -35,36 +37,47 @@ export default function AccountModalChangeEmail() {
 		// eslint-disable-next-line
 	}, []);
 
-	/**
-	 * Function for onChange handler of input elements. Updates accountInfo's 
-	 * object's property (that of input element's name attribute) to have the 
-	 * value that's been entered into the input element.
-	 * 
-	 * @param {Event} e - Event created by element's onChange handler
-	 */
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(updateAccountEmail(accountInfo));
+		dispatch(updateAccountPassword(accountInfo));
 	};
 
 	return (
 		<div>
-			<h1 className="title">Edit Email</h1>
+			<h1 className="title">Edit Password</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
-				<label htmlFor="edit-account-email-email" className="form__label">
-					Email:{" "}
+				<label
+					htmlFor="edit-account-password-new-password"
+					className="form__label"
+				>
+					New Password:{" "}
 				</label>
+				{accountInfo.newPassword.length >
+				reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
+					<span
+						className={
+							"form__char-counter" +
+							getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					>
+						{accountInfo.newPassword.length +
+							"/" +
+							reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}
+					</span>
+				) : null}
 				<input
 					autoFocus
-					type="email"
-					name="email"
+					type="password"
+					name="newPassword"
 					onChange={onChange}
-					value={accountInfo.email}
-					id="edit-account-email-email"
+					value={accountInfo.newPassword}
+					id="edit-account-password-new-password"
 					className={
 						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -81,17 +94,38 @@ export default function AccountModalChangeEmail() {
 						)
 					}
 				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountNewEmail}
+					{
+						reduxState[GENERAL_CONTAINER].backendErrors
+							.validationAccountNewPassword
+					}
 				</span>
-				<label htmlFor="edit-account-email-password" className="form__label">
+				<label
+					htmlFor="edit-account-password-current-password"
+					className="form__label"
+				>
 					Current Password:{" "}
 				</label>
+				{accountInfo.currentPassword.length >
+				reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
+					<span
+						className={
+							"form__char-counter" +
+							getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							)
+						}
+					>
+						{accountInfo.currentPassword.length +
+							"/" +
+							reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}
+					</span>
+				) : null}
 				<input
 					type="password"
 					name="currentPassword"
 					onChange={onChange}
 					value={accountInfo.currentPassword}
-					id="edit-account-email-password"
+					id="edit-account-password-current-password"
 					className={
 						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(

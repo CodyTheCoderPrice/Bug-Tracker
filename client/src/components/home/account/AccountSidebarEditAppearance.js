@@ -15,7 +15,7 @@ import {
 // Components
 import ToggleSwitch from "../../basic/ToggleSwitch";
 
-export default function AccountSidebarChangeAppearance() {
+export default function AccountSidebarEditAppearance() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 

@@ -20,7 +20,7 @@ import {
 import { useSidebarResize } from "../../../utils/hooks";
 
 // Components
-import AccountSidebarChangeAppearance from "./AccountSidebarChangeAppearance";
+import AccountSidebarEditAppearance from "./AccountSidebarEditAppearance";
 
 export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
@@ -41,7 +41,7 @@ export default function AccountSidebar() {
 	const openAccountModalForEditingAccount = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountModalChangeInfo: true,
+				accountModalEditInfo: true,
 			})
 		);
 	};
@@ -49,7 +49,7 @@ export default function AccountSidebar() {
 	const openAccountModalForEditingSettings = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountModalChangeSettings: true,
+				accountModalEditSettings: true,
 			})
 		);
 	};
@@ -127,7 +127,7 @@ export default function AccountSidebar() {
 							)
 						}
 					/>
-					<AccountSidebarChangeAppearance />
+					<AccountSidebarEditAppearance />
 					<div
 						className={
 							"horizontal-dividing-line horizontal-dividing-line--half-top-margin" +

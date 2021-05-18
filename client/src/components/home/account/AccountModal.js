@@ -12,11 +12,11 @@ import {
 	getStringOfAllArrayValues,
 } from "../../../utils";
 // Other components used by this component
-import AccountModalChangeInfo from "./AccountModalChangeInfo";
-import AccountModalChangeEmail from "./AccountModalChangeEmail";
-import AccountModalChangePassword from "./AccountModalChangePassword";
+import AccountModalEditInfo from "./AccountModalEditInfo";
+import AccountModalEditEmail from "./AccountModalEditEmail";
+import AccountModalEditPassword from "./AccountModalEditPassword";
 import AccountModalDeleteAccount from "./AccountModalDeleteAccount";
-import AccountModalChangeSettings from "./AccountModalChangeSettings";
+import AccountModalEditSettings from "./AccountModalEditSettings";
 
 /**
  * React functional component for everything shared between all five account 
@@ -74,12 +74,12 @@ export default function AccountModal() {
 					)
 				}
 			>
-				{/*accountModalChangeInfo doesn't have back-button since it 
-				would go back to AccountSidebar, which is same as exit-button*/}
+				{/*accountModalEditInfo doesn't have back-button since it would
+				 go back to AccountSidebar, which is same as exit-button*/}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalChangeEmail === true ||
+					.accountModalEditEmail === true ||
 				reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalChangePassword === true ||
+					.accountModalEditPassword === true ||
 				reduxState[ACCOUNT_CONTAINER].componentsDisplay
 					.accountModalDeleteAccount === true ? (
 					<div
@@ -112,24 +112,24 @@ export default function AccountModal() {
 					<i className="fa fa-times" aria-hidden="true" alt="icon of an X"></i>
 				</div>
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalChangeInfo ? (
-					<AccountModalChangeInfo />
+					.accountModalEditInfo ? (
+					<AccountModalEditInfo />
 				) : null}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalChangeEmail ? (
-					<AccountModalChangeEmail />
+					.accountModalEditEmail ? (
+					<AccountModalEditEmail />
 				) : null}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalChangePassword ? (
-					<AccountModalChangePassword />
+					.accountModalEditPassword ? (
+					<AccountModalEditPassword />
 				) : null}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
 					.accountModalDeleteAccount ? (
 					<AccountModalDeleteAccount />
 				) : null}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalChangeSettings ? (
-					<AccountModalChangeSettings />
+					.accountModalEditSettings ? (
+					<AccountModalEditSettings />
 				) : null}
 			</div>
 		</div>

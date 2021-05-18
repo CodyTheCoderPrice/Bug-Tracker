@@ -11,7 +11,7 @@ import {
 } from "../../../actions";
 
 import {
-	getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
@@ -21,7 +21,7 @@ import {
 // Components
 import ToggleSwitch from "../../basic/ToggleSwitch";
 
-export default function AccountModalChangeSettings() {
+export default function AccountModalEditSettings() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -62,7 +62,7 @@ export default function AccountModalChangeSettings() {
 			<div
 				className={
 					"category-container" +
-					getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
+					getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}
@@ -126,7 +126,7 @@ export default function AccountModalChangeSettings() {
 			<div
 				className={
 					"category-container" +
-					getAccountModalChangeSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
+					getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}

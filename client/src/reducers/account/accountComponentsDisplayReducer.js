@@ -4,11 +4,11 @@ import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 const initialState = {
 	// All the following relate to components and if they should be displayed
 	accountSidebar: false,
-	accountModalChangeInfo: false,
-	accountModalChangeEmail: false,
-	accountModalChangePassword: false,
+	accountModalEditInfo: false,
+	accountModalEditEmail: false,
+	accountModalEditPassword: false,
 	accountModalDeleteAccount: false,
-	accountModalChangeSettings: false,
+	accountModalEditSettings: false,
 };
 
 /**
@@ -17,11 +17,11 @@ const initialState = {
  *
  * @param {{
  * 	accountSidebar: boolean,
- * 	accountModalChangeInfo: boolean,
- * 	accountModalChangeEmail: boolean,
- * 	accountModalChangePassword: boolean,
+ * 	accountModalEditInfo: boolean,
+ * 	accountModalEditEmail: boolean,
+ * 	accountModalEditPassword: boolean,
  * 	accountModalDeleteAccount: boolean,
- * 	accountModalChangeSettings: boolean
+ * 	accountModalEditSettings: boolean
  * }} state - Object for which account components are currently being displayed
  * by the app
  * @param {Object} action - Object containing a type and container name, which 
@@ -29,11 +29,11 @@ const initialState = {
  * needed for the task (typically data to be updated in the redux state).
  * @returns {{
  * 	accountSidebar: boolean,
- * 	accountModalChangeInfo: boolean,
- * 	accountModalChangeEmail: boolean,
- * 	accountModalChangePassword: boolean,
+ * 	accountModalEditInfo: boolean,
+ * 	accountModalEditEmail: boolean,
+ * 	accountModalEditPassword: boolean,
  * 	accountModalDeleteAccount: boolean,
- * 	accountModalChangeSettings: boolean
+ * 	accountModalEditSettings: boolean
  * }} Object for which account components should display by the app, to be 
  * stored in the account container of the redux state
  */
@@ -48,25 +48,25 @@ export default function accountComponentsDisplayReducer(state = initialState, ac
 					action.displays.accountSidebar !== undefined
 						? action.displays.accountSidebar
 						: false,
-				accountModalChangeInfo:
-					action.displays.accountModalChangeInfo !== undefined
-						? action.displays.accountModalChangeInfo
+				accountModalEditInfo:
+					action.displays.accountModalEditInfo !== undefined
+						? action.displays.accountModalEditInfo
 						: false,
-				accountModalChangeEmail:
-					action.displays.accountModalChangeEmail !== undefined
-						? action.displays.accountModalChangeEmail
+				accountModalEditEmail:
+					action.displays.accountModalEditEmail !== undefined
+						? action.displays.accountModalEditEmail
 						: false,
-				accountModalChangePassword:
-					action.displays.accountModalChangePassword !== undefined
-						? action.displays.accountModalChangePassword
+				accountModalEditPassword:
+					action.displays.accountModalEditPassword !== undefined
+						? action.displays.accountModalEditPassword
 						: false,
 				accountModalDeleteAccount:
 					action.displays.accountModalDeleteAccount !== undefined
 						? action.displays.accountModalDeleteAccount
 						: false,
-				accountModalChangeSettings:
-					action.displays.accountModalChangeSettings !== undefined
-						? action.displays.accountModalChangeSettings
+				accountModalEditSettings:
+					action.displays.accountModalEditSettings !== undefined
+						? action.displays.accountModalEditSettings
 						: false,
 			};
 		default:

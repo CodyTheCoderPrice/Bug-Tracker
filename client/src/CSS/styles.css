@@ -3044,16 +3044,16 @@ body {
 .js-get-app-component .js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:focus {
   background-color: #a83c3c;
 }
-.app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false {
+.app-component .js-set-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-set-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false {
   border-color: black;
 }
-.app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false > .category-container__heading,
-.js-get-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false > .category-container__heading {
+.app-component .js-set-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false > .category-container__heading,
+.js-get-app-component .js-set-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false > .category-container__heading {
   background-color: white;
 }
-.app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container,
-.js-get-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container {
+.app-component .js-set-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container,
+.js-get-app-component .js-set-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container {
   color: #272727;
 }
 .app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true,

@@ -306,8 +306,8 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- AccountModalChangeSettings category container -- border, background, text color
-	.js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-false {
+	// Light/Dark mode -- AccountModalEditSettings category container -- border, background, text color
+	.js-set-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-account-modal-change-settings-category-container-border-color-light;
 
 		& > .category-container__heading {

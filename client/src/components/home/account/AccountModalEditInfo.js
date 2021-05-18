@@ -6,7 +6,8 @@ import {
 } from "../../../actions/constants/containerNames";
 
 import {
-	updateAccountPassword,
+	updateAccountInfo,
+	setWhichAccountComponentsDisplay,
 	clearBackendErrors,
 } from "../../../actions";
 
@@ -16,16 +17,15 @@ import {
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
-	openOnlyEditInfoModal,
 } from "../../../utils";
 
-export default function AccountModalChangePassword() {
+export default function AccountModalEditInfo() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const [accountInfo, setAccountInfo] = useState({
-		newPassword: "",
-		currentPassword: "",
+		first_name: reduxState[ACCOUNT_CONTAINER].accountInfo.first_name,
+		last_name: reduxState[ACCOUNT_CONTAINER].accountInfo.last_name,
 	});
 
 	// Clears current backend errors when closing the component. Otherwise the
@@ -41,23 +41,44 @@ export default function AccountModalChangePassword() {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
+	const openEditEmailModal = () => {
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountModalEditEmail: true,
+			})
+		);
+	};
+
+	const openEditPasswordModal = () => {
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountModalEditPassword: true,
+			})
+		);
+	};
+
+	const openDeleteAccountModal = () => {
+		dispatch(
+			setWhichAccountComponentsDisplay({
+				accountModalDeleteAccount: true,
+			})
+		);
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(updateAccountPassword(accountInfo));
+		dispatch(updateAccountInfo(accountInfo));
 	};
 
 	return (
 		<div>
-			<h1 className="title">Edit Password</h1>
+			<h1 className="title">Edit Personal Info</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
-				<label
-					htmlFor="edit-account-password-new-password"
-					className="form__label"
-				>
-					New Password:{" "}
+				<label htmlFor="edit-account-info-first-name" className="form__label">
+					First Name:{" "}
 				</label>
-				{accountInfo.newPassword.length >
-				reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
+				{accountInfo.first_name.length >
+				reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
 					<span
 						className={
 							"form__char-counter" +
@@ -66,18 +87,18 @@ export default function AccountModalChangePassword() {
 							)
 						}
 					>
-						{accountInfo.newPassword.length +
+						{accountInfo.first_name.length +
 							"/" +
-							reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}
+							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
 					</span>
 				) : null}
 				<input
 					autoFocus
-					type="password"
-					name="newPassword"
+					type="text"
+					name="first_name"
 					onChange={onChange}
-					value={accountInfo.newPassword}
-					id="edit-account-password-new-password"
+					value={accountInfo.first_name}
+					id="edit-account-info-first-name"
 					className={
 						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -96,17 +117,14 @@ export default function AccountModalChangePassword() {
 				>
 					{
 						reduxState[GENERAL_CONTAINER].backendErrors
-							.validationAccountNewPassword
+							.validationAccountNewFirstName
 					}
 				</span>
-				<label
-					htmlFor="edit-account-password-current-password"
-					className="form__label"
-				>
-					Current Password:{" "}
+				<label htmlFor="edit-account-info-last-name" className="form__label">
+					Last Name:{" "}
 				</label>
-				{accountInfo.currentPassword.length >
-				reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit ? (
+				{accountInfo.last_name.length >
+				reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit ? (
 					<span
 						className={
 							"form__char-counter" +
@@ -115,17 +133,17 @@ export default function AccountModalChangePassword() {
 							)
 						}
 					>
-						{accountInfo.currentPassword.length +
+						{accountInfo.last_name.length +
 							"/" +
-							reduxState[GENERAL_CONTAINER].globalConstants.passwordCharLimit}
+							reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
 					</span>
 				) : null}
 				<input
-					type="password"
-					name="currentPassword"
+					type="text"
+					name="last_name"
 					onChange={onChange}
-					value={accountInfo.currentPassword}
-					id="edit-account-password-current-password"
+					value={accountInfo.last_name}
+					id="edit-account-info-last-name"
 					className={
 						"form__input-text" +
 						getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -142,7 +160,10 @@ export default function AccountModalChangePassword() {
 						)
 					}
 				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
+					{
+						reduxState[GENERAL_CONTAINER].backendErrors
+							.validationAccountNewLastName
+					}
 				</span>
 				<button
 					type="submit"
@@ -164,12 +185,25 @@ export default function AccountModalChangePassword() {
 					}
 				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
 					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 				</span>
 			</form>
 			<div className="modal-links-container">
+				<span
+					className={
+						"modal-link modal-link--no-left-margin" +
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						)
+					}
+					alt="Link to switch to editing account email"
+					onClick={openEditEmailModal}
+				>
+					Edit Email
+				</span>
+				<span className="link-spacer">|</span>
 				<span
 					className={
 						"modal-link" +
@@ -178,10 +212,24 @@ export default function AccountModalChangePassword() {
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}
-					alt="Link to return to editing account info"
-					onClick={() => openOnlyEditInfoModal(dispatch)}
+					alt="Link to switch to editing account password"
+					onClick={openEditPasswordModal}
 				>
-					Back
+					Edit Password
+				</span>
+				<span className="link-spacer">|</span>
+				<span
+					className={
+						"modal-link modal-link--no-right-margin" +
+						getTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						)
+					}
+					alt="Link to switch to begin process to delete account"
+					onClick={openDeleteAccountModal}
+				>
+					Delete Account
 				</span>
 			</div>
 		</div>
