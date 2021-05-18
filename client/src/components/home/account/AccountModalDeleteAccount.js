@@ -7,7 +7,6 @@ import {
 
 import {
 	deleteAccount,
-	setWhichAccountComponentsDisplay,
 	clearBackendErrors,
 } from "../../../actions";
 
@@ -18,6 +17,7 @@ import {
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
+	openOnlyEditInfoModal,
 } from "../../../utils";
 
 export default function AccountModalDeleteAccount() {
@@ -40,14 +40,6 @@ export default function AccountModalDeleteAccount() {
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
-	};
-
-	const backToEditInfo = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountModalChangeInfo: true,
-			})
-		);
 	};
 
 	const handleSubmit = (e) => {
@@ -167,7 +159,7 @@ export default function AccountModalDeleteAccount() {
 						)
 					}
 					alt="Link to return to editing account info"
-					onClick={backToEditInfo}
+					onClick={() => openOnlyEditInfoModal(dispatch)}
 				>
 					Back
 				</span>

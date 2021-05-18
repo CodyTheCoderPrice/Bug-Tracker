@@ -7,7 +7,6 @@ import {
 
 import {
 	updateAccountPassword,
-	setWhichAccountComponentsDisplay,
 	clearBackendErrors,
 } from "../../../actions";
 
@@ -17,6 +16,7 @@ import {
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
+	openOnlyEditInfoModal,
 } from "../../../utils";
 
 export default function AccountModalChangePassword() {
@@ -39,14 +39,6 @@ export default function AccountModalChangePassword() {
 
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
-	};
-
-	const backToEditInfo = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountModalChangeInfo: true,
-			})
-		);
 	};
 
 	const handleSubmit = (e) => {
@@ -187,7 +179,7 @@ export default function AccountModalChangePassword() {
 						)
 					}
 					alt="Link to return to editing account info"
-					onClick={backToEditInfo}
+					onClick={() => openOnlyEditInfoModal(dispatch)}
 				>
 					Back
 				</span>

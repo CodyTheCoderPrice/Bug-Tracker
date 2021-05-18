@@ -1,4 +1,5 @@
 // Exports all standard utils
+export * from "./accountModalUtils";
 export * from "./basicUtils";
 export * from "./breadcrumbHamburgerButtonUtils";
 export * from "./bugStatisticsUtils";

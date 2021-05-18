@@ -4,7 +4,6 @@ import {
 	BUG_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../actions/constants/containerNames";
-
 // Util uses actions to edit the redux state
 import {
 	setWhichAccountComponentsDisplay,
@@ -22,7 +21,8 @@ import {
  *
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
+ * @param {Function} dispatch - Redux store's dispatch function from 
+ * useDispatch()
  */
 export function openProjectsListView(passedReduxState, dispatch) {
 	if (
@@ -67,7 +67,8 @@ export function openProjectsListView(passedReduxState, dispatch) {
  *
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
+ * @param {Function} dispatch - Redux store's dispatch function from 
+ * useDispatch()
  */
 export function openProjectsItemView(passedReduxState, dispatch) {
 	if (
@@ -106,7 +107,8 @@ export function openProjectsItemView(passedReduxState, dispatch) {
  *
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
+ * @param {Function} dispatch - Redux store's dispatch function from 
+ * useDispatch()
  */
 export function openBugsListView(passedReduxState, dispatch) {
 	if (
@@ -151,7 +153,8 @@ export function openBugsListView(passedReduxState, dispatch) {
  *
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
+ * @param {Function} dispatch - Redux store's dispatch function from 
+ * useDispatch()
  */
 export function openBugsItemView(passedReduxState, dispatch) {
 	if (
@@ -192,7 +195,8 @@ export function openBugsItemView(passedReduxState, dispatch) {
  * @param {Event} e - Event created by element's onClick handler
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
+ * @param {Function} dispatch - Redux store's dispatch function from 
+ * useDispatch()
  */
 export function closeProjectItemView(e, passedReduxState, dispatch) {
 	// Stops onClicks of parent elements from being triggered
@@ -224,7 +228,8 @@ export function closeProjectItemView(e, passedReduxState, dispatch) {
  * @param {Event} e - Event created by element's onClick handler
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from useDispatch()
+ * @param {Function} dispatch - Redux store's dispatch function from 
+ * useDispatch()
  */
 export function closeBugItemView(e, passedReduxState, dispatch) {
 	// Stops onClicks of parent elements from being triggered

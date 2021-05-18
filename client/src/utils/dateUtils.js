@@ -1,6 +1,5 @@
 // Easier to use than Date()
 import moment from "moment";
-
 import {
 	isEmpty,
 } from "./index";

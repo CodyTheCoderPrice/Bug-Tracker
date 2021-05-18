@@ -6,6 +6,8 @@ import { setWhichAccountComponentsDisplay } from "../../../actions";
 import {
 	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	openOnlyEditInfoModal,
+	openOnlyAccountSidebar,
 	filterObject,
 	getStringOfAllArrayValues,
 } from "../../../utils";
@@ -32,7 +34,7 @@ export default function AccountModal() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Prevents multiple account modals from displaying simultaneously
+	// Prevents multiple account modals from displaying as it messes with CSS
 	useEffect(() => {
 		let accountModalsSetToTrue = filterObject(
 			reduxState[ACCOUNT_CONTAINER].componentsDisplay,
@@ -44,6 +46,7 @@ export default function AccountModal() {
 		const keysOfAccountModalsSetToTrue = Object.keys(accountModalsSetToTrue);
 
 		if (keysOfAccountModalsSetToTrue.length > 1) {
+			// Choosing key is arbitrary, but first key is easiest
 			dispatch(
 				setWhichAccountComponentsDisplay({
 					[keysOfAccountModalsSetToTrue[0]]:
@@ -61,24 +64,6 @@ export default function AccountModal() {
 		// eslint-disable-next-line
 	}, [reduxState[ACCOUNT_CONTAINER].componentsDisplay]);
 
-	/**
-	 * Switches back to accountModalChangeInfo while close other modals
-	 */
-	const backToEditInfo = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountModalChangeInfo: true,
-			})
-		);
-	};
-
-	/**
-	 * Re-opens AccountSidebar component while closing AccountModal component
-	 */
-	const backToAccountSidebar = () => {
-		dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
-	};
-
 	return (
 		<div className="edit-account-modal-component">
 			<div
@@ -89,8 +74,8 @@ export default function AccountModal() {
 					)
 				}
 			>
-				{/*accountModalChangeInfo doesn't get a back-button since it 
-				wouldn't be any different than the exit-button*/}
+				{/*accountModalChangeInfo doesn't have back-button since it 
+				would go back to AccountSidebar, which is same as exit-button*/}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
 					.accountModalChangeEmail === true ||
 				reduxState[ACCOUNT_CONTAINER].componentsDisplay
@@ -105,7 +90,7 @@ export default function AccountModal() {
 							)
 						}
 						alt="Button to return to editing account info"
-						onClick={backToEditInfo}
+						onClick={() => openOnlyEditInfoModal(dispatch)}
 					>
 						<i
 							className="fa fa-arrow-left"
@@ -122,7 +107,7 @@ export default function AccountModal() {
 						)
 					}
 					alt="Button to close the account modal"
-					onClick={backToAccountSidebar}
+					onClick={() => openOnlyAccountSidebar(dispatch)}
 				>
 					<i className="fa fa-times" aria-hidden="true" alt="icon of an X"></i>
 				</div>

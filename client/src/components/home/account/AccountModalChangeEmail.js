@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+// Component uses container names to work with the redux state
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
-
 import {
 	updateAccountEmail,
-	setWhichAccountComponentsDisplay,
 	clearBackendErrors,
 } from "../../../actions";
-
 import {
 	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
+	openOnlyEditInfoModal,
 } from "../../../utils";
 
 export default function AccountModalChangeEmail() {
@@ -36,16 +35,15 @@ export default function AccountModalChangeEmail() {
 		// eslint-disable-next-line
 	}, []);
 
+	/**
+	 * Function for onChange handler of input elements. Updates accountInfo's 
+	 * object's property (that of input element's name attribute) to have the 
+	 * value that's been entered into the input element.
+	 * 
+	 * @param {Event} e - Event created by element's onChange handler
+	 */
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
-	};
-
-	const backToEditInfo = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountModalChangeInfo: true,
-			})
-		);
 	};
 
 	const handleSubmit = (e) => {
@@ -147,7 +145,7 @@ export default function AccountModalChangeEmail() {
 						)
 					}
 					alt="Link to return to editing account info"
-					onClick={backToEditInfo}
+					onClick={() => openOnlyEditInfoModal(dispatch)}
 				>
 					Back
 				</span>

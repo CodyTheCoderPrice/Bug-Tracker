@@ -1,6 +1,5 @@
 // Util uses container names to work with the redux state
 import { PROJECT_CONTAINER } from "../actions/constants/containerNames";
-
 import { dateToInt } from "./index";
 
 /**

@@ -7,7 +7,6 @@ import {
 
 import {
 	clearBackendErrors,
-	setWhichAccountComponentsDisplay,
 	updateAccountSettings,
 } from "../../../actions";
 
@@ -16,6 +15,7 @@ import {
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	openOnlyAccountSidebar,
 } from "../../../utils";
 
 // Components
@@ -42,10 +42,6 @@ export default function AccountModalChangeSettings() {
 					e.target.tagName === "SELECT" ? e.target.value : e.target.checked,
 			})
 		);
-	};
-
-	const backToAccountSidebar = () => {
-		dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 	};
 
 	const getSortSelectOptions = () => {
@@ -240,7 +236,7 @@ export default function AccountModalChangeSettings() {
 			</span>
 			<div className="modal-links-container">
 				<span
-					onClick={backToAccountSidebar}
+					onClick={() => openOnlyAccountSidebar(dispatch)}
 					className={
 						"modal-link" +
 						getTextColorClassNameForThemeWithLightOrDarkMode(

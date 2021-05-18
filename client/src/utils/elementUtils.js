@@ -1,6 +1,5 @@
 // Needed for returning JSX in functions
 import React from "react";
-
 import {
 	isEmpty,
 	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
