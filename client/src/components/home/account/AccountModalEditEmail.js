@@ -17,6 +17,20 @@ import {
 	openOnlyEditInfoModal,
 } from "../../../utils";
 
+/**
+ * React functional component for updating the logged in account's email. 
+ * Component displays a form that prompts the user to enter a new email and 
+ * their password. Invalid email/password info and/or server issues will 
+ * display error messages to explain what went wrong. Component includes link
+ * to return back to AccountModalEditInfo component (as the user would have 
+ * used that component to navigate to this one).
+ *
+ * This component should be the child of the AccountModal component. This 
+ * component should not be active along side any sibling components whose name
+ * begins with AccountModal (e.g. AccountModalEditInfo).
+ *
+ * @component
+ */
 export default function AccountModalEditEmail() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -37,8 +51,8 @@ export default function AccountModalEditEmail() {
 
 	/**
 	 * Function for onChange handler of input elements. Updates accountInfo's 
-	 * object's property (that of input element's name attribute) to have the 
-	 * value that's been entered into the input element.
+	 * property (that of input element's name attribute) to have the value 
+	 * that's been entered into the input element.
 	 * 
 	 * @param {Event} e - Event created by element's onChange handler
 	 */
@@ -46,6 +60,12 @@ export default function AccountModalEditEmail() {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
+	/**
+	 * Function for onSubmit handler of form element. Calls updateAccountEmail
+	 * action to attempt to update account's email using accountInfo
+	 *
+	 * @param {Event} e - Event created by element's onSubmit handler
+	 */
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(updateAccountEmail(accountInfo));

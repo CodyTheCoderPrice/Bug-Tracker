@@ -9,11 +9,11 @@ import {
 } from "../../actions";
 
 /**
- * React functional component used for logging into the app. Component 
- * displays a form that prompts the user for an email and password to an 
- * account. Invalid login info and/or server issues will display error 
- * messages to explain what went wrong. Component also displays a background
- * image, as well as a link to switch to the Register funcitonal component.
+ * React functional component used for logging into the app. Component displays
+ * a form that prompts the user for an email and password to an account. 
+ * Invalid login info and/or server issues will display error messages to 
+ * explain what went wrong. Component also displays a background image, as well
+ * as a link to switch to the Register funcitonal component.
  * 
  * This component should only be used inside the App component, and is not 
  * intended to be active/visible while any sibling components/elements are also
@@ -40,9 +40,9 @@ export default function Login() {
 	}, []);
 
 	/**
-	 * Function for onChange handler of input elements. Updates accountInfo's 
-	 * object's property (that of input element's name attribute) to have the 
-	 * value that's been entered into the input element.
+	 * Function for onChange handler of input elements. Updates accountInfo's
+	 * property (that of input element's name attribute) to have the value 
+	 * that's been entered into the input element.
 	 * 
 	 * @param {Event} e - Event created by element's onChange handler
 	 */
@@ -52,7 +52,7 @@ export default function Login() {
 
 	/**
 	 * Function for onSubmit handler of form element. Calls loginAccount action
-	 * to attempt account login with current info inside the accountInfo state.
+	 * to attempt account login using accountInfo
 	 * 
 	 * @param {Event} e - Event created by element's onSubmit handler
 	 */

@@ -44,9 +44,9 @@ export default function Register() {
 	}, []);
 
 	/**
-	 * Function for onChange handler of input elements. Updates accountInfo's 
-	 * object's property (that of input element's name attribute) to have the 
-	 * value that's been entered into the input element.
+	 * Function for onChange handler of input elements. Updates accountInfo's
+	 * property (that of input element's name attribute) to have the value 
+	 * that's been entered into the input element.
 	 * 
 	 * @param {Event} e - Event created by element's onChange handler
 	 */
@@ -56,8 +56,7 @@ export default function Register() {
 
 	/**
 	 * Function for onSubmit handler of form element. Calls registerAccount 
-	 * action to attempt account register with current info inside the 
-	 * accountInfo state.
+	 * action to attempt account register using accountInfo
 	 * 
 	 * @param {Event} e - Event created by element's onSubmit handler
 	 */

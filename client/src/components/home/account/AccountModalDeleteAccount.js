@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+// Component uses container names to work with the redux state
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
-
-import {
-	deleteAccount,
-	clearBackendErrors,
-} from "../../../actions";
-
+import { deleteAccount, clearBackendErrors } from "../../../actions";
 import {
 	getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
@@ -20,6 +16,20 @@ import {
 	openOnlyEditInfoModal,
 } from "../../../utils";
 
+/**
+ * React functional component for deleting the logged in account. Component 
+ * displays a form that prompts the user to enter "DELETE" and their password. 
+ * Invalid deletion info and/or server issues will display error messages to 
+ * explain what went wrong. Component includes link to return back to 
+ * AccountModalEditInfo component (as the user would have used that component 
+ * to navigate to this one).
+ *
+ * This component should be the child of the AccountModal component. This 
+ * component should not be active along side any sibling components whose name
+ * begins with AccountModal (e.g. AccountModalEditInfo).
+ *
+ * @component
+ */
 export default function AccountModalDeleteAccount() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -38,10 +48,23 @@ export default function AccountModalDeleteAccount() {
 		// eslint-disable-next-line
 	}, []);
 
+	/**
+	 * Function for onChange handler of input elements. Updates accountInfo's
+	 * property (that of input element's name attribute) to have the value
+	 * that's been entered into the input element.
+	 *
+	 * @param {Event} e - Event created by element's onChange handler
+	 */
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
+	/**
+	 * Function for onSubmit handler of form element. Calls deleteAccount 
+	 * action to attempt account deletion using accountInfo
+	 *
+	 * @param {Event} e - Event created by element's onSubmit handler
+	 */
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(deleteAccount(accountInfo));

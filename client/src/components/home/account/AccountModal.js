@@ -24,9 +24,9 @@ import AccountModalEditSettings from "./AccountModalEditSettings";
  * navigating between modals and closing the modals to return AccountSidebar
  * component.
  *
- * This component should only be active if an account modal is set to true in 
- * the componentsDisplay of the account container of the redux state. Only one
- * account modal should be set to true at one time.
+ * This component should only be active if an account modal boolean is set to 
+ * true in the componentsDisplay of the account container of the redux state. 
+ * Only one account modal should be set to true at one time.
  *
  * @component
  */

@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+// Component uses container names to work with the redux state
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
-
 import {
 	updateAccountInfo,
 	setWhichAccountComponentsDisplay,
 	clearBackendErrors,
 } from "../../../actions";
-
 import {
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
@@ -19,6 +18,20 @@ import {
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
 
+/**
+ * React functional component for updating the logged in account's personal 
+ * info (currently only first/last name). Component displays a form that 
+ * prompts the user to enter a new first and last name. Invalid name info 
+ * and/or server issues will display error messages to explain what went wrong.
+ * Component includes links to navigate to the AccountModalEditEmail,
+ * AccountModalEditPassword, and AccountModalDeleteAccount components.
+ *
+ * This component should be the child of the AccountModal component. This 
+ * component should not be active along side any sibling components whose name
+ * begins with AccountModal (e.g. AccountModalEditPassword).
+ *
+ * @component
+ */
 export default function AccountModalEditInfo() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -37,11 +50,23 @@ export default function AccountModalEditInfo() {
 		// eslint-disable-next-line
 	}, []);
 
+	/**
+	 * Function for onChange handler of input elements. Updates accountInfo's
+	 * property (that of input element's name attribute) to have the value
+	 * that's been entered into the input element.
+	 *
+	 * @param {Event} e - Event created by element's onChange handler
+	 */
 	const onChange = (e) => {
 		setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
 	};
 
-	const openEditEmailModal = () => {
+	/**
+	 * Opens AccountModalEditEmail component while closing all other account
+	 * components (other than AccountModal as AccountModalEditEmail depends on 
+	 * it)
+	 */
+	const openOnlyEditEmailModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
 				accountModalEditEmail: true,
@@ -49,7 +74,12 @@ export default function AccountModalEditInfo() {
 		);
 	};
 
-	const openEditPasswordModal = () => {
+	/**
+	 * Opens AccountModalEditPassword component while closing all other account
+	 * components (other than AccountModal as AccountModalEditPassword depends
+	 * on it)
+	 */
+	const openOnlyEditPasswordModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
 				accountModalEditPassword: true,
@@ -57,7 +87,12 @@ export default function AccountModalEditInfo() {
 		);
 	};
 
-	const openDeleteAccountModal = () => {
+	/**
+	 * Opens AccountModalDeleteAccount component while closing all other 
+	 * account components (other than AccountModal as AccountModalDeleteAccount
+	 * depends on it)
+	 */
+	const openOnlyDeleteAccountModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
 				accountModalDeleteAccount: true,
@@ -65,6 +100,13 @@ export default function AccountModalEditInfo() {
 		);
 	};
 
+	/**
+	 * Function for onSubmit handler of form element. Calls updateAccountInfo
+	 * action to attempt to update account's personal info (currently only 
+	 * first/last name) using accountInfo
+	 *
+	 * @param {Event} e - Event created by element's onSubmit handler
+	 */
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(updateAccountInfo(accountInfo));
@@ -199,7 +241,7 @@ export default function AccountModalEditInfo() {
 						)
 					}
 					alt="Link to switch to editing account email"
-					onClick={openEditEmailModal}
+					onClick={openOnlyEditEmailModal}
 				>
 					Edit Email
 				</span>
@@ -213,7 +255,7 @@ export default function AccountModalEditInfo() {
 						)
 					}
 					alt="Link to switch to editing account password"
-					onClick={openEditPasswordModal}
+					onClick={openOnlyEditPasswordModal}
 				>
 					Edit Password
 				</span>
@@ -227,7 +269,7 @@ export default function AccountModalEditInfo() {
 						)
 					}
 					alt="Link to switch to begin process to delete account"
-					onClick={openDeleteAccountModal}
+					onClick={openOnlyDeleteAccountModal}
 				>
 					Delete Account
 				</span>
