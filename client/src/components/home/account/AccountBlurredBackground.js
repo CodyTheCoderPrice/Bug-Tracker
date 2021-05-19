@@ -7,15 +7,18 @@ import { getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMod
 
 
 /**
- * React functional component of a blurred background to be paired with 
- * AccountSidebar or AccountModal components. The blurred background is placed
- * between (z-index) these account component(s) and components underneath them.
- * This keeps these account components clickable, while making components 
- * underneath them unclickable. If AccountSidebar is active, then clicking the
- * blurred background will close all account components.
+ * React functional component of a blurred background to be paired (as a 
+ * sibling) with AccountSidebar and AccountModal components. The blurred 
+ * background is placed under (z-index) account components, but above the 
+ * components underneath account components. This keeps account components 
+ * clickable, while making components underneath them unclickable. If 
+ * AccountSidebar is displayed, then clicking the blurred background will close
+ * all account components.
  * 
- * This component should only active if at least one account component 
- * (AccountSidebar or AccountModal components) is also active as a sibling.
+ * There is no single flag inside 'componentsDisplay' Object in 
+ * ACCOUNT_CONTAINER of the redux state designated for if this component should 
+ * display. Instead, this component should display if any flags inside that 
+ * Object are true (e.g. accountSidebar, accountModalEditInfo, ect.)
  * 
  * @component
  */

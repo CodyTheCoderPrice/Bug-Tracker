@@ -10,16 +10,19 @@ import {
 import { getCharCountLimitReachedTextColorClassNameForLightOrDarkMode } from "../../utils";
 
 /**
- * React functional component used for regestering an account for the app.
- * Component displays a form that prompts the user for a first name, last name,
- * unique email, and password. Invalid register info and/or server issues will
- * display error messages to explain what went wrong. Component also displays a
- * background image, as well as a link to switch to the Login funcitonal
- * component.
+ * React functional component used for regestering an account for the app by
+ * entering a first name, last name, unique email, and password. Invalid 
+ * register data (e.g. password too short) and/or server issues will display 
+ * error messages to explain what went wrong. Component includes a link to 
+ * switch to the Login component. Component also displays a background image 
+ * that takes up the entire window.
  *
- * This component should only be used inside the App component, and is not 
- * intended to be active/visible while any sibling components/elements are also
- * active/visible.
+ * The flag for displaying this component is 'register' property of
+ * 'componentsDisplay' Object in GENERAL_CONTAINER of the redux state. This
+ * component should only be used inside the App component, and is not intended 
+ * to be displayed while either the Login or Home components are also 
+ * displayed. This component should only be displayed if an account is not 
+ * logged in.
  * 
  * @component
  */

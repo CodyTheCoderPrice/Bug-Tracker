@@ -26,14 +26,20 @@ import ListView from "./projects-bugs-shared/list/ListView";
 import ItemView from "./projects-bugs-shared/item/ItemView";
 
 /**
- * React functional component used to home all components available to a logged
- * in user. At the top is the Navbar menu. Below that will be either the
- * project ListView, bug ListView, project ItemView, or bug ItemView based on
- * which the users selects to have open.
+ * React functional component used as a hub to display components available to
+ * a logged in user. Component will always have the Navbar component displayed 
+ * at the top. The account components will be displayed if the user opens them. 
+ * Below the Navbar will always be be displayed either the ListView (project),
+ * ListView (bug), ItemView (project), or ItemView (bug) component based on 
+ * which the user has selected to be open at any given point in time (only one
+ * may be displaed at a time).
  *
+ * The flag for displaying this component is intended to be 'home' property
+ * of 'componentsDisplay' Object in GENERAL_CONTAINER of redux state.
  * This component should only be used inside the App component, and is not 
- * intended to be active/visible while any sibling components/elements are also
- * active/visible.
+ * intended to be displayed while either the Login or Register components are 
+ * also displayed. This component should only be displayed if an account is 
+ * logged in.
  *
  * @component
  */

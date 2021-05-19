@@ -4,6 +4,7 @@ import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 const initialState = {
 	// All the following relate to components and if they should be displayed
 	accountSidebar: false,
+	// At most one of the following should be true at any given point in time
 	accountModalEditInfo: false,
 	accountModalEditEmail: false,
 	accountModalEditPassword: false,

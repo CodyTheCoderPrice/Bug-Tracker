@@ -18,15 +18,17 @@ import {
 } from "../../../utils";
 
 /**
- * React functional component for updating the logged in account's email. 
- * Component displays a form that prompts the user to enter a new email and 
- * their password. Invalid email/password info and/or server issues will 
- * display error messages to explain what went wrong. Component includes link
- * to return back to AccountModalEditInfo component (as the user would have 
- * used that component to navigate to this one).
+ * React functional component for updating the logged in account's email by 
+ * entering a new email and the account's password. Invalid update data (e.g.
+ * incorrect password) and/or server issues will display error messages to 
+ * explain what went wrong. Component includes link to return back to 
+ * AccountModalEditInfo component (as user would have used that component to
+ * navigate to this one).
  *
- * This component should be the child of the AccountModal component. This 
- * component should not be active along side any sibling components whose name
+ * The flag for displaying this component is 'accountModalEditEmail' property 
+ * of 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux state. This
+ * component should be the child of the AccountModal component. This component 
+ * should not be displayed along side any sibling components whose name also 
  * begins with AccountModal (e.g. AccountModalEditInfo).
  *
  * @component

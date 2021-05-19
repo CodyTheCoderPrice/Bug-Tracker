@@ -95,8 +95,10 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * 	accountModalDeleteAccount: (boolean|undefined),
  * 	accountModalEditSettings: (boolean|undefined)
  * }} displays - Object containing info for how account components should be 
- * displyed in the app. Any account components set to undefined or excluded 
- * from this param will be set to their default value.
+ * displyed in the app. At most one of the properties beginning with 
+ * accountModal (e.g. accountModalEditInfo) should be set to true. Any account
+ * components set to undefined or excluded from this param will be set to their
+ * default value.
  *
  * @example
  * // Sets accountSidebar to true, and all other account components to their

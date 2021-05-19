@@ -9,15 +9,18 @@ import {
 } from "../../actions";
 
 /**
- * React functional component used for logging into the app. Component displays
- * a form that prompts the user for an email and password to an account. 
- * Invalid login info and/or server issues will display error messages to 
- * explain what went wrong. Component also displays a background image, as well
- * as a link to switch to the Register funcitonal component.
+ * React functional component used for logging into the app by entering an 
+ * email and password to an account. Invalid login data (e.g. incorrect 
+ * password) and/or server issues will display error messages to explain what
+ * went wrong. Component includes a link to switch to the Register component.
+ * Component also displays a background image that takes up the entire window.
  * 
- * This component should only be used inside the App component, and is not 
- * intended to be active/visible while any sibling components/elements are also
- * active/visible.
+ * The flag for displaying this component is 'login' property of 
+ * 'componentsDisplay' Object in GENERAL_CONTAINER of the redux state. This 
+ * component should only be used inside the App component, and is not intended
+ * to be displayed while either the Register or Home components are also 
+ * displayed. This component should only be displayed if an account is not 
+ * logged in.
  * 
  * @component
  */

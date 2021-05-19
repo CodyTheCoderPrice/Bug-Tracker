@@ -20,14 +20,16 @@ import {
 
 /**
  * React functional component for updating the logged in account's personal 
- * info (currently only first/last name). Component displays a form that 
- * prompts the user to enter a new first and last name. Invalid name info 
- * and/or server issues will display error messages to explain what went wrong.
- * Component includes links to navigate to the AccountModalEditEmail,
- * AccountModalEditPassword, and AccountModalDeleteAccount components.
+ * info (currently only first/last name) by entering a new first and last name.
+ * Invalid name data (e.g. first name too long) and/or server issues will 
+ * display error messages to explain what went wrong. Component includes links
+ * to navigate to the AccountModalEditEmail, AccountModalEditPassword, and
+ * AccountModalDeleteAccount components.
  *
- * This component should be the child of the AccountModal component. This 
- * component should not be active along side any sibling components whose name
+ * The flag for displaying this component is 'accountModalEditInfo' property 
+ * of 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux state. This
+ * component should be the child of the AccountModal component. This component 
+ * should not be displayed along side any sibling components whose name also 
  * begins with AccountModal (e.g. AccountModalEditPassword).
  *
  * @component

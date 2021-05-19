@@ -15,10 +15,10 @@ import sortArrowsTopFilledModeDark from "../../images/sort-arrows-top-filled-for
 import sortArrowsBottomFilledModeDark from "../../images/sort-arrows-bottom-filled-for-mode-dark.svg";
 
 /**
- * React functional component for a button (that displays sorting arrows) used to
- * change how a list (projects or bugs) is being sorted. Button only changes
- * sorting to be either ascending or descending for a specific option (based
- * on what is passed in the props).
+ * React functional component for a button (that displays sorting arrows) used 
+ * to change how a list (projects or bugs) is being sorted. Button only changes
+ * sorting to be either ascending or descending for a specific option (based on
+ * what is passed in the props).
  *
  * Component needs several properties passed in order to work. An example of
  * those properties is below.

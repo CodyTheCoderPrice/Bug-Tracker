@@ -1,27 +1,36 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+// Component uses container names to work with the redux state
 import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
-
 import {
 	clearBackendErrors,
 	logoutAccount,
 	setWhichAccountComponentsDisplay,
 } from "../../../actions";
-
 import {
 	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
+	openOnlyEditInfoModal,
 	getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode,
 	getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../utils";
-
 import { useSidebarResize } from "../../../utils/hooks";
-
-// Components
+// Other components used by this component
 import AccountSidebarEditAppearance from "./AccountSidebarEditAppearance";
 
+/**
+ * React functional component for displaying the logged in account's personal 
+ * info, email, and join date. Also has buttons/links for openning the modals 
+ * for editing account's personal info and settings, and a button to logout. 
+ * Also displays the AccountSidebarEditAppearance component.
+ * 
+ * The flag for displaying this component is 'accountSidebar' property of 
+ * 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux state.
+ *
+ * @component
+ */
 export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -35,18 +44,14 @@ export default function AccountSidebar() {
 		// eslint-disable-next-line
 	}, []);
 
-	// Custom hook resizes the sidebar so that the overflow functionality works
 	useSidebarResize(reduxState, "js-account-sidebar-container");
 
-	const openAccountModalForEditingAccount = () => {
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountModalEditInfo: true,
-			})
-		);
-	};
-
-	const openAccountModalForEditingSettings = () => {
+	/**
+	 * Opens AccountModalEditSettings component while closing all other account
+	 * components (other than AccountModal as AccountModalEditSettings depends
+	 * on it)
+	 */
+	const openOnlyEditSettingsModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
 				accountModalEditSettings: true,
@@ -54,9 +59,13 @@ export default function AccountSidebar() {
 		);
 	};
 
+	/**
+	 * Call logoutAccount action to logout the account 
+	 * 
+	 * @param {Event} e - Event created by element's onClick handler
+	 */
 	const handleLogoutAccount = (e) => {
-		// Makes sure onclick set on the home component for closing
-		// ...itemViewTopBarOptionsDropdown doesn't intefere
+		// Likely unneeded, but stopPropagation just to be safe
 		e.stopPropagation();
 		dispatch(logoutAccount());
 	};
@@ -74,7 +83,7 @@ export default function AccountSidebar() {
 				<div
 					className="settings-button"
 					alt="Button to open account settings"
-					onClick={openAccountModalForEditingSettings}
+					onClick={openOnlyEditSettingsModal}
 				>
 					<i
 						className={
@@ -100,7 +109,7 @@ export default function AccountSidebar() {
 						<div className="account-info">
 							Joined:{" "}
 							{formatDateMMddYYYY(
-								reduxState[ACCOUNT_CONTAINER].accountInfo.joinDate
+								reduxState[ACCOUNT_CONTAINER].accountInfo.join_date
 							)}
 						</div>
 					</div>
@@ -114,7 +123,7 @@ export default function AccountSidebar() {
 								)
 							}
 							alt="Link to begin editing account"
-							onClick={openAccountModalForEditingAccount}
+							onClick={() => openOnlyEditInfoModal(dispatch)}
 						>
 							Edit Account
 						</span>

@@ -19,14 +19,16 @@ import AccountModalDeleteAccount from "./AccountModalDeleteAccount";
 import AccountModalEditSettings from "./AccountModalEditSettings";
 
 /**
- * React functional component for everything shared between all five account 
- * modals. This consists of the modal background, and the top buttons used for
- * navigating between modals and closing the modals to return AccountSidebar
- * component.
+ * React functional component for shared HTML/CSS between all five account 
+ * modals. Shared HTML/CSS abstract here consists of the modal background and
+ * the top buttons used for navigating between modals and closing the modals to
+ * return to AccountSidebar component (as user would have used AccountSidebar 
+ * to navigate to this component).
  *
- * This component should only be active if an account modal boolean is set to 
- * true in the componentsDisplay of the account container of the redux state. 
- * Only one account modal should be set to true at one time.
+ * There is no single flag inside 'componentsDisplay' Object in 
+ * ACCOUNT_CONTAINER of the redux state designated for if this component should 
+ * display. Instead, this component should display if any of the flags 
+ * beginning with accountModal are true (e.g. accountModalEditInfo).
  *
  * @component
  */

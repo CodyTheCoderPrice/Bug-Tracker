@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+// Component uses container names to work with the redux state
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
-
 import {
 	clearBackendErrors,
 	updateAccountSettings,
 } from "../../../actions";
-
 import {
 	getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
@@ -17,10 +16,24 @@ import {
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	openOnlyAccountSidebar,
 } from "../../../utils";
-
-// Components
+// Other components used by this component
 import ToggleSwitch from "../../basic/ToggleSwitch";
 
+/**
+ * React functional component for updating the logged in account's settings by 
+ * selecting how they want projects/bugs to be filtered/sorted. Server issues 
+ * will display error messages to explain what went wrong. Component includes 
+ * link to return back to AccountSidebar component (as user would have used 
+ * that component to navigate to this one).
+ *
+ * The flag for displaying this component is 'accountModalEditSettings' 
+ * property of 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux 
+ * state. This component should be the child of the AccountModal component. 
+ * This component should not be displayed along side any sibling components 
+ * whose name also begins with AccountModal (e.g. AccountModalEditInfo).
+ *
+ * @component
+ */
 export default function AccountModalEditSettings() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -34,6 +47,14 @@ export default function AccountModalEditSettings() {
 		// eslint-disable-next-line
 	}, []);
 
+	/**
+	 * Function for onChange handler of input elements. Calls 
+	 * updateAccountSettings action to attempt to update the account setting's
+	 * property (that of input element's name attribute) to have the value 
+	 * selected through the input element.
+	 *
+	 * @param {Event} e - Event created by element's onChange handler
+	 */
 	const onChangeSettings = (e) => {
 		dispatch(
 			updateAccountSettings({
@@ -44,6 +65,14 @@ export default function AccountModalEditSettings() {
 		);
 	};
 
+	/**
+	 * To be called inside of the select elements for sorting -- this function 
+	 * populates them by returning an option element for each category in the
+	 * settingSortCategories of the account container of the redux state
+	 * 
+	 * @returns {JSX} returns an option element for each category in the 
+	 * settingSortCategories of the account container of the redux state
+	 */
 	const getSortSelectOptions = () => {
 		return reduxState[ACCOUNT_CONTAINER].settingSortCategories.map(
 			(obj, idx) => {

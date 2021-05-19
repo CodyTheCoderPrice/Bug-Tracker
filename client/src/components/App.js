@@ -20,9 +20,9 @@ import "font-awesome/css/font-awesome.min.css";
 import "../CSS/styles.css";
 
 /**
- * React functional component used to run the app. This component has three
- * child components -- Register, Login, and Home. Only one of
- * them will be displayed at any point in time.
+ * React functional component used to run the app. This component should have
+ * only three child components -- Register, Login, and Home. Only one of
+ * them should be displayed at any point in time.
  *
  * This is the highest level component of this app, meaning it should not be
  * the child of any other components.
