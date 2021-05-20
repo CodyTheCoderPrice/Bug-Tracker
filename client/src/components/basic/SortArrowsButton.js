@@ -38,10 +38,11 @@ export default function SortArrowsButton(props) {
 	const { reduxContainerName, sortId, sortFor, uniqueId, dark_mode } = props;
 
 	/**
-	 * Function for onClick handler of img element. Updates searchFilterSort in
-	 * either project or bug container (based on reduxContainerName prop) of 
-	 * the redux state to sort by sortId prop (if it's not already) or to 
-	 * toggle sortAscending (if already sorting by sortId prop).
+	 * Function for onClick handler of img element. Updates 'searchFilterSort' 
+	 * Object in either PROJECT_CONTAINER or BUG_CONTAINER (based on 
+	 * reduxContainerName prop) of the redux state so it either sorts by sortId
+	 * prop (i.e. if it's not already) or to toggle sortAscending (i.e. if 
+	 * already sorting by sortId prop).
 	 */
 	const changeSorting = () => {
 		if (reduxState[reduxContainerName].searchFilterSort.sortId !== sortId) {
@@ -66,9 +67,9 @@ export default function SortArrowsButton(props) {
 	/**
 	 * Function to be called inside src attribute of img element. Function will
 	 * return the url location for the appropriate SVG, based on dark_mode prop 
-	 * and whether searchFilterSort in either project or bug container (based 
-	 * on reduxContainerName prop) of redux state is being sorted by sortId 
-	 * prop, and whether it is being sorted by ascending.
+	 * and whether 'searchFilterSort' Object in either PROJECT_CONTAINER or 
+	 * BUG_CONTAINER (based on reduxContainerName prop) of redux state is being 
+	 * sorted by sortId prop, and whether it is being sorted by ascending.
 	 * 
 	 * @returns {String} Location url for an SVG image
 	 */
@@ -126,7 +127,8 @@ export default function SortArrowsButton(props) {
 }
 
 SortArrowsButton.propTypes = {
-	// Redux container name for which list (projects or bugs) the
+	// Redux container name (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which
+	// ...list (either project or bug depending on which container) the
 	// ...SortArrowsButton changes sorting for
 	reduxContainerName: PropTypes.string.isRequired,
 	// id for the sort option the SortArrowsButton belongs to

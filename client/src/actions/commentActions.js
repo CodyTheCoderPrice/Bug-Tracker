@@ -1,10 +1,8 @@
 import axios from "axios";
-
-// Redux containers
+// Container names used to work with the redux state
 import { COMMENT_CONTAINER } from "./constants/containerNames";
-// Redux types
 import { SET_COMMENTS } from "./constants/types";
-// Redux dispatch functions
+// Dispatch functions
 import {
 	createHeader,
 	seBackendErrors,
@@ -13,7 +11,8 @@ import {
 } from "./index";
 
 /**
- * Sets the comments list inside the comment container of the redux state
+ * Sets the comments list in 'list' Object in COMMENT_CONTAINER of the redux
+ * state
  *
  * @param {{ 
  * 	id: number, 
@@ -46,16 +45,17 @@ export const setComments = (commentList) => (dispatch) => {
 	dispatch({
 		container: COMMENT_CONTAINER,
 		type: SET_COMMENTS,
-		// Property called list instead of commentList for consistency with 
-		// ...other redux containers that have lists
+		// Property called 'list' instead of 'commentList' for consistency with 
+		// ...setProjects (projectActions file) and setBugs (bugActions file).
+		// ...Look at documentation in those functions for their reasoning. 
 		list: commentList,
 	});
 };
 
 /**
- * Calls /api/comment/create route in order to create a new comment in
- * the database, then stores the updated commentss list in the comment
- * container of the redux state
+ * Calls /api/comment/create route in order to create a new comment in the 
+ * database, then stores the updated comments list in 'list' Object in
+ * COMMENT_CONTAINER of the redux state
  *
  * @param {{ 
  * 	description: string, 
@@ -96,7 +96,8 @@ export const createComment = (commentInfo) => (dispatch) => {
 
 /**
  * Calls /api/comment/retrieve route to retrieve the comments list from the
- * database and store it in the comment container of the redux state
+ * database and store it in 'list' Object in COMMENT_CONTAINER of the redux
+ * state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -124,8 +125,9 @@ export const retrieveComments = () => (dispatch) => {
 
 /**
  * Calls /api/comment/update route to update a comment in the database, store
- * the updated comments list in the comment container of the redux state, and
- * close edit mode for the comment
+ * the updated comments list in 'list' Object in COMMENT_CONTAINER of the redux
+ * state, and resets all comment components (which closes edit mode for the 
+ * comment)
  *
  * @param {{ 
  * 	id: number 
@@ -170,8 +172,8 @@ export const updateComment = (commentInfo) => (dispatch) => {
 
 /**
  * Calls /api/comment/delete route to delete a comment in the database, store
- * the updated comments list in the comment containers in the redux state, and
- * close the commentDeleteModal
+ * the updated comments list in 'list' Object in COMMENT_CONTAINER in the redux
+ * state, and closes the CommentDeleteModal component
  * 
  * @param {{ 
  * 	id: number, 

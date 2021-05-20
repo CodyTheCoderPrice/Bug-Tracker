@@ -1,10 +1,8 @@
 import axios from "axios";
-
-// Redux containers
+// Container names used to work with the redux state
 import { BUG_CONTAINER } from "./constants/containerNames";
-// Redux types
 import { SET_LIST } from "./constants/types";
-// Redux dispatch functions
+// Dispatch functions
 import {
 	createHeader,
 	seBackendErrors,
@@ -15,7 +13,7 @@ import {
 } from "./index";
 
 /**
- * Sets the bugs list inside the bug container of the redux state
+ * Sets bugs list in 'list' Object in BUG_CONTAINER of the redux state
  *
  * @param {{
  * 	id: number, 
@@ -75,16 +73,16 @@ export const setBugs = (bugList) => (dispatch) => {
 	dispatch({
 		container: BUG_CONTAINER,
 		type: SET_LIST,
-		// Property called list instead of bugList since redux reducer is
-		// ...shared with setProjects in projectActions
+		// Property called 'list' instead of 'bugList' since redux reducer is
+		// ...shared with setProjects in projectActions file
 		list: bugList,
 	});
 };
 
 /**
  * Calls /api/bug/create route to create a new bug in the database, store the
- * updated bugs list in the bug container of the redux state, and close the
- * listViewCreateItemSidbar
+ * updated bugs list in 'list' Object in BUG_CONTAINER of the redux state, and
+ * close the ListViewCreateItemSidbar (for bugs) component
  *
  * @param {{
  * 		project_id: number,
@@ -177,8 +175,8 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/retrieve route to retrieve the bugs list from the database
- * and store it in the bug container of the redux state
+ * Calls /api/bug/retrieve route to retrieve bugs list from the database and
+ * store it in 'list' Object in BUG_CONTAINER of the redux state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -206,8 +204,8 @@ export const retrieveBugs = () => (dispatch) => {
 
 /**
  * Calls /api/bug/update route to update a bug in the database, store the
- * updated bugs list in the bug container of the redux state, and close the
- * itemViewEditItemInfo
+ * updated bugs list in 'list' Object in BUG_CONTAINER of the redux state, and
+ * turn off the editing mode for ItemView (for bugs) component
  *
  * @param {{
  * 		id: number,
@@ -314,11 +312,11 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 
 /**
  * Calls /api/bug/delete route to delete a bug in the database, store the
- * updated bugs and comments list in their corresponding containers in the
- * redux state, update the massDeleteList (if it contained the deleted bug) in
- * the bug container of the redux state, store the updated bugs and comments 
- * list in their corresponding containers in the redux state, and close the
- * itemViewDeleteModal
+ * updated bugs and comments list in their corresponding containers (i.e.
+ *  BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, update 
+ * 'massDeleteList' Object (if it contained the deleted bug) in BUG_CONTAINER
+ * of the redux state, and open the ListView (for bugs) component while 
+ * closeing all other bug components
  *
  * @param {{ 
  * id: number, 
@@ -348,8 +346,8 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 			const deletedBugIndexInMassDeleteList = massDeleteList.indexOf(idsObject.id);
 
 			// checks if the deleted bug id was in the massDeleteList, and if
-			// ...so removes it and updates the massDeleteList in the bug
-			// ...container of the redux state
+			// ...so removes it and updates 'massDeleteList' Object in 
+			// ...BUG_CONTAINER of the redux state
 			if (deletedBugIndexInMassDeleteList > -1) {
 				massDeleteList.splice(deletedBugIndexInMassDeleteList, 1);
 				dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, massDeleteList));
@@ -376,9 +374,10 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 
 /**
  * Calls /api/bug/delete-multiple route to delete multiple bugs in the database,
- * store the updated bugs and comments list in their corresponding containers
- * in the redux state, empty the massDeleteList in the bug container of the
- * redux state, and close the itemViewDeleteModal
+ * store the updated bugs and comments list in their corresponding containers 
+ * (i.e. BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, empty the 
+ * 'massDeleteList' Object in BUG_CONTAINER of the redux state, and close
+ * ItemViewDeleteModal (for bugs) component
  *
  * @param {number[]} massDeleteList - Array of ids for bugs to be mass deleted
  * @param {{

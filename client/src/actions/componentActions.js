@@ -1,4 +1,4 @@
-// Redux containers
+// Container names used to work with the redux state
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
@@ -6,7 +6,6 @@ import {
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
 } from "./constants/containerNames";
-// Redux types
 import {
 	SET_WHICH_GENERAL_COMPONENTS_DISPLAY,
 	SET_WHICH_GENERAL_DROPDOWNS_DISPLAY,
@@ -16,8 +15,8 @@ import {
 } from "./constants/types";
 
 /**
- * Sets Object in general container of the redux state for how general
- * components should be displayed in the app
+ * Sets info in 'componentsDisplay' Object in GENERAL_CONTAINER of the redux 
+ * state for how general components should be displayed by the app
  *
  * @param {{
  * 	register: (boolean|undefined),
@@ -27,7 +26,8 @@ import {
  * 	itemViewListSidebarUserSet: (boolean|undefined)
  * }} displays - Object containing info for how general components should be 
  * displyed in the app. Any general components set to undefined or excluded 
- * from this param will be set to their default value.
+ * from this param will be set to their default value (except login, which will
+ * instead be set to false).
  *
  * @example
  * // Sets home component to true, and all other general components to their
@@ -49,8 +49,8 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object in general container of the redux state for how general
- * dropdowns should be displayed in the app
+ * Sets info in 'dropdownsDisplay' Object in GENERAL_CONTAINER of the redux 
+ * state for how general dropdowns should be displayed by the app
  *
  * @param {{
  * 	navbarHamburherDropdown: (boolean|undefined),
@@ -84,8 +84,8 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object in account container of the redux state for how account
- * components should be displayed in the app
+ * Sets info in 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux 
+ * state for how account components should be displayed by the app
  *
  * @param {{
  * 	accountSidebar: (boolean|undefined),
@@ -120,8 +120,8 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object in project container of the redux state for how project
- * components should be displayed in the app
+ * Sets info in 'componentsDisplay' Object in PROJECT_CONTAINER of the redux 
+ * state for how project components should be displayed by the app
  *
  * @param {{
  * 	listView: (boolean|undefined),
@@ -170,8 +170,8 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object in bug container of the redux state for how bug
- * components should be displayed in the app
+ * Sets info in 'componentsDisplay' Object in BUG_CONTAINER of the redux state
+ * for how bug components should be displayed by the app
  *
  * @param {{
  * 	listView: (boolean|undefined),
@@ -221,8 +221,8 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets Object in comment container of the redux state for how comment
- * components should be displayed in the app
+ * Sets info in 'componentsDisplay' Object in COMMENT_CONTAINER of the redux 
+ * state for how comment components should be displayed by the app
  *
  * @param {{
  * 	commentDeleteModal: (boolean|undefined),

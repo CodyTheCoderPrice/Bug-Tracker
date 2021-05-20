@@ -71,6 +71,7 @@ export default function Navbar() {
 			})
 		);
 
+		// Should be equal to base fontsize on app start up or refresh
 		dispatch(setDisplaySizeVariablesBreadcrumbFontSize(breadcrumbBaseFontSize));
 
 		// Adds event to update navbar size on a resize

@@ -1,9 +1,7 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-
-// Redux containers
+// Container names used to work with the redux state
 import { ACCOUNT_CONTAINER } from "./constants/containerNames";
-// Redux types
 import {
 	SET_AUTHENTICATION,
 	SET_ACCOUNT,
@@ -11,7 +9,7 @@ import {
 	SET_ACCOUNT_SETTING_THEMES,
 	SET_ACCOUNT_SETTING_SORT_CATEGORIES,
 } from "./constants/types";
-// Redux dispatch functions
+// Dispatch functions
 import {
 	createHeader,
 	seBackendErrors,
@@ -26,9 +24,11 @@ import {
 } from "./index";
 
 /**
- * Sets the accounts authentication information inside the account container
- * of the redux state
- *
+ * Sets logged in account's authentication info in 'auth' Object in 
+ * ACCOUNT_CONTAINER of the redux state.
+ * 
+ * This is used by the frontend to tell if an account has been logged in.
+ * 
  * @param {{
  *	account_id: number,
  * 	iat: number, 
@@ -54,7 +54,11 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 };
 
 /**
- * Sets the account info inside the account container of the redux state
+ * Sets account info in 'accountInfo' Object in ACCOUNT_CONTAINER of the redux
+ * state.
+ * 
+ * This info is used to do many things needing the logged in account's info 
+ * (e.g. display account info in the AccountSidebar component).
  *
  * @param {{ 
  * 	account_id: number, 
@@ -87,7 +91,11 @@ export const setAccount = (account) => (dispatch) => {
 };
 
 /**
- * Sets the account settings inside the account container of the redux state
+ * Sets account settings info in 'settings' Object in ACCOUNT_CONTAINER of the 
+ * redux state.
+ * 
+ * This info is used to do many things needing the logged in account's settings
+ * (e.g. know whether to use light or dark mode, know which theme to use, ect.) 
  *
  * @param {{ 
  * 	setting_id: number, 
@@ -130,7 +138,12 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
 };
 
 /**
- * Sets account setting themes inside the account container of the redux state
+ * Sets account setting themes info in 'settingThemes' Object in 
+ * ACCOUNT_CONTAINER of the redux state.
+ * 
+ * This info is used in relation with theme properties in 'settings' Object in
+ * ACCOUNT_CONTAINER of the redux state to get the color names to be used for
+ * setting theme CSS of element.
  *
  * @param {{ 
  * 	theme_id: number, 
@@ -161,8 +174,10 @@ export const setAccountSettingThemes = (accountSettingThemes) => (dispatch) => {
 };
 
 /**
- * Sets account setting sort categories inside the account container of the
- * redux state
+ * Sets account setting sort categories info in 'settingSortCategories' of 
+ * ACCOUNT_CONTAINER of the redux state
+ * 
+ * !FINISH writing explaination!
  *
  * @param {{ 
  * 	sort_id: number, 
@@ -195,7 +210,7 @@ export const setAccountSettingSortCategories = (accountSettingSortCategories) =>
 
 /**
  * Calls api/account/register route to register a new account in the database
- * and open the login page
+ * and open Login component while closing all other general components.
  *
  * @param {{ 
  * 	first_name: string, 
@@ -230,9 +245,10 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 
 /**
  * Calls api/account/login route to login into an account, retrieve a jwToken
- * to store in localStorage, retrieve all account data from the database amd
- * store each data set in their corresponding redux state containers, and open
- * the home page
+ * to store in localStorage, retrieve all account data from the database and
+ * store each data set in their corresponding containers (e.g. 
+ * ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux state, and opens 
+ * the Home component while closing the Login and Register components. 
  *
  * @param {{ 
  * 	email: string, 
@@ -294,7 +310,8 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 
 /**
  * Calls api/account/retrieve route to retrieve the account info from the
- * database and store it in the account container of the redux state
+ * database and store it in 'accountInfo' Object in ACCOUNT_CONTAINER of the 
+ * redux state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -322,7 +339,8 @@ export const retrieveAccount = () => (dispatch) => {
 
 /**
  * Calls api/account/retrieve-settings route to retrieve the account settings
- * from the database and store it in the account container of the redux state
+ * from the database and store it in 'settings' Object in ACCOUNT_CONTAINER of 
+ * the redux state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -350,8 +368,8 @@ export const retrieveAccountSettings = () => (dispatch) => {
 
 /**
  * Calls api/account/retrieve-setting-themes route to retrieve the account
- * setting themes from the database and store it in the account container of
- * the redux state
+ * setting themes from the database and store it in 'settingThemes' Object of 
+ * ACCOUNT_CONTAINER of the redux state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -379,8 +397,8 @@ export const retrieveAccountSettingThemes = () => (dispatch) => {
 
 /**
  * Calls api/account/retrieve-sort-categories route to retrieve the sort
- * categories from the database and store it in the account container of
- * the redux state
+ * categories from the database and store it in 'settingSortCategories' of
+ * ACCOUNT_CONTAINER of the redux state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -408,8 +426,8 @@ export const retrieveSortCategories = () => (dispatch) => {
 
 /**
  * Calls api/account/retrieve-everything route to retrieve all account data
- * from the database and store each data set in their corresponding redux
- * state containers
+ * from the database and store each data set in their corresponding containers
+ * (e.g. ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -455,8 +473,9 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 
 /**
  * Calls api/account/update-info route to update the name for the account in
- * the database, store the updated account info in the account container of the
- * redux state, and re-open to the accountSidebar
+ * the database, store the updated account info in 'accountInfo' Object in
+ * ACCOUNT_CONTAINER of the redux state, and opens AccountSidebar component 
+ * while closing all other account components
  *
  * @param {{ 
  * 	first_name: string, 
@@ -498,8 +517,9 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 
 /**
  * Calls api/account/update-email route to update the email for the account in
- * the database, store the updated account email in the account container of
- * the redux state, and re-open to the accountSidebar
+ * the database, store the updated account email in 'accountInfo' Object in
+ * ACCOUNT_CONTAINER of the redux state, and opens AccountSidebar component 
+ * while closing all other account components
  *
  * @param {{ 
  * 	email: string, 
@@ -542,7 +562,8 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 
 /**
  * Calls api/account/update-password route to update the password for the
- * account in the database and re-open to the accountSidebar
+ * account in the database and opens AccountSidebar component while closing all
+ * other account components
  *
  * @param {{ 
  * 	newPassword: string, 
@@ -619,8 +640,8 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
 
 /**
  * Calls api/account/update-settings route to update the account settings in
- * the database, store the updated account settings in the account container of
- * the redux state
+ * the database, store the updated account settings in 'settings' Object in
+ * ACCOUNT_CONTAINER of the redux state
  *
  * @param {{ 
  * 	setting_id: number, 

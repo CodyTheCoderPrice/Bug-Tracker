@@ -1,13 +1,11 @@
 import axios from "axios";
-
-// Redux containers
+// Container names used to work with the redux state
 import {
 	SIZE_CONTAINER,
 	GENERAL_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 } from "./constants/containerNames";
-// Redux types
 import {
 	SET_DISPLAY_SIZE_CONSTANTS,
 	SET_DISPLAY_SIZE_VARIABLES_WINDOW_NAVBAR,
@@ -26,10 +24,11 @@ export * from "./switchActions";
 export * from "./resetActions";
 
 /**
- * Sets Object containing the size info of multiple html elements (thats
- * size remains constant) in the size container of the redux state. This info
- * is mostly used to calulcate the resizing of other html elements, but is
- * sometimes used for other things
+ * Sets size info of multiple html elements (thats size remains constant) in
+ * 'constants' Object in SIZE_CONTAINER of the redux state. 
+ * 
+ * This info is mostly used to calulcate the resizing of other html elements, 
+ * but is sometimes used for other things.
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
@@ -79,10 +78,12 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 };
 
 /**
- * Sets Object containing the current size info of the Window and Navbar
- * elements in the size container of the redux state. These sizes are updated
- * everytime they change. This info is mostly used to calulcate the resizing of
- * other html elements, but is sometimes used for other things
+ * Sets current size info of the Window and Navbar elements in 'variables'
+ * Object in SIZE_CONTAINER of the redux state. 
+ * 
+ * These sizes should be updated everytime they change. This info is mostly 
+ * used to calulcate the resizing of other html elements, but is sometimes used
+ * for other things
  *
  * @param {{
  * 	window: ({
@@ -119,10 +120,13 @@ export const setDisplaySizeVariablesWindowAndNavbar = (sizes) => (dispatch) => {
 };
 
 /**
- * Sets the current font size of the breadcrumb menu button text elements in
- * the size container of the redux state. The fontsize is updated everytime it
- * changes. The font size is used to know when the switch to the hamburger menu
- * (i.e. when breadcrumb button text element's font size gets to be too small)
+ * Sets current font size of element's with breadcrumb-button__text className
+ * (in NavbarBreadcrumb component) in 'variables' Object in SIZE_CONTAINER of
+ * the redux state. 
+ * 
+ * These sizes should be updated everytime they change. The font size is used 
+ * to know when the switch to the hamburger menu (e.g. when breadcrumb button
+ * text element's font size gets to be too small).
  *
  * @param {number} fontSize - Number of current font size of the breadcrumb menu
  * button text elements
@@ -131,23 +135,25 @@ export const setDisplaySizeVariablesWindowAndNavbar = (sizes) => (dispatch) => {
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(setDisplaySizeVariablesBreadcrumbFontSize(18));
  */
-export const setDisplaySizeVariablesBreadcrumbFontSize = (fontSize) => (
-	dispatch
-) => {
-	dispatch({
-		container: SIZE_CONTAINER,
-		type: SET_DISPLAY_SIZE_VARIABLES_BREADCRUMB_FONT_SIZE,
-		fontSize: fontSize,
-	});
-};
+export const setDisplaySizeVariablesBreadcrumbFontSize =
+	(fontSize) => (dispatch) => {
+		dispatch({
+			container: SIZE_CONTAINER,
+			type: SET_DISPLAY_SIZE_VARIABLES_BREADCRUMB_FONT_SIZE,
+			fontSize: fontSize,
+		});
+	};
 
 /**
- * Sets Objects containing the developer set data for the project and the bug
- * priority/status tables (4 total) of the database used by the app to convert
- * priority/status integer values for projects/bugs to the string options they
- * represent, populate priority/status comboboxes, and dynamically know if any
- * particular option represents empty or completed. These Objects are stored in
- * their corresponding containers of the redux state
+ * Sets info containing developer set data for priority/status tables (2 tables 
+ * for projects; 2 tables for bugs) of the database in 'priorityStatusOptions' 
+ * Object in their corresponding containers (i.e. PROJECT_CONTAINER and 
+ * BUG_CONTAINER) of the redux state.
+ * 
+ * This info is used by the app to convert priority/status integer values for 
+ * projects/bugs to the string options they represent, populate priority/status
+ * comboboxes, and dynamically know if any particular option represents empty 
+ * or completed.
  *
  * @param {{
  * 	priorityList: [
@@ -232,25 +238,26 @@ export const setDisplaySizeVariablesBreadcrumbFontSize = (fontSize) => (
  * 	})
  * );
  */
-export const setPriorityStatus = (projectPriorityStatus, bugPriorityStatus) => (
-	dispatch
-) => {
-	dispatch({
-		container: PROJECT_CONTAINER,
-		type: SET_PRIORITY_STATUS,
-		priorityStatusInfo: projectPriorityStatus,
-	});
-	dispatch({
-		container: BUG_CONTAINER,
-		type: SET_PRIORITY_STATUS,
-		priorityStatusInfo: bugPriorityStatus,
-	});
-};
+export const setPriorityStatus =
+	(projectPriorityStatus, bugPriorityStatus) => (dispatch) => {
+		dispatch({
+			container: PROJECT_CONTAINER,
+			type: SET_PRIORITY_STATUS,
+			priorityStatusInfo: projectPriorityStatus,
+		});
+		dispatch({
+			container: BUG_CONTAINER,
+			type: SET_PRIORITY_STATUS,
+			priorityStatusInfo: bugPriorityStatus,
+		});
+	};
 
 /**
- * Calls /api/priority-status/retrieve route to retrieve the project and the
- * bug priority/status tables (4 total) info from the database and store it
- * in their corresponding containers of the redux state
+ * Calls /api/priority-status/retrieve route to retrieve info containing 
+ * developer set data for priority/status tables (2 tables for projects; 2 
+ * tables for bugs) of the database and store it in 'priorityStatusOptions' 
+ * Object in their corresponding containers (i.e. PROJECT_CONTAINER and 
+ * BUG_CONTAINER) of the redux state. 
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -269,9 +276,13 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 };
 
 /**
- * Sets Object for backend errors containing info on what went wrong during an 
- * http request (typically input validation errors) to be displayed to the 
- * user, stored in the general container of the redux state
+ * Sets info of what went wrong during an http request (e.g. invalid user 
+ * input, server error, ect.) in 'backendErrors' Object in GENERAL_CONTAINER of
+ * the redux state.
+ * 
+ * This info is mostly used to be displayed to the user, but may also be used
+ * for security (e.g. to loggout an account if an API request is made with an
+ * expire jwTowken).
  *
  * @param {{
  * 	server: (string|undefined),
@@ -332,8 +343,12 @@ export const seBackendErrors = (backendErrors) => (dispatch) => {
 };
 
 /**
- * Clears Object for backend errors in the general container of the redux state
+ * Clears info in 'backendErrors' Object in GENERAL_CONTAINER of the redux 
+ * state.
  * 
+ * This typically used so backend errors do not continue to display when a user
+ * navigates back to the component they last had a backend error for.  
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(clearBackendErrors());
@@ -347,7 +362,7 @@ export const clearBackendErrors = () => (dispatch) => {
  * so the server can both decode it to get the account_id for the call
  * as well as authenticate the call without being sent a password
  *
- * @returns {{ 
+ * @returns {{
  * 	headers: {
  * 		jwToken: string
  * 	}

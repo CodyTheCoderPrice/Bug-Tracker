@@ -1,7 +1,5 @@
-/** 
- * The redux state object has its contents divided into containers for
- * organization. These are all the container names.
- */
+//The redux state Object has its contents divided into container properties 
+// ...for organization. The following are all the container property names.
 export const GENERAL_CONTAINER = "GENERAL_CONTAINER";
 export const SIZE_CONTAINER = "SIZE_CONTAINER";
 export const ACCOUNT_CONTAINER = "ACCOUNT_CONTAINER";

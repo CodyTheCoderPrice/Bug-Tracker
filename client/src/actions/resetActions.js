@@ -1,4 +1,4 @@
-// Redux containers
+// Container names used to work with the redux state
 import {
 	SIZE_CONTAINER,
 	GENERAL_CONTAINER,
@@ -7,11 +7,10 @@ import {
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
 } from "./constants/containerNames";
-// Redux types
 import { RESET_CONTAINER } from "./constants/types";
 
 /**
- * Resets the size container to its starting state
+ * Resets SIZE_CONTAINER of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -25,7 +24,7 @@ export const resetSizeContainer = () => (dispatch) => {
 };
 
 /**
- * Resets the general container to its starting state
+ * Resets GENERAL_CONTAINER of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -39,7 +38,7 @@ export const resetGeneralContainer = () => (dispatch) => {
 };
 
 /**
- * Resets the account container to its starting state
+ * Resets ACCOUNT_CONTAINER of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -53,7 +52,7 @@ export const resetAccountContainer = () => (dispatch) => {
 };
 
 /**
- * Resets the project container to its starting state
+ * Resets PROJECT_CONTAINER of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -67,7 +66,7 @@ export const resetProjectContainer = () => (dispatch) => {
 };
 
 /**
- * Resets the bug container to its starting state
+ * Resets BUG_CONTAINER of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -81,7 +80,7 @@ export const resetBugContainer = () => (dispatch) => {
 };
 
 /**
- * Resets the comment container to its starting state
+ * Resets COMMENT_CONTAINER of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -95,7 +94,8 @@ export const resetCommentContainer = () => (dispatch) => {
 };
 
 /**
- * Resets the all containers to their starting states
+ * Resets all containers (e.g. SIZE_CONTAINER, GENERAL_CONTAINER, ect.) of the 
+ * redux state to their initial states
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
