@@ -1,9 +1,10 @@
 import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 
-// Default state for html element sizes that remain constant (after being set)
+// Initial state for html element sizes that remain constant (after being set)
 const initialState = {
 	// All the following relate to css sizes of different HTML elements. They
-	// ...are set during a useEffect that calls functions to get their values
+	// ...are set during a useEffect in Navbar component that calls several
+	// ...functionas to their values.
 	scrollbarWidth: null,
 	navbarAccountButtonWidth: null,
 	navbarBreadcrumbArrowWidth: null,
@@ -18,8 +19,8 @@ const initialState = {
 };
 
 /**
- * Used to set Object containing constant html element sizes in the size
- * container of the redux state
+ * Used to set 'constants' Object containing constant html element sizes into 
+ * SIZE_CONTAINER of the redux state
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
@@ -36,10 +37,12 @@ const initialState = {
  * 	itemViewListSidebarWidth: (number|null),
  * 	itemViewOuterDividingContainerMinWidth: (number|null),
  * 	itemViewPaddingContainerPadding: (number|null)
- * }} state - Object of constant html element sizes
- * @param {Object} action - Object containing a type and container name, which
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }} state - Current Object (in the redux state) for constant html element 
+ * sizes
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{
  * 	scrollbarWidth: (number|null),
  * 	navbarAccountButtonWidth: (number|null),
@@ -55,8 +58,7 @@ const initialState = {
  * 	itemViewListSidebarWidth: (number|null),
  * 	itemViewOuterDividingContainerMinWidth: (number|null),
  * 	itemViewPaddingContainerPadding: (number|null)
- * }} Object of constant html element sizes to be stored in the size container
- * of the redux state
+ * }} Object containing constant html element sizes
  */
 export default function displaySizeConstantsReducer(
 	state = initialState,

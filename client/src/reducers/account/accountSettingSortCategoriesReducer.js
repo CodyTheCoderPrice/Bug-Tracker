@@ -1,28 +1,29 @@
 import { SET_ACCOUNT_SETTING_SORT_CATEGORIES } from "../../actions/constants/types";
 
-// Default state for sort categories (empty since stored in database)
+// Initial state for sort categories (empty since stored in database)
 const initialState = []
 
 /**
- * Used to set array of Objects containing sort categories data from the 
- * database in the account container of the redux state
+ * Used to set 'settingSortCategories' Array of Objects containing sort 
+ * category data from the database into ACCOUNT_CONTAINER of the redux state
  * 
  * @param {{ 
  * 	sort_id: number, 
  * 	order_number: number, 
  * 	category: string, 
  * 	marks_default: boolean
- * }[]} state - Array of Objects for sort categories data in the redux state
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }[]} state - Current Array of Objects (in the redux state) for sort category
+ * data
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{ 
  * 	sort_id: number, 
  * 	order_number: number, 
  * 	category: string, 
  * 	marks_default: boolean
- * }[]} Array of Objects for sort categories to be stored in the account 
- * container of the redux state
+ * }[]} Array of Objects containing sort category data from the database
  */
 export default function accountSettingSortCategoriesReducer(state = initialState, action) {
 	switch (action.type) {

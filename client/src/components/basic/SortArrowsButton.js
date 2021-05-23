@@ -128,8 +128,8 @@ export default function SortArrowsButton(props) {
 
 SortArrowsButton.propTypes = {
 	// Redux container name (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which
-	// ...list (either project or bug depending on which container) the
-	// ...SortArrowsButton changes sorting for
+	// ...'list' Object of the redux state the SortArrowsButton will change 
+	// ...sorting for
 	reduxContainerName: PropTypes.string.isRequired,
 	// id for the sort option the SortArrowsButton belongs to
 	sortId: PropTypes.number.isRequired,

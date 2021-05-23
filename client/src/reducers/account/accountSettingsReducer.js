@@ -1,12 +1,12 @@
 import { SET_ACCOUNT_SETTINGS } from "../../actions/constants/types";
 
-// Default state for account settings (empty since no account is logged in by 
+// Initial state for account settings (empty since no account is logged in by 
 // ...default)
 const initialState = {}
 
 /**
- * Used to set Object containing account settings data from the database in the
- * account container of the redux state
+ * Used to set 'settings' Object containing the logged in account's settings 
+ * data from the database into ACCOUNT_CONTAINER of the redux state
  * 
  * @param {({ 
  * 	setting_id: number, 
@@ -20,11 +20,12 @@ const initialState = {}
  * 	bug_sort_id: number, 
  * 	bug_sort_ascending: boolean, 
  * 	last_edited_timestamp: string 
- * } | {})} state - Object for the current account settings data in the redux
- * state
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * } | {})} state - Current Object (in the redux state) for the logged in 
+ * account's settings data
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {({ 
  * 	setting_id: number, 
  * 	filter_completed_projects_by_default: boolean, 
@@ -37,8 +38,8 @@ const initialState = {}
  * 	bug_sort_id: number, 
  * 	bug_sort_ascending: boolean, 
  * 	last_edited_timestamp: string 
- * } | {})} Object for account settings to be stored in the account container 
- * of the redux state
+ * } | {})} Object containing the logged in account's settings data from the 
+ * database
  */
 export default function accountSettingsReducer(state = initialState, action) {
 	switch (action.type) {

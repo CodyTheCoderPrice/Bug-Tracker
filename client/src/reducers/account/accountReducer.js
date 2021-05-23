@@ -1,11 +1,11 @@
 import { SET_ACCOUNT } from "../../actions/constants/types";
 
-// Default state for account (empty since no account is logged in by default)
+// Initial state for account (empty since no account is logged in by default)
 const initialState = {}
 
 /**
- * Used to set Object containing account data from the database in the account
- * container of the redux state
+ * Used to set 'accountInfo' Object containing the logged in account's data 
+ * from the database into ACCOUNT_CONTAINER of the redux state
  * 
  * @param {({ 
  * 	account_id: number, 
@@ -14,10 +14,12 @@ const initialState = {}
  * 	last_name: string, 
  * 	join_date: string, 
  * 	last_edited_timestamp: string 
- * } | {})} state - Object for the current account data in the redux state
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * } | {})} state - Current Object (in the redux state) for the logged in 
+ * account's data
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {({ 
  * 	account_id: number, 
  * 	email: string, 
@@ -25,8 +27,7 @@ const initialState = {}
  * 	last_name: string, 
  * 	join_date: string, 
  * 	last_edited_timestamp: string 
- * } | {})} Object for an account to be stored in the account container of the 
- * redux state
+ * } | {})} Object containing the logged in account's data from the database
  */
 export default function accountReducer(state = initialState, action) {
 	switch (action.type) {

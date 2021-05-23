@@ -34,9 +34,9 @@ import {
  * 	itemViewEditItemInfo: (boolean|undefined),
  * 	itemViewDeleteModal: (boolean|undefined),
  * 	itemViewCurrentItem: ({
+ * 		id: number,
  * 		account_id: (number|undefined),
  * 		project_id: (number,undefined),
- * 		id: number,
  * 		name: string,
  * 		description: string,
  * 		location: (string|undefined),
@@ -210,9 +210,9 @@ export const setProjectOrBugMassDeleteList = (
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
+ * 		id: number,
  * 		account_id: (number|undefined),
  * 		project_id: (number|undefined),
- * 		id: number,
  * 		name: string,
  * 		description: string,
  * 		location: (string|undefined),
@@ -297,9 +297,9 @@ export const createProjectOrBug = (
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
+ * 		id: number,
  * 		account_id: (number|undefined),
  * 		project_id: (number|undefined),
- * 		id: number,
  * 		name: string,
  * 		description: string,
  * 		location: (string|undefined),
@@ -430,9 +430,9 @@ export const deleteProjectOrBug = (
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
+ * 		id: number,
  * 		account_id: (number|undefined),
  * 		project_id: (number|undefined),
- * 		id: number,
  * 		name: string,
  * 		description: string,
  * 		location: (string|undefined),

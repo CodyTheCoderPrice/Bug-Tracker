@@ -1,7 +1,7 @@
 import { SET_AUTHENTICATION } from "../../actions/constants/types";
 const isEmpty = require("is-empty");
 
-// Default state for user authentication (set as not authenticated since no
+// Initial state for user authentication (set as not authenticated since no
 // ...acount is logged in by default)
 const initialState = {
 	// Is the account currently authenticated by the backend
@@ -11,8 +11,8 @@ const initialState = {
 };
 
 /**
- * Used to set Object containing authentication data for the current user of 
- * the site in the account container of the redux state
+ * Used to set 'auth' Object containing authentication data for the logged in
+ * account of into ACCOUNT_CONTAINER of the redux state
  * 
  * @param {{
  * 	isAuthenticated: boolean,
@@ -21,11 +21,12 @@ const initialState = {
  * 		iat: number, 
  * 		exp: number 
  * 	} | {})
- * }} state - Object for the current user authentication data in the redux 
- * state
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }} state - Current Object (in the redux state) for the logged in account's
+ * authentication data
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{
  * 	isAuthenticated: boolean,
  * 	info: ({
@@ -33,8 +34,7 @@ const initialState = {
  * 		iat: number, 
  * 		exp: number 
  * 	} | {})
- * }} Object containing authentication data for the current user of the site to
- * be stored in the account container of the redux state
+ * }} Object containing authentication data for the logged in account
  */
 export default function authReducer(state = initialState, action) {
 	switch (action.type) {

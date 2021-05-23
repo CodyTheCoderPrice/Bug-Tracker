@@ -1,14 +1,18 @@
 import { SET_DISPLAY_SIZE_VARIABLES_WINDOW_NAVBAR } from "../../../actions/constants/types";
 
-// Default state for the current side of the Window and Navbar HTML elements
+// Initial state for current size of Window element, and element with 'navbar'
+// ...className in Navbar component. Both null since their size depends on the
+// ...browser window size, which needs to be retrieved.
 const initialState = {
 	window: null,
 	navbar: null,
 };
 
 /**
- * Used to set Object containing current size info for the Window and Navbar
- * HTML elements
+ * Used to set two properties in 'variables' Object into SIZE_CONTAINER of the 
+ * redux state. First property being 'window' containing current size info for 
+ * Window element. Second property being 'navbar' containing current size info 
+ * for element with 'navbar' className in Navbar component.
  * 
  * @param {{
  * 	window: ({ 
@@ -19,11 +23,12 @@ const initialState = {
  * 		height: number, 
  * 		width: number 
  * 	}|null)
- * }} state - Object of current size info for the Window and Navbar
- * HTML elements
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }} state - Current Object (in the redux state) for variable (changing) html
+ * element sizes
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{
  * 	window: ({ 
  * 		height: number, 
@@ -33,8 +38,9 @@ const initialState = {
  * 		height: number, 
  * 		width: number 
  * 	}|null)
- * }} Object of size info for the Window and Navbar HTML elements to be stored 
- * in the size container of the redux state
+ * }} Object with two properties -- first being 'window' containing current 
+ * size info for Window element; second being 'navbar' containing current size
+ * info for element with 'navbar' className in Navbar component.
  */
 export default function displaySizeWindowAndNavbarReducer(state = initialState, action) {
 	switch (action.type) {

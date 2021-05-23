@@ -103,8 +103,8 @@ export const setBugs = (bugList) => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		project_id: number,
  * 		id: number,
+ * 		project_id: number,
  * 		name: string,
  * 		description: string,
  * 		location: string,
@@ -209,6 +209,7 @@ export const retrieveBugs = () => (dispatch) => {
  *
  * @param {{
  * 		id: number,
+ * 		project_id: number,
  * 		name: string,
  * 		description: string,
  * 		location: string,
@@ -251,7 +252,8 @@ export const retrieveBugs = () => (dispatch) => {
  * // ...is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateBug({
- * 		id: 50,  
+ * 		id: 50,
+ * 		project_id: 373,
  * 		name: "Create todo Api error", 
  * 		description: "Api requests for creating todos throws errors", 
  * 		location: "Backend",  
@@ -388,9 +390,8 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		account_id: (number|undefined),
- * 		project_id: (number|undefined),
  * 		id: number,
+ * 		project_id: (number|undefined),
  * 		name: string,
  * 		description: string,
  * 		location: (string|undefined),

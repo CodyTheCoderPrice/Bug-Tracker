@@ -1,8 +1,9 @@
 import { SET_PRIORITY_STATUS } from "../../actions/constants/types";
 import { appendHexValueForColorsToStatusList } from "../../utils/colorUtils";
 
-// Default state for either project or bug priority/status data (reducer used by
-// ...both containers) from the priority and status tables in the database
+// Initial state for either project or bug priority/status data (reducer used for 
+// ...PROJECT_CONTAINER and BUG_CONTAINER). All values are null since they need 
+// ...to be retrieved from the database.
 const initialState = {
 	// Priority table data from the database
 	priorityList: null,
@@ -17,10 +18,10 @@ const initialState = {
 };
 
 /**
- * Used to set Object containing either the project or bug priority/status data
- * (reducer used by both containers) from the priority and status tables in the
- * database, in either the project or bug container of the redux state
- *
+ * Used to set 'priorityStatusOptions' Object containing either project or bug
+ * (not both) priority/status data from priority and status tables in the 
+ * database, into either PROJECT_CONATINER or BUG_CONTAINER (reducer used for
+ * both) of the redux state
  *
  * @param {{
  * 	priorityList: ([
@@ -40,11 +41,12 @@ const initialState = {
  * 	]|null),
  * 	statusEmptyId: (number|null),
  * 	statusCompletionId: (number|null),
- * }} state - Object for either the current project or bug priority/status data
- * (reducer used by both containers) in the redux state
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }} state - Current Object (in the redux state) for either project or bug 
+ * (not both) priority/status data
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{
  * 	priorityList: ([
  * 		{ id: number, option: string },
@@ -63,9 +65,8 @@ const initialState = {
  * 	]|null),
  * 	statusEmptyId: (number|null),
  * 	statusCompletionId: (number|null),
- * }} Object for either the project or bug priority/status data (reducer used 
- * by both containers) to be stored in either the project or bug container of
- * the redux state
+ * }} Object containing either project or bug (not both) priority/status data
+ * from priority and status tables in the database
  */
 export default function priorityStatusOptionsReducer(state = initialState, action) {
 	switch (action.type) {

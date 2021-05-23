@@ -99,8 +99,8 @@ export const setProjects = (projectList) => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		account_id: number,
  * 		id: number,
+ * 		account_id: number,
  * 		name: string,
  * 		description: string,
  * 		priority_id: number,
@@ -205,6 +205,7 @@ export const retrieveProjects = () => (dispatch) => {
  *
  * @param {{
  * 		id: number,
+ * 		account_id: number,
  * 		name: string,
  * 		description: string,
  * 		priority_id: number,
@@ -223,8 +224,8 @@ export const retrieveProjects = () => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		account_id: number,
  * 		id: number,
+ * 		account_id: number,
  * 		name: string,
  * 		description: string,
  * 		priority_id: number,
@@ -245,7 +246,8 @@ export const retrieveProjects = () => (dispatch) => {
  * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateProject({
- * 		id: 373
+ * 		id: 373,
+ * 		account_id: 54, 
  * 		name: "Todo tracker website",
  * 		description: "Website for tracking todos",
  * 		priority_id: 4,
@@ -388,9 +390,8 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
  * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
  * itemViewCurrentItem: ({
- * 		account_id: (number|undefined),
- * 		project_id: (number|undefined),
  * 		id: number,
+ * 		account_id: number,
  * 		name: string,
  * 		description: string,
  * 		location: (string|undefined),

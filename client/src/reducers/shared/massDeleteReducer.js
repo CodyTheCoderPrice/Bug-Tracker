@@ -1,23 +1,23 @@
 import { SET_MASS_DELETE_LIST } from "../../actions/constants/types";
 
-// Default state for either the project or bug massDeleteList (reducer used by
-// ...both containers). Empty array since massDeleteList should be empty by
-// ...default.
+// Initial state for either the project or bug massDeleteList (reducer used for 
+// ...PROJECT_CONTAINER and BUG_CONTAINER). Empty array since no projects or 
+// ...bugs should be selected for mass deletion by default.
 const initialState = [];
 
 /**
- * Used to set an array containing the ids of their projects or bugs (based on
- * the container) to be deleted, stored in either the project or bug container
- * of the redux state
+ * Used to set 'massDeleteList' Array containing ids of either projects or bugs
+ * (not both) to be deleted, stored into either PROJECT_CONATINER or 
+ * BUG_CONTAINER (reducer used for both) of the redux state
  *
- * @param {number[]} state - Array containing the ids of their projects or bugs
- * (based on the container) to be deleted, currently in the redux state
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
- * @returns {number[]} Array containing the ids of their projects or bugs 
- * (based on the container) to be deleted to be stored in either the project or
- * bug container of the redux state
+ * @param {number[]} state - Current Array (in the redux state) containing ids
+ * of either projects or bugs (not both) to be deleted
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
+ * @returns {number[]} Array containing ids of either projects or bugs (not 
+ * both) to be deleted
  */
 export default function massDeleteReducer(state = initialState, action) {
 	switch (action.type) {

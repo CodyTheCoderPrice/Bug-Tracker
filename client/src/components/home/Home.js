@@ -203,9 +203,9 @@ export default function Home() {
 	]);
 
 	/**
-	 * Gets whether the AccountModal comment should display, based on if any of
-	 * the five components that use the modal are set to true in the account
-	 * container of the redux state.
+	 * Gets whether AccountModal component should display, based on if any of
+	 * the five modal components that are children of AccountModal are set to 
+	 * true in ACCOUNT_CONTAINER of the redux state.
 	 *
 	 * @returns {Boolean} Whether the AccountModal component should display
 	 */

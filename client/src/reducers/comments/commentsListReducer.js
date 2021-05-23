@@ -1,12 +1,13 @@
 import { SET_COMMENTS } from "../../actions/constants/types";
 
-// Default state for comment list (empty array since if the account has any
+// Initial state for comment list (empty array since if the account has any
 // ...comments, they are retrieved only during and after login)
 const initialState = []
 
 /**
- * Used to set array of Objects containing the account's comment list from the
- * database in the comment container of the redux state
+ * Used to set 'list' Array of Objects containing comment data belonging to the
+ * logged in account from the database into COMMENT_CONTAINER of the redux
+ * state
  * 
  * @param {{ 
  * 	id: number, 
@@ -14,19 +15,20 @@ const initialState = []
  * 	description: string,
  * 	creation_date: string, 
  * 	last_edited_timestamp: string
- * }[]} state - Array of Objects for the current comments list in the redux 
- * state
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }[]} state - Current Array of Objects (in the redux state) containing 
+ * comment data belonging to the logged in account
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{ 
  * 	id: number, 
  * 	bug_id: number, 
  * 	description: string,
  * 	creation_date: string, 
  * 	last_edited_timestamp: string
- * }[]} Array of Objects for the comment list to be stored in the comment 
- * container of the redux state
+ * }[]} Array of Objects containing comment data belonging to the logged in 
+ * account from the database
  */
 export default function commentsListReducer(state = initialState, action) {
 	switch (action.type) {

@@ -58,7 +58,7 @@ export default function AccountModal() {
 			console.log(
 				"Warning: " +
 					getStringOfAllArrayValues(keysOfAccountModalsSetToTrue) +
-					" were all set to true in the account container of redux state. To avoid CSS issues with AccountModal component, redux was updated so only " +
+					" were all set to true in ACCOUNT_CONTAINER of redux state. To avoid CSS issues with AccountModal component, redux was updated so only " +
 					keysOfAccountModalsSetToTrue[0] +
 					" is true."
 			);

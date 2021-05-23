@@ -1,6 +1,6 @@
 import { SET_WHICH_GENERAL_DROPDOWNS_DISPLAY } from "../../actions/constants/types";
 
-// Default state for which general dropdowns should be displayed by the app
+// Initial state for which general dropdowns should be displayed by the app
 const initialState = {
 	// All the following relate to dropdown elements and if they should be displayed
 	navbarHamburherDropdown: false,
@@ -11,8 +11,8 @@ const initialState = {
 };
 
 /**
- * Used to set Object in the general container of the redux state for which
- * general dropdowns should display by the app
+ * Used to set 'dropdownsDisplay' Object into GENERAL_CONTAINER of the redux 
+ * state for which general dropdowns should be displayed by the app
  *
  * @param {{
  * 	navbarHamburherDropdown: boolean,
@@ -20,19 +20,19 @@ const initialState = {
  * 	itemViewTopBarSortDropdown: boolean,
  * 	itemViewTopBarFilterDropdown: boolean,
  * 	itemViewTopBarOptionsDropdown: boolean
- * }} state - Object for which general dropdowns are currently being displayed 
+ * }} state - Current Object for which general dropdowns are being displayed 
  * by the app
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{
  * 	navbarHamburherDropdown: boolean,
  * 	listViewSearchFilterSearchBarFilterDropdown: boolean,
  * 	itemViewTopBarSortDropdown: boolean,
  * 	itemViewTopBarFilterDropdown: boolean,
  * 	itemViewTopBarOptionsDropdown: boolean
- * }} Object for which general dropdowns should display by the app to be stored 
- * in the general container of the redux state
+ * }} Object for which general dropdowns should be displayed by the app
  */
 export default function generalDropdownsDisplayReducer(state = initialState, action) {
 	switch (action.type) {

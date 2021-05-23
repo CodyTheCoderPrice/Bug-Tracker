@@ -1,18 +1,20 @@
 import { SET_LIST } from "../../actions/constants/types";
 
-// Default state for either the project or bug list (reducer used by both
-// ..containers). Empty array since if the account has any projects/bugs, they
-// ...are retrieved only during and after login.
+// Initial state for either the project or bug list (reducer used for 
+// ...PROJECT_CONTAINER and BUG_CONTAINER). Empty array since no account is 
+// ...logged in by default, and even if one was, projects or bugs list would
+// ...need to be retrieved from the database.
 const initialState = []
 
 /**
- * Used to set array of Objects containing either the account's project or bug
- * list (reducer used by both containers) from the database in either the 
- * project or bug container of the redux state
+ * Used to set 'list' Array of Objects containing either project or bug (not 
+ * both) data belonging to the logged in account from the database into either
+ * PROJECT_CONATINER or BUG_CONTAINER (reducer used for both) of the redux state
  *
  * @param {{
  * 	id: number, 
- * 	project_id: number, 
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
  * 	name: string, 
  * 	description: string, 
  *	location: (string|undefined), 	
@@ -25,14 +27,16 @@ const initialState = []
  * 	last_edited_timestamp: string, 
  * 	priority_option: string, 
  * 	status_option: string
- * }[]} state - Array of Objects for either the current project or bug list 
- * (reducer used by both containers) in the redux state
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }[]} state - Current Array of Objects (in the redux state) containing either 
+ * project or bug (not both) data belonging to the logged in account
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{
  * 	id: number, 
- * 	project_id: number, 
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
  * 	name: string, 
  * 	description: string, 
  *	location: (string|undefined), 	
@@ -45,9 +49,8 @@ const initialState = []
  * 	last_edited_timestamp: string, 
  * 	priority_option: string, 
  * 	status_option: string
- * }[]} Array of Objects for either the project or bug list (reducer used by 
- * both containers) to be stored in either the project or bug container of 
- * the redux state
+ * }[]} Array of Objects containing either project or bug (not both) data 
+ * belonging to the logged in account from the database
  */
 export default function listReducer(state = initialState, action) {
 	switch (action.type) {

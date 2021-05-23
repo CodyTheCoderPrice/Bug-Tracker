@@ -1,7 +1,7 @@
 import { SET_WHICH_LIST_COMPONENTS_DISPLAY } from "../../actions/constants/types";
 
-// Default state for either which project or bug components (reducer used by
-// ...both containers) should be displayed by the app
+// Initial state for either which project or bug components (reducer used for
+// ...PROJECT_CONTAINER and BUG_CONTAINER) should be displayed by the app
 const initialState = {
 	// The following four relate to components and if they should be displayed
 	listView: false,
@@ -18,9 +18,9 @@ const initialState = {
 };
 
 /**
- * Used to set Object in either the project or bug container (reducer used by
- * both) of the redux state for either which project or bug components should
- * display by the app
+ * Used to set 'componentsDisplay' Object into either PROJECT_CONATINER or 
+ * BUG_CONTAINER (reducer used for both) of the redux state for either which 
+ * project or bug components should be displayed by the app
  *
  * @param {{
  * 	listView: boolean,
@@ -45,11 +45,13 @@ const initialState = {
  * 		status_option: string,
  * 		last_edited_timestamp: string
  * 	}|null)
- * }} state - Object for either which project or bug components
- * (reducer used by both containers) are currently being displayed by the app
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }} state - Current Object (in the redux state) for either which project or 
+ * bug components (reducer used by PROJECT_CONTAINER and BUG_CONTAINER) are 
+ * currently being displayed by the app
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{
  * 	listView: boolean,
  * 	listViewDeleteModal: boolean,
@@ -73,9 +75,8 @@ const initialState = {
  * 		status_option: string,
  * 		last_edited_timestamp: string
  * 	}|null)
- * }} Object for either which project or bug components (reducer
- * used by both containers) should display by the app, to be stored in either
- * the project or bug container of the redux state
+ * }} Object for either which project or bug components (reducer used by
+ * PROJECT_CONTAINER and BUG_CONTAINER) should be displayed by the app
  */
 export default function listComponentsDisplayReducer(state = initialState, action) {
 	switch (action.type) {

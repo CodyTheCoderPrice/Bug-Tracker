@@ -1,4 +1,4 @@
-// Default state for global constants (set here and never changed)
+// Initial state for global constants (set here and never changed)
 const initialState = {
 	// The following five relate to char restraints for input fields
 	nameCharLimit: 35,
@@ -12,8 +12,8 @@ const initialState = {
 };
 
 /**
- * Used to set Object for global constants in the general container of the 
- * redux state
+ * Used to set 'globalConstants' Object containing constant data used globally 
+ * by the app into GENERAL_CONTAINER of the redux state
  *
  * @param {{
  * 	nameCharLimit: number,
@@ -22,11 +22,12 @@ const initialState = {
  * 	descriptionCharLimit: number,
  * 	locationCharLimit: number,
  * 	navbarBreadcrumbMinimumFontSize: number,
- * }} state - Object for the global constants currently being stored in the 
- * redux state
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }} state - Current Object (in the redux state) containing constant data used 
+ * globally by the app
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{
  * 	nameCharLimit: number,
  * 	passwordCharMin: number,
@@ -34,13 +35,10 @@ const initialState = {
  * 	descriptionCharLimit: number,
  * 	locationCharLimit: number,
  * 	navbarBreadcrumbMinimumFontSize: number,
- * }} Object for the global constants currently being stored in the general
- * container of the redux state
+ * }} Object containing constant data used globally by the app
  */
 export default function globalConstantsReducer() {
-	/*
-	Since this reducer is for constants that are set in the inital state, it
-	simply just returns the state and does nothing else
-	*/
+	// Since this reducer is for constant data that is set in inital state, it
+	// ...only needs to return the initial state
 	return initialState;
 }

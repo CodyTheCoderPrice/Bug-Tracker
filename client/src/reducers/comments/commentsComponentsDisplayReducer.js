@@ -1,6 +1,6 @@
 import { SET_WHICH_COMMENT_COMPONENTS_DISPLAY } from "../../actions/constants/types";
 
-// Default state for which comment components should be displayed by the app
+// Initial state for which comment components should be displayed by the app
 const initialState = {
 	// Should the DeleteModal for comments display
 	commentDeleteModal: false,
@@ -13,8 +13,8 @@ const initialState = {
 };
 
 /**
- * Used to set Object in the comment container of the redux state for which
- * comment components should display by the app
+ * Used to set 'componentsDisplay' Object in COMMENT_CONTAINER of the redux 
+ * state for which comment components should be displayed by the app
  *
  * @param {{
  * 	commentDeleteModal: boolean,
@@ -34,11 +34,12 @@ const initialState = {
  * 		creation_date: string,
  * 		last_edited_timestamp: string,
  * 	}|null)
- * }} state - Object for which comment components are currently being displayed
- * by the app
- * @param {Object} action - Object containing a type and container name, which 
- * determin what to do and where to do it. Also contians any addition data
- * needed for the task (typically data to be updated in the redux state).
+ * }} state - Current Object (in the redux state) for which comment components 
+ * are being displayed by the app
+ * @param {Object} action - Object with a 'container' property (determins where 
+ * in the redux state) and 'type' property (determins what task to do there).
+ * Also may have additional properties with data needed for the task (usually
+ * data to be updated in the redux state).
  * @returns {{
  * 	commentDeleteModal: boolean,
  * 	commentToBeDeleted: ({
@@ -57,8 +58,7 @@ const initialState = {
  * 		creation_date: string,
  * 		last_edited_timestamp: string,
  * 	}|null)
- * }} Object for which comment components should display by the app, to be 
- * stored in the comment container of the redux state
+ * }} Object for which comment components should be displayed by the app
  */
 export default function commentsComponentsDisplayReducer(state = initialState, action) {
 	switch (action.type) {
