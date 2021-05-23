@@ -29,8 +29,8 @@ import { dateToInt } from "./index";
  * 	sortId: number,
  * 	priorityFilter: number[],
  * 	statusFilter: number[]
- * }} reduxSearchFilterSort - SearchFilterSort inside either project or bug
- * container of the redux state
+ * }} reduxSearchFilterSort - 'searchFilterSort' Object inside either 
+ * PROJECT_CONTAINER or BUG_CONTAINER of the redux state
  * @returns {{
  * 	id: number,
  * 	account_id: (number|undefined),
@@ -161,8 +161,9 @@ export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
- * container for which list and searchFilterSort to use
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux 
+ * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which 'list' and
+ * 'searchFilterSort' Objects to use
  * @returns {{
  * 	id: number,
  * 	account_id: (number|undefined),
@@ -204,15 +205,17 @@ export function getSearchedFilteredSortedList(
 }
 
 /**
- * Get a deep copy of a filter array (either priorityFilter or statusFilter
- * based on filterName param) from searchFilterSort of either the project or 
- * bug container of redux state (based on reduxContainerName param) updated to
- * have the targetId added if it was not already present, or removed it it was.
+ * Get deep copy of either 'priorityFilter' or 'statusFilter' (based on 
+ * filterName param) Object in 'searchFilterSort' Object in either 
+ * PROJECT_CONTAINER or BUG_CONTAINER (based on reduxContainerName param) of 
+ * the redux state updated to have targetId param value added if not present,
+ * or removed it it was present.
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
- * container for which searchFilterSort to update
+ * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which 
+ * 'searchFilterSort' Object to update
  * @param {("priorityFilter"|"statusFilter")} filterName - Which filter to 
  * update
  * @param {(number|string)} targetId - Number (or string of number) for which

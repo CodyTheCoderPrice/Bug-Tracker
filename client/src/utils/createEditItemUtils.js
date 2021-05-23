@@ -8,8 +8,8 @@ import React from "react";
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux 
- * container of which priorityStatusOptions to use
- * PROJECT_CONTAINER, or BUG_CONTAINER)
+ * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which 
+ * 'priorityStatusOptions' Object to use
  * @returns {JSX} JSX containing option elements for priority to go inside a
  * select element relating to either projects or a bugs.
  */
@@ -37,8 +37,9 @@ import React from "react";
  *
  * @param {Object} passedReduxState - Current redux state 
  * from useSelector((state) => state)
- * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
- * container of which priorityStatusOptions to use
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux 
+ * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which 
+ * 'priorityStatusOptions' Object to use
  * @returns {JSX} JSX containing option elements for status (with status.color
  * as css text color) to go inside a select element
  */

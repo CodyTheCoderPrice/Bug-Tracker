@@ -27,7 +27,9 @@ import {
  * Sets logged in account's authentication info in 'auth' Object in 
  * ACCOUNT_CONTAINER of the redux state.
  * 
- * This is used by the frontend to tell if an account has been logged in.
+ * Note: The purpose of 'auth' Object is so frontend can tell if an account is
+ * logged in, which determins which general components (i.e. Register, Login, 
+ * Home) can be displayed.
  * 
  * @param {{
  *	account_id: number,
@@ -54,11 +56,8 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 };
 
 /**
- * Sets account info in 'accountInfo' Object in ACCOUNT_CONTAINER of the redux
- * state.
- * 
- * This info is used to do many things needing the logged in account's info 
- * (e.g. display account info in the AccountSidebar component).
+ * Sets logged in account's info in 'accountInfo' Object in ACCOUNT_CONTAINER 
+ * of the redux state.
  *
  * @param {{ 
  * 	account_id: number, 
@@ -91,11 +90,8 @@ export const setAccount = (account) => (dispatch) => {
 };
 
 /**
- * Sets account settings info in 'settings' Object in ACCOUNT_CONTAINER of the 
- * redux state.
- * 
- * This info is used to do many things needing the logged in account's settings
- * (e.g. know whether to use light or dark mode, know which theme to use, ect.) 
+ * Sets logged in account's settings info in 'settings' Object in 
+ * ACCOUNT_CONTAINER of the redux state.
  *
  * @param {{ 
  * 	setting_id: number, 
@@ -138,12 +134,8 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
 };
 
 /**
- * Sets account setting themes info in 'settingThemes' Object in 
- * ACCOUNT_CONTAINER of the redux state.
- * 
- * This info is used in relation with theme properties in 'settings' Object in
- * ACCOUNT_CONTAINER of the redux state to get the color names to be used for
- * setting theme CSS of element.
+ * Sets themes info (from theme table in the database) in 'settingThemes' 
+ * Object in ACCOUNT_CONTAINER of the redux state.
  *
  * @param {{ 
  * 	theme_id: number, 
