@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
@@ -103,6 +104,100 @@ export default function ListViewTableRow(props) {
 		);
 	};
 
+	const getTableDataForCategory = (sort_id, key) => {
+		switch (sort_id) {
+			case 1:
+				return (
+					<td
+						key={key}
+						className={
+							"list-table__data list-table__data--name-overflow" +
+							(props.item.status_id ===
+							reduxState[props.reduxContainerName].priorityStatusOptions
+								.statusCompletionId
+								? " list-table__data--completed-color"
+								: getTextColorClassNameForThemeWithLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								  ))
+						}
+					>
+						<span className="list-table__data__info">
+							{props.item.status_id !==
+							reduxState[props.reduxContainerName].priorityStatusOptions
+								.statusCompletionId ? null : (
+								<i
+									className="fa fa-check list-table__data__info__completed-icon"
+									aria-hidden="true"
+								/>
+							)}
+							{props.item.name}
+						</span>
+					</td>
+				);
+			case 2:
+				return (
+					<td key={key} className="list-table__data">
+						<div className="list-table__data__centering-container">
+							<div
+								className={
+									"list-table__data__centering-container__status-box" +
+									getStatusBoxColorClassName()
+								}
+							>
+								<span className="list-table__data__centering-container__status-box__centered-info">
+									{props.item.status_option}
+								</span>
+							</div>
+						</div>
+					</td>
+				);
+			case 3:
+				return (
+					<td key={key} className={getTableDataClassName()}>
+						<span className={"list-table__data__info"}>
+							{props.item.priority_option}
+						</span>
+					</td>
+				);
+			case 4:
+				return (
+					<td key={key} className={getTableDataClassName()}>
+						<span className="list-table__data__info">
+							{getAlternativeIfValueIsEmpty(
+								formatDateMMddYYYY(props.item.creation_date),
+								"-"
+							)}
+						</span>
+					</td>
+				);
+			case 5:
+				return (
+					<td key={key} className={getTableDataClassName()}>
+						<span className="list-table__data__info">
+							{getAlternativeIfValueIsEmpty(
+								formatDateMMddYYYY(props.item.start_date),
+								"-"
+							)}
+						</span>
+					</td>
+				);
+			case 6:
+				return (
+					<td key={key} className={getTableDataClassName()}>
+						<span className="list-table__data__info">
+							{getAlternativeIfValueIsEmpty(
+								formatDateMMddYYYY(props.item.due_date),
+								"-"
+							)}
+						</span>
+					</td>
+				);
+			default:
+				return <span key={key}>No matching sort_id</span>;
+		}
+	};
+
 	return (
 		<tr
 			className={
@@ -142,74 +237,11 @@ export default function ListViewTableRow(props) {
 					/>
 				</div>
 			</td>
-			<td
-				className={
-					"list-table__data list-table__data--name-overflow" +
-					(props.item.status_id ===
-					reduxState[props.reduxContainerName].priorityStatusOptions
-						.statusCompletionId
-						? " list-table__data--completed-color"
-						: getTextColorClassNameForThemeWithLightOrDarkMode(
-								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-								reduxState[ACCOUNT_CONTAINER].settings.theme_color
-						  ))
+			{reduxState[GENERAL_CONTAINER].sortCategories.map(
+				(categoryObject, idx) => {
+					return getTableDataForCategory(categoryObject.sort_id, idx);
 				}
-			>
-				<span className="list-table__data__info">
-					{props.item.status_id !==
-					reduxState[props.reduxContainerName].priorityStatusOptions
-						.statusCompletionId ? null : (
-						<i
-							className="fa fa-check list-table__data__info__completed-icon"
-							aria-hidden="true"
-						/>
-					)}
-					{props.item.name}
-				</span>
-			</td>
-			<td className="list-table__data">
-				<div className="list-table__data__centering-container">
-					<div
-						className={
-							"list-table__data__centering-container__status-box" +
-							getStatusBoxColorClassName()
-						}
-					>
-						<span className="list-table__data__centering-container__status-box__centered-info">
-							{props.item.status_option}
-						</span>
-					</div>
-				</div>
-			</td>
-			<td className={getTableDataClassName()}>
-				<span className={"list-table__data__info"}>
-					{props.item.priority_option}
-				</span>
-			</td>
-			<td className={getTableDataClassName()}>
-				<span className="list-table__data__info">
-					{getAlternativeIfValueIsEmpty(
-						formatDateMMddYYYY(props.item.creation_date),
-						"-"
-					)}
-				</span>
-			</td>
-			<td className={getTableDataClassName()}>
-				<span className="list-table__data__info">
-					{getAlternativeIfValueIsEmpty(
-						formatDateMMddYYYY(props.item.start_date),
-						"-"
-					)}
-				</span>
-			</td>
-			<td className={getTableDataClassName()}>
-				<span className="list-table__data__info">
-					{getAlternativeIfValueIsEmpty(
-						formatDateMMddYYYY(props.item.due_date),
-						"-"
-					)}
-				</span>
-			</td>
+			)}
 			<td className={getTableDataClassName()}>
 				<span className="list-table__data__info">
 					{props.reduxContainerName === PROJECT_CONTAINER

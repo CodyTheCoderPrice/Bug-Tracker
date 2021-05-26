@@ -70,6 +70,15 @@ function App() {
 		// eslint-disable-next-line
 	}, [reduxState[GENERAL_CONTAINER].componentsDisplay]);
 
+	// Lets developers know that pressing third mouse button logs redux state
+	useEffect(() => {
+		if (process.env.NODE_ENV === "development") {
+			console.log(
+				"NOTE: Pressing third mouse button (while in development mode) logs the redux state"
+			);
+		}
+	}, []);
+
 	/**
 	 * If app is in development mode, function will log redux state
 	 *

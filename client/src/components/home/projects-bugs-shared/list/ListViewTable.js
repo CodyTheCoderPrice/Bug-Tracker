@@ -226,7 +226,7 @@ export default function ListViewTable(props) {
 							</div>
 						</th>
 						{reduxState[GENERAL_CONTAINER].sortCategories.map(
-							(sortObject, idx) => {
+							(categoryObject, idx) => {
 								return (
 									<th
 										key={idx}
@@ -237,12 +237,12 @@ export default function ListViewTable(props) {
 											)
 										}
 									>
-										<span className="list-table__header__span">{sortObject.category}</span>
+										<span className="list-table__header__span">{categoryObject.category}</span>
 										<span className="list-table__header__sort-arrow-container">
 											<SortArrowsButton
 												reduxContainerName={props.reduxContainerName}
-												sortId={sortObject.sort_id}
-												sortFor={sortObject.category}
+												sortId={categoryObject.sort_id}
+												sortFor={categoryObject.category}
 												uniqueId={null}
 												dark_mode={
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode

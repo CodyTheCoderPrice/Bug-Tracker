@@ -199,7 +199,7 @@ export const retrieveThemes = () => (dispatch) => {
 };
 
 /**
- * Sets sort categories info in 'sortCategories' of GENERAL_CONTAINER of the 
+ * Sets sort categories info in 'sortCategories' of GENERAL_CONTAINER of the
  * redux state
  *
  * @param {{
@@ -222,18 +222,17 @@ export const retrieveThemes = () => (dispatch) => {
  * 	])
  * );
  */
-export const setSortCategories =
-	(sortCategories) => (dispatch) => {
-		dispatch({
-			container: GENERAL_CONTAINER,
-			type: SET_SORT_CATEGORIES,
-			sortCategories: sortCategories,
-		});
-	};
+export const setSortCategories = (sortCategories) => (dispatch) => {
+	dispatch({
+		container: GENERAL_CONTAINER,
+		type: SET_SORT_CATEGORIES,
+		sortCategories: sortCategories,
+	});
+};
 
 /**
- * Calls api/reference-data/retrieve-sort-categories route to retrieve sort 
- * categories from the database and store it in 'sortCategories' of 
+ * Calls api/reference-data/retrieve-sort-categories route to retrieve sort
+ * categories from the database and store it in 'sortCategories' of
  * GENERAL_CONTAINER of the redux state
  *
  * @example
