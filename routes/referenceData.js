@@ -3,11 +3,93 @@ const express = require("express");
 const pool = require("../db");
 const router = express.Router();
 
+//==================
+//  Retrieve themes
+//==================
+// Abstracted outside of route and later exported (bottom of file) for reuse 
+// ...inside this and other route files
+async function getThemes() {
+	try {
+		return await await pool.query(
+			`SELECT theme_id, order_number, color, marks_default
+				FROM theme
+					ORDER BY order_number`
+		);
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router.route("/retrieve-themes").get(async (req, res) => {
+	let backendErrors = {};
+
+	try {
+		const themes = await getThemes();
+
+		// If null, then something went wrong, therefore throw err
+		if (themes === null) {
+			throw err;
+		}
+
+		return res.json({
+			success: true,
+			themes: themes.rows,
+		});
+	} catch (err) {
+		console.error(err.message);
+		backendErrors.serverAccount =
+			"Server error while retrieving account setting themes";
+		return res.status(500).json({ success: false, backendErrors });
+	}
+});
+
+//===========================
+//  Retrieve sort categories
+//===========================
+// Abstracted outside of route and later exported (bottom of file) for reuse 
+// ...inside this and other route files
+async function getSortCategories() {
+	try {
+		return await await pool.query(
+			`SELECT sort_id, order_number, category, marks_default
+				FROM sort
+					ORDER BY order_number`
+		);
+	} catch (err) {
+		console.error(err.message);
+		return null;
+	}
+}
+
+router.route("/retrieve-sort-categories").get(async (req, res) => {
+	let backendErrors = {};
+
+	try {
+		const sortCategories = await getSortCategories();
+
+		// If null, then something went wrong, therefore throw err
+		if (sortCategories === null) {
+			throw err;
+		}
+
+		return res.json({
+			success: true,
+			sortCategories: sortCategories.rows,
+		});
+	} catch (err) {
+		console.error(err.message);
+		backendErrors.serverAccount =
+			"Server error while retrieving sort categories";
+		return res.status(500).json({ success: false, backendErrors });
+	}
+});
+
 //=============================================================
 //  Retrieve priority and status tables for projects and bugs
 //=============================================================
-// Abstracted outside of route to be exported along side router so other route
-// ...files can use it doesn't repeat code or use additonal http request
+// Abstracted outside of route and later exported (bottom of file) for reuse 
+// ...inside this and other route files
 async function getPriorityStatus() {
 	try {
 		const projectPriorityList = await pool.query(
@@ -120,7 +202,7 @@ async function getPriorityStatus() {
 	}
 }
 
-router.route("/retrieve").get(async (req, res) => {
+router.route("/retrieve-priority-status").get(async (req, res) => {
 	let backendErrors = {};
 
 	try {
@@ -146,6 +228,8 @@ router.route("/retrieve").get(async (req, res) => {
 
 // Also exports getPriorityStatus so other route files can use it
 module.exports = {
-	priorityStatusRouter: router,
+	referenceDataRouter: router,
+	getThemes: getThemes,
+	getSortCategories: getSortCategories,
 	getPriorityStatus: getPriorityStatus,
 };

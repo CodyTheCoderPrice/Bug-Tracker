@@ -33,8 +33,8 @@ export default function AccountSidebarEditAppearance() {
 	 * 'theme_id' property to be that of this function's theme_id param
 	 *
 	 * @param {Event} e - Event created by element's onClick handler
-	 * @param {Number} theme_id - id for a theme in 'settingsThemes' Object in
-	 * ACCOUNT_CONTAINER of the redux state
+	 * @param {Number} theme_id - id for a theme in 'themes' Object in 
+	 * GENERAL_CONTAINER of the redux state
 	 */
 	const onClickUpdateTheme = (e, theme_id) => {
 		e.stopPropagation();
@@ -68,13 +68,13 @@ export default function AccountSidebarEditAppearance() {
 	 * Returns a div element of a clickable button used to change the app's
 	 * theme to the one that relates to this function's theme_id param
 	 *
-	 * @param {Number} theme_id - id for a theme in 'settingsThemes' Object in
-	 * ACCOUNT_CONTAINER of the redux state
+	 * @param {Number} theme_id - id for a theme in 'themes' Object in
+	 * GENERAL_CONTAINER of the redux state
 	 * @returns {JSX} div element of a clickable button used to change the
 	 * app's theme to the one that relates to this function's theme_id param
 	 */
 	const getThemeOption = (theme_id) => {
-		const theme = reduxState[ACCOUNT_CONTAINER].settingThemes.filter(
+		const theme = reduxState[GENERAL_CONTAINER].themes.filter(
 			(theme) => theme.theme_id === theme_id
 		)[0];
 		return (
@@ -100,7 +100,7 @@ export default function AccountSidebarEditAppearance() {
 		<div className="account-sidebar-change-theme-component">
 			<div className="content-container">
 				<label className="content-container__label">Theme</label>
-				{reduxState[ACCOUNT_CONTAINER].settingThemes.map((theme, i) => {
+				{reduxState[GENERAL_CONTAINER].themes.map((theme, i) => {
 					return <span key={i}>{getThemeOption(theme.theme_id)}</span>;
 				})}
 			</div>

@@ -68,13 +68,13 @@ export default function AccountModalEditSettings() {
 	/**
 	 * To be called inside of select elements for sorting -- this function 
 	 * populates them by returning an option element for each category in
-	 * 'settingSortCategories' Object of ACCOUNT_CONTAINER of the redux state
+	 * 'sortCategories' Object of GENERAL_CONTAINER of the redux state
 	 * 
 	 * @returns {JSX} returns an option element for each category in
-	 * 'settingSortCategories' Object of ACCOUNT_CONTAINER of the redux state
+	 * 'sortCategories' Object of GENERAL_CONTAINER of the redux state
 	 */
 	const getSortSelectOptions = () => {
-		return reduxState[ACCOUNT_CONTAINER].settingSortCategories.map(
+		return reduxState[GENERAL_CONTAINER].sortCategories.map(
 			(obj, idx) => {
 				return (
 					<option key={idx} value={obj.sort_id}>

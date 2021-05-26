@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
@@ -224,7 +225,7 @@ export default function ListViewTable(props) {
 								)}
 							</div>
 						</th>
-						{reduxState[ACCOUNT_CONTAINER].settingSortCategories.map(
+						{reduxState[GENERAL_CONTAINER].sortCategories.map(
 							(sortObject, idx) => {
 								return (
 									<th

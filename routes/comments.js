@@ -60,7 +60,8 @@ router
 //====================
 //  Retrieve comments
 //====================
-// Abstracted and later exported for reuse inside this and other route files
+// Abstracted outside of route and later exported (bottom of file) for reuse 
+// ...inside this and other route files
 async function getAllCommentsForAccount(account_id) {
 	try {
 		// Uses account_id since not all routes have access to bug_id

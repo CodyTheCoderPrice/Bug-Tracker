@@ -1,11 +1,11 @@
-import { SET_ACCOUNT_SETTING_THEMES } from "../../actions/constants/types";
+import { SET_THEMES } from "../../actions/constants/types";
 
 // Initial state for themes (empty since stored in database)
 const initialState = []
 
 /**
- * Used to set 'settingThemes' Array of Objects containing theme data from the
- * database into ACCOUNT_CONTAINER of the redux state
+ * Used to set 'themes' Array of Objects containing theme data from the 
+ * database into GENERAL_CONTAINER of the redux state
  * 
  * @param {{ 
  * 	theme_id: number, 
@@ -24,10 +24,10 @@ const initialState = []
  * 	marks_default: boolean 
  * }[]} Array of Objects containing theme data from the database
  */
-export default function accountSettingThemesReducer(state = initialState, action) {
+export default function themesReducer(state = initialState, action) {
 	switch (action.type) {
-		case SET_ACCOUNT_SETTING_THEMES:
-			return action.accountSettingThemes;
+		case SET_THEMES:
+			return action.themes;
 		default:
 			return state;
 	}

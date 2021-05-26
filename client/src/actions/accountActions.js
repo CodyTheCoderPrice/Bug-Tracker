@@ -6,8 +6,6 @@ import {
 	SET_AUTHENTICATION,
 	SET_ACCOUNT,
 	SET_ACCOUNT_SETTINGS,
-	SET_ACCOUNT_SETTING_THEMES,
-	SET_ACCOUNT_SETTING_SORT_CATEGORIES,
 } from "./constants/types";
 // Dispatch functions
 import {
@@ -16,6 +14,8 @@ import {
 	resetRedux,
 	setWhichGeneralComponentsDisplay,
 	setWhichAccountComponentsDisplay,
+	setThemes,
+	setSortCategories,
 	setPriorityStatus,
 	setProjects,
 	setBugs,
@@ -24,26 +24,26 @@ import {
 } from "./index";
 
 /**
- * Sets logged in account's authentication info in 'auth' Object in 
+ * Sets logged in account's authentication info in 'auth' Object in
  * ACCOUNT_CONTAINER of the redux state.
- * 
+ *
  * Note: The purpose of 'auth' Object is so frontend can tell if an account is
- * logged in, which determins which general components (i.e. Register, Login, 
+ * logged in, which determins which general components (i.e. Register, Login,
  * Home) can be displayed.
- * 
+ *
  * @param {{
  *	account_id: number,
- * 	iat: number, 
- * 	exp: number 
+ * 	iat: number,
+ * 	exp: number
  * }} decodedToken - Object containing JWT authentication info for account
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	setAuthentication({ 
- * 		account_id: 80, 
- * 		iat: 1619803038, 
- * 		exp: 1619889438 
+ * 	setAuthentication({
+ * 		account_id: 80,
+ * 		iat: 1619803038,
+ * 		exp: 1619889438
  * 	})
  * );
  */
@@ -56,28 +56,28 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 };
 
 /**
- * Sets logged in account's info in 'accountInfo' Object in ACCOUNT_CONTAINER 
+ * Sets logged in account's info in 'accountInfo' Object in ACCOUNT_CONTAINER
  * of the redux state.
  *
- * @param {{ 
- * 	account_id: number, 
- * 	email: string, 
- * 	first_name: string, 
- * 	last_name: string, 
- * 	join_date: string, 
- * 	last_edited_timestamp: string 
+ * @param {{
+ * 	account_id: number,
+ * 	email: string,
+ * 	first_name: string,
+ * 	last_name: string,
+ * 	join_date: string,
+ * 	last_edited_timestamp: string
  * }} account - Object containing the account info
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	setAccount({ 
- * 		account_id: 80, 
- * 		email: "JohnSmith@gmail.com", 
- * 		first_name: "John", 
- * 		last_name: "Smith", 
- * 		join_date: "2021-04-30T04:00:00.000Z", 
- * 		last_edited_timestamp: "1619802932" 
+ * 	setAccount({
+ * 		account_id: 80,
+ * 		email: "JohnSmith@gmail.com",
+ * 		first_name: "John",
+ * 		last_name: "Smith",
+ * 		join_date: "2021-04-30T04:00:00.000Z",
+ * 		last_edited_timestamp: "1619802932"
  * 	})
  * );
  */
@@ -90,37 +90,37 @@ export const setAccount = (account) => (dispatch) => {
 };
 
 /**
- * Sets logged in account's settings info in 'settings' Object in 
+ * Sets logged in account's settings info in 'settings' Object in
  * ACCOUNT_CONTAINER of the redux state.
  *
- * @param {{ 
- * 	setting_id: number, 
- * 	filter_completed_projects_by_default: boolean, 
- * 	filter_completed_bugs_by_default: boolean, 
- * 	dark_mode: boolean, 
- * 	theme_id: number, 
- * 	theme_color: string, 
- * 	project_sort_id: number, 
- * 	project_sort_ascending: boolean, 
- * 	bug_sort_id: number, 
- * 	bug_sort_ascending: boolean, 
- * 	last_edited_timestamp: string 
+ * @param {{
+ * 	setting_id: number,
+ * 	filter_completed_projects_by_default: boolean,
+ * 	filter_completed_bugs_by_default: boolean,
+ * 	dark_mode: boolean,
+ * 	theme_id: number,
+ * 	theme_color: string,
+ * 	project_sort_id: number,
+ * 	project_sort_ascending: boolean,
+ * 	bug_sort_id: number,
+ * 	bug_sort_ascending: boolean,
+ * 	last_edited_timestamp: string
  * }} accountSettings - Object containing the account settings
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	setAccountSettings({ 
- * 		setting_id: 4, 
- * 		filter_completed_projects_by_default: false, 
- * 		filter_completed_bugs_by_default: true, 
- * 		dark_mode: false, 
- * 		theme_id: 1, 
- * 		theme_color: "blue-turkish", 
- * 		project_sort_id: 2, 
- * 		project_sort_ascending: true, 
- * 		bug_sort_id: 2, 
- * 		bug_sort_ascending: true, 
+ * 	setAccountSettings({
+ * 		setting_id: 4,
+ * 		filter_completed_projects_by_default: false,
+ * 		filter_completed_bugs_by_default: true,
+ * 		dark_mode: false,
+ * 		theme_id: 1,
+ * 		theme_color: "blue-turkish",
+ * 		project_sort_id: 2,
+ * 		project_sort_ascending: true,
+ * 		bug_sort_id: 2,
+ * 		bug_sort_ascending: true,
  * 		last_edited_timestamp: "1619803044"
  * 	})
  * );
@@ -134,90 +134,23 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
 };
 
 /**
- * Sets themes info (from theme table in the database) in 'settingThemes' 
- * Object in ACCOUNT_CONTAINER of the redux state.
- *
- * @param {{ 
- * 	theme_id: number, 
- * 	order_number: number, 
- * 	color: string, 
- * 	marks_default: boolean 
- * }[]} accountSettingThemes - Array of Objects containing the account setting 
- * themes
- * 
- * @example
- * // The dispatch function is from useDispatch() imported from react-redux.
- * dispatch(
- * 	setAccountSettingThemes([ 
- * 		{ theme_id: 1, order_number: 0, color: "blue-turkish", marks_default: true },
- * 		{ theme_id: 2, order_number: 1, color: "blue-queen", marks_default: false },
- * 		{ theme_id: 4, order_number: 2, color: "blue-sky", marks_default: false },
- * 		{ theme_id: 6, order_number: 3, color: "blue-turquoise", marks_default: false },
- * 		{ theme_id: 5, order_number: 4, color: "purple-rain", marks_default: false },
- * 	])
- * );
- */
-export const setAccountSettingThemes = (accountSettingThemes) => (dispatch) => {
-	dispatch({
-		container: ACCOUNT_CONTAINER,
-		type: SET_ACCOUNT_SETTING_THEMES,
-		accountSettingThemes: accountSettingThemes,
-	});
-};
-
-/**
- * Sets account setting sort categories info in 'settingSortCategories' of 
- * ACCOUNT_CONTAINER of the redux state
- * 
- * !FINISH writing explaination!
- *
- * @param {{ 
- * 	sort_id: number, 
- * 	order_number: number, 
- * 	category: string, 
- * 	marks_default: boolean
- * }[]} accountSettingSortCategories - Array of Objects containing the account 
- * setting sort categories
- * 
- * @example
- * // The dispatch function is from useDispatch() imported from react-redux.
- * dispatch(
- * 	setAccountSettingSortCategories([ 
- * 		{ sort_id: 1, order_number: 0, category: "Name", marks_default: false },
- * 		{ sort_id: 2, order_number: 1, category: "Status", marks_default: true },
- * 		{ sort_id: 3, order_number: 2, category: "Priority", marks_default: false },
- * 		{ sort_id: 4, order_number: 3, category: "Created on", marks_default: false },
- * 		{ sort_id: 5, order_number: 4, category: "Start Date", marks_default: false },
- * 		{ sort_id: 6, order_number: 5, category: "Due Date", marks_default: false },
- * 	])
- * );
- */
-export const setAccountSettingSortCategories = (accountSettingSortCategories) => (dispatch) => {
-	dispatch({
-		container: ACCOUNT_CONTAINER,
-		type: SET_ACCOUNT_SETTING_SORT_CATEGORIES,
-		accountSettingSortCategories: accountSettingSortCategories,
-	});
-};
-
-/**
  * Calls api/account/register route to register a new account in the database
  * and open Login component while closing all other general components.
  *
- * @param {{ 
- * 	first_name: string, 
- * 	last_name: string, 
- * 	email: string, 
- * 	password: string 
+ * @param {{
+ * 	first_name: string,
+ * 	last_name: string,
+ * 	email: string,
+ * 	password: string
  * }} accountInfo - Object containing the info to create a new account
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	registerAccount({ 
- * 		first_name: "John", 
- * 		last_name: "Smith", 
- * 		email: "JohnSmith@gmail.com", 
+ * 	registerAccount({
+ * 		first_name: "John",
+ * 		last_name: "Smith",
+ * 		email: "JohnSmith@gmail.com",
  * 		password: "PleaseDontGuessMyPassword"
  * 	})
  * );
@@ -238,20 +171,20 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 /**
  * Calls api/account/login route to login into an account, retrieve a jwToken
  * to store in localStorage, retrieve all account data from the database and
- * store each data set in their corresponding containers (e.g. 
- * ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux state, and opens 
- * the Home component while closing the Login and Register components. 
+ * store each data set in their corresponding containers (e.g.
+ * ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux state, and opens
+ * the Home component while closing the Login and Register components.
  *
- * @param {{ 
- * 	email: string, 
- * 	password: string 
+ * @param {{
+ * 	email: string,
+ * 	password: string
  * }} accountInfo - Object containing the account info for login
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	loginAccount({  
- * 		email: "JohnSmith@gmail.com", 
+ * 	loginAccount({
+ * 		email: "JohnSmith@gmail.com",
  * 		password: "PleaseDontGuessMyPassword"
  * 	})
  * );
@@ -266,8 +199,8 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 				jwToken,
 				account,
 				accountSettings,
-				accountSettingThemes,
-				accountSettingSortCategories,
+				themes,
+				sortCategories,
 				projects,
 				bugs,
 				comments,
@@ -285,8 +218,8 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
 			dispatch(setAccount(account));
 			dispatch(setAccountSettings(accountSettings));
-			dispatch(setAccountSettingThemes(accountSettingThemes));
-			dispatch(setAccountSettingSortCategories(accountSettingSortCategories));
+			dispatch(setThemes(themes));
+			dispatch(setSortCategories(sortCategories));
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
@@ -302,9 +235,9 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 
 /**
  * Calls api/account/retrieve route to retrieve the account info from the
- * database and store it in 'accountInfo' Object in ACCOUNT_CONTAINER of the 
+ * database and store it in 'accountInfo' Object in ACCOUNT_CONTAINER of the
  * redux state
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(retrieveAccount());
@@ -331,9 +264,9 @@ export const retrieveAccount = () => (dispatch) => {
 
 /**
  * Calls api/account/retrieve-settings route to retrieve the account settings
- * from the database and store it in 'settings' Object in ACCOUNT_CONTAINER of 
+ * from the database and store it in 'settings' Object in ACCOUNT_CONTAINER of
  * the redux state
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(retrieveAccountSettings());
@@ -359,68 +292,10 @@ export const retrieveAccountSettings = () => (dispatch) => {
 };
 
 /**
- * Calls api/account/retrieve-setting-themes route to retrieve the account
- * setting themes from the database and store it in 'settingThemes' Object of 
- * ACCOUNT_CONTAINER of the redux state
- * 
- * @example
- * // The dispatch function is from useDispatch() imported from react-redux.
- * dispatch(retrieveAccountSettingThemes());
- */
-export const retrieveAccountSettingThemes = () => (dispatch) => {
-	const header = createHeader();
-	axios
-		.post("/api/account/retrieve-setting-themes", null, header)
-		.then((res) => {
-			const { accountSettingThemes } = res.data;
-			dispatch(setAccountSettingThemes(accountSettingThemes));
-		})
-		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
-
-			if (err.response.data.backendErrors.jwToken !== undefined) {
-				// jwToken was invalid (likely expired), so user is logged out
-				dispatch(logoutAccount());
-				console.log("Logged out user due to invalid/expired jwToken");
-			}
-		});
-};
-
-/**
- * Calls api/account/retrieve-sort-categories route to retrieve the sort
- * categories from the database and store it in 'settingSortCategories' of
- * ACCOUNT_CONTAINER of the redux state
- * 
- * @example
- * // The dispatch function is from useDispatch() imported from react-redux.
- * dispatch(retrieveSortCategories());
- */
-export const retrieveSortCategories = () => (dispatch) => {
-	const header = createHeader();
-	axios
-		.post("/api/account/retrieve-setting-sort-categories", null, header)
-		.then((res) => {
-			const { accountSettingSortCategories } = res.data;
-			dispatch(setAccountSettingSortCategories(accountSettingSortCategories));
-		})
-		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
-
-			if (err.response.data.backendErrors.jwToken !== undefined) {
-				// jwToken was invalid (likely expired), so user is logged out
-				dispatch(logoutAccount());
-				console.log("Logged out user due to invalid/expired jwToken");
-			}
-		});
-};
-
-/**
  * Calls api/account/retrieve-everything route to retrieve all account data
  * from the database and store each data set in their corresponding containers
  * (e.g. ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux state
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(retrieveEverythingForAccount());
@@ -435,8 +310,8 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 				bugPriorityStatus,
 				account,
 				accountSettings,
-				accountSettingThemes,
-				accountSettingSortCategories,
+				themes,
+				sortCategories,
 				projects,
 				bugs,
 				comments,
@@ -445,8 +320,8 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
 			dispatch(setAccount(account));
 			dispatch(setAccountSettings(accountSettings));
-			dispatch(setAccountSettingThemes(accountSettingThemes));
-			dispatch(setAccountSettingSortCategories(accountSettingSortCategories));
+			dispatch(setThemes(themes));
+			dispatch(setSortCategories(sortCategories));
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
@@ -466,16 +341,16 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 /**
  * Calls api/account/update-info route to update the name for the account in
  * the database, store the updated account info in 'accountInfo' Object in
- * ACCOUNT_CONTAINER of the redux state, and opens AccountSidebar component 
+ * ACCOUNT_CONTAINER of the redux state, and opens AccountSidebar component
  * while closing all other account components
  *
- * @param {{ 
- * 	first_name: string, 
+ * @param {{
+ * 	first_name: string,
  * 	last_name: string
  * }} newAccountNames - Object containing new account names (first and last)
- * 
+ *
  * @example
- * // Updates account name to Jane Doe. The dispatch function is from 
+ * // Updates account name to Jane Doe. The dispatch function is from
  * // ...useDispatch() imported from react-redux.
  * dispatch(
  * 	updateAccountInfo({
@@ -510,21 +385,21 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 /**
  * Calls api/account/update-email route to update the email for the account in
  * the database, store the updated account email in 'accountInfo' Object in
- * ACCOUNT_CONTAINER of the redux state, and opens AccountSidebar component 
+ * ACCOUNT_CONTAINER of the redux state, and opens AccountSidebar component
  * while closing all other account components
  *
- * @param {{ 
- * 	email: string, 
- * 	currentPassword: string 
- * }} newEmailCurrentPassword - Object containing the new account email, along 
+ * @param {{
+ * 	email: string,
+ * 	currentPassword: string
+ * }} newEmailCurrentPassword - Object containing the new account email, along
  * with current account password (correct password required to update)
- * 
+ *
  * @example
- * // Updates account email to "JohnSmithSecondEmail@gmail.com". The dispatch 
+ * // Updates account email to "JohnSmithSecondEmail@gmail.com". The dispatch
  * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	updateAccountEmail({ 
- * 		email: "JohnSmithSecondEmail@gmail.com", 
+ * 	updateAccountEmail({
+ * 		email: "JohnSmithSecondEmail@gmail.com",
  * 		currentPassword: "PleaseDontGuessMyPassword",
  * 	})
  * );
@@ -557,65 +432,66 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
  * account in the database and opens AccountSidebar component while closing all
  * other account components
  *
- * @param {{ 
- * 	newPassword: string, 
- * 	currentPassword: string 
- * }} newPasswordCurrentPassword - Object containing the new account password 
+ * @param {{
+ * 	newPassword: string,
+ * 	currentPassword: string
+ * }} newPasswordCurrentPassword - Object containing the new account password
  * and current account password (correct password required to update)
  *
  * @example
  * // Updates account password to "OhNoSomeoneGuessedMyPassword". The dispatch
  * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	updateAccountPassword({ 
- * 		newPassword: "OhNoSomeoneGuessedMyPassword", 
+ * 	updateAccountPassword({
+ * 		newPassword: "OhNoSomeoneGuessedMyPassword",
  * 		currentPassword: "PleaseDontGuessMyPassword"
  * 	})
- * ); 
+ * );
  */
-export const updateAccountPassword = (newPasswordCurrentPassword) => (dispatch) => {
-	const header = createHeader();
-	axios
-		.post("/api/account/update-password", newPasswordCurrentPassword, header)
-		.then((res) => {
-			const { account } = res.data;
-			// still updates the redux state despite not storing the new
-			// ...password since the new account Object will contained an
-			// ...updated last_edited_timestamp
-			dispatch(setAccount(account));
-			// closes the accountModal and re-opens the accountSidebar
-			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
-		})
-		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+export const updateAccountPassword =
+	(newPasswordCurrentPassword) => (dispatch) => {
+		const header = createHeader();
+		axios
+			.post("/api/account/update-password", newPasswordCurrentPassword, header)
+			.then((res) => {
+				const { account } = res.data;
+				// still updates the redux state despite not storing the new
+				// ...password since the new account Object will contained an
+				// ...updated last_edited_timestamp
+				dispatch(setAccount(account));
+				// closes the accountModal and re-opens the accountSidebar
+				dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
+			})
+			.catch((err) => {
+				// sets backend errors for what went wrong to be displayed to user
+				dispatch(seBackendErrors(err.response.data.backendErrors));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
-				// jwToken was invalid (likely expired), so user is logged out
-				dispatch(logoutAccount());
-				console.log("Logged out user due to invalid/expired jwToken");
-			}
-		});
-};
+				if (err.response.data.backendErrors.jwToken !== undefined) {
+					// jwToken was invalid (likely expired), so user is logged out
+					dispatch(logoutAccount());
+					console.log("Logged out user due to invalid/expired jwToken");
+				}
+			});
+	};
 
 /**
  * Calls api/account/delete route to delete the account in the database and log
  * the user out (which resets the redux state and opens the login page)
  *
  * @param {{
- *  capitalizedDeleteTypedOut: string, 
- * 	currentPassword: string 
- * }} deleteCheckAndCurrentPassword - Object containing the delete check and 
+ *  capitalizedDeleteTypedOut: string,
+ * 	currentPassword: string
+ * }} deleteCheckAndCurrentPassword - Object containing the delete check and
  * current account password (correct password required to update)
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	deleteAccount({ 
- * 		capitalizedDeleteTypedOut: "DELETE", 
+ * 	deleteAccount({
+ * 		capitalizedDeleteTypedOut: "DELETE",
  * 		currentPassword: "PleaseDontGuessMyPassword"
  * 	})
- * ); 
+ * );
  */
 export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
 	const header = createHeader();
@@ -635,36 +511,36 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
  * the database, store the updated account settings in 'settings' Object in
  * ACCOUNT_CONTAINER of the redux state
  *
- * @param {{ 
- * 	setting_id: number, 
- * 	filter_completed_projects_by_default: boolean, 
- * 	filter_completed_bugs_by_default: boolean, 
- * 	dark_mode: boolean, 
- * 	theme_id: number, 
- * 	theme_color: string, 
- * 	project_sort_id: number, 
- * 	project_sort_ascending: boolean, 
- * 	bug_sort_id: number, 
- * 	bug_sort_ascending: boolean, 
- * 	last_edited_timestamp: string 
+ * @param {{
+ * 	setting_id: number,
+ * 	filter_completed_projects_by_default: boolean,
+ * 	filter_completed_bugs_by_default: boolean,
+ * 	dark_mode: boolean,
+ * 	theme_id: number,
+ * 	theme_color: string,
+ * 	project_sort_id: number,
+ * 	project_sort_ascending: boolean,
+ * 	bug_sort_id: number,
+ * 	bug_sort_ascending: boolean,
+ * 	last_edited_timestamp: string
  * }} accountSettings - Object containing the new account settings
- * 
+ *
  * @example
- * // Updates filter_completed_bugs_by_default to false (assuming it was true 
+ * // Updates filter_completed_bugs_by_default to false (assuming it was true
  * // ...beforehand). The dispatch function is from useDispatch() imported from
  * // ...react-redux.
  * dispatch(
- * 	updateAccountSettings({ 
- * 		setting_id: 4, 
- * 		filter_completed_projects_by_default: false, 
- * 		filter_completed_bugs_by_default: false, 
- * 		dark_mode: false, 
- * 		theme_id: 1, 
- * 		theme_color: "blue-turkish", 
- * 		project_sort_id: 2, 
- * 		project_sort_ascending: true, 
- * 		bug_sort_id: 2, 
- * 		bug_sort_ascending: true, 
+ * 	updateAccountSettings({
+ * 		setting_id: 4,
+ * 		filter_completed_projects_by_default: false,
+ * 		filter_completed_bugs_by_default: false,
+ * 		dark_mode: false,
+ * 		theme_id: 1,
+ * 		theme_color: "blue-turkish",
+ * 		project_sort_id: 2,
+ * 		project_sort_ascending: true,
+ * 		bug_sort_id: 2,
+ * 		bug_sort_ascending: true,
  * 		last_edited_timestamp: "1619803044"
  * 	})
  * );
@@ -695,9 +571,9 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 
 /**
  * Logs account out by removing their jwToken from the localStorage and
- * resetting the redux state (which resets the app and also opens the login 
+ * resetting the redux state (which resets the app and also opens the login
  * page)
- * 
+ *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(logoutAccount());

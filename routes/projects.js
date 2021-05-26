@@ -81,7 +81,8 @@ router
 //====================
 //  Retrieve projects
 //====================
-// Abstracted and later exported for reuse inside this and other route files
+// Abstracted outside of route and later exported (bottom of file) for reuse 
+// ...inside this and other route files
 async function getAllProjectsForAccount(account_id) {
 	try {
 		return await pool.query(

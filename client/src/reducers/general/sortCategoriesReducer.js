@@ -1,11 +1,11 @@
-import { SET_ACCOUNT_SETTING_SORT_CATEGORIES } from "../../actions/constants/types";
+import { SET_SORT_CATEGORIES } from "../../actions/constants/types";
 
 // Initial state for sort categories (empty since stored in database)
 const initialState = []
 
 /**
- * Used to set 'settingSortCategories' Array of Objects containing sort 
- * category data from the database into ACCOUNT_CONTAINER of the redux state
+ * Used to set 'sortCategories' Array of Objects containing sort category data
+ * from the database into GENERAL_CONTAINER of the redux state
  * 
  * @param {{ 
  * 	sort_id: number, 
@@ -25,10 +25,10 @@ const initialState = []
  * 	marks_default: boolean
  * }[]} Array of Objects containing sort category data from the database
  */
-export default function accountSettingSortCategoriesReducer(state = initialState, action) {
+export default function sortCategoriesReducer(state = initialState, action) {
 	switch (action.type) {
-		case SET_ACCOUNT_SETTING_SORT_CATEGORIES:
-			return action.accountSettingSortCategories;
+		case SET_SORT_CATEGORIES:
+			return action.sortCategories;
 		default:
 			return state;
 	}

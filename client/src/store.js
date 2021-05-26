@@ -40,16 +40,17 @@ const rootPersistConfig = {
 const generalComponentsPersistConfig = {
 	key: GENERAL_CONTAINER,
 	storage: storage,
-	whitelist: ["componentsDisplay"],
+	// themes and sortCategories are persisted despite being re-fetched on page
+	// ...refresh, so they're not null while data is re-fetched from server
+	whitelist: ["componentsDisplay", "themes", "sortCategories"],
 };
 
 // Nested persistConfigs (one level deeper than root)
 const projectContainerPersistConfig = {
 	key: PROJECT_CONTAINER,
 	storage: storage,
-	// Projects and priorityStatusOptions are persisted despite being 
-	// ...re-fetched on page refresh, so they're not null while data is 
-	// ...re-fetched from server
+	// list and priorityStatusOptions are persisted despite being re-fetched on
+	// ...page refresh, so they're not null while data is re-fetched from server
 	blacklist: ["searchFilterSort"],
 };
 
@@ -57,9 +58,8 @@ const projectContainerPersistConfig = {
 const bugContainerPersistConfig = {
 	key: BUG_CONTAINER,
 	storage: storage,
-	// Projects and priorityStatusOptions are persisted despite being 
-	// ...re-fetched on page refresh, so they're not null while data is 
-	// ...re-fetched from server
+	// list and priorityStatusOptions are persisted despite being re-fetched on
+	// ...page refresh, so they're not null while data is re-fetched from server
 	blacklist: ["searchFilterSort"],
 };
 

@@ -16,7 +16,11 @@ const validateDeleteAccountInput = require("../middleware/validation/account/del
 const passwordAuthentication = require("../middleware/auth/passwordAuthentication");
 const tokenAuthorization = require("../middleware/auth/tokenAuthorization");
 // functions from other routes
-const { getPriorityStatus } = require("./priorityStatus");
+const {
+	getThemes,
+	getSortCategories,
+	getPriorityStatus,
+} = require("./referenceData");
 const { getAllProjectsForAccount } = require("./projects");
 const { getAllBugsForAccount } = require("./bugs");
 const { getAllCommentsForAccount } = require("./comments");
@@ -137,8 +141,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		const {
 			account,
 			accountSettings,
-			accountSettingThemes,
-			accountSettingSortCategories,
+			themes,
+			sortCategories,
 			priorityStatus,
 			allProjectsForAccount,
 			allBugsForAccount,
@@ -166,8 +170,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 					jwToken: jwToken,
 					account: account.rows[0],
 					accountSettings: accountSettings.rows[0],
-					accountSettingThemes: accountSettingThemes.rows,
-					accountSettingSortCategories: accountSettingSortCategories.rows,
+					themes: themes.rows,
+					sortCategories: sortCategories.rows,
 					projects: allProjectsForAccount.rows,
 					bugs: allBugsForAccount.rows,
 					comments: allCommentsForAccount.rows,
@@ -184,7 +188,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 //===================
 //  Retrieve account
 //===================
-// Abstracted and later exported for reuse inside this and other route files
+// Abstracted outside of route and later exported (bottom of file) for reuse 
+// ...inside this and other route files
 async function getAccount(account_id) {
 	try {
 		return await await pool.query(
@@ -224,7 +229,7 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 //====================
 //  Retrieve settings
 //====================
-// Abstracted and later exported for reuse inside this and other route files
+// Abstracted for reuse inside this route file
 async function getAccountSettings(account_id) {
 	try {
 		return await await pool.query(
@@ -268,103 +273,21 @@ router
 		}
 	});
 
-//==================
-//  Retrieve themes
-//==================
-// Abstracted and later exported for reuse inside this and other route files
-async function getAccountSettingThemes() {
-	try {
-		return await await pool.query(
-			`SELECT theme_id, order_number, color, marks_default
-				FROM theme
-					ORDER BY order_number`
-		);
-	} catch (err) {
-		console.error(err.message);
-		return null;
-	}
-}
-
-router
-	.route("/retrieve-setting-themes")
-	.post(tokenAuthorization, async (req, res) => {
-		let backendErrors = {};
-
-		try {
-			const accountSettingThemes = await getAccountSettingThemes();
-
-			// If null, then something went wrong, therefore throw err
-			if (accountSettingThemes === null) {
-				throw err;
-			}
-
-			return res.json({
-				success: true,
-				accountSettingThemes: accountSettingThemes.rows,
-			});
-		} catch (err) {
-			console.error(err.message);
-			backendErrors.serverAccount =
-				"Server error while retrieving account setting themes";
-			return res.status(500).json({ success: false, backendErrors });
-		}
-	});
-
-//===========================
-//  Retrieve sort categories
-//===========================
-// Abstracted and later exported for reuse inside this and other route files
-async function getAccountSettingSortCategories() {
-	try {
-		return await await pool.query(
-			`SELECT sort_id, order_number, category, marks_default
-				FROM sort
-					ORDER BY order_number`
-		);
-	} catch (err) {
-		console.error(err.message);
-		return null;
-	}
-}
-
-router
-	.route("/retrieve-setting-sort-categories")
-	.post(tokenAuthorization, async (req, res) => {
-		let backendErrors = {};
-
-		try {
-			const accountSettingSortCategories = await getAccountSettingSortCategories();
-
-			// If null, then something went wrong, therefore throw err
-			if (accountSettingSortCategories === null) {
-				throw err;
-			}
-
-			return res.json({
-				success: true,
-				accountSettingSortCategories: accountSettingSortCategories.rows,
-			});
-		} catch (err) {
-			console.error(err.message);
-			backendErrors.serverAccount =
-				"Server error while retrieving sort categories";
-			return res.status(500).json({ success: false, backendErrors });
-		}
-	});
-
 //==================================
 //  Retrieve everything for account
 //==================================
-// Abstracted and later exported for reuse inside this and other route files
+// Abstracted outside of route and later exported (bottom of file) for reuse 
+// ...inside this and other route files
 async function getEverythingForAccount(account_id) {
 	try {
 		const account = await getAccount(account_id);
 
 		const accountSettings = await getAccountSettings(account_id);
 
-		const accountSettingThemes = await getAccountSettingThemes();
+		const themes = await getThemes();
 
-		const accountSettingSortCategories = await getAccountSettingSortCategories();
+		const sortCategories =
+			await getSortCategories();
 
 		const priorityStatus = await getPriorityStatus();
 
@@ -383,8 +306,8 @@ async function getEverythingForAccount(account_id) {
 		return {
 			account: account,
 			accountSettings: accountSettings,
-			accountSettingThemes: accountSettingThemes,
-			accountSettingSortCategories: accountSettingSortCategories,
+			themes: themes,
+			sortCategories: sortCategories,
 			priorityStatus: priorityStatus,
 			allProjectsForAccount: allProjectsForAccount,
 			allBugsForAccount: allBugsForAccount,
@@ -408,8 +331,8 @@ router
 			const {
 				account,
 				accountSettings,
-				accountSettingThemes,
-				accountSettingSortCategories,
+				themes,
+				sortCategories,
 				priorityStatus,
 				allProjectsForAccount,
 				allBugsForAccount,
@@ -423,8 +346,8 @@ router
 				...priorityStatus,
 				account: account.rows[0],
 				accountSettings: accountSettings.rows[0],
-				accountSettingThemes: accountSettingThemes.rows,
-				accountSettingSortCategories: accountSettingSortCategories.rows,
+				themes: themes.rows,
+				sortCategories: sortCategories.rows,
 				projects: allProjectsForAccount.rows,
 				bugs: allBugsForAccount.rows,
 				comments: allCommentsForAccount.rows,
