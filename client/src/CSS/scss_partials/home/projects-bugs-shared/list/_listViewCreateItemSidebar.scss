@@ -1,7 +1,7 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.create-item-component {
+.create-item-sidebar-component {
 	.blurred-background {
 		// Must be more than listViewTopBar.scss
 		z-index: 1;
@@ -13,7 +13,7 @@
 		width: 100vw;
 	}
 
-	.create-item-sidebar {
+	.sidebar-container {
 		// Must be more than listViewTopBar.scss
 		z-index: 1;
 		position: fixed;
@@ -34,7 +34,7 @@
 		overflow-x: hidden;
 	}
 
-	.create-item-sidebar--taller {
+	.sidebar-container--taller {
 		height: v.$create-item-sidebar-height + 100;
 	}
 

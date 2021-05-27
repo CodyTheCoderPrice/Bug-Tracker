@@ -146,7 +146,7 @@ export default function ListViewCreateItemSidebar(props) {
 	};
 
 	return (
-		<div className="create-item-component">
+		<div className="create-item-sidebar-component">
 			<div
 				className={
 					"blurred-background" +
@@ -158,12 +158,12 @@ export default function ListViewCreateItemSidebar(props) {
 			/>
 			<div
 				className={
-					"create-item-sidebar js-create-item-sidebar-container" +
+					"sidebar-container js-create-item-sidebar-container" +
 					getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
 					(props.reduxContainerName === BUG_CONTAINER
-						? " create-item-sidebar--taller"
+						? " sidebar-container--taller"
 						: "")
 				}
 			>

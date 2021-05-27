@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 
 /**
- * During the process of creating/editing an item, if a completion date value
- * is set but the status is then changed (which turns off completion date),
- * this hook will set completion_date in the itemInfoState to an empty string,
- * but preserve a copy of the value, so if status is later set back to
- * completed, the previous completion date will be restored.
+ * During session of creating/editing an item, if input element (of type date)
+ * for selecting a 'completion_date' value for itemInfoState param Object is 
+ * active, meaning 'status' property in itemInfoState param Object is set to 
+ * "completed", but during the same session the 'status' property is changed, 
+ * this hook will preserve a copy of 'completion_date' property value before
+ * updating 'completion_date' property to be an empty string (as there would be
+ * no completion date), so if 'status' property is later set back to
+ * "completed", the preserved 'completion_date' value will be restored.
+ * 
+ * Note: The purpose of this is to be more user friendly, as the user would not 
+ * need to re-enter the completion date if they change the status away from 
+ * "completed", and then back to it.
  *
  * @param {{
  * 	id: (number|undefined), 
@@ -24,7 +31,8 @@ import { useState, useEffect } from "react";
  * @param {Function} setItemInfoFunction - Setter function variable from the
  * itemInfo useState
  * @param {string} completionDateUniqueClassName - Unique className assigned to
- * the input date element for completion date
+ * input element (of type date) for selecting a 'completion_date' value for 
+ * itemInfoState param Object
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux

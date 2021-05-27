@@ -4,13 +4,14 @@ import { SIZE_CONTAINER } from "../../actions/constants/containerNames";
 import { getElementStyle, stripNonDigits } from "../index";
 
 /**
- * Custom hook that resizes a sidebar element's height to fit within the 
- * available verticle space between the bottom of the Navbar and window
+ * Custom hook that resizes a sidebar element's (i.e. with 'sidebar-container' 
+ * className) height to fit within the available verticle space between the 
+ * Navbar component and the bottom of the window
  * 
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
  * @param {string} sidebarContainerClassName - Unique className assigned to the
- * sidebar-container element
+ * element with 'sidebar-container' className
  * 
  * @example
  * useSidebarResize(reduxState, "js-account-sidebar-container");

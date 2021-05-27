@@ -4,27 +4,30 @@ import { SIZE_CONTAINER } from "../../actions/constants/containerNames";
 import { getElementSize, getElementStyle, stripNonDigits } from "../index";
 
 /**
- * Custom hook that resizes the search-bar on the ListView component to fit
- * available space in the top bar between the new item button and filter
- * button
+ * Custom hook that resizes the search-bar (element with 
+ * 'centering-container__bar-and-button-container__search-bar' className) in 
+ * the ListViewTopBar component to fit available space between the new item 
+ * button (element with 'centering-container__new-item-button' className) and 
+ * the filter button (element with 'filter-area-container__button' className).
  *
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
  * @param {string} searchBarAndButtonCenteringContainerClassName - Unique
- * className assigned to the element used for centering the element (next
- * param) that contains both search-bar and search-button elements
+ * className assigned to an element (with 'centering-container' className) used 
+ * for centering element with 'centering-container__bar-and-button-container'
+ * className
  * @param {string} centeredSearchBarAndButtonContainerClassName - Unique
- * className assigned to the element that contains both search-bar and
- * search-button elements (following 2 params)
- * @param {string} searchBarClassName - Unique className assigned to the
- * search-bar element
- * @param {string} searchButtonClassName - Unique className assigned to the
- * search-button element
+ * className assigned to the element with 
+ * 'centering-container__bar-and-button-container' className
+ * @param {string} searchBarClassName - Unique className assigned to element
+ * with 'centering-container__bar-and-button-container__search-bar' className
+ * @param {string} searchButtonClassName - Unique className assigned to element
+ * with 'centering-container__bar-and-button-container__search-button' className
  * @param {string} newItemButtonContainerClassName - Unique className assigned
- * to the element used for centering the new-item-button element
+ * to an element (with 'centering-container' className) used for centering 
+ * element with 'centering-container__new-item-button' className.
  * @param {string} filterAreaContainerClassName - Unique className assigned
- * to the element used for positioning the filter-button and filter-dropdown
- * elements
+ * to element with 'filter-area-container' className.
  * 
  * @example
  * seListViewSearchBarResize(

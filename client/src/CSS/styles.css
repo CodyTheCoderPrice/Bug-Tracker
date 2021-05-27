@@ -2132,7 +2132,7 @@ dropdown can overlap all other components
   color: #3a3a3a;
 }
 
-.create-item-component .blurred-background {
+.create-item-sidebar-component .blurred-background {
   z-index: 1;
   position: absolute;
   top: 56px;
@@ -2141,7 +2141,7 @@ dropdown can overlap all other components
   height: 100vh;
   width: 100vw;
 }
-.create-item-component .create-item-sidebar {
+.create-item-sidebar-component .sidebar-container {
   z-index: 1;
   position: fixed;
   top: 56px;
@@ -2157,13 +2157,13 @@ dropdown can overlap all other components
   overflow-y: auto;
   overflow-x: hidden;
 }
-.create-item-component .create-item-sidebar--taller {
+.create-item-sidebar-component .sidebar-container--taller {
   height: 800px;
 }
-.create-item-component .take-up-space {
+.create-item-sidebar-component .take-up-space {
   height: 1000px;
 }
-.create-item-component .x-button {
+.create-item-sidebar-component .x-button {
   z-index: 100;
   position: absolute;
   top: 10px;
@@ -2174,36 +2174,36 @@ dropdown can overlap all other components
   right: 20px;
   font-size: 26px;
 }
-.create-item-component .x-button:hover, .create-item-component .x-button:active {
+.create-item-sidebar-component .x-button:hover, .create-item-sidebar-component .x-button:active {
   color: #3a3a3a;
 }
-.create-item-component .padded-container {
+.create-item-sidebar-component .padded-container {
   padding: 0px 25px 25px 25px;
 }
-.create-item-component .title {
+.create-item-sidebar-component .title {
   position: relative;
   padding-top: 24px;
   font-size: 140%;
 }
-.create-item-component .backend-errors {
+.create-item-sidebar-component .backend-errors {
   display: block;
   color: #ff0000;
   text-align: center;
   font-size: 15px;
 }
-.create-item-component .form__label,
-.create-item-component .form__group-container__input-container__label,
-.create-item-component .form__group-container__input-container__label {
+.create-item-sidebar-component .form__label,
+.create-item-sidebar-component .form__group-container__input-container__label,
+.create-item-sidebar-component .form__group-container__input-container__label {
   float: left;
   margin-top: 5px;
   font-size: 15px;
 }
-.create-item-component .form__char-counter {
+.create-item-sidebar-component .form__char-counter {
   float: right;
   margin: 5px 2px 2px 0px;
   font-size: 15px;
 }
-.create-item-component .form__input-text {
+.create-item-sidebar-component .form__input-text {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2218,10 +2218,10 @@ dropdown can overlap all other components
   font-size: 13px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.create-item-component .form__input-text:focus {
+.create-item-sidebar-component .form__input-text:focus {
   border-color: #2ba6c5;
 }
-.create-item-component .form__textarea {
+.create-item-sidebar-component .form__textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2239,20 +2239,20 @@ dropdown can overlap all other components
   font-family: Arial, Helvetica, sans-serif;
   resize: none;
 }
-.create-item-component .form__textarea:focus {
+.create-item-sidebar-component .form__textarea:focus {
   border-color: #2ba6c5;
 }
-.create-item-component .form__group-container {
+.create-item-sidebar-component .form__group-container {
   float: left;
   width: 45%;
 }
-.create-item-component .form__group-container--right {
+.create-item-sidebar-component .form__group-container--right {
   float: right;
 }
-.create-item-component .form__group-container__input-container {
+.create-item-sidebar-component .form__group-container__input-container {
   display: block;
 }
-.create-item-component .form__group-container__input-container__date {
+.create-item-sidebar-component .form__group-container__input-container__date {
   margin-top: 2px;
   margin-bottom: 10px;
   outline: none;
@@ -2261,10 +2261,10 @@ dropdown can overlap all other components
   width: 97%;
   font-size: 13px;
 }
-.create-item-component .form__group-container__input-container__date:focus {
+.create-item-sidebar-component .form__group-container__input-container__date:focus {
   border-color: #2ba6c5;
 }
-.create-item-component .form__group-container__input-container__select {
+.create-item-sidebar-component .form__group-container__input-container__select {
   margin-top: 2px;
   margin-bottom: 10px;
   outline: none;
@@ -2273,10 +2273,10 @@ dropdown can overlap all other components
   width: 100%;
   font-size: 13px;
 }
-.create-item-component .form__group-container__input-container__select:focus {
+.create-item-sidebar-component .form__group-container__input-container__select:focus {
   border-color: #2ba6c5;
 }
-.create-item-component .form__submit {
+.create-item-sidebar-component .form__submit {
   outline: none;
   border: 0;
   border-radius: 10px;
@@ -2290,7 +2290,7 @@ dropdown can overlap all other components
   margin-top: 10px;
   margin-bottom: 15px;
 }
-.create-item-component .form__submit:hover, .create-item-component .form__submit:active, .create-item-component .form__submit:focus {
+.create-item-sidebar-component .form__submit:hover, .create-item-sidebar-component .form__submit:active, .create-item-sidebar-component .form__submit:focus {
   background-color: #608d9e;
 }
 
