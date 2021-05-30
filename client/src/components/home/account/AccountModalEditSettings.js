@@ -14,7 +14,7 @@ import {
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
-	openOnlyAccountSidebar,
+	setTrueForOnlyAccountSidebar,
 } from "../../../utils";
 // Other components used by this component
 import ToggleSwitch from "../../basic/ToggleSwitch";
@@ -265,7 +265,7 @@ export default function AccountModalEditSettings() {
 			</span>
 			<div className="modal-links-container">
 				<span
-					onClick={() => openOnlyAccountSidebar(dispatch)}
+					onClick={() => setTrueForOnlyAccountSidebar(dispatch)}
 					className={
 						"modal-link" +
 						getTextColorClassNameForThemeWithLightOrDarkMode(

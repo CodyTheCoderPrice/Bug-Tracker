@@ -6,8 +6,8 @@ import { setWhichAccountComponentsDisplay } from "../../../actions";
 import {
 	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
-	openOnlyEditInfoModal,
-	openOnlyAccountSidebar,
+	setTrueForOnlyAccountModalEditInfo,
+	setTrueForOnlyAccountSidebar,
 	filterObject,
 	getStringOfAllArrayValues,
 } from "../../../utils";
@@ -92,7 +92,7 @@ export default function AccountModal() {
 							)
 						}
 						alt="Button to return to editing account info"
-						onClick={() => openOnlyEditInfoModal(dispatch)}
+						onClick={() => setTrueForOnlyAccountModalEditInfo(dispatch)}
 					>
 						<i
 							className="fa fa-arrow-left"
@@ -109,7 +109,7 @@ export default function AccountModal() {
 						)
 					}
 					alt="Button to close the account modal"
-					onClick={() => openOnlyAccountSidebar(dispatch)}
+					onClick={() => setTrueForOnlyAccountSidebar(dispatch)}
 				>
 					<i className="fa fa-times" aria-hidden="true" alt="icon of an X"></i>
 				</div>

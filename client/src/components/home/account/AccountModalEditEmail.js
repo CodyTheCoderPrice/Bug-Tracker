@@ -14,7 +14,7 @@ import {
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
-	openOnlyEditInfoModal,
+	setTrueForOnlyAccountModalEditInfo,
 } from "../../../utils";
 
 /**
@@ -167,7 +167,7 @@ export default function AccountModalEditEmail() {
 						)
 					}
 					alt="Link to return to editing account info"
-					onClick={() => openOnlyEditInfoModal(dispatch)}
+					onClick={() => setTrueForOnlyAccountModalEditInfo(dispatch)}
 				>
 					Back
 				</span>

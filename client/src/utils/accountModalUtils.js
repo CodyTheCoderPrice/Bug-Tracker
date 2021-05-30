@@ -2,13 +2,14 @@
 import { setWhichAccountComponentsDisplay } from "../actions";
 
 /**
- * Opens AccountModalEditInfo component while closing all other account 
- * components (other than AccountModal as AccountModalEditInfo depends on it)
+ * Sets 'accountModalEditInfo' property to true in 'componentsDisplay' Object
+ * in ACCOUNT_CONTAINER of the redux state while setting all other properties
+ * inside the Object to false.
  *
  * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */
-export function openOnlyEditInfoModal(dispatch) {
+export function setTrueForOnlyAccountModalEditInfo(dispatch) {
 	dispatch(
 		setWhichAccountComponentsDisplay({
 			accountModalEditInfo: true,
@@ -17,12 +18,13 @@ export function openOnlyEditInfoModal(dispatch) {
 }
 
 /**
- * Opens AccountSidebar component while closing all other account
- * components
+ * Sets 'accountSidebar' property to true in 'componentsDisplay' Object in
+ * ACCOUNT_CONTAINER of the redux state while setting all other properties
+ * inside the Object to false.
  *
  * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */
-export function openOnlyAccountSidebar(dispatch) {
+export function setTrueForOnlyAccountSidebar(dispatch) {
 	dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 }

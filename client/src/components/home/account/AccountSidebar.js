@@ -12,7 +12,7 @@ import {
 	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
-	openOnlyEditInfoModal,
+	setTrueForOnlyAccountModalEditInfo,
 	getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode,
 	getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../utils";
@@ -123,7 +123,7 @@ export default function AccountSidebar() {
 								)
 							}
 							alt="Link to begin editing account"
-							onClick={() => openOnlyEditInfoModal(dispatch)}
+							onClick={() => setTrueForOnlyAccountModalEditInfo(dispatch)}
 						>
 							Edit Account
 						</span>
