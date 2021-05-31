@@ -16,11 +16,11 @@ import {
 	getBrighterBackgroundColorClassNameForTheme,
 	getBaseBreadcrumbArrowColorClassNameForTheme,
 	getBrighterBreadcrumbArrowColorClassNameForTheme,
-	openProjectsListView,
-	openProjectsItemView,
-	openBugsListView,
-	openBugsItemView,
-	closeProjectItemView,
+	switchToProjectsListView,
+	switchToProjectsItemView,
+	SwitchToBugsListView,
+	switchToBugsItemView,
+	setTrueForOnlyProjectListViewAndCreateItemSidebar,
 	closeBugItemView,
 } from "../../../utils";
 
@@ -164,7 +164,7 @@ export default function NavbarBreadcrumb(props) {
 							  ))
 					}
 					alt="Navbar breadcrumb button to open projects list"
-					onClick={() => openProjectsListView(reduxState, dispatch)}
+					onClick={() => switchToProjectsListView(reduxState, dispatch)}
 				>
 					<div className="breadcrumb-button__text js-breadcrumb-project-list-button-text">
 						<i
@@ -241,7 +241,7 @@ export default function NavbarBreadcrumb(props) {
 									.name +
 								" project"
 							}
-							onClick={() => openProjectsItemView(reduxState, dispatch)}
+							onClick={() => switchToProjectsItemView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-project-item-button-text">
 								{
@@ -284,7 +284,7 @@ export default function NavbarBreadcrumb(props) {
 											.name +
 										" project"
 									}
-									onClick={(e) => closeProjectItemView(e, reduxState, dispatch)}
+									onClick={(e) => setTrueForOnlyProjectListViewAndCreateItemSidebar(e, reduxState, dispatch)}
 								/>
 							</div>
 						</div>
@@ -302,7 +302,7 @@ export default function NavbarBreadcrumb(props) {
 									  ))
 							}
 							alt="Navbar breadcrumb button to open the bugs list"
-							onClick={() => openBugsListView(reduxState, dispatch)}
+							onClick={() => SwitchToBugsListView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text js-breadcrumb-bug-list-button-text">
 								<i
@@ -379,7 +379,7 @@ export default function NavbarBreadcrumb(props) {
 									reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name +
 									" bug"
 								}
-								onClick={() => openBugsItemView(reduxState, dispatch)}
+								onClick={() => switchToBugsItemView(reduxState, dispatch)}
 							>
 								<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-bug-item-button-text">
 									{reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name}

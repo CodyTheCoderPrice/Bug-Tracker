@@ -232,9 +232,9 @@ export const deleteComment = (idsObject, commentBeingEdited) => (dispatch) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));
 
-			// Comment deletion succesful, so closing the commentDeleteModal.
-			// ...If delted comment is commentBeingEdited, it is set to null,
-			// ... otherwise it's kept the same
+			// Comment deletion succesful, so setting commentBeingDeleted to 
+			// ...null. If delted comment is same as commentBeingEdited, it is 
+			// also set to null, otherwise it's kept the same
 			dispatch(
 				setWhichCommentComponentsDisplay({ 
 					commentBeingEdited:

@@ -115,7 +115,6 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 			setWhichCommentComponentsDisplay({
 				commentBeingEdited:
 					reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited,
-				commentDeleteModal: true,
 				commentToBeDeleted: props.comment,
 			})
 		);

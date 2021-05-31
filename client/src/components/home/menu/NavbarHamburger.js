@@ -17,11 +17,11 @@ import {
 	getElementSize,
 	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	openProjectsListView,
-	openProjectsItemView,
-	openBugsListView,
-	openBugsItemView,
-	closeProjectItemView,
+	switchToProjectsListView,
+	switchToProjectsItemView,
+	SwitchToBugsListView,
+	switchToBugsItemView,
+	setTrueForOnlyProjectListViewAndCreateItemSidebar,
 	closeBugItemView,
 } from "../../../utils";
 
@@ -206,7 +206,7 @@ export default function NavbarHamburger() {
 									: "")
 							}
 							alt="Navbar hamburger dropdown option to open projects list"
-							onClick={() => openProjectsListView(reduxState, dispatch)}
+							onClick={() => switchToProjectsListView(reduxState, dispatch)}
 						>
 							<i
 								className="fa fa-folder hamburger-dropdown__option__icon"
@@ -230,7 +230,7 @@ export default function NavbarHamburger() {
 										.name +
 									" project"
 								}
-								onClick={() => openProjectsItemView(reduxState, dispatch)}
+								onClick={() => switchToProjectsItemView(reduxState, dispatch)}
 							>
 								<img
 									className="hamburger-dropdown__option__svg-arrow-option-2"
@@ -254,7 +254,7 @@ export default function NavbarHamburger() {
 											.name +
 										" project"
 									}
-									onClick={(e) => closeProjectItemView(e, reduxState, dispatch)}
+									onClick={(e) => setTrueForOnlyProjectListViewAndCreateItemSidebar(e, reduxState, dispatch)}
 								/>
 							</div>
 						)}
@@ -273,7 +273,7 @@ export default function NavbarHamburger() {
 										: "")
 								}
 								alt="Navbar hamburger dropdown option to open the bugs list"
-								onClick={() => openBugsListView(reduxState, dispatch)}
+								onClick={() => SwitchToBugsListView(reduxState, dispatch)}
 							>
 								<img
 									className="hamburger-dropdown__option__svg-arrow-option-3"
@@ -306,7 +306,7 @@ export default function NavbarHamburger() {
 									reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name +
 									" bug"
 								}
-								onClick={() => openBugsItemView(reduxState, dispatch)}
+								onClick={() => switchToBugsItemView(reduxState, dispatch)}
 							>
 								<img
 									className="hamburger-dropdown__option__svg-arrow-option-4"

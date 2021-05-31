@@ -5,6 +5,12 @@ import { setWhichAccountComponentsDisplay } from "../actions";
  * Sets 'accountModalEditInfo' property to true in 'componentsDisplay' Object
  * in ACCOUNT_CONTAINER of the redux state while setting all other properties
  * inside the Object to false.
+ * 
+ * Note: The purpose of this is to have AccountModalEditInfo be the only account
+ * component, that has an associated property in 'componentsDisplay' Object in
+ * ACCOUNT_CONTAINER, displayed by the app. To clarify, there may still be 
+ * intent to have account components without an associated property be displayed
+ * (e.g. AccountBlurredBackground). 
  *
  * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
@@ -21,7 +27,13 @@ export function setTrueForOnlyAccountModalEditInfo(dispatch) {
  * Sets 'accountSidebar' property to true in 'componentsDisplay' Object in
  * ACCOUNT_CONTAINER of the redux state while setting all other properties
  * inside the Object to false.
- *
+ * 
+ * Note: The purpose of this is to have AccountSidebar be the only account 
+ * component, that has an associated property in 'componentsDisplay' Object in
+ * ACCOUNT_CONTAINER, displayed by the app. To clarify, there may still be 
+ * intent to have account components without an associated property be displayed
+ * (e.g. AccountBlurredBackground). 
+ *  
  * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */

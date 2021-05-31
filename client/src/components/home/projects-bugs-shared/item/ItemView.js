@@ -143,9 +143,8 @@ export default function ItemView(props) {
 		// Object instead of Number since deleting bugs requires the project_id
 		// ...so it is appended below when deleting bugs
 		let idsObject = {
-			id:
-				reduxState[props.reduxContainerName].componentsDisplay
-					.itemViewCurrentItem.id,
+			id: reduxState[props.reduxContainerName].componentsDisplay
+				.itemViewCurrentItem.id,
 		};
 		// Adds project_id when deleting a bug
 		if (props.reduxContainerName === BUG_CONTAINER) {
@@ -153,7 +152,11 @@ export default function ItemView(props) {
 				reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id;
 		}
 		dispatch(
-			deleteProjectOrBug(props.reduxContainerName, idsObject, copyMassDeleteList)
+			deleteProjectOrBug(
+				props.reduxContainerName,
+				idsObject,
+				copyMassDeleteList
+			)
 		);
 	};
 
@@ -171,9 +174,8 @@ export default function ItemView(props) {
 		dispatch(
 			deleteComment(
 				{
-					id:
-						reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted
-							.id,
+					id: reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted
+						.id,
 					project_id:
 						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
 							.id,
@@ -209,8 +211,8 @@ export default function ItemView(props) {
 				/>
 			) : null}
 			{reduxState[BUG_CONTAINER].componentsDisplay.itemView === true &&
-			reduxState[COMMENT_CONTAINER].componentsDisplay.commentDeleteModal ===
-				true ? (
+			reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted !==
+				null ? (
 				// Delete modal for comments
 				<DeleteModal
 					clickToCloseBlurredBackground={false}

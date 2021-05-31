@@ -51,7 +51,7 @@ export default function DeleteModal(props) {
 				? "Deleting these bugs will also delete their associated comments. This cannot be undone."
 				: "Deleting this bug will also delete its associated comments. This cannot be undone.";
 		} else if (
-			reduxState[COMMENT_CONTAINER].componentsDisplay.commentDeleteModal
+			reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted !== null
 		) {
 			return "Deleting this comment cannot be undone.";
 		} else {

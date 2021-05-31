@@ -14,17 +14,31 @@ import {
 } from "../actions";
 
 /**
- * Sets project ListView component to true while setting all other project,
- * account, bug, and comment components to false. Sets project/bug
- * itemViewEditItemInfo to false, and keeps project/bug itemViewCurrentItem the
- * same so the current Navbar button options remain unaffected.
+ * Sets 'listView' property to true in 'componentsDisplay' Object in
+ * PROJECT_CONTAINER of the redux state. Keeps 'itemViewCurrentItem' properties
+ * the same in 'componentsDisplay' Objects of both PROJECT_CONTAINER
+ * and BUG_CONTAINER of the redux state. Sets all other properties in
+ * 'componentsDisplay' Objects of ACCOUNT_CONTAINER, PROJECT_CONTAINER, and
+ * BUG_CONTAINER to false. Sets properties in COMMENT_CONTAINER to null.
  *
- * @param {Object} passedReduxState - Current redux state from 
+ * Note: This should be onClick function for elements pertaining to project
+ * listView with 'breadcrumb-button' className in NavbarBreadcrumb component and
+ * 'hamburger-dropdown__option' className in NavbarHamburger component. The
+ * purpose of this function is to make project's ListView be the currently
+ * dispalyed view component (i.e. as opposed to project's ItemView, bug's
+ * ListView, or bug's ItemView). To close all account components. To have no
+ * comments in the process of being edited or deleted. And the reasoning both
+ * 'itemViewCurrentItem' properties are kept the same is so the current Navbar
+ * buttons/options remain unaffected, as those two properties determin which
+ * buttons/options display, and are also needed for re-openning either of the
+ * ItemView as they determin which project/bug the ItemViews display.
+ *
+ * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from 
+ * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */
-export function openProjectsListView(passedReduxState, dispatch) {
+export function switchToProjectsListView(passedReduxState, dispatch) {
 	if (
 		passedReduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true ||
 		passedReduxState[PROJECT_CONTAINER].componentsDisplay
@@ -59,18 +73,32 @@ export function openProjectsListView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets project ItemView component to true while setting all other project,
- * account, bug, and comment components to false. Keeps project
- * itemViewEditItemInfo the same, but sets bug itemViewEditItemInfo to false.
- * Keeps project/bug itemViewCurrentItem the same so the current Navbar button
- * options remain unaffected.
+ * Sets 'itemView' property to true in 'componentsDisplay' Object in
+ * PROJECT_CONTAINER of the redux state. Also keeps 'itemViewCurrentItem'
+ * properties the same in 'componentsDisplay' Objects of both PROJECT_CONTAINER
+ * and BUG_CONTAINER of the redux state. Also sets all other properties in
+ * 'componentsDisplay' Objects of ACCOUNT_CONTAINER, PROJECT_CONTAINER, and
+ * BUG_CONTAINER to false. Sets properties in COMMENT_CONTAINER to null.
  *
- * @param {Object} passedReduxState - Current redux state from 
+ * Note: This should be onClick function for elements pertaining to project
+ * itemView with 'breadcrumb-button' className in NavbarBreadcrumb component and
+ * 'hamburger-dropdown__option' className in NavbarHamburger component. The
+ * purpose of this function is to make project's ItemView be the currently
+ * dispalyed view component (i.e. as opposed to project's ListView, bug's
+ * ListView, or bug's ItemView). To close all account components. To have no
+ * comments in the process of being edited or deleted. And the reasoning both
+ * 'itemViewCurrentItem' properties are kept the same is so the current Navbar
+ * buttons/options remain unaffected, as those two properties determin which
+ * buttons/options display, and are also needed for re-openning either of the
+ * ItemView as they determin which project/bug the ItemViews display.
+ *
+ *
+ * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from 
+ * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */
-export function openProjectsItemView(passedReduxState, dispatch) {
+export function switchToProjectsItemView(passedReduxState, dispatch) {
 	if (
 		passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemView !== true ||
 		Object.values(
@@ -100,17 +128,31 @@ export function openProjectsItemView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets bug ListView component to true while setting all other bug, account,
- * project, and comment components to false. Sets project/bug
- * itemViewEditItemInfo to false, and keeps project/bug itemViewCurrentItem the
- * same so the current Navbar button options remain unaffected.
+ * Sets 'listView' property to true in 'componentsDisplay' Object in
+ * BUG_CONTAINER of the redux state. Also keeps 'itemViewCurrentItem'
+ * properties the same in 'componentsDisplay' Objects of both PROJECT_CONTAINER
+ * and BUG_CONTAINER of the redux state. Also sets all other properties in
+ * 'componentsDisplay' Objects of ACCOUNT_CONTAINER, PROJECT_CONTAINER, and
+ * BUG_CONTAINER to false. Sets properties in COMMENT_CONTAINER to null.
  *
- * @param {Object} passedReduxState - Current redux state from 
+ * Note: This should be onClick function for elements pertaining to bug listView
+ * with 'breadcrumb-button' className in NavbarBreadcrumb component and
+ * 'hamburger-dropdown__option' className in NavbarHamburger component. The
+ * purpose of this function is to make bug's ListView be the currently
+ * dispalyed view component (i.e. as opposed to project's ListView, project's
+ * ItemView, or bug's ItemView). To close all account components. To have no
+ * comments in the process of being edited or deleted. And the reasoning both
+ * 'itemViewCurrentItem' properties are kept the same is so the current Navbar
+ * buttons/options remain unaffected, as those two properties determin which
+ * buttons/options display, and are also needed for re-openning either of the
+ * ItemView as they determin which project/bug the ItemViews display.
+ *
+ * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from 
+ * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */
-export function openBugsListView(passedReduxState, dispatch) {
+export function SwitchToBugsListView(passedReduxState, dispatch) {
 	if (
 		passedReduxState[BUG_CONTAINER].componentsDisplay.listView !== true ||
 		passedReduxState[BUG_CONTAINER].componentsDisplay
@@ -145,18 +187,31 @@ export function openBugsListView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets bug ItemView component to true while setting all other bug, account,
- * project, and comment components to false. Keeps bug itemViewEditItemInfo the
- * same, but sets project itemViewEditItemInfo to false. Keeps project/bug
- * itemViewCurrentItem the same so the current Navbar button options remain
- * unaffected.
+ * Sets 'itemView' property to true in 'componentsDisplay' Object in
+ * BUG_CONTAINER of the redux state. Also keeps 'itemViewCurrentItem'
+ * properties the same in 'componentsDisplay' Objects of both PROJECT_CONTAINER
+ * and BUG_CONTAINER of the redux state. Also sets all other properties in
+ * 'componentsDisplay' Objects of ACCOUNT_CONTAINER, PROJECT_CONTAINER, and
+ * BUG_CONTAINER to false. Sets properties in COMMENT_CONTAINER to null.
  *
- * @param {Object} passedReduxState - Current redux state from 
+ * Note: This should be onClick function for elements pertaining to bug itemView
+ * with 'breadcrumb-button' className in NavbarBreadcrumb component and
+ * 'hamburger-dropdown__option' className in NavbarHamburger component. The
+ * purpose of this function is to make bug's ItemView be the currently
+ * dispalyed view component (i.e. as opposed to project's ListView, project's
+ * ItemView, or bug's ListView). To close all account components. To have no
+ * comments in the process of being edited or deleted. And the reasoning both
+ * 'itemViewCurrentItem' properties are kept the same is so the current Navbar
+ * buttons/options remain unaffected, as those two properties determin which
+ * buttons/options display, and are also needed for re-openning either of the
+ * ItemView as they determin which project/bug the ItemViews display.
+ *
+ * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from 
+ * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */
-export function openBugsItemView(passedReduxState, dispatch) {
+export function switchToBugsItemView(passedReduxState, dispatch) {
 	if (
 		passedReduxState[BUG_CONTAINER].componentsDisplay.itemView !== true ||
 		Object.values(
@@ -186,24 +241,42 @@ export function openBugsItemView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets project ListView component to true while keeping project
- * ListViewCreateItemSidbar component the same. Sets all other project, 
- * account, bug, and comment components to false. Keeps the project 
- * massDeleteList the same, but empties the bug massDeleteList. Sets the 
- * project/bug itemViewCurrentItem to null.
+ * Sets 'listView' property to true and keeps 'listViewCreateItemSidbar'
+ * property the same in 'componentsDisplay' Object in PROJECT_CONTAINER of the
+ * redux state. Sets all other properties in 'componentsDisplay' Objects of
+ * ACCOUNT_CONTAINER, PROJECT_CONTAINER, and BUG_CONTAINER to false or null
+ * (depending on which is their default state). Sets properties in
+ * COMMENT_CONTAINER to null. Empties 'massDeleteList' Object in BUG_CONTAINER.
+ *
+ * Note: This should be onClick function for element pertaining to project's
+ * listView with 'breadcrumb-button__end-container__close-button' className in
+ * NavbarBreadcrumb component and 'hamburger-dropdown__option__close-button'
+ * className in NavbarHamburger component. The purpose of this function is to
+ * make project's ListView be the currently dispalyed view component (i.e. as
+ * opposed to project's ItemView, bug's ListView, or bug's ItemView). To keep
+ * project's ListViewCreateItemSidebar open if it was already. To have no project
+ * selected for project's ItemView. To close all account and bug components. To 
+ * have no comments in the process of being edited or deleted. Also the reason
+ * 'massDeleteList' Object in BUG_CONTAINER is emptied is because without a
+ * project selected for project's ItemView means there is no list of bugs that
+ * can be in the massDeleteList.
  *
  * @param {Event} e - Event created by element's onClick handler
- * @param {Object} passedReduxState - Current redux state from 
+ * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from 
+ * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */
-export function closeProjectItemView(e, passedReduxState, dispatch) {
+export function setTrueForOnlyProjectListViewAndCreateItemSidebar(
+	e,
+	passedReduxState,
+	dispatch
+) {
 	// Stops onClicks of parent elements from being triggered
 	e.stopPropagation();
 
 	dispatch(setWhichAccountComponentsDisplay({}));
-	// Keeps listViewCreateItemSidbar the same since the user would not expect 
+	// Keeps listViewCreateItemSidbar the same since the user would not expect
 	// ...it to be closed by this function.
 	dispatch(
 		setWhichProjectComponentsDisplay({
@@ -219,16 +292,28 @@ export function closeProjectItemView(e, passedReduxState, dispatch) {
 }
 
 /**
- * Keeps all project components the same. Sets bug ListView component to true 
- * if either the bug ListView or ItemView component is open. Keeps bug 
- * ListViewCreateItemSidbar component the same.  Closes all other bug 
- * components and sets bug itemViewCurrentItem to null. Sets all account and
- * comment components to false.
+ * Keeps 'listViewCreateItemSidbar' property the same, and sets 'listView'
+ * property to true if either it or 'itemView' were true, in 'componentsDisplay'
+ * Object in BUG_CONTAINER of the redux state. Keeps 'componentsDisplay' Object
+ * in PROJECT_CONTAINER the same. Sets all other properties in 'componentsDisplay'
+ * Objects of ACCOUNT_CONTAINER and BUG_CONTAINER to false or null (depending on
+ * which is their default state). Sets properties in COMMENT_CONTAINER to null.
+ *
+ * Note: This should be onClick function for element pertaining to bug's
+ * listView with 'breadcrumb-button__end-container__close-button' className in
+ * NavbarBreadcrumb component and 'hamburger-dropdown__option__close-button'
+ * className in NavbarHamburger component. The purpose of this function is to
+ * keep the currenly displayed view component the same, unless it's bug's 
+ * ItemView, to which it's switched to bug's ListView (i.e. keep same if 
+ * project's ListView, projects's ItemView, or bug's ListView). To leave project
+ * components the same. To keep bug's ListViewCreateItemSidebar open if it was 
+ * already. To have no bug selected for bug's ItemView. To close all account 
+ * components. And to have no comments in the process of being edited or deleted.
  *
  * @param {Event} e - Event created by element's onClick handler
- * @param {Object} passedReduxState - Current redux state from 
+ * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {Function} dispatch - Redux store's dispatch function from 
+ * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */
 export function closeBugItemView(e, passedReduxState, dispatch) {
@@ -236,7 +321,7 @@ export function closeBugItemView(e, passedReduxState, dispatch) {
 	e.stopPropagation();
 
 	dispatch(setWhichAccountComponentsDisplay({}));
-	// Keeps listViewCreateItemSidbar the same since the user would not expect 
+	// Keeps listViewCreateItemSidbar the same since the user would not expect
 	// ...it to be closed by this function.
 	dispatch(
 		setWhichBugComponentsDisplay({

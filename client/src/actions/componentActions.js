@@ -225,32 +225,39 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * state for how comment components should be displayed by the app
  *
  * @param {{
- * 	commentDeleteModal: (boolean|undefined),
- * 	commentToBeDeleted: ({
- * 		bug_id: number,
- * 		id: number,
- * 		description: string,
- * 		location: string,
- * 		creation_date: string,
- * 		last_edited_timestamp: string,
+ * 	commentToBeEdited: ({
+ * 		id: number, 
+ * 		bug_id: number, 
+ * 		description: string, 
+ * 		creation_date: string, 
+ * 		last_edited_timestamp: string 
  * 	}|null|undefined),
  * 	commentToBeDeleted: ({
- * 		bug_id: number,
- * 		id: number,
- * 		description: string,
- * 		location: string,
- * 		creation_date: string,
- * 		last_edited_timestamp: string,
+ * 		id: number, 
+ * 		bug_id: number, 
+ * 		description: string, 
+ * 		creation_date: string, 
+ * 		last_edited_timestamp: string 
  * 	}|null|undefined)
  * }} displays - Object containing info for how comment components should be 
  * displyed in the app. Any comment components set to undefined or excluded 
  * from this param will be set to their default value.
  *
  * @example
- * // Sets listView to true, and all other comment components to their default
+ * // Sets commentBeingEdited, and all other comment properties to their default
  * // ...values. The dispatch function is from useDispatch() imported from
  * // ...react-redux.
- * dispatch(setWhichCommentComponentsDisplay({ listView: true }));
+ * dispatch(
+ * 	setWhichCommentComponentsDisplay({
+ * 		commentBeingEdited: { 
+ * 			id: 166, 
+ * 			bug_id: 96, 
+ * 			description: "Seems to be an issue with monitor resolution", 
+ * 			creation_date: "2020-10-27T04:00:00.000Z", 
+ * 			last_edited_timestamp: "1603821676" 
+ * 		}
+ * 	})
+ * );
  *
  * @example
  * // Sets all comment components to their default values. The dispatch 
