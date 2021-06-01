@@ -17,7 +17,7 @@ import {
 } from "../../../../actions";
 
 import {
-	getUpdatedDeepCopyFilterArray,
+	getUpdatedFilterArray,
 	getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
@@ -95,7 +95,7 @@ export default function ItemViewTopBar(props) {
 		dispatch(
 			setProjectOrBugSearchFilterSort(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].searchFilterSort,
-				[e.target.name]: getUpdatedDeepCopyFilterArray(
+				[e.target.name]: getUpdatedFilterArray(
 					reduxState,
 					props.reduxContainerName,
 					e.target.name,

@@ -13,7 +13,7 @@ import {
 	setProjectOrBugMassDeleteList,
 } from "../../actions";
 import {
-	getUpdatedDeepCopyFilterArray,
+	getUpdatedFilterArray,
 	getSearchedFilteredSortedList,
 	getBaseBackgroundAndTextColorClassNameForLightOrDarkMode,
 } from "../../utils";
@@ -69,7 +69,7 @@ export default function Home() {
 			dispatch(
 				setProjectOrBugSearchFilterSort(PROJECT_CONTAINER, {
 					...reduxState[PROJECT_CONTAINER].searchFilterSort,
-					statusFilter: getUpdatedDeepCopyFilterArray(
+					statusFilter: getUpdatedFilterArray(
 						reduxState,
 						PROJECT_CONTAINER,
 						"statusFilter",
@@ -98,7 +98,7 @@ export default function Home() {
 			dispatch(
 				setProjectOrBugSearchFilterSort(BUG_CONTAINER, {
 					...reduxState[BUG_CONTAINER].searchFilterSort,
-					statusFilter: getUpdatedDeepCopyFilterArray(
+					statusFilter: getUpdatedFilterArray(
 						reduxState,
 						BUG_CONTAINER,
 						"statusFilter",

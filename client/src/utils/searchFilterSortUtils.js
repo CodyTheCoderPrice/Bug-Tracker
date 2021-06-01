@@ -205,7 +205,7 @@ export function getSearchedFilteredSortedList(
 }
 
 /**
- * Get deep copy of either 'priorityFilter' or 'statusFilter' (based on 
+ * Gets a deep copy of either 'priorityFilter' or 'statusFilter' (based on 
  * filterName param) Object in 'searchFilterSort' Object in either 
  * PROJECT_CONTAINER or BUG_CONTAINER (based on reduxContainerName param) of 
  * the redux state updated to have targetId param value added if not present,
@@ -222,7 +222,7 @@ export function getSearchedFilteredSortedList(
  * prioirty/status id to add or remove from the filter
  * @returns
  */
-export function getUpdatedDeepCopyFilterArray(
+export function getUpdatedFilterArray(
 	passedReduxState,
 	reduxContainerName,
 	filterName,
