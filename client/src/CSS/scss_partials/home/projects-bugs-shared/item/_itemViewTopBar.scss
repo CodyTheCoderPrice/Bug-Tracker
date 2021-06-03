@@ -38,7 +38,7 @@
 		display: inline-block;
 		outline: none;
 		border: v.$top-bar-search-bar-border-width solid
-			v.$default-theme-base-border-background-color;
+			v.$default-theme-standard-border-background-color;
 		border-right: none;
 		border-radius: v.$top-bar-buttton-border-radius 0 0
 			v.$top-bar-buttton-border-radius;
@@ -65,7 +65,7 @@
 		display: inline-block;
 		border-radius: 0 v.$top-bar-buttton-border-radius
 			v.$top-bar-buttton-border-radius 0;
-		background-color: v.$default-theme-base-border-background-color;
+		background-color: v.$default-theme-standard-border-background-color;
 		height: v.$top-bar-search-bar-height;
 		width: v.$top-bar-search-button-width;
 		cursor: pointer;
@@ -94,7 +94,7 @@
 		z-index: 1;
 		position: absolute;
 		top: 9px;
-		border: v.$top-bar-base-button-border-width solid
+		border: v.$top-bar-common-button-border-width solid
 			v.$mode-top-bar-button-border-color-light;
 		border-radius: v.$top-bar-buttton-border-radius;
 		background-color: v.$mode-top-bar-button-background-color-light;
@@ -242,14 +242,14 @@
 		background: none;
 		height: 29px;
 		width: v.$options-button-width;
-		color: v.$mode-base-icon-button-text-color-light;
+		color: v.$mode-common-icon-button-text-color-light;
 		font-size: 28px;
 		text-align: center;
 		cursor: pointer;
 
 		&:hover,
 		&:active {
-			color: v.$mode-base-icon-button-hover-text-color-light;
+			color: v.$mode-common-icon-button-hover-text-color-light;
 		}
 	}
 
@@ -261,7 +261,7 @@
 		border-color: black;
 		border-bottom: none;
 		background-color: white;
-		color: v.$mode-base-icon-button-hover-text-color-light;
+		color: v.$mode-common-icon-button-hover-text-color-light;
 	}
 
 	.item-options-container__dropdown {

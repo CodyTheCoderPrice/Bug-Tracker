@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames";
 
-import { getBaseSecondaryTextColorClassNameForLightOrDarkMode } from "../../../../utils";
+import { getCommonSecondaryTextColorClassNameForLightOrDarkMode } from "../../../../utils";
 
 export default function ItemViewBugListRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -25,7 +25,7 @@ export default function ItemViewBugListRow(props) {
 		<tr
 			className={
 				"bug-list-table__row" +
-				getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+				getCommonSecondaryTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}

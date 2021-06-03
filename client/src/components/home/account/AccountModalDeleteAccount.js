@@ -8,8 +8,7 @@ import {
 import { deleteAccount, clearBackendErrors } from "../../../actions";
 import {
 	getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLightOrDarkMode,
-	getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode,
+	getAccountModalDeleteAccountFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
@@ -98,10 +97,7 @@ export default function AccountModalDeleteAccount() {
 					id="delete-account-type-out"
 					className={
 						"form__input-text" +
-						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-						) +
-						getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode(
+						getAccountModalDeleteAccountFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -130,10 +126,7 @@ export default function AccountModalDeleteAccount() {
 					id="delete-account-password"
 					className={
 						"form__input-text" +
-						getBaseFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-						) +
-						getAccountModalDeleteAccountFormInputFocusBorderColorClassNameForLightOrDarkMode(
+						getAccountModalDeleteAccountFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

@@ -64,10 +64,10 @@
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: v.$form-input-text-border-width solid
-			v.$mode-base-form-input-border-color-light;
+			v.$mode-common-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
 		box-sizing: border-box;
-		background: v.$mode-base-form-input-background-color-light;
+		background: v.$mode-common-form-input-background-color-light;
 		padding: 8px;
 		width: 100%;
 		font-size: 14px;
@@ -83,7 +83,7 @@
 	}
 
 	.form__submit {
-		@include m.base-form-submit-button();
+		@include m.common-form-submit-button();
 
 		margin-top: 15px;
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
@@ -145,13 +145,13 @@
 		margin: 0px;
 		background-color: white;
 		padding: 0px 8px;
-		font-size: v.$base-font-size + 3;
+		font-size: v.$common-font-size + 3;
 	}
 
 	.category-container__content-container {
 		margin-top: 20px;
 		height: v.$account-modal-settings-content-container-height;
-		color: v.$mode-base-secondary-text-color-light;
+		color: v.$mode-common-secondary-text-color-light;
 	}
 
 	.category-container__content-container--smaller-top-margin {
@@ -163,7 +163,7 @@
 		margin-right: 10px;
 		// Subtracting 2px for better alignment
 		height: v.$account-modal-settings-content-container-height - 2;
-		font-size: v.$base-font-size;
+		font-size: v.$common-font-size;
 		vertical-align: middle;
 		// Subtracting 2px for better alignment
 		line-height: v.$account-modal-settings-content-container-height - 2;
@@ -182,10 +182,10 @@
 		margin: 2px 15px 0 0;
 		outline: none;
 		border: 1px solid gray;
-		background: v.$mode-base-form-input-background-color-light;
+		background: v.$mode-common-form-input-background-color-light;
 		width: 120px;
 		// one pixel smaller than associated label
-		font-size: v.$base-font-size - 2;
+		font-size: v.$common-font-size - 2;
 
 		&:focus {
 			border-color: v.$default-theme-mode-focus-border-color;

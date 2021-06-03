@@ -15,7 +15,7 @@
 		right: 0;
 		// Used by JS during resize to give margin to bottom
 		margin-bottom: 20px;
-		border: v.$base-sidebar-border-width solid black;
+		border: v.$common-sidebar-border-width solid black;
 		border-top: none;
 		border-right: none;
 		background: v.$mode-account-sidebar-modal-background-color-light;
@@ -34,13 +34,13 @@
 		left: 13px;
 		border: none;
 		background: none;
-		color: v.$mode-base-icon-button-text-color-light;
+		color: v.$mode-common-icon-button-text-color-light;
 		font-size: 22px;
 		cursor: pointer;
 
 		&:hover,
 		&:active {
-			color: v.$mode-base-icon-button-hover-text-color-light;
+			color: v.$mode-common-icon-button-hover-text-color-light;
 			font-size: 23px;
 		}
 	}
@@ -120,6 +120,6 @@
 	.button-container__logout-button__text {
 		@include m.dead-center();
 
-		font-size: v.$base-font-size;
+		font-size: v.$common-font-size;
 	}
 }

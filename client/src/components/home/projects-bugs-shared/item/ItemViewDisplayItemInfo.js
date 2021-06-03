@@ -11,7 +11,7 @@ import {
 	formatDateMMddYYYY,
 	displayGrayedOutAlternativeIfValueIsEmpty,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
-	getBaseSecondaryTextColorClassNameForLightOrDarkMode,
+	getCommonSecondaryTextColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
@@ -92,7 +92,7 @@ export default function ItemViewDisplayItemInfo(props) {
 				<div
 					className={
 						"item-creation-date" +
-						getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+						getCommonSecondaryTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -118,7 +118,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						<span
 							className={
 								"item-box__description" +
-								getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+								getCommonSecondaryTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -150,7 +150,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+										getCommonSecondaryTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -172,7 +172,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+										getCommonSecondaryTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -194,7 +194,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+										getCommonSecondaryTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -216,7 +216,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+										getCommonSecondaryTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -240,7 +240,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getBaseSecondaryTextColorClassNameForLightOrDarkMode(
+										getCommonSecondaryTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}

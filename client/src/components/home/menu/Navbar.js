@@ -31,7 +31,7 @@ import {
 	getItemViewListSidebarWidth,
 	getItemViewOuterDividingContainerMinWidth,
 	getItemViewPaddingContainerPadding,
-	getBaseBackgroundColorClassNameForTheme,
+	getStandardBackgroundColorClassNameForTheme,
 } from "../../../utils";
 
 // Components
@@ -71,7 +71,8 @@ export default function Navbar() {
 			})
 		);
 
-		// Should be equal to base fontsize on app start up or refresh
+		// Since breadcrumb font resize does not happen until after app start-up 
+		// ...or refresh, it's safe to initialize as breadcrumbBaseFontSize
 		dispatch(setDisplaySizeVariablesBreadcrumbFontSize(breadcrumbBaseFontSize));
 
 		// Adds event to update navbar size on a resize
@@ -149,7 +150,7 @@ export default function Navbar() {
 			<div
 				className={
 					"navbar js-navbar" +
-					getBaseBackgroundColorClassNameForTheme(
+					getStandardBackgroundColorClassNameForTheme(
 						reduxState[ACCOUNT_CONTAINER].settings.theme_color
 					)
 				}

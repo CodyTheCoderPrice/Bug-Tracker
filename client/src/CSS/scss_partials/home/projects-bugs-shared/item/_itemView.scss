@@ -11,7 +11,7 @@
 		// ...to make modal resize (using js) look less jumpy
 		height: 90vh;
 		width: 100vw;
-		font-size: v.$base-font-size;
+		font-size: v.$common-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto;
 		overflow-x: auto;
@@ -99,7 +99,7 @@
 		display: block;
 		padding: 13px 5px 13px 5px;
 		line-height: v.$common-line-height;
-		color: v.$mode-base-secondary-text-color-light;
+		color: v.$mode-common-secondary-text-color-light;
 	}
 
 	.item-box__group {
@@ -155,7 +155,7 @@
 		width: 100%;
 		line-height: v.$common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: v.$base-font-size;
+		font-size: v.$common-font-size;
 		resize: none;
 
 		&:focus {

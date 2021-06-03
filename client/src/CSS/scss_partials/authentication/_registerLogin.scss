@@ -17,7 +17,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 25px;
-		border: v.$base-modal-border-width solid black;
+		border: v.$common-modal-border-width solid black;
 		background-color: white;
 		padding: 25px;
 		width: 400px;
@@ -67,9 +67,9 @@
 		margin-bottom: v.$register-login-form-input-margin-bottom;
 		outline: none;
 		border: v.$form-input-text-border-width solid
-			v.$mode-base-form-input-border-color-light;
+			v.$mode-common-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
-		background: v.$mode-base-form-input-background-color-light;
+		background: v.$mode-common-form-input-background-color-light;
 		padding: 8px;
 		width: 100%;
 		font-size: 14px;
@@ -89,7 +89,7 @@
 		margin-bottom: 5px;
 		outline: none;
 		border: 0;
-		border-radius: v.$base-buttton-border-radius;
+		border-radius: v.$common-buttton-border-radius;
 		background-color: v.$register-login-submit-button-border-background-color;
 		padding: 10px;
 		width: 100%;

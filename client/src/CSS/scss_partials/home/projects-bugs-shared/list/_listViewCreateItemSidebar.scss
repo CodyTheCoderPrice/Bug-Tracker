@@ -20,10 +20,10 @@
 		top: v.$navbar-height;
 		// Used by JS during resize to give margin to bottom
 		margin-bottom: 20px;
-		border: v.$base-sidebar-border-width solid black;
+		border: v.$common-sidebar-border-width solid black;
 		border-top: none;
-		border-width: v.$base-sidebar-border-width - 1 v.$base-sidebar-border-width
-			v.$base-sidebar-border-width 0;
+		border-width: v.$common-sidebar-border-width - 1 v.$common-sidebar-border-width
+			v.$common-sidebar-border-width 0;
 		background-color: v.$mode-create-item-sidebar-background-color-light;
 		height: v.$create-item-sidebar-height;
 		width: v.$create-item-sidebar-width;
@@ -87,9 +87,9 @@
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: v.$form-input-text-border-width solid
-			v.$mode-base-form-input-border-color-light;
+			v.$mode-common-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
-		background: v.$mode-base-form-input-background-color-light;
+		background: v.$mode-common-form-input-background-color-light;
 		padding: v.$create-item-sidebar-padding;
 		width: 100%;
 		font-size: v.$item-form-input-text-font-size;
@@ -110,9 +110,9 @@
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: v.$form-input-text-border-width solid
-			v.$mode-base-form-input-border-color-light;
+			v.$mode-common-form-input-border-color-light;
 		border-radius: v.$form-input-border-radius;
-		background: v.$mode-base-form-input-background-color-light;
+		background: v.$mode-common-form-input-background-color-light;
 		padding: 4px v.$create-item-sidebar-padding 4px
 			v.$create-item-sidebar-padding;
 		height: 150px;
@@ -145,7 +145,7 @@
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
-		background: v.$mode-base-form-input-background-color-light;
+		background: v.$mode-common-form-input-background-color-light;
 		// Width is 97% since date boxes extend past conatiner
 		width: 97%;
 		// one pixel smaller than associated label
@@ -161,7 +161,7 @@
 		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
-		background: v.$mode-base-form-input-background-color-light;
+		background: v.$mode-common-form-input-background-color-light;
 		width: 100%;
 		// one pixel smaller than associated label
 		font-size: 13px;
@@ -172,7 +172,7 @@
 	}
 
 	.form__submit {
-		@include m.base-form-submit-button();
+		@include m.common-form-submit-button();
 
 		margin-top: 10px;
 		margin-bottom: 15px;

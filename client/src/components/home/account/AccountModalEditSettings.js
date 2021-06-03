@@ -12,7 +12,7 @@ import {
 import {
 	getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
-	getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 	setTrueForOnlyAccountSidebar,
 } from "../../../utils";
@@ -187,7 +187,7 @@ export default function AccountModalEditSettings() {
 						id="account-settings-sort-projects-category"
 						className={
 							"category-container__content-container__sort-select" +
-							getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)
@@ -225,7 +225,7 @@ export default function AccountModalEditSettings() {
 						id="account-settings-sort-bugs-category"
 						className={
 							"category-container__content-container__sort-select" +
-							getBaseFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)

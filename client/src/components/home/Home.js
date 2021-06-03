@@ -15,7 +15,7 @@ import {
 import {
 	getUpdatedFilterArray,
 	getSearchedFilteredSortedList,
-	getBaseBackgroundAndTextColorClassNameForLightOrDarkMode,
+	getCommonBackgroundAndTextColorClassNameForLightOrDarkMode,
 } from "../../utils";
 // Other components used by this component
 import Navbar from "./menu/Navbar";
@@ -239,7 +239,7 @@ export default function Home() {
 		<div
 			className={
 				"home-container" +
-				getBaseBackgroundAndTextColorClassNameForLightOrDarkMode(
+				getCommonBackgroundAndTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}

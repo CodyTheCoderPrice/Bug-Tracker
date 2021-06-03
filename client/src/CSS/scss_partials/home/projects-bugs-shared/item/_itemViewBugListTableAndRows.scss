@@ -5,7 +5,7 @@
 	// Must be more than the item-view in item-view.scss
 	z-index: 1;
 	width: 100%;
-	font-size: v.$base-font-size;
+	font-size: v.$common-font-size;
 	font-family: Arial, Helvetica, sans-serif;
 
 	.bug-list-table {
@@ -15,7 +15,7 @@
 	.bug-list-table__row {
 		padding: 5px;
 		height: v.$list-row-height;
-		color: v.$mode-base-secondary-text-color-light;
+		color: v.$mode-common-secondary-text-color-light;
 		text-align: center;
 	}
 

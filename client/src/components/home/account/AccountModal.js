@@ -5,7 +5,7 @@ import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
 import { setWhichAccountComponentsDisplay } from "../../../actions";
 import {
 	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
-	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
 	setTrueForOnlyAccountSidebar,
 	filterObject,
@@ -87,7 +87,7 @@ export default function AccountModal() {
 					<div
 						className={
 							"back-button" +
-							getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+							getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -104,7 +104,7 @@ export default function AccountModal() {
 				<div
 					className={
 						"exit-button" +
-						getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+						getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

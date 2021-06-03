@@ -36,12 +36,12 @@
 	top: v.$back-exit-buttons-top;
 	border: none;
 	background: none;
-	color: v.$mode-base-icon-button-text-color-light;
+	color: v.$mode-common-icon-button-text-color-light;
 	cursor: pointer;
 
 	&:hover,
 	&:active {
-		color: v.$mode-base-icon-button-hover-text-color-light;
+		color: v.$mode-common-icon-button-hover-text-color-light;
 	}
 }
 
@@ -66,11 +66,11 @@
 	text-align: center;
 }
 
-@mixin base-form-submit-button() {
+@mixin common-form-submit-button() {
 	outline: none;
 	border: 0;
 	// Need to get rid of border for a submit button
-	border-radius: v.$base-buttton-border-radius;
+	border-radius: v.$common-buttton-border-radius;
 	background-color: v.$default-theme-brighter-border-background-color;
 	padding: 10px;
 	width: 100%;
@@ -82,7 +82,7 @@
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: v.$default-theme-base-border-background-color;
+		background-color: v.$default-theme-standard-border-background-color;
 	}
 }
 
@@ -94,7 +94,7 @@
 
 	outline: none;
 	border: 1px solid black;
-	border-radius: v.$base-buttton-border-radius;
+	border-radius: v.$common-buttton-border-radius;
 	background-color: v.$default-theme-brighter-border-background-color;
 	// Only top and bottom because of inconsistencies
 	// ...with button vs divs.
@@ -110,7 +110,7 @@
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: v.$default-theme-base-border-background-color;
+		background-color: v.$default-theme-standard-border-background-color;
 	}
 }
 
@@ -123,7 +123,7 @@
 	box-sizing: border-box;
 
 	border: 1px solid black;
-	border-radius: v.$base-buttton-border-radius;
+	border-radius: v.$common-buttton-border-radius;
 	background-color: v.$mode-item-view-form-cancel-button-background-color-light;
 	// Only top and bottom because of inconisistencies
 	// ...with button and div padding.

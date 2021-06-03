@@ -12,9 +12,9 @@ import { setDisplaySizeVariablesBreadcrumbFontSize } from "../../../actions";
 
 import {
 	getElementSize,
-	getBaseBackgroundColorClassNameForTheme,
+	getStandardBackgroundColorClassNameForTheme,
 	getBrighterBackgroundColorClassNameForTheme,
-	getBaseBreadcrumbArrowColorClassNameForTheme,
+	getStandardBreadcrumbArrowColorClassNameForTheme,
 	getBrighterBreadcrumbArrowColorClassNameForTheme,
 	switchToProjectsListView,
 	switchToProjectsItemView,
@@ -159,7 +159,7 @@ export default function NavbarBreadcrumb(props) {
 							? getBrighterBackgroundColorClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  )
-							: getBaseBackgroundColorClassNameForTheme(
+							: getStandardBackgroundColorClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
@@ -180,7 +180,7 @@ export default function NavbarBreadcrumb(props) {
 						// ... its light color extend past the arrow
 						className={
 							"breadcrumb-button__end-container" +
-							getBaseBackgroundColorClassNameForTheme(
+							getStandardBackgroundColorClassNameForTheme(
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)
 						}
@@ -194,7 +194,7 @@ export default function NavbarBreadcrumb(props) {
 										? getBrighterBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  )
-										: getBaseBackgroundColorClassNameForTheme(
+										: getStandardBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  ))
 								}
@@ -208,7 +208,7 @@ export default function NavbarBreadcrumb(props) {
 											? getBrighterBreadcrumbArrowColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
-											: getBaseBreadcrumbArrowColorClassNameForTheme(
+											: getStandardBreadcrumbArrowColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  ))
 									}
@@ -231,7 +231,7 @@ export default function NavbarBreadcrumb(props) {
 									? getBrighterBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  )
-									: getBaseBackgroundColorClassNameForTheme(
+									: getStandardBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
@@ -255,7 +255,7 @@ export default function NavbarBreadcrumb(props) {
 								// ...have its different color extend past arrow
 								className={
 									"breadcrumb-button__end-container" +
-									getBaseBackgroundColorClassNameForTheme(
+									getStandardBackgroundColorClassNameForTheme(
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									)
 								}
@@ -269,7 +269,7 @@ export default function NavbarBreadcrumb(props) {
 											? getBrighterBreadcrumbArrowColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
-											: getBaseBreadcrumbArrowColorClassNameForTheme(
+											: getStandardBreadcrumbArrowColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  ))
 									}
@@ -297,7 +297,7 @@ export default function NavbarBreadcrumb(props) {
 									? getBrighterBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  )
-									: getBaseBackgroundColorClassNameForTheme(
+									: getStandardBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
@@ -318,7 +318,7 @@ export default function NavbarBreadcrumb(props) {
 								// ...have its different color extend past arrow
 								className={
 									"breadcrumb-button__end-container" +
-									getBaseBackgroundColorClassNameForTheme(
+									getStandardBackgroundColorClassNameForTheme(
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									)
 								}
@@ -332,7 +332,7 @@ export default function NavbarBreadcrumb(props) {
 												? getBrighterBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )
-												: getBaseBackgroundColorClassNameForTheme(
+												: getStandardBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  ))
 										}
@@ -348,7 +348,7 @@ export default function NavbarBreadcrumb(props) {
 													? getBrighterBreadcrumbArrowColorClassNameForTheme(
 															reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													  )
-													: getBaseBreadcrumbArrowColorClassNameForTheme(
+													: getStandardBreadcrumbArrowColorClassNameForTheme(
 															reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													  ))
 											}
@@ -370,7 +370,7 @@ export default function NavbarBreadcrumb(props) {
 										? getBrighterBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  )
-										: getBaseBackgroundColorClassNameForTheme(
+										: getStandardBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  ))
 								}
@@ -390,7 +390,7 @@ export default function NavbarBreadcrumb(props) {
 									// ...have its different color extend past arrow
 									className={
 										"breadcrumb-button__end-container" +
-										getBaseBackgroundColorClassNameForTheme(
+										getStandardBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										)
 									}
@@ -402,7 +402,7 @@ export default function NavbarBreadcrumb(props) {
 												? getBrighterBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )
-												: getBaseBackgroundColorClassNameForTheme(
+												: getStandardBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  ))
 										}

@@ -9,7 +9,7 @@ import {
 } from "../../../actions";
 import {
 	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
-	getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
@@ -88,7 +88,7 @@ export default function AccountSidebar() {
 					<i
 						className={
 							"fa fa-cog" +
-							getBaseIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+							getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

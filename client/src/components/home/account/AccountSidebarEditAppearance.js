@@ -7,7 +7,7 @@ import {
 } from "../../../actions/constants/containerNames";
 import { updateAccountSettings } from "../../../actions";
 import {
-	getBaseBackgroundColorClassNameForTheme,
+	getStandardBackgroundColorClassNameForTheme,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 // Other components used by this component
@@ -81,7 +81,7 @@ export default function AccountSidebarEditAppearance() {
 			<div
 				className={
 					"content-container__theme-option" +
-					getBaseBackgroundColorClassNameForTheme(theme.color)
+					getStandardBackgroundColorClassNameForTheme(theme.color)
 				}
 				alt={"Button to change the site's color theme to " + theme.color}
 				onClick={(e) => onClickUpdateTheme(e, theme_id)}

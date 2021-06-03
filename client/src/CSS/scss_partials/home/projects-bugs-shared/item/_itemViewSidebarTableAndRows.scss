@@ -50,7 +50,7 @@
 		height: 90vh;
 		// Width must be set here again to not go beyond
 		width: v.$item-view-list-sidebar-width;
-		font-size: v.$base-font-size;
+		font-size: v.$common-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -85,7 +85,7 @@
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: v.$mode-list-header-box-shadow-light;
-		background-color: v.$mode-base-background-color-light;
+		background-color: v.$mode-common-background-color-light;
 		width: v.$item-view-list-sidebar-width;
 	}
 
