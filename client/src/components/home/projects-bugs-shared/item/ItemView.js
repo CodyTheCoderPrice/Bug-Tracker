@@ -20,6 +20,7 @@ import {
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	getWindowSize,
+	getItemViewContentContainerBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
@@ -225,7 +226,10 @@ export default function ItemView(props) {
 					"item-content-container js-item-content-container" +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
 						? " item-content-container--shifted-right"
-						: "")
+						: "") +
+					getItemViewContentContainerBackgroundColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
 				}
 			>
 				<div className="padding-container">

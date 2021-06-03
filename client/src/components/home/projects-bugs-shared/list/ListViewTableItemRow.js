@@ -15,9 +15,9 @@ import {
 } from "../../../../actions";
 
 import {
-	getListRowBorderAndTextColorClassNameForLightOrDarkMode,
-	getListRowHoverBackgroundColorClassNameForLightOrDarkMode,
-	getListRowSelectedBackgroundColorClassNameForLightOrDarkMode,
+	getListViewTableItemRowBorderAndTextColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarItemRowSelectedBackgroundColorClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	getAlternativeIfValueIsEmpty,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
@@ -28,7 +28,7 @@ import {
 // Components
 import CustomCheckbox from "../../../basic/CustomCheckbox";
 
-export default function ListViewTableRow(props) {
+export default function ListViewTableItemRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -82,11 +82,11 @@ export default function ListViewTableRow(props) {
 
 	const getTableDataClassName = () => {
 		return (
-			"list-table__data list-table__data--overflow" +
+			"list-table__row__data list-table__row__data--overflow" +
 			(props.item.status_id ===
 			reduxState[props.reduxContainerName].priorityStatusOptions
 				.statusCompletionId
-				? " list-table__data--completed-color"
+				? " list-table__row__data--completed-color"
 				: "")
 		);
 	};
@@ -111,23 +111,23 @@ export default function ListViewTableRow(props) {
 					<td
 						key={key}
 						className={
-							"list-table__data list-table__data--name-overflow" +
+							"list-table__row__data list-table__row__data--name-overflow" +
 							(props.item.status_id ===
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId
-								? " list-table__data--completed-color"
+								? " list-table__row__data--completed-color"
 								: getTextColorClassNameForThemeWithLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								  ))
 						}
 					>
-						<span className="list-table__data__info">
+						<span className="list-table__row__data__info">
 							{props.item.status_id !==
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId ? null : (
 								<i
-									className="fa fa-check list-table__data__info__completed-icon"
+									className="fa fa-check list-table__row__data__info__completed-icon"
 									aria-hidden="true"
 								/>
 							)}
@@ -137,15 +137,15 @@ export default function ListViewTableRow(props) {
 				);
 			case 2:
 				return (
-					<td key={key} className="list-table__data">
-						<div className="list-table__data__centering-container">
+					<td key={key} className="list-table__row__data">
+						<div className="list-table__row__data__centering-container">
 							<div
 								className={
-									"list-table__data__centering-container__status-box" +
+									"list-table__row__data__centering-container__status-box" +
 									getStatusBoxColorClassName()
 								}
 							>
-								<span className="list-table__data__centering-container__status-box__centered-info">
+								<span className="list-table__row__data__centering-container__status-box__centered-info">
 									{props.item.status_option}
 								</span>
 							</div>
@@ -155,7 +155,7 @@ export default function ListViewTableRow(props) {
 			case 3:
 				return (
 					<td key={key} className={getTableDataClassName()}>
-						<span className={"list-table__data__info"}>
+						<span className={"list-table__row__data__info"}>
 							{props.item.priority_option}
 						</span>
 					</td>
@@ -163,7 +163,7 @@ export default function ListViewTableRow(props) {
 			case 4:
 				return (
 					<td key={key} className={getTableDataClassName()}>
-						<span className="list-table__data__info">
+						<span className="list-table__row__data__info">
 							{getAlternativeIfValueIsEmpty(
 								formatDateMMddYYYY(props.item.creation_date),
 								"-"
@@ -174,7 +174,7 @@ export default function ListViewTableRow(props) {
 			case 5:
 				return (
 					<td key={key} className={getTableDataClassName()}>
-						<span className="list-table__data__info">
+						<span className="list-table__row__data__info">
 							{getAlternativeIfValueIsEmpty(
 								formatDateMMddYYYY(props.item.start_date),
 								"-"
@@ -185,7 +185,7 @@ export default function ListViewTableRow(props) {
 			case 6:
 				return (
 					<td key={key} className={getTableDataClassName()}>
-						<span className="list-table__data__info">
+						<span className="list-table__row__data__info">
 							{getAlternativeIfValueIsEmpty(
 								formatDateMMddYYYY(props.item.due_date),
 								"-"
@@ -201,29 +201,30 @@ export default function ListViewTableRow(props) {
 	return (
 		<tr
 			className={
-				"list-table__row list-table__row--non-header" +
-				getListRowBorderAndTextColorClassNameForLightOrDarkMode(
+				"list-table__row list-table__row--item-row" +
+				getListViewTableItemRowBorderAndTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				) +
-				(reduxState[props.reduxContainerName]?.componentsDisplay
+				// Hover is else case since rows should only have hover if not selected
+				(reduxState[props.reduxContainerName].componentsDisplay
 					.itemViewCurrentItem !== null &&
-				reduxState[props.reduxContainerName]?.componentsDisplay
+				reduxState[props.reduxContainerName].componentsDisplay
 					.itemViewCurrentItem.id === props.item.id
-					? getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+					? getItemViewListSidebarItemRowSelectedBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  )
-					: getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
+					: getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  ))
 			}
 			onClick={openItemView}
 		>
 			<td
-				className="list-table__data"
+				className="list-table__row__data"
 				onClick={dontPropogateParentOnclick}
 				onDoubleClick={dontPropogateParentOnclick}
 			>
-				<div className="list-table__data__custom-checkbox-centered-container ">
+				<div className="list-table__row__data__custom-checkbox-centered-container ">
 					<CustomCheckbox
 						name="item"
 						value={props.item.id}
@@ -243,7 +244,7 @@ export default function ListViewTableRow(props) {
 				}
 			)}
 			<td className={getTableDataClassName()}>
-				<span className="list-table__data__info">
+				<span className="list-table__row__data__info">
 					{props.reduxContainerName === PROJECT_CONTAINER
 						? getNumberOfBugsForStatus(
 								reduxState,
@@ -259,7 +260,7 @@ export default function ListViewTableRow(props) {
 				</span>
 			</td>
 			{/*Used to fill the remaining space of the screen (if needed)*/}
-			<td className={"list-table__data"}></td>
+			<td className={"list-table__row__data"}></td>
 		</tr>
 	);
 }

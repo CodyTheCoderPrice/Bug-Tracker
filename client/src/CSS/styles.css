@@ -217,6 +217,7 @@
   top: 0;
   left: 0;
   background-color: white;
+  color: black;
   height: 100%;
   width: 100%;
 }
@@ -1241,29 +1242,29 @@ dropdown can overlap all other components
   color: #272727;
   text-align: center;
 }
-.item-view-bug-list-component .bug-list-table__data {
+.item-view-bug-list-component .bug-list-table__row__data {
   position: relative;
   width: 50%;
 }
-.item-view-bug-list-component .bug-list-table__data--overflow {
+.item-view-bug-list-component .bug-list-table__row__data--overflow {
   max-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.item-view-bug-list-component .bug-list-table__data--completed-color {
+.item-view-bug-list-component .bug-list-table__row__data--completed-color {
   color: #008600;
 }
-.item-view-bug-list-component .bug-list-table__data__info__completed-icon {
+.item-view-bug-list-component .bug-list-table__row__data__info__completed-icon {
   margin-right: 5px;
   color: #008600;
 }
-.item-view-bug-list-component .bug-list-table__data__centering-container {
+.item-view-bug-list-component .bug-list-table__row__data__centering-container {
   position: relative;
   height: 100%;
   width: 100%;
 }
-.item-view-bug-list-component .bug-list-table__data__centering-container__status-box {
+.item-view-bug-list-component .bug-list-table__row__data__centering-container__status-box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1274,7 +1275,7 @@ dropdown can overlap all other components
   height: 27px;
   width: 150px;
 }
-.item-view-bug-list-component .bug-list-table__data__centering-container__status-box__centered-info {
+.item-view-bug-list-component .bug-list-table__row__data__centering-container__status-box__centered-info {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1774,16 +1775,21 @@ dropdown can overlap all other components
 .item-view-list-sidebar-component .list-sidebar__table__row,
 .js-get-list-sidebar-component .list-sidebar__table__row {
   border-bottom: 1px solid #919191;
+  background-color: white;
   padding: 0px 5px;
   height: 50px;
   text-align: center;
+}
+.item-view-list-sidebar-component .list-sidebar__table__row--item-row,
+.js-get-list-sidebar-component .list-sidebar__table__row--item-row {
+  color: #272727;
 }
 .item-view-list-sidebar-component .list-sidebar__table__row--empty,
 .js-get-list-sidebar-component .list-sidebar__table__row--empty {
   height: 75px;
 }
-.item-view-list-sidebar-component .list-sidebar__table__header,
-.js-get-list-sidebar-component .list-sidebar__table__header {
+.item-view-list-sidebar-component .list-sidebar__table__row__header,
+.js-get-list-sidebar-component .list-sidebar__table__row__header {
   z-index: 1;
   position: -webkit-sticky;
   position: sticky;
@@ -1792,13 +1798,13 @@ dropdown can overlap all other components
   background-color: white;
   width: 275px;
 }
-.item-view-list-sidebar-component .list-sidebar__table__data,
-.js-get-list-sidebar-component .list-sidebar__table__data {
+.item-view-list-sidebar-component .list-sidebar__table__row__data,
+.js-get-list-sidebar-component .list-sidebar__table__row__data {
   position: relative;
   cursor: default;
 }
-.item-view-list-sidebar-component .list-sidebar__table__data__overflow-container,
-.js-get-list-sidebar-component .list-sidebar__table__data__overflow-container {
+.item-view-list-sidebar-component .list-sidebar__table__row__data__overflow-container,
+.js-get-list-sidebar-component .list-sidebar__table__row__data__overflow-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1809,12 +1815,12 @@ dropdown can overlap all other components
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.item-view-list-sidebar-component .list-sidebar__table__data__overflow-container--completed-color,
-.js-get-list-sidebar-component .list-sidebar__table__data__overflow-container--completed-color {
+.item-view-list-sidebar-component .list-sidebar__table__row__data__overflow-container--completed-color,
+.js-get-list-sidebar-component .list-sidebar__table__row__data__overflow-container--completed-color {
   color: #008600;
 }
-.item-view-list-sidebar-component .list-sidebar__table__data__overflow-container__info__completed-icon,
-.js-get-list-sidebar-component .list-sidebar__table__data__overflow-container__info__completed-icon {
+.item-view-list-sidebar-component .list-sidebar__table__row__data__overflow-container__info__completed-icon,
+.js-get-list-sidebar-component .list-sidebar__table__row__data__overflow-container__info__completed-icon {
   margin-right: 5px;
   color: #008600;
 }
@@ -2611,20 +2617,21 @@ dropdown can overlap all other components
   /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
   border-bottom: 1px solid #919191;
+  background-color: white;
   padding: 0px 5px;
   height: 50px;
   text-align: center;
 }
-.list-table-component .list-table__row--non-header,
-.js-get-list-table-component .list-table__row--non-header {
+.list-table-component .list-table__row--item-row,
+.js-get-list-table-component .list-table__row--item-row {
   color: #272727;
 }
 .list-table-component .list-table__row--empty,
 .js-get-list-table-component .list-table__row--empty {
   height: 75px;
 }
-.list-table-component .list-table__header,
-.js-get-list-table-component .list-table__header {
+.list-table-component .list-table__row__header,
+.js-get-list-table-component .list-table__row__header {
   z-index: 1;
   position: -webkit-sticky;
   position: sticky;
@@ -2633,63 +2640,63 @@ dropdown can overlap all other components
   background-color: white;
   width: 300px;
 }
-.list-table-component .list-table__header--for-mass-delete,
-.js-get-list-table-component .list-table__header--for-mass-delete {
+.list-table-component .list-table__row__header--for-mass-delete,
+.js-get-list-table-component .list-table__row__header--for-mass-delete {
   width: 80px;
   min-width: 80px;
 }
-.list-table-component .list-table__header__mass-delete-options-container,
-.js-get-list-table-component .list-table__header__mass-delete-options-container {
+.list-table-component .list-table__row__header__mass-delete-options-container,
+.js-get-list-table-component .list-table__row__header__mass-delete-options-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
-.list-table-component .list-table__header__mass-delete-options-container__button,
-.js-get-list-table-component .list-table__header__mass-delete-options-container__button {
+.list-table-component .list-table__row__header__mass-delete-options-container__button,
+.js-get-list-table-component .list-table__row__header__mass-delete-options-container__button {
   display: inline-block;
   margin: 4px;
   padding: 2px;
   text-align: center;
   cursor: pointer;
 }
-.list-table-component .list-table__header__mass-delete-options-container__button--disabled,
-.js-get-list-table-component .list-table__header__mass-delete-options-container__button--disabled {
+.list-table-component .list-table__row__header__mass-delete-options-container__button--disabled,
+.js-get-list-table-component .list-table__row__header__mass-delete-options-container__button--disabled {
   opacity: 0.2;
   cursor: default;
   pointer-events: none;
 }
-.list-table-component .list-table__header__sort-arrow-container,
-.js-get-list-table-component .list-table__header__sort-arrow-container {
+.list-table-component .list-table__row__header__sort-arrow-container,
+.js-get-list-table-component .list-table__row__header__sort-arrow-container {
   display: inline-block;
   margin-left: 5px;
 }
-.list-table-component .list-table__data,
-.js-get-list-table-component .list-table__data {
+.list-table-component .list-table__row__data,
+.js-get-list-table-component .list-table__row__data {
   position: relative;
   padding: 0px 7px 0px 7px;
   cursor: default;
 }
-.list-table-component .list-table__data--name-overflow,
-.js-get-list-table-component .list-table__data--name-overflow {
+.list-table-component .list-table__row__data--name-overflow,
+.js-get-list-table-component .list-table__row__data--name-overflow {
   max-width: 250px;
   color: #2388a1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.list-table-component .list-table__data--completed-color,
-.js-get-list-table-component .list-table__data--completed-color {
+.list-table-component .list-table__row__data--completed-color,
+.js-get-list-table-component .list-table__row__data--completed-color {
   color: #008600;
 }
-.list-table-component .list-table__data__info__completed-icon,
-.js-get-list-table-component .list-table__data__info__completed-icon {
+.list-table-component .list-table__row__data__info__completed-icon,
+.js-get-list-table-component .list-table__row__data__info__completed-icon {
   margin-right: 5px;
   color: #008600;
 }
-.list-table-component .list-table__data__custom-checkbox-centered-container,
-.js-get-list-table-component .list-table__data__custom-checkbox-centered-container {
+.list-table-component .list-table__row__data__custom-checkbox-centered-container,
+.js-get-list-table-component .list-table__row__data__custom-checkbox-centered-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2697,14 +2704,14 @@ dropdown can overlap all other components
   height: 13px;
   width: 13px;
 }
-.list-table-component .list-table__data__centering-container,
-.js-get-list-table-component .list-table__data__centering-container {
+.list-table-component .list-table__row__data__centering-container,
+.js-get-list-table-component .list-table__row__data__centering-container {
   position: relative;
   height: 100%;
   width: 100%;
 }
-.list-table-component .list-table__data__centering-container__status-box,
-.js-get-list-table-component .list-table__data__centering-container__status-box {
+.list-table-component .list-table__row__data__centering-container__status-box,
+.js-get-list-table-component .list-table__row__data__centering-container__status-box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2714,8 +2721,8 @@ dropdown can overlap all other components
   height: 27px;
   width: 110px;
 }
-.list-table-component .list-table__data__centering-container__status-box__centered-info,
-.js-get-list-table-component .list-table__data__centering-container__status-box__centered-info {
+.list-table-component .list-table__row__data__centering-container__status-box__centered-info,
+.js-get-list-table-component .list-table__row__data__centering-container__status-box__centered-info {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2778,22 +2785,20 @@ body {
   color: #7c7c7c;
   opacity: 0.7;
 }
-.app-component .js-set-common-background-and-text-color-dark-mode-false,
-.js-get-app-component .js-set-common-background-and-text-color-dark-mode-false {
-  background-color: white;
+.app-component .js-set-common-strong-text-color-dark-mode-false,
+.js-get-app-component .js-set-common-strong-text-color-dark-mode-false {
   color: black;
 }
-.app-component .js-set-common-background-and-text-color-dark-mode-true,
-.js-get-app-component .js-set-common-background-and-text-color-dark-mode-true {
-  background-color: #2e2e2e;
+.app-component .js-set-common-strong-text-color-dark-mode-true,
+.js-get-app-component .js-set-common-strong-text-color-dark-mode-true {
   color: #c7d1db;
 }
-.app-component .js-set-common-secondary-text-color-dark-mode-false,
-.js-get-app-component .js-set-common-secondary-text-color-dark-mode-false {
+.app-component .js-set-common-weak-text-color-dark-mode-false,
+.js-get-app-component .js-set-common-weak-text-color-dark-mode-false {
   color: #272727;
 }
-.app-component .js-set-common-secondary-text-color-dark-mode-true,
-.js-get-app-component .js-set-common-secondary-text-color-dark-mode-true {
+.app-component .js-set-common-weak-text-color-dark-mode-true,
+.js-get-app-component .js-set-common-weak-text-color-dark-mode-true {
   color: #c1cad4;
 }
 .app-component .js-set-backend-errors-text-color-dark-mode-false,
@@ -2870,41 +2875,15 @@ body {
   background-color: #484848;
   color: #c7d1db;
 }
-.app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-false,
-.js-get-app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-false {
-  box-shadow: 0 1px 0 #919191;
+.app-component .js-set-home-background-and-text-color-dark-mode-false,
+.js-get-app-component .js-set-home-background-and-text-color-dark-mode-false {
   background-color: white;
+  color: black;
 }
-.app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-true,
-.js-get-app-component .js-set-list-header-box-shadow-and-background-color-dark-mode-true {
-  box-shadow: 0 1px 0 #6d6d6d;
+.app-component .js-set-home-background-and-text-color-dark-mode-true,
+.js-get-app-component .js-set-home-background-and-text-color-dark-mode-true {
   background-color: #2e2e2e;
-}
-.app-component .js-set-list-row-border-and-text-color-dark-mode-false,
-.js-get-app-component .js-set-list-row-border-and-text-color-dark-mode-false {
-  border-color: #919191;
-  color: #272727;
-}
-.app-component .js-set-list-row-border-and-text-color-dark-mode-true,
-.js-get-app-component .js-set-list-row-border-and-text-color-dark-mode-true {
-  border-color: #6d6d6d;
-  color: #c1cad4;
-}
-.app-component .js-set-list-row-hover-background-color-dark-mode-false:hover,
-.js-get-app-component .js-set-list-row-hover-background-color-dark-mode-false:hover {
-  background-color: #f8f8f8;
-}
-.app-component .js-set-list-row-hover-background-color-dark-mode-true:hover,
-.js-get-app-component .js-set-list-row-hover-background-color-dark-mode-true:hover {
-  background-color: #363636;
-}
-.app-component .js-set-list-row-selected-background-color-dark-mode-false,
-.js-get-app-component .js-set-list-row-selected-background-color-dark-mode-false {
-  background-color: #e1e1e1;
-}
-.app-component .js-set-list-row-selected-background-color-dark-mode-true,
-.js-get-app-component .js-set-list-row-selected-background-color-dark-mode-true {
-  background-color: #444444;
+  color: #c7d1db;
 }
 .app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false,
 .js-get-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
@@ -3120,6 +3099,44 @@ body {
   color: #6d6d6d;
   pointer-events: none;
 }
+.app-component .js-set-list-view-table-row-header-box-shadow-and-background-color-dark-mode-false,
+.js-get-app-component .js-set-list-view-table-row-header-box-shadow-and-background-color-dark-mode-false {
+  box-shadow: 0 1px 0 #919191;
+  background-color: white;
+}
+.app-component .js-set-list-view-table-row-header-box-shadow-and-background-color-dark-mode-true,
+.js-get-app-component .js-set-list-view-table-row-header-box-shadow-and-background-color-dark-mode-true {
+  box-shadow: 0 1px 0 #6d6d6d;
+  background-color: #2e2e2e;
+}
+.app-component .js-set-list-view-table-item-row-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-set-list-view-table-item-row-border-background-text-color-dark-mode-false {
+  border-color: #919191;
+  background-color: white;
+  color: #272727;
+}
+.app-component .js-set-list-view-table-item-row-border-background-text-color-dark-mode-true,
+.js-get-app-component .js-set-list-view-table-item-row-border-background-text-color-dark-mode-true {
+  border-color: #6d6d6d;
+  background-color: #2e2e2e;
+  color: #c1cad4;
+}
+.app-component .js-set-list-view-table-item-row-hover-background-color-dark-mode-false:hover,
+.js-get-app-component .js-set-list-view-table-item-row-hover-background-color-dark-mode-false:hover {
+  background-color: #f8f8f8;
+}
+.app-component .js-set-list-view-table-item-row-hover-background-color-dark-mode-true:hover,
+.js-get-app-component .js-set-list-view-table-item-row-hover-background-color-dark-mode-true:hover {
+  background-color: #363636;
+}
+.app-component .js-set-list-view-table-item-row-selected-background-color-dark-mode-false,
+.js-get-app-component .js-set-list-view-table-item-row-selected-background-color-dark-mode-false {
+  background-color: #e1e1e1;
+}
+.app-component .js-set-list-view-table-item-row-selected-background-color-dark-mode-true,
+.js-get-app-component .js-set-list-view-table-item-row-selected-background-color-dark-mode-true {
+  background-color: #444444;
+}
 .app-component .js-set-delete-modal-background-color-dark-mode-false,
 .js-get-app-component .js-set-delete-modal-background-color-dark-mode-false {
   background-color: white;
@@ -3224,14 +3241,6 @@ body {
 .js-get-app-component .js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true:active {
   background-color: #444444;
 }
-.app-component .js-set-item-view-item-box-background-color-dark-mode-false,
-.js-get-app-component .js-set-item-view-item-box-background-color-dark-mode-false {
-  background-color: #e5e5e5;
-}
-.app-component .js-set-item-view-item-box-background-color-dark-mode-true,
-.js-get-app-component .js-set-item-view-item-box-background-color-dark-mode-true {
-  background-color: #232323;
-}
 .app-component .js-set-item-view-list-sidebar-border-color-mode-false,
 .js-get-app-component .js-set-item-view-list-sidebar-border-color-mode-false {
   border-color: black;
@@ -3258,6 +3267,60 @@ body {
 .app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true:hover, .app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true:active,
 .js-get-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true:hover,
 .js-get-app-component .js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true:active {
+  background-color: #232323;
+}
+.app-component .js-set-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-false,
+.js-get-app-component .js-set-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-false {
+  box-shadow: 0 1px 0 #919191;
+  background-color: white;
+}
+.app-component .js-set-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-true,
+.js-get-app-component .js-set-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-true {
+  box-shadow: 0 1px 0 #6d6d6d;
+  background-color: #2e2e2e;
+}
+.app-component .js-set-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-set-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-false {
+  border-color: #919191;
+  background-color: white;
+  color: #272727;
+}
+.app-component .js-set-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-true,
+.js-get-app-component .js-set-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-true {
+  border-color: #6d6d6d;
+  background-color: #2e2e2e;
+  color: #c1cad4;
+}
+.app-component .js-set-item-view-list-sidebar-item-row-hover-background-color-dark-mode-false:hover,
+.js-get-app-component .js-set-item-view-list-sidebar-item-row-hover-background-color-dark-mode-false:hover {
+  background-color: #f8f8f8;
+}
+.app-component .js-set-item-view-list-sidebar-item-row-hover-background-color-dark-mode-true:hover,
+.js-get-app-component .js-set-item-view-list-sidebar-item-row-hover-background-color-dark-mode-true:hover {
+  background-color: #363636;
+}
+.app-component .js-set-item-view-list-sidebar-item-row-selected-background-color-dark-mode-false,
+.js-get-app-component .js-set-item-view-list-sidebar-item-row-selected-background-color-dark-mode-false {
+  background-color: #e1e1e1;
+}
+.app-component .js-set-item-view-list-sidebar-item-row-selected-background-color-dark-mode-true,
+.js-get-app-component .js-set-item-view-list-sidebar-item-row-selected-background-color-dark-mode-true {
+  background-color: #444444;
+}
+.app-component .js-set-item-view-content-container-background-color-dark-mode-false,
+.js-get-app-component .js-set-item-view-content-container-background-color-dark-mode-false {
+  background-color: white;
+}
+.app-component .js-set-item-view-content-container-background-color-dark-mode-true,
+.js-get-app-component .js-set-item-view-content-container-background-color-dark-mode-true {
+  background-color: #2e2e2e;
+}
+.app-component .js-set-item-view-item-box-background-color-dark-mode-false,
+.js-get-app-component .js-set-item-view-item-box-background-color-dark-mode-false {
+  background-color: #e5e5e5;
+}
+.app-component .js-set-item-view-item-box-background-color-dark-mode-true,
+.js-get-app-component .js-set-item-view-item-box-background-color-dark-mode-true {
   background-color: #232323;
 }
 .app-component .js-set-item-view-form-input-border-background-text-color-mode-false,

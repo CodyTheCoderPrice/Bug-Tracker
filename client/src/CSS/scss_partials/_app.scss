@@ -5,14 +5,12 @@ html,
 body {
 	width: 100%;
 	overflow: hidden;
-
-	
 }
 
 .app-component,
 .js-get-app-component {
 	width: 100%;
-	color: v.$mode-common-primary-text-color-light;
+	color: v.$mode-common-strong-text-color-light;
 
 	// Used to to gray-out the word "none" for empty item fields
 	.universal-text-grayed-out {
@@ -25,22 +23,20 @@ body {
 	//=================
 	// Light/Dark mode
 	//=================
-	// Light/Dark mode -- Common (i.e. typically used) primary -- background and text colors
-	.js-set-common-background-and-text-color-dark-mode-false {
-		background-color: v.$mode-common-background-color-light;
-		color: v.$mode-common-primary-text-color-light;
+	// Light/Dark mode -- Common (i.e. typically used) -- strong (i.e. more distinct) text color
+	.js-set-common-strong-text-color-dark-mode-false {
+		color: v.$mode-common-strong-text-color-light;
 	}
-	.js-set-common-background-and-text-color-dark-mode-true {
-		background-color: v.$mode-common-background-color-dark;
-		color: v.$mode-common-primary-text-color-dark;
+	.js-set-common-strong-text-color-dark-mode-true {
+		color: v.$mode-common-strong-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. typically used) secondary -- text color
-	.js-set-common-secondary-text-color-dark-mode-false {
-		color: v.$mode-common-secondary-text-color-light;
+	// Light/Dark mode -- Common (i.e. typically used) -- weak (i.e. less distinct) text color
+	.js-set-common-weak-text-color-dark-mode-false {
+		color: v.$mode-common-weak-text-color-light;
 	}
-	.js-set-common-secondary-text-color-dark-mode-true {
-		color: v.$mode-common-secondary-text-color-dark;
+	.js-set-common-weak-text-color-dark-mode-true {
+		color: v.$mode-common-weak-text-color-dark;
 	}
 
 	// Light/Dark mode -- backend-errors -- text color
@@ -109,62 +105,30 @@ body {
 	.js-set-common-form-input-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-form-input-border-color-light;
 		background-color: v.$mode-common-form-input-background-color-light;
-		color: v.$mode-common-primary-text-color-light;
+		color: v.$mode-common-strong-text-color-light;
 	}
 	.js-set-common-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-common-form-input-border-color-dark;
 		background-color: v.$mode-common-form-input-background-color-dark;
-		color: v.$mode-common-primary-text-color-dark;
+		color: v.$mode-common-strong-text-color-dark;
 	}
 
-	// Light/Dark mode -- list headers -- box shadow, background, and text color
-	.js-set-list-header-box-shadow-and-background-color-dark-mode-false {
-		box-shadow: v.$mode-list-header-box-shadow-light;
-		background-color: v.$mode-list-header-background-color-light;
+	// Light/Dark mode -- Home 'home-container' -- background and text colors
+	.js-set-home-background-and-text-color-dark-mode-false {
+		background-color: v.$mode-home-background-color-light;
+		color: v.$mode-home-text-color-light;
 	}
-	.js-set-list-header-box-shadow-and-background-color-dark-mode-true {
-		box-shadow: v.$mode-list-header-box-shadow-dark;
-		background-color: v.$mode-list-header-background-color-dark;
-	}
-
-	// Light/Dark mode -- list rows -- border and text color
-	.js-set-list-row-border-and-text-color-dark-mode-false {
-		border-color: v.$mode-list-row-border-color-light;
-		color: v.$mode-common-secondary-text-color-light;
-	}
-	.js-set-list-row-border-and-text-color-dark-mode-true {
-		border-color: v.$mode-list-row-border-color-dark;
-		color: v.$mode-common-secondary-text-color-dark;
-	}
-
-	// Light/Dark mode -- list rows -- hover background color
-	.js-set-list-row-hover-background-color-dark-mode-false {
-		// Only hover since active causes td to cover border
-		&:hover {
-			background-color: v.$mode-list-row-hover-background-color-light;
-		}
-	}
-	.js-set-list-row-hover-background-color-dark-mode-true {
-		// Only hover since active causes td to cover border
-		&:hover {
-			background-color: v.$mode-list-row-hover-background-color-dark;
-		}
-	}
-
-	// Light/Dark mode -- list rows -- selected background color
-	.js-set-list-row-selected-background-color-dark-mode-false {
-		background-color: v.$mode-list-row-selected-background-color-light;
-	}
-	.js-set-list-row-selected-background-color-dark-mode-true {
-		background-color: v.$mode-list-row-selected-background-color-dark;
+	.js-set-home-background-and-text-color-dark-mode-true {
+		background-color: v.$mode-home-background-color-dark;
+		color: v.$mode-home-text-color-dark;
 	}
 
 	// Light/Dark mode -- NavbarHamburger dropdown -- border, background (with hover and selected), and text color
 	@mixin mode-hamburger-dropdown($is-light) {
 		@if $is-light {
-			background-color: v.$mode-account-sidebar-modal-background-color-light;
+			background-color: v.$mode-navbar-hamburger-dropdown-background-color-light;
 		} @else {
-			background-color: v.$mode-account-sidebar-modal-background-color-dark;
+			background-color: v.$mode-navbar-hamburger-dropdown-background-color-dark;
 		}
 
 		& > .hamburger-dropdown__option {
@@ -315,7 +279,7 @@ body {
 		}
 
 		& > .category-container__content-container {
-			color: v.$mode-common-secondary-text-color-light;
+			color: v.$mode-common-weak-text-color-light;
 		}
 	}
 	.js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true {
@@ -326,7 +290,7 @@ body {
 		}
 
 		& > .category-container__content-container {
-			color: v.$mode-common-secondary-text-color-dark;
+			color: v.$mode-common-weak-text-color-dark;
 		}
 	}
 
@@ -380,6 +344,50 @@ body {
 		background-color: v.$mode-create-item-sidebar-form-disabled-background-color-dark;
 		color: v.$mode-create-item-sidebar-form-disabled-text-color-dark;
 		pointer-events: none;
+	}
+
+	// Light/Dark mode -- ListViewTable 'list-table__row__header' -- box shadow and background color
+	.js-set-list-view-table-row-header-box-shadow-and-background-color-dark-mode-false {
+		box-shadow: v.$mode-list-view-table-row-header-box-shadow-light;
+		background-color: v.$mode-list-view-table-row-header-background-color-light;
+	}
+	.js-set-list-view-table-row-header-box-shadow-and-background-color-dark-mode-true {
+		box-shadow: v.$mode-list-view-table-row-header-box-shadow-dark;
+		background-color: v.$mode-list-view-table-row-header-background-color-dark;
+	}
+
+	// Light/Dark mode -- ListViewTableItemRow 'list-table__row' -- border, background, and text colors
+	.js-set-list-view-table-item-row-border-background-text-color-dark-mode-false {
+		border-color: v.$mode-list-view-table-row-border-color-light;
+		background-color: v.$mode-list-view-table-row-background-color-light;
+		color: v.$mode-common-weak-text-color-light;
+	}
+	.js-set-list-view-table-item-row-border-background-text-color-dark-mode-true {
+		border-color: v.$mode-list-view-table-row-border-color-dark;
+		background-color: v.$mode-list-view-table-row-background-color-dark;
+		color: v.$mode-common-weak-text-color-dark;
+	}
+
+	// Light/Dark mode -- ListViewTableItemRow 'list-table__row' -- hover background color
+	.js-set-list-view-table-item-row-hover-background-color-dark-mode-false {
+		// Only hover since active causes td to cover border
+		&:hover {
+			background-color: v.$mode-list-view-table-row-hover-background-color-light;
+		}
+	}
+	.js-set-list-view-table-item-row-hover-background-color-dark-mode-true {
+		// Only hover since active causes td to cover border
+		&:hover {
+			background-color: v.$mode-list-view-table-row-hover-background-color-dark;
+		}
+	}
+
+	// Light/Dark mode -- ListViewTableItemRow 'list-table__row' -- selected background color
+	.js-set-list-view-table-item-row-selected-background-color-dark-mode-false {
+		background-color: v.$mode-list-view-table-row-selected-background-color-light;
+	}
+	.js-set-list-view-table-item-row-selected-background-color-dark-mode-true {
+		background-color: v.$mode-list-view-table-row-selected-background-color-dark;
 	}
 
 	// Light/Dark mode -- DeleteModal -- background color
@@ -492,14 +500,6 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ItemView item-box -- background color
-	.js-set-item-view-item-box-background-color-dark-mode-false {
-		background-color: v.$mode-item-view-item-box-background-color-light;
-	}
-	.js-set-item-view-item-box-background-color-dark-mode-true {
-		background-color: v.$mode-item-view-item-box-background-color-dark;
-	}
-
 	// Light/Dark mode -- ItemViewListSidebar -- border color
 	.js-set-item-view-list-sidebar-border-color-mode-false {
 		border-color: v.$mode-item-view-list-sidebar-border-color-light;
@@ -528,16 +528,76 @@ body {
 		}
 	}
 
+	// Light/Dark mode -- ItemViewListSidebar 'list-sidebar__table__row__header' -- box shadow and background color
+	.js-set-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-false {
+		box-shadow: v.$mode-item-view-list-sidebar-table-row-header-box-shadow-light;
+		background-color: v.$mode-item-view-list-sidebar-table-row-header-background-color-light;
+	}
+	.js-set-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-true {
+		box-shadow: v.$mode-item-view-list-sidebar-table-row-header-box-shadow-dark;
+		background-color: v.$mode-item-view-list-sidebar-table-row-header-background-color-dark;
+	}
+
+	// Light/Dark mode -- ItemViewListSidebarItemRow 'list-sidebar__table__row' -- border, background, and text colors
+	.js-set-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-false {
+		border-color: v.$mode-item-view-list-sidebar-table-row-border-color-light;
+		background-color: v.$mode-item-view-list-sidebar-table-row-background-color-light;
+		color: v.$mode-common-weak-text-color-light;
+	}
+	.js-set-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-true {
+		border-color: v.$mode-item-view-list-sidebar-table-row-border-color-dark;
+		background-color: v.$mode-item-view-list-sidebar-table-row-background-color-dark;
+		color: v.$mode-common-weak-text-color-dark;
+	}
+
+	// Light/Dark mode -- ItemViewListSidebarItemRow 'list-sidebar__table__row' -- hover background color
+	.js-set-item-view-list-sidebar-item-row-hover-background-color-dark-mode-false {
+		// Only hover since active causes td to cover border
+		&:hover {
+			background-color: v.$mode-item-view-list-sidebar-table-row-hover-background-color-light;
+		}
+	}
+	.js-set-item-view-list-sidebar-item-row-hover-background-color-dark-mode-true {
+		// Only hover since active causes td to cover border
+		&:hover {
+			background-color: v.$mode-list-view-table-row-hover-background-color-dark;
+		}
+	}
+
+	// Light/Dark mode -- ItemViewListSidebarItemRow 'list-sidebar__table__row' -- selected background color
+	.js-set-item-view-list-sidebar-item-row-selected-background-color-dark-mode-false {
+		background-color: v.$mode-item-view-list-sidebar-table-row-selected-background-color-light;
+	}
+	.js-set-item-view-list-sidebar-item-row-selected-background-color-dark-mode-true {
+		background-color: v.$mode-item-view-list-sidebar-table-row-selected-background-color-dark;
+	}
+
+	// Light/Dark mode -- ItemView 'item-content-container' -- background color
+	.js-set-item-view-content-container-background-color-dark-mode-false {
+		background-color: v.$mode-item-view-content-container-background-color-light;
+	}
+	.js-set-item-view-content-container-background-color-dark-mode-true {
+		background-color: v.$mode-item-view-content-container-background-color-dark;
+	}
+
+	// Light/Dark mode -- ItemView item-box -- background color
+	.js-set-item-view-item-box-background-color-dark-mode-false {
+		background-color: v.$mode-item-view-item-box-background-color-light;
+	}
+	.js-set-item-view-item-box-background-color-dark-mode-true {
+		background-color: v.$mode-item-view-item-box-background-color-dark;
+	}
+
 	// Light/Dark mode -- ItemView form input element -- border, background, and text color
 	.js-set-item-view-form-input-border-background-text-color-mode-false {
 		border-color: v.$mode-item-view-form-input-border-color-light;
 		background-color: v.$mode-item-view-form-input-background-color-light;
-		color: v.$mode-common-primary-text-color-light;
+		color: v.$mode-common-strong-text-color-light;
 	}
 	.js-set-item-view-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-item-view-form-input-border-color-dark;
 		background-color: v.$mode-item-view-form-input-background-color-dark;
-		color: v.$mode-common-primary-text-color-dark;
+		color: v.$mode-common-strong-text-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewEditItemInfo form-label -- disabled text color with no pointer events

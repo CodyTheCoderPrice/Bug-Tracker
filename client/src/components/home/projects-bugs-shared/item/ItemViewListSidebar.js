@@ -10,14 +10,14 @@ import {
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
 import {
-	getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewListSidebarBorderColorClassNameForLightOrDarkMode,
 	getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getSearchedFilteredSortedList,
 } from "../../../../utils";
 
 // Components
-import ItemViewListSidebarRow from "./ItemViewListSidebarRow";
+import ItemViewListSidebarRow from "./ItemViewListSidebarItemRow";
 
 export default function ItemViewListSidebar(props) {
 	const reduxState = useSelector((state) => state);
@@ -113,13 +113,13 @@ export default function ItemViewListSidebar(props) {
 						<tr className="list-sidebar__table__row">
 							<th
 								className={
-									"list-sidebar__table__header js-list-sidebar__table__header" +
-									getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+									"list-sidebar__table__row__header js-list-sidebar__table__row__header" +
+									getItemViewListSidebarHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
 							>
-								<span className="list-sidebar__table__header__span">
+								<span className="list-sidebar__table__row__header__span">
 									{props.reduxContainerName === PROJECT_CONTAINER
 										? "Projects"
 										: "Bugs"}

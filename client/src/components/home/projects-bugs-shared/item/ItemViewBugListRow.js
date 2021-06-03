@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames";
 
-import { getCommonSecondaryTextColorClassNameForLightOrDarkMode } from "../../../../utils";
+import { getCommonWeakTextColorClassNameForLightOrDarkMode } from "../../../../utils";
 
 export default function ItemViewBugListRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -25,42 +25,42 @@ export default function ItemViewBugListRow(props) {
 		<tr
 			className={
 				"bug-list-table__row" +
-				getCommonSecondaryTextColorClassNameForLightOrDarkMode(
+				getCommonWeakTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}
 		>
 			<td
 				className={
-					"bug-list-table__data bug-list-table__data--overflow" +
+					"bug-list-table__row__data bug-list-table__row__data--overflow" +
 					(props.item.status_id ===
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId
-						? " bug-list-table__data--completed-color"
+						? " bug-list-table__row__data--completed-color"
 						: "")
 				}
 			>
-				<span className="bug-list-table__data__info">
+				<span className="bug-list-table__row__data__info">
 					{props.item.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
 						<i
-							className="fa fa-check bug-list-table__data__info__completed-icon"
+							className="fa fa-check bug-list-table__row__data__info__completed-icon"
 							aria-hidden="true"
 						/>
 					)}
 					{props.item.name}
 				</span>
 			</td>
-			<td className="bug-list-table__data">
-				<div className="bug-list-table__data__centering-container">
+			<td className="bug-list-table__row__data">
+				<div className="bug-list-table__row__data__centering-container">
 					<div
 						className={
-							"bug-list-table__data__centering-container__status-box" +
+							"bug-list-table__row__data__centering-container__status-box" +
 							getStatusBoxColorClassName()
 						}
 					>
-						<span className="bug-list-table__data__centering-container__status-box__centered-info">
+						<span className="bug-list-table__row__data__centering-container__status-box__centered-info">
 							{props.item.status_option}
 						</span>
 					</div>

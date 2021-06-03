@@ -66,17 +66,22 @@
 	}
 
 	.list-sidebar__table__row {
-		border-bottom: 1px solid v.$mode-list-row-border-color-light;
+		border-bottom: 1px solid v.$mode-item-view-list-sidebar-table-row-border-color-light;
+		background-color: v.$mode-item-view-list-sidebar-table-row-background-color-light;
 		padding: v.$list-row-padding;
 		height: v.$list-row-height;
 		text-align: center;
+	}
+
+	.list-sidebar__table__row--item-row {
+		color: v.$mode-common-weak-text-color-light;
 	}
 
 	.list-sidebar__table__row--empty {
 		height: v.$list-row-height + (v.$list-row-height * 0.5);
 	}
 
-	.list-sidebar__table__header {
+	.list-sidebar__table__row__header {
 		// Must be more than table__data rows below do not overlap when scrolling
 		z-index: 1;
 		position: -webkit-sticky;
@@ -84,17 +89,17 @@
 		top: 0px;
 		// Used box shadow since the header row being sticky with
 		// ...background-color applied keeps the bottom-border from appearing
-		box-shadow: v.$mode-list-header-box-shadow-light;
-		background-color: v.$mode-common-background-color-light;
+		box-shadow: v.$mode-item-view-list-sidebar-table-row-header-box-shadow-light;
+		background-color: v.$mode-item-view-list-sidebar-table-row-header-background-color-light;
 		width: v.$item-view-list-sidebar-width;
 	}
 
-	.list-sidebar__table__data {
+	.list-sidebar__table__row__data {
 		position: relative;
 		cursor: default;
 	}
 
-	.list-sidebar__table__data__overflow-container {
+	.list-sidebar__table__row__data__overflow-container {
 		@include m.dead-center();
 
 		width: v.$item-view-list-sidebar-width - 25;
@@ -104,11 +109,11 @@
 		text-overflow: ellipsis;
 	}
 
-	.list-sidebar__table__data__overflow-container--completed-color {
+	.list-sidebar__table__row__data__overflow-container--completed-color {
 		color: v.$status-green;
 	}
 
-	.list-sidebar__table__data__overflow-container__info__completed-icon {
+	.list-sidebar__table__row__data__overflow-container__info__completed-icon {
 		margin-right: 5px;
 		color: v.$status-green;
 	}

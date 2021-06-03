@@ -139,35 +139,28 @@ export function appendHexValueForColorsToStatusList(statusList) {
 //=================
 /**
  * Get light/dark mode className for common (i.e. typically used), among a range 
- * of different element's, primary background and text colors
- *
- * Note: This function's returned className should be applied to the element 
- * with 'home-container' className in Home component, as all CSS was written so
- * any elements that also are intended to have the commom primary background and
- * text colors can simply inherit it (as they will be children) instead of also
- * needing to be given the returned className.
+ * of different element's, strong (i.e. more distinct) text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for common background and text
- * colors
+ * @returns {string} Light/dark mode className for common strong text color
  */
-export function getCommonBackgroundAndTextColorClassNameForLightOrDarkMode(
+export function getCommonStrongTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-set-common-background-and-text-color-dark-mode-" + dark_mode;
+	return " js-set-common-strong-text-color-dark-mode-" + dark_mode;
 }
 
 /**
  * Get light/dark mode className for common (i.e. typically used), among a range
- * of different element's, secondary text color
+ * of different element's, weak (i.e. less distinct) text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for common secondary text color
+ * @returns {string} Light/dark mode className for common weak text color
  */
-export function getCommonSecondaryTextColorClassNameForLightOrDarkMode(
+export function getCommonWeakTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-set-common-secondary-text-color-dark-mode-" + dark_mode;
+	return " js-set-common-weak-text-color-dark-mode-" + dark_mode;
 }
 
 /**
@@ -271,59 +264,24 @@ export function getCommonFormInputBorderBackgroundTextColorClassNameForLightOrDa
 }
 
 /**
- * Get light/dark mode className for list header element's box shadow,
- * background, and text color
+ * Get light/dark mode className for Home component's 'home-container' 
+ * (className) element's background and text colors.
+ * 
+ * Note: Since child elements inherit text color, any elements intented to 
+ * have the same text color as 'home-container' element will simply inherit it
+ * as all other elements (except those in Register and Login components) are
+ * children of it.
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for list header element's box
- * shadow, background, and text color
+ * @returns {string} Light/dark mode className for Home component's 
+ * 'home-container' (className) element's background and text colors
  */
-export function getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+ export function getHomeBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-list-header-box-shadow-and-background-color-dark-mode-" + dark_mode
+		" js-set-home-background-and-text-color-dark-mode-" + dark_mode
 	);
-}
-
-/**
- * Get light/dark mode className for list row element's border and text color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for list row element's border
- * and text color
- */
-export function getListRowBorderAndTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-list-row-border-and-text-color-dark-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for list row element's hover background color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for list row element's hover
- * background color
- */
-export function getListRowHoverBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-list-row-hover-background-color-dark-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for list row element's selected background
- * color (i.e when item for the row is the target item)
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for list row element's selected
- * background color
- */
-export function getListRowSelectedBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-list-row-selected-background-color-dark-mode-" + dark_mode;
 }
 
 /**
@@ -541,6 +499,69 @@ export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
 }
 
 /**
+ * Get light/dark mode className for ListViewTable component's 
+ * 'list-table__row__header' (className) element's box shadow and background 
+ * color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className ListViewTable component's 
+ * 'list-table__row__header' (className) element's box shadow and background 
+ * color
+ */
+ export function getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-list-view-table-row-header-box-shadow-and-background-color-dark-mode-" + dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for ListViewTableItemRow component's 
+ * 'list-table__row' (className) element's border, background, and text colors
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ListViewTableItemRow 
+ * component's 'list-table__row' (className) element's border, background, and
+ * text colors
+ */
+export function getListViewTableItemRowBorderAndTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-list-view-table-item-row-border-background-text-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for ListViewTableItemRow component's 
+ * 'list-table__row' (className) element's hover background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ListViewTableItemRow 
+ * component's 'list-table__row' (className) element's hover background color
+ */
+export function getListViewTableItemRowHoverBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-list-view-table-item-row-hover-background-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for ListViewTableItemRow component's 
+ * 'list-table__row' (className) element's selected (i.e item for row is equal 
+ * to 'itemViewCurrentItem' property in 'componentsDisplay' Object in project/bug
+ * container of the redux state) background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ListViewTableItemRow component's 
+ * 'list-table__row' (className) element's selected background color
+ */
+export function getListViewTableItemRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-list-view-table-item-row-selected-background-color-dark-mode-" + dark_mode;
+}
+
+/**
  * Get light/dark mode className for DeleteModal element's background color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -668,20 +689,6 @@ export function getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassName
 }
 
 /**
- * Get light/dark mode className for ItemView item-box element's background
- * color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemView item-box element's
- * background color
- */
-export function getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-item-view-item-box-background-color-dark-mode-" + dark_mode;
-}
-
-/**
  * Get light/dark mode className for ItemViewListSidebar element's border color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -710,6 +717,100 @@ export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundCol
 		" js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-" +
 		dark_mode
 	);
+}
+
+/**
+ * Get light/dark mode className for ItemViewListSidebar component's 
+ * 'list-sidebar__table__row__header' (className) element's box shadow and 
+ * background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className ItemViewListSidebar component's 
+ * 'list-sidebar__table__row__header' (className) element's box shadow and 
+ * background color
+ */
+ export function getItemViewListSidebarHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-" + dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for ItemViewListSidebarItemRow component's 
+ * 'list-sidebar__table__row' (className) element's border, background, and 
+ * text colors
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow
+ *  component's 'list-sidebar__table__row' (className) element's border, 
+ * background, and text colors
+ */
+ export function getItemViewListSidebarItemRowBorderAndTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for ItemViewListSidebarItemRow component's 
+ * 'list-sidebar__table__row' (className) element's hover background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow 
+ * component's 'list-sidebar__table__row' (className) element's hover 
+ * background color
+ */
+ export function getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-item-view-list-sidebar-item-row-hover-background-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for ItemViewListSidebarItemRow component's 
+ * 'list-sidebar__table__row' (className) element's selected (i.e item for row
+ * is equal to 'itemViewCurrentItem' property in 'componentsDisplay' Object in
+ * project/bug container of the redux state) background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow 
+ * component's 'list-sidebar__table__row' (className) element's selected 
+ * background color
+ */
+ export function getItemViewListSidebarItemRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-item-view-list-sidebar-item-row-selected-background-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for ItemView component's 
+ * 'item-content-container' (className) element's background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemView component's 
+ * 'item-content-container' (className) element's background color
+ */
+ export function getItemViewContentContainerBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-item-view-content-container-background-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for ItemView item-box element's background
+ * color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemView item-box element's
+ * background color
+ */
+ export function getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-item-view-item-box-background-color-dark-mode-" + dark_mode;
 }
 
 /**

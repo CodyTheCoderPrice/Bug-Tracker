@@ -22,7 +22,7 @@ import {
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getCommonSecondaryTextColorClassNameForLightOrDarkMode,
+	getCommonWeakTextColorClassNameForLightOrDarkMode,
 	getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewDisabledLabelClassNameForLightOrDarkMode,
@@ -266,7 +266,7 @@ export default function ItemViewEditItemInfo(props) {
 				<div
 					className={
 						"item-creation-date" +
-						getCommonSecondaryTextColorClassNameForLightOrDarkMode(
+						getCommonWeakTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

@@ -15,39 +15,39 @@
 	.bug-list-table__row {
 		padding: 5px;
 		height: v.$list-row-height;
-		color: v.$mode-common-secondary-text-color-light;
+		color: v.$mode-common-weak-text-color-light;
 		text-align: center;
 	}
 
-	.bug-list-table__data {
+	.bug-list-table__row__data {
 		// Must be realtive so centing works for overflow-container
 		position: relative;
 		width: 50%;
 	}
 
-	.bug-list-table__data--overflow {
+	.bug-list-table__row__data--overflow {
 		max-width: 0;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
-	.bug-list-table__data--completed-color {
+	.bug-list-table__row__data--completed-color {
 		color: v.$status-green;
 	}
 
-	.bug-list-table__data__info__completed-icon {
+	.bug-list-table__row__data__info__completed-icon {
 		margin-right: 5px;
 		color: v.$status-green;
 	}
 
-	.bug-list-table__data__centering-container {
+	.bug-list-table__row__data__centering-container {
 		position: relative;
 		height: 100%;
 		width: 100%;
 	}
 
-	.bug-list-table__data__centering-container__status-box {
+	.bug-list-table__row__data__centering-container__status-box {
 		@include m.dead-center();
 
 		border-radius: v.$status-box-border-radius;
@@ -59,7 +59,7 @@
 		width: 150px;
 	}
 
-	.bug-list-table__data__centering-container__status-box__centered-info {
+	.bug-list-table__row__data__centering-container__status-box__centered-info {
 		@include m.dead-center();
 		white-space: nowrap;
 		overflow: hidden;

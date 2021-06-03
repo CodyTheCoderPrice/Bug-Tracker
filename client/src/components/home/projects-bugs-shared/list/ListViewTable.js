@@ -15,13 +15,13 @@ import {
 
 import {
 	getElementLocation,
-	getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
+	getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
 	getSearchedFilteredSortedList,
 	getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
-import ListTableRow from "./ListViewTableRow";
+import ListTableRow from "./ListViewTableItemRow";
 import SortArrowsButton from "../../../basic/SortArrowsButton";
 
 export default function ListViewTable(props) {
@@ -134,10 +134,10 @@ export default function ListViewTable(props) {
 		return (
 			<div
 				className={
-					"list-table__header__mass-delete-options-container__button" +
+					"list-table__row__header__mass-delete-options-container__button" +
 					(shouldBeActive
 						? ""
-						: " list-table__header__mass-delete-options-container__button--disabled")
+						: " list-table__row__header__mass-delete-options-container__button--disabled")
 				}
 				alt={buttonAltText}
 				onClick={onclickfunction}
@@ -180,13 +180,13 @@ export default function ListViewTable(props) {
 					<tr className="list-table__row">
 						<th
 							className={
-								"list-table__header list-table__header--for-mass-delete" +
-								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+								"list-table__row__header list-table__row__header--for-mass-delete" +
+								getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
 						>
-							<div className="list-table__header__mass-delete-options-container js-mass-delete-buttons-container">
+							<div className="list-table__row__header__mass-delete-options-container js-mass-delete-buttons-container">
 								{createMassDeleteButton(
 									reduxState[props.reduxContainerName].massDeleteList.length <
 										getSearchedFilteredSortedList(
@@ -231,14 +231,14 @@ export default function ListViewTable(props) {
 									<th
 										key={idx}
 										className={
-											"list-table__header" +
-											getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+											"list-table__row__header" +
+											getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											)
 										}
 									>
-										<span className="list-table__header__span">{categoryObject.category}</span>
-										<span className="list-table__header__sort-arrow-container">
+										<span className="list-table__row__header__span">{categoryObject.category}</span>
+										<span className="list-table__row__header__sort-arrow-container">
 											<SortArrowsButton
 												reduxContainerName={props.reduxContainerName}
 												sortId={categoryObject.sort_id}
@@ -255,13 +255,13 @@ export default function ListViewTable(props) {
 						)}
 						<th
 							className={
-								"list-table__header" +
-								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+								"list-table__row__header" +
+								getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
 						>
-							<span className="list-table__header__span">
+							<span className="list-table__row__header__span">
 								{props.reduxContainerName === PROJECT_CONTAINER
 									? "Bugs Completed"
 									: "Comments"}
@@ -269,8 +269,8 @@ export default function ListViewTable(props) {
 						</th>
 						<th
 							className={
-								"list-table__header js-remaining-space" +
-								getListHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+								"list-table__row__header js-remaining-space" +
+								getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
