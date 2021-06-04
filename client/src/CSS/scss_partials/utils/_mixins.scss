@@ -62,7 +62,7 @@
 
 @mixin backend-error() {
 	display: block;
-	color: v.$mode-backend-errors-text-color-light;
+	color: v.$mode-common-backend-errors-text-color-light;
 	text-align: center;
 }
 

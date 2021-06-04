@@ -8,7 +8,7 @@ import {
 	setWhichAccountComponentsDisplay,
 } from "../../../actions";
 import {
-	getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode,
+	getAccountSidebarBackgroundColorClassNameForLightOrDarkMode,
 	getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
@@ -75,7 +75,7 @@ export default function AccountSidebar() {
 			<div
 				className={
 					"sidebar-container js-account-sidebar-container" +
-					getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode(
+					getAccountSidebarBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}

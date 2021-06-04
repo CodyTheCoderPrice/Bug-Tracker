@@ -11,7 +11,7 @@ import {
 } from "../../../actions";
 import {
 	getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
@@ -98,7 +98,7 @@ export default function AccountModalEditEmail() {
 				<span
 					className={
 						"backend-errors" +
-						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -125,7 +125,7 @@ export default function AccountModalEditEmail() {
 				<span
 					className={
 						"backend-errors" +
-						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -146,7 +146,7 @@ export default function AccountModalEditEmail() {
 				<span
 					className={
 						"backend-errors" +
-						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

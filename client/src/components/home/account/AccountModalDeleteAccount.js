@@ -9,7 +9,7 @@ import { deleteAccount, clearBackendErrors } from "../../../actions";
 import {
 	getAccountModalDeleteAccountCapitalDeleteTextColorClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountFormSubmitButtonBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
@@ -105,7 +105,7 @@ export default function AccountModalDeleteAccount() {
 				<span
 					className={
 						"backend-errors" +
-						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -134,7 +134,7 @@ export default function AccountModalDeleteAccount() {
 				<span
 					className={
 						"backend-errors" +
-						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -155,7 +155,7 @@ export default function AccountModalDeleteAccount() {
 				<span
 					className={
 						"backend-errors" +
-						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

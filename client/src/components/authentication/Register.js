@@ -7,7 +7,7 @@ import {
 	clearBackendErrors,
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
-import { getCharCountLimitReachedTextColorClassNameForLightOrDarkMode } from "../../utils";
+import { getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode } from "../../utils";
 
 /**
  * React functional component used for regestering an account for the app by
@@ -92,7 +92,7 @@ export default function Register() {
 								<span
 									className={
 										"form__char-counter" +
-										getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+										getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
 											false
 										)
 									}
@@ -127,7 +127,7 @@ export default function Register() {
 								<span
 									className={
 										"form__char-counter" +
-										getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+										getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
 											false
 										)
 									}
@@ -175,7 +175,7 @@ export default function Register() {
 						<span
 							className={
 								"form__char-counter" +
-								getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+								getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
 									false
 								)
 							}

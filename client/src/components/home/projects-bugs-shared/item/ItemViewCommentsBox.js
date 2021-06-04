@@ -13,9 +13,9 @@ import { createComment, clearBackendErrors } from "../../../../actions";
 import {
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
-	getCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
+	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	dateToInt,
 } from "../../../../utils";
@@ -137,7 +137,7 @@ export default function ItemViewCommentsBox() {
 							"item-box__form-char-counter" +
 							(reduxState[GENERAL_CONTAINER].globalConstants
 								.descriptionCharLimit < commentInfo.description.length
-								? getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+								? getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								  )
 								: "")
@@ -164,7 +164,7 @@ export default function ItemViewCommentsBox() {
 					<span
 						className={
 							"backend-errors backend-errors--comment" +
-							getBackendErrorsTextColorClassNameForLightOrDarkMode(
+							getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

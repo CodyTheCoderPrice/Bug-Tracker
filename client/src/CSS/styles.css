@@ -1838,22 +1838,22 @@ dropdown can overlap all other components
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
-.item-vew-top-bar-component .outer-search-container,
-.item-vew-top-bar-component .js-get-outer-search-container,
-.js-get-item-vew-top-bar-component .outer-search-container,
-.js-get-item-vew-top-bar-component .js-get-outer-search-container {
+.item-vew-top-bar-component .search-container,
+.item-vew-top-bar-component .js-get-search-container,
+.js-get-item-vew-top-bar-component .search-container,
+.js-get-item-vew-top-bar-component .js-get-search-container {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
   left: 15px;
   width: 290px;
 }
-.item-vew-top-bar-component .outer-search-container--invisible,
-.js-get-item-vew-top-bar-component .outer-search-container--invisible {
+.item-vew-top-bar-component .search-container--invisible,
+.js-get-item-vew-top-bar-component .search-container--invisible {
   visibility: hidden;
 }
-.item-vew-top-bar-component .outer-search-container__search-bar,
-.js-get-item-vew-top-bar-component .outer-search-container__search-bar {
+.item-vew-top-bar-component .search-container__search-bar,
+.js-get-item-vew-top-bar-component .search-container__search-bar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1868,12 +1868,12 @@ dropdown can overlap all other components
   width: 252px;
   font-size: 14px;
 }
-.item-vew-top-bar-component .outer-search-container__search-bar:focus,
-.js-get-item-vew-top-bar-component .outer-search-container__search-bar:focus {
+.item-vew-top-bar-component .search-container__search-bar:focus,
+.js-get-item-vew-top-bar-component .search-container__search-bar:focus {
   border-width: 3px;
 }
-.item-vew-top-bar-component .outer-search-container__search-button,
-.js-get-item-vew-top-bar-component .outer-search-container__search-button {
+.item-vew-top-bar-component .search-container__search-button,
+.js-get-item-vew-top-bar-component .search-container__search-button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1885,8 +1885,8 @@ dropdown can overlap all other components
   width: 38px;
   cursor: pointer;
 }
-.item-vew-top-bar-component .outer-search-container__search-button__icon,
-.js-get-item-vew-top-bar-component .outer-search-container__search-button__icon {
+.item-vew-top-bar-component .search-container__search-button__icon,
+.js-get-item-vew-top-bar-component .search-container__search-button__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1953,8 +1953,8 @@ dropdown can overlap all other components
   top: 4px;
   width: 100%;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1968,71 +1968,71 @@ dropdown can overlap all other components
   cursor: default;
   visibility: hidden;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown--sort-width,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown--sort-width {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown--sort-width,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown--sort-width {
   width: 120px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown--shorter,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown--shorter {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown--shorter,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown--shorter {
   height: 160px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown--visible,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown--visible {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown--visible,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown--visible {
   visibility: visible;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__sort-content-block,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__sort-content-block {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block {
   position: relative;
   margin: 12.5px 0;
   width: 100%;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__sort-content-block__sort-arrows-container,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__sort-content-block__sort-arrows-container {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block__sort-arrows-container,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block__sort-arrows-container {
   display: inline-block;
   margin-left: 8px;
   height: 100%;
   width: 21px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__sort-content-block__title,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__sort-content-block__title {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block__title,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block__title {
   font-size: 15px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content {
   float: left;
   margin: 13px 0 0 20px;
   text-align: center;
   font-size: 14px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content--right,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content--right {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content--right,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content--right {
   float: right;
   margin: 13px 20px 0 0;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__title,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__title {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__title,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__title {
   display: block;
   margin: 2px 0px 5px 0px;
   border-bottom: 1px solid gray;
   padding-bottom: 3px;
   font-weight: bold;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__block,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__block {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block {
   text-align: left;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__block__checkbox-container,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__block__checkbox-container {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__checkbox-container,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__checkbox-container {
   display: inline-block;
   margin: 0px 3px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__block__label,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__block__label {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__label,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__label {
   display: inline-block;
   margin: 4px 3px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__block__label--active,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__content-dropdown__filter-content__block__label--active {
+.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__label--active,
+.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__label--active {
   color: #2388a1;
 }
 .item-vew-top-bar-component .item-options-container,
@@ -2361,16 +2361,16 @@ dropdown can overlap all other components
   transform: translate(-50%, -50%);
   white-space: nowrap;
 }
-.list-view-top-bar-component .centering-container__bar-and-button-container,
-.js-get-list-view-top-bar-component .centering-container__bar-and-button-container {
+.list-view-top-bar-component .centering-container__search-container,
+.js-get-list-view-top-bar-component .centering-container__search-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
-.list-view-top-bar-component .centering-container__bar-and-button-container__search-bar,
-.js-get-list-view-top-bar-component .centering-container__bar-and-button-container__search-bar {
+.list-view-top-bar-component .centering-container__search-container__search-bar,
+.js-get-list-view-top-bar-component .centering-container__search-container__search-bar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2386,12 +2386,12 @@ dropdown can overlap all other components
   width: 100%;
   font-size: 14px;
 }
-.list-view-top-bar-component .centering-container__bar-and-button-container__search-bar:focus,
-.js-get-list-view-top-bar-component .centering-container__bar-and-button-container__search-bar:focus {
+.list-view-top-bar-component .centering-container__search-container__search-bar:focus,
+.js-get-list-view-top-bar-component .centering-container__search-container__search-bar:focus {
   border-width: 3px;
 }
-.list-view-top-bar-component .centering-container__bar-and-button-container__search-button,
-.js-get-list-view-top-bar-component .centering-container__bar-and-button-container__search-button {
+.list-view-top-bar-component .centering-container__search-container__search-button,
+.js-get-list-view-top-bar-component .centering-container__search-container__search-button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2404,8 +2404,8 @@ dropdown can overlap all other components
   width: 38px;
   cursor: pointer;
 }
-.list-view-top-bar-component .centering-container__bar-and-button-container__search-button__icon,
-.js-get-list-view-top-bar-component .centering-container__bar-and-button-container__search-button__icon {
+.list-view-top-bar-component .centering-container__search-container__search-button__icon,
+.js-get-list-view-top-bar-component .centering-container__search-container__search-button__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2470,8 +2470,8 @@ dropdown can overlap all other components
   font-weight: bold;
   color: #2388a1;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown {
+.list-view-top-bar-component .filter-area-container__dropdown,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2486,50 +2486,50 @@ dropdown can overlap all other components
   cursor: default;
   visibility: hidden;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown--shorter,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown--shorter {
+.list-view-top-bar-component .filter-area-container__dropdown--shorter,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown--shorter {
   height: 160px;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown--visible,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown--visible {
+.list-view-top-bar-component .filter-area-container__dropdown--visible,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown--visible {
   visibility: visible;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown__content,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content {
+.list-view-top-bar-component .filter-area-container__dropdown__content,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown__content {
   float: left;
   margin: 13px 0 0 20px;
   text-align: center;
   font-size: 14px;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown__content--right,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content--right {
+.list-view-top-bar-component .filter-area-container__dropdown__content--right,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown__content--right {
   float: right;
   margin: 13px 20px 0 0;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown__content__title,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__title {
+.list-view-top-bar-component .filter-area-container__dropdown__content__title,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown__content__title {
   display: block;
   margin: 2px 0px 5px 0px;
   border-bottom: 1px solid gray;
   padding-bottom: 3px;
   font-weight: bold;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown__content__block,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__block {
+.list-view-top-bar-component .filter-area-container__dropdown__content__block,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown__content__block {
   text-align: left;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown__content__block__checkbox-container,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__block__checkbox-container {
+.list-view-top-bar-component .filter-area-container__dropdown__content__block__checkbox-container,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown__content__block__checkbox-container {
   display: inline-block;
   margin: 0px 3px;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown__content__block__label,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__block__label {
+.list-view-top-bar-component .filter-area-container__dropdown__content__block__label,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown__content__block__label {
   display: inline-block;
   margin: 4px 3px;
 }
-.list-view-top-bar-component .filter-area-container__content-dropdown__content__block__label--active,
-.js-get-list-view-top-bar-component .filter-area-container__content-dropdown__content__block__label--active {
+.list-view-top-bar-component .filter-area-container__dropdown__content__block__label--active,
+.js-get-list-view-top-bar-component .filter-area-container__dropdown__content__block__label--active {
   color: #2388a1;
 }
 .list-view-top-bar-component .new-item-tutorial-container,
@@ -2801,20 +2801,20 @@ body {
 .js-get-app-component .js-set-common-weak-text-color-dark-mode-true {
   color: #c1cad4;
 }
-.app-component .js-set-backend-errors-text-color-dark-mode-false,
-.js-get-app-component .js-set-backend-errors-text-color-dark-mode-false {
+.app-component .js-set-common-backend-errors-text-color-dark-mode-false,
+.js-get-app-component .js-set-common-backend-errors-text-color-dark-mode-false {
   color: #ff0000;
 }
-.app-component .js-set-backend-errors-text-color-dark-mode-true,
-.js-get-app-component .js-set-backend-errors-text-color-dark-mode-true {
+.app-component .js-set-common-backend-errors-text-color-dark-mode-true,
+.js-get-app-component .js-set-common-backend-errors-text-color-dark-mode-true {
   color: #e21b1b;
 }
-.app-component .js-set-char-count-limit-reached-text-color-dark-mode-false,
-.js-get-app-component .js-set-char-count-limit-reached-text-color-dark-mode-false {
+.app-component .js-set-common-char-count-limit-reached-text-color-dark-mode-false,
+.js-get-app-component .js-set-common-char-count-limit-reached-text-color-dark-mode-false {
   color: #ff0000;
 }
-.app-component .js-set-char-count-limit-reached-text-color-dark-mode-true,
-.js-get-app-component .js-set-char-count-limit-reached-text-color-dark-mode-true {
+.app-component .js-set-common-char-count-limit-reached-text-color-dark-mode-true,
+.js-get-app-component .js-set-common-char-count-limit-reached-text-color-dark-mode-true {
   color: #e21b1b;
 }
 .app-component .js-set-blurred-background-background-color-and-opacity-dark-mode-false,
@@ -2873,6 +2873,28 @@ body {
 .js-get-app-component .js-set-common-form-input-border-background-text-color-dark-mode-true {
   border-color: black;
   background-color: #484848;
+  color: #c7d1db;
+}
+.app-component .js-common-set-top-bar-border-and-background-color-dark-mode-false,
+.js-get-app-component .js-common-set-top-bar-border-and-background-color-dark-mode-false {
+  border-color: black;
+  background-color: #e5e5e5;
+}
+.app-component .js-common-set-top-bar-border-and-background-color-dark-mode-true,
+.js-get-app-component .js-common-set-top-bar-border-and-background-color-dark-mode-true {
+  border-color: black;
+  background-color: #232323;
+}
+.app-component .js-set-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-set-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-false {
+  border-color: black;
+  background-color: white;
+  color: black;
+}
+.app-component .js-set-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-true,
+.js-get-app-component .js-set-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-true {
+  border-color: #a3a3a3;
+  background-color: #3a3a3a;
   color: #c7d1db;
 }
 .app-component .js-set-home-background-and-text-color-dark-mode-false,
@@ -2945,20 +2967,12 @@ body {
 .js-get-app-component .js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--item-name {
   color: #00e1ff;
 }
-.app-component .js-set-account-sidebar-modal-background-color-dark-mode-false,
-.js-get-app-component .js-set-account-sidebar-modal-background-color-dark-mode-false {
+.app-component .js-set-account-sidebar-background-color-dark-mode-false,
+.js-get-app-component .js-set-account-sidebar-background-color-dark-mode-false {
   background-color: white;
 }
-.app-component .js-set-account-sidebar-modal-background-color-dark-mode-true,
-.js-get-app-component .js-set-account-sidebar-modal-background-color-dark-mode-true {
-  background-color: #2e2e2e;
-}
-.app-component .js-set-account-sidebar-modal-background-color-dark-mode-false,
-.js-get-app-component .js-set-account-sidebar-modal-background-color-dark-mode-false {
-  background-color: white;
-}
-.app-component .js-set-account-sidebar-modal-background-color-dark-mode-true,
-.js-get-app-component .js-set-account-sidebar-modal-background-color-dark-mode-true {
+.app-component .js-set-account-sidebar-background-color-dark-mode-true,
+.js-get-app-component .js-set-account-sidebar-background-color-dark-mode-true {
   background-color: #2e2e2e;
 }
 .app-component .js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false,
@@ -2986,6 +3000,14 @@ body {
 .js-get-app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:hover,
 .js-get-app-component .js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:active {
   background-color: #3a3a3a;
+}
+.app-component .js-set-account-modal-background-color-dark-mode-false,
+.js-get-app-component .js-set-account-modal-background-color-dark-mode-false {
+  background-color: white;
+}
+.app-component .js-set-account-modal-background-color-dark-mode-true,
+.js-get-app-component .js-set-account-modal-background-color-dark-mode-true {
+  background-color: #2e2e2e;
 }
 .app-component .js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-false,
 .js-get-app-component .js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-false {
@@ -3046,28 +3068,6 @@ body {
 .app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__content-container,
 .js-get-app-component .js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__content-container {
   color: #c1cad4;
-}
-.app-component .js-set-top-bar-border-and-background-color-dark-mode-false,
-.js-get-app-component .js-set-top-bar-border-and-background-color-dark-mode-false {
-  border-color: black;
-  background-color: #e5e5e5;
-}
-.app-component .js-set-top-bar-border-and-background-color-dark-mode-true,
-.js-get-app-component .js-set-top-bar-border-and-background-color-dark-mode-true {
-  border-color: black;
-  background-color: #232323;
-}
-.app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-false {
-  border-color: black;
-  background-color: white;
-  color: black;
-}
-.app-component .js-set-top-bar-button-border-background-text-color-dark-mode-true,
-.js-get-app-component .js-set-top-bar-button-border-background-text-color-dark-mode-true {
-  border-color: #a3a3a3;
-  background-color: #3a3a3a;
-  color: #c7d1db;
 }
 .app-component .js-set-create-item-sidebar-background-color-dark-mode-false,
 .js-get-app-component .js-set-create-item-sidebar-background-color-dark-mode-false {
@@ -4258,113 +4258,113 @@ body {
 .js-get-app-component .js-set-custom-checkbox-border-background-text-color-mode-dark-theme-purple-rain:hover + i {
   color: #a982cc;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > input {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turkish > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turkish > input {
   border-color: #608d9e;
   background-color: white;
   color: black;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turkish > div {
-  border-color: #608d9e;
-  background-color: #608d9e;
-}
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > input {
-  border-color: #608d9e;
-  background-color: #363636;
-  color: #c7d1db;
-}
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turkish > div {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turkish > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turkish > div {
   border-color: #608d9e;
   background-color: #608d9e;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > input {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turkish > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turkish > input {
+  border-color: #608d9e;
+  background-color: #363636;
+  color: #c7d1db;
+}
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turkish > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turkish > div {
+  border-color: #608d9e;
+  background-color: #608d9e;
+}
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-queen > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-queen > input {
   border-color: #45607e;
   background-color: white;
   color: black;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-queen > div {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-queen > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-queen > div {
   border-color: #45607e;
   background-color: #45607e;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > input {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-queen > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-queen > input {
   border-color: #45607e;
   background-color: #363636;
   color: #c7d1db;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-queen > div {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-queen > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-queen > div {
   border-color: #45607e;
   background-color: #45607e;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-sky > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-sky > input {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-sky > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-sky > input {
   border-color: #0091c2;
   background-color: white;
   color: black;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-sky > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-sky > div {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-sky > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-sky > div {
   border-color: #0091c2;
   background-color: #0091c2;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-sky > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-sky > input {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-sky > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-sky > input {
   border-color: #0091c2;
   background-color: #363636;
   color: #c7d1db;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-sky > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-sky > div {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-sky > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-sky > div {
   border-color: #0091c2;
   background-color: #0091c2;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turquoise > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turquoise > input {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turquoise > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turquoise > input {
   border-color: #03a89e;
   background-color: white;
   color: black;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turquoise > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-blue-turquoise > div {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turquoise > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turquoise > div {
   border-color: #03a89e;
   background-color: #03a89e;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > input {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turquoise > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turquoise > input {
   border-color: #03a89e;
   background-color: #363636;
   color: #c7d1db;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-blue-turquoise > div {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turquoise > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turquoise > div {
   border-color: #03a89e;
   background-color: #03a89e;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-purple-rain > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-purple-rain > input {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-purple-rain > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-purple-rain > input {
   border-color: #694489;
   background-color: white;
   color: black;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-purple-rain > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-purple-rain > div {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-purple-rain > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-purple-rain > div {
   border-color: #694489;
   background-color: #694489;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-purple-rain > input,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-purple-rain > input {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-purple-rain > input,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-purple-rain > input {
   border-color: #694489;
   background-color: #363636;
   color: #c7d1db;
 }
-.app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-purple-rain > div,
-.js-get-app-component .js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-purple-rain > div {
+.app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-purple-rain > div,
+.js-get-app-component .js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-purple-rain > div {
   border-color: #694489;
   background-color: #694489;
 }

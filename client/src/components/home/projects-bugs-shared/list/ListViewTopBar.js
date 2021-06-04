@@ -16,10 +16,10 @@ import {
 
 import {
 	getUpdatedFilterArray,
-	getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
+	getCommonTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode,
-	getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
 	getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
@@ -43,7 +43,7 @@ export default function ListViewTopBar(props) {
 	useListViewSearchBarResize(
 		reduxState,
 		"js-list-search-bar-and-button-centering-container",
-		"js-list-centered-search-bar-and-button-container",
+		"js-list-centered-search-search-container",
 		"js-list-search-bar",
 		"js-list-search-button",
 		"js-new-item-button-centering-container",
@@ -109,7 +109,7 @@ export default function ListViewTopBar(props) {
 		<div
 			className={
 				"list-view-top-bar-component" +
-				getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
+				getCommonTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}
@@ -118,7 +118,7 @@ export default function ListViewTopBar(props) {
 				<div
 					className={
 						"centering-container__new-item-button" +
-						getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						((props.reduxContainerName === PROJECT_CONTAINER &&
@@ -148,8 +148,8 @@ export default function ListViewTopBar(props) {
 			<div className="centering-container js-list-search-bar-and-button-centering-container">
 				<div
 					className={
-						"centering-container__bar-and-button-container js-list-centered-search-bar-and-button-container" +
-						getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						"centering-container__search-container js-list-centered-search-search-container" +
+						getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -161,14 +161,14 @@ export default function ListViewTopBar(props) {
 						onChange={onChangeSearchBar}
 						onKeyDown={searchBarKeyDown}
 						value={searchBarText}
-						className="centering-container__bar-and-button-container__search-bar js-list-search-bar"
+						className="centering-container__search-container__search-bar js-list-search-bar"
 					/>
 					<div
-						className="centering-container__bar-and-button-container__search-button js-list-search-button"
+						className="centering-container__search-container__search-button js-list-search-button"
 						alt="Button for searchbar"
 						onClick={updateSearchKeyWordString}
 					>
-						<span className="centering-container__bar-and-button-container__search-button__icon">
+						<span className="centering-container__search-container__search-button__icon">
 							<i
 								className="fa fa-search"
 								aria-hidden="true"
@@ -182,7 +182,7 @@ export default function ListViewTopBar(props) {
 				<div
 					className={
 						"filter-area-container__button" +
-						getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
@@ -223,16 +223,16 @@ export default function ListViewTopBar(props) {
 				</div>
 				<div
 					className={
-						"filter-area-container__content-dropdown" +
-						getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						"filter-area-container__dropdown" +
+						getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(props.reduxContainerName === BUG_CONTAINER
-							? " filter-area-container__content-dropdown--shorter"
+							? " filter-area-container__dropdown--shorter"
 							: "") +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.listViewSearchFilterSearchBarFilterDropdown
-							? " filter-area-container__content-dropdown--visible"
+							? " filter-area-container__dropdown--visible"
 							: "")
 					}
 					onClick={
@@ -242,8 +242,8 @@ export default function ListViewTopBar(props) {
 						}
 					}
 				>
-					<div className="filter-area-container__content-dropdown__content">
-						<span className="filter-area-container__content-dropdown__content__title">
+					<div className="filter-area-container__dropdown__content">
+						<span className="filter-area-container__dropdown__content__title">
 							Priority
 						</span>
 						{reduxState[
@@ -252,9 +252,9 @@ export default function ListViewTopBar(props) {
 							return (
 								<div
 									key={i}
-									className="filter-area-container__content-dropdown__content__block"
+									className="filter-area-container__dropdown__content__block"
 								>
-									<div className="filter-area-container__content-dropdown__content__block__checkbox-container">
+									<div className="filter-area-container__dropdown__content__block__checkbox-container">
 										<CustomCheckbox
 											name="priorityFilter"
 											value={obj.id}
@@ -276,11 +276,11 @@ export default function ListViewTopBar(props) {
 									<label
 										htmlFor={"list-priority-filter-" + obj.id}
 										className={
-											"filter-area-container__content-dropdown__content__block__label" +
+											"filter-area-container__dropdown__content__block__label" +
 											(reduxState[
 												props.reduxContainerName
 											].searchFilterSort.priorityFilter.includes(obj.id)
-												? " filter-area-container__content-dropdown__content__block__label--active" +
+												? " filter-area-container__dropdown__content__block__label--active" +
 												  getTextColorClassNameForThemeWithLightOrDarkMode(
 														reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -294,8 +294,8 @@ export default function ListViewTopBar(props) {
 							);
 						})}
 					</div>
-					<div className="filter-area-container__content-dropdown__content filter-area-container__content-dropdown__content--right">
-						<span className="filter-area-container__content-dropdown__content__title">
+					<div className="filter-area-container__dropdown__content filter-area-container__dropdown__content--right">
+						<span className="filter-area-container__dropdown__content__title">
 							Status
 						</span>
 						{reduxState[
@@ -304,9 +304,9 @@ export default function ListViewTopBar(props) {
 							return (
 								<div
 									key={i}
-									className="filter-area-container__content-dropdown__content__block"
+									className="filter-area-container__dropdown__content__block"
 								>
-									<div className="filter-area-container__content-dropdown__content__block__checkbox-container">
+									<div className="filter-area-container__dropdown__content__block__checkbox-container">
 										<CustomCheckbox
 											name="statusFilter"
 											value={obj.id}
@@ -328,11 +328,11 @@ export default function ListViewTopBar(props) {
 									<label
 										htmlFor={"list-status-filter-" + obj.id}
 										className={
-											"filter-area-container__content-dropdown__content__block__label" +
+											"filter-area-container__dropdown__content__block__label" +
 											(reduxState[
 												props.reduxContainerName
 											].searchFilterSort.statusFilter.includes(obj.id)
-												? " filter-area-container__content-dropdown__content__block__label--active" +
+												? " filter-area-container__dropdown__content__block__label--active" +
 												  getTextColorClassNameForThemeWithLightOrDarkMode(
 														reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color

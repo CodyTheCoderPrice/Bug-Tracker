@@ -14,7 +14,7 @@ import {
 	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getDeleteModalBackgroundColorClassNameForLightOrDarkMode,
 	getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode,
-	getBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDarkMode,
 	getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
@@ -110,7 +110,7 @@ export default function DeleteModal(props) {
 				<span
 					className={
 						"backend-errors" +
-						getBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

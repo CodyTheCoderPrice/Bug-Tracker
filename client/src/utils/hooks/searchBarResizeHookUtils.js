@@ -5,24 +5,22 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
 
 /**
  * Custom hook that resizes the search-bar (element with 
- * 'centering-container__bar-and-button-container__search-bar' className) in 
+ * 'centering-container__search-container__search-bar' className) in 
  * the ListViewTopBar component to fit available space between the new item 
  * button (element with 'centering-container__new-item-button' className) and 
  * the filter button (element with 'filter-area-container__button' className).
  *
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
- * @param {string} searchBarAndButtonCenteringContainerClassName - Unique
- * className assigned to an element (with 'centering-container' className) used 
- * for centering element with 'centering-container__bar-and-button-container'
- * className
- * @param {string} centeredSearchBarAndButtonContainerClassName - Unique
- * className assigned to the element with 
- * 'centering-container__bar-and-button-container' className
+ * @param {string} CenteringContainerClassName - Unique className assigned to
+ * an element (with 'centering-container' className) used for centering element
+ * with 'centering-container__search-container' className
+ * @param {string} centeredSearchContainerClassName - Unique className assigned 
+ * to the element with 'centering-container__search-container' className
  * @param {string} searchBarClassName - Unique className assigned to element
- * with 'centering-container__bar-and-button-container__search-bar' className
+ * with 'centering-container__search-container__search-bar' className
  * @param {string} searchButtonClassName - Unique className assigned to element
- * with 'centering-container__bar-and-button-container__search-button' className
+ * with 'centering-container__search-container__search-button' className
  * @param {string} newItemButtonContainerClassName - Unique className assigned
  * to an element (with 'centering-container' className) used for centering 
  * element with 'centering-container__new-item-button' className.
@@ -33,7 +31,7 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
  * seListViewSearchBarResize(
  * 	reduxState,
  * 	"js-list-search-bar-and-button-centering-container",
- * 	"js-list-centered-search-bar-and-button-container",
+ * 	"js-list-centered-search-search-container",
  * 	"js-list-search-bar",
  * 	"js-list-search-button",
  * 	"js-new-item-button-centering-container",
@@ -42,8 +40,8 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
  */
 export function useListViewSearchBarResize(
 	passedReduxState,
-	searchBarAndButtonCenteringContainerClassName,
-	centeredSearchBarAndButtonContainerClassName,
+	CenteringContainerClassName,
+	centeredSearchContainerClassName,
 	searchBarClassName,
 	searchButtonClassName,
 	newItemButtonContainerClassName,
@@ -86,11 +84,11 @@ export function useListViewSearchBarResize(
 			}
 
 			const searchBarCenteringContainer = document.getElementsByClassName(
-				searchBarAndButtonCenteringContainerClassName
+				CenteringContainerClassName
 			)[0];
 
 			const searchBarInnerContainer = document.getElementsByClassName(
-				centeredSearchBarAndButtonContainerClassName
+				centeredSearchContainerClassName
 			)[0];
 
 			const remainingSearchFilterSortBarWidth =

@@ -138,8 +138,8 @@ export function appendHexValueForColorsToStatusList(statusList) {
 // Light/Dark mode
 //=================
 /**
- * Get light/dark mode className for common (i.e. typically used), among a range 
- * of different element's, strong (i.e. more distinct) text color
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * strong (i.e. more distinct) text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common strong text color
@@ -151,8 +151,8 @@ export function getCommonStrongTextColorClassNameForLightOrDarkMode(
 }
 
 /**
- * Get light/dark mode className for common (i.e. typically used), among a range
- * of different element's, weak (i.e. less distinct) text color
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * weak (i.e. less distinct) text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common weak text color
@@ -164,30 +164,31 @@ export function getCommonWeakTextColorClassNameForLightOrDarkMode(
 }
 
 /**
- * Get light/dark mode className for backend error element's text color
+ * Get light/dark mode className for common (i.e. used by multiple components) 
+ * 'backend-errors' (className) element's text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className backend error element's text
- * color
+ * @returns {string} Light/dark mode className for common 'backend-errors'
+ * (className) element's text color
  */
-export function getBackendErrorsTextColorClassNameForLightOrDarkMode(
+export function getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-set-backend-errors-text-color-dark-mode-" + dark_mode;
+	return " js-set-common-backend-errors-text-color-dark-mode-" + dark_mode;
 }
 
 /**
- * Get light/dark mode className for char-count element's (when limit reached)
- * text color
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * char count (when limit is reached) element's text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for char-count element's (when
- * limit reached) text color
+ * @returns {string} Light/dark mode className for common char-count (when
+ * limit reached) element's text color
  */
-export function getCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+export function getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-set-char-count-limit-reached-text-color-dark-mode-" + dark_mode;
+	return " js-set-common-char-count-limit-reached-text-color-dark-mode-" + dark_mode;
 }
 
 /**
@@ -214,8 +215,8 @@ export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOr
 }
 
 /**
- * Get light/dark mode className for common (i.e. typically used) icon-button element's text color with
- * hover
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * icon-button element's text color with hover
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common icon-button element's
@@ -247,8 +248,8 @@ export function getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
 }
 
 /**
- * Get light/dark mode className for common (i.e. typically used) form input
- * element's border, background, and text colors
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * form input element's border, background, and text colors
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common form input element's
@@ -302,18 +303,18 @@ export function getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForL
 }
 
 /**
- * Get light/dark mode className for AccountSidebar and AccountModal element's
- * background color (both components have same background color css)
+ * Get light/dark mode className for AccountSidebar components 
+ * 'sidebar-container' (className) element's background color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for AccountSidebar and
- * AccountModal element's background color
+ * @returns {string} Light/dark mode className for AccountSidebar components 
+ * 'sidebar-container' (className) element's background color
  */
-export function getAccountSidebarAndModalBackgroundColorClassNameForLightOrDarkMode(
+export function getAccountSidebarBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-account-sidebar-modal-background-color-dark-mode-" + dark_mode
+		" js-set-account-sidebar-background-color-dark-mode-" + dark_mode
 	);
 }
 
@@ -348,6 +349,22 @@ export function getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassName
 	return (
 		" js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-" +
 		dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for AccountModal components 
+ * 'edit-account-modal' (className) element's background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for AccountSidebar components 
+ * 'edit-account-modal' (className) element's background color
+ */
+ export function getAccountModalBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-account-modal-background-color-dark-mode-" + dark_mode
 	);
 }
 
@@ -423,78 +440,38 @@ export function getAccountModalEditSettingsCategoryContainerBorderBackgroundText
 }
 
 /**
- * Get light/dark mode className for ListViewTopBar and ItemViewTopBar
- * element's border and background color (both components have same css for
- * border and background color)
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * ListViewTopBar component's 'list-view-top-bar-component' (className) and 
+ * ItemViewTopBar component's 'item-vew-top-bar-component' (className)
+ * element's border and background color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ListViewTopBar and
- * ItemViewTopBar element's border and background color
+ * @returns {string} Light/dark mode className for common ListViewTopBar
+ * component's 'list-view-top-bar-component' (className) and ItemViewTopBar
+ * component's 'item-vew-top-bar-component' (className) element's border
+ * and background color
  */
-export function getTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
+export function getCommonTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-set-top-bar-border-and-background-color-dark-mode-" + dark_mode;
+	return " js-common-set-top-bar-border-and-background-color-dark-mode-" + dark_mode;
 }
 
 /**
- * Get light/dark mode className for ListViewTopBar and ItemViewTopBar button
- * element's border, background, and text color (both components have same
- * button css for border, background, and text color)
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * ListViewTopBar/ItemViewTopBar component's button and dropdown element's 
+ * border, background, and text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ListViewTopBar and
- * ItemViewTopBar button element's border, background, and text color
+ * @returns {string} Light/dark mode className for common
+ * ListViewTopBar/ItemViewTopBar component's button and dropdown element's 
+ * border, background, and text color
  */
-export function getTopBarButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+export function getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-set-top-bar-button-border-background-text-color-dark-mode-" + dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for CreateItemSidebar element's background color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for CreateItemSidebar element's
- * background color
- */
-export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for CreateItemSidebar form-label element's
- * disabled text color with no pointer events
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for CreateItemSidebar form-label
- * element's disabled text color with no pointer events
- */
-export function getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-set-create-item-sidebar-diabled-label-dark-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for CreateItemSidebar form input (type date)
- * element's disabled background and text color with no pointer events
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for CreateItemSidebar
- * form input (type date) element's disabled background and text color with no pointer
- * events
- */
-export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-create-item-sidebar-diabled-input-date-dark-mode-" + dark_mode
+		" js-set-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-" + dark_mode
 	);
 }
 
@@ -562,6 +539,66 @@ export function getListViewTableItemRowSelectedBackgroundColorClassNameForLightO
 }
 
 /**
+ * Get light/dark mode className for ListView empty-list-message element's text
+ * color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ListView empty-list-message
+ * element's text color
+ */
+export function getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-list-view-empty-list-message-text-color-dark-mode-" + dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for CreateItemSidebar element's background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for CreateItemSidebar element's
+ * background color
+ */
+ export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-create-item-sidebar-background-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for CreateItemSidebar form-label element's
+ * disabled text color with no pointer events
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for CreateItemSidebar form-label
+ * element's disabled text color with no pointer events
+ */
+export function getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-set-create-item-sidebar-diabled-label-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for CreateItemSidebar form input (type date)
+ * element's disabled background and text color with no pointer events
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for CreateItemSidebar
+ * form input (type date) element's disabled background and text color with no pointer
+ * events
+ */
+export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-set-create-item-sidebar-diabled-input-date-dark-mode-" + dark_mode
+	);
+}
+
+/**
  * Get light/dark mode className for DeleteModal element's background color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -619,22 +656,6 @@ export function getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return " js-set-delete-modal-trapazoid-border-color-dark-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for ListView empty-list-message element's text
- * color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ListView empty-list-message
- * element's text color
- */
-export function getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-set-list-view-empty-list-message-text-color-dark-mode-" + dark_mode
-	);
 }
 
 /**
@@ -1173,8 +1194,9 @@ export function getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithL
 }
 
 /**
- * Get theme with light/dark mode className for ListViewTopBar and
- * ItemViewTopBar search-bar element's border, background, and text color
+ * Get theme with light/dark mode className for common (i.e. used by multiple
+ * components) ListViewTopBar/ItemViewTopBar search container element's border,
+ * background, and text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @param {("blue-turkish"|
@@ -1182,24 +1204,26 @@ export function getCustomCheckboxBorderBackgroundTextColorClassNameForThemeWithL
  * 	"blue-sky"|
  * 	"blue-turquoise"|
  * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Theme with light/dark mode className for ListViewTopBar
- * and ItemViewTopBar search-bar element's border, background, and text color
+ * @returns {string} Theme with light/dark mode className for common 
+ * ListViewTopBar/ItemViewTopBar search container element's border, background,
+ * and text color
  */
-export function getTopBarSearchBarBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+export function getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
 ) {
 	return (
 		(dark_mode
-			? " js-set-top-bar-search-bar-border-background-text-color-mode-dark-theme-"
-			: " js-set-top-bar-search-bar-border-background-text-color-mode-light-theme-") +
+			? " js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-"
+			: " js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-") +
 		theme_color
 	);
 }
 
 /**
- * Get theme with light/dark mode className for common (i.e. typically used) 
- * form input element's border (with focus), background, and text color
+ * Get theme with light/dark mode className for common (i.e. used by multiple 
+ * components) form input element's border (with focus), background, and text
+ * color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @param {("blue-turkish"|

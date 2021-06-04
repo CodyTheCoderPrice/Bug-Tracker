@@ -200,17 +200,18 @@ $raspberry-red-level-2: #d44141;
 $basic-yellow-level-1: #ffff00;
 $basic-yellow-level-2: #e2e200;
 
-// Light/Dark mode -- common (i.e. used by many components)
+// Light/Dark mode -- common (i.e. used by multiple components)
+// Note: light/dark mode placed at end of variable name
 $mode-common-background-color-light: white;
 $mode-common-background-color-dark: $gray-dark-level-8;
 $mode-common-strong-text-color-light: black;
 $mode-common-strong-text-color-dark: $tinted-gray-light-level-1;
 $mode-common-weak-text-color-light: $gray-dark-level-10;
 $mode-common-weak-text-color-dark: $tinted-gray-light-level-4;
-$mode-backend-errors-text-color-light: $basic-red-level-1;
-$mode-backend-errors-text-color-dark: $fiery-red-level-1;
-$mode-char-count-limit-reached-text-color-light: $mode-backend-errors-text-color-light;
-$mode-char-count-limit-reached-text-color-dark: $mode-backend-errors-text-color-dark;
+$mode-common-backend-errors-text-color-light: $basic-red-level-1;
+$mode-common-backend-errors-text-color-dark: $fiery-red-level-1;
+$mode-common-char-count-limit-reached-text-color-light: $mode-common-backend-errors-text-color-light;
+$mode-common-char-count-limit-reached-text-color-dark: $mode-common-backend-errors-text-color-dark;
 $mode-blurred-background-background-color-light: black;
 $mode-blurred-background-background-color-dark: $mode-blurred-background-background-color-light;
 $mode-blurred-background-opacity-light: 0.8;
@@ -244,7 +245,24 @@ $mode-common-form-input-border-color-light: $gray-level-5;
 $mode-common-form-input-border-color-dark: black;
 $mode-common-form-input-background-color-light: $gray-light-level-5;
 $mode-common-form-input-background-color-dark: $gray-dark-level-2;
-// Light/Dark mode -- specific (i.e. used by specific component(s))
+$mode-common-top-bar-border-color-light: black;
+$mode-common-top-bar-border-color-dark: black;
+$mode-common-top-bar-background-color-light: $gray-light-level-5;
+$mode-common-top-bar-background-color-dark: $gray-dark-level-12;
+$mode-common-top-bar-button-and-dropdown-border-color-light: $mode-common-strong-text-color-light;
+$mode-common-top-bar-button-and-dropdown-border-color-dark: $gray-level-1;
+$mode-common-top-bar-button-and-dropdown-background-color-light: $mode-common-background-color-light;
+$mode-common-top-bar-button-and-dropdown-background-color-dark: $gray-dark-level-5;
+$mode-common-top-bar-button-and-dropdown-text-color-light: $mode-common-strong-text-color-light;
+$mode-common-top-bar-button-and-dropdown-text-color-dark: $mode-common-strong-text-color-dark;
+$mode-common-top-bar-new-item-tutorial-arrow-background-color-light: $mode-common-strong-text-color-light;
+$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark: $mode-common-strong-text-color-dark;
+$mode-common-top-bar-search-bar-background-color-light: $mode-common-background-color-light;
+$mode-common-top-bar-search-bar-background-color-dark: $gray-dark-level-6;
+$mode-common-top-bar-search-bar-text-color-light: $mode-common-strong-text-color-light;
+$mode-common-top-bar-search-bar-text-color-dark: $mode-common-strong-text-color-dark;
+// Light/Dark mode -- specific (i.e. used by specific components)
+// Note: light/dark mode placed at end of variable name
 $mode-home-background-color-light: $mode-common-background-color-light;
 $mode-home-background-color-dark: $mode-common-background-color-dark;
 $mode-home-text-color-light: $mode-common-strong-text-color-light;
@@ -261,16 +279,18 @@ $mode-navbar-hamburger-dropdown-option-name-text-color-light: $basic-blue-level-
 $mode-navbar-hamburger-dropdown-option-name-text-color-dark: $cyan-blue-level-1;
 $mode-navbar-hamburger-dropdown-option-icon-text-color-light: $gray-dark-level-1;
 $mode-navbar-hamburger-dropdown-option-icon-text-color-dark: $gray-level-7;
-$mode-account-sidebar-modal-background-color-light: $mode-common-background-color-light;
-$mode-account-sidebar-modal-background-color-dark: $mode-common-background-color-dark;
+$mode-account-sidebar-background-color-light: $mode-common-background-color-light;
+$mode-account-sidebar-background-color-dark: $mode-common-background-color-dark;
 $mode-account-sidebar-horizontal-dividing-line-border-color-light: $gray-light-level-11;
 $mode-account-sidebar-horizontal-dividing-line-border-color-dark: $gray-level-7;
 $mode-account-sidebar-logout-button-border-color-light: $mode-account-sidebar-horizontal-dividing-line-border-color-light;
 $mode-account-sidebar-logout-button-border-color-dark: $mode-account-sidebar-horizontal-dividing-line-border-color-dark;
 $mode-account-sidebar-logout-button-hover-background-color-light: $gray-light-level-1;
 $mode-account-sidebar-logout-button-hover-background-color-dark: $gray-dark-level-5;
-$mode-account-modal-delete-account-capital-delete-text-color-light: $mode-backend-errors-text-color-light;
-$mode-account-modal-delete-account-capital-delete-text-color-dark: $mode-backend-errors-text-color-dark;
+$mode-account-modal-background-color-light: $mode-common-background-color-light;
+$mode-account-modal-background-color-dark: $mode-common-background-color-dark;
+$mode-account-modal-delete-account-capital-delete-text-color-light: $mode-common-backend-errors-text-color-light;
+$mode-account-modal-delete-account-capital-delete-text-color-dark: $mode-common-backend-errors-text-color-dark;
 $mode-account-modal-delete-account-form-input-focus-border-color-light: $raspberry-red-level-1;
 $mode-account-modal-delete-account-form-input-focus-border-color-dark: $fiery-red-level-5;
 $mode-account-modal-delete-account-form-delete-button-background-color-light: $raspberry-red-level-1;
@@ -279,28 +299,6 @@ $mode-account-modal-delete-account-form-delete-button-hover-background-color-lig
 $mode-account-modal-delete-account-form-delete-button-hover-background-color-dark: $faded-red-level-5;
 $mode-account-modal-change-settings-category-container-border-color-light: black;
 $mode-account-modal-change-settings-category-container-border-color-dark: $gray-light-level-12;
-$mode-top-bar-border-color-light: black;
-$mode-top-bar-border-color-dark: black;
-$mode-top-bar-background-color-light: $gray-light-level-5;
-$mode-top-bar-background-color-dark: $gray-dark-level-12;
-$mode-top-bar-button-border-color-light: $mode-common-strong-text-color-light;
-$mode-top-bar-button-border-color-dark: $gray-level-1;
-$mode-top-bar-button-background-color-light: $mode-common-background-color-light;
-$mode-top-bar-button-background-color-dark: $gray-dark-level-5;
-$mode-top-bar-button-text-color-light: $mode-common-strong-text-color-light;
-$mode-top-bar-button-text-color-dark: $mode-common-strong-text-color-dark;
-$mode-top-bar-new-item-tutorial-arrow-background-color-light: $mode-common-strong-text-color-light;
-$mode-top-bar-new-item-tutorial-arrow-background-color-dark: $mode-common-strong-text-color-dark;
-$mode-top-bar-search-bar-background-color-light: $mode-common-background-color-light;
-$mode-top-bar-search-bar-background-color-dark: $gray-dark-level-6;
-$mode-top-bar-search-bar-text-color-light: $mode-common-strong-text-color-light;
-$mode-top-bar-search-bar-text-color-dark: $mode-common-strong-text-color-dark;
-$mode-create-item-sidebar-background-color-light: $mode-common-background-color-light;
-$mode-create-item-sidebar-background-color-dark: $mode-common-background-color-dark;
-$mode-create-item-sidebar-form-disabled-background-color-light: $mode-create-item-sidebar-background-color-light;
-$mode-create-item-sidebar-form-disabled-background-color-dark: $mode-create-item-sidebar-background-color-dark;
-$mode-create-item-sidebar-form-disabled-text-color-light: $gray-light-level-10;
-$mode-create-item-sidebar-form-disabled-text-color-dark: $gray-level-6;
 $mode-list-view-table-row-border-color-light: $gray-level-2;
 $mode-list-view-table-row-border-color-dark: $gray-level-6;
 $mode-list-view-table-row-background-color-light: $mode-common-background-color-light;
@@ -313,6 +311,12 @@ $mode-list-view-table-row-header-box-shadow-light: 0 1px 0 $mode-list-view-table
 $mode-list-view-table-row-header-box-shadow-dark: 0 1px 0 $mode-list-view-table-row-border-color-dark;
 $mode-list-view-table-row-header-background-color-light: $mode-common-background-color-light;
 $mode-list-view-table-row-header-background-color-dark: $mode-common-background-color-dark;
+$mode-create-item-sidebar-background-color-light: $mode-common-background-color-light;
+$mode-create-item-sidebar-background-color-dark: $mode-common-background-color-dark;
+$mode-create-item-sidebar-form-disabled-background-color-light: $mode-create-item-sidebar-background-color-light;
+$mode-create-item-sidebar-form-disabled-background-color-dark: $mode-create-item-sidebar-background-color-dark;
+$mode-create-item-sidebar-form-disabled-text-color-light: $gray-light-level-10;
+$mode-create-item-sidebar-form-disabled-text-color-dark: $gray-level-6;
 $mode-delete-modal-background-color-light: $mode-common-background-color-light;
 $mode-delete-modal-background-color-dark: $mode-common-background-color-dark;
 $mode-delete-modal-delete-button-background-color-light: $mode-account-modal-delete-account-form-delete-button-background-color-light;
@@ -335,12 +339,12 @@ $mode-item-view-top-bar-icon-button-hover-text-color-light: $gray-dark-level-7;
 $mode-item-view-top-bar-icon-button-hover-text-color-dark: $gray-level-1;
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-light: $gray-light-level-4;
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark: $gray-dark-level-4;
-$mode-item-view-list-sidebar-border-color-light: $mode-top-bar-border-color-light;
-$mode-item-view-list-sidebar-border-color-dark: $mode-top-bar-border-color-dark;
+$mode-item-view-list-sidebar-border-color-light: $mode-common-top-bar-border-color-light;
+$mode-item-view-list-sidebar-border-color-dark: $mode-common-top-bar-border-color-dark;
 $mode-item-view-list-sidebar-expand-minimize-button-border-color-light: $mode-item-view-list-sidebar-border-color-light;
 $mode-item-view-list-sidebar-expand-minimize-button-border-color-dark: $mode-item-view-list-sidebar-border-color-dark;
-$mode-item-view-list-sidebar-expand-minimize-button-background-color-light: $mode-top-bar-background-color-light;
-$mode-item-view-list-sidebar-expand-minimize-button-background-color-dark: $mode-top-bar-background-color-dark;
+$mode-item-view-list-sidebar-expand-minimize-button-background-color-light: $mode-common-top-bar-background-color-light;
+$mode-item-view-list-sidebar-expand-minimize-button-background-color-dark: $mode-common-top-bar-background-color-dark;
 $mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light: $gray-light-level-8;
 $mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-dark: $gray-dark-level-12;
 $mode-item-view-list-sidebar-table-row-border-color-light: $mode-list-view-table-row-border-color-light;
@@ -357,14 +361,14 @@ $mode-item-view-list-sidebar-table-row-header-background-color-light: $mode-list
 $mode-item-view-list-sidebar-table-row-header-background-color-dark: $mode-list-view-table-row-header-background-color-dark;
 $mode-item-view-content-container-background-color-light: $mode-common-background-color-light;
 $mode-item-view-content-container-background-color-dark: $mode-common-background-color-dark;
-$mode-item-view-item-box-background-color-light: $mode-top-bar-background-color-light;
-$mode-item-view-item-box-background-color-dark: $mode-top-bar-background-color-dark;
+$mode-item-view-item-box-background-color-light: $mode-common-top-bar-background-color-light;
+$mode-item-view-item-box-background-color-dark: $mode-common-top-bar-background-color-dark;
 $mode-item-view-form-input-border-color-light: black;
 $mode-item-view-form-input-border-color-dark: black;
 $mode-item-view-form-input-background-color-light: $mode-common-background-color-light;
 $mode-item-view-form-input-background-color-dark: $mode-common-background-color-dark;
-$mode-item-view-form-disabled-background-color-light: $mode-top-bar-background-color-light;
-$mode-item-view-form-disabled-background-color-dark: $mode-top-bar-background-color-dark;
+$mode-item-view-form-disabled-background-color-light: $mode-common-top-bar-background-color-light;
+$mode-item-view-form-disabled-background-color-dark: $mode-common-top-bar-background-color-dark;
 $mode-item-view-form-disabled-text-color-light: $mode-create-item-sidebar-form-disabled-text-color-light;
 $mode-item-view-form-disabled-text-color-dark: $mode-create-item-sidebar-form-disabled-text-color-dark;
 $mode-item-view-form-cancel-button-background-color-light: $gray-light-level-3;
@@ -377,6 +381,7 @@ $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-ligh
 $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-dark: $mode-common-strong-text-color-dark;
 
 // Themes
+// Note: theme placed at end of variable name
 $theme-brighter-border-background-color-blue-turkish: $turkish-blue-level-3;
 $theme-standard-border-background-color-blue-turkish: $turkish-blue-level-4;
 $theme-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
@@ -388,6 +393,7 @@ $theme-standard-border-background-color-blue-turquoise: $maganese-blue-level-5;
 $theme-brighter-border-background-color-purple-rain: $rain-purple-light-level-4;
 $theme-standard-border-background-color-purple-rain: $rain-purple-level-6;
 // Themes + Light/Dark mode
+// Note: theme placed towards start of variable name; light/dark mode placed at the end of variable name
 $theme-mode-blue-turkish-toggle-switch-on-border-background-color-light: $turkish-blue-level-2;
 $theme-mode-blue-turkish-toggle-switch-on-border-background-color-dark: $lake-michigan-blue-level-6;
 $theme-mode-blue-turkish-new-item-tutorial-border-text-color-light: $cerulean-blue-level-6;

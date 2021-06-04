@@ -7,10 +7,10 @@
 	z-index: 1;
 	position: fixed;
 	top: v.$top-bar-top;
-	border: v.$top-bar-border-width solid v.$mode-top-bar-border-color-light;
+	border: v.$top-bar-border-width solid v.$mode-common-top-bar-border-color-light;
 	border-left: none;
 	border-right: none;
-	background-color: v.$mode-top-bar-background-color-light;
+	background-color: v.$mode-common-top-bar-background-color-light;
 	height: v.$top-bar-height;
 	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
@@ -29,12 +29,12 @@
 
 		left: 30px;
 		border: v.$top-bar-common-button-border-width solid
-			v.$mode-top-bar-button-border-color-light;
+			v.$mode-common-top-bar-button-and-dropdown-border-color-light;
 		border-radius: v.$top-bar-buttton-border-radius;
-		background-color: v.$mode-top-bar-button-background-color-light;
+		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-light;
 		height: v.$top-bar-button-height;
 		width: 110px;
-		color: v.$mode-top-bar-button-text-color-light;
+		color: v.$mode-common-top-bar-button-and-dropdown-text-color-light;
 		font-size: v.$top-bar-button-font-size;
 		text-align: center;
 		cursor: pointer;
@@ -50,13 +50,13 @@
 		white-space: nowrap;
 	}
 
-	.centering-container__bar-and-button-container {
+	.centering-container__search-container {
 		@include m.dead-center();
 
 		width: 100%;
 	}
 
-	.centering-container__bar-and-button-container__search-bar {
+	.centering-container__search-container__search-bar {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -71,7 +71,7 @@
 		border-radius: v.$top-bar-buttton-border-radius 0 0
 			v.$top-bar-buttton-border-radius;
 		padding: 0px v.$top-bar-search-bar-padding 0px v.$top-bar-search-bar-padding;
-		background-color: v.$mode-top-bar-search-bar-background-color-light;
+		background-color: v.$mode-common-top-bar-search-bar-background-color-light;
 		height: v.$top-bar-search-bar-height;
 		line-height: v.$top-bar-search-bar-height;
 		// Width changed by JS
@@ -83,7 +83,7 @@
 		}
 	}
 
-	.centering-container__bar-and-button-container__search-button {
+	.centering-container__search-container__search-button {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -103,7 +103,7 @@
 		cursor: pointer;
 	}
 
-	.centering-container__bar-and-button-container__search-button__icon {
+	.centering-container__search-container__search-button__icon {
 		@include m.dead-center();
 		color: white;
 		font-size: v.$top-bar-search-button-icon-font-size;
@@ -120,19 +120,19 @@
 	.filter-area-container__button {
 		@include m.stop-text-selection();
 
-		// Must be more than filter-area-container__content-dropdown
+		// Must be more than filter-area-container__dropdown
 		// ...so its top border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
 		top: 9px;
 		right: 30px;
 		border: v.$top-bar-common-button-border-width solid
-			v.$mode-top-bar-button-border-color-light;
+			v.$mode-common-top-bar-button-and-dropdown-border-color-light;
 		border-radius: v.$top-bar-buttton-border-radius;
-		background-color: v.$mode-top-bar-button-background-color-light;
+		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-light;
 		height: v.$top-bar-button-height;
 		width: v.$list-view-top-bar-filter-button-width;
-		color: v.$mode-top-bar-button-text-color-light;
+		color: v.$mode-common-top-bar-button-and-dropdown-text-color-light;
 		font-size: v.$top-bar-button-font-size;
 		text-align: center;
 		cursor: pointer;
@@ -162,7 +162,7 @@
 		color: v.$filter-button-active-color;
 	}
 
-	.filter-area-container__content-dropdown {
+	.filter-area-container__dropdown {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -183,15 +183,15 @@
 		visibility: hidden;
 	}
 
-	.filter-area-container__content-dropdown--shorter {
+	.filter-area-container__dropdown--shorter {
 		height: v.$top-bar-filter-dropdown-content-container-shorter-height;
 	}
 
-	.filter-area-container__content-dropdown--visible {
+	.filter-area-container__dropdown--visible {
 		visibility: visible;
 	}
 
-	.filter-area-container__content-dropdown__content {
+	.filter-area-container__dropdown__content {
 		float: left;
 		margin: v.$top-bar-filter-button-dropdown-title-margin-top 0 0
 			v.$top-bar-filter-button-dropdown-title-margin-on-one-side;
@@ -199,13 +199,13 @@
 		font-size: v.$filter-dropdown-content-font-size;
 	}
 
-	.filter-area-container__content-dropdown__content--right {
+	.filter-area-container__dropdown__content--right {
 		float: right;
 		margin: v.$top-bar-filter-button-dropdown-title-margin-top
 			v.$top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
 	}
 
-	.filter-area-container__content-dropdown__content__title {
+	.filter-area-container__dropdown__content__title {
 		display: block;
 		margin: 2px 0px 5px 0px;
 		border-bottom: 1px solid gray;
@@ -213,21 +213,21 @@
 		font-weight: bold;
 	}
 
-	.filter-area-container__content-dropdown__content__block {
+	.filter-area-container__dropdown__content__block {
 		text-align: left;
 	}
 
-	.filter-area-container__content-dropdown__content__block__checkbox-container {
+	.filter-area-container__dropdown__content__block__checkbox-container {
 		display: inline-block;
 		margin: v.$top-bar-filter-button-dropdown-checkbox-container-margin;
 	}
 
-	.filter-area-container__content-dropdown__content__block__label {
+	.filter-area-container__dropdown__content__block__label {
 		display: inline-block;
 		margin: v.$top-bar-filter-button-dropdown-label-margin;
 	}
 
-	.filter-area-container__content-dropdown__content__block__label--active {
+	.filter-area-container__dropdown__content__block__label--active {
 		color: v.$filter-button-active-color;
 	}
 
@@ -243,11 +243,11 @@
 		border-left: 14px solid transparent;
 		border-right: 14px solid transparent;
 		border-bottom: 14px solid
-			v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
+			v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
 	}
 
 	.new-item-tutorial-container__arrow-stock {
-		background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
+		background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
 		margin-left: 11px;
 		height: 66px;
 		width: 6px;
@@ -263,7 +263,7 @@
 	.new-item-tutorial-container__bend-message-centering-container__arrow-bend {
 		@include m.vertical-center();
 
-		background-color: v.$mode-top-bar-new-item-tutorial-arrow-background-color-light;
+		background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
 		height: 6px;
 		width: 40px;
 	}

@@ -453,7 +453,7 @@ export const seBackendErrors = (backendErrors) => (dispatch) => {
  * Clears info in 'backendErrors' Object in GENERAL_CONTAINER of the redux
  * state.
  *
- * This typically used so backend errors do not continue to display when a user
+ * This is done so backend errors do not continue to display when a user
  * navigates back to the component they last had a backend error for.
  *
  * @example
