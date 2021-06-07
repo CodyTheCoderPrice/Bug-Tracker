@@ -16,7 +16,7 @@ import {
 } from "../../../../actions";
 
 import {
-	getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode,
+	getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode,
 	getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getTextColorClassNameForThemeWithLightOrDarkMode,
@@ -149,8 +149,8 @@ export default function ListViewCreateItemSidebar(props) {
 		<div className="create-item-sidebar-component">
 			<div
 				className={
-					"blurred-background" +
-					getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+					"blurred-backdrop" +
+					getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 						false,
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)

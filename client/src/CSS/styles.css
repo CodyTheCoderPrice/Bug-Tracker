@@ -404,8 +404,8 @@ dropdown can overlap all other components
   color: #fc1e1e;
 }
 
-.hamburger-container .blurred-background,
-.js-get-hamburger-container .blurred-background {
+.hamburger-container .blurred-backdrop,
+.js-get-hamburger-container .blurred-backdrop {
   z-index: 3;
   position: absolute;
   top: 0;
@@ -593,7 +593,7 @@ dropdown can overlap all other components
   color: #ffff00;
 }
 
-.account-modals-blurred-background {
+.account-modals-blurred-backdrop-component {
   z-index: 3;
   position: fixed;
   left: 0;
@@ -604,7 +604,7 @@ dropdown can overlap all other components
   width: 100vw;
 }
 
-.account-modals-blurred-background--below-navbar {
+.account-modals-blurred-backdrop-component--below-navbar {
   top: 56px;
   opacity: 0.6;
 }
@@ -953,7 +953,7 @@ dropdown can overlap all other components
   float: right;
 }
 
-.delete-modal-component .blurred-background {
+.delete-modal-component .blurred-backdrop {
   z-index: 2;
   position: fixed;
   top: 0px;
@@ -963,7 +963,7 @@ dropdown can overlap all other components
   height: 100vh;
   width: 100vw;
 }
-.delete-modal-component .blurred-background--click-to-close {
+.delete-modal-component .blurred-backdrop--click-to-close {
   opacity: 0.6;
 }
 .delete-modal-component .delete-modal {
@@ -2138,7 +2138,7 @@ dropdown can overlap all other components
   color: #3a3a3a;
 }
 
-.create-item-sidebar-component .blurred-background {
+.create-item-sidebar-component .blurred-backdrop {
   z-index: 1;
   position: absolute;
   top: 56px;
@@ -2817,23 +2817,23 @@ body {
 .js-get-app-component .js-set-common-char-count-limit-reached-text-color-dark-mode-true {
   color: #e21b1b;
 }
-.app-component .js-set-blurred-background-background-color-and-opacity-dark-mode-false,
-.js-get-app-component .js-set-blurred-background-background-color-and-opacity-dark-mode-false {
+.app-component .js-set-common-blurred-backdrop-background-color-and-opacity-dark-mode-false,
+.js-get-app-component .js-set-common-blurred-backdrop-background-color-and-opacity-dark-mode-false {
   background-color: black;
   opacity: 0.8;
 }
-.app-component .js-set-blurred-background-background-color-and-opacity-dark-mode-true,
-.js-get-app-component .js-set-blurred-background-background-color-and-opacity-dark-mode-true {
+.app-component .js-set-common-blurred-backdrop-background-color-and-opacity-dark-mode-true,
+.js-get-app-component .js-set-common-blurred-backdrop-background-color-and-opacity-dark-mode-true {
   background-color: black;
   opacity: 0.6;
 }
-.app-component .js-set-click-to-close-blurred-background-background-color-and-opacity-dark-mode-false,
-.js-get-app-component .js-set-click-to-close-blurred-background-background-color-and-opacity-dark-mode-false {
+.app-component .js-set-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-false,
+.js-get-app-component .js-set-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-false {
   background-color: black;
   opacity: 0.6;
 }
-.app-component .js-set-click-to-close-blurred-background-background-color-and-opacity-dark-mode-true,
-.js-get-app-component .js-set-click-to-close-blurred-background-background-color-and-opacity-dark-mode-true {
+.app-component .js-set-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-true,
+.js-get-app-component .js-set-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-true {
   background-color: black;
   opacity: 0.4;
 }

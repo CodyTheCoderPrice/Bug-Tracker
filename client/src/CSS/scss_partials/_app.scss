@@ -55,24 +55,24 @@ body {
 		color: v.$mode-common-char-count-limit-reached-text-color-dark;
 	}
 
-	// Light/Dark mode -- blurred-background -- background color and opacity
-	.js-set-blurred-background-background-color-and-opacity-dark-mode-false {
-		background-color: v.$mode-blurred-background-background-color-light;
-		opacity: v.$mode-blurred-background-opacity-light;
+	// Light/Dark mode -- Common (i.e. used by multiple components) blurred backdrop -- background color and opacity
+	.js-set-common-blurred-backdrop-background-color-and-opacity-dark-mode-false {
+		background-color: v.$mode-common-blurred-backdrop-background-color-light;
+		opacity: v.$mode-common-blurred-backdrop-opacity-light;
 	}
-	.js-set-blurred-background-background-color-and-opacity-dark-mode-true {
-		background-color: v.$mode-blurred-background-background-color-dark;
-		opacity: v.$mode-blurred-background-opacity-dark;
+	.js-set-common-blurred-backdrop-background-color-and-opacity-dark-mode-true {
+		background-color: v.$mode-common-blurred-backdrop-background-color-dark;
+		opacity: v.$mode-common-blurred-backdrop-opacity-dark;
 	}
 
-	// Light/Dark mode -- click-to-close-blurred-background -- background color and opacity
-	.js-set-click-to-close-blurred-background-background-color-and-opacity-dark-mode-false {
-		background-color: v.$mode-blurred-background-background-color-light;
-		opacity: v.$mode-click-to-close-blurred-background-opacity-light;
+	// Light/Dark mode -- Common (i.e. used by multiple components) blurred backdrop (with click-to-close functionality) -- background color and opacity
+	.js-set-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-false {
+		background-color: v.$mode-common-blurred-backdrop-background-color-light;
+		opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-light;
 	}
-	.js-set-click-to-close-blurred-background-background-color-and-opacity-dark-mode-true {
-		background-color: v.$mode-blurred-background-background-color-dark;
-		opacity: v.$mode-click-to-close-blurred-background-opacity-dark;
+	.js-set-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-true {
+		background-color: v.$mode-common-blurred-backdrop-background-color-dark;
+		opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) icon-buttons -- text color with hover

@@ -1,19 +1,19 @@
 @use "../../utils/variables" as v;
 
-.account-modals-blurred-background {
+.account-modals-blurred-backdrop-component {
 	// Must be more than listViewTopBar.scss,
 	// ...itemViewTopBar.scss, and itemViewSidebarTablesAndRows.scss
 	z-index: 3;
 	position: fixed;
 	left: 0;
 	top: 0;
-	background-color: v.$mode-blurred-background-background-color-light;
-	opacity: v.$mode-blurred-background-opacity-light;
+	background-color: v.$mode-common-blurred-backdrop-background-color-light;
+	opacity: v.$mode-common-blurred-backdrop-opacity-light;
 	height: 100vh;
 	width: 100vw;
 }
 
-.account-modals-blurred-background--below-navbar {
+.account-modals-blurred-backdrop-component--below-navbar {
 	top: v.$navbar-height;
-	opacity: v.$mode-click-to-close-blurred-background-opacity-light;
+	opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-light;
 }

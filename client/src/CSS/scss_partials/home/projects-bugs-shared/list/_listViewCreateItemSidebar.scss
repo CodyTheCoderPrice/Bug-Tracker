@@ -2,13 +2,13 @@
 @use "../../../utils/mixins" as m;
 
 .create-item-sidebar-component {
-	.blurred-background {
+	.blurred-backdrop {
 		// Must be more than listViewTopBar.scss
 		z-index: 1;
 		position: absolute;
 		top: v.$navbar-height;
-		background-color: v.$mode-blurred-background-background-color-light;
-		opacity: v.$mode-blurred-background-opacity-light;
+		background-color: v.$mode-common-blurred-backdrop-background-color-light;
+		opacity: v.$mode-common-blurred-backdrop-opacity-light;
 		height: 100vh;
 		width: 100vw;
 	}

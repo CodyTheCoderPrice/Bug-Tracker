@@ -192,24 +192,24 @@ export function getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMo
 }
 
 /**
- * Get light/dark mode className for blurred-background element's background
- * color and opacity
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * blurred backdrop element's background color and opacity
  *
  * @param {boolean} clickToClose - Whether the blurred-background element will
  * close if clicked
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for blurred-background element's
- * background color and opacity
+ * @returns {string} Light/dark mode className for common blurred backdrop 
+ * element's background color and opacity
  */
-export function getBlurredBackgroundBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+export function getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 	clickToClose,
 	dark_mode
 ) {
 	return (
 		// Click-to-close blurred-background elements have different css
 		(clickToClose
-			? " js-set-click-to-close-blurred-background-background-color-and-opacity-dark-mode-"
-			: " js-set-blurred-background-background-color-and-opacity-dark-mode-") +
+			? " js-set-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-"
+			: " js-set-common-blurred-backdrop-background-color-and-opacity-dark-mode-") +
 		dark_mode
 	);
 }

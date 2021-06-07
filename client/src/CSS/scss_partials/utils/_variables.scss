@@ -212,12 +212,12 @@ $mode-common-backend-errors-text-color-light: $basic-red-level-1;
 $mode-common-backend-errors-text-color-dark: $fiery-red-level-1;
 $mode-common-char-count-limit-reached-text-color-light: $mode-common-backend-errors-text-color-light;
 $mode-common-char-count-limit-reached-text-color-dark: $mode-common-backend-errors-text-color-dark;
-$mode-blurred-background-background-color-light: black;
-$mode-blurred-background-background-color-dark: $mode-blurred-background-background-color-light;
-$mode-blurred-background-opacity-light: 0.8;
-$mode-blurred-background-opacity-dark: 0.6;
-$mode-click-to-close-blurred-background-opacity-light: 0.6;
-$mode-click-to-close-blurred-background-opacity-dark: 0.4;
+$mode-common-blurred-backdrop-background-color-light: black;
+$mode-common-blurred-backdrop-background-color-dark: $mode-common-blurred-backdrop-background-color-light;
+$mode-common-blurred-backdrop-opacity-light: 0.8;
+$mode-common-blurred-backdrop-opacity-dark: 0.6;
+$mode-common-blurred-backdrop-click-to-close-opacity-light: 0.6;
+$mode-common-blurred-backdrop-click-to-close-opacity-dark: 0.4;
 $mode-common-icon-button-text-color-light: $gray-level-4;
 $mode-common-icon-button-text-color-dark: $gray-level-6;
 $mode-common-icon-button-hover-text-color-light: $gray-dark-level-5;
@@ -393,7 +393,7 @@ $theme-standard-border-background-color-blue-turquoise: $maganese-blue-level-5;
 $theme-brighter-border-background-color-purple-rain: $rain-purple-light-level-4;
 $theme-standard-border-background-color-purple-rain: $rain-purple-level-6;
 // Themes + Light/Dark mode
-// Note: theme placed towards start of variable name; light/dark mode placed at the end of variable name
+// Note: theme placed towards start of variable name, light/dark mode placed at the end of variable name
 $theme-mode-blue-turkish-toggle-switch-on-border-background-color-light: $turkish-blue-level-2;
 $theme-mode-blue-turkish-toggle-switch-on-border-background-color-dark: $lake-michigan-blue-level-6;
 $theme-mode-blue-turkish-new-item-tutorial-border-text-color-light: $cerulean-blue-level-6;
