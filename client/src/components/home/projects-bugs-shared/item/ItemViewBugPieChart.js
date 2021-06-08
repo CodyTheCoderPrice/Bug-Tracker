@@ -7,6 +7,8 @@ import {
 
 import {
 	getBugsInProjectList,
+	getStatusBackgroundColorClassName,
+	getStatusTextColorClassName,
 	getNumberOfBugsForStatus,
 } from "../../../../utils";
 
@@ -139,8 +141,7 @@ export default function ItemViewBugPieChart() {
 								<div
 									className={
 										"stats-container__row__status-box" +
-										" js-set-status-box-background-color-" +
-										statusObject.color
+										getStatusBackgroundColorClassName(statusObject.color)
 									}
 								>
 									<span className="stats-container__row__status-box__centered-info">
@@ -151,14 +152,13 @@ export default function ItemViewBugPieChart() {
 									<span
 										className={
 											"stats-container__row__stats-centering-container__stats" +
-											" js-set-status-box-text-color-" +
-											statusObject.color
+											getStatusTextColorClassName(statusObject.color)
 										}
 									>
 										{getNumberOfBugsForStatus(
 											reduxState,
-											reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-												.id,
+											reduxState[PROJECT_CONTAINER].componentsDisplay
+												.itemViewCurrentItem.id,
 											statusObject.id
 										)}{" "}
 										/ {bugsInProjectList.length}

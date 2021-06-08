@@ -1,8 +1,8 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.list-table-component,
-.js-get-list-table-component {
+.list-view-table-component,
+.js-get-list-view-table-component {
 	position: fixed;
 	top: v.$list-item-view-top;
 	left: 0px;
@@ -15,8 +15,7 @@
 	overflow-y: auto;
 	overflow-x: auto;
 
-	.list-table,
-	.js-get-list-table {
+	.list-table {
 		position: relative;
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
@@ -24,7 +23,7 @@
 	}
 
 	.list-table__row,
-	.js-get-list-table__row {
+	.js-get-list-view-table-row {
 		@include m.stop-text-selection();
 		
 		border-bottom: 1px solid v.$mode-list-view-table-row-border-color-light;
@@ -158,7 +157,7 @@
 	}
 }
 
-.list-table-component--no-scroll {
+.list-view-table-component--no-scroll {
 	overflow-y: hidden;
 	overflow-x: hidden;
 }

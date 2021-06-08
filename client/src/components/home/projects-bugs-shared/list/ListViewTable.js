@@ -154,7 +154,7 @@ export default function ListViewTable(props) {
 	return (
 		<div
 			className={
-				"list-table-component js-list-table-container" +
+				"list-view-table-component js-list-table-container" +
 				// If a sidebar or modal is present overtop of the table
 				// ...or the emptyListMessage is present
 				(Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
@@ -171,7 +171,7 @@ export default function ListViewTable(props) {
 							reduxState[PROJECT_CONTAINER].componentsDisplay
 								.itemViewCurrentItem.id
 					).length < 1)
-					? " list-table-component--no-scroll"
+					? " list-view-table-component--no-scroll"
 					: "")
 			}
 		>

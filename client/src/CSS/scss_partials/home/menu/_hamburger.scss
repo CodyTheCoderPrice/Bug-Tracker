@@ -2,8 +2,8 @@
 @use "../../utils/mixins" as m;
 
 // SCSS for classNames only used by the hamburger component
-.hamburger-container,
-.js-get-hamburger-container {
+.navbar-hamburger-component,
+.js-get-navbar-hamburger-component {
 	.blurred-backdrop {
 		// Must be same as navbar-container--increased-z-index in navbar.scss
 		z-index: 3;
@@ -17,7 +17,7 @@
 	}
 
 	.hamburger-button-container,
-	.js-get-hamburger-button-container {
+	.js-get-navbar-hamburger-button-container {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -151,7 +151,7 @@
 	}
 
 	.hamburger-title,
-	.js-get-hamburger-title {
+	.js-get-navbar-hamburger-title {
 		@include m.stop-text-selection();
 
 		position: absolute;

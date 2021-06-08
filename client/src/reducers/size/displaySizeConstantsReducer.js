@@ -14,12 +14,12 @@ const initialState = {
 	listViewTableRowHeight: null,
 	itemViewTopBarHeight: null,
 	itemViewListSidebarWidth: null,
-	itemViewOuterDividingContainerMinWidth: null,
 	itemViewPaddingContainerPadding: null,
+	itemViewOuterDividingContainerMinWidth: null,
 };
 
 /**
- * Used to set 'constants' Object containing constant html element sizes into 
+ * Used to set 'constants' Object containing constant html element sizes into
  * SIZE_CONTAINER of the redux state
  *
  * @param {{
@@ -35,11 +35,11 @@ const initialState = {
  * 	listViewTableRowHeight: (number|null),
  * 	itemViewTopBarHeight: (number|null),
  * 	itemViewListSidebarWidth: (number|null),
- * 	itemViewOuterDividingContainerMinWidth: (number|null),
- * 	itemViewPaddingContainerPadding: (number|null)
- * }} state - Current Object (in the redux state) for constant html element 
+ *  itemViewPaddingContainerPadding: (number|null),
+ * 	itemViewOuterDividingContainerMinWidth: (number|null)
+ * }} state - Current Object (in the redux state) for constant html element
  * sizes
- * @param {Object} action - Object with a 'container' property (determins where 
+ * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
@@ -56,8 +56,8 @@ const initialState = {
  * 	listViewTableRowHeight: (number|null),
  * 	itemViewTopBarHeight: (number|null),
  * 	itemViewListSidebarWidth: (number|null),
- * 	itemViewOuterDividingContainerMinWidth: (number|null),
- * 	itemViewPaddingContainerPadding: (number|null)
+ * itemViewPaddingContainerPadding: (number|null),
+ * 	itemViewOuterDividingContainerMinWidth: (number|null)
  * }} Object containing constant html element sizes
  */
 export default function displaySizeConstantsReducer(
@@ -77,10 +77,10 @@ export default function displaySizeConstantsReducer(
 				listViewTableRowHeight: action.sizes.listViewTableRowHeight,
 				itemViewTopBarHeight: action.sizes.itemViewTopBarHeight,
 				itemViewListSidebarWidth: action.sizes.itemViewListSidebarWidth,
-				itemViewOuterDividingContainerMinWidth:
-					action.sizes.itemViewOuterDividingContainerMinWidth,
 				itemViewPaddingContainerPadding:
 					action.sizes.itemViewPaddingContainerPadding,
+				itemViewOuterDividingContainerMinWidth:
+					action.sizes.itemViewOuterDividingContainerMinWidth,
 			};
 		default:
 			return state;

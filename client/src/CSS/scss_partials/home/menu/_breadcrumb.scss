@@ -2,8 +2,8 @@
 @use "../../utils/mixins" as m;
 
 // SCSS for classNames only used by the breadcrumb component
-.breadcrumb-container,
-.js-get-breadcrumb-container {
+.navbar-breadcrumb-component,
+.js-get-navbar-breadcrumb-component {
 	.invisible {
 		visibility: hidden;
 	}
@@ -29,7 +29,7 @@
 	}
 
 	.breadcrumb-button__text,
-	.js-get-breadcrumb-text {
+	.js-get-navbar-breadcrumb-button-text {
 		@include m.stop-text-selection();
 
 		position: relative;
@@ -72,7 +72,7 @@
 	}
 
 	.breadcrumb-button__end-container__arrow,
-	.js-get-breadcrumb-button-arrow {
+	.js-get-navbar-breadcrumb-button-end-container-arrow {
 		// Must have higher z-index than border-arrow below
 		z-index: 6;
 		position: absolute;

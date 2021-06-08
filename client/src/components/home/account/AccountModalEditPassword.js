@@ -11,10 +11,10 @@ import {
 } from "../../../actions";
 import {
 	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
-	getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
-	getTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
 } from "../../../utils";
 
@@ -109,7 +109,7 @@ export default function AccountModalEditPassword() {
 					id="edit-account-password-new-password"
 					className={
 						"form__input-text" +
-						getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -157,7 +157,7 @@ export default function AccountModalEditPassword() {
 					id="edit-account-password-current-password"
 					className={
 						"form__input-text" +
-						getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -202,7 +202,7 @@ export default function AccountModalEditPassword() {
 				<span
 					className={
 						"modal-link" +
-						getTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)

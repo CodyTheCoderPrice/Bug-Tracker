@@ -29,8 +29,8 @@ import {
 	getListViewTableRowHeight,
 	getItemViewTopBarHeight,
 	getItemViewListSidebarWidth,
-	getItemViewOuterDividingContainerMinWidth,
 	getItemViewPaddingContainerPadding,
+	getItemViewOuterDividingContainerMinWidth,
 	getStandardBackgroundColorClassNameForTheme,
 } from "../../../utils";
 
@@ -59,8 +59,9 @@ export default function Navbar() {
 				listViewTableRowHeight: getListViewTableRowHeight(),
 				itemViewTopBarHeight: getItemViewTopBarHeight(),
 				itemViewListSidebarWidth: getItemViewListSidebarWidth(),
-				itemViewOuterDividingContainerMinWidth: getItemViewOuterDividingContainerMinWidth(),
 				itemViewPaddingContainerPadding: getItemViewPaddingContainerPadding(),
+				itemViewOuterDividingContainerMinWidth:
+					getItemViewOuterDividingContainerMinWidth(),
 			})
 		);
 
@@ -71,7 +72,7 @@ export default function Navbar() {
 			})
 		);
 
-		// Since breadcrumb font resize does not happen until after app start-up 
+		// Since breadcrumb font resize does not happen until after app start-up
 		// ...or refresh, it's safe to initialize as breadcrumbBaseFontSize
 		dispatch(setDisplaySizeVariablesBreadcrumbFontSize(breadcrumbBaseFontSize));
 
@@ -101,8 +102,8 @@ export default function Navbar() {
 
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar: !reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountSidebar,
+				accountSidebar:
+					!reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar,
 			})
 		);
 		dispatch(
@@ -131,7 +132,8 @@ export default function Navbar() {
 				.navbarBreadcrumbButtonTextFontSize === null ||
 			reduxState[GENERAL_CONTAINER].globalConstants
 				.navbarBreadcrumbMinimumFontSize === null ||
-			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem === null ||
+			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
+				null ||
 			reduxState[SIZE_CONTAINER].variables.navbarBreadcrumbButtonTextFontSize >
 				reduxState[GENERAL_CONTAINER].globalConstants
 					.navbarBreadcrumbMinimumFontSize

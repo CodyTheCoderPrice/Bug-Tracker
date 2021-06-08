@@ -3,7 +3,10 @@ import { useSelector } from "react-redux";
 
 import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames";
 
-import { getCommonWeakTextColorClassNameForLightOrDarkMode } from "../../../../utils";
+import {
+	getStatusBackgroundColorClassName,
+	getCommonWeakTextColorClassNameForLightOrDarkMode,
+} from "../../../../utils";
 
 export default function ItemViewBugListRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -15,9 +18,8 @@ export default function ItemViewBugListRow(props) {
 			(status) => status.id === props.item.status_id
 		);
 
-		return (
-			" js-set-status-box-background-color-" +
-			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
+		return getStatusBackgroundColorClassName(
+			filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem"
 		);
 	};
 

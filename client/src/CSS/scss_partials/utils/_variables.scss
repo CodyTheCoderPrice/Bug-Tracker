@@ -200,7 +200,7 @@ $raspberry-red-level-2: #d44141;
 $basic-yellow-level-1: #ffff00;
 $basic-yellow-level-2: #e2e200;
 
-// Light/Dark mode -- common (i.e. used by multiple components)
+// Light/Dark mode -- Common (i.e. used by multiple components)
 // Note: light/dark mode placed at end of variable name
 $mode-common-background-color-light: white;
 $mode-common-background-color-dark: $gray-dark-level-8;
@@ -222,25 +222,8 @@ $mode-common-icon-button-text-color-light: $gray-level-4;
 $mode-common-icon-button-text-color-dark: $gray-level-6;
 $mode-common-icon-button-hover-text-color-light: $gray-dark-level-5;
 $mode-common-icon-button-hover-text-color-dark: $gray-level-1;
-$mode-custom-checkbox-border-color-light: black;
-$mode-custom-checkbox-border-color-dark: $gray-level-1;
-$mode-custom-checkbox-background-color-light: $mode-common-background-color-light;
-$mode-custom-checkbox-background-color-dark: $mode-common-background-color-dark;
-$mode-custom-checkmark-text-color-light: $mode-common-strong-text-color-light;
-$mode-custom-checkmark-text-color-dark: $mode-common-strong-text-color-dark;
-$mode-toggle-switch-on-text-color-light: white;
-$mode-toggle-switch-on-text-color-dark: white;
-$mode-toggle-switch-on-circle-background-color-light: white;
-$mode-toggle-switch-on-circle-background-color-dark: $gray-light-level-3;
-$mode-toggle-switch-on-text-color-dark: white;
-$mode-toggle-switch-off-border-background-color-light: $gray-light-level-7;
-$mode-toggle-switch-off-border-background-color-dark: $gray-level-6;
-$mode-toggle-switch-off-text-color-light: $gray-level-6;
-$mode-toggle-switch-off-text-color-dark: $gray-light-level-6;
-$mode-toggle-switch-off-circle-background-color-light: $mode-toggle-switch-on-circle-background-color-light; // Equivalent on variable is bellow with Themes + Light/Dark mode
-$mode-toggle-switch-off-circle-background-color-dark: $mode-toggle-switch-on-circle-background-color-dark; // Equivalent on variable is bellow with Themes + Light/Dark mode
-$mode-universal-text-grayed-out-text-color-light: $gray-level-4;
-$mode-universal-text-grayed-out-text-color-dark: $gray-level-6;
+$mode-common-grayed-out-text-color-light: $gray-level-4;
+$mode-common-grayed-out-text-color-dark: $gray-level-6;
 $mode-common-form-input-border-color-light: $gray-level-5;
 $mode-common-form-input-border-color-dark: black;
 $mode-common-form-input-background-color-light: $gray-light-level-5;
@@ -261,7 +244,7 @@ $mode-common-top-bar-search-bar-background-color-light: $mode-common-background-
 $mode-common-top-bar-search-bar-background-color-dark: $gray-dark-level-6;
 $mode-common-top-bar-search-bar-text-color-light: $mode-common-strong-text-color-light;
 $mode-common-top-bar-search-bar-text-color-dark: $mode-common-strong-text-color-dark;
-// Light/Dark mode -- specific (i.e. used by specific components)
+// Light/Dark mode -- Specific (i.e. used by specific component)
 // Note: light/dark mode placed at end of variable name
 $mode-home-background-color-light: $mode-common-background-color-light;
 $mode-home-background-color-dark: $mode-common-background-color-dark;
@@ -379,8 +362,25 @@ $mode-item-view-comment-box-individual-comment-icon-button-text-color-light: $gr
 $mode-item-view-comment-box-individual-comment-icon-button-text-color-dark: $gray-level-4;
 $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-light: $mode-common-strong-text-color-light;
 $mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-dark: $mode-common-strong-text-color-dark;
+$mode-custom-checkbox-border-color-light: black;
+$mode-custom-checkbox-border-color-dark: $gray-level-1;
+$mode-custom-checkbox-background-color-light: $mode-common-background-color-light;
+$mode-custom-checkbox-background-color-dark: $mode-common-background-color-dark;
+$mode-custom-checkmark-text-color-light: $mode-common-strong-text-color-light;
+$mode-custom-checkmark-text-color-dark: $mode-common-strong-text-color-dark;
+$mode-toggle-switch-on-text-color-light: white;
+$mode-toggle-switch-on-text-color-dark: white;
+$mode-toggle-switch-on-circle-background-color-light: white;
+$mode-toggle-switch-on-circle-background-color-dark: $gray-light-level-3;
+$mode-toggle-switch-on-text-color-dark: white;
+$mode-toggle-switch-off-border-background-color-light: $gray-light-level-7;
+$mode-toggle-switch-off-border-background-color-dark: $gray-level-6;
+$mode-toggle-switch-off-text-color-light: $gray-level-6;
+$mode-toggle-switch-off-text-color-dark: $gray-light-level-6;
+$mode-toggle-switch-off-circle-background-color-light: $mode-toggle-switch-on-circle-background-color-light; // 'on' version of this variable is bellow with Themes + Light/Dark mode
+$mode-toggle-switch-off-circle-background-color-dark: $mode-toggle-switch-on-circle-background-color-dark; // 'on' version of this variable is bellow with Themes + Light/Dark mode
 
-// Themes
+// Themes -- Common (i.e. used by multiple components)
 // Note: theme placed at end of variable name
 $theme-brighter-border-background-color-blue-turkish: $turkish-blue-level-3;
 $theme-standard-border-background-color-blue-turkish: $turkish-blue-level-4;
@@ -392,7 +392,7 @@ $theme-brighter-border-background-color-blue-turquoise: $turquoise-blue-level-2;
 $theme-standard-border-background-color-blue-turquoise: $maganese-blue-level-5;
 $theme-brighter-border-background-color-purple-rain: $rain-purple-light-level-4;
 $theme-standard-border-background-color-purple-rain: $rain-purple-level-6;
-// Themes + Light/Dark mode
+// Themes + Light/Dark mode -- Common (i.e. used by multiple components)
 // Note: theme placed towards start of variable name, light/dark mode placed at the end of variable name
 $theme-mode-blue-turkish-toggle-switch-on-border-background-color-light: $turkish-blue-level-2;
 $theme-mode-blue-turkish-toggle-switch-on-border-background-color-dark: $lake-michigan-blue-level-6;
@@ -434,7 +434,7 @@ $theme-mode-purple-rain-focus-border-color-light: $rain-purple-light-level-3;
 $theme-mode-purple-rain-focus-border-color-dark: $rain-purple-level-1;
 $theme-mode-purple-rain-text-color-light: $rain-purple-level-3;
 $theme-mode-purple-rain-text-color-dark: $candy-purple-level-2;
-// Theme (default)
+// Theme (default) -- Common (i.e. used by multiple components)
 $default-theme-brighter-border-background-color: $theme-brighter-border-background-color-blue-turkish;
 $default-theme-standard-border-background-color: $theme-standard-border-background-color-blue-turkish;
 $default-theme-mode-toggle-switch-on-border-background-color: $theme-mode-blue-turkish-toggle-switch-on-border-background-color-light;
@@ -442,7 +442,7 @@ $default-theme-mode-new-item-tutorial-border-text-color: $theme-mode-blue-turkis
 $default-theme-mode-focus-border-color: $theme-mode-blue-turkish-focus-border-color-light;
 $default-theme-mode-text-color: $theme-mode-blue-turkish-text-color-light;
 
-// Status colors
+// Status colors -- Common (i.e. used by multiple components)
 $status-gray: $gray-level-3;
 $status-blue: #568dd5;
 $status-purple: #9680ce;
@@ -450,7 +450,7 @@ $status-orange: #ff9900;
 $status-green: #008600;
 $status-red: #d14242;
 
-// Components (specific)
+// Components -- Specific (i.e. used by specific component)
 $register-login-input-text-focus-border-color: $default-theme-mode-focus-border-color;
 $register-login-submit-button-border-background-color: $old-copper-blue-level-1;
 $register-login-submit-button-hover-border-background-color: $old-copper-blue-level-2;

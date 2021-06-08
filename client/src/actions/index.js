@@ -45,8 +45,8 @@ export * from "./resetActions";
  * 	listViewTableRowHeight: (number|null),
  * 	itemViewTopBarHeight: (number|null),
  * 	itemViewListSidebarWidth: (number|null),
- * 	itemViewOuterDividingContainerMinWidth: (number|null),
- * 	itemViewPaddingContainerPadding: (number|null)
+ *  itemViewPaddingContainerPadding: (number|null),
+ * 	itemViewOuterDividingContainerMinWidth: (number|null)
  * }} sizes - Object containing size info for multiple html elements (whose
  * size remains constant)
  *
@@ -66,8 +66,8 @@ export * from "./resetActions";
  * 		listViewTableRowHeight: 50,
  * 		itemViewTopBarHeight: 48,
  * 		itemViewListSidebarWidth: 275,
- * 		itemViewOuterDividingContainerMinWidth: 560,
- * 		itemViewPaddingContainerPadding: 25
+ * 		itemViewPaddingContainerPadding: 25,
+ * 		itemViewOuterDividingContainerMinWidth: 560
  * 	})
  * );
  */

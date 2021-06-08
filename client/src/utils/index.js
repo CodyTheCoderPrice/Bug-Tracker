@@ -3,6 +3,7 @@ export * from "./accountModalUtils";
 export * from "./basicUtils";
 export * from "./breadcrumbHamburgerButtonUtils";
 export * from "./bugStatisticsUtils";
+export * from "./classNameUtils";
 export * from "./colorUtils";
 export * from "./createEditItemUtils";
 export * from "./dateUtils";

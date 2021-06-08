@@ -2,7 +2,7 @@
 import React from "react";
 import {
 	isEmpty,
-	getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode,
+	getCommonGrayedOutTextColorClassNameForLightOrDarkMode,
 } from "./index";
 
 /**
@@ -18,13 +18,13 @@ import {
  * 
  * @example
  * // Returns "03-19-2020"
- * getAlternativeIfValueIsEmpty("03-19-2020", "-");
+ * getAlternativeWhenValueIsEmpty("03-19-2020", "-");
  * 
  * @example
  * // Returns "-"
- * getAlternativeIfValueIsEmpty(null, "-");
+ * getAlternativeWhenValueIsEmpty(null, "-");
  */
-export function getAlternativeIfValueIsEmpty(value, alternative) {
+export function getAlternativeWhenValueIsEmpty(value, alternative) {
 	if (isEmpty(value)) {
 		return alternative;
 	} else {
@@ -45,13 +45,13 @@ export function getAlternativeIfValueIsEmpty(value, alternative) {
  * 
  * @example
  * // Returns "03-19-2020"
- * getAlternativeIfValueIsEmpty("03-19-2020", "none");
+ * getAlternativeWhenValueIsEmpty("03-19-2020", "none");
  * 
  * @example
  * // Returns "none" in span tag to be displayed as grayed out
- * getAlternativeIfValueIsEmpty(null, "none");
+ * getAlternativeWhenValueIsEmpty(null, "none");
  */
-export function displayGrayedOutAlternativeIfValueIsEmpty(
+export function displayGrayedOutAlternativeWhenValueIsEmpty(
 	value,
 	alternative,
 	dark_mode
@@ -59,7 +59,7 @@ export function displayGrayedOutAlternativeIfValueIsEmpty(
 	if (isEmpty(value)) {
 		return (
 			<span
-				className={getUniversalTextGrayedOutTextColorClassNameForLightOrDarkMode(
+				className={getCommonGrayedOutTextColorClassNameForLightOrDarkMode(
 					dark_mode
 				)}
 			>

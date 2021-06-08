@@ -17,9 +17,10 @@ import {
 import {
 	formatDateMMddYYYY,
 	formatDateYYYYmmDD,
+	getStatusTextColorClassName,
 	manageSizeOfItemBoxsInPairContainer,
 	getItemViewEditItemInfoFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getCommonWeakTextColorClassNameForLightOrDarkMode,
@@ -43,12 +44,10 @@ export default function ItemViewEditItemInfo(props) {
 	const dispatch = useDispatch();
 
 	const [itemInfo, setItemInfo] = useState({
-		id:
-			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-				.id,
-		name:
-			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-				.name,
+		id: reduxState[props.reduxContainerName].componentsDisplay
+			.itemViewCurrentItem.id,
+		name: reduxState[props.reduxContainerName].componentsDisplay
+			.itemViewCurrentItem.name,
 		description:
 			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
 				.description,
@@ -117,9 +116,8 @@ export default function ItemViewEditItemInfo(props) {
 			(status) => status.id === itemInfo.status_id
 		);
 
-		return (
-			" js-set-status-box-text-color-" +
-			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
+		return getStatusTextColorClassName(
+			filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem"
 		);
 	};
 
@@ -175,7 +173,7 @@ export default function ItemViewEditItemInfo(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		
+
 		let itemInfoDeepCopy = { ...itemInfo };
 
 		if (props.reduxContainerName === PROJECT_CONTAINER) {
@@ -229,7 +227,7 @@ export default function ItemViewEditItemInfo(props) {
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId
 								? " name-completed-color"
-								: getTextColorClassNameForThemeWithLightOrDarkMode(
+								: getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								  ))
@@ -288,7 +286,7 @@ export default function ItemViewEditItemInfo(props) {
 							<h2
 								className={
 									"item-box__title item-box__title--no-bottom-margin" /* +
-									getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
+									getCommonTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									) */
 								}
@@ -352,7 +350,7 @@ export default function ItemViewEditItemInfo(props) {
 						<h2
 							className={
 								"item-box__title" /* +
-								getTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
+								getCommonTextColorClassNameForThemeWithLightOrDarkMode(reduxState[ACCOUNT_CONTAINER].settings.dark_mode, 
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								) */
 							}

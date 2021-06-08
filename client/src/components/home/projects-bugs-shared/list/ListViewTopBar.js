@@ -20,7 +20,7 @@ import {
 	getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
@@ -206,7 +206,7 @@ export default function ListViewTopBar(props) {
 							reduxState[props.reduxContainerName].searchFilterSort.statusFilter
 								.length > 0
 								? " filter-area-container__button__text--active" +
-								  getTextColorClassNameForThemeWithLightOrDarkMode(
+								  getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								  )
@@ -281,7 +281,7 @@ export default function ListViewTopBar(props) {
 												props.reduxContainerName
 											].searchFilterSort.priorityFilter.includes(obj.id)
 												? " filter-area-container__dropdown__content__block__label--active" +
-												  getTextColorClassNameForThemeWithLightOrDarkMode(
+												  getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 														reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )
@@ -333,7 +333,7 @@ export default function ListViewTopBar(props) {
 												props.reduxContainerName
 											].searchFilterSort.statusFilter.includes(obj.id)
 												? " filter-area-container__dropdown__content__block__label--active" +
-												  getTextColorClassNameForThemeWithLightOrDarkMode(
+												  getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 														reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )

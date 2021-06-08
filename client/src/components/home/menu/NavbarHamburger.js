@@ -154,7 +154,7 @@ export default function NavbarHamburger() {
 	};
 
 	return (
-		<div className="hamburger-container">
+		<div className="navbar-hamburger-component">
 			{!reduxState[GENERAL_CONTAINER].dropdownsDisplay
 				.navbarHamburherDropdown ? (
 				<div

@@ -81,10 +81,10 @@ export default function ItemView(props) {
 			reduxState[GENERAL_CONTAINER].componentsDisplay
 				.itemViewListSidebarUserSet === false &&
 			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth !== null &&
-			reduxState[SIZE_CONTAINER].constants
-				.itemViewOuterDividingContainerMinWidth !== null &&
 			reduxState[SIZE_CONTAINER].constants.itemViewPaddingContainerPadding !==
-				null
+				null &&
+			reduxState[SIZE_CONTAINER].constants
+				.itemViewOuterDividingContainerMinWidth !== null
 		) {
 			// Instead of putting in the optimization to re-run once no longer
 			// ...null since it would also re-run every window resize
@@ -94,10 +94,10 @@ export default function ItemView(props) {
 					: reduxState[SIZE_CONTAINER].variables.window;
 
 			const minWidthNeededForNoItemBoxOverflow =
-				reduxState[SIZE_CONTAINER].constants
-					.itemViewOuterDividingContainerMinWidth +
 				reduxState[SIZE_CONTAINER].constants.itemViewPaddingContainerPadding *
-					2;
+					2 +
+				reduxState[SIZE_CONTAINER].constants
+					.itemViewOuterDividingContainerMinWidth;
 
 			dispatch(
 				setWhichGeneralComponentsDisplay({

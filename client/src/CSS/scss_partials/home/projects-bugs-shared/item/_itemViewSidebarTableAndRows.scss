@@ -2,7 +2,7 @@
 @use "../../../utils/mixins" as m;
 
 .item-view-list-sidebar-component,
-.js-get-list-sidebar-component {
+.js-get-item-view-list-sidebar-component {
 	// Width must be set here so width can be calculated and stored in redux
 	width: v.$item-view-list-sidebar-width;
 

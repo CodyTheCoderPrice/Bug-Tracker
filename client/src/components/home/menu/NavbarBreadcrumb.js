@@ -150,7 +150,7 @@ export default function NavbarBreadcrumb(props) {
 	]);
 
 	return (
-		<div className="breadcrumb-container">
+		<div className="navbar-breadcrumb-component">
 			<div className={props.visible ? "" : "invisible"}>
 				<div
 					className={

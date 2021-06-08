@@ -12,10 +12,10 @@ import {
 } from "../../../actions";
 import {
 	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
-	getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
 	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
-	getTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
 
 /**
@@ -145,7 +145,7 @@ export default function AccountModalEditInfo() {
 					id="edit-account-info-first-name"
 					className={
 						"form__input-text" +
-						getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -190,7 +190,7 @@ export default function AccountModalEditInfo() {
 					id="edit-account-info-last-name"
 					className={
 						"form__input-text" +
-						getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -237,7 +237,7 @@ export default function AccountModalEditInfo() {
 				<span
 					className={
 						"modal-link modal-link--no-left-margin" +
-						getTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -251,7 +251,7 @@ export default function AccountModalEditInfo() {
 				<span
 					className={
 						"modal-link" +
-						getTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -265,7 +265,7 @@ export default function AccountModalEditInfo() {
 				<span
 					className={
 						"modal-link modal-link--no-right-margin" +
-						getTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)

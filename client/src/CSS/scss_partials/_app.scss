@@ -12,71 +12,63 @@ body {
 	width: 100%;
 	color: v.$mode-common-strong-text-color-light;
 
-	// Used to to gray-out the word "none" for empty item fields
-	.universal-text-grayed-out {
-		@include m.stop-text-selection();
-
-		color: v.$mode-universal-text-grayed-out-text-color-light;
-		opacity: 0.7;
-	}
-
 	//=================
 	// Light/Dark mode
 	//=================
 	// Light/Dark mode -- Common (i.e. used by multiple components) -- strong (i.e. more distinct) text color
-	.js-set-common-strong-text-color-dark-mode-false {
+	.js-get-common-strong-text-color-dark-mode-false {
 		color: v.$mode-common-strong-text-color-light;
 	}
-	.js-set-common-strong-text-color-dark-mode-true {
+	.js-get-common-strong-text-color-dark-mode-true {
 		color: v.$mode-common-strong-text-color-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) -- weak (i.e. less distinct) text color
-	.js-set-common-weak-text-color-dark-mode-false {
+	.js-get-common-weak-text-color-dark-mode-false {
 		color: v.$mode-common-weak-text-color-light;
 	}
-	.js-set-common-weak-text-color-dark-mode-true {
+	.js-get-common-weak-text-color-dark-mode-true {
 		color: v.$mode-common-weak-text-color-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) 'backend-errors' -- text color
-	.js-set-common-backend-errors-text-color-dark-mode-false {
+	.js-get-common-backend-errors-text-color-dark-mode-false {
 		color: v.$mode-common-backend-errors-text-color-light;
 	}
-	.js-set-common-backend-errors-text-color-dark-mode-true {
+	.js-get-common-backend-errors-text-color-dark-mode-true {
 		color: v.$mode-common-backend-errors-text-color-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) char-count (when limit is reached) -- text color
-	.js-set-common-char-count-limit-reached-text-color-dark-mode-false {
+	.js-get-common-char-count-limit-reached-text-color-dark-mode-false {
 		color: v.$mode-common-char-count-limit-reached-text-color-light;
 	}
-	.js-set-common-char-count-limit-reached-text-color-dark-mode-true {
+	.js-get-common-char-count-limit-reached-text-color-dark-mode-true {
 		color: v.$mode-common-char-count-limit-reached-text-color-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) blurred backdrop -- background color and opacity
-	.js-set-common-blurred-backdrop-background-color-and-opacity-dark-mode-false {
+	.js-get-common-blurred-backdrop-background-color-and-opacity-dark-mode-false {
 		background-color: v.$mode-common-blurred-backdrop-background-color-light;
 		opacity: v.$mode-common-blurred-backdrop-opacity-light;
 	}
-	.js-set-common-blurred-backdrop-background-color-and-opacity-dark-mode-true {
+	.js-get-common-blurred-backdrop-background-color-and-opacity-dark-mode-true {
 		background-color: v.$mode-common-blurred-backdrop-background-color-dark;
 		opacity: v.$mode-common-blurred-backdrop-opacity-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) blurred backdrop (with click-to-close functionality) -- background color and opacity
-	.js-set-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-false {
+	.js-get-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-false {
 		background-color: v.$mode-common-blurred-backdrop-background-color-light;
 		opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-light;
 	}
-	.js-set-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-true {
+	.js-get-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-true {
 		background-color: v.$mode-common-blurred-backdrop-background-color-dark;
 		opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) icon-buttons -- text color with hover
-	.js-set-common-icon-button-text-color-with-hover-dark-mode-false {
+	.js-get-common-icon-button-text-color-with-hover-dark-mode-false {
 		color: v.$mode-common-icon-button-text-color-light;
 
 		&:hover,
@@ -84,7 +76,7 @@ body {
 			color: v.$mode-common-icon-button-hover-text-color-light;
 		}
 	}
-	.js-set-common-icon-button-text-color-with-hover-dark-mode-true {
+	.js-get-common-icon-button-text-color-with-hover-dark-mode-true {
 		color: v.$mode-common-icon-button-text-color-dark;
 
 		&:hover,
@@ -93,27 +85,27 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- universal-text-grayed-out -- text color
-	.js-set-universal-text-grayed-out-text-color-dark-mode-false {
-		color: v.$mode-universal-text-grayed-out-text-color-light;
+	// Light/Dark mode -- Common (i.e. used by multiple components) -- (grayed out) text color
+	.js-get-common-grayed-out-text-color-dark-mode-false {
+		color: v.$mode-common-grayed-out-text-color-light;
 	}
-	.js-set-universal-text-grayed-out-text-color-dark-mode-true {
-		color: v.$mode-universal-text-grayed-out-text-color-dark;
+	.js-get-common-grayed-out-text-color-dark-mode-true {
+		color: v.$mode-common-grayed-out-text-color-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) form input element -- border, background, and text color
-	.js-set-common-form-input-border-background-text-color-dark-mode-false {
+	.js-get-common-form-input-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-form-input-border-color-light;
 		background-color: v.$mode-common-form-input-background-color-light;
 		color: v.$mode-common-strong-text-color-light;
 	}
-	.js-set-common-form-input-border-background-text-color-dark-mode-true {
+	.js-get-common-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-common-form-input-border-color-dark;
 		background-color: v.$mode-common-form-input-background-color-dark;
 		color: v.$mode-common-strong-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar 'list-view-top-bar-component' 
+	// Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar 'list-view-top-bar-component'
 	// ...and ItemViewTopBar 'item-vew-top-bar-component' -- border and background color
 	.js-common-set-top-bar-border-and-background-color-dark-mode-false {
 		border-color: v.$mode-common-top-bar-border-color-light;
@@ -125,23 +117,23 @@ body {
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar/ItemViewTopBar buttons and dropdowns -- border, background, and text color
-	.js-set-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-false {
+	.js-get-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-light;
 		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-light;
 		color: v.$mode-common-top-bar-button-and-dropdown-text-color-light;
 	}
-	.js-set-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-true {
+	.js-get-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-dark;
 		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-dark;
 		color: v.$mode-common-top-bar-button-and-dropdown-text-color-dark;
 	}
 
 	// Light/Dark mode -- Home 'home-container' -- background and text colors
-	.js-set-home-background-and-text-color-dark-mode-false {
+	.js-get-home-background-and-text-color-dark-mode-false {
 		background-color: v.$mode-home-background-color-light;
 		color: v.$mode-home-text-color-light;
 	}
-	.js-set-home-background-and-text-color-dark-mode-true {
+	.js-get-home-background-and-text-color-dark-mode-true {
 		background-color: v.$mode-home-background-color-dark;
 		color: v.$mode-home-text-color-dark;
 	}
@@ -204,31 +196,31 @@ body {
 			}
 		}
 	}
-	.js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
+	.js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
 		@include mode-hamburger-dropdown($is-light: true);
 	}
-	.js-set-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true {
+	.js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true {
 		@include mode-hamburger-dropdown($is-light: false);
 	}
 
 	// Light/Dark mode -- AccountSidebar 'sidebar-container' -- background color
-	.js-set-account-sidebar-background-color-dark-mode-false {
+	.js-get-account-sidebar-background-color-dark-mode-false {
 		background-color: v.$mode-account-sidebar-background-color-light;
 	}
-	.js-set-account-sidebar-background-color-dark-mode-true {
+	.js-get-account-sidebar-background-color-dark-mode-true {
 		background-color: v.$mode-account-sidebar-background-color-dark;
 	}
 
 	// Light/Dark mode -- AccountSidebar horizontal-dividing-line -- border color
-	.js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false {
+	.js-get-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false {
 		border-color: v.$mode-account-sidebar-horizontal-dividing-line-border-color-light;
 	}
-	.js-set-account-sidebar-horizontal-dividing-line-border-color-dark-mode-true {
+	.js-get-account-sidebar-horizontal-dividing-line-border-color-dark-mode-true {
 		border-color: v.$mode-account-sidebar-horizontal-dividing-line-border-color-dark;
 	}
 
 	// Light/Dark mode -- AccountSidebar logout-button -- border and hover background color
-	.js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-false {
+	.js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-false {
 		border-color: v.$mode-account-sidebar-logout-button-border-color-light;
 
 		&:hover,
@@ -236,7 +228,7 @@ body {
 			background-color: v.$mode-account-sidebar-logout-button-hover-background-color-light;
 		}
 	}
-	.js-set-account-sidebar-logout-button-border-hover-background-color-dark-mode-true {
+	.js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-true {
 		border-color: v.$mode-account-sidebar-logout-button-border-color-dark;
 
 		&:hover,
@@ -246,35 +238,35 @@ body {
 	}
 
 	// Light/Dark mode -- AccountModal 'edit-account-modal' -- background color
-	.js-set-account-modal-background-color-dark-mode-false {
+	.js-get-account-modal-background-color-dark-mode-false {
 		background-color: v.$mode-account-modal-background-color-light;
 	}
-	.js-set-account-modal-background-color-dark-mode-true {
+	.js-get-account-modal-background-color-dark-mode-true {
 		background-color: v.$mode-account-modal-background-color-dark;
 	}
 
 	// Light/Dark mode -- AccountModalDeleteAccount capital-delete -- text color
-	.js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-false {
+	.js-get-account-modal-delete-account-capital-delete-text-color-dark-mode-false {
 		color: v.$mode-account-modal-delete-account-capital-delete-text-color-light;
 	}
-	.js-set-account-modal-delete-account-capital-delete-text-color-dark-mode-true {
+	.js-get-account-modal-delete-account-capital-delete-text-color-dark-mode-true {
 		color: v.$mode-account-modal-delete-account-capital-delete-text-color-dark;
 	}
 
 	// Light/Dark mode -- AccountModalDeleteAccount form input element -- focus background color
-	.js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-false {
+	.js-get-account-modal-delete-account-form-input-focus-border-color-dark-mode-false {
 		&:focus {
 			border-color: v.$mode-account-modal-delete-account-form-input-focus-border-color-light;
 		}
 	}
-	.js-set-account-modal-delete-account-form-input-focus-border-color-dark-mode-true {
+	.js-get-account-modal-delete-account-form-input-focus-border-color-dark-mode-true {
 		&:focus {
 			border-color: v.$mode-account-modal-delete-account-form-input-focus-border-color-dark;
 		}
 	}
 
 	// Light/Dark mode -- AccountModalDeleteAccount form-submit button -- background (with hover) color
-	.js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-false {
+	.js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false {
 		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-light;
 
 		&:hover,
@@ -283,7 +275,7 @@ body {
 			background-color: v.$mode-account-modal-delete-account-form-delete-button-hover-background-color-light;
 		}
 	}
-	.js-set-account-modal-delete-account-form-submit-button-background-color-dark-mode-true {
+	.js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true {
 		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-dark;
 
 		&:hover,
@@ -294,7 +286,7 @@ body {
 	}
 
 	// Light/Dark mode -- AccountModalEditSettings category container -- border, background, text color
-	.js-set-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false {
+	.js-get-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-account-modal-change-settings-category-container-border-color-light;
 
 		& > .category-container__heading {
@@ -305,7 +297,7 @@ body {
 			color: v.$mode-common-weak-text-color-light;
 		}
 	}
-	.js-set-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true {
+	.js-get-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-account-modal-change-settings-category-container-border-color-dark;
 
 		& > .category-container__heading {
@@ -318,65 +310,65 @@ body {
 	}
 
 	// Light/Dark mode -- CreateItemSidebar -- background color
-	.js-set-create-item-sidebar-background-color-dark-mode-false {
+	.js-get-create-item-sidebar-background-color-dark-mode-false {
 		background-color: v.$mode-create-item-sidebar-background-color-light;
 	}
-	.js-set-create-item-sidebar-background-color-dark-mode-true {
+	.js-get-create-item-sidebar-background-color-dark-mode-true {
 		background-color: v.$mode-create-item-sidebar-background-color-dark;
 	}
 
 	// Light/Dark mode -- CreateItemSidebar form-label -- disabled text color with no pointer events
-	.js-set-create-item-sidebar-diabled-label-dark-mode-false {
+	.js-get-create-item-sidebar-diabled-label-dark-mode-false {
 		color: v.$mode-create-item-sidebar-form-disabled-text-color-light;
 		pointer-events: none;
 	}
-	.js-set-create-item-sidebar-diabled-label-dark-mode-true {
+	.js-get-create-item-sidebar-diabled-label-dark-mode-true {
 		color: v.$mode-create-item-sidebar-form-disabled-text-color-dark;
 		pointer-events: none;
 	}
 
 	// Light/Dark mode -- CreateItemSidebar form input (type date) element -- disabled background and text color with no pointer events
-	.js-set-create-item-sidebar-diabled-input-date-dark-mode-false {
+	.js-get-create-item-sidebar-diabled-input-date-dark-mode-false {
 		background-color: v.$mode-create-item-sidebar-form-disabled-background-color-light;
 		color: v.$mode-create-item-sidebar-form-disabled-text-color-dark;
 		pointer-events: none;
 	}
-	.js-set-create-item-sidebar-diabled-input-date-dark-mode-true {
+	.js-get-create-item-sidebar-diabled-input-date-dark-mode-true {
 		background-color: v.$mode-create-item-sidebar-form-disabled-background-color-dark;
 		color: v.$mode-create-item-sidebar-form-disabled-text-color-dark;
 		pointer-events: none;
 	}
 
 	// Light/Dark mode -- ListViewTable 'list-table__row__header' -- box shadow and background color
-	.js-set-list-view-table-row-header-box-shadow-and-background-color-dark-mode-false {
+	.js-get-list-view-table-row-header-box-shadow-and-background-color-dark-mode-false {
 		box-shadow: v.$mode-list-view-table-row-header-box-shadow-light;
 		background-color: v.$mode-list-view-table-row-header-background-color-light;
 	}
-	.js-set-list-view-table-row-header-box-shadow-and-background-color-dark-mode-true {
+	.js-get-list-view-table-row-header-box-shadow-and-background-color-dark-mode-true {
 		box-shadow: v.$mode-list-view-table-row-header-box-shadow-dark;
 		background-color: v.$mode-list-view-table-row-header-background-color-dark;
 	}
 
 	// Light/Dark mode -- ListViewTableItemRow 'list-table__row' -- border, background, and text colors
-	.js-set-list-view-table-item-row-border-background-text-color-dark-mode-false {
+	.js-get-list-view-table-item-row-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-list-view-table-row-border-color-light;
 		background-color: v.$mode-list-view-table-row-background-color-light;
 		color: v.$mode-common-weak-text-color-light;
 	}
-	.js-set-list-view-table-item-row-border-background-text-color-dark-mode-true {
+	.js-get-list-view-table-item-row-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-list-view-table-row-border-color-dark;
 		background-color: v.$mode-list-view-table-row-background-color-dark;
 		color: v.$mode-common-weak-text-color-dark;
 	}
 
 	// Light/Dark mode -- ListViewTableItemRow 'list-table__row' -- hover background color
-	.js-set-list-view-table-item-row-hover-background-color-dark-mode-false {
+	.js-get-list-view-table-item-row-hover-background-color-dark-mode-false {
 		// Only hover since active causes td to cover border
 		&:hover {
 			background-color: v.$mode-list-view-table-row-hover-background-color-light;
 		}
 	}
-	.js-set-list-view-table-item-row-hover-background-color-dark-mode-true {
+	.js-get-list-view-table-item-row-hover-background-color-dark-mode-true {
 		// Only hover since active causes td to cover border
 		&:hover {
 			background-color: v.$mode-list-view-table-row-hover-background-color-dark;
@@ -384,23 +376,23 @@ body {
 	}
 
 	// Light/Dark mode -- ListViewTableItemRow 'list-table__row' -- selected background color
-	.js-set-list-view-table-item-row-selected-background-color-dark-mode-false {
+	.js-get-list-view-table-item-row-selected-background-color-dark-mode-false {
 		background-color: v.$mode-list-view-table-row-selected-background-color-light;
 	}
-	.js-set-list-view-table-item-row-selected-background-color-dark-mode-true {
+	.js-get-list-view-table-item-row-selected-background-color-dark-mode-true {
 		background-color: v.$mode-list-view-table-row-selected-background-color-dark;
 	}
 
 	// Light/Dark mode -- DeleteModal -- background color
-	.js-set-delete-modal-background-color-dark-mode-false {
+	.js-get-delete-modal-background-color-dark-mode-false {
 		background-color: v.$mode-delete-modal-background-color-light;
 	}
-	.js-set-delete-modal-background-color-dark-mode-true {
+	.js-get-delete-modal-background-color-dark-mode-true {
 		background-color: v.$mode-delete-modal-background-color-dark;
 	}
 
 	// Light/Dark mode -- DeleteModal delete-button -- background (with hover) color
-	.js-set-delete-modal-delete-button-background-color-dark-mode-false {
+	.js-get-delete-modal-delete-button-background-color-dark-mode-false {
 		background-color: v.$mode-delete-modal-delete-button-background-color-light;
 
 		&:hover,
@@ -408,7 +400,7 @@ body {
 			background-color: v.$mode-delete-modal-delete-button-hover-background-color-light;
 		}
 	}
-	.js-set-delete-modal-delete-button-background-color-dark-mode-true {
+	.js-get-delete-modal-delete-button-background-color-dark-mode-true {
 		background-color: v.$mode-delete-modal-delete-button-background-color-dark;
 
 		&:hover,
@@ -418,7 +410,7 @@ body {
 	}
 
 	// Light/Dark mode -- DeleteModal cancel-button -- border, background (with hover), text color
-	.js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-false {
+	.js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-delete-modal-cancel-button-border-text-color-light;
 		background-color: v.$mode-delete-modal-cancel-button-background-color-light;
 		color: v.$mode-delete-modal-cancel-button-border-text-color-light;
@@ -428,7 +420,7 @@ body {
 			background-color: v.$mode-delete-modal-cancel-button-hover-background-color-light;
 		}
 	}
-	.js-set-delete-modal-cancel-button-border-background-text-color-dark-mode-true {
+	.js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-delete-modal-cancel-button-border-text-color-dark;
 		background-color: v.$mode-delete-modal-cancel-button-background-color-dark;
 		color: v.$mode-delete-modal-cancel-button-border-text-color-dark;
@@ -440,23 +432,23 @@ body {
 	}
 
 	// Light/Dark mode -- DeleteModal warning-trapazoid -- border color
-	.js-set-delete-modal-trapazoid-border-color-dark-mode-false {
+	.js-get-delete-modal-trapazoid-border-color-dark-mode-false {
 		border-top-color: v.$mode-delete-modal-trapazoid-border-color-light;
 	}
-	.js-set-delete-modal-trapazoid-border-color-dark-mode-true {
+	.js-get-delete-modal-trapazoid-border-color-dark-mode-true {
 		border-top-color: v.$mode-delete-modal-trapazoid-border-color-dark;
 	}
 
 	// Light/Dark mode -- ListView empty-list-message -- text color
-	.js-set-list-view-empty-list-message-text-color-dark-mode-false {
+	.js-get-list-view-empty-list-message-text-color-dark-mode-false {
 		color: v.$mode-list-view-empty-list-message-text-color-light;
 	}
-	.js-set-list-view-empty-list-message-text-color-dark-mode-true {
+	.js-get-list-view-empty-list-message-text-color-dark-mode-true {
 		color: v.$mode-list-view-empty-list-message-text-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewTopBar icon-button -- text color with hover
-	.js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false {
+	.js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false {
 		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 
 		&:hover,
@@ -464,7 +456,7 @@ body {
 			color: v.$mode-item-view-top-bar-icon-button-hover-text-color-light;
 		}
 	}
-	.js-set-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true {
+	.js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true {
 		color: v.$mode-item-view-top-bar-icon-button-text-color-dark;
 
 		&:hover,
@@ -474,13 +466,13 @@ body {
 	}
 
 	// Light/Dark mode -- ItemViewTopBar options-button -- clicked border, background, and text color
-	.js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
+	.js-get-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-light;
 		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-light;
 		// Same as hover text color for more distinct icon-buttons
 		color: v.$mode-item-view-top-bar-icon-button-hover-text-color-light;
 	}
-	.js-set-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
+	.js-get-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-dark;
 		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-dark;
 		// Same as hover text color for more distinct icon-buttons
@@ -488,13 +480,13 @@ body {
 	}
 
 	// Light/Dark mode -- ItemViewTopBar options-dropdown-row -- hover background color
-	.js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false {
+	.js-get-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false {
 		&:hover,
 		&:active {
 			background-color: v.$mode-item-view-top-bar-options-dropdown-row-hover-background-color-light;
 		}
 	}
-	.js-set-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true {
+	.js-get-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true {
 		&:hover,
 		&:active {
 			background-color: v.$mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark;
@@ -502,15 +494,15 @@ body {
 	}
 
 	// Light/Dark mode -- ItemViewListSidebar -- border color
-	.js-set-item-view-list-sidebar-border-color-mode-false {
+	.js-get-item-view-list-sidebar-border-color-mode-false {
 		border-color: v.$mode-item-view-list-sidebar-border-color-light;
 	}
-	.js-set-item-view-list-sidebar-border-color-mode-true {
+	.js-get-item-view-list-sidebar-border-color-mode-true {
 		border-color: v.$mode-item-view-list-sidebar-border-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewListSidebar expand-minimize-button -- border, background (with hover), and text color
-	.js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-false {
+	.js-get-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-false {
 		border-color: v.$mode-item-view-list-sidebar-expand-minimize-button-border-color-light;
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-light;
 
@@ -519,7 +511,7 @@ body {
 			background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light;
 		}
 	}
-	.js-set-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true {
+	.js-get-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-true {
 		border-color: v.$mode-item-view-list-sidebar-expand-minimize-button-border-color-dark;
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-dark;
 
@@ -530,35 +522,35 @@ body {
 	}
 
 	// Light/Dark mode -- ItemViewListSidebar 'list-sidebar__table__row__header' -- box shadow and background color
-	.js-set-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-false {
+	.js-get-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-false {
 		box-shadow: v.$mode-item-view-list-sidebar-table-row-header-box-shadow-light;
 		background-color: v.$mode-item-view-list-sidebar-table-row-header-background-color-light;
 	}
-	.js-set-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-true {
+	.js-get-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-true {
 		box-shadow: v.$mode-item-view-list-sidebar-table-row-header-box-shadow-dark;
 		background-color: v.$mode-item-view-list-sidebar-table-row-header-background-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewListSidebarItemRow 'list-sidebar__table__row' -- border, background, and text colors
-	.js-set-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-false {
+	.js-get-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-item-view-list-sidebar-table-row-border-color-light;
 		background-color: v.$mode-item-view-list-sidebar-table-row-background-color-light;
 		color: v.$mode-common-weak-text-color-light;
 	}
-	.js-set-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-true {
+	.js-get-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-item-view-list-sidebar-table-row-border-color-dark;
 		background-color: v.$mode-item-view-list-sidebar-table-row-background-color-dark;
 		color: v.$mode-common-weak-text-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewListSidebarItemRow 'list-sidebar__table__row' -- hover background color
-	.js-set-item-view-list-sidebar-item-row-hover-background-color-dark-mode-false {
+	.js-get-item-view-list-sidebar-item-row-hover-background-color-dark-mode-false {
 		// Only hover since active causes td to cover border
 		&:hover {
 			background-color: v.$mode-item-view-list-sidebar-table-row-hover-background-color-light;
 		}
 	}
-	.js-set-item-view-list-sidebar-item-row-hover-background-color-dark-mode-true {
+	.js-get-item-view-list-sidebar-item-row-hover-background-color-dark-mode-true {
 		// Only hover since active causes td to cover border
 		&:hover {
 			background-color: v.$mode-list-view-table-row-hover-background-color-dark;
@@ -566,65 +558,65 @@ body {
 	}
 
 	// Light/Dark mode -- ItemViewListSidebarItemRow 'list-sidebar__table__row' -- selected background color
-	.js-set-item-view-list-sidebar-item-row-selected-background-color-dark-mode-false {
+	.js-get-item-view-list-sidebar-item-row-selected-background-color-dark-mode-false {
 		background-color: v.$mode-item-view-list-sidebar-table-row-selected-background-color-light;
 	}
-	.js-set-item-view-list-sidebar-item-row-selected-background-color-dark-mode-true {
+	.js-get-item-view-list-sidebar-item-row-selected-background-color-dark-mode-true {
 		background-color: v.$mode-item-view-list-sidebar-table-row-selected-background-color-dark;
 	}
 
 	// Light/Dark mode -- ItemView 'item-content-container' -- background color
-	.js-set-item-view-content-container-background-color-dark-mode-false {
+	.js-get-item-view-content-container-background-color-dark-mode-false {
 		background-color: v.$mode-item-view-content-container-background-color-light;
 	}
-	.js-set-item-view-content-container-background-color-dark-mode-true {
+	.js-get-item-view-content-container-background-color-dark-mode-true {
 		background-color: v.$mode-item-view-content-container-background-color-dark;
 	}
 
 	// Light/Dark mode -- ItemView item-box -- background color
-	.js-set-item-view-item-box-background-color-dark-mode-false {
+	.js-get-item-view-item-box-background-color-dark-mode-false {
 		background-color: v.$mode-item-view-item-box-background-color-light;
 	}
-	.js-set-item-view-item-box-background-color-dark-mode-true {
+	.js-get-item-view-item-box-background-color-dark-mode-true {
 		background-color: v.$mode-item-view-item-box-background-color-dark;
 	}
 
 	// Light/Dark mode -- ItemView form input element -- border, background, and text color
-	.js-set-item-view-form-input-border-background-text-color-mode-false {
+	.js-get-item-view-form-input-border-background-text-color-mode-false {
 		border-color: v.$mode-item-view-form-input-border-color-light;
 		background-color: v.$mode-item-view-form-input-background-color-light;
 		color: v.$mode-common-strong-text-color-light;
 	}
-	.js-set-item-view-form-input-border-background-text-color-dark-mode-true {
+	.js-get-item-view-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-item-view-form-input-border-color-dark;
 		background-color: v.$mode-item-view-form-input-background-color-dark;
 		color: v.$mode-common-strong-text-color-dark;
 	}
 
 	// Light/Dark mode -- ItemViewEditItemInfo form-label -- disabled text color with no pointer events
-	.js-set-item-view-diabled-label-dark-mode-false {
+	.js-get-item-view-diabled-label-dark-mode-false {
 		color: v.$mode-item-view-form-disabled-text-color-light;
 		pointer-events: none;
 	}
-	.js-set-item-view-diabled-label-dark-mode-true {
+	.js-get-item-view-diabled-label-dark-mode-true {
 		color: v.$mode-item-view-form-disabled-text-color-dark;
 		pointer-events: none;
 	}
 
 	// Light/Dark mode -- ItemViewEditItemInfo form input (type date) element -- disabled background and text color with no pointer events
-	.js-set-item-view-diabled-input-date-dark-mode-false {
+	.js-get-item-view-diabled-input-date-dark-mode-false {
 		background-color: v.$mode-item-view-form-disabled-background-color-light;
 		color: v.$mode-item-view-form-disabled-text-color-dark;
 		pointer-events: none;
 	}
-	.js-set-item-view-diabled-input-date-dark-mode-true {
+	.js-get-item-view-diabled-input-date-dark-mode-true {
 		background-color: v.$mode-item-view-form-disabled-background-color-dark;
 		color: v.$mode-item-view-form-disabled-text-color-dark;
 		pointer-events: none;
 	}
 
 	// Light/Dark -- ItemViewEditItemInfo and ItemViewCommentBoxIndividualComment form-cancel-button -- background color with hover
-	.js-set-item-view-form-cancel-button-button-background-color-with-hover-mode-false {
+	.js-get-item-view-form-cancel-button-button-background-color-with-hover-mode-false {
 		background-color: v.$mode-item-view-form-cancel-button-background-color-light;
 
 		&:hover,
@@ -632,7 +624,7 @@ body {
 			background-color: v.$mode-item-view-form-cancel-button-hover-background-color-light;
 		}
 	}
-	.js-set-item-view-form-cancel-button-button-background-color-with-hover-mode-true {
+	.js-get-item-view-form-cancel-button-button-background-color-with-hover-mode-true {
 		background-color: v.$mode-item-view-form-cancel-button-background-color-dark;
 
 		&:hover,
@@ -642,7 +634,7 @@ body {
 	}
 
 	// Light/Dark mode -- ItemViewCommentBoxIndividualComment icon-button -- text color with hover
-	.js-set-item-view-comment-box-individual-comment-icon-button-text-color-with-hover-mode-false {
+	.js-get-item-view-comment-box-individual-comment-icon-button-text-color-with-hover-mode-false {
 		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-light;
 
 		&:hover,
@@ -650,7 +642,7 @@ body {
 			color: v.$mode-item-view-comment-box-individual-comment-icon-button-hover-text-color-light;
 		}
 	}
-	.js-set-item-view-comment-box-individual-comment-icon-button-text-color-with-hover-mode-true {
+	.js-get-item-view-comment-box-individual-comment-icon-button-text-color-with-hover-mode-true {
 		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-dark;
 
 		&:hover,
@@ -663,66 +655,66 @@ body {
 	// Themes (all themes are common, i.e. used by multiple components)
 	//==================================================================
 	// Theme -- border color
-	.js-set-brighter-border-color-theme-blue-turkish {
+	.js-get-brighter-border-color-theme-blue-turkish {
 		border-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
-	.js-set-standard-border-color-theme-blue-turkish {
+	.js-get-standard-border-color-theme-blue-turkish {
 		border-color: v.$theme-standard-border-background-color-blue-turkish;
 	}
-	.js-set-brighter-border-color-theme-blue-queen {
+	.js-get-brighter-border-color-theme-blue-queen {
 		border-color: v.$theme-brighter-border-background-color-blue-queen;
 	}
-	.js-set-standard-border-color-theme-blue-queen {
+	.js-get-standard-border-color-theme-blue-queen {
 		border-color: v.$theme-standard-border-background-color-blue-queen;
 	}
-	.js-set-brighter-border-color-theme-blue-sky {
+	.js-get-brighter-border-color-theme-blue-sky {
 		border-color: v.$theme-brighter-border-background-color-blue-sky;
 	}
-	.js-set-standard-border-color-theme-blue-sky {
+	.js-get-standard-border-color-theme-blue-sky {
 		border-color: v.$theme-standard-border-background-color-blue-sky;
 	}
-	.js-set-brighter-border-color-theme-blue-turquoise {
+	.js-get-brighter-border-color-theme-blue-turquoise {
 		border-color: v.$theme-brighter-border-background-color-blue-turquoise;
 	}
-	.js-set-standard-border-color-theme-blue-turquoise {
+	.js-get-standard-border-color-theme-blue-turquoise {
 		border-color: v.$theme-standard-border-background-color-blue-turquoise;
 	}
-	.js-set-brighter-border-color-theme-purple-rain {
+	.js-get-brighter-border-color-theme-purple-rain {
 		border-color: v.$theme-brighter-border-background-color-purple-rain;
 	}
-	.js-set-standard-border-color-theme-purple-rain {
+	.js-get-standard-border-color-theme-purple-rain {
 		border-color: v.$theme-standard-border-background-color-purple-rain;
 	}
 
 	// Theme -- background color
-	.js-set-brighter-background-color-theme-blue-turkish {
+	.js-get-brighter-background-color-theme-blue-turkish {
 		background-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
-	.js-set-standard-background-color-theme-blue-turkish {
+	.js-get-standard-background-color-theme-blue-turkish {
 		background-color: v.$theme-standard-border-background-color-blue-turkish;
 	}
-	.js-set-brighter-background-color-theme-blue-queen {
+	.js-get-brighter-background-color-theme-blue-queen {
 		background-color: v.$theme-brighter-border-background-color-blue-queen;
 	}
-	.js-set-standard-background-color-theme-blue-queen {
+	.js-get-standard-background-color-theme-blue-queen {
 		background-color: v.$theme-standard-border-background-color-blue-queen;
 	}
-	.js-set-brighter-background-color-theme-blue-sky {
+	.js-get-brighter-background-color-theme-blue-sky {
 		background-color: v.$theme-brighter-border-background-color-blue-sky;
 	}
-	.js-set-standard-background-color-theme-blue-sky {
+	.js-get-standard-background-color-theme-blue-sky {
 		background-color: v.$theme-standard-border-background-color-blue-sky;
 	}
-	.js-set-brighter-background-color-theme-blue-turquoise {
+	.js-get-brighter-background-color-theme-blue-turquoise {
 		background-color: v.$theme-brighter-border-background-color-blue-turquoise;
 	}
-	.js-set-standard-background-color-theme-blue-turquoise {
+	.js-get-standard-background-color-theme-blue-turquoise {
 		background-color: v.$theme-standard-border-background-color-blue-turquoise;
 	}
-	.js-set-brighter-background-color-theme-purple-rain {
+	.js-get-brighter-background-color-theme-purple-rain {
 		background-color: v.$theme-brighter-border-background-color-purple-rain;
 	}
-	.js-set-standard-background-color-theme-purple-rain {
+	.js-get-standard-background-color-theme-purple-rain {
 		background-color: v.$theme-standard-border-background-color-purple-rain;
 	}
 
@@ -738,31 +730,31 @@ body {
 			background-color: $theme-standard-background-color;
 		}
 	}
-	.js-set-background-color-with-hover-theme-blue-turkish {
+	.js-get-background-color-with-hover-theme-blue-turkish {
 		@include theme-background-color-with-hover(
 			v.$theme-brighter-border-background-color-blue-turkish,
 			v.$theme-standard-border-background-color-blue-turkish
 		);
 	}
-	.js-set-background-color-with-hover-theme-blue-queen {
+	.js-get-background-color-with-hover-theme-blue-queen {
 		@include theme-background-color-with-hover(
 			v.$theme-brighter-border-background-color-blue-queen,
 			v.$theme-standard-border-background-color-blue-queen
 		);
 	}
-	.js-set-background-color-with-hover-theme-blue-sky {
+	.js-get-background-color-with-hover-theme-blue-sky {
 		@include theme-background-color-with-hover(
 			v.$theme-brighter-border-background-color-blue-sky,
 			v.$theme-standard-border-background-color-blue-sky
 		);
 	}
-	.js-set-background-color-with-hover-theme-blue-turquoise {
+	.js-get-background-color-with-hover-theme-blue-turquoise {
 		@include theme-background-color-with-hover(
 			v.$theme-brighter-border-background-color-blue-turquoise,
 			v.$theme-standard-border-background-color-blue-turquoise
 		);
 	}
-	.js-set-background-color-with-hover-theme-purple-rain {
+	.js-get-background-color-with-hover-theme-purple-rain {
 		@include theme-background-color-with-hover(
 			v.$theme-brighter-border-background-color-purple-rain,
 			v.$theme-standard-border-background-color-purple-rain
@@ -770,34 +762,34 @@ body {
 	}
 
 	// Theme -- NavbarBreadcrumb arrow -- border color
-	.js-set-brighter-breadcrumb-arrow-color-theme-blue-turkish {
+	.js-get-brighter-breadcrumb-arrow-color-theme-blue-turkish {
 		border-left-color: v.$theme-brighter-border-background-color-blue-turkish;
 	}
-	.js-set-standard-breadcrumb-arrow-color-theme-blue-turkish {
+	.js-get-standard-breadcrumb-arrow-color-theme-blue-turkish {
 		border-left-color: v.$theme-standard-border-background-color-blue-turkish;
 	}
-	.js-set-brighter-breadcrumb-arrow-color-theme-blue-queen {
+	.js-get-brighter-breadcrumb-arrow-color-theme-blue-queen {
 		border-left-color: v.$theme-brighter-border-background-color-blue-queen;
 	}
-	.js-set-standard-breadcrumb-arrow-color-theme-blue-queen {
+	.js-get-standard-breadcrumb-arrow-color-theme-blue-queen {
 		border-left-color: v.$theme-standard-border-background-color-blue-queen;
 	}
-	.js-set-brighter-breadcrumb-arrow-color-theme-blue-sky {
+	.js-get-brighter-breadcrumb-arrow-color-theme-blue-sky {
 		border-left-color: v.$theme-brighter-border-background-color-blue-sky;
 	}
-	.js-set-standard-breadcrumb-arrow-color-theme-blue-sky {
+	.js-get-standard-breadcrumb-arrow-color-theme-blue-sky {
 		border-left-color: v.$theme-standard-border-background-color-blue-sky;
 	}
-	.js-set-brighter-breadcrumb-arrow-color-theme-blue-turquoise {
+	.js-get-brighter-breadcrumb-arrow-color-theme-blue-turquoise {
 		border-left-color: v.$theme-brighter-border-background-color-blue-turquoise;
 	}
-	.js-set-standard-breadcrumb-arrow-color-theme-blue-turquoise {
+	.js-get-standard-breadcrumb-arrow-color-theme-blue-turquoise {
 		border-left-color: v.$theme-standard-border-background-color-blue-turquoise;
 	}
-	.js-set-brighter-breadcrumb-arrow-color-theme-purple-rain {
+	.js-get-brighter-breadcrumb-arrow-color-theme-purple-rain {
 		border-left-color: v.$theme-brighter-border-background-color-purple-rain;
 	}
-	.js-set-standard-breadcrumb-arrow-color-theme-purple-rain {
+	.js-get-standard-breadcrumb-arrow-color-theme-purple-rain {
 		border-left-color: v.$theme-standard-border-background-color-purple-rain;
 	}
 
@@ -814,31 +806,31 @@ body {
 			background-color: $theme-standard-background-color;
 		}
 	}
-	.js-set-form-submit-button-color-with-hover-focus-theme-blue-turkish {
+	.js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-blue-turkish,
 			v.$theme-standard-border-background-color-blue-turkish
 		);
 	}
-	.js-set-form-submit-button-color-with-hover-focus-theme-blue-queen {
+	.js-get-form-submit-button-color-with-hover-focus-theme-blue-queen {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-blue-queen,
 			v.$theme-standard-border-background-color-blue-queen
 		);
 	}
-	.js-set-form-submit-button-color-with-hover-focus-theme-blue-sky {
+	.js-get-form-submit-button-color-with-hover-focus-theme-blue-sky {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-blue-sky,
 			v.$theme-standard-border-background-color-blue-sky
 		);
 	}
-	.js-set-form-submit-button-color-with-hover-focus-theme-blue-turquoise {
+	.js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-blue-turquoise,
 			v.$theme-standard-border-background-color-blue-turquoise
 		);
 	}
-	.js-set-form-submit-button-color-with-hover-focus-theme-purple-rain {
+	.js-get-form-submit-button-color-with-hover-focus-theme-purple-rain {
 		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-brighter-border-background-color-purple-rain,
 			v.$theme-standard-border-background-color-purple-rain
@@ -848,6 +840,521 @@ body {
 	//==========================
 	// Themes + Light/Dark mode
 	//==========================
+	// Theme + Light/Dark mode -- Common (i.e. used by multiple components) -- text color
+	.js-get-common-text-color-mode-light-theme-blue-turkish {
+		color: v.$theme-mode-blue-turkish-text-color-light;
+	}
+	.js-get-common-text-color-mode-dark-theme-blue-turkish {
+		color: v.$theme-mode-blue-turkish-text-color-dark;
+	}
+	.js-get-common-text-color-mode-light-theme-blue-queen {
+		color: v.$theme-mode-blue-queen-text-color-light;
+	}
+	.js-get-common-text-color-mode-dark-theme-blue-queen {
+		color: v.$theme-mode-blue-queen-text-color-dark;
+	}
+	.js-get-common-text-color-mode-light-theme-blue-sky {
+		color: v.$theme-mode-blue-sky-text-color-light;
+	}
+	.js-get-common-text-color-mode-dark-theme-blue-sky {
+		color: v.$theme-mode-blue-sky-text-color-dark;
+	}
+	.js-get-common-text-color-mode-light-theme-blue-turquoise {
+		color: v.$theme-mode-blue-turquoise-text-color-light;
+	}
+	.js-get-common-text-color-mode-dark-theme-blue-turquoise {
+		color: v.$theme-mode-blue-turquoise-text-color-dark;
+	}
+	.js-get-common-text-color-mode-light-theme-purple-rain {
+		color: v.$theme-mode-purple-rain-text-color-light;
+	}
+	.js-get-common-text-color-mode-dark-theme-purple-rain {
+		color: v.$theme-mode-purple-rain-text-color-dark;
+	}
+
+	// Theme + Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar/ItemViewTopBar
+	// ...search container -- border, background, and text color
+	@mixin theme-mode-common-top-bar-search-container(
+		$theme-border-background-color,
+		$is-light
+	) {
+		& > input {
+			border-color: $theme-border-background-color;
+			@if $is-light {
+				background-color: v.$mode-common-top-bar-search-bar-background-color-light;
+				color: v.$mode-common-top-bar-search-bar-text-color-light;
+			} @else {
+				background-color: v.$mode-common-top-bar-search-bar-background-color-dark;
+				color: v.$mode-common-top-bar-search-bar-text-color-dark;
+			}
+		}
+
+		& > div {
+			border-color: $theme-border-background-color;
+			background-color: $theme-border-background-color;
+		}
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turkish {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-blue-turkish,
+			$is-light: true
+		);
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turkish {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-blue-turkish,
+			$is-light: false
+		);
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-queen {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-blue-queen,
+			$is-light: true
+		);
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-queen {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-blue-queen,
+			$is-light: false
+		);
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-sky {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-blue-sky,
+			$is-light: true
+		);
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-sky {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-blue-sky,
+			$is-light: false
+		);
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turquoise {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-blue-turquoise,
+			$is-light: true
+		);
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turquoise {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-blue-turquoise,
+			$is-light: false
+		);
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-light-theme-purple-rain {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-purple-rain,
+			$is-light: true
+		);
+	}
+	.js-get-common-top-bar-search-container-border-background-text-color-mode-dark-theme-purple-rain {
+		@include theme-mode-common-top-bar-search-container(
+			v.$theme-standard-border-background-color-purple-rain,
+			$is-light: false
+		);
+	}
+
+	// Theme + Light/Dark mode -- ListViewTopBar new-item-button (during tutorial) -- border color
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turkish {
+		border-color: v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light;
+	}
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turkish {
+		border-color: v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark;
+	}
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-queen {
+		border-color: v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-light;
+	}
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-queen {
+		border-color: v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark;
+	}
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-sky {
+		border-color: v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-light;
+	}
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-sky {
+		border-color: v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark;
+	}
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turquoise {
+		border-color: v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light;
+	}
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turquoise {
+		border-color: v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark;
+	}
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-light-theme-purple-rain {
+		border-color: v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-light;
+	}
+	.js-get-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-purple-rain {
+		border-color: v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark;
+	}
+
+	// Theme + Light/Dark mode -- ListViewTopBar new-item-tutorial -- border, arrow, and text color
+	@mixin mode-top-bar-tutorial(
+		$theme-mode-top-bar-new-item-tutorial-border-text-color-light,
+		$theme-mode-top-bar-new-item-tutorial-border-text-color-dark,
+		$is-light
+	) {
+		& > .new-item-tutorial-container__arrow-head {
+			@if $is-light {
+				border-bottom-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
+			} @else {
+				border-bottom-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark;
+			}
+		}
+
+		& > .new-item-tutorial-container__arrow-stock {
+			@if $is-light {
+				background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
+			} @else {
+				background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark;
+			}
+		}
+
+		& > .new-item-tutorial-container__bend-message-centering-container {
+			&
+				> .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
+				@if $is-light {
+					background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
+				} @else {
+					background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark;
+				}
+			}
+
+			& > .new-item-tutorial-container__bend-message-centering-container__text {
+				@if $is-light {
+					color: $theme-mode-top-bar-new-item-tutorial-border-text-color-light;
+				} @else {
+					color: $theme-mode-top-bar-new-item-tutorial-border-text-color-dark;
+				}
+			}
+		}
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain {
+		@include mode-top-bar-tutorial(
+			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-light,
+			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark,
+			$is-light: false
+		);
+	}
+
+	// Theme + Light/Dark mode -- form input element -- focus border color
+	.js-get-focus-border-color-mode-light-theme-blue-turkish {
+		&:focus {
+			border-color: v.$theme-mode-blue-turkish-focus-border-color-light;
+		}
+	}
+	.js-get-focus-border-color-mode-dark-theme-blue-turkish {
+		&:focus {
+			border-color: v.$theme-mode-blue-turkish-focus-border-color-dark;
+		}
+	}
+	.js-get-focus-border-color-mode-light-theme-blue-queen {
+		&:focus {
+			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
+		}
+	}
+	.js-get-focus-border-color-mode-dark-theme-blue-queen {
+		&:focus {
+			border-color: v.$theme-mode-blue-queen-focus-border-color-dark;
+		}
+	}
+	.js-get-focus-border-color-mode-light-theme-blue-sky {
+		&:focus {
+			border-color: v.$theme-mode-blue-sky-focus-border-color-light;
+		}
+	}
+	.js-get-focus-border-color-mode-dark-theme-blue-sky {
+		&:focus {
+			border-color: v.$theme-mode-blue-sky-focus-border-color-dark;
+		}
+	}
+	.js-get-focus-border-color-mode-light-theme-blue-turquoise {
+		&:focus {
+			border-color: v.$theme-mode-blue-turquoise-focus-border-color-light;
+		}
+	}
+	.js-get-focus-border-color-mode-dark-theme-blue-turquoise {
+		&:focus {
+			border-color: v.$theme-mode-blue-turquoise-focus-border-color-dark;
+		}
+	}
+	.js-get-focus-border-color-mode-light-theme-purple-rain {
+		&:focus {
+			border-color: v.$theme-mode-purple-rain-focus-border-color-light;
+		}
+	}
+	.js-get-focus-border-color-mode-dark-theme-purple-rain {
+		&:focus {
+			border-color: v.$theme-mode-purple-rain-focus-border-color-dark;
+		}
+	}
+
+	// Theme + Light/Dark mode -- ItemViewEditItemInfo form input (for name) element -- focus border color
+	@mixin theme-mode-Item-view-form-input-for-name(
+		$theme-mode-focus-border-color-light,
+		$theme-mode-focus-border-color-dark,
+		$is-light
+	) {
+		&:focus {
+			@if $is-light {
+				border-color: $theme-mode-focus-border-color-light;
+			} @else {
+				border-color: $theme-mode-focus-border-color-dark;
+			}
+		}
+
+		&:focus + .name-centering-container__char-count-centering-container {
+			@if $is-light {
+				border-color: $theme-mode-focus-border-color-light;
+			} @else {
+				border-color: $theme-mode-focus-border-color-dark;
+			}
+		}
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turkish {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-blue-turkish-focus-border-color-light,
+			v.$theme-mode-blue-turkish-focus-border-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-blue-turkish-focus-border-color-light,
+			v.$theme-mode-blue-turkish-focus-border-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-queen {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-blue-queen-focus-border-color-light,
+			v.$theme-mode-blue-queen-focus-border-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-queen {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-blue-queen-focus-border-color-light,
+			v.$theme-mode-blue-queen-focus-border-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-sky {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-blue-sky-focus-border-color-light,
+			v.$theme-mode-blue-sky-focus-border-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-sky {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-blue-sky-focus-border-color-light,
+			v.$theme-mode-blue-sky-focus-border-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turquoise {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-blue-turquoise-focus-border-color-light,
+			v.$theme-mode-blue-turquoise-focus-border-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turquoise {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-blue-turquoise-focus-border-color-light,
+			v.$theme-mode-blue-turquoise-focus-border-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-purple-rain {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-purple-rain-focus-border-color-light,
+			v.$theme-mode-purple-rain-focus-border-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-purple-rain {
+		@include theme-mode-Item-view-form-input-for-name(
+			v.$theme-mode-purple-rain-focus-border-color-light,
+			v.$theme-mode-purple-rain-focus-border-color-dark,
+			$is-light: false
+		);
+	}
+
+	// Theme + Light/Dark mode -- CustomCheckbox 'custom-checkbox-component' -- border, background, text color
+	@mixin theme-mode-custom-checkbox(
+		$theme-mode-text-color-light,
+		$theme-mode-text-color-dark,
+		$is-light
+	) {
+		@if $is-light {
+			border-color: v.$mode-custom-checkbox-border-color-light;
+			background-color: v.$mode-custom-checkbox-background-color-light;
+		} @else {
+			border-color: v.$mode-custom-checkbox-border-color-dark;
+			background-color: v.$mode-custom-checkbox-background-color-dark;
+		}
+
+		&:hover {
+			@if $is-light {
+				border-color: $theme-mode-text-color-light;
+			} @else {
+				border-color: $theme-mode-text-color-dark;
+			}
+		}
+
+		// For checkmark
+		& + i {
+			@if $is-light {
+				color: v.$mode-custom-checkmark-text-color-light;
+			} @else {
+				color: v.$mode-custom-checkmark-text-color-dark;
+			}
+		}
+
+		// For checkmark
+		&:hover + i {
+			@if $is-light {
+				color: $theme-mode-text-color-light;
+			} @else {
+				color: $theme-mode-text-color-dark;
+			}
+		}
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-blue-turkish-text-color-light,
+			v.$theme-mode-blue-turkish-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-blue-turkish-text-color-light,
+			v.$theme-mode-blue-turkish-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-blue-queen-text-color-light,
+			v.$theme-mode-blue-queen-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-blue-queen-text-color-light,
+			v.$theme-mode-blue-queen-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-light-theme-blue-sky {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-blue-sky-text-color-light,
+			v.$theme-mode-blue-sky-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-dark-theme-blue-sky {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-blue-sky-text-color-light,
+			v.$theme-mode-blue-sky-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-light-theme-blue-turquoise {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-blue-turquoise-text-color-light,
+			v.$theme-mode-blue-turquoise-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turquoise {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-blue-turquoise-text-color-light,
+			v.$theme-mode-blue-turquoise-text-color-dark,
+			$is-light: false
+		);
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-light-theme-purple-rain {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-purple-rain-text-color-light,
+			v.$theme-mode-purple-rain-text-color-dark,
+			$is-light: true
+		);
+	}
+	.js-get-custom-checkbox-border-background-text-color-mode-dark-theme-purple-rain {
+		@include theme-mode-custom-checkbox(
+			v.$theme-mode-purple-rain-text-color-light,
+			v.$theme-mode-purple-rain-text-color-dark,
+			$is-light: false
+		);
+	}
+
 	@mixin theme-mode-toggle-switch(
 		$theme-mode-toggle-switch-on-border-background-color-light,
 		$theme-mode-toggle-switch-on-border-background-color-dark,
@@ -894,70 +1401,70 @@ body {
 		}
 	}
 	// Theme + Light/Dark mode -- ToggleSwitch -- border, background, and text color
-	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish {
+	.js-get-toggle-switch-border-background-text-colors-mode-light-theme-blue-turkish {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-dark,
 			$is-light: true
 		);
 	}
-	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish {
+	.js-get-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turkish {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-blue-turkish-toggle-switch-on-border-background-color-dark,
 			$is-light: false
 		);
 	}
-	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen {
+	.js-get-toggle-switch-border-background-text-colors-mode-light-theme-blue-queen {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-queen-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-blue-queen-toggle-switch-on-border-background-color-dark,
 			$is-light: true
 		);
 	}
-	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen {
+	.js-get-toggle-switch-border-background-text-colors-mode-dark-theme-blue-queen {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-queen-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-blue-queen-toggle-switch-on-border-background-color-dark,
 			$is-light: false
 		);
 	}
-	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky {
+	.js-get-toggle-switch-border-background-text-colors-mode-light-theme-blue-sky {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-sky-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-blue-sky-toggle-switch-on-border-background-color-dark,
 			$is-light: true
 		);
 	}
-	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky {
+	.js-get-toggle-switch-border-background-text-colors-mode-dark-theme-blue-sky {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-sky-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-blue-sky-toggle-switch-on-border-background-color-dark,
 			$is-light: false
 		);
 	}
-	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise {
+	.js-get-toggle-switch-border-background-text-colors-mode-light-theme-blue-turquoise {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-dark,
 			$is-light: true
 		);
 	}
-	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise {
+	.js-get-toggle-switch-border-background-text-colors-mode-dark-theme-blue-turquoise {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-dark,
 			$is-light: false
 		);
 	}
-	.js-set-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain {
+	.js-get-toggle-switch-border-background-text-colors-mode-light-theme-purple-rain {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-purple-rain-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-purple-rain-toggle-switch-on-border-background-color-dark,
 			$is-light: true
 		);
 	}
-	.js-set-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain {
+	.js-get-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-purple-rain-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-purple-rain-toggle-switch-on-border-background-color-dark,
@@ -965,566 +1472,47 @@ body {
 		);
 	}
 
-	// Theme + Light/Dark mode -- ListViewTopBar new-item-button (during tutorial) -- border color
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turkish {
-		border-color: v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turkish {
-		border-color: v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-queen {
-		border-color: v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-light;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-queen {
-		border-color: v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-sky {
-		border-color: v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-light;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-sky {
-		border-color: v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turquoise {
-		border-color: v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-blue-turquoise {
-		border-color: v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-light-theme-purple-rain {
-		border-color: v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-light;
-	}
-	.js-set-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-purple-rain {
-		border-color: v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark;
-	}
-
-	// Theme + Light/Dark mode -- ListViewTopBar new-item-tutorial -- border, arrow, and text color
-	@mixin mode-top-bar-tutorial(
-		$theme-mode-top-bar-new-item-tutorial-border-text-color-light,
-		$theme-mode-top-bar-new-item-tutorial-border-text-color-dark,
-		$is-light
-	) {
-		& > .new-item-tutorial-container__arrow-head {
-			@if $is-light {
-				border-bottom-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
-			} @else {
-				border-bottom-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark;
-			}
-		}
-
-		& > .new-item-tutorial-container__arrow-stock {
-			@if $is-light {
-				background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
-			} @else {
-				background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark;
-			}
-		}
-
-		& > .new-item-tutorial-container__bend-message-centering-container {
-			&
-				> .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-				@if $is-light {
-					background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
-				} @else {
-					background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark;
-				}
-			}
-
-			& > .new-item-tutorial-container__bend-message-centering-container__text {
-				@if $is-light {
-					color: $theme-mode-top-bar-new-item-tutorial-border-text-color-light;
-				} @else {
-					color: $theme-mode-top-bar-new-item-tutorial-border-text-color-dark;
-				}
-			}
-		}
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turkish {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turkish {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-queen {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-queen {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-sky {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-sky {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-blue-turquoise {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-blue-turquoise {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-purple-rain {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain {
-		@include mode-top-bar-tutorial(
-			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-light,
-			v.$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark,
-			$is-light: false
-		);
-	}
-
-	// Theme + Light/Dark mode -- form input element -- focus border color
-	.js-set-focus-border-color-mode-light-theme-blue-turkish {
-		&:focus {
-			border-color: v.$theme-mode-blue-turkish-focus-border-color-light;
-		}
-	}
-	.js-set-focus-border-color-mode-dark-theme-blue-turkish {
-		&:focus {
-			border-color: v.$theme-mode-blue-turkish-focus-border-color-dark;
-		}
-	}
-	.js-set-focus-border-color-mode-light-theme-blue-queen {
-		&:focus {
-			border-color: v.$theme-mode-blue-queen-focus-border-color-light;
-		}
-	}
-	.js-set-focus-border-color-mode-dark-theme-blue-queen {
-		&:focus {
-			border-color: v.$theme-mode-blue-queen-focus-border-color-dark;
-		}
-	}
-	.js-set-focus-border-color-mode-light-theme-blue-sky {
-		&:focus {
-			border-color: v.$theme-mode-blue-sky-focus-border-color-light;
-		}
-	}
-	.js-set-focus-border-color-mode-dark-theme-blue-sky {
-		&:focus {
-			border-color: v.$theme-mode-blue-sky-focus-border-color-dark;
-		}
-	}
-	.js-set-focus-border-color-mode-light-theme-blue-turquoise {
-		&:focus {
-			border-color: v.$theme-mode-blue-turquoise-focus-border-color-light;
-		}
-	}
-	.js-set-focus-border-color-mode-dark-theme-blue-turquoise {
-		&:focus {
-			border-color: v.$theme-mode-blue-turquoise-focus-border-color-dark;
-		}
-	}
-	.js-set-focus-border-color-mode-light-theme-purple-rain {
-		&:focus {
-			border-color: v.$theme-mode-purple-rain-focus-border-color-light;
-		}
-	}
-	.js-set-focus-border-color-mode-dark-theme-purple-rain {
-		&:focus {
-			border-color: v.$theme-mode-purple-rain-focus-border-color-dark;
-		}
-	}
-
-	// Theme + Light/Dark mode -- text color
-	.js-set-text-color-mode-light-theme-blue-turkish {
-		color: v.$theme-mode-blue-turkish-text-color-light;
-	}
-	.js-set-text-color-mode-dark-theme-blue-turkish {
-		color: v.$theme-mode-blue-turkish-text-color-dark;
-	}
-	.js-set-text-color-mode-light-theme-blue-queen {
-		color: v.$theme-mode-blue-queen-text-color-light;
-	}
-	.js-set-text-color-mode-dark-theme-blue-queen {
-		color: v.$theme-mode-blue-queen-text-color-dark;
-	}
-	.js-set-text-color-mode-light-theme-blue-sky {
-		color: v.$theme-mode-blue-sky-text-color-light;
-	}
-	.js-set-text-color-mode-dark-theme-blue-sky {
-		color: v.$theme-mode-blue-sky-text-color-dark;
-	}
-	.js-set-text-color-mode-light-theme-blue-turquoise {
-		color: v.$theme-mode-blue-turquoise-text-color-light;
-	}
-	.js-set-text-color-mode-dark-theme-blue-turquoise {
-		color: v.$theme-mode-blue-turquoise-text-color-dark;
-	}
-	.js-set-text-color-mode-light-theme-purple-rain {
-		color: v.$theme-mode-purple-rain-text-color-light;
-	}
-	.js-set-text-color-mode-dark-theme-purple-rain {
-		color: v.$theme-mode-purple-rain-text-color-dark;
-	}
-
-	// Theme + Light/Dark mode -- CustomCheckbox -- border, background, text color
-	@mixin theme-mode-custom-checkbox(
-		$theme-mode-text-color-light,
-		$theme-mode-text-color-dark,
-		$is-light
-	) {
-		@if $is-light {
-			border-color: v.$mode-custom-checkbox-border-color-light;
-			background-color: v.$mode-custom-checkbox-background-color-light;
-		} @else {
-			border-color: v.$mode-custom-checkbox-border-color-dark;
-			background-color: v.$mode-custom-checkbox-background-color-dark;
-		}
-
-		&:hover {
-			@if $is-light {
-				border-color: $theme-mode-text-color-light;
-			} @else {
-				border-color: $theme-mode-text-color-dark;
-			}
-		}
-
-		// For checkmark
-		& + i {
-			@if $is-light {
-				color: v.$mode-custom-checkmark-text-color-light;
-			} @else {
-				color: v.$mode-custom-checkmark-text-color-dark;
-			}
-		}
-
-		// For checkmark
-		&:hover + i {
-			@if $is-light {
-				color: $theme-mode-text-color-light;
-			} @else {
-				color: $theme-mode-text-color-dark;
-			}
-		}
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turkish {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-blue-turkish-text-color-light,
-			v.$theme-mode-blue-turkish-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turkish {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-blue-turkish-text-color-light,
-			v.$theme-mode-blue-turkish-text-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-queen {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-blue-queen-text-color-light,
-			v.$theme-mode-blue-queen-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-queen {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-blue-queen-text-color-light,
-			v.$theme-mode-blue-queen-text-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-sky {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-blue-sky-text-color-light,
-			v.$theme-mode-blue-sky-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-sky {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-blue-sky-text-color-light,
-			v.$theme-mode-blue-sky-text-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-light-theme-blue-turquoise {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-blue-turquoise-text-color-light,
-			v.$theme-mode-blue-turquoise-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-dark-theme-blue-turquoise {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-blue-turquoise-text-color-light,
-			v.$theme-mode-blue-turquoise-text-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-light-theme-purple-rain {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-purple-rain-text-color-light,
-			v.$theme-mode-purple-rain-text-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-custom-checkbox-border-background-text-color-mode-dark-theme-purple-rain {
-		@include theme-mode-custom-checkbox(
-			v.$theme-mode-purple-rain-text-color-light,
-			v.$theme-mode-purple-rain-text-color-dark,
-			$is-light: false
-		);
-	}
-
-	// Theme + Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar/ItemViewTopBar
-	// ...search container -- border, background, and text color
-	@mixin theme-mode-common-top-bar-search-container(
-		$theme-border-background-color,
-		$is-light
-	) {
-		& > input {
-			border-color: $theme-border-background-color;
-			@if $is-light {
-				background-color: v.$mode-common-top-bar-search-bar-background-color-light;
-				color: v.$mode-common-top-bar-search-bar-text-color-light;
-			} @else {
-				background-color: v.$mode-common-top-bar-search-bar-background-color-dark;
-				color: v.$mode-common-top-bar-search-bar-text-color-dark;
-			}
-		}
-
-		& > div {
-			border-color: $theme-border-background-color;
-			background-color: $theme-border-background-color;
-		}
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turkish {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-blue-turkish,
-			$is-light: true
-		);
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turkish {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-blue-turkish,
-			$is-light: false
-		);
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-queen {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-blue-queen,
-			$is-light: true
-		);
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-queen {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-blue-queen,
-			$is-light: false
-		);
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-sky {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-blue-sky,
-			$is-light: true
-		);
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-sky {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-blue-sky,
-			$is-light: false
-		);
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turquoise {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-blue-turquoise,
-			$is-light: true
-		);
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-blue-turquoise {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-blue-turquoise,
-			$is-light: false
-		);
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-light-theme-purple-rain {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-purple-rain,
-			$is-light: true
-		);
-	}
-	.js-set-common-top-bar-search-container-border-background-text-color-mode-dark-theme-purple-rain {
-		@include theme-mode-common-top-bar-search-container(
-			v.$theme-standard-border-background-color-purple-rain,
-			$is-light: false
-		);
-	}
-
-	// Theme + Light/Dark mode -- ItemViewEditItemInfo form input (for name) element -- focus border color
-	@mixin theme-mode-Item-view-form-input-for-name(
-		$theme-mode-focus-border-color-light,
-		$theme-mode-focus-border-color-dark,
-		$is-light
-	) {
-		&:focus {
-			@if $is-light {
-				border-color: $theme-mode-focus-border-color-light;
-			} @else {
-				border-color: $theme-mode-focus-border-color-dark;
-			}
-		}
-
-		&:focus + .name-centering-container__char-count-centering-container {
-			@if $is-light {
-				border-color: $theme-mode-focus-border-color-light;
-			} @else {
-				border-color: $theme-mode-focus-border-color-dark;
-			}
-		}
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turkish {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-blue-turkish-focus-border-color-light,
-			v.$theme-mode-blue-turkish-focus-border-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turkish {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-blue-turkish-focus-border-color-light,
-			v.$theme-mode-blue-turkish-focus-border-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-queen {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-blue-queen-focus-border-color-light,
-			v.$theme-mode-blue-queen-focus-border-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-queen {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-blue-queen-focus-border-color-light,
-			v.$theme-mode-blue-queen-focus-border-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-sky {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-blue-sky-focus-border-color-light,
-			v.$theme-mode-blue-sky-focus-border-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-sky {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-blue-sky-focus-border-color-light,
-			v.$theme-mode-blue-sky-focus-border-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turquoise {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-blue-turquoise-focus-border-color-light,
-			v.$theme-mode-blue-turquoise-focus-border-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-blue-turquoise {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-blue-turquoise-focus-border-color-light,
-			v.$theme-mode-blue-turquoise-focus-border-color-dark,
-			$is-light: false
-		);
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-purple-rain {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-purple-rain-focus-border-color-light,
-			v.$theme-mode-purple-rain-focus-border-color-dark,
-			$is-light: true
-		);
-	}
-	.js-set-item-view-edit-item-info-form-name-input-focus-border-color-mode-dark-theme-purple-rain {
-		@include theme-mode-Item-view-form-input-for-name(
-			v.$theme-mode-purple-rain-focus-border-color-light,
-			v.$theme-mode-purple-rain-focus-border-color-dark,
-			$is-light: false
-		);
-	}
-
-	// Status boxes
+	//===============
+	// Status colors
+	//===============
 	// Used for changing the background color of status-boxes
 	// ...also used to store color in redux for bug-pie-chart
-	.js-set-status-box-background-color-gray,
-	.js-get-status-box-background-color-gray {
+	.js-get-status-background-color-gray {
 		background-color: v.$status-gray;
 	}
-	.js-set-status-box-background-color-blue,
-	.js-get-status-box-background-color-blue {
+	.js-get-status-background-color-blue {
 		background-color: v.$status-blue;
 	}
-	.js-set-status-box-background-color-purple,
-	.js-get-status-box-background-color-purple {
+	.js-get-status-background-color-purple {
 		background-color: v.$status-purple;
 	}
-	.js-set-status-box-background-color-orange,
-	.js-get-status-box-background-color-orange {
+	.js-get-status-background-color-orange {
 		background-color: v.$status-orange;
 	}
-	.js-set-status-box-background-color-green,
-	.js-get-status-box-background-color-green {
+	.js-get-status-background-color-green {
 		background-color: v.$status-green;
 	}
-	.js-set-status-box-background-color-red,
-	.js-get-status-box-background-color-red {
+	.js-get-status-background-color-red {
 		background-color: v.$status-red;
 	}
 
 	// Used to change text color in status combo-boxes
-	.js-set-status-box-text-color-gray {
+	.js-get-status-text-color-gray {
 		color: v.$status-gray;
 	}
-	.js-set-status-box-text-color-blue {
+	.js-get-status-text-color-blue {
 		color: v.$status-blue;
 	}
-	.js-set-status-box-text-color-purple {
+	.js-get-status-text-color-purple {
 		color: v.$status-purple;
 	}
-	.js-set-status-box-text-color-orange {
+	.js-get-status-text-color-orange {
 		color: v.$status-orange;
 	}
-	.js-set-status-box-text-color-green {
+	.js-get-status-text-color-green {
 		color: v.$status-green;
 	}
-	.js-set-status-box-text-color-red {
+	.js-get-status-text-color-red {
 		color: v.$status-red;
 	}
 }

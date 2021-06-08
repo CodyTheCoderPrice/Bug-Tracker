@@ -21,7 +21,7 @@ import {
 	getCommonTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
@@ -224,7 +224,7 @@ export default function ItemViewTopBar(props) {
 									reduxState[props.reduxContainerName].searchFilterSort
 										.statusFilter.length > 0
 										? " list-filter-or-sort-container__button__text--active" +
-										  getTextColorClassNameForThemeWithLightOrDarkMode(
+										  getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  )
@@ -299,7 +299,7 @@ export default function ItemViewTopBar(props) {
 														props.reduxContainerName
 													].searchFilterSort.priorityFilter.includes(obj.id)
 														? " list-filter-or-sort-container__dropdown__filter-content__block__label--active" +
-														  getTextColorClassNameForThemeWithLightOrDarkMode(
+														  getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 																reduxState[ACCOUNT_CONTAINER].settings
 																	.dark_mode,
 																reduxState[ACCOUNT_CONTAINER].settings
@@ -353,7 +353,7 @@ export default function ItemViewTopBar(props) {
 														props.reduxContainerName
 													].searchFilterSort.statusFilter.includes(obj.id)
 														? " list-filter-or-sort-container__dropdown__filter-content__block__label--active" +
-														  getTextColorClassNameForThemeWithLightOrDarkMode(
+														  getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 																reduxState[ACCOUNT_CONTAINER].settings
 																	.dark_mode,
 																reduxState[ACCOUNT_CONTAINER].settings

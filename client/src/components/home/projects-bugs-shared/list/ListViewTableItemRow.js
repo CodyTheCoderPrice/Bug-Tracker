@@ -15,14 +15,15 @@ import {
 } from "../../../../actions";
 
 import {
+	formatDateMMddYYYY,
+	getAlternativeWhenValueIsEmpty,
+	getStatusBackgroundColorClassName,
+	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getListViewTableItemRowBorderAndTextColorClassNameForLightOrDarkMode,
 	getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode,
 	getItemViewListSidebarItemRowSelectedBackgroundColorClassNameForLightOrDarkMode,
-	formatDateMMddYYYY,
-	getAlternativeIfValueIsEmpty,
-	getTextColorClassNameForThemeWithLightOrDarkMode,
-	getBugsInProjectList,
 	getNumberOfBugsForStatus,
+	getBugsInProjectList,
 } from "../../../../utils";
 
 // Components
@@ -98,9 +99,8 @@ export default function ListViewTableItemRow(props) {
 			(status) => status.id === props.item.status_id
 		);
 
-		return (
-			" js-set-status-box-background-color-" +
-			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
+		return getStatusBackgroundColorClassName(
+			filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem"
 		);
 	};
 
@@ -116,7 +116,7 @@ export default function ListViewTableItemRow(props) {
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId
 								? " list-table__row__data--completed-color"
-								: getTextColorClassNameForThemeWithLightOrDarkMode(
+								: getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 										reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								  ))
@@ -164,7 +164,7 @@ export default function ListViewTableItemRow(props) {
 				return (
 					<td key={key} className={getTableDataClassName()}>
 						<span className="list-table__row__data__info">
-							{getAlternativeIfValueIsEmpty(
+							{getAlternativeWhenValueIsEmpty(
 								formatDateMMddYYYY(props.item.creation_date),
 								"-"
 							)}
@@ -175,7 +175,7 @@ export default function ListViewTableItemRow(props) {
 				return (
 					<td key={key} className={getTableDataClassName()}>
 						<span className="list-table__row__data__info">
-							{getAlternativeIfValueIsEmpty(
+							{getAlternativeWhenValueIsEmpty(
 								formatDateMMddYYYY(props.item.start_date),
 								"-"
 							)}
@@ -186,7 +186,7 @@ export default function ListViewTableItemRow(props) {
 				return (
 					<td key={key} className={getTableDataClassName()}>
 						<span className="list-table__row__data__info">
-							{getAlternativeIfValueIsEmpty(
+							{getAlternativeWhenValueIsEmpty(
 								formatDateMMddYYYY(props.item.due_date),
 								"-"
 							)}

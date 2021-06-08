@@ -11,8 +11,8 @@ import {
 } from "../../../actions";
 import {
 	getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getTextColorClassNameForThemeWithLightOrDarkMode,
-	getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
 	setTrueForOnlyAccountSidebar,
 } from "../../../utils";
@@ -99,7 +99,7 @@ export default function AccountModalEditSettings() {
 				<h2
 					className={
 						"category-container__heading" +
-						getTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -163,7 +163,7 @@ export default function AccountModalEditSettings() {
 				<h2
 					className={
 						"category-container__heading" +
-						getTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -187,7 +187,7 @@ export default function AccountModalEditSettings() {
 						id="account-settings-sort-projects-category"
 						className={
 							"category-container__content-container__sort-select" +
-							getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)
@@ -225,7 +225,7 @@ export default function AccountModalEditSettings() {
 						id="account-settings-sort-bugs-category"
 						className={
 							"category-container__content-container__sort-select" +
-							getcommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)
@@ -268,7 +268,7 @@ export default function AccountModalEditSettings() {
 					onClick={() => setTrueForOnlyAccountSidebar(dispatch)}
 					className={
 						"modal-link" +
-						getTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)

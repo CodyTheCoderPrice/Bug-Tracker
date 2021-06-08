@@ -8,11 +8,12 @@ import {
 
 import {
 	manageSizeOfItemBoxsInPairContainer,
-	formatDateMMddYYYY,
-	displayGrayedOutAlternativeIfValueIsEmpty,
+	getStatusBackgroundColorClassName,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getCommonWeakTextColorClassNameForLightOrDarkMode,
-	getTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
+	displayGrayedOutAlternativeWhenValueIsEmpty,
+	formatDateMMddYYYY,
 } from "../../../../utils";
 
 export default function ItemViewDisplayItemInfo(props) {
@@ -51,9 +52,8 @@ export default function ItemViewDisplayItemInfo(props) {
 					.itemViewCurrentItem.status_id
 		);
 
-		return (
-			" js-set-status-box-background-color-" +
-			(filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem")
+		return getStatusBackgroundColorClassName(
+			filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem"
 		);
 	};
 
@@ -68,7 +68,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
 							? " name-completed-color"
-							: getTextColorClassNameForThemeWithLightOrDarkMode(
+							: getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
@@ -123,7 +123,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								)
 							}
 						>
-							{displayGrayedOutAlternativeIfValueIsEmpty(
+							{displayGrayedOutAlternativeWhenValueIsEmpty(
 								reduxState[props.reduxContainerName].componentsDisplay
 									.itemViewCurrentItem.description,
 								"Description Is Empty.",
@@ -155,7 +155,7 @@ export default function ItemViewDisplayItemInfo(props) {
 										)
 									}
 								>
-									{displayGrayedOutAlternativeIfValueIsEmpty(
+									{displayGrayedOutAlternativeWhenValueIsEmpty(
 										reduxState[props.reduxContainerName].componentsDisplay
 											.itemViewCurrentItem.location,
 										"none",
@@ -177,7 +177,7 @@ export default function ItemViewDisplayItemInfo(props) {
 										)
 									}
 								>
-									{displayGrayedOutAlternativeIfValueIsEmpty(
+									{displayGrayedOutAlternativeWhenValueIsEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
 												.itemViewCurrentItem.start_date
@@ -199,7 +199,7 @@ export default function ItemViewDisplayItemInfo(props) {
 										)
 									}
 								>
-									{displayGrayedOutAlternativeIfValueIsEmpty(
+									{displayGrayedOutAlternativeWhenValueIsEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
 												.itemViewCurrentItem.due_date
@@ -221,7 +221,7 @@ export default function ItemViewDisplayItemInfo(props) {
 										)
 									}
 								>
-									{displayGrayedOutAlternativeIfValueIsEmpty(
+									{displayGrayedOutAlternativeWhenValueIsEmpty(
 										formatDateMMddYYYY(
 											reduxState[props.reduxContainerName].componentsDisplay
 												.itemViewCurrentItem.completion_date
