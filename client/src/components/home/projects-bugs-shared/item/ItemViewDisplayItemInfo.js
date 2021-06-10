@@ -8,7 +8,7 @@ import {
 
 import {
 	manageSizeOfItemBoxsInPairContainer,
-	getStatusBackgroundColorClassName,
+	getCommonStatusBackgroundColorClassName,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
 	getCommonWeakTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
@@ -52,7 +52,7 @@ export default function ItemViewDisplayItemInfo(props) {
 					.itemViewCurrentItem.status_id
 		);
 
-		return getStatusBackgroundColorClassName(
+		return getCommonStatusBackgroundColorClassName(
 			filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem"
 		);
 	};

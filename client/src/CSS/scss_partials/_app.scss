@@ -651,74 +651,74 @@ body {
 		}
 	}
 
-	//==================================================================
-	// Themes (all themes are common, i.e. used by multiple components)
-	//==================================================================
-	// Theme -- border color
-	.js-get-brighter-border-color-theme-blue-turkish {
+	//========
+	// Themes 
+	//========
+	// Theme -- Common (i.e. used by multiple components) -- border color
+	.js-get-common-brighter-border-color-theme-blue-turkish {
 		border-color: v.$theme-common-brighter-border-background-color-blue-turkish;
 	}
-	.js-get-standard-border-color-theme-blue-turkish {
+	.js-get-common-standard-border-color-theme-blue-turkish {
 		border-color: v.$theme-common-standard-border-background-color-blue-turkish;
 	}
-	.js-get-brighter-border-color-theme-blue-queen {
+	.js-get-common-brighter-border-color-theme-blue-queen {
 		border-color: v.$theme-common-brighter-border-background-color-blue-queen;
 	}
-	.js-get-standard-border-color-theme-blue-queen {
+	.js-get-common-standard-border-color-theme-blue-queen {
 		border-color: v.$theme-common-standard-border-background-color-blue-queen;
 	}
-	.js-get-brighter-border-color-theme-blue-sky {
+	.js-get-common-brighter-border-color-theme-blue-sky {
 		border-color: v.$theme-common-brighter-border-background-color-blue-sky;
 	}
-	.js-get-standard-border-color-theme-blue-sky {
+	.js-get-common-standard-border-color-theme-blue-sky {
 		border-color: v.$theme-common-standard-border-background-color-blue-sky;
 	}
-	.js-get-brighter-border-color-theme-blue-turquoise {
+	.js-get-common-brighter-border-color-theme-blue-turquoise {
 		border-color: v.$theme-common-brighter-border-background-color-blue-turquoise;
 	}
-	.js-get-standard-border-color-theme-blue-turquoise {
+	.js-get-common-standard-border-color-theme-blue-turquoise {
 		border-color: v.$theme-common-standard-border-background-color-blue-turquoise;
 	}
-	.js-get-brighter-border-color-theme-purple-rain {
+	.js-get-common-brighter-border-color-theme-purple-rain {
 		border-color: v.$theme-common-brighter-border-background-color-purple-rain;
 	}
-	.js-get-standard-border-color-theme-purple-rain {
+	.js-get-common-standard-border-color-theme-purple-rain {
 		border-color: v.$theme-common-standard-border-background-color-purple-rain;
 	}
 
-	// Theme -- background color
-	.js-get-brighter-background-color-theme-blue-turkish {
+	// Theme -- Common (i.e. used by multiple components) -- background color
+	.js-get-common-brighter-background-color-theme-blue-turkish {
 		background-color: v.$theme-common-brighter-border-background-color-blue-turkish;
 	}
-	.js-get-standard-background-color-theme-blue-turkish {
+	.js-get-common-standard-background-color-theme-blue-turkish {
 		background-color: v.$theme-common-standard-border-background-color-blue-turkish;
 	}
-	.js-get-brighter-background-color-theme-blue-queen {
+	.js-get-common-brighter-background-color-theme-blue-queen {
 		background-color: v.$theme-common-brighter-border-background-color-blue-queen;
 	}
-	.js-get-standard-background-color-theme-blue-queen {
+	.js-get-common-standard-background-color-theme-blue-queen {
 		background-color: v.$theme-common-standard-border-background-color-blue-queen;
 	}
-	.js-get-brighter-background-color-theme-blue-sky {
+	.js-get-common-brighter-background-color-theme-blue-sky {
 		background-color: v.$theme-common-brighter-border-background-color-blue-sky;
 	}
-	.js-get-standard-background-color-theme-blue-sky {
+	.js-get-common-standard-background-color-theme-blue-sky {
 		background-color: v.$theme-common-standard-border-background-color-blue-sky;
 	}
-	.js-get-brighter-background-color-theme-blue-turquoise {
+	.js-get-common-brighter-background-color-theme-blue-turquoise {
 		background-color: v.$theme-common-brighter-border-background-color-blue-turquoise;
 	}
-	.js-get-standard-background-color-theme-blue-turquoise {
+	.js-get-common-standard-background-color-theme-blue-turquoise {
 		background-color: v.$theme-common-standard-border-background-color-blue-turquoise;
 	}
-	.js-get-brighter-background-color-theme-purple-rain {
+	.js-get-common-brighter-background-color-theme-purple-rain {
 		background-color: v.$theme-common-brighter-border-background-color-purple-rain;
 	}
-	.js-get-standard-background-color-theme-purple-rain {
+	.js-get-common-standard-background-color-theme-purple-rain {
 		background-color: v.$theme-common-standard-border-background-color-purple-rain;
 	}
 
-	// Theme -- background color with hover
+	// Theme -- Common (i.e. used by multiple components) -- background color with hover
 	@mixin theme-background-color-with-hover(
 		$theme-common-brighter-background-color,
 		$theme-common-standard-background-color
@@ -730,32 +730,76 @@ body {
 			background-color: $theme-common-standard-background-color;
 		}
 	}
-	.js-get-background-color-with-hover-theme-blue-turkish {
+	.js-get-common-background-color-with-hover-theme-blue-turkish {
 		@include theme-background-color-with-hover(
 			v.$theme-common-brighter-border-background-color-blue-turkish,
 			v.$theme-common-standard-border-background-color-blue-turkish
 		);
 	}
-	.js-get-background-color-with-hover-theme-blue-queen {
+	.js-get-common-background-color-with-hover-theme-blue-queen {
 		@include theme-background-color-with-hover(
 			v.$theme-common-brighter-border-background-color-blue-queen,
 			v.$theme-common-standard-border-background-color-blue-queen
 		);
 	}
-	.js-get-background-color-with-hover-theme-blue-sky {
+	.js-get-common-background-color-with-hover-theme-blue-sky {
 		@include theme-background-color-with-hover(
 			v.$theme-common-brighter-border-background-color-blue-sky,
 			v.$theme-common-standard-border-background-color-blue-sky
 		);
 	}
-	.js-get-background-color-with-hover-theme-blue-turquoise {
+	.js-get-common-background-color-with-hover-theme-blue-turquoise {
 		@include theme-background-color-with-hover(
 			v.$theme-common-brighter-border-background-color-blue-turquoise,
 			v.$theme-common-standard-border-background-color-blue-turquoise
 		);
 	}
-	.js-get-background-color-with-hover-theme-purple-rain {
+	.js-get-common-background-color-with-hover-theme-purple-rain {
 		@include theme-background-color-with-hover(
+			v.$theme-common-brighter-border-background-color-purple-rain,
+			v.$theme-common-standard-border-background-color-purple-rain
+		);
+	}
+
+	// Theme -- Common (i.e. used by multiple components) form-submit-button -- background color with hover and focus
+	@mixin theme-form-submit-button-background-color-with-hover-focus(
+		$theme-common-brighter-background-color,
+		$theme-common-standard-background-color
+	) {
+		background-color: $theme-common-brighter-background-color;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: $theme-common-standard-background-color;
+		}
+	}
+	.js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turkish {
+		@include theme-form-submit-button-background-color-with-hover-focus(
+			v.$theme-common-brighter-border-background-color-blue-turkish,
+			v.$theme-common-standard-border-background-color-blue-turkish
+		);
+	}
+	.js-get-common-form-submit-button-color-with-hover-focus-theme-blue-queen {
+		@include theme-form-submit-button-background-color-with-hover-focus(
+			v.$theme-common-brighter-border-background-color-blue-queen,
+			v.$theme-common-standard-border-background-color-blue-queen
+		);
+	}
+	.js-get-common-form-submit-button-color-with-hover-focus-theme-blue-sky {
+		@include theme-form-submit-button-background-color-with-hover-focus(
+			v.$theme-common-brighter-border-background-color-blue-sky,
+			v.$theme-common-standard-border-background-color-blue-sky
+		);
+	}
+	.js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turquoise {
+		@include theme-form-submit-button-background-color-with-hover-focus(
+			v.$theme-common-brighter-border-background-color-blue-turquoise,
+			v.$theme-common-standard-border-background-color-blue-turquoise
+		);
+	}
+	.js-get-common-form-submit-button-color-with-hover-focus-theme-purple-rain {
+		@include theme-form-submit-button-background-color-with-hover-focus(
 			v.$theme-common-brighter-border-background-color-purple-rain,
 			v.$theme-common-standard-border-background-color-purple-rain
 		);
@@ -793,50 +837,6 @@ body {
 		border-left-color: v.$theme-common-standard-border-background-color-purple-rain;
 	}
 
-	// Theme -- form-submit-button -- background color with hover and focus
-	@mixin theme-form-submit-button-background-color-with-hover-focus(
-		$theme-common-brighter-background-color,
-		$theme-common-standard-background-color
-	) {
-		background-color: $theme-common-brighter-background-color;
-
-		&:hover,
-		&:active,
-		&:focus {
-			background-color: $theme-common-standard-background-color;
-		}
-	}
-	.js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish {
-		@include theme-form-submit-button-background-color-with-hover-focus(
-			v.$theme-common-brighter-border-background-color-blue-turkish,
-			v.$theme-common-standard-border-background-color-blue-turkish
-		);
-	}
-	.js-get-form-submit-button-color-with-hover-focus-theme-blue-queen {
-		@include theme-form-submit-button-background-color-with-hover-focus(
-			v.$theme-common-brighter-border-background-color-blue-queen,
-			v.$theme-common-standard-border-background-color-blue-queen
-		);
-	}
-	.js-get-form-submit-button-color-with-hover-focus-theme-blue-sky {
-		@include theme-form-submit-button-background-color-with-hover-focus(
-			v.$theme-common-brighter-border-background-color-blue-sky,
-			v.$theme-common-standard-border-background-color-blue-sky
-		);
-	}
-	.js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise {
-		@include theme-form-submit-button-background-color-with-hover-focus(
-			v.$theme-common-brighter-border-background-color-blue-turquoise,
-			v.$theme-common-standard-border-background-color-blue-turquoise
-		);
-	}
-	.js-get-form-submit-button-color-with-hover-focus-theme-purple-rain {
-		@include theme-form-submit-button-background-color-with-hover-focus(
-			v.$theme-common-brighter-border-background-color-purple-rain,
-			v.$theme-common-standard-border-background-color-purple-rain
-		);
-	}
-
 	//==========================
 	// Themes + Light/Dark mode
 	//==========================
@@ -870,6 +870,58 @@ body {
 	}
 	.js-get-common-text-color-mode-dark-theme-purple-rain {
 		color: v.$theme-mode-common-purple-rain-text-color-dark;
+	}
+
+	// Theme + Light/Dark mode -- Common (i.e. used by multiple components) form input element -- focus border color
+	.js-get-common-form-input-focus-border-color-mode-light-theme-blue-turkish {
+		&:focus {
+			border-color: v.$theme-mode-common-blue-turkish-focus-border-color-light;
+		}
+	}
+	.js-get-common-form-input-focus-border-color-mode-dark-theme-blue-turkish {
+		&:focus {
+			border-color: v.$theme-mode-common-blue-turkish-focus-border-color-dark;
+		}
+	}
+	.js-get-common-form-input-focus-border-color-mode-light-theme-blue-queen {
+		&:focus {
+			border-color: v.$theme-mode-common-blue-queen-focus-border-color-light;
+		}
+	}
+	.js-get-common-form-input-focus-border-color-mode-dark-theme-blue-queen {
+		&:focus {
+			border-color: v.$theme-mode-common-blue-queen-focus-border-color-dark;
+		}
+	}
+	.js-get-common-form-input-focus-border-color-mode-light-theme-blue-sky {
+		&:focus {
+			border-color: v.$theme-mode-common-blue-sky-focus-border-color-light;
+		}
+	}
+	.js-get-common-form-input-focus-border-color-mode-dark-theme-blue-sky {
+		&:focus {
+			border-color: v.$theme-mode-common-blue-sky-focus-border-color-dark;
+		}
+	}
+	.js-get-common-form-input-focus-border-color-mode-light-theme-blue-turquoise {
+		&:focus {
+			border-color: v.$theme-mode-common-blue-turquoise-focus-border-color-light;
+		}
+	}
+	.js-get-common-form-input-focus-border-color-mode-dark-theme-blue-turquoise {
+		&:focus {
+			border-color: v.$theme-mode-common-blue-turquoise-focus-border-color-dark;
+		}
+	}
+	.js-get-common-form-input-focus-border-color-mode-light-theme-purple-rain {
+		&:focus {
+			border-color: v.$theme-mode-common-purple-rain-focus-border-color-light;
+		}
+	}
+	.js-get-common-form-input-focus-border-color-mode-dark-theme-purple-rain {
+		&:focus {
+			border-color: v.$theme-mode-common-purple-rain-focus-border-color-dark;
+		}
 	}
 
 	// Theme + Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar/ItemViewTopBar
@@ -955,7 +1007,7 @@ body {
 		);
 	}
 
-	// Theme + Light/Dark mode -- ListViewTopBar new-item-button (during tutorial) -- border color
+	// Theme + Light/Dark mode -- ListViewTopBar centering-container__new-item-button--tutorial -- border color
 	.js-get-top-bar-new-item-button-tutorial-border-color-mode-light-theme-blue-turkish {
 		border-color: v.$theme-mode-common-blue-turkish-new-item-tutorial-border-text-color-light;
 	}
@@ -987,7 +1039,7 @@ body {
 		border-color: v.$theme-mode-common-purple-rain-new-item-tutorial-border-text-color-dark;
 	}
 
-	// Theme + Light/Dark mode -- ListViewTopBar new-item-tutorial -- border, arrow, and text color
+	// Theme + Light/Dark mode -- ListViewTopBar 'new-item-tutorial-container' -- border, arrow, and text color
 	@mixin mode-top-bar-tutorial(
 		$theme-mode-common-top-bar-new-item-tutorial-border-text-color-light,
 		$theme-mode-common-top-bar-new-item-tutorial-border-text-color-dark,
@@ -1097,58 +1149,6 @@ body {
 			v.$theme-mode-common-purple-rain-new-item-tutorial-border-text-color-dark,
 			$is-light: false
 		);
-	}
-
-	// Theme + Light/Dark mode -- form input element -- focus border color
-	.js-get-focus-border-color-mode-light-theme-blue-turkish {
-		&:focus {
-			border-color: v.$theme-mode-common-blue-turkish-focus-border-color-light;
-		}
-	}
-	.js-get-focus-border-color-mode-dark-theme-blue-turkish {
-		&:focus {
-			border-color: v.$theme-mode-common-blue-turkish-focus-border-color-dark;
-		}
-	}
-	.js-get-focus-border-color-mode-light-theme-blue-queen {
-		&:focus {
-			border-color: v.$theme-mode-common-blue-queen-focus-border-color-light;
-		}
-	}
-	.js-get-focus-border-color-mode-dark-theme-blue-queen {
-		&:focus {
-			border-color: v.$theme-mode-common-blue-queen-focus-border-color-dark;
-		}
-	}
-	.js-get-focus-border-color-mode-light-theme-blue-sky {
-		&:focus {
-			border-color: v.$theme-mode-common-blue-sky-focus-border-color-light;
-		}
-	}
-	.js-get-focus-border-color-mode-dark-theme-blue-sky {
-		&:focus {
-			border-color: v.$theme-mode-common-blue-sky-focus-border-color-dark;
-		}
-	}
-	.js-get-focus-border-color-mode-light-theme-blue-turquoise {
-		&:focus {
-			border-color: v.$theme-mode-common-blue-turquoise-focus-border-color-light;
-		}
-	}
-	.js-get-focus-border-color-mode-dark-theme-blue-turquoise {
-		&:focus {
-			border-color: v.$theme-mode-common-blue-turquoise-focus-border-color-dark;
-		}
-	}
-	.js-get-focus-border-color-mode-light-theme-purple-rain {
-		&:focus {
-			border-color: v.$theme-mode-common-purple-rain-focus-border-color-light;
-		}
-	}
-	.js-get-focus-border-color-mode-dark-theme-purple-rain {
-		&:focus {
-			border-color: v.$theme-mode-common-purple-rain-focus-border-color-dark;
-		}
 	}
 
 	// Theme + Light/Dark mode -- ItemViewEditItemInfo form input (for name) element -- focus border color
@@ -1477,42 +1477,42 @@ body {
 	//===============
 	// Used for changing the background color of status-boxes
 	// ...also used to store color in redux for bug-pie-chart
-	.js-get-status-background-color-gray {
+	.js-get-common-status-background-color-gray {
 		background-color: v.$status-common-color-gray;
 	}
-	.js-get-status-background-color-blue {
+	.js-get-common-status-background-color-blue {
 		background-color: v.$status-common-color-blue;
 	}
-	.js-get-status-background-color-purple {
+	.js-get-common-status-background-color-purple {
 		background-color: v.$status-common-color-purple;
 	}
-	.js-get-status-background-color-orange {
+	.js-get-common-status-background-color-orange {
 		background-color: v.$status-common-color-orange;
 	}
-	.js-get-status-background-color-green {
+	.js-get-common-status-background-color-green {
 		background-color: v.$status-common-color-green;
 	}
-	.js-get-status-background-color-red {
+	.js-get-common-status-background-color-red {
 		background-color: v.$status-common-color-red;
 	}
 
 	// Used to change text color in status combo-boxes
-	.js-get-status-text-color-gray {
+	.js-get-common-status-text-color-gray {
 		color: v.$status-common-color-gray;
 	}
-	.js-get-status-text-color-blue {
+	.js-get-common-status-text-color-blue {
 		color: v.$status-common-color-blue;
 	}
-	.js-get-status-text-color-purple {
+	.js-get-common-status-text-color-purple {
 		color: v.$status-common-color-purple;
 	}
-	.js-get-status-text-color-orange {
+	.js-get-common-status-text-color-orange {
 		color: v.$status-common-color-orange;
 	}
-	.js-get-status-text-color-green {
+	.js-get-common-status-text-color-green {
 		color: v.$status-common-color-green;
 	}
-	.js-get-status-text-color-red {
+	.js-get-common-status-text-color-red {
 		color: v.$status-common-color-red;
 	}
 }

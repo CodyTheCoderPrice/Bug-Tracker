@@ -3373,129 +3373,179 @@ body {
 .js-get-app-component .js-get-item-view-comment-box-individual-comment-icon-button-text-color-with-hover-mode-true:active {
   color: #c7d1db;
 }
-.app-component .js-get-brighter-border-color-theme-blue-turkish,
-.js-get-app-component .js-get-brighter-border-color-theme-blue-turkish {
+.app-component .js-get-common-brighter-border-color-theme-blue-turkish,
+.js-get-app-component .js-get-common-brighter-border-color-theme-blue-turkish {
   border-color: #6ca0b4;
 }
-.app-component .js-get-standard-border-color-theme-blue-turkish,
-.js-get-app-component .js-get-standard-border-color-theme-blue-turkish {
+.app-component .js-get-common-standard-border-color-theme-blue-turkish,
+.js-get-app-component .js-get-common-standard-border-color-theme-blue-turkish {
   border-color: #608d9e;
 }
-.app-component .js-get-brighter-border-color-theme-blue-queen,
-.js-get-app-component .js-get-brighter-border-color-theme-blue-queen {
+.app-component .js-get-common-brighter-border-color-theme-blue-queen,
+.js-get-app-component .js-get-common-brighter-border-color-theme-blue-queen {
   border-color: #587ba0;
 }
-.app-component .js-get-standard-border-color-theme-blue-queen,
-.js-get-app-component .js-get-standard-border-color-theme-blue-queen {
+.app-component .js-get-common-standard-border-color-theme-blue-queen,
+.js-get-app-component .js-get-common-standard-border-color-theme-blue-queen {
   border-color: #45607e;
 }
-.app-component .js-get-brighter-border-color-theme-blue-sky,
-.js-get-app-component .js-get-brighter-border-color-theme-blue-sky {
+.app-component .js-get-common-brighter-border-color-theme-blue-sky,
+.js-get-app-component .js-get-common-brighter-border-color-theme-blue-sky {
   border-color: #1eaad8;
 }
-.app-component .js-get-standard-border-color-theme-blue-sky,
-.js-get-app-component .js-get-standard-border-color-theme-blue-sky {
+.app-component .js-get-common-standard-border-color-theme-blue-sky,
+.js-get-app-component .js-get-common-standard-border-color-theme-blue-sky {
   border-color: #0091c2;
 }
-.app-component .js-get-brighter-border-color-theme-blue-turquoise,
-.js-get-app-component .js-get-brighter-border-color-theme-blue-turquoise {
+.app-component .js-get-common-brighter-border-color-theme-blue-turquoise,
+.js-get-app-component .js-get-common-brighter-border-color-theme-blue-turquoise {
   border-color: #44bdb3;
 }
-.app-component .js-get-standard-border-color-theme-blue-turquoise,
-.js-get-app-component .js-get-standard-border-color-theme-blue-turquoise {
+.app-component .js-get-common-standard-border-color-theme-blue-turquoise,
+.js-get-app-component .js-get-common-standard-border-color-theme-blue-turquoise {
   border-color: #03a89e;
 }
-.app-component .js-get-brighter-border-color-theme-purple-rain,
-.js-get-app-component .js-get-brighter-border-color-theme-purple-rain {
+.app-component .js-get-common-brighter-border-color-theme-purple-rain,
+.js-get-app-component .js-get-common-brighter-border-color-theme-purple-rain {
   border-color: #8b5ab6;
 }
-.app-component .js-get-standard-border-color-theme-purple-rain,
-.js-get-app-component .js-get-standard-border-color-theme-purple-rain {
+.app-component .js-get-common-standard-border-color-theme-purple-rain,
+.js-get-app-component .js-get-common-standard-border-color-theme-purple-rain {
   border-color: #694489;
 }
-.app-component .js-get-brighter-background-color-theme-blue-turkish,
-.js-get-app-component .js-get-brighter-background-color-theme-blue-turkish {
+.app-component .js-get-common-brighter-background-color-theme-blue-turkish,
+.js-get-app-component .js-get-common-brighter-background-color-theme-blue-turkish {
   background-color: #6ca0b4;
 }
-.app-component .js-get-standard-background-color-theme-blue-turkish,
-.js-get-app-component .js-get-standard-background-color-theme-blue-turkish {
+.app-component .js-get-common-standard-background-color-theme-blue-turkish,
+.js-get-app-component .js-get-common-standard-background-color-theme-blue-turkish {
   background-color: #608d9e;
 }
-.app-component .js-get-brighter-background-color-theme-blue-queen,
-.js-get-app-component .js-get-brighter-background-color-theme-blue-queen {
+.app-component .js-get-common-brighter-background-color-theme-blue-queen,
+.js-get-app-component .js-get-common-brighter-background-color-theme-blue-queen {
   background-color: #587ba0;
 }
-.app-component .js-get-standard-background-color-theme-blue-queen,
-.js-get-app-component .js-get-standard-background-color-theme-blue-queen {
+.app-component .js-get-common-standard-background-color-theme-blue-queen,
+.js-get-app-component .js-get-common-standard-background-color-theme-blue-queen {
   background-color: #45607e;
 }
-.app-component .js-get-brighter-background-color-theme-blue-sky,
-.js-get-app-component .js-get-brighter-background-color-theme-blue-sky {
+.app-component .js-get-common-brighter-background-color-theme-blue-sky,
+.js-get-app-component .js-get-common-brighter-background-color-theme-blue-sky {
   background-color: #1eaad8;
 }
-.app-component .js-get-standard-background-color-theme-blue-sky,
-.js-get-app-component .js-get-standard-background-color-theme-blue-sky {
+.app-component .js-get-common-standard-background-color-theme-blue-sky,
+.js-get-app-component .js-get-common-standard-background-color-theme-blue-sky {
   background-color: #0091c2;
 }
-.app-component .js-get-brighter-background-color-theme-blue-turquoise,
-.js-get-app-component .js-get-brighter-background-color-theme-blue-turquoise {
+.app-component .js-get-common-brighter-background-color-theme-blue-turquoise,
+.js-get-app-component .js-get-common-brighter-background-color-theme-blue-turquoise {
   background-color: #44bdb3;
 }
-.app-component .js-get-standard-background-color-theme-blue-turquoise,
-.js-get-app-component .js-get-standard-background-color-theme-blue-turquoise {
+.app-component .js-get-common-standard-background-color-theme-blue-turquoise,
+.js-get-app-component .js-get-common-standard-background-color-theme-blue-turquoise {
   background-color: #03a89e;
 }
-.app-component .js-get-brighter-background-color-theme-purple-rain,
-.js-get-app-component .js-get-brighter-background-color-theme-purple-rain {
+.app-component .js-get-common-brighter-background-color-theme-purple-rain,
+.js-get-app-component .js-get-common-brighter-background-color-theme-purple-rain {
   background-color: #8b5ab6;
 }
-.app-component .js-get-standard-background-color-theme-purple-rain,
-.js-get-app-component .js-get-standard-background-color-theme-purple-rain {
+.app-component .js-get-common-standard-background-color-theme-purple-rain,
+.js-get-app-component .js-get-common-standard-background-color-theme-purple-rain {
   background-color: #694489;
 }
-.app-component .js-get-background-color-with-hover-theme-blue-turkish,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-turkish {
+.app-component .js-get-common-background-color-with-hover-theme-blue-turkish,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-turkish {
   background-color: #6ca0b4;
 }
-.app-component .js-get-background-color-with-hover-theme-blue-turkish:hover, .app-component .js-get-background-color-with-hover-theme-blue-turkish:active,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-turkish:hover,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-turkish:active {
+.app-component .js-get-common-background-color-with-hover-theme-blue-turkish:hover, .app-component .js-get-common-background-color-with-hover-theme-blue-turkish:active,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-turkish:hover,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-turkish:active {
   background-color: #608d9e;
 }
-.app-component .js-get-background-color-with-hover-theme-blue-queen,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-queen {
+.app-component .js-get-common-background-color-with-hover-theme-blue-queen,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-queen {
   background-color: #587ba0;
 }
-.app-component .js-get-background-color-with-hover-theme-blue-queen:hover, .app-component .js-get-background-color-with-hover-theme-blue-queen:active,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-queen:hover,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-queen:active {
+.app-component .js-get-common-background-color-with-hover-theme-blue-queen:hover, .app-component .js-get-common-background-color-with-hover-theme-blue-queen:active,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-queen:hover,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-queen:active {
   background-color: #45607e;
 }
-.app-component .js-get-background-color-with-hover-theme-blue-sky,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-sky {
+.app-component .js-get-common-background-color-with-hover-theme-blue-sky,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-sky {
   background-color: #1eaad8;
 }
-.app-component .js-get-background-color-with-hover-theme-blue-sky:hover, .app-component .js-get-background-color-with-hover-theme-blue-sky:active,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-sky:hover,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-sky:active {
+.app-component .js-get-common-background-color-with-hover-theme-blue-sky:hover, .app-component .js-get-common-background-color-with-hover-theme-blue-sky:active,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-sky:hover,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-sky:active {
   background-color: #0091c2;
 }
-.app-component .js-get-background-color-with-hover-theme-blue-turquoise,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-turquoise {
+.app-component .js-get-common-background-color-with-hover-theme-blue-turquoise,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-turquoise {
   background-color: #44bdb3;
 }
-.app-component .js-get-background-color-with-hover-theme-blue-turquoise:hover, .app-component .js-get-background-color-with-hover-theme-blue-turquoise:active,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-turquoise:hover,
-.js-get-app-component .js-get-background-color-with-hover-theme-blue-turquoise:active {
+.app-component .js-get-common-background-color-with-hover-theme-blue-turquoise:hover, .app-component .js-get-common-background-color-with-hover-theme-blue-turquoise:active,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-turquoise:hover,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-blue-turquoise:active {
   background-color: #03a89e;
 }
-.app-component .js-get-background-color-with-hover-theme-purple-rain,
-.js-get-app-component .js-get-background-color-with-hover-theme-purple-rain {
+.app-component .js-get-common-background-color-with-hover-theme-purple-rain,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-purple-rain {
   background-color: #8b5ab6;
 }
-.app-component .js-get-background-color-with-hover-theme-purple-rain:hover, .app-component .js-get-background-color-with-hover-theme-purple-rain:active,
-.js-get-app-component .js-get-background-color-with-hover-theme-purple-rain:hover,
-.js-get-app-component .js-get-background-color-with-hover-theme-purple-rain:active {
+.app-component .js-get-common-background-color-with-hover-theme-purple-rain:hover, .app-component .js-get-common-background-color-with-hover-theme-purple-rain:active,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-purple-rain:hover,
+.js-get-app-component .js-get-common-background-color-with-hover-theme-purple-rain:active {
+  background-color: #694489;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turkish,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turkish {
+  background-color: #6ca0b4;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turkish:hover, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turkish:active, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turkish:focus,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turkish:hover,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turkish:active,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turkish:focus {
+  background-color: #608d9e;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-queen,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-queen {
+  background-color: #587ba0;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-queen:hover, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-queen:active, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-queen:focus,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-queen:hover,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-queen:active,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-queen:focus {
+  background-color: #45607e;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-sky,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-sky {
+  background-color: #1eaad8;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-sky:hover, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-sky:active, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-sky:focus,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-sky:hover,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-sky:active,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-sky:focus {
+  background-color: #0091c2;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turquoise,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turquoise {
+  background-color: #44bdb3;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turquoise:hover, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turquoise:active, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turquoise:focus,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turquoise:hover,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turquoise:active,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-blue-turquoise:focus {
+  background-color: #03a89e;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-purple-rain,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-purple-rain {
+  background-color: #8b5ab6;
+}
+.app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-purple-rain:hover, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-purple-rain:active, .app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-purple-rain:focus,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-purple-rain:hover,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-purple-rain:active,
+.js-get-app-component .js-get-common-form-submit-button-color-with-hover-focus-theme-purple-rain:focus {
   background-color: #694489;
 }
 .app-component .js-get-brighter-breadcrumb-arrow-color-theme-blue-turkish,
@@ -3538,56 +3588,6 @@ body {
 .js-get-app-component .js-get-standard-breadcrumb-arrow-color-theme-purple-rain {
   border-left-color: #694489;
 }
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish {
-  background-color: #6ca0b4;
-}
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish:hover, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish:active, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish:focus,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish:hover,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish:active,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turkish:focus {
-  background-color: #608d9e;
-}
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-queen,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-queen {
-  background-color: #587ba0;
-}
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-queen:hover, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-queen:active, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-queen:focus,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-queen:hover,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-queen:active,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-queen:focus {
-  background-color: #45607e;
-}
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-sky,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-sky {
-  background-color: #1eaad8;
-}
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-sky:hover, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-sky:active, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-sky:focus,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-sky:hover,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-sky:active,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-sky:focus {
-  background-color: #0091c2;
-}
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise {
-  background-color: #44bdb3;
-}
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise:hover, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise:active, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise:focus,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise:hover,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise:active,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-blue-turquoise:focus {
-  background-color: #03a89e;
-}
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-purple-rain,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-purple-rain {
-  background-color: #8b5ab6;
-}
-.app-component .js-get-form-submit-button-color-with-hover-focus-theme-purple-rain:hover, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-purple-rain:active, .app-component .js-get-form-submit-button-color-with-hover-focus-theme-purple-rain:focus,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-purple-rain:hover,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-purple-rain:active,
-.js-get-app-component .js-get-form-submit-button-color-with-hover-focus-theme-purple-rain:focus {
-  background-color: #694489;
-}
 .app-component .js-get-common-text-color-mode-light-theme-blue-turkish,
 .js-get-app-component .js-get-common-text-color-mode-light-theme-blue-turkish {
   color: #2388a1;
@@ -3627,6 +3627,46 @@ body {
 .app-component .js-get-common-text-color-mode-dark-theme-purple-rain,
 .js-get-app-component .js-get-common-text-color-mode-dark-theme-purple-rain {
   color: #a982cc;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-light-theme-blue-turkish:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-light-theme-blue-turkish:focus {
+  border-color: #2ba6c5;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-blue-turkish:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-blue-turkish:focus {
+  border-color: #4486a0;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-light-theme-blue-queen:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-light-theme-blue-queen:focus {
+  border-color: #2380cc;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-blue-queen:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-blue-queen:focus {
+  border-color: #1f70b3;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-light-theme-blue-sky:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-light-theme-blue-sky:focus {
+  border-color: #009fd4;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-blue-sky:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-blue-sky:focus {
+  border-color: #017ca5;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-light-theme-blue-turquoise:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-light-theme-blue-turquoise:focus {
+  border-color: #04beb2;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-blue-turquoise:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-blue-turquoise:focus {
+  border-color: #048f86;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-light-theme-purple-rain:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-light-theme-purple-rain:focus {
+  border-color: #9460c2;
+}
+.app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-purple-rain:focus,
+.js-get-app-component .js-get-common-form-input-focus-border-color-mode-dark-theme-purple-rain:focus {
+  border-color: #8c5cb6;
 }
 .app-component .js-get-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turkish > input,
 .js-get-app-component .js-get-common-top-bar-search-container-border-background-text-color-mode-light-theme-blue-turkish > input {
@@ -3937,46 +3977,6 @@ body {
 .app-component .js-get-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text,
 .js-get-app-component .js-get-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-purple-rain > .new-item-tutorial-container__bend-message-centering-container > .new-item-tutorial-container__bend-message-centering-container__text {
   color: #b68bdb;
-}
-.app-component .js-get-focus-border-color-mode-light-theme-blue-turkish:focus,
-.js-get-app-component .js-get-focus-border-color-mode-light-theme-blue-turkish:focus {
-  border-color: #2ba6c5;
-}
-.app-component .js-get-focus-border-color-mode-dark-theme-blue-turkish:focus,
-.js-get-app-component .js-get-focus-border-color-mode-dark-theme-blue-turkish:focus {
-  border-color: #4486a0;
-}
-.app-component .js-get-focus-border-color-mode-light-theme-blue-queen:focus,
-.js-get-app-component .js-get-focus-border-color-mode-light-theme-blue-queen:focus {
-  border-color: #2380cc;
-}
-.app-component .js-get-focus-border-color-mode-dark-theme-blue-queen:focus,
-.js-get-app-component .js-get-focus-border-color-mode-dark-theme-blue-queen:focus {
-  border-color: #1f70b3;
-}
-.app-component .js-get-focus-border-color-mode-light-theme-blue-sky:focus,
-.js-get-app-component .js-get-focus-border-color-mode-light-theme-blue-sky:focus {
-  border-color: #009fd4;
-}
-.app-component .js-get-focus-border-color-mode-dark-theme-blue-sky:focus,
-.js-get-app-component .js-get-focus-border-color-mode-dark-theme-blue-sky:focus {
-  border-color: #017ca5;
-}
-.app-component .js-get-focus-border-color-mode-light-theme-blue-turquoise:focus,
-.js-get-app-component .js-get-focus-border-color-mode-light-theme-blue-turquoise:focus {
-  border-color: #04beb2;
-}
-.app-component .js-get-focus-border-color-mode-dark-theme-blue-turquoise:focus,
-.js-get-app-component .js-get-focus-border-color-mode-dark-theme-blue-turquoise:focus {
-  border-color: #048f86;
-}
-.app-component .js-get-focus-border-color-mode-light-theme-purple-rain:focus,
-.js-get-app-component .js-get-focus-border-color-mode-light-theme-purple-rain:focus {
-  border-color: #9460c2;
-}
-.app-component .js-get-focus-border-color-mode-dark-theme-purple-rain:focus,
-.js-get-app-component .js-get-focus-border-color-mode-dark-theme-purple-rain:focus {
-  border-color: #8c5cb6;
 }
 .app-component .js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turkish:focus,
 .js-get-app-component .js-get-item-view-edit-item-info-form-name-input-focus-border-color-mode-light-theme-blue-turkish:focus {
@@ -4428,52 +4428,52 @@ body {
 .js-get-app-component .js-get-toggle-switch-border-background-text-colors-mode-dark-theme-purple-rain > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
   background-color: #f5f5f5;
 }
-.app-component .js-get-status-background-color-gray,
-.js-get-app-component .js-get-status-background-color-gray {
+.app-component .js-get-common-status-background-color-gray,
+.js-get-app-component .js-get-common-status-background-color-gray {
   background-color: #808080;
 }
-.app-component .js-get-status-background-color-blue,
-.js-get-app-component .js-get-status-background-color-blue {
+.app-component .js-get-common-status-background-color-blue,
+.js-get-app-component .js-get-common-status-background-color-blue {
   background-color: #568dd5;
 }
-.app-component .js-get-status-background-color-purple,
-.js-get-app-component .js-get-status-background-color-purple {
+.app-component .js-get-common-status-background-color-purple,
+.js-get-app-component .js-get-common-status-background-color-purple {
   background-color: #9680ce;
 }
-.app-component .js-get-status-background-color-orange,
-.js-get-app-component .js-get-status-background-color-orange {
+.app-component .js-get-common-status-background-color-orange,
+.js-get-app-component .js-get-common-status-background-color-orange {
   background-color: #ff9900;
 }
-.app-component .js-get-status-background-color-green,
-.js-get-app-component .js-get-status-background-color-green {
+.app-component .js-get-common-status-background-color-green,
+.js-get-app-component .js-get-common-status-background-color-green {
   background-color: #008600;
 }
-.app-component .js-get-status-background-color-red,
-.js-get-app-component .js-get-status-background-color-red {
+.app-component .js-get-common-status-background-color-red,
+.js-get-app-component .js-get-common-status-background-color-red {
   background-color: #d14242;
 }
-.app-component .js-get-status-text-color-gray,
-.js-get-app-component .js-get-status-text-color-gray {
+.app-component .js-get-common-status-text-color-gray,
+.js-get-app-component .js-get-common-status-text-color-gray {
   color: #808080;
 }
-.app-component .js-get-status-text-color-blue,
-.js-get-app-component .js-get-status-text-color-blue {
+.app-component .js-get-common-status-text-color-blue,
+.js-get-app-component .js-get-common-status-text-color-blue {
   color: #568dd5;
 }
-.app-component .js-get-status-text-color-purple,
-.js-get-app-component .js-get-status-text-color-purple {
+.app-component .js-get-common-status-text-color-purple,
+.js-get-app-component .js-get-common-status-text-color-purple {
   color: #9680ce;
 }
-.app-component .js-get-status-text-color-orange,
-.js-get-app-component .js-get-status-text-color-orange {
+.app-component .js-get-common-status-text-color-orange,
+.js-get-app-component .js-get-common-status-text-color-orange {
   color: #ff9900;
 }
-.app-component .js-get-status-text-color-green,
-.js-get-app-component .js-get-status-text-color-green {
+.app-component .js-get-common-status-text-color-green,
+.js-get-app-component .js-get-common-status-text-color-green {
   color: #008600;
 }
-.app-component .js-get-status-text-color-red,
-.js-get-app-component .js-get-status-text-color-red {
+.app-component .js-get-common-status-text-color-red,
+.js-get-app-component .js-get-common-status-text-color-red {
   color: #d14242;
 }
 

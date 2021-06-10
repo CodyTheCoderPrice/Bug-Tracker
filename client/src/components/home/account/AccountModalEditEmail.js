@@ -12,7 +12,7 @@ import {
 import {
 	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
+	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
 } from "../../../utils";
@@ -136,7 +136,7 @@ export default function AccountModalEditEmail() {
 					type="submit"
 					className={
 						"form__submit" +
-						getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
+						getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

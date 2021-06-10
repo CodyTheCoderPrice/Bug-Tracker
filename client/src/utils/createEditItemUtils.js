@@ -1,6 +1,6 @@
 // Needed for returning JSX in functions
 import React from "react";
-import { getStatusTextColorClassName } from "./index";
+import { getCommonStatusTextColorClassName } from "./index";
 
 /**
  * Get JSX containing option elements for priority to go inside select element
@@ -50,7 +50,7 @@ export function getStatusOptionsForSelectWithStatusColors(
 	].priorityStatusOptions.statusList.map((status, idx) => {
 		return (
 			<option
-				className={getStatusTextColorClassName(status.color)}
+				className={getCommonStatusTextColorClassName(status.color)}
 				key={idx}
 				value={status.id}
 			>

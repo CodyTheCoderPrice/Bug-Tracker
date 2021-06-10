@@ -21,7 +21,7 @@ import {
 	getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode,
 	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
-	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
+	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
@@ -245,7 +245,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 									type="submit"
 									className={
 										"comment__centering-container__pair-container__submit-edit-button" +
-										getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
+										getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										)
 									}

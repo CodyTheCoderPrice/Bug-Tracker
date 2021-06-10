@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames";
 
 import {
-	getStatusBackgroundColorClassName,
+	getCommonStatusBackgroundColorClassName,
 	getCommonWeakTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
@@ -18,7 +18,7 @@ export default function ItemViewBugListRow(props) {
 			(status) => status.id === props.item.status_id
 		);
 
-		return getStatusBackgroundColorClassName(
+		return getCommonStatusBackgroundColorClassName(
 			filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem"
 		);
 	};

@@ -910,72 +910,77 @@ export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNa
 // Theme classNames
 //==================
 /**
- * Get brighter theme className for border color
+ * Get common (i.e. used by multiple components) brighter theme className for
+ * border color
  *
  * @param {("blue-turkish"|
  * 	"blue-queen"|
  * 	"blue-sky"|
  * 	"blue-turquoise"|
  * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Brighter theme className for border color
+ * @returns {string} Common brighter theme className for border color
  */
-export function getBrighterBorderColorClassNameForTheme(theme_color) {
-	return " js-get-brighter-border-color-theme-" + theme_color;
+export function getCommonBrighterBorderColorClassNameForTheme(theme_color) {
+	return " js-get-common-brighter-border-color-theme-" + theme_color;
 }
 /**
- * Get standard theme className for border color
+ * Get common (i.e. used by multiple components) standard theme className for
+ * border color
  *
  * @param {("blue-turkish"|
  * 	"blue-queen"|
  * 	"blue-sky"|
  * 	"blue-turquoise"|
  * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Standard theme className for border color
+ * @returns {string} Common standard theme className for border color
  */
-export function getStandardBorderColorClassNameForTheme(theme_color) {
-	return " js-get-standard-border-color-theme-" + theme_color;
-}
-
-/**
- * Get brighter theme className for background color
- *
- * @param {("blue-turkish"|
- * 	"blue-queen"|
- * 	"blue-sky"|
- * 	"blue-turquoise"|
- * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Brighter theme className for background color
- */
-export function getBrighterBackgroundColorClassNameForTheme(theme_color) {
-	return " js-get-brighter-background-color-theme-" + theme_color;
-}
-/**
- * Get standard theme className for background color
- *
- * @param {("blue-turkish"|
- * 	"blue-queen"|
- * 	"blue-sky"|
- * 	"blue-turquoise"|
- * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Standard theme className for background color
- */
-export function getStandardBackgroundColorClassNameForTheme(theme_color) {
-	return " js-get-standard-background-color-theme-" + theme_color;
+export function getCommonStandardBorderColorClassNameForTheme(theme_color) {
+	return " js-get-common-standard-border-color-theme-" + theme_color;
 }
 
 /**
- * Get theme className for background color with hover (background color is
- * brighter theme, while hover background color is standard theme)
+ * Get common (i.e. used by multiple components) brighter theme className for 
+ * background color
  *
  * @param {("blue-turkish"|
  * 	"blue-queen"|
  * 	"blue-sky"|
  * 	"blue-turquoise"|
  * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Theme className for background color with hover
+ * @returns {string} Common brighter theme className for background color
  */
-export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
-	return " js-get-background-color-with-hover-theme-" + theme_color;
+export function getCommonBrighterBackgroundColorClassNameForTheme(theme_color) {
+	return " js-get-common-brighter-background-color-theme-" + theme_color;
+}
+/**
+ * Get common (i.e. used by multiple components) standard theme className for 
+ * background color
+ *
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
+ * @returns {string} Common standard theme className for background color
+ */
+export function getCommonStandardBackgroundColorClassNameForTheme(theme_color) {
+	return " js-get-common-standard-background-color-theme-" + theme_color;
+}
+
+/**
+ * Get common (i.e. used by multiple components) theme className for background
+ * color with hover (background color is brighter theme, while hover background
+ * color is standard theme)
+ *
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
+ * @returns {string} Common theme className for background color with hover
+ */
+export function getCommonBackgroundColorWithHoverClassNameForTheme(theme_color) {
+	return " js-get-common-background-color-with-hover-theme-" + theme_color;
 }
 
 /**
@@ -994,6 +999,29 @@ export function getBackgroundColorWithHoverClassNameForTheme(theme_color) {
 export function getBrighterBreadcrumbArrowColorClassNameForTheme(theme_color) {
 	return " js-get-brighter-breadcrumb-arrow-color-theme-" + theme_color;
 }
+
+/**
+ * Get theme className for common (i.e. used by multiple components) 
+ * form-submit-button element's background color with hover and focus 
+ * (background color is brighter theme, while hover/focus background color is
+ * standard theme)
+ *
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
+ * @returns {string} Theme className for common form-submit-button element's
+ * background color with hover and focus
+ */
+export function getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
+	theme_color
+) {
+	return (
+		" js-get-common-form-submit-button-color-with-hover-focus-theme-" + theme_color
+	);
+}
+
 /**
  * Get standard theme className for NavbarBreadcrumb arrow element's border color
  * (since the arrow is made entirely of a border, this changes the entire color
@@ -1011,104 +1039,9 @@ export function getStandardBreadcrumbArrowColorClassNameForTheme(theme_color) {
 	return " js-get-standard-breadcrumb-arrow-color-theme-" + theme_color;
 }
 
-/**
- * Get theme className for form-submit-button element's background color with
- * hover and focus (background color is brighter theme, while hover/focus
- * background color is standard theme)
- *
- * @param {("blue-turkish"|
- * 	"blue-queen"|
- * 	"blue-sky"|
- * 	"blue-turquoise"|
- * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Theme className for form-submit-button element's
- * background color with hover and focus
- */
-export function getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
-	theme_color
-) {
-	return (
-		" js-get-form-submit-button-color-with-hover-focus-theme-" + theme_color
-	);
-}
-
 //====================================
 // Theme + Light/Dark mode classNames
 //====================================
-/**
- * Get theme with light/dark mode className for ListViewTopBar new-item-button
- * (during tutorial) element's border color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {("blue-turkish"|
- * 	"blue-queen"|
- * 	"blue-sky"|
- * 	"blue-turquoise"|
- * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Theme with light/dark mode className for ListViewTopBar
- * new-item-button (during tutorial) element's border color
- */
-export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode(
-	dark_mode,
-	theme_color
-) {
-	return (
-		(dark_mode
-			? " js-get-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-"
-			: " js-get-top-bar-new-item-button-tutorial-border-color-mode-light-theme-") +
-		theme_color
-	);
-}
-
-/**
- * Get theme with light/dark mode className for ListViewTopBar
- * new-item-tutorial element's border, arrow, and text color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {("blue-turkish"|
- * 	"blue-queen"|
- * 	"blue-sky"|
- * 	"blue-turquoise"|
- * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Theme with light/dark mode className for ListViewTopBar
- * new-item-tutorial element's border, arrow, and text color
- */
-export function getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-	dark_mode,
-	theme_color
-) {
-	return (
-		(dark_mode
-			? " js-get-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-"
-			: " js-get-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-") +
-		theme_color
-	);
-}
-
-/**
- * Get theme with light/dark mode className for form input element's focus
- * border color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {("blue-turkish"|
- * 	"blue-queen"|
- * 	"blue-sky"|
- * 	"blue-turquoise"|
- * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Theme with light/dark mode className for form input
- * element's focus border color
- */
-export function getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
-	dark_mode,
-	theme_color
-) {
-	return (
-		(dark_mode
-			? " js-get-focus-border-color-mode-dark-theme-"
-			: " js-get-focus-border-color-mode-light-theme-") + theme_color
-	);
-}
-
 /**
  * Get theme with light/dark mode className for Common (i.e. used by multiple
  * components) element's theme based text color
@@ -1130,6 +1063,59 @@ export function getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 		(dark_mode
 			? " js-get-common-text-color-mode-dark-theme-"
 			: " js-get-common-text-color-mode-light-theme-") + theme_color
+	);
+}
+
+/**
+ * Get theme with light/dark mode className for common (i.e. used by multiple
+ * components) form input element's focus border color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for common form input
+ * element's focus border color
+ */
+export function getCommonFormInputFocusBorderColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		(dark_mode
+			? " js-get-common-form-input-focus-border-color-mode-dark-theme-"
+			: " js-get-common-form-input-focus-border-color-mode-light-theme-") + theme_color
+	);
+}
+
+/**
+ * Get theme with light/dark mode className for common (i.e. used by multiple
+ * components) form input element's border (with focus), background, and text
+ * color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for common form input
+ * element's border (with focus), background, and text color
+ */
+export function getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		getCommonFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+			dark_mode
+		) +
+		getCommonFormInputFocusBorderColorClassNameForThemeWithLightOrDarkMode(
+			dark_mode,
+			theme_color
+		)
 	);
 }
 
@@ -1161,9 +1147,9 @@ export function getCommonTopBarSearchContainerBorderBackgroundTextColorClassName
 }
 
 /**
- * Get theme with light/dark mode className for common (i.e. used by multiple
- * components) form input element's border (with focus), background, and text
- * color
+ * Get theme with light/dark mode className for ListViewTopBar Component's 
+ * 'centering-container__new-item-button--tutorial' (className) element's
+ * border color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @param {("blue-turkish"|
@@ -1171,21 +1157,44 @@ export function getCommonTopBarSearchContainerBorderBackgroundTextColorClassName
  * 	"blue-sky"|
  * 	"blue-turquoise"|
  * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Theme with light/dark mode className for common form input
- * element's border (with focus), background, and text color
+ * @returns {string} Theme with light/dark mode className for ListViewTopBar 
+ * component's 'centering-container__new-item-button--tutorial' (className) 
+ * element's border color
  */
-export function getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode(
 	dark_mode,
 	theme_color
 ) {
 	return (
-		getCommonFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
-			dark_mode
-		) +
-		getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
-			dark_mode,
-			theme_color
-		)
+		(dark_mode
+			? " js-get-top-bar-new-item-button-tutorial-border-color-mode-dark-theme-"
+			: " js-get-top-bar-new-item-button-tutorial-border-color-mode-light-theme-") +
+		theme_color
+	);
+}
+
+/**
+ * Get theme with light/dark mode className for ListViewTopBar 
+ * 'new-item-tutorial-container' element's border, arrow, and text color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for ListViewTopBar
+ * 'new-item-tutorial-container' element's border, arrow, and text color
+ */
+export function getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		(dark_mode
+			? " js-get-top-bar-new-item-tutorial-border-background-text-color-mode-dark-theme-"
+			: " js-get-top-bar-new-item-tutorial-border-background-text-color-mode-light-theme-") +
+		theme_color
 	);
 }
 
@@ -1210,7 +1219,7 @@ export function getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWi
 		getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
 			dark_mode
 		) +
-		getFocusBorderColorClassNameForThemeWithLightOrDarkMode(
+		getCommonFormInputFocusBorderColorClassNameForThemeWithLightOrDarkMode(
 			dark_mode,
 			theme_color
 		)
@@ -1301,10 +1310,10 @@ export function getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLig
 //=========================
 // Status Color classNames
 //=========================
-export function getStatusBackgroundColorClassName(statusBoxColor) {
-	return " js-get-status-background-color-" + statusBoxColor;
+export function getCommonStatusBackgroundColorClassName(statusColor) {
+	return " js-get-common-status-background-color-" + statusColor;
 }
 
-export function getStatusTextColorClassName(statusBoxColor) {
-	return " js-get-status-text-color-" + statusBoxColor;
+export function getCommonStatusTextColorClassName(statusColor) {
+	return " js-get-common-status-text-color-" + statusColor;
 }

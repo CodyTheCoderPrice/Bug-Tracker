@@ -31,7 +31,7 @@ import {
 	getItemViewListSidebarWidth,
 	getItemViewPaddingContainerPadding,
 	getItemViewOuterDividingContainerMinWidth,
-	getStandardBackgroundColorClassNameForTheme,
+	getCommonStandardBackgroundColorClassNameForTheme,
 } from "../../../utils";
 
 // Components
@@ -152,7 +152,7 @@ export default function Navbar() {
 			<div
 				className={
 					"navbar js-navbar" +
-					getStandardBackgroundColorClassNameForTheme(
+					getCommonStandardBackgroundColorClassNameForTheme(
 						reduxState[ACCOUNT_CONTAINER].settings.theme_color
 					)
 				}

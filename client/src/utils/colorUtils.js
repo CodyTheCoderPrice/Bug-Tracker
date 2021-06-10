@@ -1,6 +1,6 @@
 import {
 	getAppComponentClassName,
-	getStatusBackgroundColorClassName,
+	getCommonStatusBackgroundColorClassName,
 	getElementStyle,
 } from "./index";
 
@@ -116,7 +116,7 @@ export function appendHexValueForColorsToStatusList(statusList) {
 	for (let i = 0; i < statusList.length; i++) {
 		// Temporary status-box element used to get background color
 		const tempStatusColorDiv = document.createElement("div");
-		tempStatusColorDiv.className = getStatusBackgroundColorClassName(statusList[i].color);
+		tempStatusColorDiv.className = getCommonStatusBackgroundColorClassName(statusList[i].color);
 		// Css requires being child of an app-component element
 		invisibleTempAppElement.appendChild(tempStatusColorDiv);
 

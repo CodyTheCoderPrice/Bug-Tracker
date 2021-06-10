@@ -17,7 +17,7 @@ import {
 import {
 	formatDateMMddYYYY,
 	getAlternativeWhenValueIsEmpty,
-	getStatusBackgroundColorClassName,
+	getCommonStatusBackgroundColorClassName,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getListViewTableItemRowBorderAndTextColorClassNameForLightOrDarkMode,
 	getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode,
@@ -99,7 +99,7 @@ export default function ListViewTableItemRow(props) {
 			(status) => status.id === props.item.status_id
 		);
 
-		return getStatusBackgroundColorClassName(
+		return getCommonStatusBackgroundColorClassName(
 			filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem"
 		);
 	};

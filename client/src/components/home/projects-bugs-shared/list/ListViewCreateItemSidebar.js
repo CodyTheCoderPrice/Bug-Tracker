@@ -16,7 +16,7 @@ import {
 } from "../../../../actions";
 
 import {
-	getStatusTextColorClassName,
+	getCommonStatusTextColorClassName,
 	getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode,
 	getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
@@ -28,7 +28,7 @@ import {
 	getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode,
 	getPriorityOptionsForSelect,
 	getStatusOptionsForSelectWithStatusColors,
-	getformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
+	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 } from "../../../../utils";
 
 import {
@@ -90,7 +90,7 @@ export default function ListViewCreateItemSidebar(props) {
 			(status) => status.id === itemInfo.status_id
 		);
 
-		return getStatusTextColorClassName(
+		return getCommonStatusTextColorClassName(
 			filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem"
 		);
 	};
@@ -483,7 +483,7 @@ export default function ListViewCreateItemSidebar(props) {
 							type="submit"
 							className={
 								"form__submit" +
-								getformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
+								getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}
