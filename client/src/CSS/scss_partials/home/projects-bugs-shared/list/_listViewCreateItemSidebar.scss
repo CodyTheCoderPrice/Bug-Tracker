@@ -84,19 +84,19 @@
 		box-sizing: border-box;
 
 		margin-top: v.$create-item-sidebar-input-text-margin-top;
-		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
+		margin-bottom: v.$create-item-sidebar-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-border-width solid
+		border: v.$common-form-input-text-border-width solid
 			v.$mode-common-form-input-border-color-light;
-		border-radius: v.$form-input-border-radius;
+		border-radius: v.$common-form-input-border-radius;
 		background: v.$mode-common-form-input-background-color-light;
 		padding: v.$create-item-sidebar-padding;
 		width: 100%;
-		font-size: v.$item-form-input-text-font-size;
+		font-size: v.$common-item-form-input-text-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 
 		&:focus {
-			border-color: v.$default-theme-mode-focus-border-color;
+			border-color: v.$default-theme-common-mode-focus-border-color;
 		}
 	}
 
@@ -107,23 +107,23 @@
 		box-sizing: border-box;
 
 		margin-top: v.$create-item-sidebar-input-text-margin-top;
-		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
+		margin-bottom: v.$create-item-sidebar-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-border-width solid
+		border: v.$common-form-input-text-border-width solid
 			v.$mode-common-form-input-border-color-light;
-		border-radius: v.$form-input-border-radius;
+		border-radius: v.$common-form-input-border-radius;
 		background: v.$mode-common-form-input-background-color-light;
 		padding: 4px v.$create-item-sidebar-padding 4px
 			v.$create-item-sidebar-padding;
 		height: 150px;
 		width: 100%;
-		font-size: v.$item-form-input-text-font-size;
+		font-size: v.$common-item-form-input-text-font-size;
 		line-height: v.$common-line-height;
 		font-family: Arial, Helvetica, sans-serif;
 		resize: none;
 
 		&:focus {
-			border-color: v.$default-theme-mode-focus-border-color;
+			border-color: v.$default-theme-common-mode-focus-border-color;
 		}
 	}
 
@@ -142,7 +142,7 @@
 
 	.form__group-container__input-container__date {
 		margin-top: 2px;
-		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
+		margin-bottom: v.$create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
 		background: v.$mode-common-form-input-background-color-light;
@@ -152,13 +152,13 @@
 		font-size: 13px;
 
 		&:focus {
-			border-color: v.$default-theme-mode-focus-border-color;
+			border-color: v.$default-theme-common-mode-focus-border-color;
 		}
 	}
 
 	.form__group-container__input-container__select {
 		margin-top: 2px;
-		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
+		margin-bottom: v.$create-item-sidebar-form-input-margin-bottom;
 		outline: none;
 		border: 1px solid gray;
 		background: v.$mode-common-form-input-background-color-light;
@@ -167,7 +167,7 @@
 		font-size: 13px;
 
 		&:focus {
-			border-color: v.$default-theme-mode-focus-border-color;
+			border-color: v.$default-theme-common-mode-focus-border-color;
 		}
 	}
 

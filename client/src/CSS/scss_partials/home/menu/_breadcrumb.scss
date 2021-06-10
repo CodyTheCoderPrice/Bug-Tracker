@@ -11,7 +11,7 @@
 	.breadcrumb-button {
 		position: relative;
 		float: left;
-		background-color: v.$default-theme-standard-border-background-color;
+		background-color: v.$default-theme-common-standard-border-background-color;
 		height: v.$navbar-height;
 		cursor: pointer;
 	}
@@ -39,7 +39,7 @@
 		padding: v.$navbar-button-text-container-padding;
 		height: v.$navbar-height;
 		font-family: Verdana, Geneva, sans-serif;
-		font-size: v.$navbar-button-font-size;
+		font-size: v.$common-navbar-button-font-size;
 		color: white;
 		text-align: center;
 		vertical-align: middle;
@@ -119,7 +119,7 @@
 		&:hover,
 		&:active {
 			opacity: 1;
-			color: v.$breadcrumb-hamburger-close-button-text-color;
+			color: v.$navbar-breadcrumb-close-button-text-color;
 		}
 	}
 }

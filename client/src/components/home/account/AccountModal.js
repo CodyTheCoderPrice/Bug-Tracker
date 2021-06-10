@@ -67,10 +67,10 @@ export default function AccountModal() {
 	}, [reduxState[ACCOUNT_CONTAINER].componentsDisplay]);
 
 	return (
-		<div className="edit-account-modal-component">
+		<div className="account-modal-component">
 			<div
 				className={
-					"edit-account-modal" +
+					"account-modal" +
 					getAccountModalBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)

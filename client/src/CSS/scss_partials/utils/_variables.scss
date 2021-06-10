@@ -200,7 +200,7 @@ $raspberry-red-level-2: #d44141;
 $basic-yellow-level-1: #ffff00;
 $basic-yellow-level-2: #e2e200;
 
-// Light/Dark mode -- Common (i.e. used by multiple components)
+// Light/Dark mode colors -- Common (i.e. used by multiple components)
 // Note: light/dark mode placed at end of variable name
 $mode-common-background-color-light: white;
 $mode-common-background-color-dark: $gray-dark-level-8;
@@ -244,7 +244,7 @@ $mode-common-top-bar-search-bar-background-color-light: $mode-common-background-
 $mode-common-top-bar-search-bar-background-color-dark: $gray-dark-level-6;
 $mode-common-top-bar-search-bar-text-color-light: $mode-common-strong-text-color-light;
 $mode-common-top-bar-search-bar-text-color-dark: $mode-common-strong-text-color-dark;
-// Light/Dark mode -- Specific (i.e. used by specific component)
+// Light/Dark mode colors -- Specific (i.e. used by specific component)
 // Note: light/dark mode placed at end of variable name
 $mode-home-background-color-light: $mode-common-background-color-light;
 $mode-home-background-color-dark: $mode-common-background-color-dark;
@@ -380,241 +380,264 @@ $mode-toggle-switch-off-text-color-dark: $gray-light-level-6;
 $mode-toggle-switch-off-circle-background-color-light: $mode-toggle-switch-on-circle-background-color-light; // 'on' version of this variable is bellow with Themes + Light/Dark mode
 $mode-toggle-switch-off-circle-background-color-dark: $mode-toggle-switch-on-circle-background-color-dark; // 'on' version of this variable is bellow with Themes + Light/Dark mode
 
-// Themes -- Common (i.e. used by multiple components)
+// Themes colors -- Common (i.e. used by multiple components)
 // Note: theme placed at end of variable name
-$theme-brighter-border-background-color-blue-turkish: $turkish-blue-level-3;
-$theme-standard-border-background-color-blue-turkish: $turkish-blue-level-4;
-$theme-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
-$theme-standard-border-background-color-blue-queen: $queen-blue-dark-level-1;
-$theme-brighter-border-background-color-blue-sky: $sky-blue-light-level-4;
-$theme-standard-border-background-color-blue-sky: $sky-blue-level-5;
-$theme-brighter-border-background-color-blue-turquoise: $turquoise-blue-level-2;
-$theme-standard-border-background-color-blue-turquoise: $maganese-blue-level-5;
-$theme-brighter-border-background-color-purple-rain: $rain-purple-light-level-4;
-$theme-standard-border-background-color-purple-rain: $rain-purple-level-6;
-// Themes + Light/Dark mode -- Common (i.e. used by multiple components)
+$theme-common-brighter-border-background-color-blue-turkish: $turkish-blue-level-3;
+$theme-common-standard-border-background-color-blue-turkish: $turkish-blue-level-4;
+$theme-common-brighter-border-background-color-blue-queen: $queen-blue-light-level-1;
+$theme-common-standard-border-background-color-blue-queen: $queen-blue-dark-level-1;
+$theme-common-brighter-border-background-color-blue-sky: $sky-blue-light-level-4;
+$theme-common-standard-border-background-color-blue-sky: $sky-blue-level-5;
+$theme-common-brighter-border-background-color-blue-turquoise: $turquoise-blue-level-2;
+$theme-common-standard-border-background-color-blue-turquoise: $maganese-blue-level-5;
+$theme-common-brighter-border-background-color-purple-rain: $rain-purple-light-level-4;
+$theme-common-standard-border-background-color-purple-rain: $rain-purple-level-6;
+
+// Themes + Light/Dark mode colors -- Common (i.e. used by multiple components)
 // Note: theme placed towards start of variable name, light/dark mode placed at the end of variable name
-$theme-mode-blue-turkish-toggle-switch-on-border-background-color-light: $turkish-blue-level-2;
-$theme-mode-blue-turkish-toggle-switch-on-border-background-color-dark: $lake-michigan-blue-level-6;
-$theme-mode-blue-turkish-new-item-tutorial-border-text-color-light: $cerulean-blue-level-6;
-$theme-mode-blue-turkish-new-item-tutorial-border-text-color-dark: $peacock-blue-level-3;
-$theme-mode-blue-turkish-focus-border-color-light: $peacock-blue-level-3;
-$theme-mode-blue-turkish-focus-border-color-dark: $lake-michigan-blue-level-6;
-$theme-mode-blue-turkish-text-color-light: $peacock-blue-level-5;
-$theme-mode-blue-turkish-text-color-dark: $lake-michigan-blue-level-1;
-$theme-mode-blue-queen-toggle-switch-on-border-background-color-light: $carolina-blue-level-6;
-$theme-mode-blue-queen-toggle-switch-on-border-background-color-dark: $carolina-blue-level-7;
-$theme-mode-blue-queen-new-item-tutorial-border-text-color-light: $imperial-blue-level-5;
-$theme-mode-blue-queen-new-item-tutorial-border-text-color-dark: $imperial-blue-level-1;
-$theme-mode-blue-queen-focus-border-color-light: $imperial-blue-level-3;
-$theme-mode-blue-queen-focus-border-color-dark: $imperial-blue-level-5;
-$theme-mode-blue-queen-text-color-light: $imperial-blue-level-8;
-$theme-mode-blue-queen-text-color-dark: $imperial-blue-level-1;
-$theme-mode-blue-sky-toggle-switch-on-border-background-color-light: $sky-blue-level-4;
-$theme-mode-blue-sky-toggle-switch-on-border-background-color-dark: $sky-blue-level-6;
-$theme-mode-blue-sky-new-item-tutorial-border-text-color-light: $sky-blue-level-4;
-$theme-mode-blue-sky-new-item-tutorial-border-text-color-dark: $sky-blue-level-1;
-$theme-mode-blue-sky-focus-border-color-light: $sky-blue-level-3;
-$theme-mode-blue-sky-focus-border-color-dark: $sky-blue-level-8;
-$theme-mode-blue-sky-text-color-light: $sky-blue-level-5;
-$theme-mode-blue-sky-text-color-dark: $sky-blue-light-level-2;
-$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-light: $maganese-blue-level-6;
-$theme-mode-blue-turquoise-toggle-switch-on-border-background-color-dark: $maganese-blue-level-8;
-$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-light: $maganese-blue-level-5;
-$theme-mode-blue-turquoise-new-item-tutorial-border-text-color-dark: $maganese-blue-level-1;
-$theme-mode-blue-turquoise-focus-border-color-light: $maganese-blue-level-3;
-$theme-mode-blue-turquoise-focus-border-color-dark: $maganese-blue-level-7;
-$theme-mode-blue-turquoise-text-color-light: $maganese-blue-level-8;
-$theme-mode-blue-turquoise-text-color-dark: $maganese-blue-level-2;
-$theme-mode-purple-rain-toggle-switch-on-border-background-color-light: $rain-purple-light-level-4;
-$theme-mode-purple-rain-toggle-switch-on-border-background-color-dark: $rain-purple-level-5;
-$theme-mode-purple-rain-new-item-tutorial-border-text-color-light: $rain-purple-level-1;
-$theme-mode-purple-rain-new-item-tutorial-border-text-color-dark: $candy-purple-level-1;
-$theme-mode-purple-rain-focus-border-color-light: $rain-purple-light-level-3;
-$theme-mode-purple-rain-focus-border-color-dark: $rain-purple-level-1;
-$theme-mode-purple-rain-text-color-light: $rain-purple-level-3;
-$theme-mode-purple-rain-text-color-dark: $candy-purple-level-2;
-// Theme (default) -- Common (i.e. used by multiple components)
-$default-theme-brighter-border-background-color: $theme-brighter-border-background-color-blue-turkish;
-$default-theme-standard-border-background-color: $theme-standard-border-background-color-blue-turkish;
-$default-theme-mode-toggle-switch-on-border-background-color: $theme-mode-blue-turkish-toggle-switch-on-border-background-color-light;
-$default-theme-mode-new-item-tutorial-border-text-color: $theme-mode-blue-turkish-new-item-tutorial-border-text-color-light;
-$default-theme-mode-focus-border-color: $theme-mode-blue-turkish-focus-border-color-light;
-$default-theme-mode-text-color: $theme-mode-blue-turkish-text-color-light;
+$theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-light: $turkish-blue-level-2;
+$theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-dark: $lake-michigan-blue-level-6;
+$theme-mode-common-blue-turkish-new-item-tutorial-border-text-color-light: $cerulean-blue-level-6;
+$theme-mode-common-blue-turkish-new-item-tutorial-border-text-color-dark: $peacock-blue-level-3;
+$theme-mode-common-blue-turkish-focus-border-color-light: $peacock-blue-level-3;
+$theme-mode-common-blue-turkish-focus-border-color-dark: $lake-michigan-blue-level-6;
+$theme-mode-common-blue-turkish-text-color-light: $peacock-blue-level-5;
+$theme-mode-common-blue-turkish-text-color-dark: $lake-michigan-blue-level-1;
+$theme-mode-common-blue-queen-toggle-switch-on-border-background-color-light: $carolina-blue-level-6;
+$theme-mode-common-blue-queen-toggle-switch-on-border-background-color-dark: $carolina-blue-level-7;
+$theme-mode-common-blue-queen-new-item-tutorial-border-text-color-light: $imperial-blue-level-5;
+$theme-mode-common-blue-queen-new-item-tutorial-border-text-color-dark: $imperial-blue-level-1;
+$theme-mode-common-blue-queen-focus-border-color-light: $imperial-blue-level-3;
+$theme-mode-common-blue-queen-focus-border-color-dark: $imperial-blue-level-5;
+$theme-mode-common-blue-queen-text-color-light: $imperial-blue-level-8;
+$theme-mode-common-blue-queen-text-color-dark: $imperial-blue-level-1;
+$theme-mode-common-blue-sky-toggle-switch-on-border-background-color-light: $sky-blue-level-4;
+$theme-mode-common-blue-sky-toggle-switch-on-border-background-color-dark: $sky-blue-level-6;
+$theme-mode-common-blue-sky-new-item-tutorial-border-text-color-light: $sky-blue-level-4;
+$theme-mode-common-blue-sky-new-item-tutorial-border-text-color-dark: $sky-blue-level-1;
+$theme-mode-common-blue-sky-focus-border-color-light: $sky-blue-level-3;
+$theme-mode-common-blue-sky-focus-border-color-dark: $sky-blue-level-8;
+$theme-mode-common-blue-sky-text-color-light: $sky-blue-level-5;
+$theme-mode-common-blue-sky-text-color-dark: $sky-blue-light-level-2;
+$theme-mode-common-blue-turquoise-toggle-switch-on-border-background-color-light: $maganese-blue-level-6;
+$theme-mode-common-blue-turquoise-toggle-switch-on-border-background-color-dark: $maganese-blue-level-8;
+$theme-mode-common-blue-turquoise-new-item-tutorial-border-text-color-light: $maganese-blue-level-5;
+$theme-mode-common-blue-turquoise-new-item-tutorial-border-text-color-dark: $maganese-blue-level-1;
+$theme-mode-common-blue-turquoise-focus-border-color-light: $maganese-blue-level-3;
+$theme-mode-common-blue-turquoise-focus-border-color-dark: $maganese-blue-level-7;
+$theme-mode-common-blue-turquoise-text-color-light: $maganese-blue-level-8;
+$theme-mode-common-blue-turquoise-text-color-dark: $maganese-blue-level-2;
+$theme-mode-common-purple-rain-toggle-switch-on-border-background-color-light: $rain-purple-light-level-4;
+$theme-mode-common-purple-rain-toggle-switch-on-border-background-color-dark: $rain-purple-level-5;
+$theme-mode-common-purple-rain-new-item-tutorial-border-text-color-light: $rain-purple-level-1;
+$theme-mode-common-purple-rain-new-item-tutorial-border-text-color-dark: $candy-purple-level-1;
+$theme-mode-common-purple-rain-focus-border-color-light: $rain-purple-light-level-3;
+$theme-mode-common-purple-rain-focus-border-color-dark: $rain-purple-level-1;
+$theme-mode-common-purple-rain-text-color-light: $rain-purple-level-3;
+$theme-mode-common-purple-rain-text-color-dark: $candy-purple-level-2;
+
+// Theme (default) colors -- Common (i.e. used by multiple components)
+$default-theme-common-brighter-border-background-color: $theme-common-brighter-border-background-color-blue-turkish;
+$default-theme-common-standard-border-background-color: $theme-common-standard-border-background-color-blue-turkish;
+$default-theme-common-mode-toggle-switch-on-border-background-color: $theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-light;
+$default-theme-common-mode-new-item-tutorial-border-text-color: $theme-mode-common-blue-turkish-new-item-tutorial-border-text-color-light;
+$default-theme-common-mode-focus-border-color: $theme-mode-common-blue-turkish-focus-border-color-light;
+$default-theme-common-mode-text-color: $theme-mode-common-blue-turkish-text-color-light;
 
 // Status colors -- Common (i.e. used by multiple components)
-$status-gray: $gray-level-3;
-$status-blue: #568dd5;
-$status-purple: #9680ce;
-$status-orange: #ff9900;
-$status-green: #008600;
-$status-red: #d14242;
+$status-common-color-gray: $gray-level-3;
+$status-common-color-blue: #568dd5;
+$status-common-color-purple: #9680ce;
+$status-common-color-orange: #ff9900;
+$status-common-color-green: #008600;
+$status-common-color-red: #d14242;
 
-// Components -- Specific (i.e. used by specific component)
-$register-login-input-text-focus-border-color: $default-theme-mode-focus-border-color;
-$register-login-submit-button-border-background-color: $old-copper-blue-level-1;
-$register-login-submit-button-hover-border-background-color: $old-copper-blue-level-2;
-$register-login-bottom-link-text-color: $basic-blue-level-1;
-$breadcrumb-hamburger-close-button-text-color: $basic-red-light-level-2;
-$filter-button-active-color: $default-theme-mode-text-color;
+// Elements colors -- Common (i.e. used by multiple components)
+$common-register-login-input-text-focus-border-color: $default-theme-common-mode-focus-border-color;
+$common-register-login-submit-button-border-background-color: $old-copper-blue-level-1;
+$common-register-login-submit-button-hover-border-background-color: $old-copper-blue-level-2;
+$common-register-login-bottom-link-text-color: $basic-blue-level-1;
+$common-top-bar-filter-button-active-color: $default-theme-common-mode-text-color;
+$common-completed-color: $status-common-color-green;
+// Elements colors -- Specific (i.e. used by specific component)
+$navbar-breadcrumb-close-button-text-color: $basic-red-light-level-2;
+$navbar-hamburger-close-button-text-color: $navbar-breadcrumb-close-button-text-color;
+
 
 //==========
 // Heights
 //==========
-$basic-toggle-switch-height: 24px;
-$basic-custom-checkbox-height: 13px;
+// Common (i.e. used by multiple components)
+$common-top-bar-height: 46px;
+$common-top-bar-button-height: 26px;
+$common-top-bar-search-bar-height: 28px;
+$common-top-bar-filter-dropdown-content-container-height: 205px;
+$common-top-bar-filter-dropdown-content-container-shorter-height: 160px;
+$common-list-row-height: 50px;
+$common-status-box-height: 27px;
+// Specific (i.e. used by specific component)
+$toggle-switch-height: 24px;
+$custom-checkbox-height: 13px;
 $navbar-height: 56px;
 $navbar-account-button-height: $navbar-height;
 $hamburger-dropdown-option-height: 42px;
-$edit-account-modal-height: 390px;
+$account-modal-height: 390px;
 $account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
 $account-sidebar-logout-button-height: 40px;
-$account-modal-settings-content-container-height: $basic-toggle-switch-height;
-$delete-modal-delete-button-height: 30px;
-$top-bar-height: 46px;
-$top-bar-button-height: 26px;
-$top-bar-search-bar-height: 28px;
-$top-bar-filter-dropdown-content-container-height: 205px;
-$top-bar-filter-dropdown-content-container-shorter-height: 160px;
-$list-row-height: 50px;
-$status-box-height: 27px;
+$account-modal-edit-settings-content-container-height: $toggle-switch-height;
 $create-item-sidebar-height: 700px;
-$edit-item-name-input-height: 43px;
-$edit-item-description-info-item-box-height: 300px;
-$edit-item-project-bugs-stats-item-box-height: 320px;
+$delete-modal-delete-button-height: 30px;
+$item-view-bugs-stats-item-box-height: 320px;
+$item-view-edit-item-name-input-height: 43px;
+$item-view-edit-item-description-info-item-box-height: 300px;
 
 //=========
 // Widths
 //=========
-$basic-toggle-switch-width: 52px;
+// Common (i.e. used by multiple components)
+$common-top-bar-search-button-width: $common-top-bar-search-bar-height + 10;
+$common-top-bar-filter-dropdown-content-container-width: 260px;
+$common-status-box-width: 110px;
+// Specific (i.e. used by specific component)
+$toggle-switch-width: 52px;
 $navbar-account-button-width: 130px;
 $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;
 $navbar-hamburger-button-width: 36px;
 $account-sidebar-width: 430px;
-$edit-account-modal-width: 460px;
+$account-modal-width: 460px;
 $account-sidebar-appearance-theme-button-current-container-width: 30px;
 $account-sidebar-appearance-theme-button-arrow-container-width: 24px;
 $account-sidebar-appearance-theme-button-width: $account-sidebar-appearance-theme-button-current-container-width +
 	$account-sidebar-appearance-theme-button-arrow-container-width;
 $delete-modal-delete-button-width: 90px;
-$top-bar-search-button-width: $top-bar-search-bar-height + 10;
-$top-bar-filter-dropdown-content-container-width: 260px;
+$create-item-sidebar-width: 500px;
 $list-view-top-bar-filter-button-width: 90px;
+$list-view-table-min-width: 1100px;
+$list-view-table-item-name-width: 250px;
 $item-view-top-bar-filter-sort-button-width: 80px;
 $item-view-top-bar-sort-dropdown-content-container-width: 120px;
-$list-table-min-width: 1100px;
-$list-table-item-name-width: 250px;
-$status-box-width: 110px;
-$create-item-sidebar-width: 500px;
 $item-view-top-bar-search-bar-width: 290px;
-$options-button-width: 36px;
+$item-view-top-bar-options-button-width: 36px;
 $item-view-list-sidebar-width: 275px;
-$expand-minimize-button-width: 25px;
 $item-view-outer-dividing-container-min-width: 560px;
-$edit-item-name-input-width: 600px;
-$edit-item-name-char-counter-container-width: 50px;
-$item-view-project-bugs-item-box-stats-container-width: 200px;
+$item-view-edit-item-name-input-width: 600px;
+$item-view-edit-item-name-char-counter-container-width: 50px;
+$item-view-pie-chart-bug-status-stats-container-width: 200px;
 
 //=========
 // Margins
 //=========
-$register-login-form-input-margin-top: 5px;
-$register-login-form-input-margin-bottom: 5px;
+// Common (i.e. used by multiple components)
+$common-register-login-form-input-margin-top: 5px;
+$common-register-login-form-input-margin-bottom: 5px;
+$common-top-bar-filter-button-dropdown-title-margin-top: 13px;
+$common-top-bar-filter-button-dropdown-title-margin-on-one-side: 20px;
+$common-top-bar-filter-button-dropdown-checkbox-container-margin: 0px 3px;
+$common-top-bar-filter-button-dropdown-label-margin: 4px 3px;
+// Specific (i.e. used by specific component)
 $account-sidebar-contents-margin-top-bottom: 9px;
 $account-sidebar-dividing-line-margin-top-bottom: 34px;
 $account-sidebar-dividing-line-margin-top-bottom-half: $account-sidebar-dividing-line-margin-top-bottom /
 	2;
 $account-sidebar-appearance-contents-container-margin-left-right: 16px;
-$edit-account-form-input-margin-top: 5px;
-$edit-account-create-item-sidebar-form-input-margin-bottom: 10px;
-$edit-account-modal-link-margin: 18px;
-$top-bar-filter-button-dropdown-title-margin-top: 13px;
-$top-bar-filter-button-dropdown-title-margin-on-one-side: 20px;
-$top-bar-filter-button-dropdown-checkbox-container-margin: 0px 3px;
-$top-bar-filter-button-dropdown-label-margin: 4px 3px;
+$account-modal-form-input-margin-top: 5px;
+$account-modal-form-input-margin-bottom: 10px;
+$account-modal-link-margin: 18px;
+$create-item-sidebar-form-input-margin-bottom: $account-modal-form-input-margin-bottom;
 $create-item-sidebar-input-text-margin-top: 2px;
-$display-item-field-margin-left: 11px;
 $item-view-item-box-char-counter-margin: 5px 2px 4px 0px;
+$item-view-display-item-info-field-margin-left: 11px;
 
 //==============
 // Border-width
 //==============
-$form-input-text-border-width: 1px;
-$navbar-breadcrumb-border-width: 2px;
-$navbar-hamburger-border-width: 3px;
+// Common (i.e. used by multiple components)
+$common-form-input-text-border-width: 1px;
 $common-sidebar-border-width: 3px;
 $common-modal-border-width: 3px;
+$common-top-bar-border-width: 1px;
+$common-top-bar-common-button-border-width: 1px;
+$common-top-bar-tutorial-button-border-width: $common-top-bar-common-button-border-width + 1;
+$common-top-bar-clicked-dropdown-button-border-width: 3px;
+$common-top-bar-clicked-dropdown-button-border-width-difference: $common-top-bar-clicked-dropdown-button-border-width -
+	$common-top-bar-common-button-border-width;
+$common-top-bar-search-bar-border-width: 2px;
+$common-top-bar-search-bar-focus-border-width: 3px;
+// Specific (i.e. used by specific component)
+$navbar-breadcrumb-border-width: 2px;
+$navbar-hamburger-border-width: 3px;
+$account-sidebar-appearance-theme-button-border-width: 1px;
 $account-modal-border-width: 3px;
 $account-modal-toggle-switch-border-width: 3px;
-$account-sidebar-appearance-theme-button-border-width: 1px;
-$top-bar-border-width: 1px;
-$top-bar-common-button-border-width: 1px;
-$top-bar-tutorial-button-border-width: $top-bar-common-button-border-width + 1;
-$top-bar-clicked-dropdown-button-border-width: 3px;
-$top-bar-clicked-dropdown-button-border-width-difference: $top-bar-clicked-dropdown-button-border-width -
-	$top-bar-common-button-border-width;
-$top-bar-search-bar-border-width: 2px;
-$top-bar-search-bar-focus-border-width: 3px;
-$edit-item-name-input-border-width: 2px;
+$item-view-edit-item-name-input-border-width: 2px;
 $item-view-list-sidebar-border-width: 2px;
 
 //==============
 // Border-radius
 //==============
+// Common (i.e. used by multiple components)
+$common-form-input-border-radius: 5px;
 $common-buttton-border-radius: 10px;
+$common-sidebar-border-radius: 25px;
+$common-top-bar-buttton-border-radius: 5px;
+$common-status-box-border-radius: 50px;
+// Specific (i.e. used by specific component)
 $navbar-breadcrumb-round-border-radius: 12px;
 $navbar-hamburger-border-radius: 10px;
-$common-sidebar-border-radius: 25px;
 $account-modal-border-radius: 15px;
-$top-bar-buttton-border-radius: 5px;
-$form-input-border-radius: 5px;
-$status-box-border-radius: 50px;
 
 //=========
 // Padding
 //=========
+// Common (i.e. used by multiple components)
+$common-top-bar-search-bar-padding: 8px;
+$common-list-row-padding: 0px 5px;
+// Specific (i.e. used by specific component)
 $navbar-button-text-container-padding: 0 14px 0 14px;
 $account-sidebar-padding-top: 32px;
 $account-sidebar-padding-left-right: 18px;
-$top-bar-search-bar-padding: 8px;
 $create-item-sidebar-padding: 6px;
-$list-row-padding: 0px 5px;
-$edit-item-name-input-padding: 4px;
+$item-view-edit-item-name-input-padding: 4px;
 
 //======
 // Text
 //======
+// Common (i.e. used by multiple components)
 $common-font-size: 15px;
-$slightly-larger-font-size: $common-font-size + 1;
-$navbar-button-font-size: 18px;
+$common-slightly-larger-font-size: $common-font-size + 1;
+$common-navbar-button-font-size: 18px;
+$common-item-form-input-text-font-size: 13px;
+$common-top-bar-search-bar-font-size: 14px;
+$common-top-bar-search-button-icon-font-size: 14px;
+$common-top-bar-button-font-size: 14px;
+$common-top-bar-filter-button-font-size: $common-top-bar-button-font-size;
+$common-top-bar-filter-dropdown-content-font-size: 14px;
+$common-line-height: 20px;
 $account-sidebar-account-name-font-size: 18px;
 $account-sidebar-account-info-font-size: 15px;
 $account-sidebar-appearance-label-font-size: 16px;
 $account-sidebar-link-font-size: 15px;
-$edit-account-modal-link-font-size: 20px;
+$account-modal-link-font-size: 20px;
+$create-item-sidebar-label-font-size: 15px;
 $list-view-top-bar-new-item-tutorial-font-size: 24px;
-$top-bar-search-bar-font-size: 14px;
-$top-bar-search-button-icon-font-size: 14px;
-$top-bar-button-font-size: 14px;
-$top-bar-filter-button-font-size: $top-bar-button-font-size;
-$filter-dropdown-content-font-size: 14px;
 $list-view-empty-list-message-font-size: 32px;
 $item-view-name-font-size: 28px;
-$create-item-sidebar-label-font-size: 15px;
-$item-form-input-text-font-size: 13px;
-$common-line-height: 20px;
 
 //==========
 // Position
 //==========
+// Common (i.e. used by multiple components)
+$common-top-bar-top: $navbar-height;
+$common-back-exit-button-top: 10px;
+$common-back-exit-button-left-right: 20px;
+// Specific (i.e. used by specific component)
 $navbar-breadcrumb-arrow-top: -2px;
 $navbar-breadcrumb-arrow-left: -2px;
 $navbar-hamburger-button-left: 10px;
-$back-exit-buttons-top: 10px;
-$back-exit-buttons-left-right: 20px;
-$top-bar-top: $navbar-height;
-$list-item-view-top: $top-bar-top + $top-bar-height + $top-bar-border-width;
+$list-view-top: $common-top-bar-top + $common-top-bar-height + $common-top-bar-border-width;
+$item-view-top: $list-view-top;
+$item-view-list-sidebar-top: $list-view-top;
 $item-view-top-bar-search-bar-left: 15px;
 $item-view-top-bar-filter-button-left: $item-view-top-bar-search-bar-width +
 	($item-view-top-bar-search-bar-left * 2);
@@ -638,5 +661,5 @@ $account-sidebar-appearance-theme-button-option-larger-width: $account-sidebar-a
 	($account-sidebar-appearance-theme-button-border-width * 2);
 $account-sidebar-appearance-theme-button-dropdown-container-top: $account-sidebar-appearance-theme-button-option-height +
 	($account-sidebar-appearance-theme-button-border-width * 2);
-$edit-item-name-centering-container-height: $edit-item-name-input-height +
-	($edit-item-name-input-border-width * 2) + ($edit-item-name-input-padding * 2);
+$item-view-edit-item-name-centering-container-height: $item-view-edit-item-name-input-height +
+	($item-view-edit-item-name-input-border-width * 2) + ($item-view-edit-item-name-input-padding * 2);

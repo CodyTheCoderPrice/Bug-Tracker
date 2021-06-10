@@ -80,7 +80,7 @@ export default function AccountModalEditPassword() {
 			<h1 className="title">Edit Password</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
 				<label
-					htmlFor="edit-account-password-new-password"
+					htmlFor="edit-account-password-modal--new-password"
 					className="form__label"
 				>
 					New Password:{" "}
@@ -106,7 +106,7 @@ export default function AccountModalEditPassword() {
 					name="newPassword"
 					onChange={onChange}
 					value={accountInfo.newPassword}
-					id="edit-account-password-new-password"
+					id="edit-account-password-modal--new-password"
 					className={
 						"form__input-text" +
 						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -129,7 +129,7 @@ export default function AccountModalEditPassword() {
 					}
 				</span>
 				<label
-					htmlFor="edit-account-password-current-password"
+					htmlFor="edit-account-password-modal--current-password"
 					className="form__label"
 				>
 					Current Password:{" "}
@@ -154,7 +154,7 @@ export default function AccountModalEditPassword() {
 					name="currentPassword"
 					onChange={onChange}
 					value={accountInfo.currentPassword}
-					id="edit-account-password-current-password"
+					id="edit-account-password-modal--current-password"
 					className={
 						"form__input-text" +
 						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(

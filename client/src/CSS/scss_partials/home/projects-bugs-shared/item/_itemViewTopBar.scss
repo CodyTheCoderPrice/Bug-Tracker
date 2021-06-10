@@ -7,13 +7,13 @@
 	// ...display overtop the list-sidebar if the screen gets too small
 	z-index: 2;
 	position: fixed;
-	top: v.$top-bar-top;
-	border: v.$top-bar-border-width solid v.$mode-common-top-bar-border-color-light;
-	border-width: v.$top-bar-border-width 0 v.$item-view-list-sidebar-border-width
+	top: v.$common-top-bar-top;
+	border: v.$common-top-bar-border-width solid v.$mode-common-top-bar-border-color-light;
+	border-width: v.$common-top-bar-border-width 0 v.$item-view-list-sidebar-border-width
 		0;
 	background-color: v.$mode-common-top-bar-background-color-light;
-	height: v.$top-bar-height;
-	/* height: v.$top-bar-height; */
+	height: v.$common-top-bar-height;
+	/* height: v.$common-top-bar-height; */
 	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 
@@ -37,20 +37,20 @@
 
 		display: inline-block;
 		outline: none;
-		border: v.$top-bar-search-bar-border-width solid
-			v.$default-theme-standard-border-background-color;
+		border: v.$common-top-bar-search-bar-border-width solid
+			v.$default-theme-common-standard-border-background-color;
 		border-right: none;
-		border-radius: v.$top-bar-buttton-border-radius 0 0
-			v.$top-bar-buttton-border-radius;
-		padding: 0px v.$top-bar-search-bar-padding 0px v.$top-bar-search-bar-padding;
+		border-radius: v.$common-top-bar-buttton-border-radius 0 0
+			v.$common-top-bar-buttton-border-radius;
+		padding: 0px v.$common-top-bar-search-bar-padding 0px v.$common-top-bar-search-bar-padding;
 		background-color: v.$mode-common-top-bar-search-bar-background-color-light;
-		height: v.$top-bar-search-bar-height;
+		height: v.$common-top-bar-search-bar-height;
 		width: v.$item-view-top-bar-search-bar-width -
-			v.$top-bar-search-button-width;
-		font-size: v.$top-bar-search-bar-font-size;
+			v.$common-top-bar-search-button-width;
+		font-size: v.$common-top-bar-search-bar-font-size;
 
 		&:focus {
-			border-width: v.$top-bar-search-bar-focus-border-width;
+			border-width: v.$common-top-bar-search-bar-focus-border-width;
 		}
 	}
 
@@ -63,18 +63,18 @@
 		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
 		display: inline-block;
-		border-radius: 0 v.$top-bar-buttton-border-radius
-			v.$top-bar-buttton-border-radius 0;
-		background-color: v.$default-theme-standard-border-background-color;
-		height: v.$top-bar-search-bar-height;
-		width: v.$top-bar-search-button-width;
+		border-radius: 0 v.$common-top-bar-buttton-border-radius
+			v.$common-top-bar-buttton-border-radius 0;
+		background-color: v.$default-theme-common-standard-border-background-color;
+		height: v.$common-top-bar-search-bar-height;
+		width: v.$common-top-bar-search-button-width;
 		cursor: pointer;
 	}
 
 	.search-container__search-button__icon {
 		@include m.dead-center();
 		color: white;
-		font-size: v.$top-bar-search-button-icon-font-size;
+		font-size: v.$common-top-bar-search-button-icon-font-size;
 	}
 
 	.list-filter-or-sort-container {
@@ -94,14 +94,14 @@
 		z-index: 1;
 		position: absolute;
 		top: 9px;
-		border: v.$top-bar-common-button-border-width solid
+		border: v.$common-top-bar-common-button-border-width solid
 			v.$mode-common-top-bar-button-and-dropdown-border-color-light;
-		border-radius: v.$top-bar-buttton-border-radius;
+		border-radius: v.$common-top-bar-buttton-border-radius;
 		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-light;
-		height: v.$top-bar-button-height;
+		height: v.$common-top-bar-button-height;
 		width: v.$item-view-top-bar-filter-sort-button-width;
 		color: v.$mode-common-top-bar-button-and-dropdown-text-color-light;
-		font-size: v.$top-bar-filter-button-font-size;
+		font-size: v.$common-top-bar-filter-button-font-size;
 		text-align: center;
 		cursor: pointer;
 	}
@@ -109,18 +109,18 @@
 	.list-filter-or-sort-container__button--clicked {
 		// Negative margin because border resize moves the element
 		margin: -2px 0px;
-		border: v.$top-bar-clicked-dropdown-button-border-width solid black;
-		border-radius: v.$top-bar-buttton-border-radius
-			v.$top-bar-buttton-border-radius 0 0;
+		border: v.$common-top-bar-clicked-dropdown-button-border-width solid black;
+		border-radius: v.$common-top-bar-buttton-border-radius
+			v.$common-top-bar-buttton-border-radius 0 0;
 		border-bottom: none;
 		height: 45px;
 		width: v.$item-view-top-bar-filter-sort-button-width -
-			(v.$top-bar-clicked-dropdown-button-border-width-difference * 2);
+			(v.$common-top-bar-clicked-dropdown-button-border-width-difference * 2);
 	}
 
 	.list-filter-or-sort-container__button__text--active {
 		font-weight: bold;
-		color: v.$filter-button-active-color;
+		color: v.$common-top-bar-filter-button-active-color;
 	}
 
 	.list-filter-or-sort-container__button__text {
@@ -140,11 +140,11 @@
 		// Additional 0.2px to fix border overflow in chrome and edge
 		top: 52.2px;
 		border: 3px solid black;
-		border-radius: 0 v.$top-bar-buttton-border-radius
-			v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius;
+		border-radius: 0 v.$common-top-bar-buttton-border-radius
+			v.$common-top-bar-buttton-border-radius v.$common-top-bar-buttton-border-radius;
 		background-color: white;
-		height: v.$top-bar-filter-dropdown-content-container-height;
-		width: v.$top-bar-filter-dropdown-content-container-width;
+		height: v.$common-top-bar-filter-dropdown-content-container-height;
+		width: v.$common-top-bar-filter-dropdown-content-container-width;
 		cursor: default;
 		// Made visible using JS
 		visibility: hidden;
@@ -155,7 +155,7 @@
 	}
 
 	.list-filter-or-sort-container__dropdown--shorter {
-		height: v.$top-bar-filter-dropdown-content-container-shorter-height;
+		height: v.$common-top-bar-filter-dropdown-content-container-shorter-height;
 	}
 
 	.list-filter-or-sort-container__dropdown--visible {
@@ -183,16 +183,16 @@
 
 	.list-filter-or-sort-container__dropdown__filter-content {
 		float: left;
-		margin: v.$top-bar-filter-button-dropdown-title-margin-top 0 0
-			v.$top-bar-filter-button-dropdown-title-margin-on-one-side;
+		margin: v.$common-top-bar-filter-button-dropdown-title-margin-top 0 0
+			v.$common-top-bar-filter-button-dropdown-title-margin-on-one-side;
 		text-align: center;
-		font-size: v.$filter-dropdown-content-font-size;
+		font-size: v.$common-top-bar-filter-dropdown-content-font-size;
 	}
 
 	.list-filter-or-sort-container__dropdown__filter-content--right {
 		float: right;
-		margin: v.$top-bar-filter-button-dropdown-title-margin-top
-			v.$top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
+		margin: v.$common-top-bar-filter-button-dropdown-title-margin-top
+			v.$common-top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
 	}
 
 	.list-filter-or-sort-container__dropdown__filter-content__title {
@@ -209,16 +209,16 @@
 
 	.list-filter-or-sort-container__dropdown__filter-content__block__checkbox-container {
 		display: inline-block;
-		margin: v.$top-bar-filter-button-dropdown-checkbox-container-margin;
+		margin: v.$common-top-bar-filter-button-dropdown-checkbox-container-margin;
 	}
 
 	.list-filter-or-sort-container__dropdown__filter-content__block__label {
 		display: inline-block;
-		margin: v.$top-bar-filter-button-dropdown-label-margin;
+		margin: v.$common-top-bar-filter-button-dropdown-label-margin;
 	}
 
 	.list-filter-or-sort-container__dropdown__filter-content__block__label--active {
-		color: v.$filter-button-active-color;
+		color: v.$common-top-bar-filter-button-active-color;
 	}
 
 	.item-options-container {
@@ -235,13 +235,13 @@
 		position: absolute;
 		right: 0px;
 		// Border given color through JS
-		border: v.$top-bar-clicked-dropdown-button-border-width solid transparent;
-		border-radius: v.$top-bar-buttton-border-radius
-			v.$top-bar-buttton-border-radius 0 0;
+		border: v.$common-top-bar-clicked-dropdown-button-border-width solid transparent;
+		border-radius: v.$common-top-bar-buttton-border-radius
+			v.$common-top-bar-buttton-border-radius 0 0;
 		border-bottom: none;
 		background: none;
 		height: 29px;
-		width: v.$options-button-width;
+		width: v.$item-view-top-bar-options-button-width;
 		color: v.$mode-common-icon-button-text-color-light;
 		font-size: 28px;
 		text-align: center;
@@ -269,8 +269,8 @@
 		top: 29px;
 		right: 0;
 		border: 3px solid black;
-		border-radius: v.$top-bar-buttton-border-radius 0
-			v.$top-bar-buttton-border-radius v.$top-bar-buttton-border-radius;
+		border-radius: v.$common-top-bar-buttton-border-radius 0
+			v.$common-top-bar-buttton-border-radius v.$common-top-bar-buttton-border-radius;
 		background-color: white;
 		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 		width: 129px;
@@ -301,8 +301,8 @@
 	.item-options-container__dropdown__option--first-option-round-top-border {
 		// Found that subtracting 3px from $navbar-hamburger-border-radius
 		// ...gave best results
-		border-radius: v.$top-bar-buttton-border-radius
-			v.$top-bar-buttton-border-radius 0 0;
+		border-radius: v.$common-top-bar-buttton-border-radius
+			v.$common-top-bar-buttton-border-radius 0 0;
 	}
 
 	.item-options-container__dropdown__option--last-option-round-bottom-border {
@@ -310,8 +310,8 @@
 		border-bottom: none;
 		// Found that subtracting 3px from $navbar-hamburger-border-radius
 		// ...gave best results
-		border-radius: 0 0 v.$top-bar-buttton-border-radius
-			v.$top-bar-buttton-border-radius;
+		border-radius: 0 0 v.$common-top-bar-buttton-border-radius
+			v.$common-top-bar-buttton-border-radius;
 	}
 
 	.x-button {

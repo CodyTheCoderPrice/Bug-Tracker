@@ -252,7 +252,7 @@ export default function ItemView(props) {
 							<div className="outer-dividing-container outer-dividing-container--half-width">
 								<div
 									className={
-										"item-box item-box--project-bugs-stats-height item-box--no-left-right-padding" +
+										"item-box item-box--bugs-stats-height item-box--no-left-right-padding" +
 										getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
@@ -276,7 +276,7 @@ export default function ItemView(props) {
 							<div className="outer-dividing-container outer-dividing-container--half-width">
 								<div
 									className={
-										"item-box item-box--project-bugs-stats-height" +
+										"item-box item-box--bugs-stats-height" +
 										getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)

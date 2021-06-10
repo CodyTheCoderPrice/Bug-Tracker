@@ -17,7 +17,7 @@
 	.item-box__group__field__centering-container {
 		position: relative;
 		display: inline-block;
-		height: v.$status-box-height;
+		height: v.$common-status-box-height;
 		width: 55px;
 	}
 
@@ -26,21 +26,21 @@
 	}
 
 	.item-box__group__field_content {
-		margin-left: v.$display-item-field-margin-left;
+		margin-left: v.$item-view-display-item-info-field-margin-left;
 		color: v.$mode-common-weak-text-color-light;
 	}
 
 	.item-box__group__field__status-box {
 		position: relative;
 		display: inline-block;
-		margin-left: v.$display-item-field-margin-left;
-		border-radius: v.$status-box-border-radius;
+		margin-left: v.$item-view-display-item-info-field-margin-left;
+		border-radius: v.$common-status-box-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color using JS
 		background-color: black;
 		color: white;
-		height: v.$status-box-height;
-		width: v.$status-box-width;
+		height: v.$common-status-box-height;
+		width: v.$common-status-box-width;
 	}
 
 	.item-box__group__field__status-box__centered-content {

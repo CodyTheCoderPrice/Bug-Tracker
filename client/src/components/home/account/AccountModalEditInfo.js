@@ -118,7 +118,7 @@ export default function AccountModalEditInfo() {
 		<div>
 			<h1 className="title">Edit Personal Info</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
-				<label htmlFor="edit-account-info-first-name" className="form__label">
+				<label htmlFor="edit-account-info-modal--first-name" className="form__label">
 					First Name:{" "}
 				</label>
 				{accountInfo.first_name.length >
@@ -142,7 +142,7 @@ export default function AccountModalEditInfo() {
 					name="first_name"
 					onChange={onChange}
 					value={accountInfo.first_name}
-					id="edit-account-info-first-name"
+					id="edit-account-info-modal--first-name"
 					className={
 						"form__input-text" +
 						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -164,7 +164,7 @@ export default function AccountModalEditInfo() {
 							.validationAccountNewFirstName
 					}
 				</span>
-				<label htmlFor="edit-account-info-last-name" className="form__label">
+				<label htmlFor="edit-account-info-modal--last-name" className="form__label">
 					Last Name:{" "}
 				</label>
 				{accountInfo.last_name.length >
@@ -187,7 +187,7 @@ export default function AccountModalEditInfo() {
 					name="last_name"
 					onChange={onChange}
 					value={accountInfo.last_name}
-					id="edit-account-info-last-name"
+					id="edit-account-info-modal--last-name"
 					className={
 						"form__input-text" +
 						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(

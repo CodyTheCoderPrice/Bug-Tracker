@@ -3,8 +3,8 @@
 
 .custom-checkbox-component {
 	position: relative;
-	height: v.$basic-custom-checkbox-height;
-	width: v.$basic-custom-checkbox-height;
+	height: v.$custom-checkbox-height;
+	width: v.$custom-checkbox-height;
 
 	.checkbox {
 		-webkit-appearance: none;
@@ -20,12 +20,12 @@
 		border: 1px solid v.$mode-custom-checkbox-border-color-light;
 		background-color: v.$mode-custom-checkbox-background-color-light;
 		padding: 0px;
-		height: v.$basic-custom-checkbox-height;
-		width: v.$basic-custom-checkbox-height;
+		height: v.$custom-checkbox-height;
+		width: v.$custom-checkbox-height;
 		cursor: pointer;
 
 		&:hover {
-			border: 1px solid v.$default-theme-mode-text-color;
+			border: 1px solid v.$default-theme-common-mode-text-color;
 		}
 	}
 
@@ -38,7 +38,7 @@
 		cursor: pointer;
 
 		&:hover {
-			color: v.$default-theme-mode-text-color;
+			color: v.$default-theme-common-mode-text-color;
 		}
 	}
 }

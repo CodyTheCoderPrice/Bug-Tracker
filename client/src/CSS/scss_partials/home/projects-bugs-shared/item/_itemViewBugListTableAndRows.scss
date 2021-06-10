@@ -14,7 +14,7 @@
 
 	.bug-list-table__row {
 		padding: 5px;
-		height: v.$list-row-height;
+		height: v.$common-list-row-height;
 		color: v.$mode-common-weak-text-color-light;
 		text-align: center;
 	}
@@ -33,12 +33,12 @@
 	}
 
 	.bug-list-table__row__data--completed-color {
-		color: v.$status-green;
+		color: v.$common-completed-color;
 	}
 
 	.bug-list-table__row__data__info__completed-icon {
 		margin-right: 5px;
-		color: v.$status-green;
+		color: v.$common-completed-color;
 	}
 
 	.bug-list-table__row__data__centering-container {
@@ -50,12 +50,12 @@
 	.bug-list-table__row__data__centering-container__status-box {
 		@include m.dead-center();
 
-		border-radius: v.$status-box-border-radius;
+		border-radius: v.$common-status-box-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color using JS
 		background-color: black;
 		color: white;
-		height: v.$status-box-height;
+		height: v.$common-status-box-height;
 		width: 150px;
 	}
 

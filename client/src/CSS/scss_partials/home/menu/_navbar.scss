@@ -9,7 +9,7 @@
 	top: 0;
 
 	.navbar {
-		background-color: v.$default-theme-standard-border-background-color;
+		background-color: v.$default-theme-common-standard-border-background-color;
 		height: v.$navbar-height;
 		width: 100%;
 	}
@@ -34,7 +34,7 @@
 		height: v.$navbar-account-button-height;
 		color: white;
 		font-family: Verdana, Geneva, sans-serif;
-		font-size: v.$navbar-button-font-size;
+		font-size: v.$common-navbar-button-font-size;
 		text-align: center;
 		vertical-align: middle;
 		// Allows vertical-align: middle to work

@@ -48,13 +48,13 @@
 	.form__label {
 		float: left;
 		margin-top: 5px;
-		font-size: v.$slightly-larger-font-size;
+		font-size: v.$common-slightly-larger-font-size;
 	}
 
 	.form__char-counter {
 		float: right;
 		margin: 4px 2px 0px 0px;
-		font-size: v.$slightly-larger-font-size;
+		font-size: v.$common-slightly-larger-font-size;
 	}
 
 	.form__input-text {
@@ -63,12 +63,12 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
-		margin-top: v.$register-login-form-input-margin-top;
-		margin-bottom: v.$register-login-form-input-margin-bottom;
+		margin-top: v.$common-register-login-form-input-margin-top;
+		margin-bottom: v.$common-register-login-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-border-width solid
+		border: v.$common-form-input-text-border-width solid
 			v.$mode-common-form-input-border-color-light;
-		border-radius: v.$form-input-border-radius;
+		border-radius: v.$common-form-input-border-radius;
 		background: v.$mode-common-form-input-background-color-light;
 		padding: 8px;
 		width: 100%;
@@ -76,7 +76,7 @@
 		text-align: center;
 
 		&:focus {
-			border-color: v.$register-login-input-text-focus-border-color;
+			border-color: v.$common-register-login-input-text-focus-border-color;
 		}
 	}
 
@@ -90,7 +90,7 @@
 		outline: none;
 		border: 0;
 		border-radius: v.$common-buttton-border-radius;
-		background-color: v.$register-login-submit-button-border-background-color;
+		background-color: v.$common-register-login-submit-button-border-background-color;
 		padding: 10px;
 		width: 100%;
 		color: white;
@@ -100,7 +100,7 @@
 		&:hover,
 		&:active,
 		&:focus {
-			background-color: v.$register-login-submit-button-hover-border-background-color;
+			background-color: v.$common-register-login-submit-button-hover-border-background-color;
 		}
 	}
 
@@ -111,7 +111,7 @@
 
 	.bottom-question__link {
 		margin-left: 10px;
-		color: v.$register-login-bottom-link-text-color;
+		color: v.$common-register-login-bottom-link-text-color;
 		font-size: 18px;
 		text-decoration: none;
 		cursor: pointer;

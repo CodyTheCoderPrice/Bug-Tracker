@@ -146,7 +146,7 @@
 		&:hover,
 		&:active {
 			opacity: 1;
-			color: v.$breadcrumb-hamburger-close-button-text-color;
+			color: v.$navbar-hamburger-close-button-text-color;
 		}
 	}
 
@@ -158,7 +158,7 @@
 		left: v.$navbar-hamburger-title-left;
 		height: v.$navbar-height;
 		font-family: Verdana, Geneva, sans-serif;
-		font-size: v.$navbar-button-font-size;
+		font-size: v.$common-navbar-button-font-size;
 		color: white;
 		text-align: center;
 		vertical-align: middle;

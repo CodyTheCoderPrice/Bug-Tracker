@@ -77,7 +77,7 @@ export default function AccountModalEditEmail() {
 		<div>
 			<h1 className="title">Edit Email</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
-				<label htmlFor="edit-account-email-email" className="form__label">
+				<label htmlFor="edit-account-email-modal--email" className="form__label">
 					Email:{" "}
 				</label>
 				<input
@@ -86,7 +86,7 @@ export default function AccountModalEditEmail() {
 					name="email"
 					onChange={onChange}
 					value={accountInfo.email}
-					id="edit-account-email-email"
+					id="edit-account-email-modal--email"
 					className={
 						"form__input-text" +
 						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -105,7 +105,7 @@ export default function AccountModalEditEmail() {
 				>
 					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountNewEmail}
 				</span>
-				<label htmlFor="edit-account-email-password" className="form__label">
+				<label htmlFor="edit-account-email-modal--password" className="form__label">
 					Current Password:{" "}
 				</label>
 				<input
@@ -113,7 +113,7 @@ export default function AccountModalEditEmail() {
 					name="currentPassword"
 					onChange={onChange}
 					value={accountInfo.currentPassword}
-					id="edit-account-email-password"
+					id="edit-account-email-modal--password"
 					className={
 						"form__input-text" +
 						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(

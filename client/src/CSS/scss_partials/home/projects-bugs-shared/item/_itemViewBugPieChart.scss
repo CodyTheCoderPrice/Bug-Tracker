@@ -35,7 +35,7 @@
 		@include m.horizontal-center();
 
 		padding-top: 12px;
-		width: v.$item-view-project-bugs-item-box-stats-container-width;
+		width: v.$item-view-pie-chart-bug-status-stats-container-width;
 	}
 
 	.stats-container__row {
@@ -46,12 +46,12 @@
 	.stats-container__row__status-box {
 		position: relative;
 		display: inline-block;
-		border-radius: v.$status-box-border-radius;
+		border-radius: v.$common-status-box-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background using JS
 		background-color: black;
-		height: v.$status-box-height;
-		width: v.$status-box-width;
+		height: v.$common-status-box-height;
+		width: v.$common-status-box-width;
 	}
 
 	.stats-container__row__status-box__centered-info {
@@ -66,15 +66,15 @@
 	.stats-container__row__stats-centering-container {
 		position: relative;
 		display: inline-block;
-		height: v.$status-box-height;
-		width: v.$item-view-project-bugs-item-box-stats-container-width -
-			v.$status-box-width;
+		height: v.$common-status-box-height;
+		width: v.$item-view-pie-chart-bug-status-stats-container-width -
+			v.$common-status-box-width;
 	}
 
 	.stats-container__row__stats-centering-container__stats {
 		@include m.dead-center();
 
-		font-size: v.$slightly-larger-font-size;
+		font-size: v.$common-slightly-larger-font-size;
 		font-weight: bold;
 		white-space: nowrap;
 		overflow: hidden;

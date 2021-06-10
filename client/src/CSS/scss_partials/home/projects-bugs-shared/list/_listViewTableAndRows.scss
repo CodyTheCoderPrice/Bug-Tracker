@@ -4,7 +4,7 @@
 .list-view-table-component,
 .js-get-list-view-table-component {
 	position: fixed;
-	top: v.$list-item-view-top;
+	top: v.$list-view-top;
 	left: 0px;
 	// Height and width values were found through trial and error
 	// ...to make modal resize (using js) look less jumpy
@@ -19,7 +19,7 @@
 		position: relative;
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
-		min-width: v.$list-table-min-width;
+		min-width: v.$list-view-table-min-width;
 	}
 
 	.list-table__row,
@@ -28,8 +28,8 @@
 		
 		border-bottom: 1px solid v.$mode-list-view-table-row-border-color-light;
 		background-color: v.$mode-list-view-table-row-background-color-light;
-		padding: v.$list-row-padding;
-		height: v.$list-row-height;
+		padding: v.$common-list-row-padding;
+		height: v.$common-list-row-height;
 		text-align: center;
 	}
 
@@ -38,8 +38,8 @@
 	}
 
 	.list-table__row--empty {
-		height: v.$list-row-height +
-			(v.$list-row-height * 0.5);
+		height: v.$common-list-row-height +
+			(v.$common-list-row-height * 0.5);
 	}
 
 	.list-table__row__header {
@@ -91,27 +91,27 @@
 	}
 
 	.list-table__row__data--name-overflow {
-		max-width: v.$list-table-item-name-width;
-		color: v.$default-theme-mode-text-color;
+		max-width: v.$list-view-table-item-name-width;
+		color: v.$default-theme-common-mode-text-color;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 
 	.list-table__row__data--completed-color {
-		color: v.$status-green;
+		color: v.$common-completed-color;
 	}
 
 	.list-table__row__data__info__completed-icon {
 		margin-right: 5px;
-		color: v.$status-green;
+		color: v.$common-completed-color;
 	}
 
 	.list-table__row__data__custom-checkbox-centered-container {
 		@include m.dead-center();
 	
-		height: v.$basic-custom-checkbox-height;
-		width: v.$basic-custom-checkbox-height;
+		height: v.$custom-checkbox-height;
+		width: v.$custom-checkbox-height;
 	}
 
 	.list-table__row__data__centering-container {
@@ -123,12 +123,12 @@
 	.list-table__row__data__centering-container__status-box {
 		@include m.dead-center();
 
-		border-radius: v.$status-box-border-radius;
+		border-radius: v.$common-status-box-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background color using JS
 		background-color: black;
-		height: v.$status-box-height;
-		width: v.$status-box-width;
+		height: v.$common-status-box-height;
+		width: v.$common-status-box-width;
 	}
 
 	.list-table__row__data__centering-container__status-box__centered-info {

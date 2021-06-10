@@ -33,7 +33,7 @@
 	// Should be higher than all other z-index's to ensure nothing covers them
 	z-index: 100;
 	position: absolute;
-	top: v.$back-exit-buttons-top;
+	top: v.$common-back-exit-button-top;
 	border: none;
 	background: none;
 	color: v.$mode-common-icon-button-text-color-light;
@@ -48,15 +48,15 @@
 @mixin back-button() {
 	@include back-exit-buttons-incomplete();
 
-	top: v.$back-exit-buttons-top + 2;
-	left: v.$back-exit-buttons-left-right;
+	top: v.$common-back-exit-button-top + 2;
+	left: v.$common-back-exit-button-left-right;
 	font-size: 22px;
 }
 
 @mixin exit-button() {
 	@include back-exit-buttons-incomplete();
 
-	right: v.$back-exit-buttons-left-right;
+	right: v.$common-back-exit-button-left-right;
 	font-size: 26px;
 }
 
@@ -71,7 +71,7 @@
 	border: 0;
 	// Need to get rid of border for a submit button
 	border-radius: v.$common-buttton-border-radius;
-	background-color: v.$default-theme-brighter-border-background-color;
+	background-color: v.$default-theme-common-brighter-border-background-color;
 	padding: 10px;
 	width: 100%;
 	color: white;
@@ -82,7 +82,7 @@
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: v.$default-theme-standard-border-background-color;
+		background-color: v.$default-theme-common-standard-border-background-color;
 	}
 }
 
@@ -95,7 +95,7 @@
 	outline: none;
 	border: 1px solid black;
 	border-radius: v.$common-buttton-border-radius;
-	background-color: v.$default-theme-brighter-border-background-color;
+	background-color: v.$default-theme-common-brighter-border-background-color;
 	// Only top and bottom because of inconsistencies
 	// ...with button vs divs.
 	padding: 10px 0px 10px 0px;
@@ -110,7 +110,7 @@
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: v.$default-theme-standard-border-background-color;
+		background-color: v.$default-theme-common-standard-border-background-color;
 	}
 }
 

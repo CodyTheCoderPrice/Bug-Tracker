@@ -10,7 +10,7 @@
 		// Must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
-		top: v.$list-item-view-top + 15;
+		top: v.$item-view-list-sidebar-top + 15;
 		left: v.$item-view-list-sidebar-width + v.$item-view-list-sidebar-border-width;
 		border: v.$item-view-list-sidebar-border-width solid black;
 		border-left: none;
@@ -42,7 +42,7 @@
 		// Must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
-		top: v.$list-item-view-top;
+		top: v.$item-view-list-sidebar-top;
 		left: 0px;
 		border: v.$item-view-list-sidebar-border-width solid v.$mode-item-view-list-sidebar-border-color-light;
 		border-left: none;
@@ -68,8 +68,8 @@
 	.list-sidebar__table__row {
 		border-bottom: 1px solid v.$mode-item-view-list-sidebar-table-row-border-color-light;
 		background-color: v.$mode-item-view-list-sidebar-table-row-background-color-light;
-		padding: v.$list-row-padding;
-		height: v.$list-row-height;
+		padding: v.$common-list-row-padding;
+		height: v.$common-list-row-height;
 		text-align: center;
 	}
 
@@ -78,7 +78,7 @@
 	}
 
 	.list-sidebar__table__row--empty {
-		height: v.$list-row-height + (v.$list-row-height * 0.5);
+		height: v.$common-list-row-height + (v.$common-list-row-height * 0.5);
 	}
 
 	.list-sidebar__table__row__header {
@@ -110,11 +110,11 @@
 	}
 
 	.list-sidebar__table__row__data__overflow-container--completed-color {
-		color: v.$status-green;
+		color: v.$common-completed-color;
 	}
 
 	.list-sidebar__table__row__data__overflow-container__info__completed-icon {
 		margin-right: 5px;
-		color: v.$status-green;
+		color: v.$common-completed-color;
 	}
 }

@@ -762,7 +762,7 @@ dropdown can overlap all other components
   text-align: center;
 }
 
-.edit-account-modal-component .edit-account-modal {
+.account-modal-component .account-modal {
   z-index: 4;
   position: fixed;
   top: 50%;
@@ -775,7 +775,7 @@ dropdown can overlap all other components
   width: 460px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.edit-account-modal-component .back-button {
+.account-modal-component .back-button {
   z-index: 100;
   position: absolute;
   top: 10px;
@@ -787,10 +787,10 @@ dropdown can overlap all other components
   left: 20px;
   font-size: 22px;
 }
-.edit-account-modal-component .back-button:hover, .edit-account-modal-component .back-button:active {
+.account-modal-component .back-button:hover, .account-modal-component .back-button:active {
   color: #3a3a3a;
 }
-.edit-account-modal-component .exit-button {
+.account-modal-component .exit-button {
   z-index: 100;
   position: absolute;
   top: 10px;
@@ -801,36 +801,36 @@ dropdown can overlap all other components
   right: 20px;
   font-size: 26px;
 }
-.edit-account-modal-component .exit-button:hover, .edit-account-modal-component .exit-button:active {
+.account-modal-component .exit-button:hover, .account-modal-component .exit-button:active {
   color: #3a3a3a;
 }
-.edit-account-modal-component .title {
+.account-modal-component .title {
   position: relative;
   display: block;
   padding-top: 8px;
   font-size: 150%;
   text-align: center;
 }
-.edit-account-modal-component .form__label {
+.account-modal-component .form__label {
   float: left;
   margin-top: 5px;
   font-size: 16px;
 }
-.edit-account-modal-component .form__label--top-margin {
+.account-modal-component .form__label--top-margin {
   margin-top: 40px;
 }
-.edit-account-modal-component .form__label__captial-delete {
+.account-modal-component .form__label__captial-delete {
   margin-left: 2px;
   margin-right: 2px;
   font-size: 16px;
   color: #ff0000;
 }
-.edit-account-modal-component .form__char-counter {
+.account-modal-component .form__char-counter {
   float: right;
   margin: 5px 2px 0px 0px;
   font-size: 16px;
 }
-.edit-account-modal-component .form__input-text {
+.account-modal-component .form__input-text {
   margin-top: 5px;
   margin-bottom: 10px;
   outline: none;
@@ -843,15 +843,15 @@ dropdown can overlap all other components
   font-size: 14px;
   text-align: center;
 }
-.edit-account-modal-component .form__input-text:focus {
+.account-modal-component .form__input-text:focus {
   border-color: #2ba6c5;
 }
-.edit-account-modal-component .backend-errors {
+.account-modal-component .backend-errors {
   display: block;
   color: #ff0000;
   text-align: center;
 }
-.edit-account-modal-component .form__submit {
+.account-modal-component .form__submit {
   outline: none;
   border: 0;
   border-radius: 10px;
@@ -865,22 +865,22 @@ dropdown can overlap all other components
   margin-top: 15px;
   margin-bottom: 10px;
 }
-.edit-account-modal-component .form__submit:hover, .edit-account-modal-component .form__submit:active, .edit-account-modal-component .form__submit:focus {
+.account-modal-component .form__submit:hover, .account-modal-component .form__submit:active, .account-modal-component .form__submit:focus {
   background-color: #608d9e;
 }
-.edit-account-modal-component .form__submit--delete {
+.account-modal-component .form__submit--delete {
   background-color: #e95454;
 }
-.edit-account-modal-component .form__submit--delete:hover, .edit-account-modal-component .form__submit--delete:active, .edit-account-modal-component .form__submit--delete:focus {
+.account-modal-component .form__submit--delete:hover, .account-modal-component .form__submit--delete:active, .account-modal-component .form__submit--delete:focus {
   background-color: #d44141;
 }
-.edit-account-modal-component .modal-links-container {
+.account-modal-component .modal-links-container {
   position: absolute;
   bottom: 30px;
   width: 460px;
   text-align: center;
 }
-.edit-account-modal-component .modal-link {
+.account-modal-component .modal-link {
   margin-left: 18px;
   margin-right: 18px;
   font-size: 20px;
@@ -888,16 +888,16 @@ dropdown can overlap all other components
   text-decoration: none;
   cursor: pointer;
 }
-.edit-account-modal-component .modal-link--no-left-margin {
+.account-modal-component .modal-link--no-left-margin {
   margin-left: 0;
 }
-.edit-account-modal-component .modal-link--no-right-margin {
+.account-modal-component .modal-link--no-right-margin {
   margin-right: 0;
 }
-.edit-account-modal-component .link-spacer {
+.account-modal-component .link-spacer {
   font-size: 20px;
 }
-.edit-account-modal-component .category-container {
+.account-modal-component .category-container {
   position: relative;
   margin: 30px 0px 10px;
   position: relative;
@@ -905,7 +905,7 @@ dropdown can overlap all other components
   border-radius: 10px;
   padding: 15px 20px;
 }
-.edit-account-modal-component .category-container__heading {
+.account-modal-component .category-container__heading {
   z-index: 1;
   position: absolute;
   top: -12px;
@@ -915,15 +915,15 @@ dropdown can overlap all other components
   padding: 0px 8px;
   font-size: 18px;
 }
-.edit-account-modal-component .category-container__content-container {
+.account-modal-component .category-container__content-container {
   margin-top: 20px;
   height: 24px;
   color: #272727;
 }
-.edit-account-modal-component .category-container__content-container--smaller-top-margin {
+.account-modal-component .category-container__content-container--smaller-top-margin {
   margin-top: 10px;
 }
-.edit-account-modal-component .category-container__content-container__label {
+.account-modal-component .category-container__content-container__label {
   float: left;
   margin-right: 10px;
   height: 22px;
@@ -931,13 +931,13 @@ dropdown can overlap all other components
   vertical-align: middle;
   line-height: 22px;
 }
-.edit-account-modal-component .category-container__content-container__label-sort-bug-margin-right {
+.account-modal-component .category-container__content-container__label-sort-bug-margin-right {
   margin-right: 30px;
 }
-.edit-account-modal-component .category-container__content-container__toggle-switch-container {
+.account-modal-component .category-container__content-container__toggle-switch-container {
   float: left;
 }
-.edit-account-modal-component .category-container__content-container__sort-select {
+.account-modal-component .category-container__content-container__sort-select {
   float: left;
   margin: 2px 15px 0 0;
   outline: none;
@@ -946,10 +946,10 @@ dropdown can overlap all other components
   width: 120px;
   font-size: 13px;
 }
-.edit-account-modal-component .category-container__content-container__sort-select:focus {
+.account-modal-component .category-container__content-container__sort-select:focus {
   border-color: #2ba6c5;
 }
-.edit-account-modal-component .sort-ascending-float-right-container {
+.account-modal-component .sort-ascending-float-right-container {
   float: right;
 }
 
@@ -1140,8 +1140,8 @@ dropdown can overlap all other components
 .js-get-item-view-component .item-box--desciption-info-height {
   height: 300px;
 }
-.item-view-component .item-box--project-bugs-stats-height,
-.js-get-item-view-component .item-box--project-bugs-stats-height {
+.item-view-component .item-box--bugs-stats-height,
+.js-get-item-view-component .item-box--bugs-stats-height {
   height: 320px;
 }
 .item-view-component .item-box--invisible,
@@ -1834,7 +1834,7 @@ dropdown can overlap all other components
   border-width: 1px 0 2px 0;
   background-color: #e5e5e5;
   height: 46px;
-  /* height: v.$top-bar-height; */
+  /* height: v.$common-top-bar-height; */
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }

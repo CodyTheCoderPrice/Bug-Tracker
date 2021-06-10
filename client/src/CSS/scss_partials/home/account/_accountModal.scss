@@ -1,8 +1,8 @@
 @use "../../utils/variables" as v;
 @use "../../utils/mixins" as m;
 
-.edit-account-modal-component {
-	.edit-account-modal {
+.account-modal-component {
+	.account-modal {
 		// Must be more than accountBlurredBackgorund.scss
 		z-index: 4;
 		position: fixed;
@@ -13,8 +13,8 @@
 		border-radius: v.$account-modal-border-radius;
 		background-color: v.$mode-account-modal-background-color-light;
 		padding: 30px;
-		height: v.$edit-account-modal-height;
-		width: v.$edit-account-modal-width;
+		height: v.$account-modal-height;
+		width: v.$account-modal-width;
 
 		//text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
@@ -39,7 +39,7 @@
 	.form__label {
 		float: left;
 		margin-top: 5px;
-		font-size: v.$slightly-larger-font-size;
+		font-size: v.$common-slightly-larger-font-size;
 	}
 
 	.form__label--top-margin {
@@ -56,16 +56,16 @@
 	.form__char-counter {
 		float: right;
 		margin: 5px 2px 0px 0px;
-		font-size: v.$slightly-larger-font-size;
+		font-size: v.$common-slightly-larger-font-size;
 	}
 
 	.form__input-text {
-		margin-top: v.$edit-account-form-input-margin-top;
-		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
+		margin-top: v.$account-modal-form-input-margin-top;
+		margin-bottom: v.$account-modal-form-input-margin-bottom;
 		outline: none;
-		border: v.$form-input-text-border-width solid
+		border: v.$common-form-input-text-border-width solid
 			v.$mode-common-form-input-border-color-light;
-		border-radius: v.$form-input-border-radius;
+		border-radius: v.$common-form-input-border-radius;
 		box-sizing: border-box;
 		background: v.$mode-common-form-input-background-color-light;
 		padding: 8px;
@@ -74,7 +74,7 @@
 		text-align: center;
 
 		&:focus {
-			border-color: v.$default-theme-mode-focus-border-color;
+			border-color: v.$default-theme-common-mode-focus-border-color;
 		}
 	}
 
@@ -86,7 +86,7 @@
 		@include m.common-form-submit-button();
 
 		margin-top: 15px;
-		margin-bottom: v.$edit-account-create-item-sidebar-form-input-margin-bottom;
+		margin-bottom: v.$account-modal-form-input-margin-bottom;
 	}
 
 	.form__submit--delete {
@@ -102,14 +102,14 @@
 	.modal-links-container {
 		position: absolute;
 		bottom: 30px;
-		width: v.$edit-account-modal-width;
+		width: v.$account-modal-width;
 		text-align: center;
 	}
 
 	.modal-link {
-		margin-left: v.$edit-account-modal-link-margin;
-		margin-right: v.$edit-account-modal-link-margin;
-		font-size: v.$edit-account-modal-link-font-size;
+		margin-left: v.$account-modal-link-margin;
+		margin-right: v.$account-modal-link-margin;
+		font-size: v.$account-modal-link-font-size;
 		font-style: bold;
 		text-decoration: none;
 		cursor: pointer;
@@ -150,7 +150,7 @@
 
 	.category-container__content-container {
 		margin-top: 20px;
-		height: v.$account-modal-settings-content-container-height;
+		height: v.$account-modal-edit-settings-content-container-height;
 		color: v.$mode-common-weak-text-color-light;
 	}
 
@@ -162,11 +162,11 @@
 		float: left;
 		margin-right: 10px;
 		// Subtracting 2px for better alignment
-		height: v.$account-modal-settings-content-container-height - 2;
+		height: v.$account-modal-edit-settings-content-container-height - 2;
 		font-size: v.$common-font-size;
 		vertical-align: middle;
 		// Subtracting 2px for better alignment
-		line-height: v.$account-modal-settings-content-container-height - 2;
+		line-height: v.$account-modal-edit-settings-content-container-height - 2;
 	}
 
 	.category-container__content-container__label-sort-bug-margin-right {
@@ -188,7 +188,7 @@
 		font-size: v.$common-font-size - 2;
 
 		&:focus {
-			border-color: v.$default-theme-mode-focus-border-color;
+			border-color: v.$default-theme-common-mode-focus-border-color;
 		}
 	}
 

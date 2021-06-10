@@ -320,11 +320,11 @@ export function getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassName
 
 /**
  * Get light/dark mode className for AccountModal components
- * 'edit-account-modal' (className) element's background color
+ * 'account-modal' (className) element's background color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountSidebar components
- * 'edit-account-modal' (className) element's background color
+ * 'account-modal' (className) element's background color
  */
 export function getAccountModalBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode

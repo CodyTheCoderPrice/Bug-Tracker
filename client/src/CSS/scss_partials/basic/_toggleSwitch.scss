@@ -20,15 +20,15 @@
 		border: solid v.$mode-toggle-switch-off-border-background-color-light 3px;
 		border-radius: 25px;
 		background-color: v.$mode-toggle-switch-off-border-background-color-light;
-		height: v.$basic-toggle-switch-height;
-		width: v.$basic-toggle-switch-width;
+		height: v.$toggle-switch-height;
+		width: v.$toggle-switch-width;
 		color: v.$mode-toggle-switch-off-text-color-light;
 		cursor: pointer;
 	}
 
 	.invisible-checkbox:checked + .toggle-switch {
-		border-color: v.$default-theme-mode-toggle-switch-on-border-background-color;
-		background-color: v.$default-theme-mode-toggle-switch-on-border-background-color;
+		border-color: v.$default-theme-common-mode-toggle-switch-on-border-background-color;
+		background-color: v.$default-theme-common-mode-toggle-switch-on-border-background-color;
 		color: v.$mode-toggle-switch-on-text-color-light;
 	}
 
