@@ -48,62 +48,200 @@ export function toggleClassName(
 //=====================
 // Standard classNames
 //=====================
+/**
+ * Gets a className equivelent to the 'app-component' className used by App
+ * component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'app-component'
+ */
 export function getAppComponentClassName() {
 	return " js-get-app-component";
 }
 
+/**
+ * Gets a className equivelent to the 'navbar-breadcrumb-component' className
+ * used by NavbarBreadcrumb component.
+ * 
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'navbar-breadcrumb-component' 
+ */
 export function getNavbarBreadcrumbComponentClassName() {
 	return " js-get-navbar-breadcrumb-component";
 }
 
+/**
+ * Gets a className equivelent to the 'breadcrumb-button__text' className used
+ * by the breadcrumb button text elements in NavbarBreadcrumb component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'breadcrumb-button__text'
+ */
 export function getNavbarBreadcrumbComponentButtonTextElementClassName() {
 	return " js-get-navbar-breadcrumb-button-text";
 }
 
+/**
+ * Gets a className equivelent to the 'breadcrumb-button__end-container__arrow'
+ * className used by the breadcrumb button end container arrow elements in
+ * NavbarBreadcrumb component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 
+ * 'breadcrumb-button__end-container__arrow'
+ */
 export function getNavbarBreadcrumbComponentButtonEndContainerArrowElementClassName() {
 	return " js-get-navbar-breadcrumb-button-end-container-arrow";
 }
 
+/**
+ * Gets a className equivelent to the 'navbar-hamburger-component' className
+ * used by NavbarHamburger component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'navbar-hamburger-component' 
+ */
 export function getNavbarHamburgerComponentClassName() {
 	return " js-get-navbar-hamburger-component";
 }
 
+/**
+ * Gets a className equivelent to the 'hamburger-button-container' className 
+ * used by the hamburger button container elements in NavbarHamburger component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'hamburger-button-container'
+ */
 export function getNavbarHamburgerComponentButtonContainerElementClassName() {
 	return " js-get-navbar-hamburger-button-container";
 }
 
+/**
+ * Gets a className equivelent to the 'hamburger-title' className used by the
+ * hamburger button container elements in NavbarHamburger component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'hamburger-title'
+ */
 export function getNavbarHamburgerComponentTitleElementClassName() {
 	return " js-get-navbar-hamburger-title";
 }
 
+/**
+ * Gets a className equivelent to the 'list-view-top-bar-component' className
+ * used by ListViewTopBar component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'list-view-top-bar-component' 
+ */
 export function getListViewTopBarComponentClassName() {
 	return " js-get-list-view-top-bar-component";
 }
 
+/**
+ * Gets a className equivelent to the 'list-view-table-component' className
+ * used by ListViewTable component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'list-view-table-component' 
+ */
 export function getListViewTableComponentClassName() {
 	return " js-get-list-view-table-component";
 }
 
+/**
+ * Gets a className equivelent to the 'list-table__row' className used by row 
+ * elements in ListViewTable and ListViewTableItemRow components.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'list-table__row'
+ */
 export function getListViewTableComponentRowElementClassName() {
 	return " js-get-list-view-table-row";
 }
 
+/**
+ * Gets a className equivelent to the 'item-view-component' className used by
+ * ItemView component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'item-view-component' 
+ */
 export function getItemViewComponentClassName() {
 	return " js-get-item-view-component";
 }
 
+/**
+ * Gets a className equivelent to the 'padding-container' className used by 
+ * padding container element in ItemView component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'padding-container'
+ */
 export function getItemViewComponentPaddingcontainerElementClassName() {
 	return " js-get-item-view-padding-container";
 }
 
+/**
+ * Gets a className equivelent to the 'outer-dividing-container' className used 
+ * by outer dividing contianer elements in ItemView component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'outer-dividing-container'
+ */
 export function getItemViewComponentOuterDividingContainerElementClassName() {
 	return " js-get-item-view-outer-dividing-container";
 }
 
+/**
+ * Gets a className equivelent to the 'item-vew-top-bar-component' className
+ * used by ItemViewTopBar component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'item-vew-top-bar-component' 
+ */
 export function getItemViewTopBarComponentClassName() {
 	return " js-get-item-vew-top-bar-component";
 }
 
+/**
+ * Gets a className equivelent to the 'item-view-list-sidebar-component' 
+ * className used by ItemViewListSidebar component.
+ * 
+ * Note: This function's purpose is to have the returned className assigned to 
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'item-view-list-sidebar-component' 
+ */
 export function getItemViewListSidebarComponentClassName() {
 	return " js-get-item-view-list-sidebar-component";
 }
