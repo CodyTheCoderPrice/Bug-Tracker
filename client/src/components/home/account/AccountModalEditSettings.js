@@ -13,7 +13,7 @@ import {
 	getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	setTrueForOnlyAccountSidebar,
 } from "../../../utils";
 // Other components used by this component
@@ -254,7 +254,7 @@ export default function AccountModalEditSettings() {
 			<span
 				className={
 					"backend-errors" +
-					getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}

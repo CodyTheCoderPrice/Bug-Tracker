@@ -51,8 +51,8 @@ export function toggleClassName(
 /**
  * Gets a className equivelent to the 'app-component' className used by App
  * component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
  * @returns {string} A className equivelent to 'app-component'
@@ -64,12 +64,12 @@ export function getAppComponentClassName() {
 /**
  * Gets a className equivelent to the 'navbar-breadcrumb-component' className
  * used by NavbarBreadcrumb component.
- * 
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 'navbar-breadcrumb-component' 
+ * @returns {string} A className equivelent to 'navbar-breadcrumb-component'
  */
 export function getNavbarBreadcrumbComponentClassName() {
 	return " js-get-navbar-breadcrumb-component";
@@ -78,78 +78,78 @@ export function getNavbarBreadcrumbComponentClassName() {
 /**
  * Gets a className equivelent to the 'breadcrumb-button__text' className used
  * by the breadcrumb button text elements in NavbarBreadcrumb component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
  * @returns {string} A className equivelent to 'breadcrumb-button__text'
  */
 export function getNavbarBreadcrumbComponentButtonTextElementClassName() {
-	return " js-get-navbar-breadcrumb-button-text";
+	return " js-get-navbar-breadcrumb-component-button-text-element";
 }
 
 /**
  * Gets a className equivelent to the 'breadcrumb-button__end-container__arrow'
  * className used by the breadcrumb button end container arrow elements in
  * NavbarBreadcrumb component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 
+ * @returns {string} A className equivelent to
  * 'breadcrumb-button__end-container__arrow'
  */
 export function getNavbarBreadcrumbComponentButtonEndContainerArrowElementClassName() {
-	return " js-get-navbar-breadcrumb-button-end-container-arrow";
+	return " js-get-navbar-breadcrumb-component-button-end-container-arrow-element";
 }
 
 /**
  * Gets a className equivelent to the 'navbar-hamburger-component' className
  * used by NavbarHamburger component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 'navbar-hamburger-component' 
+ * @returns {string} A className equivelent to 'navbar-hamburger-component'
  */
 export function getNavbarHamburgerComponentClassName() {
 	return " js-get-navbar-hamburger-component";
 }
 
 /**
- * Gets a className equivelent to the 'hamburger-button-container' className 
+ * Gets a className equivelent to the 'hamburger-button-container' className
  * used by the hamburger button container elements in NavbarHamburger component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
  * @returns {string} A className equivelent to 'hamburger-button-container'
  */
 export function getNavbarHamburgerComponentButtonContainerElementClassName() {
-	return " js-get-navbar-hamburger-button-container";
+	return " js-get-navbar-hamburger-component-button-container-element";
 }
 
 /**
  * Gets a className equivelent to the 'hamburger-title' className used by the
  * hamburger button container elements in NavbarHamburger component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
  * @returns {string} A className equivelent to 'hamburger-title'
  */
 export function getNavbarHamburgerComponentTitleElementClassName() {
-	return " js-get-navbar-hamburger-title";
+	return " js-get-navbar-hamburger-component-title-element";
 }
 
 /**
  * Gets a className equivelent to the 'list-view-top-bar-component' className
  * used by ListViewTopBar component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 'list-view-top-bar-component' 
+ * @returns {string} A className equivelent to 'list-view-top-bar-component'
  */
 export function getListViewTopBarComponentClassName() {
 	return " js-get-list-view-top-bar-component";
@@ -158,89 +158,89 @@ export function getListViewTopBarComponentClassName() {
 /**
  * Gets a className equivelent to the 'list-view-table-component' className
  * used by ListViewTable component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 'list-view-table-component' 
+ * @returns {string} A className equivelent to 'list-view-table-component'
  */
 export function getListViewTableComponentClassName() {
 	return " js-get-list-view-table-component";
 }
 
 /**
- * Gets a className equivelent to the 'list-table__row' className used by row 
+ * Gets a className equivelent to the 'list-table__row' className used by row
  * elements in ListViewTable and ListViewTableItemRow components.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
  * @returns {string} A className equivelent to 'list-table__row'
  */
 export function getListViewTableComponentRowElementClassName() {
-	return " js-get-list-view-table-row";
+	return " js-get-list-view-table-component-row-element";
 }
 
 /**
  * Gets a className equivelent to the 'item-view-component' className used by
  * ItemView component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 'item-view-component' 
+ * @returns {string} A className equivelent to 'item-view-component'
  */
 export function getItemViewComponentClassName() {
 	return " js-get-item-view-component";
 }
 
 /**
- * Gets a className equivelent to the 'padding-container' className used by 
+ * Gets a className equivelent to the 'padding-container' className used by
  * padding container element in ItemView component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
  * @returns {string} A className equivelent to 'padding-container'
  */
 export function getItemViewComponentPaddingcontainerElementClassName() {
-	return " js-get-item-view-padding-container";
+	return " js-get-item-view-component-padding-container-element";
 }
 
 /**
- * Gets a className equivelent to the 'outer-dividing-container' className used 
+ * Gets a className equivelent to the 'outer-dividing-container' className used
  * by outer dividing contianer elements in ItemView component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
  * @returns {string} A className equivelent to 'outer-dividing-container'
  */
 export function getItemViewComponentOuterDividingContainerElementClassName() {
-	return " js-get-item-view-outer-dividing-container";
+	return " js-get-item-view-component-outer-dividing-container-element";
 }
 
 /**
  * Gets a className equivelent to the 'item-vew-top-bar-component' className
  * used by ItemViewTopBar component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 'item-vew-top-bar-component' 
+ * @returns {string} A className equivelent to 'item-vew-top-bar-component'
  */
 export function getItemViewTopBarComponentClassName() {
 	return " js-get-item-vew-top-bar-component";
 }
 
 /**
- * Gets a className equivelent to the 'item-view-list-sidebar-component' 
+ * Gets a className equivelent to the 'item-view-list-sidebar-component'
  * className used by ItemViewListSidebar component.
- * 
- * Note: This function's purpose is to have the returned className assigned to 
+ *
+ * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 'item-view-list-sidebar-component' 
+ * @returns {string} A className equivelent to 'item-view-list-sidebar-component'
  */
 export function getItemViewListSidebarComponentClassName() {
 	return " js-get-item-view-list-sidebar-component";
@@ -251,49 +251,49 @@ export function getItemViewListSidebarComponentClassName() {
 //============================
 /**
  * Get light/dark mode className for common (i.e. used by multiple components)
- * strong (i.e. more distinct) text color
+ * element's strong (i.e. more distinct) text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common strong text color
  */
-export function getCommonStrongTextColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-get-common-strong-text-color-dark-mode-" + dark_mode;
+export function getCommonElementStrongTextColorClassNameForLightOrDarkMode(dark_mode) {
+	return " js-get-common-element-strong-text-color-dark-mode-" + dark_mode;
 }
 
 /**
  * Get light/dark mode className for common (i.e. used by multiple components)
- * weak (i.e. less distinct) text color
+ * element's weak (i.e. less distinct) text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common weak text color
  */
 export function getCommonWeakTextColorClassNameForLightOrDarkMode(dark_mode) {
-	return " js-get-common-weak-text-color-dark-mode-" + dark_mode;
+	return " js-get-common-element-weak-text-color-dark-mode-" + dark_mode;
 }
 
 /**
  * Get light/dark mode className for common (i.e. used by multiple components)
- * 'backend-errors' (className) element's text color
+ * element's 'backend-errors' (className) element's text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common 'backend-errors'
  * (className) element's text color
  */
-export function getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+export function getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-get-common-backend-errors-text-color-dark-mode-" + dark_mode;
+	return " js-get-common-element-backend-errors-text-color-dark-mode-" + dark_mode;
 }
 
 /**
  * Get light/dark mode className for common (i.e. used by multiple components)
- * char count (when limit is reached) element's text color
+ * char count element's text color (when limit is reached)
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common char-count (when
  * limit reached) element's text color
  */
-export function getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+export function getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
@@ -311,7 +311,7 @@ export function getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMo
  * @returns {string} Light/dark mode className for common blurred backdrop
  * element's background color and opacity
  */
-export function getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+export function getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 	clickToClose,
 	dark_mode
 ) {
@@ -332,7 +332,7 @@ export function getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLig
  * @returns {string} Light/dark mode className for common icon-button element's
  * text color with hover
  */
-export function getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+export function getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
@@ -341,7 +341,7 @@ export function getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode
 }
 
 /**
- * Get light/dark mode className for Common (i.e. used by multiple components) 
+ * Get light/dark mode className for Common (i.e. used by multiple components)
  * element's (grayed out) text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -351,10 +351,7 @@ export function getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode
 export function getCommonGrayedOutTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return (
-		" js-get-common-grayed-out-text-color-dark-mode-" +
-		dark_mode
-	);
+	return " js-get-common-grayed-out-text-color-dark-mode-" + dark_mode;
 }
 
 /**
@@ -1077,7 +1074,7 @@ export function getCommonStandardBorderColorClassNameForTheme(theme_color) {
 }
 
 /**
- * Get common (i.e. used by multiple components) brighter theme className for 
+ * Get common (i.e. used by multiple components) brighter theme className for
  * background color
  *
  * @param {("blue-turkish"|
@@ -1091,7 +1088,7 @@ export function getCommonBrighterBackgroundColorClassNameForTheme(theme_color) {
 	return " js-get-common-brighter-background-color-theme-" + theme_color;
 }
 /**
- * Get common (i.e. used by multiple components) standard theme className for 
+ * Get common (i.e. used by multiple components) standard theme className for
  * background color
  *
  * @param {("blue-turkish"|
@@ -1117,7 +1114,9 @@ export function getCommonStandardBackgroundColorClassNameForTheme(theme_color) {
  * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Common theme className for background color with hover
  */
-export function getCommonBackgroundColorWithHoverClassNameForTheme(theme_color) {
+export function getCommonBackgroundColorWithHoverClassNameForTheme(
+	theme_color
+) {
 	return " js-get-common-background-color-with-hover-theme-" + theme_color;
 }
 
@@ -1139,8 +1138,8 @@ export function getBrighterBreadcrumbArrowColorClassNameForTheme(theme_color) {
 }
 
 /**
- * Get theme className for common (i.e. used by multiple components) 
- * form-submit-button element's background color with hover and focus 
+ * Get theme className for common (i.e. used by multiple components)
+ * form-submit-button element's background color with hover and focus
  * (background color is brighter theme, while hover/focus background color is
  * standard theme)
  *
@@ -1156,7 +1155,8 @@ export function getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme
 	theme_color
 ) {
 	return (
-		" js-get-common-form-submit-button-color-with-hover-focus-theme-" + theme_color
+		" js-get-common-form-submit-button-color-with-hover-focus-theme-" +
+		theme_color
 	);
 }
 
@@ -1224,7 +1224,8 @@ export function getCommonFormInputFocusBorderColorClassNameForThemeWithLightOrDa
 	return (
 		(dark_mode
 			? " js-get-common-form-input-focus-border-color-mode-dark-theme-"
-			: " js-get-common-form-input-focus-border-color-mode-light-theme-") + theme_color
+			: " js-get-common-form-input-focus-border-color-mode-light-theme-") +
+		theme_color
 	);
 }
 
@@ -1285,7 +1286,7 @@ export function getCommonTopBarSearchContainerBorderBackgroundTextColorClassName
 }
 
 /**
- * Get theme with light/dark mode className for ListViewTopBar Component's 
+ * Get theme with light/dark mode className for ListViewTopBar Component's
  * 'centering-container__new-item-button--tutorial' (className) element's
  * border color
  *
@@ -1295,8 +1296,8 @@ export function getCommonTopBarSearchContainerBorderBackgroundTextColorClassName
  * 	"blue-sky"|
  * 	"blue-turquoise"|
  * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Theme with light/dark mode className for ListViewTopBar 
- * component's 'centering-container__new-item-button--tutorial' (className) 
+ * @returns {string} Theme with light/dark mode className for ListViewTopBar
+ * component's 'centering-container__new-item-button--tutorial' (className)
  * element's border color
  */
 export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode(
@@ -1312,7 +1313,7 @@ export function getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLi
 }
 
 /**
- * Get theme with light/dark mode className for ListViewTopBar 
+ * Get theme with light/dark mode className for ListViewTopBar
  * 'new-item-tutorial-container' element's border, arrow, and text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not

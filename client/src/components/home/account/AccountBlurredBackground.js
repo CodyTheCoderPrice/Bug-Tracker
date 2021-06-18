@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
 // Component uses container names to work with the redux state
 import { setWhichAccountComponentsDisplay } from "../../../actions";
-import { getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode } from "../../../utils";
+import { getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode } from "../../../utils";
 
 
 /**
@@ -39,11 +39,11 @@ export default function AccountBlurredBackground() {
 				"account-modals-blurred-backdrop-component" +
 				(reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar
 					? " account-modals-blurred-backdrop-component--below-navbar" +
-					  getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+					  getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 							true,
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  )
-					: getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+					: getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 							false,
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  ))

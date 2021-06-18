@@ -10,9 +10,9 @@ import {
 	clearBackendErrors,
 } from "../../../actions";
 import {
-	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
+	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
@@ -90,7 +90,7 @@ export default function AccountModalEditPassword() {
 					<span
 						className={
 							"form__char-counter" +
-							getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+							getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -118,7 +118,7 @@ export default function AccountModalEditPassword() {
 				<span
 					className={
 						"backend-errors" +
-						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -139,7 +139,7 @@ export default function AccountModalEditPassword() {
 					<span
 						className={
 							"form__char-counter" +
-							getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+							getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -166,7 +166,7 @@ export default function AccountModalEditPassword() {
 				<span
 					className={
 						"backend-errors" +
-						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -187,7 +187,7 @@ export default function AccountModalEditPassword() {
 				<span
 					className={
 						"backend-errors" +
-						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

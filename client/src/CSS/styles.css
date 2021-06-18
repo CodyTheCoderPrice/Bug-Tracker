@@ -297,9 +297,9 @@ dropdown can overlap all other components
   padding-left: 20px;
 }
 .navbar-breadcrumb-component .breadcrumb-button__text,
-.navbar-breadcrumb-component .js-get-navbar-breadcrumb-button-text,
+.navbar-breadcrumb-component .js-get-navbar-breadcrumb-component-button-text-element,
 .js-get-navbar-breadcrumb-component .breadcrumb-button__text,
-.js-get-navbar-breadcrumb-component .js-get-navbar-breadcrumb-button-text {
+.js-get-navbar-breadcrumb-component .js-get-navbar-breadcrumb-component-button-text-element {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -348,9 +348,9 @@ dropdown can overlap all other components
   width: 20px;
 }
 .navbar-breadcrumb-component .breadcrumb-button__end-container__arrow,
-.navbar-breadcrumb-component .js-get-navbar-breadcrumb-button-end-container-arrow,
+.navbar-breadcrumb-component .js-get-navbar-breadcrumb-component-button-end-container-arrow-element,
 .js-get-navbar-breadcrumb-component .breadcrumb-button__end-container__arrow,
-.js-get-navbar-breadcrumb-component .js-get-navbar-breadcrumb-button-end-container-arrow {
+.js-get-navbar-breadcrumb-component .js-get-navbar-breadcrumb-component-button-end-container-arrow-element {
   z-index: 6;
   position: absolute;
   top: -2px;
@@ -416,9 +416,9 @@ dropdown can overlap all other components
   width: 100vw;
 }
 .navbar-hamburger-component .hamburger-button-container,
-.navbar-hamburger-component .js-get-navbar-hamburger-button-container,
+.navbar-hamburger-component .js-get-navbar-hamburger-component-button-container-element,
 .js-get-navbar-hamburger-component .hamburger-button-container,
-.js-get-navbar-hamburger-component .js-get-navbar-hamburger-button-container {
+.js-get-navbar-hamburger-component .js-get-navbar-hamburger-component-button-container-element {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -558,9 +558,9 @@ dropdown can overlap all other components
   color: #fc1e1e;
 }
 .navbar-hamburger-component .hamburger-title,
-.navbar-hamburger-component .js-get-navbar-hamburger-title,
+.navbar-hamburger-component .js-get-navbar-hamburger-component-title-element,
 .js-get-navbar-hamburger-component .hamburger-title,
-.js-get-navbar-hamburger-component .js-get-navbar-hamburger-title {
+.js-get-navbar-hamburger-component .js-get-navbar-hamburger-component-title-element {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -1084,9 +1084,9 @@ dropdown can overlap all other components
   width: 85vw;
 }
 .item-view-component .padding-container,
-.item-view-component .js-get-item-view-padding-container,
+.item-view-component .js-get-item-view-component-padding-container-element,
 .js-get-item-view-component .padding-container,
-.js-get-item-view-component .js-get-item-view-padding-container {
+.js-get-item-view-component .js-get-item-view-component-padding-container-element {
   padding: 0px 25px 25px 25px;
 }
 .item-view-component .name-completed-color,
@@ -1110,9 +1110,9 @@ dropdown can overlap all other components
   width: 100%;
 }
 .item-view-component .outer-dividing-container,
-.item-view-component .js-get-item-view-outer-dividing-container,
+.item-view-component .js-get-item-view-component-outer-dividing-container-element,
 .js-get-item-view-component .outer-dividing-container,
-.js-get-item-view-component .js-get-item-view-outer-dividing-container {
+.js-get-item-view-component .js-get-item-view-component-outer-dividing-container-element {
   float: left;
   width: 100%;
   min-width: 560px;
@@ -2598,9 +2598,9 @@ dropdown can overlap all other components
   min-width: 1100px;
 }
 .list-view-table-component .list-table__row,
-.list-view-table-component .js-get-list-view-table-row,
+.list-view-table-component .js-get-list-view-table-component-row-element,
 .js-get-list-view-table-component .list-table__row,
-.js-get-list-view-table-component .js-get-list-view-table-row {
+.js-get-list-view-table-component .js-get-list-view-table-component-row-element {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -2765,28 +2765,28 @@ body {
   width: 100%;
   color: black;
 }
-.app-component .js-get-common-strong-text-color-dark-mode-false,
-.js-get-app-component .js-get-common-strong-text-color-dark-mode-false {
+.app-component .js-get-common-element-strong-text-color-dark-mode-false,
+.js-get-app-component .js-get-common-element-strong-text-color-dark-mode-false {
   color: black;
 }
-.app-component .js-get-common-strong-text-color-dark-mode-true,
-.js-get-app-component .js-get-common-strong-text-color-dark-mode-true {
+.app-component .js-get-common-element-strong-text-color-dark-mode-true,
+.js-get-app-component .js-get-common-element-strong-text-color-dark-mode-true {
   color: #c7d1db;
 }
-.app-component .js-get-common-weak-text-color-dark-mode-false,
-.js-get-app-component .js-get-common-weak-text-color-dark-mode-false {
+.app-component .js-get-common-element-weak-text-color-dark-mode-false,
+.js-get-app-component .js-get-common-element-weak-text-color-dark-mode-false {
   color: #272727;
 }
-.app-component .js-get-common-weak-text-color-dark-mode-true,
-.js-get-app-component .js-get-common-weak-text-color-dark-mode-true {
+.app-component .js-get-common-element-weak-text-color-dark-mode-true,
+.js-get-app-component .js-get-common-element-weak-text-color-dark-mode-true {
   color: #c1cad4;
 }
-.app-component .js-get-common-backend-errors-text-color-dark-mode-false,
-.js-get-app-component .js-get-common-backend-errors-text-color-dark-mode-false {
+.app-component .js-get-common-element-backend-errors-text-color-dark-mode-false,
+.js-get-app-component .js-get-common-element-backend-errors-text-color-dark-mode-false {
   color: #ff0000;
 }
-.app-component .js-get-common-backend-errors-text-color-dark-mode-true,
-.js-get-app-component .js-get-common-backend-errors-text-color-dark-mode-true {
+.app-component .js-get-common-element-backend-errors-text-color-dark-mode-true,
+.js-get-app-component .js-get-common-element-backend-errors-text-color-dark-mode-true {
   color: #e21b1b;
 }
 .app-component .js-get-common-char-count-limit-reached-text-color-dark-mode-false,

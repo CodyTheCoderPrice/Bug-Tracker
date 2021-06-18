@@ -11,10 +11,10 @@ import {
 import { clearBackendErrors } from "../../../actions";
 
 import {
-	getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode,
+	getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getDeleteModalBackgroundColorClassNameForLightOrDarkMode,
 	getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode,
-	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDarkMode,
 	getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
@@ -64,7 +64,7 @@ export default function DeleteModal(props) {
 			<div
 				className={
 					"blurred-backdrop" +
-					getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+					getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 						props.clickToCloseBlurredBackground,
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
@@ -110,7 +110,7 @@ export default function DeleteModal(props) {
 				<span
 					className={
 						"backend-errors" +
-						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

@@ -23,7 +23,7 @@
 	}
 
 	.list-table__row,
-	.js-get-list-view-table-row {
+	.js-get-list-view-table-component-row-element {
 		@include m.stop-text-selection();
 		
 		border-bottom: 1px solid v.$mode-list-view-table-row-border-color-light;

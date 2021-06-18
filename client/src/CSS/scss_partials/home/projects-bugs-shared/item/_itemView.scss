@@ -26,7 +26,7 @@
 	// Must be a seperate div inside .item-content-container so the padding
 	// ...does not affect the resize so it goes beyond the modal
 	.padding-container,
-	.js-get-item-view-padding-container {
+	.js-get-item-view-component-padding-container-element {
 		padding: 0px 25px 25px 25px;
 	}
 
@@ -53,7 +53,7 @@
 
 	// Seperates item-boxs
 	.outer-dividing-container,
-	.js-get-item-view-outer-dividing-container {
+	.js-get-item-view-component-outer-dividing-container-element {
 		float: left;
 		width: 100%;
 		min-width: v.$item-view-outer-dividing-container-min-width;

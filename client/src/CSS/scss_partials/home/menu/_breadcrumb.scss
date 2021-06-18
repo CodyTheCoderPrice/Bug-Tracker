@@ -29,7 +29,7 @@
 	}
 
 	.breadcrumb-button__text,
-	.js-get-navbar-breadcrumb-button-text {
+	.js-get-navbar-breadcrumb-component-button-text-element {
 		@include m.stop-text-selection();
 
 		position: relative;
@@ -72,7 +72,7 @@
 	}
 
 	.breadcrumb-button__end-container__arrow,
-	.js-get-navbar-breadcrumb-button-end-container-arrow {
+	.js-get-navbar-breadcrumb-component-button-end-container-arrow-element {
 		// Must have higher z-index than border-arrow below
 		z-index: 6;
 		position: absolute;

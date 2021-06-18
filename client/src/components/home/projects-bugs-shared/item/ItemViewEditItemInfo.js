@@ -21,8 +21,8 @@ import {
 	manageSizeOfItemBoxsInPairContainer,
 	getItemViewEditItemInfoFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
-	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
-	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getCommonWeakTextColorClassNameForLightOrDarkMode,
 	getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
@@ -239,7 +239,7 @@ export default function ItemViewEditItemInfo(props) {
 								"name-centering-container__char-count-centering-container__name-char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
 								itemInfo.name.length
-									? getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+									? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									  )
 									: "")
@@ -254,7 +254,7 @@ export default function ItemViewEditItemInfo(props) {
 				<span
 					className={
 						"backend-errors backend-errors--item-name" +
-						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -299,7 +299,7 @@ export default function ItemViewEditItemInfo(props) {
 								"item-box__form-char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants
 									.descriptionCharLimit < itemInfo.description.length
-									? getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+									? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									  )
 									: "")
@@ -326,7 +326,7 @@ export default function ItemViewEditItemInfo(props) {
 						<span
 							className={
 								"backend-errors" +
-								getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -370,7 +370,7 @@ export default function ItemViewEditItemInfo(props) {
 										"item-box__form-char-counter" +
 										(reduxState[GENERAL_CONTAINER].globalConstants
 											.locationCharLimit < itemInfo.location.length
-											? getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+											? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
 											: "")
@@ -398,7 +398,7 @@ export default function ItemViewEditItemInfo(props) {
 								<span
 									className={
 										"backend-errors" +
-										getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+										getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -555,7 +555,7 @@ export default function ItemViewEditItemInfo(props) {
 			<span
 				className={
 					"backend-errors backend-errors--edit-item" +
-					getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}

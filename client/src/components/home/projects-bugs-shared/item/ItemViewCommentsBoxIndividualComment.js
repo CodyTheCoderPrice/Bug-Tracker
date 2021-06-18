@@ -19,8 +19,8 @@ import {
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode,
-	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
-	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
@@ -181,7 +181,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								"item-box__form-char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants
 									.descriptionCharLimit < commentInfo.description.length
-									? getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+									? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									  )
 									: "")
@@ -226,7 +226,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 						<span
 							className={
 								"backend-errors backend-errors--edit-comment" +
-								getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}

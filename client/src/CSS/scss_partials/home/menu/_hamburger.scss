@@ -17,7 +17,7 @@
 	}
 
 	.hamburger-button-container,
-	.js-get-navbar-hamburger-button-container {
+	.js-get-navbar-hamburger-component-button-container-element {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -151,7 +151,7 @@
 	}
 
 	.hamburger-title,
-	.js-get-navbar-hamburger-title {
+	.js-get-navbar-hamburger-component-title-element {
 		@include m.stop-text-selection();
 
 		position: absolute;

@@ -15,7 +15,7 @@ import {
 
 import {
 	getElementSize,
-	getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode,
+	getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	switchToProjectsListView,
 	switchToProjectsItemView,
@@ -172,7 +172,7 @@ export default function NavbarHamburger() {
 					<div
 						className={
 							"blurred-backdrop" +
-							getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+							getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 								true,
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)

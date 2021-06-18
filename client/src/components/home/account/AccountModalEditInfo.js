@@ -11,9 +11,9 @@ import {
 	clearBackendErrors,
 } from "../../../actions";
 import {
-	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
+	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
@@ -126,7 +126,7 @@ export default function AccountModalEditInfo() {
 					<span
 						className={
 							"form__char-counter" +
-							getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+							getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -154,7 +154,7 @@ export default function AccountModalEditInfo() {
 				<span
 					className={
 						"backend-errors" +
-						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -172,7 +172,7 @@ export default function AccountModalEditInfo() {
 					<span
 						className={
 							"form__char-counter" +
-							getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+							getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -199,7 +199,7 @@ export default function AccountModalEditInfo() {
 				<span
 					className={
 						"backend-errors" +
-						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -223,7 +223,7 @@ export default function AccountModalEditInfo() {
 				<span
 					className={
 						"backend-errors" +
-						getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}

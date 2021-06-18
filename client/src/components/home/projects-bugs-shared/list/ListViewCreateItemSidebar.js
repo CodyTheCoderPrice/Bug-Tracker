@@ -17,13 +17,13 @@ import {
 
 import {
 	getCommonStatusTextColorClassName,
-	getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode,
+	getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode,
-	getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
-	getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode,
+	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode,
 	getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode,
 	getPriorityOptionsForSelect,
@@ -150,7 +150,7 @@ export default function ListViewCreateItemSidebar(props) {
 			<div
 				className={
 					"blurred-backdrop" +
-					getCommonBlurredBackdropBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+					getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 						false,
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
@@ -170,7 +170,7 @@ export default function ListViewCreateItemSidebar(props) {
 				<div
 					className={
 						"x-button" +
-						getCommonIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+						getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -212,7 +212,7 @@ export default function ListViewCreateItemSidebar(props) {
 								"form__char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
 								itemInfo.name.length
-									? getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+									? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									  )
 									: "")
@@ -240,7 +240,7 @@ export default function ListViewCreateItemSidebar(props) {
 						<span
 							className={
 								"backend-errors" +
-								getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -255,7 +255,7 @@ export default function ListViewCreateItemSidebar(props) {
 								"form__char-counter" +
 								(reduxState[GENERAL_CONTAINER].globalConstants
 									.descriptionCharLimit < itemInfo.description.length
-									? getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+									? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									  )
 									: "")
@@ -282,7 +282,7 @@ export default function ListViewCreateItemSidebar(props) {
 						<span
 							className={
 								"backend-errors" +
-								getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -302,7 +302,7 @@ export default function ListViewCreateItemSidebar(props) {
 										"form__char-counter" +
 										(reduxState[GENERAL_CONTAINER].globalConstants
 											.locationCharLimit < itemInfo.location.length
-											? getCommonCharCountLimitReachedTextColorClassNameForLightOrDarkMode(
+											? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
 											: "")
@@ -330,7 +330,7 @@ export default function ListViewCreateItemSidebar(props) {
 								<span
 									className={
 										"backend-errors" +
-										getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+										getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -495,7 +495,7 @@ export default function ListViewCreateItemSidebar(props) {
 						<span
 							className={
 								"backend-errors" +
-								getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}

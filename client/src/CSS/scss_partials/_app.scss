@@ -15,31 +15,31 @@ body {
 	//=================
 	// Light/Dark mode
 	//=================
-	// Light/Dark mode -- Common (i.e. used by multiple components) -- strong (i.e. more distinct) text color
-	.js-get-common-strong-text-color-dark-mode-false {
+	// Light/Dark mode -- Common (i.e. used by multiple components) element -- strong (i.e. more distinct) text color
+	.js-get-common-element-strong-text-color-dark-mode-false {
 		color: v.$mode-common-strong-text-color-light;
 	}
-	.js-get-common-strong-text-color-dark-mode-true {
+	.js-get-common-element-strong-text-color-dark-mode-true {
 		color: v.$mode-common-strong-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) -- weak (i.e. less distinct) text color
-	.js-get-common-weak-text-color-dark-mode-false {
+	// Light/Dark mode -- Common (i.e. used by multiple components) element -- weak (i.e. less distinct) text color
+	.js-get-common-element-weak-text-color-dark-mode-false {
 		color: v.$mode-common-weak-text-color-light;
 	}
-	.js-get-common-weak-text-color-dark-mode-true {
+	.js-get-common-element-weak-text-color-dark-mode-true {
 		color: v.$mode-common-weak-text-color-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) 'backend-errors' -- text color
-	.js-get-common-backend-errors-text-color-dark-mode-false {
+	.js-get-common-element-backend-errors-text-color-dark-mode-false {
 		color: v.$mode-common-backend-errors-text-color-light;
 	}
-	.js-get-common-backend-errors-text-color-dark-mode-true {
+	.js-get-common-element-backend-errors-text-color-dark-mode-true {
 		color: v.$mode-common-backend-errors-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) char-count (when limit is reached) -- text color
+	// Light/Dark mode -- Common (i.e. used by multiple components) char-count -- text color (when limit is reached)
 	.js-get-common-char-count-limit-reached-text-color-dark-mode-false {
 		color: v.$mode-common-char-count-limit-reached-text-color-light;
 	}

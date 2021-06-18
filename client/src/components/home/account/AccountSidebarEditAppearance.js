@@ -8,7 +8,7 @@ import {
 import { updateAccountSettings } from "../../../actions";
 import {
 	getCommonStandardBackgroundColorClassNameForTheme,
-	getCommonBackendErrorsTextColorClassNameForLightOrDarkMode,
+	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 // Other components used by this component
 import ToggleSwitch from "../../basic/ToggleSwitch";
@@ -121,7 +121,7 @@ export default function AccountSidebarEditAppearance() {
 			<span
 				className={
 					"backend-errors" +
-					getCommonBackendErrorsTextColorClassNameForLightOrDarkMode(
+					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}
