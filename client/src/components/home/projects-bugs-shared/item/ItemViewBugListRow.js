@@ -5,7 +5,7 @@ import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames"
 
 import {
 	getCommonStatusBackgroundColorClassName,
-	getCommonWeakTextColorClassNameForLightOrDarkMode,
+	getCommonWeakElementTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 export default function ItemViewBugListRow(props) {
@@ -27,7 +27,7 @@ export default function ItemViewBugListRow(props) {
 		<tr
 			className={
 				"bug-list-table__row" +
-				getCommonWeakTextColorClassNameForLightOrDarkMode(
+				getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}

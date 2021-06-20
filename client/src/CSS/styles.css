@@ -2789,58 +2789,58 @@ body {
 .js-get-app-component .js-get-common-element-backend-errors-text-color-dark-mode-true {
   color: #e21b1b;
 }
-.app-component .js-get-common-char-count-limit-reached-text-color-dark-mode-false,
-.js-get-app-component .js-get-common-char-count-limit-reached-text-color-dark-mode-false {
+.app-component .js-get-common-char-count-element-limit-reached-text-color-dark-mode-false,
+.js-get-app-component .js-get-common-char-count-element-limit-reached-text-color-dark-mode-false {
   color: #ff0000;
 }
-.app-component .js-get-common-char-count-limit-reached-text-color-dark-mode-true,
-.js-get-app-component .js-get-common-char-count-limit-reached-text-color-dark-mode-true {
+.app-component .js-get-common-char-count-element-limit-reached-text-color-dark-mode-true,
+.js-get-app-component .js-get-common-char-count-element-limit-reached-text-color-dark-mode-true {
   color: #e21b1b;
 }
-.app-component .js-get-common-blurred-backdrop-background-color-and-opacity-dark-mode-false,
-.js-get-app-component .js-get-common-blurred-backdrop-background-color-and-opacity-dark-mode-false {
+.app-component .js-get-common-blurred-backdrop-element-background-color-and-opacity-dark-mode-false,
+.js-get-app-component .js-get-common-blurred-backdrop-element-background-color-and-opacity-dark-mode-false {
   background-color: black;
   opacity: 0.8;
 }
-.app-component .js-get-common-blurred-backdrop-background-color-and-opacity-dark-mode-true,
-.js-get-app-component .js-get-common-blurred-backdrop-background-color-and-opacity-dark-mode-true {
+.app-component .js-get-common-blurred-backdrop-element-background-color-and-opacity-dark-mode-true,
+.js-get-app-component .js-get-common-blurred-backdrop-element-background-color-and-opacity-dark-mode-true {
   background-color: black;
   opacity: 0.6;
 }
-.app-component .js-get-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-false,
-.js-get-app-component .js-get-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-false {
+.app-component .js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-false,
+.js-get-app-component .js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-false {
   background-color: black;
   opacity: 0.6;
 }
-.app-component .js-get-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-true,
-.js-get-app-component .js-get-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-true {
+.app-component .js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-true,
+.js-get-app-component .js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-true {
   background-color: black;
   opacity: 0.4;
 }
-.app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-false,
-.js-get-app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-false {
+.app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false,
+.js-get-app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false {
   color: #7c7c7c;
 }
-.app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-false:hover, .app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-false:active,
-.js-get-app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-false:hover,
-.js-get-app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-false:active {
+.app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false:hover, .app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false:active,
+.js-get-app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false:hover,
+.js-get-app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false:active {
   color: #3a3a3a;
 }
-.app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-true,
-.js-get-app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-true {
+.app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-true,
+.js-get-app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-true {
   color: #6d6d6d;
 }
-.app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-true:hover, .app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-true:active,
-.js-get-app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-true:hover,
-.js-get-app-component .js-get-common-icon-button-text-color-with-hover-dark-mode-true:active {
+.app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-true:hover, .app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-true:active,
+.js-get-app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-true:hover,
+.js-get-app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-true:active {
   color: #a3a3a3;
 }
-.app-component .js-get-common-grayed-out-text-color-dark-mode-false,
-.js-get-app-component .js-get-common-grayed-out-text-color-dark-mode-false {
+.app-component .js-get-common-element-grayed-out-text-color-dark-mode-false,
+.js-get-app-component .js-get-common-element-grayed-out-text-color-dark-mode-false {
   color: #7c7c7c;
 }
-.app-component .js-get-common-grayed-out-text-color-dark-mode-true,
-.js-get-app-component .js-get-common-grayed-out-text-color-dark-mode-true {
+.app-component .js-get-common-element-grayed-out-text-color-dark-mode-true,
+.js-get-app-component .js-get-common-element-grayed-out-text-color-dark-mode-true {
   color: #6d6d6d;
 }
 .app-component .js-get-common-form-input-border-background-text-color-dark-mode-false,

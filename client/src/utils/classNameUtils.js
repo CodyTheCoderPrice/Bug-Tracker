@@ -267,7 +267,7 @@ export function getCommonElementStrongTextColorClassNameForLightOrDarkMode(dark_
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common weak text color
  */
-export function getCommonWeakTextColorClassNameForLightOrDarkMode(dark_mode) {
+export function getCommonWeakElementTextColorClassNameForLightOrDarkMode(dark_mode) {
 	return " js-get-common-element-weak-text-color-dark-mode-" + dark_mode;
 }
 
@@ -297,13 +297,14 @@ export function getCommonCharCountElementLimitReachedTextColorClassNameForLightO
 	dark_mode
 ) {
 	return (
-		" js-get-common-char-count-limit-reached-text-color-dark-mode-" + dark_mode
+		" js-get-common-char-count-element-limit-reached-text-color-dark-mode-" + dark_mode
 	);
 }
 
 /**
  * Get light/dark mode className for common (i.e. used by multiple components)
- * blurred backdrop element's background color and opacity
+ * blurred backdrop element's background color and opacity (will be different
+ * CSS depending on if the backdrop has clickToClose functionality)
  *
  * @param {boolean} clickToClose - Whether the blurred-background element will
  * close if clicked
@@ -316,10 +317,10 @@ export function getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNam
 	dark_mode
 ) {
 	return (
-		// Click-to-close blurred-background elements have different css
+		// Click-to-close blurred-background elements have different CSS
 		(clickToClose
-			? " js-get-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-"
-			: " js-get-common-blurred-backdrop-background-color-and-opacity-dark-mode-") +
+			? " js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-"
+			: " js-get-common-blurred-backdrop-element-background-color-and-opacity-dark-mode-") +
 		dark_mode
 	);
 }
@@ -336,7 +337,7 @@ export function getCommonIconButtonElementTextColorWithHoverClassNameForLightOrD
 	dark_mode
 ) {
 	return (
-		" js-get-common-icon-button-text-color-with-hover-dark-mode-" + dark_mode
+		" js-get-common-icon-button-element-text-color-with-hover-dark-mode-" + dark_mode
 	);
 }
 
@@ -348,10 +349,10 @@ export function getCommonIconButtonElementTextColorWithHoverClassNameForLightOrD
  * @returns {string} Light/dark mode className for common element's (grayed out)
  * text color
  */
-export function getCommonGrayedOutTextColorClassNameForLightOrDarkMode(
+export function getCommonElementGrayedOutTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-get-common-grayed-out-text-color-dark-mode-" + dark_mode;
+	return " js-get-common-element-grayed-out-text-color-dark-mode-" + dark_mode;
 }
 
 /**

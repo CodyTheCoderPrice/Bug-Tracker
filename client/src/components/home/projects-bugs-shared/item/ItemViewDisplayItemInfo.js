@@ -10,7 +10,7 @@ import {
 	manageSizeOfItemBoxsInPairContainer,
 	getCommonStatusBackgroundColorClassName,
 	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
-	getCommonWeakTextColorClassNameForLightOrDarkMode,
+	getCommonWeakElementTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	displayGrayedOutAlternativeWhenValueIsEmpty,
 	formatDateMMddYYYY,
@@ -92,7 +92,7 @@ export default function ItemViewDisplayItemInfo(props) {
 				<div
 					className={
 						"item-creation-date" +
-						getCommonWeakTextColorClassNameForLightOrDarkMode(
+						getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -118,7 +118,7 @@ export default function ItemViewDisplayItemInfo(props) {
 						<span
 							className={
 								"item-box__description" +
-								getCommonWeakTextColorClassNameForLightOrDarkMode(
+								getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -150,7 +150,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getCommonWeakTextColorClassNameForLightOrDarkMode(
+										getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -172,7 +172,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getCommonWeakTextColorClassNameForLightOrDarkMode(
+										getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -194,7 +194,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getCommonWeakTextColorClassNameForLightOrDarkMode(
+										getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -216,7 +216,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getCommonWeakTextColorClassNameForLightOrDarkMode(
+										getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -240,7 +240,7 @@ export default function ItemViewDisplayItemInfo(props) {
 								<span
 									className={
 										"item-box__group__field_content" +
-										getCommonWeakTextColorClassNameForLightOrDarkMode(
+										getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}

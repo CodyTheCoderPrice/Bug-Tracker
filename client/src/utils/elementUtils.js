@@ -2,7 +2,7 @@
 import React from "react";
 import {
 	isEmpty,
-	getCommonGrayedOutTextColorClassNameForLightOrDarkMode,
+	getCommonElementGrayedOutTextColorClassNameForLightOrDarkMode,
 } from "./index";
 
 /**
@@ -59,7 +59,7 @@ export function displayGrayedOutAlternativeWhenValueIsEmpty(
 	if (isEmpty(value)) {
 		return (
 			<span
-				className={getCommonGrayedOutTextColorClassNameForLightOrDarkMode(
+				className={getCommonElementGrayedOutTextColorClassNameForLightOrDarkMode(
 					dark_mode
 				)}
 			>

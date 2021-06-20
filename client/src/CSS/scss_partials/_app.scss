@@ -31,7 +31,7 @@ body {
 		color: v.$mode-common-weak-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) 'backend-errors' -- text color
+	// Light/Dark mode -- Common (i.e. used by multiple components) 'backend-errors' element -- text color
 	.js-get-common-element-backend-errors-text-color-dark-mode-false {
 		color: v.$mode-common-backend-errors-text-color-light;
 	}
@@ -39,36 +39,36 @@ body {
 		color: v.$mode-common-backend-errors-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) char-count -- text color (when limit is reached)
-	.js-get-common-char-count-limit-reached-text-color-dark-mode-false {
+	// Light/Dark mode -- Common (i.e. used by multiple components) char-count element -- text color (when limit is reached)
+	.js-get-common-char-count-element-limit-reached-text-color-dark-mode-false {
 		color: v.$mode-common-char-count-limit-reached-text-color-light;
 	}
-	.js-get-common-char-count-limit-reached-text-color-dark-mode-true {
+	.js-get-common-char-count-element-limit-reached-text-color-dark-mode-true {
 		color: v.$mode-common-char-count-limit-reached-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) blurred backdrop -- background color and opacity
-	.js-get-common-blurred-backdrop-background-color-and-opacity-dark-mode-false {
+	// Light/Dark mode -- Common (i.e. used by multiple components) blurred backdrop element -- background color and opacity
+	.js-get-common-blurred-backdrop-element-background-color-and-opacity-dark-mode-false {
 		background-color: v.$mode-common-blurred-backdrop-background-color-light;
 		opacity: v.$mode-common-blurred-backdrop-opacity-light;
 	}
-	.js-get-common-blurred-backdrop-background-color-and-opacity-dark-mode-true {
+	.js-get-common-blurred-backdrop-element-background-color-and-opacity-dark-mode-true {
 		background-color: v.$mode-common-blurred-backdrop-background-color-dark;
 		opacity: v.$mode-common-blurred-backdrop-opacity-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) blurred backdrop (with click-to-close functionality) -- background color and opacity
-	.js-get-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-false {
+	// Light/Dark mode -- Common (i.e. used by multiple components) blurred backdrop element -- background color and opacity (with click-to-close functionality)
+	.js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-false {
 		background-color: v.$mode-common-blurred-backdrop-background-color-light;
 		opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-light;
 	}
-	.js-get-common-blurred-backdrop-click-to-close-background-color-and-opacity-dark-mode-true {
+	.js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-true {
 		background-color: v.$mode-common-blurred-backdrop-background-color-dark;
 		opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) icon-buttons -- text color with hover
-	.js-get-common-icon-button-text-color-with-hover-dark-mode-false {
+	// Light/Dark mode -- Common (i.e. used by multiple components) icon-buttons element -- text color with hover
+	.js-get-common-icon-button-element-text-color-with-hover-dark-mode-false {
 		color: v.$mode-common-icon-button-text-color-light;
 
 		&:hover,
@@ -76,7 +76,7 @@ body {
 			color: v.$mode-common-icon-button-hover-text-color-light;
 		}
 	}
-	.js-get-common-icon-button-text-color-with-hover-dark-mode-true {
+	.js-get-common-icon-button-element-text-color-with-hover-dark-mode-true {
 		color: v.$mode-common-icon-button-text-color-dark;
 
 		&:hover,
@@ -85,11 +85,11 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) -- (grayed out) text color
-	.js-get-common-grayed-out-text-color-dark-mode-false {
+	// Light/Dark mode -- Common (i.e. used by multiple components) element -- (grayed out) text color
+	.js-get-common-element-grayed-out-text-color-dark-mode-false {
 		color: v.$mode-common-grayed-out-text-color-light;
 	}
-	.js-get-common-grayed-out-text-color-dark-mode-true {
+	.js-get-common-element-grayed-out-text-color-dark-mode-true {
 		color: v.$mode-common-grayed-out-text-color-dark;
 	}
 
