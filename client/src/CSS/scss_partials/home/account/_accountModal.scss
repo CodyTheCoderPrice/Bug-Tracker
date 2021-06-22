@@ -2,6 +2,10 @@
 @use "../../utils/mixins" as m;
 
 .account-modal-component {
+	// account-modal exists rather then apply CSS to account-modal-component
+	// ...to allow for a blurred-backdrop element to exist inside component.
+	// ...blurred-backdrop no longer in component as it was abstract outside of it,
+	// ...but keeping sidebar-container encase it gets moved back into component.
 	.account-modal {
 		// Must be more than accountBlurredBackgorund.scss
 		z-index: 4;

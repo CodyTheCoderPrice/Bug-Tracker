@@ -2843,210 +2843,210 @@ body {
 .js-get-app-component .js-get-common-element-grayed-out-text-color-dark-mode-true {
   color: #6d6d6d;
 }
-.app-component .js-get-common-form-input-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-get-common-form-input-border-background-text-color-dark-mode-false {
+.app-component .js-get-common-element-form-input-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-get-common-element-form-input-border-background-text-color-dark-mode-false {
   border-color: #757575;
   background-color: #e5e5e5;
   color: black;
 }
-.app-component .js-get-common-form-input-border-background-text-color-dark-mode-true,
-.js-get-app-component .js-get-common-form-input-border-background-text-color-dark-mode-true {
+.app-component .js-get-common-element-form-input-border-background-text-color-dark-mode-true,
+.js-get-app-component .js-get-common-element-form-input-border-background-text-color-dark-mode-true {
   border-color: black;
   background-color: #484848;
   color: #c7d1db;
 }
-.app-component .js-common-set-top-bar-border-and-background-color-dark-mode-false,
-.js-get-app-component .js-common-set-top-bar-border-and-background-color-dark-mode-false {
+.app-component .js-get-common-top-bar-component-border-and-background-color-dark-mode-false,
+.js-get-app-component .js-get-common-top-bar-component-border-and-background-color-dark-mode-false {
   border-color: black;
   background-color: #e5e5e5;
 }
-.app-component .js-common-set-top-bar-border-and-background-color-dark-mode-true,
-.js-get-app-component .js-common-set-top-bar-border-and-background-color-dark-mode-true {
+.app-component .js-get-common-top-bar-component-border-and-background-color-dark-mode-true,
+.js-get-app-component .js-get-common-top-bar-component-border-and-background-color-dark-mode-true {
   border-color: black;
   background-color: #232323;
 }
-.app-component .js-get-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-get-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-false {
+.app-component .js-get-common-top-bar-component-button-and-dropdown-element-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-get-common-top-bar-component-button-and-dropdown-element-border-background-text-color-dark-mode-false {
   border-color: black;
   background-color: white;
   color: black;
 }
-.app-component .js-get-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-true,
-.js-get-app-component .js-get-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-true {
+.app-component .js-get-common-top-bar-component-button-and-dropdown-element-border-background-text-color-dark-mode-true,
+.js-get-app-component .js-get-common-top-bar-component-button-and-dropdown-element-border-background-text-color-dark-mode-true {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
   color: #c7d1db;
 }
-.app-component .js-get-home-background-and-text-color-dark-mode-false,
-.js-get-app-component .js-get-home-background-and-text-color-dark-mode-false {
+.app-component .js-get-home-component-background-and-text-color-dark-mode-false,
+.js-get-app-component .js-get-home-component-background-and-text-color-dark-mode-false {
   background-color: white;
   color: black;
 }
-.app-component .js-get-home-background-and-text-color-dark-mode-true,
-.js-get-app-component .js-get-home-background-and-text-color-dark-mode-true {
+.app-component .js-get-home-component-background-and-text-color-dark-mode-true,
+.js-get-app-component .js-get-home-component-background-and-text-color-dark-mode-true {
   background-color: #2e2e2e;
   color: #c7d1db;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false {
   background-color: white;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option {
   border-color: #a3a3a3;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:hover, .app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:active,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:hover,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:active {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:hover, .app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:active,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:hover,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option:active {
   background-color: #f8f8f8;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
   color: #4e4e4e;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected {
   background-color: #9de0ff;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:hover, .app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:active,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:hover,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:active {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:hover, .app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:active,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:hover,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--selected:active {
   background-color: #9de0ff;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--item-name,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--item-name {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--item-name,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__option--item-name {
   color: #0000ff;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true {
   background-color: #2e2e2e;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option {
   border-color: #555555;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:hover, .app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:active,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:hover,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:active {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:hover, .app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:active,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:hover,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option:active {
   background-color: #3a3a3a;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option > .hamburger-dropdown__option__icon {
   color: #636363;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected {
   background-color: #123f63;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:hover, .app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:active,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:hover,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:active {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:hover, .app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:active,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:hover,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--selected:active {
   background-color: #123f63;
 }
-.app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--item-name,
-.js-get-app-component .js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--item-name {
+.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--item-name,
+.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__option--item-name {
   color: #00e1ff;
 }
-.app-component .js-get-account-sidebar-background-color-dark-mode-false,
-.js-get-app-component .js-get-account-sidebar-background-color-dark-mode-false {
+.app-component .js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-false,
+.js-get-app-component .js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-false {
   background-color: white;
 }
-.app-component .js-get-account-sidebar-background-color-dark-mode-true,
-.js-get-app-component .js-get-account-sidebar-background-color-dark-mode-true {
+.app-component .js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-true,
+.js-get-app-component .js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-true {
   background-color: #2e2e2e;
 }
-.app-component .js-get-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false,
-.js-get-app-component .js-get-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false {
+.app-component .js-get-account-sidebar-component-horizontal-dividing-line-element-border-color-dark-mode-false,
+.js-get-app-component .js-get-account-sidebar-component-horizontal-dividing-line-element-border-color-dark-mode-false {
   border-color: #b1b1b1;
 }
-.app-component .js-get-account-sidebar-horizontal-dividing-line-border-color-dark-mode-true,
-.js-get-app-component .js-get-account-sidebar-horizontal-dividing-line-border-color-dark-mode-true {
+.app-component .js-get-account-sidebar-component-horizontal-dividing-line-element-border-color-dark-mode-true,
+.js-get-app-component .js-get-account-sidebar-component-horizontal-dividing-line-element-border-color-dark-mode-true {
   border-color: #636363;
 }
-.app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-false,
-.js-get-app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-false {
+.app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-false,
+.js-get-app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-false {
   border-color: #b1b1b1;
 }
-.app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-false:hover, .app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-false:active,
-.js-get-app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-false:hover,
-.js-get-app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-false:active {
+.app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-false:hover, .app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-false:active,
+.js-get-app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-false:hover,
+.js-get-app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-false:active {
   background-color: #fbfbfb;
 }
-.app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-true,
-.js-get-app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-true {
+.app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-true,
+.js-get-app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-true {
   border-color: #636363;
 }
-.app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:hover, .app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:active,
-.js-get-app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:hover,
-.js-get-app-component .js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-true:active {
+.app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-true:hover, .app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-true:active,
+.js-get-app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-true:hover,
+.js-get-app-component .js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-true:active {
   background-color: #3a3a3a;
 }
-.app-component .js-get-account-modal-background-color-dark-mode-false,
-.js-get-app-component .js-get-account-modal-background-color-dark-mode-false {
+.app-component .js-get-account-modal-component-modal-element-background-color-dark-mode-false,
+.js-get-app-component .js-get-account-modal-component-modal-element-background-color-dark-mode-false {
   background-color: white;
 }
-.app-component .js-get-account-modal-background-color-dark-mode-true,
-.js-get-app-component .js-get-account-modal-background-color-dark-mode-true {
+.app-component .js-get-account-modal-component-modal-element-background-color-dark-mode-true,
+.js-get-app-component .js-get-account-modal-component-modal-element-background-color-dark-mode-true {
   background-color: #2e2e2e;
 }
-.app-component .js-get-account-modal-delete-account-capital-delete-text-color-dark-mode-false,
-.js-get-app-component .js-get-account-modal-delete-account-capital-delete-text-color-dark-mode-false {
+.app-component .js-get-account-modal-delete-account-component-capital-delete-element-text-color-dark-mode-false,
+.js-get-app-component .js-get-account-modal-delete-account-component-capital-delete-element-text-color-dark-mode-false {
   color: #ff0000;
 }
-.app-component .js-get-account-modal-delete-account-capital-delete-text-color-dark-mode-true,
-.js-get-app-component .js-get-account-modal-delete-account-capital-delete-text-color-dark-mode-true {
+.app-component .js-get-account-modal-delete-account-component-capital-delete-element-text-color-dark-mode-true,
+.js-get-app-component .js-get-account-modal-delete-account-component-capital-delete-element-text-color-dark-mode-true {
   color: #e21b1b;
 }
-.app-component .js-get-account-modal-delete-account-form-input-focus-border-color-dark-mode-false:focus,
-.js-get-app-component .js-get-account-modal-delete-account-form-input-focus-border-color-dark-mode-false:focus {
+.app-component .js-get-account-modal-delete-account-component-form-input-element-focus-border-color-dark-mode-false:focus,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-input-element-focus-border-color-dark-mode-false:focus {
   border-color: #e95454;
 }
-.app-component .js-get-account-modal-delete-account-form-input-focus-border-color-dark-mode-true:focus,
-.js-get-app-component .js-get-account-modal-delete-account-form-input-focus-border-color-dark-mode-true:focus {
+.app-component .js-get-account-modal-delete-account-component-form-input-element-focus-border-color-dark-mode-true:focus,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-input-element-focus-border-color-dark-mode-true:focus {
   border-color: #a11414;
 }
-.app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false,
-.js-get-app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false {
+.app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-false,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-false {
   background-color: #e95454;
 }
-.app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:hover, .app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:active, .app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:focus,
-.js-get-app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:hover,
-.js-get-app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:active,
-.js-get-app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false:focus {
+.app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-false:hover, .app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-false:active, .app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-false:focus,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-false:hover,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-false:active,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-false:focus {
   background-color: #d44141;
 }
-.app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true,
-.js-get-app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true {
+.app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-true,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-true {
   background-color: #bb4444;
 }
-.app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:hover, .app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:active, .app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:focus,
-.js-get-app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:hover,
-.js-get-app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:active,
-.js-get-app-component .js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true:focus {
+.app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-true:hover, .app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-true:active, .app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-true:focus,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-true:hover,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-true:active,
+.js-get-app-component .js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-true:focus {
   background-color: #a83c3c;
 }
-.app-component .js-get-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-get-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false {
+.app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-false {
   border-color: black;
 }
-.app-component .js-get-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false > .category-container__heading,
-.js-get-app-component .js-get-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false > .category-container__heading {
+.app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-false > .category-container__heading,
+.js-get-app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-false > .category-container__heading {
   background-color: white;
 }
-.app-component .js-get-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container,
-.js-get-app-component .js-get-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false > .category-container__content-container {
+.app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-false > .category-container__content-container,
+.js-get-app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-false > .category-container__content-container {
   color: #272727;
 }
-.app-component .js-get-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true,
-.js-get-app-component .js-get-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true {
+.app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-true,
+.js-get-app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-true {
   border-color: #a9a9a9;
 }
-.app-component .js-get-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__heading,
-.js-get-app-component .js-get-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__heading {
+.app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-true > .category-container__heading,
+.js-get-app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-true > .category-container__heading {
   background-color: #2e2e2e;
 }
-.app-component .js-get-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__content-container,
-.js-get-app-component .js-get-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true > .category-container__content-container {
+.app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-true > .category-container__content-container,
+.js-get-app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-true > .category-container__content-container {
   color: #c1cad4;
 }
 .app-component .js-get-create-item-sidebar-background-color-dark-mode-false,

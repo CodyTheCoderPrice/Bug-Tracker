@@ -8,13 +8,13 @@ import {
 	setWhichAccountComponentsDisplay,
 } from "../../../actions";
 import {
-	getAccountSidebarBackgroundColorClassNameForLightOrDarkMode,
+	getAccountSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
 	formatDateMMddYYYY,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
-	getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode,
-	getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassNameForLightOrDarkMode,
+	getAccountSidebarComponentHorizontalDividingLineElementBorderColorClassNameForLightOrDarkMode,
+	getAccountSidebarComponentLogoutButtonElementBorderHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 import { useSidebarResize } from "../../../utils/hooks";
 // Other components used by this component
@@ -75,7 +75,7 @@ export default function AccountSidebar() {
 			<div
 				className={
 					"sidebar-container js-account-sidebar-container" +
-					getAccountSidebarBackgroundColorClassNameForLightOrDarkMode(
+					getAccountSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}
@@ -131,7 +131,7 @@ export default function AccountSidebar() {
 					<div
 						className={
 							"horizontal-dividing-line" +
-							getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode(
+							getAccountSidebarComponentHorizontalDividingLineElementBorderColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -140,7 +140,7 @@ export default function AccountSidebar() {
 					<div
 						className={
 							"horizontal-dividing-line horizontal-dividing-line--half-top-margin" +
-							getAccountSidebarHorizontalDividingLineBorderColorClassNameForLightOrDarkMode(
+							getAccountSidebarComponentHorizontalDividingLineElementBorderColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -149,7 +149,7 @@ export default function AccountSidebar() {
 						<div
 							className={
 								"button-container__logout-button" +
-								getAccountSidebarLogoutButtonBorderHoverBackgroundColorClassNameForLightOrDarkMode(
+								getAccountSidebarComponentLogoutButtonElementBorderHoverBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}

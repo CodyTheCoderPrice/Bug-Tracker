@@ -16,9 +16,9 @@ import {
 
 import {
 	getUpdatedFilterArray,
-	getCommonTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode,
+	getCommonTopBarComponentBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode,
-	getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
@@ -109,7 +109,7 @@ export default function ListViewTopBar(props) {
 		<div
 			className={
 				"list-view-top-bar-component" +
-				getCommonTopBarBorderAndBackgroundColorClassNameForLightOrDarkMode(
+				getCommonTopBarComponentBorderAndBackgroundColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)
 			}
@@ -118,7 +118,7 @@ export default function ListViewTopBar(props) {
 				<div
 					className={
 						"centering-container__new-item-button" +
-						getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						((props.reduxContainerName === PROJECT_CONTAINER &&
@@ -182,7 +182,7 @@ export default function ListViewTopBar(props) {
 				<div
 					className={
 						"filter-area-container__button" +
-						getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
@@ -224,7 +224,7 @@ export default function ListViewTopBar(props) {
 				<div
 					className={
 						"filter-area-container__dropdown" +
-						getCommonTopBarButtonAndDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
+						getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(props.reduxContainerName === BUG_CONTAINER

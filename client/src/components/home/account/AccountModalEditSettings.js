@@ -10,7 +10,7 @@ import {
 	updateAccountSettings,
 } from "../../../actions";
 import {
-	getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getAccountModalEditSettingsComponentCategoryContainerElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
@@ -91,7 +91,7 @@ export default function AccountModalEditSettings() {
 			<div
 				className={
 					"category-container" +
-					getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
+					getAccountModalEditSettingsComponentCategoryContainerElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}
@@ -155,7 +155,7 @@ export default function AccountModalEditSettings() {
 			<div
 				className={
 					"category-container" +
-					getAccountModalEditSettingsCategoryContainerBorderBackgroundTextColorClassNameForLightOrDarkMode(
+					getAccountModalEditSettingsComponentCategoryContainerElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}

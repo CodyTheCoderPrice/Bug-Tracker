@@ -2,6 +2,10 @@
 @use "../../utils/mixins" as m;
 
 .account-sidebar-component {
+	// sidebar-container exists rather then apply CSS to account-sidebar-component
+	// ...to allow for a blurred-backdrop element to exist inside component.
+	// ...blurred-backdrop no longer in component as it was abstract outside of it,
+	// ...but keeping sidebar-container encase it gets moved back into component.
 	.sidebar-container {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;

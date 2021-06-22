@@ -4,7 +4,7 @@ import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
 // Component uses container names to work with the redux state
 import { setWhichAccountComponentsDisplay } from "../../../actions";
 import {
-	getAccountModalBackgroundColorClassNameForLightOrDarkMode,
+	getAccountModalComponentModalElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
 	setTrueForOnlyAccountSidebar,
@@ -71,7 +71,7 @@ export default function AccountModal() {
 			<div
 				className={
 					"account-modal" +
-					getAccountModalBackgroundColorClassNameForLightOrDarkMode(
+					getAccountModalComponentModalElementBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}

@@ -16,7 +16,7 @@ import {
 import {
 	getElementSize,
 	getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode,
-	getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getNavbarHamburgerComponentDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	switchToProjectsListView,
 	switchToProjectsItemView,
 	SwitchToBugsListView,
@@ -181,7 +181,7 @@ export default function NavbarHamburger() {
 					<div
 						className={
 							"hamburger-dropdown js-hamburger-dropdown" +
-							getNavbarHamburgerDropdownBorderBackgroundTextColorClassNameForLightOrDarkMode(
+							getNavbarHamburgerComponentDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

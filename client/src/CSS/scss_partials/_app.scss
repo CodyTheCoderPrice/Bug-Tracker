@@ -94,51 +94,51 @@ body {
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) form input element -- border, background, and text color
-	.js-get-common-form-input-border-background-text-color-dark-mode-false {
+	.js-get-common-element-form-input-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-form-input-border-color-light;
 		background-color: v.$mode-common-form-input-background-color-light;
 		color: v.$mode-common-strong-text-color-light;
 	}
-	.js-get-common-form-input-border-background-text-color-dark-mode-true {
+	.js-get-common-element-form-input-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-common-form-input-border-color-dark;
 		background-color: v.$mode-common-form-input-background-color-dark;
 		color: v.$mode-common-strong-text-color-dark;
 	}
 
 	// Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar 'list-view-top-bar-component'
-	// ...and ItemViewTopBar 'item-vew-top-bar-component' -- border and background color
-	.js-common-set-top-bar-border-and-background-color-dark-mode-false {
+	// ...and ItemViewTopBar 'item-vew-top-bar-component' component -- border and background color
+	.js-get-common-top-bar-component-border-and-background-color-dark-mode-false {
 		border-color: v.$mode-common-top-bar-border-color-light;
 		background-color: v.$mode-common-top-bar-background-color-light;
 	}
-	.js-common-set-top-bar-border-and-background-color-dark-mode-true {
+	.js-get-common-top-bar-component-border-and-background-color-dark-mode-true {
 		border-color: v.$mode-common-top-bar-border-color-dark;
 		background-color: v.$mode-common-top-bar-background-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar/ItemViewTopBar buttons and dropdowns -- border, background, and text color
-	.js-get-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-false {
+	// Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar/ItemViewTopBar component's buttons and dropdowns element-- border, background, and text color
+	.js-get-common-top-bar-component-button-and-dropdown-element-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-light;
 		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-light;
 		color: v.$mode-common-top-bar-button-and-dropdown-text-color-light;
 	}
-	.js-get-common-top-bar-button-and-dropdown-border-background-text-color-dark-mode-true {
+	.js-get-common-top-bar-component-button-and-dropdown-element-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-dark;
 		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-dark;
 		color: v.$mode-common-top-bar-button-and-dropdown-text-color-dark;
 	}
 
-	// Light/Dark mode -- Home 'home-container' -- background and text colors
-	.js-get-home-background-and-text-color-dark-mode-false {
+	// Light/Dark mode -- Home 'home-container' component -- background and text colors
+	.js-get-home-component-background-and-text-color-dark-mode-false {
 		background-color: v.$mode-home-background-color-light;
 		color: v.$mode-home-text-color-light;
 	}
-	.js-get-home-background-and-text-color-dark-mode-true {
+	.js-get-home-component-background-and-text-color-dark-mode-true {
 		background-color: v.$mode-home-background-color-dark;
 		color: v.$mode-home-text-color-dark;
 	}
 
-	// Light/Dark mode -- NavbarHamburger dropdown -- border, background (with hover and selected), and text color
+	// Light/Dark mode -- NavbarHamburger component's 'hamburger-dropdown' element's -- border, background (with hover and selected), and text color
 	@mixin mode-hamburger-dropdown($is-light) {
 		@if $is-light {
 			background-color: v.$mode-navbar-hamburger-dropdown-background-color-light;
@@ -196,31 +196,31 @@ body {
 			}
 		}
 	}
-	.js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-false {
+	.js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false {
 		@include mode-hamburger-dropdown($is-light: true);
 	}
-	.js-get-navbar-hamburger-dropdown-border-background-text-color-dark-mode-true {
+	.js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true {
 		@include mode-hamburger-dropdown($is-light: false);
 	}
 
-	// Light/Dark mode -- AccountSidebar 'sidebar-container' -- background color
-	.js-get-account-sidebar-background-color-dark-mode-false {
+	// Light/Dark mode -- AccountSidebar component 'sidebar-container' element -- background color
+	.js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-false {
 		background-color: v.$mode-account-sidebar-background-color-light;
 	}
-	.js-get-account-sidebar-background-color-dark-mode-true {
+	.js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-true {
 		background-color: v.$mode-account-sidebar-background-color-dark;
 	}
 
-	// Light/Dark mode -- AccountSidebar horizontal-dividing-line -- border color
-	.js-get-account-sidebar-horizontal-dividing-line-border-color-dark-mode-false {
+	// Light/Dark mode -- AccountSidebar component 'horizontal-dividing-line' element -- border color
+	.js-get-account-sidebar-component-horizontal-dividing-line-element-border-color-dark-mode-false {
 		border-color: v.$mode-account-sidebar-horizontal-dividing-line-border-color-light;
 	}
-	.js-get-account-sidebar-horizontal-dividing-line-border-color-dark-mode-true {
+	.js-get-account-sidebar-component-horizontal-dividing-line-element-border-color-dark-mode-true {
 		border-color: v.$mode-account-sidebar-horizontal-dividing-line-border-color-dark;
 	}
 
-	// Light/Dark mode -- AccountSidebar logout-button -- border and hover background color
-	.js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-false {
+	// Light/Dark mode -- AccountSidebar component 'button-container__logout-button' element -- border and hover background color
+	.js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-false {
 		border-color: v.$mode-account-sidebar-logout-button-border-color-light;
 
 		&:hover,
@@ -228,7 +228,7 @@ body {
 			background-color: v.$mode-account-sidebar-logout-button-hover-background-color-light;
 		}
 	}
-	.js-get-account-sidebar-logout-button-border-hover-background-color-dark-mode-true {
+	.js-get-account-sidebar-component-logout-button-element-border-hover-background-color-dark-mode-true {
 		border-color: v.$mode-account-sidebar-logout-button-border-color-dark;
 
 		&:hover,
@@ -237,36 +237,36 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- AccountModal 'account-modal' -- background color
-	.js-get-account-modal-background-color-dark-mode-false {
+	// Light/Dark mode -- AccountModal component 'account-modal' element -- background color
+	.js-get-account-modal-component-modal-element-background-color-dark-mode-false {
 		background-color: v.$mode-account-modal-background-color-light;
 	}
-	.js-get-account-modal-background-color-dark-mode-true {
+	.js-get-account-modal-component-modal-element-background-color-dark-mode-true {
 		background-color: v.$mode-account-modal-background-color-dark;
 	}
 
-	// Light/Dark mode -- AccountModalDeleteAccount capital-delete -- text color
-	.js-get-account-modal-delete-account-capital-delete-text-color-dark-mode-false {
+	// Light/Dark mode -- AccountModalDeleteAccount component 'form__label__captial-delete' element -- text color
+	.js-get-account-modal-delete-account-component-capital-delete-element-text-color-dark-mode-false {
 		color: v.$mode-account-modal-delete-account-capital-delete-text-color-light;
 	}
-	.js-get-account-modal-delete-account-capital-delete-text-color-dark-mode-true {
+	.js-get-account-modal-delete-account-component-capital-delete-element-text-color-dark-mode-true {
 		color: v.$mode-account-modal-delete-account-capital-delete-text-color-dark;
 	}
 
-	// Light/Dark mode -- AccountModalDeleteAccount form input element -- focus background color
-	.js-get-account-modal-delete-account-form-input-focus-border-color-dark-mode-false {
+	// Light/Dark mode -- AccountModalDeleteAccount component 'form__input-text' element -- focus background color
+	.js-get-account-modal-delete-account-component-form-input-element-focus-border-color-dark-mode-false {
 		&:focus {
 			border-color: v.$mode-account-modal-delete-account-form-input-focus-border-color-light;
 		}
 	}
-	.js-get-account-modal-delete-account-form-input-focus-border-color-dark-mode-true {
+	.js-get-account-modal-delete-account-component-form-input-element-focus-border-color-dark-mode-true {
 		&:focus {
 			border-color: v.$mode-account-modal-delete-account-form-input-focus-border-color-dark;
 		}
 	}
 
-	// Light/Dark mode -- AccountModalDeleteAccount form-submit button -- background (with hover) color
-	.js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-false {
+	// Light/Dark mode -- AccountModalDeleteAccount component 'form__submit--delete' element -- background (with hover) color
+	.js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-false {
 		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-light;
 
 		&:hover,
@@ -275,7 +275,7 @@ body {
 			background-color: v.$mode-account-modal-delete-account-form-delete-button-hover-background-color-light;
 		}
 	}
-	.js-get-account-modal-delete-account-form-submit-button-background-color-dark-mode-true {
+	.js-get-account-modal-delete-account-component-form-submit-element-background-color-dark-mode-true {
 		background-color: v.$mode-account-modal-delete-account-form-delete-button-background-color-dark;
 
 		&:hover,
@@ -285,8 +285,8 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- AccountModalEditSettings category container -- border, background, text color
-	.js-get-account-modal-edit-settings-category-container-border-background-text-color-dark-mode-false {
+	// Light/Dark mode -- AccountModalEditSettings component 'category-container' element -- border, background, text color
+	.js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-account-modal-change-settings-category-container-border-color-light;
 
 		& > .category-container__heading {
@@ -297,7 +297,7 @@ body {
 			color: v.$mode-common-weak-text-color-light;
 		}
 	}
-	.js-get-account-modal-change-settings-category-container-border-background-text-color-dark-mode-true {
+	.js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-account-modal-change-settings-category-container-border-color-dark;
 
 		& > .category-container__heading {
