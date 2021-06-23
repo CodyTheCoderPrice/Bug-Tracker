@@ -412,7 +412,7 @@ export function getCommonTopBarComponentButtonAndDropdownElementBorderBackground
 }
 
 /**
- * Get light/dark mode className for Home component's 'home-container'
+ * Get light/dark mode className for Home component's 'home-component'
  * (className) element's background and text colors.
  *
  * Note: Since child elements inherit text color, any elements intented to
@@ -587,6 +587,54 @@ export function getAccountModalEditSettingsComponentCategoryContainerElementBord
 }
 
 /**
+ * Get light/dark mode className for CreateItemSidebar component's 
+ * 'sidebar-container' (className) element's background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for CreateItemSidebar component's 
+ * 'sidebar-container' (className) element's background color
+ */
+ export function getCreateItemSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-get-create-item-sidebar-component-sidebar-container-element-background-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className to make CreateItemSidebar component's 
+ * 'form__group-container__input-container__label' (className) element disabled
+ * (i.e. no pointer events and grayed out text color)
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className to make CreateItemSidebar 
+ * component's 'form__group-container__input-container__label' (className) 
+ * element disabled (i.e. no pointer events and grayed out text color)
+ */
+export function getCreateItemSidebarComponentLabelElementDisabledClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-get-create-item-sidebar-component-label-element-diabled-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className to make CreateItemSidebar component's
+ * 'form__group-container__input-container__date' (className) element disabled
+ * (i.e. no pointer events and grayed out text color)
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className to make CreateItemSidebar 
+ * component's 'form__group-container__input-container__date' (className) 
+ * element disabled (i.e. no pointer events and grayed out text color)
+ */
+export function getCreateItemSidebarComponentInputDateElementDisabledClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-create-item-sidebar-component-input-date-element-diabled-input-date-dark-mode-" + dark_mode
+	);
+}
+
+/**
  * Get light/dark mode className for ListViewTable component's
  * 'list-table__row__header' (className) element's box shadow and background
  * color
@@ -596,187 +644,154 @@ export function getAccountModalEditSettingsComponentCategoryContainerElementBord
  * 'list-table__row__header' (className) element's box shadow and background
  * color
  */
-export function getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+export function getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-list-view-table-row-header-box-shadow-and-background-color-dark-mode-" +
+		" js-get-list-view-table-component-row-header-element-box-shadow-and-background-color-dark-mode-" +
 		dark_mode
 	);
 }
 
 /**
- * Get light/dark mode className for ListViewTableItemRow component's
- * 'list-table__row' (className) element's border, background, and text colors
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ListViewTableItemRow
- * component's 'list-table__row' (className) element's border, background, and
- * text colors
- */
-export function getListViewTableItemRowBorderAndTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-get-list-view-table-item-row-border-background-text-color-dark-mode-" +
-		dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for ListViewTableItemRow component's
- * 'list-table__row' (className) element's hover background color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ListViewTableItemRow
- * component's 'list-table__row' (className) element's hover background color
- */
-export function getListViewTableItemRowHoverBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-get-list-view-table-item-row-hover-background-color-dark-mode-" +
-		dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for ListViewTableItemRow component's
- * 'list-table__row' (className) element's selected (i.e item for row is equal
- * to 'itemViewCurrentItem' property in 'componentsDisplay' Object in project/bug
- * container of the redux state) background color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ListViewTableItemRow component's
- * 'list-table__row' (className) element's selected background color
- */
-export function getListViewTableItemRowSelectedBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-get-list-view-table-item-row-selected-background-color-dark-mode-" +
-		dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for ListView empty-list-message element's text
+ * Get light/dark mode className for ListView Component's 
+ * 'empty-list-message-centering-container__message' (className) element's text
  * color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ListView empty-list-message
- * element's text color
+ * @returns {string} Light/dark mode className for ListView Component's 
+ * 'empty-list-message-centering-container__message' element's text color
  */
-export function getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode(
+ export function getListViewComponentEmptyListMessageElementTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-list-view-empty-list-message-text-color-dark-mode-" + dark_mode
+		" js-get-list-view-component-empty-list-message-element-text-color-dark-mode-" + dark_mode
 	);
 }
 
 /**
- * Get light/dark mode className for CreateItemSidebar element's background color
+ * Get light/dark mode className for ListViewTableItemRow component's
+ * 'list-view-table-item-row-component' (className) element's border, 
+ * background, and text colors
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for CreateItemSidebar element's
- * background color
+ * @returns {string} Light/dark mode className for ListViewTableItemRow
+ * component's 'list-view-table-item-row-component' (className) element's 
+ * border, background, and text colors
  */
-export function getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-get-create-item-sidebar-background-color-dark-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for CreateItemSidebar form-label element's
- * disabled text color with no pointer events
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for CreateItemSidebar form-label
- * element's disabled text color with no pointer events
- */
-export function getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-get-create-item-sidebar-diabled-label-dark-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for CreateItemSidebar form input (type date)
- * element's disabled background and text color with no pointer events
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for CreateItemSidebar
- * form input (type date) element's disabled background and text color with no pointer
- * events
- */
-export function getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
+export function getListViewTableItemRowComponentBorderAndTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-create-item-sidebar-diabled-input-date-dark-mode-" + dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for DeleteModal element's background color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for DeleteModal element's
- * background color
- */
-export function getDeleteModalBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-get-delete-modal-background-color-dark-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for DeleteModal delete-button element's
- * background (with hover) color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for DeleteModal delete-button
- * element's background (with hover) color
- */
-export function getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-get-delete-modal-delete-button-background-color-dark-mode-" + dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for DeleteModal cancel-button element's
- * border, background (with hover), text color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for DeleteModal cancel-button
- * element's border, background (with hover), text color
- */
-export function getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-" +
+		" js-get-list-view-table-item-row-component-border-background-text-color-dark-mode-" +
 		dark_mode
 	);
 }
 
 /**
- * Get light/dark mode className for DeleteModal warning-trapazoid element's
- * border color
+ * Get light/dark mode className for ListViewTableItemRow component's
+ * 'list-view-table-item-row-component' (className) element's hover background 
+ * color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for DeleteModal
- * warning-trapazoid element's border color
+ * @returns {string} Light/dark mode className for ListViewTableItemRow 
+ * component's 'list-view-table-item-row-component' (className) element's hover 
+ * background color
  */
-export function getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode(
+export function getListViewTableItemRowComponentHoverBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-get-delete-modal-trapazoid-border-color-dark-mode-" + dark_mode;
+	return (
+		" js-get-list-view-table-item-row-component-hover-background-color-dark-mode-" +
+		dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for ListViewTableItemRow component's
+ * 'list-view-table-item-row-component' (className) element's selected (i.e.
+ * component's item prop is equal to 'itemViewCurrentItem' property in 
+ * 'componentsDisplay' Object in project/bug container of the redux state) 
+ * background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ListViewTableItemRow 
+ * component's 'list-view-table-item-row-component' (className) element's 
+ * selected background color
+ */
+export function getListViewTableItemRowComponentSelectedBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-list-view-table-item-row-component-selected-background-color-dark-mode-" +
+		dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for DeleteModal component's 'modal-container'
+ * (className) element's background color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for DeleteModal component's
+ * 'modal-container' (className) element's background color
+ */
+export function getDeleteModalComponentModalContainerElementBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-get-delete-modal-component-modal-container-element-background-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for DeleteModal component's 'warning-trapazoid' 
+ * (className) element's border color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for DeleteModal component's
+ * 'warning-trapazoid' (className) element's border color
+ */
+ export function getDeleteModalComponentTrapazoidElementBorderColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-get-delete-modal-component-trapazoid-element-border-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for DeleteModal component's
+ * 'centered-buttons-container__button' (className) element's background (with 
+ * hover) color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for  DeleteModal component's
+ * 'centered-buttons-container__button' (className) element's background (with 
+ * hover) color
+ */
+export function getDeleteModalComponentDeleteButtonElementBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-delete-modal-component-delete-button-element-background-color-dark-mode-" + dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for DeleteModal component's 
+ * 'centered-buttons-container__button--cancel' (className) element's border,
+ * background (with hover), text color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for DeleteModal component's
+ * 'centered-buttons-container__button--cancel' (className) element's border,
+ * background (with hover), text color
+ */
+export function getDeleteModalComponentCancelButtonElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-" +
+		dark_mode
+	);
 }
 
 /**

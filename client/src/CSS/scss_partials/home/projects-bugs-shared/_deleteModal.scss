@@ -18,7 +18,7 @@
 		opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-light;
 	}
 
-	.delete-modal {
+	.modal-container {
 		// Must be the same or more than listViewTopBar.scss & itemViewTopBar.scss
 		// ...and itemView.scss
 		z-index: 2;
@@ -34,11 +34,11 @@
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
-	.delete-modal--comment-height {
+	.modal-container--comment-height {
 		height: 165px;
 	}
 	
-	.warning-trapazoid-background {
+	.warning-trapazoid {
 		@include m.horizontal-center();
 
 		top: 0px;

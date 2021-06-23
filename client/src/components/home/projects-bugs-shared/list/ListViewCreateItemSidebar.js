@@ -18,14 +18,14 @@ import {
 import {
 	getCommonStatusTextColorClassName,
 	getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode,
-	getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode,
+	getCreateItemSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode,
-	getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode,
+	getCreateItemSidebarComponentLabelElementDisabledClassNameForLightOrDarkMode,
+	getCreateItemSidebarComponentInputDateElementDisabledClassNameForLightOrDarkMode,
 	getPriorityOptionsForSelect,
 	getStatusOptionsForSelectWithStatusColors,
 	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
@@ -159,7 +159,7 @@ export default function ListViewCreateItemSidebar(props) {
 			<div
 				className={
 					"sidebar-container js-create-item-sidebar-container" +
-					getCreateItemSidebarBackgroundColorClassNameForLightOrDarkMode(
+					getCreateItemSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
 					(props.reduxContainerName === BUG_CONTAINER
@@ -395,7 +395,7 @@ export default function ListViewCreateItemSidebar(props) {
 										(itemInfo.status_id !==
 										reduxState[props.reduxContainerName].priorityStatusOptions
 											.statusCompletionId
-											? getCreateItemSidebarDisabledLabelClassNameForLightOrDarkMode(
+											? getCreateItemSidebarComponentLabelElementDisabledClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
 											: "")
@@ -418,7 +418,7 @@ export default function ListViewCreateItemSidebar(props) {
 										(itemInfo.status_id !==
 										reduxState[props.reduxContainerName].priorityStatusOptions
 											.statusCompletionId
-											? getCreateItemSidebarDisableInputDateClassNameForLightOrDarkMode(
+											? getCreateItemSidebarComponentInputDateElementDisabledClassNameForLightOrDarkMode(
 													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											  )
 											: "")

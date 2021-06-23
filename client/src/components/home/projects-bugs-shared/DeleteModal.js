@@ -12,11 +12,11 @@ import { clearBackendErrors } from "../../../actions";
 
 import {
 	getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode,
-	getDeleteModalBackgroundColorClassNameForLightOrDarkMode,
-	getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode,
+	getDeleteModalComponentModalContainerElementBackgroundColorClassNameForLightOrDarkMode,
+	getDeleteModalComponentTrapazoidElementBorderColorClassNameForLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDarkMode,
-	getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getDeleteModalComponentDeleteButtonElementBackgroundColorClassNameForLightOrDarkMode,
+	getDeleteModalComponentCancelButtonElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 
 export default function DeleteModal(props) {
@@ -75,8 +75,8 @@ export default function DeleteModal(props) {
 			/>
 			<div
 				className={
-					"delete-modal" +
-					getDeleteModalBackgroundColorClassNameForLightOrDarkMode(
+					"modal-container" +
+					getDeleteModalComponentModalContainerElementBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
 					(reduxState[PROJECT_CONTAINER].componentsDisplay
@@ -87,14 +87,14 @@ export default function DeleteModal(props) {
 						false &&
 					reduxState[BUG_CONTAINER].componentsDisplay.itemViewDeleteModal ===
 						false
-						? " delete-modal--comment-height"
+						? " modal-container--comment-height"
 						: "")
 				}
 			>
 				<div
 					className={
-						"warning-trapazoid-background" +
-						getDeleteModalTrapazoidBorderColorClassNameForLightOrDarkMode(
+						"warning-trapazoid" +
+						getDeleteModalComponentTrapazoidElementBorderColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
@@ -122,7 +122,7 @@ export default function DeleteModal(props) {
 					<div
 						className={
 							"centered-buttons-container__button" +
-							getDeleteModalDeleteButtonBackgroundColorClassNameForLightOrDarkMode(
+							getDeleteModalComponentDeleteButtonElementBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -135,7 +135,7 @@ export default function DeleteModal(props) {
 					<div
 						className={
 							"centered-buttons-container__button centered-buttons-container__button--cancel" +
-							getDeleteModalCancelButtonBorderBackgroundTextColorClassNameForLightOrDarkMode(
+							getDeleteModalComponentCancelButtonElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

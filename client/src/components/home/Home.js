@@ -238,7 +238,7 @@ export default function Home() {
 	return (
 		<div
 			className={
-				"home-container" +
+				"home-component" +
 				getHomeComponentBackgroundColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				)

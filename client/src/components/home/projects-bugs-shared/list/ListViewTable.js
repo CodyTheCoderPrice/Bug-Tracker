@@ -15,9 +15,9 @@ import {
 
 import {
 	getElementLocation,
-	getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
+	getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
 	getSearchedFilteredSortedList,
-	getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode,
+	getListViewComponentEmptyListMessageElementTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
@@ -181,7 +181,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__row__header list-table__row__header--for-mass-delete" +
-								getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+								getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -232,7 +232,7 @@ export default function ListViewTable(props) {
 										key={idx}
 										className={
 											"list-table__row__header" +
-											getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+											getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											)
 										}
@@ -256,7 +256,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__row__header" +
-								getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+								getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -270,7 +270,7 @@ export default function ListViewTable(props) {
 						<th
 							className={
 								"list-table__row__header js-remaining-space" +
-								getListViewTableHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+								getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -320,7 +320,7 @@ export default function ListViewTable(props) {
 					<div
 						className={
 							"empty-list-message-centering-container__message" +
-							getListViewEmptyListMessageTextColorClassNameForLightOrDarkMode(
+							getListViewComponentEmptyListMessageElementTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

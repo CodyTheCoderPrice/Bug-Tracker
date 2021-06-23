@@ -19,9 +19,9 @@ import {
 	getAlternativeWhenValueIsEmpty,
 	getCommonStatusBackgroundColorClassName,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
-	getListViewTableItemRowBorderAndTextColorClassNameForLightOrDarkMode,
-	getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode,
-	getItemViewListSidebarItemRowSelectedBackgroundColorClassNameForLightOrDarkMode,
+	getListViewTableItemRowComponentBorderAndTextColorClassNameForLightOrDarkMode,
+	getListViewTableItemRowComponentHoverBackgroundColorClassNameForLightOrDarkMode,
+	getListViewTableItemRowComponentSelectedBackgroundColorClassNameForLightOrDarkMode,
 	getNumberOfBugsForStatus,
 	getBugsInProjectList,
 } from "../../../../utils";
@@ -201,8 +201,8 @@ export default function ListViewTableItemRow(props) {
 	return (
 		<tr
 			className={
-				"list-table__row list-table__row--item-row" +
-				getListViewTableItemRowBorderAndTextColorClassNameForLightOrDarkMode(
+				"list-view-table-item-row-component" +
+				getListViewTableItemRowComponentBorderAndTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				) +
 				// Hover is else case since rows should only have hover if not selected
@@ -210,10 +210,10 @@ export default function ListViewTableItemRow(props) {
 					.itemViewCurrentItem !== null &&
 				reduxState[props.reduxContainerName].componentsDisplay
 					.itemViewCurrentItem.id === props.item.id
-					? getItemViewListSidebarItemRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+					? getListViewTableItemRowComponentSelectedBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  )
-					: getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode(
+					: getListViewTableItemRowComponentHoverBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  ))
 			}

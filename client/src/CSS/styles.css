@@ -212,7 +212,7 @@
   cursor: pointer;
 }
 
-.home-container {
+.home-component {
   position: absolute;
   top: 0;
   left: 0;
@@ -966,7 +966,7 @@ dropdown can overlap all other components
 .delete-modal-component .blurred-backdrop--click-to-close {
   opacity: 0.6;
 }
-.delete-modal-component .delete-modal {
+.delete-modal-component .modal-container {
   z-index: 2;
   position: fixed;
   top: 50%;
@@ -979,10 +979,10 @@ dropdown can overlap all other components
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }
-.delete-modal-component .delete-modal--comment-height {
+.delete-modal-component .modal-container--comment-height {
   height: 165px;
 }
-.delete-modal-component .warning-trapazoid-background {
+.delete-modal-component .warning-trapazoid {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -2620,8 +2620,26 @@ dropdown can overlap all other components
   height: 50px;
   text-align: center;
 }
-.list-view-table-component .list-table__row--item-row,
-.js-get-list-view-table-component .list-table__row--item-row {
+.list-view-table-component .list-view-table-item-row-component,
+.js-get-list-view-table-component .list-view-table-item-row-component {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  border-bottom: 1px solid #919191;
+  background-color: white;
+  padding: 0px 5px;
+  height: 50px;
+  text-align: center;
   color: #272727;
 }
 .list-view-table-component .list-table__row--empty,
@@ -3049,137 +3067,137 @@ body {
 .js-get-app-component .js-get-account-modal-edit-settings-component-category-container-element-border-background-text-color-dark-mode-true > .category-container__content-container {
   color: #c1cad4;
 }
-.app-component .js-get-create-item-sidebar-background-color-dark-mode-false,
-.js-get-app-component .js-get-create-item-sidebar-background-color-dark-mode-false {
+.app-component .js-get-create-item-sidebar-component-sidebar-container-element-background-color-dark-mode-false,
+.js-get-app-component .js-get-create-item-sidebar-component-sidebar-container-element-background-color-dark-mode-false {
   background-color: white;
 }
-.app-component .js-get-create-item-sidebar-background-color-dark-mode-true,
-.js-get-app-component .js-get-create-item-sidebar-background-color-dark-mode-true {
+.app-component .js-get-create-item-sidebar-component-sidebar-container-element-background-color-dark-mode-true,
+.js-get-app-component .js-get-create-item-sidebar-component-sidebar-container-element-background-color-dark-mode-true {
   background-color: #2e2e2e;
 }
-.app-component .js-get-create-item-sidebar-diabled-label-dark-mode-false,
-.js-get-app-component .js-get-create-item-sidebar-diabled-label-dark-mode-false {
+.app-component .js-get-create-item-sidebar-component-label-element-diabled-dark-mode-false,
+.js-get-app-component .js-get-create-item-sidebar-component-label-element-diabled-dark-mode-false {
   color: #bfbfbf;
   pointer-events: none;
 }
-.app-component .js-get-create-item-sidebar-diabled-label-dark-mode-true,
-.js-get-app-component .js-get-create-item-sidebar-diabled-label-dark-mode-true {
+.app-component .js-get-create-item-sidebar-component-label-element-diabled-dark-mode-true,
+.js-get-app-component .js-get-create-item-sidebar-component-label-element-diabled-dark-mode-true {
   color: #6d6d6d;
   pointer-events: none;
 }
-.app-component .js-get-create-item-sidebar-diabled-input-date-dark-mode-false,
-.js-get-app-component .js-get-create-item-sidebar-diabled-input-date-dark-mode-false {
+.app-component .js-get-create-item-sidebar-component-input-date-element-diabled-input-date-dark-mode-false,
+.js-get-app-component .js-get-create-item-sidebar-component-input-date-element-diabled-input-date-dark-mode-false {
   background-color: white;
   color: #6d6d6d;
   pointer-events: none;
 }
-.app-component .js-get-create-item-sidebar-diabled-input-date-dark-mode-true,
-.js-get-app-component .js-get-create-item-sidebar-diabled-input-date-dark-mode-true {
+.app-component .js-get-create-item-sidebar-component-input-date-element-diabled-input-date-dark-mode-true,
+.js-get-app-component .js-get-create-item-sidebar-component-input-date-element-diabled-input-date-dark-mode-true {
   background-color: #2e2e2e;
   color: #6d6d6d;
   pointer-events: none;
 }
-.app-component .js-get-list-view-table-row-header-box-shadow-and-background-color-dark-mode-false,
-.js-get-app-component .js-get-list-view-table-row-header-box-shadow-and-background-color-dark-mode-false {
+.app-component .js-get-list-view-table-component-row-header-element-box-shadow-and-background-color-dark-mode-false,
+.js-get-app-component .js-get-list-view-table-component-row-header-element-box-shadow-and-background-color-dark-mode-false {
   box-shadow: 0 1px 0 #919191;
   background-color: white;
 }
-.app-component .js-get-list-view-table-row-header-box-shadow-and-background-color-dark-mode-true,
-.js-get-app-component .js-get-list-view-table-row-header-box-shadow-and-background-color-dark-mode-true {
+.app-component .js-get-list-view-table-component-row-header-element-box-shadow-and-background-color-dark-mode-true,
+.js-get-app-component .js-get-list-view-table-component-row-header-element-box-shadow-and-background-color-dark-mode-true {
   box-shadow: 0 1px 0 #6d6d6d;
   background-color: #2e2e2e;
 }
-.app-component .js-get-list-view-table-item-row-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-get-list-view-table-item-row-border-background-text-color-dark-mode-false {
+.app-component .js-get-list-view-component-empty-list-message-element-text-color-dark-mode-false,
+.js-get-app-component .js-get-list-view-component-empty-list-message-element-text-color-dark-mode-false {
+  color: #757575;
+}
+.app-component .js-get-list-view-component-empty-list-message-element-text-color-dark-mode-true,
+.js-get-app-component .js-get-list-view-component-empty-list-message-element-text-color-dark-mode-true {
+  color: #80878d;
+}
+.app-component .js-get-list-view-table-item-row-component-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-get-list-view-table-item-row-component-border-background-text-color-dark-mode-false {
   border-color: #919191;
   background-color: white;
   color: #272727;
 }
-.app-component .js-get-list-view-table-item-row-border-background-text-color-dark-mode-true,
-.js-get-app-component .js-get-list-view-table-item-row-border-background-text-color-dark-mode-true {
+.app-component .js-get-list-view-table-item-row-component-border-background-text-color-dark-mode-true,
+.js-get-app-component .js-get-list-view-table-item-row-component-border-background-text-color-dark-mode-true {
   border-color: #6d6d6d;
   background-color: #2e2e2e;
   color: #c1cad4;
 }
-.app-component .js-get-list-view-table-item-row-hover-background-color-dark-mode-false:hover,
-.js-get-app-component .js-get-list-view-table-item-row-hover-background-color-dark-mode-false:hover {
+.app-component .js-get-list-view-table-item-row-component-hover-background-color-dark-mode-false:hover,
+.js-get-app-component .js-get-list-view-table-item-row-component-hover-background-color-dark-mode-false:hover {
   background-color: #f8f8f8;
 }
-.app-component .js-get-list-view-table-item-row-hover-background-color-dark-mode-true:hover,
-.js-get-app-component .js-get-list-view-table-item-row-hover-background-color-dark-mode-true:hover {
+.app-component .js-get-list-view-table-item-row-component-hover-background-color-dark-mode-true:hover,
+.js-get-app-component .js-get-list-view-table-item-row-component-hover-background-color-dark-mode-true:hover {
   background-color: #363636;
 }
-.app-component .js-get-list-view-table-item-row-selected-background-color-dark-mode-false,
-.js-get-app-component .js-get-list-view-table-item-row-selected-background-color-dark-mode-false {
+.app-component .js-get-list-view-table-item-row-component-selected-background-color-dark-mode-false,
+.js-get-app-component .js-get-list-view-table-item-row-component-selected-background-color-dark-mode-false {
   background-color: #e1e1e1;
 }
-.app-component .js-get-list-view-table-item-row-selected-background-color-dark-mode-true,
-.js-get-app-component .js-get-list-view-table-item-row-selected-background-color-dark-mode-true {
+.app-component .js-get-list-view-table-item-row-component-selected-background-color-dark-mode-true,
+.js-get-app-component .js-get-list-view-table-item-row-component-selected-background-color-dark-mode-true {
   background-color: #444444;
 }
-.app-component .js-get-delete-modal-background-color-dark-mode-false,
-.js-get-app-component .js-get-delete-modal-background-color-dark-mode-false {
+.app-component .js-get-delete-modal-component-modal-container-element-background-color-dark-mode-false,
+.js-get-app-component .js-get-delete-modal-component-modal-container-element-background-color-dark-mode-false {
   background-color: white;
 }
-.app-component .js-get-delete-modal-background-color-dark-mode-true,
-.js-get-app-component .js-get-delete-modal-background-color-dark-mode-true {
+.app-component .js-get-delete-modal-component-modal-container-element-background-color-dark-mode-true,
+.js-get-app-component .js-get-delete-modal-component-modal-container-element-background-color-dark-mode-true {
   background-color: #2e2e2e;
 }
-.app-component .js-get-delete-modal-delete-button-background-color-dark-mode-false,
-.js-get-app-component .js-get-delete-modal-delete-button-background-color-dark-mode-false {
+.app-component .js-get-delete-modal-component-trapazoid-element-border-color-dark-mode-false,
+.js-get-app-component .js-get-delete-modal-component-trapazoid-element-border-color-dark-mode-false {
+  border-top-color: #e95454;
+}
+.app-component .js-get-delete-modal-component-trapazoid-element-border-color-dark-mode-true,
+.js-get-app-component .js-get-delete-modal-component-trapazoid-element-border-color-dark-mode-true {
+  border-top-color: #bb4444;
+}
+.app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-false,
+.js-get-app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-false {
   background-color: #e95454;
 }
-.app-component .js-get-delete-modal-delete-button-background-color-dark-mode-false:hover, .app-component .js-get-delete-modal-delete-button-background-color-dark-mode-false:active,
-.js-get-app-component .js-get-delete-modal-delete-button-background-color-dark-mode-false:hover,
-.js-get-app-component .js-get-delete-modal-delete-button-background-color-dark-mode-false:active {
+.app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-false:hover, .app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-false:active,
+.js-get-app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-false:hover,
+.js-get-app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-false:active {
   background-color: #d44141;
 }
-.app-component .js-get-delete-modal-delete-button-background-color-dark-mode-true,
-.js-get-app-component .js-get-delete-modal-delete-button-background-color-dark-mode-true {
+.app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-true,
+.js-get-app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-true {
   background-color: #bb4444;
 }
-.app-component .js-get-delete-modal-delete-button-background-color-dark-mode-true:hover, .app-component .js-get-delete-modal-delete-button-background-color-dark-mode-true:active,
-.js-get-app-component .js-get-delete-modal-delete-button-background-color-dark-mode-true:hover,
-.js-get-app-component .js-get-delete-modal-delete-button-background-color-dark-mode-true:active {
+.app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-true:hover, .app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-true:active,
+.js-get-app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-true:hover,
+.js-get-app-component .js-get-delete-modal-component-delete-button-element-background-color-dark-mode-true:active {
   background-color: #a83c3c;
 }
-.app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-false {
+.app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-false,
+.js-get-app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-false {
   border-color: #e95454;
   background-color: white;
   color: #e95454;
 }
-.app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-false:hover, .app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-false:active,
-.js-get-app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-false:hover,
-.js-get-app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-false:active {
+.app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-false:hover, .app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-false:active,
+.js-get-app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-false:hover,
+.js-get-app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-false:active {
   background-color: #f8f8f8;
 }
-.app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-true,
-.js-get-app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-true {
+.app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-true,
+.js-get-app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-true {
   border-color: #bb4444;
   background-color: #2e2e2e;
   color: #bb4444;
 }
-.app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-true:hover, .app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-true:active,
-.js-get-app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-true:hover,
-.js-get-app-component .js-get-delete-modal-cancel-button-border-background-text-color-dark-mode-true:active {
+.app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-true:hover, .app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-true:active,
+.js-get-app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-true:hover,
+.js-get-app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-true:active {
   background-color: #3a3a3a;
-}
-.app-component .js-get-delete-modal-trapazoid-border-color-dark-mode-false,
-.js-get-app-component .js-get-delete-modal-trapazoid-border-color-dark-mode-false {
-  border-top-color: #e95454;
-}
-.app-component .js-get-delete-modal-trapazoid-border-color-dark-mode-true,
-.js-get-app-component .js-get-delete-modal-trapazoid-border-color-dark-mode-true {
-  border-top-color: #bb4444;
-}
-.app-component .js-get-list-view-empty-list-message-text-color-dark-mode-false,
-.js-get-app-component .js-get-list-view-empty-list-message-text-color-dark-mode-false {
-  color: #757575;
-}
-.app-component .js-get-list-view-empty-list-message-text-color-dark-mode-true,
-.js-get-app-component .js-get-list-view-empty-list-message-text-color-dark-mode-true {
-  color: #80878d;
 }
 .app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false,
 .js-get-app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false {
