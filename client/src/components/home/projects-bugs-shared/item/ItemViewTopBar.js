@@ -22,7 +22,7 @@ import {
 	getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
-	getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode,
+	getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
@@ -539,8 +539,8 @@ export default function ItemViewTopBar(props) {
 			<div className="item-options-container">
 				<div
 					className={
-						"item-options-container__button" +
-						getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+						"item-options-container__icon-button" +
+						getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
@@ -556,7 +556,7 @@ export default function ItemViewTopBar(props) {
 					}
 					onClick={toggleOptionsDropdown}
 				>
-					<span className="item-options-container__button__text">
+					<span className="item-options-container__icon-button__text">
 						<i
 							className="fa fa-ellipsis-h"
 							aria-hidden="true"
@@ -631,8 +631,8 @@ export default function ItemViewTopBar(props) {
 			</div>
 			<div
 				className={
-					"x-button" +
-					getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+					"exit-icon-button" +
+					getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}

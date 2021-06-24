@@ -629,7 +629,7 @@ dropdown can overlap all other components
   overflow-y: auto;
   overflow-x: hidden;
 }
-.account-sidebar-component .settings-button {
+.account-sidebar-component .settings-icon-button {
   position: absolute;
   top: 10px;
   left: 13px;
@@ -639,7 +639,7 @@ dropdown can overlap all other components
   font-size: 22px;
   cursor: pointer;
 }
-.account-sidebar-component .settings-button:hover, .account-sidebar-component .settings-button:active {
+.account-sidebar-component .settings-icon-button:hover, .account-sidebar-component .settings-icon-button:active {
   color: #3a3a3a;
   font-size: 23px;
 }
@@ -775,7 +775,7 @@ dropdown can overlap all other components
   width: 460px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.account-modal-component .back-button {
+.account-modal-component .back-icon-button {
   z-index: 100;
   position: absolute;
   top: 10px;
@@ -787,10 +787,10 @@ dropdown can overlap all other components
   left: 20px;
   font-size: 22px;
 }
-.account-modal-component .back-button:hover, .account-modal-component .back-button:active {
+.account-modal-component .back-icon-button:hover, .account-modal-component .back-icon-button:active {
   color: #3a3a3a;
 }
-.account-modal-component .exit-button {
+.account-modal-component .exit-icon-button {
   z-index: 100;
   position: absolute;
   top: 10px;
@@ -801,7 +801,7 @@ dropdown can overlap all other components
   right: 20px;
   font-size: 26px;
 }
-.account-modal-component .exit-button:hover, .account-modal-component .exit-button:active {
+.account-modal-component .exit-icon-button:hover, .account-modal-component .exit-icon-button:active {
   color: #3a3a3a;
 }
 .account-modal-component .title {
@@ -2042,8 +2042,8 @@ dropdown can overlap all other components
   right: 50px;
   width: 135px;
 }
-.item-vew-top-bar-component .item-options-container__button,
-.js-get-item-vew-top-bar-component .item-options-container__button {
+.item-vew-top-bar-component .item-options-container__icon-button,
+.js-get-item-vew-top-bar-component .item-options-container__icon-button {
   z-index: 1;
   position: absolute;
   right: 0px;
@@ -2058,20 +2058,20 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.item-vew-top-bar-component .item-options-container__button:hover, .item-vew-top-bar-component .item-options-container__button:active,
-.js-get-item-vew-top-bar-component .item-options-container__button:hover,
-.js-get-item-vew-top-bar-component .item-options-container__button:active {
+.item-vew-top-bar-component .item-options-container__icon-button:hover, .item-vew-top-bar-component .item-options-container__icon-button:active,
+.js-get-item-vew-top-bar-component .item-options-container__icon-button:hover,
+.js-get-item-vew-top-bar-component .item-options-container__icon-button:active {
   color: #3a3a3a;
 }
-.item-vew-top-bar-component .item-options-container__button__text,
-.js-get-item-vew-top-bar-component .item-options-container__button__text {
+.item-vew-top-bar-component .item-options-container__icon-button__text,
+.js-get-item-vew-top-bar-component .item-options-container__icon-button__text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.item-vew-top-bar-component .item-options-container__button--clicked,
-.js-get-item-vew-top-bar-component .item-options-container__button--clicked {
+.item-vew-top-bar-component .item-options-container__icon-button--clicked,
+.js-get-item-vew-top-bar-component .item-options-container__icon-button--clicked {
   border-color: black;
   border-bottom: none;
   background-color: white;
@@ -2118,8 +2118,8 @@ dropdown can overlap all other components
   border-bottom: none;
   border-radius: 0 0 5px 5px;
 }
-.item-vew-top-bar-component .x-button,
-.js-get-item-vew-top-bar-component .x-button {
+.item-vew-top-bar-component .exit-icon-button,
+.js-get-item-vew-top-bar-component .exit-icon-button {
   z-index: 100;
   position: absolute;
   top: 10px;
@@ -2132,9 +2132,9 @@ dropdown can overlap all other components
   top: 11px;
   color: #6d6d6d;
 }
-.item-vew-top-bar-component .x-button:hover, .item-vew-top-bar-component .x-button:active,
-.js-get-item-vew-top-bar-component .x-button:hover,
-.js-get-item-vew-top-bar-component .x-button:active {
+.item-vew-top-bar-component .exit-icon-button:hover, .item-vew-top-bar-component .exit-icon-button:active,
+.js-get-item-vew-top-bar-component .exit-icon-button:hover,
+.js-get-item-vew-top-bar-component .exit-icon-button:active {
   color: #3a3a3a;
 }
 
@@ -2169,7 +2169,7 @@ dropdown can overlap all other components
 .create-item-sidebar-component .take-up-space {
   height: 1000px;
 }
-.create-item-sidebar-component .x-button {
+.create-item-sidebar-component .exit-icon-button {
   z-index: 100;
   position: absolute;
   top: 10px;
@@ -2180,7 +2180,7 @@ dropdown can overlap all other components
   right: 20px;
   font-size: 26px;
 }
-.create-item-sidebar-component .x-button:hover, .create-item-sidebar-component .x-button:active {
+.create-item-sidebar-component .exit-icon-button:hover, .create-item-sidebar-component .exit-icon-button:active {
   color: #3a3a3a;
 }
 .create-item-sidebar-component .padded-container {
@@ -3199,22 +3199,22 @@ body {
 .js-get-app-component .js-get-delete-modal-component-cancel-button-element-border-background-text-color-dark-mode-true:active {
   background-color: #3a3a3a;
 }
-.app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false,
-.js-get-app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false {
+.app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-false,
+.js-get-app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-false {
   color: #6d6d6d;
 }
-.app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false:hover, .app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false:active,
-.js-get-app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false:hover,
-.js-get-app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false:active {
+.app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-false:hover, .app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-false:active,
+.js-get-app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-false:hover,
+.js-get-app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-false:active {
   color: #333333;
 }
-.app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true,
-.js-get-app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true {
+.app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-true,
+.js-get-app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-true {
   color: #5e5e5e;
 }
-.app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true:hover, .app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true:active,
-.js-get-app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true:hover,
-.js-get-app-component .js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true:active {
+.app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-true:hover, .app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-true:active,
+.js-get-app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-true:hover,
+.js-get-app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-true:active {
   color: #a3a3a3;
 }
 .app-component .js-get-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false,

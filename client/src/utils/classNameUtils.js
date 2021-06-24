@@ -327,10 +327,10 @@ export function getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNam
 
 /**
  * Get light/dark mode className for common (i.e. used by multiple components)
- * icon-button element's text color with hover
+ * icon button element's text color with hover
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for common icon-button element's
+ * @returns {string} Light/dark mode className for common icon button element's
  * text color with hover
  */
 export function getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
@@ -795,18 +795,18 @@ export function getDeleteModalComponentCancelButtonElementBorderBackgroundTextCo
 }
 
 /**
- * Get light/dark mode className for ItemViewTopBar icon-button element's text
- * color with hover
+ * Get light/dark mode className for ItemViewTopBar component's icon button 
+ * element's text color with hover
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewTopBar icon-button
- * element's text color with hover
+ * @returns {string} Light/dark mode className for ItemViewTopBar component's 
+ * icon button element's text color with hover
  */
-export function getItemViewTopBarIconButtonTextColorWithHoverClassNameForLightOrDarkMode(
+export function getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-" +
+		" js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-" +
 		dark_mode
 	);
 }

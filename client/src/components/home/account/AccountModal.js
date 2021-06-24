@@ -76,8 +76,8 @@ export default function AccountModal() {
 					)
 				}
 			>
-				{/*accountModalEditInfo doesn't have back-button since it would
-				 go back to AccountSidebar, which is same as exit-button*/}
+				{/*accountModalEditInfo doesn't have back-icon-button since it 
+				would go back to AccountSidebar, which is same as exit-icon-button*/}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
 					.accountModalEditEmail === true ||
 				reduxState[ACCOUNT_CONTAINER].componentsDisplay
@@ -86,7 +86,7 @@ export default function AccountModal() {
 					.accountModalDeleteAccount === true ? (
 					<div
 						className={
-							"back-button" +
+							"back-icon-button" +
 							getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
@@ -103,7 +103,7 @@ export default function AccountModal() {
 				) : null}
 				<div
 					className={
-						"exit-button" +
+						"exit-icon-button" +
 						getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)

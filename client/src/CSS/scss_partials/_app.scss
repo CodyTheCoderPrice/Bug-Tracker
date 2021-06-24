@@ -67,7 +67,7 @@ body {
 		opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) icon-buttons element -- text color with hover
+	// Light/Dark mode -- Common (i.e. used by multiple components) icon button element -- text color with hover
 	.js-get-common-icon-button-element-text-color-with-hover-dark-mode-false {
 		color: v.$mode-common-icon-button-text-color-light;
 
@@ -357,7 +357,7 @@ body {
 		color: v.$mode-list-view-empty-list-message-text-color-dark;
 	}
 
-	// Light/Dark mode -- ListViewTableItemRow component list-view-table-item-row-component' element -- border, background, and text colors
+	// Light/Dark mode -- ListViewTableItemRow component 'list-view-table-item-row-component' element -- border, background, and text colors
 	.js-get-list-view-table-item-row-component-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-list-view-table-row-border-color-light;
 		background-color: v.$mode-list-view-table-row-background-color-light;
@@ -369,7 +369,7 @@ body {
 		color: v.$mode-common-weak-text-color-dark;
 	}
 
-	// Light/Dark mode -- ListViewTableItemRow component list-view-table-item-row-component' element -- hover background color
+	// Light/Dark mode -- ListViewTableItemRow component 'list-view-table-item-row-component' element -- hover background color
 	.js-get-list-view-table-item-row-component-hover-background-color-dark-mode-false {
 		// Only hover since active causes td to cover border
 		&:hover {
@@ -383,7 +383,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ListViewTableItemRow component list-view-table-item-row-component' element -- selected background color
+	// Light/Dark mode -- ListViewTableItemRow component 'list-view-table-item-row-component' element -- selected background color
 	.js-get-list-view-table-item-row-component-selected-background-color-dark-mode-false {
 		background-color: v.$mode-list-view-table-row-selected-background-color-light;
 	}
@@ -447,8 +447,8 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ItemViewTopBar icon-button -- text color with hover
-	.js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-false {
+	// Light/Dark mode -- ItemViewTopBar component icon button element -- text color with hover
+	.js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-false {
 		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 
 		&:hover,
@@ -456,7 +456,7 @@ body {
 			color: v.$mode-item-view-top-bar-icon-button-hover-text-color-light;
 		}
 	}
-	.js-get-item-view-top-bar-icon-button-text-color-with-hover-dark-mode-true {
+	.js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-true {
 		color: v.$mode-item-view-top-bar-icon-button-text-color-dark;
 
 		&:hover,
@@ -633,7 +633,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ItemViewCommentBoxIndividualComment icon-button -- text color with hover
+	// Light/Dark mode -- ItemViewCommentBoxIndividualComment icon button -- text color with hover
 	.js-get-item-view-comment-box-individual-comment-icon-button-text-color-with-hover-mode-false {
 		color: v.$mode-item-view-comment-box-individual-comment-icon-button-text-color-light;
 

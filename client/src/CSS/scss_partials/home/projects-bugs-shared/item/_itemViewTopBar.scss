@@ -228,7 +228,7 @@
 		width: 135px;
 	}
 
-	.item-options-container__button {
+	.item-options-container__icon-button {
 		// Must be more than item-options-container__dropdown so the two
 		// ...containers can look like one
 		z-index: 1;
@@ -253,11 +253,11 @@
 		}
 	}
 
-	.item-options-container__button__text {
+	.item-options-container__icon-button__text {
 		@include m.dead-center();
 	}
 
-	.item-options-container__button--clicked {
+	.item-options-container__icon-button--clicked {
 		border-color: black;
 		border-bottom: none;
 		background-color: white;
@@ -314,8 +314,8 @@
 			v.$common-top-bar-buttton-border-radius;
 	}
 
-	.x-button {
-		@include m.exit-button();
+	.exit-icon-button {
+		@include m.exit-icon-button();
 		top: 11px;
 		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 	}

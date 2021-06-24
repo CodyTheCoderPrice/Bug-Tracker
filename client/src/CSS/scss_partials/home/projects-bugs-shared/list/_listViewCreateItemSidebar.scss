@@ -42,8 +42,8 @@
 		height: 1000px;
 	}
 
-	.x-button {
-		@include m.exit-button();
+	.exit-icon-button {
+		@include m.exit-icon-button();
 	}
 
 	.padded-container {

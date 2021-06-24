@@ -21,12 +21,12 @@ import { useSidebarResize } from "../../../utils/hooks";
 import AccountSidebarEditAppearance from "./AccountSidebarEditAppearance";
 
 /**
- * React functional component for displaying the logged in account's personal 
- * info, email, and join date. Also has buttons/links for openning the modals 
- * for editing account's personal info and settings, and a button to logout. 
+ * React functional component for displaying the logged in account's personal
+ * info, email, and join date. Also has buttons/links for openning the modals
+ * for editing account's personal info and settings, and a button to logout.
  * Also displays the AccountSidebarEditAppearance component.
- * 
- * The flag for displaying this component is 'accountSidebar' property of 
+ *
+ * The flag for displaying this component is 'accountSidebar' property of
  * 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux state.
  *
  * @component
@@ -60,8 +60,8 @@ export default function AccountSidebar() {
 	};
 
 	/**
-	 * Call logoutAccount action to logout the account 
-	 * 
+	 * Call logoutAccount action to logout the account
+	 *
 	 * @param {Event} e - Event created by element's onClick handler
 	 */
 	const handleLogoutAccount = (e) => {
@@ -81,17 +81,17 @@ export default function AccountSidebar() {
 				}
 			>
 				<div
-					className="settings-button"
+					className={
+						"settings-icon-button" +
+						getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 					alt="Button to open account settings"
 					onClick={openOnlyEditSettingsModal}
 				>
 					<i
-						className={
-							"fa fa-cog" +
-							getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
-								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-							)
-						}
+						className="fa fa-cog"
 						aria-hidden="true"
 						alt="Icon of a settings cog"
 					/>

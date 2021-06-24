@@ -29,11 +29,12 @@
 	transform: translate(0%, -50%);
 }
 
-@mixin back-exit-buttons-incomplete() {
+// CSS shared between both back and exit icon buttons
+@mixin back-exit-icon-buttons-shared-css() {
 	// Should be higher than all other z-index's to ensure nothing covers them
 	z-index: 100;
 	position: absolute;
-	top: v.$common-back-exit-button-top;
+	top: v.$common-back-exit-icon-button-top;
 	border: none;
 	background: none;
 	color: v.$mode-common-icon-button-text-color-light;
@@ -45,18 +46,18 @@
 	}
 }
 
-@mixin back-button() {
-	@include back-exit-buttons-incomplete();
+@mixin back-icon-button() {
+	@include back-exit-icon-buttons-shared-css();
 
-	top: v.$common-back-exit-button-top + 2;
-	left: v.$common-back-exit-button-left-right;
+	top: v.$common-back-exit-icon-button-top + 2;
+	left: v.$common-back-exit-icon-button-left-right;
 	font-size: 22px;
 }
 
-@mixin exit-button() {
-	@include back-exit-buttons-incomplete();
+@mixin exit-icon-button() {
+	@include back-exit-icon-buttons-shared-css();
 
-	right: v.$common-back-exit-button-left-right;
+	right: v.$common-back-exit-icon-button-left-right;
 	font-size: 26px;
 }
 

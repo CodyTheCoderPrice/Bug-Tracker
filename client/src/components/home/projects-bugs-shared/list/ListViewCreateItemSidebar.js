@@ -169,7 +169,7 @@ export default function ListViewCreateItemSidebar(props) {
 			>
 				<div
 					className={
-						"x-button" +
+						"exit-icon-button" +
 						getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
