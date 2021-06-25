@@ -196,20 +196,20 @@ export default function NavbarHamburger() {
 						</div>
 						<div
 							className={
-								"hamburger-dropdown__option" +
+								"hamburger-dropdown__row-button" +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-									? " hamburger-dropdown__option--selected"
+									? " hamburger-dropdown__row-button--selected"
 									: "") +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 								null
-									? " hamburger-dropdown__option--last-option-round-bottom-border"
+									? " hamburger-dropdown__row-button--last-option-round-bottom-border"
 									: "")
 							}
 							alt="Navbar hamburger dropdown option to open projects list"
 							onClick={() => switchToProjectsListView(reduxState, dispatch)}
 						>
 							<i
-								className="fa fa-folder hamburger-dropdown__option__icon"
+								className="fa fa-folder hamburger-dropdown__row-button__icon"
 								aria-hidden="true"
 							/>{" "}
 							Projects
@@ -219,9 +219,9 @@ export default function NavbarHamburger() {
 						null ? null : (
 							<div
 								className={
-									"hamburger-dropdown__option hamburger-dropdown__option--item-name" +
+									"hamburger-dropdown__row-button hamburger-dropdown__row-button--item-name" +
 									(reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-										? " hamburger-dropdown__option--selected"
+										? " hamburger-dropdown__row-button--selected"
 										: "")
 								}
 								alt={
@@ -233,7 +233,7 @@ export default function NavbarHamburger() {
 								onClick={() => switchToProjectsItemView(reduxState, dispatch)}
 							>
 								<img
-									className="hamburger-dropdown__option__svg-arrow-option-2"
+									className="hamburger-dropdown__row-button__svg-arrow-option-2"
 									src={
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											? bendyArrowModeDark
@@ -246,7 +246,7 @@ export default function NavbarHamburger() {
 										.name
 								}
 								<i
-									className="fa fa-times hamburger-dropdown__option__close-button"
+									className="fa fa-times hamburger-dropdown__row-button__close-icon-button"
 									aria-hidden="true"
 									alt={
 										"Icon of an X. If clicked, will close the " +
@@ -263,20 +263,20 @@ export default function NavbarHamburger() {
 						null ? null : (
 							<div
 								className={
-									"hamburger-dropdown__option" +
+									"hamburger-dropdown__row-button" +
 									(reduxState[BUG_CONTAINER].componentsDisplay.listView
-										? " hamburger-dropdown__option--selected"
+										? " hamburger-dropdown__row-button--selected"
 										: "") +
 									(reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 									null
-										? " hamburger-dropdown__option--last-option-round-bottom-border"
+										? " hamburger-dropdown__row-button--last-option-round-bottom-border"
 										: "")
 								}
 								alt="Navbar hamburger dropdown option to open the bugs list"
 								onClick={() => SwitchToBugsListView(reduxState, dispatch)}
 							>
 								<img
-									className="hamburger-dropdown__option__svg-arrow-option-3"
+									className="hamburger-dropdown__row-button__svg-arrow-option-3"
 									src={
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											? bendyArrowModeDark
@@ -285,7 +285,7 @@ export default function NavbarHamburger() {
 									alt="Arrow pointing from the button above to this button signifying this is to open a table of bugs belonging to that particular project"
 								/>
 								<i
-									className="fa fa-bug hamburger-dropdown__option__icon"
+									className="fa fa-bug hamburger-dropdown__row-button__icon"
 									aria-hidden="true"
 								/>{" "}
 								Bugs
@@ -296,9 +296,9 @@ export default function NavbarHamburger() {
 						null ? null : (
 							<div
 								className={
-									"hamburger-dropdown__option hamburger-dropdown__option--item-name hamburger-dropdown__option--last-option-round-bottom-border" +
+									"hamburger-dropdown__row-button hamburger-dropdown__row-button--item-name hamburger-dropdown__row-button--last-option-round-bottom-border" +
 									(reduxState[BUG_CONTAINER].componentsDisplay.itemView
-										? " hamburger-dropdown__option--selected"
+										? " hamburger-dropdown__row-button--selected"
 										: "")
 								}
 								alt={
@@ -309,7 +309,7 @@ export default function NavbarHamburger() {
 								onClick={() => switchToBugsItemView(reduxState, dispatch)}
 							>
 								<img
-									className="hamburger-dropdown__option__svg-arrow-option-4"
+									className="hamburger-dropdown__row-button__svg-arrow-option-4"
 									src={
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											? bendyArrowModeDark
@@ -319,7 +319,7 @@ export default function NavbarHamburger() {
 								/>
 								{reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name}
 								<i
-									className="fa fa-times hamburger-dropdown__option__close-button"
+									className="fa fa-times hamburger-dropdown__row-button__close-icon-button"
 									aria-hidden="true"
 									alt={
 										"Icon of an X. If clicked, will close the " +

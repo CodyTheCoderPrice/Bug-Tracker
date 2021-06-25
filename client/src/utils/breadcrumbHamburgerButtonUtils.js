@@ -23,7 +23,7 @@ import {
  *
  * Note: This should be onClick function for elements pertaining to project
  * listView with 'breadcrumb-button' className in NavbarBreadcrumb component and
- * 'hamburger-dropdown__option' className in NavbarHamburger component. The
+ * 'hamburger-dropdown__row-button' className in NavbarHamburger component. The
  * purpose of this function is to make project's ListView be the currently
  * dispalyed view component (i.e. as opposed to project's ItemView, bug's
  * ListView, or bug's ItemView). To close all account components. To have no
@@ -82,7 +82,7 @@ export function switchToProjectsListView(passedReduxState, dispatch) {
  *
  * Note: This should be onClick function for elements pertaining to project
  * itemView with 'breadcrumb-button' className in NavbarBreadcrumb component and
- * 'hamburger-dropdown__option' className in NavbarHamburger component. The
+ * 'hamburger-dropdown__row-button' className in NavbarHamburger component. The
  * purpose of this function is to make project's ItemView be the currently
  * dispalyed view component (i.e. as opposed to project's ListView, bug's
  * ListView, or bug's ItemView). To close all account components. To have no
@@ -137,7 +137,7 @@ export function switchToProjectsItemView(passedReduxState, dispatch) {
  *
  * Note: This should be onClick function for elements pertaining to bug listView
  * with 'breadcrumb-button' className in NavbarBreadcrumb component and
- * 'hamburger-dropdown__option' className in NavbarHamburger component. The
+ * 'hamburger-dropdown__row-button' className in NavbarHamburger component. The
  * purpose of this function is to make bug's ListView be the currently
  * dispalyed view component (i.e. as opposed to project's ListView, project's
  * ItemView, or bug's ItemView). To close all account components. To have no
@@ -196,7 +196,7 @@ export function SwitchToBugsListView(passedReduxState, dispatch) {
  *
  * Note: This should be onClick function for elements pertaining to bug itemView
  * with 'breadcrumb-button' className in NavbarBreadcrumb component and
- * 'hamburger-dropdown__option' className in NavbarHamburger component. The
+ * 'hamburger-dropdown__row-button' className in NavbarHamburger component. The
  * purpose of this function is to make bug's ItemView be the currently
  * dispalyed view component (i.e. as opposed to project's ListView, project's
  * ItemView, or bug's ListView). To close all account components. To have no
@@ -249,15 +249,15 @@ export function switchToBugsItemView(passedReduxState, dispatch) {
  * COMMENT_CONTAINER to null. Empties 'massDeleteList' Object in BUG_CONTAINER.
  *
  * Note: This should be onClick function for element pertaining to project's
- * listView with 'breadcrumb-button__end-container__close-button' className in
- * NavbarBreadcrumb component and 'hamburger-dropdown__option__close-button'
+ * listView with 'breadcrumb-button__end-container__close-icon-button' className
+ * in NavbarBreadcrumb component and 'hamburger-dropdown__row-button__close-icon-button'
  * className in NavbarHamburger component. The purpose of this function is to
- * make project's ListView be the currently dispalyed view component (i.e. as
- * opposed to project's ItemView, bug's ListView, or bug's ItemView). To keep
+ * make project's ListView be the currently dispalyed view component (i.e. as 
+ * opposed to project's ItemView, bug's ListView, or bug's ItemView). To keep 
  * project's ListViewCreateItemSidebar open if it was already. To have no project
- * selected for project's ItemView. To close all account and bug components. To 
- * have no comments in the process of being edited or deleted. Also the reason
- * 'massDeleteList' Object in BUG_CONTAINER is emptied is because without a
+ * selected for project's ItemView. To close all account and bug components. To
+ * have no comments in the process of being edited or deleted. Also the reason 
+ * 'massDeleteList' Object in BUG_CONTAINER is emptied is because without a 
  * project selected for project's ItemView means there is no list of bugs that
  * can be in the massDeleteList.
  *
@@ -300,15 +300,15 @@ export function setTrueForOnlyProjectListViewAndCreateItemSidebar(
  * which is their default state). Sets properties in COMMENT_CONTAINER to null.
  *
  * Note: This should be onClick function for element pertaining to bug's
- * listView with 'breadcrumb-button__end-container__close-button' className in
- * NavbarBreadcrumb component and 'hamburger-dropdown__option__close-button'
+ * listView with 'breadcrumb-button__end-container__close-icon-button' className
+ * in NavbarBreadcrumb component and 'hamburger-dropdown__row-button__close-icon-button'
  * className in NavbarHamburger component. The purpose of this function is to
  * keep the currenly displayed view component the same, unless it's bug's 
- * ItemView, to which it's switched to bug's ListView (i.e. keep same if 
- * project's ListView, projects's ItemView, or bug's ListView). To leave project
- * components the same. To keep bug's ListViewCreateItemSidebar open if it was 
- * already. To have no bug selected for bug's ItemView. To close all account 
- * components. And to have no comments in the process of being edited or deleted.
+ * ItemView, to which it's switched to bug's ListView (i.e. keep same if project's
+ * ListView, projects's ItemView, or bug's ListView). To leave project components
+ * the same. To keep bug's ListViewCreateItemSidebar open if it was already. To
+ * have no bug selected for bug's ItemView. To close all account components. And
+ * to have no comments in the process of being edited or deleted.
  *
  * @param {Event} e - Event created by element's onClick handler
  * @param {Object} passedReduxState - Current redux state from

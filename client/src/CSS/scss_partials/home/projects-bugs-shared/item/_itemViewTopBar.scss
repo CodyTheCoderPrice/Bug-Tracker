@@ -282,7 +282,7 @@
 		visibility: visible;
 	}
 
-	.item-options-container__dropdown__option {
+	.item-options-container__dropdown__row-button {
 		display: block;
 		border-bottom: 1px solid gray;
 		padding: 12px;
@@ -294,18 +294,18 @@
 		}
 	}
 
-	.item-options-container__dropdown__option--no-display {
+	.item-options-container__dropdown__row-button--no-display {
 		display: none;
 	}
 
-	.item-options-container__dropdown__option--first-option-round-top-border {
+	.item-options-container__dropdown__row-button--first-option {
 		// Found that subtracting 3px from $navbar-hamburger-border-radius
 		// ...gave best results
 		border-radius: v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius 0 0;
 	}
 
-	.item-options-container__dropdown__option--last-option-round-bottom-border {
+	.item-options-container__dropdown__row-button--last-option {
 		// No bottom border since no options bellow
 		border-bottom: none;
 		// Found that subtracting 3px from $navbar-hamburger-border-radius

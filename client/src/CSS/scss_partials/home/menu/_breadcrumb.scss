@@ -102,7 +102,7 @@
 		width: 0;
 	}
 
-	.breadcrumb-button__end-container__close-button {
+	.breadcrumb-button__end-container__close-icon-button {
 		@include m.stop-text-selection();
 
 		// Must have higher z-index than both arrows above
@@ -119,7 +119,7 @@
 		&:hover,
 		&:active {
 			opacity: 1;
-			color: v.$navbar-breadcrumb-close-button-text-color;
+			color: v.$navbar-breadcrumb-close-icon-button-text-color;
 		}
 	}
 }

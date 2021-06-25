@@ -812,35 +812,38 @@ export function getItemViewTopBarComponentIconButtonElementTextColorWithHoverCla
 }
 
 /**
- * Get light/dark mode className for ItemViewTopBar options-button element's
- * clicked (dropdown is active) border, background, and text color
+ * Get light/dark mode className for ItemViewTopBar component's 
+ * 'item-options-container__icon-button' (className) element's clicked (i.e. 
+ * dropdown is active) border, background, and text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewTopBar
- * options-button element's clicked border, background, and text color
+ * @returns {string} Light/dark mode className for ItemViewTopBar component's 
+ * 'item-options-container__icon-button' (className) element's clicked border,
+ * background, and text color
  */
-export function getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
+export function getItemViewTopBarComponentOptionsIconButtonElementClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-" +
+		" js-get-item-view-top-bar-component-options-icon-button-element-clicked-border-background-text-color-dark-mode-" +
 		dark_mode
 	);
 }
 
 /**
- * Get light/dark mode className for ItemViewTopBar options-dropdown-row
- * element's hover background color
- *
+ * Get light/dark mode className for ItemViewTopBar component's 
+ * 'item-options-container__dropdown__row-button' (className) element's hover 
+ * background color
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewTopBar
- * options-dropdown-row element's hover background color
+ * @returns {string} Light/dark mode className for ItemViewTopBar component's 
+ * 'item-options-container__dropdown__row-button' (className) element's hover 
+ * background color
  */
-export function getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+export function getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-" +
+		" js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-" +
 		dark_mode
 	);
 }
@@ -1049,11 +1052,11 @@ export function getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDar
 
 /**
  * Get light/dark mode className for ItemViewCommentBoxIndividualComment
- * icon-button element's text color with hover
+ * icon button element's text color with hover
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for
- * ItemViewCommentBoxIndividualComment icon-button element's text color with
+ * ItemViewCommentBoxIndividualComment icon button element's text color with
  * hover
  */
 export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(

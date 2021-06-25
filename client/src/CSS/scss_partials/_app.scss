@@ -146,7 +146,7 @@ body {
 			background-color: v.$mode-navbar-hamburger-dropdown-background-color-dark;
 		}
 
-		& > .hamburger-dropdown__option {
+		& > .hamburger-dropdown__row-button {
 			@if $is-light {
 				border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-light;
 			} @else {
@@ -162,7 +162,7 @@ body {
 				}
 			}
 
-			& > .hamburger-dropdown__option__icon {
+			& > .hamburger-dropdown__row-button__icon {
 				@if $is-light {
 					color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-light;
 				} @else {
@@ -171,7 +171,7 @@ body {
 			}
 		}
 
-		& > .hamburger-dropdown__option--selected {
+		& > .hamburger-dropdown__row-button--selected {
 			@if $is-light {
 				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
 			} @else {
@@ -188,7 +188,7 @@ body {
 			}
 		}
 
-		& > .hamburger-dropdown__option--item-name {
+		& > .hamburger-dropdown__row-button--item-name {
 			@if $is-light {
 				color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-light;
 			} @else {
@@ -465,28 +465,28 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ItemViewTopBar options-button -- clicked border, background, and text color
-	.js-get-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-false {
+	// Light/Dark mode -- ItemViewTopBar component 'item-options-container__icon-button' element -- clicked border, background, and text color
+	.js-get-item-view-top-bar-component-options-icon-button-element-clicked-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-light;
 		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-light;
 		// Same as hover text color for more distinct icon-buttons
 		color: v.$mode-item-view-top-bar-icon-button-hover-text-color-light;
 	}
-	.js-get-item-view-top-bar-options-button-clicked-border-background-text-color-dark-mode-true {
+	.js-get-item-view-top-bar-component-options-icon-button-element-clicked-border-background-text-color-dark-mode-true {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-dark;
 		background-color: v.$mode-common-top-bar-button-and-dropdown-background-color-dark;
 		// Same as hover text color for more distinct icon-buttons
 		color: v.$mode-item-view-top-bar-icon-button-hover-text-color-dark;
 	}
 
-	// Light/Dark mode -- ItemViewTopBar options-dropdown-row -- hover background color
-	.js-get-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-false {
+	// Light/Dark mode -- ItemViewTopBar component 'item-options-container__dropdown__row-button' element -- hover background color
+	.js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-false {
 		&:hover,
 		&:active {
 			background-color: v.$mode-item-view-top-bar-options-dropdown-row-hover-background-color-light;
 		}
 	}
-	.js-get-item-view-top-bar-options-dropdown-row-hover-background-color-dark-mode-true {
+	.js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-true {
 		&:hover,
 		&:active {
 			background-color: v.$mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark;

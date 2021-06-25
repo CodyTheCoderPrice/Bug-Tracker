@@ -276,7 +276,7 @@ export default function NavbarBreadcrumb(props) {
 								/>
 								<div className="breadcrumb-button__end-container__border-arrow" />
 								<i
-									className="fa fa-times breadcrumb-button__end-container__close-button"
+									className="fa fa-times breadcrumb-button__end-container__close-icon-button"
 									aria-hidden="true"
 									alt={
 										"Icon of an X. If clicked, will close the " +
@@ -408,7 +408,7 @@ export default function NavbarBreadcrumb(props) {
 										}
 									/>
 									<i
-										className="fa fa-times breadcrumb-button__end-container__close-button"
+										className="fa fa-times breadcrumb-button__end-container__close-icon-button"
 										aria-hidden="true"
 										alt={
 											"Icon of an X. If clicked, will close the " +

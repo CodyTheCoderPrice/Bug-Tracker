@@ -23,8 +23,8 @@ import {
 	getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
-	getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewTopBarComponentOptionsIconButtonElementClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
+	getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
@@ -545,7 +545,7 @@ export default function ItemViewTopBar(props) {
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 							.itemViewTopBarOptionsDropdown
-							? getItemViewTopBarOptionsButtonClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
+							? getItemViewTopBarComponentOptionsIconButtonElementClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							  )
 							: "")
@@ -584,8 +584,8 @@ export default function ItemViewTopBar(props) {
 				>
 					<span
 						className={
-							"item-options-container__dropdown__option item-options-container__dropdown__option--first-option-round-top-border" +
-							getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+							"item-options-container__dropdown__row-button item-options-container__dropdown__row-button--first-option" +
+							getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -610,8 +610,8 @@ export default function ItemViewTopBar(props) {
 					</span>
 					<span
 						className={
-							"item-options-container__dropdown__option item-options-container__dropdown__option--last-option-round-bottom-border" +
-							getItemViewTopBarOptionsDropdownRowHoverBackgroundColorClassNameForLightOrDarkMode(
+							"item-options-container__dropdown__row-button item-options-container__dropdown__row-button--last-option" +
+							getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
