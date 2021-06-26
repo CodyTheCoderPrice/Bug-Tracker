@@ -10,9 +10,9 @@ import {
 import { setWhichGeneralComponentsDisplay } from "../../../../actions";
 
 import {
-	getItemViewListSidebarHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
-	getItemViewListSidebarBorderColorClassNameForLightOrDarkMode,
-	getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarComponentTableRowHeaderElementBoxShadowBackgroundTextColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarComponentSidebarContainerElementBorderColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarComponentExpandMinimizeButtonElementBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getSearchedFilteredSortedList,
 } from "../../../../utils";
 
@@ -64,8 +64,8 @@ export default function ItemViewListSidebar(props) {
 		<div className="item-view-list-sidebar-component js-list-sidebar-component">
 			<div
 				className={
-					"expand-minimize-button js-expand-minimize-button" +
-					getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundColorClassNameForLightOrDarkMode(
+					"expand-minimize-button" +
+					getItemViewListSidebarComponentExpandMinimizeButtonElementBorderAndBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
@@ -99,27 +99,27 @@ export default function ItemViewListSidebar(props) {
 			</div>
 			<div
 				className={
-					"list-sidebar js-list-sidebar" +
-					getItemViewListSidebarBorderColorClassNameForLightOrDarkMode(
+					"list-sidebar-container" +
+					getItemViewListSidebarComponentSidebarContainerElementBorderColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
 					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
 						? " "
-						: " list-sidebar--minimized")
+						: " list-sidebar-container--minimized")
 				}
 			>
-				<table className="list-sidebar__table">
+				<table className="list-sidebar-container__table">
 					<thead className="">
-						<tr className="list-sidebar__table__row">
+						<tr className="list-sidebar-container__table__row">
 							<th
 								className={
-									"list-sidebar__table__row__header js-list-sidebar__table__row__header" +
-									getItemViewListSidebarHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+									"list-sidebar-container__table__row__header" +
+									getItemViewListSidebarComponentTableRowHeaderElementBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
 							>
-								<span className="list-sidebar__table__row__header__span">
+								<span className="list-sidebar-container__table__row__header__span">
 									{props.reduxContainerName === PROJECT_CONTAINER
 										? "Projects"
 										: "Bugs"}
@@ -140,7 +140,7 @@ export default function ItemViewListSidebar(props) {
 							}
 						)}
 						{/*Creates an empty space at the bottom*/}
-						<tr className="list-sidebar__table__row--empty" />
+						<tr className="list-sidebar-container__table__row--empty" />
 					</tbody>
 				</table>
 			</div>

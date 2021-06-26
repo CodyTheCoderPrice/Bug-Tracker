@@ -38,7 +38,7 @@
 		@include m.dead-center();
 	}
 
-	.list-sidebar {
+	.list-sidebar-container {
 		// Must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
@@ -56,32 +56,32 @@
 		overflow-x: hidden;
 	}
 
-	.list-sidebar--minimized {
+	.list-sidebar-container--minimized {
 		width: 0px;
 	}
 
-	.list-sidebar__table {
+	.list-sidebar-container__table {
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
 	}
 
-	.list-sidebar__table__row {
+	// Used as just a row element in ItemViewListSidebar component, but used as
+	// ...the component className for ItemViewListSidebarItemRow
+	.list-sidebar-container__table__row,
+	.item-view-list-sidebar-item-row-component {
 		border-bottom: 1px solid v.$mode-item-view-list-sidebar-table-row-border-color-light;
 		background-color: v.$mode-item-view-list-sidebar-table-row-background-color-light;
 		padding: v.$common-list-row-padding;
 		height: v.$common-list-row-height;
+		color: v.$mode-common-weak-text-color-light;
 		text-align: center;
 	}
 
-	.list-sidebar__table__row--item-row {
-		color: v.$mode-common-weak-text-color-light;
-	}
-
-	.list-sidebar__table__row--empty {
+	.list-sidebar-container__table__row--empty {
 		height: v.$common-list-row-height + (v.$common-list-row-height * 0.5);
 	}
 
-	.list-sidebar__table__row__header {
+	.list-sidebar-container__table__row__header {
 		// Must be more than table__data rows below do not overlap when scrolling
 		z-index: 1;
 		position: -webkit-sticky;
@@ -92,14 +92,15 @@
 		box-shadow: v.$mode-item-view-list-sidebar-table-row-header-box-shadow-light;
 		background-color: v.$mode-item-view-list-sidebar-table-row-header-background-color-light;
 		width: v.$item-view-list-sidebar-width;
+		color: v.$mode-common-strong-text-color-light;
 	}
 
-	.list-sidebar__table__row__data {
+	.list-sidebar-container__table__row__data {
 		position: relative;
 		cursor: default;
 	}
 
-	.list-sidebar__table__row__data__overflow-container {
+	.list-sidebar-container__table__row__data__overflow-container {
 		@include m.dead-center();
 
 		width: v.$item-view-list-sidebar-width - 25;
@@ -109,11 +110,11 @@
 		text-overflow: ellipsis;
 	}
 
-	.list-sidebar__table__row__data__overflow-container--completed-color {
+	.list-sidebar-container__table__row__data__overflow-container--completed-color {
 		color: v.$common-completed-color;
 	}
 
-	.list-sidebar__table__row__data__overflow-container__info__completed-icon {
+	.list-sidebar-container__table__row__data__overflow-container__info__completed-icon {
 		margin-right: 5px;
 		color: v.$common-completed-color;
 	}

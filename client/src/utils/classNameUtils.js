@@ -849,108 +849,112 @@ export function getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBa
 }
 
 /**
- * Get light/dark mode className for ItemViewListSidebar element's border color
+ * Get light/dark mode className for ItemViewListSidebar component's
+ * 'expand-minimize-button' (className) element's border, background (with 
+ * hover), and text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewListSidebar
- * element's border color
+ * @returns {string} Light/dark mode className for ItemViewListSidebar 
+ * component's 'expand-minimize-button' (className) element's border, background
+ * (with hover), and text color
  */
-export function getItemViewListSidebarBorderColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-get-item-view-list-sidebar-border-color-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for ItemViewListSidebar expand-minimize-button
- * element's border, background (with hover), and text color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewListSidebar
- * expand-minimize-button element's border, background (with hover), and text
- * color
- */
-export function getItemViewListSidebarExpandMinimizeButtonBorderAndBackgroundColorClassNameForLightOrDarkMode(
+ export function getItemViewListSidebarComponentExpandMinimizeButtonElementBorderAndBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-list-sidebar-expand-minimize-button-border-and-background-color-mode-" +
+		" js-get-item-view-list-sidebar-component-expand-minimize-button-element-border-and-background-color-mode-" +
 		dark_mode
 	);
+}
+
+/**
+ * Get light/dark mode className for ItemViewListSidebar component's 
+ * 'list-sidebar-container' (className) element's border color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewListSidebar 
+ * component's 'list-sidebar-container' (className) element's border color
+ */
+export function getItemViewListSidebarComponentSidebarContainerElementBorderColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-get-item-view-list-sidebar-component-sidebar-container-element-border-color-mode-" + dark_mode;
 }
 
 /**
  * Get light/dark mode className for ItemViewListSidebar component's
- * 'list-sidebar__table__row__header' (className) element's box shadow and
- * background color
+ * 'list-sidebar-container__table__row__header' (className) element's box 
+ * shadow, background, and text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className ItemViewListSidebar component's
- * 'list-sidebar__table__row__header' (className) element's box shadow and
- * background color
+ * 'list-sidebar-container__table__row__header' (className) element's box 
+ * shadow, background, and text color
  */
-export function getItemViewListSidebarHeaderBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
+export function getItemViewListSidebarComponentTableRowHeaderElementBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-list-sidebar-row-header-box-shadow-and-background-color-dark-mode-" +
+		" js-get-item-view-list-sidebar-component-table-row-header-element-box-shadow-background-text-color-dark-mode-" +
 		dark_mode
 	);
 }
 
 /**
  * Get light/dark mode className for ItemViewListSidebarItemRow component's
- * 'list-sidebar__table__row' (className) element's border, background, and
- * text colors
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow
- *  component's 'list-sidebar__table__row' (className) element's border,
+ * 'item-view-list-sidebar-item-row-component' (className) element's border,
  * background, and text colors
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow 
+ * component's 'item-view-list-sidebar-item-row-component' (className) element's
+ * border, background, and text colors
  */
-export function getItemViewListSidebarItemRowBorderAndTextColorClassNameForLightOrDarkMode(
+ export function getItemViewListSidebarItemRowComponentBorderAndTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-list-sidebar-item-row-border-background-text-color-dark-mode-" +
+		" js-get-item-view-list-sidebar-item-row-component-border-background-text-color-dark-mode-" +
 		dark_mode
 	);
 }
 
 /**
  * Get light/dark mode className for ItemViewListSidebarItemRow component's
- * 'list-sidebar__table__row' (className) element's hover background color
+ * 'item-view-list-sidebar-item-row-component' (className) element's hover 
+ * background color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow
- * component's 'list-sidebar__table__row' (className) element's hover
- * background color
+ * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow 
+ * component's 'item-view-list-sidebar-item-row-component' (className) element's
+ * hover background color
  */
-export function getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode(
+export function getItemViewListSidebarItemRowComponentHoverBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-list-sidebar-item-row-hover-background-color-dark-mode-" +
+		" js-get-item-view-list-sidebar-item-row-component-hover-background-color-dark-mode-" +
 		dark_mode
 	);
 }
 
 /**
  * Get light/dark mode className for ItemViewListSidebarItemRow component's
- * 'list-sidebar__table__row' (className) element's selected (i.e item for row
- * is equal to 'itemViewCurrentItem' property in 'componentsDisplay' Object in
- * project/bug container of the redux state) background color
+ * 'item-view-list-sidebar-item-row-component' (className) element's selected
+ * (i.e item for row is equal to 'itemViewCurrentItem' property in 
+ * 'componentsDisplay' Object in project/bug container of the redux state) 
+ * background color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow
- * component's 'list-sidebar__table__row' (className) element's selected
- * background color
+ * component's 'item-view-list-sidebar-item-row-component' (className) element's
+ * selected background color
  */
-export function getItemViewListSidebarItemRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+export function getItemViewListSidebarItemRowComponentSelectedBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-list-sidebar-item-row-selected-background-color-dark-mode-" +
+		" js-get-item-view-list-sidebar-item-row-component-selected-background-color-dark-mode-" +
 		dark_mode
 	);
 }

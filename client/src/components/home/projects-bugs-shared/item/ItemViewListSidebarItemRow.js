@@ -13,9 +13,9 @@ import {
 } from "../../../../actions";
 
 import {
-	getItemViewListSidebarItemRowBorderAndTextColorClassNameForLightOrDarkMode,
-	getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode,
-	getItemViewListSidebarItemRowSelectedBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarItemRowComponentBorderAndTextColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarItemRowComponentHoverBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewListSidebarItemRowComponentSelectedBackgroundColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
@@ -84,8 +84,8 @@ export default function ItemViewListSidebarItemRow(props) {
 	return (
 		<tr
 			className={
-				"list-sidebar__table__row list-sidebar__table__row--item-row" +
-				getItemViewListSidebarItemRowBorderAndTextColorClassNameForLightOrDarkMode(
+				"item-view-list-sidebar-item-row-component" +
+				getItemViewListSidebarItemRowComponentBorderAndTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				) +
 				// Hover is else case since rows should only have hover if not selected
@@ -93,36 +93,36 @@ export default function ItemViewListSidebarItemRow(props) {
 					.itemViewCurrentItem !== null &&
 				reduxState[props.reduxContainerName].componentsDisplay
 					.itemViewCurrentItem.id === props.item.id
-					? getItemViewListSidebarItemRowSelectedBackgroundColorClassNameForLightOrDarkMode(
+					? getItemViewListSidebarItemRowComponentSelectedBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  )
-					: getItemViewListSidebarItemRowHoverBackgroundColorClassNameForLightOrDarkMode(
+					: getItemViewListSidebarItemRowComponentHoverBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  ))
 			}
 			onClick={changeTargetItem}
 			onDoubleClick={openListViewIfProject}
 		>
-			<td className="list-sidebar__table__row__data">
+			<td className="list-sidebar-container__table__row__data">
 				<div
 					className={
-						"list-sidebar__table__row__data__overflow-container" +
+						"list-sidebar-container__table__row__data__overflow-container" +
 						(props.item.status_id ===
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
-							? " list-sidebar__table__row__data__overflow-container--completed-color"
+							? " list-sidebar-container__table__row__data__overflow-container--completed-color"
 							: getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
 				>
-					<span className="list-sidebar__table__row__data__overflow-container__info">
+					<span className="list-sidebar-container__table__row__data__overflow-container__info">
 						{props.item.status_id !==
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId ? null : (
 							<i
-								className="fa fa-check list-sidebar__table__row__data__overflow-container__info__completed-icon"
+								className="fa fa-check list-sidebar-container__table__row__data__overflow-container__info__completed-icon"
 								aria-hidden="true"
 							/>
 						)}
