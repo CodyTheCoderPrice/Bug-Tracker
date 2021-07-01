@@ -11,10 +11,10 @@ import {
 import { createComment, clearBackendErrors } from "../../../../actions";
 
 import {
-	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
+	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
-	getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
 	dateToInt,
@@ -100,7 +100,7 @@ export default function ItemViewCommentsBox() {
 			<div
 				className={
 					"item-box" +
-					getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
+					getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}
@@ -155,7 +155,7 @@ export default function ItemViewCommentsBox() {
 						id="create-comment-description"
 						className={
 							"item-box__form-textarea item-box__form-textarea--shorter" +
-							getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							)

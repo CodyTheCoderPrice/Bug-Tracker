@@ -412,17 +412,84 @@ export function getCommonTopBarComponentButtonAndDropdownElementBorderBackground
 }
 
 /**
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * ItemView, ItemViewDisplayItemInfo, ItemViewEditItemInfo, and 
+ * ItemViewCommentBox component's 'item-box' (className) element's background 
+ * color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for common ItemView,
+ * ItemViewDisplayItemInfo, ItemViewEditItemInfo, and ItemViewCommentBox 
+ * component's 'item-box' (className) element's background color
+ */
+ export function getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return " js-get-common-item-view-component-item-box-element-background-color-dark-mode-" + dark_mode;
+}
+
+/**
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * ItemViewEditItemInfo, ItemViewCommentBox and ItemViewCommentsBoxIndividualComment
+ * component's form input/textarea/select/option element's border, background,
+ * and text color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for common ItemViewEditItemInfo,
+ * ItemViewCommentBox and ItemViewCommentsBoxIndividualComment component's form
+ * input/textarea/select/option element's border, background, and text color
+ */
+ export function getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-common-item-view-component-form-input-element-border-background-text-color-dark-mode-" +
+		dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for common (i.e. used by multiple components) 
+ * ItemViewEditItemInfo component's 'form-buttons-centered-container__cancel-button'
+ * (className) element and ItemViewCommentBoxIndividualComment component's
+ * 'comment__centering-container__pair-container__cancel-button' (className) 
+ * element's background color with hover
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for common
+ * ItemViewEditItemInfo component's 'form-buttons-centered-container__cancel-button'
+ * element and ItemViewCommentBoxIndividualComment component's 
+ * 'comment__centering-container__pair-container__cancel-button' element's
+ * background color with hover
+ */
+ export function getCommonItemViewComponentFormCancelButtonElementBackgroundColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-common-item-view-component-form-cancel-button-element-background-color-with-hover-mode-" +
+		dark_mode
+	);
+}
+
+/**
  * Get light/dark mode className for Home component's 'home-component'
  * (className) element's background and text colors.
  *
- * Note: Since child elements inherit text color, any elements intented to
- * have the same text color as 'home-container' element will simply inherit it
- * as all other elements (except those in Register and Login components) are
- * children of it.
+ * Note: Since child elements inherit text color, any child elements of Home
+ * compoennt (i.e. all elements except those in Register and Login components)
+ * intented to have the same text color as 'home-container' element will simply 
+ * inherit it instead of having it set for each one individually.
+ * 
+ * Note: Some of Home component's child element's have functions in this file 
+ * that still set background-color despite it being the same as the Home compoent,
+ * and therefore not making any difference in the way the element appears. While 
+ * this seems redundant, it's done so if it's descided later to make the element
+ * a different background-color than Home compoent, it can quickly be done by
+ * editing the corresponding variable in _variables.scss.
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for Home component's
- * 'home-container' (className) element's background and text colors
+ * 'home-container' element's background and text colors
  */
 export function getHomeComponentBackgroundColorClassNameForLightOrDarkMode(dark_mode) {
 	return " js-get-home-component-background-and-text-color-dark-mode-" + dark_mode;
@@ -435,7 +502,7 @@ export function getHomeComponentBackgroundColorClassNameForLightOrDarkMode(dark_
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for NavbarHamburger component's 
- * 'hamburger-dropdown' (className) element's border, background (with hover 
+ * 'hamburger-dropdown' element's border, background (with hover 
  * and selected), and text color
  */
 export function getNavbarHamburgerComponentDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
@@ -453,7 +520,7 @@ export function getNavbarHamburgerComponentDropdownElementBorderBackgroundTextCo
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountSidebar components
- * 'sidebar-container' (className) element's background color
+ * 'sidebar-container' element's background color
  */
 export function getAccountSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -467,7 +534,7 @@ export function getAccountSidebarComponentSidebarContainerElementBackgroundColor
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountSidebar component's 
- * 'horizontal-dividing-line' (className) element's border color
+ * 'horizontal-dividing-line' element's border color
  */
 export function getAccountSidebarComponentHorizontalDividingLineElementBorderColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -485,8 +552,7 @@ export function getAccountSidebarComponentHorizontalDividingLineElementBorderCol
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountSidebar component's 
- * 'button-container__logout-button' (className) element's border and hover 
- * background color
+ * 'button-container__logout-button' element's border and hover background color
  */
 export function getAccountSidebarComponentLogoutButtonElementBorderHoverBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -503,7 +569,7 @@ export function getAccountSidebarComponentLogoutButtonElementBorderHoverBackgrou
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountSidebar components
- * 'account-modal' (className) element's background color
+ * 'account-modal' element's background color
  */
 export function getAccountModalComponentModalElementBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -517,7 +583,7 @@ export function getAccountModalComponentModalElementBackgroundColorClassNameForL
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountModalDeleteAccount 
- * component's 'form__label__captial-delete' (className) element's text color
+ * component's 'form__label__captial-delete' element's text color
  */
 export function getAccountModalDeleteAccountComponentCapitalDeleteElementTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -535,8 +601,8 @@ export function getAccountModalDeleteAccountComponentCapitalDeleteElementTextCol
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountModalDeleteAccount 
- * component's 'form__input-text' (className) element's border (with focus), 
- * background, and text colors
+ * component's 'form__input-text' element's border (with focus), background,
+ * and text colors
  */
 export function getAccountModalDeleteAccountComponentFormInputElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -556,8 +622,7 @@ export function getAccountModalDeleteAccountComponentFormInputElementBorderBackg
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountModalDeleteAccount 
- * component's 'form__submit--delete' (className) element's background (with
- * hover) color
+ * component's 'form__submit--delete' element's background (with hover) color
  */
 export function getAccountModalDeleteAccountComponentFormSubmitElementBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -574,8 +639,7 @@ export function getAccountModalDeleteAccountComponentFormSubmitElementBackground
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountModalEditSettings 
- * component's 'category-container' (className) element's border, background,
- * text color
+ * component's 'category-container' element's border, background, text color
  */
 export function getAccountModalEditSettingsComponentCategoryContainerElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -592,7 +656,7 @@ export function getAccountModalEditSettingsComponentCategoryContainerElementBord
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for CreateItemSidebar component's 
- * 'sidebar-container' (className) element's background color
+ * 'sidebar-container' element's background color
  */
  export function getCreateItemSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -607,8 +671,8 @@ export function getAccountModalEditSettingsComponentCategoryContainerElementBord
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className to make CreateItemSidebar 
- * component's 'form__group-container__input-container__label' (className) 
- * element disabled (i.e. no pointer events and grayed out text color)
+ * component's 'form__group-container__input-container__label' element disabled
+ * (i.e. no pointer events and grayed out text color)
  */
 export function getCreateItemSidebarComponentLabelElementDisabledClassNameForLightOrDarkMode(
 	dark_mode
@@ -623,8 +687,8 @@ export function getCreateItemSidebarComponentLabelElementDisabledClassNameForLig
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className to make CreateItemSidebar 
- * component's 'form__group-container__input-container__date' (className) 
- * element disabled (i.e. no pointer events and grayed out text color)
+ * component's 'form__group-container__input-container__date' element disabled
+ * (i.e. no pointer events and grayed out text color)
  */
 export function getCreateItemSidebarComponentInputDateElementDisabledClassNameForLightOrDarkMode(
 	dark_mode
@@ -641,8 +705,7 @@ export function getCreateItemSidebarComponentInputDateElementDisabledClassNameFo
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className ListViewTable component's
- * 'list-table__row__header' (className) element's box shadow and background
- * color
+ * 'list-table__row__header' element's box shadow and background color
  */
 export function getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -677,8 +740,8 @@ export function getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundC
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ListViewTableItemRow
- * component's 'list-view-table-item-row-component' (className) element's 
- * border, background, and text colors
+ * component's 'list-view-table-item-row-component' element's border, background,
+ * and text colors
  */
 export function getListViewTableItemRowComponentBorderAndTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -696,8 +759,8 @@ export function getListViewTableItemRowComponentBorderAndTextColorClassNameForLi
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ListViewTableItemRow 
- * component's 'list-view-table-item-row-component' (className) element's hover 
- * background color
+ * component's 'list-view-table-item-row-component' element's hover background
+ * color
  */
 export function getListViewTableItemRowComponentHoverBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -717,8 +780,8 @@ export function getListViewTableItemRowComponentHoverBackgroundColorClassNameFor
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ListViewTableItemRow 
- * component's 'list-view-table-item-row-component' (className) element's 
- * selected background color
+ * component's 'list-view-table-item-row-component' element's selected 
+ * background color
  */
 export function getListViewTableItemRowComponentSelectedBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -735,7 +798,7 @@ export function getListViewTableItemRowComponentSelectedBackgroundColorClassName
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for DeleteModal component's
- * 'modal-container' (className) element's background color
+ * 'modal-container' element's background color
  */
 export function getDeleteModalComponentModalContainerElementBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -749,7 +812,7 @@ export function getDeleteModalComponentModalContainerElementBackgroundColorClass
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for DeleteModal component's
- * 'warning-trapazoid' (className) element's border color
+ * 'warning-trapazoid' element's border color
  */
  export function getDeleteModalComponentTrapazoidElementBorderColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -764,8 +827,7 @@ export function getDeleteModalComponentModalContainerElementBackgroundColorClass
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for  DeleteModal component's
- * 'centered-buttons-container__button' (className) element's background (with 
- * hover) color
+ * 'centered-buttons-container__button' element's background (with hover) color
  */
 export function getDeleteModalComponentDeleteButtonElementBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -782,8 +844,8 @@ export function getDeleteModalComponentDeleteButtonElementBackgroundColorClassNa
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for DeleteModal component's
- * 'centered-buttons-container__button--cancel' (className) element's border,
- * background (with hover), text color
+ * 'centered-buttons-container__button--cancel' element's border, background
+ * (with hover), text color
  */
 export function getDeleteModalComponentCancelButtonElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -818,8 +880,8 @@ export function getItemViewTopBarComponentIconButtonElementTextColorWithHoverCla
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewTopBar component's 
- * 'item-options-container__icon-button' (className) element's clicked border,
- * background, and text color
+ * 'item-options-container__icon-button' element's clicked border, background,
+ * and text color
  */
 export function getItemViewTopBarComponentOptionsIconButtonElementClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -836,8 +898,8 @@ export function getItemViewTopBarComponentOptionsIconButtonElementClickedBorderB
  * background color
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewTopBar component's 
- * 'item-options-container__dropdown__row-button' (className) element's hover 
- * background color
+ * 'item-options-container__dropdown__row-button' element's hover background 
+ * color
  */
 export function getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -855,8 +917,8 @@ export function getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBa
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewListSidebar 
- * component's 'expand-minimize-button' (className) element's border, background
- * (with hover), and text color
+ * component's 'expand-minimize-button' element's border, background (with hover),
+ * and text color
  */
  export function getItemViewListSidebarComponentExpandMinimizeButtonElementBorderAndBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -873,7 +935,7 @@ export function getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBa
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewListSidebar 
- * component's 'list-sidebar-container' (className) element's border color
+ * component's 'list-sidebar-container' element's border color
  */
 export function getItemViewListSidebarComponentSidebarContainerElementBorderColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -888,8 +950,8 @@ export function getItemViewListSidebarComponentSidebarContainerElementBorderColo
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className ItemViewListSidebar component's
- * 'list-sidebar-container__table__row__header' (className) element's box 
- * shadow, background, and text color
+ * 'list-sidebar-container__table__row__header' element's box shadow, background,
+ * and text color
  */
 export function getItemViewListSidebarComponentTableRowHeaderElementBoxShadowBackgroundTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -907,8 +969,8 @@ export function getItemViewListSidebarComponentTableRowHeaderElementBoxShadowBac
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow 
- * component's 'item-view-list-sidebar-item-row-component' (className) element's
- * border, background, and text colors
+ * component's 'item-view-list-sidebar-item-row-component' element's border, 
+ * background, and text colors
  */
  export function getItemViewListSidebarItemRowComponentBorderAndTextColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -926,8 +988,8 @@ export function getItemViewListSidebarComponentTableRowHeaderElementBoxShadowBac
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow 
- * component's 'item-view-list-sidebar-item-row-component' (className) element's
- * hover background color
+ * component's 'item-view-list-sidebar-item-row-component' element's hover 
+ * background color
  */
 export function getItemViewListSidebarItemRowComponentHoverBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -947,8 +1009,8 @@ export function getItemViewListSidebarItemRowComponentHoverBackgroundColorClassN
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow
- * component's 'item-view-list-sidebar-item-row-component' (className) element's
- * selected background color
+ * component's 'item-view-list-sidebar-item-row-component' element's selected
+ * background color
  */
 export function getItemViewListSidebarItemRowComponentSelectedBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
@@ -965,109 +1027,60 @@ export function getItemViewListSidebarItemRowComponentSelectedBackgroundColorCla
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemView component's
- * 'item-content-container' (className) element's background color
+ * 'item-content-container' element's background color
  */
-export function getItemViewContentContainerBackgroundColorClassNameForLightOrDarkMode(
+export function getItemViewComponentItemContentContainerElementBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-content-container-background-color-dark-mode-" +
+		" js-get-item-view-component-item-content-container-element-background-color-dark-mode-" +
 		dark_mode
 	);
 }
 
 /**
- * Get light/dark mode className for ItemView item-box element's background
- * color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemView item-box element's
- * background color
- */
-export function getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return " js-get-item-view-item-box-background-color-dark-mode-" + dark_mode;
-}
-
-/**
- * Get light/dark mode className for ItemView form input element's border,
- * background, and text color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemView form input
- * element's border, background, and text color
- */
-export function getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-get-item-view-form-input-border-background-text-color-dark-mode-" +
-		dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for ItemViewEditItemInfo form-label element's
+ * Get light/dark mode className for ItemViewEditItemInfo component's 
+ * 'item-box__group__field__form-completed-date-label' (className) element's 
  * disabled text color with no pointer events
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewEditItemInfo
- * form-label element's disabled text color with no pointer events
+ * @returns {string} Light/dark mode className for ItemViewEditItemInfo 
+ * component's 'item-box__group__field__form-completed-date-label' element's
+ * disabled text color with no pointer events
  */
-export function getItemViewDisabledLabelClassNameForLightOrDarkMode(dark_mode) {
-	return " js-get-item-view-diabled-label-dark-mode-" + dark_mode;
+export function getItemViewEditItemInfoComponentCompletedDateLabelElementDisabledClassNameForLightOrDarkMode(dark_mode) {
+	return " js-get-item-view-edit-item-info-component-completed-date-label-element-disabled-dark-mode-" + dark_mode;
 }
 
 /**
- * Get light/dark mode className for ItemViewEditItemInfo form input (type date)
- * element's disabled background and text color with no pointer events
+ * Get light/dark mode className for ItemViewEditItemInfo component's 
+ * 'item-box__group__field__form-completed-date' (className) element's disabled
+ * background and text color with no pointer events
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewEditItemInfo
- * form input (type date) element's disabled background and text color with no
- * pointer events
+ * @returns {string} Light/dark mode className for ItemViewEditItemInfo component's 
+ * 'item-box__group__field__form-completed-date' element's disabled background 
+ * and text color with no pointer events
  */
-export function getItemViewDisableInputDateClassNameForLightOrDarkMode(
+export function getItemViewEditItemInfoComponentInputCompletedDateElementDisabledClassNameForLightOrDarkMode(
 	dark_mode
 ) {
-	return " js-get-item-view-diabled-input-date-dark-mode-" + dark_mode;
+	return " js-get-item-view-edit-item-info-component-input-completed-date-element-disabled-dark-mode-" + dark_mode;
 }
 
 /**
- * Get light/dark mode className for ItemViewEditItemInfo and
- * ItemViewCommentBoxIndividualComment form-cancel-button element's background
- * color with hover (both components have same form-cancel-button css for
- * background color with hover)
+ * Get light/dark mode className for ItemViewCommentBoxIndividualComment component's
+ * 'comment__block__icon-button' (className) element's text color with hover
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewEditItemInfo and
- * ItemViewCommentBoxIndividualComment form-cancel-button element's background
- * color with hover
+ * @returns {string} Light/dark mode className for ItemViewCommentBoxIndividualComment
+ * component's 'comment__block__icon-button' element's text color with hover
  */
-export function getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-get-item-view-form-cancel-button-button-background-color-with-hover-mode-" +
-		dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for ItemViewCommentBoxIndividualComment
- * icon button element's text color with hover
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for
- * ItemViewCommentBoxIndividualComment icon button element's text color with
- * hover
- */
-export function getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(
+export function getItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-item-view-comment-box-individual-comment-icon-button-text-color-with-hover-mode-" +
+		" js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-" +
 		dark_mode
 	);
 }
@@ -1317,6 +1330,38 @@ export function getCommonTopBarSearchContainerBorderBackgroundTextColorClassName
 }
 
 /**
+ * Get theme with light/dark mode className for common (i.e. used by multiple 
+ * components) ItemViewEditItemInfo, ItemViewCommentBox and 
+ * ItemViewCommentsBoxIndividualComment component's form input/textarea/select/option 
+ * element's border (with focus), background, and text color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {("blue-turkish"|
+ * 	"blue-queen"|
+ * 	"blue-sky"|
+ * 	"blue-turquoise"|
+ * 	"purple-rain")} theme_color - The current theme the app is set to use
+ * @returns {string} Theme with light/dark mode className for common 
+ * ItemViewEditItemInfo, ItemViewCommentBox and ItemViewCommentsBoxIndividualComment
+ * component's form input/textarea/select/option element's border (with focus), 
+ * background, and text color
+ */
+export function getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+	dark_mode,
+	theme_color
+) {
+	return (
+		getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
+			dark_mode
+		) +
+		getCommonFormInputFocusBorderColorClassNameForThemeWithLightOrDarkMode(
+			dark_mode,
+			theme_color
+		)
+	);
+}
+
+/**
  * Get theme with light/dark mode className for ListViewTopBar Component's
  * 'centering-container__new-item-button--tutorial' (className) element's
  * border color
@@ -1369,34 +1414,6 @@ export function getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThe
 }
 
 /**
- * Get theme with light/dark mode className for ItemView form input element's
- * border (with focus), background, and text color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {("blue-turkish"|
- * 	"blue-queen"|
- * 	"blue-sky"|
- * 	"blue-turquoise"|
- * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Theme with light/dark mode className for ItemView
- * form input element's border (with focus), background, and text color
- */
-export function getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-	dark_mode,
-	theme_color
-) {
-	return (
-		getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
-			dark_mode
-		) +
-		getCommonFormInputFocusBorderColorClassNameForThemeWithLightOrDarkMode(
-			dark_mode,
-			theme_color
-		)
-	);
-}
-
-/**
  * Get theme with light/dark mode className for ItemViewEditItemInfo form input
  * (for name) element's border (with focus), background, and text color
  *
@@ -1415,7 +1432,7 @@ export function getItemViewEditItemInfoFormInputBorderBackgroundTextColorClassNa
 	theme_color
 ) {
 	return (
-		getItemViewFormInputBorderBackgroundTextColorClassNameForLightOrDarkMode(
+		getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 			dark_mode
 		) +
 		(dark_mode

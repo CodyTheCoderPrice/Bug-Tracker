@@ -17,12 +17,12 @@ import {
 import {
 	formatDateMMddYYYY,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
-	getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode,
+	getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode,
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
-	getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode,
+	getCommonItemViewComponentFormCancelButtonElementBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 import { useSubmitFormOnEnterPress } from "../../../../utils/hooks";
@@ -143,7 +143,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 							<div
 								className={
 									"comment__block__icon-button" +
-									getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(
+									getItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -159,7 +159,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 							<div
 								className={
 									"comment__block__icon-button" +
-									getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(
+									getItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode(
 										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 									)
 								}
@@ -200,7 +200,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 							id="edit-comment-description"
 							className={
 								"item-box__form-textarea item-box__form-textarea--shorter" +
-								getItemViewFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+								getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
@@ -210,7 +210,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 						<div
 							className={
 								"comment__block__icon-button" +
-								getItemViewCommentBoxIndividualCommentIconButtonTextColorClassNameForLightOrDarkMode(
+								getItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
@@ -255,7 +255,7 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 								<div
 									className={
 										"comment__centering-container__pair-container__cancel-button" +
-										getItemViewFormCancelButtonBackgroundColorClassNameForLightOrDarkMode(
+										getCommonItemViewComponentFormCancelButtonElementBackgroundColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}

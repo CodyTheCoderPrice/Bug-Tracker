@@ -15,10 +15,10 @@
 	.name-centering-container__form-name-input {
 		@include m.dead-center;
 		outline: none;
-		border: v.$item-view-edit-item-name-input-border-width solid v.$mode-item-view-form-input-border-color-light;
+		border: v.$item-view-edit-item-name-input-border-width solid v.$mode-common-item-view-form-input-border-color-light;
 		border-right: v.$item-view-edit-item-name-input-border-width dotted v.$gray-light-level-10;
 		border-radius: v.$common-form-input-border-radius 0 0 v.$common-form-input-border-radius;
-		background-color: v.$mode-item-view-form-input-background-color-light;
+		background-color: v.$mode-common-item-view-form-input-background-color-light;
 		padding: v.$item-view-edit-item-name-input-padding;
 		height: v.$item-view-edit-item-name-input-height;
 		width: v.$item-view-edit-item-name-input-width;
@@ -58,7 +58,7 @@
 
 		margin-left: (v.$item-view-edit-item-name-input-width / 2) + v.$item-view-edit-item-name-input-border-width +
 			v.$item-view-edit-item-name-input-padding + (v.$item-view-edit-item-name-char-counter-container-width / 2);
-		border: v.$item-view-edit-item-name-input-border-width solid v.$mode-item-view-form-input-border-color-light;
+		border: v.$item-view-edit-item-name-input-border-width solid v.$mode-common-item-view-form-input-border-color-light;
 		border-left: none;
 		border-radius: 0 v.$common-form-input-border-radius v.$common-form-input-border-radius 0;
 		height: v.$item-view-edit-item-name-centering-container-height - (v.$item-view-edit-item-name-input-border-width * 2);
@@ -72,7 +72,11 @@
 		font-size: v.$common-slightly-larger-font-size;
 	}
 
-	.item-box__group__field__form-label {
+	// item-box__group__field__form-completed-date-label className is no different
+	// ...than item-box__group__field__form-label and simply exisits to help 
+	// ...distinguish between inputs of type date for functions in classNameUtils 
+	.item-box__group__field__form-label,
+	.item-box__group__field__form-completed-date-label {
 		// To make form-selects vertically parallel
 		display: inline-block;
 		// Width decides starting location of the following input element
@@ -104,9 +108,9 @@
 		
 		margin-top: 3px;
 		outline: none;
-		border: 1px solid v.$mode-item-view-form-input-border-color-light;
+		border: 1px solid v.$mode-common-item-view-form-input-border-color-light;
 		border-radius: v.$common-form-input-border-radius;
-		background-color: v.$mode-item-view-form-input-background-color-light;
+		background-color: v.$mode-common-item-view-form-input-background-color-light;
 		padding: 6px;
 		width: 100%;
 		font-size: v.$common-item-form-input-text-font-size;
@@ -119,8 +123,8 @@
 
 	.item-box__group__field__form-select {
 		outline: none;
-		border: 1px solid v.$mode-item-view-form-input-border-color-light;
-		background-color: v.$mode-item-view-form-input-background-color-light;
+		border: 1px solid v.$mode-common-item-view-form-input-border-color-light;
+		background-color: v.$mode-common-item-view-form-input-background-color-light;
 		width: 125px;
 		font-size: 14px;
 
@@ -129,10 +133,14 @@
 		}
 	}
 
-	.item-box__group__field__form-date {
+	// item-box__group__field__form-completed-date className is no different than
+	// ...item-box__group__field__form-date and simply exisits to help distinguish
+	// ...between inputs of type date for functions in classNameUtils 
+	.item-box__group__field__form-date,
+	.item-box__group__field__form-completed-date {
 		outline: none;
-		border: 1px solid v.$mode-item-view-form-input-border-color-light;
-		background-color: v.$mode-item-view-form-input-background-color-light;
+		border: 1px solid v.$mode-common-item-view-form-input-border-color-light;
+		background-color: v.$mode-common-item-view-form-input-background-color-light;
 
 		&:focus {
 			border-color: v.$default-theme-common-mode-focus-border-color;

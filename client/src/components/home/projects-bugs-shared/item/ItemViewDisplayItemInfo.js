@@ -9,7 +9,7 @@ import {
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	getCommonStatusBackgroundColorClassName,
-	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
+	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonWeakElementTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	displayGrayedOutAlternativeWhenValueIsEmpty,
@@ -109,7 +109,7 @@ export default function ItemViewDisplayItemInfo(props) {
 					<div
 						className={
 							"item-box item-box--desciption-info-height" +
-							getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
+							getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
@@ -136,7 +136,7 @@ export default function ItemViewDisplayItemInfo(props) {
 					<div
 						className={
 							"item-box item-box--desciption-info-height" +
-							getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
+							getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}

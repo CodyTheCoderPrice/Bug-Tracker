@@ -20,8 +20,8 @@ import {
 import {
 	manageSizeOfItemBoxsInPairContainer,
 	getWindowSize,
-	getItemViewContentContainerBackgroundColorClassNameForLightOrDarkMode,
-	getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode,
+	getItemViewComponentItemContentContainerElementBackgroundColorClassNameForLightOrDarkMode,
+	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
 // Components
@@ -227,7 +227,7 @@ export default function ItemView(props) {
 					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
 						? " item-content-container--shifted-right"
 						: "") +
-					getItemViewContentContainerBackgroundColorClassNameForLightOrDarkMode(
+					getItemViewComponentItemContentContainerElementBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 				}
@@ -253,7 +253,7 @@ export default function ItemView(props) {
 								<div
 									className={
 										"item-box item-box--bugs-stats-height item-box--no-left-right-padding" +
-										getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
+										getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}
@@ -277,7 +277,7 @@ export default function ItemView(props) {
 								<div
 									className={
 										"item-box item-box--bugs-stats-height" +
-										getItemViewItemBoxBackgroundColorClassNameForLightOrDarkMode(
+										getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 									}

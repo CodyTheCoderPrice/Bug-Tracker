@@ -244,6 +244,12 @@ $mode-common-top-bar-search-bar-background-color-light: $mode-common-background-
 $mode-common-top-bar-search-bar-background-color-dark: $gray-dark-level-6;
 $mode-common-top-bar-search-bar-text-color-light: $mode-common-strong-text-color-light;
 $mode-common-top-bar-search-bar-text-color-dark: $mode-common-strong-text-color-dark;
+$mode-common-item-view-item-box-background-color-light: $mode-common-top-bar-background-color-light;
+$mode-common-item-view-item-box-background-color-dark: $mode-common-top-bar-background-color-dark;
+$mode-common-item-view-form-input-border-color-light: black;
+$mode-common-item-view-form-input-border-color-dark: black;
+$mode-common-item-view-form-input-background-color-light: $mode-common-background-color-light;
+$mode-common-item-view-form-input-background-color-dark: $mode-common-background-color-dark;
 // Light/Dark mode colors -- Specific (i.e. used by specific component)
 // Note: light/dark mode placed at end of variable name
 $mode-home-background-color-light: $mode-common-background-color-light;
@@ -344,12 +350,6 @@ $mode-item-view-list-sidebar-table-row-header-background-color-light: $mode-list
 $mode-item-view-list-sidebar-table-row-header-background-color-dark: $mode-list-view-table-row-header-background-color-dark;
 $mode-item-view-content-container-background-color-light: $mode-common-background-color-light;
 $mode-item-view-content-container-background-color-dark: $mode-common-background-color-dark;
-$mode-item-view-item-box-background-color-light: $mode-common-top-bar-background-color-light;
-$mode-item-view-item-box-background-color-dark: $mode-common-top-bar-background-color-dark;
-$mode-item-view-form-input-border-color-light: black;
-$mode-item-view-form-input-border-color-dark: black;
-$mode-item-view-form-input-background-color-light: $mode-common-background-color-light;
-$mode-item-view-form-input-background-color-dark: $mode-common-background-color-dark;
 $mode-item-view-form-disabled-background-color-light: $mode-common-top-bar-background-color-light;
 $mode-item-view-form-disabled-background-color-dark: $mode-common-top-bar-background-color-dark;
 $mode-item-view-form-disabled-text-color-light: $mode-create-item-sidebar-form-disabled-text-color-light;
