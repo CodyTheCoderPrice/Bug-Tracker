@@ -72,11 +72,11 @@ function App() {
 
 	// Prints notes in the console that may be helpful to users/developers
 	useEffect(() => {
-		console.log("NOTE: If page is empty -- try clearing cookies before refreshing.")
+		console.log("NOTE: If page is empty or seems broken, then please try clearing cookies before refreshing.")
 
 		if (process.env.NODE_ENV === "development") {
 			console.log(
-				"NOTE: Pressing third mouse button (while in development mode) logs the redux state"
+				"NOTE: Pressing the third mouse button (while in development mode) will log the redux state."
 			);
 		}
 	}, []);
