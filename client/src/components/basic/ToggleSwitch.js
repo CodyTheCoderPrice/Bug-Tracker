@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode } from "../../utils";
+import { getToggleSwitchComponentBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode } from "../../utils";
 
 /**
  * React functional component for a toggle switch element with border,
@@ -44,7 +44,7 @@ export default function ToggleSwitch(props) {
 		<div
 			className={
 				"toggle-switch-component" +
-				getToggleSwitchBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+				getToggleSwitchComponentBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 					dark_mode,
 					theme_color
 				)

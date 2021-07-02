@@ -12,9 +12,9 @@ import {
 } from "../../../actions";
 import {
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
-	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
+	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
 
@@ -145,7 +145,7 @@ export default function AccountModalEditInfo() {
 					id="edit-account-info-modal--first-name"
 					className={
 						"form__input-text" +
-						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -190,7 +190,7 @@ export default function AccountModalEditInfo() {
 					id="edit-account-info-modal--last-name"
 					className={
 						"form__input-text" +
-						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -213,7 +213,7 @@ export default function AccountModalEditInfo() {
 					type="submit"
 					className={
 						"form__submit" +
-						getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
+						getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

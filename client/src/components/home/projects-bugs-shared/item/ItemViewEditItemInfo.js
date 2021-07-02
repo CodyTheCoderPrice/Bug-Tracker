@@ -19,7 +19,7 @@ import {
 	formatDateYYYYmmDD,
 	getCommonStatusTextColorClassName,
 	manageSizeOfItemBoxsInPairContainer,
-	getItemViewEditItemInfoFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getItemViewEditItemInfoComponentFormNameInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
@@ -30,7 +30,7 @@ import {
 	getItemViewEditItemInfoComponentInputCompletedDateElementDisabledClassNameForLightOrDarkMode,
 	getPriorityOptionsForSelect,
 	getStatusOptionsForSelectWithStatusColors,
-	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
+	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonItemViewComponentFormCancelButtonElementBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
@@ -218,7 +218,7 @@ export default function ItemViewEditItemInfo(props) {
 						id="edit-item-name"
 						className={
 							"name-centering-container__form-name-input" +
-							getItemViewEditItemInfoFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							getItemViewEditItemInfoComponentFormNameInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							) +
@@ -571,7 +571,7 @@ export default function ItemViewEditItemInfo(props) {
 							type="submit"
 							className={
 								"form-buttons-centered-container__submit-button" +
-								getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
+								getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}

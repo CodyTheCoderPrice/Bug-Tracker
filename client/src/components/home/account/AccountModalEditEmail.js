@@ -10,9 +10,9 @@ import {
 	clearBackendErrors,
 } from "../../../actions";
 import {
-	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
+	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
 } from "../../../utils";
@@ -89,7 +89,7 @@ export default function AccountModalEditEmail() {
 					id="edit-account-email-modal--email"
 					className={
 						"form__input-text" +
-						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -116,7 +116,7 @@ export default function AccountModalEditEmail() {
 					id="edit-account-email-modal--password"
 					className={
 						"form__input-text" +
-						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -136,7 +136,7 @@ export default function AccountModalEditEmail() {
 					type="submit"
 					className={
 						"form__submit" +
-						getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
+						getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

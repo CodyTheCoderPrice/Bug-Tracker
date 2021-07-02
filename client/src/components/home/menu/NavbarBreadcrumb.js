@@ -14,8 +14,8 @@ import {
 	getElementSize,
 	getCommonStandardBackgroundColorClassNameForTheme,
 	getCommonBrighterBackgroundColorClassNameForTheme,
-	getStandardBreadcrumbArrowColorClassNameForTheme,
-	getBrighterBreadcrumbArrowColorClassNameForTheme,
+	getStandardNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme,
+	getBrighterNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme,
 	switchToProjectsListView,
 	switchToProjectsItemView,
 	SwitchToBugsListView,
@@ -205,10 +205,10 @@ export default function NavbarBreadcrumb(props) {
 									className={
 										"breadcrumb-button__end-container__arrow" +
 										(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
-											? getBrighterBreadcrumbArrowColorClassNameForTheme(
+											? getBrighterNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
-											: getStandardBreadcrumbArrowColorClassNameForTheme(
+											: getStandardNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  ))
 									}
@@ -266,10 +266,10 @@ export default function NavbarBreadcrumb(props) {
 										(reduxState[PROJECT_CONTAINER].componentsDisplay
 											.itemViewCurrentItem !== null &&
 										reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
-											? getBrighterBreadcrumbArrowColorClassNameForTheme(
+											? getBrighterNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
-											: getStandardBreadcrumbArrowColorClassNameForTheme(
+											: getStandardNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  ))
 									}
@@ -345,10 +345,10 @@ export default function NavbarBreadcrumb(props) {
 												(reduxState[PROJECT_CONTAINER].componentsDisplay
 													.itemViewCurrentItem !== null &&
 												reduxState[BUG_CONTAINER].componentsDisplay.listView
-													? getBrighterBreadcrumbArrowColorClassNameForTheme(
+													? getBrighterNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
 															reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													  )
-													: getStandardBreadcrumbArrowColorClassNameForTheme(
+													: getStandardNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
 															reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													  ))
 											}

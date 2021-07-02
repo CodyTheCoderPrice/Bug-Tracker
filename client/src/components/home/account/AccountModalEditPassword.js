@@ -11,9 +11,9 @@ import {
 } from "../../../actions";
 import {
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
-	getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme,
+	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
 } from "../../../utils";
@@ -109,7 +109,7 @@ export default function AccountModalEditPassword() {
 					id="edit-account-password-modal--new-password"
 					className={
 						"form__input-text" +
-						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -157,7 +157,7 @@ export default function AccountModalEditPassword() {
 					id="edit-account-password-modal--current-password"
 					className={
 						"form__input-text" +
-						getCommonFormInputBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -177,7 +177,7 @@ export default function AccountModalEditPassword() {
 					type="submit"
 					className={
 						"form__submit" +
-						getCommonformSubmitButtonColorWithHoverAndFocusClassNameForTheme(
+						getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
 					}

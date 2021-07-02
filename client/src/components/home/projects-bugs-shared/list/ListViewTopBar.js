@@ -17,11 +17,11 @@ import {
 import {
 	getUpdatedFilterArray,
 	getCommonTopBarComponentBorderAndBackgroundColorClassNameForLightOrDarkMode,
-	getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode,
+	getListViewTopBarComponentNewItemButtonTutorialElementBorderColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTopBarComponentSearchContainerElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
-	getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getListViewTopBarComponentNewItemTutorialElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
 import { useListViewSearchBarResize } from "../../../../utils/hooks";
@@ -127,7 +127,7 @@ export default function ListViewTopBar(props) {
 							reduxState[props.reduxContainerName].list.length > 0)
 							? ""
 							: " centering-container__new-item-button--tutorial" +
-							  getTopBarNewItemButtonTutorialBorderColorClassNameForThemeWithLightOrDarkMode(
+							  getListViewTopBarComponentNewItemButtonTutorialElementBorderColorClassNameForThemeWithLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
@@ -149,7 +149,7 @@ export default function ListViewTopBar(props) {
 				<div
 					className={
 						"centering-container__search-container js-list-centered-search-search-container" +
-						getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getCommonTopBarComponentSearchContainerElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)
@@ -356,7 +356,7 @@ export default function ListViewTopBar(props) {
 				<div
 					className={
 						"new-item-tutorial-container" +
-						getTopBarNewItemTutorialBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+						getListViewTopBarComponentNewItemTutorialElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						)

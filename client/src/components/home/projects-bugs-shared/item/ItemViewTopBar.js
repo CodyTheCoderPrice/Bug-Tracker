@@ -19,7 +19,7 @@ import {
 import {
 	getUpdatedFilterArray,
 	getCommonTopBarComponentBorderAndBackgroundColorClassNameForLightOrDarkMode,
-	getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
+	getCommonTopBarComponentSearchContainerElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
@@ -157,7 +157,7 @@ export default function ItemViewTopBar(props) {
 			<div
 				className={
 					"search-container" +
-					getCommonTopBarSearchContainerBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+					getCommonTopBarComponentSearchContainerElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 						reduxState[ACCOUNT_CONTAINER].settings.theme_color
 					) +
