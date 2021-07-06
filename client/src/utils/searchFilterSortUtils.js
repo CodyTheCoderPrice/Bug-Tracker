@@ -3,8 +3,9 @@ import { PROJECT_CONTAINER } from "../actions/constants/containerNames";
 import { dateToInt } from "./index";
 
 /**
- * Takes an array of projects or bugs and returns it filtered to only items
- * that fit current searchFilterSort configuration the user has set
+ * Takes an array of projects or bugs and returns it filtered to only have items
+ * that fit the current searchFilterSort configuration (i.e. 'searchFilterSort' 
+ * Object in PROJECT_CONTAINER or BUG_CONTAINER of the redux state)
  *
  * @param {{
  * 	id: number,
@@ -47,8 +48,8 @@ import { dateToInt } from "./index";
  * 	last_edited_timestamp: string,
  * 	priority_option: string,
  * 	status_option: string
- * }[]} Array of projects or bugs filtered to only items that fit current
- * searchFilterSort configuration the user has set
+ * }[]} Array of projects or bugs filtered to only have items that fit current
+ * searchFilterSort configuration
  */
 export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
 	// Function is nest so it doesn't need to have reduxSearchFilterSort as a param
@@ -61,8 +62,6 @@ export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
 			// eslint-disable-next-line
 			return projectsOrBugsArray.filter((projectOrBug) => {
 				for (let word of keyWords) {
-					// Filters projectsOrBugsArray to only items that have at
-					// ...least one of the key word's in its name
 					if (projectOrBug.name.toLowerCase().includes(word)) {
 						return true;
 					}
@@ -156,8 +155,9 @@ export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
 
 /**
  * Get list of projects or bugs (based on reduxContainerName param) filtered to
- * only have items that fit current searchFilterSort configuration the user has
- * set
+ * only have items that fit current searchFilterSort configuration (i.e. 
+ * 'searchFilterSort' Object in PROJECT_CONTAINER or BUG_CONTAINER of the redux
+ * state)
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
@@ -181,7 +181,7 @@ export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
  * 	priority_option: string,
  * 	status_option: string
  * }[]} List of projects or bugs filtered to only have items that fit current
- * searchFilterSort configuration the user has set
+ * searchFilterSort configuration
  */
 export function getSearchedFilteredSortedList(
 	passedReduxState,
@@ -189,7 +189,7 @@ export function getSearchedFilteredSortedList(
 ) {
 	return searchFilterSort(
 		// If PROJECT_CONTAINER, then pass project list. Otherwise pass bug
-		// ...list with bugs not belonging to current project filtered out.
+		// ...list with bugs not belonging to any filtered out projects.
 		reduxContainerName === PROJECT_CONTAINER
 			? // Spread operator makes deep copy of list so original is not affected
 			  [...passedReduxState[reduxContainerName].list]
