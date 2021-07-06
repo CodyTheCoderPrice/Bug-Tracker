@@ -12,7 +12,10 @@ const initialState = {
 
 /**
  * Used to set 'componentsDisplay' Object in COMMENT_CONTAINER of the redux 
- * state for which comment components should be displayed by the app
+ * state for which comment components should be displayed by the app. If any 
+ * expected properties in action.displays (i.e. commentBeingEdited and 
+ * commentToBeDeleted) are undefined, then they will be set to null in the 
+ * state.
  *
  * @param {{
  * 	commentBeingEdited: ({
@@ -58,7 +61,8 @@ export default function commentsComponentsDisplayReducer(state = initialState, a
 			return {
 				// Ternary operator is used to set undefined components to
 				// ...null, so you only have to pass the components you want
-				// ...to set to true, to make using this redux action easier
+				// ...to set to an Object, which makes using this redux action
+				// ...easier
 				commentBeingEdited:
 					action.displays.commentBeingEdited !== undefined
 						? action.displays.commentBeingEdited

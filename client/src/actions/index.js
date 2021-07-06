@@ -252,15 +252,15 @@ export const retrieveSortCategories = () => (dispatch) => {
 };
 
 /**
- * Sets info containing developer set data for priority/status tables (2 tables
- * for projects; 2 tables for bugs) of the database in 'priorityStatusOptions'
- * Object in their corresponding containers (i.e. PROJECT_CONTAINER and
- * BUG_CONTAINER) of the redux state.
+ * Sets Objects containing developer set data for priority/status tables (2 
+ * tables for projects; 2 tables for bugs) of the database in 
+ * 'priorityStatusOptions' in their corresponding containers (i.e. 
+ * PROJECT_CONTAINER and BUG_CONTAINER) of the redux state.
  *
- * This info is used by the app to convert priority/status integer values for
- * projects/bugs to the string options they represent, populate priority/status
- * comboboxes, and dynamically know if any particular option represents empty
- * or completed.
+ * These Objects are used by the app to convert priority/status integer values 
+ * for projects/bugs to the string options they represent, populate 
+ * priority/status comboboxes, and dynamically know if any particular option 
+ * represents empty or completed.
  *
  * @param {{
  * 	priorityList: [
@@ -383,8 +383,8 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 };
 
 /**
- * Sets info of what went wrong during an http request (e.g. invalid user
- * input, server error, ect.) in 'backendErrors' Object in GENERAL_CONTAINER of
+ * Sets Object containing what went wrong during an http request (e.g. invalid
+ * user inputs, server errors, ect.) in 'backendErrors' in GENERAL_CONTAINER of
  * the redux state.
  *
  * This info is mostly used to be displayed to the user, but may also be used

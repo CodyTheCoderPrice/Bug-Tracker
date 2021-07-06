@@ -20,7 +20,9 @@ const initialState = {
 /**
  * Used to set 'componentsDisplay' Object into either PROJECT_CONATINER or 
  * BUG_CONTAINER (reducer used for both) of the redux state for either which 
- * project or bug components should be displayed by the app
+ * project or bug components should be displayed by the app. If any expected
+ * properties in action.displays (e.g. listView, itemView, ect.) are undefined,
+ * then they will be set to false/null (depending on their type) in the state.
  *
  * @param {{
  * 	listView: boolean,
@@ -83,8 +85,9 @@ export default function listComponentsDisplayReducer(state = initialState, actio
 		case SET_WHICH_LIST_COMPONENTS_DISPLAY:
 			return {
 				// Ternary operator is used to set undefined components to
-				// ...false, so you only have to pass the components you want
-				// ...to set to true, to make using this redux action easier
+				// ...false/null (depending on their type), so you only have to
+				// ...pass the components you want to set to true/Object, which 
+				// ...makes using this redux action easier
 				listView:
 					action.displays.listView !== undefined
 						? action.displays.listView

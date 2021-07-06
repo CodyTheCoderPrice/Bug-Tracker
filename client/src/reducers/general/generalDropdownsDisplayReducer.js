@@ -12,7 +12,10 @@ const initialState = {
 
 /**
  * Used to set 'dropdownsDisplay' Object into GENERAL_CONTAINER of the redux 
- * state for which general dropdowns should be displayed by the app
+ * state for which general dropdowns should be displayed by the app. If any 
+ * expected properties in action.displays (e.g. navbarHamburherDropdown, 
+ * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to 
+ * false in the state.
  *
  * @param {{
  * 	navbarHamburherDropdown: boolean,
@@ -38,10 +41,9 @@ export default function generalDropdownsDisplayReducer(state = initialState, act
 	switch (action.type) {
 		case SET_WHICH_GENERAL_DROPDOWNS_DISPLAY:
 			return {
-				// Ternary operator is used to set undefined dropdown elements to
-				// ...their default, so you only have to pass the dropdown elements
-				// ...you want to set differently, to make using this redux
-				// ...action easier
+				// Ternary operator is used to set undefined components to
+				// ...false, so you only have to pass the components you want
+				// ...to set to true, which makes using this redux action easier
 				navbarHamburherDropdown:
 					action.displays.navbarHamburherDropdown !== undefined
 						? action.displays.navbarHamburherDropdown

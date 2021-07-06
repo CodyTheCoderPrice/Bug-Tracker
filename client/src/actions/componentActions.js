@@ -15,8 +15,10 @@ import {
 } from "./constants/types";
 
 /**
- * Sets info in 'componentsDisplay' Object in GENERAL_CONTAINER of the redux 
- * state for how general components should be displayed by the app
+ * Sets 'componentsDisplay' Object in GENERAL_CONTAINER of the redux state for 
+ * how general components should be displayed by the app. If any expected 
+ * properties in displays prop (e.g. resgister, login, ect.) are undefined,
+ * then they will be set to false in the state.
  *
  * @param {{
  * 	register: (boolean|undefined),
@@ -30,14 +32,13 @@ import {
  * instead be set to false).
  *
  * @example
- * // Sets home component to true, and all other general components to their
- * // ...default values. The dispatch function is from useDispatch() imported
- * // ...from react-redux.
+ * // Sets home component to true, and all other general components to false.
+ * // ...The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralComponentsDisplay({ home: true }));
  *
  * @example
- * // Sets all general components to their default values. The dispatch
- * // ...function is from useDispatch() imported from react-redux.
+ * // Sets all general components to false. The dispatch function is from 
+ * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralComponentsDisplay({}));
  */
 export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
@@ -49,8 +50,11 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets info in 'dropdownsDisplay' Object in GENERAL_CONTAINER of the redux 
- * state for how general dropdowns should be displayed by the app
+ * Sets 'dropdownsDisplay' Object in GENERAL_CONTAINER of the redux state for 
+ * how general dropdowns should be displayed by the app. If any expected 
+ * properties in displays prop (e.g. navbarHamburherDropdown, 
+ * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to 
+ * false in the state.
  *
  * @param {{
  * 	navbarHamburherDropdown: (boolean|undefined),
@@ -64,15 +68,15 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  *
  * @example
  * // Sets navbarHamburherDropdown to true, and all other general dropdowns to
- * // ...their default values. The dispatch function is from useDispatch()
- * // ...imported from react-redux.
+ * // ...false. The dispatch function is from useDispatch() imported from 
+ * // ...react-redux.
  * dispatch(
  *		setWhichGeneralDropdownsDisplay({ navbarHamburherDropdown: true })
  *	);
  *
  * @example
- * // Sets all general dropdowns to their default values. The dispatch function
- * // ...is from useDispatch() imported from react-redux.
+ * // Sets all general dropdowns to false. The dispatch function is from 
+ * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralDropdownsDisplay({}));
  */
 export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
@@ -84,8 +88,10 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets info in 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux 
- * state for how account components should be displayed by the app
+ * Sets 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux state for
+ * how account components should be displayed by the app. If any expected 
+ * properties in displays props (e.g. accountSidebar, accountModalEditInfo, 
+ * ect.) are undefined, then they will be set to false in the state. 
  *
  * @param {{
  * 	accountSidebar: (boolean|undefined),
@@ -101,14 +107,13 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * default value.
  *
  * @example
- * // Sets accountSidebar to true, and all other account components to their
- * // ...default values. The dispatch function is from useDispatch() imported
- * // ...from react-redux.
+ * // Sets accountSidebar to true, and all other account components to false.
+ * // ...The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
  *
  * @example
- * // Sets all account components to their default values. The dispatch 
- * // ...function is from useDispatch() imported from react-redux.
+ * // Sets all account components to false. The dispatch function is from 
+ * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralDropdownsDisplay({}));
  */
 export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
@@ -120,8 +125,10 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets info in 'componentsDisplay' Object in PROJECT_CONTAINER of the redux 
- * state for how project components should be displayed by the app
+ * Sets 'componentsDisplay' Object in PROJECT_CONTAINER of the redux state for
+ * how project components should be displayed by the app. If any expected
+ * properties in displays prop (e.g. listView, itemView, ect.) are undefined,
+ * then they will be set to false/null (depending on their type) in the state.
  *
  * @param {{
  * 	listView: (boolean|undefined),
@@ -151,14 +158,13 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
  * from this param will be set to their default value.
  *
  * @example
- * // Sets listView to true, and all other project components to their default
- * // ...values. The dispatch function is from useDispatch() imported from
- * // ...react-redux.
+ * // Sets listView to true, and all other project components to false/null.
+ * // ...The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(setWhichProjectComponentsDisplay({ listView: true }));
  *
  * @example
- * // Sets all project components to their default values. The dispatch 
- * // ...function is from useDispatch() imported from react-redux.
+ * // Sets all project components to false/null. The dispatch function is from
+ * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichProjectComponentsDisplay({}));
  */
 export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
@@ -170,8 +176,10 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets info in 'componentsDisplay' Object in BUG_CONTAINER of the redux state
- * for how bug components should be displayed by the app
+ * Sets 'componentsDisplay' Object in BUG_CONTAINER of the redux state for how
+ * bug components should be displayed by the app. If any expected properties in
+ * displays prop (e.g. listView, itemView, ect.) are undefined, then they will 
+ * be set to false/null (depending on their type) in the state.
  *
  * @param {{
  * 	listView: (boolean|undefined),
@@ -202,14 +210,13 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * this param will be set to their default value.
  *
  * @example
- * // Sets listView to true, and all other bug components to their default
- * // ...values. The dispatch function is from useDispatch() imported from
- * // ...react-redux.
+ * // Sets listView to true, and all other bug components to false/null. The
+ * // ...dispatch function is from useDispatch() imported from react-redux.
  * dispatch(setWhichBugComponentsDisplay({ listView: true }));
  *
  * @example
- * // Sets all bug components to their default values. The dispatch function is 
- * // ...from useDispatch() imported from react-redux.
+ * // Sets all bug components to false/null. The dispatch function is from 
+ * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichBugComponentsDisplay({}));
  */
 export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
@@ -221,8 +228,10 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets info in 'componentsDisplay' Object in COMMENT_CONTAINER of the redux 
- * state for how comment components should be displayed by the app
+ * Sets 'componentsDisplay' Object in COMMENT_CONTAINER of the redux state for
+ * how comment components should be displayed by the app. If any expected 
+ * properties in displays prop (i.e. commentBeingEdited and commentToBeDeleted)
+ * are undefined, then they will be set to null in the state.
  *
  * @param {{
  * 	commentToBeEdited: ({
@@ -244,9 +253,8 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * from this param will be set to their default value.
  *
  * @example
- * // Sets commentBeingEdited, and all other comment properties to their default
- * // ...values. The dispatch function is from useDispatch() imported from
- * // ...react-redux.
+ * // Sets commentBeingEdited to passed object and all other properties to null.
+ * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setWhichCommentComponentsDisplay({
  * 		commentBeingEdited: { 
@@ -260,8 +268,8 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * );
  *
  * @example
- * // Sets all comment components to their default values. The dispatch 
- * // ...function is from useDispatch() imported from react-redux.
+ * // Sets all comment propertries to null. The dispatch function is from 
+ * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichCommentComponentsDisplay({}));
  */
 export const setWhichCommentComponentsDisplay = (displays) => (dispatch) => {

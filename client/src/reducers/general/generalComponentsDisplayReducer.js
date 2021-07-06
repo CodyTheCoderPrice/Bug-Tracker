@@ -7,8 +7,8 @@ const initialState = {
 	login: true,
 	home: false,
 	// In GENERAL_CONTAINER since value should be same for both project and bug 
-	// ...ItemViewListSidebar (as user likely would expect them to be)
-	itemViewListSidebar: true,
+	// ...version of ItemViewListSidebar since user likely would expect them to be
+	itemViewListSidebar: false,
 	// true means user has clicked button to change whether ItemViewListSidebar
 	// ...displays during this session; false means it's only been auto-decided
 	// ...based on window size. Used to control when auto-decide happens, as it
@@ -18,7 +18,9 @@ const initialState = {
 
 /**
  * Used to set 'componentsDisplay' Object into GENERAL_CONTAINER of the redux
- * state for which general components should be displayed by the app
+ * state for which general components should be displayed by the app. If any 
+ * expected properties in action.displays (e.g. resgister, login, ect.) are 
+ * undefined, then they will be set to false in the state.
  *
  * @param {{
  * 	register: boolean,
@@ -45,9 +47,8 @@ export default function generalComponentsDisplayReducer(state = initialState, ac
 		case SET_WHICH_GENERAL_COMPONENTS_DISPLAY:
 			return {
 				// Ternary operator is used to set undefined components to
-				// ...their default, so you only have to pass the components
-				// ...you want to set differently, to make using this redux
-				// ...action easier
+				// ...false, so you only have to pass the components you want
+				// ...to set to true, which makes using this redux action easier
 				register:
 					action.displays.register !== undefined
 						? action.displays.register
@@ -55,11 +56,10 @@ export default function generalComponentsDisplayReducer(state = initialState, ac
 				login:
 					action.displays.login !== undefined ? action.displays.login : false,
 				home: action.displays.home !== undefined ? action.displays.home : false,
-				// If undefined then true since default is true
 				itemViewListSidebar:
 					action.displays.itemViewListSidebar !== undefined
 						? action.displays.itemViewListSidebar
-						: true,
+						: false,
 				itemViewListSidebarUserSet:
 					action.displays.itemViewListSidebarUserSet !== undefined
 						? action.displays.itemViewListSidebarUserSet
