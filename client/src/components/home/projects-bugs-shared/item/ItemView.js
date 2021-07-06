@@ -18,7 +18,7 @@ import {
 } from "../../../../actions";
 
 import {
-	manageSizeOfItemBoxsInPairContainer,
+	manageSizeOfItemBoxsElementInPairContainerElement,
 	getWindowSize,
 	getItemViewComponentItemContentContainerElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
@@ -43,8 +43,10 @@ export default function ItemView(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemViewTopBarHeight !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth !== null
+			reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight !==
+				null &&
+			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarComponentWidth !==
+				null
 		) {
 			const itemViewElement = document.getElementsByClassName(
 				"js-item-content-container"
@@ -53,13 +55,14 @@ export default function ItemView(props) {
 			itemViewElement.style.height =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.itemViewTopBarHeight +
+				reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight +
 				"px";
 
 			if (reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar) {
 				itemViewElement.style.width =
 					reduxState[SIZE_CONTAINER].variables.window.width -
-					reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth +
+					reduxState[SIZE_CONTAINER].constants
+						.itemViewListSidebarComponentWidth +
 					"px";
 			} else {
 				itemViewElement.style.width =
@@ -80,11 +83,12 @@ export default function ItemView(props) {
 		if (
 			reduxState[GENERAL_CONTAINER].componentsDisplay
 				.itemViewListSidebarUserSet === false &&
-			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemViewPaddingContainerPadding !==
+			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarComponentWidth !==
 				null &&
 			reduxState[SIZE_CONTAINER].constants
-				.itemViewOuterDividingContainerMinWidth !== null
+				.itemViewComponentPaddingContainerElementLeftPadding !== null &&
+			reduxState[SIZE_CONTAINER].constants
+				.itemViewComponentOuterDividingContainerElementMinWidth !== null
 		) {
 			// Instead of putting in the optimization to re-run once no longer
 			// ...null since it would also re-run every window resize
@@ -94,17 +98,19 @@ export default function ItemView(props) {
 					: reduxState[SIZE_CONTAINER].variables.window;
 
 			const minWidthNeededForNoItemBoxOverflow =
-				reduxState[SIZE_CONTAINER].constants.itemViewPaddingContainerPadding *
+				reduxState[SIZE_CONTAINER].constants
+					.itemViewComponentPaddingContainerElementLeftPadding *
 					2 +
 				reduxState[SIZE_CONTAINER].constants
-					.itemViewOuterDividingContainerMinWidth;
+					.itemViewComponentOuterDividingContainerElementMinWidth;
 
 			dispatch(
 				setWhichGeneralComponentsDisplay({
 					...reduxState[GENERAL_CONTAINER].componentsDisplay,
 					itemViewListSidebar:
 						windowSize.width -
-							reduxState[SIZE_CONTAINER].constants.itemViewListSidebarWidth >=
+							reduxState[SIZE_CONTAINER].constants
+								.itemViewListSidebarComponentWidth >=
 						minWidthNeededForNoItemBoxOverflow,
 				})
 			);
@@ -118,22 +124,22 @@ export default function ItemView(props) {
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].constants
-				.itemViewOuterDividingContainerMinWidth !== null &&
+				.itemViewComponentOuterDividingContainerElementMinWidth !== null &&
 			props.reduxContainerName === PROJECT_CONTAINER
 		) {
-			manageSizeOfItemBoxsInPairContainer(
+			manageSizeOfItemBoxsElementInPairContainerElement(
 				document.getElementsByClassName(
 					"js-bug-info-pair-container-for-project"
 				)[0],
 				reduxState[SIZE_CONTAINER].constants
-					.itemViewOuterDividingContainerMinWidth,
-				"outer-dividing-container--half-width"
+					.itemViewComponentOuterDividingContainerElementMinWidth
 			);
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER].constants.itemViewOuterDividingContainerMinWidth,
+		reduxState[SIZE_CONTAINER].constants
+			.itemViewComponentOuterDividingContainerElementMinWidth,
 	]);
 
 	const deleteItem = () => {

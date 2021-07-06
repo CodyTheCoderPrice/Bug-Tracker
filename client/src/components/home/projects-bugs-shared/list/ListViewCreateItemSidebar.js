@@ -439,7 +439,7 @@ export default function ListViewCreateItemSidebar(props) {
 									onChange={onChange}
 									id="create-item-priority"
 									className={
-										"form__group-container__input-container__select js-priority-select" +
+										"form__group-container__input-container__select" +
 										getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color

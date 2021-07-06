@@ -7,7 +7,7 @@ import {
 } from "../../../../actions/constants/containerNames";
 
 import {
-	manageSizeOfItemBoxsInPairContainer,
+	manageSizeOfItemBoxsElementInPairContainerElement,
 	getCommonStatusBackgroundColorClassName,
 	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonWeakElementTextColorClassNameForLightOrDarkMode,
@@ -22,24 +22,24 @@ export default function ItemViewDisplayItemInfo(props) {
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].constants
-				.itemViewOuterDividingContainerMinWidth !== null
+				.itemViewComponentOuterDividingContainerElementMinWidth !== null
 		) {
 			// Since ItemViewDisplayItemInfo and ItemViewEditItemInfo create
 			// ...their own js-description-info-pair-container element, this
 			// ...function needs to be re-run in each component
-			manageSizeOfItemBoxsInPairContainer(
+			manageSizeOfItemBoxsElementInPairContainerElement(
 				document.getElementsByClassName(
 					"js-description-info-pair-container"
 				)[0],
 				reduxState[SIZE_CONTAINER].constants
-					.itemViewOuterDividingContainerMinWidth,
-				"outer-dividing-container--half-width"
+					.itemViewComponentOuterDividingContainerElementMinWidth
 			);
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER].constants.itemViewOuterDividingContainerMinWidth,
+		reduxState[SIZE_CONTAINER].constants
+			.itemViewComponentOuterDividingContainerElementMinWidth,
 	]);
 
 	const getStatusBoxColorClassName = () => {

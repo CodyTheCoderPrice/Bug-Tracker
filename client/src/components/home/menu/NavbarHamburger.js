@@ -34,16 +34,15 @@ export default function NavbarHamburger() {
 
 	// Resizes Hamburger title to fit inside the navbar based on the window size
 	useEffect(() => {
-		const hamburgerTitleElement = document.getElementsByClassName(
-			"js-hamburger-title"
-		)[0];
+		const hamburgerTitleElement =
+			document.getElementsByClassName("js-hamburger-title")[0];
 
 		hamburgerTitleElement.style.visibility = "hidden";
 
 		// Resets fontSize and maxWidth
 		hamburgerTitleElement.style.fontSize =
-			reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles
-				.titleBaseFontSize + "px";
+			reduxState[SIZE_CONTAINER].constants
+				.navbarHamburgerComponentCriticalStyles.titleBaseFontSize + "px";
 		hamburgerTitleElement.style.maxWidth = null;
 
 		if (
@@ -57,14 +56,16 @@ export default function NavbarHamburger() {
 			let navbarAvailableSpace =
 				reduxState[SIZE_CONTAINER].variables.navbar.width -
 				reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth -
-				reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles.titleLeft;
+				reduxState[SIZE_CONTAINER].constants
+					.navbarHamburgerComponentCriticalStyles.titleLeft;
 
-			let hamburgerTitleElementWidth = getElementSize(hamburgerTitleElement)
-				.width;
+			let hamburgerTitleElementWidth = getElementSize(
+				hamburgerTitleElement
+			).width;
 
 			let fontSize =
-				reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles
-					.titleBaseFontSize;
+				reduxState[SIZE_CONTAINER].constants
+					.navbarHamburgerComponentCriticalStyles.titleBaseFontSize;
 
 			while (
 				fontSize >
@@ -75,8 +76,9 @@ export default function NavbarHamburger() {
 				fontSize -= 1;
 				hamburgerTitleElement.style.fontSize = fontSize + "px";
 
-				hamburgerTitleElementWidth = getElementSize(hamburgerTitleElement)
-					.width;
+				hamburgerTitleElementWidth = getElementSize(
+					hamburgerTitleElement
+				).width;
 			}
 
 			if (navbarAvailableSpace - hamburgerTitleElementWidth < 0) {
@@ -104,7 +106,8 @@ export default function NavbarHamburger() {
 		if (
 			reduxState[GENERAL_CONTAINER].dropdownsDisplay.navbarHamburherDropdown &&
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
-			reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles !== null
+			reduxState[SIZE_CONTAINER].constants
+				.navbarHamburgerComponentCriticalStyles !== null
 		) {
 			const hamburgerDropdownElement = document.getElementsByClassName(
 				"js-hamburger-dropdown"
@@ -112,7 +115,8 @@ export default function NavbarHamburger() {
 
 			hamburgerDropdownElement.style.width =
 				reduxState[SIZE_CONTAINER].variables.window.width -
-				reduxState[SIZE_CONTAINER].constants.navbarHamburgerStyles.buttonLeft *
+				reduxState[SIZE_CONTAINER].constants
+					.navbarHamburgerComponentCriticalStyles.buttonLeft *
 					2 +
 				"px";
 		}
@@ -133,8 +137,9 @@ export default function NavbarHamburger() {
 
 		dispatch(
 			setWhichGeneralDropdownsDisplay({
-				navbarHamburherDropdown: !reduxState[GENERAL_CONTAINER].dropdownsDisplay
-					.navbarHamburherDropdown,
+				navbarHamburherDropdown:
+					!reduxState[GENERAL_CONTAINER].dropdownsDisplay
+						.navbarHamburherDropdown,
 			})
 		);
 
@@ -145,11 +150,13 @@ export default function NavbarHamburger() {
 		if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView) {
 			return "Projects";
 		} else if (reduxState[PROJECT_CONTAINER].componentsDisplay.itemView) {
-			return reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.name;
+			return reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
+				.name;
 		} else if (reduxState[BUG_CONTAINER].componentsDisplay.listView) {
 			return "Bugs";
 		} else if (reduxState[BUG_CONTAINER].componentsDisplay.itemView) {
-			return reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name;
+			return reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
+				.name;
 		}
 	};
 
@@ -200,8 +207,8 @@ export default function NavbarHamburger() {
 								(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
 									? " hamburger-dropdown__row-button--selected"
 									: "") +
-								(reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-								null
+								(reduxState[PROJECT_CONTAINER].componentsDisplay
+									.itemViewCurrentItem === null
 									? " hamburger-dropdown__row-button--last-option-round-bottom-border"
 									: "")
 							}
@@ -215,8 +222,8 @@ export default function NavbarHamburger() {
 							Projects
 						</div>
 
-						{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-						null ? null : (
+						{reduxState[PROJECT_CONTAINER].componentsDisplay
+							.itemViewCurrentItem === null ? null : (
 							<div
 								className={
 									"hamburger-dropdown__row-button hamburger-dropdown__row-button--item-name" +
@@ -226,8 +233,8 @@ export default function NavbarHamburger() {
 								}
 								alt={
 									"Navbar hamburger dropdown option to open the " +
-									reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-										.name +
+									reduxState[PROJECT_CONTAINER].componentsDisplay
+										.itemViewCurrentItem.name +
 									" project"
 								}
 								onClick={() => switchToProjectsItemView(reduxState, dispatch)}
@@ -242,33 +249,39 @@ export default function NavbarHamburger() {
 									alt="Arrow pointing from the button above to this button signifying this is to open a particular project"
 								/>
 								{
-									reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-										.name
+									reduxState[PROJECT_CONTAINER].componentsDisplay
+										.itemViewCurrentItem.name
 								}
 								<i
 									className="fa fa-times hamburger-dropdown__row-button__close-icon-button"
 									aria-hidden="true"
 									alt={
 										"Icon of an X. If clicked, will close the " +
-										reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-											.name +
+										reduxState[PROJECT_CONTAINER].componentsDisplay
+											.itemViewCurrentItem.name +
 										" project"
 									}
-									onClick={(e) => setTrueForOnlyProjectListViewAndCreateItemSidebar(e, reduxState, dispatch)}
+									onClick={(e) =>
+										setTrueForOnlyProjectListViewAndCreateItemSidebar(
+											e,
+											reduxState,
+											dispatch
+										)
+									}
 								/>
 							</div>
 						)}
 
-						{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-						null ? null : (
+						{reduxState[PROJECT_CONTAINER].componentsDisplay
+							.itemViewCurrentItem === null ? null : (
 							<div
 								className={
 									"hamburger-dropdown__row-button" +
 									(reduxState[BUG_CONTAINER].componentsDisplay.listView
 										? " hamburger-dropdown__row-button--selected"
 										: "") +
-									(reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-									null
+									(reduxState[BUG_CONTAINER].componentsDisplay
+										.itemViewCurrentItem === null
 										? " hamburger-dropdown__row-button--last-option-round-bottom-border"
 										: "")
 								}
@@ -303,7 +316,8 @@ export default function NavbarHamburger() {
 								}
 								alt={
 									"Navbar hamburger dropdown option to open the " +
-									reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name +
+									reduxState[BUG_CONTAINER].componentsDisplay
+										.itemViewCurrentItem.name +
 									" bug"
 								}
 								onClick={() => switchToBugsItemView(reduxState, dispatch)}
@@ -317,14 +331,17 @@ export default function NavbarHamburger() {
 									}
 									alt="Arrow pointing from the button above to this button signifying this is to open a particular bug"
 								/>
-								{reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name}
+								{
+									reduxState[BUG_CONTAINER].componentsDisplay
+										.itemViewCurrentItem.name
+								}
 								<i
 									className="fa fa-times hamburger-dropdown__row-button__close-icon-button"
 									aria-hidden="true"
 									alt={
 										"Icon of an X. If clicked, will close the " +
-										reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
-											.name +
+										reduxState[BUG_CONTAINER].componentsDisplay
+											.itemViewCurrentItem.name +
 										" bug"
 									}
 									onClick={(e) => closeBugItemView(e, reduxState, dispatch)}

@@ -7,15 +7,15 @@ const initialState = {
 	// ...functionas to their values.
 	scrollbarWidth: null,
 	navbarAccountButtonWidth: null,
-	navbarBreadcrumbArrowWidth: null,
-	navbarBreadcrumbButtonTextBaseFontSize: null,
-	navbarHamburgerStyles: null,
-	listViewTopBarHeight: null,
-	listViewTableRowHeight: null,
-	itemViewTopBarHeight: null,
-	itemViewListSidebarWidth: null,
-	itemViewPaddingContainerPadding: null,
-	itemViewOuterDividingContainerMinWidth: null,
+	navbarBreadcrumbComponentButtonArrowElementWidth: null,
+	navbarBreadcrumbComponentButtonTextElementBaseFontSize: null,
+	navbarHamburgerComponentCriticalStyles: null,
+	listViewTopBarComponentHeight: null,
+	listViewTableComponentRowElementHeight: null,
+	itemViewComponentPaddingContainerElementLeftPadding: null,
+	itemViewComponentOuterDividingContainerElementMinWidth: null,
+	itemViewTopBarComponentHeight: null,
+	itemViewListSidebarComponentWidth: null,
 };
 
 /**
@@ -25,18 +25,18 @@ const initialState = {
  * @param {{
  * 	scrollbarWidth: (number|null),
  * 	navbarAccountButtonWidth: (number|null),
- * 	navbarBreadcrumbButtonTextBaseFontSize: (number|null),
- * 	navbarBreadcrumbArrowWidth: (number|null),
- * 	navbarHamburgerStyles: ({
+ * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
+ * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
+ * 	navbarHamburgerComponentCriticalStyles: ({
  * 		buttonLeft: number,
  * 		titleLeft: number,
  * 		titleBaseFontSize: number }|null),
- * 	listViewTopBarHeight: (number|null),
- * 	listViewTableRowHeight: (number|null),
- * 	itemViewTopBarHeight: (number|null),
- * 	itemViewListSidebarWidth: (number|null),
- *  itemViewPaddingContainerPadding: (number|null),
- * 	itemViewOuterDividingContainerMinWidth: (number|null)
+ * 	listViewTopBarComponentHeight: (number|null),
+ * 	listViewTableComponentRowElementHeight: (number|null),
+ *  itemViewComponentPaddingContainerElementLeftPadding: (number|null),
+ * 	itemViewComponentOuterDividingContainerElementMinWidth: (number|null),
+ * 	itemViewTopBarComponentHeight: (number|null),
+ * 	itemViewListSidebarComponentWidth: (number|null)
  * }} state - Current Object (in the redux state) for constant html element
  * sizes
  * @param {Object} action - Object with a 'container' property (determins where
@@ -46,18 +46,18 @@ const initialState = {
  * @returns {{
  * 	scrollbarWidth: (number|null),
  * 	navbarAccountButtonWidth: (number|null),
- * 	navbarBreadcrumbButtonTextBaseFontSize: (number|null),
- * 	navbarBreadcrumbArrowWidth: (number|null),
- * 	navbarHamburgerStyles: ({
+ * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
+ * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
+ * 	navbarHamburgerComponentCriticalStyles: ({
  * 		buttonLeft: number,
  * 		titleLeft: number,
  * 		titleBaseFontSize: number }|null),
- * 	listViewTopBarHeight: (number|null),
- * 	listViewTableRowHeight: (number|null),
- * 	itemViewTopBarHeight: (number|null),
- * 	itemViewListSidebarWidth: (number|null),
- * itemViewPaddingContainerPadding: (number|null),
- * 	itemViewOuterDividingContainerMinWidth: (number|null)
+ * 	listViewTopBarComponentHeight: (number|null),
+ * 	listViewTableComponentRowElementHeight: (number|null),
+ * 	itemViewComponentPaddingContainerElementLeftPadding: (number|null),
+ * 	itemViewComponentOuterDividingContainerElementMinWidth: (number|null),
+ * 	itemViewTopBarComponentHeight: (number|null),
+ * 	itemViewListSidebarComponentWidth: (number|null)
  * }} Object containing constant html element sizes
  */
 export default function displaySizeConstantsReducer(
@@ -69,18 +69,24 @@ export default function displaySizeConstantsReducer(
 			return {
 				scrollbarWidth: action.sizes.scrollbarWidth,
 				navbarAccountButtonWidth: action.sizes.navbarAccountButtonWidth,
-				navbarBreadcrumbButtonTextBaseFontSize:
-					action.sizes.navbarBreadcrumbButtonTextBaseFontSize,
-				navbarBreadcrumbArrowWidth: action.sizes.navbarBreadcrumbArrowWidth,
-				navbarHamburgerStyles: action.sizes.navbarHamburgerStyles,
-				listViewTopBarHeight: action.sizes.listViewTopBarHeight,
-				listViewTableRowHeight: action.sizes.listViewTableRowHeight,
-				itemViewTopBarHeight: action.sizes.itemViewTopBarHeight,
-				itemViewListSidebarWidth: action.sizes.itemViewListSidebarWidth,
-				itemViewPaddingContainerPadding:
-					action.sizes.itemViewPaddingContainerPadding,
-				itemViewOuterDividingContainerMinWidth:
-					action.sizes.itemViewOuterDividingContainerMinWidth,
+				navbarBreadcrumbComponentButtonTextElementBaseFontSize:
+					action.sizes.navbarBreadcrumbComponentButtonTextElementBaseFontSize,
+				navbarBreadcrumbComponentButtonArrowElementWidth:
+					action.sizes.navbarBreadcrumbComponentButtonArrowElementWidth,
+				navbarHamburgerComponentCriticalStyles:
+					action.sizes.navbarHamburgerComponentCriticalStyles,
+				listViewTopBarComponentHeight:
+					action.sizes.listViewTopBarComponentHeight,
+				listViewTableComponentRowElementHeight:
+					action.sizes.listViewTableComponentRowElementHeight,
+				itemViewComponentPaddingContainerElementLeftPadding:
+					action.sizes.itemViewComponentPaddingContainerElementLeftPadding,
+				itemViewComponentOuterDividingContainerElementMinWidth:
+					action.sizes.itemViewComponentOuterDividingContainerElementMinWidth,
+				itemViewTopBarComponentHeight:
+					action.sizes.itemViewTopBarComponentHeight,
+				itemViewListSidebarComponentWidth:
+					action.sizes.itemViewListSidebarComponentWidth,
 			};
 		default:
 			return state;

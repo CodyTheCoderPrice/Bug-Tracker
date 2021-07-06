@@ -35,7 +35,8 @@ export default function ListViewTable(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight !== null
+			reduxState[SIZE_CONTAINER].constants.listViewTopBarComponentHeight !==
+				null
 		) {
 			const listTableContainerElement = document.getElementsByClassName(
 				"js-list-table-container"
@@ -44,7 +45,7 @@ export default function ListViewTable(props) {
 			listTableContainerElement.style.height =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight +
+				reduxState[SIZE_CONTAINER].constants.listViewTopBarComponentHeight +
 				"px";
 
 			listTableContainerElement.style.width =
@@ -68,8 +69,10 @@ export default function ListViewTable(props) {
 				emptyListMessageContainer.style.height =
 					reduxState[SIZE_CONTAINER].variables.window.height -
 					reduxState[SIZE_CONTAINER].variables.navbar.height -
-					reduxState[SIZE_CONTAINER].constants.listViewTopBarHeight.height -
-					reduxState[SIZE_CONTAINER].constants.listViewTableRowHeight -
+					reduxState[SIZE_CONTAINER].constants.listViewTopBarComponentHeight
+						.height -
+					reduxState[SIZE_CONTAINER].constants
+						.listViewTableComponentRowElementHeight -
 					reduxState[SIZE_CONTAINER].constants.scrollbarWidth +
 					"px";
 			}
@@ -83,9 +86,8 @@ export default function ListViewTable(props) {
 	// Fills remaining space in a table row after status
 	useEffect(() => {
 		if (reduxState[SIZE_CONTAINER].variables.window !== null) {
-			let remainingSpaceElement = document.getElementsByClassName(
-				"js-remaining-space"
-			)[0];
+			let remainingSpaceElement =
+				document.getElementsByClassName("js-remaining-space")[0];
 			remainingSpaceElement.style.width =
 				reduxState[SIZE_CONTAINER].variables.window.width -
 				getElementLocation(
@@ -237,7 +239,9 @@ export default function ListViewTable(props) {
 											)
 										}
 									>
-										<span className="list-table__row__header__span">{categoryObject.category}</span>
+										<span className="list-table__row__header__span">
+											{categoryObject.category}
+										</span>
 										<span className="list-table__row__header__sort-arrow-container">
 											<SortArrowsButton
 												reduxContainerName={props.reduxContainerName}

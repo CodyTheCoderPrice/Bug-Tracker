@@ -28,7 +28,8 @@ export default function ItemViewListSidebar(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.itemViewTopBarHeight !== null
+			reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight !==
+				null
 		) {
 			let itemViewListSidebarElement = document.getElementsByClassName(
 				"js-list-sidebar-component"
@@ -37,7 +38,7 @@ export default function ItemViewListSidebar(props) {
 			const adjustedWindowHeight =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.itemViewTopBarHeight;
+				reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight;
 
 			itemViewListSidebarElement.style.height = adjustedWindowHeight + "px";
 		}
@@ -53,8 +54,8 @@ export default function ItemViewListSidebar(props) {
 		dispatch(
 			setWhichGeneralComponentsDisplay({
 				...reduxState[GENERAL_CONTAINER].componentsDisplay,
-				itemViewListSidebar: !reduxState[GENERAL_CONTAINER].componentsDisplay
-					.itemViewListSidebar,
+				itemViewListSidebar:
+					!reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar,
 				itemViewListSidebarUserSet: true,
 			})
 		);
@@ -128,17 +129,18 @@ export default function ItemViewListSidebar(props) {
 						</tr>
 					</thead>
 					<tbody>
-						{getSearchedFilteredSortedList(reduxState, props.reduxContainerName).map(
-							(item, idx) => {
-								return (
-									<ItemViewListSidebarRow
-										key={idx}
-										item={item}
-										reduxContainerName={props.reduxContainerName}
-									/>
-								);
-							}
-						)}
+						{getSearchedFilteredSortedList(
+							reduxState,
+							props.reduxContainerName
+						).map((item, idx) => {
+							return (
+								<ItemViewListSidebarRow
+									key={idx}
+									item={item}
+									reduxContainerName={props.reduxContainerName}
+								/>
+							);
+						})}
 						{/*Creates an empty space at the bottom*/}
 						<tr className="list-sidebar-container__table__row--empty" />
 					</tbody>

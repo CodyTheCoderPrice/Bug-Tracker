@@ -35,18 +35,18 @@ export * from "./resetActions";
  * @param {{
  * 	scrollbarWidth: (number|null),
  * 	navbarAccountButtonWidth: (number|null),
- * 	navbarBreadcrumbButtonTextBaseFontSize: (number|null),
- * 	navbarBreadcrumbArrowWidth: (number|null),
- * 	navbarHamburgerStyles: ({
+ * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
+ * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
+ * 	navbarHamburgerComponentCriticalStyles: ({
  * 		buttonLeft: number,
  * 		titleLeft: number,
  * 		titleBaseFontSize: number }|null),
- * 	listViewTopBarHeight: (number|null),
- * 	listViewTableRowHeight: (number|null),
- * 	itemViewTopBarHeight: (number|null),
- * 	itemViewListSidebarWidth: (number|null),
- *  itemViewPaddingContainerPadding: (number|null),
- * 	itemViewOuterDividingContainerMinWidth: (number|null)
+ * 	listViewTopBarComponentHeight: (number|null),
+ * 	listViewTableComponentRowElementHeight: (number|null),
+ *  itemViewComponentPaddingContainerElementLeftPadding: (number|null),
+ * 	itemViewComponentOuterDividingContainerElementMinWidth: (number|null),
+ * 	itemViewTopBarComponentHeight: (number|null),
+ * 	itemViewListSidebarComponentWidth: (number|null)
  * }} sizes - Object containing size info for multiple html elements (whose
  * size remains constant)
  *
@@ -56,18 +56,18 @@ export * from "./resetActions";
  * 	setDisplaySizeConstants({
  * 		scrollbarWidth: 17,
  * 		navbarAccountButtonWidth: 170,
- * 		navbarBreadcrumbButtonTextBaseFontSize: 18,
- * 		navbarBreadcrumbArrowWidth: 20,
- * 		navbarHamburgerStyles: {
+ * 		navbarBreadcrumbComponentButtonTextElementBaseFontSize: 18,
+ * 		navbarBreadcrumbComponentButtonArrowElementWidth: 20,
+ * 		navbarHamburgerComponentCriticalStyles: {
  * 			buttonLeft: 10,
  * 			titleLeft: 52,
  * 			titleBaseFontSize: 18 },
- * 		listViewTopBarHeight: 48,
- * 		listViewTableRowHeight: 50,
- * 		itemViewTopBarHeight: 48,
- * 		itemViewListSidebarWidth: 275,
- * 		itemViewPaddingContainerPadding: 25,
- * 		itemViewOuterDividingContainerMinWidth: 560
+ * 		listViewTopBarComponentHeight: 48,
+ * 		listViewTableComponentRowElementHeight: 50,
+ * 		itemViewComponentPaddingContainerElementLeftPadding: 25,
+ * 		itemViewComponentOuterDividingContainerElementMinWidth: 560,
+ * 		itemViewTopBarComponentHeight: 48,
+ * 		itemViewListSidebarComponentWidth: 275
  * 	})
  * );
  */

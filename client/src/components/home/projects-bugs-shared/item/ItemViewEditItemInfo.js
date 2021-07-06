@@ -18,7 +18,7 @@ import {
 	formatDateMMddYYYY,
 	formatDateYYYYmmDD,
 	getCommonStatusTextColorClassName,
-	manageSizeOfItemBoxsInPairContainer,
+	manageSizeOfItemBoxsElementInPairContainerElement,
 	getItemViewEditItemInfoComponentFormNameInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
@@ -124,24 +124,24 @@ export default function ItemViewEditItemInfo(props) {
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].constants
-				.itemViewOuterDividingContainerMinWidth !== null
+				.itemViewComponentOuterDividingContainerElementMinWidth !== null
 		) {
 			// Since ItemViewDisplayItemInfo and ItemViewEditItemInfo create
 			// ...their own js-description-info-pair-container element, this
 			// ...function needs to be re-run in each component
-			manageSizeOfItemBoxsInPairContainer(
+			manageSizeOfItemBoxsElementInPairContainerElement(
 				document.getElementsByClassName(
 					"js-description-info-pair-container"
 				)[0],
 				reduxState[SIZE_CONTAINER].constants
-					.itemViewOuterDividingContainerMinWidth,
-				"outer-dividing-container--half-width"
+					.itemViewComponentOuterDividingContainerElementMinWidth
 			);
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER].constants.itemViewOuterDividingContainerMinWidth,
+		reduxState[SIZE_CONTAINER].constants
+			.itemViewComponentOuterDividingContainerElementMinWidth,
 	]);
 
 	const switchToDisplayItemInfo = () => {
@@ -508,7 +508,7 @@ export default function ItemViewEditItemInfo(props) {
 									onChange={onChange}
 									id="edit-item-priority"
 									className={
-										"item-box__group__field__form-select js-item-priority-select" +
+										"item-box__group__field__form-select" +
 										getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color

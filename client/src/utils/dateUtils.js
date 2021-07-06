@@ -6,11 +6,12 @@ import {
 
 
 /**
- * Format date in YYYY-MM-DD, or an empty string if date is empty
+ * If date is not empty, then returns date formated in YYYY-MM-DD. Otherise 
+ * returns an empty string.
  * 
  * @param {(Date|string)} date - Date (type date or string) to be formatted
- * @returns {string} Either the date formated in YYYY-MM-DD, or an empty string
- * if date is empty
+ * @returns {string} Either the date formated in YYYY-MM-DD or an empty string
+ * (if date is empty)
  * 
  * @example
  * // Returns "2019-12-05"
@@ -21,11 +22,12 @@ export function formatDateYYYYmmDD(date) {
 }
 
 /**
- * Format date in MM-DD-YYYY, or an empty string if date is empty
+ * If date is not empty, then returns date formated in MM-DD-YYYY. Otherise 
+ * returns an empty string.
  * 
  * @param {(Date|string)} date - Date (type date or string) to be formatted
- * @returns {string} Either the date formated in MM-DD-YYYY, or an empty string
- * if date is empty
+ * @returns {string} Either the date formated in MM-DD-YYYY or an empty string
+ * (if date is empty)
  * 
  * @example
  * // Returns "12-05-2019"
@@ -36,7 +38,7 @@ export function formatDateMMddYYYY(date) {
 }
 
 /**
- * Converts date to an number
+ * Converts date from being of type Date to type Number
  * 
  * @param {(Date|string)} date - Date (type date or string) to be formatted
  * @returns {number} Date converted to a number

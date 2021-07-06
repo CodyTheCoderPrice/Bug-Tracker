@@ -3,16 +3,16 @@ import React from "react";
 import { getCommonStatusTextColorClassName } from "./index";
 
 /**
- * Get JSX containing option elements for priority to go inside select element
- * relating to either projects or a bugs
+ * Get JSX containing option elements to go inside select element used for
+ * setting priority of either a project or bug
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
  * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which
  * 'priorityStatusOptions' Object to use
- * @returns {JSX} JSX containing option elements for priority to go inside a
- * select element relating to either projects or a bugs.
+ * @returns {JSX} JSX containing option elements to go inside select element 
+ * used for setting priority of either a project or bug
  */
 export function getPriorityOptionsForSelect(
 	passedReduxState,
@@ -30,16 +30,16 @@ export function getPriorityOptionsForSelect(
 }
 
 /**
- * Get JSX containing option elements for status (with status.color as css text
- * color) to go inside select element relating to either projects or a bugs
+ * Get JSX containing option elements to go inside select element used for
+ * setting status of either a project or bug
  *
  * @param {Object} passedReduxState - Current redux state
  * from useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
  * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which
  * 'priorityStatusOptions' Object to use
- * @returns {JSX} JSX containing option elements for status (with status.color
- * as css text color) to go inside a select element
+ * @returns {JSX} JSX containing option elements to go inside select element 
+ * used for setting status of either a project or bug
  */
 export function getStatusOptionsForSelectWithStatusColors(
 	passedReduxState,

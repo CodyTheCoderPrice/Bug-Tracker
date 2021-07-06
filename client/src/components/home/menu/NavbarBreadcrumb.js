@@ -30,41 +30,45 @@ export default function NavbarBreadcrumb(props) {
 
 	// Resizes breacrumb buttons to fit inside the navbar based on the window size
 	useEffect(() => {
-		const breadcrumbProjectListButtonTextElement = document.getElementsByClassName(
-			"js-breadcrumb-project-list-button-text"
-		)[0];
+		const breadcrumbProjectListButtonTextElement =
+			document.getElementsByClassName(
+				"js-breadcrumb-project-list-button-text"
+			)[0];
 		breadcrumbProjectListButtonTextElement.style.fontSize =
 			reduxState[SIZE_CONTAINER].constants
-				.navbarBreadcrumbButtonTextBaseFontSize + "px";
+				.navbarBreadcrumbComponentButtonTextElementBaseFontSize + "px";
 		let breadcrumbProjectListButtonTextElementWidth = getElementSize(
 			breadcrumbProjectListButtonTextElement
 		).width;
 
 		if (
-			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !== null &&
+			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
+				null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
 			reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth !== null &&
-			reduxState[SIZE_CONTAINER].constants.navbarBreadcrumbArrowWidth !==
-				null &&
+			reduxState[SIZE_CONTAINER].constants
+				.navbarBreadcrumbComponentButtonArrowElementWidth !== null &&
 			reduxState[GENERAL_CONTAINER].globalConstants
 				.navbarBreadcrumbMinimumFontSize !== null
 		) {
-			const breadcrumbProjectItemButtonTextElement = document.getElementsByClassName(
-				"js-breadcrumb-project-item-button-text"
-			)[0];
+			const breadcrumbProjectItemButtonTextElement =
+				document.getElementsByClassName(
+					"js-breadcrumb-project-item-button-text"
+				)[0];
 			breadcrumbProjectItemButtonTextElement.style.fontSize =
 				reduxState[SIZE_CONTAINER].constants
-					.navbarBreadcrumbButtonTextBaseFontSize + "px";
+					.navbarBreadcrumbComponentButtonTextElementBaseFontSize + "px";
 			let breadcrumbProjectItemButtonTextElementWidth = getElementSize(
 				breadcrumbProjectItemButtonTextElement
 			).width;
 
-			const breadcrumbBugListButtonTextElement = document.getElementsByClassName(
-				"js-breadcrumb-bug-list-button-text"
-			)[0];
+			const breadcrumbBugListButtonTextElement =
+				document.getElementsByClassName(
+					"js-breadcrumb-bug-list-button-text"
+				)[0];
 			breadcrumbBugListButtonTextElement.style.fontSize =
 				reduxState[SIZE_CONTAINER].constants
-					.navbarBreadcrumbButtonTextBaseFontSize + "px";
+					.navbarBreadcrumbComponentButtonTextElementBaseFontSize + "px";
 			let breadcrumbBugListButtonTextElementWidth = getElementSize(
 				breadcrumbBugListButtonTextElement
 			).width;
@@ -76,27 +80,32 @@ export default function NavbarBreadcrumb(props) {
 			let navbarAvailableSpace =
 				reduxState[SIZE_CONTAINER].variables.navbar.width -
 				reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth -
-				reduxState[SIZE_CONTAINER].constants.navbarBreadcrumbArrowWidth * 3;
+				reduxState[SIZE_CONTAINER].constants
+					.navbarBreadcrumbComponentButtonArrowElementWidth *
+					3;
 
 			// If bug item breadcrumb button is also present
-			if (reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem !== null) {
+			if (
+				reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem !== null
+			) {
 				breadcrumbBugItemButtonTextElement = document.getElementsByClassName(
 					"js-breadcrumb-bug-item-button-text"
 				)[0];
 				breadcrumbBugItemButtonTextElement.style.fontSize =
 					reduxState[SIZE_CONTAINER].constants
-						.navbarBreadcrumbButtonTextBaseFontSize + "px";
+						.navbarBreadcrumbComponentButtonTextElementBaseFontSize + "px";
 				breadcrumbBugItemButtonTextElementWidth = getElementSize(
 					breadcrumbBugItemButtonTextElement
 				).width;
 
 				navbarAvailableSpace -=
-					reduxState[SIZE_CONTAINER].constants.navbarBreadcrumbArrowWidth;
+					reduxState[SIZE_CONTAINER].constants
+						.navbarBreadcrumbComponentButtonArrowElementWidth;
 			}
 
 			let fontSize =
 				reduxState[SIZE_CONTAINER].constants
-					.navbarBreadcrumbButtonTextBaseFontSize;
+					.navbarBreadcrumbComponentButtonTextElementBaseFontSize;
 
 			while (
 				fontSize >=
@@ -185,8 +194,8 @@ export default function NavbarBreadcrumb(props) {
 							)
 						}
 					>
-						{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-						null ? (
+						{reduxState[PROJECT_CONTAINER].componentsDisplay
+							.itemViewCurrentItem === null ? (
 							<div
 								className={
 									"breadcrumb-button__end-container__round-border" +
@@ -225,8 +234,8 @@ export default function NavbarBreadcrumb(props) {
 						<div
 							className={
 								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-project-item-button" +
-								(reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
-									null &&
+								(reduxState[PROJECT_CONTAINER].componentsDisplay
+									.itemViewCurrentItem !== null &&
 								reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
 									? getCommonBrighterBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -237,16 +246,16 @@ export default function NavbarBreadcrumb(props) {
 							}
 							alt={
 								"Navbar breadcrumb button to open the " +
-								reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-									.name +
+								reduxState[PROJECT_CONTAINER].componentsDisplay
+									.itemViewCurrentItem.name +
 								" project"
 							}
 							onClick={() => switchToProjectsItemView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-project-item-button-text">
 								{
-									reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-										.name
+									reduxState[PROJECT_CONTAINER].componentsDisplay
+										.itemViewCurrentItem.name
 								}
 							</div>
 							<div
@@ -280,11 +289,17 @@ export default function NavbarBreadcrumb(props) {
 									aria-hidden="true"
 									alt={
 										"Icon of an X. If clicked, will close the " +
-										reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-											.name +
+										reduxState[PROJECT_CONTAINER].componentsDisplay
+											.itemViewCurrentItem.name +
 										" project"
 									}
-									onClick={(e) => setTrueForOnlyProjectListViewAndCreateItemSidebar(e, reduxState, dispatch)}
+									onClick={(e) =>
+										setTrueForOnlyProjectListViewAndCreateItemSidebar(
+											e,
+											reduxState,
+											dispatch
+										)
+									}
 								/>
 							</div>
 						</div>
@@ -292,8 +307,9 @@ export default function NavbarBreadcrumb(props) {
 						<div
 							className={
 								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-list-button" +
-								(reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
-									null && reduxState[BUG_CONTAINER].componentsDisplay.listView
+								(reduxState[PROJECT_CONTAINER].componentsDisplay
+									.itemViewCurrentItem !== null &&
+								reduxState[BUG_CONTAINER].componentsDisplay.listView
 									? getCommonBrighterBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  )
@@ -323,8 +339,8 @@ export default function NavbarBreadcrumb(props) {
 									)
 								}
 							>
-								{reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-								null ? (
+								{reduxState[BUG_CONTAINER].componentsDisplay
+									.itemViewCurrentItem === null ? (
 									<div
 										className={
 											"breadcrumb-button__end-container__round-border" +
@@ -376,13 +392,17 @@ export default function NavbarBreadcrumb(props) {
 								}
 								alt={
 									"Navbar breadcrumb button to open the " +
-									reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name +
+									reduxState[BUG_CONTAINER].componentsDisplay
+										.itemViewCurrentItem.name +
 									" bug"
 								}
 								onClick={() => switchToBugsItemView(reduxState, dispatch)}
 							>
 								<div className="breadcrumb-button__text breadcrumb-button__text--item-name js-breadcrumb-bug-item-button-text">
-									{reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.name}
+									{
+										reduxState[BUG_CONTAINER].componentsDisplay
+											.itemViewCurrentItem.name
+									}
 								</div>
 								<div
 									// Background-color must be made same as the navbar
@@ -412,8 +432,8 @@ export default function NavbarBreadcrumb(props) {
 										aria-hidden="true"
 										alt={
 											"Icon of an X. If clicked, will close the " +
-											reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
-												.name +
+											reduxState[BUG_CONTAINER].componentsDisplay
+												.itemViewCurrentItem.name +
 											" bug"
 										}
 										onClick={(e) => closeBugItemView(e, reduxState, dispatch)}

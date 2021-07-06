@@ -22,15 +22,15 @@ import {
 	getWindowSize,
 	getElementSize,
 	getScrollbarWidth,
-	getBreadcrumbBaseFontSize,
-	getBreadcrumbButtonArrowWidth,
-	getCriticalHamburgerStyles,
-	getListViewTopBarHeight,
-	getListViewTableRowHeight,
-	getItemViewTopBarHeight,
-	getItemViewListSidebarWidth,
-	getItemViewPaddingContainerPadding,
-	getItemViewOuterDividingContainerMinWidth,
+	getNavbarBreadcrumbComponentButtonTextElementBaseFontSize,
+	getNavbarBreadcrumbComponentButtonArrowElementWidth,
+	getNavbarHamburgerComponentCriticalStyles,
+	getListViewTopBarComponentHeight,
+	getListViewTableComponentRowElementHeight,
+	getItemViewTopBarComponentHeight,
+	getItemViewListSidebarComponentWidth,
+	getItemViewComponentPaddingContainerElementLeftPadding,
+	getItemViewComponentOuterDividingContainerElementMinWidth,
 	getCommonStandardBackgroundColorClassNameForTheme,
 } from "../../../utils";
 
@@ -44,7 +44,8 @@ export default function Navbar() {
 
 	// Makes sure the current size of the window and navbar are stored in redux
 	useEffect(() => {
-		const breadcrumbBaseFontSize = getBreadcrumbBaseFontSize();
+		const breadcrumbButtonTextElementBaseFontSize =
+			getNavbarBreadcrumbComponentButtonTextElementBaseFontSize();
 
 		dispatch(
 			setDisplaySizeConstants({
@@ -52,16 +53,22 @@ export default function Navbar() {
 				navbarAccountButtonWidth: getElementSize(
 					document.getElementsByClassName("js-account-button")[0]
 				).width,
-				navbarBreadcrumbButtonTextBaseFontSize: breadcrumbBaseFontSize,
-				navbarBreadcrumbArrowWidth: getBreadcrumbButtonArrowWidth(),
-				navbarHamburgerStyles: getCriticalHamburgerStyles(),
-				listViewTopBarHeight: getListViewTopBarHeight(),
-				listViewTableRowHeight: getListViewTableRowHeight(),
-				itemViewTopBarHeight: getItemViewTopBarHeight(),
-				itemViewListSidebarWidth: getItemViewListSidebarWidth(),
-				itemViewPaddingContainerPadding: getItemViewPaddingContainerPadding(),
-				itemViewOuterDividingContainerMinWidth:
-					getItemViewOuterDividingContainerMinWidth(),
+				navbarBreadcrumbComponentButtonTextElementBaseFontSize:
+					breadcrumbButtonTextElementBaseFontSize,
+				navbarBreadcrumbComponentButtonArrowElementWidth:
+					getNavbarBreadcrumbComponentButtonArrowElementWidth(),
+				navbarHamburgerComponentCriticalStyles:
+					getNavbarHamburgerComponentCriticalStyles(),
+				listViewTopBarComponentHeight: getListViewTopBarComponentHeight(),
+				listViewTableComponentRowElementHeight:
+					getListViewTableComponentRowElementHeight(),
+				itemViewComponentPaddingContainerElementLeftPadding:
+					getItemViewComponentPaddingContainerElementLeftPadding(),
+				itemViewComponentOuterDividingContainerElementMinWidth:
+					getItemViewComponentOuterDividingContainerElementMinWidth(),
+				itemViewTopBarComponentHeight: getItemViewTopBarComponentHeight(),
+				itemViewListSidebarComponentWidth:
+					getItemViewListSidebarComponentWidth(),
 			})
 		);
 
@@ -73,8 +80,12 @@ export default function Navbar() {
 		);
 
 		// Since breadcrumb font resize does not happen until after app start-up
-		// ...or refresh, it's safe to initialize as breadcrumbBaseFontSize
-		dispatch(setDisplaySizeVariablesBreadcrumbFontSize(breadcrumbBaseFontSize));
+		// ...or refresh, it's safe to initialize as breadcrumbButtonTextElementBaseFontSize
+		dispatch(
+			setDisplaySizeVariablesBreadcrumbFontSize(
+				breadcrumbButtonTextElementBaseFontSize
+			)
+		);
 
 		// Adds event to update navbar size on a resize
 		window.addEventListener("resize", displaySizeHandler);
