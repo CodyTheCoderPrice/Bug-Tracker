@@ -164,7 +164,8 @@ export default function Home() {
 
 	// Updates mass delete list to not include any project/bug items that have
 	// ...just been searchFilterSorted out, so the user does not accidentally
-	// ...delete items that are no longer visible on the ListView
+	// ...delete items that are no longer visible on the ListView (but would 
+	// ...otherwise still be in the 'massDeleteList')
 	useEffect(() => {
 		const verifyMassDeleteList = (reduxContainerName) => {
 			if (reduxState[reduxContainerName].massDeleteList.length > 0) {

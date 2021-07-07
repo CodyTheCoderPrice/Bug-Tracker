@@ -134,8 +134,9 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
 };
 
 /**
- * Calls api/account/register route to register a new account in the database
- * and open Login component while closing all other general components.
+ * Calls api/account/register route to register a new account in the database,
+ * and if successful, then open Login component while closing all other general
+ * components.
  *
  * @param {{
  * 	first_name: string,
@@ -159,19 +160,19 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 	axios
 		.post("/api/account/register", accountInfo)
 		.then(() => {
-			// register was successful, so switching to the login page
+			// Register was successful, so switching to the login page
 			dispatch(setWhichGeneralComponentsDisplay({ login: true }));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 		});
 };
 
 /**
- * Calls api/account/login route to login into an account, retrieve a jwToken
- * to store in localStorage, retrieve all account data from the database and
- * store each data set in their corresponding containers (e.g.
+ * Calls api/account/login route to login into an account. If successful, then 
+ * retrieves a jwToken to store in localStorage, retrieves all account data from
+ * the database and stores each data set in their corresponding containers (e.g.
  * ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux state, and opens
  * the Home component while closing the Login and Register components.
  *
@@ -224,11 +225,11 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
 
-			// login was successful, so switching to the home page
+			// Login was successful, so switching to the home page
 			dispatch(setWhichGeneralComponentsDisplay({ home: true }));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 		});
 };
@@ -251,7 +252,7 @@ export const retrieveAccount = () => (dispatch) => {
 			dispatch(setAccount(account));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -280,7 +281,7 @@ export const retrieveAccountSettings = () => (dispatch) => {
 			dispatch(setAccountSettings(accountSettings));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -327,7 +328,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 			dispatch(setComments(comments));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -340,9 +341,9 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 
 /**
  * Calls api/account/update-info route to update the name for the account in
- * the database, store the updated account info in 'accountInfo' Object in
- * ACCOUNT_CONTAINER of the redux state, and opens AccountSidebar component
- * while closing all other account components
+ * the database, and if successful, then stores the updated account info in 
+ * 'accountInfo' Object in ACCOUNT_CONTAINER of the redux state, and opens
+ * AccountSidebar component while closing all other account components
  *
  * @param {{
  * 	first_name: string,
@@ -365,13 +366,13 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 		.post("/api/account/update-info", newAccountNames, header)
 		.then((res) => {
 			const { account } = res.data;
-			// updates the redux state with the new account name
+			// Updates the redux state with the new account name
 			dispatch(setAccount(account));
-			// closes the accountModal and re-opens the accountSidebar
+			// Closes the accountModal and re-opens the accountSidebar
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -384,9 +385,9 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 
 /**
  * Calls api/account/update-email route to update the email for the account in
- * the database, store the updated account email in 'accountInfo' Object in
- * ACCOUNT_CONTAINER of the redux state, and opens AccountSidebar component
- * while closing all other account components
+ * the database, and if successful, then stores the updated account email in 
+ * 'accountInfo' Object in ACCOUNT_CONTAINER of the redux state, and opens
+ * AccountSidebar component while closing all other account components
  *
  * @param {{
  * 	email: string,
@@ -410,13 +411,13 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 		.post("/api/account/update-email", newEmailCurrentPassword, header)
 		.then((res) => {
 			const { account } = res.data;
-			// updates the redux state with the new account email
+			// Updates the redux state with the new account email
 			dispatch(setAccount(account));
-			// closes the accountModal and re-opens the accountSidebar
+			// Closes the accountModal and re-opens the accountSidebar
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -429,8 +430,8 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 
 /**
  * Calls api/account/update-password route to update the password for the
- * account in the database and opens AccountSidebar component while closing all
- * other account components
+ * account in the database, and if successful, then opens AccountSidebar 
+ * component while closing all other account components
  *
  * @param {{
  * 	newPassword: string,
@@ -455,15 +456,15 @@ export const updateAccountPassword =
 			.post("/api/account/update-password", newPasswordCurrentPassword, header)
 			.then((res) => {
 				const { account } = res.data;
-				// still updates the redux state despite not storing the new
+				// Still updates the redux state despite not storing the new
 				// ...password since the new account Object will contained an
 				// ...updated last_edited_timestamp
 				dispatch(setAccount(account));
-				// closes the accountModal and re-opens the accountSidebar
+				// Closes the accountModal and re-opens the accountSidebar
 				dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 			})
 			.catch((err) => {
-				// sets backend errors for what went wrong to be displayed to user
+				// Sets backend errors for what went wrong to be displayed to user
 				dispatch(seBackendErrors(err.response.data.backendErrors));
 
 				if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -475,8 +476,9 @@ export const updateAccountPassword =
 	};
 
 /**
- * Calls api/account/delete route to delete the account in the database and log
- * the user out (which resets the redux state and opens the login page)
+ * Calls api/account/delete route to delete the account in the database, and if
+ * successful, then log the user out (which resets the redux state and opens the
+ * login page)
  *
  * @param {{
  *  capitalizedDeleteTypedOut: string,
@@ -501,15 +503,15 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
 			dispatch(logoutAccount());
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 		});
 };
 
 /**
  * Calls api/account/update-settings route to update the account settings in
- * the database, store the updated account settings in 'settings' Object in
- * ACCOUNT_CONTAINER of the redux state
+ * the database, and if successful, then stored the updated account settings in
+ * 'settings' Object in ACCOUNT_CONTAINER of the redux state
  *
  * @param {{
  * 	setting_id: number,
@@ -551,14 +553,14 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 		.post("/api/account/update-settings", accountSettings, header)
 		.then((res) => {
 			const { settings } = res.data;
-			// updates the redux state with the new account settings
+			// Updates the redux state with the new account settings
 			dispatch(setAccountSettings(settings));
 			// Backend errors cleared since setting modal doesn't get closed on
 			// ...success, meaning backend errors can remain
 			dispatch(clearBackendErrors());
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {

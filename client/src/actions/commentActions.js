@@ -54,8 +54,8 @@ export const setComments = (commentList) => (dispatch) => {
 
 /**
  * Calls /api/comment/create route in order to create a new comment in the 
- * database, then stores the updated comments list in 'list' Object in
- * COMMENT_CONTAINER of the redux state
+ * database, and if succesful, then stores the updated comments list in 'list'
+ * Object in COMMENT_CONTAINER of the redux state
  *
  * @param {{ 
  * 	description: string, 
@@ -70,7 +70,6 @@ export const setComments = (commentList) => (dispatch) => {
  * 		project_id: 326, 
  * 		bug_id: 50 
  * 		"Problem may be with the versions of the database", 
- * 		
  * 	})
  * );
  */
@@ -83,7 +82,7 @@ export const createComment = (commentInfo) => (dispatch) => {
 			dispatch(setComments(comments));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -96,8 +95,8 @@ export const createComment = (commentInfo) => (dispatch) => {
 
 /**
  * Calls /api/comment/retrieve route to retrieve the comments list from the
- * database and store it in 'list' Object in COMMENT_CONTAINER of the redux
- * state
+ * database, and if successful, then stores it in 'list' Object in 
+ * COMMENT_CONTAINER of the redux state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -112,7 +111,7 @@ export const retrieveComments = () => (dispatch) => {
 			dispatch(setComments(comments));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -124,10 +123,9 @@ export const retrieveComments = () => (dispatch) => {
 };
 
 /**
- * Calls /api/comment/update route to update a comment in the database, store
- * the updated comments list in 'list' Object in COMMENT_CONTAINER of the redux
- * state, and resets all comment components (which closes edit mode for the 
- * comment)
+ * Calls /api/comment/update route to update a comment in the database, and if 
+ * successful, then stores the updated comments list in 'list' Object in 
+ * COMMENT_CONTAINER of the redux state, and closes edit mode for the comment
  *
  * @param {{ 
  * 	id: number 
@@ -155,11 +153,12 @@ export const updateComment = (commentInfo) => (dispatch) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));
 
-			// comment edit was succesful, so closing the edit mode
+			// Comment edit was successful, so sets comment components to null,
+			// ... which closing the edit mode
 			dispatch(setWhichCommentComponentsDisplay({}));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -171,9 +170,10 @@ export const updateComment = (commentInfo) => (dispatch) => {
 };
 
 /**
- * Calls /api/comment/delete route to delete a comment in the database, store
- * the updated comments list in 'list' Object in COMMENT_CONTAINER in the redux
- * state, and closes the CommentDeleteModal component
+ * Calls /api/comment/delete route to delete a comment in the database, and if
+ * successful, then stores the updated comments list in 'list' Object in 
+ * COMMENT_CONTAINER in the redux state, and closes the CommentDeleteModal 
+ * component
  * 
  * @param {{ 
  * 	id: number, 
@@ -193,7 +193,8 @@ export const updateComment = (commentInfo) => (dispatch) => {
  * deleted comment is the current commentBeingEdited
  * 
  * @example
- * // Deletes comment and keeps commentBeingEdited the same in the redux state
+ * // Deletes comment and keeps commentBeingEdited the same (since deleted 
+ * // ...comment was not the comment being edited) in the redux state
  * dispatch(
  * 	deleteComment({ 
  * 		id: 194, 
@@ -209,7 +210,8 @@ export const updateComment = (commentInfo) => (dispatch) => {
  * );
  * 
  * @example
- * // Deletes comment and updates commentBeingEdit to null in the redux state
+ * // Deletes comment and updates commentBeingEdit to null (since deleted 
+ * // ...comment was the comment being edited) in the redux state
  * dispatch(
  * 	deleteComment({ 
  * 		id: 194, 
@@ -232,9 +234,10 @@ export const deleteComment = (idsObject, commentBeingEdited) => (dispatch) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));
 
-			// Comment deletion succesful, so setting commentBeingDeleted to 
-			// ...null. If delted comment is same as commentBeingEdited, it is 
-			// also set to null, otherwise it's kept the same
+			// Comment deletion successful, so setting commentBeingDeleted to 
+			// ...null, which closes CommentDeleteModal component. If delted 
+			// ...comment is same as commentBeingEdited, it is also set to null,
+			// ...otherwise it's kept the same
 			dispatch(
 				setWhichCommentComponentsDisplay({ 
 					commentBeingEdited:
@@ -245,7 +248,7 @@ export const deleteComment = (idsObject, commentBeingEdited) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {

@@ -80,9 +80,10 @@ export const setBugs = (bugList) => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/create route to create a new bug in the database, store the
- * updated bugs list in 'list' Object in BUG_CONTAINER of the redux state, and
- * close the ListViewCreateItemSidbar (for bugs) component
+ * Calls /api/bug/create route to create a new bug in the database, and if 
+ * successful, then stores the updated bugs list in 'list' Object in 
+ * BUG_CONTAINER of the redux state, and close the ListViewCreateItemSidebar 
+ * (for bugs) component
  *
  * @param {{
  * 		project_id: number,
@@ -153,8 +154,7 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
 
-			// bug creation was succesful, so closing the
-			// ...listViewCreateItemSidbar
+			// Bug creation was successful, so closing the listViewCreateItemSidebar
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
@@ -163,7 +163,7 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -175,8 +175,9 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/retrieve route to retrieve bugs list from the database and
- * store it in 'list' Object in BUG_CONTAINER of the redux state
+ * Calls /api/bug/retrieve route to retrieve bugs list from the database, and 
+ * if successful, then stores it in 'list' Object in BUG_CONTAINER of the redux
+ * state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -191,7 +192,7 @@ export const retrieveBugs = () => (dispatch) => {
 			dispatch(setBugs(bugs));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -203,9 +204,9 @@ export const retrieveBugs = () => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/update route to update a bug in the database, store the
- * updated bugs list in 'list' Object in BUG_CONTAINER of the redux state, and
- * turn off the editing mode for ItemView (for bugs) component
+ * Calls /api/bug/update route to update a bug in the database, and if successful,
+ * then stores the updated bugs list in 'list' Object in BUG_CONTAINER of the redux
+ * state, and turns off the editing mode for ItemView (for bugs) component
  *
  * @param {{
  * 		id: number,
@@ -248,7 +249,7 @@ export const retrieveBugs = () => (dispatch) => {
  * components are currently being displayed
  * 
  * @example
- * // updates bug with id 50 to have the following data. The dispatch function 
+ * // Updates bug with id 50 to have the following data. The dispatch function 
  * // ...is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateBug({
@@ -284,11 +285,11 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
 
-			// bug update was succesful, so closing itemViewEditItemInfo
+			// Bug update was successful, so closing itemViewEditItemInfo
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
-					// if itemViewCurrentItem was set to the pre-edited bug, then it
+					// If itemViewCurrentItem was set to the pre-edited bug, then it
 					// ...is updated to the post-edited bug
 					itemViewCurrentItem:
 						bugComponentsDisplay.itemViewCurrentItem.id !== bugInfo.id
@@ -301,7 +302,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -313,12 +314,12 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/delete route to delete a bug in the database, store the
- * updated bugs and comments list in their corresponding containers (i.e.
- *  BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, update 
- * 'massDeleteList' Object (if it contained the deleted bug) in BUG_CONTAINER
- * of the redux state, and open the ListView (for bugs) component while 
- * closeing all other bug components
+ * Calls /api/bug/delete route to delete a bug in the database, and if successful,
+ * then stores the updated bugs and comments list in their corresponding 
+ * containers (i.e. BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, 
+ * updates 'massDeleteList' Object (if it contained the deleted bug) in 
+ * BUG_CONTAINER of the redux state, and opens the ListView (for bugs) component
+ * while closeing all other bug components
  *
  * @param {{ 
  * id: number, 
@@ -339,7 +340,7 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 	axios
 		.post("/api/bug/delete", idsObject, header)
 		.then((res) => {
-			// since deleting a bug also deletes the comments it had, the
+			// Since deleting a bug also deletes the comments it had, the
 			// ...comments lists is also updated in redux state
 			const { bugs, comments } = res.data;
 			dispatch(setBugs(bugs));
@@ -347,15 +348,15 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 
 			const deletedBugIndexInMassDeleteList = massDeleteList.indexOf(idsObject.id);
 
-			// checks if the deleted bug id was in the massDeleteList, and if
-			// ...so removes it and updates 'massDeleteList' Object in 
+			// Checks if the deleted bug id was in the massDeleteList, and if
+			// ...so, then removes it and updates 'massDeleteList' Object in 
 			// ...BUG_CONTAINER of the redux state
 			if (deletedBugIndexInMassDeleteList > -1) {
 				massDeleteList.splice(deletedBugIndexInMassDeleteList, 1);
 				dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, massDeleteList));
 			}
 
-			// bug deletion was succesful, so closing itemViewDeleteModal
+			// Bug deletion was successful, so closing itemViewDeleteModal
 			dispatch(
 				setWhichBugComponentsDisplay({
 					listView: true,
@@ -363,7 +364,7 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -376,10 +377,10 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 
 /**
  * Calls /api/bug/delete-multiple route to delete multiple bugs in the database,
- * store the updated bugs and comments list in their corresponding containers 
- * (i.e. BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, empty the 
- * 'massDeleteList' Object in BUG_CONTAINER of the redux state, and close
- * ItemViewDeleteModal (for bugs) component
+ * and if successful, then stores the updated bugs and comments list in their 
+ * corresponding containers (i.e. BUG_CONTAINER and COMMENT_CONTAINER) of the 
+ * redux state, empties the 'massDeleteList' Object in BUG_CONTAINER of the 
+ * redux state, and close ItemViewDeleteModal (for bugs) component
  *
  * @param {number[]} massDeleteList - Array of ids for bugs to be mass deleted
  * @param {{
@@ -431,21 +432,21 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 	axios
 		.post("/api/bug/delete-multiple", { arrayOfBugIdsToBeDeleted: massDeleteList }, header)
 		.then((res) => {
-			// since deleting a bug also deletes the comments it had, the
+			// Since deleting a bug also deletes the comments it had, the
 			// ...comments lists is also updated in redux state
 			const { bugs, comments } = res.data;
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
 
-			// emptys the massDeleteList in the redux state
+			// Empties the massDeleteList in the redux state
 			dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, []));
 
-			// mass bug deletion was succesful, so closing itemViewDeleteModal
+			// Mass bug deletion was successful, so closing itemViewDeleteModal
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
 					listViewDeleteModal: false,
-					// if the itemViewCurrentItem was a deleted bug, then sets it to null
+					// If the itemViewCurrentItem was a deleted bug, then sets it to null
 					itemViewCurrentItem:
 						bugComponentsDisplay.itemViewCurrentItem === null ||
 						massDeleteList.filter(
@@ -457,7 +458,7 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 			);
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
+			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {

@@ -50,7 +50,7 @@ function App() {
 		// eslint-disable-next-line
 	}, []);
 
-	// Makes sure this component always only has one child component dispalyed
+	// Makes sure this component only ever has one child component dispalyed
 	useEffect(() => {
 		const numberOfChildComponentsBeingDisplayed = [
 			reduxState[GENERAL_CONTAINER].componentsDisplay.register,
@@ -62,9 +62,12 @@ function App() {
 			numberOfChildComponentsBeingDisplayed < 1 ||
 			numberOfChildComponentsBeingDisplayed > 1
 		) {
+			// Resetting app since CSS was not written to have this component 
+			// ...display multiple child components, and login is the safest
+			// ...choice (which resetting will cause to display)
 			dispatch(logoutAccount());
 			console.log(
-				"Reset app due to incorrect number of <App> child components being displayed"
+				"Error: Reset app due to incorrect number of <App> child components being displayed"
 			);
 		}
 		// eslint-disable-next-line

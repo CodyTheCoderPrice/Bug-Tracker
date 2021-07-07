@@ -18,7 +18,7 @@ import {
  * Sets 'componentsDisplay' Object in GENERAL_CONTAINER of the redux state for 
  * how general components should be displayed by the app. If any expected 
  * properties in displays prop (e.g. resgister, login, ect.) are undefined,
- * then they will be set to false in the state.
+ * then they will be set to false in the redux state.
  *
  * @param {{
  * 	register: (boolean|undefined),
@@ -28,8 +28,7 @@ import {
  * 	itemViewListSidebarUserSet: (boolean|undefined)
  * }} displays - Object containing info for how general components should be 
  * displyed in the app. Any general components set to undefined or excluded 
- * from this param will be set to their default value (except login, which will
- * instead be set to false).
+ * from this param will be set to false in the redux state.
  *
  * @example
  * // Sets home component to true, and all other general components to false.
@@ -54,7 +53,7 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * how general dropdowns should be displayed by the app. If any expected 
  * properties in displays prop (e.g. navbarHamburherDropdown, 
  * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to 
- * false in the state.
+ * false in the redux state.
  *
  * @param {{
  * 	navbarHamburherDropdown: (boolean|undefined),
@@ -64,7 +63,7 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * 	itemViewTopBarOptionsDropdown: (boolean|undefined)
  * }} displays - Object containing info for how general dropdowns should be 
  * displyed in the app. Any general dropdowns set to undefined or excluded from
- * this param will be set to their default value.
+ * this param will be set to false in the redux state.
  *
  * @example
  * // Sets navbarHamburherDropdown to true, and all other general dropdowns to
@@ -89,9 +88,10 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 
 /**
  * Sets 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux state for
- * how account components should be displayed by the app. If any expected 
- * properties in displays props (e.g. accountSidebar, accountModalEditInfo, 
- * ect.) are undefined, then they will be set to false in the state. 
+ * how account components should be displayed by the app. At most only one 
+ * account component should be set to true. If any expected properties in 
+ * displays props (e.g. accountSidebar, accountModalEditInfo, ect.) are 
+ * undefined, then they will be set to false in the redux state. 
  *
  * @param {{
  * 	accountSidebar: (boolean|undefined),
@@ -101,10 +101,9 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * 	accountModalDeleteAccount: (boolean|undefined),
  * 	accountModalEditSettings: (boolean|undefined)
  * }} displays - Object containing info for how account components should be 
- * displyed in the app. At most one of the properties beginning with 
- * accountModal (e.g. accountModalEditInfo) should be set to true. Any account
- * components set to undefined or excluded from this param will be set to their
- * default value.
+ * displyed in the app. At most only one account component should be set to 
+ * true. Any account components set to undefined or excluded from this param 
+ * will be set to false in the redux state.
  *
  * @example
  * // Sets accountSidebar to true, and all other account components to false.
@@ -128,7 +127,7 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
  * Sets 'componentsDisplay' Object in PROJECT_CONTAINER of the redux state for
  * how project components should be displayed by the app. If any expected
  * properties in displays prop (e.g. listView, itemView, ect.) are undefined,
- * then they will be set to false/null (depending on their type) in the state.
+ * then they will be set to false/null (depending on their type) in the redux state.
  *
  * @param {{
  * 	listView: (boolean|undefined),
@@ -179,7 +178,7 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * Sets 'componentsDisplay' Object in BUG_CONTAINER of the redux state for how
  * bug components should be displayed by the app. If any expected properties in
  * displays prop (e.g. listView, itemView, ect.) are undefined, then they will 
- * be set to false/null (depending on their type) in the state.
+ * be set to false/null (depending on their type) in the redux state.
  *
  * @param {{
  * 	listView: (boolean|undefined),
@@ -231,7 +230,7 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * Sets 'componentsDisplay' Object in COMMENT_CONTAINER of the redux state for
  * how comment components should be displayed by the app. If any expected 
  * properties in displays prop (i.e. commentBeingEdited and commentToBeDeleted)
- * are undefined, then they will be set to null in the state.
+ * are undefined, then they will be set to null in the redux state.
  *
  * @param {{
  * 	commentToBeEdited: ({

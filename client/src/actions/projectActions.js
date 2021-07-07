@@ -148,7 +148,7 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
 
-			// project creation was succesful, so closing the
+			// project creation was successful, so closing the
 			// ...listViewCreateItemSidbar
 			dispatch(
 				setWhichProjectComponentsDisplay({
@@ -279,7 +279,7 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 			const { projects } = res.data;
 			dispatch(setProjects(projects));
 
-			// project update was succesful, so closing itemViewEditItemInfo
+			// project update was successful, so closing itemViewEditItemInfo
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
@@ -353,7 +353,7 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 				);
 			}
 
-			// project deletion was succesful, so closing itemViewDeleteModal
+			// project deletion was successful, so closing itemViewDeleteModal
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					listView: true,
@@ -443,10 +443,10 @@ export const deleteMultipleProjects = (
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
 
-			// emptys the massDeleteList in the redux state
+			// empties the massDeleteList in the redux state
 			dispatch(setProjectOrBugMassDeleteList(PROJECT_CONTAINER, []));
 
-			// mass project deletion was succesful, so closing itemViewDeleteModal
+			// mass project deletion was successful, so closing itemViewDeleteModal
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					...projectComponentsDisplay,
