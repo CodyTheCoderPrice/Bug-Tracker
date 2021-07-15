@@ -105,14 +105,16 @@ export default function ItemView(props) {
 					.itemViewComponentOuterDividingContainerElementMinWidth;
 
 			dispatch(
-				setWhichGeneralComponentsDisplay({
-					...reduxState[GENERAL_CONTAINER].componentsDisplay,
-					itemViewListSidebar:
-						windowSize.width -
-							reduxState[SIZE_CONTAINER].constants
-								.itemViewListSidebarComponentWidth >=
-						minWidthNeededForNoItemBoxOverflow,
-				})
+				setWhichGeneralComponentsDisplay(
+					{
+						...reduxState[GENERAL_CONTAINER].componentsDisplay,
+						itemViewListSidebar:
+							windowSize.width -
+								reduxState[SIZE_CONTAINER].constants
+									.itemViewListSidebarComponentWidth >=
+							minWidthNeededForNoItemBoxOverflow,
+					}
+				)
 			);
 		}
 		// eslint-disable-next-line

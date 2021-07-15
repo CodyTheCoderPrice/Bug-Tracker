@@ -19,9 +19,10 @@ const initialState = {
  * Used to set 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux
  * state for which account components should display by the app. At most, 
  * actions.displays should only have one property as true, and if this is not 
- * the case, then only one of its properties will to true in the redux state. 
- * Also if any of its expected properties (e.g. accountSidebar, accountModalEditInfo,
- * ect.) are undefined, then they will be set to false in the state.
+ * the case, then only one of its properties will be arbitrarily selected to 
+ * become true in the redux state. Also if any of actions.displays expected 
+ * properties (e.g. accountSidebar, accountModalEditInfo, ect.) are undefined,
+ * then they will be set to false in the state.
  *
  * @param {{
  * 	accountSidebar: boolean,

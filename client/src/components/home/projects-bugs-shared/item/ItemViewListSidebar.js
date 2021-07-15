@@ -52,12 +52,15 @@ export default function ItemViewListSidebar(props) {
 
 	const toggleListSidebar = () => {
 		dispatch(
-			setWhichGeneralComponentsDisplay({
-				...reduxState[GENERAL_CONTAINER].componentsDisplay,
-				itemViewListSidebar:
-					!reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar,
-				itemViewListSidebarUserSet: true,
-			})
+			setWhichGeneralComponentsDisplay(
+				{
+					...reduxState[GENERAL_CONTAINER].componentsDisplay,
+					itemViewListSidebar:
+						!reduxState[GENERAL_CONTAINER].componentsDisplay
+							.itemViewListSidebar,
+					itemViewListSidebarUserSet: true,
+				}
+			)
 		);
 	};
 

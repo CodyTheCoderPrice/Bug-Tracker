@@ -23,7 +23,7 @@ const initialState = {
 /**
  * Used to set 'GENERAL_CONTAINER' Object of the redux state
  *
- * @param {Object} state - Current COMMENT_CONTAINER Object in the redux state
+ * @param {Object} state - Current GENERAL_CONTAINER Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually

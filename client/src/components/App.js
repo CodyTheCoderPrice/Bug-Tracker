@@ -8,7 +8,6 @@ import {
 import {
 	retrieveEverythingForAccount,
 	setWhichGeneralComponentsDisplay,
-	logoutAccount,
 } from "../actions";
 // Other components used by this component
 import Register from "./authentication/Register";
@@ -49,29 +48,6 @@ function App() {
 		}
 		// eslint-disable-next-line
 	}, []);
-
-	// Makes sure this component only ever has one child component dispalyed
-	useEffect(() => {
-		const numberOfChildComponentsBeingDisplayed = [
-			reduxState[GENERAL_CONTAINER].componentsDisplay.register,
-			reduxState[GENERAL_CONTAINER].componentsDisplay.login,
-			reduxState[GENERAL_CONTAINER].componentsDisplay.home,
-		].filter((boolean) => boolean === true).length;
-
-		if (
-			numberOfChildComponentsBeingDisplayed < 1 ||
-			numberOfChildComponentsBeingDisplayed > 1
-		) {
-			// Resetting app since CSS was not written to have this component 
-			// ...display multiple child components, and login is the safest
-			// ...choice (which resetting will cause to display)
-			dispatch(logoutAccount());
-			console.log(
-				"Error: Reset app due to incorrect number of <App> child components being displayed"
-			);
-		}
-		// eslint-disable-next-line
-	}, [reduxState[GENERAL_CONTAINER].componentsDisplay]);
 
 	// Prints notes in the console that may be helpful to users/developers
 	useEffect(() => {

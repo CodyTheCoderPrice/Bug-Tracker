@@ -15,10 +15,18 @@ import {
 } from "./constants/types";
 
 /**
- * Sets 'componentsDisplay' Object in GENERAL_CONTAINER of the redux state for 
- * how general components should be displayed by the app. If any expected 
- * properties in displays prop (e.g. resgister, login, ect.) are undefined,
- * then they will be set to false in the redux state.
+ * Sets 'componentsDisplay' Object in GENERAL_CONTAINER of the redux state for
+ * how general components should be displayed by the app. The displays prop should
+ * have exactly one of it's register, login, and home properties set to true. If
+ * an account is logged into the app (i.e. there is a jwToken in localStoreage),
+ * then home component will be set to true while register and login components 
+ * set to false, even if home was not attempted to be set to true in dispalys 
+ * prop. If more or less than one of these components is true in displays prop, 
+ * then home will take priority (if an account is logged in), followed by login
+ * (if no account is logged in). If any expected properties in displays prop 
+ * (e.g. resgister, login, ect.) are undefined, then they will be set to false
+ * in the redux state (except for itemViewListSidebar, which will be set to 
+ * true).
  *
  * @param {{
  * 	register: (boolean|undefined),
@@ -26,33 +34,29 @@ import {
  * 	home: (boolean|undefined),
  * 	itemViewListSidebar: (boolean|undefined),
  * 	itemViewListSidebarUserSet: (boolean|undefined)
- * }} displays - Object containing info for how general components should be 
- * displyed in the app. Any general components set to undefined or excluded 
+ * }} displays - Object containing info for how general components should be
+ * displyed in the app. Any general components set to undefined or excluded
  * from this param will be set to false in the redux state.
  *
  * @example
  * // Sets home component to true, and all other general components to false.
  * // ...The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralComponentsDisplay({ home: true }));
- *
- * @example
- * // Sets all general components to false. The dispatch function is from 
- * // ...useDispatch() imported from react-redux.
- * dispatch(setWhichGeneralComponentsDisplay({}));
  */
-export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
-	dispatch({
-		container: GENERAL_CONTAINER,
-		type: SET_WHICH_GENERAL_COMPONENTS_DISPLAY,
-		displays: displays,
-	});
-};
+export const setWhichGeneralComponentsDisplay =
+	(displays) => (dispatch) => {
+		dispatch({
+			container: GENERAL_CONTAINER,
+			type: SET_WHICH_GENERAL_COMPONENTS_DISPLAY,
+			displays: displays,
+		});
+	};
 
 /**
- * Sets 'dropdownsDisplay' Object in GENERAL_CONTAINER of the redux state for 
- * how general dropdowns should be displayed by the app. If any expected 
- * properties in displays prop (e.g. navbarHamburherDropdown, 
- * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to 
+ * Sets 'dropdownsDisplay' Object in GENERAL_CONTAINER of the redux state for
+ * how general dropdowns should be displayed by the app. If any expected
+ * properties in displays prop (e.g. navbarHamburherDropdown,
+ * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to
  * false in the redux state.
  *
  * @param {{
@@ -61,20 +65,20 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * 	itemViewTopBarSortDropdown: (boolean|undefined),
  * 	itemViewTopBarFilterDropdown: (boolean|undefined),
  * 	itemViewTopBarOptionsDropdown: (boolean|undefined)
- * }} displays - Object containing info for how general dropdowns should be 
+ * }} displays - Object containing info for how general dropdowns should be
  * displyed in the app. Any general dropdowns set to undefined or excluded from
  * this param will be set to false in the redux state.
  *
  * @example
  * // Sets navbarHamburherDropdown to true, and all other general dropdowns to
- * // ...false. The dispatch function is from useDispatch() imported from 
+ * // ...false. The dispatch function is from useDispatch() imported from
  * // ...react-redux.
  * dispatch(
  *		setWhichGeneralDropdownsDisplay({ navbarHamburherDropdown: true })
  *	);
  *
  * @example
- * // Sets all general dropdowns to false. The dispatch function is from 
+ * // Sets all general dropdowns to false. The dispatch function is from
  * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralDropdownsDisplay({}));
  */
@@ -88,10 +92,12 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 
 /**
  * Sets 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux state for
- * how account components should be displayed by the app. At most only one 
- * account component should be set to true. If any expected properties in 
- * displays props (e.g. accountSidebar, accountModalEditInfo, ect.) are 
- * undefined, then they will be set to false in the redux state. 
+ * how account components should be displayed by the app. At most only one
+ * account component should be set to true. If more than is attempted to be set
+ * to true, only one of them will be arbitrarily selected to be set to true. 
+ * Also if any expected properties in displays props (e.g. accountSidebar,
+ * accountModalEditInfo, ect.) are undefined, then they will be set to false in
+ * the redux state.
  *
  * @param {{
  * 	accountSidebar: (boolean|undefined),
@@ -100,9 +106,9 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * 	accountModalEditPassword: (boolean|undefined),
  * 	accountModalDeleteAccount: (boolean|undefined),
  * 	accountModalEditSettings: (boolean|undefined)
- * }} displays - Object containing info for how account components should be 
- * displyed in the app. At most only one account component should be set to 
- * true. Any account components set to undefined or excluded from this param 
+ * }} displays - Object containing info for how account components should be
+ * displyed in the app. At most only one account component should be set to
+ * true. Any account components set to undefined or excluded from this param
  * will be set to false in the redux state.
  *
  * @example
@@ -111,7 +117,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
  *
  * @example
- * // Sets all account components to false. The dispatch function is from 
+ * // Sets all account components to false. The dispatch function is from
  * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralDropdownsDisplay({}));
  */
@@ -177,7 +183,7 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 /**
  * Sets 'componentsDisplay' Object in BUG_CONTAINER of the redux state for how
  * bug components should be displayed by the app. If any expected properties in
- * displays prop (e.g. listView, itemView, ect.) are undefined, then they will 
+ * displays prop (e.g. listView, itemView, ect.) are undefined, then they will
  * be set to false/null (depending on their type) in the redux state.
  *
  * @param {{
@@ -204,8 +210,8 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * 		status_option: string,
  * 		last_edited_timestamp: string
  * 	}|null|undefined)
- * }} displays - Object containing info for how bug components should be 
- * displyed in the app. Any bug components set to undefined or excluded from 
+ * }} displays - Object containing info for how bug components should be
+ * displyed in the app. Any bug components set to undefined or excluded from
  * this param will be set to their default value.
  *
  * @example
@@ -214,7 +220,7 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * dispatch(setWhichBugComponentsDisplay({ listView: true }));
  *
  * @example
- * // Sets all bug components to false/null. The dispatch function is from 
+ * // Sets all bug components to false/null. The dispatch function is from
  * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichBugComponentsDisplay({}));
  */
@@ -228,27 +234,27 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 
 /**
  * Sets 'componentsDisplay' Object in COMMENT_CONTAINER of the redux state for
- * how comment components should be displayed by the app. If any expected 
+ * how comment components should be displayed by the app. If any expected
  * properties in displays prop (i.e. commentBeingEdited and commentToBeDeleted)
  * are undefined, then they will be set to null in the redux state.
  *
  * @param {{
  * 	commentToBeEdited: ({
- * 		id: number, 
- * 		bug_id: number, 
- * 		description: string, 
- * 		creation_date: string, 
- * 		last_edited_timestamp: string 
+ * 		id: number,
+ * 		bug_id: number,
+ * 		description: string,
+ * 		creation_date: string,
+ * 		last_edited_timestamp: string
  * 	}|null|undefined),
  * 	commentToBeDeleted: ({
- * 		id: number, 
- * 		bug_id: number, 
- * 		description: string, 
- * 		creation_date: string, 
- * 		last_edited_timestamp: string 
+ * 		id: number,
+ * 		bug_id: number,
+ * 		description: string,
+ * 		creation_date: string,
+ * 		last_edited_timestamp: string
  * 	}|null|undefined)
- * }} displays - Object containing info for how comment components should be 
- * displyed in the app. Any comment components set to undefined or excluded 
+ * }} displays - Object containing info for how comment components should be
+ * displyed in the app. Any comment components set to undefined or excluded
  * from this param will be set to their default value.
  *
  * @example
@@ -256,18 +262,18 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setWhichCommentComponentsDisplay({
- * 		commentBeingEdited: { 
- * 			id: 166, 
- * 			bug_id: 96, 
- * 			description: "Seems to be an issue with monitor resolution", 
- * 			creation_date: "2020-10-27T04:00:00.000Z", 
- * 			last_edited_timestamp: "1603821676" 
+ * 		commentBeingEdited: {
+ * 			id: 166,
+ * 			bug_id: 96,
+ * 			description: "Seems to be an issue with monitor resolution",
+ * 			creation_date: "2020-10-27T04:00:00.000Z",
+ * 			last_edited_timestamp: "1603821676"
  * 		}
  * 	})
  * );
  *
  * @example
- * // Sets all comment propertries to null. The dispatch function is from 
+ * // Sets all comment propertries to null. The dispatch function is from
  * // ...useDispatch() imported from react-redux.
  * dispatch(setWhichCommentComponentsDisplay({}));
  */
