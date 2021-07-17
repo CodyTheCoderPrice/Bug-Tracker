@@ -22,8 +22,10 @@ export function getStringOfAllArrayValues(array) {
 
 	for (let i = 0; i < array.length; i++) {
 		stringOfAllArrayValues += array[i];
-		if ((i+1) < array.length) {
+		if ((i+2) < array.length) {
 			stringOfAllArrayValues += ", ";
+		} else if ((i+1) < array.length) {
+			stringOfAllArrayValues += ", and ";
 		}
 	}
 

@@ -22,7 +22,7 @@ const initialState = {
  * the case, then only one of its properties will be arbitrarily selected to 
  * become true in the redux state. Also if any of actions.displays expected 
  * properties (e.g. accountSidebar, accountModalEditInfo, ect.) are undefined,
- * then they will be set to false in the state.
+ * then they will be set to false in the redux state.
  *
  * @param {{
  * 	accountSidebar: boolean,

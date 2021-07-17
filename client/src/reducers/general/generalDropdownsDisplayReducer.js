@@ -15,7 +15,7 @@ const initialState = {
  * state for which general dropdowns should be displayed by the app. If any 
  * expected properties in action.displays (e.g. navbarHamburherDropdown, 
  * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to 
- * false in the state.
+ * false in the redux state.
  *
  * @param {{
  * 	navbarHamburherDropdown: boolean,

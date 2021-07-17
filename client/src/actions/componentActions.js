@@ -20,13 +20,13 @@ import {
  * have exactly one of it's register, login, and home properties set to true. If
  * an account is logged into the app (i.e. there is a jwToken in localStoreage),
  * then home component will be set to true while register and login components 
- * set to false, even if home was not attempted to be set to true in dispalys 
- * prop. If more or less than one of these components is true in displays prop, 
- * then home will take priority (if an account is logged in), followed by login
- * (if no account is logged in). If any expected properties in displays prop 
- * (e.g. resgister, login, ect.) are undefined, then they will be set to false
- * in the redux state (except for itemViewListSidebar, which will be set to 
- * true).
+ * set to false in the redux state, even if home was not attempted to be set to 
+ * true. If more or less than one of these components is true in displays prop, 
+ * but no account is logged into the app, then either login or register will be 
+ * set to true in the redux state, with login taking prioirty over register. If
+ * any expected properties in displays prop (e.g. resgister, login, ect.) are
+ * undefined, then they will be set to false in the redux state (except for
+ * itemViewListSidebar, which will be set to true).
  *
  * @param {{
  * 	register: (boolean|undefined),
@@ -39,9 +39,17 @@ import {
  * from this param will be set to false in the redux state.
  *
  * @example
- * // Sets home component to true, and all other general components to false.
- * // ...The dispatch function is from useDispatch() imported from react-redux.
+ * // Sets home component and itemViewListSidebar to true, and all other general 
+ * // ...components to false. The dispatch function is from useDispatch() 
+ * // ...imported from react-redux.
  * dispatch(setWhichGeneralComponentsDisplay({ home: true }));
+ * 
+ * @example
+ * // Sets either home or login component to true depending on if an account is
+ * // ...logged into the app, as well as itemViewListSidebar to true, and all 
+ * // ...other general components to false. The dispatch function is from 
+ * // ...useDispatch() imported from react-redux.
+ * dispatch(setWhichGeneralComponentsDisplay({}));
  */
 export const setWhichGeneralComponentsDisplay =
 	(displays) => (dispatch) => {
@@ -119,7 +127,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * @example
  * // Sets all account components to false. The dispatch function is from
  * // ...useDispatch() imported from react-redux.
- * dispatch(setWhichGeneralDropdownsDisplay({}));
+ * dispatch(setWhichAccountComponentsDisplay({}));
  */
 export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 	dispatch({
@@ -131,9 +139,18 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 
 /**
  * Sets 'componentsDisplay' Object in PROJECT_CONTAINER of the redux state for
- * how project components should be displayed by the app. If any expected
- * properties in displays prop (e.g. listView, itemView, ect.) are undefined,
- * then they will be set to false/null (depending on their type) in the redux state.
+ * how project components should be displayed by the app. The displays prop 
+ * should have at most one of either its listView or itemView properties set to
+ * true. If both are set to true then listView will take priorty and itemView 
+ * will be set to false in the redux state. Also displays prop should not have
+ * any of listView's child component properties (i.e. listViewDeleteModal & 
+ * listViewCreateItemSidbar) set to true if listView property is not. Neither
+ * should itemView's child component property (i.e. itemViewDeleteModal) be set 
+ * to true if itemView property is not. If this is the case for either of them,
+ * then their child components will be set to false in the redux state. If any 
+ * expected properties in displays prop (e.g. listView, itemView, ect.) are 
+ * undefined, then they will be set to false/null (depending on their type) in
+ * the redux state.
  *
  * @param {{
  * 	listView: (boolean|undefined),
@@ -141,8 +158,8 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
  * 	listViewCreateItemSidbar: (boolean|undefined),
  * 	itemView: (boolean|undefined),
  * 	itemView: (boolean|undefined),
- * 	itemViewEditItemInfo: (boolean|undefined),
  * 	itemViewDeleteModal: (boolean|undefined),
+ * 	itemViewEditItemInfo: (boolean|undefined),
  * 	itemViewCurrentItem: ({
  * 		account_id: number,
  * 		id: number,
@@ -182,9 +199,18 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 
 /**
  * Sets 'componentsDisplay' Object in BUG_CONTAINER of the redux state for how
- * bug components should be displayed by the app. If any expected properties in
- * displays prop (e.g. listView, itemView, ect.) are undefined, then they will
- * be set to false/null (depending on their type) in the redux state.
+ * bug components should be displayed by the app. The displays prop should have
+ * at most one of either its listView or itemView properties set to true. If 
+ * both are set to true then listView will take priorty and itemView will be set
+ * to false in the redux state. Also displays prop should not have any of 
+ * listView's child component properties (i.e. listViewDeleteModal & 
+ * listViewCreateItemSidbar) set to true if listView property is not. Neither
+ * should itemView's child component property (i.e. itemViewDeleteModal) be set 
+ * to true if itemView property is not. If this is the case for either of them,
+ * then their child components will be set to false in the redux state. If any 
+ * expected properties in displays prop (e.g. listView, itemView, ect.) are 
+ * undefined, then they will be set to false/null (depending on their type) in
+ * the redux state.
  *
  * @param {{
  * 	listView: (boolean|undefined),
@@ -192,8 +218,8 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
  * 	listViewCreateItemSidbar: (boolean|undefined),
  * 	itemView: (boolean|undefined),
  * 	itemView: (boolean|undefined),
- * 	itemViewEditItemInfo: (boolean|undefined),
  * 	itemViewDeleteModal: (boolean|undefined),
+ * 	itemViewEditItemInfo: (boolean|undefined),
  * 	itemViewCurrentItem: ({
  * 		account_id: number,
  * 		id: number,

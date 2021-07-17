@@ -101,8 +101,8 @@ export const setBugs = (bugList) => (dispatch) => {
  * listViewDeleteModal: boolean,
  * listViewCreateItemSidbar: boolean,
  * itemView: boolean,
- * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
+ * itemViewEditItemInfo: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		project_id: number,
@@ -140,8 +140,8 @@ export const setBugs = (bugList) => (dispatch) => {
  * 		listViewDeleteModal: false, 
  * 		listViewCreateItemSidbar: true, 
  * 		itemView: false, 
- * 		itemViewEditItemInfo: false,
  * 		itemViewDeleteModal: false,
+ * 		itemViewEditItemInfo: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
@@ -227,8 +227,8 @@ export const retrieveBugs = () => (dispatch) => {
  * listViewDeleteModal: boolean,
  * listViewCreateItemSidbar: boolean,
  * itemView: boolean,
- * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
+ * itemViewEditItemInfo: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		project_id: number,
@@ -271,8 +271,8 @@ export const retrieveBugs = () => (dispatch) => {
  * 		listViewDeleteModal: false,
  * 		listViewCreateItemSidbar: true,
  * 		itemView: false,
- * 		itemViewEditItemInfo: false,
  * 		itemViewDeleteModal: false,
+ * 		itemViewEditItemInfo: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
@@ -388,8 +388,8 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
  * listViewDeleteModal: boolean,
  * listViewCreateItemSidbar: boolean,
  * itemView: boolean,
- * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
+ * itemViewEditItemInfo: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		project_id: (number|undefined),
@@ -419,8 +419,8 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
  * 		listViewDeleteModal: false,
  * 		listViewCreateItemSidbar: true,
  * 		itemView: false,
- * 		itemViewEditItemInfo: false,
  * 		itemViewDeleteModal: false,
+ * 		itemViewEditItemInfo: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );

@@ -4,11 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../actions/constants/containerNames";
 import {
 	retrieveEverythingForAccount,
 	setWhichGeneralComponentsDisplay,
+	setWhichProjectComponentsDisplay,
+	setWhichBugComponentsDisplay,
 } from "../actions";
+import { getStringOfAllArrayValues } from "../utils";
 // Other components used by this component
 import Register from "./authentication/Register";
 import Login from "./authentication/Login";
@@ -49,9 +54,70 @@ function App() {
 		// eslint-disable-next-line
 	}, []);
 
+	// When an account is logged into the app, ensures that the Home component
+	// ...always has exactly one of ListView (for projects), ItemView (for
+	// ...projects), ListView (for bugs), or ItemView (for bugs) being displayed.
+	// ...This must be done outside listComponentsDisplayReducer as it can not
+	// ...manage both project and bug container simutaneously.
+	useEffect(() => {
+		if (reduxState[ACCOUNT_CONTAINER].auth.isAuthenticated) {
+			let arryOfListAndItemViewComponentsSetToTrue = [];
+
+			if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView === true) {
+				arryOfListAndItemViewComponentsSetToTrue.push("ListView for projects");
+			}
+			if (reduxState[PROJECT_CONTAINER].componentsDisplay.itemView === true) {
+				arryOfListAndItemViewComponentsSetToTrue.push("ItemView for projects");
+			}
+			if (reduxState[BUG_CONTAINER].componentsDisplay.listView === true) {
+				arryOfListAndItemViewComponentsSetToTrue.push("ListView for bugs");
+			}
+			if (reduxState[BUG_CONTAINER].componentsDisplay.itemView === true) {
+				arryOfListAndItemViewComponentsSetToTrue.push("ItemView for bugs");
+			}
+
+			if (arryOfListAndItemViewComponentsSetToTrue.length > 1) {
+				console.log(
+					"Error: " +
+						getStringOfAllArrayValues(
+							arryOfListAndItemViewComponentsSetToTrue
+						) +
+						" were attempted to be set to true in the redux state, which goes against their intended use. To ensure no issues with CSS -- ListView for projects will be set true and the rest set to false."
+				);
+
+				// Keeps same itemViewCurrentItem, so if it's not null, the user can
+				// ...switch back to project ItemView using navbar.
+				dispatch(
+					setWhichProjectComponentsDisplay({
+						listView: true,
+						itemViewCurrentItem:
+							reduxState[PROJECT_CONTAINER].componentsDisplay
+								.itemViewCurrentItem,
+					})
+				);
+				// Keeps itemViewCurrentItem the same, so if it's not null, the user
+				// ...can switch back to bug ItemView using navbar.
+				dispatch(
+					setWhichBugComponentsDisplay({
+						itemViewCurrentItem:
+							reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
+					})
+				);
+			}
+		}
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[PROJECT_CONTAINER].componentsDisplay,
+		// eslint-disable-next-line
+		reduxState[BUG_CONTAINER].componentsDisplay,
+	]);
+
 	// Prints notes in the console that may be helpful to users/developers
 	useEffect(() => {
-		console.log("NOTE: If page is empty or seems broken, then please try clearing cookies before refreshing.")
+		console.log(
+			"NOTE: If page is empty or seems broken, then please try clearing cookies before refreshing."
+		);
 
 		if (process.env.NODE_ENV === "development") {
 			console.log(

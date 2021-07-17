@@ -31,8 +31,8 @@ import {
  * 	listViewCreateItemSidbar: (boolean|undefined),
  * 	itemView: (boolean|undefined),
  * 	itemView: (boolean|undefined),
- * 	itemViewEditItemInfo: (boolean|undefined),
  * 	itemViewDeleteModal: (boolean|undefined),
+ * 	itemViewEditItemInfo: (boolean|undefined),
  * 	itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: (number|undefined),
@@ -207,8 +207,8 @@ export const setProjectOrBugMassDeleteList = (
  * listViewDeleteModal: boolean,
  * listViewCreateItemSidbar: boolean,
  * itemView: boolean,
- * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
+ * itemViewEditItemInfo: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: (number|undefined),
@@ -246,8 +246,8 @@ export const setProjectOrBugMassDeleteList = (
  * 		listViewDeleteModal: false,
  * 		listViewCreateItemSidbar: true,
  * 		itemView: false,
- * 		itemViewEditItemInfo: false,
  * 		itemViewDeleteModal: false,
+ * 		itemViewEditItemInfo: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
@@ -294,8 +294,8 @@ export const createProjectOrBug = (
  * listViewDeleteModal: boolean,
  * listViewCreateItemSidbar: boolean,
  * itemView: boolean,
- * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
+ * itemViewEditItemInfo: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: (number|undefined),
@@ -338,8 +338,8 @@ export const createProjectOrBug = (
  * 		listViewDeleteModal: false,
  * 		listViewCreateItemSidbar: true,
  * 		itemView: false,
- * 		itemViewEditItemInfo: false,
  * 		itemViewDeleteModal: false,
+ * 		itemViewEditItemInfo: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
@@ -427,8 +427,8 @@ export const deleteProjectOrBug = (
  * listViewDeleteModal: boolean,
  * listViewCreateItemSidbar: boolean,
  * itemView: boolean,
- * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
+ * itemViewEditItemInfo: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: (number|undefined),
@@ -461,8 +461,8 @@ export const deleteProjectOrBug = (
  * 		listViewDeleteModal: false,
  * 		listViewCreateItemSidbar: true,
  * 		itemView: false,
- * 		itemViewEditItemInfo: false,
  * 		itemViewDeleteModal: false,
+ * 		itemViewEditItemInfo: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );

@@ -96,8 +96,8 @@ export const setProjects = (projectList) => (dispatch) => {
  * listViewDeleteModal: boolean,
  * listViewCreateItemSidbar: boolean,
  * itemView: boolean,
- * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
+ * itemViewEditItemInfo: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: number,
@@ -132,8 +132,8 @@ export const setProjects = (projectList) => (dispatch) => {
  * 		listViewDeleteModal: false, 
  * 		listViewCreateItemSidbar: true, 
  * 		itemView: false, 
- * 		itemViewEditItemInfo: false,
  * 		itemViewDeleteModal: false,
+ * 		itemViewEditItemInfo: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
@@ -221,8 +221,8 @@ export const retrieveProjects = () => (dispatch) => {
  * listViewDeleteModal: boolean,
  * listViewCreateItemSidbar: boolean,
  * itemView: boolean,
- * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
+ * itemViewEditItemInfo: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: number,
@@ -263,8 +263,8 @@ export const retrieveProjects = () => (dispatch) => {
  * 		listViewDeleteModal: false,
  * 		listViewCreateItemSidbar: true,
  * 		itemView: false,
- * 		itemViewEditItemInfo: false,
  * 		itemViewDeleteModal: false,
+ * 		itemViewEditItemInfo: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
@@ -387,8 +387,8 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
  * listViewDeleteModal: boolean,
  * listViewCreateItemSidbar: boolean,
  * itemView: boolean,
- * itemViewEditItemInfo: boolean,
  * itemViewDeleteModal: boolean,
+ * itemViewEditItemInfo: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: number,
@@ -418,8 +418,8 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
  * 		listViewDeleteModal: false,
  * 		listViewCreateItemSidbar: true,
  * 		itemView: false,
- * 		itemViewEditItemInfo: false,
  * 		itemViewDeleteModal: false,
+ * 		itemViewEditItemInfo: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
