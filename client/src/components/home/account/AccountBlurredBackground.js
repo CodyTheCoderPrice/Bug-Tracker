@@ -15,10 +15,10 @@ import { getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLig
  * AccountSidebar is displayed, then clicking the blurred background will close
  * all account components.
  * 
- * There is no single flag inside 'componentsDisplay' Object in 
+ * Note: There is no single flag inside 'componentsDisplay' property in 
  * ACCOUNT_CONTAINER of the redux state designated for if this component should 
  * display. Instead, this component should display if any flags inside that 
- * Object are true (e.g. accountSidebar, accountModalEditInfo, ect.)
+ * property are true (e.g. accountSidebar, accountModalEditInfo, ect.)
  * 
  * @component
  */

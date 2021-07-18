@@ -5,8 +5,8 @@ const bcrypt = require("bcryptjs");
  * An exported middleware function for routes in the routes folder, this
  * middleware checkes if the password in req is correct for the account
  * 
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
+ * @param {Object} req - Express request Object
+ * @param {Object} res - Express response Object
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = async (req, res, next) => {

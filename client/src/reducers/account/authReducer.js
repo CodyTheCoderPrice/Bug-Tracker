@@ -11,7 +11,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'auth' Object containing authentication data for the logged in
+ * Used to set 'auth' property containing authentication data for the logged in
  * account of into ACCOUNT_CONTAINER of the redux state
  * 
  * @param {{

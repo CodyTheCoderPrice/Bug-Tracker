@@ -4,7 +4,7 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 // Initial state for which general components should be displayed by the app
 const initialState = {
 	// The following four relate to components and if they should be displayed.
-	// ...exactly one of the following three components should be true at any
+	// ...Exactly one of the following three components should be true at any
 	// ...given point in time, as they will cause CSS issues with one another
 	register: false,
 	login: true,
@@ -20,7 +20,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'componentsDisplay' Object into GENERAL_CONTAINER of the redux
+ * Used to set 'componentsDisplay' property into GENERAL_CONTAINER of the redux
  * state for which general components should be displayed by the app. Exactly
  * one of actions.displays register, login, and home properties should set to 
  * true at any given point in time. If an account is logged into the app (i.e.

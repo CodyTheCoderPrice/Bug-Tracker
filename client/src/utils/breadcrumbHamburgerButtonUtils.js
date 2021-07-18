@@ -14,12 +14,13 @@ import {
 } from "../actions";
 
 /**
- * Sets 'listView' property to true in 'componentsDisplay' Object in
+ * Sets 'listView' property to true in 'componentsDisplay' property's Object in
  * PROJECT_CONTAINER of the redux state. Keeps 'itemViewCurrentItem' properties
- * the same in 'componentsDisplay' Objects of both PROJECT_CONTAINER
+ * the same in 'componentsDisplay' properties' Objects of both PROJECT_CONTAINER
  * and BUG_CONTAINER of the redux state. Sets all other properties in
- * 'componentsDisplay' Objects of ACCOUNT_CONTAINER, PROJECT_CONTAINER, and
- * BUG_CONTAINER to false. Sets properties in COMMENT_CONTAINER to null.
+ * 'componentsDisplay' properties' Objects of ACCOUNT_CONTAINER, PROJECT_CONTAINER,
+ * and BUG_CONTAINER to false. Sets properties in 'componentsDisplay' property's
+ * Object in COMMENT_CONTAINER to null.
  *
  * Note: This should be onClick function for elements pertaining to project
  * listView with 'breadcrumb-button' className in NavbarBreadcrumb component and
@@ -73,12 +74,13 @@ export function switchToProjectsListView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets 'itemView' property to true in 'componentsDisplay' Object in
+ * Sets 'itemView' property to true in 'componentsDisplay' property's Object in
  * PROJECT_CONTAINER of the redux state. Also keeps 'itemViewCurrentItem'
- * properties the same in 'componentsDisplay' Objects of both PROJECT_CONTAINER
- * and BUG_CONTAINER of the redux state. Also sets all other properties in
- * 'componentsDisplay' Objects of ACCOUNT_CONTAINER, PROJECT_CONTAINER, and
- * BUG_CONTAINER to false. Sets properties in COMMENT_CONTAINER to null.
+ * properties the same in 'componentsDisplay' properties' Objects of both 
+ * PROJECT_CONTAINER and BUG_CONTAINER of the redux state. Also sets all other
+ * properties in 'componentsDisplay' properties' Objects of ACCOUNT_CONTAINER,
+ * PROJECT_CONTAINER, and BUG_CONTAINER to false. Sets properties in 
+ * 'componentsDisplay' property's Object in COMMENT_CONTAINER to null.
  *
  * Note: This should be onClick function for elements pertaining to project
  * itemView with 'breadcrumb-button' className in NavbarBreadcrumb component and
@@ -128,12 +130,13 @@ export function switchToProjectsItemView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets 'listView' property to true in 'componentsDisplay' Object in
- * BUG_CONTAINER of the redux state. Also keeps 'itemViewCurrentItem'
- * properties the same in 'componentsDisplay' Objects of both PROJECT_CONTAINER
+ * Sets 'listView' property to true in 'componentsDisplay' property's Object in
+ * BUG_CONTAINER of the redux state. Also keeps 'itemViewCurrentItem' properties
+ * the same in 'componentsDisplay' properties' Objects of both PROJECT_CONTAINER
  * and BUG_CONTAINER of the redux state. Also sets all other properties in
- * 'componentsDisplay' Objects of ACCOUNT_CONTAINER, PROJECT_CONTAINER, and
- * BUG_CONTAINER to false. Sets properties in COMMENT_CONTAINER to null.
+ * 'componentsDisplay' properties' Objects of ACCOUNT_CONTAINER, 
+ * PROJECT_CONTAINER, and BUG_CONTAINER to false. Sets properties in 
+ * 'componentsDisplay' property's Object in COMMENT_CONTAINER to null.
  *
  * Note: This should be onClick function for elements pertaining to bug listView
  * with 'breadcrumb-button' className in NavbarBreadcrumb component and
@@ -187,12 +190,13 @@ export function SwitchToBugsListView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets 'itemView' property to true in 'componentsDisplay' Object in
- * BUG_CONTAINER of the redux state. Also keeps 'itemViewCurrentItem'
- * properties the same in 'componentsDisplay' Objects of both PROJECT_CONTAINER
+ * Sets 'itemView' property to true in 'componentsDisplay' property's Object in
+ * BUG_CONTAINER of the redux state. Also keeps 'itemViewCurrentItem' properties
+ * the same in 'componentsDisplay' properties' Objects of both PROJECT_CONTAINER
  * and BUG_CONTAINER of the redux state. Also sets all other properties in
- * 'componentsDisplay' Objects of ACCOUNT_CONTAINER, PROJECT_CONTAINER, and
- * BUG_CONTAINER to false. Sets properties in COMMENT_CONTAINER to null.
+ * 'componentsDisplay' properties' Objects of ACCOUNT_CONTAINER, 
+ * PROJECT_CONTAINER, and BUG_CONTAINER to false. Sets properties in 
+ * 'componentsDisplay' property's Object in COMMENT_CONTAINER to null.
  *
  * Note: This should be onClick function for elements pertaining to bug itemView
  * with 'breadcrumb-button' className in NavbarBreadcrumb component and
@@ -242,11 +246,13 @@ export function switchToBugsItemView(passedReduxState, dispatch) {
 
 /**
  * Sets 'listView' property to true and keeps 'listViewCreateItemSidbar'
- * property the same in 'componentsDisplay' Object in PROJECT_CONTAINER of the
- * redux state. Sets all other properties in 'componentsDisplay' Objects of
- * ACCOUNT_CONTAINER, PROJECT_CONTAINER, and BUG_CONTAINER to false or null
- * (depending on which is their default state). Sets properties in
- * COMMENT_CONTAINER to null. Empties 'massDeleteList' Object in BUG_CONTAINER.
+ * property the same in 'componentsDisplay' property's Object in 
+ * PROJECT_CONTAINER of the redux state. Sets all other properties in 
+ * 'componentsDisplay' property's Objects of ACCOUNT_CONTAINER, 
+ * PROJECT_CONTAINER, and BUG_CONTAINER to false or null (depending on which is
+ * their default). Sets properties in 'componentsDisplay' property's Object in
+ * COMMENT_CONTAINER to null. Empties 'massDeleteList' property's Object in
+ * BUG_CONTAINER.
  *
  * Note: This should be onClick function for element pertaining to project's
  * listView with 'breadcrumb-button__end-container__close-icon-button' className
@@ -257,9 +263,9 @@ export function switchToBugsItemView(passedReduxState, dispatch) {
  * project's ListViewCreateItemSidebar open if it was already. To have no project
  * selected for project's ItemView. To close all account and bug components. To
  * have no comments in the process of being edited or deleted. Also the reason 
- * 'massDeleteList' Object in BUG_CONTAINER is emptied is because without a 
- * project selected for project's ItemView means there is no list of bugs that
- * can be in the massDeleteList.
+ * 'massDeleteList' propery's Object in BUG_CONTAINER is emptied is because 
+ * without a project selected for project's ItemView means there is no list of 
+ * bugs that can be in the massDeleteList.
  *
  * @param {Event} e - Event created by element's onClick handler
  * @param {Object} passedReduxState - Current redux state from
@@ -294,10 +300,12 @@ export function setTrueForOnlyProjectListViewAndCreateItemSidebar(
 /**
  * Keeps 'listViewCreateItemSidbar' property the same, and sets 'listView'
  * property to true if either it or 'itemView' were true, in 'componentsDisplay'
- * Object in BUG_CONTAINER of the redux state. Keeps 'componentsDisplay' Object
- * in PROJECT_CONTAINER the same. Sets all other properties in 'componentsDisplay'
- * Objects of ACCOUNT_CONTAINER and BUG_CONTAINER to false or null (depending on
- * which is their default state). Sets properties in COMMENT_CONTAINER to null.
+ * property's Object in BUG_CONTAINER of the redux state. Keeps 
+ * 'componentsDisplay' property's Object in PROJECT_CONTAINER the same. Sets all 
+ * other properties in 'componentsDisplay' properties' Objects of 
+ * ACCOUNT_CONTAINER and BUG_CONTAINER to false or null (depending on which is 
+ * their default). Sets properties in 'componentsDisplay' property's Object in
+ * COMMENT_CONTAINER to null.
  *
  * Note: This should be onClick function for element pertaining to bug's
  * listView with 'breadcrumb-button__end-container__close-icon-button' className

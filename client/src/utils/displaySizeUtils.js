@@ -18,7 +18,7 @@ import {
 } from "../utils";
 
 /**
- * Get an object containing properties for the window's height and width
+ * Get an Object containing properties for the window's height and width
  *
  * @returns {{
  * 	height: number,
@@ -38,7 +38,7 @@ export function getWindowSize() {
 }
 
 /**
- * Get an object containing properties for the passed element's height and
+ * Get an Object containing properties for the passed element's height and
  * width
  *
  * @param {Element} element - Element to get height and width for
@@ -52,7 +52,7 @@ export function getElementSize(element) {
 }
 
 /**
- * Get an object containing properties for the passed element's location (top,
+ * Get an Object containing properties for the passed element's location (top,
  * bottom, right, left)
  *
  * @param {Element} element - Element to get location for
@@ -74,7 +74,7 @@ export function getElementLocation(element) {
 }
 
 /**
- * Get an object containing properties for the passed element's styles
+ * Get an Object containing properties for the passed element's styles
  *
  * @param {Element} element - Element to get styles for
  * @returns {Object} Object containing properties for the passed element's
@@ -442,7 +442,7 @@ export function getItemViewListSidebarComponentWidth() {
  * @param {number} outerDivingContainerMinWidth - minWidth for
  * 'outer-dividing-container' element that contains item-box elements (i.e. 
  * 'itemViewComponentOuterDividingContainerElementMinWidth' property in 
- * 'constants' object of SIZE_CONTAINER of the redux state)
+ * 'constants' property's Object of SIZE_CONTAINER of the redux state)
  * 
  * @example
  * manageSizeOfItemBoxsElementInPairContainerElement(

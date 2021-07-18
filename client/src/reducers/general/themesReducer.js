@@ -4,8 +4,8 @@ import { SET_THEMES } from "../../actions/constants/types";
 const initialState = []
 
 /**
- * Used to set 'themes' Array of Objects containing theme data from the 
- * database into GENERAL_CONTAINER of the redux state
+ * Used to set 'themes' property containing Array of Objects containing theme
+ * data from the database into GENERAL_CONTAINER of the redux state
  * 
  * @param {{ 
  * 	theme_id: number, 

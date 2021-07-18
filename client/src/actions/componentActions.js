@@ -15,7 +15,7 @@ import {
 } from "./constants/types";
 
 /**
- * Sets 'componentsDisplay' Object in GENERAL_CONTAINER of the redux state for
+ * Sets 'componentsDisplay' property in GENERAL_CONTAINER of the redux state for
  * how general components should be displayed by the app. The displays prop should
  * have exactly one of it's register, login, and home properties set to true. If
  * an account is logged into the app (i.e. there is a jwToken in localStoreage),
@@ -61,7 +61,7 @@ export const setWhichGeneralComponentsDisplay =
 	};
 
 /**
- * Sets 'dropdownsDisplay' Object in GENERAL_CONTAINER of the redux state for
+ * Sets 'dropdownsDisplay' property in GENERAL_CONTAINER of the redux state for
  * how general dropdowns should be displayed by the app. If any expected
  * properties in displays prop (e.g. navbarHamburherDropdown,
  * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to
@@ -99,7 +99,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux state for
+ * Sets 'componentsDisplay' property in ACCOUNT_CONTAINER of the redux state for
  * how account components should be displayed by the app. At most only one
  * account component should be set to true. If more than is attempted to be set
  * to true, only one of them will be arbitrarily selected to be set to true. 
@@ -138,7 +138,7 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'componentsDisplay' Object in PROJECT_CONTAINER of the redux state for
+ * Sets 'componentsDisplay' property in PROJECT_CONTAINER of the redux state for
  * how project components should be displayed by the app. The displays prop 
  * should have at most one of either its listView or itemView properties set to
  * true. If both are set to true then listView will take priorty and itemView 
@@ -198,7 +198,7 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'componentsDisplay' Object in BUG_CONTAINER of the redux state for how
+ * Sets 'componentsDisplay' property in BUG_CONTAINER of the redux state for how
  * bug components should be displayed by the app. The displays prop should have
  * at most one of either its listView or itemView properties set to true. If 
  * both are set to true then listView will take priorty and itemView will be set
@@ -259,7 +259,7 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'componentsDisplay' Object in COMMENT_CONTAINER of the redux state for
+ * Sets 'componentsDisplay' property in COMMENT_CONTAINER of the redux state for
  * how comment components should be displayed by the app. If any expected
  * properties in displays prop (i.e. commentBeingEdited and commentToBeDeleted)
  * are undefined, then they will be set to null in the redux state.
@@ -284,8 +284,9 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * from this param will be set to their default value.
  *
  * @example
- * // Sets commentBeingEdited to passed object and all other properties to null.
- * // The dispatch function is from useDispatch() imported from react-redux.
+ * // Sets commentBeingEdited to be passed comment Object and all other 
+ * // ...properties to null. The dispatch function is from useDispatch() 
+ * // ...imported from react-redux.
  * dispatch(
  * 	setWhichCommentComponentsDisplay({
  * 		commentBeingEdited: {

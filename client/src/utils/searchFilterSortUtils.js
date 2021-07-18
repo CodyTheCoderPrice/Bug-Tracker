@@ -5,7 +5,7 @@ import { dateToInt } from "./index";
 /**
  * Takes an array of projects or bugs and returns it filtered to only have items
  * that fit the current searchFilterSort configuration (i.e. 'searchFilterSort' 
- * Object in PROJECT_CONTAINER or BUG_CONTAINER of the redux state)
+ * property's Object in PROJECT_CONTAINER or BUG_CONTAINER of the redux state)
  *
  * @param {{
  * 	id: number,
@@ -30,7 +30,7 @@ import { dateToInt } from "./index";
  * 	sortId: number,
  * 	priorityFilter: number[],
  * 	statusFilter: number[]
- * }} reduxSearchFilterSort - 'searchFilterSort' Object inside either 
+ * }} reduxSearchFilterSort - 'searchFilterSort' property's Object inside either 
  * PROJECT_CONTAINER or BUG_CONTAINER of the redux state
  * @returns {{
  * 	id: number,
@@ -156,14 +156,14 @@ export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
 /**
  * Get list of projects or bugs (based on reduxContainerName param) filtered to
  * only have items that fit current searchFilterSort configuration (i.e. 
- * 'searchFilterSort' Object in PROJECT_CONTAINER or BUG_CONTAINER of the redux
- * state)
+ * 'searchFilterSort' property's Object in PROJECT_CONTAINER or BUG_CONTAINER of
+ * the redux state)
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux 
  * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which 'list' and
- * 'searchFilterSort' Objects to use
+ * 'searchFilterSort' properties to use
  * @returns {{
  * 	id: number,
  * 	account_id: (number|undefined),
@@ -206,16 +206,16 @@ export function getSearchedFilteredSortedList(
 
 /**
  * Gets a deep copy of either 'priorityFilter' or 'statusFilter' (based on 
- * filterName param) Object in 'searchFilterSort' Object in either 
- * PROJECT_CONTAINER or BUG_CONTAINER (based on reduxContainerName param) of 
- * the redux state updated to have targetId param value added if not present,
- * or removed it it was present.
+ * filterName param) proprty's Object in 'searchFilterSort' property's Object
+ * in either PROJECT_CONTAINER or BUG_CONTAINER (based on reduxContainerName 
+ * param) of the redux state updated to have targetId param value added if not
+ * present, or removed it it was present.
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
  * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which 
- * 'searchFilterSort' Object to update
+ * 'searchFilterSort' property to update
  * @param {("priorityFilter"|"statusFilter")} filterName - Which filter to 
  * update
  * @param {(number|string)} targetId - Number (or string of number) for which

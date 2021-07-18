@@ -5,8 +5,8 @@ const isEmpty = require("is-empty");
  * An exported middleware function for routes in the routes folder, this
  * middleware validates the user form input for regestering an account
  * 
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
+ * @param {Object} req - Express request Object
+ * @param {Object} res - Express response Object
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {

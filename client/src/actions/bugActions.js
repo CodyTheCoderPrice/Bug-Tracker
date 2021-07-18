@@ -13,7 +13,7 @@ import {
 } from "./index";
 
 /**
- * Sets bugs list in 'list' Object in BUG_CONTAINER of the redux state
+ * Sets bugs list in 'list' property in BUG_CONTAINER of the redux state
  *
  * @param {{
  * 	id: number, 
@@ -73,7 +73,7 @@ export const setBugs = (bugList) => (dispatch) => {
 	dispatch({
 		container: BUG_CONTAINER,
 		type: SET_LIST,
-		// Property called 'list' instead of 'bugList' since redux reducer is
+		// Property is called 'list' instead of 'bugList' since redux reducer is
 		// ...shared with setProjects in projectActions file
 		list: bugList,
 	});
@@ -81,7 +81,7 @@ export const setBugs = (bugList) => (dispatch) => {
 
 /**
  * Calls /api/bug/create route to create a new bug in the database, and if 
- * successful, then stores the updated bugs list in 'list' Object in 
+ * successful, then stores the updated bugs list in 'list' property in 
  * BUG_CONTAINER of the redux state, and close the ListViewCreateItemSidebar 
  * (for bugs) component
  *
@@ -176,7 +176,7 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 
 /**
  * Calls /api/bug/retrieve route to retrieve bugs list from the database, and 
- * if successful, then stores it in 'list' Object in BUG_CONTAINER of the redux
+ * if successful, then stores it in 'list' property in BUG_CONTAINER of the redux
  * state
  * 
  * @example
@@ -205,7 +205,7 @@ export const retrieveBugs = () => (dispatch) => {
 
 /**
  * Calls /api/bug/update route to update a bug in the database, and if successful,
- * then stores the updated bugs list in 'list' Object in BUG_CONTAINER of the redux
+ * then stores the updated bugs list in 'list' property in BUG_CONTAINER of the redux
  * state, and turns off the editing mode for ItemView (for bugs) component
  *
  * @param {{
@@ -317,7 +317,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * Calls /api/bug/delete route to delete a bug in the database, and if successful,
  * then stores the updated bugs and comments list in their corresponding 
  * containers (i.e. BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, 
- * updates 'massDeleteList' Object (if it contained the deleted bug) in 
+ * updates 'massDeleteList' property (if it contained the deleted bug) in 
  * BUG_CONTAINER of the redux state, and opens the ListView (for bugs) component
  * while closeing all other bug components
  *
@@ -349,7 +349,7 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 			const deletedBugIndexInMassDeleteList = massDeleteList.indexOf(idsObject.id);
 
 			// Checks if the deleted bug id was in the massDeleteList, and if
-			// ...so, then removes it and updates 'massDeleteList' Object in 
+			// ...so, then removes it and updates 'massDeleteList' property in 
 			// ...BUG_CONTAINER of the redux state
 			if (deletedBugIndexInMassDeleteList > -1) {
 				massDeleteList.splice(deletedBugIndexInMassDeleteList, 1);
@@ -379,7 +379,7 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
  * Calls /api/bug/delete-multiple route to delete multiple bugs in the database,
  * and if successful, then stores the updated bugs and comments list in their 
  * corresponding containers (i.e. BUG_CONTAINER and COMMENT_CONTAINER) of the 
- * redux state, empties the 'massDeleteList' Object in BUG_CONTAINER of the 
+ * redux state, empties the 'massDeleteList' property in BUG_CONTAINER of the 
  * redux state, and close ItemViewDeleteModal (for bugs) component
  *
  * @param {number[]} massDeleteList - Array of ids for bugs to be mass deleted

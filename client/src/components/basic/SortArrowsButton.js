@@ -39,7 +39,7 @@ export default function SortArrowsButton(props) {
 
 	/**
 	 * Function for onClick handler of img element. Updates 'searchFilterSort' 
-	 * Object in either PROJECT_CONTAINER or BUG_CONTAINER (based on 
+	 * property in either PROJECT_CONTAINER or BUG_CONTAINER (based on 
 	 * reduxContainerName prop) of the redux state so it either sorts by sortId
 	 * prop (i.e. if it's not already) or to toggle sortAscending (i.e. if 
 	 * already sorting by sortId prop).
@@ -67,7 +67,7 @@ export default function SortArrowsButton(props) {
 	/**
 	 * Function to be called inside src attribute of img element. Function will
 	 * return the url location for the appropriate SVG, based on dark_mode prop 
-	 * and whether 'searchFilterSort' Object in either PROJECT_CONTAINER or 
+	 * and whether 'searchFilterSort' property in either PROJECT_CONTAINER or 
 	 * BUG_CONTAINER (based on reduxContainerName prop) of redux state is being 
 	 * sorted by sortId prop, and whether it is being sorted by ascending.
 	 * 
@@ -128,7 +128,7 @@ export default function SortArrowsButton(props) {
 
 SortArrowsButton.propTypes = {
 	// Redux container name (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which
-	// ...'list' Object of the redux state the SortArrowsButton will change 
+	// ...'list' property of the redux state the SortArrowsButton will change 
 	// ...sorting for
 	reduxContainerName: PropTypes.string.isRequired,
 	// id for the sort option the SortArrowsButton belongs to

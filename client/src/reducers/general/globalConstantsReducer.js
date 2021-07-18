@@ -12,7 +12,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'globalConstants' Object containing constant data used globally 
+ * Used to set 'globalConstants' property containing constant data used globally 
  * by the app into GENERAL_CONTAINER of the redux state
  *
  * @param {{

@@ -805,8 +805,8 @@ export function getListViewTableItemRowComponentHoverBackgroundColorClassNameFor
  * Get light/dark mode className for ListViewTableItemRow component's
  * 'list-view-table-item-row-component' (className) element's selected (i.e.
  * component's item prop is equal to 'itemViewCurrentItem' property in
- * 'componentsDisplay' Object in project/bug container of the redux state)
- * background color
+ * 'componentsDisplay' property's Object in project/bug container of the redux
+ * state) background color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ListViewTableItemRow
@@ -1044,8 +1044,8 @@ export function getItemViewListSidebarItemRowComponentHoverBackgroundColorClassN
  * Get light/dark mode className for ItemViewListSidebarItemRow component's
  * 'item-view-list-sidebar-item-row-component' (className) element's selected
  * (i.e item for row is equal to 'itemViewCurrentItem' property in
- * 'componentsDisplay' Object in project/bug container of the redux state)
- * background color
+ * 'componentsDisplay' property's Object in project/bug container of the redux
+ * state) background color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewListSidebarItemRow

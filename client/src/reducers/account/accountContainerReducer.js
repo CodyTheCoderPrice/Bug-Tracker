@@ -16,7 +16,7 @@ const initialState = {
 };
 
 /**
- * Used to set ACCOUNT_CONTAINER Object of the redux state
+ * Used to set ACCOUNT_CONTAINER property of the redux state
  *
  * @param {Object} state - Current ACCOUNT_CONTAINER Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where

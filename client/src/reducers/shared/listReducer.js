@@ -7,9 +7,10 @@ import { SET_LIST } from "../../actions/constants/types";
 const initialState = []
 
 /**
- * Used to set 'list' Array of Objects containing either project or bug (not 
- * both) data belonging to the logged in account from the database into either
- * PROJECT_CONATINER or BUG_CONTAINER (reducer used for both) of the redux state
+ * Used to set 'list' property containing Array of Objects containing either 
+ * project or bug (not both) data belonging to the logged in account from the
+ * database into either PROJECT_CONATINER or BUG_CONTAINER (reducer used for 
+ * both) of the redux state
  *
  * @param {{
  * 	id: number, 

@@ -6,9 +6,9 @@ import { SET_MASS_DELETE_LIST } from "../../actions/constants/types";
 const initialState = [];
 
 /**
- * Used to set 'massDeleteList' Array containing ids of either projects or bugs
- * (not both) to be deleted, stored into either PROJECT_CONATINER or 
- * BUG_CONTAINER (reducer used for both) of the redux state
+ * Used to set 'massDeleteList' property containing an Array of ids of either
+ * projects or bugs (not both) to be deleted, stored into either PROJECT_CONATINER
+ * or BUG_CONTAINER (reducer used for both) of the redux state
  *
  * @param {number[]} state - Current Array (in the redux state) containing ids
  * of either projects or bugs (not both) to be deleted

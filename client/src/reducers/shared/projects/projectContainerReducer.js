@@ -23,14 +23,14 @@ const initialState = {
 };
 
 /**
- * Used to set 'PROJECT_CONTAINER' Object of the redux state
+ * Used to set 'PROJECT_CONTAINER' property of the redux state
  *
- * @param {object} state - Current PROJECT_CONTAINER Object in the redux state
+ * @param {Object} state - Current PROJECT_CONTAINER Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where 
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
- * @returns {object} Object containing all data for PROJECT_CONTAINER of the 
+ * @returns {Object} Object containing all data for PROJECT_CONTAINER of the 
  * redux state
  */
 export function projectContainerReducer(state = initialState, action) {

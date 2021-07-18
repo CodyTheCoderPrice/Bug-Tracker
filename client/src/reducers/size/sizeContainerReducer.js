@@ -12,7 +12,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'SIZE_CONTAINER' Object of the redux state
+ * Used to set 'SIZE_CONTAINER' property of the redux state
  * 
  * @param {Object} state - Current SIZE_CONTAINER Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where 

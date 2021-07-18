@@ -5,7 +5,7 @@ import { SET_ACCOUNT_SETTINGS } from "../../actions/constants/types";
 const initialState = {}
 
 /**
- * Used to set 'settings' Object containing the logged in account's settings 
+ * Used to set 'settings' property containing the logged in account's settings 
  * data from the database into ACCOUNT_CONTAINER of the redux state
  * 
  * @param {({ 

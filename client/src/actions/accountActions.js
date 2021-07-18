@@ -24,10 +24,10 @@ import {
 } from "./index";
 
 /**
- * Sets logged in account's authentication info in 'auth' Object in
+ * Sets logged in account's authentication info in 'auth' property in
  * ACCOUNT_CONTAINER of the redux state.
  *
- * Note: The purpose of 'auth' Object is so frontend can tell if an account is
+ * Note: The purpose of 'auth' property is so frontend can tell if an account is
  * logged in, which determins which general components (i.e. Register, Login,
  * Home) can be displayed.
  *
@@ -56,7 +56,7 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 };
 
 /**
- * Sets logged in account's info in 'accountInfo' Object in ACCOUNT_CONTAINER
+ * Sets logged in account's info in 'accountInfo' property in ACCOUNT_CONTAINER
  * of the redux state.
  *
  * @param {{
@@ -90,7 +90,7 @@ export const setAccount = (account) => (dispatch) => {
 };
 
 /**
- * Sets logged in account's settings info in 'settings' Object in
+ * Sets logged in account's settings info in 'settings' property in
  * ACCOUNT_CONTAINER of the redux state.
  *
  * @param {{
@@ -236,7 +236,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 
 /**
  * Calls api/account/retrieve route to retrieve the account info from the
- * database and store it in 'accountInfo' Object in ACCOUNT_CONTAINER of the
+ * database and store it in 'accountInfo' property in ACCOUNT_CONTAINER of the
  * redux state
  *
  * @example
@@ -265,7 +265,7 @@ export const retrieveAccount = () => (dispatch) => {
 
 /**
  * Calls api/account/retrieve-settings route to retrieve the account settings
- * from the database and store it in 'settings' Object in ACCOUNT_CONTAINER of
+ * from the database and store it in 'settings' property in ACCOUNT_CONTAINER of
  * the redux state
  *
  * @example
@@ -342,7 +342,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 /**
  * Calls api/account/update-info route to update the name for the account in
  * the database, and if successful, then stores the updated account info in 
- * 'accountInfo' Object in ACCOUNT_CONTAINER of the redux state, and opens
+ * 'accountInfo' property in ACCOUNT_CONTAINER of the redux state, and opens
  * AccountSidebar component while closing all other account components
  *
  * @param {{
@@ -386,7 +386,7 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 /**
  * Calls api/account/update-email route to update the email for the account in
  * the database, and if successful, then stores the updated account email in 
- * 'accountInfo' Object in ACCOUNT_CONTAINER of the redux state, and opens
+ * 'accountInfo' property in ACCOUNT_CONTAINER of the redux state, and opens
  * AccountSidebar component while closing all other account components
  *
  * @param {{
@@ -511,7 +511,7 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
 /**
  * Calls api/account/update-settings route to update the account settings in
  * the database, and if successful, then stored the updated account settings in
- * 'settings' Object in ACCOUNT_CONTAINER of the redux state
+ * 'settings' property in ACCOUNT_CONTAINER of the redux state
  *
  * @param {{
  * 	setting_id: number,

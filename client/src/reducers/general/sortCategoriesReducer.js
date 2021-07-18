@@ -4,8 +4,9 @@ import { SET_SORT_CATEGORIES } from "../../actions/constants/types";
 const initialState = []
 
 /**
- * Used to set 'sortCategories' Array of Objects containing sort category data
- * from the database into GENERAL_CONTAINER of the redux state
+ * Used to set 'sortCategories' property containing Array of Objects containing
+ * sort category data from the database into GENERAL_CONTAINER of the redux 
+ * state
  * 
  * @param {{ 
  * 	sort_id: number, 

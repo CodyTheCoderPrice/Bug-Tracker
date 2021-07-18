@@ -64,8 +64,8 @@ function convertRbgColorStringToHexString(rbgColorValue) {
 }
 
 /**
- * Appends to each status Object in 'statusList' Array a 'colorHex' property
- * for the hex color value of that status's CSS bakcground color.
+ * Appends to each status Object in 'statusList' property's Array a 'colorHex' 
+ * property for the hex color value of that status's CSS bakcground color.
  * 
  * Note: The purpose of appending the 'colorHex' property is so it can be used
  * to apply the status colors to the ItemViewBugPieChart component.
@@ -74,8 +74,8 @@ function convertRbgColorStringToHexString(rbgColorValue) {
  * 	id: number,
  * 	option: string,
  * 	color: string
- * }[]} statusList - 'statusList' Object in 'priorityStatusOptions' in either
- * PROJECT_CONTAINER or BUG_CONTAINER of the redux state
+ * }[]} statusList - 'statusList' Object in 'priorityStatusOptions' property in 
+ * either PROJECT_CONTAINER or BUG_CONTAINER of the redux state
  * @returns {{
  * 	id: number,
  * 	option: string,

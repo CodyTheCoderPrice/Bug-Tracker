@@ -19,7 +19,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'constants' Object containing constant html element sizes into
+ * Used to set 'constants' property containing constant html element sizes into
  * SIZE_CONTAINER of the redux state
  *
  * @param {{

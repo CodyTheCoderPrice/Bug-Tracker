@@ -5,7 +5,7 @@ import { SET_COMMENTS } from "../../actions/constants/types";
 const initialState = []
 
 /**
- * Used to set 'list' Array of Objects containing comment data belonging to the
+ * Used to set 'list' Array of propertys containing comment data belonging to the
  * logged in account from the database into COMMENT_CONTAINER of the redux
  * state
  * 

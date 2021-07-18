@@ -11,7 +11,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'dropdownsDisplay' Object into GENERAL_CONTAINER of the redux 
+ * Used to set 'dropdownsDisplay' property into GENERAL_CONTAINER of the redux 
  * state for which general dropdowns should be displayed by the app. If any 
  * expected properties in action.displays (e.g. navbarHamburherDropdown, 
  * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to 

@@ -6,10 +6,10 @@ require("dotenv").config();
 /**
  * An exported middleware function for routes in the routes folder, this
  * middleware verifies that the jwtToken is (still) valid and if so, 
- * adds the account_id contained inside it to the Express req object
+ * adds the account_id contained inside it to the Express req Object
  * 
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
+ * @param {Object} req - Express request Object
+ * @param {Object} res - Express response Object
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {

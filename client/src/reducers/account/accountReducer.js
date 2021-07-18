@@ -4,7 +4,7 @@ import { SET_ACCOUNT } from "../../actions/constants/types";
 const initialState = {}
 
 /**
- * Used to set 'accountInfo' Object containing the logged in account's data 
+ * Used to set 'accountInfo' property containing the logged in account's data 
  * from the database into ACCOUNT_CONTAINER of the redux state
  * 
  * @param {({ 

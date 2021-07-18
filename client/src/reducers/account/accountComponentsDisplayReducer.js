@@ -3,11 +3,13 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
 // Initial state for which account components should be displayed by the app
 const initialState = {
-	// All the following relate to components and if they should be displayed
-	// ...also this property shouldn't be true while any of the follow also are
+	// All the following relate to components and if they should be displayed.
+	// ...Also this component shouldn't be true while any of the following
+	// ...components are also true (this is purely for cosmetics, not because
+	// ...it will cause CSS issues).
 	accountSidebar: false,
-	// At most one of the following should be true at any given point in time
-	// ...or they will cause CSS issues
+	// At most one of the following components should be true at any given point
+	// ...in time or they will cause CSS issues
 	accountModalEditInfo: false,
 	accountModalEditEmail: false,
 	accountModalEditPassword: false,
@@ -16,7 +18,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'componentsDisplay' Object in ACCOUNT_CONTAINER of the redux
+ * Used to set 'componentsDisplay' property in ACCOUNT_CONTAINER of the redux
  * state for which account components should display by the app. At most, 
  * actions.displays should only have one property as true, and if this is not 
  * the case, then only one of its properties will be arbitrarily selected to 
@@ -59,7 +61,7 @@ export default function accountComponentsDisplayReducer(
 
 			const keysOfAccountComponentsSetToTrue = Object.keys(accountComponentsSetToTrue);
 
-			// Makes sure multiple AccountModal child components never display.
+			// Makes sure this reducer doesn't have multiple components displaying
 			if (keysOfAccountComponentsSetToTrue.length > 1) {
 				// Which key to choose is arbitrary, but first key is easiest
 				const newDisplays = {...initialState};

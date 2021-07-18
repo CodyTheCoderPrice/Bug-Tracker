@@ -9,7 +9,7 @@ const initialState = {
 };
 
 /**
- * Used to set two properties in 'variables' Object into SIZE_CONTAINER of the 
+ * Used to set two properties in 'variables' property into SIZE_CONTAINER of the 
  * redux state. First property being 'window' containing current size info for 
  * Window element. Second property being 'navbar' containing current size info 
  * for element with 'navbar' className in Navbar component.

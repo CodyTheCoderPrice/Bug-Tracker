@@ -22,7 +22,7 @@ import AccountModalEditSettings from "./AccountModalEditSettings";
  * return to AccountSidebar component (as user would have used AccountSidebar 
  * to navigate to this component).
  *
- * There is no single flag inside 'componentsDisplay' Object in 
+ * There is no single flag inside 'componentsDisplay' property in 
  * ACCOUNT_CONTAINER of the redux state designated for if this component should 
  * display. Instead, this component should display if any of the flags 
  * beginning with accountModal are true (e.g. accountModalEditInfo).

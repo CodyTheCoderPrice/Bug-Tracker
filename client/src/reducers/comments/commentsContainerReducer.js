@@ -12,7 +12,7 @@ const initialState = {
 };
 
 /**
- * Used to set COMMENT_CONTAINER Object of the redux state
+ * Used to set COMMENT_CONTAINER property of the redux state
  *
  * @param {Object} state - Current COMMENT_CONTAINER Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where 

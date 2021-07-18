@@ -15,7 +15,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'variables' Object containing variable (changing) html element 
+ * Used to set 'variables' property containing variable (changing) html element 
  * sizes (mostly used to calculate resizing of other html elements) into 
  * SIZE_CONTAINER of the redux state
  *

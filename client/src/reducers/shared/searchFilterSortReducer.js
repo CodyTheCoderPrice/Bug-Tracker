@@ -17,7 +17,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'searchFilterSort' Object containing either project or bug
+ * Used to set 'searchFilterSort' property containing either project or bug
  * search/filter/sort data into either PROJECT_CONATINER or BUG_CONTAINER
  * (reducer used for both) of the redux state
  *

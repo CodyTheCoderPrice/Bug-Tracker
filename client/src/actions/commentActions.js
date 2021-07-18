@@ -11,7 +11,7 @@ import {
 } from "./index";
 
 /**
- * Sets the comments list in 'list' Object in COMMENT_CONTAINER of the redux
+ * Sets the comments list in 'list' property in COMMENT_CONTAINER of the redux
  * state
  *
  * @param {{ 
@@ -45,9 +45,9 @@ export const setComments = (commentList) => (dispatch) => {
 	dispatch({
 		container: COMMENT_CONTAINER,
 		type: SET_COMMENTS,
-		// Property called 'list' instead of 'commentList' for consistency with 
-		// ...setProjects (projectActions file) and setBugs (bugActions file).
-		// ...Look at documentation in those functions for their reasoning. 
+		// Property is called 'list' instead of 'commentList' for consistency 
+		// ...with setProjects (projectActions file) and setBugs (bugActions 
+		// ...file). Look at documentation in those functions for their reasoning. 
 		list: commentList,
 	});
 };
@@ -55,7 +55,7 @@ export const setComments = (commentList) => (dispatch) => {
 /**
  * Calls /api/comment/create route in order to create a new comment in the 
  * database, and if succesful, then stores the updated comments list in 'list'
- * Object in COMMENT_CONTAINER of the redux state
+ * property in COMMENT_CONTAINER of the redux state
  *
  * @param {{ 
  * 	description: string, 
@@ -95,7 +95,7 @@ export const createComment = (commentInfo) => (dispatch) => {
 
 /**
  * Calls /api/comment/retrieve route to retrieve the comments list from the
- * database, and if successful, then stores it in 'list' Object in 
+ * database, and if successful, then stores it in 'list' property in 
  * COMMENT_CONTAINER of the redux state
  * 
  * @example
@@ -124,7 +124,7 @@ export const retrieveComments = () => (dispatch) => {
 
 /**
  * Calls /api/comment/update route to update a comment in the database, and if 
- * successful, then stores the updated comments list in 'list' Object in 
+ * successful, then stores the updated comments list in 'list' property in 
  * COMMENT_CONTAINER of the redux state, and closes edit mode for the comment
  *
  * @param {{ 
@@ -171,7 +171,7 @@ export const updateComment = (commentInfo) => (dispatch) => {
 
 /**
  * Calls /api/comment/delete route to delete a comment in the database, and if
- * successful, then stores the updated comments list in 'list' Object in 
+ * successful, then stores the updated comments list in 'list' property in 
  * COMMENT_CONTAINER in the redux state, and closes the CommentDeleteModal 
  * component
  * 

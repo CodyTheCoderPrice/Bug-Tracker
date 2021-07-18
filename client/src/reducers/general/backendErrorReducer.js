@@ -4,7 +4,7 @@ import { SET_BACKEND_ERRORS } from "../../actions/constants/types";
 const initialState = {};
 
 /**
- * Used to set 'backendErrors' Object containing info on what went wrong during
+ * Used to set 'backendErrors' property containing info on what went wrong during
  * any given http request (usually input validation errors, e.g. incorrect 
  * password) to be displayed to the user, stored into GENERAL_CONTAINER of the
  * redux state

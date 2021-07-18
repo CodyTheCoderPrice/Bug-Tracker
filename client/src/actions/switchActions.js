@@ -20,7 +20,7 @@ import {
 
 /**
  * Depending on which container name is passed (i.e. PROJECT_CONTAINER or 
- * BUG_CONTAINER) sets info in 'componentsDisplay' Object in that container of 
+ * BUG_CONTAINER) sets info in 'componentsDisplay' property in that container of 
  * the redux state for how those components should be displayed by the app
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
@@ -88,10 +88,10 @@ export const setWhichProjectOrBugComponentsDisplay = (
 
 /**
  * Depending on which container name is passed (i.e. PROJECT_CONTAINER or 
- * BUG_CONTAINER) sets search/filter/sort info in 'searchFilterSort' Object in 
- * that container of the redux state.
+ * BUG_CONTAINER) sets search/filter/sort info in 'searchFilterSort' property 
+ * in that container of the redux state.
  * 
- * This info is used to search, filter, and sort the 'list' Object in that 
+ * This info is used to search, filter, and sort the 'list' property in that 
  * container of the redux state.
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
@@ -106,8 +106,8 @@ export const setWhichProjectOrBugComponentsDisplay = (
  * filter, and sort a list for projects or bugs
  *
  * @example
- * // Inside BUG_CONTAINER of the redux state - sets 'searchFilterSort' object 
- * // ...with the following data. The dispatch function is from useDispatch()
+ * // Inside BUG_CONTAINER of the redux state - sets 'searchFilterSort' property 
+ * // ...with the following Object. The dispatch function is from useDispatch()
  * // ...imported from react-redux.
  * dispatch(
  * 	setProjectOrBugSearchFilterSort("BUG_CONTAINER", {
@@ -146,7 +146,7 @@ export const setProjectOrBugSearchFilterSort = (
 /**
  * Depending on which container name is passed (i.e. PROJECT_CONTAINER or 
  * BUG_CONTAINER) an Array of items (either projects or bugs depending on which
- * container) ids to be mass deleted is stored in 'massDeleteList' Object in 
+ * container) ids to be mass deleted is stored in 'massDeleteList' property in 
  * that container of the redux state
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
@@ -364,9 +364,9 @@ export const updateProjectOrBug = (
 /**
  * Depending on which container name is passed (i.e. PROJECT_CONTAINER or 
  * BUG_CONTAINER) will delete the item (either project or bug depending on which
- * container) and update 'massDeleteList' Object (if it contained the to be
+ * container) and update 'massDeleteList' property (if it contained the to be
  * deleted item) in that container of the redux state, will update 'list' 
- * Objects in other containers of the redux state as needed, and open the 
+ * properties in other containers of the redux state as needed, and open the 
  * ListView (for passed container) component while closeing all other 
  * components (for passed container)
  *
@@ -383,7 +383,7 @@ export const updateProjectOrBug = (
  *
  * @example
  * // Inside BUG_CONTAINER of the redux state - deletes bug and updates
- * // ...'massDeleteList' Object to no longer contain deleted bug. The dispatch
+ * // ...'massDeleteList' property to no longer contain deleted bug. The dispatch
  * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	deleteProjectOrBug("BUG_CONTAINER", {
@@ -414,9 +414,9 @@ export const deleteProjectOrBug = (
 /**
  * Depending on which container name is passed (i.e. PROJECT_CONTAINER or 
  * BUG_CONTAINER) will delete all items (either project or bug depending on 
- * which container) in 'massDelteList' Object in that container of the redux 
- * state, will update 'list' Objects in other containers of the redux state as
- * needed, and close ItemViewDeleteModal (for passed container) component.
+ * which container) in 'massDelteList' property in that container of the redux 
+ * state, will update 'list' properties in other containers of the redux state 
+ * as needed, and close ItemViewDeleteModal (for passed container) component.
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state

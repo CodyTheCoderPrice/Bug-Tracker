@@ -18,7 +18,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'priorityStatusOptions' Object containing either project or bug
+ * Used to set 'priorityStatusOptions' property containing either project or bug
  * (not both) priority/status data from priority and status tables in the 
  * database, into either PROJECT_CONATINER or BUG_CONTAINER (reducer used for
  * both) of the redux state

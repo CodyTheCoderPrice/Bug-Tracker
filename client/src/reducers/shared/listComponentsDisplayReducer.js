@@ -27,7 +27,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'componentsDisplay' Object into either PROJECT_CONATINER or
+ * Used to set 'componentsDisplay' property into either PROJECT_CONATINER or
  * BUG_CONTAINER (reducer used for both) of the redux state for either which
  * project or bug components should be displayed by the app. At most, 
  * actions.displays should have one of either its listView or itemView properties
