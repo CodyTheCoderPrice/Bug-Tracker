@@ -3,14 +3,17 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
 // Initial state for which general components should be displayed by the app
 const initialState = {
-	// The following four relate to components and if they should be displayed.
-	// ...Exactly one of the following three components should be true at any
-	// ...given point in time, as they will cause CSS issues with one another
+	// The following four relate to components and if they should be displayed. 
+	// ...Each of these four is named after the component they represent.
+	// ...Exactly one of the following three properties should be true at any
+	// ...given point in time, as their components will cause CSS issues with
+	// ...one another if displayed simutaneously.
 	register: false,
 	login: true,
 	home: false,
-	// In GENERAL_CONTAINER since value should be same for both project and bug
-	// ...ItemViewListSidebar (as user likely would expect them to be)
+	// In GENERAL_CONTAINER since value should be same for both the project and 
+	// ...bug version of ItemViewListSidebar (as user likely would expect them 
+	// ...to be).
 	itemViewListSidebar: true,
 	// true means user has clicked button to change whether ItemViewListSidebar
 	// ...displays during this session; false means it's only been auto-decided
@@ -33,6 +36,15 @@ const initialState = {
  * actions.displays (e.g. resgister, login, ect.) are undefined, then they will
  * be set to false in the redux state (except for itemViewListSidebar, which 
  * will be set to true).
+ * 
+ * Note: The purpose of the register, login, home, and itemViewListSidebar 
+ * properties inside this reducer are to be used as flags for whether the 
+ * components they represent (they share the same name, e.g. home represents the
+ * Home component) should be displayed by the app. The purpose of the
+ * itemViewListSidebarUserSet property is to be used as a flag for whether the
+ * the app should auto-decide if ItemViewListSidebar should display based on the
+ * current window size. If false it will continue to auto-decide, if true it 
+ * will not auto-decide.
  *
  * @param {{
  * 	register: boolean,
@@ -74,7 +86,7 @@ export default function generalComponentsDisplayReducer(
 			);
 		
 			// Makes sure if an account is logged into the app (i.e. there is a 
-			// ...jwToken in localStoreage) then home component displays instead
+			// ...jwToken in localStoreage) then home property is trues instead
 			// ...of register or login
 			if (localStorage.getItem("jwToken") !== null) {
 				if (action.displays.home !== true) {
@@ -97,7 +109,7 @@ export default function generalComponentsDisplayReducer(
 			}
 			// Since an account is not logged into the app (i.e. there is no 
 			// ...jwToken in localStoreage), makes sure either login or resiger
-			// ...components display instead of home
+			// ...properties are true instead of home
 			else if (keysOfRegisterLoginHomeComponentsSetToTrue.length > 1)
 			{
 				if (action.displays.login === true) {
@@ -124,9 +136,9 @@ export default function generalComponentsDisplayReducer(
 			}
 
 			return {
-				// Ternary operator is used to set undefined components to
-				// ...their default, so you only have to pass the components
-				// ...you want to set differently, to make using this redux
+				// Ternary operator is used to set undefined properties to
+				// ...their default, so you only have to pass the properties you
+				// ...want to set differently, which makes using this redux 
 				// ...action easier
 				register:
 					action.displays.register !== undefined

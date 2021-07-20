@@ -5,24 +5,29 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 // ...PROJECT_CONTAINER and BUG_CONTAINER) should be displayed by the app
 const initialState = {
 	// The following five relate to specific components and if they should be
-	// ...displayed. Also listView and itemView components should never both be
+	// ...displayed. Each of these five is named after the component they 
+	// ...represent. Also listView and itemView properties should never both be
 	// ...true at any given point in time, this includes between PROJECT_CONTAINER
-	// ...and BUG_CONTAINER, meaning if a listView or itemView componet is true 
+	// ...and BUG_CONTAINER, meaning if a listView or itemView property is true 
 	// ...in one container, they should both be false in the other container, or
-	// ...else they will cause CSS issues. A higher prioirty is given to listView
-	// ...as ListView component for projects is the default displayed child 
+	// ...else their components will cause CSS issues with one another if 
+	// ...displayed simutaneously. A higher prioirty is given to listView as
+	// ...ListView component for projects is the default displayed child 
 	// ...component of the Home component.
 	listView: false,
-	// The following two component should only be true if listView is also true
+	// The following two properties should only be true if listView is also true
 	listViewDeleteModal: false,
 	listViewCreateItemSidbar: false,
 	itemView: false,
-	// This component should only be true if itemView is also true
+	// This property should only be true if itemView is also true
 	itemViewDeleteModal: false,
-	// Is the current item for ItemView being edited (this decides whether
-	// ...itemViewDisplayItemInfo or itemViewEditItemInfo component displays)
+	// Is the current item attached to ItemView (i.e. itemViewCurrentItem
+	/// ...property below) being edited. If false then ItemViewDisplayItemInfo
+	// ...component should be displayed, otherwise ItemViewEditItemInfo component
+	// ...should be displayed.
 	itemViewEditItemInfo: false,
-	// Which item is currently attachted to the itemView
+	// Which item is currently attached to the ItemView component. If this is 
+	// ...null then itemView should be false.
 	itemViewCurrentItem: null,
 };
 
@@ -42,6 +47,18 @@ const initialState = {
  * undefined, then they will be set to false/null (depending on their type) in
  * the redux state.
  *
+ * Note: The purpose of the listView, listViewDeleteModal, listViewCreateItemSidbar,
+ * itemView, and itemViewDeleteModal properties inside this reducer are to be 
+ * used as flags for whether the components they represent (they share the same 
+ * name, e.g. listView represents the ListView component) should be displayed by
+ * the app. The purpose of itemViewEditItemInfo property is to be used to 
+ * indaicate for ItemView component to display ItemViewDisplayItemInfo child 
+ * component when false and ItemViewEditItemInfo child component when true. The
+ * purpose of itemViewCurrentItem property is to be used to indicate which item
+ * (project or bug) is currently attached to the ItemView component, so that 
+ * item's info can be displayed in the ItemView component.
+ * 
+ * 
  * @param {{
  * 	listView: boolean,
  * 	listViewDeleteModal: boolean,
@@ -111,7 +128,7 @@ export default function listComponentsDisplayReducer(
 			// ...other, must be done outside of this reducer. App.js was the
 			// ...chosen location to do this check.
 
-			// Makes sure listView and itemView components are never both set to
+			// Makes sure listView and itemView properties are never both set to
 			// ...true at any given point in time
 			if (action.displays.listView === true && action.displays.itemView === true) {
 				console.log(
@@ -119,6 +136,16 @@ export default function listComponentsDisplayReducer(
 				);
 
 				action.displays["listView"] = true;
+				action.displays["itemView"] = false;
+			}
+
+			// Makes sure itemView property is not set to true if 
+			// ...itemViewCurrentItem will be set to null
+			if (action.displays.itemView === true && action.displays.itemViewCurrentItem === null) {
+				console.log(
+					"Error: itemView was attempted to be set to true while itemViewCurrentItem was attempted to be set to null in listComponentsDisplayReducer, which goes against their intended use. So itemView was instead set to false."
+				);
+
 				action.displays["itemView"] = false;
 			}
 
@@ -134,9 +161,9 @@ export default function listComponentsDisplayReducer(
 				listViewChildComponentsSetToTrue
 			);
 
-			// Makes sure none of listView's child components are set to true
-			// while listView is not true
-			if (action.displays.listView !== true && keysOfListViewChildComponentsSetToTrue.length > 0) {
+			// Makes sure none of ListView component's child component properties
+			// ...are set to true while listView property is false
+			if (action.displays.listView === false && keysOfListViewChildComponentsSetToTrue.length > 0) {
 				console.log(
 					"Error: " +
 						getStringOfAllArrayValues(keysOfListViewChildComponentsSetToTrue) +
@@ -148,11 +175,14 @@ export default function listComponentsDisplayReducer(
 				action.displays["listViewCreateItemSidbar"] = false;
 			}
 
-			// Makes sure none of itemView's child components are set to true
-			// ...while itemView is not true. This must be after if statement
-			// ...block for ensuring listView and itemView components are not 
-			// ...both true simutaneously, as that block may set itemView to false
-			if (action.displays.itemView !== true && action.displays.itemViewDeleteModal === true) {
+			// Makes sure none of ItemView component's child component properties
+			// ...are set to true while itemView property is false. This must be 
+			// ...after the if statement blocks for ensuring listView and itemView 
+			// ...properties are not both true simutaneously, as well as the if
+			// ...statement block for ensuring itemView is not true while 
+			// ...itemViewCurrentItem is null, as both of those blocks may 
+			// ...change itemView property to false.
+			if (action.displays.itemView === false && action.displays.itemViewDeleteModal === true) {
 				console.log(
 					"Error: itemViewDeleteModal was attempted to be set to true while itemView was attempted to be set to false in listComponentsDisplayReducer, which goes against their intended use. So they were both set to false."
 				);
@@ -161,9 +191,9 @@ export default function listComponentsDisplayReducer(
 			}
 
 			return {
-				// Ternary operator is used to set undefined components to
+				// Ternary operator is used to set undefined properties to
 				// ...false/null (depending on their type), so you only have to
-				// ...pass the components you want to set to true/Object, which
+				// ...pass the properties you want to set to true/Object, which
 				// ...makes using this redux action easier
 				listView:
 					action.displays.listView !== undefined

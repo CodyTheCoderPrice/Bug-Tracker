@@ -104,7 +104,7 @@ export default function NavbarHamburger() {
 	// Resize hamburger dropdown width to be full screen
 	useEffect(() => {
 		if (
-			reduxState[GENERAL_CONTAINER].dropdownsDisplay.navbarHamburherDropdown &&
+			reduxState[GENERAL_CONTAINER].dropdownsDisplay.navbarHambugerDropdown &&
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].constants
 				.navbarHamburgerComponentCriticalStyles !== null
@@ -137,9 +137,9 @@ export default function NavbarHamburger() {
 
 		dispatch(
 			setWhichGeneralDropdownsDisplay({
-				navbarHamburherDropdown:
+				navbarHambugerDropdown:
 					!reduxState[GENERAL_CONTAINER].dropdownsDisplay
-						.navbarHamburherDropdown,
+						.navbarHambugerDropdown,
 			})
 		);
 
@@ -163,7 +163,7 @@ export default function NavbarHamburger() {
 	return (
 		<div className="navbar-hamburger-component">
 			{!reduxState[GENERAL_CONTAINER].dropdownsDisplay
-				.navbarHamburherDropdown ? (
+				.navbarHambugerDropdown ? (
 				<div
 					className="hamburger-button-container"
 					alt="Navbar hamburger button to open dropdown for different pages"

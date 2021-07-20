@@ -64,26 +64,32 @@ function App() {
 			let arryOfListAndItemViewComponentsSetToTrue = [];
 
 			if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView === true) {
-				arryOfListAndItemViewComponentsSetToTrue.push("ListView for projects");
+				arryOfListAndItemViewComponentsSetToTrue.push("listView for projects");
 			}
 			if (reduxState[PROJECT_CONTAINER].componentsDisplay.itemView === true) {
-				arryOfListAndItemViewComponentsSetToTrue.push("ItemView for projects");
+				arryOfListAndItemViewComponentsSetToTrue.push("itemView for projects");
 			}
 			if (reduxState[BUG_CONTAINER].componentsDisplay.listView === true) {
-				arryOfListAndItemViewComponentsSetToTrue.push("ListView for bugs");
+				arryOfListAndItemViewComponentsSetToTrue.push("listView for bugs");
 			}
 			if (reduxState[BUG_CONTAINER].componentsDisplay.itemView === true) {
-				arryOfListAndItemViewComponentsSetToTrue.push("ItemView for bugs");
+				arryOfListAndItemViewComponentsSetToTrue.push("itemView for bugs");
 			}
 
-			if (arryOfListAndItemViewComponentsSetToTrue.length > 1) {
-				console.log(
-					"Error: " +
-						getStringOfAllArrayValues(
-							arryOfListAndItemViewComponentsSetToTrue
-						) +
-						" were attempted to be set to true in the redux state, which goes against their intended use. To ensure no issues with CSS -- ListView for projects will be set true and the rest set to false."
-				);
+			if (arryOfListAndItemViewComponentsSetToTrue.length !== 1) {
+				if (arryOfListAndItemViewComponentsSetToTrue.length > 1) {
+					console.log(
+						"Error: " +
+							getStringOfAllArrayValues(
+								arryOfListAndItemViewComponentsSetToTrue
+							) +
+							" properties were attempted to be set to true in the redux state, which goes against their intended use. To ensure no issues with CSS -- listView for projects proeprty will be set true and the rest set to false."
+					);
+				} else {
+					console.log(
+						"Error: Neither listView (for projects and bugs) properties or itemView (for projects and bugs) properties were attempted to be set to true in the redux state, which goes against their intended use. So listView for projects property will be set true."
+					);
+				}
 
 				// Keeps same itemViewCurrentItem, so if it's not null, the user can
 				// ...switch back to project ItemView using navbar.

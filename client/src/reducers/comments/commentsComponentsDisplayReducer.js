@@ -5,18 +5,27 @@ const initialState = {
 	// Which comment is being edited in ItemViewCommentsBoxIndividualComment.
 	// ...If null, then no comment is being edited.
 	commentBeingEdited: null,
-	// Which comment will be deleted by DeleteModal for comments. If null, then
-	// ...no comment is possibly being deleted.
+	// Which comment is in question to be deleted by DeleteModal for comments.
+	// ...If null, then no comment is in question to be deleted.
 	commentToBeDeleted: null,
 };
 
 /**
  * Used to set 'componentsDisplay' property in COMMENT_CONTAINER of the redux 
- * state for which comment components should be displayed by the app. If any 
+ * state for how/which comment components should be displayed by the app. If any
  * expected properties in action.displays (i.e. commentBeingEdited and 
- * commentToBeDeleted) are undefined, then they will be set to null in the 
- * redux state.
+ * commentToBeDeleted) are undefined, then they will be set to null in the redux
+ * state.
  *
+ * Note: The purpose of commentBeingEdited proprty is to be used by the
+ * ItemViewCommentsBoxIndividualComment component to tell if the comment attached
+ * to it is being edit, and if so, display a textarea to edit the comment. The
+ * purpose of commentToBeDeleted property is to be used to determin if the 
+ * DeleteModal component should display, as well as what message it should 
+ * display (DeleteModal is also used for deleting project and bugs, and has
+ * a unique message for each).
+ * 
+ * 
  * @param {{
  * 	commentBeingEdited: ({
  * 		id: number, 
@@ -59,8 +68,8 @@ export default function commentsComponentsDisplayReducer(state = initialState, a
 	switch (action.type) {
 		case SET_WHICH_COMMENT_COMPONENTS_DISPLAY:
 			return {
-				// Ternary operator is used to set undefined components to
-				// ...null, so you only have to pass the components you want
+				// Ternary operator is used to set undefined properties to
+				// ...null, so you only have to pass the properties you want
 				// ...to set to an Object, which makes using this redux action
 				// ...easier
 				commentBeingEdited:

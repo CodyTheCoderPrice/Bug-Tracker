@@ -84,9 +84,9 @@ export default function ListViewTopBar(props) {
 
 		dispatch(
 			setWhichGeneralDropdownsDisplay({
-				listViewSearchFilterSearchBarFilterDropdown: !reduxState[
+				listViewTopBarFilterDropdown: !reduxState[
 					GENERAL_CONTAINER
-				].dropdownsDisplay.listViewSearchFilterSearchBarFilterDropdown,
+				].dropdownsDisplay.listViewTopBarFilterDropdown,
 			})
 		);
 	};
@@ -186,7 +186,7 @@ export default function ListViewTopBar(props) {
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-							.listViewSearchFilterSearchBarFilterDropdown
+							.listViewTopBarFilterDropdown
 							? " filter-area-container__button--clicked"
 							: "")
 					}
@@ -231,7 +231,7 @@ export default function ListViewTopBar(props) {
 							? " filter-area-container__dropdown--shorter"
 							: "") +
 						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-							.listViewSearchFilterSearchBarFilterDropdown
+							.listViewTopBarFilterDropdown
 							? " filter-area-container__dropdown--visible"
 							: "")
 					}

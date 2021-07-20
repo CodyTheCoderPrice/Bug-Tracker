@@ -4,12 +4,14 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 // Initial state for which account components should be displayed by the app
 const initialState = {
 	// All the following relate to components and if they should be displayed.
-	// ...Also this component shouldn't be true while any of the following
-	// ...components are also true (this is purely for cosmetics, not because
+	// ...Each property is named after the component they represent. Also 
+	// ...accountSidebar shouldn't be true while any of the following
+	// ...properties are also true (this is purely for cosmetics, not because
 	// ...it will cause CSS issues).
 	accountSidebar: false,
-	// At most one of the following components should be true at any given point
-	// ...in time or they will cause CSS issues
+	// At most one of the following properties should be true at any given point
+	// ...in time, as their components will cause CSS issues with one another if
+	// ...displayed simutaneously.
 	accountModalEditInfo: false,
 	accountModalEditEmail: false,
 	accountModalEditPassword: false,
@@ -26,6 +28,11 @@ const initialState = {
  * properties (e.g. accountSidebar, accountModalEditInfo, ect.) are undefined,
  * then they will be set to false in the redux state.
  *
+ * Note: The purpose of each property inside this reducer is to be used as a 
+ * flag for whether the component they represent (they share the same name) 
+ * should be displayed by the app (e.g. accountSidebar represents the 
+ * AccountSidebar component).
+ * 
  * @param {{
  * 	accountSidebar: boolean,
  * 	accountModalEditInfo: boolean,
@@ -79,8 +86,8 @@ export default function accountComponentsDisplayReducer(
 			}
 
 			return {
-				// Ternary operator is used to set undefined components to
-				// ...false, so you only have to pass the components you want
+				// Ternary operator is used to set undefined properties to
+				// ...false, so you only have to pass the properties you want
 				// ...to set to true, which makes using this redux action easier
 				accountSidebar:
 					action.displays.accountSidebar !== undefined
