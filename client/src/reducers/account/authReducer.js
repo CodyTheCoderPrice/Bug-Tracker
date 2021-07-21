@@ -12,7 +12,11 @@ const initialState = {
 
 /**
  * Used to set 'auth' property containing authentication data for the logged in
- * account of into ACCOUNT_CONTAINER of the redux state
+ * account of into ACCOUNT_CONTAINER of the redux state.
+ * 
+ * Note: The purpose of the 'auth' property is to be another way of telling if 
+ * an account is currently logged into the app, along with knowing when the 
+ * current jwToken was initiated and when it will expire.
  * 
  * @param {{
  * 	isAuthenticated: boolean,

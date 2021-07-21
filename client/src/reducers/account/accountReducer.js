@@ -5,7 +5,13 @@ const initialState = {}
 
 /**
  * Used to set 'accountInfo' property containing the logged in account's data 
- * from the database into ACCOUNT_CONTAINER of the redux state
+ * from the database into ACCOUNT_CONTAINER of the redux state.
+ * 
+ * Note: The purpose of the 'accountInfo' property is to be used to display 
+ * (e.g. displays account name in AccountSidebar component) and use (e.g. 
+ * populate text input with current account email in AccountModalEditEmail 
+ * component) the logged in account's info without constantly needing to 
+ * refetch it from the database.
  * 
  * @param {({ 
  * 	account_id: number, 

@@ -16,7 +16,11 @@ const initialState = {
 };
 
 /**
- * Used to set ACCOUNT_CONTAINER property of the redux state
+ * Used to set ACCOUNT_CONTAINER property of the redux state.
+ * 
+ * Note: The purpose of this reducer is to be used by combineReducers function 
+ * in store.js to have properties relating to accounts seperated into their own
+ * Object of the redux state for organizational purposes.
  *
  * @param {Object} state - Current ACCOUNT_CONTAINER Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where
