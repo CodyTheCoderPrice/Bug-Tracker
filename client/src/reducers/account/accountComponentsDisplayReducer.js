@@ -29,9 +29,9 @@ const initialState = {
  * then they will be set to false in the redux state.
  *
  * Note: The purpose of each property inside this reducer is to be used as a 
- * flag for whether the component they represent (they share the same name) 
- * should be displayed by the app (e.g. accountSidebar represents the 
- * AccountSidebar component).
+ * flag for whether the component they represent (they share the same name, e.g.
+ * accountSidebar represents the AccountSidebar component) should be displayed by
+ * the app.
  * 
  * @param {{
  * 	accountSidebar: boolean,
