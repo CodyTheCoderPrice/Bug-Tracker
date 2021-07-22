@@ -7,7 +7,13 @@ const initialState = []
 /**
  * Used to set 'list' property containing Array of Objects containing comment
  * data belonging to the logged in account from the database into 
- * COMMENT_CONTAINER of the redux state
+ * COMMENT_CONTAINER of the redux state.
+ * 
+ * Note: The purpose of the 'list' property is to be used to display (e.g. 
+ * display comment in ItemViewCommentsBoxIndividualComment component) and use 
+ * (e.g. use comment list length to tell if 'description' property in ItemViewCommentsBox
+ * component needs to be reset) the comments list without constantly needing to 
+ * refetch it from the database.
  * 
  * @param {{ 
  * 	id: number, 

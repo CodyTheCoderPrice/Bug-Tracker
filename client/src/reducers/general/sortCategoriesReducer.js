@@ -6,7 +6,12 @@ const initialState = []
 /**
  * Used to set 'sortCategories' property containing Array of Objects containing
  * sort category data from the database into GENERAL_CONTAINER of the redux 
- * state
+ * state.
+ * 
+ * Note: The purpose of the 'sortCategories' property is to be used to display
+ * (e.g. display all sort catogoires in AccountModalEditSeetings component) and
+ * use (e.g. map sort catogies to the table headers in ListViewTable component)
+ * the sort categories without constantly needing to refetch it from the database.
  * 
  * @param {{ 
  * 	sort_id: number, 

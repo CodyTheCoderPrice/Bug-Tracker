@@ -7,7 +7,12 @@ const initialState = {};
  * Used to set 'backendErrors' property containing info on what went wrong during
  * any given http request (usually input validation errors, e.g. incorrect 
  * password) to be displayed to the user, stored into GENERAL_CONTAINER of the
- * redux state
+ * redux state.
+ * 
+ * Note: The purpose of the 'backendErrors' property is to be used to display
+ * the current backendErrors from a recent http request in the component that 
+ * was used to make the request. This is so the user can be given info on what 
+ * went wrong, and possibly also be given an idea of how they can fix it.
  * 
  * @param {{
  * 	server: (string|undefined),
