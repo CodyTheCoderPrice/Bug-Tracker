@@ -13,7 +13,9 @@ const initialState = {
 	componentsDisplay: {
 		...listComponentsDisplayReducer(undefined, {}),
 		// Overrides default value for listView since inital state is set to 
-		// ...false for BUG_CONTAINER (which also uses the reducer)
+		// ...false for BUG_CONTAINER, but should be true for this container,
+		// ...as ListView for projects is the default displaying child component
+		// ...for the Home component.
 		listView: true,
 	},
 	list: listReducer(undefined, {}),
@@ -23,7 +25,16 @@ const initialState = {
 };
 
 /**
- * Used to set 'PROJECT_CONTAINER' property of the redux state
+ * Used to set 'PROJECT_CONTAINER' property of the redux state.
+ * 
+ * Note: This container reducer uses the same reducers as the BUG_CONTAINER.
+ * This is because both containers have 99% overlap, the only difference being
+ * the default value for 'listView' property in 'componentsDisplay' property's 
+ * Object of this container should be true.
+ * 
+ * Note: The purpose of this reducer is to be used by combineReducers function 
+ * in store.js to have properties relating to projects seperated into their own
+ * Object of the redux state for organizational purposes.
  *
  * @param {Object} state - Current PROJECT_CONTAINER Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where 
