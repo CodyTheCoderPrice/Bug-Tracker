@@ -21,7 +21,14 @@ const initialState = {
  * Used to set 'priorityStatusOptions' property containing either project or bug
  * (not both) priority/status data from priority and status tables in the 
  * database, into either PROJECT_CONATINER or BUG_CONTAINER (reducer used for
- * both) of the redux state
+ * both) of the redux state.
+ * 
+ * Note: The purpose of the 'priorityStatusOptions' property is to be used to 
+ * display (e.g. display all prioirty and status options in filter dropdown in
+ * ListViewTopBar component) and use (e.g. use status.color to get CSS status 
+ * text colors for select elements in ListViewCreateItemSidebar component) the
+ * priority/status data without constantly needing to refetch it from the 
+ * database.
  *
  * @param {{
  * 	priorityList: ([

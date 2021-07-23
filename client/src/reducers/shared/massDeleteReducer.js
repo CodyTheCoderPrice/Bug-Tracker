@@ -8,7 +8,11 @@ const initialState = [];
 /**
  * Used to set 'massDeleteList' property containing an Array of ids of either
  * projects or bugs (not both) to be deleted, stored into either PROJECT_CONATINER
- * or BUG_CONTAINER (reducer used for both) of the redux state
+ * or BUG_CONTAINER (reducer used for both) of the redux state.
+ * 
+ * Note: The purpose of the 'massDeleteList' property is to be used to delete 
+ * multiple items (i.e. projects or bugs) at once. This is for quality of life
+ * as delete items one by one would may be tedious.
  *
  * @param {number[]} state - Current Array (in the redux state) containing ids
  * of either projects or bugs (not both) to be deleted

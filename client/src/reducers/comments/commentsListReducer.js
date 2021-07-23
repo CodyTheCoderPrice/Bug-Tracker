@@ -10,7 +10,7 @@ const initialState = []
  * COMMENT_CONTAINER of the redux state.
  * 
  * Note: The purpose of the 'list' property is to be used to display (e.g. 
- * display comment in ItemViewCommentsBoxIndividualComment component) and use 
+ * display a comment in ItemViewCommentsBoxIndividualComment component) and use 
  * (e.g. use comment list length to tell if 'description' property in ItemViewCommentsBox
  * component needs to be reset) the comments list without constantly needing to 
  * refetch it from the database.

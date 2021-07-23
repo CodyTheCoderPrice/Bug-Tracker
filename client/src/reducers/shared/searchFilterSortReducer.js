@@ -19,7 +19,13 @@ const initialState = {
 /**
  * Used to set 'searchFilterSort' property containing either project or bug
  * search/filter/sort data into either PROJECT_CONATINER or BUG_CONTAINER
- * (reducer used for both) of the redux state
+ * (reducer used for both) of the redux state.
+ * 
+ * Note: The purpose of the 'searchFilterSort' property is to be used to dictate
+ * how items (projects or bugs) are searched (items appear based on key words), 
+ * filtered (items appear based on their priority/status), and sorted (the order
+ * in which items appear). This is also used to determin how SortArrowsButton
+ * components display.
  *
  * @param {{
  * 	priorityFilter: number[],

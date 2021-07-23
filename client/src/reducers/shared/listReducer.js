@@ -10,7 +10,13 @@ const initialState = []
  * Used to set 'list' property containing Array of Objects containing either 
  * project or bug (not both) data belonging to the logged in account from the
  * database into either PROJECT_CONATINER or BUG_CONTAINER (reducer used for 
- * both) of the redux state
+ * both) of the redux state.
+ * 
+ * Note: The purpose of the 'list' property is to be used to display (e.g. 
+ * display an item (i.e. either a project or bug) in ListViewTableItemRow 
+ * component) and use (e.g. check if the list is empty to determin whether or 
+ * not to show the tutorial for creating an item in ListViewTopBar) the list 
+ * without constantly needing to refetch it from the database.
  *
  * @param {{
  * 	id: number, 
