@@ -17,7 +17,15 @@ const initialState = {
 /**
  * Used to set 'variables' property containing variable (changing) html element 
  * sizes (mostly used to calculate resizing of other html elements) into 
- * SIZE_CONTAINER of the redux state
+ * SIZE_CONTAINER of the redux state.
+ * 
+ * Note: The purpose of the 'variables' property is to get the current CSS 
+ * property sizes (that change) for specific elements to be used by JS for both 
+ * resizing other elements (e.g. resizing breadcrumb buttons in NavbarBreadcrumb 
+ * component), as well as deciding which elements are visible (e.g. deciding if
+ * NavbarBreadcrumb component should be visible). This keeps from having to 
+ * refetch these CSS property sizes each time one of the other elements needs 
+ * to use them. 
  *
  * @param {Object} state - Current Object (in the redux state) for variable 
  * (changing) html element sizes

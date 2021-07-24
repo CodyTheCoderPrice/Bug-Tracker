@@ -2,8 +2,8 @@ import { SET_DISPLAY_SIZE_CONSTANTS } from "../../actions/constants/types";
 
 // Initial state for html element sizes that remain constant (after being set)
 const initialState = {
-	// All the following relate to css sizes of different HTML elements. They
-	// ...are set during a useEffect in Navbar component that calls several
+	// All the following relate to CSS property sizes of different HTML elements.
+	// ...They are set during a useEffect in Navbar component that calls several
 	// ...functionas to their values.
 	scrollbarWidth: null,
 	navbarAccountButtonWidth: null,
@@ -20,7 +20,13 @@ const initialState = {
 
 /**
  * Used to set 'constants' property containing constant html element sizes into
- * SIZE_CONTAINER of the redux state
+ * SIZE_CONTAINER of the redux state.
+ * 
+ * Note: The purpose of the 'constants' property is to get CSS property sizes 
+ * (that never change) for specific elements to be used by JS for resizing other
+ * elements (e.g. resizing breadcrumb buttons in NavbarBreadcrumb component). 
+ * This keeps from having to refetch these CSS property sizes each time one of
+ * the other elements needs resizing. 
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
