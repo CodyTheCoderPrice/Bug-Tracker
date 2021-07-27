@@ -24,12 +24,15 @@ import {
 } from "./index";
 
 /**
- * Sets logged in account's authentication info in 'auth' property in
- * ACCOUNT_CONTAINER of the redux state.
+ * Sets 'isAuthenticated' property to true (indicating an account is currently 
+ * logged into the app), as well as the logged in account's authentication info
+ * in 'auth' property in ACCOUNT_CONTAINER of the redux state.
  *
- * Note: The purpose of 'auth' property is so frontend can tell if an account is
- * logged in, which determins which general components (i.e. Register, Login,
- * Home) can be displayed.
+ * Note: The purpose of the 'isAuthenticated' property is to be another way of 
+ * telling if an account is currently logged into the app (can also tell by 
+ * checking if jwToken is present in local storage). The purpose of the 'auth'
+ * property is to be used to know if the account's current authentication 
+ * is expired, and to loggout the account when it does.
  *
  * @param {{
  *	account_id: number,

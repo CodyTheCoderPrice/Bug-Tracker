@@ -11,12 +11,18 @@ const initialState = {
 };
 
 /**
- * Used to set 'auth' property containing authentication data for the logged in
- * account of into ACCOUNT_CONTAINER of the redux state.
+ * Used to set 'isAuthenticated' and 'auth' properties into ACCOUNT_CONTAINER 
+ * of the redux state. The 'isAuthenticated' property contains a boolean for if
+ * an account is currently logged into the app. The 'auth' property contains 
+ * authentication data from the backend for the logged in account's id, as well
+ * as the time the account was logged in, and when it's authentication will 
+ * expire.
  * 
- * Note: The purpose of the 'auth' property is to be another way of telling if 
- * an account is currently logged into the app, along with knowing when the 
- * current jwToken was initiated and when it will expire.
+ * Note: The purpose of the 'isAuthenticated' property is to be another way of 
+ * telling if an account is currently logged into the app (can also tell by 
+ * checking if jwToken is present in local storage). The purpose of the 'auth'
+ * property is to be used to know if the account's current authentication 
+ * is expired, and to loggout the account when it does.
  * 
  * @param {{
  * 	isAuthenticated: boolean,
