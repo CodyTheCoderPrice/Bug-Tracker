@@ -24,14 +24,14 @@ import {
 } from "./index";
 
 /**
- * Sets 'isAuthenticated' property to true (indicating an account is currently 
+ * Sets 'isAuthenticated' property to true (indicating an account is currently
  * logged into the app), as well as the logged in account's authentication info
  * in 'auth' property in ACCOUNT_CONTAINER of the redux state.
  *
- * Note: The purpose of the 'isAuthenticated' property is to be another way of 
- * telling if an account is currently logged into the app (can also tell by 
- * checking if jwToken is present in local storage). The purpose of the 'auth'
- * property is to be used to know if the account's current authentication 
+ * Note: The purpose of the 'isAuthenticated' property is to be another way of
+ * telling if an account is currently logged into the app (can also tell by
+ * checking if jwToken is present in localStorage). The purpose of the 'auth'
+ * property is to be used to know if the account's current authentication
  * is expired, and to loggout the account when it does.
  *
  * @param {{
@@ -61,6 +61,12 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 /**
  * Sets logged in account's info in 'accountInfo' property in ACCOUNT_CONTAINER
  * of the redux state.
+ *
+ * Note: The purpose of the 'accountInfo' property is to be used to display
+ * (e.g. displays account name in AccountSidebar component) and use (e.g.
+ * populate text input with current account email in AccountModalEditEmail
+ * component) the logged in account's info without constantly needing to
+ * refetch it from the database.
  *
  * @param {{
  * 	account_id: number,
@@ -95,6 +101,11 @@ export const setAccount = (account) => (dispatch) => {
 /**
  * Sets logged in account's settings info in 'settings' property in
  * ACCOUNT_CONTAINER of the redux state.
+ *
+ * Note: The purpose of the 'settings' property is to be used to display (e.g.
+ * displays current settings in AccountModalEditSettings component) and use
+ * (e.g. functions in colorUtils use dark_mode property) the logged in account's
+ * settings without constantly needing to refetch it from the database.
  *
  * @param {{
  * 	setting_id: number,
@@ -141,6 +152,9 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
  * and if successful, then open Login component while closing all other general
  * components.
  *
+ * Note: The purpose of this dispatch function is to be used by the Register
+ * component to allow users to register new accounts in the database.
+ *
  * @param {{
  * 	first_name: string,
  * 	last_name: string,
@@ -173,11 +187,18 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 };
 
 /**
- * Calls api/account/login route to login into an account. If successful, then 
- * retrieves a jwToken to store in localStorage, retrieves all account data from
- * the database and stores each data set in their corresponding containers (e.g.
- * ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux state, and opens
- * the Home component while closing the Login and Register components.
+ * Calls api/account/login route to login into an account. If successful, then
+ * retrieves a jwToken to store in localStorage, retrieves all data for the
+ * account from the database and stores each data set in their corresponding
+ * containers (e.g. ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux
+ * state, and opens the Home component while closing the Login and Register
+ * components.
+ *
+ * Note: The purpose of this dispatch function is to be used by the Login
+ * component to allow users to login to their account and access the Home
+ * component (which requires having all data for the account in the redux state
+ * to function properly). Also, the reason jwToken is stored in localStorage is
+ * becasue it's used by the createHeader function in actions/index.js.
  *
  * @param {{
  * 	email: string,
@@ -210,13 +231,13 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 				comments,
 			} = res.data;
 
-			// stored locally to later be sent in the header of most http calls
-			// ...so the server can both decode it get the account_id for the call
+			// Stored locally to later be sent in the header of most HTTP calls
+			// ...so the server can decode it to get the account_id for the call
 			// ...as well as authenticate the call without being sent a password
 			localStorage.setItem("jwToken", jwToken);
 
-			// all account data was sent from login route and set here so only
-			// ...one http call was needed
+			// All data for the account was sent from the login route, and set
+			// ...into redux from here so only one HTTP call is needed
 			const decodedToken = jwt_decode(jwToken);
 			dispatch(setAuthentication(decodedToken));
 			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
@@ -240,7 +261,12 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 /**
  * Calls api/account/retrieve route to retrieve the account info from the
  * database and store it in 'accountInfo' property in ACCOUNT_CONTAINER of the
- * redux state
+ * redux state.
+ *
+ * Note: The purpose of this dispatch function is to have a way of retrieving
+ * only the currently logged in account's info and nothing else from the
+ * database. This dispatch function may go unused by the app, which is ok, as it
+ * primarily exists to have the option.
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -269,7 +295,12 @@ export const retrieveAccount = () => (dispatch) => {
 /**
  * Calls api/account/retrieve-settings route to retrieve the account settings
  * from the database and store it in 'settings' property in ACCOUNT_CONTAINER of
- * the redux state
+ * the redux state.
+ *
+ * Note: The purpose of this dispatch function is to have a way of retrieving
+ * only the currently logged in account's settings and nothing else from the
+ * database. This dispatch function may go unused by the app, which is ok, as it
+ * primarily exists to have the option.
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -296,9 +327,14 @@ export const retrieveAccountSettings = () => (dispatch) => {
 };
 
 /**
- * Calls api/account/retrieve-everything route to retrieve all account data
- * from the database and store each data set in their corresponding containers
- * (e.g. ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux state
+ * Calls api/account/retrieve-everything route to retrieve all all data for the
+ * account from the database and store each data set in their corresponding
+ * containers (e.g. ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux
+ * state.
+ *
+ * Note: The purpose of this function is to have a more convenient and effecient
+ * way of retrieving all data for the account. This is achieved by allowing all
+ * data for the account to be retrieved from a single HTTP call.
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -343,10 +379,15 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 };
 
 /**
- * Calls api/account/update-info route to update the name for the account in
- * the database, and if successful, then stores the updated account info in 
- * 'accountInfo' property in ACCOUNT_CONTAINER of the redux state, and opens
- * AccountSidebar component while closing all other account components
+ * Calls api/account/update-info route to update the changeable info (i.e. first
+ * and last name) for the account in the database, and if successful, then
+ * stores the updated account info in 'accountInfo' property in ACCOUNT_CONTAINER
+ * of the redux state, and opens AccountSidebar component while closing all other
+ * account components.
+ *
+ * Note: The purpose of this function is to be used by the AccountModalEditInfo
+ * component to allow the user to update their changeable account info (i.e.
+ * first and last name) in the database (also the app by extension).
  *
  * @param {{
  * 	first_name: string,
@@ -371,7 +412,8 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 			const { account } = res.data;
 			// Updates the redux state with the new account name
 			dispatch(setAccount(account));
-			// Closes the accountModal and re-opens the accountSidebar
+			// Closes the accountModal and re-opens the accountSidebar (so the
+			// ...user can see their updated name)
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
@@ -388,9 +430,13 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 
 /**
  * Calls api/account/update-email route to update the email for the account in
- * the database, and if successful, then stores the updated account email in 
+ * the database, and if successful, then stores the updated account email in
  * 'accountInfo' property in ACCOUNT_CONTAINER of the redux state, and opens
- * AccountSidebar component while closing all other account components
+ * AccountSidebar component while closing all other account components.
+ *
+ * Note: The purpose of this function is to be used by the AccountModalEditEmail
+ * component to allow the user to update their email in the database (also the
+ * app by extension).
  *
  * @param {{
  * 	email: string,
@@ -420,7 +466,8 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
+			// Closes the accountModal and re-opens the accountSidebar (so the
+			// ...user can see their updated email)
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
 			if (err.response.data.backendErrors.jwToken !== undefined) {
@@ -433,8 +480,11 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 
 /**
  * Calls api/account/update-password route to update the password for the
- * account in the database, and if successful, then opens AccountSidebar 
- * component while closing all other account components
+ * account in the database, and if successful, then opens AccountSidebar
+ * component while closing all other account components.
+ *
+ * Note: The purpose of this function is to be used by the AccountModalEditPassword
+ * component to allow the user to update their password in the database.
  *
  * @param {{
  * 	newPassword: string,
@@ -463,7 +513,9 @@ export const updateAccountPassword =
 				// ...password since the new account Object will contained an
 				// ...updated last_edited_timestamp
 				dispatch(setAccount(account));
-				// Closes the accountModal and re-opens the accountSidebar
+				// Closes the accountModal and re-opens the accountSidebar (even
+				// ...though the user won't see their updated password, this is
+				// ...still done for consistency with similar routes)
 				dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
 			})
 			.catch((err) => {
@@ -479,42 +531,13 @@ export const updateAccountPassword =
 	};
 
 /**
- * Calls api/account/delete route to delete the account in the database, and if
- * successful, then log the user out (which resets the redux state and opens the
- * login page)
- *
- * @param {{
- *  capitalizedDeleteTypedOut: string,
- * 	currentPassword: string
- * }} deleteCheckAndCurrentPassword - Object containing the delete check and
- * current account password (correct password required to update)
- *
- * @example
- * // The dispatch function is from useDispatch() imported from react-redux.
- * dispatch(
- * 	deleteAccount({
- * 		capitalizedDeleteTypedOut: "DELETE",
- * 		currentPassword: "PleaseDontGuessMyPassword"
- * 	})
- * );
- */
-export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
-	const header = createHeader();
-	axios
-		.post("/api/account/delete", deleteCheckAndCurrentPassword, header)
-		.then((res) => {
-			dispatch(logoutAccount());
-		})
-		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
-		});
-};
-
-/**
  * Calls api/account/update-settings route to update the account settings in
  * the database, and if successful, then stored the updated account settings in
- * 'settings' property in ACCOUNT_CONTAINER of the redux state
+ * 'settings' property in ACCOUNT_CONTAINER of the redux state.
+ *
+ * Note: The purpose of this function is to be used by the AccountModalEditSettings
+ * and AccountSidebarEditAppearance components to allow the user to update their
+ * settings in the database.
  *
  * @param {{
  * 	setting_id: number,
@@ -575,9 +598,51 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 };
 
 /**
- * Logs account out by removing their jwToken from the localStorage and
- * resetting the redux state (which resets the app and also opens the login
- * page)
+ * Calls api/account/delete route to delete the account in the database, and if
+ * successful, then log the user out (which resets the redux state and opens the
+ * Login component).
+ *
+ * Note: The purpose of this function is to be used by the AccountModalDeleteAccount
+ * component to allow the user to delete their account in the database.
+ *
+ * @param {{
+ *  capitalizedDeleteTypedOut: string,
+ * 	currentPassword: string
+ * }} deleteCheckAndCurrentPassword - Object containing the delete check and
+ * current account password (correct password required to update)
+ *
+ * @example
+ * // The dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(
+ * 	deleteAccount({
+ * 		capitalizedDeleteTypedOut: "DELETE",
+ * 		currentPassword: "PleaseDontGuessMyPassword"
+ * 	})
+ * );
+ */
+export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
+	const header = createHeader();
+	axios
+		.post("/api/account/delete", deleteCheckAndCurrentPassword, header)
+		.then((res) => {
+			dispatch(logoutAccount());
+		})
+		.catch((err) => {
+			// Sets backend errors for what went wrong to be displayed to user
+			dispatch(seBackendErrors(err.response.data.backendErrors));
+		});
+};
+
+/**
+ * Logs out the currently logged in account by removing their jwToken from
+ * localStorage and resetting the redux state (which resets the app and also 
+ * opens the Login component).
+ * 
+ * Note: The purpose of this dispatch function is to be used by the AccountSidebar
+ * component to allow the user to willfully logout of their account. It's also
+ * used by other dispatch functions to logout the currently logged in account if
+ * an error is returned from the backend during an HTTP request saying their 
+ * jwToken has expired.
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.

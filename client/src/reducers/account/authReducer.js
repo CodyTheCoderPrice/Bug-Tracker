@@ -20,7 +20,7 @@ const initialState = {
  * 
  * Note: The purpose of the 'isAuthenticated' property is to be another way of 
  * telling if an account is currently logged into the app (can also tell by 
- * checking if jwToken is present in local storage). The purpose of the 'auth'
+ * checking if jwToken is present in localStorage). The purpose of the 'auth'
  * property is to be used to know if the account's current authentication 
  * is expired, and to loggout the account when it does.
  * 

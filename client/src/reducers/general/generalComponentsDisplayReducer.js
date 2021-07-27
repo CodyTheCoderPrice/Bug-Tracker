@@ -86,7 +86,7 @@ export default function generalComponentsDisplayReducer(
 			);
 		
 			// Makes sure if an account is logged into the app (i.e. there is a 
-			// ...jwToken in localStoreage) then home property is trues instead
+			// ...jwToken in localStorage) then home property is trues instead
 			// ...of register or login
 			if (localStorage.getItem("jwToken") !== null) {
 				if (action.displays.home !== true) {

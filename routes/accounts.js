@@ -137,7 +137,7 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 			return res.status(401).json({ success: false, backendErrors });
 		}
 
-		// Everything for account is pulled here so login is only one http call
+		// Everything for account is pulled here so login is only one HTTP call
 		const {
 			account,
 			accountSettings,

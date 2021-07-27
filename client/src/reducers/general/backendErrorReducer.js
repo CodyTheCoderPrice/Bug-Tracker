@@ -5,12 +5,12 @@ const initialState = {};
 
 /**
  * Used to set 'backendErrors' property containing info on what went wrong during
- * any given http request (usually input validation errors, e.g. incorrect 
+ * any given HTTP request (usually input validation errors, e.g. incorrect 
  * password) to be displayed to the user, stored into GENERAL_CONTAINER of the
  * redux state.
  * 
  * Note: The purpose of the 'backendErrors' property is to be used to display
- * the current backendErrors from a recent http request in the component that 
+ * the current backendErrors from a recent HTTP request in the component that 
  * was used to make the request. This is so the user can be given info on what 
  * went wrong, and possibly also be given an idea of how they can fix it.
  * 
@@ -41,7 +41,7 @@ const initialState = {};
  * 	validationCreateCommentDescription: (string|undefined),
  * 	validationEditCommentDescription: (string|undefined),
  * }} state - Current Object (in the redux state) for the backend errors 
- * containing info on what went wrong during any given http request
+ * containing info on what went wrong during any given HTTP request
  * @param {Object} action - Object with a 'container' property (determins where 
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
@@ -72,7 +72,7 @@ const initialState = {};
  * 	validationComment: (string|undefined),
  * 	validationCreateCommentDescription: (string|undefined),
  * 	validationEditCommentDescription: (string|undefined),
- * }} Object containing info on what went wrong during any given http request
+ * }} Object containing info on what went wrong during any given HTTP request
  */
 export default function backendErrorReducer(state = initialState, action) {
 	switch (action.type) {
