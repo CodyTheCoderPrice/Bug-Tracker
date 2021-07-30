@@ -212,7 +212,7 @@ export default function NavbarHamburger() {
 									? " hamburger-dropdown__row-button--last-option-round-bottom-border"
 									: "")
 							}
-							alt="Navbar hamburger dropdown option to open projects list"
+							alt="Navbar hamburger dropdown option to open the list of projects"
 							onClick={() => switchToProjectsListView(reduxState, dispatch)}
 						>
 							<i
@@ -285,7 +285,7 @@ export default function NavbarHamburger() {
 										? " hamburger-dropdown__row-button--last-option-round-bottom-border"
 										: "")
 								}
-								alt="Navbar hamburger dropdown option to open the bugs list"
+								alt="Navbar hamburger dropdown option to open the list of bugs"
 								onClick={() => SwitchToBugsListView(reduxState, dispatch)}
 							>
 								<img

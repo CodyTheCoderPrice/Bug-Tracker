@@ -188,8 +188,8 @@ export function getSearchedFilteredSortedList(
 	reduxContainerName
 ) {
 	return searchFilterSort(
-		// If PROJECT_CONTAINER, then pass project list. Otherwise pass bug
-		// ...list with bugs not belonging to any filtered out projects.
+		// If PROJECT_CONTAINER, then passes list of projects. Otherwise passes
+		// ...list of bugs (only with bugs belonging to non-filtered-out projects).
 		reduxContainerName === PROJECT_CONTAINER
 			? // Spread operator makes deep copy of list so original is not affected
 			  [...passedReduxState[reduxContainerName].list]

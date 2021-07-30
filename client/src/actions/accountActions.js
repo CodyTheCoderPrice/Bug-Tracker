@@ -265,8 +265,10 @@ export const loginAccount = (accountInfo) => (dispatch) => {
  *
  * Note: The purpose of this dispatch function is to have a way of retrieving
  * only the currently logged in account's info and nothing else from the
- * database. This dispatch function may go unused by the app, which is ok, as it
- * primarily exists to have the option.
+ * database. 
+ * 
+ * Note: If this dispatch function goes unused by the app, it should not be
+ * deleted, as it's good to keep the option available for the future.
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.

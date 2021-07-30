@@ -14,7 +14,8 @@ import {
 } from "./index";
 
 /**
- * Sets projects list in 'list' property in PROJECT_CONTAINER of the redux state
+ * Sets list of projects in 'list' property in PROJECT_CONTAINER of the redux 
+ * state
  *
  * @param {{ 
  * 	id: number, 
@@ -30,7 +31,7 @@ import {
  * 	last_edited_timestamp: string, 
  * 	priority_option: string, 
  * 	status_option: string
- * }[]} projectList - Array of Objects containing the projects list
+ * }[]} projectList - Array of Objects containing the list of projects
  * 
  * @example
  * // Sets a list of two projects. The dispatch function is from useDispatch()
@@ -79,8 +80,9 @@ export const setProjects = (projectList) => (dispatch) => {
 
 /**
  * Calls /api/project/create route to create a new project in the database, 
- * store the updated projects list in 'list' property in PROJECT_CONTAINER of the
- * redux state, and close the ListViewCreateItemSidbar (for projects) component
+ * store the updated list of projects in 'list' property in PROJECT_CONTAINER 
+ * of the redux state, and close the ListViewCreateItemSidbar (for projects) 
+ * component
  *
  * @param {{
  * 		name: string,
@@ -170,7 +172,7 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 };
 
 /**
- * Calls /api/project/retrieve route to retrieve projects list from the
+ * Calls /api/project/retrieve route to retrieve list of projects from the
  * database and store it in 'list' property in PROJECT_CONTAINER of the redux
  * state
  * 
@@ -200,8 +202,9 @@ export const retrieveProjects = () => (dispatch) => {
 
 /**
  * Calls api/project/update route to update a project in the database, store
- * the updated projects list in 'list' property in PROJECT_CONTAINER of the redux
- * state, and turn off the editing mode for ItemView (for projects) component
+ * the updated list of projects in 'list' property in PROJECT_CONTAINER of the 
+ * redux state, and turn off the editing mode for ItemView (for projects)
+ * component
  *
  * @param {{
  * 		id: number,

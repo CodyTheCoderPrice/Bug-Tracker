@@ -454,7 +454,7 @@ export const seBackendErrors = (backendErrors) => (dispatch) => {
  * Clears info in 'backendErrors' property in GENERAL_CONTAINER of the redux
  * state.
  *
- * Note: The puspose of this to be used when closing a component that displays
+ * Note: The purpose of this to be used when closing a component that displays
  * backend errors, so if any backend errors are currently being displayed, they
  * do not continue to display when the user navigates back to the component 
  * later, as this may confuse the user.

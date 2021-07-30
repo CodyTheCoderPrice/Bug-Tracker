@@ -20,7 +20,8 @@ export function getNumberOfBugsForStatus(
 	projectId,
 	statusId
 ) {
-	// Spread operator makes deep copy of bug list so original is not affected
+	// Spread operator makes a deep copy of the list of bugs so the original is
+	// ...not affected
 	return [...passedReduxState[BUG_CONTAINER].list].filter(
 		(item) => item.project_id === projectId && item.status_id === statusId
 	).length;
@@ -37,7 +38,8 @@ export function getNumberOfBugsForStatus(
  * @returns {Object[]} List of bugs for a particular project
  */
 export function getBugsInProjectList(passedReduxState, projectId) {
-	// Spread operator makes deep copy of bug list so original is not affected
+	// Spread operator makes a deep copy of the list of bugs so the original is
+	// ...not affected
 	return [...passedReduxState[BUG_CONTAINER].list].filter(
 		(item) => item.project_id === projectId
 	);

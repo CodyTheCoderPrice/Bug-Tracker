@@ -16,7 +16,7 @@ export const SET_PRIORITY_STATUS = "SET_PRIORITY_STATUS";
 export const SET_AUTHENTICATION = "SET_AUTHENTICATION";
 export const SET_ACCOUNT = "SET_ACCOUNT";
 export const SET_ACCOUNT_SETTINGS = "SET_ACCOUNT_SETTINGS";
-// Projects/Bugs list
+// List of projects & list of bugs
 export const SET_LIST = "SET_LIST";
 // Comments
 export const SET_COMMENTS = "SET_COMMENTS";

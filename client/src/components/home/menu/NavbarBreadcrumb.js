@@ -172,7 +172,7 @@ export default function NavbarBreadcrumb(props) {
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
-					alt="Navbar breadcrumb button to open projects list"
+					alt="Navbar breadcrumb button to open the list of projects"
 					onClick={() => switchToProjectsListView(reduxState, dispatch)}
 				>
 					<div className="breadcrumb-button__text js-breadcrumb-project-list-button-text">
@@ -317,7 +317,7 @@ export default function NavbarBreadcrumb(props) {
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
-							alt="Navbar breadcrumb button to open the bugs list"
+							alt="Navbar breadcrumb button to open the list of bugs"
 							onClick={() => SwitchToBugsListView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text js-breadcrumb-bug-list-button-text">

@@ -13,7 +13,13 @@ import {
 } from "./index";
 
 /**
- * Sets bugs list in 'list' property in BUG_CONTAINER of the redux state
+ * Sets list of bugs in 'list' property in BUG_CONTAINER of the redux state.
+ * 
+ * Note: The purpose of the 'list' property is to be used to display (e.g. 
+ * display a bug in ListViewTableItemRow component) and use (e.g. check if the
+ * list is empty to determin whether or not to show the tutorial for creating a
+ * bug in ListViewTopBar) the list without constantly needing to refetch it 
+ * from the database.
  *
  * @param {{
  * 	id: number, 
@@ -30,7 +36,7 @@ import {
  * 	last_edited_timestamp: string, 
  * 	priority_option: string, 
  * 	status_option: string
- * }[]} bugList - Array of Objects containing the bugs list
+ * }[]} bugList - Array of Objects containing the list of bugs
  * 
  * @example
  * // Sets a list of two bugs belonging to a project with the id 373. The 
@@ -81,9 +87,14 @@ export const setBugs = (bugList) => (dispatch) => {
 
 /**
  * Calls /api/bug/create route to create a new bug in the database, and if 
- * successful, then stores the updated bugs list in 'list' property in 
+ * successful, then stores the updated list of bugs in 'list' property in 
  * BUG_CONTAINER of the redux state, and close the ListViewCreateItemSidebar 
- * (for bugs) component
+ * (for bugs) component.
+ * 
+ * Note: The purpose of this dispatch function is to be used by the 
+ * createProjectOrBug dispatch function in switchActions.js when the user is
+ * trying to create a bug from the ListViewCreateItemSidebar (for bugs) 
+ * component.
  *
  * @param {{
  * 		project_id: number,
@@ -175,9 +186,17 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/retrieve route to retrieve bugs list from the database, and 
+ * Calls /api/bug/retrieve route to retrieve list of bugs from the database, and 
  * if successful, then stores it in 'list' property in BUG_CONTAINER of the redux
- * state
+ * state.
+ * 
+ * Note: The purpose of this dispatch function is to have a way of retrieving
+ * only the currently logged in account's list of bugs and nothing else from the
+ * database. 
+ * 
+ * Note: If this dispatch function goes unused by the app, it should not be
+ * deleted, as it's good to keep the option available for the future.
+ *
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -204,9 +223,15 @@ export const retrieveBugs = () => (dispatch) => {
 };
 
 /**
- * Calls /api/bug/update route to update a bug in the database, and if successful,
- * then stores the updated bugs list in 'list' property in BUG_CONTAINER of the redux
- * state, and turns off the editing mode for ItemView (for bugs) component
+ * Calls /api/bug/update route to update a bug in the database, and if 
+ * successful, then stores the updated list of bugs in 'list' property in
+ * BUG_CONTAINER of the redux state, and turns off the editing mode for ItemView
+ * (for bugs) component.
+ * 
+ * Note: The purpose of this dispatch function is to be used by the 
+ * updateProjectOrBug dispatch function in switchActions.js when the user is
+ * trying to updated a bug from the ItemViewEditItemInfo component inside the 
+ * ItemView (for bugs) component.
  *
  * @param {{
  * 		id: number,
@@ -315,11 +340,16 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 
 /**
  * Calls /api/bug/delete route to delete a bug in the database, and if successful,
- * then stores the updated bugs and comments list in their corresponding 
+ * then stores the updated list of bugs and list of comments in their corresponding 
  * containers (i.e. BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, 
  * updates 'massDeleteList' property (if it contained the deleted bug) in 
  * BUG_CONTAINER of the redux state, and opens the ListView (for bugs) component
- * while closeing all other bug components
+ * while closeing all other bug components.
+ * 
+ * Note: The purpose of this dispatch function is to be used by the 
+ * deleteProjectOrBug dispatch function in switchActions.js when the user is
+ * trying to detele a bug from the DeleteModal component inside the ItemView 
+ * (for bugs) component.
  *
  * @param {{ 
  * id: number, 
@@ -341,7 +371,7 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 		.post("/api/bug/delete", idsObject, header)
 		.then((res) => {
 			// Since deleting a bug also deletes the comments it had, the
-			// ...comments lists is also updated in redux state
+			// ...list of comments is also updated in redux state
 			const { bugs, comments } = res.data;
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
@@ -377,10 +407,15 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 
 /**
  * Calls /api/bug/delete-multiple route to delete multiple bugs in the database,
- * and if successful, then stores the updated bugs and comments list in their 
- * corresponding containers (i.e. BUG_CONTAINER and COMMENT_CONTAINER) of the 
- * redux state, empties the 'massDeleteList' property in BUG_CONTAINER of the 
- * redux state, and close ItemViewDeleteModal (for bugs) component
+ * and if successful, then stores the updated list of bugs and list of comments
+ * in their corresponding containers (i.e. BUG_CONTAINER and COMMENT_CONTAINER) 
+ * of the redux state, empties the 'massDeleteList' property in BUG_CONTAINER of
+ * the redux state, and close ItemViewDeleteModal (for bugs) component.
+ * 
+ * Note: The purpose of this dispatch function is to be used by the 
+ * deleteMultipleProjectsOrBugs dispatch function in switchActions.js when the 
+ * user is trying to detele multiple bugs from the DeleteModal component inside
+ * the ListView (for bugs) component.
  *
  * @param {number[]} massDeleteList - Array of ids for bugs to be mass deleted
  * @param {{
@@ -433,7 +468,7 @@ export const deleteMultipleBugs = (massDeleteList, bugComponentsDisplay) => (
 		.post("/api/bug/delete-multiple", { arrayOfBugIdsToBeDeleted: massDeleteList }, header)
 		.then((res) => {
 			// Since deleting a bug also deletes the comments it had, the
-			// ...comments lists is also updated in redux state
+			// ...list of comments is also updated in redux state
 			const { bugs, comments } = res.data;
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
