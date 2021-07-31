@@ -91,10 +91,9 @@ export const setBugs = (bugList) => (dispatch) => {
  * BUG_CONTAINER of the redux state, and close the ListViewCreateItemSidebar 
  * (for bugs) component.
  * 
- * Note: The purpose of this dispatch function is to be used by the 
- * createProjectOrBug dispatch function in switchActions.js when the user is
- * trying to create a bug from the ListViewCreateItemSidebar (for bugs) 
- * component.
+ * Note: The purpose of this dispatch function is to be used by the createProjectOrBug
+ * dispatch function in switchActions.js to be used via the ListViewCreateItemSidebar
+ * (for bugs) component to allow users to create a bug in the database.
  *
  * @param {{
  * 		project_id: number,
@@ -196,7 +195,6 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * 
  * Note: If this dispatch function goes unused by the app, it should not be
  * deleted, as it's good to keep the option available for the future.
- *
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -228,10 +226,10 @@ export const retrieveBugs = () => (dispatch) => {
  * BUG_CONTAINER of the redux state, and turns off the editing mode for ItemView
  * (for bugs) component.
  * 
- * Note: The purpose of this dispatch function is to be used by the 
- * updateProjectOrBug dispatch function in switchActions.js when the user is
- * trying to updated a bug from the ItemViewEditItemInfo component inside the 
- * ItemView (for bugs) component.
+ * Note: The purpose of this dispatch function is to be used by the updateProjectOrBug
+ * dispatch function in switchActions.js to be used via ItemViewEditItemInfo 
+ * component inside the ItemView (for bugs) component to allow the user to 
+ * updated a bug in the database.
  *
  * @param {{
  * 		id: number,
@@ -345,12 +343,12 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * updates 'massDeleteList' property (if it contained the deleted bug) in 
  * BUG_CONTAINER of the redux state, and opens the ListView (for bugs) component
  * while closeing all other bug components.
- * 
- * Note: The purpose of this dispatch function is to be used by the 
- * deleteProjectOrBug dispatch function in switchActions.js when the user is
- * trying to detele a bug from the DeleteModal component inside the ItemView 
- * (for bugs) component.
  *
+ * Note: The purpose of this dispatch function is to be used by the deleteProjectOrBug
+ * dispatch function in switchActions.js to be used via the DeleteModal 
+ * component inside the ItemView (for bugs) component to allow the user to 
+ * delete a bug in the database.
+ * 
  * @param {{ 
  * id: number, 
  * project_id: number
@@ -412,10 +410,10 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
  * of the redux state, empties the 'massDeleteList' property in BUG_CONTAINER of
  * the redux state, and close ItemViewDeleteModal (for bugs) component.
  * 
- * Note: The purpose of this dispatch function is to be used by the 
- * deleteMultipleProjectsOrBugs dispatch function in switchActions.js when the 
- * user is trying to detele multiple bugs from the DeleteModal component inside
- * the ListView (for bugs) component.
+ * Note: The purpose of this dispatch function is to be used by the deleteMultipleProjectsOrBugs
+ * dispatch function in switchActions.js to be used via the DeleteModal 
+ * component inside the ListView (for bugs) component to allow the user to 
+ * detele multiple bugs in the database.
  *
  * @param {number[]} massDeleteList - Array of ids for bugs to be mass deleted
  * @param {{

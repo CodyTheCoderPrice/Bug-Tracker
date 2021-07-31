@@ -152,7 +152,7 @@ export const setAccountSettings = (accountSettings) => (dispatch) => {
  * and if successful, then open Login component while closing all other general
  * components.
  *
- * Note: The purpose of this dispatch function is to be used by the Register
+ * Note: The purpose of this dispatch function is to be used via the Register
  * component to allow users to register new accounts in the database.
  *
  * @param {{
@@ -194,11 +194,13 @@ export const registerAccount = (accountInfo) => (dispatch) => {
  * state, and opens the Home component while closing the Login and Register
  * components.
  *
- * Note: The purpose of this dispatch function is to be used by the Login
+ * Note: The purpose of this dispatch function is to be used via the Login
  * component to allow users to login to their account and access the Home
- * component (which requires having all data for the account in the redux state
- * to function properly). Also, the reason jwToken is stored in localStorage is
- * becasue it's used by the createHeader function in actions/index.js.
+ * component. The Home component requires storing all data for the account in
+ * the redux state to function properly, which is why it's retrieved from the
+ * database in this function. Also the reason jwToken is stored in localStorage
+ * is becasue it's used by the createHeader function in actions/index.js to make
+ * HTTP requests pertaining to logged in accounts possible.
  *
  * @param {{
  * 	email: string,
@@ -298,11 +300,13 @@ export const retrieveAccount = () => (dispatch) => {
  * Calls api/account/retrieve-settings route to retrieve the account settings
  * from the database and store it in 'settings' property in ACCOUNT_CONTAINER of
  * the redux state.
- *
+ * 
  * Note: The purpose of this dispatch function is to have a way of retrieving
  * only the currently logged in account's settings and nothing else from the
- * database. This dispatch function may go unused by the app, which is ok, as it
- * primarily exists to have the option.
+ * database. 
+ * 
+ * Note: If this dispatch function goes unused by the app, it should not be
+ * deleted, as it's good to keep the option available for the future.
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -335,8 +339,8 @@ export const retrieveAccountSettings = () => (dispatch) => {
  * state.
  *
  * Note: The purpose of this function is to have a more convenient and effecient
- * way of retrieving all data for the account. This is achieved by allowing all
- * data for the account to be retrieved from a single HTTP call.
+ * way of retrieving all data for the account (which is achieved by allowing all
+ * data for the account to be retrieved from a single HTTP call).
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -387,7 +391,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
  * of the redux state, and opens AccountSidebar component while closing all other
  * account components.
  *
- * Note: The purpose of this function is to be used by the AccountModalEditInfo
+ * Note: The purpose of this function is to be used via the AccountModalEditInfo
  * component to allow the user to update their changeable account info (i.e.
  * first and last name) in the database (also the app by extension).
  *
@@ -436,7 +440,7 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
  * 'accountInfo' property in ACCOUNT_CONTAINER of the redux state, and opens
  * AccountSidebar component while closing all other account components.
  *
- * Note: The purpose of this function is to be used by the AccountModalEditEmail
+ * Note: The purpose of this function is to be used via the AccountModalEditEmail
  * component to allow the user to update their email in the database (also the
  * app by extension).
  *
@@ -485,7 +489,7 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
  * account in the database, and if successful, then opens AccountSidebar
  * component while closing all other account components.
  *
- * Note: The purpose of this function is to be used by the AccountModalEditPassword
+ * Note: The purpose of this function is to be used via the AccountModalEditPassword
  * component to allow the user to update their password in the database.
  *
  * @param {{
@@ -537,7 +541,7 @@ export const updateAccountPassword =
  * the database, and if successful, then stored the updated account settings in
  * 'settings' property in ACCOUNT_CONTAINER of the redux state.
  *
- * Note: The purpose of this function is to be used by the AccountModalEditSettings
+ * Note: The purpose of this function is to be used via the AccountModalEditSettings
  * and AccountSidebarEditAppearance components to allow the user to update their
  * settings in the database.
  *
@@ -604,7 +608,7 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
  * successful, then log the user out (which resets the redux state and opens the
  * Login component).
  *
- * Note: The purpose of this function is to be used by the AccountModalDeleteAccount
+ * Note: The purpose of this function is to be used via the AccountModalDeleteAccount
  * component to allow the user to delete their account in the database.
  *
  * @param {{
@@ -640,7 +644,7 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
  * localStorage and resetting the redux state (which resets the app and also 
  * opens the Login component).
  * 
- * Note: The purpose of this dispatch function is to be used by the AccountSidebar
+ * Note: The purpose of this dispatch function is to be used via the AccountSidebar
  * component to allow the user to willfully logout of their account. It's also
  * used by other dispatch functions to logout the currently logged in account if
  * an error is returned from the backend during an HTTP request saying their 

@@ -11,8 +11,14 @@ import {
 } from "./index";
 
 /**
- * Sets the comments list in 'list' property in COMMENT_CONTAINER of the redux
- * state
+ * Sets the list of comments in 'list' property in COMMENT_CONTAINER of the 
+ * redux state.
+ * 
+ * Note: The purpose of the 'list' property is to be used to display (e.g. 
+ * display a comment in ItemViewCommentsBoxIndividualComment component) and use 
+ * (e.g. use the list of comments length to tell if 'description' property in 
+ * ItemViewCommentsBox component needs to be reset) the list of comments without 
+ * constantly needing to refetch it from the database.
  *
  * @param {{ 
  * 	id: number, 
@@ -20,7 +26,7 @@ import {
  * 	description: string,
  * 	creation_date: string, 
  * 	last_edited_timestamp: string
- * }[]} commentList - Array of Objects containing the comments list
+ * }[]} commentList - Array of Objects containing the list of comments
  * 
  * @example
  * // Sets a list of two comments belonging to a bug with the id 50. The 
@@ -54,8 +60,12 @@ export const setComments = (commentList) => (dispatch) => {
 
 /**
  * Calls /api/comment/create route in order to create a new comment in the 
- * database, and if succesful, then stores the updated comments list in 'list'
- * property in COMMENT_CONTAINER of the redux state
+ * database, and if succesful, then stores the updated list of comments in 
+ * 'list' property in COMMENT_CONTAINER of the redux state.
+ * 
+ * Note: The purpose of this dispatch function is to be used via the 
+ * ItemViewCommentBox component to allow users to create new comments for a 
+ * particular bug in the database.
  *
  * @param {{ 
  * 	description: string, 
@@ -94,9 +104,16 @@ export const createComment = (commentInfo) => (dispatch) => {
 };
 
 /**
- * Calls /api/comment/retrieve route to retrieve the comments list from the
+ * Calls /api/comment/retrieve route to retrieve the list of comments from the
  * database, and if successful, then stores it in 'list' property in 
- * COMMENT_CONTAINER of the redux state
+ * COMMENT_CONTAINER of the redux state.
+ * 
+ * Note: The purpose of this dispatch function is to have a way of retrieving
+ * only the currently logged in account's list of comments and nothing else from
+ * the database. 
+ * 
+ * Note: If this dispatch function goes unused by the app, it should not be
+ * deleted, as it's good to keep the option available for the future.
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -124,9 +141,13 @@ export const retrieveComments = () => (dispatch) => {
 
 /**
  * Calls /api/comment/update route to update a comment in the database, and if 
- * successful, then stores the updated comments list in 'list' property in 
- * COMMENT_CONTAINER of the redux state, and closes edit mode for the comment
+ * successful, then stores the updated list of comments in 'list' property in 
+ * COMMENT_CONTAINER of the redux state, and closes edit mode for the comment.
  *
+ * Note: The purpose of this dispatch function is to be used via the 
+ * ItemViewCommentsBoxIndividualComment component to allow users to update a
+ * comment in the database.
+ * 
  * @param {{ 
  * 	id: number 
  * 	project_id: number, 
@@ -171,9 +192,13 @@ export const updateComment = (commentInfo) => (dispatch) => {
 
 /**
  * Calls /api/comment/delete route to delete a comment in the database, and if
- * successful, then stores the updated comments list in 'list' property in 
+ * successful, then stores the updated list of comments in 'list' property in 
  * COMMENT_CONTAINER in the redux state, and closes the CommentDeleteModal 
- * component
+ * component.
+ * 
+ * Note: The purpose of this dispatch function is to be used via the DeleteModal
+ * component inside the ItemView (for bugs) component to allow the user to 
+ * delete a comment in the database.
  * 
  * @param {{ 
  * 	id: number, 

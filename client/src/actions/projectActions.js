@@ -312,11 +312,12 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 
 /**
  * Calls /api/project/delete route to delete a project in the database, store 
- * the updated projects, bugs, and comments list in their corresponding 
- * containers (i.e. PROJECT_CONTAINER, BUG_CONTAINER and COMMENT_CONTAINER) of 
- * the redux state, update 'massDeleteList' property (if it contained the deleted
- * project) in PROJECT_CONTAINER of the redux state, and open the ListView (for
- * projects) component while closeing all other project components.
+ * the updated list of projects, list of bugs, and list of comments their 
+ * corresponding containers (i.e. PROJECT_CONTAINER, BUG_CONTAINER and 
+ * COMMENT_CONTAINER) of the redux state, update 'massDeleteList' property (if
+ * it contained the deleted project) in PROJECT_CONTAINER of the redux state, 
+ * and open the ListView (for projects) component while closeing all other 
+ * project components.
  *
  * @param {number} projectId - Object containing the id of the project to be 
  * deleted
@@ -335,8 +336,9 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 	axios
 		.post("/api/project/delete", { id: projectId }, header)
 		.then((res) => {
-			// since deleting a project also deletes bugs and comments it had,
-			// ...the bugs and comments lists are also updated in redux state
+			// Since deleting a project also deletes bugs and comments it had,
+			// ...the list of bugs and list of comments are also updated in the
+			// ...redux state
 			const { projects, bugs, comments } = res.data;
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
@@ -377,11 +379,11 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 
 /**
  * Calls /api/project/delete-multiple route to delete multiple projects in the
- * database, store the updated projects, bugs, and comments list in their 
- * corresponding containers (i.e. PROJECT_CONTAINER, BUG_CONTAINER and 
- * COMMENT_CONTAINER) of the redux state, empty the 'massDeleteList' property in
- * PROJECT_CONTAINER of the redux state, and close ItemViewDeleteModal (for 
- * projects) component.
+ * database, store the updated list of projects, list of bugs, and list of 
+ * comments in their corresponding containers (i.e. PROJECT_CONTAINER, 
+ * BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, empty the 
+ * 'massDeleteList' property in PROJECT_CONTAINER of the redux state, and close
+ * ItemViewDeleteModal (for projects) component.
  *
  * @param {number[]} massDeleteList  - Array of ids for projects to be mass
  * deleted
@@ -440,8 +442,9 @@ export const deleteMultipleProjects = (
 		)
 		.then((res) => {
 			const { projects, bugs, comments } = res.data;
-			// since deleting a project also deletes bugs and comments it had,
-			// ...the bugs and comments lists are also updated in redux state
+			// Since deleting a project also deletes bugs and comments it had,
+			// ...the list of bugs and list of comments are also updated in the
+			// ...redux state
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));

@@ -1,7 +1,8 @@
 import { SET_COMMENTS } from "../../actions/constants/types";
 
-// Initial state for comment list (empty array since if the account has any
-// ...comments, they are retrieved only during and after login)
+// Initial state for the list of comments. Is an empty array since no account 
+// ...is logged in by default, and even if one was, the list of comments would
+// ...still need to be retrieved from the database.
 const initialState = []
 
 /**
@@ -11,9 +12,9 @@ const initialState = []
  * 
  * Note: The purpose of the 'list' property is to be used to display (e.g. 
  * display a comment in ItemViewCommentsBoxIndividualComment component) and use 
- * (e.g. use comment list length to tell if 'description' property in ItemViewCommentsBox
- * component needs to be reset) the comments list without constantly needing to 
- * refetch it from the database.
+ * (e.g. use the list of comments length to tell if 'description' property in 
+ * ItemViewCommentsBox component needs to be reset) the list of comments without 
+ * constantly needing to refetch it from the database.
  * 
  * @param {{ 
  * 	id: number, 

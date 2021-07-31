@@ -38,7 +38,7 @@ export default function ItemViewCommentsBox() {
 		description: "",
 	});
 
-	// Keeps track of the current comment list size so componet can tell
+	// Keeps track of the current list of comments length so componet can tell
 	// ...when a new comment has been added in order to reset commentInfo
 	const [previousCommmentsListSize, setPreviousCommentsListSize] = useState(
 		reduxState[COMMENT_CONTAINER].list.length
@@ -56,8 +56,8 @@ export default function ItemViewCommentsBox() {
 		// eslint-disable-next-line
 	}, []);
 
-	// Resets commentInfo when the comment list size increases (meaning comment was created)
-	// ...since the description should then be reset to empty
+	// Resets commentInfo when the list of comments length increases (meaning 
+	// ...comment was created) since the description should then be reset to empty
 	useEffect(() => {
 		if (reduxState[COMMENT_CONTAINER].list.length > previousCommmentsListSize) {
 			setCommentInfo({

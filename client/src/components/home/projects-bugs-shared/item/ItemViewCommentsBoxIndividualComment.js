@@ -54,9 +54,9 @@ export default function ItemViewCommentsBoxIndividualComment(props) {
 	}, []);
 
 	// Resets commentInfo when commentBeingEdited changes so changed
-	// ...descriptions don't persist when cancel button is clicked
-	// ...and when the comment list size changes since components
-	// ...will not belond to the correct comment anymore
+	// ...descriptions don't persist when cancel button is clicked and when the
+	// ...list of comments length changes since components will not belond to 
+	// ...the correct comment anymore
 	useEffect(() => {
 		setCommentInfo({
 			id: props.comment.id,
