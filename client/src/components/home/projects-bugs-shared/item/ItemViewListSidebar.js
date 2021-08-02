@@ -58,6 +58,8 @@ export default function ItemViewListSidebar(props) {
 					itemViewListSidebar:
 						!reduxState[GENERAL_CONTAINER].componentsDisplay
 							.itemViewListSidebar,
+					// Set true since the user has manually changed whether
+					// ...the ItemViewListSidebar displays
 					itemViewListSidebarUserSet: true,
 				}
 			)

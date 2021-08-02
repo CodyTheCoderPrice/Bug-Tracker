@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
 
 /**
- * During session of creating/editing an item, if input element (of type date)
- * for selecting a 'completion_date' value for itemInfoState param Object is 
- * active (meaning user can enter a completion date since 'status' property in
- * itemInfoState param Object is set to "completed"), but during the same session
- * the 'status' property is later changed, then this hook will preserve a copy 
- * of 'completion_date' property value before updating 'completion_date' property
- * to be an empty string (as there would be no completion date), so if 'status'
- * property is later set back to "completed", then the preserved 'completion_date'
- * value will be restored.
+ * Custom hook that will make it so during session of creating/editing an item,
+ * if input element (of type date) for selecting a 'completion_date' value for
+ * itemInfoState param Object is active (meaning user can enter a completion
+ * date since 'status' property in itemInfoState param Object is set to 
+ * "completed"), but during the same session the 'status' property is later 
+ * changed, then this hook will preserve a copy of 'completion_date' property 
+ * value before updating 'completion_date' property to be an empty string (as
+ * there would be no completion date), so if 'status' property is later set back
+ * to "completed", then the preserved 'completion_date' value will be restored.
  * 
- * Note: The purpose of this is to be more user friendly, as the user would not 
- * need to re-enter the completion date if they change the status away from 
- * "completed" and then back to "completed".
+ * Note: The purpose of this custom hook is to be used by ListViewCreateItemSidebar 
+ * and ItemViewEditItemInfo components, to make them more user friendly, as the 
+ * user would not need to re-enter the completion date if they change the status 
+ * away from "completed" and then back to "completed".
  *
  * @param {{
  * 	id: (number|undefined), 

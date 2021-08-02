@@ -8,7 +8,16 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
  * 'centering-container__search-container__search-bar' className) in 
  * the ListViewTopBar component to fit available space between new item button
  * (i.e. element with 'centering-container__new-item-button' className) and
- * filter button (i.e. element with 'filter-area-container__button' className)
+ * filter button (i.e. element with 'filter-area-container__button' className).
+ * 
+ * Note: The purpose of this custom hook is to be used by the ListViewTopBar
+ * component to make the searchbar fit the available space, since if the 
+ * searchbar were instead to be of a fixed width, then if a user has a wide
+ * screen monitor, it would result in the ListViewTopBar component having an
+ * excess of empty space, which would look bad.
+ * 
+ * Note: Searchbar resizing could not be achieved soley using CSS since it is
+ * comprised of multiple elements to allow for it have a button inside it.
  *
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)

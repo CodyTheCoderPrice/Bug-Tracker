@@ -28,6 +28,25 @@ import {
  * undefined, then they will be set to false in the redux state (except for
  * itemViewListSidebar, which will be set to true).
  *
+ * Note: The purpose of this dispatch function is to be used to control how
+ * general components display (e.g. if 'componentsDisplay.register' is true, 
+ * then the Register component should be displayed). The way this is intended 
+ * to be achieved is by having the parent component of any one of these general
+ * components, check the value of that general component's corresponding 
+ * property in 'componentsDisplay' property's object, and only have it be 
+ * present in the JSX if it's true, which can be done using a ternary operator
+ * (e.g. componentsDisplay.register ? <Register /> : null). 
+ * 
+ * Note: The 'itemViewListSidebarUserSet' property in 'componentsDisplay' 
+ * property's object is different from the rest in that it does not correspond
+ * to whether a particular component should display, but rather whether the user
+ * has set whether the ItemViewListSidebar component should display or not via
+ * the ItemViewListSidebar component's 'expand-minimize-button' (className) 
+ * element. The reason this is important is that the custom hook in
+ * useAutoDecideIfItemViewListSidebarComponentDisplaysHookUtils.js uses this
+ * property to determin if its auto-decide functionality should run (more info
+ * available in that file).
+ * 
  * @param {{
  * 	register: (boolean|undefined),
  * 	login: (boolean|undefined),

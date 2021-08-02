@@ -24,6 +24,8 @@ import {
 	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
+import { useAutoDecideIfItemViewListSidebarComponentDisplays} from "../../../../utils/hooks"
+
 // Components
 import ItemViewTopBar from "./ItemViewTopBar";
 import ItemViewListSidebar from "./ItemViewListSidebar";
@@ -37,6 +39,8 @@ import ItemViewCommentsBox from "./ItemViewCommentsBox";
 export default function ItemView(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	useAutoDecideIfItemViewListSidebarComponentDisplays(reduxState);
 
 	// Adjusts the height and width of the modal to fit the screen
 	useEffect(() => {
@@ -75,52 +79,6 @@ export default function ItemView(props) {
 		reduxState[SIZE_CONTAINER],
 		// eslint-disable-next-line
 		reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar,
-	]);
-
-	// If user has not set itemViewListSidebar, then whether it is
-	// ...open or closed will be decided based on the current window size
-	useEffect(() => {
-		if (
-			reduxState[GENERAL_CONTAINER].componentsDisplay
-				.itemViewListSidebarUserSet === false &&
-			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarComponentWidth !==
-				null &&
-			reduxState[SIZE_CONTAINER].constants
-				.itemViewComponentPaddingContainerElementLeftPadding !== null &&
-			reduxState[SIZE_CONTAINER].constants
-				.itemViewComponentOuterDividingContainerElementMinWidth !== null
-		) {
-			// Instead of putting in the optimization to re-run once no longer
-			// ...null since it would also re-run every window resize
-			const windowSize =
-				reduxState[SIZE_CONTAINER].variables.window === null
-					? getWindowSize()
-					: reduxState[SIZE_CONTAINER].variables.window;
-
-			const minWidthNeededForNoItemBoxOverflow =
-				reduxState[SIZE_CONTAINER].constants
-					.itemViewComponentPaddingContainerElementLeftPadding *
-					2 +
-				reduxState[SIZE_CONTAINER].constants
-					.itemViewComponentOuterDividingContainerElementMinWidth;
-
-			dispatch(
-				setWhichGeneralComponentsDisplay(
-					{
-						...reduxState[GENERAL_CONTAINER].componentsDisplay,
-						itemViewListSidebar:
-							windowSize.width -
-								reduxState[SIZE_CONTAINER].constants
-									.itemViewListSidebarComponentWidth >=
-							minWidthNeededForNoItemBoxOverflow,
-					}
-				)
-			);
-		}
-		// eslint-disable-next-line
-	}, [
-		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER].constants,
 	]);
 
 	useEffect(() => {

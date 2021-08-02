@@ -5,8 +5,13 @@ import { getElementStyle, stripNonDigits } from "../index";
 
 /**
  * Custom hook that resizes a sidebar element's (i.e. with 'sidebar-container' 
- * className) height to fit within the available verticle space between the 
- * Navbar component and the bottom of the window
+ * className) height to fit within the available vertical space between the 
+ * Navbar component and the bottom of the window.
+ * 
+ * Note: The purpose of this custom hook is to be used by the AccountSidebar and
+ * ListViewCreateItemSidebar components to verticlally resize them to fit the 
+ * window whenever it becomes smaller than their base sizes, so thier overflow
+ * scrollbar can activate, allowing the user to still use them properly.
  * 
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
