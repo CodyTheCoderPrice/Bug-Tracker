@@ -10,7 +10,6 @@ import {
 } from "../../../../actions/constants/containerNames";
 
 import {
-	setWhichGeneralComponentsDisplay,
 	setWhichProjectOrBugComponentsDisplay,
 	deleteProjectOrBug,
 	deleteComment,
@@ -19,12 +18,11 @@ import {
 
 import {
 	manageSizeOfItemBoxsElementInPairContainerElement,
-	getWindowSize,
 	getItemViewComponentItemContentContainerElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
-import { useAutoDecideIfItemViewListSidebarComponentDisplays} from "../../../../utils/hooks"
+import { useAutoDecideIfItemViewListSidebarComponentDisplays } from "../../../../utils/hooks"
 
 // Components
 import ItemViewTopBar from "./ItemViewTopBar";
