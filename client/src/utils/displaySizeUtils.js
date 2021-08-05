@@ -6,14 +6,15 @@ import {
 	getNavbarHamburgerComponentClassName,
 	getNavbarHamburgerComponentButtonContainerElementClassName,
 	getNavbarHamburgerComponentTitleElementClassName,
+	getItemViewComponentClassName,
+	getItemViewComponentPaddingcontainerElementClassName,
+	getItemViewComponentOuterDividingContainerElementClassName,
 	getListViewTopBarComponentClassName,
 	getListViewTableComponentClassName,
 	getListViewTableComponentRowElementClassName,
 	getItemViewTopBarComponentClassName,
 	getItemViewListSidebarComponentClassName,
-	getItemViewComponentClassName,
-	getItemViewComponentPaddingcontainerElementClassName,
-	getItemViewComponentOuterDividingContainerElementClassName,
+	getItemViewListSidebarComponentContainerElementWithExpandedModifierClassName,
 	toggleClassName,
 } from "../utils";
 
@@ -307,7 +308,7 @@ export function getListViewTableComponentRowElementHeight() {
  * element
  */
 export function getItemViewComponentPaddingContainerElementLeftPadding() {
-	// Creating stand-in element for ListViewTable component to later append
+	// Creating stand-in element for ItemView component to later append
 	// ...other stand-in elements to so CSS can work properly. using stand-in
 	// ...elements allows this function to be called when the real elements
 	// ...aren't in the DOM, and ensures real elements remain unaffected.
@@ -347,7 +348,7 @@ export function getItemViewComponentPaddingContainerElementLeftPadding() {
  * element
  */
 export function getItemViewComponentOuterDividingContainerElementMinWidth() {
-	// Creating stand-in element for ListViewTable component to later append
+	// Creating stand-in element for ItemView component to later append
 	// ...other stand-in elements to so CSS can work properly. using stand-in
 	// ...elements allows this function to be called when the real elements
 	// ...aren't in the DOM, and ensures real elements remain unaffected.
@@ -405,14 +406,18 @@ export function getItemViewTopBarComponentHeight() {
 }
 
 /**
- * Get width (size not style) of ItemViewListSidebar component
+ * Get width (size not style) of ItemViewListSidebar component's 'list-sidebar-container list-sidebar-container--expanded'
+ * (className with modifier) element
+ * 
  *
- * @returns {number} Width of ItemViewListSidebar component
+ * @returns {number} Width of ItemViewListSidebar component's 'list-sidebar-container list-sidebar-container--expanded'
+ * element
  */
-export function getItemViewListSidebarComponentWidth() {
-	// Creating stand-in element for ItemViewListSidebar component using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
+export function getItemViewListSidebarComponentContainerElementWithExpandedModifierWidth() {
+	// Creating stand-in element for ItemViewListSidebar component to later
+	// ...append other stand-in elements to so CSS can work properly. using
+	// ...stand-in elements allows this function to be called when the real
+	// ...elements aren't in the DOM, and ensures real elements remain unaffected.
 	const standInItemViewListSidebarComponentElement =
 		document.createElement("div");
 	standInItemViewListSidebarComponentElement.className =
@@ -421,8 +426,17 @@ export function getItemViewListSidebarComponentWidth() {
 	standInItemViewListSidebarComponentElement.visibility = "hidden";
 	document.body.appendChild(standInItemViewListSidebarComponentElement);
 
+	const standInItemViewListSidebarComponentContainerElementWithExpandedModifier =
+		document.createElement("div");
+	standInItemViewListSidebarComponentContainerElementWithExpandedModifier.className =
+		getItemViewListSidebarComponentContainerElementWithExpandedModifierClassName();
+	// CSS requires being child of ItemView component
+	standInItemViewListSidebarComponentElement.appendChild(
+		standInItemViewListSidebarComponentContainerElementWithExpandedModifier
+	);
+
 	const width = getElementSize(
-		standInItemViewListSidebarComponentElement
+		standInItemViewListSidebarComponentContainerElementWithExpandedModifier
 	).width;
 
 	standInItemViewListSidebarComponentElement.parentNode.removeChild(
@@ -434,16 +448,16 @@ export function getItemViewListSidebarComponentWidth() {
 
 /**
  * Manages the size of two 'item-box' (className) elements inside a 'pair-container'
- * (className) element. If there is enough space, has both 'item-box' elements 
+ * (className) element. If there is enough space, has both 'item-box' elements
  * fit side by side, otherwise has the first sit on top of the second.
  *
  * @param {Element} pairContainerElement - 'pair-container' element that contains
  * two 'item-box' (className) elements
  * @param {number} outerDivingContainerMinWidth - minWidth for
- * 'outer-dividing-container' element that contains item-box elements (i.e. 
- * 'itemViewComponentOuterDividingContainerElementMinWidth' property in 
+ * 'outer-dividing-container' element that contains item-box elements (i.e.
+ * 'itemViewComponentOuterDividingContainerElementMinWidth' property in
  * 'constants' property's Object of SIZE_CONTAINER of the redux state)
- * 
+ *
  * @example
  * manageSizeOfItemBoxsElementInPairContainerElement(
  * 	document.getElementsByClassName(

@@ -3,15 +3,12 @@
 
 .item-view-list-sidebar-component,
 .js-get-item-view-list-sidebar-component {
-	// Width must be set here so width can be calculated and stored in redux
-	width: v.$item-view-list-sidebar-width;
-
 	.expand-minimize-button {
 		// Must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
 		top: v.$item-view-list-sidebar-top + 15;
-		left: v.$item-view-list-sidebar-width + v.$item-view-list-sidebar-border-width;
+		left: v.$item-view-list-sidebar-border-width;
 		border: v.$item-view-list-sidebar-border-width solid black;
 		border-left: none;
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-light;
@@ -25,8 +22,8 @@
 		}
 	}
 
-	.expand-minimize-button--minimized {
-		left: v.$item-view-list-sidebar-border-width;
+	.expand-minimize-button--expanded {
+		left: v.$item-view-list-sidebar-expanded-width + v.$item-view-list-sidebar-border-width;
 	}
 
 	.expand-minimize-button__centering-container {
@@ -38,7 +35,8 @@
 		@include m.dead-center();
 	}
 
-	.list-sidebar-container {
+	.list-sidebar-container,
+	.js-get-item-view-list-sidebar-component-container-element {
 		// Must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
@@ -48,16 +46,16 @@
 		border-left: none;
 		border-bottom: none;
 		height: 90vh;
-		// Width must be set here again to not go beyond
-		width: v.$item-view-list-sidebar-width;
+		width: 0px;
 		font-size: v.$common-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto;
 		overflow-x: hidden;
 	}
 
-	.list-sidebar-container--minimized {
-		width: 0px;
+	.list-sidebar-container--expanded,
+	.js-get-item-view-list-sidebar-component-container-element--expanded {
+		width: v.$item-view-list-sidebar-expanded-width;
 	}
 
 	.list-sidebar-container__table {
@@ -91,7 +89,7 @@
 		// ...background-color applied keeps the bottom-border from appearing
 		box-shadow: v.$mode-item-view-list-sidebar-table-row-header-box-shadow-light;
 		background-color: v.$mode-item-view-list-sidebar-table-row-header-background-color-light;
-		width: v.$item-view-list-sidebar-width;
+		width: v.$item-view-list-sidebar-expanded-width;
 		color: v.$mode-common-strong-text-color-light;
 	}
 
@@ -103,8 +101,8 @@
 	.list-sidebar-container__table__row__data__overflow-container {
 		@include m.dead-center();
 
-		width: v.$item-view-list-sidebar-width - 25;
-		max-width: v.$item-view-list-sidebar-width - 25;
+		width: v.$item-view-list-sidebar-expanded-width - 25;
+		max-width: v.$item-view-list-sidebar-expanded-width - 25;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;

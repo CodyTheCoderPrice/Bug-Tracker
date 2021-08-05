@@ -46,7 +46,7 @@ export * from "./resetActions";
  *  itemViewComponentPaddingContainerElementLeftPadding: (number|null),
  * 	itemViewComponentOuterDividingContainerElementMinWidth: (number|null),
  * 	itemViewTopBarComponentHeight: (number|null),
- * 	itemViewListSidebarComponentWidth: (number|null)
+ * 	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth: (number|null)
  * }} sizes - Object containing size info for multiple html elements (whose
  * size remains constant)
  *
@@ -67,7 +67,7 @@ export * from "./resetActions";
  * 		itemViewComponentPaddingContainerElementLeftPadding: 25,
  * 		itemViewComponentOuterDividingContainerElementMinWidth: 560,
  * 		itemViewTopBarComponentHeight: 48,
- * 		itemViewListSidebarComponentWidth: 275
+ * 		itemViewListSidebarComponentContainerElementWithExpandedModifierWidth: 275
  * 	})
  * );
  */

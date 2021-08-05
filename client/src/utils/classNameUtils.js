@@ -246,6 +246,19 @@ export function getItemViewListSidebarComponentClassName() {
 	return " js-get-item-view-list-sidebar-component";
 }
 
+/**
+ * Gets a className equivelent to the 'list-sidebar-container list-sidebar-container--expanded'
+ * className (with modifier) used by ItemViewListSidebar component.
+ *
+ * Note: This function's purpose is to have the returned className assigned to
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'list-sidebar-container--expanded'
+ */
+ export function getItemViewListSidebarComponentContainerElementWithExpandedModifierClassName() {
+	return " js-get-item-view-list-sidebar-component-container-element js-get-item-view-list-sidebar-component-container-element--expanded";
+}
+
 //============================
 // Light/Dark mode classNames
 //============================

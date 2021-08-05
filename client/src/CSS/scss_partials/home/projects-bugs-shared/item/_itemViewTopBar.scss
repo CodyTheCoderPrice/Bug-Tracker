@@ -25,10 +25,6 @@
 		width: v.$item-view-top-bar-search-bar-width;
 	}
 
-	.search-container--invisible {
-		visibility: hidden;
-	}
-
 	.search-container__search-bar {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;

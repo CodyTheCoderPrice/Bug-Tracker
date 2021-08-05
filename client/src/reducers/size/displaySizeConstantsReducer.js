@@ -15,18 +15,19 @@ const initialState = {
 	itemViewComponentPaddingContainerElementLeftPadding: null,
 	itemViewComponentOuterDividingContainerElementMinWidth: null,
 	itemViewTopBarComponentHeight: null,
-	itemViewListSidebarComponentWidth: null,
+	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth:
+		null,
 };
 
 /**
  * Used to set 'constants' property containing constant html element sizes into
  * SIZE_CONTAINER of the redux state.
- * 
- * Note: The purpose of the 'constants' property is to get CSS property sizes 
+ *
+ * Note: The purpose of the 'constants' property is to get CSS property sizes
  * (that never change) for specific elements to be used by JS for resizing other
- * elements (e.g. resizing breadcrumb buttons in NavbarBreadcrumb component). 
+ * elements (e.g. resizing breadcrumb buttons in NavbarBreadcrumb component).
  * This keeps from having to refetch these CSS property sizes each time one of
- * the other elements needs resizing. 
+ * the other elements needs resizing.
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
@@ -42,7 +43,7 @@ const initialState = {
  *  itemViewComponentPaddingContainerElementLeftPadding: (number|null),
  * 	itemViewComponentOuterDividingContainerElementMinWidth: (number|null),
  * 	itemViewTopBarComponentHeight: (number|null),
- * 	itemViewListSidebarComponentWidth: (number|null)
+ * 	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth: (number|null)
  * }} state - Current Object (in the redux state) for constant html element
  * sizes
  * @param {Object} action - Object with a 'container' property (determins where
@@ -63,7 +64,7 @@ const initialState = {
  * 	itemViewComponentPaddingContainerElementLeftPadding: (number|null),
  * 	itemViewComponentOuterDividingContainerElementMinWidth: (number|null),
  * 	itemViewTopBarComponentHeight: (number|null),
- * 	itemViewListSidebarComponentWidth: (number|null)
+ * 	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth: (number|null)
  * }} Object containing constant html element sizes
  */
 export default function displaySizeConstantsReducer(
@@ -91,8 +92,9 @@ export default function displaySizeConstantsReducer(
 					action.sizes.itemViewComponentOuterDividingContainerElementMinWidth,
 				itemViewTopBarComponentHeight:
 					action.sizes.itemViewTopBarComponentHeight,
-				itemViewListSidebarComponentWidth:
-					action.sizes.itemViewListSidebarComponentWidth,
+				itemViewListSidebarComponentContainerElementWithExpandedModifierWidth:
+					action.sizes
+						.itemViewListSidebarComponentContainerElementWithExpandedModifierWidth,
 			};
 		default:
 			return state;

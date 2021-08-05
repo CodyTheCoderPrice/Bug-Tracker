@@ -3,55 +3,71 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
 // Initial state for which general components should be displayed by the app
 const initialState = {
-	// The following four relate to components and if they should be displayed. 
-	// ...Each of these four is named after the component they represent.
-	// ...Exactly one of the following three properties should be true at any
-	// ...given point in time, as their components will cause CSS issues with
-	// ...one another if displayed simutaneously.
 	register: false,
 	login: true,
 	home: false,
-	// In GENERAL_CONTAINER since value should be same for both the project and 
-	// ...bug version of ItemViewListSidebar (as user likely would expect them 
-	// ...to be).
-	itemViewListSidebar: true,
-	// true means user has clicked button to change whether ItemViewListSidebar
-	// ...displays during this session; false means it's only been auto-decided
-	// ...based on window size. Used to control when auto-decide happens, as it
-	// ...will only continue to be auto-decided while false.
-	itemViewListSidebarUserSet: false,
+	// This is in the GENERAL_CONTAINER since value should be same for both the
+	// ...project and bug versions of ItemViewListSidebar component (as user
+	// ...likely would expect them to be).
+	itemViewListSidebarComponentContainerElementExpanded: true,
+	itemViewListSidebarComponentContainerElementExpandedUserSet: false,
 };
 
 /**
- * Used to set 'componentsDisplay' property into GENERAL_CONTAINER of the redux
- * state for which general components should be displayed by the app. Exactly
- * one of actions.displays register, login, and home properties should set to 
- * true at any given point in time. If an account is logged into the app (i.e.
- * there is a jwToken in localStoreage), then home component will be set to true
- * while register and login components set to false in the redux state, even if
- * home was not attempted to be set to true. If more or less than one of these 
- * components is true in actions.displays but no account is logged into the
- * app, then either login or register will be set to true in the redux state, 
- * with login taking prioirty over register. If any expected properties in 
- * actions.displays (e.g. resgister, login, ect.) are undefined, then they will
- * be set to false in the redux state (except for itemViewListSidebar, which 
- * will be set to true).
- * 
- * Note: The purpose of the register, login, home, and itemViewListSidebar 
- * properties inside this reducer are to be used as flags for whether the 
- * components they represent (they share the same name, e.g. home represents the
- * Home component) should be displayed by the app. The purpose of the
- * itemViewListSidebarUserSet property is to be used as a flag for whether the
- * the app should auto-decide if ItemViewListSidebar should display based on the
- * current window size. If false it will continue to auto-decide, if true it 
- * will not auto-decide.
+ * Used to Set 'componentsDisplay' property in GENERAL_CONTAINER of the redux
+ * state for how general components should be displayed by the app. The 
+ * 'register', 'login', and 'home' properties refer to whether the components
+ * they represent should display (e.g. 'login' represents the Login component).
+ * As a rule, exactly one of these three properties should be true at any point
+ * in time (as the components they represent were not intended to be displayed
+ * simultaneously), as well as 'home' should always be true while a user is 
+ * logged into the app, and either 'register' or 'login' should be true if a 
+ * user is not logged in. This reducer ensures these rules are followed, meaning 
+ * which of these three properties actually gets set to true in the redux state
+ * may not match up with which were set to true in action.displays. It should 
+ * be noted that 'login' takes prioirty over 'register', meaning if no account
+ * is logged in, and both or neither are set to true in action.displays, then 
+ * 'login' will be set to true in the redux state. The 
+ * 'itemViewListSidebarComponentContainerElementExpanded' property represents
+ * if the ItemViewListSidebar component should be expanded or minimized. The 
+ * 'itemViewListSidebarComponentContainerElementExpandedUserSet' property 
+ * represents if the user has clicked the ItemViewListSidebar component's
+ * 'expand-minimize-button' (className) element during the current session.
+ * If any expected properties in action.displays (e.g. 'resgister', 'login', 
+ * ect.) are undefined, then they will be attempted to be set to false in the
+ * redux state (except for 'itemViewListSidebarComponentContainerElementExpanded',
+ * which will be attempted to be set to true).
+ *
+ * Note: The purpose of the 'register', 'login', and 'home' properties inside
+ * this reducer are to be used as flags for whether the components they represent
+ * (e.g. home represents the Home component) should be displayed by the app. The
+ * purpose of the 'itemViewListSidebarComponentContainerElementExpanded' property
+ * is to be used as a flag for whether the ItemViewListSidebar component's
+ * 'list-sidebar-container' (className) element should be expanded. When true,
+ * the following must be done:
+ * 		ItemViewListSidebar component's 'list-sidebar-container' (className)
+ * 		element should have 'list-sidebar-container--expanded' modifier appended.
+ * 		ItemViewListSidebar component's 'expand-minimize-button' (className)
+ * 		element should have 'expand-minimize-button--expanded' modifier appended.
+ * 		ItemView component's 'item-content-container' (className) element should
+ * 		have 'item-content-container--shifted-right' modifier appended.
+ * When false, the following must be done:
+ * 		ItemViewTopBar component's 'search-container' and 'list-filter-or-sort-container'
+ * 		 (className) elements should not be present in that component's JSX.
+ * The purpose of the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
+ * property is to be used as a flag by the custom hook in
+ * useAutoDecideIfItemViewListSidebarComponentDisplaysHookUtils.js for whether
+ * the app should auto-decide if ItemViewListSidebar component's
+ * 'list-sidebar-container' (className) element should be expanded based on the
+ * current window size. If false it will continue to auto-decide, if true it
+ * will no longer auto-decide (until turned false again through an app reset).
  *
  * @param {{
  * 	register: boolean,
  * 	login: boolean,
  * 	home: boolean,
- * 	itemViewListSidebar: boolean,
- * 	itemViewListSidebarUserSet: boolean
+ * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
+ * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
  * }} state - Current Object (in the redux state) for which general components
  * are being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
@@ -62,8 +78,8 @@ const initialState = {
  * 	register: boolean,
  * 	login: boolean,
  * 	home: boolean,
- * 	itemViewListSidebar: boolean,
- * 	itemViewListSidebarUserSet: boolean
+ * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
+ * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
  * }} Object for which general components should display by the app
  */
 export default function generalComponentsDisplayReducer(
@@ -79,13 +95,13 @@ export default function generalComponentsDisplayReducer(
 					home: action.displays.home,
 				},
 				(boolean) => boolean === true
-			);	
+			);
 
 			const keysOfRegisterLoginHomeComponentsSetToTrue = Object.keys(
 				registerLoginHomeComponentsSetToTrue
 			);
-		
-			// Makes sure if an account is logged into the app (i.e. there is a 
+
+			// Makes sure if an account is logged into the app (i.e. there is a
 			// ...jwToken in localStorage) then home property is trues instead
 			// ...of register or login
 			if (localStorage.getItem("jwToken") !== null) {
@@ -93,12 +109,12 @@ export default function generalComponentsDisplayReducer(
 					console.log(
 						"Error: An account is logged into the app, but home was not attempted to be set to true in in generalComponentsDisplayReducer, which goes against its intended use, so home component was set to true."
 					);
-				} else if (
-					keysOfRegisterLoginHomeComponentsSetToTrue.length > 1
-				) {
+				} else if (keysOfRegisterLoginHomeComponentsSetToTrue.length > 1) {
 					console.log(
 						"Error: " +
-							getStringOfAllArrayValues(keysOfRegisterLoginHomeComponentsSetToTrue) +
+							getStringOfAllArrayValues(
+								keysOfRegisterLoginHomeComponentsSetToTrue
+							) +
 							" were all attempted to be set to true in generalComponentsDisplayReducer, which goes against their intended use. Since an account is logged into the app, home component was set to true, while login and register components were set to false."
 					);
 				}
@@ -107,15 +123,16 @@ export default function generalComponentsDisplayReducer(
 				action.displays["login"] = false;
 				action.displays["home"] = true;
 			}
-			// Since an account is not logged into the app (i.e. there is no 
+			// Since an account is not logged into the app (i.e. there is no
 			// ...jwToken in localStoreage), makes sure either login or resiger
 			// ...properties are true instead of home
-			else if (keysOfRegisterLoginHomeComponentsSetToTrue.length > 1)
-			{
+			else if (keysOfRegisterLoginHomeComponentsSetToTrue.length > 1) {
 				if (action.displays.login === true) {
 					console.log(
 						"Error: " +
-							getStringOfAllArrayValues(keysOfRegisterLoginHomeComponentsSetToTrue) +
+							getStringOfAllArrayValues(
+								keysOfRegisterLoginHomeComponentsSetToTrue
+							) +
 							" were all attempted to be set to true in generalComponentsDisplayReducer, which goes against their intended use. Since no account is authenticaed as logged in, login component was set to true, while register and home components were set to false."
 					);
 
@@ -125,7 +142,9 @@ export default function generalComponentsDisplayReducer(
 				} else {
 					console.log(
 						"Error: " +
-							getStringOfAllArrayValues(keysOfRegisterLoginHomeComponentsSetToTrue) +
+							getStringOfAllArrayValues(
+								keysOfRegisterLoginHomeComponentsSetToTrue
+							) +
 							" were all attempted to be set to true in generalComponentsDisplayReducer, which goes against their intended use. Since no account is authenticaed as logged in, register component was set to true, while login and home components were set to false."
 					);
 
@@ -138,7 +157,7 @@ export default function generalComponentsDisplayReducer(
 			return {
 				// Ternary operator is used to set undefined properties to
 				// ...their default, so you only have to pass the properties you
-				// ...want to set differently, which makes using this redux 
+				// ...want to set differently, which makes using this redux
 				// ...action easier
 				register:
 					action.displays.register !== undefined
@@ -148,13 +167,18 @@ export default function generalComponentsDisplayReducer(
 					action.displays.login !== undefined ? action.displays.login : false,
 				home: action.displays.home !== undefined ? action.displays.home : false,
 				// If undefined then true since default is true
-				itemViewListSidebar:
-					action.displays.itemViewListSidebar !== undefined
-						? action.displays.itemViewListSidebar
+				itemViewListSidebarComponentContainerElementExpanded:
+					action.displays
+						.itemViewListSidebarComponentContainerElementExpanded !== undefined
+						? action.displays
+								.itemViewListSidebarComponentContainerElementExpanded
 						: true,
-				itemViewListSidebarUserSet:
-					action.displays.itemViewListSidebarUserSet !== undefined
-						? action.displays.itemViewListSidebarUserSet
+				itemViewListSidebarComponentContainerElementExpandedUserSet:
+					action.displays
+						.itemViewListSidebarComponentContainerElementExpandedUserSet !==
+					undefined
+						? action.displays
+								.itemViewListSidebarComponentContainerElementExpandedUserSet
 						: false,
 			};
 		default:

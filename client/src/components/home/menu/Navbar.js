@@ -28,7 +28,7 @@ import {
 	getListViewTopBarComponentHeight,
 	getListViewTableComponentRowElementHeight,
 	getItemViewTopBarComponentHeight,
-	getItemViewListSidebarComponentWidth,
+	getItemViewListSidebarComponentContainerElementWithExpandedModifierWidth,
 	getItemViewComponentPaddingContainerElementLeftPadding,
 	getItemViewComponentOuterDividingContainerElementMinWidth,
 	getCommonStandardBackgroundColorClassNameForTheme,
@@ -67,8 +67,8 @@ export default function Navbar() {
 				itemViewComponentOuterDividingContainerElementMinWidth:
 					getItemViewComponentOuterDividingContainerElementMinWidth(),
 				itemViewTopBarComponentHeight: getItemViewTopBarComponentHeight(),
-				itemViewListSidebarComponentWidth:
-					getItemViewListSidebarComponentWidth(),
+				itemViewListSidebarComponentContainerElementWithExpandedModifierWidth:
+					getItemViewListSidebarComponentContainerElementWithExpandedModifierWidth(),
 			})
 		);
 

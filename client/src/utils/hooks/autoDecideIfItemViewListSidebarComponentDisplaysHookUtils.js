@@ -10,25 +10,28 @@ import { getWindowSize } from "../index";
 
 /**
  * Custom hook that adds auto-deciding functionality to whether the
- * ItemViewListSidebar component displays, based on the current window size.
- * This functionality will only take place during any given session while the
- * 'itemViewListSidebarUserSet' property in 'componentsDisplay' property's
- * object in GENERAL_CONTAINER of the redux state is false (i.e. until the user
- * manually opens or closses the ItemViewListSidebar component). The way it
- * works is that if the window size is too narrow to display the
- * ItemViewListSidebar component and also fully display an item's info in the
- * ItemView component, then the 'componentsDisplay' property in GENERAL_CONTAINER
- * of the redux state, will be update to ensure the ItemViewListSidebar component
- * displays. Otherwise, it will be updated to ensure it does not display.
+ * ItemViewListSidebar component's 'list-sidebar-container' (className) element
+ * should be expanded (i.e. have the 'list-sidebar-container--expanded' modifier
+ * appended), based on if current window size is wide enough to both expand the
+ * 'list-sidebar-container' element and have the ItemView component to display 
+ * an item's info. This functionality will only take place during any given 
+ * session while the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
+ * property in 'componentsDisplay' property's object in GENERAL_CONTAINER of the 
+ * redux state is false (i.e. until the user manually expands or minimizes the 
+ * 'list-sidebar-container' element). This hook changes whether the 
+ * 'list-sidebar-container' element is expanded or not by changing the
+ * 'itemViewListSidebarComponentContainerElementExpanded' property in the 
+ * GENERAL_CONTAINER of the redux state.
  *
  * Note: The purpose of this custom hook is to be used by the ItemView component
  * to make the ItemViewListSidebar component more user friendly, as when the
- * window size gets too narrow, it displaying can inhibit seeing an item's info,
- * which would likely annoy the user. However, it's also likely that once the
- * user manually opens or closes the ItemViewListSidebar component during any
- * given session, that they would expect it to remain that way for the remainder
- * of the session, unless they change it. This is why the auto-decide
- * functionality only takes place until the user manually opens or closses it.
+ * window size gets too narrow, it being expanded can inhibit seeing an item's 
+ * info, which would likely annoy the user. However, it's also likely that once 
+ * the user manually expands or minimizes the 'list-sidebar-container' element 
+ * during any given session, that they would expect it to remain that way for 
+ * the remainder of the session, unless they personally change it, which is why
+ * the auto-decide functionality only takes place until the user manually expands
+ * or minimizes it.
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
@@ -50,9 +53,11 @@ export function useAutoDecideIfItemViewListSidebarComponentDisplays(
 		// ...in the optimization below, once they are set, this will run
 		if (
 			passedReduxState[GENERAL_CONTAINER].componentsDisplay
-				.itemViewListSidebarUserSet === false &&
+				.itemViewListSidebarComponentContainerElementExpandedUserSet ===
+				false &&
 			passedReduxState[SIZE_CONTAINER].constants
-				.itemViewListSidebarComponentWidth !== null &&
+				.itemViewListSidebarComponentContainerElementWithExpandedModifierWidth !==
+				null &&
 			passedReduxState[SIZE_CONTAINER].constants
 				.itemViewComponentPaddingContainerElementLeftPadding !== null &&
 			passedReduxState[SIZE_CONTAINER].constants
@@ -80,10 +85,10 @@ export function useAutoDecideIfItemViewListSidebarComponentDisplays(
 			dispatch(
 				setWhichGeneralComponentsDisplay({
 					...passedReduxState[GENERAL_CONTAINER].componentsDisplay,
-					itemViewListSidebar:
+					itemViewListSidebarComponentContainerElementExpanded:
 						windowSize.width -
 							passedReduxState[SIZE_CONTAINER].constants
-								.itemViewListSidebarComponentWidth >=
+								.itemViewListSidebarComponentContainerElementWithExpandedModifierWidth >=
 						minWidthNeededForNoItemBoxOverflow,
 				})
 			);

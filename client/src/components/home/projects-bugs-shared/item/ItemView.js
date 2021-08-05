@@ -22,7 +22,7 @@ import {
 	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
-import { useAutoDecideIfItemViewListSidebarComponentDisplays } from "../../../../utils/hooks"
+import { useAutoDecideIfItemViewListSidebarComponentDisplays } from "../../../../utils/hooks";
 
 // Components
 import ItemViewTopBar from "./ItemViewTopBar";
@@ -47,7 +47,8 @@ export default function ItemView(props) {
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
 			reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight !==
 				null &&
-			reduxState[SIZE_CONTAINER].constants.itemViewListSidebarComponentWidth !==
+			reduxState[SIZE_CONTAINER].constants
+				.itemViewListSidebarComponentContainerElementWithExpandedModifierWidth !==
 				null
 		) {
 			const itemViewElement = document.getElementsByClassName(
@@ -60,11 +61,14 @@ export default function ItemView(props) {
 				reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight +
 				"px";
 
-			if (reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar) {
+			if (
+				reduxState[GENERAL_CONTAINER].componentsDisplay
+					.itemViewListSidebarComponentContainerElementExpanded
+			) {
 				itemViewElement.style.width =
 					reduxState[SIZE_CONTAINER].variables.window.width -
 					reduxState[SIZE_CONTAINER].constants
-						.itemViewListSidebarComponentWidth +
+						.itemViewListSidebarComponentContainerElementWithExpandedModifierWidth +
 					"px";
 			} else {
 				itemViewElement.style.width =
@@ -76,7 +80,8 @@ export default function ItemView(props) {
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER],
 		// eslint-disable-next-line
-		reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar,
+		reduxState[GENERAL_CONTAINER].componentsDisplay
+			.itemViewListSidebarComponentContainerElementExpanded,
 	]);
 
 	useEffect(() => {
@@ -188,7 +193,8 @@ export default function ItemView(props) {
 			<div
 				className={
 					"item-content-container js-item-content-container" +
-					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
+					(reduxState[GENERAL_CONTAINER].componentsDisplay
+						.itemViewListSidebarComponentContainerElementExpanded
 						? " item-content-container--shifted-right"
 						: "") +
 					getItemViewComponentItemContentContainerElementBackgroundColorClassNameForLightOrDarkMode(

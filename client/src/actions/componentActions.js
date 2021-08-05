@@ -16,58 +16,74 @@ import {
 
 /**
  * Sets 'componentsDisplay' property in GENERAL_CONTAINER of the redux state for
- * how general components should be displayed by the app. The displays prop should
- * have exactly one of it's register, login, and home properties set to true. If
- * an account is logged into the app (i.e. there is a jwToken in localStoreage),
- * then home component will be set to true while register and login components 
- * set to false in the redux state, even if home was not attempted to be set to 
- * true. If more or less than one of these components is true in displays prop, 
- * but no account is logged into the app, then either login or register will be 
- * set to true in the redux state, with login taking prioirty over register. If
- * any expected properties in displays prop (e.g. resgister, login, ect.) are
- * undefined, then they will be set to false in the redux state (except for
- * itemViewListSidebar, which will be set to true).
+ * how general components should be displayed by the app. The 'register', 
+ * 'login', and 'home' properties in the 'displays' prop refer to whether the 
+ * components they represent should display (e.g. 'login' represents the Login
+ * component). As a rule, exactly one of these three properties should be true 
+ * at any point in time in the redux state (as the components they represent
+ * were not intended to be displayed simultaneously), as well as 'home' should
+ * always be true while a user is logged into the app, and either 'register' or
+ * 'login' should be true if a user is not logged in. The 
+ * generalComponentsDisplayReducer ensures these rules are followed, meaning 
+ * which of these three properties actually gets set to true in the redux state
+ * may not match up with which were set to true in the 'displays' prop. It 
+ * should be noted that 'login' takes prioirty over 'register', meaning if no
+ * account is logged in, and both or neither are set to true in the 'display'
+ * prop, then 'login' will be set to true in the redux state. The 
+ * 'itemViewListSidebarComponentContainerElementExpanded' property represents
+ * if the ItemViewListSidebar component should be expanded or minimized. The 
+ * 'itemViewListSidebarComponentContainerElementExpandedUserSet' property 
+ * represents if the user has clicked the ItemViewListSidebar component's
+ * 'expand-minimize-button' (className) element during the current session.
+ * If any expected properties in 'displays' prop (e.g. 'resgister', 'login', 
+ * ect.) are undefined, then they will be attempted to be set to false in the
+ * redux state (except for 'itemViewListSidebarComponentContainerElementExpanded',
+ * which will be attempted to be set to true).
  *
- * Note: The purpose of this dispatch function is to be used to control how
- * general components display (e.g. if 'componentsDisplay.register' is true, 
- * then the Register component should be displayed). The way this is intended 
- * to be achieved is by having the parent component of any one of these general
- * components, check the value of that general component's corresponding 
- * property in 'componentsDisplay' property's object, and only have it be 
- * present in the JSX if it's true, which can be done using a ternary operator
- * (e.g. componentsDisplay.register ? <Register /> : null). 
+ * Note: The way the 'register', 'login', and 'home' properties in the redux 
+ * state are intended to control whether the components they represent display,
+ * is by having their parent component (i.e. App component), check the value of
+ * these properties, and only have their corresponding component be present in
+ * the JSX if their property is true, which can be done using a ternary operator. 
  * 
- * Note: The 'itemViewListSidebarUserSet' property in 'componentsDisplay' 
- * property's object is different from the rest in that it does not correspond
- * to whether a particular component should display, but rather whether the user
- * has set whether the ItemViewListSidebar component should display or not via
- * the ItemViewListSidebar component's 'expand-minimize-button' (className) 
- * element. The reason this is important is that the custom hook in
- * useAutoDecideIfItemViewListSidebarComponentDisplaysHookUtils.js uses this
- * property to determin if its auto-decide functionality should run (more info
- * available in that file).
+ * Note: The way the 'itemViewListSidebarComponentContainerElementExpanded' 
+ * property in the redux state is intended to control whether the 
+ * ItemViewListSidebar component is expanded or not is by in that component's
+ * JSX, list-sidebar-container--expanded' className to the 
+ * 'list-sidebar-container' (className) element whenever the 
+ * 'itemViewListSidebarComponentContainerElementExpanded' property is .
+ * This can be done using a ternary operator.
+ * 
+ * Note: The 'itemViewListSidebarComponentContainerElementExpandedUserSet' 
+ * property should be set to true whenever the user clicks the 
+ * ItemViewListSidebar component's 'expand-minimize-button' (className) element.
+ * The purpose of this property is to be used by the custom hook in 
+ * useAutoDecideIfItemViewListSidebarComponentDisplaysHookUtils.js to determin 
+ * if its auto-decide functionality should run (more info available the JsDoc 
+ * of that file).
  * 
  * @param {{
  * 	register: (boolean|undefined),
  * 	login: (boolean|undefined),
  * 	home: (boolean|undefined),
- * 	itemViewListSidebar: (boolean|undefined),
- * 	itemViewListSidebarUserSet: (boolean|undefined)
+ * 	itemViewListSidebarComponentContainerElementExpanded: (boolean|undefined),
+ * 	itemViewListSidebarComponentContainerElementExpandedUserSet: (boolean|undefined)
  * }} displays - Object containing info for how general components should be
  * displyed in the app. Any general components set to undefined or excluded
  * from this param will be set to false in the redux state.
  *
  * @example
- * // Sets home component and itemViewListSidebar to true, and all other general 
- * // ...components to false. The dispatch function is from useDispatch() 
- * // ...imported from react-redux.
- * dispatch(setWhichGeneralComponentsDisplay({ home: true }));
+ * // Sets 'home' and 'itemViewListSidebarComponentContainerElementExpanded' 
+ * // ...properties to true, and all other properties to false. The dispatch
+ * // ...function is from useDispatch() imported from react-redux.
+ * // ...dispatch(setWhichGeneralComponentsDisplay({ home: true }));
  * 
  * @example
- * // Sets either home or login component to true depending on if an account is
- * // ...logged into the app, as well as itemViewListSidebar to true, and all 
- * // ...other general components to false. The dispatch function is from 
- * // ...useDispatch() imported from react-redux.
+ * // Sets either 'home' or 'login' property to true depending on if an account
+ * // ...is logged into the app, as well as the 
+ * // ... 'itemViewListSidebarComponentContainerElementExpanded' property to 
+ * // ...true, and all other properties to false. The dispatch function is 
+ * // ...from useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralComponentsDisplay({}));
  */
 export const setWhichGeneralComponentsDisplay =

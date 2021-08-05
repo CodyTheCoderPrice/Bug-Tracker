@@ -70,6 +70,8 @@ const rootReducer = combineReducers({
 		generalComponentsPersistConfig,
 		generalContainerReducer
 	),
+	// SIZE_CONTAINER not persisted as variables always need to be recalculated
+	// ...and constants may have changed since last refresh from a website update
 	[SIZE_CONTAINER]: sizeContainerReducer,
 	[ACCOUNT_CONTAINER]: accountContainerReducer,
 	[COMMENT_CONTAINER]: commentContainerReducer,

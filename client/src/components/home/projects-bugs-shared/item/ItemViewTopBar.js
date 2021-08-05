@@ -63,8 +63,9 @@ export default function ItemViewTopBar(props) {
 
 		dispatch(
 			setWhichGeneralDropdownsDisplay({
-				itemViewTopBarFilterDropdown: !reduxState[GENERAL_CONTAINER]
-					.dropdownsDisplay.itemViewTopBarFilterDropdown,
+				itemViewTopBarFilterDropdown:
+					!reduxState[GENERAL_CONTAINER].dropdownsDisplay
+						.itemViewTopBarFilterDropdown,
 			})
 		);
 	};
@@ -74,8 +75,9 @@ export default function ItemViewTopBar(props) {
 
 		dispatch(
 			setWhichGeneralDropdownsDisplay({
-				itemViewTopBarSortDropdown: !reduxState[GENERAL_CONTAINER]
-					.dropdownsDisplay.itemViewTopBarSortDropdown,
+				itemViewTopBarSortDropdown:
+					!reduxState[GENERAL_CONTAINER].dropdownsDisplay
+						.itemViewTopBarSortDropdown,
 			})
 		);
 	};
@@ -85,8 +87,9 @@ export default function ItemViewTopBar(props) {
 
 		dispatch(
 			setWhichGeneralDropdownsDisplay({
-				itemViewTopBarOptionsDropdown: !reduxState[GENERAL_CONTAINER]
-					.dropdownsDisplay.itemViewTopBarOptionsDropdown,
+				itemViewTopBarOptionsDropdown:
+					!reduxState[GENERAL_CONTAINER].dropdownsDisplay
+						.itemViewTopBarOptionsDropdown,
 			})
 		);
 	};
@@ -113,8 +116,9 @@ export default function ItemViewTopBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemViewEditItemInfo: !reduxState[props.reduxContainerName]
-					.componentsDisplay.itemViewEditItemInfo,
+				itemViewEditItemInfo:
+					!reduxState[props.reduxContainerName].componentsDisplay
+						.itemViewEditItemInfo,
 			})
 		);
 	};
@@ -154,45 +158,48 @@ export default function ItemViewTopBar(props) {
 				)
 			}
 		>
-			<div
-				className={
-					"search-container" +
-					getCommonTopBarComponentSearchContainerElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-						reduxState[ACCOUNT_CONTAINER].settings.theme_color
-					) +
-					(reduxState[GENERAL_CONTAINER].componentsDisplay
-						.itemViewListSidebar !== true ||
-					(reduxState[SIZE_CONTAINER].variables.window !== null &&
-						reduxState[SIZE_CONTAINER].variables.window.width < 400)
-						? " search-container--invisible"
-						: "")
-				}
-			>
-				<input
-					type="text"
-					name="searchBarText"
-					onChange={onChangeSearchBar}
-					onKeyDown={searchBarKeyDown}
-					value={searchBarText}
-					className="search-container__search-bar js-item-search-bar"
-				/>
+			{reduxState[GENERAL_CONTAINER].componentsDisplay
+				.itemViewListSidebarComponentContainerElementExpanded !== true ||
+			// Also if the window width is too small (value chosen by eyening
+			// ...it) as the searchbar won't fit on screen
+			(reduxState[SIZE_CONTAINER].variables.window !== null &&
+				reduxState[SIZE_CONTAINER].variables.window.width < 400) ? null : (
 				<div
-					className="search-container__search-button js-item-search-button"
-					alt="Button for searchbar"
-					onClick={updateSearchKeyWordString}
+					className={
+						"search-container" +
+						getCommonTopBarComponentSearchContainerElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+							reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						)
+					}
 				>
-					<span className="search-container__search-button__icon">
-						<i
-							className="fa fa-search"
-							aria-hidden="true"
-							alt="Icon of a magnifying glass"
-						/>
-					</span>
+					<input
+						type="text"
+						name="searchBarText"
+						onChange={onChangeSearchBar}
+						onKeyDown={searchBarKeyDown}
+						value={searchBarText}
+						className="search-container__search-bar js-item-search-bar"
+					/>
+					<div
+						className="search-container__search-button js-item-search-button"
+						alt="Button for searchbar"
+						onClick={updateSearchKeyWordString}
+					>
+						<span className="search-container__search-button__icon">
+							<i
+								className="fa fa-search"
+								aria-hidden="true"
+								alt="Icon of a magnifying glass"
+							/>
+						</span>
+					</div>
 				</div>
-			</div>
-			{reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar !==
-				true ||
+			)}
+			{reduxState[GENERAL_CONTAINER].componentsDisplay
+				.itemViewListSidebarComponentContainerElementExpanded !== true ||
+			// Also if the window width is too small (value chosen by eyening
+			// ...it) as the filter and sort buttons won't fit on screen
 			(reduxState[SIZE_CONTAINER].variables.window !== null &&
 				reduxState[SIZE_CONTAINER].variables.window.width < 602) ? null : (
 				<div>

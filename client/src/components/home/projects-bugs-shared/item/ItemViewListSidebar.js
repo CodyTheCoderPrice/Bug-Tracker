@@ -47,22 +47,21 @@ export default function ItemViewListSidebar(props) {
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].variables,
 		// eslint-disable-next-line
-		reduxState[props.reduxContainerName].componentsDisplay.itemViewListSidebar,
+		reduxState[props.reduxContainerName].componentsDisplay
+			.itemViewListSidebarComponentContainerElementExpanded,
 	]);
 
-	const toggleListSidebar = () => {
+	const toggleListSidebarComponentContainerElementExpanded = () => {
 		dispatch(
-			setWhichGeneralComponentsDisplay(
-				{
-					...reduxState[GENERAL_CONTAINER].componentsDisplay,
-					itemViewListSidebar:
-						!reduxState[GENERAL_CONTAINER].componentsDisplay
-							.itemViewListSidebar,
-					// Set true since the user has manually changed whether
-					// ...the ItemViewListSidebar displays
-					itemViewListSidebarUserSet: true,
-				}
-			)
+			setWhichGeneralComponentsDisplay({
+				...reduxState[GENERAL_CONTAINER].componentsDisplay,
+				itemViewListSidebarComponentContainerElementExpanded:
+					!reduxState[GENERAL_CONTAINER].componentsDisplay
+						.itemViewListSidebarComponentContainerElementExpanded,
+				// Set true since the user has manually changed whether
+				// ...'list'sidebar-container' (className) element is expanded
+				itemViewListSidebarComponentContainerElementExpandedUserSet: true,
+			})
 		);
 	};
 
@@ -74,20 +73,21 @@ export default function ItemViewListSidebar(props) {
 					getItemViewListSidebarComponentExpandMinimizeButtonElementBorderAndBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
-					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
-						? " "
-						: " expand-minimize-button--minimized")
+					(reduxState[GENERAL_CONTAINER].componentsDisplay
+						.itemViewListSidebarComponentContainerElementExpanded
+						? " expand-minimize-button--expanded"
+						: " ")
 				}
 				alt={
 					"Button to open and close the sidebar contianing the list of " +
 					(props.reduxContainerName === PROJECT_CONTAINER ? "projects" : "bugs")
 				}
-				onClick={toggleListSidebar}
+				onClick={toggleListSidebarComponentContainerElementExpanded}
 			>
 				<div className="expand-minimize-button__centering-container">
 					<div className="expand-minimize-button__centering-container__icon-container">
 						{reduxState[GENERAL_CONTAINER].componentsDisplay
-							.itemViewListSidebar ? (
+							.itemViewListSidebarComponentContainerElementExpanded ? (
 							<i
 								className="fa fa-chevron-left"
 								aria-hidden="true"
@@ -109,9 +109,10 @@ export default function ItemViewListSidebar(props) {
 					getItemViewListSidebarComponentSidebarContainerElementBorderColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
-					(reduxState[GENERAL_CONTAINER].componentsDisplay.itemViewListSidebar
-						? " "
-						: " list-sidebar-container--minimized")
+					(reduxState[GENERAL_CONTAINER].componentsDisplay
+						.itemViewListSidebarComponentContainerElementExpanded
+						? " list-sidebar-container--expanded"
+						: " ")
 				}
 			>
 				<table className="list-sidebar-container__table">
