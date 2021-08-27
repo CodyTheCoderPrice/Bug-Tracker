@@ -3,15 +3,7 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
 // Initial state for which account components should be displayed by the app
 const initialState = {
-	// All the following relate to components and if they should be displayed.
-	// ...Each property is named after the component they represent. Also 
-	// ...accountSidebar shouldn't be true while any of the following
-	// ...properties are also true (this is purely for cosmetics, not because
-	// ...it will cause CSS issues).
 	accountSidebar: false,
-	// At most one of the following properties should be true at any given point
-	// ...in time, as their components will cause CSS issues with one another if
-	// ...displayed simutaneously.
 	accountModalEditInfo: false,
 	accountModalEditEmail: false,
 	accountModalEditPassword: false,
@@ -22,16 +14,21 @@ const initialState = {
 /**
  * Used to set 'componentsDisplay' property in ACCOUNT_CONTAINER of the redux
  * state for which account components should display by the app. At most, 
- * actions.displays should only have one property as true, and if this is not 
- * the case, then only one of its properties will be arbitrarily selected to 
- * become true in the redux state. Also if any of actions.displays expected 
+ * actions.displays should only have one property as true. If more than one is
+ * set to true, then only one of its properties will be arbitrarily selected to 
+ * be set to true in the redux state. Also if any of actions.displays expected 
  * properties (e.g. accountSidebar, accountModalEditInfo, ect.) are undefined,
  * then they will be set to false in the redux state.
  *
  * Note: The purpose of each property inside this reducer is to be used as a 
  * flag for whether the component they represent (they share the same name, e.g.
- * accountSidebar represents the AccountSidebar component) should be displayed by
- * the app.
+ * 'accountSidebar' property represents AccountSidebar component) should be 
+ * displayed by the app. The reason at most only one property should be true 
+ * inside actions.displays is for both cosmetic reasons, as AccountSidebar and 
+ * AccountModal components do not look nice displaying together, and to prevent
+ * CSS issues, as having more than one child component of AccountModal component
+ * (e.g. AccountModalEditInfo and AccountModalEditEmail components) will break 
+ * its intended CSS design.
  * 
  * @param {{
  * 	accountSidebar: boolean,

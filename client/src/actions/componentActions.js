@@ -136,11 +136,21 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 /**
  * Sets 'componentsDisplay' property in ACCOUNT_CONTAINER of the redux state for
  * how account components should be displayed by the app. At most only one
- * account component should be set to true. If more than is attempted to be set
- * to true, only one of them will be arbitrarily selected to be set to true. 
- * Also if any expected properties in displays props (e.g. accountSidebar,
- * accountModalEditInfo, ect.) are undefined, then they will be set to false in
- * the redux state.
+ * property inside the 'displays' prop should be set to true. If more than one 
+ * is set to true, then the reducer will arbitrarily select only one to be set to
+ * true in the redux state. Also if any expected properties in 'displays' prop 
+ * (e.g. 'accountSidebar', 'accountModalEditInfo', ect.) are undefined, then they 
+ * will be set to false in the redux state.
+ * 
+ * Note: The purpose of each property inside 'componentsDisplay' property in 
+ * ACCOUNT_CONTAINER is to be used as a flag for whether the component they 
+ * represent (they share the same name, e.g. 'accountSidebar' property represents
+ * AccountSidebar component) should be displayed by the app. The reason at most 
+ * only one property should be true inside the 'displays' prop is for both 
+ * cosmetic reasons, as AccountSidebar and AccountModal components do not look 
+ * nice displaying together, and to prevent CSS issues, as having more than one
+ * child component of AccountModal component (e.g. AccountModalEditInfo and
+ * AccountModalEditEmail components) will break its intended CSS design.
  *
  * @param {{
  * 	accountSidebar: (boolean|undefined),
