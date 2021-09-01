@@ -24,15 +24,15 @@ import {
 } from "./index";
 
 /**
- * Sets 'isAuthenticated' property to true (indicating an account is currently
- * logged into the app), as well as the logged in account's authentication info
- * in 'auth' property in ACCOUNT_CONTAINER of the redux state.
- *
- * Note: The purpose of the 'isAuthenticated' property is to be another way of
- * telling if an account is currently logged into the app (can also tell by
- * checking if jwToken is present in localStorage). The purpose of the 'auth'
- * property is to be used to know if the account's current authentication
- * is expired, and to loggout the account when it does.
+ * Sets 'auth' Object containing authentication data (i.e. is an account logged
+ * in, logged in account's id, time of login, and when authentication will 
+ * expire) from the backend into ACCOUNT_CONTAINER of the redux state.
+ * 
+ * Note: Inside the 'auth' Object, the purpose of the 'isAuthenticated' boolean
+ * is to be another way of telling if an account is currently logged into the 
+ * app (can also tell by checking if jwToken is present in localStorage), and
+ * the purpose of the 'decodedToken' Object is to give the frontend access to
+ * the jwToken decoded (not currently used for anything, but is nice to have).
  *
  * @param {{
  *	account_id: number,
@@ -42,6 +42,14 @@ import {
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
+ * // Result in 'auth' Object {
+ * // 	isAuthenticated: true,
+ * // 	decodedToken: {
+ * //		account_id: 80,
+ * //		iat: 1619803038,
+ * //		exp: 1619889438
+ * // 	} 
+ * // }
  * dispatch(
  * 	setAuthentication({
  * 		account_id: 80,
