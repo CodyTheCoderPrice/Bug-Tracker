@@ -27,7 +27,7 @@ import {
  * AccountModalDeleteAccount components.
  *
  * The flag for displaying this component is 'accountModalEditInfo' property 
- * of 'componentsDisplay' property in ACCOUNT_CONTAINER of the redux state. This
+ * of 'componentsDisplay' property in 'ACCOUNT_CONTAINER' of the redux state. This
  * component should be the child of the AccountModal component. This component 
  * should not be displayed along side any sibling components whose name also 
  * begins with AccountModal (e.g. AccountModalEditPassword).

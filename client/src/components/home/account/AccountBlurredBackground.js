@@ -16,7 +16,7 @@ import { getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLig
  * all account components.
  * 
  * Note: There is no single flag inside 'componentsDisplay' property in 
- * ACCOUNT_CONTAINER of the redux state designated for if this component should 
+ * 'ACCOUNT_CONTAINER' of the redux state designated for if this component should 
  * display. Instead, this component should display if any flags inside that 
  * property are true (e.g. accountSidebar, accountModalEditInfo, ect.)
  * 

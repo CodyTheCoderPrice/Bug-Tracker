@@ -12,7 +12,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'componentsDisplay' property in ACCOUNT_CONTAINER of the redux
+ * Used to set 'componentsDisplay' property in 'ACCOUNT_CONTAINER' of the redux
  * state for which account components should display by the app. At most, 
  * actions.displays should only have one property as true. If more than one is
  * set to true, then only one of its properties will be arbitrarily selected to 

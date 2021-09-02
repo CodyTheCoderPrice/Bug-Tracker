@@ -5,7 +5,7 @@ import {
 
 /**
  * Gets the number of bugs with a particular status (statusId param) in 'list' 
- * property in BUG_CONTAINER of the redux state that belong to a particular 
+ * property in 'BUG_CONTAINER' of the redux state that belong to a particular 
  * project (projectId param).
  * 
  * @param {Object} passedReduxState - Current redux state from 
@@ -28,7 +28,7 @@ export function getNumberOfBugsForStatus(
 }
 
 /**
- * Gets a deep copy of 'list' property in BUG_CONTAINER of the redux state, 
+ * Gets a deep copy of 'list' property in 'BUG_CONTAINER' of the redux state, 
  * filtered to only have bugs that belong to a particular project (projectId
  * param).
  * 

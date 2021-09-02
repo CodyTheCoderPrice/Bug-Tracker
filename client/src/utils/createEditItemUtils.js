@@ -9,7 +9,7 @@ import { getCommonStatusTextColorClassName } from "./index";
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
- * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which
+ * container (i.e. 'PROJECT_CONTAINER' or 'BUG_CONTAINER') for which
  * 'priorityStatusOptions' property to use
  * @returns {JSX} JSX containing option elements to go inside select element 
  * used for setting priority of either a project or bug
@@ -36,7 +36,7 @@ export function getPriorityOptionsForSelect(
  * @param {Object} passedReduxState - Current redux state
  * from useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
- * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which
+ * container (i.e. 'PROJECT_CONTAINER' or 'BUG_CONTAINER') for which
  * 'priorityStatusOptions' Object to use
  * @returns {JSX} JSX containing option elements to go inside select element 
  * used for setting status of either a project or bug

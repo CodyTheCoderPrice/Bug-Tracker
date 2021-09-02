@@ -25,11 +25,11 @@ import sortArrowsBottomFilledModeDark from "../../images/sort-arrows-bottom-fill
  *
  * @component
  * @example
- * reduxContainerName = PROJECT_CONTAINER
+ * reduxContainerName = "PROJECT_CONTAINER"
  * sortId = 1
  * sortFor = "Name"
  * uniqueId = "item-view-sort-arrow-name"
- * dark_mode = reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+ * dark_mode = reduxState["ACCOUNT_CONTAINER"].settings.dark_mode
  */
 export default function SortArrowsButton(props) {
 	const reduxState = useSelector((state) => state);
@@ -39,7 +39,7 @@ export default function SortArrowsButton(props) {
 
 	/**
 	 * Function for onClick handler of img element. Updates 'searchFilterSort' 
-	 * property in either PROJECT_CONTAINER or BUG_CONTAINER (based on 
+	 * property in either 'PROJECT_CONTAINER' or 'BUG_CONTAINER' (based on 
 	 * reduxContainerName prop) of the redux state so it either sorts by sortId
 	 * prop (i.e. if it's not already) or to toggle sortAscending (i.e. if 
 	 * already sorting by sortId prop).
@@ -67,8 +67,8 @@ export default function SortArrowsButton(props) {
 	/**
 	 * Function to be called inside src attribute of img element. Function will
 	 * return the url location for the appropriate SVG, based on dark_mode prop 
-	 * and whether 'searchFilterSort' property in either PROJECT_CONTAINER or 
-	 * BUG_CONTAINER (based on reduxContainerName prop) of redux state is being 
+	 * and whether 'searchFilterSort' property in either 'PROJECT_CONTAINER' or 
+	 * 'BUG_CONTAINER' (based on reduxContainerName prop) of redux state is being 
 	 * sorted by sortId prop, and whether it is being sorted by ascending.
 	 * 
 	 * @returns {String} Location url for an SVG image
@@ -127,7 +127,7 @@ export default function SortArrowsButton(props) {
 }
 
 SortArrowsButton.propTypes = {
-	// Redux container name (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which
+	// Redux container name (i.e. 'PROJECT_CONTAINER' or 'BUG_CONTAINER') for which
 	// ...'list' property of the redux state the SortArrowsButton will change 
 	// ...sorting for
 	reduxContainerName: PropTypes.string.isRequired,

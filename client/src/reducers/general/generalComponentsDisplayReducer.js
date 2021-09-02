@@ -6,7 +6,7 @@ const initialState = {
 	register: false,
 	login: true,
 	home: false,
-	// This is in the GENERAL_CONTAINER since value should be same for both the
+	// This is in the 'GENERAL_CONTAINER' since value should be same for both the
 	// ...project and bug versions of ItemViewListSidebar component (as user
 	// ...likely would expect them to be).
 	itemViewListSidebarComponentContainerElementExpanded: true,
@@ -14,7 +14,7 @@ const initialState = {
 };
 
 /**
- * Used to Set 'componentsDisplay' property in GENERAL_CONTAINER of the redux
+ * Used to Set 'componentsDisplay' property in 'GENERAL_CONTAINER' of the redux
  * state for how general components should be displayed by the app. The 
  * 'register', 'login', and 'home' properties refer to whether the components
  * they represent should display (e.g. 'login' represents the Login component).

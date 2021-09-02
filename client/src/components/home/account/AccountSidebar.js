@@ -27,7 +27,7 @@ import AccountSidebarEditAppearance from "./AccountSidebarEditAppearance";
  * Also displays the AccountSidebarEditAppearance component.
  *
  * The flag for displaying this component is 'accountSidebar' property of
- * 'componentsDisplay' property in ACCOUNT_CONTAINER of the redux state.
+ * 'componentsDisplay' property in 'ACCOUNT_CONTAINER' of the redux state.
  *
  * @component
  */

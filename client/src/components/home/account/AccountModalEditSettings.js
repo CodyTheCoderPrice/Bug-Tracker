@@ -27,7 +27,7 @@ import ToggleSwitch from "../../basic/ToggleSwitch";
  * that component to navigate to this one).
  *
  * The flag for displaying this component is 'accountModalEditSettings' 
- * property of 'componentsDisplay' property in ACCOUNT_CONTAINER of the redux 
+ * property of 'componentsDisplay' property in 'ACCOUNT_CONTAINER' of the redux 
  * state. This component should be the child of the AccountModal component. 
  * This component should not be displayed along side any sibling components 
  * whose name also begins with AccountModal (e.g. AccountModalEditInfo).
@@ -68,10 +68,10 @@ export default function AccountModalEditSettings() {
 	/**
 	 * To be called inside of select elements for sorting -- this function 
 	 * populates them by returning an option element for each category in
-	 * 'sortCategories' property of GENERAL_CONTAINER of the redux state
+	 * 'sortCategories' property of 'GENERAL_CONTAINER' of the redux state
 	 * 
 	 * @returns {JSX} returns an option element for each category in
-	 * 'sortCategories' property of GENERAL_CONTAINER of the redux state
+	 * 'sortCategories' property of 'GENERAL_CONTAINER' of the redux state
 	 */
 	const getSortSelectOptions = () => {
 		return reduxState[GENERAL_CONTAINER].sortCategories.map(

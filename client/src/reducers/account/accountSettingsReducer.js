@@ -6,7 +6,7 @@ const initialState = {}
 
 /**
  * Used to set 'settings' property containing the logged in account's settings 
- * data from the database into ACCOUNT_CONTAINER of the redux state.
+ * data from the database into 'ACCOUNT_CONTAINER' of the redux state.
  * 
  * Note: The purpose of the 'settings' property is to be used to display (e.g.
  * displays current settings in AccountModalEditSettings component) and use 

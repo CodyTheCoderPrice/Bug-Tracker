@@ -2,13 +2,13 @@ import { SET_WHICH_LIST_COMPONENTS_DISPLAY } from "../../actions/constants/types
 import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
 // Initial state for either which project or bug components (reducer used for
-// ...PROJECT_CONTAINER and BUG_CONTAINER) should be displayed by the app
+// ...'PROJECT_CONTAINER' and 'BUG_CONTAINER') should be displayed by the app
 const initialState = {
 	// The following five relate to specific components and if they should be
 	// ...displayed. Each of these five is named after the component they 
 	// ...represent. Also listView and itemView properties should never both be
-	// ...true at any given point in time, this includes between PROJECT_CONTAINER
-	// ...and BUG_CONTAINER, meaning if a listView or itemView property is true 
+	// ...true at any given point in time, this includes between 'PROJECT_CONTAINER'
+	// ...and 'BUG_CONTAINER', meaning if a listView or itemView property is true 
 	// ...in one container, they should both be false in the other container, or
 	// ...else their components will cause CSS issues with one another if 
 	// ...displayed simutaneously. A higher prioirty is given to listView as
@@ -32,8 +32,8 @@ const initialState = {
 };
 
 /**
- * Used to set 'componentsDisplay' property into either PROJECT_CONATINER or
- * BUG_CONTAINER (reducer used for both) of the redux state for either which
+ * Used to set 'componentsDisplay' property into either 'PROJECT_CONTAINER' or
+ * 'BUG_CONTAINER' (reducer used for both) of the redux state for either which
  * project or bug components should be displayed by the app. At most, 
  * actions.displays should have one of either its listView or itemView properties
  * set to true. If both are set to true in aciton.displays, then listView will
@@ -83,7 +83,7 @@ const initialState = {
  * 		last_edited_timestamp: string
  * 	}|null)
  * }} state - Current Object (in the redux state) for either which project or
- * bug components (reducer used by PROJECT_CONTAINER and BUG_CONTAINER) are
+ * bug components (reducer used by 'PROJECT_CONTAINER' and 'BUG_CONTAINER') are
  * currently being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
@@ -113,7 +113,7 @@ const initialState = {
  * 		last_edited_timestamp: string
  * 	}|null)
  * }} Object for either which project or bug components (reducer used by
- * PROJECT_CONTAINER and BUG_CONTAINER) should be displayed by the app
+ * 'PROJECT_CONTAINER' and 'BUG_CONTAINER') should be displayed by the app
  */
 export default function listComponentsDisplayReducer(
 	state = initialState,
@@ -121,8 +121,8 @@ export default function listComponentsDisplayReducer(
 ) {
 	switch (action.type) {
 		case SET_WHICH_LIST_COMPONENTS_DISPLAY:
-			// Note: Since this reducer is used separately both by the PROJECT_CONTAINER
-			// ...and BUG_CONTAINER, this reducer can not manage both of their
+			// Note: Since this reducer is used separately both by the 'PROJECT_CONTAINER'
+			// ...and 'BUG_CONTAINER', this reducer can not manage both of their
 			// ...states at once. Meaning the check to ensure if listView or 
 			// ...itemView is true in one container, then neither are true in the
 			// ...other, must be done outside of this reducer. App.js was the

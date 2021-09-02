@@ -26,7 +26,7 @@ import {
 /**
  * Sets 'auth' Object containing authentication data (i.e. is an account logged
  * in, logged in account's id, time of login, and when authentication will 
- * expire) from the backend into ACCOUNT_CONTAINER of the redux state.
+ * expire) from the backend into 'ACCOUNT_CONTAINER' of the redux state.
  * 
  * Note: Inside the 'auth' Object, the purpose of the 'isAuthenticated' boolean
  * is to be another way of telling if an account is currently logged into the 
@@ -67,7 +67,7 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 };
 
 /**
- * Sets logged in account's info in 'accountInfo' property in ACCOUNT_CONTAINER
+ * Sets logged in account's info in 'accountInfo' property in 'ACCOUNT_CONTAINER'
  * of the redux state.
  *
  * Note: The purpose of the 'accountInfo' property is to be used to display
@@ -108,7 +108,7 @@ export const setAccount = (account) => (dispatch) => {
 
 /**
  * Sets logged in account's settings info in 'settings' property in
- * ACCOUNT_CONTAINER of the redux state.
+ * 'ACCOUNT_CONTAINER' of the redux state.
  *
  * Note: The purpose of the 'settings' property is to be used to display (e.g.
  * displays current settings in AccountModalEditSettings component) and use
@@ -198,7 +198,7 @@ export const registerAccount = (accountInfo) => (dispatch) => {
  * Calls api/account/login route to login into an account. If successful, then
  * retrieves a jwToken to store in localStorage, retrieves all data for the
  * account from the database and stores each data set in their corresponding
- * containers (e.g. ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux
+ * containers (e.g. 'ACCOUNT_CONTAINER', 'PROJECT_CONTAINER', ect.) of the redux
  * state, and opens the Home component while closing the Login and Register
  * components.
  *
@@ -270,7 +270,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 
 /**
  * Calls api/account/retrieve route to retrieve the account info from the
- * database and store it in 'accountInfo' property in ACCOUNT_CONTAINER of the
+ * database and store it in 'accountInfo' property in 'ACCOUNT_CONTAINER' of the
  * redux state.
  *
  * Note: The purpose of this dispatch function is to have a way of retrieving
@@ -306,7 +306,7 @@ export const retrieveAccount = () => (dispatch) => {
 
 /**
  * Calls api/account/retrieve-settings route to retrieve the account settings
- * from the database and store it in 'settings' property in ACCOUNT_CONTAINER of
+ * from the database and store it in 'settings' property in 'ACCOUNT_CONTAINER' of
  * the redux state.
  * 
  * Note: The purpose of this dispatch function is to have a way of retrieving
@@ -343,7 +343,7 @@ export const retrieveAccountSettings = () => (dispatch) => {
 /**
  * Calls api/account/retrieve-everything route to retrieve all all data for the
  * account from the database and store each data set in their corresponding
- * containers (e.g. ACCOUNT_CONTAINER, PROJECT_CONTAINER, ect.) of the redux
+ * containers (e.g. 'ACCOUNT_CONTAINER', 'PROJECT_CONTAINER', ect.) of the redux
  * state.
  *
  * Note: The purpose of this function is to have a more convenient and effecient
@@ -395,7 +395,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 /**
  * Calls api/account/update-info route to update the changeable info (i.e. first
  * and last name) for the account in the database, and if successful, then
- * stores the updated account info in 'accountInfo' property in ACCOUNT_CONTAINER
+ * stores the updated account info in 'accountInfo' property in 'ACCOUNT_CONTAINER'
  * of the redux state, and opens AccountSidebar component while closing all other
  * account components.
  *
@@ -445,7 +445,7 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 /**
  * Calls api/account/update-email route to update the email for the account in
  * the database, and if successful, then stores the updated account email in
- * 'accountInfo' property in ACCOUNT_CONTAINER of the redux state, and opens
+ * 'accountInfo' property in 'ACCOUNT_CONTAINER' of the redux state, and opens
  * AccountSidebar component while closing all other account components.
  *
  * Note: The purpose of this function is to be used via the AccountModalEditEmail
@@ -547,7 +547,7 @@ export const updateAccountPassword =
 /**
  * Calls api/account/update-settings route to update the account settings in
  * the database, and if successful, then stored the updated account settings in
- * 'settings' property in ACCOUNT_CONTAINER of the redux state.
+ * 'settings' property in 'ACCOUNT_CONTAINER' of the redux state.
  *
  * Note: The purpose of this function is to be used via the AccountModalEditSettings
  * and AccountSidebarEditAppearance components to allow the user to update their

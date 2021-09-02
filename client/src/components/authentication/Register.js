@@ -18,7 +18,7 @@ import { getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMo
  * that takes up the entire window.
  *
  * The flag for displaying this component is 'register' property of
- * 'componentsDisplay' property in GENERAL_CONTAINER of the redux state. This
+ * 'componentsDisplay' property in 'GENERAL_CONTAINER' of the redux state. This
  * component should only be used inside the App component, and is not intended 
  * to be displayed while either the Login or Home components are also 
  * displayed. This component should only be displayed if an account is not 

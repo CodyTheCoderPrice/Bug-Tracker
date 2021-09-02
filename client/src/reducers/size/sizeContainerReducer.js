@@ -4,7 +4,7 @@ import { RESET_CONTAINER } from "../../actions/constants/types";
 import displaySizeConstantsReducer from "./displaySizeConstantsReducer";
 import displaySizeVariablesReducer from "./variables/displaySizeVariablesReducer";
 
-// Initial state for SIZE_CONTAINER of the redux state
+// Initial state for 'SIZE_CONTAINER' of the redux state
 const initialState = {
 	// Passing 'undefined, {}' causes reducers to return their initial state
 	constants: displaySizeConstantsReducer(undefined, {}),
@@ -18,12 +18,12 @@ const initialState = {
  * in store.js to have properties relating to element sizes seperated into their
  * own Object of the redux state for organizational purposes.
  * 
- * @param {Object} state - Current SIZE_CONTAINER Object in the redux state
+ * @param {Object} state - Current 'SIZE_CONTAINER' Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where 
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
- * @returns {Object} Object containing all data for SIZE_CONTAINER of the 
+ * @returns {Object} Object containing all data for 'SIZE_CONTAINER' of the 
  * redux state
  */
 export function sizeContainerReducer(state = initialState, action) {

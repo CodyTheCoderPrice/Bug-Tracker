@@ -1,7 +1,7 @@
 import { SET_SEARCH_FILTER_SORT } from "../../actions/constants/types";
 
 // Initial state for either project or bug search/filter/sort data (reducer 
-// ...used for PROJECT_CONTAINER and BUG_CONTAINER)
+// ...used for 'PROJECT_CONTAINER' and 'BUG_CONTAINER')
 const initialState = {
 	// Words (seperated by space) being searched in search bar to refine which 
 	// ...items from list appear.
@@ -18,7 +18,7 @@ const initialState = {
 
 /**
  * Used to set 'searchFilterSort' property containing either project or bug
- * search/filter/sort data into either PROJECT_CONATINER or BUG_CONTAINER
+ * search/filter/sort data into either 'PROJECT_CONTAINER' or 'BUG_CONTAINER'
  * (reducer used for both) of the redux state.
  * 
  * Note: The purpose of the 'searchFilterSort' property is to be used to dictate

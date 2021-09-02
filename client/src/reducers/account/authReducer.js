@@ -7,24 +7,23 @@ const initialState = {
 	// Is the account currently authenticated by the backend
 	isAuthenticated: false,
 	// The account info
-	info: {},
+	decodedToken: {},
 };
 
 /**
  * Sets 'auth' Object containing authentication data (i.e. is an account logged
  * in, logged in account's id, time of login, and when authentication will 
- * expire) from the backend into ACCOUNT_CONTAINER of the redux state.
+ * expire) from the backend into 'ACCOUNT_CONTAINER' of the redux state.
  * 
  * Note: Inside the 'auth' Object, the purpose of the 'isAuthenticated' boolean
  * is to be another way of telling if an account is currently logged into the 
  * app (can also tell by checking if jwToken is present in localStorage), and
- * the purpose of the 'info' Object is to be used to know if the account's
- * current authentication is expired, so the account can be logged out when it
- * does.
+ * the purpose of the 'decodedToken' Object is to give the frontend access to
+ * the jwToken decoded (not currently used for anything, but is nice to have).
  * 
  * @param {{
  * 	isAuthenticated: Boolean,
- * 	info: ({
+ * 	decodedToken: ({
  *		account_id: Number,
  * 		iat: number,
  * 		exp: number 
@@ -37,7 +36,7 @@ const initialState = {
  * data to be updated in the redux state).
  * @returns {{
  * 	isAuthenticated: boolean,
- * 	info: ({
+ * 	decodedToken: ({
  *		account_id: number,
  * 		iat: number, 
  * 		exp: number 

@@ -7,7 +7,7 @@ import searchFilterSortReducer from "../searchFilterSortReducer";
 import massDeleteReducer from "../massDeleteReducer";
 import priorityStatusOptionsReducer from "../priorityStatusOptionsReducer";
 
-// Initial state for BUG_CONTAINER of the redux state
+// Initial state for 'BUG_CONTAINER' of the redux state
 const initialState = {
 	// Passing 'undefined, {}' causes reducers to return their initial state
 	componentsDisplay: listComponentsDisplayReducer(undefined, {}),
@@ -20,7 +20,7 @@ const initialState = {
 /**
  * Used to set 'BUG_CONTAINER' property of the redux state.
  * 
- * Note: This container reducer uses the same reducers as the PROJECT_CONTAINER.
+ * Note: This container reducer uses the same reducers as the 'PROJECT_CONTAINER'.
  * This is because both containers have 99% overlap, the only difference being
  * the default value for 'listView' property in 'componentsDisplay' property's 
  * Object of this container should be false.
@@ -29,12 +29,12 @@ const initialState = {
  * in store.js to have properties relating to bugs seperated into their own
  * Object of the redux state for organizational purposes.
  *
- * @param {Object} state - Current BUG_CONTAINER Object in the redux state
+ * @param {Object} state - Current 'BUG_CONTAINER' Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where 
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
- * @returns {Object} Object containing all data for BUG_CONTAINER of the redux
+ * @returns {Object} Object containing all data for 'BUG_CONTAINER' of the redux
  * state
  */
 export function bugContainerReducer(state = initialState, action) {

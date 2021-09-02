@@ -2,7 +2,7 @@ import { SET_PRIORITY_STATUS } from "../../actions/constants/types";
 import { appendHexValueForColorsToStatusList } from "../../utils/colorUtils";
 
 // Initial state for either project or bug priority/status data (reducer used for 
-// ...PROJECT_CONTAINER and BUG_CONTAINER). All values are null since they need 
+// ...'PROJECT_CONTAINER' and 'BUG_CONTAINER'). All values are null since they need 
 // ...to be retrieved from the database.
 const initialState = {
 	// Priority table data from the database
@@ -20,7 +20,7 @@ const initialState = {
 /**
  * Used to set 'priorityStatusOptions' property containing either project or bug
  * (not both) priority/status data from priority and status tables in the 
- * database, into either PROJECT_CONATINER or BUG_CONTAINER (reducer used for
+ * database, into either 'PROJECT_CONTAINER' or 'BUG_CONTAINER' (reducer used for
  * both) of the redux state.
  * 
  * Note: The purpose of the 'priorityStatusOptions' property is to be used to 

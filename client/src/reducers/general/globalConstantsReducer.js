@@ -13,7 +13,7 @@ const initialState = {
 
 /**
  * Used to set 'globalConstants' property containing constant data used globally 
- * by the app into GENERAL_CONTAINER of the redux state.
+ * by the app into 'GENERAL_CONTAINER' of the redux state.
  * 
  * Note: The purpose of the 'globalConstants' property is to have a single place
  * where all global constant values are located and can be pulled from. This is

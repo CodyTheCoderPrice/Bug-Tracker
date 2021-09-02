@@ -21,7 +21,7 @@ const initialState = {
 
 /**
  * Used to set 'constants' property containing constant html element sizes into
- * SIZE_CONTAINER of the redux state.
+ * 'SIZE_CONTAINER' of the redux state.
  *
  * Note: The purpose of the 'constants' property is to get CSS property sizes
  * (that never change) for specific elements to be used by JS for resizing other

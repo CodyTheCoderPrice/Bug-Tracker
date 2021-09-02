@@ -27,7 +27,7 @@ export * from "./resetActions";
 
 /**
  * Sets size info of multiple html elements (thats size remains constant) in
- * 'constants' property in SIZE_CONTAINER of the redux state.
+ * 'constants' property in 'SIZE_CONTAINER' of the redux state.
  *
  * Note: The purpose of this info is mostly to calulcate the resizing of other
  * html elements, but also is sometimes used for other things.
@@ -81,7 +81,7 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 
 /**
  * Sets current size info of the Window and Navbar elements in 'variables'
- * property in SIZE_CONTAINER of the redux state.
+ * property in 'SIZE_CONTAINER' of the redux state.
  *
  * Note: These sizes should be updated everytime they change. Also the purpose
  * of this info is mostly to be used to calulcate the resizing of other html 
@@ -123,7 +123,7 @@ export const setDisplaySizeVariablesWindowAndNavbar = (sizes) => (dispatch) => {
 
 /**
  * Sets current font size of element's with breadcrumb-button__text className
- * (in NavbarBreadcrumb component) in 'variables' property in SIZE_CONTAINER of
+ * (in NavbarBreadcrumb component) in 'variables' property in 'SIZE_CONTAINER' of
  * the redux state.
  *
  * Note: These sizes should be updated everytime they change. Also the purpose 
@@ -148,7 +148,7 @@ export const setDisplaySizeVariablesBreadcrumbFontSize =
 
 /**
  * Sets themes info (from theme table in the database) in 'themes' property in
- * GENERAL_CONTAINER of the redux state.
+ * 'GENERAL_CONTAINER' of the redux state.
  *
  * @param {{
  * 	theme_id: number,
@@ -179,7 +179,7 @@ export const setThemes = (themes) => (dispatch) => {
 
 /**
  * Calls api/reference-data/retrieve-themes route to retrieve themes from the
- * database and store it in 'themes' property of GENERAL_CONTAINER of the redux
+ * database and store it in 'themes' property of 'GENERAL_CONTAINER' of the redux
  * state
  *
  * @example
@@ -199,7 +199,7 @@ export const retrieveThemes = () => (dispatch) => {
 };
 
 /**
- * Sets sort categories info in 'sortCategories' of GENERAL_CONTAINER of the
+ * Sets sort categories info in 'sortCategories' of 'GENERAL_CONTAINER' of the
  * redux state
  *
  * @param {{
@@ -233,7 +233,7 @@ export const setSortCategories = (sortCategories) => (dispatch) => {
 /**
  * Calls api/reference-data/retrieve-sort-categories route to retrieve sort
  * categories from the database and store it in 'sortCategories' of
- * GENERAL_CONTAINER of the redux state
+ * 'GENERAL_CONTAINER' of the redux state
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -255,7 +255,7 @@ export const retrieveSortCategories = () => (dispatch) => {
  * Sets Objects containing developer set data for priority/status tables (2 
  * tables for projects; 2 tables for bugs) of the database in 
  * 'priorityStatusOptions' properties in their corresponding containers (i.e. 
- * PROJECT_CONTAINER and BUG_CONTAINER) of the redux state.
+ * 'PROJECT_CONTAINER' and 'BUG_CONTAINER') of the redux state.
  *
  * Note: The purpose of these Objects is to be used by the app to convert 
  * priority/status integer values for projects/bugs to the string options they
@@ -363,8 +363,8 @@ export const setPriorityStatus =
  * Calls /api/priority-status/retrieve route to retrieve info containing
  * developer set data for priority/status tables (2 tables for projects; 2
  * tables for bugs) of the database and store it in 'priorityStatusOptions'
- * property in their corresponding containers (i.e. PROJECT_CONTAINER and
- * BUG_CONTAINER) of the redux state.
+ * property in their corresponding containers (i.e. 'PROJECT_CONTAINER' and
+ * 'BUG_CONTAINER') of the redux state.
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -385,7 +385,7 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 /**
  * Sets Object containing what went wrong during an http request (e.g. invalid
  * user inputs, server errors, ect.) in 'backendErrors' property in 
- * GENERAL_CONTAINER of the redux state.
+ * 'GENERAL_CONTAINER' of the redux state.
  *
  * Note: The purpose of this info is to mostly be used to be displayed to the 
  * user to let them know why an API request failed, but may also be used for 
@@ -451,7 +451,7 @@ export const seBackendErrors = (backendErrors) => (dispatch) => {
 };
 
 /**
- * Clears info in 'backendErrors' property in GENERAL_CONTAINER of the redux
+ * Clears info in 'backendErrors' property in 'GENERAL_CONTAINER' of the redux
  * state.
  *
  * Note: The purpose of this to be used when closing a component that displays

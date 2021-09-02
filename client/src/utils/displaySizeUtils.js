@@ -456,7 +456,7 @@ export function getItemViewListSidebarComponentContainerElementWithExpandedModif
  * @param {number} outerDivingContainerMinWidth - minWidth for
  * 'outer-dividing-container' element that contains item-box elements (i.e.
  * 'itemViewComponentOuterDividingContainerElementMinWidth' property in
- * 'constants' property's Object of SIZE_CONTAINER of the redux state)
+ * 'constants' property's Object of 'SIZE_CONTAINER' of the redux state)
  *
  * @example
  * manageSizeOfItemBoxsElementInPairContainerElement(

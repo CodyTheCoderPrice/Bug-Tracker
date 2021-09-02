@@ -17,7 +17,7 @@ const initialState = {
 /**
  * Used to set 'variables' property containing variable (changing) html element 
  * sizes (mostly used to calculate resizing of other html elements) into 
- * SIZE_CONTAINER of the redux state.
+ * 'SIZE_CONTAINER' of the redux state.
  * 
  * Note: The purpose of the 'variables' property is to get the current CSS 
  * property sizes (that change) for specific elements to be used by JS for both 

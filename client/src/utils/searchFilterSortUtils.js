@@ -5,7 +5,7 @@ import { dateToInt } from "./index";
 /**
  * Takes an array of projects or bugs and returns it filtered to only have items
  * that fit the current searchFilterSort configuration (i.e. 'searchFilterSort' 
- * property's Object in PROJECT_CONTAINER or BUG_CONTAINER of the redux state)
+ * property's Object in 'PROJECT_CONTAINER' or 'BUG_CONTAINER' of the redux state)
  *
  * @param {{
  * 	id: number,
@@ -31,7 +31,7 @@ import { dateToInt } from "./index";
  * 	priorityFilter: number[],
  * 	statusFilter: number[]
  * }} reduxSearchFilterSort - 'searchFilterSort' property's Object inside either 
- * PROJECT_CONTAINER or BUG_CONTAINER of the redux state
+ * 'PROJECT_CONTAINER' or 'BUG_CONTAINER' of the redux state
  * @returns {{
  * 	id: number,
  * 	account_id: (number|undefined),
@@ -156,13 +156,13 @@ export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
 /**
  * Get list of projects or bugs (based on reduxContainerName param) filtered to
  * only have items that fit current searchFilterSort configuration (i.e. 
- * 'searchFilterSort' property's Object in PROJECT_CONTAINER or BUG_CONTAINER of
+ * 'searchFilterSort' property's Object in 'PROJECT_CONTAINER' or 'BUG_CONTAINER' of
  * the redux state)
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux 
- * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which 'list' and
+ * container (i.e. 'PROJECT_CONTAINER' or 'BUG_CONTAINER') for which 'list' and
  * 'searchFilterSort' properties to use
  * @returns {{
  * 	id: number,
@@ -188,7 +188,7 @@ export function getSearchedFilteredSortedList(
 	reduxContainerName
 ) {
 	return searchFilterSort(
-		// If PROJECT_CONTAINER, then passes list of projects. Otherwise passes
+		// If 'PROJECT_CONTAINER', then passes list of projects. Otherwise passes
 		// ...list of bugs (only with bugs belonging to non-filtered-out projects).
 		reduxContainerName === PROJECT_CONTAINER
 			? // Spread operator makes deep copy of list so original is not affected
@@ -199,7 +199,7 @@ export function getSearchedFilteredSortedList(
 						passedReduxState[PROJECT_CONTAINER].componentsDisplay
 							.itemViewCurrentItem.id
 			  ),
-		// PROJECT_CONTAINER & BUG_CONTAINER have different searchFilterSort
+		// 'PROJECT_CONTAINER' & 'BUG_CONTAINER' have different searchFilterSort
 		passedReduxState[reduxContainerName].searchFilterSort
 	);
 }
@@ -207,14 +207,14 @@ export function getSearchedFilteredSortedList(
 /**
  * Gets a deep copy of either 'priorityFilter' or 'statusFilter' (based on 
  * filterName param) proprty's Object in 'searchFilterSort' property's Object
- * in either PROJECT_CONTAINER or BUG_CONTAINER (based on reduxContainerName 
+ * in either 'PROJECT_CONTAINER' or 'BUG_CONTAINER' (based on reduxContainerName 
  * param) of the redux state updated to have targetId param value added if not
  * present, or removed it it was present.
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
- * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which 
+ * container (i.e. 'PROJECT_CONTAINER' or 'BUG_CONTAINER') for which 
  * 'searchFilterSort' property to update
  * @param {("priorityFilter"|"statusFilter")} filterName - Which filter to 
  * update

@@ -16,12 +16,12 @@ import { getWindowSize } from "../index";
  * 'list-sidebar-container' element and have the ItemView component to display 
  * an item's info. This functionality will only take place during any given 
  * session while the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
- * property in 'componentsDisplay' property's Object in GENERAL_CONTAINER of the 
+ * property in 'componentsDisplay' property's Object in 'GENERAL_CONTAINER' of the 
  * redux state is false (i.e. until the user manually expands or minimizes the 
  * 'list-sidebar-container' element). This hook changes whether the 
  * 'list-sidebar-container' element is expanded or not by changing the
  * 'itemViewListSidebarComponentContainerElementExpanded' property in the 
- * GENERAL_CONTAINER of the redux state.
+ * 'GENERAL_CONTAINER' of the redux state.
  *
  * Note: The purpose of this custom hook is to be used by the ItemView component
  * to make the ItemViewListSidebar component more user friendly, as when the
@@ -64,7 +64,7 @@ export function useAutoDecideIfItemViewListSidebarComponentDisplays(
 				.itemViewComponentOuterDividingContainerElementMinWidth !== null
 		) {
 			// Not included in if statement condition above, since it would also
-			// ...require including passedReduxState[SIZE_CONTAINER].variables
+			// ...require including passedReduxState["SIZE_CONTAINER"].variables
 			// ...in the optimization, which would cause a re-run during every
 			// ...window resize, which is inefficient, as the code inside this
 			// ...if statement only needs to run once per each time the ItemView

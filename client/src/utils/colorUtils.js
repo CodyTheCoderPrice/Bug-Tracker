@@ -75,7 +75,7 @@ function convertRbgColorStringToHexString(rbgColorValue) {
  * 	option: string,
  * 	color: string
  * }[]} statusList - 'statusList' Object in 'priorityStatusOptions' property in 
- * either PROJECT_CONTAINER or BUG_CONTAINER of the redux state
+ * either 'PROJECT_CONTAINER' or 'BUG_CONTAINER' of the redux state
  * @returns {{
  * 	id: number,
  * 	option: string,

@@ -5,7 +5,7 @@ const initialState = []
 
 /**
  * Used to set 'sortCategories' property containing Array of Objects containing
- * sort category data from the database into GENERAL_CONTAINER of the redux 
+ * sort category data from the database into 'GENERAL_CONTAINER' of the redux 
  * state.
  * 
  * Note: The purpose of the 'sortCategories' property is to be used to display

@@ -15,11 +15,11 @@ import { getToggleSwitchComponentBorderBackgroundTextColorClassNameForThemeWithL
  * onChangeFunction=(e) => { 
  * 	// Do something (i.e. update redux)
  * }
- * isOn = reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending
+ * isOn = reduxState["ACCOUNT_CONTAINER"].settings.project_sort_ascending
  * uniqueId = "list-priority-filter-for-1"
  * alt = "Click to change between sorting projects by acending or descending"
- * dark_mode = reduxState[ACCOUNT_CONTAINER].settings.dark_mode
- * theme_color = reduxState[ACCOUNT_CONTAINER].settings.theme_color
+ * dark_mode = reduxState["ACCOUNT_CONTAINER"].settings.dark_mode
+ * theme_color = reduxState["ACCOUNT_CONTAINER"].settings.theme_color
  */
 export default function ToggleSwitch(props) {
 	const {

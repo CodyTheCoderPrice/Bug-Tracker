@@ -11,7 +11,7 @@ import {
 } from "./index";
 
 /**
- * Sets the list of comments in 'list' property in COMMENT_CONTAINER of the 
+ * Sets the list of comments in 'list' property in 'COMMENT_CONTAINER' of the 
  * redux state.
  * 
  * Note: The purpose of the 'list' property is to be used to display (e.g. 
@@ -61,7 +61,7 @@ export const setComments = (commentList) => (dispatch) => {
 /**
  * Calls /api/comment/create route in order to create a new comment in the 
  * database, and if succesful, then stores the updated list of comments in 
- * 'list' property in COMMENT_CONTAINER of the redux state.
+ * 'list' property in 'COMMENT_CONTAINER' of the redux state.
  * 
  * Note: The purpose of this dispatch function is to be used via the 
  * ItemViewCommentBox component to allow users to create new comments for a 
@@ -106,7 +106,7 @@ export const createComment = (commentInfo) => (dispatch) => {
 /**
  * Calls /api/comment/retrieve route to retrieve the list of comments from the
  * database, and if successful, then stores it in 'list' property in 
- * COMMENT_CONTAINER of the redux state.
+ * 'COMMENT_CONTAINER' of the redux state.
  * 
  * Note: The purpose of this dispatch function is to have a way of retrieving
  * only the currently logged in account's list of comments and nothing else from
@@ -142,7 +142,7 @@ export const retrieveComments = () => (dispatch) => {
 /**
  * Calls /api/comment/update route to update a comment in the database, and if 
  * successful, then stores the updated list of comments in 'list' property in 
- * COMMENT_CONTAINER of the redux state, and closes edit mode for the comment.
+ * 'COMMENT_CONTAINER' of the redux state, and closes edit mode for the comment.
  *
  * Note: The purpose of this dispatch function is to be used via the 
  * ItemViewCommentsBoxIndividualComment component to allow users to update a
@@ -193,7 +193,7 @@ export const updateComment = (commentInfo) => (dispatch) => {
 /**
  * Calls /api/comment/delete route to delete a comment in the database, and if
  * successful, then stores the updated list of comments in 'list' property in 
- * COMMENT_CONTAINER in the redux state, and closes the CommentDeleteModal 
+ * 'COMMENT_CONTAINER' in the redux state, and closes the CommentDeleteModal 
  * component.
  * 
  * Note: The purpose of this dispatch function is to be used via the DeleteModal

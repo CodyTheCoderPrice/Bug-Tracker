@@ -1,7 +1,7 @@
 import { SET_LIST } from "../../actions/constants/types";
 
 // Initial state for either the list of items (i.e. projects or bugs, but not 
-// ...both) (reducer used for PROJECT_CONTAINER and BUG_CONTAINER). Is an empty
+// ...both) (reducer used for 'PROJECT_CONTAINER' and 'BUG_CONTAINER'). Is an empty
 // ...array since no account is logged in by default, and even if one was, the 
 // ...list of projects or bugs would still need to be retrieved from the database.
 const initialState = []
@@ -9,7 +9,7 @@ const initialState = []
 /**
  * Used to set 'list' property containing Array of Objects containing items 
  * (i.e. either projects or bugs, but not both) data belonging to the logged in
- * account from the database into either PROJECT_CONATINER or BUG_CONTAINER 
+ * account from the database into either PROJECT_CONATINER or 'BUG_CONTAINER'
  * (reducer used for both) of the redux state.
  * 
  * Note: The purpose of the 'list' property is to be used to display (e.g. 

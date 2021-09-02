@@ -8,7 +8,7 @@ import themesReducer from "../general/themesReducer";
 import sortCategoriesReducer from "../general/sortCategoriesReducer";
 import globalConstantsReducer from "./globalConstantsReducer";
 
-// Initial state for GENERAL_CONTAINER of the redux state
+// Initial state for 'GENERAL_CONTAINER' of the redux state
 const initialState = {
 	// Passing 'undefined, {}' causes reducers to return their initial state
 	componentsDisplay: generalComponentsDisplayReducer(undefined, {}),
@@ -28,12 +28,12 @@ const initialState = {
  * containers) properties seperated into their own Object of the redux state for
  * organizational purposes.
  *
- * @param {Object} state - Current GENERAL_CONTAINER Object in the redux state
+ * @param {Object} state - Current 'GENERAL_CONTAINER' Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
- * @returns {Object} Object containing all data for GENERAL_CONTAINER of
+ * @returns {Object} Object containing all data for 'GENERAL_CONTAINER' of
  * the redux state
  */
 export function generalContainerReducer(state = initialState, action) {

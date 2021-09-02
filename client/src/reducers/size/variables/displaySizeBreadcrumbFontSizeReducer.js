@@ -9,7 +9,7 @@ const initialState = null;
  * Used to set 'navbarBreadcrumbButtonTextFontSize' property, containing a number
  * for the current font size of elements with 'breadcrumb-button__text' className
  * in NavbarBreadcrumb component, in the 'variables' property's Object into the
- * SIZE_CONTAINER of the redux state.
+ * 'SIZE_CONTAINER' of the redux state.
  * 
  * Note: The purpose of the 'navbarBreadcrumbButtonTextFontSize' property is to 
  * be used to decide if the NavbarBreadcrumb component should be visible, as 

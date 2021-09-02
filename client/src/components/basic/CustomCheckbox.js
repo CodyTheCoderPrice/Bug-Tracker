@@ -16,11 +16,11 @@ import { getCustomCheckboxComponentBorderBackgroundTextColorClassNameForThemeWit
  * onChangeFunction=(e) => { 
  * 	// Do something (i.e. update redux)
  * }
- * isChecked = !reduxState[PROJECT_CONTAINER].searchFilterSort.priorityFilter
+ * isChecked = !reduxState["PROJECT_CONTAINER"].searchFilterSort.priorityFilter
  * uniqueId = "list-priority-filter-for-1"
  * 		.includes(1)
- * dark_mode = reduxState[ACCOUNT_CONTAINER].settings.dark_mode
- * theme_color = reduxState[ACCOUNT_CONTAINER].settings.theme_color
+ * dark_mode = reduxState["ACCOUNT_CONTAINER"].settings.dark_mode
+ * theme_color = reduxState["ACCOUNT_CONTAINER"].settings.theme_color
  */
 export default function CustomCheckbox(props) {
 	const {

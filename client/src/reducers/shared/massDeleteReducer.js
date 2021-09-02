@@ -1,14 +1,14 @@
 import { SET_MASS_DELETE_LIST } from "../../actions/constants/types";
 
 // Initial state for either the project or bug massDeleteList (reducer used for 
-// ...PROJECT_CONTAINER and BUG_CONTAINER). Empty array since no projects or 
+// ...'PROJECT_CONTAINER' and 'BUG_CONTAINER'). Empty array since no projects or 
 // ...bugs should be selected for mass deletion by default.
 const initialState = [];
 
 /**
  * Used to set 'massDeleteList' property containing an Array of ids of either
  * projects or bugs (not both) to be deleted, stored into either PROJECT_CONATINER
- * or BUG_CONTAINER (reducer used for both) of the redux state.
+ * or 'BUG_CONTAINER' (reducer used for both) of the redux state.
  * 
  * Note: The purpose of the 'massDeleteList' property is to be used to delete 
  * multiple items (i.e. projects or bugs) at once. This is for quality of life

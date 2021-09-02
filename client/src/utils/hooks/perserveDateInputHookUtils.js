@@ -38,7 +38,7 @@ import { useState, useEffect } from "react";
  * @param {Object} passedReduxState - Current redux state from 
  * useSelector((state) => state)
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - Redux
- * container (i.e. PROJECT_CONTAINER or BUG_CONTAINER) for which 
+ * container (i.e. 'PROJECT_CONTAINER' or 'BUG_CONTAINER') for which 
  * 'priorityStatusOptions' property to use
  * 
  * @example

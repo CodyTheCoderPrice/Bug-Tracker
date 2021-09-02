@@ -15,7 +15,7 @@ import {
 } from "./constants/types";
 
 /**
- * Sets 'componentsDisplay' property in GENERAL_CONTAINER of the redux state for
+ * Sets 'componentsDisplay' property in 'GENERAL_CONTAINER' of the redux state for
  * how general components should be displayed by the app. The 'register', 
  * 'login', and 'home' properties in the 'displays' prop refer to whether the 
  * components they represent should display (e.g. 'login' represents the Login
@@ -96,7 +96,7 @@ export const setWhichGeneralComponentsDisplay =
 	};
 
 /**
- * Sets 'dropdownsDisplay' property in GENERAL_CONTAINER of the redux state for
+ * Sets 'dropdownsDisplay' property in 'GENERAL_CONTAINER' of the redux state for
  * how general dropdowns should be displayed by the app. If any expected
  * properties in displays prop (e.g. navbarHambugerDropdown,
  * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to
@@ -134,7 +134,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'componentsDisplay' property in ACCOUNT_CONTAINER of the redux state for
+ * Sets 'componentsDisplay' property in 'ACCOUNT_CONTAINER' of the redux state for
  * how account components should be displayed by the app. At most only one
  * property inside the 'displays' prop should be set to true. If more than one 
  * is set to true, then the reducer will arbitrarily select only one to be set to
@@ -143,7 +143,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * will be set to false in the redux state.
  * 
  * Note: The purpose of each property inside 'componentsDisplay' property in 
- * ACCOUNT_CONTAINER is to be used as a flag for whether the component they 
+ * 'ACCOUNT_CONTAINER' is to be used as a flag for whether the component they 
  * represent (they share the same name, e.g. 'accountSidebar' property represents
  * AccountSidebar component) should be displayed by the app. The reason at most 
  * only one property should be true inside the 'displays' prop is for both 
@@ -183,7 +183,7 @@ export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'componentsDisplay' property in PROJECT_CONTAINER of the redux state for
+ * Sets 'componentsDisplay' property in 'PROJECT_CONTAINER' of the redux state for
  * how project components should be displayed by the app. The displays prop 
  * should have at most one of either its listView or itemView properties set to
  * true. If both are set to true then listView will take priorty and itemView 
@@ -243,7 +243,7 @@ export const setWhichProjectComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'componentsDisplay' property in BUG_CONTAINER of the redux state for how
+ * Sets 'componentsDisplay' property in 'BUG_CONTAINER' of the redux state for how
  * bug components should be displayed by the app. The displays prop should have
  * at most one of either its listView or itemView properties set to true. If 
  * both are set to true then listView will take priorty and itemView will be set
@@ -304,7 +304,7 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'componentsDisplay' property in COMMENT_CONTAINER of the redux state for
+ * Sets 'componentsDisplay' property in 'COMMENT_CONTAINER' of the redux state for
  * how comment components should be displayed by the app. If any expected
  * properties in displays prop (i.e. commentBeingEdited and commentToBeDeleted)
  * are undefined, then they will be set to null in the redux state.

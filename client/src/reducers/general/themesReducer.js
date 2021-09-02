@@ -5,7 +5,7 @@ const initialState = []
 
 /**
  * Used to set 'themes' property containing Array of Objects containing theme
- * data from the database into GENERAL_CONTAINER of the redux state.
+ * data from the database into 'GENERAL_CONTAINER' of the redux state.
  * 
  * Note: The purpose of the 'themes' property is to use (e.g. map themes to 
  * buttons in AccountSidebarEditAppearance component) the sort categories 

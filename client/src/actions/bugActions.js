@@ -13,7 +13,7 @@ import {
 } from "./index";
 
 /**
- * Sets list of bugs in 'list' property in BUG_CONTAINER of the redux state.
+ * Sets list of bugs in 'list' property in 'BUG_CONTAINER' of the redux state.
  * 
  * Note: The purpose of the 'list' property is to be used to display (e.g. 
  * display a bug in ListViewTableItemRow component) and use (e.g. check if the
@@ -88,7 +88,7 @@ export const setBugs = (bugList) => (dispatch) => {
 /**
  * Calls /api/bug/create route to create a new bug in the database, and if 
  * successful, then stores the updated list of bugs in 'list' property in 
- * BUG_CONTAINER of the redux state, and close the ListViewCreateItemSidebar 
+ * 'BUG_CONTAINER' of the redux state, and close the ListViewCreateItemSidebar 
  * (for bugs) component.
  * 
  * Note: The purpose of this dispatch function is to be used by the createProjectOrBug
@@ -186,7 +186,7 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 
 /**
  * Calls /api/bug/retrieve route to retrieve list of bugs from the database, and 
- * if successful, then stores it in 'list' property in BUG_CONTAINER of the redux
+ * if successful, then stores it in 'list' property in 'BUG_CONTAINER' of the redux
  * state.
  * 
  * Note: The purpose of this dispatch function is to have a way of retrieving
@@ -223,7 +223,7 @@ export const retrieveBugs = () => (dispatch) => {
 /**
  * Calls /api/bug/update route to update a bug in the database, and if 
  * successful, then stores the updated list of bugs in 'list' property in
- * BUG_CONTAINER of the redux state, and turns off the editing mode for ItemView
+ * 'BUG_CONTAINER' of the redux state, and turns off the editing mode for ItemView
  * (for bugs) component.
  * 
  * Note: The purpose of this dispatch function is to be used by the updateProjectOrBug
@@ -339,9 +339,9 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 /**
  * Calls /api/bug/delete route to delete a bug in the database, and if successful,
  * then stores the updated list of bugs and list of comments in their corresponding 
- * containers (i.e. BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, 
+ * containers (i.e. 'BUG_CONTAINER' and 'COMMENT_CONTAINER') of the redux state, 
  * updates 'massDeleteList' property (if it contained the deleted bug) in 
- * BUG_CONTAINER of the redux state, and opens the ListView (for bugs) component
+ * 'BUG_CONTAINER' of the redux state, and opens the ListView (for bugs) component
  * while closeing all other bug components.
  *
  * Note: The purpose of this dispatch function is to be used by the deleteProjectOrBug
@@ -378,7 +378,7 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 
 			// Checks if the deleted bug id was in the massDeleteList, and if
 			// ...so, then removes it and updates 'massDeleteList' property in 
-			// ...BUG_CONTAINER of the redux state
+			// ...'BUG_CONTAINER' of the redux state
 			if (deletedBugIndexInMassDeleteList > -1) {
 				massDeleteList.splice(deletedBugIndexInMassDeleteList, 1);
 				dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, massDeleteList));
@@ -406,8 +406,8 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 /**
  * Calls /api/bug/delete-multiple route to delete multiple bugs in the database,
  * and if successful, then stores the updated list of bugs and list of comments
- * in their corresponding containers (i.e. BUG_CONTAINER and COMMENT_CONTAINER) 
- * of the redux state, empties the 'massDeleteList' property in BUG_CONTAINER of
+ * in their corresponding containers (i.e. 'BUG_CONTAINER' and 'COMMENT_CONTAINER') 
+ * of the redux state, empties the 'massDeleteList' property in 'BUG_CONTAINER' of
  * the redux state, and close ItemViewDeleteModal (for bugs) component.
  * 
  * Note: The purpose of this dispatch function is to be used by the deleteMultipleProjectsOrBugs

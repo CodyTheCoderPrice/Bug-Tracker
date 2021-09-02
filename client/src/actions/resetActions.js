@@ -10,7 +10,7 @@ import {
 import { RESET_CONTAINER } from "./constants/types";
 
 /**
- * Resets SIZE_CONTAINER of the redux state to its initial state
+ * Resets 'SIZE_CONTAINER' of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -24,7 +24,7 @@ export const resetSizeContainer = () => (dispatch) => {
 };
 
 /**
- * Resets GENERAL_CONTAINER of the redux state to its initial state
+ * Resets 'GENERAL_CONTAINER' of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -38,7 +38,7 @@ export const resetGeneralContainer = () => (dispatch) => {
 };
 
 /**
- * Resets ACCOUNT_CONTAINER of the redux state to its initial state
+ * Resets 'ACCOUNT_CONTAINER' of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -52,7 +52,7 @@ export const resetAccountContainer = () => (dispatch) => {
 };
 
 /**
- * Resets PROJECT_CONTAINER of the redux state to its initial state
+ * Resets 'PROJECT_CONTAINER' of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -66,7 +66,7 @@ export const resetProjectContainer = () => (dispatch) => {
 };
 
 /**
- * Resets BUG_CONTAINER of the redux state to its initial state
+ * Resets 'BUG_CONTAINER' of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -80,7 +80,7 @@ export const resetBugContainer = () => (dispatch) => {
 };
 
 /**
- * Resets COMMENT_CONTAINER of the redux state to its initial state
+ * Resets 'COMMENT_CONTAINER' of the redux state to its initial state
  * 
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
@@ -94,7 +94,7 @@ export const resetCommentContainer = () => (dispatch) => {
 };
 
 /**
- * Resets all containers (e.g. SIZE_CONTAINER, GENERAL_CONTAINER, ect.) of the 
+ * Resets all containers (e.g. 'SIZE_CONTAINER', 'GENERAL_CONTAINER', ect.) of the 
  * redux state to their initial states
  * 
  * @example

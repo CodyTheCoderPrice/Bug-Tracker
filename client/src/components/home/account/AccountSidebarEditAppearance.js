@@ -34,7 +34,7 @@ export default function AccountSidebarEditAppearance() {
 	 *
 	 * @param {Event} e - Event created by element's onClick handler
 	 * @param {Number} theme_id - id for a theme in 'themes' property in 
-	 * GENERAL_CONTAINER of the redux state
+	 * 'GENERAL_CONTAINER' of the redux state
 	 */
 	const onClickUpdateTheme = (e, theme_id) => {
 		e.stopPropagation();
@@ -69,7 +69,7 @@ export default function AccountSidebarEditAppearance() {
 	 * theme to the one that relates to this function's theme_id param
 	 *
 	 * @param {Number} theme_id - id for a theme in 'themes' property in
-	 * GENERAL_CONTAINER of the redux state
+	 * 'GENERAL_CONTAINER' of the redux state
 	 * @returns {JSX} div element of a clickable button used to change the
 	 * app's theme to the one that relates to this function's theme_id param
 	 */

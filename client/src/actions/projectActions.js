@@ -14,7 +14,7 @@ import {
 } from "./index";
 
 /**
- * Sets list of projects in 'list' property in PROJECT_CONTAINER of the redux 
+ * Sets list of projects in 'list' property in 'PROJECT_CONTAINER' of the redux 
  * state
  *
  * @param {{ 
@@ -80,7 +80,7 @@ export const setProjects = (projectList) => (dispatch) => {
 
 /**
  * Calls /api/project/create route to create a new project in the database, 
- * store the updated list of projects in 'list' property in PROJECT_CONTAINER 
+ * store the updated list of projects in 'list' property in 'PROJECT_CONTAINER' 
  * of the redux state, and close the ListViewCreateItemSidbar (for projects) 
  * component
  *
@@ -173,7 +173,7 @@ export const createProject = (projectInfo, projectComponentsDisplay) => (
 
 /**
  * Calls /api/project/retrieve route to retrieve list of projects from the
- * database and store it in 'list' property in PROJECT_CONTAINER of the redux
+ * database and store it in 'list' property in 'PROJECT_CONTAINER' of the redux
  * state
  * 
  * @example
@@ -202,7 +202,7 @@ export const retrieveProjects = () => (dispatch) => {
 
 /**
  * Calls api/project/update route to update a project in the database, store
- * the updated list of projects in 'list' property in PROJECT_CONTAINER of the 
+ * the updated list of projects in 'list' property in 'PROJECT_CONTAINER' of the 
  * redux state, and turn off the editing mode for ItemView (for projects)
  * component
  *
@@ -313,9 +313,9 @@ export const updateProject = (projectInfo, projectComponentsDisplay) => (
 /**
  * Calls /api/project/delete route to delete a project in the database, store 
  * the updated list of projects, list of bugs, and list of comments their 
- * corresponding containers (i.e. PROJECT_CONTAINER, BUG_CONTAINER and 
- * COMMENT_CONTAINER) of the redux state, update 'massDeleteList' property (if
- * it contained the deleted project) in PROJECT_CONTAINER of the redux state, 
+ * corresponding containers (i.e. 'PROJECT_CONTAINER', 'BUG_CONTAINER' and 
+ * 'COMMENT_CONTAINER') of the redux state, update 'massDeleteList' property (if
+ * it contained the deleted project) in 'PROJECT_CONTAINER' of the redux state, 
  * and open the ListView (for projects) component while closeing all other 
  * project components.
  *
@@ -350,7 +350,7 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 
 			// checks if the deleted project id was in the massDeleteList, and 
 			// ...if so removes it and updates 'massDeleteList' property in 
-			// ...PROJECT_CONTAINER of the redux state
+			// ...'PROJECT_CONTAINER' of the redux state
 			if (deletedProjectIndexInMassDeleteList > -1) {
 				massDeleteList.splice(deletedProjectIndexInMassDeleteList, 1);
 				dispatch(
@@ -380,9 +380,9 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 /**
  * Calls /api/project/delete-multiple route to delete multiple projects in the
  * database, store the updated list of projects, list of bugs, and list of 
- * comments in their corresponding containers (i.e. PROJECT_CONTAINER, 
- * BUG_CONTAINER and COMMENT_CONTAINER) of the redux state, empty the 
- * 'massDeleteList' property in PROJECT_CONTAINER of the redux state, and close
+ * comments in their corresponding containers (i.e. 'PROJECT_CONTAINER', 
+ * 'BUG_CONTAINER' and 'COMMENT_CONTAINER') of the redux state, empty the 
+ * 'massDeleteList' property in 'PROJECT_CONTAINER' of the redux state, and close
  * ItemViewDeleteModal (for projects) component.
  *
  * @param {number[]} massDeleteList  - Array of ids for projects to be mass

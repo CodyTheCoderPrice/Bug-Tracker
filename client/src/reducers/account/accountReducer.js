@@ -5,7 +5,7 @@ const initialState = {}
 
 /**
  * Used to set 'accountInfo' property containing the logged in account's data 
- * from the database into ACCOUNT_CONTAINER of the redux state.
+ * from the database into 'ACCOUNT_CONTAINER' of the redux state.
  * 
  * Note: The purpose of the 'accountInfo' property is to be used to display 
  * (e.g. displays account name in AccountSidebar component) and use (e.g. 

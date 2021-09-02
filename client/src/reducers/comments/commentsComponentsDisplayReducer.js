@@ -11,7 +11,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'componentsDisplay' property in COMMENT_CONTAINER of the redux 
+ * Used to set 'componentsDisplay' property in 'COMMENT_CONTAINER' of the redux 
  * state for how/which comment components should be displayed by the app. If any
  * expected properties in action.displays (i.e. commentBeingEdited and 
  * commentToBeDeleted) are undefined, then they will be set to null in the redux
