@@ -12,23 +12,25 @@ const initialState = {
 };
 
 /**
- * Used to set 'componentsDisplay' property in 'ACCOUNT_CONTAINER' of the redux
- * state for which account components should display by the app. At most, 
- * actions.displays should only have one property as true. If more than one is
- * set to true, then only one of its properties will be arbitrarily selected to 
- * be set to true in the redux state. Also if any of actions.displays expected 
- * properties (e.g. accountSidebar, accountModalEditInfo, ect.) are undefined,
- * then they will be set to false in the redux state.
+ * Uses 'displays' prop to set 'componentsDisplay' Object (for which account
+ * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux 
+ * state. As a rule, 'displays' prop should have at most only one of its 
+ * boolean properties as true. As a fail safe, if more than one is true, only
+ * one will be arbitrarily selected to be made true in 'componentsDisplay'. Also
+ * if any expected properties in 'displays' prop are undefined, then they will
+ * be set to false in 'componentsDisplay'.
  *
- * Note: The purpose of each property inside this reducer is to be used as a 
- * flag for whether the component they represent (they share the same name, e.g.
- * 'accountSidebar' property represents AccountSidebar component) should be 
- * displayed by the app. The reason at most only one property should be true 
- * inside actions.displays is for both cosmetic reasons, as AccountSidebar and 
+ * Note: The purpose of each property in 'componentsDisplay' Object is to be 
+ * used as a flag for whether the component they represent (sharing the same 
+ * name, e.g. 'accountSidebar' property represents AccountSidebar component) 
+ * should be displayed by the app. The reason at most only one of these 
+ * properties should be true is for both cosmetic reasons, as AccountSidebar and 
  * AccountModal components do not look nice displaying together, and to prevent
  * CSS issues, as having more than one child component of AccountModal component
- * (e.g. AccountModalEditInfo and AccountModalEditEmail components) will break 
- * its intended CSS design.
+ * displaying together (e.g. AccountModalEditInfo, AccountModalEditEmail, ect.)
+ * will break its intended CSS design. The reason undefined properties in 
+ * 'displays' prop are set to false in 'componentsDisplay' is to allow devs to 
+ * only have to pass properties they wish to set to true (making life easier).
  * 
  * @param {{
  * 	accountSidebar: boolean,
@@ -83,9 +85,6 @@ export default function accountComponentsDisplayReducer(
 			}
 
 			return {
-				// Ternary operator is used to set undefined properties to
-				// ...false, so you only have to pass the properties you want
-				// ...to set to true, which makes using this redux action easier
 				accountSidebar:
 					action.displays.accountSidebar !== undefined
 						? action.displays.accountSidebar
