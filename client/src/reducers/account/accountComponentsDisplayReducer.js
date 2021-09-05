@@ -12,13 +12,13 @@ const initialState = {
 };
 
 /**
- * Uses 'displays' prop to set 'componentsDisplay' Object (for which account
- * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux 
- * state. As a rule, 'displays' prop should have at most only one of its 
+ * Uses 'displays' prop to set 'componentsDisplay' Object (to guide which 
+ * account components should display by the app) in 'ACCOUNT_CONTAINER' of the
+ * redux state. As a rule, 'displays' prop should have at most only one of its 
  * boolean properties as true. As a fail safe, if more than one is true, only
  * one will be arbitrarily selected to be made true in 'componentsDisplay'. Also
- * if any expected properties in 'displays' prop are undefined, then they will
- * be set to false in 'componentsDisplay'.
+ * if any properties in 'displays' prop are undefined, then they will be set to
+ * false in 'componentsDisplay'.
  *
  * Note: The purpose of each property in 'componentsDisplay' Object is to be 
  * used as a flag for whether the component they represent (sharing the same 
@@ -39,7 +39,7 @@ const initialState = {
  * 	accountModalEditPassword: boolean,
  * 	accountModalDeleteAccount: boolean,
  * 	accountModalEditSettings: boolean
- * }} state - Current Object (in the redux state) for which account components
+ * }} state - Current Object (in the redux state) guiding which account components
  * are being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
@@ -52,7 +52,7 @@ const initialState = {
  * 	accountModalEditPassword: boolean,
  * 	accountModalDeleteAccount: boolean,
  * 	accountModalEditSettings: boolean
- * }} Object for which account components should be displayed by the app
+ * }} Object to guide which account components should be displayed by the app
  */
 export default function accountComponentsDisplayReducer(
 	state = initialState,

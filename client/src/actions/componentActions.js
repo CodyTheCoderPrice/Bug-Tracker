@@ -139,8 +139,8 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * state. As a rule, 'displays' prop should have at most only one of its 
  * boolean properties as true. As a fail safe, if more than one is true, only
  * one will be arbitrarily selected to be made true in 'componentsDisplay'. Also
- * if any expected properties in 'displays' prop are undefined, then they will
- * be set to false in 'componentsDisplay'.
+ * if any properties in 'displays' prop are undefined, then they will be set to
+ * false in 'componentsDisplay'.
  *
  * Note: The purpose of each property in 'componentsDisplay' Object is to be 
  * used as a flag for whether the component they represent (sharing the same 
@@ -161,21 +161,20 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * 	accountModalEditPassword: (boolean|undefined),
  * 	accountModalDeleteAccount: (boolean|undefined),
  * 	accountModalEditSettings: (boolean|undefined)
- * }} displays - Object containing info for how account components should be
- * displyed in the app. At most only one account component should be set to
- * true. Any account components set to undefined or excluded from this param
- * will be set to false in the redux state.
+ * }} displays - Object containing properties to guide which account components
+ * should be displyed in the app. At most only one of its properties should be 
+ * set to true. Any properties set to undefined or excluded from this Object 
+ * will be set to false in 'componentsDisplay' Object.
  *
  * @example
  * // Sets 'accountSidebar' to true, and all other properties to false, in 
- * // ...'componentsDisplay' Object of the redux state. The dispatch function
- * // ...is from useDispatch() imported from react-redux.
+ * // ...'componentsDisplay' Object. The dispatch function is from useDispatch()
+ * // ...imported from react-redux.
  * dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
  *
  * @example
- * // Sets all properties to false in 'componentsDisplay' Object of the redux 
- * // ...state. The dispatch function is from useDispatch() imported from 
- * // ...react-redux.
+ * // Sets all properties to false in 'componentsDisplay' Object. The dispatch
+ * // ...function is from useDispatch() imported from react-redux.
  * dispatch(setWhichAccountComponentsDisplay({}));
  */
 export const setWhichAccountComponentsDisplay = (displays) => (dispatch) => {
@@ -308,13 +307,24 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'componentsDisplay' property in 'COMMENT_CONTAINER' of the redux state for
- * how comment components should be displayed by the app. If any expected
- * properties in displays prop (i.e. commentBeingEdited and commentToBeDeleted)
- * are undefined, then they will be set to null in the redux state.
+ * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how comment
+ * components should display by the app) in 'COMMENT_CONTAINER' of the redux 
+ * state. If any properties in 'displays' prop are undefined, then they will be
+ * set to null in 'componentsDisplay'.
+ *
+ * Note: The purpose of 'commentBeingEdited' property in 'componentsDisplay' 
+ * Object is to be used by the ItemViewCommentsBoxIndividualComment component
+ * to tell if the comment attached to it is being edited, and if so, display a
+ * textarea to edit the comment. The purpose of 'commentToBeDeleted' property
+ * is to be used to determin if the DeleteModal component should display, as
+ * well as what message it should display (DeleteModal is also used for deleting
+ * projects and bugs, and has a unique message for each). The reason undefined 
+ * properties in 'displays' prop are set to null in 'componentsDisplay' is to
+ * allow devs to only have to pass properties they wish to set to an Object 
+ * (making life easier).
  *
  * @param {{
- * 	commentToBeEdited: ({
+ * 	commentBeingEdited: ({
  * 		id: number,
  * 		bug_id: number,
  * 		description: string,
@@ -328,14 +338,14 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * 		creation_date: string,
  * 		last_edited_timestamp: string
  * 	}|null|undefined)
- * }} displays - Object containing info for how comment components should be
- * displyed in the app. Any comment components set to undefined or excluded
- * from this param will be set to their default value.
+ * }} displays - Object containing properties to guide how comment components 
+ * should be displyed in the app. Any properties set to undefined or excluded
+ * from this Object will be set to null in 'componentsDisplay' Object.
  *
  * @example
- * // Sets commentBeingEdited to be passed comment Object and all other 
- * // ...properties to null. The dispatch function is from useDispatch() 
- * // ...imported from react-redux.
+ * // Sets 'commentBeingEdited' to be the bellow Object and 'commentToBeDeleted' 
+ * // ...to null in 'componentsDisplay' Object. The dispatch function is from
+ * // ...useDispatch() imported from react-redux.
  * dispatch(
  * 	setWhichCommentComponentsDisplay({
  * 		commentBeingEdited: {
@@ -349,8 +359,8 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
  * );
  *
  * @example
- * // Sets all comment propertries to null. The dispatch function is from
- * // ...useDispatch() imported from react-redux.
+ * // Sets all properties to null in 'componentsDisplay' Object. The dispatch 
+ * // ...function is from useDispatch() imported from react-redux.
  * dispatch(setWhichCommentComponentsDisplay({}));
  */
 export const setWhichCommentComponentsDisplay = (displays) => (dispatch) => {
