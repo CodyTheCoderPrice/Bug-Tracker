@@ -134,24 +134,24 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Uses 'displays' prop to set 'componentsDisplay' Object (for which account
- * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux 
- * state. As a rule, 'displays' prop should have at most only one of its 
- * boolean properties as true. As a fail safe, if more than one is true, only
- * one will be arbitrarily selected to be made true in 'componentsDisplay'. Also
- * if any properties in 'displays' prop are undefined, then they will be set to
- * false in 'componentsDisplay'.
+ * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how account
+ * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux
+ * state. As a rule, 'displays' prop should have at most only one of its
+ * boolean properties as true. If the 'displays' prop does not follow the rules
+ * then it will be altered to do so (in the reducer). Also if any properties in
+ * 'displays' prop are undefined, then they will be set to false in 
+ * 'componentsDisplay'.
  *
- * Note: The purpose of each property in 'componentsDisplay' Object is to be 
- * used as a flag for whether the component they represent (sharing the same 
- * name, e.g. 'accountSidebar' property represents AccountSidebar component) 
- * should be displayed by the app. The reason at most only one of these 
- * properties should be true is for both cosmetic reasons, as AccountSidebar and 
+ * Note: The purpose of each boolean in 'componentsDisplay' Object are to be
+ * used as flags for whether the components they represent (sharing the same
+ * name, e.g. 'accountSidebar' boolean represents AccountSidebar component)
+ * should be displayed by the app. The reason at most only one of these
+ * properties should be true is for both cosmetic reasons, as AccountSidebar and
  * AccountModal components do not look nice displaying together, and to prevent
  * CSS issues, as having more than one child component of AccountModal component
  * displaying together (e.g. AccountModalEditInfo, AccountModalEditEmail, ect.)
- * will break its intended CSS design. The reason undefined properties in 
- * 'displays' prop are set to false in 'componentsDisplay' is to allow devs to 
+ * will break its intended CSS design. The reason undefined properties in
+ * 'displays' prop are set to false in 'componentsDisplay' is to allow devs to
  * only have to pass properties they wish to set to true (making life easier).
  *
  * @param {{
@@ -161,7 +161,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * 	accountModalEditPassword: (boolean|undefined),
  * 	accountModalDeleteAccount: (boolean|undefined),
  * 	accountModalEditSettings: (boolean|undefined)
- * }} displays - Object containing properties to guide which account components
+ * }} displays - Object containing properties to guide how account components
  * should be displyed in the app. At most only one of its properties should be 
  * set to true. Any properties set to undefined or excluded from this Object 
  * will be set to false in 'componentsDisplay' Object.

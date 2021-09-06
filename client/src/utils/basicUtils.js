@@ -21,11 +21,11 @@ export function getStringOfAllArrayValues(array) {
 	let stringOfAllArrayValues = "";
 
 	for (let i = 0; i < array.length; i++) {
-		stringOfAllArrayValues += array[i];
+		stringOfAllArrayValues += "'" + array[i] + "'";
 		if ((i+2) < array.length) {
 			stringOfAllArrayValues += ", ";
 		} else if ((i+1) < array.length) {
-			stringOfAllArrayValues += ", and ";
+			stringOfAllArrayValues += " and ";
 		}
 	}
 

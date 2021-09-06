@@ -132,7 +132,7 @@ export default function listComponentsDisplayReducer(
 			// ...true at any given point in time
 			if (action.displays.listView === true && action.displays.itemView === true) {
 				console.log(
-					"Error: itemView and listView components were both attempted to be set to true in listComponentsDisplayReducer, which goes against their intended use. Only listView was set to true, as it has a higher priorirty."
+					"FAIL SAFE: 'itemView' and 'listView' components were both attempted to be set to true in the redux state which goes against their intended use. Only 'listView' was set to true (as it has a higher priorirty)."
 				);
 
 				action.displays["listView"] = true;
@@ -143,7 +143,7 @@ export default function listComponentsDisplayReducer(
 			// ...itemViewCurrentItem will be set to null
 			if (action.displays.itemView === true && action.displays.itemViewCurrentItem === null) {
 				console.log(
-					"Error: itemView was attempted to be set to true while itemViewCurrentItem was attempted to be set to null in listComponentsDisplayReducer, which goes against their intended use. So itemView was instead set to false."
+					"FAIL SAFE: 'itemView' was attempted to be set to true while 'itemViewCurrentItem' was attempted to be set to null in the redux state which goes against their intended use. So 'itemView' was instead set to false."
 				);
 
 				action.displays["itemView"] = false;
@@ -165,10 +165,10 @@ export default function listComponentsDisplayReducer(
 			// ...are set to true while listView property is false
 			if (action.displays.listView === false && keysOfListViewChildComponentsSetToTrue.length > 0) {
 				console.log(
-					"Error: " +
+					"FAIL SAFE: " +
 						getStringOfAllArrayValues(keysOfListViewChildComponentsSetToTrue) +
 						(keysOfListViewChildComponentsSetToTrue.length > 1 ? " were" : " was") +
-						" attempted to be set to true while listView was attempted to be set to false in listComponentsDisplayReducer, which goes against their intended use. So they were all set to false."
+						" attempted to be set to true while 'listView' was attempted to be set to false in the redux state which goes against their intended use. So they were all set to false."
 				);
 
 				action.displays["listViewDeleteModal"] = false;
@@ -184,7 +184,7 @@ export default function listComponentsDisplayReducer(
 			// ...change itemView property to false.
 			if (action.displays.itemView === false && action.displays.itemViewDeleteModal === true) {
 				console.log(
-					"Error: itemViewDeleteModal was attempted to be set to true while itemView was attempted to be set to false in listComponentsDisplayReducer, which goes against their intended use. So they were both set to false."
+					"FAIL SAFE: 'itemViewDeleteModal' was attempted to be set to true while 'itemView' was attempted to be set to false in the redux state which goes against their intended use. So they were both set to false."
 				);
 
 				action.displays["itemViewDeleteModal"] = false;

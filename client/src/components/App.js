@@ -54,11 +54,11 @@ function App() {
 		// eslint-disable-next-line
 	}, []);
 
-	// When an account is logged into the app, ensures that the Home component
-	// ...always has exactly one of ListView (for projects), ItemView (for
-	// ...projects), ListView (for bugs), or ItemView (for bugs) being displayed.
-	// ...This must be done outside listComponentsDisplayReducer as it can not
-	// ...manage both project and bug container simutaneously.
+	// FAIL SAFE: When an account is logged into the app, ensures that the Home
+	// ...component always has exactly one of ListView (for projects), ItemView 
+	// ...(for projects), ListView (for bugs), or ItemView (for bugs) being 
+	// ...displayed. This must be done outside listComponentsDisplayReducer as 
+	// ...it can not manage both project and bug container simutaneously.
 	useEffect(() => {
 		if (reduxState[ACCOUNT_CONTAINER].auth.isAuthenticated) {
 			let arryOfListAndItemViewComponentsSetToTrue = [];
@@ -79,15 +79,15 @@ function App() {
 			if (arryOfListAndItemViewComponentsSetToTrue.length !== 1) {
 				if (arryOfListAndItemViewComponentsSetToTrue.length > 1) {
 					console.log(
-						"Error: " +
+						"FAIL SAFE: " +
 							getStringOfAllArrayValues(
 								arryOfListAndItemViewComponentsSetToTrue
 							) +
-							" properties were attempted to be set to true in the redux state, which goes against their intended use. To ensure no issues with CSS -- listView for projects proeprty will be set true and the rest set to false."
+							" were attempted to be set to true in the redux state which goes against their intended use. To ensure no issues with CSS -- 'listView' (for projects) will be set true and the rest set to false."
 					);
 				} else {
 					console.log(
-						"Error: Neither listView (for projects and bugs) properties or itemView (for projects and bugs) properties were attempted to be set to true in the redux state, which goes against their intended use. So listView for projects property will be set true."
+						"FAIL SAFE: Neither 'listView' (for projects and bugs) properties or 'itemView' (for projects and bugs) properties were attempted to be set to true in the redux state which goes against their intended use. So 'listView' (for projects) will be set true."
 					);
 				}
 
@@ -122,12 +122,12 @@ function App() {
 	// Prints notes in the console that may be helpful to users/developers
 	useEffect(() => {
 		console.log(
-			"NOTE: If page is empty or seems broken, then please try clearing cookies before refreshing."
+			"DEV NOTE: If page is empty or seems broken, then please try clearing cookies before refreshing."
 		);
 
 		if (process.env.NODE_ENV === "development") {
 			console.log(
-				"NOTE: Pressing the third mouse button (while in development mode) will log the redux state."
+				"DEV NOTE: Pressing the third mouse button (while in development mode) will log the redux state."
 			);
 		}
 	}, []);
