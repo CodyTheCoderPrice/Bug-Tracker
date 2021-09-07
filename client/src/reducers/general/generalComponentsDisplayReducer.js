@@ -4,13 +4,23 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 // Initial state for which general components should be displayed by the app
 const initialState = {
 	register: false,
-	// Default is true only so the app will open on the Login component.
+	// Default is true so the app will open on the Login component.
 	login: true,
 	home: false,
-	// This is in the 'GENERAL_CONTAINER' since value should be same for both the
-	// ...project and bug versions of ItemViewListSidebar component (as user
-	// ...likely would expect them to be).
-	itemViewListSidebarComponentContainerElementExpanded: true,
+	// The next two are in the 'GENERAL_CONTAINER' since values should be 
+	// ...shared for both the project and bug versions of ItemViewListSidebar
+	// ...component (as user likely would expect them to be).
+	// When true, the below must be done by the DEVELOPER in JSX:
+	// ...ItemViewListSidebar component's 'list-sidebar-container' (className)
+	// ...element should have 'list-sidebar-container--expanded' modifier appended.
+	// ...ItemViewListSidebar component's 'expand-minimize-button' (className)
+	// ...element should have 'expand-minimize-button--expanded' modifier appended.
+	// ...ItemView component's 'item-content-container' (className) element should
+	// ...have 'item-content-container--shifted-right' modifier appended.
+	// When false, the below must be done by the DEVELOPER in JSX:
+	// ...ItemViewTopBar component's 'search-container' and 'list-filter-or-sort-container'
+	// ...(className) elements should not be present in that component's JSX.
+	itemViewListSidebarComponentContainerElementExpanded: false,
 	itemViewListSidebarComponentContainerElementExpandedUserSet: false,
 };
 
@@ -21,10 +31,12 @@ const initialState = {
  * 'login', or 'home' booleans as true, as well as 'home' should always be true
  * while a user is logged into the app, and either 'register' or 'login' should
  * be true if a user is not logged in. If the 'displays' prop does not follow
- * the rules then it will be altered to do so (in the reducer). Also if any
- * properties in 'displays' prop are undefined, then they will be set to false
- * (except for 'itemViewListSidebarComponentContainerElementExpanded' which will
- * be set to true) in 'componentsDisplay'.
+ * the rules then a fail safe will alter it does (in the reducer). As another 
+ * rule, 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be
+ * set to true whenever the user clicks the ItemViewListSidebar component's
+ * 'expand-minimize-button' (className) element (there is no fail safe to ensure
+ * this rule is followed). Also if any properties in 'displays' prop are 
+ * undefined, then they will be set to false in 'componentsDisplay'.
  *
  * Note: The purpose of 'register', 'login', and 'home' booleans in
  * 'componentsDisplay' Object are to be used as flags for whether the components
@@ -37,16 +49,6 @@ const initialState = {
  * component). The purpose of the 'itemViewListSidebarComponentContainerElementExpanded'
  * property is to be used as a flag for whether the ItemViewListSidebar
  * component's 'list-sidebar-container' (className) element should be expanded.
- * When true, the following must be done by the developer in JSX:
- * 		ItemViewListSidebar component's 'list-sidebar-container' (className)
- * 		element should have 'list-sidebar-container--expanded' modifier appended.
- * 		ItemViewListSidebar component's 'expand-minimize-button' (className)
- * 		element should have 'expand-minimize-button--expanded' modifier appended.
- * 		ItemView component's 'item-content-container' (className) element should
- * 		have 'item-content-container--shifted-right' modifier appended.
- * When false, the following must be done by the developer in JSX:
- * 		ItemViewTopBar component's 'search-container' and 'list-filter-or-sort-container'
- * 		 (className) elements should not be present in that component's JSX.
  * The purpose of the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
  * property is to be used as a flag by the custom hook in
  * useAutoDecideIfItemViewListSidebarComponentDisplaysHookUtils.js for whether
@@ -92,22 +94,19 @@ export default function generalComponentsDisplayReducer(
 						? validatedDisplays.register
 						: false,
 				// If undefined then false despite default being true in 
-				// ...'initialState' since a Dev would try to set it to false
-				// ...by leaving it undefined
+				// ...'initialState' since a Dev would likely expect it to turn
+				// ...false like the others
 				login:
 					validatedDisplays.login !== undefined
 						? validatedDisplays.login
 						: false,
 				home:
 					validatedDisplays.home !== undefined ? validatedDisplays.home : false,
-				// If undefined then true since default is true in 'initialState'
-				// ...and it's not expected a Dev would try to set it to false
-				// ...by leaving it undefined (unlike with 'login')
 				itemViewListSidebarComponentContainerElementExpanded:
 					validatedDisplays.itemViewListSidebarComponentContainerElementExpanded !==
 					undefined
 						? validatedDisplays.itemViewListSidebarComponentContainerElementExpanded
-						: true,
+						: false,
 				itemViewListSidebarComponentContainerElementExpandedUserSet:
 					validatedDisplays.itemViewListSidebarComponentContainerElementExpandedUserSet !==
 					undefined
@@ -160,6 +159,7 @@ function getValidatedDisplays(displays) {
 
 	const newDisplays = displays;
 
+	// ---Fail Safe---
 	// Having 'jwToken' in local storage means an account is logged into the app
 	if (localStorage.getItem("jwToken") !== null) {
 		if (displays.home !== true) {

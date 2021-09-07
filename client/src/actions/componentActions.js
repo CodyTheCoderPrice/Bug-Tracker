@@ -15,52 +15,40 @@ import {
 } from "./constants/types";
 
 /**
- * Sets 'componentsDisplay' property in 'GENERAL_CONTAINER' of the redux state for
- * how general components should be displayed by the app. The 'register', 
- * 'login', and 'home' properties in the 'displays' prop refer to whether the 
- * components they represent should display (e.g. 'login' represents the Login
- * component). As a rule, exactly one of these three properties should be true 
- * at any point in time in the redux state (as the components they represent
- * were not intended to be displayed simultaneously), as well as 'home' should
- * always be true while a user is logged into the app, and either 'register' or
- * 'login' should be true if a user is not logged in. The 
- * generalComponentsDisplayReducer ensures these rules are followed, meaning 
- * which of these three properties actually gets set to true in the redux state
- * may not match up with which were set to true in the 'displays' prop. It 
- * should be noted that 'login' takes prioirty over 'register', meaning if no
- * account is logged in, and both or neither are set to true in the 'display'
- * prop, then 'login' will be set to true in the redux state. The 
- * 'itemViewListSidebarComponentContainerElementExpanded' property represents
- * if the ItemViewListSidebar component should be expanded or minimized. The 
- * 'itemViewListSidebarComponentContainerElementExpandedUserSet' property 
- * represents if the user has clicked the ItemViewListSidebar component's
- * 'expand-minimize-button' (className) element during the current session.
- * If any expected properties in 'displays' prop (e.g. 'resgister', 'login', 
- * ect.) are undefined, then they will be attempted to be set to false in the
- * redux state (except for 'itemViewListSidebarComponentContainerElementExpanded',
- * which will be attempted to be set to true).
+ * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how general
+ * components should display by the app) in 'GENERAL_CONTAINER' of the redux
+ * state. As a rule, 'displays' prop should have at most only one of 'register',
+ * 'login', or 'home' booleans as true, as well as 'home' should always be true
+ * while a user is logged into the app, and either 'register' or 'login' should
+ * be true if a user is not logged in. If the 'displays' prop does not follow
+ * the rules then a fail safe will alter it does (in the reducer). As another 
+ * rule, 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be
+ * set to true whenever the user clicks the ItemViewListSidebar component's
+ * 'expand-minimize-button' (className) element (there is no fail safe to ensure
+ * this rule is followed). Also if any properties in 'displays' prop are 
+ * undefined, then they will be set to false in 'componentsDisplay'.
  *
- * Note: The way the 'register', 'login', and 'home' properties in the redux 
- * state are intended to control whether the components they represent display,
- * is by having their parent component (i.e. App component), check the value of
- * these properties, and only have their corresponding component be present in
- * the JSX if their property is true, which can be done using a ternary operator. 
- * 
- * Note: The way the 'itemViewListSidebarComponentContainerElementExpanded' 
- * property in the redux state is intended to control whether the 
- * ItemViewListSidebar component is expanded or not is by in that component's
- * JSX, list-sidebar-container--expanded' className to the 
- * 'list-sidebar-container' (className) element whenever the 
- * 'itemViewListSidebarComponentContainerElementExpanded' property is .
- * This can be done using a ternary operator.
- * 
- * Note: The 'itemViewListSidebarComponentContainerElementExpandedUserSet' 
- * property should be set to true whenever the user clicks the 
- * ItemViewListSidebar component's 'expand-minimize-button' (className) element.
- * The purpose of this property is to be used by the custom hook in 
- * useAutoDecideIfItemViewListSidebarComponentDisplaysHookUtils.js to determin 
- * if its auto-decide functionality should run (more info available the JsDoc 
- * of that file).
+ * Note: The purpose of 'register', 'login', and 'home' booleans in
+ * 'componentsDisplay' Object are to be used as flags for whether the components
+ * they represent (sharing the same name, e.g. 'home' boolean represents Home
+ * component) should be displayed by the app. The reason at most only one of
+ * these three booleans should be true is to both prevent CSS issues, as their
+ * components will break each others intended CSS design, and because it makes
+ * sense to seperate their component's functionalities (e.g. registering or
+ * logging-in is best done when not already logged-in and using the Home
+ * component). The purpose of the 'itemViewListSidebarComponentContainerElementExpanded'
+ * property is to be used as a flag for whether the ItemViewListSidebar
+ * component's 'list-sidebar-container' (className) element should be expanded.
+ * The purpose of the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
+ * property is to be used as a flag by the custom hook in
+ * useAutoDecideIfItemViewListSidebarComponentDisplaysHookUtils.js for whether
+ * the app should auto-decide if ItemViewListSidebar component's
+ * 'list-sidebar-container' (className) element should be expanded based on the
+ * current window size. If false it will continue to auto-decide, if true it
+ * will no longer auto-decide (until turned false again through an app reset).
+ * The reason undefined properties in 'displays' prop are set to false in
+ * 'componentsDisplay' is to allow devs to only have to pass properties they
+ * wish to set to true (making life easier).
  * 
  * @param {{
  * 	register: (boolean|undefined),
@@ -138,8 +126,8 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux
  * state. As a rule, 'displays' prop should have at most only one of its
  * boolean properties as true. If the 'displays' prop does not follow the rules
- * then it will be altered to do so (in the reducer). Also if any properties in
- * 'displays' prop are undefined, then they will be set to false in 
+ * then a fail safe will alter it does (in the reducer). Also if any properties 
+ * in 'displays' prop are undefined, then they will be set to false in 
  * 'componentsDisplay'.
  *
  * Note: The purpose of each boolean in 'componentsDisplay' Object are to be

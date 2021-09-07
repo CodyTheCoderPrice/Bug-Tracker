@@ -122,7 +122,7 @@ function App() {
 	// Prints notes in the console that may be helpful to users/developers
 	useEffect(() => {
 		console.log(
-			"DEV NOTE: If page is empty or seems broken, then please try clearing cookies before refreshing."
+			"PLEASE READ: If page is blank or seems broken in any way, then please try clearing cookies for this website before refreshing the page."
 		);
 
 		if (process.env.NODE_ENV === "development") {

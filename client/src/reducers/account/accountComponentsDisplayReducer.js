@@ -16,8 +16,8 @@ const initialState = {
  * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux
  * state. As a rule, 'displays' prop should have at most only one of its
  * boolean properties as true. If the 'displays' prop does not follow the rules
- * then it will be altered to do so (in the reducer). Also if any properties in
- * 'displays' prop are undefined, then they will be set to false in 
+ * then a fail safe will alter it does (in the reducer). Also if any properties 
+ * in 'displays' prop are undefined, then they will be set to false in 
  * 'componentsDisplay'.
  *
  * Note: The purpose of each boolean in 'componentsDisplay' Object are to be
@@ -130,7 +130,9 @@ function getValidatedDisplays(displays) {
 	if (keysOfAccountComponentsSetToTrue.length < 2) {
 		// Valid and therefore kept the same.
 		return displays;
-	} else {
+	} 
+	// ---Fail Safe---
+	else {
 		// Invalid and therefore new displays is needed.
 		const newDisplays = { ...initialState };
 		// Keeping only one of its booleans true. Which one is arbitrary, but

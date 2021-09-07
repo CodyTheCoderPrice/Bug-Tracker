@@ -2,12 +2,6 @@ import { SET_WHICH_GENERAL_DROPDOWNS_DISPLAY } from "../../actions/constants/typ
 
 // Initial state for which general dropdowns should be displayed by the app
 const initialState = {
-	// All the following relate to dropdown elements and if they should be 
-	// ...displayed. Each is named after the component the element they represent
-	// ...is located in, followed by a summary of the CSS className of the 
-	// ...element they represent (e.g. listViewTopBarFilterDropdown is in the
-	// ...listViewTopBar component and represents an element with a className of
-	// ...'filter-area-container__dropdown').
 	navbarHambugerDropdown: false,
 	listViewTopBarFilterDropdown: false,
 	itemViewTopBarSortDropdown: false,
@@ -16,17 +10,20 @@ const initialState = {
 };
 
 /**
- * Used to set 'dropdownsDisplay' property into 'GENERAL_CONTAINER' of the redux 
- * state for which general dropdowns should be displayed by the app. If any 
- * expected properties in action.displays (e.g. navbarHambugerDropdown, 
- * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to 
- * false in the redux state.
+ * Uses 'displays' prop to set 'dropdownsDisplay' Object (to guide how general
+ * dropdown elements should display by the app) in 'GENERAL_CONTAINER' of the 
+ * redux state. If any properties in 'displays' prop are undefined, then they 
+ * will be set to false in 'dropdownsDisplay'.
  * 
- * Note: The purpose of each property inside this reducer is to be used as a 
- * flag for whether the dropdown element they represent (they are named after 
- * the component the element they represent is located in, followed by a summary 
- * of the CSS className of the element they represent) should be displayed by 
- * the app.
+ * Note: The purpose of each boolean in 'dropdownsDisplay' Object are to be used
+ * as flags for whether the dropdown elements they represent (named after the 
+ * component the element is located in, followed by a summary of the CSS 
+ * className of the element, e.g. 'listViewTopBarFilterDropdown' represents an
+ * element in ListViewTopBar component with a className of 
+ * 'filter-area-container__dropdown') should be displayed by the app. The reason
+ * undefined properties in 'displays' prop are set to false in 
+ * 'dropdownsDisplay' is to allow devs to only have to pass properties they wish
+ * to set to true (making life easier).
  *
  * @param {{
  * 	navbarHambugerDropdown: boolean,
