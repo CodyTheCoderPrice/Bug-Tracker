@@ -19,7 +19,7 @@ import {
 } from "../../utils";
 // Other components used by this component
 import Navbar from "./menu/Navbar";
-import AccountBlurredBackground from "./account/AccountBlurredBackground";
+import AccountBlurredBackdrop from "./account/AccountBlurredBackdrop";
 import AccountSidebar from "./account/AccountSidebar";
 import AccountModal from "./account/AccountModal";
 import ListView from "./projects-bugs-shared/list/ListView";
@@ -27,18 +27,18 @@ import ItemView from "./projects-bugs-shared/item/ItemView";
 
 /**
  * React functional component used as a hub to display components available to
- * a logged in user. Component will always have the Navbar component displayed 
- * at the top. The account components will be displayed if the user opens them. 
+ * a logged in user. Component will always have the Navbar component displayed
+ * at the top. The account components will be displayed if the user opens them.
  * Below the Navbar will always be be displayed either the ListView (project),
- * ListView (bug), ItemView (project), or ItemView (bug) component based on 
+ * ListView (bug), ItemView (project), or ItemView (bug) component based on
  * which the user has selected to be open at any given point in time (only one
  * may be displaed at a time).
  *
  * The flag for displaying this component is intended to be 'home' property
  * of 'componentsDisplay' property in 'GENERAL_CONTAINER' of redux state.
- * This component should only be used inside the App component, and is not 
- * intended to be displayed while either the Login or Register components are 
- * also displayed. This component should only be displayed if an account is 
+ * This component should only be used inside the App component, and is not
+ * intended to be displayed while either the Login or Register components are
+ * also displayed. This component should only be displayed if an account is
  * logged in.
  *
  * @component
@@ -164,7 +164,7 @@ export default function Home() {
 
 	// Updates mass delete list to not include any project/bug items that have
 	// ...just been searchFilterSorted out, so the user does not accidentally
-	// ...delete items that are no longer visible on the ListView (but would 
+	// ...delete items that are no longer visible on the ListView (but would
 	// ...otherwise still be in the 'massDeleteList')
 	useEffect(() => {
 		const verifyMassDeleteList = (reduxContainerName) => {
@@ -205,20 +205,23 @@ export default function Home() {
 
 	/**
 	 * Gets whether AccountModal component should display, based on if any of
-	 * the five modal components that are children of AccountModal are set to 
+	 * the five modal components that are children of AccountModal are set to
 	 * true in 'ACCOUNT_CONTAINER' of the redux state.
 	 *
 	 * @returns {Boolean} Whether the AccountModal component should display
 	 */
 	const getShouldAccountModalDisplay = () => {
 		return (
-			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalEditInfo ||
-			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalEditEmail ||
 			reduxState[ACCOUNT_CONTAINER].componentsDisplay
-				.accountModalEditPassword ||
+				.accountModalEditInfoComponentShouldDisplay ||
 			reduxState[ACCOUNT_CONTAINER].componentsDisplay
-				.accountModalDeleteAccount ||
-			reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountModalEditSettings
+				.accountModalEditEmailComponentShouldDisplay ||
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay
+				.accountModalEditPasswordComponentShouldDisplay ||
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay
+				.accountModalDeleteAccountComponentShouldDisplay ||
+			reduxState[ACCOUNT_CONTAINER].componentsDisplay
+				.accountModalEditSettingsComponentShouldDisplay
 		);
 	};
 
@@ -253,9 +256,10 @@ export default function Home() {
 			{Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
 				true
 			) > -1 ? (
-				<AccountBlurredBackground />
+				<AccountBlurredBackdrop />
 			) : null}
-			{reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar ? (
+			{reduxState[ACCOUNT_CONTAINER].componentsDisplay
+				.accountSidebarComponentShouldDisplay ? (
 				<AccountSidebar />
 			) : null}
 			{getShouldAccountModalDisplay() ? <AccountModal /> : null}

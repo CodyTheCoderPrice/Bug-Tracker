@@ -48,7 +48,7 @@ export default function ListView(props) {
 			{reduxState[props.reduxContainerName].componentsDisplay
 				.listViewDeleteModal ? (
 				<DeleteModal
-					clickToCloseBlurredBackground={false}
+					clickToCloseBlurredBackdrop={false}
 					deleteFunction={deleteCheckedItems}
 					closeModalFunction={closeListViewDeleteModal}
 				/>

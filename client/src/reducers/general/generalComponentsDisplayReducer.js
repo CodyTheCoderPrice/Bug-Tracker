@@ -11,12 +11,14 @@ const initialState = {
 	// ...shared for both the project and bug versions of ItemViewListSidebar
 	// ...component (as user likely would expect them to be).
 	// When true, the below must be done by the DEVELOPER in JSX:
-	// ...ItemViewListSidebar component's 'list-sidebar-container' (className)
-	// ...element should have 'list-sidebar-container--expanded' modifier appended.
-	// ...ItemViewListSidebar component's 'expand-minimize-button' (className)
-	// ...element should have 'expand-minimize-button--expanded' modifier appended.
-	// ...ItemView component's 'item-content-container' (className) element should
-	// ...have 'item-content-container--shifted-right' modifier appended.
+	// ...1) ItemViewListSidebar component's 'list-sidebar-container' 
+	// ...(className) element should have 'list-sidebar-container--expanded'
+	// ...modifier appended.
+	// ...2) ItemViewListSidebar component's 'expand-minimize-button' 
+	// ...(className) element should have 'expand-minimize-button--expanded'
+	// ...modifier appended.
+	// ...3) ItemView component's 'item-content-container' (className) element
+	// ...should have 'item-content-container--shifted-right' modifier appended.
 	// When false, the below must be done by the DEVELOPER in JSX:
 	// ...ItemViewTopBar component's 'search-container' and 'list-filter-or-sort-container'
 	// ...(className) elements should not be present in that component's JSX.

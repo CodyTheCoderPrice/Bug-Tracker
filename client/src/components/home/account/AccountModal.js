@@ -16,16 +16,17 @@ import AccountModalDeleteAccount from "./AccountModalDeleteAccount";
 import AccountModalEditSettings from "./AccountModalEditSettings";
 
 /**
- * React functional component for shared HTML/CSS between all five account 
+ * React functional component for shared HTML/CSS between all five account
  * modals. Shared HTML/CSS abstract here consists of the modal background and
  * the top buttons used for navigating between modals and closing the modals to
- * return to AccountSidebar component (as user would have used AccountSidebar 
+ * return to AccountSidebar component (as user would have used AccountSidebar
  * to navigate to this component).
  *
- * There is no single flag inside 'componentsDisplay' property in 
- * 'ACCOUNT_CONTAINER' of the redux state designated for if this component should 
- * display. Instead, this component should display if any of the flags 
- * beginning with accountModal are true (e.g. accountModalEditInfo).
+ * There is no single flag inside 'componentsDisplay' Object in
+ * 'ACCOUNT_CONTAINER' of the redux state designated for if this component should
+ * display. Instead, this component should display if any of the flags
+ * beginning with 'accountModal...' are true (e.g.
+ * accountModalEditInfoComponentShouldDisplay).
  *
  * @component
  */
@@ -43,14 +44,14 @@ export default function AccountModal() {
 					)
 				}
 			>
-				{/*accountModalEditInfo doesn't have back-icon-button since it 
+				{/*AccountModalEditInfo doesn't have back-icon-button since it 
 				would go back to AccountSidebar, which is same as exit-icon-button*/}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalEditEmail === true ||
+					.accountModalEditEmailComponentShouldDisplay === true ||
 				reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalEditPassword === true ||
+					.accountModalEditPasswordComponentShouldDisplay === true ||
 				reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalDeleteAccount === true ? (
+					.accountModalDeleteAccountComponentShouldDisplay === true ? (
 					<div
 						className={
 							"back-icon-button" +
@@ -81,23 +82,23 @@ export default function AccountModal() {
 					<i className="fa fa-times" aria-hidden="true" alt="icon of an X"></i>
 				</div>
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalEditInfo ? (
+					.accountModalEditInfoComponentShouldDisplay ? (
 					<AccountModalEditInfo />
 				) : null}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalEditEmail ? (
+					.accountModalEditEmailComponentShouldDisplay ? (
 					<AccountModalEditEmail />
 				) : null}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalEditPassword ? (
+					.accountModalEditPasswordComponentShouldDisplay ? (
 					<AccountModalEditPassword />
 				) : null}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalDeleteAccount ? (
+					.accountModalDeleteAccountComponentShouldDisplay ? (
 					<AccountModalDeleteAccount />
 				) : null}
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountModalEditSettings ? (
+					.accountModalEditSettingsComponentShouldDisplay ? (
 					<AccountModalEditSettings />
 				) : null}
 			</div>

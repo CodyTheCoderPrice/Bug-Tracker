@@ -175,7 +175,7 @@ export default function ItemView(props) {
 				.itemViewDeleteModal ? (
 				// Delete modal for items
 				<DeleteModal
-					clickToCloseBlurredBackground={false}
+					clickToCloseBlurredBackdrop={false}
 					deleteFunction={deleteItem}
 					closeModalFunction={closeItemViewDeleteModal}
 				/>
@@ -185,7 +185,7 @@ export default function ItemView(props) {
 				null ? (
 				// Delete modal for comments
 				<DeleteModal
-					clickToCloseBlurredBackground={false}
+					clickToCloseBlurredBackdrop={false}
 					deleteFunction={deleteSelectedComment}
 					closeModalFunction={closeCommentDeleteModal}
 				/>

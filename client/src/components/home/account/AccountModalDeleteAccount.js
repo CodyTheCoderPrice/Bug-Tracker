@@ -22,8 +22,8 @@ import {
  * went wrong. Component includes link to return back to AccountModalEditInfo
  * component (as user would have used that component to navigate to this one).
  *
- * The flag for displaying this component is 'accountModalDeleteAccount' 
- * property of 'componentsDisplay' property in 'ACCOUNT_CONTAINER' of the redux 
+ * The flag for displaying this component is 'accountModalDeleteAccountComponentShouldDisplay' 
+ * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux 
  * state. This component should be the child of the AccountModal component.
  * This component should not be displayed along side any sibling components 
  * whose name also begins with AccountModal (e.g. AccountModalEditInfo).

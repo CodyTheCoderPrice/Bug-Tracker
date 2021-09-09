@@ -326,7 +326,7 @@ export function getCommonCharCountElementLimitReachedTextColorClassNameForLightO
  * blurred backdrop element's background color and opacity (will be different
  * CSS depending on if the backdrop has clickToClose functionality)
  *
- * @param {boolean} clickToClose - Whether the blurred-background element will
+ * @param {boolean} clickToClose - Whether the blurred-backdrop element will
  * close if clicked
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common blurred backdrop
@@ -337,7 +337,7 @@ export function getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNam
 	dark_mode
 ) {
 	return (
-		// Click-to-close blurred-background elements have different CSS
+		// Click-to-close blurred-backdrop elements have different CSS
 		(clickToClose
 			? " js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-"
 			: " js-get-common-blurred-backdrop-element-background-color-and-opacity-dark-mode-") +

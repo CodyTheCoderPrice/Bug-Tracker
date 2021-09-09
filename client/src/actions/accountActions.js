@@ -25,11 +25,11 @@ import {
 
 /**
  * Sets 'auth' Object containing authentication data (i.e. is an account logged
- * in, logged in account's id, time of login, and when authentication will 
+ * in, logged in account's id, time of login, and when authentication will
  * expire) from the backend into 'ACCOUNT_CONTAINER' of the redux state.
- * 
+ *
  * Note: Inside the 'auth' Object, the purpose of the 'isAuthenticated' boolean
- * is to be another way of telling if an account is currently logged into the 
+ * is to be another way of telling if an account is currently logged into the
  * app (can also tell by checking if jwToken is present in localStorage), and
  * the purpose of the 'decodedToken' Object is to give the frontend access to
  * the jwToken decoded (not currently used for anything, but is nice to have).
@@ -48,7 +48,7 @@ import {
  * //		account_id: 80,
  * //		iat: 1619803038,
  * //		exp: 1619889438
- * // 	} 
+ * // 	}
  * // }
  * dispatch(
  * 	setAuthentication({
@@ -275,8 +275,8 @@ export const loginAccount = (accountInfo) => (dispatch) => {
  *
  * Note: The purpose of this dispatch function is to have a way of retrieving
  * only the currently logged in account's info and nothing else from the
- * database. 
- * 
+ * database.
+ *
  * Note: If this dispatch function goes unused by the app, it should not be
  * deleted, as it's good to keep the option available for the future.
  *
@@ -308,11 +308,11 @@ export const retrieveAccount = () => (dispatch) => {
  * Calls api/account/retrieve-settings route to retrieve the account settings
  * from the database and store it in 'settings' property in 'ACCOUNT_CONTAINER' of
  * the redux state.
- * 
+ *
  * Note: The purpose of this dispatch function is to have a way of retrieving
  * only the currently logged in account's settings and nothing else from the
- * database. 
- * 
+ * database.
+ *
  * Note: If this dispatch function goes unused by the app, it should not be
  * deleted, as it's good to keep the option available for the future.
  *
@@ -426,9 +426,13 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 			const { account } = res.data;
 			// Updates the redux state with the new account name
 			dispatch(setAccount(account));
-			// Closes the accountModal and re-opens the accountSidebar (so the
-			// ...user can see their updated name)
-			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
+			// Closes AccountModal and re-opens AccountSidebar (so the user can
+			// ...see their updated name)
+			dispatch(
+				setWhichAccountComponentsDisplay({
+					accountSidebarComponentShouldDisplay: true,
+				})
+			);
 		})
 		.catch((err) => {
 			// Sets backend errors for what went wrong to be displayed to user
@@ -476,11 +480,16 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 			const { account } = res.data;
 			// Updates the redux state with the new account email
 			dispatch(setAccount(account));
-			// Closes the accountModal and re-opens the accountSidebar
-			dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
+			// Closes AccountModal and re-opens AccountSidebar (so the user can
+			// ...see their updated email)
+			dispatch(
+				setWhichAccountComponentsDisplay({
+					accountSidebarComponentShouldDisplay: true,
+				})
+			);
 		})
 		.catch((err) => {
-			// Closes the accountModal and re-opens the accountSidebar (so the
+			// Closes the AccountModal and re-opens the AccountSidebar (so the
 			// ...user can see their updated email)
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 
@@ -527,10 +536,14 @@ export const updateAccountPassword =
 				// ...password since the new account Object will contained an
 				// ...updated last_edited_timestamp
 				dispatch(setAccount(account));
-				// Closes the accountModal and re-opens the accountSidebar (even
-				// ...though the user won't see their updated password, this is
-				// ...still done for consistency with similar routes)
-				dispatch(setWhichAccountComponentsDisplay({ accountSidebar: true }));
+				// Closes AccountModal and re-opens AccountSidebar (even though
+				// ...the user won't see their updated password, this is still
+				// ...done for consistency with similar routes)
+				dispatch(
+					setWhichAccountComponentsDisplay({
+						accountSidebarComponentShouldDisplay: true,
+					})
+				);
 			})
 			.catch((err) => {
 				// Sets backend errors for what went wrong to be displayed to user
@@ -649,13 +662,13 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
 
 /**
  * Logs out the currently logged in account by removing their jwToken from
- * localStorage and resetting the redux state (which resets the app and also 
+ * localStorage and resetting the redux state (which resets the app and also
  * opens the Login component).
- * 
+ *
  * Note: The purpose of this dispatch function is to be used via the AccountSidebar
  * component to allow the user to willfully logout of their account. It's also
  * used by other dispatch functions to logout the currently logged in account if
- * an error is returned from the backend during an HTTP request saying their 
+ * an error is returned from the backend during an HTTP request saying their
  * jwToken has expired.
  *
  * @example

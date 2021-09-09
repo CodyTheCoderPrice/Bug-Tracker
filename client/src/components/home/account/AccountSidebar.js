@@ -26,8 +26,8 @@ import AccountSidebarEditAppearance from "./AccountSidebarEditAppearance";
  * for editing account's personal info and settings, and a button to logout.
  * Also displays the AccountSidebarEditAppearance component.
  *
- * The flag for displaying this component is 'accountSidebar' property of
- * 'componentsDisplay' property in 'ACCOUNT_CONTAINER' of the redux state.
+ * The flag for displaying this component is 'accountSidebarComponentShouldDisplay'
+ * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux state.
  *
  * @component
  */
@@ -54,7 +54,7 @@ export default function AccountSidebar() {
 	const openOnlyEditSettingsModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountModalEditSettings: true,
+				accountModalEditSettingsComponentShouldDisplay: true,
 			})
 		);
 	};

@@ -19,18 +19,18 @@ import {
 } from "../../../utils";
 
 /**
- * React functional component for updating the logged in account's personal 
+ * React functional component for updating the logged in account's personal
  * info (currently only first/last name) by entering a new first and last name.
- * Invalid name data (e.g. first name too long) and/or server issues will 
+ * Invalid name data (e.g. first name too long) and/or server issues will
  * display error messages to explain what went wrong. Component includes links
  * to navigate to the AccountModalEditEmail, AccountModalEditPassword, and
  * AccountModalDeleteAccount components.
  *
- * The flag for displaying this component is 'accountModalEditInfo' property 
- * of 'componentsDisplay' property in 'ACCOUNT_CONTAINER' of the redux state. This
- * component should be the child of the AccountModal component. This component 
- * should not be displayed along side any sibling components whose name also 
- * begins with AccountModal (e.g. AccountModalEditPassword).
+ * The flag for displaying this component is 'accountModalEditInfoComponentShouldDisplay'
+ * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux
+ * state. This component should be the child of the AccountModal component.
+ * This component should not be displayed along side any sibling components
+ * whose name also begins with AccountModal (e.g. AccountModalEditPassword).
  *
  * @component
  */
@@ -65,13 +65,13 @@ export default function AccountModalEditInfo() {
 
 	/**
 	 * Opens AccountModalEditEmail component while closing all other account
-	 * components (other than AccountModal as AccountModalEditEmail depends on 
+	 * components (other than AccountModal as AccountModalEditEmail depends on
 	 * it)
 	 */
 	const openOnlyEditEmailModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountModalEditEmail: true,
+				accountModalEditEmailComponentShouldDisplay: true,
 			})
 		);
 	};
@@ -84,27 +84,27 @@ export default function AccountModalEditInfo() {
 	const openOnlyEditPasswordModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountModalEditPassword: true,
+				accountModalEditPasswordComponentShouldDisplay: true,
 			})
 		);
 	};
 
 	/**
-	 * Opens AccountModalDeleteAccount component while closing all other 
+	 * Opens AccountModalDeleteAccount component while closing all other
 	 * account components (other than AccountModal as AccountModalDeleteAccount
 	 * depends on it)
 	 */
 	const openOnlyDeleteAccountModal = () => {
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountModalDeleteAccount: true,
+				accountModalDeleteAccountComponentShouldDisplay: true,
 			})
 		);
 	};
 
 	/**
 	 * Function for onSubmit handler of form element. Calls updateAccountInfo
-	 * action to attempt to update account's personal info (currently only 
+	 * action to attempt to update account's personal info (currently only
 	 * first/last name) using accountInfo
 	 *
 	 * @param {Event} e - Event created by element's onSubmit handler
@@ -118,7 +118,10 @@ export default function AccountModalEditInfo() {
 		<div>
 			<h1 className="title">Edit Personal Info</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
-				<label htmlFor="edit-account-info-modal--first-name" className="form__label">
+				<label
+					htmlFor="edit-account-info-modal--first-name"
+					className="form__label"
+				>
 					First Name:{" "}
 				</label>
 				{accountInfo.first_name.length >
@@ -164,7 +167,10 @@ export default function AccountModalEditInfo() {
 							.validationAccountNewFirstName
 					}
 				</span>
-				<label htmlFor="edit-account-info-modal--last-name" className="form__label">
+				<label
+					htmlFor="edit-account-info-modal--last-name"
+					className="form__label"
+				>
 					Last Name:{" "}
 				</label>
 				{accountInfo.last_name.length >

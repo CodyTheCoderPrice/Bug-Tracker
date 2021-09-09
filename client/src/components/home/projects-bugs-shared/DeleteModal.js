@@ -65,10 +65,10 @@ export default function DeleteModal(props) {
 				className={
 					"blurred-backdrop" +
 					getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
-						props.clickToCloseBlurredBackground,
+						props.clickToCloseBlurredBackdrop,
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
-					(props.clickToCloseBlurredBackground
+					(props.clickToCloseBlurredBackdrop
 						? " blurred-backdrop--click-to-close"
 						: "")
 				}

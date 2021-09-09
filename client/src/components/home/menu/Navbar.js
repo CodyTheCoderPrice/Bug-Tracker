@@ -113,8 +113,9 @@ export default function Navbar() {
 
 		dispatch(
 			setWhichAccountComponentsDisplay({
-				accountSidebar:
-					!reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebar,
+				accountSidebarComponentShouldDisplay:
+					!reduxState[ACCOUNT_CONTAINER].componentsDisplay
+						.accountSidebarComponentShouldDisplay,
 			})
 		);
 		dispatch(

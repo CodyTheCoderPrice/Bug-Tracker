@@ -3,12 +3,17 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
 // Initial state for which account components should be displayed by the app
 const initialState = {
-	accountSidebar: false,
-	accountModalEditInfo: false,
-	accountModalEditEmail: false,
-	accountModalEditPassword: false,
-	accountModalDeleteAccount: false,
-	accountModalEditSettings: false,
+	// When 'accountSidebarComponentShouldDisplay' is true, the below must be
+	// done (in addition to having that component display) by the DEVELOPER in JSX:
+	// 		AccountBlurredBackdrop component's 'account-modals-blurred-backdrop-component'
+	//		(className) element should have 'account-modals-blurred-backdrop-component--below-navbar'
+	//		modifier appended. This is so the Navbar can still be used while AccountSidebar is open.
+	accountSidebarComponentShouldDisplay: false,
+	accountModalEditInfoComponentShouldDisplay: false,
+	accountModalEditEmailComponentShouldDisplay: false,
+	accountModalEditPasswordComponentShouldDisplay: false,
+	accountModalDeleteAccountComponentShouldDisplay: false,
+	accountModalEditSettingsComponentShouldDisplay: false,
 };
 
 /**
@@ -16,29 +21,28 @@ const initialState = {
  * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux
  * state. As a rule, 'displays' prop should have at most only one of its
  * boolean properties as true. If the 'displays' prop does not follow the rules
- * then a fail safe will alter it does (in the reducer). Also if any properties 
- * in 'displays' prop are undefined, then they will be set to false in 
+ * then a fail safe will alter it does (in the reducer). Also if any properties
+ * in 'displays' prop are undefined, then they will be set to false in
  * 'componentsDisplay'.
  *
  * Note: The purpose of each boolean in 'componentsDisplay' Object are to be
- * used as flags for whether the components they represent (sharing the same
- * name, e.g. 'accountSidebar' boolean represents AccountSidebar component)
- * should be displayed by the app. The reason at most only one of these
- * properties should be true is for both cosmetic reasons, as AccountSidebar and
- * AccountModal components do not look nice displaying together, and to prevent
- * CSS issues, as having more than one child component of AccountModal component
- * displaying together (e.g. AccountModalEditInfo, AccountModalEditEmail, ect.)
- * will break its intended CSS design. The reason undefined properties in
- * 'displays' prop are set to false in 'componentsDisplay' is to allow devs to
- * only have to pass properties they wish to set to true (making life easier).
+ * used as flags for whether the components they represent should be displayed
+ * by the app. The reason at most only one of these properties should be true
+ * is for both cosmetic reasons, as AccountSidebar and AccountModal components
+ * do not look nice displaying together, and to prevent CSS issues, as having
+ * more than one child component of AccountModal component displaying together
+ * (e.g. AccountModalEditInfo, AccountModalEditEmail, ect.) will break its
+ * intended CSS design. The reason undefined properties in 'displays' prop are
+ * set to false in 'componentsDisplay' is to allow Devs to only have to pass
+ * properties they wish to set to true (making life easier).
  *
  * @param {{
- * 	accountSidebar: boolean,
- * 	accountModalEditInfo: boolean,
- * 	accountModalEditEmail: boolean,
- * 	accountModalEditPassword: boolean,
- * 	accountModalDeleteAccount: boolean,
- * 	accountModalEditSettings: boolean
+ * 	accountSidebarComponentShouldDisplay: boolean,
+ * 	accountModalEditInfoComponentShouldDisplay: boolean,
+ * 	accountModalEditEmailComponentShouldDisplay: boolean,
+ * 	accountModalEditPasswordComponentShouldDisplay: boolean,
+ * 	accountModalDeleteAccountComponentShouldDisplay: boolean,
+ * 	accountModalEditSettingsComponentShouldDisplay: boolean
  * }} state - Current Object (in the redux state) guiding which account components
  * are being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
@@ -46,12 +50,12 @@ const initialState = {
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
  * @returns {{
- * 	accountSidebar: boolean,
- * 	accountModalEditInfo: boolean,
- * 	accountModalEditEmail: boolean,
- * 	accountModalEditPassword: boolean,
- * 	accountModalDeleteAccount: boolean,
- * 	accountModalEditSettings: boolean
+ * 	accountSidebarComponentShouldDisplay: boolean,
+ * 	accountModalEditInfoComponentShouldDisplay: boolean,
+ * 	accountModalEditEmailComponentShouldDisplay: boolean,
+ * 	accountModalEditPasswordComponentShouldDisplay: boolean,
+ * 	accountModalDeleteAccountComponentShouldDisplay: boolean,
+ * 	accountModalEditSettingsComponentShouldDisplay: boolean
  * }} Object to guide how account components should be displayed by the app
  */
 export default function accountComponentsDisplayReducer(
@@ -63,29 +67,33 @@ export default function accountComponentsDisplayReducer(
 			const validatedDisplays = getValidatedDisplays(action.displays);
 
 			return {
-				accountSidebar:
-					validatedDisplays.accountSidebar !== undefined
-						? validatedDisplays.accountSidebar
+				accountSidebarComponentShouldDisplay:
+					validatedDisplays.accountSidebarComponentShouldDisplay !== undefined
+						? validatedDisplays.accountSidebarComponentShouldDisplay
 						: false,
-				accountModalEditInfo:
-					validatedDisplays.accountModalEditInfo !== undefined
-						? validatedDisplays.accountModalEditInfo
+				accountModalEditInfoComponentShouldDisplay:
+					validatedDisplays.accountModalEditInfoComponentShouldDisplay !==
+					undefined
+						? validatedDisplays.accountModalEditInfoComponentShouldDisplay
 						: false,
-				accountModalEditEmail:
-					validatedDisplays.accountModalEditEmail !== undefined
-						? validatedDisplays.accountModalEditEmail
+				accountModalEditEmailComponentShouldDisplay:
+					validatedDisplays.accountModalEditEmailComponentShouldDisplay !==
+					undefined
+						? validatedDisplays.accountModalEditEmailComponentShouldDisplay
 						: false,
-				accountModalEditPassword:
-					validatedDisplays.accountModalEditPassword !== undefined
-						? validatedDisplays.accountModalEditPassword
+				accountModalEditPasswordComponentShouldDisplay:
+					validatedDisplays.accountModalEditPasswordComponentShouldDisplay !==
+					undefined
+						? validatedDisplays.accountModalEditPasswordComponentShouldDisplay
 						: false,
-				accountModalDeleteAccount:
-					validatedDisplays.accountModalDeleteAccount !== undefined
-						? validatedDisplays.accountModalDeleteAccount
+				accountModalDeleteAccountComponentShouldDisplay:
+					validatedDisplays.accountModalDeleteAccountComponentShouldDisplay !==
+					undefined
+						? validatedDisplays.accountModalDeleteAccountComponentShouldDisplay
 						: false,
-				accountModalEditSettings:
-					validatedDisplays.accountModalEditSettings !== undefined
-						? validatedDisplays.accountModalEditSettings
+				accountModalEditSettingsComponentShouldDisplay:
+					validatedDisplays.accountModalEditSettingsComponentShouldDisplay !== undefined
+						? validatedDisplays.accountModalEditSettingsComponentShouldDisplay
 						: false,
 			};
 		default:
@@ -99,22 +107,22 @@ export default function accountComponentsDisplayReducer(
  * invalid, then a version that's altered to follow the rules is returned.
  *
  * @param {{
- * 	accountSidebar: boolean,
- * 	accountModalEditInfo: boolean,
- * 	accountModalEditEmail: boolean,
- * 	accountModalEditPassword: boolean,
- * 	accountModalDeleteAccount: boolean,
- * 	accountModalEditSettings: boolean
- * }} displays - 'action.displays' Object containing properties to guide how 
+ * 	accountSidebarComponentShouldDisplay: boolean,
+ * 	accountModalEditInfoComponentShouldDisplay: boolean,
+ * 	accountModalEditEmailComponentShouldDisplay: boolean,
+ * 	accountModalEditPasswordComponentShouldDisplay: boolean,
+ * 	accountModalDeleteAccountComponentShouldDisplay: boolean,
+ * 	accountModalEditSettingsComponentShouldDisplay: boolean
+ * }} displays - 'action.displays' Object containing properties to guide how
  * account components should be displyed in the app.
  * @returns {{
- * 	accountSidebar: boolean,
- * 	accountModalEditInfo: boolean,
- * 	accountModalEditEmail: boolean,
- * 	accountModalEditPassword: boolean,
- * 	accountModalDeleteAccount: boolean,
- * 	accountModalEditSettings: boolean
- * }} Validated 'action.displays' Object containing properties to guide how 
+ * 	accountSidebarComponentShouldDisplay: boolean,
+ * 	accountModalEditInfoComponentShouldDisplay: boolean,
+ * 	accountModalEditEmailComponentShouldDisplay: boolean,
+ * 	accountModalEditPasswordComponentShouldDisplay: boolean,
+ * 	accountModalDeleteAccountComponentShouldDisplay: boolean,
+ * 	accountModalEditSettingsComponentShouldDisplay: boolean
+ * }} Validated 'action.displays' Object containing properties to guide how
  * account components should be displyed in the app.
  */
 function getValidatedDisplays(displays) {
@@ -130,7 +138,7 @@ function getValidatedDisplays(displays) {
 	if (keysOfAccountComponentsSetToTrue.length < 2) {
 		// Valid and therefore kept the same.
 		return displays;
-	} 
+	}
 	// ---Fail Safe---
 	else {
 		// Invalid and therefore new displays is needed.

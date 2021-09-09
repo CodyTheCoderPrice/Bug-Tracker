@@ -7,7 +7,7 @@
 	// ...blurred-backdrop no longer in component as it was abstract outside of it,
 	// ...but keeping sidebar-container encase it gets moved back into component.
 	.account-modal {
-		// Must be more than accountBlurredBackgorund.scss
+		// Must be more than accountBlurredBackdrop.scss
 		z-index: 4;
 		position: fixed;
 		top: 50%;
