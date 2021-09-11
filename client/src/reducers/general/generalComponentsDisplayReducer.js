@@ -3,25 +3,27 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
 // Initial state for which general components should be displayed by the app
 const initialState = {
-	register: false,
+	registerComponentShouldDisplay: false,
 	// Default is true so the app will open on the Login component.
-	login: true,
-	home: false,
-	// The next two are in the 'GENERAL_CONTAINER' since values should be 
-	// ...shared for both the project and bug versions of ItemViewListSidebar
-	// ...component (as user likely would expect them to be).
-	// When true, the below must be done by the DEVELOPER in JSX:
-	// ...1) ItemViewListSidebar component's 'list-sidebar-container' 
-	// ...(className) element should have 'list-sidebar-container--expanded'
-	// ...modifier appended.
-	// ...2) ItemViewListSidebar component's 'expand-minimize-button' 
-	// ...(className) element should have 'expand-minimize-button--expanded'
-	// ...modifier appended.
-	// ...3) ItemView component's 'item-content-container' (className) element
-	// ...should have 'item-content-container--shifted-right' modifier appended.
-	// When false, the below must be done by the DEVELOPER in JSX:
-	// ...ItemViewTopBar component's 'search-container' and 'list-filter-or-sort-container'
-	// ...(className) elements should not be present in that component's JSX.
+	loginComponentShouldDisplay: true,
+	homeComponentShouldDisplay: false,
+	// The next two are in the 'GENERAL_CONTAINER' since values should be
+	// shared for both the project and bug versions of ItemViewListSidebar
+	// component (as user likely would expect them to be).
+	// When itemViewListSidebarComponentContainerElementExpanded is true the
+	// below must be done by the DEVELOPER in JSX:
+	// 	1) ItemViewListSidebar component's 'list-sidebar-container'
+	// 		(className) element should have 'list-sidebar-container--expanded'
+	// 		modifier appended.
+	// 	2) ItemViewListSidebar component's 'expand-minimize-button'
+	// 		(className) element should have 'expand-minimize-button--expanded'
+	// 		modifier appended.
+	// 	3) ItemView component's 'item-content-container' (className) element
+	// 		should have 'item-content-container--shifted-right' modifier appended.
+	// When itemViewListSidebarComponentContainerElementExpanded is false the
+	// below must be done by the DEVELOPER in JSX:
+	// ItemViewTopBar component's 'search-container' and 'list-filter-or-sort-container'
+	// (className) elements should not be present in that component's JSX.
 	itemViewListSidebarComponentContainerElementExpanded: false,
 	itemViewListSidebarComponentContainerElementExpandedUserSet: false,
 };
@@ -29,21 +31,25 @@ const initialState = {
 /**
  * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how general
  * components should display by the app) in 'GENERAL_CONTAINER' of the redux
- * state. As a rule, 'displays' prop should have at most only one of 'register',
- * 'login', or 'home' booleans as true, as well as 'home' should always be true
- * while a user is logged into the app, and either 'register' or 'login' should
- * be true if a user is not logged in. If the 'displays' prop does not follow
- * the rules then a fail safe will alter it does (in the reducer). As another 
- * rule, 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be
- * set to true whenever the user clicks the ItemViewListSidebar component's
+ * state. As a rule, 'displays' prop should have at most only one of 
+ * 'registerComponentShouldDisplay', 'loginComponentShouldDisplay', or
+ * 'homeComponentShouldDisplay' booleans as true, as well as 
+ * 'homeComponentShouldDisplay' should always be true while a user is logged 
+ * into the app, and either 'registerComponentShouldDisplay' or 
+ * 'loginComponentShouldDisplay' should be true if a user is not logged in. If
+ * the 'displays' prop does not follow the rules then a fail safe will alter to 
+ * do so (in the reducer). As another rule, 
+ * 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be set 
+ * to true whenever the user clicks the ItemViewListSidebar component's
  * 'expand-minimize-button' (className) element (there is no fail safe to ensure
  * this rule is followed). Also if any properties in 'displays' prop are 
  * undefined, then they will be set to false in 'componentsDisplay'.
  *
- * Note: The purpose of 'register', 'login', and 'home' booleans in
- * 'componentsDisplay' Object are to be used as flags for whether the components
- * they represent (sharing the same name, e.g. 'home' boolean represents Home
- * component) should be displayed by the app. The reason at most only one of
+ * Note: The purpose of 'registerComponentShouldDisplay', 'loginComponentShouldDisplay',
+ * and 'homeComponentShouldDisplay' booleans in 'componentsDisplay' Object are
+ * to be used as flags for whether the components they represent (sharing the 
+ * same name, e.g. 'homeComponentShouldDisplay' boolean represents Home 
+ * component) should be displayed by the app. The reason at most only one of 
  * these three booleans should be true is to both prevent CSS issues, as their
  * components will break each others intended CSS design, and because it makes
  * sense to seperate their component's functionalities (e.g. registering or
@@ -63,9 +69,9 @@ const initialState = {
  * wish to set to true (making life easier).
  *
  * @param {{
- * 	register: boolean,
- * 	login: boolean,
- * 	home: boolean,
+ * 	registerComponentShouldDisplay: boolean,
+ * 	loginComponentShouldDisplay: boolean,
+ * 	homeComponentShouldDisplay: boolean,
  * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
  * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
  * }} state - Current Object (in the redux state) for which general components
@@ -75,9 +81,9 @@ const initialState = {
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
  * @returns {{
- * 	register: boolean,
- * 	login: boolean,
- * 	home: boolean,
+ * 	registerComponentShouldDisplay: boolean,
+ * 	loginComponentShouldDisplay: boolean,
+ * 	homeComponentShouldDisplay: boolean,
  * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
  * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
  * }} Object for which general components should display by the app
@@ -91,19 +97,21 @@ export default function generalComponentsDisplayReducer(
 			const validatedDisplays = getValidatedDisplays(action.displays);
 
 			return {
-				register:
-					validatedDisplays.register !== undefined
-						? validatedDisplays.register
+				registerComponentShouldDisplay:
+					validatedDisplays.registerComponentShouldDisplay !== undefined
+						? validatedDisplays.registerComponentShouldDisplay
 						: false,
-				// If undefined then false despite default being true in 
+				// If undefined then false despite default being true in
 				// ...'initialState' since a Dev would likely expect it to turn
 				// ...false like the others
-				login:
-					validatedDisplays.login !== undefined
-						? validatedDisplays.login
+				loginComponentShouldDisplay:
+					validatedDisplays.loginComponentShouldDisplay !== undefined
+						? validatedDisplays.loginComponentShouldDisplay
 						: false,
-				home:
-					validatedDisplays.home !== undefined ? validatedDisplays.home : false,
+				homeComponentShouldDisplay:
+					validatedDisplays.homeComponentShouldDisplay !== undefined
+						? validatedDisplays.homeComponentShouldDisplay
+						: false,
 				itemViewListSidebarComponentContainerElementExpanded:
 					validatedDisplays.itemViewListSidebarComponentContainerElementExpanded !==
 					undefined
@@ -122,24 +130,24 @@ export default function generalComponentsDisplayReducer(
 
 /**
  * Checks if 'displays' prop follows the rules (i.e. that at most only one of
- * 'register', 'login', or 'home' booleans are true, as well as 'home' should
- * always be true while a user is logged into the app, and either 'register' or
- * 'login' should be true if a user is not logged in). If valid, then it's
+ * 'registerComponentShouldDisplay', 'loginComponentShouldDisplay', or 'homeComponentShouldDisplay' booleans are true, as well as 'homeComponentShouldDisplay' should
+ * always be true while a user is logged into the app, and either 'registerComponentShouldDisplay' or
+ * 'loginComponentShouldDisplay' should be true if a user is not logged in). If valid, then it's
  * returned unchanged. If invalid, then a version that's altered to follow the
  * rules is returned.
  *
  * @param {{
- * 	register: boolean,
- * 	login: boolean,
- * 	home: boolean,
+ * 	registerComponentShouldDisplay: boolean,
+ * 	loginComponentShouldDisplay: boolean,
+ * 	homeComponentShouldDisplay: boolean,
  * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
  * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
  * }} displays - 'action.displays' Object containing properties to guide how
  * general components should be displyed in the app.
  * @returns {{
- * 	register: boolean,
- * 	login: boolean,
- * 	home: boolean,
+ * 	registerComponentShouldDisplay: boolean,
+ * 	loginComponentShouldDisplay: boolean,
+ * 	homeComponentShouldDisplay: boolean,
  * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
  * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
  * }} Validated 'action.displays' Object containing properties to guide how
@@ -148,9 +156,9 @@ export default function generalComponentsDisplayReducer(
 function getValidatedDisplays(displays) {
 	let registerLoginHomeComponentsSetToTrue = filterObject(
 		{
-			register: displays.register,
-			login: displays.login,
-			home: displays.home,
+			registerComponentShouldDisplay: displays.registerComponentShouldDisplay,
+			loginComponentShouldDisplay: displays.loginComponentShouldDisplay,
+			homeComponentShouldDisplay: displays.homeComponentShouldDisplay,
 		},
 		(boolean) => boolean === true
 	);
@@ -162,11 +170,51 @@ function getValidatedDisplays(displays) {
 	const newDisplays = displays;
 
 	// ---Fail Safe---
-	// Having 'jwToken' in local storage means an account is logged into the app
-	if (localStorage.getItem("jwToken") !== null) {
-		if (displays.home !== true) {
+	// Having 'jwToken' as null in local storage means no account is logged into the app
+	if (localStorage.getItem("jwToken") === null) {
+		if (keysOfRegisterLoginHomeComponentsSetToTrue.length > 1) {
+			if (displays.loginComponentShouldDisplay === true) {
+				console.log(
+					"FAIL SAFE: " +
+						getStringOfAllArrayValues(
+							keysOfRegisterLoginHomeComponentsSetToTrue
+						) +
+						" were all attempted to be set to true in the redux state, which goes against their intended use. Since no account is logged into the app, " +
+						(displays.registerComponentShouldDisplay === true
+							? " and Login component takes priority over Register component, "
+							: "") +
+						" 'loginComponentShouldDisplay' was set to true while 'registerComponentShouldDisplay' and 'homeComponentShouldDisplay' were set to false."
+				);
+
+				newDisplays["registerComponentShouldDisplay"] = false;
+				newDisplays["loginComponentShouldDisplay"] = true;
+				newDisplays["homeComponentShouldDisplay"] = false;
+			} else {
+				console.log(
+					"FAIL SAFE: " +
+						getStringOfAllArrayValues(
+							keysOfRegisterLoginHomeComponentsSetToTrue
+						) +
+						" were all attempted to be set to true in the redux state, which goes against their intended use. Since no account is logged into the app, 'registerComponentShouldDisplay' was set to true while 'loginComponentShouldDisplay' and 'homeComponentShouldDisplay' were set to false."
+				);
+
+				newDisplays["registerComponentShouldDisplay"] = true;
+				newDisplays["loginComponentShouldDisplay"] = false;
+				newDisplays["homeComponentShouldDisplay"] = false;
+			}
+		} else if (displays.homeComponentShouldDisplay === true) {
 			console.log(
-				"FAIL SAFE: An account is logged into the app, but 'home' was not attempted to be set to true in in the redux state which goes against its intended use. So 'home' was set to true while 'register' and 'login' were set to false."
+				"FAIL SAFE: No account is logged into the app while 'homeComponentShouldDisplay' was attempted to be set to true in in the redux state. This goes against its intended use. So, 'loginComponentShouldDisplay' was set to true while 'registerComponentShouldDisplay' and 'homeComponentShouldDisplay' were set to false."
+			);
+
+			newDisplays["registerComponentShouldDisplay"] = false;
+			newDisplays["loginComponentShouldDisplay"] = true;
+			newDisplays["homeComponentShouldDisplay"] = false;
+		}
+	} else {
+		if (displays.homeComponentShouldDisplay !== true) {
+			console.log(
+				"FAIL SAFE: An account is logged into the app while 'homeComponentShouldDisplay' was not attempted to be set to true in in the redux state. This goes against its intended use. So 'homeComponentShouldDisplay' was set to true while 'registerComponentShouldDisplay' and 'loginComponentShouldDisplay' were set to false."
 			);
 		} else if (keysOfRegisterLoginHomeComponentsSetToTrue.length > 1) {
 			console.log(
@@ -174,39 +222,13 @@ function getValidatedDisplays(displays) {
 					getStringOfAllArrayValues(
 						keysOfRegisterLoginHomeComponentsSetToTrue
 					) +
-					" were all attempted to be set to true in the redux state which goes against their intended use. Since an account is logged into the app, 'home' was set to true while 'login' and 'register' were set to false."
+					" were all attempted to be set to true in the redux state which goes against their intended use. Since an account is logged into the app, 'homeComponentShouldDisplay' was set to true while 'loginComponentShouldDisplay' and 'registerComponentShouldDisplay' were set to false."
 			);
 		}
 
-		newDisplays["register"] = false;
-		newDisplays["login"] = false;
-		newDisplays["home"] = true;
-	} else if (keysOfRegisterLoginHomeComponentsSetToTrue.length > 1) {
-		if (displays.login === true) {
-			console.log(
-				"FAIL SAFE: " +
-					getStringOfAllArrayValues(
-						keysOfRegisterLoginHomeComponentsSetToTrue
-					) +
-					" were all attempted to be set to true in the redux state which goes against their intended use. Since no account is logged in, 'login' was set to true while 'register' and 'home' components were set to false."
-			);
-
-			newDisplays["register"] = false;
-			newDisplays["login"] = true;
-			newDisplays["home"] = false;
-		} else {
-			console.log(
-				"FAIL SAFE: " +
-					getStringOfAllArrayValues(
-						keysOfRegisterLoginHomeComponentsSetToTrue
-					) +
-					" were all attempted to be set to true in the redux state which goes against their intended use. Since no account is logged in, 'register' component was set to true while 'login' and 'home' components were set to false."
-			);
-
-			newDisplays["register"] = true;
-			newDisplays["login"] = false;
-			newDisplays["home"] = false;
-		}
+		newDisplays["registerComponentShouldDisplay"] = false;
+		newDisplays["loginComponentShouldDisplay"] = false;
+		newDisplays["homeComponentShouldDisplay"] = true;
 	}
 
 	return newDisplays;

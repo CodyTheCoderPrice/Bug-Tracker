@@ -185,8 +185,8 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 	axios
 		.post("/api/account/register", accountInfo)
 		.then(() => {
-			// Register was successful, so switching to the login page
-			dispatch(setWhichGeneralComponentsDisplay({ login: true }));
+			// Register was successful, so switching to Login component
+			dispatch(setWhichGeneralComponentsDisplay({ loginComponentShouldDisplay: true }));
 		})
 		.catch((err) => {
 			// Sets backend errors for what went wrong to be displayed to user
@@ -259,8 +259,8 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
 
-			// Login was successful, so switching to the home page
-			dispatch(setWhichGeneralComponentsDisplay({ home: true }));
+			// Login was successful so switching to Home Component
+			dispatch(setWhichGeneralComponentsDisplay({ homeComponentShouldDisplay: true }));
 		})
 		.catch((err) => {
 			// Sets backend errors for what went wrong to be displayed to user

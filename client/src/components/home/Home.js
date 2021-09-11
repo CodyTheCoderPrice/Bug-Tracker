@@ -34,12 +34,12 @@ import ItemView from "./projects-bugs-shared/item/ItemView";
  * which the user has selected to be open at any given point in time (only one
  * may be displaed at a time).
  *
- * The flag for displaying this component is intended to be 'home' property
- * of 'componentsDisplay' property in 'GENERAL_CONTAINER' of redux state.
- * This component should only be used inside the App component, and is not
- * intended to be displayed while either the Login or Register components are
- * also displayed. This component should only be displayed if an account is
- * logged in.
+ * The flag for displaying this component is intended to be 'homeComponentShouldDisplay'
+ * boolean in 'componentsDisplay' property in 'GENERAL_CONTAINER' of the redux
+ * state. This component should only be used inside the App component, and is 
+ * not intended to be displayed while either the Register or Login components 
+ * are also displayed. Also this component should only be displayed if an 
+ * account is logged into the app.
  *
  * @component
  */

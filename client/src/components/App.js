@@ -46,18 +46,25 @@ function App() {
 			// ...specifc error that makes action functions logout the user
 			dispatch(retrieveEverythingForAccount());
 		} else {
-			// Makes sure unauthenticated users do not have acces to home page
-			if (reduxState[GENERAL_CONTAINER].componentsDisplay.home) {
-				dispatch(setWhichGeneralComponentsDisplay({ login: true }));
+			// Makes sure unauthenticated users do not have acces to Home component
+			if (
+				reduxState[GENERAL_CONTAINER].componentsDisplay
+					.homeComponentShouldDisplay
+			) {
+				dispatch(
+					setWhichGeneralComponentsDisplay({
+						loginComponentShouldDisplay: true,
+					})
+				);
 			}
 		}
 		// eslint-disable-next-line
 	}, []);
 
 	// FAIL SAFE: When an account is logged into the app, ensures that the Home
-	// ...component always has exactly one of ListView (for projects), ItemView 
-	// ...(for projects), ListView (for bugs), or ItemView (for bugs) being 
-	// ...displayed. This must be done outside listComponentsDisplayReducer as 
+	// ...component always has exactly one of ListView (for projects), ItemView
+	// ...(for projects), ListView (for bugs), or ItemView (for bugs) being
+	// ...displayed. This must be done outside listComponentsDisplayReducer as
 	// ...it can not manage both project and bug container simutaneously.
 	useEffect(() => {
 		if (reduxState[ACCOUNT_CONTAINER].auth.isAuthenticated) {
@@ -149,11 +156,18 @@ function App() {
 			// app-component className is critical for a lot of css throughout
 			className="app-component"
 		>
-			{reduxState[GENERAL_CONTAINER].componentsDisplay.register ? (
+			{reduxState[GENERAL_CONTAINER].componentsDisplay
+				.registerComponentShouldDisplay ? (
 				<Register />
 			) : null}
-			{reduxState[GENERAL_CONTAINER].componentsDisplay.login ? <Login /> : null}
-			{reduxState[GENERAL_CONTAINER].componentsDisplay.home ? <Home /> : null}
+			{reduxState[GENERAL_CONTAINER].componentsDisplay
+				.loginComponentShouldDisplay ? (
+				<Login />
+			) : null}
+			{reduxState[GENERAL_CONTAINER].componentsDisplay
+				.homeComponentShouldDisplay ? (
+				<Home />
+			) : null}
 		</div>
 	);
 }

@@ -17,21 +17,25 @@ import {
 /**
  * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how general
  * components should display by the app) in 'GENERAL_CONTAINER' of the redux
- * state. As a rule, 'displays' prop should have at most only one of 'register',
- * 'login', or 'home' booleans as true, as well as 'home' should always be true
- * while a user is logged into the app, and either 'register' or 'login' should
- * be true if a user is not logged in. If the 'displays' prop does not follow
- * the rules then a fail safe will alter it does (in the reducer). As another 
- * rule, 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be
- * set to true whenever the user clicks the ItemViewListSidebar component's
+ * state. As a rule, 'displays' prop should have at most only one of 
+ * 'registerComponentShouldDisplay', 'loginComponentShouldDisplay', or
+ * 'homeComponentShouldDisplay' booleans as true, as well as 
+ * 'homeComponentShouldDisplay' should always be true while a user is logged 
+ * into the app, and either 'registerComponentShouldDisplay' or 
+ * 'loginComponentShouldDisplay' should be true if a user is not logged in. If
+ * the 'displays' prop does not follow the rules then a fail safe will alter to 
+ * do so (in the reducer). As another rule, 
+ * 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be set 
+ * to true whenever the user clicks the ItemViewListSidebar component's
  * 'expand-minimize-button' (className) element (there is no fail safe to ensure
  * this rule is followed). Also if any properties in 'displays' prop are 
  * undefined, then they will be set to false in 'componentsDisplay'.
  *
- * Note: The purpose of 'register', 'login', and 'home' booleans in
- * 'componentsDisplay' Object are to be used as flags for whether the components
- * they represent (sharing the same name, e.g. 'home' boolean represents Home
- * component) should be displayed by the app. The reason at most only one of
+ * Note: The purpose of 'registerComponentShouldDisplay', 'loginComponentShouldDisplay',
+ * and 'homeComponentShouldDisplay' booleans in 'componentsDisplay' Object are
+ * to be used as flags for whether the components they represent (sharing the 
+ * same name, e.g. 'homeComponentShouldDisplay' boolean represents Home 
+ * component) should be displayed by the app. The reason at most only one of 
  * these three booleans should be true is to both prevent CSS issues, as their
  * components will break each others intended CSS design, and because it makes
  * sense to seperate their component's functionalities (e.g. registering or
@@ -51,9 +55,9 @@ import {
  * wish to set to true (making life easier).
  * 
  * @param {{
- * 	register: (boolean|undefined),
- * 	login: (boolean|undefined),
- * 	home: (boolean|undefined),
+ * 	registerComponentShouldDisplay: (boolean|undefined),
+ * 	loginComponentShouldDisplay: (boolean|undefined),
+ * 	homeComponentShouldDisplay: (boolean|undefined),
  * 	itemViewListSidebarComponentContainerElementExpanded: (boolean|undefined),
  * 	itemViewListSidebarComponentContainerElementExpandedUserSet: (boolean|undefined)
  * }} displays - Object containing info for how general components should be
@@ -61,17 +65,15 @@ import {
  * from this param will be set to false in the redux state.
  *
  * @example
- * // Sets 'home' and 'itemViewListSidebarComponentContainerElementExpanded' 
- * // ...properties to true, and all other properties to false. The dispatch
- * // ...function is from useDispatch() imported from react-redux.
- * // ...dispatch(setWhichGeneralComponentsDisplay({ home: true }));
+ * // Sets 'homeComponentShouldDisplay' to true and all other booleans to false.
+ * // The dispatch function is from useDispatch() imported from react-redux.
+ * dispatch(setWhichGeneralComponentsDisplay({ homeComponentShouldDisplay: true }));
  * 
  * @example
- * // Sets either 'home' or 'login' property to true depending on if an account
- * // ...is logged into the app, as well as the 
- * // ... 'itemViewListSidebarComponentContainerElementExpanded' property to 
- * // ...true, and all other properties to false. The dispatch function is 
- * // ...from useDispatch() imported from react-redux.
+ * // Sets either 'homeComponentShouldDisplay' or 'loginComponentShouldDisplay' 
+ * // to true (depending on if an account is logged into the app) and all other
+ * // booleans to false. The dispatch function is from useDispatch() imported
+ * // from react-redux.
  * dispatch(setWhichGeneralComponentsDisplay({}));
  */
 export const setWhichGeneralComponentsDisplay =
@@ -126,9 +128,9 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux
  * state. As a rule, 'displays' prop should have at most only one of its
  * boolean properties as true. If the 'displays' prop does not follow the rules
- * then a fail safe will alter it does (in the reducer). Also if any properties
- * in 'displays' prop are undefined, then they will be set to false in
- * 'componentsDisplay'.
+ * then a fail safe will alter it to do so (in the reducer). Also if any 
+ * properties in 'displays' prop are undefined, then they will be set to false 
+ * in 'componentsDisplay'.
  *
  * Note: The purpose of each boolean in 'componentsDisplay' Object are to be
  * used as flags for whether the components they represent should be displayed
@@ -157,11 +159,7 @@ export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {
  * // Sets 'accountSidebarComponentShouldDisplay' to true and all other booleans
  * // to false in 'componentsDisplay' Object. The dispatch function is from 
  * // useDispatch() imported from react-redux.
- * dispatch(
- * 	setWhichAccountComponentsDisplay({ 
- * 		accountSidebarComponentShouldDisplay: true 
- * 	})
- * );
+ * dispatch(setWhichAccountComponentsDisplay({ accountSidebarComponentShouldDisplay: true }));
  *
  * @example
  * // Sets all booleans to false in 'componentsDisplay' Object. The dispatch

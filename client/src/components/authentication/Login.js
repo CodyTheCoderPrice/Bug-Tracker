@@ -15,12 +15,12 @@ import {
  * went wrong. Component includes a link to switch to the Register component.
  * Component also displays a background image that takes up the entire window.
  * 
- * The flag for displaying this component is 'login' property of 
- * 'componentsDisplay' property in 'GENERAL_CONTAINER' of the redux state. This 
- * component should only be used inside the App component, and is not intended
- * to be displayed while either the Register or Home components are also 
- * displayed. This component should only be displayed if an account is not 
- * logged in.
+ * The flag for displaying this component is 'loginComponentShouldDisplay'
+ * boolean in 'componentsDisplay' property in 'GENERAL_CONTAINER' of the redux
+ * state. This component should only be used inside the App component, and is 
+ * not intended to be displayed while either the Register or Home components
+ * are also displayed. Also this component should only be displayed if an 
+ * account is not logged into the app.
  * 
  * @component
  */
@@ -68,7 +68,7 @@ export default function Login() {
 	 * Switches to the Register component
 	 */
 	const openRegister = () => {
-		dispatch(setWhichGeneralComponentsDisplay({ register: true }));
+		dispatch(setWhichGeneralComponentsDisplay({ registerComponentShouldDisplay: true }));
 	};
 
 	return (
