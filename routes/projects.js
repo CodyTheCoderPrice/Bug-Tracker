@@ -227,7 +227,7 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 			account_id
 		);
 
-		// If any arenull, then something went wrong, therefore throw err
+		// If any are null, then something went wrong, therefore throw err
 		if (
 			allProjectsForAccount === null ||
 			allBugsForAccount === null ||
@@ -292,7 +292,7 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 			account_id
 		);
 
-		// If any arenull, then something went wrong, therefore throw err
+		// If any are null, then something went wrong, therefore throw err
 		if (
 			allProjectsForAccount === null ||
 			allBugsForAccount === null ||

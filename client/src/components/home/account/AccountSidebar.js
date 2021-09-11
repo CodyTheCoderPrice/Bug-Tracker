@@ -65,7 +65,7 @@ export default function AccountSidebar() {
 	 * @param {Event} e - Event created by element's onClick handler
 	 */
 	const handleLogoutAccount = (e) => {
-		// Likely unneeded, but stopPropagation just to be safe
+		// Likely unneeded, but still used just to be safe
 		e.stopPropagation();
 		dispatch(logoutAccount());
 	};
