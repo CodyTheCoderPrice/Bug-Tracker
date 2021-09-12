@@ -34,27 +34,36 @@ export default function DeleteModal(props) {
 
 	const getMessageText = () => {
 		if (
-			reduxState[PROJECT_CONTAINER].componentsDisplay.listViewDeleteModal ||
-			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewDeleteModal
+			reduxState[PROJECT_CONTAINER].componentsDisplay
+				.deleteModalComponentForListViewShouldDisplay ||
+			reduxState[PROJECT_CONTAINER].componentsDisplay
+				.deleteModalComponentForItemViewShouldDisplay
 		) {
 			return reduxState[PROJECT_CONTAINER].componentsDisplay
-				.listViewDeleteModal &&
+				.deleteModalComponentForListViewShouldDisplay &&
 				reduxState[PROJECT_CONTAINER].massDeleteList.length > 1
 				? "Deleting these projects will also delete their associated bugs and comments. This cannot be undone."
 				: "Deleting this project will also delete its associated bugs and comments. This cannot be undone.";
 		} else if (
-			reduxState[BUG_CONTAINER].componentsDisplay.listViewDeleteModal ||
-			reduxState[BUG_CONTAINER].componentsDisplay.itemViewDeleteModal
+			reduxState[BUG_CONTAINER].componentsDisplay
+				.deleteModalComponentForListViewShouldDisplay ||
+			reduxState[BUG_CONTAINER].componentsDisplay
+				.deleteModalComponentForItemViewShouldDisplay
 		) {
-			return reduxState[BUG_CONTAINER].componentsDisplay.listViewDeleteModal &&
+			return reduxState[BUG_CONTAINER].componentsDisplay
+				.deleteModalComponentForListViewShouldDisplay &&
 				reduxState[BUG_CONTAINER].massDeleteList.length > 1
 				? "Deleting these bugs will also delete their associated comments. This cannot be undone."
 				: "Deleting this bug will also delete its associated comments. This cannot be undone.";
 		} else if (
-			reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted !== null
+			reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted !==
+			null
 		) {
 			return "Deleting this comment cannot be undone.";
 		} else {
+			// This case should not happen, as the DeleteModal component should
+			// not display if all the above casses are false, but this text is
+			// still returned here just to be safe.
 			return "Are you sure? This cannot be undone.";
 		}
 	};
@@ -79,14 +88,8 @@ export default function DeleteModal(props) {
 					getDeleteModalComponentModalContainerElementBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
-					(reduxState[PROJECT_CONTAINER].componentsDisplay
-						.listViewDeleteModal === false &&
-					reduxState[PROJECT_CONTAINER].componentsDisplay
-						.itemViewDeleteModal === false &&
-					reduxState[BUG_CONTAINER].componentsDisplay.listViewDeleteModal ===
-						false &&
-					reduxState[BUG_CONTAINER].componentsDisplay.itemViewDeleteModal ===
-						false
+					(reduxState[COMMENT_CONTAINER].componentsDisplay
+						.commentToBeDeleted !== null
 						? " modal-container--comment-height"
 						: "")
 				}

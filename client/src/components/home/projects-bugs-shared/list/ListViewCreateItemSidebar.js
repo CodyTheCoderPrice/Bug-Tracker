@@ -140,7 +140,7 @@ export default function ListViewCreateItemSidebar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listViewCreateItemSidbar: false,
+				listViewCreateItemSidbarComponentShouldDisplay: false,
 			})
 		);
 	};

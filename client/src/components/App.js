@@ -70,17 +70,37 @@ function App() {
 		if (reduxState[ACCOUNT_CONTAINER].auth.isAuthenticated) {
 			let arryOfListAndItemViewComponentsSetToTrue = [];
 
-			if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView === true) {
-				arryOfListAndItemViewComponentsSetToTrue.push("listView for projects");
+			if (
+				reduxState[PROJECT_CONTAINER].componentsDisplay
+					.listViewComponentShouldDisplay === true
+			) {
+				arryOfListAndItemViewComponentsSetToTrue.push(
+					"listViewComponentShouldDisplay for projects"
+				);
 			}
-			if (reduxState[PROJECT_CONTAINER].componentsDisplay.itemView === true) {
-				arryOfListAndItemViewComponentsSetToTrue.push("itemView for projects");
+			if (
+				reduxState[PROJECT_CONTAINER].componentsDisplay
+					.itemViewComponentShouldDisplay === true
+			) {
+				arryOfListAndItemViewComponentsSetToTrue.push(
+					"itemViewComponentShouldDisplay for projects"
+				);
 			}
-			if (reduxState[BUG_CONTAINER].componentsDisplay.listView === true) {
-				arryOfListAndItemViewComponentsSetToTrue.push("listView for bugs");
+			if (
+				reduxState[BUG_CONTAINER].componentsDisplay
+					.listViewComponentShouldDisplay === true
+			) {
+				arryOfListAndItemViewComponentsSetToTrue.push(
+					"listViewComponentShouldDisplay for bugs"
+				);
 			}
-			if (reduxState[BUG_CONTAINER].componentsDisplay.itemView === true) {
-				arryOfListAndItemViewComponentsSetToTrue.push("itemView for bugs");
+			if (
+				reduxState[BUG_CONTAINER].componentsDisplay
+					.itemViewComponentShouldDisplay === true
+			) {
+				arryOfListAndItemViewComponentsSetToTrue.push(
+					"itemViewComponentShouldDisplay for bugs"
+				);
 			}
 
 			if (arryOfListAndItemViewComponentsSetToTrue.length !== 1) {
@@ -90,11 +110,11 @@ function App() {
 							getStringOfAllArrayValues(
 								arryOfListAndItemViewComponentsSetToTrue
 							) +
-							" were attempted to be set to true in the redux state which goes against their intended use. To ensure no issues with CSS -- 'listView' (for projects) will be set true and the rest set to false."
+							" were attempted to be set to true in the redux state which goes against their intended use. To ensure no issues with CSS -- 'listViewComponentShouldDisplay' (for projects) will be set true and the rest set to false."
 					);
 				} else {
 					console.log(
-						"FAIL SAFE: Neither 'listView' (for projects and bugs) properties or 'itemView' (for projects and bugs) properties were attempted to be set to true in the redux state which goes against their intended use. So 'listView' (for projects) will be set true."
+						"FAIL SAFE: Neither 'listViewComponentShouldDisplay' (for projects and bugs) properties or 'itemViewComponentShouldDisplay' (for projects and bugs) properties were attempted to be set to true in the redux state which goes against their intended use. So 'listViewComponentShouldDisplay' (for projects) will be set true."
 					);
 				}
 
@@ -102,7 +122,7 @@ function App() {
 				// ...switch back to project ItemView using navbar.
 				dispatch(
 					setWhichProjectComponentsDisplay({
-						listView: true,
+						listViewComponentShouldDisplay: true,
 						itemViewCurrentItem:
 							reduxState[PROJECT_CONTAINER].componentsDisplay
 								.itemViewCurrentItem,

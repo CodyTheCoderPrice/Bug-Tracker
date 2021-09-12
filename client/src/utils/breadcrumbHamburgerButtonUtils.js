@@ -16,7 +16,7 @@ import {
 } from "../actions";
 
 /**
- * Sets 'listView' property to true in 'componentsDisplay' property's Object in
+ * Sets 'listViewComponentShouldDisplay' property to true in 'componentsDisplay' property's Object in
  * 'PROJECT_CONTAINER' of the redux state. Keeps 'itemViewCurrentItem' properties
  * the same in 'componentsDisplay' properties' Objects of both 'PROJECT_CONTAINER'
  * and 'BUG_CONTAINER' of the redux state. Sets all other properties in
@@ -25,7 +25,7 @@ import {
  * Object in 'COMMENT_CONTAINER' to null.
  *
  * Note: This should be onClick function for elements pertaining to project
- * listView with 'breadcrumb-button' className in NavbarBreadcrumb component and
+ * listViewComponentShouldDisplay with 'breadcrumb-button' className in NavbarBreadcrumb component and
  * 'hamburger-dropdown__row-button' className in NavbarHamburger component. The
  * purpose of this function is to make project's ListView be the currently
  * dispalyed view component (i.e. as opposed to project's ItemView, bug's
@@ -42,12 +42,14 @@ import {
  * useDispatch()
  */
 export function switchToProjectsListView(passedReduxState, dispatch) {
+	// Only runs if something needs to change in the redux state
 	if (
-		passedReduxState[PROJECT_CONTAINER].componentsDisplay.listView !== true ||
 		passedReduxState[PROJECT_CONTAINER].componentsDisplay
-			.listViewCreateItemSidbar === true ||
+			.listViewComponentShouldDisplay !== true ||
 		passedReduxState[PROJECT_CONTAINER].componentsDisplay
-			.listViewDeleteModal === true ||
+			.listViewCreateItemSidbarComponentShouldDisplay === true ||
+		passedReduxState[PROJECT_CONTAINER].componentsDisplay
+			.deleteModalComponentForListViewShouldDisplay === true ||
 		Object.values(
 			passedReduxState[ACCOUNT_CONTAINER].componentsDisplay
 		).indexOf(true) > -1
@@ -57,7 +59,7 @@ export function switchToProjectsListView(passedReduxState, dispatch) {
 		// ...switch back to project ItemView using navbar.
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				listView: true,
+				listViewComponentShouldDisplay: true,
 				itemViewCurrentItem:
 					passedReduxState[PROJECT_CONTAINER].componentsDisplay
 						.itemViewCurrentItem,
@@ -76,16 +78,16 @@ export function switchToProjectsListView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets 'itemView' property to true in 'componentsDisplay' property's Object in
+ * Sets 'itemViewComponentShouldDisplay' property to true in 'componentsDisplay' property's Object in
  * 'PROJECT_CONTAINER' of the redux state. Also keeps 'itemViewCurrentItem'
- * properties the same in 'componentsDisplay' properties' Objects of both 
+ * properties the same in 'componentsDisplay' properties' Objects of both
  * 'PROJECT_CONTAINER' and 'BUG_CONTAINER' of the redux state. Also sets all other
  * properties in 'componentsDisplay' properties' Objects of 'ACCOUNT_CONTAINER',
- * 'PROJECT_CONTAINER', and 'BUG_CONTAINER' to false. Sets properties in 
+ * 'PROJECT_CONTAINER', and 'BUG_CONTAINER' to false. Sets properties in
  * 'componentsDisplay' property's Object in 'COMMENT_CONTAINER' to null.
  *
  * Note: This should be onClick function for elements pertaining to project
- * itemView with 'breadcrumb-button' className in NavbarBreadcrumb component and
+ * itemViewComponentShouldDisplay with 'breadcrumb-button' className in NavbarBreadcrumb component and
  * 'hamburger-dropdown__row-button' className in NavbarHamburger component. The
  * purpose of this function is to make project's ItemView be the currently
  * dispalyed view component (i.e. as opposed to project's ListView, bug's
@@ -103,8 +105,10 @@ export function switchToProjectsListView(passedReduxState, dispatch) {
  * useDispatch()
  */
 export function switchToProjectsItemView(passedReduxState, dispatch) {
+	// For optimization, only runs if something needs to change
 	if (
-		passedReduxState[PROJECT_CONTAINER].componentsDisplay.itemView !== true ||
+		passedReduxState[PROJECT_CONTAINER].componentsDisplay
+			.itemViewComponentShouldDisplay !== true ||
 		Object.values(
 			passedReduxState[ACCOUNT_CONTAINER].componentsDisplay
 		).indexOf(true) > -1
@@ -113,7 +117,7 @@ export function switchToProjectsItemView(passedReduxState, dispatch) {
 		// Keeps itemViewCurrentItem the same as project ItemView depends on it
 		dispatch(
 			setWhichProjectComponentsDisplay({
-				itemView: true,
+				itemViewComponentShouldDisplay: true,
 				itemViewCurrentItem:
 					passedReduxState[PROJECT_CONTAINER].componentsDisplay
 						.itemViewCurrentItem,
@@ -132,15 +136,15 @@ export function switchToProjectsItemView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets 'listView' property to true in 'componentsDisplay' property's Object in
+ * Sets 'listViewComponentShouldDisplay' property to true in 'componentsDisplay' property's Object in
  * 'BUG_CONTAINER' of the redux state. Also keeps 'itemViewCurrentItem' properties
  * the same in 'componentsDisplay' properties' Objects of both 'PROJECT_CONTAINER'
  * and 'BUG_CONTAINER' of the redux state. Also sets all other properties in
- * 'componentsDisplay' properties' Objects of 'ACCOUNT_CONTAINER', 
- * 'PROJECT_CONTAINER', and 'BUG_CONTAINER' to false. Sets properties in 
+ * 'componentsDisplay' properties' Objects of 'ACCOUNT_CONTAINER',
+ * 'PROJECT_CONTAINER', and 'BUG_CONTAINER' to false. Sets properties in
  * 'componentsDisplay' property's Object in 'COMMENT_CONTAINER' to null.
  *
- * Note: This should be onClick function for elements pertaining to bug listView
+ * Note: This should be onClick function for elements pertaining to bug listViewComponentShouldDisplay
  * with 'breadcrumb-button' className in NavbarBreadcrumb component and
  * 'hamburger-dropdown__row-button' className in NavbarHamburger component. The
  * purpose of this function is to make bug's ListView be the currently
@@ -158,12 +162,14 @@ export function switchToProjectsItemView(passedReduxState, dispatch) {
  * useDispatch()
  */
 export function SwitchToBugsListView(passedReduxState, dispatch) {
+	// For optimization, only runs if something needs to change
 	if (
-		passedReduxState[BUG_CONTAINER].componentsDisplay.listView !== true ||
 		passedReduxState[BUG_CONTAINER].componentsDisplay
-			.listViewCreateItemSidbar === true ||
-		passedReduxState[BUG_CONTAINER].componentsDisplay.listViewDeleteModal ===
-			true ||
+			.listViewComponentShouldDisplay !== true ||
+		passedReduxState[BUG_CONTAINER].componentsDisplay
+			.listViewCreateItemSidbarComponentShouldDisplay === true ||
+		passedReduxState[BUG_CONTAINER].componentsDisplay
+			.deleteModalComponentForListViewShouldDisplay === true ||
 		Object.values(
 			passedReduxState[ACCOUNT_CONTAINER].componentsDisplay
 		).indexOf(true) > -1
@@ -182,7 +188,7 @@ export function SwitchToBugsListView(passedReduxState, dispatch) {
 		// ...can switch back to bug ItemView using navbar.
 		dispatch(
 			setWhichBugComponentsDisplay({
-				listView: true,
+				listViewComponentShouldDisplay: true,
 				itemViewCurrentItem:
 					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
@@ -192,15 +198,15 @@ export function SwitchToBugsListView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets 'itemView' property to true in 'componentsDisplay' property's Object in
+ * Sets 'itemViewComponentShouldDisplay' property to true in 'componentsDisplay' property's Object in
  * 'BUG_CONTAINER' of the redux state. Also keeps 'itemViewCurrentItem' properties
  * the same in 'componentsDisplay' properties' Objects of both 'PROJECT_CONTAINER'
  * and 'BUG_CONTAINER' of the redux state. Also sets all other properties in
- * 'componentsDisplay' properties' Objects of 'ACCOUNT_CONTAINER', 
- * 'PROJECT_CONTAINER', and 'BUG_CONTAINER' to false. Sets properties in 
+ * 'componentsDisplay' properties' Objects of 'ACCOUNT_CONTAINER',
+ * 'PROJECT_CONTAINER', and 'BUG_CONTAINER' to false. Sets properties in
  * 'componentsDisplay' property's Object in 'COMMENT_CONTAINER' to null.
  *
- * Note: This should be onClick function for elements pertaining to bug itemView
+ * Note: This should be onClick function for elements pertaining to bug itemViewComponentShouldDisplay
  * with 'breadcrumb-button' className in NavbarBreadcrumb component and
  * 'hamburger-dropdown__row-button' className in NavbarHamburger component. The
  * purpose of this function is to make bug's ItemView be the currently
@@ -218,8 +224,10 @@ export function SwitchToBugsListView(passedReduxState, dispatch) {
  * useDispatch()
  */
 export function switchToBugsItemView(passedReduxState, dispatch) {
+	// For optimization, only runs if something needs to change
 	if (
-		passedReduxState[BUG_CONTAINER].componentsDisplay.itemView !== true ||
+		passedReduxState[BUG_CONTAINER].componentsDisplay
+			.itemViewComponentShouldDisplay !== true ||
 		Object.values(
 			passedReduxState[ACCOUNT_CONTAINER].componentsDisplay
 		).indexOf(true) > -1
@@ -237,7 +245,7 @@ export function switchToBugsItemView(passedReduxState, dispatch) {
 		// Keeps itemViewCurrentItem the same as bug ItemView depends on it
 		dispatch(
 			setWhichBugComponentsDisplay({
-				itemView: true,
+				itemViewComponentShouldDisplay: true,
 				itemViewCurrentItem:
 					passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 			})
@@ -247,26 +255,26 @@ export function switchToBugsItemView(passedReduxState, dispatch) {
 }
 
 /**
- * Sets 'listView' property to true and keeps 'listViewCreateItemSidbar'
- * property the same in 'componentsDisplay' property's Object in 
- * 'PROJECT_CONTAINER' of the redux state. Sets all other properties in 
- * 'componentsDisplay' property's Objects of 'ACCOUNT_CONTAINER', 
+ * Sets 'listViewComponentShouldDisplay' property to true and keeps 'listViewCreateItemSidbarComponentShouldDisplay'
+ * property the same in 'componentsDisplay' property's Object in
+ * 'PROJECT_CONTAINER' of the redux state. Sets all other properties in
+ * 'componentsDisplay' property's Objects of 'ACCOUNT_CONTAINER',
  * 'PROJECT_CONTAINER', and 'BUG_CONTAINER' to false or null (depending on which is
  * their default). Sets properties in 'componentsDisplay' property's Object in
  * 'COMMENT_CONTAINER' to null. Empties 'massDeleteList' property's Object in
  * 'BUG_CONTAINER'.
  *
  * Note: This should be onClick function for element pertaining to project's
- * listView with 'breadcrumb-button__end-container__close-icon-button' className
+ * listViewComponentShouldDisplay with 'breadcrumb-button__end-container__close-icon-button' className
  * in NavbarBreadcrumb component and 'hamburger-dropdown__row-button__close-icon-button'
  * className in NavbarHamburger component. The purpose of this function is to
- * make project's ListView be the currently dispalyed view component (i.e. as 
- * opposed to project's ItemView, bug's ListView, or bug's ItemView). To keep 
+ * make project's ListView be the currently dispalyed view component (i.e. as
+ * opposed to project's ItemView, bug's ListView, or bug's ItemView). To keep
  * project's ListViewCreateItemSidebar open if it was already. To have no project
  * selected for project's ItemView. To close all account and bug components. To
- * have no comments in the process of being edited or deleted. Also the reason 
- * 'massDeleteList' propery's Object in 'BUG_CONTAINER' is emptied is because 
- * without a project selected for project's ItemView means there is no list of 
+ * have no comments in the process of being edited or deleted. Also the reason
+ * 'massDeleteList' propery's Object in 'BUG_CONTAINER' is emptied is because
+ * without a project selected for project's ItemView means there is no list of
  * bugs that can be in the massDeleteList.
  *
  * @param {Event} e - Event created by element's onClick handler
@@ -284,14 +292,14 @@ export function setTrueForOnlyProjectListViewAndCreateItemSidebar(
 	e.stopPropagation();
 
 	dispatch(setWhichAccountComponentsDisplay({}));
-	// Keeps listViewCreateItemSidbar the same since the user would not expect
+	// Keeps listViewCreateItemSidbarComponentShouldDisplay the same since the user would not expect
 	// ...it to be closed by this function.
 	dispatch(
 		setWhichProjectComponentsDisplay({
-			listView: true,
-			listViewCreateItemSidbar:
+			listViewComponentShouldDisplay: true,
+			listViewCreateItemSidbarComponentShouldDisplay:
 				passedReduxState[PROJECT_CONTAINER].componentsDisplay
-					.listViewCreateItemSidbar,
+					.listViewCreateItemSidbarComponentShouldDisplay,
 		})
 	);
 	dispatch(setWhichBugComponentsDisplay({}));
@@ -300,20 +308,20 @@ export function setTrueForOnlyProjectListViewAndCreateItemSidebar(
 }
 
 /**
- * Keeps 'listViewCreateItemSidbar' property the same, and sets 'listView'
- * property to true if either it or 'itemView' were true, in 'componentsDisplay'
- * property's Object in 'BUG_CONTAINER' of the redux state. Keeps 
- * 'componentsDisplay' property's Object in 'PROJECT_CONTAINER' the same. Sets all 
- * other properties in 'componentsDisplay' properties' Objects of 
- * 'ACCOUNT_CONTAINER' and 'BUG_CONTAINER' to false or null (depending on which is 
+ * Keeps 'listViewCreateItemSidbarComponentShouldDisplay' property the same, and sets 'listViewComponentShouldDisplay'
+ * property to true if either it or 'itemViewComponentShouldDisplay' were true, in 'componentsDisplay'
+ * property's Object in 'BUG_CONTAINER' of the redux state. Keeps
+ * 'componentsDisplay' property's Object in 'PROJECT_CONTAINER' the same. Sets all
+ * other properties in 'componentsDisplay' properties' Objects of
+ * 'ACCOUNT_CONTAINER' and 'BUG_CONTAINER' to false or null (depending on which is
  * their default). Sets properties in 'componentsDisplay' property's Object in
  * 'COMMENT_CONTAINER' to null.
  *
  * Note: This should be onClick function for element pertaining to bug's
- * listView with 'breadcrumb-button__end-container__close-icon-button' className
+ * listViewComponentShouldDisplay with 'breadcrumb-button__end-container__close-icon-button' className
  * in NavbarBreadcrumb component and 'hamburger-dropdown__row-button__close-icon-button'
  * className in NavbarHamburger component. The purpose of this function is to
- * keep the currenly displayed view component the same, unless it's bug's 
+ * keep the currenly displayed view component the same, unless it's bug's
  * ItemView, to which it's switched to bug's ListView (i.e. keep same if project's
  * ListView, projects's ItemView, or bug's ListView). To leave project components
  * the same. To keep bug's ListViewCreateItemSidebar open if it was already. To
@@ -331,18 +339,20 @@ export function closeBugItemView(e, passedReduxState, dispatch) {
 	e.stopPropagation();
 
 	dispatch(setWhichAccountComponentsDisplay({}));
-	// Keeps listViewCreateItemSidbar the same since the user would not expect
+	// Keeps listViewCreateItemSidbarComponentShouldDisplay the same since the user would not expect
 	// ...it to be closed by this function.
 	dispatch(
 		setWhichBugComponentsDisplay({
-			listView:
-				passedReduxState[BUG_CONTAINER].componentsDisplay.listView === true ||
-				passedReduxState[BUG_CONTAINER].componentsDisplay.itemView === true
+			listViewComponentShouldDisplay:
+				passedReduxState[BUG_CONTAINER].componentsDisplay
+					.listViewComponentShouldDisplay === true ||
+				passedReduxState[BUG_CONTAINER].componentsDisplay
+					.itemViewComponentShouldDisplay === true
 					? true
 					: false,
-			listViewCreateItemSidbar:
+			listViewCreateItemSidbarComponentShouldDisplay:
 				passedReduxState[BUG_CONTAINER].componentsDisplay
-					.listViewCreateItemSidbar,
+					.listViewCreateItemSidbarComponentShouldDisplay,
 		})
 	);
 	dispatch(setWhichCommentComponentsDisplay({}));
@@ -350,22 +360,22 @@ export function closeBugItemView(e, passedReduxState, dispatch) {
 
 /**
  * Toggles 'navbarHamburgerDropdown' boolean in 'dropdownsDisplay' Object in
- * 'GENERAL_CONTAINER' of the redux state. Also sets all booleans in 
+ * 'GENERAL_CONTAINER' of the redux state. Also sets all booleans in
  * 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux state to
  * false.
- * 
+ *
  * Note: The purpose of this is to toggle whether the NavbarHamburgerDropdown
- * component is being displayed by the app. As well as to have no account 
+ * component is being displayed by the app. As well as to have no account
  * components (that are controlled via the redux state) be displayed because
  * they would not look nice alongside the NavbarHamburgerDropdown component.
- * 
+ *
  * @param {Event} e - Event created by element's onClick handler
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
  * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  */
-export function toggleHamburgerDropdown (e, passedReduxState, dispatch) {
+export function toggleHamburgerDropdown(e, passedReduxState, dispatch) {
 	e.stopPropagation();
 
 	dispatch(
@@ -377,4 +387,4 @@ export function toggleHamburgerDropdown (e, passedReduxState, dispatch) {
 	);
 
 	dispatch(setWhichAccountComponentsDisplay({}));
-};
+}

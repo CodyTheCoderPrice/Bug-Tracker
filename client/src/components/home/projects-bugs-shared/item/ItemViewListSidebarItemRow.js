@@ -32,8 +32,8 @@ export default function ItemViewListSidebarItemRow(props) {
 		) {
 			dispatch(
 				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-					listView: false,
-					itemView: true,
+					listViewComponentShouldDisplay: false,
+					itemViewComponentShouldDisplay: true,
 					itemViewCurrentItem: props.item,
 				})
 			);
@@ -56,7 +56,7 @@ export default function ItemViewListSidebarItemRow(props) {
 
 			dispatch(
 				setWhichBugComponentsDisplay({
-					listView: true,
+					listViewComponentShouldDisplay: true,
 					// If the project itemViewCurrentItem is not changing, then keep the bug itemViewCurrentItem the same
 					itemViewCurrentItem:
 						props.item.id ===

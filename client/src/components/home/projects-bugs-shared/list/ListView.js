@@ -30,7 +30,7 @@ export default function ListView(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listViewDeleteModal: false,
+				deleteModalComponentForListViewShouldDisplay: false,
 			})
 		);
 	};
@@ -39,14 +39,14 @@ export default function ListView(props) {
 		<div className="list-view-component">
 			<ListViewTopBar reduxContainerName={props.reduxContainerName} />
 			{reduxState[props.reduxContainerName].componentsDisplay
-				.listViewCreateItemSidbar ? (
+				.listViewCreateItemSidbarComponentShouldDisplay ? (
 				<ListViewCreateItemSidebar
 					reduxContainerName={props.reduxContainerName}
 				/>
 			) : null}
 			<ListViewTable reduxContainerName={props.reduxContainerName} />
 			{reduxState[props.reduxContainerName].componentsDisplay
-				.listViewDeleteModal ? (
+				.deleteModalComponentForListViewShouldDisplay ? (
 				<DeleteModal
 					clickToCloseBlurredBackdrop={false}
 					deleteFunction={deleteCheckedItems}

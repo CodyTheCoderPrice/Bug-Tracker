@@ -121,17 +121,17 @@ export default function Navbar() {
 		dispatch(
 			setWhichProjectComponentsDisplay({
 				...reduxState[PROJECT_CONTAINER].componentsDisplay,
-				listViewCreateItemSidbar: false,
-				itemViewDeleteModal: false,
-				listViewDeleteModal: false,
+				listViewCreateItemSidbarComponentShouldDisplay: false,
+				deleteModalComponentForListViewShouldDisplay: false,
+				deleteModalComponentForItemViewShouldDisplay: false,
 			})
 		);
 		dispatch(
 			setWhichBugComponentsDisplay({
 				...reduxState[BUG_CONTAINER].componentsDisplay,
-				listViewCreateItemSidbar: false,
-				itemViewDeleteModal: false,
-				listViewDeleteModal: false,
+				listViewCreateItemSidbarComponentShouldDisplay: false,
+				deleteModalComponentForListViewShouldDisplay: false,
+				deleteModalComponentForItemViewShouldDisplay: false,
 			})
 		);
 		dispatch(setWhichCommentComponentsDisplay({}));

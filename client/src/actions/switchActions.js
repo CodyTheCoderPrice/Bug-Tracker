@@ -19,20 +19,19 @@ import {
 } from "./index";
 
 /**
- * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or 
- * 'BUG_CONTAINER') sets info in 'componentsDisplay' property in that container of 
+ * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or
+ * 'BUG_CONTAINER') sets info in 'componentsDisplay' property in that container of
  * the redux state for how those components should be displayed by the app
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
  * either the project or bug container of the redux state
  * @param {{
- * 	listView: (boolean|undefined),
- * 	listViewDeleteModal: (boolean|undefined),
- * 	listViewCreateItemSidbar: (boolean|undefined),
- * 	itemView: (boolean|undefined),
- * 	itemView: (boolean|undefined),
- * 	itemViewDeleteModal: (boolean|undefined),
- * 	itemViewEditItemInfo: (boolean|undefined),
+ * 	listViewComponentShouldDisplay: (boolean|undefined),
+ * 	deleteModalComponentForListViewShouldDisplay: (boolean|undefined),
+ * 	listViewCreateItemSidbarComponentShouldDisplay: (boolean|undefined),
+ * 	itemViewComponentShouldDisplay: (boolean|undefined),
+ * 	deleteModalComponentForItemViewShouldDisplay: (boolean|undefined),
+ * 	itemViewEditItemInfoComponentShouldDisplay: (boolean|undefined),
  * 	itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: (number|undefined),
@@ -55,12 +54,12 @@ import {
  * to undefined or excluded from this param will be set to their default value.
  *
  * @example
- * // Inside 'PROJECT_CONTAINER' of the redux state - sets listView to true, and
+ * // Inside 'PROJECT_CONTAINER' of the redux state - sets listViewComponentShouldDisplay to true, and
  * // ...all other project components to their default values. The dispatch
  * // ...function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setWhichProjectOrBugComponentsDisplay("PROJECT_CONTAINER", {
- * 		listView: true
+ * 		listViewComponentShouldDisplay: true
  * 	})
  * );
  *
@@ -70,28 +69,26 @@ import {
  * // ...imported from react-redux.
  * dispatch(setWhichProjectOrBugComponentsDisplay("BUG_CONTAINER", {}));
  */
-export const setWhichProjectOrBugComponentsDisplay = (
-	reduxContainerName,
-	displays
-) => (dispatch) => {
-	switch (reduxContainerName) {
-		case PROJECT_CONTAINER:
-			dispatch(setWhichProjectComponentsDisplay(displays));
-			break;
-		case BUG_CONTAINER:
-			dispatch(setWhichBugComponentsDisplay(displays));
-			break;
-		default:
-			break;
-	}
-};
+export const setWhichProjectOrBugComponentsDisplay =
+	(reduxContainerName, displays) => (dispatch) => {
+		switch (reduxContainerName) {
+			case PROJECT_CONTAINER:
+				dispatch(setWhichProjectComponentsDisplay(displays));
+				break;
+			case BUG_CONTAINER:
+				dispatch(setWhichBugComponentsDisplay(displays));
+				break;
+			default:
+				break;
+		}
+	};
 
 /**
- * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or 
- * 'BUG_CONTAINER') sets search/filter/sort info in 'searchFilterSort' property 
+ * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or
+ * 'BUG_CONTAINER') sets search/filter/sort info in 'searchFilterSort' property
  * in that container of the redux state.
- * 
- * This info is used to search, filter, and sort the 'list' property in that 
+ *
+ * This info is used to search, filter, and sort the 'list' property in that
  * container of the redux state.
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
@@ -106,7 +103,7 @@ export const setWhichProjectOrBugComponentsDisplay = (
  * filter, and sort a list for projects or bugs
  *
  * @example
- * // Inside 'BUG_CONTAINER' of the redux state - sets 'searchFilterSort' property 
+ * // Inside 'BUG_CONTAINER' of the redux state - sets 'searchFilterSort' property
  * // ...with the following Object. The dispatch function is from useDispatch()
  * // ...imported from react-redux.
  * dispatch(
@@ -119,34 +116,32 @@ export const setWhichProjectOrBugComponentsDisplay = (
  * 	})
  * );
  */
-export const setProjectOrBugSearchFilterSort = (
-	reduxContainerName,
-	searchFilterSort
-) => (dispatch) => {
-	switch (reduxContainerName) {
-		case PROJECT_CONTAINER:
-			dispatch({
-				container: PROJECT_CONTAINER,
-				type: SET_SEARCH_FILTER_SORT,
-				searchFilterSort: searchFilterSort,
-			});
-			break;
-		case BUG_CONTAINER:
-			dispatch({
-				container: BUG_CONTAINER,
-				type: SET_SEARCH_FILTER_SORT,
-				searchFilterSort: searchFilterSort,
-			});
-			break;
-		default:
-			break;
-	}
-};
+export const setProjectOrBugSearchFilterSort =
+	(reduxContainerName, searchFilterSort) => (dispatch) => {
+		switch (reduxContainerName) {
+			case PROJECT_CONTAINER:
+				dispatch({
+					container: PROJECT_CONTAINER,
+					type: SET_SEARCH_FILTER_SORT,
+					searchFilterSort: searchFilterSort,
+				});
+				break;
+			case BUG_CONTAINER:
+				dispatch({
+					container: BUG_CONTAINER,
+					type: SET_SEARCH_FILTER_SORT,
+					searchFilterSort: searchFilterSort,
+				});
+				break;
+			default:
+				break;
+		}
+	};
 
 /**
- * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or 
+ * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or
  * 'BUG_CONTAINER') an Array of items (either projects or bugs depending on which
- * container) ids to be mass deleted is stored in 'massDeleteList' property in 
+ * container) ids to be mass deleted is stored in 'massDeleteList' property in
  * that container of the redux state
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
@@ -155,37 +150,35 @@ export const setProjectOrBugSearchFilterSort = (
  * to be mass deleted
  *
  * @example
- * // Inside 'BUG_CONTAINER' of the redux state - sets 'massDeleteList' to have 
+ * // Inside 'BUG_CONTAINER' of the redux state - sets 'massDeleteList' to have
  * // ...three bug ids. The dispatch function is from useDispatch() imported
  * // ...from react-redux.
  * dispatch(setProjectOrBugMassDeleteList("BUG_CONTAINER", [ 341, 328, 331 ]));
  */
-export const setProjectOrBugMassDeleteList = (
-	reduxContainerName,
-	massDeleteList
-) => (dispatch) => {
-	switch (reduxContainerName) {
-		case PROJECT_CONTAINER:
-			dispatch({
-				container: PROJECT_CONTAINER,
-				type: SET_MASS_DELETE_LIST,
-				list: massDeleteList,
-			});
-			break;
-		case BUG_CONTAINER:
-			dispatch({
-				container: BUG_CONTAINER,
-				type: SET_MASS_DELETE_LIST,
-				list: massDeleteList,
-			});
-			break;
-		default:
-			break;
-	}
-};
+export const setProjectOrBugMassDeleteList =
+	(reduxContainerName, massDeleteList) => (dispatch) => {
+		switch (reduxContainerName) {
+			case PROJECT_CONTAINER:
+				dispatch({
+					container: PROJECT_CONTAINER,
+					type: SET_MASS_DELETE_LIST,
+					list: massDeleteList,
+				});
+				break;
+			case BUG_CONTAINER:
+				dispatch({
+					container: BUG_CONTAINER,
+					type: SET_MASS_DELETE_LIST,
+					list: massDeleteList,
+				});
+				break;
+			default:
+				break;
+		}
+	};
 
 /**
- * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or 
+ * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or
  * 'BUG_CONTAINER') will create an item (either project or bug depending on which
  * container) in that container of the redux state
  *
@@ -203,12 +196,12 @@ export const setProjectOrBugMassDeleteList = (
  * 		status_id: number,
  * }} itemInfo - Object containing the info to create a new project or bug
  * @param {{
- * listView: boolean,
- * listViewDeleteModal: boolean,
- * listViewCreateItemSidbar: boolean,
- * itemView: boolean,
- * itemViewDeleteModal: boolean,
- * itemViewEditItemInfo: boolean,
+ * listViewComponentShouldDisplay: boolean,
+ * deleteModalComponentForListViewShouldDisplay: boolean,
+ * listViewCreateItemSidbarComponentShouldDisplay: boolean,
+ * itemViewComponentShouldDisplay: boolean,
+ * deleteModalComponentForItemViewShouldDisplay: boolean,
+ * itemViewEditItemInfoComponentShouldDisplay: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: (number|undefined),
@@ -242,36 +235,33 @@ export const setProjectOrBugMassDeleteList = (
  * 		due_date: "2021-05-21",
  * 		completion_date: ""
  * 	}, {
- * 		listView: true,
- * 		listViewDeleteModal: false,
- * 		listViewCreateItemSidbar: true,
- * 		itemView: false,
- * 		itemViewDeleteModal: false,
- * 		itemViewEditItemInfo: false,
+ * 		listViewComponentShouldDisplay: true,
+ * 		deleteModalComponentForListViewShouldDisplay: false,
+ * 		listViewCreateItemSidbarComponentShouldDisplay: true,
+ * 		itemViewComponentShouldDisplay: false,
+ * 		deleteModalComponentForItemViewShouldDisplay: false,
+ * 		itemViewEditItemInfoComponentShouldDisplay: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
  */
-export const createProjectOrBug = (
-	reduxContainerName,
-	itemInfo,
-	componentsDisplay
-) => (dispatch) => {
-	switch (reduxContainerName) {
-		case PROJECT_CONTAINER:
-			dispatch(createProject(itemInfo, componentsDisplay));
-			break;
-		case BUG_CONTAINER:
-			dispatch(createBug(itemInfo, componentsDisplay));
-			break;
-		default:
-			break;
-	}
-};
+export const createProjectOrBug =
+	(reduxContainerName, itemInfo, componentsDisplay) => (dispatch) => {
+		switch (reduxContainerName) {
+			case PROJECT_CONTAINER:
+				dispatch(createProject(itemInfo, componentsDisplay));
+				break;
+			case BUG_CONTAINER:
+				dispatch(createBug(itemInfo, componentsDisplay));
+				break;
+			default:
+				break;
+		}
+	};
 
 /**
- * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or 
- * 'BUG_CONTAINER') will update the item (either project or bug depending on 
+ * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or
+ * 'BUG_CONTAINER') will update the item (either project or bug depending on
  * which container) in that container of the redux state
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
@@ -290,12 +280,12 @@ export const createProjectOrBug = (
  * 		completion_date: (string|null),
  * }} itemInfo - Object containing the info to update a project or bug
  * @param {{
- * listView: boolean,
- * listViewDeleteModal: boolean,
- * listViewCreateItemSidbar: boolean,
- * itemView: boolean,
- * itemViewDeleteModal: boolean,
- * itemViewEditItemInfo: boolean,
+ * listViewComponentShouldDisplay: boolean,
+ * deleteModalComponentForListViewShouldDisplay: boolean,
+ * listViewCreateItemSidbarComponentShouldDisplay: boolean,
+ * itemViewComponentShouldDisplay: boolean,
+ * deleteModalComponentForItemViewShouldDisplay: boolean,
+ * itemViewEditItemInfoComponentShouldDisplay: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: (number|undefined),
@@ -334,40 +324,37 @@ export const createProjectOrBug = (
  * 		due_date: "2021-05-21",
  * 		completion_date: ""
  * 	}, {
- * 		listView: true,
- * 		listViewDeleteModal: false,
- * 		listViewCreateItemSidbar: true,
- * 		itemView: false,
- * 		itemViewDeleteModal: false,
- * 		itemViewEditItemInfo: false,
+ * 		listViewComponentShouldDisplay: true,
+ * 		deleteModalComponentForListViewShouldDisplay: false,
+ * 		listViewCreateItemSidbarComponentShouldDisplay: true,
+ * 		itemViewComponentShouldDisplay: false,
+ * 		deleteModalComponentForItemViewShouldDisplay: false,
+ * 		itemViewEditItemInfoComponentShouldDisplay: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
  */
-export const updateProjectOrBug = (
-	reduxContainerName,
-	itemInfo,
-	componentsDisplay
-) => (dispatch) => {
-	switch (reduxContainerName) {
-		case PROJECT_CONTAINER:
-			dispatch(updateProject(itemInfo, componentsDisplay));
-			break;
-		case BUG_CONTAINER:
-			dispatch(updateBug(itemInfo, componentsDisplay));
-			break;
-		default:
-			break;
-	}
-};
+export const updateProjectOrBug =
+	(reduxContainerName, itemInfo, componentsDisplay) => (dispatch) => {
+		switch (reduxContainerName) {
+			case PROJECT_CONTAINER:
+				dispatch(updateProject(itemInfo, componentsDisplay));
+				break;
+			case BUG_CONTAINER:
+				dispatch(updateBug(itemInfo, componentsDisplay));
+				break;
+			default:
+				break;
+		}
+	};
 
 /**
- * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or 
+ * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or
  * 'BUG_CONTAINER') will delete the item (either project or bug depending on which
  * container) and update 'massDeleteList' property (if it contained the to be
- * deleted item) in that container of the redux state, will update 'list' 
- * properties in other containers of the redux state as needed, and open the 
- * ListView (for passed container) component while closeing all other 
+ * deleted item) in that container of the redux state, will update 'list'
+ * properties in other containers of the redux state as needed, and open the
+ * ListView (for passed container) component while closeing all other
  * components (for passed container)
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
@@ -394,28 +381,25 @@ export const updateProjectOrBug = (
  * 	)
  * );
  */
-export const deleteProjectOrBug = (
-	reduxContainerName,
-	idsObject,
-	massDeleteList
-) => (dispatch) => {
-	switch (reduxContainerName) {
-		case PROJECT_CONTAINER:
-			dispatch(deleteProject(idsObject.id, massDeleteList));
-			break;
-		case BUG_CONTAINER:
-			dispatch(deleteBug(idsObject, massDeleteList));
-			break;
-		default:
-			break;
-	}
-};
+export const deleteProjectOrBug =
+	(reduxContainerName, idsObject, massDeleteList) => (dispatch) => {
+		switch (reduxContainerName) {
+			case PROJECT_CONTAINER:
+				dispatch(deleteProject(idsObject.id, massDeleteList));
+				break;
+			case BUG_CONTAINER:
+				dispatch(deleteBug(idsObject, massDeleteList));
+				break;
+			default:
+				break;
+		}
+	};
 
 /**
- * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or 
- * 'BUG_CONTAINER') will delete all items (either project or bug depending on 
- * which container) in 'massDelteList' property in that container of the redux 
- * state, will update 'list' properties in other containers of the redux state 
+ * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or
+ * 'BUG_CONTAINER') will delete all items (either project or bug depending on
+ * which container) in 'massDelteList' property in that container of the redux
+ * state, will update 'list' properties in other containers of the redux state
  * as needed, and close ItemViewDeleteModal (for passed container) component.
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
@@ -423,12 +407,12 @@ export const deleteProjectOrBug = (
  * @param {number[]} massDeleteList - Array of ids for projects or bugs to be
  * mass deleted
  * @param {{
- * listView: boolean,
- * listViewDeleteModal: boolean,
- * listViewCreateItemSidbar: boolean,
- * itemView: boolean,
- * itemViewDeleteModal: boolean,
- * itemViewEditItemInfo: boolean,
+ * listViewComponentShouldDisplay: boolean,
+ * deleteModalComponentForListViewShouldDisplay: boolean,
+ * listViewCreateItemSidbarComponentShouldDisplay: boolean,
+ * itemViewComponentShouldDisplay: boolean,
+ * deleteModalComponentForItemViewShouldDisplay: boolean,
+ * itemViewEditItemInfoComponentShouldDisplay: boolean,
  * itemViewCurrentItem: ({
  * 		id: number,
  * 		account_id: (number|undefined),
@@ -457,29 +441,26 @@ export const deleteProjectOrBug = (
  * dispatch(
  * 	deleteMultipleProjectsOrBugs("BUG_CONTAINER", [ 93, 96, 133 ],
  * 	{
- * 		listView: true,
- * 		listViewDeleteModal: false,
- * 		listViewCreateItemSidbar: true,
- * 		itemView: false,
- * 		itemViewDeleteModal: false,
- * 		itemViewEditItemInfo: false,
+ * 		listViewComponentShouldDisplay: true,
+ * 		deleteModalComponentForListViewShouldDisplay: false,
+ * 		listViewCreateItemSidbarComponentShouldDisplay: true,
+ * 		itemViewComponentShouldDisplay: false,
+ * 		deleteModalComponentForItemViewShouldDisplay: false,
+ * 		itemViewEditItemInfoComponentShouldDisplay: false,
  * 		itemViewCurrentItem: null
  * 	})
  * );
  */
-export const deleteMultipleProjectsOrBugs = (
-	reduxContainerName,
-	massDeleteList,
-	componentsDisplay
-) => (dispatch) => {
-	switch (reduxContainerName) {
-		case PROJECT_CONTAINER:
-			dispatch(deleteMultipleProjects(massDeleteList, componentsDisplay));
-			break;
-		case BUG_CONTAINER:
-			dispatch(deleteMultipleBugs(massDeleteList, componentsDisplay));
-			break;
-		default:
-			break;
-	}
-};
+export const deleteMultipleProjectsOrBugs =
+	(reduxContainerName, massDeleteList, componentsDisplay) => (dispatch) => {
+		switch (reduxContainerName) {
+			case PROJECT_CONTAINER:
+				dispatch(deleteMultipleProjects(massDeleteList, componentsDisplay));
+				break;
+			case BUG_CONTAINER:
+				dispatch(deleteMultipleBugs(massDeleteList, componentsDisplay));
+				break;
+			default:
+				break;
+		}
+	};

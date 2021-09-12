@@ -36,9 +36,9 @@ import ItemView from "./projects-bugs-shared/item/ItemView";
  *
  * The flag for displaying this component is intended to be 'homeComponentShouldDisplay'
  * boolean in 'componentsDisplay' property in 'GENERAL_CONTAINER' of the redux
- * state. This component should only be used inside the App component, and is 
- * not intended to be displayed while either the Register or Login components 
- * are also displayed. Also this component should only be displayed if an 
+ * state. This component should only be used inside the App component, and is
+ * not intended to be displayed while either the Register or Login components
+ * are also displayed. Also this component should only be displayed if an
  * account is logged into the app.
  *
  * @component
@@ -264,17 +264,21 @@ export default function Home() {
 			) : null}
 			{getShouldAccountModalDisplay() ? <AccountModal /> : null}
 			{/*Project components*/}
-			{reduxState[PROJECT_CONTAINER].componentsDisplay.listView ? (
+			{reduxState[PROJECT_CONTAINER].componentsDisplay
+				.listViewComponentShouldDisplay ? (
 				<ListView reduxContainerName={PROJECT_CONTAINER} />
 			) : null}
-			{reduxState[PROJECT_CONTAINER].componentsDisplay.itemView ? (
+			{reduxState[PROJECT_CONTAINER].componentsDisplay
+				.itemViewComponentShouldDisplay ? (
 				<ItemView reduxContainerName={PROJECT_CONTAINER} />
 			) : null}
 			{/*Bug components*/}
-			{reduxState[BUG_CONTAINER].componentsDisplay.listView ? (
+			{reduxState[BUG_CONTAINER].componentsDisplay
+				.listViewComponentShouldDisplay ? (
 				<ListView reduxContainerName={BUG_CONTAINER} />
 			) : null}
-			{reduxState[BUG_CONTAINER].componentsDisplay.itemView ? (
+			{reduxState[BUG_CONTAINER].componentsDisplay
+				.itemViewComponentShouldDisplay ? (
 				<ItemView reduxContainerName={BUG_CONTAINER} />
 			) : null}
 		</div>

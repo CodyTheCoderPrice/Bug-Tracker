@@ -62,8 +62,8 @@ export default function ListViewTableItemRow(props) {
 	const openItemView = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				listView: false,
-				itemView: true,
+				listViewComponentShouldDisplay: false,
+				itemViewComponentShouldDisplay: true,
 				itemViewCurrentItem: props.item,
 			})
 		);

@@ -148,7 +148,7 @@ export default function ItemViewEditItemInfo(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemViewEditItemInfo: false,
+				itemViewEditItemInfoComponentShouldDisplay: false,
 			})
 		);
 	};

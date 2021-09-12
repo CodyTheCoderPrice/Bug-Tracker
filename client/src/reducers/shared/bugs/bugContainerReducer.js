@@ -21,9 +21,10 @@ const initialState = {
  * Used to set 'BUG_CONTAINER' property of the redux state.
  * 
  * Note: This container reducer uses the same reducers as the 'PROJECT_CONTAINER'.
- * This is because both containers have 99% overlap, the only difference being
- * the default value for 'listView' property in 'componentsDisplay' property's 
- * Object of this container should be false.
+ * This is because both containers have 99% overlap, with the only difference 
+ * being that in listComponentsDisplayReducer the default value for 
+ * 'listViewComponentShouldDisplay' should be false for this container, but true
+ * for 'PROJECT_CONTAINER'.
  * 
  * Note: The purpose of this reducer is to be used by combineReducers function 
  * in store.js to have properties relating to bugs seperated into their own

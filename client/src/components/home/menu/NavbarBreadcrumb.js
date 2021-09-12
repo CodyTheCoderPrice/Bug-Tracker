@@ -164,7 +164,8 @@ export default function NavbarBreadcrumb(props) {
 				<div
 					className={
 						"breadcrumb-button js-breadcrumb-project-list-button" +
-						(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+						(reduxState[PROJECT_CONTAINER].componentsDisplay
+							.listViewComponentShouldDisplay
 							? getCommonBrighterBackgroundColorClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  )
@@ -199,7 +200,8 @@ export default function NavbarBreadcrumb(props) {
 							<div
 								className={
 									"breadcrumb-button__end-container__round-border" +
-									(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+									(reduxState[PROJECT_CONTAINER].componentsDisplay
+										.listViewComponentShouldDisplay
 										? getCommonBrighterBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  )
@@ -213,7 +215,8 @@ export default function NavbarBreadcrumb(props) {
 								<div
 									className={
 										"breadcrumb-button__end-container__arrow" +
-										(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+										(reduxState[PROJECT_CONTAINER].componentsDisplay
+											.listViewComponentShouldDisplay
 											? getBrighterNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
@@ -236,7 +239,8 @@ export default function NavbarBreadcrumb(props) {
 								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-project-item-button" +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay
 									.itemViewCurrentItem !== null &&
-								reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
+								reduxState[PROJECT_CONTAINER].componentsDisplay
+									.itemViewComponentShouldDisplay
 									? getCommonBrighterBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  )
@@ -274,7 +278,8 @@ export default function NavbarBreadcrumb(props) {
 										"breadcrumb-button__end-container__arrow" +
 										(reduxState[PROJECT_CONTAINER].componentsDisplay
 											.itemViewCurrentItem !== null &&
-										reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
+										reduxState[PROJECT_CONTAINER].componentsDisplay
+											.itemViewComponentShouldDisplay
 											? getBrighterNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
 													reduxState[ACCOUNT_CONTAINER].settings.theme_color
 											  )
@@ -309,7 +314,8 @@ export default function NavbarBreadcrumb(props) {
 								"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-list-button" +
 								(reduxState[PROJECT_CONTAINER].componentsDisplay
 									.itemViewCurrentItem !== null &&
-								reduxState[BUG_CONTAINER].componentsDisplay.listView
+								reduxState[BUG_CONTAINER].componentsDisplay
+									.listViewComponentShouldDisplay
 									? getCommonBrighterBackgroundColorClassNameForTheme(
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  )
@@ -344,7 +350,8 @@ export default function NavbarBreadcrumb(props) {
 									<div
 										className={
 											"breadcrumb-button__end-container__round-border" +
-											(reduxState[BUG_CONTAINER].componentsDisplay.listView
+											(reduxState[BUG_CONTAINER].componentsDisplay
+												.listViewComponentShouldDisplay
 												? getCommonBrighterBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )
@@ -360,7 +367,8 @@ export default function NavbarBreadcrumb(props) {
 												"breadcrumb-button__end-container__arrow" +
 												(reduxState[PROJECT_CONTAINER].componentsDisplay
 													.itemViewCurrentItem !== null &&
-												reduxState[BUG_CONTAINER].componentsDisplay.listView
+												reduxState[BUG_CONTAINER].componentsDisplay
+													.listViewComponentShouldDisplay
 													? getBrighterNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
 															reduxState[ACCOUNT_CONTAINER].settings.theme_color
 													  )
@@ -382,7 +390,8 @@ export default function NavbarBreadcrumb(props) {
 									"breadcrumb-button breadcrumb-button--breadcrumb-arrow-buffered js-breadcrumb-bug-item-button" +
 									(reduxState[PROJECT_CONTAINER].componentsDisplay
 										.itemViewCurrentItem !== null &&
-									reduxState[BUG_CONTAINER].componentsDisplay.itemView
+									reduxState[BUG_CONTAINER].componentsDisplay
+										.itemViewComponentShouldDisplay
 										? getCommonBrighterBackgroundColorClassNameForTheme(
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
 										  )
@@ -418,7 +427,8 @@ export default function NavbarBreadcrumb(props) {
 									<div
 										className={
 											"breadcrumb-button__end-container__round-border" +
-											(reduxState[BUG_CONTAINER].componentsDisplay.itemView
+											(reduxState[BUG_CONTAINER].componentsDisplay
+												.itemViewComponentShouldDisplay
 												? getCommonBrighterBackgroundColorClassNameForTheme(
 														reduxState[ACCOUNT_CONTAINER].settings.theme_color
 												  )

@@ -54,7 +54,7 @@ export default function ListViewTopBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listViewCreateItemSidbar: true,
+				listViewCreateItemSidbarComponentShouldDisplay: true,
 			})
 		);
 		dispatch(setWhichAccountComponentsDisplay({}));
@@ -84,9 +84,9 @@ export default function ListViewTopBar(props) {
 
 		dispatch(
 			setWhichGeneralDropdownsDisplay({
-				listViewTopBarFilterDropdown: !reduxState[
-					GENERAL_CONTAINER
-				].dropdownsDisplay.listViewTopBarFilterDropdown,
+				listViewTopBarFilterDropdown:
+					!reduxState[GENERAL_CONTAINER].dropdownsDisplay
+						.listViewTopBarFilterDropdown,
 			})
 		);
 	};

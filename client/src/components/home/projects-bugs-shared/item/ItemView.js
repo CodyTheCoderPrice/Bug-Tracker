@@ -134,7 +134,7 @@ export default function ItemView(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemViewDeleteModal: false,
+				deleteModalComponentForItemViewShouldDisplay: false,
 			})
 		);
 	};
@@ -172,7 +172,7 @@ export default function ItemView(props) {
 			<ItemViewListSidebar reduxContainerName={props.reduxContainerName} />
 			{/* Located outside item-view-component so topBar doesn't cover it */}
 			{reduxState[props.reduxContainerName].componentsDisplay
-				.itemViewDeleteModal ? (
+				.deleteModalComponentForItemViewShouldDisplay ? (
 				// Delete modal for items
 				<DeleteModal
 					clickToCloseBlurredBackdrop={false}
@@ -180,7 +180,8 @@ export default function ItemView(props) {
 					closeModalFunction={closeItemViewDeleteModal}
 				/>
 			) : null}
-			{reduxState[BUG_CONTAINER].componentsDisplay.itemView === true &&
+			{reduxState[BUG_CONTAINER].componentsDisplay
+				.itemViewComponentShouldDisplay === true &&
 			reduxState[COMMENT_CONTAINER].componentsDisplay.commentToBeDeleted !==
 				null ? (
 				// Delete modal for comments
@@ -203,8 +204,8 @@ export default function ItemView(props) {
 				}
 			>
 				<div className="padding-container">
-					{!reduxState[props.reduxContainerName].componentsDisplay
-						.itemViewEditItemInfo ? (
+					{reduxState[props.reduxContainerName].componentsDisplay
+						.itemViewEditItemInfoComponentShouldDisplay === false ? (
 						<div>
 							<ItemViewDisplayItemInfo
 								reduxContainerName={props.reduxContainerName}

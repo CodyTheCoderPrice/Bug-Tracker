@@ -117,11 +117,11 @@ export default function ListViewTable(props) {
 		dispatch(setProjectOrBugMassDeleteList(props.reduxContainerName, []));
 	};
 
-	const openMassDeleteItemsModal = () => {
+	const openDeleteModalForMassItems = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listViewDeleteModal: true,
+				deleteModalComponentForListViewShouldDisplay: true,
 			})
 		);
 	};
@@ -163,7 +163,7 @@ export default function ListViewTable(props) {
 					true
 				) > -1 ||
 				reduxState[props.reduxContainerName].componentsDisplay
-					.listViewCreateItemSidbar === true ||
+					.listViewCreateItemSidbarComponentShouldDisplay === true ||
 				(props.reduxContainerName === PROJECT_CONTAINER &&
 					reduxState[props.reduxContainerName].list.length < 1) ||
 				(props.reduxContainerName === BUG_CONTAINER &&
@@ -217,7 +217,7 @@ export default function ListViewTable(props) {
 								{createMassDeleteButton(
 									reduxState[props.reduxContainerName].massDeleteList.length >
 										0,
-									openMassDeleteItemsModal,
+									openDeleteModalForMassItems,
 									"fa-trash-o",
 									"Button to delete all checked " +
 										(props.reduxContainerName === PROJECT_CONTAINER

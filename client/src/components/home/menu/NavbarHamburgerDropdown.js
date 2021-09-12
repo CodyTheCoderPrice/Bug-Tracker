@@ -88,7 +88,8 @@ export default function NavbarHamburgerDropdown() {
 				<div
 					className={
 						"hamburger-dropdown__row-button" +
-						(reduxState[PROJECT_CONTAINER].componentsDisplay.listView
+						(reduxState[PROJECT_CONTAINER].componentsDisplay
+							.listViewComponentShouldDisplay
 							? " hamburger-dropdown__row-button--selected"
 							: "") +
 						(reduxState[PROJECT_CONTAINER].componentsDisplay
@@ -111,7 +112,8 @@ export default function NavbarHamburgerDropdown() {
 					<div
 						className={
 							"hamburger-dropdown__row-button hamburger-dropdown__row-button--item-name" +
-							(reduxState[PROJECT_CONTAINER].componentsDisplay.itemView
+							(reduxState[PROJECT_CONTAINER].componentsDisplay
+								.itemViewComponentShouldDisplay
 								? " hamburger-dropdown__row-button--selected"
 								: "")
 						}
@@ -161,7 +163,8 @@ export default function NavbarHamburgerDropdown() {
 					<div
 						className={
 							"hamburger-dropdown__row-button" +
-							(reduxState[BUG_CONTAINER].componentsDisplay.listView
+							(reduxState[BUG_CONTAINER].componentsDisplay
+								.listViewComponentShouldDisplay
 								? " hamburger-dropdown__row-button--selected"
 								: "") +
 							(reduxState[BUG_CONTAINER].componentsDisplay
@@ -194,7 +197,8 @@ export default function NavbarHamburgerDropdown() {
 					<div
 						className={
 							"hamburger-dropdown__row-button hamburger-dropdown__row-button--item-name hamburger-dropdown__row-button--last-option-round-bottom-border" +
-							(reduxState[BUG_CONTAINER].componentsDisplay.itemView
+							(reduxState[BUG_CONTAINER].componentsDisplay
+								.itemViewComponentShouldDisplay
 								? " hamburger-dropdown__row-button--selected"
 								: "")
 						}

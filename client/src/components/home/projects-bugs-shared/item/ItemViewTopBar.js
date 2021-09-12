@@ -116,18 +116,18 @@ export default function ItemViewTopBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemViewEditItemInfo:
+				itemViewEditItemInfoComponentShouldDisplay:
 					!reduxState[props.reduxContainerName].componentsDisplay
-						.itemViewEditItemInfo,
+						.itemViewEditItemInfoComponentShouldDisplay,
 			})
 		);
 	};
 
-	const openDeleteItemModal = () => {
+	const openDeleteModalForItemView = () => {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemViewDeleteModal: true,
+				deleteModalComponentForItemViewShouldDisplay: true,
 			})
 		);
 	};
@@ -136,13 +136,13 @@ export default function ItemViewTopBar(props) {
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				...reduxState[props.reduxContainerName].componentsDisplay,
-				listView: true,
-				itemView: false,
+				listViewComponentShouldDisplay: true,
+				itemViewComponentShouldDisplay: false,
 				itemViewCurrentItem: null,
 			})
 		);
 
-		// Resets bug components display if project itemView is closed
+		// Resets bug components display if project itemViewComponentShouldDisplay is closed
 		if (props.reduxContainerName === PROJECT_CONTAINER) {
 			dispatch(setWhichBugComponentsDisplay({}));
 			dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER));
@@ -599,7 +599,7 @@ export default function ItemViewTopBar(props) {
 						alt={
 							"Dropdown option to " +
 							(reduxState[props.reduxContainerName].componentsDisplay
-								.itemViewEditItemInfo === false
+								.itemViewEditItemInfoComponentShouldDisplay === false
 								? "begin editing "
 								: "canel editing ") +
 							(props.reduxContainerName === PROJECT_CONTAINER
@@ -609,7 +609,7 @@ export default function ItemViewTopBar(props) {
 						onClick={switchBetweenDisplayAndEditInfo}
 					>
 						{reduxState[props.reduxContainerName].componentsDisplay
-							.itemViewEditItemInfo
+							.itemViewEditItemInfoComponentShouldDisplay
 							? "Cancel"
 							: props.reduxContainerName === PROJECT_CONTAINER
 							? "Edit Project"
@@ -628,7 +628,7 @@ export default function ItemViewTopBar(props) {
 								? "project"
 								: "bug")
 						}
-						onClick={openDeleteItemModal}
+						onClick={openDeleteModalForItemView}
 					>
 						{props.reduxContainerName === PROJECT_CONTAINER
 							? "Delete Project"

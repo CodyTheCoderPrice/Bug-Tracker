@@ -115,14 +115,24 @@ export default function NavbarHamburger() {
 	]);
 
 	const getTitle = () => {
-		if (reduxState[PROJECT_CONTAINER].componentsDisplay.listView) {
+		if (
+			reduxState[PROJECT_CONTAINER].componentsDisplay
+				.listViewComponentShouldDisplay
+		) {
 			return "Projects";
-		} else if (reduxState[PROJECT_CONTAINER].componentsDisplay.itemView) {
+		} else if (
+			reduxState[PROJECT_CONTAINER].componentsDisplay
+				.itemViewComponentShouldDisplay
+		) {
 			return reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
 				.name;
-		} else if (reduxState[BUG_CONTAINER].componentsDisplay.listView) {
+		} else if (
+			reduxState[BUG_CONTAINER].componentsDisplay.listViewComponentShouldDisplay
+		) {
 			return "Bugs";
-		} else if (reduxState[BUG_CONTAINER].componentsDisplay.itemView) {
+		} else if (
+			reduxState[BUG_CONTAINER].componentsDisplay.itemViewComponentShouldDisplay
+		) {
 			return reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
 				.name;
 		}
@@ -148,8 +158,10 @@ export default function NavbarHamburger() {
 			<div
 				className={
 					"hamburger-title js-hamburger-title" +
-					(reduxState[PROJECT_CONTAINER].componentsDisplay.itemView ||
-					reduxState[BUG_CONTAINER].componentsDisplay.itemView
+					(reduxState[PROJECT_CONTAINER].componentsDisplay
+						.itemViewComponentShouldDisplay ||
+					reduxState[BUG_CONTAINER].componentsDisplay
+						.itemViewComponentShouldDisplay
 						? " hamburger-title--item-name"
 						: "")
 				}
