@@ -12,19 +12,21 @@ export function isEmpty(value) {
 /**
  * Takes an array (of strings, numbers, or booleans) and returns a string
  * containing all the array's values
- * 
+ *
  * @param {(string|number|boolean)[]} array - an array of strings, numbers,
  * or booleans
+ * @param {boolean} inQuotations - should each value be placed in quotations
  * @returns {String} string contianing all values from the array param
  */
-export function getStringOfAllArrayValues(array) {
+export function getStringOfAllArrayValues(array, inQuotations = false) {
 	let stringOfAllArrayValues = "";
 
 	for (let i = 0; i < array.length; i++) {
-		stringOfAllArrayValues += "'" + array[i] + "'";
-		if ((i+2) < array.length) {
+		stringOfAllArrayValues +=
+			(inQuotations ? "'" : "") + array[i] + (inQuotations ? "'" : "");
+		if (i + 2 < array.length) {
 			stringOfAllArrayValues += ", ";
-		} else if ((i+1) < array.length) {
+		} else if (i + 1 < array.length) {
 			stringOfAllArrayValues += " and ";
 		}
 	}
@@ -36,8 +38,8 @@ export function getStringOfAllArrayValues(array) {
  * Returns new Object containing all properties from obj param that meet the
  * condition specified in predicateFunc param
  *
- * @param {Object} obj - Any Object 
- * @param {Function} predicateFun - Callback function for determining which 
+ * @param {Object} obj - Any Object
+ * @param {Function} predicateFun - Callback function for determining which
  * properties will be in the returned Object
  * @returns {Object}  New Object all properties from obj param that meet the
  * condition specified in predicateFunc param
@@ -48,10 +50,7 @@ export function filterObject(obj, predicateFunc) {
 	if (typeof predicateFunc === "function") {
 		for (let prop in obj) {
 			// hasOwnProperty method excludes inherited properties
-			if (
-				obj.hasOwnProperty(prop) &&
-				predicateFunc(obj[prop], prop, obj)
-			) {
+			if (obj.hasOwnProperty(prop) && predicateFunc(obj[prop], prop, obj)) {
 				newObject[prop] = obj[prop];
 			}
 		}

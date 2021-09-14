@@ -21,8 +21,8 @@ const initialState = {
  * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux
  * state. As a rule, 'displays' prop should have at most only one of its
  * boolean properties as true. If the 'displays' prop does not follow the rules
- * then a fail safe will alter it to do so (in the reducer). Also if any 
- * properties in 'displays' prop are undefined, then they will be set to false 
+ * then a fail safe will alter it to do so (in the reducer). Also if any
+ * properties in 'displays' prop are undefined, then they will be set to false
  * in 'componentsDisplay'.
  *
  * Note: The purpose of each boolean in 'componentsDisplay' Object are to be
@@ -92,7 +92,8 @@ export default function accountComponentsDisplayReducer(
 						? validatedDisplays.accountModalDeleteAccountComponentShouldDisplay
 						: false,
 				accountModalEditSettingsComponentShouldDisplay:
-					validatedDisplays.accountModalEditSettingsComponentShouldDisplay !== undefined
+					validatedDisplays.accountModalEditSettingsComponentShouldDisplay !==
+					undefined
 						? validatedDisplays.accountModalEditSettingsComponentShouldDisplay
 						: false,
 			};
@@ -126,20 +127,15 @@ export default function accountComponentsDisplayReducer(
  * account components should be displyed in the app.
  */
 function getValidatedDisplays(displays) {
-	let accountComponentsSetToTrue = filterObject(
-		displays,
-		(boolean) => boolean === true
-	);
-
 	const keysOfAccountComponentsSetToTrue = Object.keys(
-		accountComponentsSetToTrue
+		filterObject(displays, (boolean) => boolean === true)
 	);
 
 	if (keysOfAccountComponentsSetToTrue.length < 2) {
 		// Valid and therefore kept the same.
 		return displays;
 	}
-	// ---Fail Safe---
+	// Fail Safe
 	else {
 		// Invalid and therefore new displays is needed.
 		const newDisplays = { ...initialState };
@@ -149,7 +145,7 @@ function getValidatedDisplays(displays) {
 
 		console.log(
 			"FAIL SAFE: " +
-				getStringOfAllArrayValues(keysOfAccountComponentsSetToTrue) +
+				getStringOfAllArrayValues(keysOfAccountComponentsSetToTrue, true) +
 				" were all attempted to be set to true in the redux state which goes against their intended use. So only" +
 				keysOfAccountComponentsSetToTrue[0] +
 				" was set to true."

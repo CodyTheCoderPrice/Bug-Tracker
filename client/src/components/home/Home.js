@@ -17,6 +17,9 @@ import {
 	getSearchedFilteredSortedList,
 	getHomeComponentBackgroundColorClassNameForLightOrDarkMode,
 } from "../../utils";
+import {
+	useListComponentsDisplayContainerCrossoverFailSafe
+} from "../../utils/hooks"
 // Other components used by this component
 import Navbar from "./menu/Navbar";
 import AccountBlurredBackdrop from "./account/AccountBlurredBackdrop";
@@ -46,6 +49,8 @@ import ItemView from "./projects-bugs-shared/item/ItemView";
 export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	useListComponentsDisplayContainerCrossoverFailSafe(reduxState);
 
 	// Updates statusFilter in project/bug searchFilterSort to match account
 	// ...settings on app start-up/refresh, or after settings have been changed

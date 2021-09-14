@@ -31,25 +31,25 @@ const initialState = {
 /**
  * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how general
  * components should display by the app) in 'GENERAL_CONTAINER' of the redux
- * state. As a rule, 'displays' prop should have at most only one of 
+ * state. As a rule, 'displays' prop should have at most only one of
  * 'registerComponentShouldDisplay', 'loginComponentShouldDisplay', or
- * 'homeComponentShouldDisplay' booleans as true, as well as 
- * 'homeComponentShouldDisplay' should always be true while a user is logged 
- * into the app, and either 'registerComponentShouldDisplay' or 
+ * 'homeComponentShouldDisplay' booleans as true, as well as
+ * 'homeComponentShouldDisplay' should always be true while a user is logged
+ * into the app, and either 'registerComponentShouldDisplay' or
  * 'loginComponentShouldDisplay' should be true if a user is not logged in. If
- * the 'displays' prop does not follow the rules then a fail safe will alter to 
- * do so (in the reducer). As another rule, 
- * 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be set 
+ * the 'displays' prop does not follow the rules then a fail safe will alter to
+ * do so (in the reducer). As another rule,
+ * 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be set
  * to true whenever the user clicks the ItemViewListSidebar component's
  * 'expand-minimize-button' (className) element (there is no fail safe to ensure
- * this rule is followed). Also if any properties in 'displays' prop are 
+ * this rule is followed). Also if any properties in 'displays' prop are
  * undefined, then they will be set to false in 'componentsDisplay'.
  *
  * Note: The purpose of 'registerComponentShouldDisplay', 'loginComponentShouldDisplay',
  * and 'homeComponentShouldDisplay' booleans in 'componentsDisplay' Object are
- * to be used as flags for whether the components they represent (sharing the 
- * same name, e.g. 'homeComponentShouldDisplay' boolean represents Home 
- * component) should be displayed by the app. The reason at most only one of 
+ * to be used as flags for whether the components they represent (sharing the
+ * same name, e.g. 'homeComponentShouldDisplay' boolean represents Home
+ * component) should be displayed by the app. The reason at most only one of
  * these three booleans should be true is to both prevent CSS issues, as their
  * components will break each others intended CSS design, and because it makes
  * sense to seperate their component's functionalities (e.g. registering or
@@ -154,22 +154,20 @@ export default function generalComponentsDisplayReducer(
  * general components should be displyed in the app.
  */
 function getValidatedDisplays(displays) {
-	let registerLoginHomeComponentsSetToTrue = filterObject(
-		{
-			registerComponentShouldDisplay: displays.registerComponentShouldDisplay,
-			loginComponentShouldDisplay: displays.loginComponentShouldDisplay,
-			homeComponentShouldDisplay: displays.homeComponentShouldDisplay,
-		},
-		(boolean) => boolean === true
-	);
-
 	const keysOfRegisterLoginHomeComponentsSetToTrue = Object.keys(
-		registerLoginHomeComponentsSetToTrue
+		filterObject(
+			{
+				registerComponentShouldDisplay: displays.registerComponentShouldDisplay,
+				loginComponentShouldDisplay: displays.loginComponentShouldDisplay,
+				homeComponentShouldDisplay: displays.homeComponentShouldDisplay,
+			},
+			(boolean) => boolean === true
+		)
 	);
 
 	const newDisplays = displays;
 
-	// ---Fail Safe---
+	// Fail Safe
 	// Having 'jwToken' as null in local storage means no account is logged into the app
 	if (localStorage.getItem("jwToken") === null) {
 		if (keysOfRegisterLoginHomeComponentsSetToTrue.length > 1) {
@@ -177,11 +175,12 @@ function getValidatedDisplays(displays) {
 				console.log(
 					"FAIL SAFE: " +
 						getStringOfAllArrayValues(
-							keysOfRegisterLoginHomeComponentsSetToTrue
+							keysOfRegisterLoginHomeComponentsSetToTrue,
+							true
 						) +
-						" were all attempted to be set to true in the redux state, which goes against their intended use. Since no account is logged into the app, " +
+						" were all attempted to be set to true in the redux state, which goes against their intended use. Since no account is logged into the app," +
 						(displays.registerComponentShouldDisplay === true
-							? " and Login component takes priority over Register component, "
+							? " and Login component takes priority over Register component,"
 							: "") +
 						" 'loginComponentShouldDisplay' was set to true while 'registerComponentShouldDisplay' and 'homeComponentShouldDisplay' were set to false."
 				);
@@ -193,7 +192,8 @@ function getValidatedDisplays(displays) {
 				console.log(
 					"FAIL SAFE: " +
 						getStringOfAllArrayValues(
-							keysOfRegisterLoginHomeComponentsSetToTrue
+							keysOfRegisterLoginHomeComponentsSetToTrue,
+							true
 						) +
 						" were all attempted to be set to true in the redux state, which goes against their intended use. Since no account is logged into the app, 'registerComponentShouldDisplay' was set to true while 'loginComponentShouldDisplay' and 'homeComponentShouldDisplay' were set to false."
 				);
@@ -220,7 +220,8 @@ function getValidatedDisplays(displays) {
 			console.log(
 				"FAIL SAFE: " +
 					getStringOfAllArrayValues(
-						keysOfRegisterLoginHomeComponentsSetToTrue
+						keysOfRegisterLoginHomeComponentsSetToTrue,
+						true
 					) +
 					" were all attempted to be set to true in the redux state which goes against their intended use. Since an account is logged into the app, 'homeComponentShouldDisplay' was set to true while 'loginComponentShouldDisplay' and 'registerComponentShouldDisplay' were set to false."
 			);
