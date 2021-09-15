@@ -37,23 +37,22 @@ const initialState = {
  * 'homeComponentShouldDisplay' should always be true while a user is logged
  * into the app, and either 'registerComponentShouldDisplay' or
  * 'loginComponentShouldDisplay' should be true if a user is not logged in. If
- * the 'displays' prop does not follow the rules then a fail safe will alter to
- * do so (in the reducer). As another rule,
+ * the 'displays' prop does not follow the rules then a fail safe will alter it
+ * to do so (in the reducer). As another rule,
  * 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be set
  * to true whenever the user clicks the ItemViewListSidebar component's
- * 'expand-minimize-button' (className) element (there is no fail safe to ensure
- * this rule is followed). Also if any properties in 'displays' prop are
- * undefined, then they will be set to false in 'componentsDisplay'.
- *
- * Note: The purpose of 'registerComponentShouldDisplay', 'loginComponentShouldDisplay',
- * and 'homeComponentShouldDisplay' booleans in 'componentsDisplay' Object are
- * to be used as flags for whether the components they represent (sharing the
- * same name, e.g. 'homeComponentShouldDisplay' boolean represents Home
- * component) should be displayed by the app. The reason at most only one of
- * these three booleans should be true is to both prevent CSS issues, as their
- * components will break each others intended CSS design, and because it makes
- * sense to seperate their component's functionalities (e.g. registering or
- * logging-in is best done when not already logged-in and using the Home
+ * 'expand-minimize-button' (className) element. However, a fail safe could not 
+ * be figured out to ensure this rule is followed. Also if any properties in 
+ * 'displays' prop are undefined, then they will be set to false in 
+ * 'componentsDisplay'.
+ * 
+ * Note: The purpose of each booleans in 'componentsDisplay' Object with names
+ * ending in '...ShouldDisplay' are to be used as flags for whether the 
+ * components they represent should be displayed by the app. The reason at most
+ * only one of these three booleans should be true is to both prevent CSS issues,
+ * as their components will break each others intended CSS design, and because 
+ * it makes sense to seperate their component's functionalities (e.g. registering
+ * or logging-in is best done when not already logged-in and using the Home
  * component). The purpose of the 'itemViewListSidebarComponentContainerElementExpanded'
  * property is to be used as a flag for whether the ItemViewListSidebar
  * component's 'list-sidebar-container' (className) element should be expanded.
@@ -129,12 +128,9 @@ export default function generalComponentsDisplayReducer(
 }
 
 /**
- * Checks if 'displays' prop follows the rules (i.e. that at most only one of
- * 'registerComponentShouldDisplay', 'loginComponentShouldDisplay', or 'homeComponentShouldDisplay' booleans are true, as well as 'homeComponentShouldDisplay' should
- * always be true while a user is logged into the app, and either 'registerComponentShouldDisplay' or
- * 'loginComponentShouldDisplay' should be true if a user is not logged in). If valid, then it's
- * returned unchanged. If invalid, then a version that's altered to follow the
- * rules is returned.
+ * Checks if 'displays' prop follows the rules stated in JsDoc of
+ * generalComponentsDisplayReducer. If valid, then it's returned unchanged. If
+ * invalid, then a version that's altered to follow the rules is returned.
  *
  * @param {{
  * 	registerComponentShouldDisplay: boolean,

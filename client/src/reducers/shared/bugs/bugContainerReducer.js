@@ -1,7 +1,7 @@
 import { BUG_CONTAINER } from "../../../actions/constants/containerNames";
 import { RESET_CONTAINER } from "../../../actions/constants/types";
 // Other reducers used by this reducer
-import listComponentsDisplayReducer from "../listComponentsDisplayReducer";
+import listAndItemComponentsDisplayReducer from "../listAndItemComponentsDisplayReducer";
 import listReducer from "../listReducer";
 import searchFilterSortReducer from "../searchFilterSortReducer";
 import massDeleteReducer from "../massDeleteReducer";
@@ -10,7 +10,7 @@ import priorityStatusOptionsReducer from "../priorityStatusOptionsReducer";
 // Initial state for 'BUG_CONTAINER' of the redux state
 const initialState = {
 	// Passing 'undefined, {}' causes reducers to return their initial state
-	componentsDisplay: listComponentsDisplayReducer(undefined, {}),
+	componentsDisplay: listAndItemComponentsDisplayReducer(undefined, {}),
 	list: listReducer(undefined, {}),
 	searchFilterSort: searchFilterSortReducer(undefined, {}),
 	massDeleteList: massDeleteReducer(undefined, {}),
@@ -22,7 +22,7 @@ const initialState = {
  * 
  * Note: This container reducer uses the same reducers as the 'PROJECT_CONTAINER'.
  * This is because both containers have 99% overlap, with the only difference 
- * being that in listComponentsDisplayReducer the default value for 
+ * being that in listAndItemComponentsDisplayReducer the default value for 
  * 'listViewComponentShouldDisplay' should be false for this container, but true
  * for 'PROJECT_CONTAINER'.
  * 
@@ -47,7 +47,7 @@ export function bugContainerReducer(state = initialState, action) {
 				return initialState
 			} else {
 				return {
-					componentsDisplay: listComponentsDisplayReducer(
+					componentsDisplay: listAndItemComponentsDisplayReducer(
 						state.componentsDisplay,
 						action
 					),

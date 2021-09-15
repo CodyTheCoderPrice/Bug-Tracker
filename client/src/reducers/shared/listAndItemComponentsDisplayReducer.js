@@ -4,62 +4,62 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 // Initial state for either which project or bug components (reducer used for
 // ...'PROJECT_CONTAINER' and 'BUG_CONTAINER') should be displayed by the app
 const initialState = {
-	// The following five relate to specific components and if they should be
-	// ...displayed. Each of these five is named after the component they
-	// ...represent. Also listViewComponentShouldDisplay and itemViewComponentShouldDisplay properties should never both be
-	// ...true at any given point in time, this includes between 'PROJECT_CONTAINER'
-	// ...and 'BUG_CONTAINER', meaning if a listViewComponentShouldDisplay or itemViewComponentShouldDisplay property is true
-	// ...in one container, they should both be false in the other container, or
-	// ...else their components will cause CSS issues with one another if
-	// ...displayed simutaneously. A higher prioirty is given to listViewComponentShouldDisplay as
-	// ...ListView component for projects is the default displayed child
-	// ...component of the Home component.
 	listViewComponentShouldDisplay: false,
-	// The following two properties should only be true if listViewComponentShouldDisplay is also true
 	deleteModalComponentForListViewShouldDisplay: false,
 	listViewCreateItemSidbarComponentShouldDisplay: false,
 	itemViewComponentShouldDisplay: false,
-	// This property should only be true if itemViewComponentShouldDisplay is also true
 	deleteModalComponentForItemViewShouldDisplay: false,
-	// Is the current item attached to ItemView (i.e. itemViewCurrentItem
-	/// ...property below) being edited. If false then ItemViewDisplayItemInfo
-	// ...component should be displayed, otherwise ItemViewEditItemInfo component
-	// ...should be displayed.
+	// This boolean impacts two components. If true, then ItemViewEditItemInfo
+	// component should be displayed. If false, then ItemViewDisplayItemInfo
+	// component should be displayed.
 	itemViewEditItemInfoComponentShouldDisplay: false,
-	// Which item is currently attached to the ItemView component. If this is
-	// ...null then itemViewComponentShouldDisplay should be false.
 	itemViewCurrentItem: null,
 };
 
 /**
- * Used to set 'componentsDisplay' property into either 'PROJECT_CONTAINER' or
- * 'BUG_CONTAINER' (reducer used for both) of the redux state for either which
- * project or bug components should be displayed by the app. At most,
- * actions.displays should have one of either its listViewComponentShouldDisplay or itemViewComponentShouldDisplay properties
- * set to true. If both are set to true in aciton.displays, then listViewComponentShouldDisplay will
- * take priorty and itemViewComponentShouldDisplay will be set to false in the redux state. Also
- * actions.displays should not have listViewComponentShouldDisplay's child components (i.e.
- * deleteModalComponentForListViewShouldDisplay & listViewCreateItemSidbarComponentShouldDisplay) set to true if listViewComponentShouldDisplay is
- * not. Neither should itemViewComponentShouldDisplay's child component (i.e. deleteModalComponentForItemViewShouldDisplay) be
- * set to true if itemViewComponentShouldDisplay is not. If this is the case for either of them, then
- * their child components will be set to false in the redux state. If any
- * expected properties in action.displays (e.g. listViewComponentShouldDisplay, itemViewComponentShouldDisplay, ect.) are
- * undefined, then they will be set to false/null (depending on their type) in
- * the redux state.
- *
- * Note: The purpose of the listViewComponentShouldDisplay, deleteModalComponentForListViewShouldDisplay, listViewCreateItemSidbarComponentShouldDisplay,
- * itemViewComponentShouldDisplay, and deleteModalComponentForItemViewShouldDisplay properties inside this reducer are to be
- * used as flags for whether the components they represent (they share the same
- * name, e.g. listViewComponentShouldDisplay represents the ListView component) should be displayed by
- * the app. The purpose of itemViewEditItemInfoComponentShouldDisplay property is to be used to
- * indaicate for ItemView component to display ItemViewDisplayItemInfo child
- * component when false and ItemViewEditItemInfo child component when true. The
- * purpose of itemViewCurrentItem property is to be used to indicate which item
- * (project or bug) is currently attached to the ItemView component, so that
- * item's info can be displayed in the ItemView component.
- *
- * deleteModalComponentForListViewShouldDisplay is for mass deleteing items
- *
+ * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how list
+ * and item components should display by the app) into either 'PROJECT_CONTAINER'
+ * or 'BUG_CONTAINER' (reducer used for both) of the redux state. As rules, 
+ * 'displays' prop should have at most only one of 'listViewComponentShouldDisplay'
+ * and 'itemViewComponentShouldDisplay' booleans as true. If 
+ * 'itemViewComponentShouldDisplay' is true, then 'itemViewCurrentItem' must be 
+ * set to an Object containing the item to be displayed. Only if 
+ * 'listViewComponentShouldDisplay' is true, then at most only one of 
+ * 'deleteModalComponentForListViewShouldDisplay' and 
+ * 'listViewCreateItemSidbarComponentShouldDisplay' should be true, otherwise
+ * both should be false. Only if 'itemViewComponentShouldDisplay' is true, then 
+ * at most only one of 'deleteModalComponentForItemViewShouldDisplay' and 
+ * 'itemViewEditItemInfoComponentShouldDisplay' should be true, otherwise both
+ * should be false. If the 'displays' prop does not follow the rules then a 
+ * fail safe will alter it to do so (in the reducer). As further rules, only one
+ * of the 'componentsDisplay' Objects in both 'PROJECT_CONTAINER' and 'BUG_CONTAINER'
+ * of the redux state at a time should have booleans as true. Also that exactly 
+ * one of 'listViewComponentShouldDisplay' and 'itemViewComponentShouldDisplay'
+ * booleans at a time in either 'componentsDisplay' must be true. Fail safes
+ * for these two rules take place outside the reducer via functions from 
+ * reduxFailSafeHookUtils.js file. Also if any properties in 'displays' prop are
+ * undefined, then they will be set to false (if a boolean) or null (if an 
+ * Object) in 'componentsDisplay'.
+ * 
+ * Note: The purpose of each booleans in 'componentsDisplay' Object with names
+ * ending in '...ShouldDisplay' are to be used as flags for whether the 
+ * components they represent should be displayed by the app. The reason there 
+ * are rules that some booleans can only be true if another specifc boolean is
+ * true is becasue of CSS dependencies (i.e. one of the components they represent
+ * relies on the other to display properly) or they were designed to appear 
+ * along side one another. The reason there are rules that some booleans are not
+ * allowed to be true at the same time is either to prevent CSS issues (i.e. 
+ * their components will break each others intended design) or because it makes
+ * sense to seperate their component's functionalities (e.g. users should not be
+ * able to create new items while viewing a specific item). It should be noted 
+ * that when 'itemViewEditItemInfoComponentShouldDisplay' is false, then
+ * ItemViewDisplayItemInfo component should display instead. Also the difference
+ * between how DeleteModal component works for ListView as opposed to ItemView
+ * is that ListView allows for deleting multiple items at once, while ItemView
+ * only allows for deleting its specific item. Also the reason undefined 
+ * properties in 'displays' prop are set to false/null in 'componentsDisplay' 
+ * is to allow devs to only have to pass properties they wish to set to 
+ * true/Object (making life easier).
  *
  * @param {{
  * 	listViewComponentShouldDisplay: boolean,
@@ -117,7 +117,7 @@ const initialState = {
  * }} Object for either which project or bug components (reducer used by
  * 'PROJECT_CONTAINER' and 'BUG_CONTAINER') should be displayed by the app
  */
-export default function listComponentsDisplayReducer(
+export default function listAndItemComponentsDisplayReducer(
 	state = initialState,
 	action
 ) {
@@ -165,9 +165,9 @@ export default function listComponentsDisplayReducer(
 }
 
 /**
- * Checks if 'displays' prop follows the rules. If valid, then it's returned
- * unchanged. If invalid, then a version that's altered to follow the rules
- * is returned.
+ * Checks if 'displays' prop follows the rules stated in JsDoc of
+ * listAndItemComponentsDisplayReducer. If valid, then it's returned unchanged. 
+ * If invalid, then a version that's altered to follow the rules is returned.
  *
  * Note: Since this reducer is used separately by both the 'PROJECT_CONTAINER'
  * and 'BUG_CONTAINER', this means the fail safe to ensure only one of these

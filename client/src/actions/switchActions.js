@@ -20,11 +20,52 @@ import {
 
 /**
  * Depending on which container name is passed (i.e. 'PROJECT_CONTAINER' or
- * 'BUG_CONTAINER') sets info in 'componentsDisplay' property in that container of
- * the redux state for how those components should be displayed by the app
+ * 'BUG_CONTAINER'), uses 'displays' prop to set 'componentsDisplay' Object (to
+ * guide how list and item components should display by the app) into that 
+ * container of the redux state. As rules, 'displays' prop should have at most 
+ * only one of 'listViewComponentShouldDisplay' and 'itemViewComponentShouldDisplay'
+ * booleans as true. If 'itemViewComponentShouldDisplay' is true, then 
+ * 'itemViewCurrentItem' set to an Object containing the item to be displayed. 
+ * Only if 'listViewComponentShouldDisplay' is true, then at most only one of 
+ * 'deleteModalComponentForListViewShouldDisplay' and 
+ * 'listViewCreateItemSidbarComponentShouldDisplay' should be true, otherwise
+ * both should be false. Only if 'itemViewComponentShouldDisplay' is true, then 
+ * at most only one of 'deleteModalComponentForItemViewShouldDisplay' and 
+ * 'itemViewEditItemInfoComponentShouldDisplay' should be true, otherwise both
+ * should be false. If the 'displays' prop does not follow the rules then a 
+ * fail safe will alter it to do so (in the reducer). As further rules, only one
+ * of the 'componentsDisplay' Objects in both 'PROJECT_CONTAINER' and 'BUG_CONTAINER'
+ * of the redux state at a time should have booleans as true. Also that exactly 
+ * one of 'listViewComponentShouldDisplay' and 'itemViewComponentShouldDisplay'
+ * booleans at a time in either 'componentsDisplay' must be true. Fail safes
+ * for these two rules take place outside the reducer via functions from 
+ * reduxFailSafeHookUtils.js file. Also if any properties in 'displays' prop are
+ * undefined, then they will be set to false (if a boolean) or null (if an 
+ * Object) in 'componentsDisplay'.
+ * 
+ * Note: The purpose of each booleans in 'componentsDisplay' Object with names
+ * ending in '...ShouldDisplay' are to be used as flags for whether the 
+ * components they represent should be displayed by the app. The reason there 
+ * are rules that some booleans can only be true if another specifc boolean is
+ * true is becasue of CSS dependencies (i.e. one of the components they represent
+ * relies on the other to display properly) or they were designed to appear 
+ * along side one another. The reason there are rules that some booleans are not
+ * allowed to be true at the same time is either to prevent CSS issues (i.e. 
+ * their components will break each others intended design) or because it makes
+ * sense to seperate their component's functionalities (e.g. users should not be
+ * able to create new items while viewing a specific item). It should be noted 
+ * that when 'itemViewEditItemInfoComponentShouldDisplay' is false, then
+ * ItemViewDisplayItemInfo component should display instead. Also the difference
+ * between how DeleteModal component works for ListView as opposed to ItemView
+ * is that ListView allows for deleting multiple items at once, while ItemView
+ * only allows for deleting its specific item. Also the reason undefined 
+ * properties in 'displays' prop are set to false/null in 'componentsDisplay' 
+ * is to allow devs to only have to pass properties they wish to set to 
+ * true/Object (making life easier).
  *
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} reduxContainerName - name of
- * either the project or bug container of the redux state
+ * which container ('PROJECT_CONTAINER' or 'BUG_CONTAINER') should be worked 
+ * with.
  * @param {{
  * 	listViewComponentShouldDisplay: (boolean|undefined),
  * 	deleteModalComponentForListViewShouldDisplay: (boolean|undefined),
@@ -49,9 +90,8 @@ import {
  * 		status_option: string,
  * 		last_edited_timestamp: string
  * 	}|null|undefined)
- * }} displays - Object containing info for how either project or bug
- * components should be displyed in the app. Any project or bug components set
- * to undefined or excluded from this param will be set to their default value.
+ * }} displays - Object containing properties to guide how either project or bug
+ * components should be displyed in the app.
  *
  * @example
  * // Inside 'PROJECT_CONTAINER' of the redux state - sets listViewComponentShouldDisplay to true, and

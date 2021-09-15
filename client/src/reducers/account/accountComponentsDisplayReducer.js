@@ -103,8 +103,8 @@ export default function accountComponentsDisplayReducer(
 }
 
 /**
- * Checks if 'displays' prop follows the rules (i.e. that at most only one of
- * its boolean properties are true). If valid, then it's returned unchanged. If
+ * Checks if 'displays' prop follows the rules stated in JsDoc of
+ * accountComponentsDisplayReducer. If valid, then it's returned unchanged. If
  * invalid, then a version that's altered to follow the rules is returned.
  *
  * @param {{

@@ -1,7 +1,7 @@
 import { PROJECT_CONTAINER } from "../../../actions/constants/containerNames";
 import { RESET_CONTAINER } from "../../../actions/constants/types";
 // Other reducers used by this reducer
-import listComponentsDisplayReducer from "../listComponentsDisplayReducer";
+import listAndItemComponentsDisplayReducer from "../listAndItemComponentsDisplayReducer";
 import listReducer from "../listReducer";
 import searchFilterSortReducer from "../searchFilterSortReducer";
 import massDeleteReducer from "../massDeleteReducer";
@@ -11,7 +11,7 @@ import priorityStatusOptionsReducer from "../priorityStatusOptionsReducer";
 const initialState = {
 	// Passing 'undefined, {}' causes reducers to return their initial state
 	componentsDisplay: {
-		...listComponentsDisplayReducer(undefined, {}),
+		...listAndItemComponentsDisplayReducer(undefined, {}),
 		// Overrides default value for 'listViewComponentShouldDisplay' since
 		// inital state is set to false for 'BUG_CONTAINER', but should be true
 		// for this container, as ListView (for projects) should be the default
@@ -29,7 +29,7 @@ const initialState = {
  *
  * Note: This container reducer uses the same reducers as the 'BUG_CONTAINER'.
  * This is because both containers have 99% overlap, with the only difference
- * being that in listComponentsDisplayReducer the default value for
+ * being that in listAndItemComponentsDisplayReducer the default value for
  * 'listViewComponentShouldDisplay' should be true for this container, but false
  * for 'BUG_CONTAINER'.
  *
@@ -54,7 +54,7 @@ export function projectContainerReducer(state = initialState, action) {
 				return initialState;
 			} else {
 				return {
-					componentsDisplay: listComponentsDisplayReducer(
+					componentsDisplay: listAndItemComponentsDisplayReducer(
 						state.componentsDisplay,
 						action
 					),

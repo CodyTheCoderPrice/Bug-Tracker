@@ -18,7 +18,7 @@ import {
 	getHomeComponentBackgroundColorClassNameForLightOrDarkMode,
 } from "../../utils";
 import {
-	useListComponentsDisplayContainerCrossoverFailSafe
+	useListAndItemComponentsDisplayContainerCrossoverFailSafe
 } from "../../utils/hooks"
 // Other components used by this component
 import Navbar from "./menu/Navbar";
@@ -50,7 +50,7 @@ export default function Home() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	useListComponentsDisplayContainerCrossoverFailSafe(reduxState);
+	useListAndItemComponentsDisplayContainerCrossoverFailSafe(reduxState);
 
 	// Updates statusFilter in project/bug searchFilterSort to match account
 	// ...settings on app start-up/refresh, or after settings have been changed
