@@ -1,6 +1,6 @@
 /**
- * Returns true if value is null, undefined, or an empty string. Otherwise
- * returns false.
+ * Returns true if 'value' param is null, undefined, or an empty string. 
+ * Otherwise returns false.
  *
  * @param {boolean} value - Value of any type
  * @returns {boolean} Whether the value is null, undefined, or an empty string
@@ -11,7 +11,8 @@ export function isEmpty(value) {
 
 /**
  * Takes an array (of strings, numbers, or booleans) and returns a string
- * containing all the array's values
+ * containing all 'array' param's values. If 'inQuotations' param is true, then 
+ * each array value will be placed in quotes.
  *
  * @param {(string|number|boolean)[]} array - an array of strings, numbers,
  * or booleans
@@ -36,7 +37,7 @@ export function getStringOfAllArrayValues(array, inQuotations = false) {
 
 /**
  * Returns new Object containing all properties from obj param that meet the
- * condition specified in predicateFunc param
+ * condition specified in 'predicateFunc' param
  *
  * @param {Object} obj - Any Object
  * @param {Function} predicateFun - Callback function for determining which

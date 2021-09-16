@@ -35,7 +35,7 @@ import {
  *
  * @example
  * // Sets a list of two projects. The dispatch function is from useDispatch()
- * // ...imported from react-redux.
+ * // imported from react-redux.
  * dispatch(
  * 	setProjects([{
  * 		id: 373,
@@ -72,8 +72,8 @@ export const setProjects = (projectList) => (dispatch) => {
 	dispatch({
 		container: PROJECT_CONTAINER,
 		type: SET_LIST,
-		// Property is called 'list' instead of projectList since redux reducer is
-		// ...shared with setBugs in bugActions file
+		// Property is called 'list' instead of 'projectList' since redux reducer is
+		// shared with setBugs in bugActions file
 		list: projectList,
 	});
 };
@@ -81,8 +81,8 @@ export const setProjects = (projectList) => (dispatch) => {
 /**
  * Calls /api/project/create route to create a new project in the database,
  * store the updated list of projects in 'list' property in 'PROJECT_CONTAINER'
- * of the redux state, and close the ListViewCreateItemSidbar (for projects)
- * component
+ * of the redux state, and close the ListViewCreateItemSidbar component (for
+ * projects)
  *
  * @param {{
  * 		name: string,
@@ -149,8 +149,9 @@ export const createProject =
 				const { projects } = res.data;
 				dispatch(setProjects(projects));
 
-				// project creation was successful, so closing the
-				// ...listViewCreateItemSidbarComponentShouldDisplay
+				// Project creation successful, so closing ListViewCreateItemSidebar
+				// component as the user most likely does not plan on immediately
+				// creating another project
 				dispatch(
 					setWhichProjectComponentsDisplay({
 						...projectComponentsDisplay,
@@ -245,7 +246,7 @@ export const retrieveProjects = () => (dispatch) => {
  *
  * @example
  * // updates project with id 373 to have the following data. The dispatch
- * // ...function is from useDispatch() imported from react-redux.
+ * // function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateProject({
  * 		id: 373,
@@ -280,18 +281,21 @@ export const updateProject =
 				const { projects } = res.data;
 				dispatch(setProjects(projects));
 
-				// project update was successful, so closing itemViewEditItemInfoComponentShouldDisplay
+				// Bug update successful, so closing ItemViewEditItemInfo component
+				// as the user most likely does not plan to further edit the same bug
 				dispatch(
 					setWhichProjectComponentsDisplay({
 						...projectComponentsDisplay,
-						// if itemViewCurrentItem was set to the pre-edited project, then it
-						// ...is updated to the post-edited project
+						// If 'itemViewCurrentItem' was set to the pre-edited 
+						// project, then it is updated to the post-edited project.
+						// In the current website build, this should always be 
+						// true, but this check exists just to be safe
 						itemViewCurrentItem:
-							projectComponentsDisplay.itemViewCurrentItem.id !== projectInfo.id
-								? projectComponentsDisplay.itemViewCurrentItem
-								: projects.filter((project) => {
+							projectComponentsDisplay.itemViewCurrentItem.id === projectInfo.id
+								? projects.filter((project) => {
 										return project.id === projectInfo.id;
-								  })[0],
+								  })[0]
+								: projectComponentsDisplay.itemViewCurrentItem,
 						itemViewEditItemInfoComponentShouldDisplay: false,
 					})
 				);
@@ -334,9 +338,9 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 	axios
 		.post("/api/project/delete", { id: projectId }, header)
 		.then((res) => {
-			// Since deleting a project also deletes bugs and comments it had,
-			// ...the list of bugs and list of comments are also updated in the
-			// ...redux state
+			// Since deleting a project also deletes the bugs and comments it
+			// had, the list of bugs and comments are also updated in the redux
+			// state
 			const { projects, bugs, comments } = res.data;
 			dispatch(setProjects(projects));
 			dispatch(setBugs(bugs));
@@ -345,9 +349,8 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 			const deletedProjectIndexInMassDeleteList =
 				massDeleteList.indexOf(projectId);
 
-			// checks if the deleted project id was in the massDeleteList, and
-			// ...if so removes it and updates 'massDeleteList' property in
-			// ...'PROJECT_CONTAINER' of the redux state
+			// checks if the deleted project id was in 'massDeleteList', and if
+			// so, then updates 'massDeleteList' to no longer have that id
 			if (deletedProjectIndexInMassDeleteList > -1) {
 				massDeleteList.splice(deletedProjectIndexInMassDeleteList, 1);
 				dispatch(
@@ -355,7 +358,8 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 				);
 			}
 
-			// project deletion was successful, so closing deleteModalComponentForItemViewShouldDisplay
+			// Project deletion successful, so closing DeleteModal component (for 
+			// projects) as there is no longer any reason for it to stay open
 			dispatch(
 				setWhichProjectComponentsDisplay({
 					listViewComponentShouldDisplay: true,
@@ -437,17 +441,19 @@ export const deleteMultipleProjects =
 			)
 			.then((res) => {
 				const { projects, bugs, comments } = res.data;
-				// Since deleting a project also deletes bugs and comments it had,
-				// ...the list of bugs and list of comments are also updated in the
-				// ...redux state
+				// Since deleting a project also deletes the bugs and comments it
+				// had, the 'list' of bugs and comments are also updated in the
+				// redux state
 				dispatch(setProjects(projects));
 				dispatch(setBugs(bugs));
 				dispatch(setComments(comments));
 
-				// empties the massDeleteList in the redux state
+				// Empties the 'massDeleteList' in the redux state
 				dispatch(setProjectOrBugMassDeleteList(PROJECT_CONTAINER, []));
 
-				// mass project deletion was successful, so closing deleteModalComponentForItemViewShouldDisplay
+				// Mass project deletion successful, so closing DeleteModal 
+				// component (for projects) as there is no longer any reason 
+				// for it to stay open
 				dispatch(
 					setWhichProjectComponentsDisplay({
 						...projectComponentsDisplay,

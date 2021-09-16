@@ -40,7 +40,7 @@ import {
  *
  * @example
  * // Sets a list of two bugs belonging to a project with the id 373. The
- * // ...dispatch function is from useDispatch() imported from react-redux.
+ * // dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setProjects([{
  * 		id: 50,
@@ -80,7 +80,7 @@ export const setBugs = (bugList) => (dispatch) => {
 		container: BUG_CONTAINER,
 		type: SET_LIST,
 		// Property is called 'list' instead of 'bugList' since redux reducer is
-		// ...shared with setProjects in projectActions file
+		// shared with setProjects in projectActions file
 		list: bugList,
 	});
 };
@@ -164,7 +164,9 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
 
-			// Bug creation was successful, so closing the listViewCreateItemSidebar
+			// Bug creation successful, so closing ListViewCreateItemSidebar
+			// component as the user most likely does not plan on immediately
+			// creating another bug
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
@@ -273,7 +275,7 @@ export const retrieveBugs = () => (dispatch) => {
  *
  * @example
  * // Updates bug with id 50 to have the following data. The dispatch function
- * // ...is from useDispatch() imported from react-redux.
+ * // is from useDispatch() imported from react-redux.
  * dispatch(
  * 	updateBug({
  * 		id: 50,
@@ -308,18 +310,21 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			const { bugs } = res.data;
 			dispatch(setBugs(bugs));
 
-			// Bug update was successful, so closing itemViewEditItemInfoComponentShouldDisplay
+			// Bug update successful, so closing ItemViewEditItemInfo component
+			// as the user most likely does not plan to further edit the same bug
 			dispatch(
 				setWhichBugComponentsDisplay({
 					...bugComponentsDisplay,
-					// If itemViewCurrentItem was set to the pre-edited bug, then it
-					// ...is updated to the post-edited bug
+					// If 'itemViewCurrentItem' was set to the pre-edited bug,
+					// then it is updated to the post-edited bug. In the current
+					// website build, this should always be true, but this check
+					// exists just to be safe
 					itemViewCurrentItem:
-						bugComponentsDisplay.itemViewCurrentItem.id !== bugInfo.id
-							? bugComponentsDisplay.itemViewCurrentItem
-							: bugs.filter((bug) => {
+						bugComponentsDisplay.itemViewCurrentItem.id === bugInfo.id
+							? bugs.filter((bug) => {
 									return bug.id === bugInfo.id;
-							  })[0],
+							  })[0]
+							: bugComponentsDisplay.itemViewCurrentItem,
 					itemViewEditItemInfoComponentShouldDisplay: false,
 				})
 			);
@@ -352,7 +357,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  * @param {{
  * id: number,
  * project_id: number
- * }} idsObject - Object containing the id of the bug to be deletedand the id
+ * }} idsObject - Object containing the id of the bug to be deleted, and the id
  * of the project it belongs to
  * @param {number[]} massDeleteList - Array of ids for bugs to be mass deleted
  * (needed since if massDeleteList contains the to be deleted project, it will
@@ -360,7 +365,7 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
  *
  * @example
  * // Deletes bug and updates massDeleteList to no longer contain deleted bug.
- * // ...The dispatch function is from useDispatch() imported from react-redux.
+ * //The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(deleteBug({ id: 134, project_id: 341 }, [ 134, 96, 93 ]));
  */
 export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
@@ -369,7 +374,7 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 		.post("/api/bug/delete", idsObject, header)
 		.then((res) => {
 			// Since deleting a bug also deletes the comments it had, the
-			// ...list of comments is also updated in redux state
+			// 'list' of comments is also updated in redux state
 			const { bugs, comments } = res.data;
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
@@ -378,15 +383,16 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 				idsObject.id
 			);
 
-			// Checks if the deleted bug id was in the massDeleteList, and if
-			// ...so, then removes it and updates 'massDeleteList' property in
-			// ...'BUG_CONTAINER' of the redux state
+			// Checks if the deleted bug id was in the 'massDeleteList', and if
+			// so, then removes it and updates 'massDeleteList' property in
+			// 'BUG_CONTAINER' of the redux state
 			if (deletedBugIndexInMassDeleteList > -1) {
 				massDeleteList.splice(deletedBugIndexInMassDeleteList, 1);
 				dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, massDeleteList));
 			}
 
-			// Bug deletion was successful, so closing deleteModalComponentForItemViewShouldDisplay
+			// Bug deletion successful, so closing DeleteModal component (for
+			// bugs) as there is no longer any reason for it to stay open
 			dispatch(
 				setWhichBugComponentsDisplay({
 					listViewComponentShouldDisplay: true,
@@ -471,20 +477,21 @@ export const deleteMultipleBugs =
 			)
 			.then((res) => {
 				// Since deleting a bug also deletes the comments it had, the
-				// ...list of comments is also updated in redux state
+				// 'list' of comments is also updated in redux state
 				const { bugs, comments } = res.data;
 				dispatch(setBugs(bugs));
 				dispatch(setComments(comments));
 
-				// Empties the massDeleteList in the redux state
+				// Empties the 'massDeleteList' in the redux state
 				dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER, []));
 
-				// Mass bug deletion was successful, so closing deleteModalComponentForItemViewShouldDisplay
+				// Mass bug deletion successful, so closing DeleteModal component
+				// (for bugs) as there is no longer any reason for it to stay open
 				dispatch(
 					setWhichBugComponentsDisplay({
 						...bugComponentsDisplay,
 						deleteModalComponentForListViewShouldDisplay: false,
-						// If the itemViewCurrentItem was a deleted bug, then sets it to null
+						// If the 'itemViewCurrentItem' was a deleted bug, then sets it to null
 						itemViewCurrentItem:
 							bugComponentsDisplay.itemViewCurrentItem === null ||
 							massDeleteList.filter(

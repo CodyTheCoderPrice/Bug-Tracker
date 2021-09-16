@@ -80,7 +80,7 @@ export default function Navbar() {
 		);
 
 		// Since breadcrumb font resize does not happen until after app start-up
-		// ...or refresh, it's safe to initialize as breadcrumbButtonTextElementBaseFontSize
+		// or refresh, it's safe to initialize as breadcrumbButtonTextElementBaseFontSize
 		dispatch(
 			setDisplaySizeVariablesBreadcrumbFontSize(
 				breadcrumbButtonTextElementBaseFontSize

@@ -30,7 +30,7 @@ import {
  * 
  * @example
  * // Sets a list of two comments belonging to a bug with the id 50. The 
- * // ...dispatch function is from useDispatch() imported from react-redux.
+ * // dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
  * 	setComments([{ 
  * 		id: 92, 
@@ -52,8 +52,8 @@ export const setComments = (commentList) => (dispatch) => {
 		container: COMMENT_CONTAINER,
 		type: SET_COMMENTS,
 		// Property is called 'list' instead of 'commentList' for consistency 
-		// ...with setProjects (projectActions file) and setBugs (bugActions 
-		// ...file). Look at documentation in those functions for their reasoning. 
+		// with setProjects in projectActions file and setBugs in bugActions 
+		// file. Look at documentation in those functions for their reasoning. 
 		list: commentList,
 	});
 };
@@ -174,8 +174,8 @@ export const updateComment = (commentInfo) => (dispatch) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));
 
-			// Comment edit was successful, so sets comment components to null,
-			// ... which closing the edit mode
+			// Comment edit successful, so sets 'commentBeingEdited' to null 
+			// (which closes comment being edited mode)
 			dispatch(setWhichCommentComponentsDisplay({}));
 		})
 		.catch((err) => {
@@ -196,10 +196,6 @@ export const updateComment = (commentInfo) => (dispatch) => {
  * 'COMMENT_CONTAINER' in the redux state, and closes the CommentDeleteModal 
  * component.
  * 
- * Note: The purpose of this dispatch function is to be used via the DeleteModal
- * component inside the ItemView (for bugs) component to allow the user to 
- * delete a comment in the database.
- * 
  * @param {{ 
  * 	id: number, 
  * 	project_id: number, 
@@ -219,7 +215,7 @@ export const updateComment = (commentInfo) => (dispatch) => {
  * 
  * @example
  * // Deletes comment and keeps commentBeingEdited the same (since deleted 
- * // ...comment was not the comment being edited) in the redux state
+ * // comment was not the comment being edited) in the redux state
  * dispatch(
  * 	deleteComment({ 
  * 		id: 194, 
@@ -236,7 +232,7 @@ export const updateComment = (commentInfo) => (dispatch) => {
  * 
  * @example
  * // Deletes comment and updates commentBeingEdit to null (since deleted 
- * // ...comment was the comment being edited) in the redux state
+ * // comment was the comment being edited) in the redux state
  * dispatch(
  * 	deleteComment({ 
  * 		id: 194, 
@@ -259,10 +255,10 @@ export const deleteComment = (idsObject, commentBeingEdited) => (dispatch) => {
 			const { comments } = res.data;
 			dispatch(setComments(comments));
 
-			// Comment deletion successful, so setting commentBeingDeleted to 
-			// ...null, which closes CommentDeleteModal component. If delted 
-			// ...comment is same as commentBeingEdited, it is also set to null,
-			// ...otherwise it's kept the same
+			// Comment deletion successful, so closing DeleteModal component 
+			// (for comments) by setting 'commentBeingDeleted' null. If the 
+			// deleted comment is same as 'commentBeingEdited', then it is also
+			// set to null, otherwise it's kept the same
 			dispatch(
 				setWhichCommentComponentsDisplay({ 
 					commentBeingEdited:

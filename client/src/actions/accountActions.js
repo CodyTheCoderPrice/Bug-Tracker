@@ -185,8 +185,11 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 	axios
 		.post("/api/account/register", accountInfo)
 		.then(() => {
-			// Register was successful, so switching to Login component
-			dispatch(setWhichGeneralComponentsDisplay({ loginComponentShouldDisplay: true }));
+			// Register successful, so switching to Login component since the
+			// user most likely would like to login to their new account
+			dispatch(
+				setWhichGeneralComponentsDisplay({ loginComponentShouldDisplay: true })
+			);
 		})
 		.catch((err) => {
 			// Sets backend errors for what went wrong to be displayed to user
@@ -241,13 +244,14 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 				comments,
 			} = res.data;
 
-			// Stored locally to later be sent in the header of most HTTP calls
-			// ...so the server can decode it to get the account_id for the call
-			// ...as well as authenticate the call without being sent a password
+			// Stored locally to later be sent in the header of most HTTP calls.
+			// This is so the backend server can decode it to get the account_id
+			// associated with the call, as well as authenticate the call without
+			// being sent a password
 			localStorage.setItem("jwToken", jwToken);
 
-			// All data for the account was sent from the login route, and set
-			// ...into redux from here so only one HTTP call is needed
+			// All data for the account was sent from the login route and will
+			// be set into redux from here so only this one HTTP call is needed
 			const decodedToken = jwt_decode(jwToken);
 			dispatch(setAuthentication(decodedToken));
 			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
@@ -259,8 +263,11 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			dispatch(setBugs(bugs));
 			dispatch(setComments(comments));
 
-			// Login was successful so switching to Home Component
-			dispatch(setWhichGeneralComponentsDisplay({ homeComponentShouldDisplay: true }));
+			// Login successful, so switching to the Home component to follow
+			// the rule documentated in setWhichGeneralComponentsDisplay
+			dispatch(
+				setWhichGeneralComponentsDisplay({ homeComponentShouldDisplay: true })
+			);
 		})
 		.catch((err) => {
 			// Sets backend errors for what went wrong to be displayed to user
@@ -270,8 +277,8 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 
 /**
  * Calls api/account/retrieve route to retrieve the account info from the
- * database and store it in 'accountInfo' property in 'ACCOUNT_CONTAINER' of the
- * redux state.
+ * database and store it in 'accountInfo' property in 'ACCOUNT_CONTAINER' of
+ * the redux state.
  *
  * Note: The purpose of this dispatch function is to have a way of retrieving
  * only the currently logged in account's info and nothing else from the
@@ -306,8 +313,8 @@ export const retrieveAccount = () => (dispatch) => {
 
 /**
  * Calls api/account/retrieve-settings route to retrieve the account settings
- * from the database and store it in 'settings' property in 'ACCOUNT_CONTAINER' of
- * the redux state.
+ * from the database and store it in 'settings' property in 'ACCOUNT_CONTAINER'
+ * of the redux state.
  *
  * Note: The purpose of this dispatch function is to have a way of retrieving
  * only the currently logged in account's settings and nothing else from the
@@ -424,10 +431,10 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 		.post("/api/account/update-info", newAccountNames, header)
 		.then((res) => {
 			const { account } = res.data;
-			// Updates the redux state with the new account name
 			dispatch(setAccount(account));
-			// Closes AccountModal and re-opens AccountSidebar (so the user can
-			// ...see their updated name)
+
+			// Switches to AccountSidebar component so the user can see their
+			// updated name displayed
 			dispatch(
 				setWhichAccountComponentsDisplay({
 					accountSidebarComponentShouldDisplay: true,
@@ -478,10 +485,10 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 		.post("/api/account/update-email", newEmailCurrentPassword, header)
 		.then((res) => {
 			const { account } = res.data;
-			// Updates the redux state with the new account email
 			dispatch(setAccount(account));
-			// Closes AccountModal and re-opens AccountSidebar (so the user can
-			// ...see their updated email)
+
+			// Switches to AccountSidebar component so the user can see their
+			// updated email displayed
 			dispatch(
 				setWhichAccountComponentsDisplay({
 					accountSidebarComponentShouldDisplay: true,
@@ -532,13 +539,14 @@ export const updateAccountPassword =
 			.post("/api/account/update-password", newPasswordCurrentPassword, header)
 			.then((res) => {
 				const { account } = res.data;
-				// Still updates the redux state despite not storing the new
-				// ...password since the new account Object will contained an
-				// ...updated last_edited_timestamp
+				// Still updates 'accountInfo' despite not storing the new
+				// password since the new account Object will contain an updated
+				// 'last_edited_timestamp'
 				dispatch(setAccount(account));
-				// Closes AccountModal and re-opens AccountSidebar (even though
-				// ...the user won't see their updated password, this is still
-				// ...done for consistency with similar routes)
+
+				// Switches to AccountSidebar component despite their updated
+				// password not being displayed there, for consistency sake with
+				// similar routes (e.g. updateAccountName)
 				dispatch(
 					setWhichAccountComponentsDisplay({
 						accountSidebarComponentShouldDisplay: true,
@@ -606,10 +614,12 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 		.post("/api/account/update-settings", accountSettings, header)
 		.then((res) => {
 			const { settings } = res.data;
-			// Updates the redux state with the new account settings
 			dispatch(setAccountSettings(settings));
-			// Backend errors cleared since setting modal doesn't get closed on
-			// ...success, meaning backend errors can remain
+
+			// Backend errors cleared since AccountModalEditSettings component
+			// doesn't get closed on success, meaning backend errors can remain.
+			// The reason the component isn't closed is because the user may
+			// likely decide to change other settings as well
 			dispatch(clearBackendErrors());
 		})
 		.catch((err) => {
