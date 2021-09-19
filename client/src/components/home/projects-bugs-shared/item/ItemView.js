@@ -206,17 +206,13 @@ export default function ItemView(props) {
 				<div className="padding-container">
 					{reduxState[props.reduxContainerName].componentsDisplay
 						.itemViewEditItemInfoComponentShouldDisplay === false ? (
-						<div>
-							<ItemViewDisplayItemInfo
-								reduxContainerName={props.reduxContainerName}
-							/>
-						</div>
+						<ItemViewDisplayItemInfo
+							reduxContainerName={props.reduxContainerName}
+						/>
 					) : (
-						<div>
-							<ItemViewEditItemInfo
-								reduxContainerName={props.reduxContainerName}
-							/>
-						</div>
+						<ItemViewEditItemInfo
+							reduxContainerName={props.reduxContainerName}
+						/>
 					)}
 					{props.reduxContainerName !== PROJECT_CONTAINER ? null : (
 						<div className="pair-container js-bug-info-pair-container-for-project">

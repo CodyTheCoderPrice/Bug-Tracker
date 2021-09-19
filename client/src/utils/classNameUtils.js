@@ -477,21 +477,40 @@ export function getCommonItemViewComponentFormInputElementBorderBackgroundTextCo
  * Get light/dark mode className for common (i.e. used by multiple components)
  * ItemViewEditItemInfo component's 'form-buttons-centered-container__cancel-button'
  * (className) element and ItemViewCommentBoxIndividualComment component's
- * 'comment__centering-container__pair-container__cancel-button' (className)
- * element's background color with hover
+ * 'individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button' 
+ * (className) element's background color with hover
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common
  * ItemViewEditItemInfo component's 'form-buttons-centered-container__cancel-button'
- * element and ItemViewCommentBoxIndividualComment component's
- * 'comment__centering-container__pair-container__cancel-button' element's
- * background color with hover
+ * (className) element and ItemViewCommentBoxIndividualComment component's
+ * 'individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button' 
+ * (className) element's background color with hover
  */
 export function getCommonItemViewComponentFormCancelButtonElementBackgroundColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
 		" js-get-common-item-view-component-form-cancel-button-element-background-color-with-hover-mode-" +
+		dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for common (i.e. used by multiple components)
+ * ItemViewCommentBoxIndividualCommentDisplayInfo and ItemViewCommentBoxIndividualCommentEditInfo
+ * component's'comment-icon-button' (className) element's text color with hover
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for ItemViewCommentBoxIndividualCommentDisplayInfo 
+ * and ItemViewCommentBoxIndividualCommentEditInfo component's 'comment-icon-button' 
+ * element's text color with hover
+ */
+ export function getCommonItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-" +
 		dark_mode
 	);
 }
@@ -1125,23 +1144,6 @@ export function getItemViewEditItemInfoComponentInputCompletedDateElementDisable
 ) {
 	return (
 		" js-get-item-view-edit-item-info-component-input-completed-date-element-disabled-dark-mode-" +
-		dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for ItemViewCommentBoxIndividualComment component's
- * 'comment__block__icon-button' (className) element's text color with hover
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewCommentBoxIndividualComment
- * component's 'comment__block__icon-button' element's text color with hover
- */
-export function getItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-" +
 		dark_mode
 	);
 }

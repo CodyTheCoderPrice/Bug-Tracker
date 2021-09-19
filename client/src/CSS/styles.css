@@ -635,7 +635,7 @@ dropdown can overlap all other components
   left: 13px;
   border: none;
   background: none;
-  color: #7c7c7c;
+  color: #6d6d6d;
   font-size: 22px;
   cursor: pointer;
 }
@@ -781,7 +781,7 @@ dropdown can overlap all other components
   top: 10px;
   border: none;
   background: none;
-  color: #7c7c7c;
+  color: #6d6d6d;
   cursor: pointer;
   top: 12px;
   left: 20px;
@@ -796,7 +796,7 @@ dropdown can overlap all other components
   top: 10px;
   border: none;
   background: none;
-  color: #7c7c7c;
+  color: #6d6d6d;
   cursor: pointer;
   right: 20px;
   font-size: 26px;
@@ -1212,8 +1212,8 @@ dropdown can overlap all other components
 .js-get-item-view-component .item-box__form-textarea:focus {
   border-color: #2ba6c5;
 }
-.item-view-component .item-box__form-textarea--shorter,
-.js-get-item-view-component .item-box__form-textarea--shorter {
+.item-view-component .item-box__form-textarea--for-comments,
+.js-get-item-view-component .item-box__form-textarea--for-comments {
   height: 100px;
 }
 .item-view-component .item-box__no-bugs-message,
@@ -1225,6 +1225,34 @@ dropdown can overlap all other components
   font-size: 24px;
   text-align: center;
   color: gray;
+}
+.item-view-component .backend-errors,
+.js-get-item-view-component .backend-errors {
+  display: block;
+  color: #ff0000;
+  text-align: center;
+  margin-top: 10px;
+}
+.item-view-component .backend-errors--item-name,
+.js-get-item-view-component .backend-errors--item-name {
+  margin: 15px 0px 11px 0px;
+  font-size: 16px;
+}
+.item-view-component .backend-errors--edit-item,
+.js-get-item-view-component .backend-errors--edit-item {
+  float: left;
+  margin: 0px 0 0px 0;
+  width: 100%;
+  line-height: 30px;
+  text-align: center;
+}
+.item-view-component .backend-errors--comment,
+.js-get-item-view-component .backend-errors--comment {
+  margin: 5px 0 5px 0;
+}
+.item-view-component .backend-errors--edit-comment,
+.js-get-item-view-component .backend-errors--edit-comment {
+  margin: 0 0 10px 0;
 }
 
 .item-view-bug-list-component {
@@ -1357,12 +1385,12 @@ dropdown can overlap all other components
   overflow: hidden;
 }
 
-.item-view-component .form-submit-centering-container {
+.item-view-component .create-comment-form-button-centering-container {
   position: relative;
   height: 50px;
   width: 100%;
 }
-.item-view-component .form-submit-centering-container__button {
+.item-view-component .create-comment-form-button-centering-container__submit-button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1381,41 +1409,39 @@ dropdown can overlap all other components
   font-size: 16px;
   cursor: pointer;
 }
-.item-view-component .form-submit-centering-container__button:hover, .item-view-component .form-submit-centering-container__button:active, .item-view-component .form-submit-centering-container__button:focus {
+.item-view-component .create-comment-form-button-centering-container__submit-button:hover, .item-view-component .create-comment-form-button-centering-container__submit-button:active, .item-view-component .create-comment-form-button-centering-container__submit-button:focus {
   background-color: #608d9e;
 }
-
-.item-view-component .comment-divider {
+.item-view-component .individual-comment-divider {
   margin: 30px 0px 30px 0px;
   border-bottom: 1px solid silver;
 }
-.item-view-component .comment__block {
-  position: relative;
+.item-view-component .individual-comment-divider__internal-divider {
   margin: 10px 0px 10px 0px;
 }
-.item-view-component .comment__block__icon-button {
+.item-view-component .comment-icon-button {
   display: inline;
   margin-left: 10px;
-  color: #6d6d6d;
+  color: #5e5e5e;
   cursor: pointer;
 }
-.item-view-component .comment__block__icon-button:hover, .item-view-component .comment__block__icon-button:active {
+.item-view-component .comment-icon-button:hover, .item-view-component .comment-icon-button:active {
   color: black;
 }
-.item-view-component .comment__centering-container {
+.item-view-component .individual-comment-divider__form-buttons-centering-container {
   position: relative;
   margin-bottom: 20px;
   height: 40px;
   width: 100%;
 }
-.item-view-component .comment__centering-container__pair-container {
+.item-view-component .individual-comment-divider__form-buttons-centering-container__pair-container {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   top: 0px;
   width: 265px;
 }
-.item-view-component .comment__centering-container__pair-container__submit-edit-button {
+.item-view-component .individual-comment-divider__form-buttons-centering-container__pair-container__submit-edit-button {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1431,10 +1457,10 @@ dropdown can overlap all other components
   cursor: pointer;
   float: left;
 }
-.item-view-component .comment__centering-container__pair-container__submit-edit-button:hover, .item-view-component .comment__centering-container__pair-container__submit-edit-button:active, .item-view-component .comment__centering-container__pair-container__submit-edit-button:focus {
+.item-view-component .individual-comment-divider__form-buttons-centering-container__pair-container__submit-edit-button:hover, .item-view-component .individual-comment-divider__form-buttons-centering-container__pair-container__submit-edit-button:active, .item-view-component .individual-comment-divider__form-buttons-centering-container__pair-container__submit-edit-button:focus {
   background-color: #608d9e;
 }
-.item-view-component .comment__centering-container__pair-container__cancel-button {
+.item-view-component .individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -1461,7 +1487,7 @@ dropdown can overlap all other components
   cursor: pointer;
   float: right;
 }
-.item-view-component .comment__centering-container__pair-container__cancel-button:hover, .item-view-component .comment__centering-container__pair-container__cancel-button:active {
+.item-view-component .individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button:hover, .item-view-component .individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button:active {
   background-color: #ebebeb;
 }
 
@@ -1688,29 +1714,6 @@ dropdown can overlap all other components
 }
 .item-view-component .form-buttons-centered-container__cancel-button:hover, .item-view-component .form-buttons-centered-container__cancel-button:active {
   background-color: #ebebeb;
-}
-.item-view-component .backend-errors {
-  display: block;
-  color: #ff0000;
-  text-align: center;
-  margin-top: 10px;
-}
-.item-view-component .backend-errors--item-name {
-  margin: 15px 0px 11px 0px;
-  font-size: 16px;
-}
-.item-view-component .backend-errors--edit-item {
-  float: left;
-  margin: 0px 0 0px 0;
-  width: 100%;
-  line-height: 30px;
-  text-align: center;
-}
-.item-view-component .backend-errors--comment {
-  margin: 5px 0 5px 0;
-}
-.item-view-component .backend-errors--edit-comment {
-  margin: 0 0 10px 0;
 }
 
 .item-view-list-sidebar-component .expand-minimize-button,
@@ -2052,7 +2055,7 @@ dropdown can overlap all other components
   background: none;
   height: 29px;
   width: 36px;
-  color: #7c7c7c;
+  color: #6d6d6d;
   font-size: 28px;
   text-align: center;
   cursor: pointer;
@@ -2124,7 +2127,7 @@ dropdown can overlap all other components
   top: 10px;
   border: none;
   background: none;
-  color: #7c7c7c;
+  color: #6d6d6d;
   cursor: pointer;
   right: 20px;
   font-size: 26px;
@@ -2174,7 +2177,7 @@ dropdown can overlap all other components
   top: 10px;
   border: none;
   background: none;
-  color: #7c7c7c;
+  color: #6d6d6d;
   cursor: pointer;
   right: 20px;
   font-size: 26px;
@@ -2836,7 +2839,7 @@ body {
 }
 .app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false,
 .js-get-app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false {
-  color: #7c7c7c;
+  color: #6d6d6d;
 }
 .app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false:hover, .app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false:active,
 .js-get-app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false:hover,
@@ -2931,6 +2934,24 @@ body {
 .js-get-app-component .js-get-common-item-view-component-form-cancel-button-element-background-color-with-hover-mode-true:hover,
 .js-get-app-component .js-get-common-item-view-component-form-cancel-button-element-background-color-with-hover-mode-true:active {
   background-color: #464646;
+}
+.app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false,
+.js-get-app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false {
+  color: #5e5e5e;
+}
+.app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false:hover, .app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false:active,
+.js-get-app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false:hover,
+.js-get-app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false:active {
+  color: black;
+}
+.app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true,
+.js-get-app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true {
+  color: #7c7c7c;
+}
+.app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true:hover, .app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true:active,
+.js-get-app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true:hover,
+.js-get-app-component .js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true:active {
+  color: #c7d1db;
 }
 .app-component .js-get-home-component-background-and-text-color-dark-mode-false,
 .js-get-app-component .js-get-home-component-background-and-text-color-dark-mode-false {
@@ -3373,24 +3394,6 @@ body {
   background-color: #232323;
   color: #6d6d6d;
   pointer-events: none;
-}
-.app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false,
-.js-get-app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false {
-  color: #6d6d6d;
-}
-.app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false:hover, .app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false:active,
-.js-get-app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false:hover,
-.js-get-app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false:active {
-  color: black;
-}
-.app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true,
-.js-get-app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true {
-  color: #7c7c7c;
-}
-.app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true:hover, .app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true:active,
-.js-get-app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true:hover,
-.js-get-app-component .js-get-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-true:active {
-  color: #c7d1db;
 }
 .app-component .js-get-common-brighter-border-color-theme-blue-turkish,
 .js-get-app-component .js-get-common-brighter-border-color-theme-blue-turkish {

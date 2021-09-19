@@ -154,7 +154,7 @@ export default function ItemViewCommentsBox() {
 						value={commentInfo.description}
 						id="create-comment-description"
 						className={
-							"item-box__form-textarea item-box__form-textarea--shorter" +
+							"item-box__form-textarea item-box__form-textarea--for-comments" +
 							getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -177,11 +177,11 @@ export default function ItemViewCommentsBox() {
 						{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
 						{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
 					</span>
-					<div className="form-submit-centering-container">
+					<div className="create-comment-form-button-centering-container">
 						<button
 							type="submit"
 							className={
-								"form-submit-centering-container__button" +
+								"create-comment-form-button-centering-container__submit-button" +
 								getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)

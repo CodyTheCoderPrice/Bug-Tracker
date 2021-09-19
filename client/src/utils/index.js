@@ -10,4 +10,3 @@ export * from "./dateUtils";
 export * from "./displaySizeUtils";
 export * from "./elementUtils";
 export * from "./searchFilterSortUtils";
-export * from "./stringUtils";

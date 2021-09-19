@@ -168,7 +168,7 @@
 		}
 	}
 
-	.item-box__form-textarea--shorter {
+	.item-box__form-textarea--for-comments {
 		height: 100px;
 	}
 
@@ -179,5 +179,36 @@
 		font-size: v.$list-view-top-bar-new-item-tutorial-font-size;
 		text-align: center;
 		color: gray;
+	}
+
+	.backend-errors {
+		@include m.backend-error();
+		
+		margin-top: 10px;
+	}
+
+	.backend-errors--item-name {
+		margin: 15px 0px 11px 0px;
+		font-size: v.$common-slightly-larger-font-size;
+	}
+
+	.backend-errors--edit-item {
+		// So span can be placed after outer-diving-containers yet not take up
+		// ...space unless text is present the span
+		float: left;
+		margin: 0px 0 0px 0;
+		width: 100%;
+		// Using line height instead of margin so the span does not take up space
+		// ...unless there is actaully text present inside it
+		line-height: 30px;
+		text-align: center;
+	}
+
+	.backend-errors--comment {
+		margin: 5px 0 5px 0;
+	}
+
+	.backend-errors--edit-comment {
+		margin: 0 0 10px 0;
 	}
 }
