@@ -85,12 +85,12 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
 /**
  * Sets 'dropdownsDisplay' property in 'GENERAL_CONTAINER' of the redux state for
  * how general dropdowns should be displayed by the app. If any expected
- * properties in displays prop (e.g. navbarHambugerDropdown,
+ * properties in displays prop (e.g. navbarHamburgerDropdownComponentShouldDisplay,
  * itemViewTopBarSortDropdown, ect.) are undefined, then they will be set to
  * false in the redux state.
  *
  * @param {{
- * 	navbarHambugerDropdown: (boolean|undefined),
+ * 	navbarHamburgerDropdownComponentShouldDisplay: (boolean|undefined),
  * 	listViewTopBarFilterDropdown: (boolean|undefined),
  * 	itemViewTopBarSortDropdown: (boolean|undefined),
  * 	itemViewTopBarFilterDropdown: (boolean|undefined),
@@ -99,16 +99,18 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * displyed in the app.
  *
  * @example
- * // Sets navbarHambugerDropdown to true, and all other general dropdowns to
- * // ...false. The dispatch function is from useDispatch() imported from
- * // ...react-redux.
+ * // Sets 'navbarHamburgerDropdownComponentShouldDisplay' to true and all other
+ * // booleans false in 'dropdownsDisplays'. The dispatch function is from 
+ * // useDispatch() imported from react-redux.
  * dispatch(
- *		setWhichGeneralDropdownsDisplay({ navbarHambugerDropdown: true })
+ *		setWhichGeneralDropdownsDisplay({ 
+	 		navbarHamburgerDropdownComponentShouldDisplay: true 
+		})
  *	);
  *
  * @example
- * // Sets all general dropdowns to false. The dispatch function is from
- * // ...useDispatch() imported from react-redux.
+ * // Sets all booleans to false in 'dropdownsDisplay' Object. The dispatch 
+ * // function is from useDispatch() imported from react-redux.
  * dispatch(setWhichGeneralDropdownsDisplay({}));
  */
 export const setWhichGeneralDropdownsDisplay = (displays) => (dispatch) => {

@@ -30,7 +30,8 @@ export default function NavbarHamburgerDropdown() {
 	// Resize hamburger dropdown width to be full screen
 	useEffect(() => {
 		if (
-			reduxState[GENERAL_CONTAINER].dropdownsDisplay.navbarHambugerDropdown &&
+			reduxState[GENERAL_CONTAINER].dropdownsDisplay
+				.navbarHamburgerDropdownComponentShouldDisplay &&
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].constants
 				.navbarHamburgerComponentCriticalStyles !== null
@@ -59,7 +60,7 @@ export default function NavbarHamburgerDropdown() {
 	]);
 
 	return (
-		<div className="navbar-hamburger-dropdown-component">
+		<div>
 			<div
 				className={
 					"blurred-backdrop" +
@@ -106,7 +107,6 @@ export default function NavbarHamburgerDropdown() {
 					/>{" "}
 					Projects
 				</div>
-
 				{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 				null ? null : (
 					<div
@@ -157,7 +157,6 @@ export default function NavbarHamburgerDropdown() {
 						/>
 					</div>
 				)}
-
 				{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 				null ? null : (
 					<div
@@ -191,7 +190,6 @@ export default function NavbarHamburgerDropdown() {
 						Bugs
 					</div>
 				)}
-
 				{reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 				null ? null : (
 					<div

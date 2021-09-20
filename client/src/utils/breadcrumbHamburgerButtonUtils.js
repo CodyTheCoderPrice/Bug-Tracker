@@ -359,15 +359,16 @@ export function closeBugItemView(e, passedReduxState, dispatch) {
 }
 
 /**
- * Toggles 'navbarHamburgerDropdown' boolean in 'dropdownsDisplay' Object in
- * 'GENERAL_CONTAINER' of the redux state. Also sets all booleans in
- * 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux state to
- * false.
+ * Toggles 'navbarHamburgerDropdownComponentShouldDisplay' boolean in 
+ * 'dropdownsDisplay' Object in 'GENERAL_CONTAINER' of the redux state. Also 
+ * sets all booleans in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of 
+ * the redux state to false.
  *
- * Note: The purpose of this is to toggle whether the NavbarHamburgerDropdown
- * component is being displayed by the app. As well as to have no account
- * components (that are controlled via the redux state) be displayed because
- * they would not look nice alongside the NavbarHamburgerDropdown component.
+ * Note: The purpose of this is to toggle whether NavbarHamburgerButton or
+ * NavbarHamburgerDropdown component is being displayed by the app. As well as
+ * to have no account components (that are controlled via the redux state) be
+ * displayed because they would not look nice alongside the
+ * NavbarHamburgerDropdown component.
  *
  * @param {Event} e - Event created by element's onClick handler
  * @param {Object} passedReduxState - Current redux state from
@@ -380,9 +381,9 @@ export function toggleHamburgerDropdown(e, passedReduxState, dispatch) {
 
 	dispatch(
 		setWhichGeneralDropdownsDisplay({
-			navbarHambugerDropdown:
+			navbarHamburgerDropdownComponentShouldDisplay:
 				!passedReduxState[GENERAL_CONTAINER].dropdownsDisplay
-					.navbarHambugerDropdown,
+					.navbarHamburgerDropdownComponentShouldDisplay,
 		})
 	);
 
