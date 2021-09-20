@@ -347,20 +347,19 @@ export const setWhichBugComponentsDisplay = (displays) => (dispatch) => {
 
 /**
  * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how comment
- * components should display by the app) in 'COMMENT_CONTAINER' of the redux
+ * components should display by the app) in 'COMMENT_CONTAINER' of the redux 
  * state. If any properties in 'displays' prop are undefined, then they will be
  * set to null in 'componentsDisplay'.
  *
- * Note: The purpose of 'commentBeingEdited' property in 'componentsDisplay'
+ * Note: The purpose of 'commentBeingEdited' property in 'componentsDisplay' 
  * Object is to be used by the ItemViewCommentsBoxIndividualComment component
- * to tell if the comment attached to it is being edited, and if so, display a
- * textarea to edit the comment. The purpose of 'commentToBeDeleted' property
- * is to be used to determin if the DeleteModal component should display, as
- * well as what message it should display (DeleteModal is also used for deleting
- * projects and bugs, and has a unique message for each). The reason undefined
- * properties in 'displays' prop are set to null in 'componentsDisplay' is to
- * allow devs to only have to pass properties they wish to set to an Object
- * (making life easier).
+ * to tell if the comment attached to it is being edited, and if so, display
+ * ItemViewCommentsBoxIndividualCommentEditInfo component instead of
+ * ItemViewCommentsBoxIndividualCommentDisplayInfo component. The purpose of
+ * 'commentToBeDeleted' property is to be used to determin if the DeleteModal
+ * component should display. The reason undefined properties in 'displays' prop
+ * are set to null in 'componentsDisplay' is to allow devs to only have to pass 
+ * properties they wish to set to an Object (making life easier).
  *
  * @param {{
  * 	commentBeingEdited: ({
