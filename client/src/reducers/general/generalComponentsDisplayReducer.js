@@ -14,16 +14,17 @@ const initialState = {
 	// below must be done by the DEVELOPER in JSX:
 	// 	1) ItemViewListSidebar component's 'list-sidebar-container'
 	// 		(className) element should have 'list-sidebar-container--expanded'
-	// 		modifier appended.
+	// 		modifier className appended.
 	// 	2) ItemViewListSidebar component's 'expand-minimize-button'
 	// 		(className) element should have 'expand-minimize-button--expanded'
-	// 		modifier appended.
+	// 		modifier className appended.
 	// 	3) ItemView component's 'item-content-container' (className) element
-	// 		should have 'item-content-container--shifted-right' modifier appended.
+	// 		should have 'item-content-container--shifted-right' modifier 
+	//		className appended.
 	// When itemViewListSidebarComponentContainerElementExpanded is false the
 	// below must be done by the DEVELOPER in JSX:
-	// ItemViewTopBar component's 'search-container' and 'list-filter-or-sort-container'
-	// (className) elements should not be present in that component's JSX.
+	// 		ItemViewTopBar component's 'search-container' and 'list-filter-or-sort-container'
+	// 		(className) elements should not be present in that component's JSX.
 	itemViewListSidebarComponentContainerElementExpanded: false,
 	itemViewListSidebarComponentContainerElementExpandedUserSet: false,
 };

@@ -990,9 +990,9 @@ body {
 	}
 
 	// Theme + Light/Dark mode -- common (i.e. used by multiple components)
-	// ...ListViewTopBar component 'centering-container__search-container' element
-	// ...and ItemViewTopBar component 'search-container' element -- border,
-	// ...background, and text color
+	// ListViewTopBar component 'search-centering-container__centered-container' 
+	// element and ItemViewTopBar component 'search-container' element -- border,
+	// background, and text color
 	@mixin theme-mode-common-top-bar-search-container(
 		$theme-border-background-color,
 		$is-light
@@ -1074,7 +1074,7 @@ body {
 		);
 	}
 
-	// Theme + Light/Dark mode -- ListViewTopBar Component 'centering-container__new-item-button--tutorial'
+	// Theme + Light/Dark mode -- ListViewTopBar Component 'new-item-centering-container__button--tutorial'
 	// ...element -- border color
 	.js-get-list-view-top-bar-component-new-item-button-tutorial-element-border-color-mode-light-theme-blue-turkish {
 		border-color: v.$theme-mode-common-blue-turkish-new-item-tutorial-border-text-color-light;

@@ -212,7 +212,7 @@ export default function ItemViewTopBar(props) {
 								) +
 								(reduxState[GENERAL_CONTAINER].dropdownsDisplay
 									.itemViewTopBarFilterDropdown
-									? " list-filter-or-sort-container__button--clicked list-filter-or-sort-container__button--clicked-filter-width"
+									? " list-filter-or-sort-container__button--clicked"
 									: "")
 							}
 							alt={

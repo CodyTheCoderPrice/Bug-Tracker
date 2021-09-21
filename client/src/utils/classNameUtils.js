@@ -1383,7 +1383,7 @@ export function getCommonFormInputElementBorderBackgroundTextColorClassNameForTh
 
 /**
  * Get theme with light/dark mode className for common (i.e. used by multiple
- * components) ListViewTopBar component's 'centering-container__search-container'
+ * components) ListViewTopBar component's 'search-centering-container__centered-container'
  * (className) element and ItemViewTopBar component's 'search-container'
  * (className) element's border, background, and text color
  *
@@ -1394,8 +1394,8 @@ export function getCommonFormInputElementBorderBackgroundTextColorClassNameForTh
  * 	"blue-turquoise"|
  * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for common
- * ListViewTopBar component's 'centering-container__search-container' element
- * and ItemViewTopBar component's 'search-container' element's border,
+ * ListViewTopBar component's 'search-centering-container__centered-container' 
+ * element and ItemViewTopBar component's 'search-container' element's border,
  * background, and text color
  */
 export function getCommonTopBarComponentSearchContainerElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
@@ -1444,7 +1444,7 @@ export function getCommonItemViewComponentFormInputElementBorderBackgroundTextCo
 
 /**
  * Get theme with light/dark mode className for ListViewTopBar Component's
- * 'centering-container__new-item-button--tutorial' (className) element's
+ * 'new-item-centering-container__button--tutorial' (className) element's
  * border color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -1454,7 +1454,7 @@ export function getCommonItemViewComponentFormInputElementBorderBackgroundTextCo
  * 	"blue-turquoise"|
  * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for ListViewTopBar
- * component's 'centering-container__new-item-button--tutorial' element's
+ * component's 'new-item-centering-container__button--tutorial' element's
  * border color
  */
 export function getListViewTopBarComponentNewItemButtonTutorialElementBorderColorClassNameForThemeWithLightOrDarkMode(

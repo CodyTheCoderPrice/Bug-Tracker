@@ -91,7 +91,7 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  *
  * @param {{
  * 	navbarHamburgerDropdownComponentShouldDisplay: (boolean|undefined),
- * 	listViewTopBarFilterDropdown: (boolean|undefined),
+ * 	listViewTopBarFilterDropdownComponentShouldDisplay: (boolean|undefined),
  * 	itemViewTopBarSortDropdown: (boolean|undefined),
  * 	itemViewTopBarFilterDropdown: (boolean|undefined),
  * 	itemViewTopBarOptionsDropdown: (boolean|undefined)

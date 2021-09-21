@@ -5,10 +5,10 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
 
 /**
  * Custom hook that resizes the search-bar (i.e. element with 
- * 'centering-container__search-container__search-bar' className) in 
+ * 'search-centering-container__centered-container__search-bar' className) in 
  * the ListViewTopBar component to fit available space between new item button
- * (i.e. element with 'centering-container__new-item-button' className) and
- * filter button (i.e. element with 'filter-area-container__button' className).
+ * (i.e. element with 'new-item-centering-container__button' className) and
+ * filter button (i.e. element with 'filter-button-component' className).
  * 
  * Note: The purpose of this custom hook is to be used by the ListViewTopBar
  * component to make the searchbar fit the available space, since if the 
@@ -23,30 +23,30 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
  * useSelector((state) => state)
  * @param {string} CenteringContainerClassName - Unique className assigned to
  * an element with 'centering-container' className that also has a child element 
- * with 'centering-container__search-container' className (only one of the 
+ * with 'search-centering-container__centered-container' className (only one of the 
  * elements with 'centering-container' className has this child elmement)
  * @param {string} centeredSearchContainerClassName - Unique className assigned 
- * to the element with 'centering-container__search-container' className
+ * to the element with 'search-centering-container__centered-container' className
  * @param {string} searchBarClassName - Unique className assigned to element
- * with 'centering-container__search-container__search-bar' className
+ * with 'search-centering-container__centered-container__search-bar' className
  * @param {string} searchButtonClassName - Unique className assigned to element
- * with 'centering-container__search-container__search-button' className
+ * with 'search-centering-container__centered-container__search-button' className
  * @param {string} newItemButtonContainerClassName - Unique className assigned
  * to an element with 'centering-container' className that also has a child 
- * element with 'centering-container__new-item-button' className (only one of 
+ * element with 'new-item-centering-container__button' className (only one of 
  * the elements with 'centering-container' className has this child elmement)
  * @param {string} filterAreaContainerClassName - Unique className assigned
- * to element with 'filter-area-container' className.
+ * to element with 'filter-components-container' className.
  * 
  * @example
  * seListViewSearchBarResize(
  * 	reduxState,
- * 	"js-list-search-bar-and-button-centering-container",
- * 	"js-list-centered-search-search-container",
+ * 	"js-list-search-centering-container",
+ * 	"js-list-centered-search-container",
  * 	"js-list-search-bar",
  * 	"js-list-search-button",
  * 	"js-new-item-button-centering-container",
- * 	"js-list-filter-area-container"
+ * 	"js-list-filter-components-container"
  * );
  */
 export function useListViewSearchBarResize(
@@ -105,9 +105,7 @@ export function useListViewSearchBarResize(
 			const remainingSearchFilterSortBarWidth =
 				passedReduxState[SIZE_CONTAINER].variables.window.width -
 				regularlyUsedSizesAndStyles.newProjectsButtonContainer.width -
-				// Got 22 by eyeing it to see what made the distances look the same
-				regularlyUsedSizesAndStyles.sortAndFilterContainer.width -
-				22;
+				regularlyUsedSizesAndStyles.sortAndFilterContainer.width;
 			searchBarCenteringContainer.style.width =
 				remainingSearchFilterSortBarWidth + "px";
 			// Set to a const since it is used multiple times. Because of CSS 

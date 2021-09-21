@@ -7,7 +7,8 @@
 	z-index: 1;
 	position: fixed;
 	top: v.$common-top-bar-top;
-	border: v.$common-top-bar-border-width solid v.$mode-common-top-bar-border-color-light;
+	border: v.$common-top-bar-border-width solid
+		v.$mode-common-top-bar-border-color-light;
 	border-left: none;
 	border-right: none;
 	background-color: v.$mode-common-top-bar-background-color-light;
@@ -15,15 +16,14 @@
 	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 
-	.centering-container {
+	.new-item-centering-container {
 		position: relative;
 		float: left;
 		height: v.$common-top-bar-height;
-		// This width is for the new item button. Searchbars width is changed by JS
 		width: 152px;
 	}
 
-	.centering-container__new-item-button {
+	.new-item-centering-container__button {
 		@include m.stop-text-selection();
 		@include m.vertical-center();
 
@@ -40,23 +40,32 @@
 		cursor: pointer;
 	}
 
-	.centering-container__new-item-button--tutorial {
+	.new-item-centering-container__button--tutorial {
 		border: v.$common-top-bar-tutorial-button-border-width solid
 			v.$default-theme-common-mode-new-item-tutorial-border-text-color;
 	}
 
-	.centering-container__new-item-button__text {
+	.new-item-centering-container__button__text {
 		@include m.dead-center();
 		white-space: nowrap;
 	}
 
-	.centering-container__search-container {
+	.search-centering-container {
+		position: relative;
+		float: left;
+		height: v.$common-top-bar-height;
+		// Width is changed by JS, but set here to an arbitrary value encase
+		// JS were to fail for some reason.
+		width: 500px;
+	}
+
+	.search-centering-container__centered-container {
 		@include m.dead-center();
 
 		width: 100%;
 	}
 
-	.centering-container__search-container__search-bar {
+	.search-centering-container__centered-container__search-bar {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -70,7 +79,8 @@
 		border-right: none;
 		border-radius: v.$common-top-bar-buttton-border-radius 0 0
 			v.$common-top-bar-buttton-border-radius;
-		padding: 0px v.$common-top-bar-search-bar-padding 0px v.$common-top-bar-search-bar-padding;
+		padding: 0px v.$common-top-bar-search-bar-padding 0px
+			v.$common-top-bar-search-bar-padding;
 		background-color: v.$mode-common-top-bar-search-bar-background-color-light;
 		height: v.$common-top-bar-search-bar-height;
 		line-height: v.$common-top-bar-search-bar-height;
@@ -83,7 +93,7 @@
 		}
 	}
 
-	.centering-container__search-container__search-button {
+	.search-centering-container__centered-container__search-button {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -103,25 +113,29 @@
 		cursor: pointer;
 	}
 
-	.centering-container__search-container__search-button__icon {
+	.search-centering-container__centered-container__search-button__icon {
 		@include m.dead-center();
 		color: white;
 		font-size: v.$common-top-bar-search-button-icon-font-size;
 	}
 
-	// Lets the searchbar resize know when to stop
-	// ...and positons filter dropdown to the right
-	.filter-area-container {
+	// Supposed to contain filter-button-component and filter-button-component.
+	// Lets filter components get displayed from the right of the screen. Also 
+	// width is used by searchBarResizeHookUtils to help in resizing the searchbar.
+	.filter-components-container {
 		position: absolute;
 		right: 0px;
-		width: 109px;
+		// Width was figured out by eyeing what gave the searchbar after 
+		// searchBarResizeHookUtils an equal distance between the new-item and 
+		// filter buttons
+		width: 131px;
 	}
 
-	.filter-area-container__button {
+	.filter-button-component {
 		@include m.stop-text-selection();
 
-		// Must be more than filter-area-container__dropdown
-		// ...so its top border can be covered to make the two containers look like one
+		// Must be more than filter-dropdown-component so its top
+		// border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
 		top: 9px;
@@ -138,7 +152,7 @@
 		cursor: pointer;
 	}
 
-	.filter-area-container__button--clicked {
+	.filter-button-component--with-dropdown {
 		// Negative margin because border resize moves the element
 		margin: -2px 0px 0px;
 		border-width: v.$common-top-bar-clicked-dropdown-button-border-width;
@@ -150,19 +164,19 @@
 			(v.$common-top-bar-clicked-dropdown-button-border-width-difference * 2);
 	}
 
-	.filter-area-container__button__text {
+	.filter-button-component__text {
 		// Used horizontal-center since resize would move the text
 		@include m.horizontal-center();
 		top: 4px;
 		width: 100%;
 	}
 
-	.filter-area-container__button__text--active {
+	.filter-button-component__text--active {
 		font-weight: bold;
 		color: v.$common-top-bar-filter-button-active-color;
 	}
 
-	.filter-area-container__dropdown {
+	.filter-dropdown-component {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -174,24 +188,19 @@
 		right: 30px;
 		border: 3px solid black;
 		border-radius: v.$common-top-bar-buttton-border-radius 0
-			v.$common-top-bar-buttton-border-radius v.$common-top-bar-buttton-border-radius;
+			v.$common-top-bar-buttton-border-radius
+			v.$common-top-bar-buttton-border-radius;
 		background-color: white;
 		height: v.$common-top-bar-filter-dropdown-content-container-height;
 		width: v.$common-top-bar-filter-dropdown-content-container-width;
 		cursor: default;
-		// Made visible using JS
-		visibility: hidden;
 	}
 
-	.filter-area-container__dropdown--shorter {
+	.filter-dropdown-component--shorter {
 		height: v.$common-top-bar-filter-dropdown-content-container-shorter-height;
 	}
 
-	.filter-area-container__dropdown--visible {
-		visibility: visible;
-	}
-
-	.filter-area-container__dropdown__content {
+	.filter-dropdown-component__content {
 		float: left;
 		margin: v.$common-top-bar-filter-button-dropdown-title-margin-top 0 0
 			v.$common-top-bar-filter-button-dropdown-title-margin-on-one-side;
@@ -199,13 +208,13 @@
 		font-size: v.$common-top-bar-filter-dropdown-content-font-size;
 	}
 
-	.filter-area-container__dropdown__content--right {
+	.filter-dropdown-component__content--right {
 		float: right;
 		margin: v.$common-top-bar-filter-button-dropdown-title-margin-top
 			v.$common-top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
 	}
 
-	.filter-area-container__dropdown__content__title {
+	.filter-dropdown-component__content__title {
 		display: block;
 		margin: 2px 0px 5px 0px;
 		border-bottom: 1px solid gray;
@@ -213,21 +222,21 @@
 		font-weight: bold;
 	}
 
-	.filter-area-container__dropdown__content__block {
+	.filter-dropdown-component__content__block {
 		text-align: left;
 	}
 
-	.filter-area-container__dropdown__content__block__checkbox-container {
+	.filter-dropdown-component__content__block__checkbox-container {
 		display: inline-block;
 		margin: v.$common-top-bar-filter-button-dropdown-checkbox-container-margin;
 	}
 
-	.filter-area-container__dropdown__content__block__label {
+	.filter-dropdown-component__content__block__label {
 		display: inline-block;
 		margin: v.$common-top-bar-filter-button-dropdown-label-margin;
 	}
 
-	.filter-area-container__dropdown__content__block__label--active {
+	.filter-dropdown-component__content__block__label--active {
 		color: v.$common-top-bar-filter-button-active-color;
 	}
 

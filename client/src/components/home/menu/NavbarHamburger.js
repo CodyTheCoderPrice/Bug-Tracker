@@ -110,8 +110,8 @@ export default function NavbarHamburger() {
 
 	return (
 		<div className="navbar-hamburger-component">
-			{!reduxState[GENERAL_CONTAINER].dropdownsDisplay
-				.navbarHamburgerDropdownComponentShouldDisplay ? (
+			{reduxState[GENERAL_CONTAINER].dropdownsDisplay
+				.navbarHamburgerDropdownComponentShouldDisplay === false ? (
 				<NavbarHamburgerButton />
 			) : (
 				<NavbarHamburgerDropdown />
