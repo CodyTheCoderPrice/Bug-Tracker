@@ -2,25 +2,44 @@ import { SET_WHICH_GENERAL_DROPDOWNS_DISPLAY } from "../../actions/constants/typ
 
 // Initial state for which general dropdowns should be displayed by the app
 const initialState = {
-	// When true: 
-	//		NavbarHamburger componet should not have NavbarHamburgerButton 
+	// When true:
+	//		NavbarHamburger componet should not have NavbarHamburgerButton
 	//		component display and instead have navbarHamburgerDropdown component
 	// 		display.
-	// When false: 
+	// When false:
 	//		NavbarHamburger component should have NavbarHamburgerButton component
 	// 		display and not have navbarHamburgerDropdown component display.
 	navbarHamburgerDropdownComponentShouldDisplay: false,
-	// When true: 
-	//		ListViewTopBar componet should have ListViewTopBarFilterDropdown 
+	// When true:
+	//		ListViewTopBar componet should have ListViewTopBarFilterDropdown
 	// 		component display. Also ListViewTopBarFilterButton component's
-	//		'filter-button-component' (className) element sould have 
-	//		'filter-button-component--with-dropdown' modifier className appended.
-	// When false: 
-	//		ListViewTopBarcomponet should not have ListViewTopBarFilterDropdown 
+	//		'list-view-top-bar-filter-button-component' (className) element
+	//		sould have 'list-view-top-bar-filter-button-component--with-dropdown-displayed'
+	//		modifier className appended.
+	// When false:
+	//		ListViewTopBar componet should not have ListViewTopBarFilterDropdown
 	// 		component display.
 	listViewTopBarFilterDropdownComponentShouldDisplay: false,
-	itemViewTopBarSortDropdown: false,
-	itemViewTopBarFilterDropdown: false,
+	// When true:
+	//		ItemViewTopBar componet should have ItemViewTopBarFilterDropdown
+	// 		component display. Also ItemViewTopBarFilterButton component's
+	//		'item-view-top-bar-filter-button-component' (className) element
+	//		sould have 'item-view-top-bar-filter-button-component--with-dropdown-displayed'
+	//		modifier className appended.
+	// When false:
+	//		ItemViewTopBar componet should not have ItemViewTopBarFilterDropdown
+	// 		component display.
+	itemViewTopBarSortDropdownComponentShouldDisplay: false,
+	// When true:
+	//		ItemViewTopBar componet should have ItemViewTopBarSortDropdown
+	// 		component display. Also ItemViewTopBarSortButton component's
+	//		'item-view-top-bar-sort-button-component' (className) element
+	//		sould have 'item-view-top-bar-sort-button-component--with-dropdown-displayed'
+	//		modifier className appended.
+	// When false:
+	//		ItemViewTopBar componet should not have ItemViewTopBarSortDropdown
+	// 		component display.
+	itemViewTopBarFilterDropdownComponentShouldDisplay: false,
 	itemViewTopBarOptionsDropdown: false,
 };
 
@@ -33,18 +52,18 @@ const initialState = {
  * Note: The purpose of each boolean in 'dropdownsDisplay' Object are to be used
  * as flags for whether the dropdown elements they represent (named after the
  * component the element is located in, followed by a summary of the CSS
- * className of the element, e.g. 'listViewTopBarFilterDropdownComponentShouldDisplay' represents an
- * element in ListViewTopBar component with a className of
- * 'filter-dropdown-component') should be displayed by the app. The reason
- * undefined properties in 'displays' prop are set to false in
+ * className of the element, e.g. 'listViewTopBarFilterDropdownComponentShouldDisplay'
+ * represents an element in ListViewTopBar component with a className of
+ * 'list-view-top-bar-filter-dropdown-component') should be displayed by the
+ * app. The reason undefined properties in 'displays' prop are set to false in
  * 'dropdownsDisplay' is to allow devs to only have to pass properties they wish
  * to set to true (making life easier).
  *
  * @param {{
  * 	navbarHamburgerDropdownComponentShouldDisplay: boolean,
  * 	listViewTopBarFilterDropdownComponentShouldDisplay: boolean,
- * 	itemViewTopBarSortDropdown: boolean,
- * 	itemViewTopBarFilterDropdown: boolean,
+ * 	itemViewTopBarSortDropdownComponentShouldDisplay: boolean,
+ * 	itemViewTopBarFilterDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarOptionsDropdown: boolean
  * }} state - Current Object for which general dropdowns are being displayed
  * by the app
@@ -55,8 +74,8 @@ const initialState = {
  * @returns {{
  * 	navbarHamburgerDropdownComponentShouldDisplay: boolean,
  * 	listViewTopBarFilterDropdownComponentShouldDisplay: boolean,
- * 	itemViewTopBarSortDropdown: boolean,
- * 	itemViewTopBarFilterDropdown: boolean,
+ * 	itemViewTopBarSortDropdownComponentShouldDisplay: boolean,
+ * 	itemViewTopBarFilterDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarOptionsDropdown: boolean
  * }} Object for which general dropdowns should be displayed by the app
  */
@@ -76,16 +95,19 @@ export default function generalDropdownsDisplayReducer(
 						? action.displays.navbarHamburgerDropdownComponentShouldDisplay
 						: false,
 				listViewTopBarFilterDropdownComponentShouldDisplay:
-					action.displays.listViewTopBarFilterDropdownComponentShouldDisplay !== undefined
+					action.displays.listViewTopBarFilterDropdownComponentShouldDisplay !==
+					undefined
 						? action.displays.listViewTopBarFilterDropdownComponentShouldDisplay
 						: false,
-				itemViewTopBarSortDropdown:
-					action.displays.itemViewTopBarSortDropdown !== undefined
-						? action.displays.itemViewTopBarSortDropdown
+				itemViewTopBarSortDropdownComponentShouldDisplay:
+					action.displays.itemViewTopBarSortDropdownComponentShouldDisplay !==
+					undefined
+						? action.displays.itemViewTopBarSortDropdownComponentShouldDisplay
 						: false,
-				itemViewTopBarFilterDropdown:
-					action.displays.itemViewTopBarFilterDropdown !== undefined
-						? action.displays.itemViewTopBarFilterDropdown
+				itemViewTopBarFilterDropdownComponentShouldDisplay:
+					action.displays.itemViewTopBarFilterDropdownComponentShouldDisplay !==
+					undefined
+						? action.displays.itemViewTopBarFilterDropdownComponentShouldDisplay
 						: false,
 				itemViewTopBarOptionsDropdown:
 					action.displays.itemViewTopBarOptionsDropdown !== undefined

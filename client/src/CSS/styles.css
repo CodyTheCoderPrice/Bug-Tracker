@@ -1896,17 +1896,18 @@ dropdown can overlap all other components
   color: white;
   font-size: 14px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container {
+.item-vew-top-bar-component .filter-components-container,
+.js-get-item-vew-top-bar-component .filter-components-container {
   position: absolute;
   left: 320px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container--sort-placement,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container--sort-placement {
+.item-vew-top-bar-component .sort-components-container,
+.js-get-item-vew-top-bar-component .sort-components-container {
+  position: absolute;
   left: 415px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__button,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__button {
+.item-vew-top-bar-component .item-view-top-bar-filter-button-component,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-button-component {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -1933,30 +1934,75 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__button--clicked,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__button--clicked {
-  margin: -2px 0px;
+.item-vew-top-bar-component .item-view-top-bar-sort-button-component,
+.js-get-item-vew-top-bar-component .item-view-top-bar-sort-button-component {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+  z-index: 1;
+  position: absolute;
+  top: 9px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  height: 26px;
+  width: 80px;
+  color: black;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+.item-vew-top-bar-component .item-view-top-bar-filter-button-component--with-dropdown-displayed,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-button-component--with-dropdown-displayed {
+  margin: -2px 0px 0px;
   border: 3px solid black;
   border-radius: 5px 5px 0 0;
   border-bottom: none;
   height: 45px;
   width: 76px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__button__text--active,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__button__text--active {
-  font-weight: bold;
-  color: #2388a1;
+.item-vew-top-bar-component .item-view-top-bar-sort-button-component--with-dropdown-displayed,
+.js-get-item-vew-top-bar-component .item-view-top-bar-sort-button-component--with-dropdown-displayed {
+  margin: -2px 0px 0px;
+  border: 3px solid black;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+  height: 45px;
+  width: 76px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__button__text,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__button__text {
+.item-vew-top-bar-component .item-view-top-bar-filter-button-component__text,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-button-component__text {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  top: 4px;
+  top: 5px;
   width: 100%;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown {
+.item-vew-top-bar-component .item-view-top-bar-sort-button-component__text,
+.js-get-item-vew-top-bar-component .item-view-top-bar-sort-button-component__text {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 5px;
+  width: 100%;
+}
+.item-vew-top-bar-component .item-view-top-bar-filter-button-component__text--active,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-button-component__text--active {
+  font-weight: bold;
+  color: #2388a1;
+}
+.item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1966,76 +2012,81 @@ dropdown can overlap all other components
   border-radius: 0 5px 5px 5px;
   background-color: white;
   height: 205px;
-  width: 260px;
   cursor: default;
-  visibility: hidden;
+  width: 260px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown--sort-width,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown--sort-width {
+.item-vew-top-bar-component .item-view-top-bar-sort-dropdown-component,
+.js-get-item-vew-top-bar-component .item-view-top-bar-sort-dropdown-component {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 52.2px;
+  border: 3px solid black;
+  border-radius: 0 5px 5px 5px;
+  background-color: white;
+  height: 205px;
+  cursor: default;
   width: 120px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown--shorter,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown--shorter {
+.item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component--height-for-bugs,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component--height-for-bugs {
   height: 160px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown--visible,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown--visible {
-  visibility: visible;
-}
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block {
-  position: relative;
-  margin: 12.5px 0;
-  width: 100%;
-}
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block__sort-arrows-container,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block__sort-arrows-container {
-  display: inline-block;
-  margin-left: 8px;
-  height: 100%;
-  width: 21px;
-}
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block__title,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__sort-content-block__title {
-  font-size: 15px;
-}
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content {
+.item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content {
   float: left;
   margin: 13px 0 0 20px;
   text-align: center;
   font-size: 14px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content--right,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content--right {
+.item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content--right,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content--right {
   float: right;
   margin: 13px 20px 0 0;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__title,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__title {
+.item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__title,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__title {
   display: block;
   margin: 2px 0px 5px 0px;
   border-bottom: 1px solid gray;
   padding-bottom: 3px;
   font-weight: bold;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block {
+.item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__block,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__block {
   text-align: left;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__checkbox-container,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__checkbox-container {
+.item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__block__checkbox-container,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__block__checkbox-container {
   display: inline-block;
   margin: 0px 3px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__label,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__label {
+.item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__block__label,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__block__label {
   display: inline-block;
   margin: 4px 3px;
 }
-.item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__label--active,
-.js-get-item-vew-top-bar-component .list-filter-or-sort-container__dropdown__filter-content__block__label--active {
+.item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__block__label--active,
+.js-get-item-vew-top-bar-component .item-view-top-bar-filter-dropdown-component__filter-content__block__label--active {
   color: #2388a1;
+}
+.item-vew-top-bar-component .item-view-top-bar-sort-dropdown-component__sort-content-block,
+.js-get-item-vew-top-bar-component .item-view-top-bar-sort-dropdown-component__sort-content-block {
+  position: relative;
+  margin: 12.5px 0;
+  width: 100%;
+}
+.item-vew-top-bar-component .item-view-top-bar-sort-dropdown-component__sort-content-block__sort-arrows-container,
+.js-get-item-vew-top-bar-component .item-view-top-bar-sort-dropdown-component__sort-content-block__sort-arrows-container {
+  display: inline-block;
+  margin-left: 8px;
+  height: 100%;
+  width: 21px;
+}
+.item-vew-top-bar-component .item-view-top-bar-sort-dropdown-component__sort-content-block__title,
+.js-get-item-vew-top-bar-component .item-view-top-bar-sort-dropdown-component__sort-content-block__title {
+  font-size: 15px;
 }
 .item-vew-top-bar-component .item-options-container,
 .js-get-item-vew-top-bar-component .item-options-container {
@@ -2428,8 +2479,8 @@ dropdown can overlap all other components
   right: 0px;
   width: 131px;
 }
-.list-view-top-bar-component .filter-button-component,
-.js-get-list-view-top-bar-component .filter-button-component {
+.list-view-top-bar-component .list-view-top-bar-filter-button-component,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-button-component {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -2457,8 +2508,8 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.list-view-top-bar-component .filter-button-component--with-dropdown,
-.js-get-list-view-top-bar-component .filter-button-component--with-dropdown {
+.list-view-top-bar-component .list-view-top-bar-filter-button-component--with-dropdown-displayed,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-button-component--with-dropdown-displayed {
   margin: -2px 0px 0px;
   border-width: 3px;
   border-bottom: none;
@@ -2466,21 +2517,21 @@ dropdown can overlap all other components
   height: 45px;
   width: 86px;
 }
-.list-view-top-bar-component .filter-button-component__text,
-.js-get-list-view-top-bar-component .filter-button-component__text {
+.list-view-top-bar-component .list-view-top-bar-filter-button-component__text,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-button-component__text {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  top: 4px;
+  top: 5px;
   width: 100%;
 }
-.list-view-top-bar-component .filter-button-component__text--active,
-.js-get-list-view-top-bar-component .filter-button-component__text--active {
+.list-view-top-bar-component .list-view-top-bar-filter-button-component__text--active,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-button-component__text--active {
   font-weight: bold;
   color: #2388a1;
 }
-.list-view-top-bar-component .filter-dropdown-component,
-.js-get-list-view-top-bar-component .filter-dropdown-component {
+.list-view-top-bar-component .list-view-top-bar-filter-dropdown-component,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-dropdown-component {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2494,46 +2545,46 @@ dropdown can overlap all other components
   width: 260px;
   cursor: default;
 }
-.list-view-top-bar-component .filter-dropdown-component--shorter,
-.js-get-list-view-top-bar-component .filter-dropdown-component--shorter {
+.list-view-top-bar-component .list-view-top-bar-filter-dropdown-component--height-for-bugs,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-dropdown-component--height-for-bugs {
   height: 160px;
 }
-.list-view-top-bar-component .filter-dropdown-component__content,
-.js-get-list-view-top-bar-component .filter-dropdown-component__content {
+.list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content {
   float: left;
   margin: 13px 0 0 20px;
   text-align: center;
   font-size: 14px;
 }
-.list-view-top-bar-component .filter-dropdown-component__content--right,
-.js-get-list-view-top-bar-component .filter-dropdown-component__content--right {
+.list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content--right,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content--right {
   float: right;
   margin: 13px 20px 0 0;
 }
-.list-view-top-bar-component .filter-dropdown-component__content__title,
-.js-get-list-view-top-bar-component .filter-dropdown-component__content__title {
+.list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__title,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__title {
   display: block;
   margin: 2px 0px 5px 0px;
   border-bottom: 1px solid gray;
   padding-bottom: 3px;
   font-weight: bold;
 }
-.list-view-top-bar-component .filter-dropdown-component__content__block,
-.js-get-list-view-top-bar-component .filter-dropdown-component__content__block {
+.list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__block,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__block {
   text-align: left;
 }
-.list-view-top-bar-component .filter-dropdown-component__content__block__checkbox-container,
-.js-get-list-view-top-bar-component .filter-dropdown-component__content__block__checkbox-container {
+.list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__block__checkbox-container,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__block__checkbox-container {
   display: inline-block;
   margin: 0px 3px;
 }
-.list-view-top-bar-component .filter-dropdown-component__content__block__label,
-.js-get-list-view-top-bar-component .filter-dropdown-component__content__block__label {
+.list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__block__label,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__block__label {
   display: inline-block;
   margin: 4px 3px;
 }
-.list-view-top-bar-component .filter-dropdown-component__content__block__label--active,
-.js-get-list-view-top-bar-component .filter-dropdown-component__content__block__label--active {
+.list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__block__label--active,
+.js-get-list-view-top-bar-component .list-view-top-bar-filter-dropdown-component__content__block__label--active {
   color: #2388a1;
 }
 .list-view-top-bar-component .new-item-tutorial-container,

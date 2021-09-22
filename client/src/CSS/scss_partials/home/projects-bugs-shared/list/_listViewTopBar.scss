@@ -119,23 +119,24 @@
 		font-size: v.$common-top-bar-search-button-icon-font-size;
 	}
 
-	// Supposed to contain filter-button-component and filter-button-component.
-	// Lets filter components get displayed from the right of the screen. Also 
-	// width is used by searchBarResizeHookUtils to help in resizing the searchbar.
+	// Supposed to contain list-view-top-bar-filter-button-component and
+	// list-view-top-bar-filter-dropdown-component. Lets filter components get
+	// displayed from the right of the screen. Also width is used by
+	// searchBarResizeHookUtils to help in resizing the searchbar.
 	.filter-components-container {
 		position: absolute;
 		right: 0px;
-		// Width was figured out by eyeing what gave the searchbar after 
-		// searchBarResizeHookUtils an equal distance between the new-item and 
+		// Width was figured out by eyeing what gave the searchbar after
+		// searchBarResizeHookUtils an equal distance between the new-item and
 		// filter buttons
 		width: 131px;
 	}
 
-	.filter-button-component {
+	.list-view-top-bar-filter-button-component {
 		@include m.stop-text-selection();
 
-		// Must be more than filter-dropdown-component so its top
-		// border can be covered to make the two containers look like one
+		// Must be more than list-view-top-bar-filter-dropdown-component so its
+		// top border can be covered to make the two containers look like one
 		z-index: 1;
 		position: absolute;
 		top: 9px;
@@ -152,31 +153,37 @@
 		cursor: pointer;
 	}
 
-	.filter-button-component--with-dropdown {
-		// Negative margin because border resize moves the element
-		margin: -2px 0px 0px;
-		border-width: v.$common-top-bar-clicked-dropdown-button-border-width;
+	.list-view-top-bar-filter-button-component--with-dropdown-displayed {
+		// Negative top margin because border resize moves the element
+		margin: -(v.$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference)
+			0px 0px;
+		border-width: v.$common-top-bar-filter-button-with-dropdown-displayed-border-width;
 		border-bottom: none;
 		border-radius: v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius 0 0;
 		height: 45px;
 		width: v.$list-view-top-bar-filter-button-width -
-			(v.$common-top-bar-clicked-dropdown-button-border-width-difference * 2);
+			(
+				v.$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference *
+					2
+			);
 	}
 
-	.filter-button-component__text {
-		// Used horizontal-center since resize would move the text
+	.list-view-top-bar-filter-button-component__text {
+		// Used horizontal-center instead of dead-center since with-dropdown-displayed
+		// modifier would move the text
 		@include m.horizontal-center();
-		top: 4px;
+		// Top found by eyeing it
+		top: 5px;
 		width: 100%;
 	}
 
-	.filter-button-component__text--active {
+	.list-view-top-bar-filter-button-component__text--active {
 		font-weight: bold;
 		color: v.$common-top-bar-filter-button-active-color;
 	}
 
-	.filter-dropdown-component {
+	.list-view-top-bar-filter-dropdown-component {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -191,16 +198,16 @@
 			v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius;
 		background-color: white;
-		height: v.$common-top-bar-filter-dropdown-content-container-height;
+		height: v.$common-top-bar-filter-sort-dropdown-content-container-height;
 		width: v.$common-top-bar-filter-dropdown-content-container-width;
 		cursor: default;
 	}
 
-	.filter-dropdown-component--shorter {
-		height: v.$common-top-bar-filter-dropdown-content-container-shorter-height;
+	.list-view-top-bar-filter-dropdown-component--height-for-bugs {
+		height: v.$common-top-bar-filter-dropdown-content-container-for-bugs-height;
 	}
 
-	.filter-dropdown-component__content {
+	.list-view-top-bar-filter-dropdown-component__content {
 		float: left;
 		margin: v.$common-top-bar-filter-button-dropdown-title-margin-top 0 0
 			v.$common-top-bar-filter-button-dropdown-title-margin-on-one-side;
@@ -208,13 +215,13 @@
 		font-size: v.$common-top-bar-filter-dropdown-content-font-size;
 	}
 
-	.filter-dropdown-component__content--right {
+	.list-view-top-bar-filter-dropdown-component__content--right {
 		float: right;
 		margin: v.$common-top-bar-filter-button-dropdown-title-margin-top
 			v.$common-top-bar-filter-button-dropdown-title-margin-on-one-side 0 0;
 	}
 
-	.filter-dropdown-component__content__title {
+	.list-view-top-bar-filter-dropdown-component__content__title {
 		display: block;
 		margin: 2px 0px 5px 0px;
 		border-bottom: 1px solid gray;
@@ -222,21 +229,21 @@
 		font-weight: bold;
 	}
 
-	.filter-dropdown-component__content__block {
+	.list-view-top-bar-filter-dropdown-component__content__block {
 		text-align: left;
 	}
 
-	.filter-dropdown-component__content__block__checkbox-container {
+	.list-view-top-bar-filter-dropdown-component__content__block__checkbox-container {
 		display: inline-block;
 		margin: v.$common-top-bar-filter-button-dropdown-checkbox-container-margin;
 	}
 
-	.filter-dropdown-component__content__block__label {
+	.list-view-top-bar-filter-dropdown-component__content__block__label {
 		display: inline-block;
 		margin: v.$common-top-bar-filter-button-dropdown-label-margin;
 	}
 
-	.filter-dropdown-component__content__block__label--active {
+	.list-view-top-bar-filter-dropdown-component__content__block__label--active {
 		color: v.$common-top-bar-filter-button-active-color;
 	}
 

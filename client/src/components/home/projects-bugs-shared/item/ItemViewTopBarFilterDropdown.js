@@ -13,10 +13,10 @@ import {
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
-// Other components used by this component
+// Components
 import CustomCheckbox from "../../../basic/CustomCheckbox";
 
-export default function ListViewTopBarFilterDropdown(props) {
+export default function ItemViewTopBarFilterDropdown(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -37,23 +37,23 @@ export default function ListViewTopBarFilterDropdown(props) {
 	return (
 		<div
 			className={
-				"list-view-top-bar-filter-dropdown-component" +
+				"item-view-top-bar-filter-dropdown-component" +
 				getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				) +
 				(props.reduxContainerName === BUG_CONTAINER
-					? " list-view-top-bar-filter-dropdown-component--height-for-bugs"
+					? " item-view-top-bar-filter-dropdown-component--height-for-bugs"
 					: "")
 			}
 			onClick={
-				// keeps clicking dropdown from closing itself
+				/*Keeps clicking dropdown from closing itself*/
 				(e) => {
 					e.stopPropagation();
 				}
 			}
 		>
-			<div className="list-view-top-bar-filter-dropdown-component__content">
-				<span className="list-view-top-bar-filter-dropdown-component__content__title">
+			<div className="item-view-top-bar-filter-dropdown-component__filter-content">
+				<span className="item-view-top-bar-filter-dropdown-component__filter-content__title">
 					Priority
 				</span>
 				{reduxState[
@@ -62,9 +62,9 @@ export default function ListViewTopBarFilterDropdown(props) {
 					return (
 						<div
 							key={i}
-							className="list-view-top-bar-filter-dropdown-component__content__block"
+							className="item-view-top-bar-filter-dropdown-component__filter-content__block"
 						>
-							<div className="list-view-top-bar-filter-dropdown-component__content__block__checkbox-container">
+							<div className="item-view-top-bar-filter-dropdown-component__filter-content__block__checkbox-container">
 								<CustomCheckbox
 									name="priorityFilter"
 									value={obj.id}
@@ -84,11 +84,11 @@ export default function ListViewTopBarFilterDropdown(props) {
 							<label
 								htmlFor={"list-priority-filter-" + obj.id}
 								className={
-									"list-view-top-bar-filter-dropdown-component__content__block__label" +
+									"item-view-top-bar-filter-dropdown-component__filter-content__block__label" +
 									(reduxState[
 										props.reduxContainerName
 									].searchFilterSort.priorityFilter.includes(obj.id)
-										? " list-view-top-bar-filter-dropdown-component__content__block__label--active" +
+										? " item-view-top-bar-filter-dropdown-component__filter-content__block__label--active" +
 										  getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color
@@ -102,8 +102,8 @@ export default function ListViewTopBarFilterDropdown(props) {
 					);
 				})}
 			</div>
-			<div className="list-view-top-bar-filter-dropdown-component__content list-view-top-bar-filter-dropdown-component__content--right">
-				<span className="list-view-top-bar-filter-dropdown-component__content__title">
+			<div className="item-view-top-bar-filter-dropdown-component__filter-content item-view-top-bar-filter-dropdown-component__filter-content--right">
+				<span className="item-view-top-bar-filter-dropdown-component__filter-content__title">
 					Status
 				</span>
 				{reduxState[
@@ -112,9 +112,9 @@ export default function ListViewTopBarFilterDropdown(props) {
 					return (
 						<div
 							key={i}
-							className="list-view-top-bar-filter-dropdown-component__content__block"
+							className="item-view-top-bar-filter-dropdown-component__filter-content__block"
 						>
-							<div className="list-view-top-bar-filter-dropdown-component__content__block__checkbox-container">
+							<div className="item-view-top-bar-filter-dropdown-component__filter-content__block__checkbox-container">
 								<CustomCheckbox
 									name="statusFilter"
 									value={obj.id}
@@ -134,11 +134,11 @@ export default function ListViewTopBarFilterDropdown(props) {
 							<label
 								htmlFor={"list-status-filter-" + obj.id}
 								className={
-									"list-view-top-bar-filter-dropdown-component__content__block__label" +
+									"item-view-top-bar-filter-dropdown-component__filter-content__block__label" +
 									(reduxState[
 										props.reduxContainerName
 									].searchFilterSort.statusFilter.includes(obj.id)
-										? " list-view-top-bar-filter-dropdown-component__content__block__label--active" +
+										? " item-view-top-bar-filter-dropdown-component__filter-content__block__label--active" +
 										  getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 												reduxState[ACCOUNT_CONTAINER].settings.theme_color

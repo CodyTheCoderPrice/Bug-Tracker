@@ -8,7 +8,8 @@ import { getElementSize, getElementStyle, stripNonDigits } from "../index";
  * 'search-centering-container__centered-container__search-bar' className) in 
  * the ListViewTopBar component to fit available space between new item button
  * (i.e. element with 'new-item-centering-container__button' className) and
- * filter button (i.e. element with 'filter-button-component' className).
+ * filter button (i.e. element with 'list-view-top-bar-filter-button-component' 
+ * className).
  * 
  * Note: The purpose of this custom hook is to be used by the ListViewTopBar
  * component to make the searchbar fit the available space, since if the 

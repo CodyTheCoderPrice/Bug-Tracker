@@ -70,7 +70,7 @@ $carolina-blue-level-4: #4d91c9;
 $carolina-blue-level-5: #4885b8;
 $carolina-blue-level-6: #3f75a1;
 $carolina-blue-level-7: #38678d;
-// Cerulean blues	
+// Cerulean blues
 $cerulean-blue-level-1: #0bb2db;
 $cerulean-blue-level-2: #0aa9d1;
 $cerulean-blue-level-3: #09a2c9;
@@ -300,8 +300,10 @@ $mode-list-view-table-row-hover-background-color-light: $gray-light-level-2;
 $mode-list-view-table-row-hover-background-color-dark: $gray-dark-level-6;
 $mode-list-view-table-row-selected-background-color-light: $gray-light-level-6;
 $mode-list-view-table-row-selected-background-color-dark: $gray-dark-level-4;
-$mode-list-view-table-row-header-box-shadow-light: 0 1px 0 $mode-list-view-table-row-border-color-light;
-$mode-list-view-table-row-header-box-shadow-dark: 0 1px 0 $mode-list-view-table-row-border-color-dark;
+$mode-list-view-table-row-header-box-shadow-light: 0 1px 0
+	$mode-list-view-table-row-border-color-light;
+$mode-list-view-table-row-header-box-shadow-dark: 0 1px 0
+	$mode-list-view-table-row-border-color-dark;
 $mode-list-view-table-row-header-background-color-light: $mode-common-background-color-light;
 $mode-list-view-table-row-header-background-color-dark: $mode-common-background-color-dark;
 $mode-create-item-sidebar-background-color-light: $mode-common-background-color-light;
@@ -463,7 +465,6 @@ $common-completed-color: $status-common-color-green;
 $navbar-breadcrumb-close-icon-button-text-color: $basic-red-light-level-2;
 $navbar-hamburger-close-icon-button-text-color: $navbar-breadcrumb-close-icon-button-text-color;
 
-
 //==========
 // Heights
 //==========
@@ -471,8 +472,8 @@ $navbar-hamburger-close-icon-button-text-color: $navbar-breadcrumb-close-icon-bu
 $common-top-bar-height: 46px;
 $common-top-bar-button-height: 26px;
 $common-top-bar-search-bar-height: 28px;
-$common-top-bar-filter-dropdown-content-container-height: 205px;
-$common-top-bar-filter-dropdown-content-container-shorter-height: 160px;
+$common-top-bar-filter-sort-dropdown-content-container-height: 205px;
+$common-top-bar-filter-dropdown-content-container-for-bugs-height: 160px;
 $common-list-row-height: 50px;
 $common-status-box-height: 27px;
 // Specific (i.e. used by specific component)
@@ -558,9 +559,10 @@ $common-sidebar-border-width: 3px;
 $common-modal-border-width: 3px;
 $common-top-bar-border-width: 1px;
 $common-top-bar-common-button-border-width: 1px;
-$common-top-bar-tutorial-button-border-width: $common-top-bar-common-button-border-width + 1;
-$common-top-bar-clicked-dropdown-button-border-width: 3px;
-$common-top-bar-clicked-dropdown-button-border-width-difference: $common-top-bar-clicked-dropdown-button-border-width -
+$common-top-bar-tutorial-button-border-width: $common-top-bar-common-button-border-width +
+	1;
+$common-top-bar-filter-button-with-dropdown-displayed-border-width: 3px;
+$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference: $common-top-bar-filter-button-with-dropdown-displayed-border-width -
 	$common-top-bar-common-button-border-width;
 $common-top-bar-search-bar-border-width: 2px;
 $common-top-bar-search-bar-focus-border-width: 3px;
@@ -611,7 +613,6 @@ $common-item-form-input-text-font-size: 13px;
 $common-top-bar-search-bar-font-size: 14px;
 $common-top-bar-search-button-icon-font-size: 14px;
 $common-top-bar-button-font-size: 14px;
-$common-top-bar-filter-button-font-size: $common-top-bar-button-font-size;
 $common-top-bar-filter-dropdown-content-font-size: 14px;
 $common-line-height: 20px;
 $account-sidebar-account-name-font-size: 18px;
@@ -635,13 +636,14 @@ $common-back-exit-icon-button-left-right: 20px;
 $navbar-breadcrumb-arrow-top: -2px;
 $navbar-breadcrumb-arrow-left: -2px;
 $navbar-hamburger-button-left: 10px;
-$list-view-top: $common-top-bar-top + $common-top-bar-height + $common-top-bar-border-width;
+$list-view-top: $common-top-bar-top + $common-top-bar-height +
+	$common-top-bar-border-width;
 $item-view-top: $list-view-top;
 $item-view-list-sidebar-top: $list-view-top;
 $item-view-top-bar-search-bar-left: 15px;
-$item-view-top-bar-filter-button-left: $item-view-top-bar-search-bar-width +
+$item-view-top-bar-filter-container-left: $item-view-top-bar-search-bar-width +
 	($item-view-top-bar-search-bar-left * 2);
-$item-view-top-bar-sort-button-left: $item-view-top-bar-filter-button-left +
+$item-view-top-bar-sort-container-left: $item-view-top-bar-filter-container-left +
 	$item-view-top-bar-filter-sort-button-width +
 	($item-view-top-bar-search-bar-left);
 
@@ -662,4 +664,5 @@ $account-sidebar-appearance-theme-button-option-larger-width: $account-sidebar-a
 $account-sidebar-appearance-theme-button-dropdown-container-top: $account-sidebar-appearance-theme-button-option-height +
 	($account-sidebar-appearance-theme-button-border-width * 2);
 $item-view-edit-item-name-centering-container-height: $item-view-edit-item-name-input-height +
-	($item-view-edit-item-name-input-border-width * 2) + ($item-view-edit-item-name-input-padding * 2);
+	($item-view-edit-item-name-input-border-width * 2) +
+	($item-view-edit-item-name-input-padding * 2);

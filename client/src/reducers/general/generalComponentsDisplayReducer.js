@@ -23,8 +23,9 @@ const initialState = {
 	//		className appended.
 	// When itemViewListSidebarComponentContainerElementExpanded is false the
 	// below must be done by the DEVELOPER in JSX:
-	// 		ItemViewTopBar component's 'search-container' and 'list-filter-or-sort-container'
-	// 		(className) elements should not be present in that component's JSX.
+	// 		ItemViewTopBar component's 'search-container', 'filter-components-container',
+	//		and 'sort-components-container' (classNames) elements should not be 
+	//		present in that component's JSX.
 	itemViewListSidebarComponentContainerElementExpanded: false,
 	itemViewListSidebarComponentContainerElementExpandedUserSet: false,
 };

@@ -13,7 +13,7 @@ import {
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
 
-export default function ListViewTopBarFilterButton(props) {
+export default function ItemViewTopBarFilterButton(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -22,9 +22,9 @@ export default function ListViewTopBarFilterButton(props) {
 
 		dispatch(
 			setWhichGeneralDropdownsDisplay({
-				listViewTopBarFilterDropdownComponentShouldDisplay:
+				itemViewTopBarFilterDropdownComponentShouldDisplay:
 					!reduxState[GENERAL_CONTAINER].dropdownsDisplay
-						.listViewTopBarFilterDropdownComponentShouldDisplay,
+						.itemViewTopBarFilterDropdownComponentShouldDisplay,
 			})
 		);
 	};
@@ -32,13 +32,13 @@ export default function ListViewTopBarFilterButton(props) {
 	return (
 		<div
 			className={
-				"list-view-top-bar-filter-button-component" +
+				"item-view-top-bar-filter-button-component" +
 				getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
 					reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 				) +
 				(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-					.listViewTopBarFilterDropdownComponentShouldDisplay
-					? " list-view-top-bar-filter-button-component--with-dropdown-displayed"
+					.itemViewTopBarFilterDropdownComponentShouldDisplay
+					? " item-view-top-bar-filter-button-component--with-dropdown-displayed"
 					: "")
 			}
 			alt={
@@ -49,12 +49,12 @@ export default function ListViewTopBarFilterButton(props) {
 		>
 			<span
 				className={
-					"list-view-top-bar-filter-button-component__text" +
+					"item-view-top-bar-filter-button-component__text" +
 					(reduxState[props.reduxContainerName].searchFilterSort.priorityFilter
 						.length > 0 ||
 					reduxState[props.reduxContainerName].searchFilterSort.statusFilter
 						.length > 0
-						? " list-view-top-bar-filter-button-component__text--active" +
+						? " item-view-top-bar-filter-button-component__text--active" +
 						  getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
