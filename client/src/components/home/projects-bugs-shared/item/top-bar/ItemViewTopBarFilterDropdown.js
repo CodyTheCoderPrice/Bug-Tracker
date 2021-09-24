@@ -3,18 +3,18 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	ACCOUNT_CONTAINER,
 	BUG_CONTAINER,
-} from "../../../../actions/constants/containerNames";
+} from "../../../../../actions/constants/containerNames";
 
-import { setProjectOrBugSearchFilterSort } from "../../../../actions";
+import { setProjectOrBugSearchFilterSort } from "../../../../../actions";
 
 import {
 	getUpdatedFilterArray,
 	getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
-} from "../../../../utils";
+} from "../../../../../utils";
 
 // Components
-import CustomCheckbox from "../../../basic/CustomCheckbox";
+import CustomCheckbox from "../../../../basic/CustomCheckbox";
 
 export default function ItemViewTopBarFilterDropdown(props) {
 	const reduxState = useSelector((state) => state);

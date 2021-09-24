@@ -158,6 +158,7 @@
 		margin: -(v.$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference)
 			0px 0px;
 		border-width: v.$common-top-bar-filter-button-with-dropdown-displayed-border-width;
+		// No bottom border so button and dropdown both look like one element
 		border-bottom: none;
 		border-radius: v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius 0 0;

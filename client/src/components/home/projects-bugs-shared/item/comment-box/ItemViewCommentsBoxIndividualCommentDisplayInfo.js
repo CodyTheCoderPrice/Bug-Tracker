@@ -3,15 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	ACCOUNT_CONTAINER,
 	COMMENT_CONTAINER,
-} from "../../../../actions/constants/containerNames";
+} from "../../../../../actions/constants/containerNames";
 
-import { setWhichCommentComponentsDisplay } from "../../../../actions";
+import { setWhichCommentComponentsDisplay } from "../../../../../actions";
 
 import {
 	formatDateMMddYYYY,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode,
-} from "../../../../utils";
+} from "../../../../../utils";
 
 export default function ItemViewCommentsBoxIndividualCommentDisplayInfo(props) {
 	const reduxState = useSelector((state) => state);

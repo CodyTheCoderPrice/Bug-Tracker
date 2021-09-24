@@ -83,20 +83,25 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
 };
 
 /**
- * Sets 'dropdownsDisplay' property in 'GENERAL_CONTAINER' of the redux state for
- * how general dropdowns should be displayed by the app. If any expected
- * properties in displays prop (e.g. navbarHamburgerDropdownComponentShouldDisplay,
- * itemViewTopBarSortDropdownComponentShouldDisplay, ect.) are undefined, then they will be set to
- * false in the redux state.
+ * Uses 'displays' prop to set 'dropdownsDisplay' Object (to guide how general
+ * dropdown components should display by the app) in 'GENERAL_CONTAINER' of the
+ * redux state. If any properties in 'displays' prop are undefined, then they
+ * will be set to false in 'dropdownsDisplay'.
+ *
+ * Note: The purpose of each boolean in 'dropdownsDisplay' Object are to be used
+ * as flags for whether the dropdown components they represent should be 
+ * displayed by the app. The reason undefined properties in 'displays' prop are
+ * set to false in 'dropdownsDisplay' is to allow devs to only have to pass
+ * properties they wish to set to true (making life easier).
  *
  * @param {{
  * 	navbarHamburgerDropdownComponentShouldDisplay: (boolean|undefined),
  * 	listViewTopBarFilterDropdownComponentShouldDisplay: (boolean|undefined),
  * 	itemViewTopBarSortDropdownComponentShouldDisplay: (boolean|undefined),
  * 	itemViewTopBarFilterDropdownComponentShouldDisplay: (boolean|undefined),
- * 	itemViewTopBarOptionsDropdown: (boolean|undefined)
- * }} displays - Object containing info for how general dropdowns should be
- * displyed in the app.
+ * 	itemViewTopBarOptionsDropdownComponentShouldDisplay: (boolean|undefined)
+ * }} displays - Object containing info for how general dropdown components 
+ * should be displyed in the app.
  *
  * @example
  * // Sets 'navbarHamburgerDropdownComponentShouldDisplay' to true and all other

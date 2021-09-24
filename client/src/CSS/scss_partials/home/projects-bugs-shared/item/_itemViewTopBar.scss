@@ -75,13 +75,15 @@
 		font-size: v.$common-top-bar-search-button-icon-font-size;
 	}
 
-	// Supposed to contain filter-button-component and filter-button-component.
+	// Supposed to contain item-view-top-bar-filter-button-component and
+	//  item-view-top-bar-filter-dropdown-component
 	.filter-components-container {
 		position: absolute;
 		left: v.$item-view-top-bar-filter-container-left;
 	}
 
-	// Supposed to contain sort-button-component and sort-button-component.
+	// Supposed to contain item-view-top-bar-sort-button-component and
+	//  item-view-top-bar-sort-dropdown-component
 	.sort-components-container {
 		position: absolute;
 		left: v.$item-view-top-bar-sort-container-left;
@@ -128,6 +130,7 @@
 			solid black;
 		border-radius: v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius 0 0;
+		// No bottom border so button and dropdown both look like one element
 		border-bottom: none;
 		height: 45px;
 		width: v.$item-view-top-bar-filter-sort-button-width -
@@ -262,15 +265,17 @@
 		font-size: 15px;
 	}
 
-	.item-options-container {
+	// Supposed to contain item-view-top-bar-options-button-component and
+	// item-view-top-bar-options-dropdown-component
+	.options-components-container {
 		position: absolute;
 		top: 12px;
 		right: 50px;
 		width: 135px;
 	}
 
-	.item-options-container__icon-button {
-		// Must be more than item-options-container__dropdown so the two
+	.item-view-top-bar-options-button-component {
+		// Must be more than item-view-top-bar-options-dropdown-component so the two
 		// ...containers can look like one
 		z-index: 1;
 		position: absolute;
@@ -278,9 +283,12 @@
 		// Border given color through JS
 		border: v.$common-top-bar-filter-button-with-dropdown-displayed-border-width
 			solid transparent;
+		// No bottom border so button and dropdown can both look like one 
+		// element when the dropdown is displayed and this button is given
+		// its modifier
+		border-bottom: none;
 		border-radius: v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius 0 0;
-		border-bottom: none;
 		background: none;
 		height: 29px;
 		width: v.$item-view-top-bar-options-button-width;
@@ -295,18 +303,11 @@
 		}
 	}
 
-	.item-options-container__icon-button__text {
+	.item-view-top-bar-options-button-component__centered-icon {
 		@include m.dead-center();
 	}
 
-	.item-options-container__icon-button--clicked {
-		border-color: black;
-		border-bottom: none;
-		background-color: white;
-		color: v.$mode-common-icon-button-hover-text-color-light;
-	}
-
-	.item-options-container__dropdown {
+	.item-view-top-bar-options-dropdown-component {
 		position: absolute;
 		top: 29px;
 		right: 0;
@@ -317,15 +318,9 @@
 		background-color: white;
 		color: v.$mode-item-view-top-bar-icon-button-text-color-light;
 		width: 129px;
-		// Defaults as being hidden
-		visibility: hidden;
 	}
 
-	.item-options-container__dropdown--visible {
-		visibility: visible;
-	}
-
-	.item-options-container__dropdown__row-button {
+	.item-view-top-bar-options-dropdown-component__row-button {
 		display: block;
 		border-bottom: 1px solid gray;
 		padding: 12px;
@@ -337,22 +332,18 @@
 		}
 	}
 
-	.item-options-container__dropdown__row-button--no-display {
-		display: none;
-	}
-
-	.item-options-container__dropdown__row-button--first-option {
+	.item-view-top-bar-options-dropdown-component__row-button--first-option {
 		// Found that subtracting 3px from $navbar-hamburger-border-radius
-		// ...gave best results
+		// gave best results
 		border-radius: v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius 0 0;
 	}
 
-	.item-options-container__dropdown__row-button--last-option {
+	.item-view-top-bar-options-dropdown-component__row-button--last-option {
 		// No bottom border since no options bellow
 		border-bottom: none;
 		// Found that subtracting 3px from $navbar-hamburger-border-radius
-		// ...gave best results
+		// gave best results
 		border-radius: 0 0 v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius;
 	}

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { COMMENT_CONTAINER } from "../../../../actions/constants/containerNames";
+import { COMMENT_CONTAINER } from "../../../../../actions/constants/containerNames";
 
 // Other components used by this component
 import ItemViewCommentsBoxIndividualCommentDisplayInfo from "./ItemViewCommentsBoxIndividualCommentDisplayInfo";

@@ -6,30 +6,28 @@ import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	SIZE_CONTAINER,
-} from "../../../../actions/constants/containerNames";
+} from "../../../../../actions/constants/containerNames";
 
 import {
-	setWhichGeneralDropdownsDisplay,
 	setProjectOrBugSearchFilterSort,
 	setWhichProjectOrBugComponentsDisplay,
 	setWhichBugComponentsDisplay,
 	setProjectOrBugMassDeleteList,
-} from "../../../../actions";
+} from "../../../../../actions";
 
 import {
 	getCommonTopBarComponentBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getCommonTopBarComponentSearchContainerElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
-	getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
-	getItemViewTopBarComponentOptionsIconButtonElementClickedBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBackgroundColorClassNameForLightOrDarkMode,
-} from "../../../../utils";
+} from "../../../../../utils";
 
 // Components
 import ItemViewTopBarFilterButton from "./ItemViewTopBarFilterButton";
 import ItemViewTopBarFilterDropdown from "./ItemViewTopBarFilterDropdown";
 import ItemViewTopBarSortButton from "./ItemViewTopBarSortButton";
 import ItemViewTopBarSortDropdown from "./ItemViewTopBarSortDropdown";
+import ItemViewTopBarOptionsButton from "./ItemViewTopBarOptionsButton";
+import ItemViewTopBarOptionsDropdown from "./ItemViewTopBarOptionsDropdown";
 
 export default function ItemViewTopBar(props) {
 	const reduxState = useSelector((state) => state);
@@ -56,38 +54,6 @@ export default function ItemViewTopBar(props) {
 		if (e.keyCode === 13) {
 			updateSearchKeyWordString();
 		}
-	};
-
-	const toggleOptionsDropdown = (e) => {
-		e.stopPropagation();
-
-		dispatch(
-			setWhichGeneralDropdownsDisplay({
-				itemViewTopBarOptionsDropdown:
-					!reduxState[GENERAL_CONTAINER].dropdownsDisplay
-						.itemViewTopBarOptionsDropdown,
-			})
-		);
-	};
-
-	const switchBetweenDisplayAndEditInfo = () => {
-		dispatch(
-			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				...reduxState[props.reduxContainerName].componentsDisplay,
-				itemViewEditItemInfoComponentShouldDisplay:
-					!reduxState[props.reduxContainerName].componentsDisplay
-						.itemViewEditItemInfoComponentShouldDisplay,
-			})
-		);
-	};
-
-	const openDeleteModalForItemView = () => {
-		dispatch(
-			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-				...reduxState[props.reduxContainerName].componentsDisplay,
-				deleteModalComponentForItemViewShouldDisplay: true,
-			})
-		);
 	};
 
 	const closeItemView = () => {
@@ -185,98 +151,16 @@ export default function ItemViewTopBar(props) {
 					</div>
 				</div>
 			)}
-			<div className="item-options-container">
-				<div
-					className={
-						"item-options-container__icon-button" +
-						getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-						) +
-						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-							.itemViewTopBarOptionsDropdown
-							? getItemViewTopBarComponentOptionsIconButtonElementClickedBorderBackgroundTextColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-							  )
-							: "")
-					}
-					alt={
-						"Button to open a dropdown of options for the " +
-						(props.reduxContainerName === PROJECT_CONTAINER ? "project" : "bug")
-					}
-					onClick={toggleOptionsDropdown}
-				>
-					<span className="item-options-container__icon-button__text">
-						<i
-							className="fa fa-ellipsis-h"
-							aria-hidden="true"
-							alt="Icon of an ellipsis (three dots)"
-						/>
-					</span>
-				</div>
-				<div
-					className={
-						"item-options-container__dropdown" +
-						getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-						) +
-						(reduxState[GENERAL_CONTAINER].dropdownsDisplay
-							.itemViewTopBarOptionsDropdown
-							? " item-options-container__dropdown--visible"
-							: "")
-					}
-					onClick={
-						/*Keeps clicking dropdown from closing itself*/
-						(e) => {
-							e.stopPropagation();
-						}
-					}
-				>
-					<span
-						className={
-							"item-options-container__dropdown__row-button item-options-container__dropdown__row-button--first-option" +
-							getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBackgroundColorClassNameForLightOrDarkMode(
-								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-							)
-						}
-						alt={
-							"Dropdown option to " +
-							(reduxState[props.reduxContainerName].componentsDisplay
-								.itemViewEditItemInfoComponentShouldDisplay === false
-								? "begin editing "
-								: "canel editing ") +
-							(props.reduxContainerName === PROJECT_CONTAINER
-								? "the project"
-								: "the bug")
-						}
-						onClick={switchBetweenDisplayAndEditInfo}
-					>
-						{reduxState[props.reduxContainerName].componentsDisplay
-							.itemViewEditItemInfoComponentShouldDisplay
-							? "Cancel"
-							: props.reduxContainerName === PROJECT_CONTAINER
-							? "Edit Project"
-							: "Edit Bug"}
-					</span>
-					<span
-						className={
-							"item-options-container__dropdown__row-button item-options-container__dropdown__row-button--last-option" +
-							getItemViewTopBarComponentOptionsDropdownRowButtonElementHoverBackgroundColorClassNameForLightOrDarkMode(
-								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-							)
-						}
-						alt={
-							"Dropdown option to begin deleting the" +
-							(props.reduxContainerName === PROJECT_CONTAINER
-								? "project"
-								: "bug")
-						}
-						onClick={openDeleteModalForItemView}
-					>
-						{props.reduxContainerName === PROJECT_CONTAINER
-							? "Delete Project"
-							: "Delete Bug"}
-					</span>
-				</div>
+			<div className="options-components-container">
+				<ItemViewTopBarOptionsButton
+					reduxContainerName={props.reduxContainerName}
+				/>
+				{reduxState[GENERAL_CONTAINER].dropdownsDisplay
+					.itemViewTopBarOptionsDropdownComponentShouldDisplay ? (
+					<ItemViewTopBarOptionsDropdown
+						reduxContainerName={props.reduxContainerName}
+					/>
+				) : null}
 			</div>
 			<div
 				className={

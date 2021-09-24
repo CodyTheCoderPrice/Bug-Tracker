@@ -40,33 +40,39 @@ const initialState = {
 	//		ItemViewTopBar componet should not have ItemViewTopBarSortDropdown
 	// 		component display.
 	itemViewTopBarFilterDropdownComponentShouldDisplay: false,
-	itemViewTopBarOptionsDropdown: false,
+	// When true:
+	//		ItemViewTopBar componet should have ItemViewTopBarOptionsDropdown
+	// 		component display. Also ItemViewTopBarOptionsButton component's
+	//		'item-view-top-bar-options-button-component' (className) element
+	//		sould have the modifier className returned from 
+	//		getItemViewTopBarOptionsButtonComponentWithDropdownDisplayedBorderBackgroundTextColorClassNameForLightOrDarkMode
+	//		utils function appended.
+	// When false:
+	//		ItemViewTopBar componet should not have ItemViewTopBarOptionsDropdown
+	// 		component display.
+	itemViewTopBarOptionsDropdownComponentShouldDisplay: false,
 };
 
 /**
  * Uses 'displays' prop to set 'dropdownsDisplay' Object (to guide how general
- * dropdown elements should display by the app) in 'GENERAL_CONTAINER' of the
+ * dropdown components should display by the app) in 'GENERAL_CONTAINER' of the
  * redux state. If any properties in 'displays' prop are undefined, then they
  * will be set to false in 'dropdownsDisplay'.
  *
  * Note: The purpose of each boolean in 'dropdownsDisplay' Object are to be used
- * as flags for whether the dropdown elements they represent (named after the
- * component the element is located in, followed by a summary of the CSS
- * className of the element, e.g. 'listViewTopBarFilterDropdownComponentShouldDisplay'
- * represents an element in ListViewTopBar component with a className of
- * 'list-view-top-bar-filter-dropdown-component') should be displayed by the
- * app. The reason undefined properties in 'displays' prop are set to false in
- * 'dropdownsDisplay' is to allow devs to only have to pass properties they wish
- * to set to true (making life easier).
- *
+ * as flags for whether the dropdown components they represent should be 
+ * displayed by the app. The reason undefined properties in 'displays' prop are
+ * set to false in 'dropdownsDisplay' is to allow devs to only have to pass
+ * properties they wish to set to true (making life easier).
+ * 
  * @param {{
  * 	navbarHamburgerDropdownComponentShouldDisplay: boolean,
  * 	listViewTopBarFilterDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarSortDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarFilterDropdownComponentShouldDisplay: boolean,
- * 	itemViewTopBarOptionsDropdown: boolean
- * }} state - Current Object for which general dropdowns are being displayed
- * by the app
+ * 	itemViewTopBarOptionsDropdownComponentShouldDisplay: boolean
+ * }} state - Current Object (in the redux state) for which general dropdown
+ * components are being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
@@ -76,8 +82,9 @@ const initialState = {
  * 	listViewTopBarFilterDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarSortDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarFilterDropdownComponentShouldDisplay: boolean,
- * 	itemViewTopBarOptionsDropdown: boolean
- * }} Object for which general dropdowns should be displayed by the app
+ * 	itemViewTopBarOptionsDropdownComponentShouldDisplay: boolean
+ * }} Object for which general dropdown components should be displayed by the
+ * app
  */
 export default function generalDropdownsDisplayReducer(
 	state = initialState,
@@ -86,9 +93,6 @@ export default function generalDropdownsDisplayReducer(
 	switch (action.type) {
 		case SET_WHICH_GENERAL_DROPDOWNS_DISPLAY:
 			return {
-				// Ternary operator is used to set undefined properties to
-				// ...false, so you only have to pass the properties you want
-				// ...to set to true, which makes using this redux action easier
 				navbarHamburgerDropdownComponentShouldDisplay:
 					action.displays.navbarHamburgerDropdownComponentShouldDisplay !==
 					undefined
@@ -109,9 +113,9 @@ export default function generalDropdownsDisplayReducer(
 					undefined
 						? action.displays.itemViewTopBarFilterDropdownComponentShouldDisplay
 						: false,
-				itemViewTopBarOptionsDropdown:
-					action.displays.itemViewTopBarOptionsDropdown !== undefined
-						? action.displays.itemViewTopBarOptionsDropdown
+				itemViewTopBarOptionsDropdownComponentShouldDisplay:
+					action.displays.itemViewTopBarOptionsDropdownComponentShouldDisplay !== undefined
+						? action.displays.itemViewTopBarOptionsDropdownComponentShouldDisplay
 						: false,
 			};
 		default:

@@ -6,9 +6,9 @@ import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
-} from "../../../../actions/constants/containerNames";
+} from "../../../../../actions/constants/containerNames";
 
-import { createComment, clearBackendErrors } from "../../../../actions";
+import { createComment, clearBackendErrors } from "../../../../../actions";
 
 import {
 	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
@@ -18,9 +18,9 @@ import {
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	dateToInt,
-} from "../../../../utils";
+} from "../../../../../utils";
 
-import { useSubmitFormOnEnterPress } from "../../../../utils/hooks";
+import { useSubmitFormOnEnterPress } from "../../../../../utils/hooks";
 
 // Components
 import ItemViewCommentsBoxIndividualComment from "./ItemViewCommentsBoxIndividualComment";

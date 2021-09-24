@@ -6,13 +6,13 @@ import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	COMMENT_CONTAINER,
-} from "../../../../actions/constants/containerNames";
+} from "../../../../../actions/constants/containerNames";
 
 import {
 	updateComment,
 	clearBackendErrors,
 	setWhichCommentComponentsDisplay,
-} from "../../../../actions";
+} from "../../../../../actions";
 
 import {
 	formatDateMMddYYYY,
@@ -22,9 +22,9 @@ import {
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonItemViewComponentFormCancelButtonElementBackgroundColorClassNameForLightOrDarkMode,
-} from "../../../../utils";
+} from "../../../../../utils";
 
-import { useSubmitFormOnEnterPress } from "../../../../utils/hooks";
+import { useSubmitFormOnEnterPress } from "../../../../../utils/hooks";
 
 export default function ItemViewCommentsBoxIndividualCommentEditInfo(props) {
 	const reduxState = useSelector((state) => state);

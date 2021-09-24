@@ -25,14 +25,14 @@ import {
 import { useAutoDecideIfItemViewListSidebarComponentDisplays } from "../../../../utils/hooks";
 
 // Components
-import ItemViewTopBar from "./ItemViewTopBar";
+import ItemViewTopBar from "./top-bar/ItemViewTopBar";
 import ItemViewListSidebar from "./ItemViewListSidebar";
 import ItemViewDisplayItemInfo from "./ItemViewDisplayItemInfo";
 import ItemViewEditItemInfo from "./ItemViewEditItemInfo";
 import DeleteModal from "../DeleteModal";
 import ItemViewBugList from "./ItemViewBugList";
 import ItemViewBugPieChart from "./ItemViewBugPieChart";
-import ItemViewCommentsBox from "./ItemViewCommentsBox";
+import ItemViewCommentsBox from "./comment-box/ItemViewCommentsBox";
 
 export default function ItemView(props) {
 	const reduxState = useSelector((state) => state);

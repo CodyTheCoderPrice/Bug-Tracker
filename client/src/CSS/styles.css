@@ -2088,21 +2088,21 @@ dropdown can overlap all other components
 .js-get-item-vew-top-bar-component .item-view-top-bar-sort-dropdown-component__sort-content-block__title {
   font-size: 15px;
 }
-.item-vew-top-bar-component .item-options-container,
-.js-get-item-vew-top-bar-component .item-options-container {
+.item-vew-top-bar-component .options-components-container,
+.js-get-item-vew-top-bar-component .options-components-container {
   position: absolute;
   top: 12px;
   right: 50px;
   width: 135px;
 }
-.item-vew-top-bar-component .item-options-container__icon-button,
-.js-get-item-vew-top-bar-component .item-options-container__icon-button {
+.item-vew-top-bar-component .item-view-top-bar-options-button-component,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-button-component {
   z-index: 1;
   position: absolute;
   right: 0px;
   border: 3px solid transparent;
-  border-radius: 5px 5px 0 0;
   border-bottom: none;
+  border-radius: 5px 5px 0 0;
   background: none;
   height: 29px;
   width: 36px;
@@ -2111,27 +2111,20 @@ dropdown can overlap all other components
   text-align: center;
   cursor: pointer;
 }
-.item-vew-top-bar-component .item-options-container__icon-button:hover, .item-vew-top-bar-component .item-options-container__icon-button:active,
-.js-get-item-vew-top-bar-component .item-options-container__icon-button:hover,
-.js-get-item-vew-top-bar-component .item-options-container__icon-button:active {
+.item-vew-top-bar-component .item-view-top-bar-options-button-component:hover, .item-vew-top-bar-component .item-view-top-bar-options-button-component:active,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-button-component:hover,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-button-component:active {
   color: #3a3a3a;
 }
-.item-vew-top-bar-component .item-options-container__icon-button__text,
-.js-get-item-vew-top-bar-component .item-options-container__icon-button__text {
+.item-vew-top-bar-component .item-view-top-bar-options-button-component__centered-icon,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-button-component__centered-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.item-vew-top-bar-component .item-options-container__icon-button--clicked,
-.js-get-item-vew-top-bar-component .item-options-container__icon-button--clicked {
-  border-color: black;
-  border-bottom: none;
-  background-color: white;
-  color: #3a3a3a;
-}
-.item-vew-top-bar-component .item-options-container__dropdown,
-.js-get-item-vew-top-bar-component .item-options-container__dropdown {
+.item-vew-top-bar-component .item-view-top-bar-options-dropdown-component,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-dropdown-component {
   position: absolute;
   top: 29px;
   right: 0;
@@ -2140,34 +2133,25 @@ dropdown can overlap all other components
   background-color: white;
   color: #6d6d6d;
   width: 129px;
-  visibility: hidden;
 }
-.item-vew-top-bar-component .item-options-container__dropdown--visible,
-.js-get-item-vew-top-bar-component .item-options-container__dropdown--visible {
-  visibility: visible;
-}
-.item-vew-top-bar-component .item-options-container__dropdown__row-button,
-.js-get-item-vew-top-bar-component .item-options-container__dropdown__row-button {
+.item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button {
   display: block;
   border-bottom: 1px solid gray;
   padding: 12px;
   cursor: pointer;
 }
-.item-vew-top-bar-component .item-options-container__dropdown__row-button:hover, .item-vew-top-bar-component .item-options-container__dropdown__row-button:active,
-.js-get-item-vew-top-bar-component .item-options-container__dropdown__row-button:hover,
-.js-get-item-vew-top-bar-component .item-options-container__dropdown__row-button:active {
+.item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button:hover, .item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button:active,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button:hover,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button:active {
   background-color: #ebebeb;
 }
-.item-vew-top-bar-component .item-options-container__dropdown__row-button--no-display,
-.js-get-item-vew-top-bar-component .item-options-container__dropdown__row-button--no-display {
-  display: none;
-}
-.item-vew-top-bar-component .item-options-container__dropdown__row-button--first-option,
-.js-get-item-vew-top-bar-component .item-options-container__dropdown__row-button--first-option {
+.item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button--first-option,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button--first-option {
   border-radius: 5px 5px 0 0;
 }
-.item-vew-top-bar-component .item-options-container__dropdown__row-button--last-option,
-.js-get-item-vew-top-bar-component .item-options-container__dropdown__row-button--last-option {
+.item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button--last-option,
+.js-get-item-vew-top-bar-component .item-view-top-bar-options-dropdown-component__row-button--last-option {
   border-bottom: none;
   border-radius: 0 0 5px 5px;
 }
@@ -3328,26 +3312,26 @@ body {
 .js-get-app-component .js-get-item-view-top-bar-component-icon-button-element-text-color-with-hover-dark-mode-true:active {
   color: #a3a3a3;
 }
-.app-component .js-get-item-view-top-bar-component-options-icon-button-element-clicked-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-get-item-view-top-bar-component-options-icon-button-element-clicked-border-background-text-color-dark-mode-false {
+.app-component .js-get-item-view-top-bar-options-button-component-with-dropdown-displayed-background-text-color-dark-mode-false,
+.js-get-app-component .js-get-item-view-top-bar-options-button-component-with-dropdown-displayed-background-text-color-dark-mode-false {
   border-color: black;
   background-color: white;
   color: #333333;
 }
-.app-component .js-get-item-view-top-bar-component-options-icon-button-element-clicked-border-background-text-color-dark-mode-true,
-.js-get-app-component .js-get-item-view-top-bar-component-options-icon-button-element-clicked-border-background-text-color-dark-mode-true {
+.app-component .js-get-item-view-top-bar-options-button-component-with-dropdown-displayed-background-text-color-dark-mode-true,
+.js-get-app-component .js-get-item-view-top-bar-options-button-component-with-dropdown-displayed-background-text-color-dark-mode-true {
   border-color: #a3a3a3;
   background-color: #3a3a3a;
   color: #a3a3a3;
 }
-.app-component .js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-false:hover, .app-component .js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-false:active,
-.js-get-app-component .js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-false:hover,
-.js-get-app-component .js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-false:active {
+.app-component .js-get-item-view-top-bar-options-button-row-button-element-hover-background-color-dark-mode-false:hover, .app-component .js-get-item-view-top-bar-options-button-row-button-element-hover-background-color-dark-mode-false:active,
+.js-get-app-component .js-get-item-view-top-bar-options-button-row-button-element-hover-background-color-dark-mode-false:hover,
+.js-get-app-component .js-get-item-view-top-bar-options-button-row-button-element-hover-background-color-dark-mode-false:active {
   background-color: #ebebeb;
 }
-.app-component .js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-true:hover, .app-component .js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-true:active,
-.js-get-app-component .js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-true:hover,
-.js-get-app-component .js-get-item-view-top-bar-component-options-dropdown-row-button-element-hover-background-color-dark-mode-true:active {
+.app-component .js-get-item-view-top-bar-options-button-row-button-element-hover-background-color-dark-mode-true:hover, .app-component .js-get-item-view-top-bar-options-button-row-button-element-hover-background-color-dark-mode-true:active,
+.js-get-app-component .js-get-item-view-top-bar-options-button-row-button-element-hover-background-color-dark-mode-true:hover,
+.js-get-app-component .js-get-item-view-top-bar-options-button-row-button-element-hover-background-color-dark-mode-true:active {
   background-color: #444444;
 }
 .app-component .js-get-item-view-list-sidebar-component-expand-minimize-button-element-border-and-background-color-mode-false,
