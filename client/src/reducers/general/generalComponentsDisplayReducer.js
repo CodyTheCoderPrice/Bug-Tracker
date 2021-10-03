@@ -33,20 +33,21 @@ const initialState = {
 /**
  * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how general
  * components should display by the app) in 'GENERAL_CONTAINER' of the redux
- * state. As a rule, 'displays' prop should have at most only one of
+ * state. If any properties in 'displays' prop are undefined, then they will be
+ * set to false in 'componentsDisplay'.
+ * 
+ * Rules: The 'displays' prop should have at most only one of 
  * 'registerComponentShouldDisplay', 'loginComponentShouldDisplay', or
- * 'homeComponentShouldDisplay' booleans as true, as well as
- * 'homeComponentShouldDisplay' should always be true while a user is logged
+ * 'homeComponentShouldDisplay' booleans as true, as well as 
+ * 'homeComponentShouldDisplay' should always be true while a user is logged 
  * into the app, and either 'registerComponentShouldDisplay' or
  * 'loginComponentShouldDisplay' should be true if a user is not logged in. If
  * the 'displays' prop does not follow the rules then a fail safe will alter it
- * to do so (in the reducer). As another rule,
- * 'itemViewListSidebarComponentContainerElementExpandedUserSet' should be set
- * to true whenever the user clicks the ItemViewListSidebar component's
- * 'expand-minimize-button' (className) element. However, a fail safe could not 
- * be figured out to ensure this rule is followed. Also if any properties in 
- * 'displays' prop are undefined, then they will be set to false in 
- * 'componentsDisplay'.
+ * to do so (in the reducer). Also the 'displays' prop should only have
+ * 'itemViewListSidebarComponentContainerElementExpandedUserSet' set to true
+ * after the user has clicked the ItemViewListSidebar component's 
+ * 'expand-minimize-button' (className) element during the current session. 
+ * However, a fail safe could not be figured out to ensure this rule is followed.
  * 
  * Note: The purpose of each booleans in 'componentsDisplay' Object with names
  * ending in '...ShouldDisplay' are to be used as flags for whether the 

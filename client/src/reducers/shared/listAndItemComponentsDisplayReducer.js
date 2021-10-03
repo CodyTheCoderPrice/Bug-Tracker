@@ -1,4 +1,4 @@
-import { SET_WHICH_LIST_COMPONENTS_DISPLAY } from "../../actions/constants/types";
+import { SET_WHICH_LIST_AND_ITEM_COMPONENTS_DISPLAY } from "../../actions/constants/types";
 import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
 // Initial state for either which project or bug components (reducer used for
@@ -19,27 +19,29 @@ const initialState = {
 /**
  * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how list
  * and item components should display by the app) into either 'PROJECT_CONTAINER'
- * or 'BUG_CONTAINER' (reducer used for both) of the redux state. As rules, 
- * 'displays' prop should have at most only one of 'listViewComponentShouldDisplay'
- * and 'itemViewComponentShouldDisplay' booleans as true. If 
- * 'itemViewComponentShouldDisplay' is true, then 'itemViewCurrentItem' must be 
- * set to an Object containing the item to be displayed. Only if 
- * 'listViewComponentShouldDisplay' is true, then at most only one of 
- * 'deleteModalComponentForListViewShouldDisplay' and 
+ * or 'BUG_CONTAINER' (reducer used for both) of the redux state. If any 
+ * properties in 'displays' prop are undefined, then they will be set to false 
+ * (if a boolean) or null (if an Object) in 'componentsDisplay'.
+ * 
+ * Rules: The 'displays' prop should have at most only one of 
+ * 'listViewComponentShouldDisplay' and 'itemViewComponentShouldDisplay' 
+ * booleans as true. If 'itemViewComponentShouldDisplay' is true, then 
+ * 'itemViewCurrentItem' must be set to an Object containing the item to be 
+ * displayed. Only if 'listViewComponentShouldDisplay' is true, then at most
+ * only one of 'deleteModalComponentForListViewShouldDisplay' and 
  * 'listViewCreateItemSidbarComponentShouldDisplay' should be true, otherwise
  * both should be false. Only if 'itemViewComponentShouldDisplay' is true, then 
  * at most only one of 'deleteModalComponentForItemViewShouldDisplay' and 
  * 'itemViewEditItemInfoComponentShouldDisplay' should be true, otherwise both
  * should be false. If the 'displays' prop does not follow the rules then a 
- * fail safe will alter it to do so (in the reducer). As further rules, only one
- * of the 'componentsDisplay' Objects in both 'PROJECT_CONTAINER' and 'BUG_CONTAINER'
- * of the redux state at a time should have booleans as true. Also that exactly 
+ * fail safe will alter it to do so (in the reducer). Also only one of the 
+ * 'componentsDisplay' Objects in both 'PROJECT_CONTAINER' and 'BUG_CONTAINER'
+ * of the redux state at a time should have any booleans as true. Also exactly 
  * one of 'listViewComponentShouldDisplay' and 'itemViewComponentShouldDisplay'
- * booleans at a time in either 'componentsDisplay' must be true. Fail safes
- * for these two rules take place outside the reducer via functions from 
- * reduxFailSafeHookUtils.js file. Also if any properties in 'displays' prop are
- * undefined, then they will be set to false (if a boolean) or null (if an 
- * Object) in 'componentsDisplay'.
+ * booleans at a time in either 'componentsDisplay' Object must be true. Fail
+ * safes for these two rules take place outside the reducer via functions from 
+ * reduxFailSafeHookUtils.js file because the reducers are not set up to manage
+ * Objects within multiple containers at once.
  * 
  * Note: The purpose of each booleans in 'componentsDisplay' Object with names
  * ending in '...ShouldDisplay' are to be used as flags for whether the 
@@ -122,7 +124,7 @@ export default function listAndItemComponentsDisplayReducer(
 	action
 ) {
 	switch (action.type) {
-		case SET_WHICH_LIST_COMPONENTS_DISPLAY:
+		case SET_WHICH_LIST_AND_ITEM_COMPONENTS_DISPLAY:
 			const validatedDisplays = getValidatedDisplays(action.displays);
 
 			return {

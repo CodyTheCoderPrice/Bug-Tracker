@@ -19,12 +19,13 @@ const initialState = {
 /**
  * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how account
  * components should display by the app) in 'ACCOUNT_CONTAINER' of the redux
- * state. As a rule, 'displays' prop should have at most only one of its
- * boolean properties as true. If the 'displays' prop does not follow the rules
- * then a fail safe will alter it to do so (in the reducer). Also if any
- * properties in 'displays' prop are undefined, then they will be set to false
- * in 'componentsDisplay'.
+ * state. If any properties in 'displays' prop are undefined, then they will be
+ * set to false in 'componentsDisplay'.
  *
+ * Rules: The 'displays' prop should have at most only one of its boolean 
+ * properties as true. If the 'displays' prop does not follow the rules then a
+ * fail safe will alter it to do so (in the reducer).
+ * 
  * Note: The purpose of each boolean in 'componentsDisplay' Object are to be
  * used as flags for whether the components they represent should be displayed
  * by the app. The reason at most only one of these properties should be true
