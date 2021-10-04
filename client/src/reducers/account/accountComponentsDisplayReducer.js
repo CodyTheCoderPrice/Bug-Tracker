@@ -4,10 +4,12 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 // Initial state for which account components should be displayed by the app
 const initialState = {
 	// When 'accountSidebarComponentShouldDisplay' is true, the below must be
-	// done (in addition to having that component display) by the DEVELOPER in JSX:
-	// 		AccountBlurredBackdrop component's 'account-modals-blurred-backdrop-component'
-	//		(className) element should have 'account-modals-blurred-backdrop-component--below-navbar'
-	//		modifier appended. This is so the Navbar can still be used while AccountSidebar is open.
+	// done (along with having that component display) by the DEVELOPER in JSX:
+	// 		AccountBlurredBackdrop component's 
+	//		'account-modals-blurred-backdrop-component' (className) element 
+	//		should have 'account-modals-blurred-backdrop-component--below-navbar'
+	//		modifier className appended. This is so the Navbar can still be used
+	//		while AccountSidebar (which has a blurred-backdrop) is open.
 	accountSidebarComponentShouldDisplay: false,
 	accountModalEditInfoComponentShouldDisplay: false,
 	accountModalEditEmailComponentShouldDisplay: false,
@@ -57,7 +59,8 @@ const initialState = {
  * 	accountModalEditPasswordComponentShouldDisplay: boolean,
  * 	accountModalDeleteAccountComponentShouldDisplay: boolean,
  * 	accountModalEditSettingsComponentShouldDisplay: boolean
- * }} Object to guide how account components should be displayed by the app
+ * }} Updated Object to guide how account components should be displayed by the
+ * app
  */
 export default function accountComponentsDisplayReducer(
 	state = initialState,
@@ -105,8 +108,9 @@ export default function accountComponentsDisplayReducer(
 
 /**
  * Checks if 'displays' prop follows the rules stated in JsDoc of
- * accountComponentsDisplayReducer. If valid, then it's returned unchanged. If
- * invalid, then a version that's altered to follow the rules is returned.
+ * accountComponentsDisplayReducer. If valid, then 'displays' is returned 
+ * unchanged. If invalid, then a new version that's altered to follow the rules
+ * is returned instead.
  *
  * @param {{
  * 	accountSidebarComponentShouldDisplay: boolean,
@@ -133,15 +137,15 @@ function getValidatedDisplays(displays) {
 	);
 
 	if (keysOfAccountComponentsSetToTrue.length < 2) {
-		// Valid and therefore kept the same.
+		// Valid and therefore returned the same.
 		return displays;
 	}
 	// Fail Safe
 	else {
 		// Invalid and therefore new displays is needed.
 		const newDisplays = { ...initialState };
-		// Keeping only one of its booleans true. Which one is arbitrary, but
-		// ...the first key is easiest to implement
+		// Keeping only one of its booleans true (Which one to keep true is 
+		// arbitrary, but the first key is easiest to implement)
 		newDisplays[keysOfAccountComponentsSetToTrue[0]] = true;
 
 		console.log(

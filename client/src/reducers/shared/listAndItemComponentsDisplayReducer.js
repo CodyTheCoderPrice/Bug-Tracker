@@ -168,8 +168,9 @@ export default function listAndItemComponentsDisplayReducer(
 
 /**
  * Checks if 'displays' prop follows the rules stated in JsDoc of
- * listAndItemComponentsDisplayReducer. If valid, then it's returned unchanged. 
- * If invalid, then a version that's altered to follow the rules is returned.
+ * listAndItemComponentsDisplayReducer. If valid, then 'displays' returned
+ * unchanged. If invalid, then a new version that's altered to follow the rules
+ * is returned instead.
  *
  * Note: Since this reducer is used separately by both the 'PROJECT_CONTAINER'
  * and 'BUG_CONTAINER', this means the fail safe to ensure only one of these

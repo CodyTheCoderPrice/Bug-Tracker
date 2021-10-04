@@ -2,18 +2,17 @@ import { SET_AUTHENTICATION } from "../../actions/constants/types";
 const isEmpty = require("is-empty");
 
 // Initial state for user authentication (set as not authenticated since no
-// ...acount is logged in by default)
+// acount is logged in by default)
 const initialState = {
-	// Is the account currently authenticated by the backend
 	isAuthenticated: false,
-	// The account info
 	decodedToken: {},
 };
 
 /**
- * Sets 'auth' Object containing authentication data (i.e. is an account logged
- * in, logged in account's id, time of login, and when authentication will 
- * expire) from the backend into 'ACCOUNT_CONTAINER' of the redux state.
+ * Uses 'decodedToken' prop to set 'auth' Object (containing authentication data
+ * from the backend -- i.e. is an account logged in, logged in account's id, 
+ * time of login, and when authentication will expire) into 'ACCOUNT_CONTAINER'
+ * of the redux state.
  * 
  * Note: Inside the 'auth' Object, the purpose of the 'isAuthenticated' boolean
  * is to be another way of telling if an account is currently logged into the 

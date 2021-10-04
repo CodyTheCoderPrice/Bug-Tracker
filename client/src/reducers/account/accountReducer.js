@@ -4,10 +4,11 @@ import { SET_ACCOUNT } from "../../actions/constants/types";
 const initialState = {}
 
 /**
- * Used to set 'accountInfo' property containing the logged in account's data 
- * from the database into 'ACCOUNT_CONTAINER' of the redux state.
+ * Uses 'account' prop to set 'accountInfo' Object (for containing the logged 
+ * in account's data from the database) into 'ACCOUNT_CONTAINER' of the redux
+ * state.
  * 
- * Note: The purpose of the 'accountInfo' property is to be used to display 
+ * Note: The purpose of the 'accountInfo' Object is to be used to display 
  * (e.g. displays account name in AccountSidebar component) and use (e.g. 
  * populate text input with current account email in AccountModalEditEmail 
  * component) the logged in account's info without constantly needing to 
@@ -33,7 +34,8 @@ const initialState = {}
  * 	last_name: string, 
  * 	join_date: string, 
  * 	last_edited_timestamp: string 
- * } | {})} Object containing the logged in account's data from the database
+ * } | {})} Updated Object containing the logged in account's data from the 
+ * database
  */
 export default function accountReducer(state = initialState, action) {
 	switch (action.type) {

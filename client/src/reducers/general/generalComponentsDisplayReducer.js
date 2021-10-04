@@ -132,8 +132,9 @@ export default function generalComponentsDisplayReducer(
 
 /**
  * Checks if 'displays' prop follows the rules stated in JsDoc of
- * generalComponentsDisplayReducer. If valid, then it's returned unchanged. If
- * invalid, then a version that's altered to follow the rules is returned.
+ * generalComponentsDisplayReducer. If valid, then 'displays' is returned
+ * unchanged. If invalid, then a new version that's altered to follow the rules
+ * is returned instead.
  *
  * @param {{
  * 	registerComponentShouldDisplay: boolean,

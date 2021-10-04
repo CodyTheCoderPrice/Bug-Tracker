@@ -6,7 +6,7 @@ import { RESET_CONTAINER } from "../../../actions/constants/types";
 
 // Initial state for html element sizes that change
 const initialState = {
-	// Passing 'undefined, {}' causes reducers to return their initial state
+	// Passing undefined and {} causes reducers to return their initial state
 	...displaySizeWindowAndNavbarReducer(undefined, {}),
 	navbarBreadcrumbButtonTextFontSize: displaySizeBreadcrumbFontSizeReducer(
 		undefined,

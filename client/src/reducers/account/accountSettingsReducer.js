@@ -1,14 +1,15 @@
 import { SET_ACCOUNT_SETTINGS } from "../../actions/constants/types";
 
 // Initial state for account settings (empty since no account is logged in by 
-// ...default)
+// default)
 const initialState = {}
 
 /**
- * Used to set 'settings' property containing the logged in account's settings 
- * data from the database into 'ACCOUNT_CONTAINER' of the redux state.
+ * Uses 'accountSettings' prop to set 'settings' Object (containing the logged 
+ * in account's settings data from the database) into 'ACCOUNT_CONTAINER' of the
+ * redux state.
  * 
- * Note: The purpose of the 'settings' property is to be used to display (e.g.
+ * Note: The purpose of the 'settings' Object is to be used to display (e.g.
  * displays current settings in AccountModalEditSettings component) and use 
  * (e.g. functions in colorUtils use dark_mode property) the logged in account's
  * settings without constantly needing to refetch it from the database.
@@ -43,8 +44,8 @@ const initialState = {}
  * 	bug_sort_id: number, 
  * 	bug_sort_ascending: boolean, 
  * 	last_edited_timestamp: string 
- * } | {})} Object containing the logged in account's settings data from the 
- * database
+ * } | {})} Updated Object containing the logged in account's settings data from
+ * the database
  */
 export default function accountSettingsReducer(state = initialState, action) {
 	switch (action.type) {

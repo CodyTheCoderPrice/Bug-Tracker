@@ -12,10 +12,10 @@ import { getWindowSize } from "../index";
  * Custom hook that adds auto-deciding functionality to whether the
  * ItemViewListSidebar component's 'list-sidebar-container' (className) element
  * should be expanded (i.e. have the 'list-sidebar-container--expanded' modifier
- * appended), based on if current window size is wide enough to both expand the
- * 'list-sidebar-container' element and have the ItemView component to display 
- * an item's info. This functionality will only take place during any given 
- * session while the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
+ * className appended), based on if current window size is wide enough to both 
+ * expand the 'list-sidebar-container' element and have the ItemView component 
+ * to display an item's info. This functionality will only take place during any
+ * given  session while the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
  * property in 'componentsDisplay' property's Object in 'GENERAL_CONTAINER' of the 
  * redux state is false (i.e. until the user manually expands or minimizes the 
  * 'list-sidebar-container' element). This hook changes whether the 

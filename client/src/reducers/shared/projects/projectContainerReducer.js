@@ -9,7 +9,7 @@ import priorityStatusOptionsReducer from "../priorityStatusOptionsReducer";
 
 // Initial state for 'PROJECT_CONTAINER' of the redux state
 const initialState = {
-	// Passing 'undefined, {}' causes reducers to return their initial state
+	// Passing undefined and {} causes reducers to return their initial state
 	componentsDisplay: {
 		...listAndItemComponentsDisplayReducer(undefined, {}),
 		// Overrides default value for 'listViewComponentShouldDisplay' since
@@ -25,7 +25,7 @@ const initialState = {
 };
 
 /**
- * Used to set 'PROJECT_CONTAINER' property of the redux state.
+ * Used to set 'PROJECT_CONTAINER' Object of the redux state.
  *
  * Note: This container reducer uses the same reducers as the 'BUG_CONTAINER'.
  * This is because both containers have 99% overlap, with the only difference
@@ -34,22 +34,19 @@ const initialState = {
  * for 'BUG_CONTAINER'.
  *
  * Note: The purpose of this reducer is to be used by combineReducers function
- * in store.js to have properties relating to projects seperated into their own
- * Object of the redux state for organizational purposes.
+ * in store.js file to have properties relating to projects seperated into their
+ * own Object of the redux state for organizational purposes.
  *
  * @param {Object} state - Current 'PROJECT_CONTAINER' Object in the redux state
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
- * @returns {Object} Object containing all data for 'PROJECT_CONTAINER' of the
- * redux state
+ * @returns {Object} Updated 'PROJECT_CONTAINER' Object for the redux state
  */
 export function projectContainerReducer(state = initialState, action) {
 	switch (action.container) {
 		case PROJECT_CONTAINER:
-			// This if statement is in all container reducers to allow for the
-			// ...resetting of redux state containers to their initial state
 			if (action.type === RESET_CONTAINER) {
 				return initialState;
 			} else {
