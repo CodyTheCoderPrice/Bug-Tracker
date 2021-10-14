@@ -11,14 +11,15 @@ import {
 } from "./index";
 
 /**
- * Sets the list of comments in 'list' property in 'COMMENT_CONTAINER' of the 
- * redux state.
+ * Uses 'list' prop to set 'list' Array (for containing the logged in account's
+ * list of comments from the database) into 'COMMENT_CONTAINER' of the redux 
+ * state.
  * 
- * Note: The purpose of the 'list' property is to be used to display (e.g. 
- * display a comment in ItemViewCommentsBoxIndividualComment component) and use 
- * (e.g. use the list of comments length to tell if 'description' property in 
- * ItemViewCommentsBox component needs to be reset) the list of comments without 
- * constantly needing to refetch it from the database.
+ * Note: The purpose of the 'list' Array is to be used to display (e.g. display
+ * a comment in ItemViewCommentsBoxIndividualComment component) and use (e.g. 
+ * use the list of comments length to tell if 'commentInfo' state's 'description'
+ * property in ItemViewCommentsBox component needs to be reset) the list of 
+ * comments without constantly needing to refetch it from the database.
  *
  * @param {{ 
  * 	id: number, 

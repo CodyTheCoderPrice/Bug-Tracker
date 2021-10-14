@@ -4,7 +4,6 @@ import { RESET_CONTAINER } from "../../actions/constants/types";
 import commentsComponentsDisplayReducer from "./commentsComponentsDisplayReducer";
 import commentsListReducer from "./commentsListReducer";
 
-// Initial state for 'COMMENT_CONTAINER' of the redux state
 const initialState = {
 	// Passing undefined and {} causes reducers to return their initial state
 	componentsDisplay: commentsComponentsDisplayReducer(undefined, {}),

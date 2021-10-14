@@ -1,10 +1,10 @@
 import { SET_AUTHENTICATION } from "../../actions/constants/types";
 const isEmpty = require("is-empty");
 
-// Initial state for user authentication (set as not authenticated since no
-// acount is logged in by default)
 const initialState = {
+	// Set to false since no account is logged in by default
 	isAuthenticated: false,
+	// Set to an empty Object since no account is logged in by default
 	decodedToken: {},
 };
 

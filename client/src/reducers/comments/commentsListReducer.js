@@ -1,20 +1,19 @@
 import { SET_COMMENTS } from "../../actions/constants/types";
 
-// Initial state for the list of comments. Is an empty array since no account 
-// ...is logged in by default, and even if one was, the list of comments would
-// ...still need to be retrieved from the database.
+// Set to an empty array since no account is logged in by default, and even if
+// one was, the list of comments would still need to be retrieved from the database.
 const initialState = []
 
 /**
- * Used to set 'list' property containing Array of Objects containing comment
- * data belonging to the logged in account from the database into 
- * 'COMMENT_CONTAINER' of the redux state.
+ * Uses 'list' prop to set 'list' Array (for containing the logged in account's
+ * list of comments from the database) into 'COMMENT_CONTAINER' of the redux 
+ * state.
  * 
- * Note: The purpose of the 'list' property is to be used to display (e.g. 
- * display a comment in ItemViewCommentsBoxIndividualComment component) and use 
- * (e.g. use the list of comments length to tell if 'description' property in 
- * ItemViewCommentsBox component needs to be reset) the list of comments without 
- * constantly needing to refetch it from the database.
+ * Note: The purpose of the 'list' Array is to be used to display (e.g. display
+ * a comment in ItemViewCommentsBoxIndividualComment component) and use (e.g. 
+ * use the list of comments length to tell if 'commentInfo' state's 'description'
+ * property in ItemViewCommentsBox component needs to be reset) the list of 
+ * comments without constantly needing to refetch it from the database.
  * 
  * @param {{ 
  * 	id: number, 
@@ -34,8 +33,8 @@ const initialState = []
  * 	description: string,
  * 	creation_date: string, 
  * 	last_edited_timestamp: string
- * }[]} Array of Objects containing comment data belonging to the logged in 
- * account from the database
+ * }[]} Updated Array of Objects containing comment data belonging to the 
+ * logged in account from the database
  */
 export default function commentsListReducer(state = initialState, action) {
 	switch (action.type) {

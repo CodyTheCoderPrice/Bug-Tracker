@@ -1,6 +1,5 @@
 import { SET_WHICH_COMMENT_COMPONENTS_DISPLAY } from "../../actions/constants/types";
 
-// Initial state to guide how comment components should be displayed by the app
 const initialState = {
 	commentBeingEdited: null,
 	commentToBeDeleted: null,

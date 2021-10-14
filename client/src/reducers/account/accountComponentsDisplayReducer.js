@@ -1,7 +1,6 @@
 import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../../actions/constants/types";
 import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
-// Initial state for which account components should be displayed by the app
 const initialState = {
 	// When 'accountSidebarComponentShouldDisplay' is true, the below must be
 	// done (along with having that component display) by the DEVELOPER in JSX:

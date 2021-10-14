@@ -6,7 +6,6 @@ import authReducer from "./authReducer";
 import accountReducer from "./accountReducer";
 import accountSettingsReducer from "./accountSettingsReducer";
 
-// Initial state for 'ACCOUNT_CONTAINER' of the redux state
 const initialState = {
 	// Passing undefined and {} causes reducers to return their initial state
 	componentsDisplay: accountComponentsDisplayReducer(undefined, {}),

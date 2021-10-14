@@ -1,7 +1,6 @@
 import { SET_ACCOUNT_SETTINGS } from "../../actions/constants/types";
 
-// Initial state for account settings (empty since no account is logged in by 
-// default)
+// Set to an empty Object since no account is logged in by default
 const initialState = {}
 
 /**
