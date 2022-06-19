@@ -11,13 +11,13 @@
 		width: 100vw;
 	}
 
-	.border-container {
+	.box-shadow-container {
 		position: fixed;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 25px;
-		border: v.$common-modal-border-width solid black;
+		box-shadow: v.$common-modal-box-shadow;
 		background-color: white;
 		padding: 25px;
 		width: 400px;
@@ -70,10 +70,9 @@
 			v.$mode-common-form-input-border-color-light;
 		border-radius: v.$common-form-input-border-radius;
 		background: v.$mode-common-form-input-background-color-light;
-		padding: 8px;
+		padding: 8px 12px;
 		width: 100%;
 		font-size: 14px;
-		text-align: center;
 
 		&:focus {
 			border-color: v.$common-register-login-input-text-focus-border-color;

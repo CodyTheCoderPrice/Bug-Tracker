@@ -75,7 +75,8 @@ export default function Login() {
 		<div className="register-login-components">
 			{/*Same background image as Register component*/}
 			<div className="background" />
-			<div className="border-container">
+			
+			<div className="box-shadow-container">
 				<h1 className="title">Login</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
 					<label htmlFor="login-email" className="form__label">

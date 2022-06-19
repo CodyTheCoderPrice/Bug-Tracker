@@ -79,7 +79,7 @@ export default function Register() {
 		<div className="register-login-components">
 			{/*Same background image as Login component*/}
 			<div className="background" />
-			<div className="border-container">
+			<div className="box-shadow-container">
 				<h1 className="title">Register</h1>
 				<form className="form" noValidate onSubmit={handleSubmit}>
 					<div className="form__pair-container">

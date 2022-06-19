@@ -551,6 +551,12 @@ $item-view-item-box-char-counter-margin: 5px 2px 4px 0px;
 $item-view-display-item-info-field-margin-left: 11px;
 
 //==============
+// Box-shadow
+//==============
+// Common (i.e. used by multiple components)
+$common-modal-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), -2px 2px 5px rgba(0, 0, 0, 0.1);
+
+//==============
 // Border-width
 //==============
 // Common (i.e. used by multiple components)
