@@ -40,7 +40,7 @@ export default function ItemView(props) {
 
 	useAutoDecideIfItemViewListSidebarComponentDisplays(reduxState);
 
-	// Adjusts the height and width of the modal to fit the screen
+	// Adjusts the height and width of the component to fit the screen
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&

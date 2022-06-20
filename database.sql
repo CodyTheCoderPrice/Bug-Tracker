@@ -1,5 +1,7 @@
+-- Command 1
 CREATE DATABASE bugtracker;
 
+-- Command 2
 CREATE TABLE account(
     account_id SERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE,
@@ -10,6 +12,7 @@ CREATE TABLE account(
 	last_edited_timestamp BIGINT
 );
 
+-- Command 3
 CREATE TABLE theme(
 	theme_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
@@ -17,6 +20,7 @@ CREATE TABLE theme(
 	marks_default BOOLEAN DEFAULT false
 );
 
+-- Command 4
 INSERT INTO theme (order_number, color, marks_default)
 	VALUES 
 		(0, 'blue-turkish', true),
@@ -25,6 +29,7 @@ INSERT INTO theme (order_number, color, marks_default)
 		(3, 'blue-turquoise', false),
 		(4, 'purple-rain', false);
 
+-- Command 5
 CREATE TABLE sort(
 	sort_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
@@ -32,6 +37,7 @@ CREATE TABLE sort(
 	marks_default BOOLEAN DEFAULT false
 );
 
+-- Command 6
 INSERT INTO sort (order_number, category, marks_default)
 	VALUES 
 		(0, 'Name', false),
@@ -41,6 +47,7 @@ INSERT INTO sort (order_number, category, marks_default)
 		(4, 'Start Date', false),
 		(5, 'Due Date', false);
 
+-- Command 7
 CREATE TABLE setting(
     setting_id SERIAL PRIMARY KEY,
     account_id INTEGER,
@@ -71,6 +78,7 @@ CREATE TABLE setting(
 	ON DELETE SET DEFAULT
 );
 
+-- Command 8
 CREATE TABLE project(
     project_id SERIAL PRIMARY KEY,
     account_id INTEGER,
@@ -97,6 +105,7 @@ CREATE TABLE project(
 	ON DELETE SET NULL
 );
 
+-- Command 9
 CREATE TABLE project_priority(
 	p_priority_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
@@ -104,6 +113,7 @@ CREATE TABLE project_priority(
 	marks_empty BOOLEAN DEFAULT false
 );
 
+-- Command 10
 INSERT INTO project_priority (order_number, option, marks_empty)
 	VALUES 
 		(0, 'None', true),
@@ -111,6 +121,7 @@ INSERT INTO project_priority (order_number, option, marks_empty)
 		(2, 'Medium', false),
 		(3, 'High', false);
 
+-- Command 11
 CREATE TABLE project_status(
 	p_status_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
@@ -120,6 +131,7 @@ CREATE TABLE project_status(
 	marks_completion BOOLEAN DEFAULT false
 );
 
+-- Command 12
 INSERT INTO project_status (order_number, option, color, marks_empty, marks_completion)
 	VALUES
 		(0, 'None', 'gray', true, false),
@@ -129,6 +141,7 @@ INSERT INTO project_status (order_number, option, color, marks_empty, marks_comp
 		(4, 'Testing', 'orange', false, false),
 		(5, 'Completed', 'green', false, true);
 
+-- Command 13
 CREATE TABLE bug(
     bug_id SERIAL PRIMARY KEY,
     project_id INTEGER,
@@ -156,6 +169,7 @@ CREATE TABLE bug(
 	ON DELETE SET NULL
 );
 
+-- Command 14
 CREATE TABLE bug_priority(
 	b_priority_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
@@ -163,6 +177,7 @@ CREATE TABLE bug_priority(
 	marks_empty BOOLEAN DEFAULT false
 );
 
+-- Command 15
 INSERT INTO bug_priority (order_number, option, marks_empty)
 	VALUES 
 		(0, 'None', true),
@@ -170,7 +185,7 @@ INSERT INTO bug_priority (order_number, option, marks_empty)
 		(2, 'Medium', false),
 		(3, 'High', true);
 
-
+-- Command 16
 CREATE TABLE bug_status(
 	b_status_id SERIAL PRIMARY KEY,
 	order_number SMALLINT,
@@ -180,6 +195,7 @@ CREATE TABLE bug_status(
 	marks_completion BOOLEAN DEFAULT false
 );
 
+-- Command 17
 INSERT INTO bug_status (order_number, option, color, marks_empty, marks_completion)
 	VALUES 
 		(0, 'Open', 'blue', false, false),
@@ -187,6 +203,7 @@ INSERT INTO bug_status (order_number, option, color, marks_empty, marks_completi
 		(2, 'Testing', 'orange', false, false),
 		(3, 'Closed', 'green', false, true);
 
+-- Command 19
 CREATE TABLE comment(
     comment_id SERIAL PRIMARY KEY,
     bug_id INTEGER,

@@ -27,7 +27,7 @@
 	}
 
 	// Must be a seperate div inside .item-content-container so the padding
-	// ...does not affect the resize so it goes beyond the modal
+	// ...does not affect the resize so it goes beyond the component
 	.padding-container,
 	.js-get-item-view-component-padding-container-element {
 		padding: 0px 25px 25px 25px;
