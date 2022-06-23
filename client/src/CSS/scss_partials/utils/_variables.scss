@@ -227,6 +227,8 @@ $mode-common-grayed-out-text-color-light: $gray-level-4;
 $mode-common-grayed-out-text-color-dark: $gray-level-6;
 $mode-common-form-input-border-color-light: $gray-light-level-10;
 $mode-common-form-input-border-color-dark: $gray-dark-level-10;
+$mode-common-form-input-error-border-color-light: $mode-common-backend-errors-text-color-light;
+$mode-common-form-input-error-border-color-dark: $mode-common-backend-errors-text-color-dark;
 $mode-common-form-input-background-color-light: $gray-light-level-2;
 $mode-common-form-input-background-color-dark: $gray-dark-level-4;
 $mode-common-top-bar-border-color-light: black;
@@ -457,6 +459,7 @@ $status-common-color-red: #d14242;
 
 // Elements colors -- Common (i.e. used by multiple components)
 $common-register-login-input-text-focus-border-color: $default-theme-common-mode-focus-border-color;
+$common-register-login-input-error-border-color: $mode-common-form-input-error-border-color-light;
 $common-register-login-submit-button-border-background-color: $old-copper-blue-level-1;
 $common-register-login-submit-button-hover-border-background-color: $old-copper-blue-level-2;
 $common-register-login-bottom-link-text-color: $basic-blue-level-2;
@@ -555,14 +558,18 @@ $item-view-display-item-info-field-margin-left: 11px;
 // Box-shadow
 //==============
 // Common (i.e. used by multiple components)
-$common-modal-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), -2px 2px 5px rgba(0, 0, 0, 0.1);
-$common-form-input-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.01), inset -1px 1px 1px rgba(0, 0, 0, 0.01);
+$common-modal-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1),
+	-2px 2px 5px rgba(0, 0, 0, 0.1);
+$common-form-input-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.01),
+	inset -1px 1px 1px rgba(0, 0, 0, 0.01);
 
 //==============
 // Border-width
 //==============
 // Common (i.e. used by multiple components)
 $common-form-input-text-border-width: 1px;
+$common-form-input-text-focus-border-width: $common-form-input-text-border-width +
+	1;
 $common-sidebar-border-width: 3px;
 $common-modal-border-width: 3px;
 $common-top-bar-border-width: 1px;
@@ -601,6 +608,22 @@ $account-modal-border-radius: 15px;
 // Padding
 //=========
 // Common (i.e. used by multiple components)
+$common-form-input-text-top-bottom-padding: 12px;
+$common-form-input-text-focus-top-bottom-padding: $common-form-input-text-top-bottom-padding -
+	(
+		$common-form-input-text-focus-border-width -
+			$common-form-input-text-border-width
+	);
+$common-form-input-text-left-right-padding: 16px;
+$common-form-input-text-focus-left-right-padding: $common-form-input-text-left-right-padding -
+	(
+		$common-form-input-text-focus-border-width -
+			$common-form-input-text-border-width
+	);
+$common-form-input-text-padding: $common-form-input-text-top-bottom-padding
+	$common-form-input-text-left-right-padding;
+$common-form-input-text-focus-padding: $common-form-input-text-focus-top-bottom-padding
+	$common-form-input-text-focus-left-right-padding;
 $common-top-bar-search-bar-padding: 8px;
 $common-list-row-padding: 0px 5px;
 // Specific (i.e. used by specific component)
@@ -616,7 +639,7 @@ $item-view-edit-item-name-input-padding: 4px;
 // Common (i.e. used by multiple components)
 $common-font-size: 15px;
 $common-slightly-larger-font-size: $common-font-size + 1;
-$common-backend-errors-font-size: 14px;
+$common-backend-errors-font-size: 13px;
 $common-navbar-button-font-size: 18px;
 $common-item-form-input-text-font-size: 13px;
 $common-top-bar-search-bar-font-size: 14px;

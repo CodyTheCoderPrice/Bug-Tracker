@@ -7,7 +7,12 @@ import {
 	clearBackendErrors,
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
-import { getBackendErrorJSX } from "../../utils";
+import {
+	getElementSize,
+	getWindowSize,
+	isEmpty,
+	getBackendErrorJSX,
+} from "../../utils";
 import bugTrackerLogo from "../../images/bug-tracker-logo.svg";
 
 /**
@@ -35,14 +40,32 @@ export default function Login() {
 		password: "",
 	});
 
-	// Clears current backend errors when closing the component. Otherwise the
-	// ...backend errors may presist and appear when component is re-openned.
+	const [windowWidth, setWindowWidth] = useState();
+	const [loginComponentBreakingPointWidth, setLoginComponentBreakingPointWidth] = useState();
+
 	useEffect(() => {
+		setLoginComponentBreakingPointWidth(
+			getElementSize(document.getElementsByClassName("js-login-component")[0]).width
+		);
+
+		// Initializes windowWidth
+		windowSizeHandler();
+
+		window.addEventListener("resize", windowSizeHandler);
+
 		return () => {
+			window.removeEventListener("resize", windowSizeHandler);
+
+			// Clears current backend errors when closing the component. Otherwise
+			// backend errors may presist and appear when component is re-openned.
 			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
+
+	function windowSizeHandler() {
+		setWindowWidth(getWindowSize().width);
+	}
 
 	/**
 	 * Function for onChange handler of input elements. Updates accountInfo's
@@ -76,7 +99,12 @@ export default function Login() {
 	};
 
 	return (
-		<div className="login-component">
+		<div
+			className={
+				"login-component js-login-component" +
+				(windowWidth <= loginComponentBreakingPointWidth ? " login-component--condensed" : "")
+			}
+		>
 			<div className="login-component__intro-container">
 				<img
 					className="login-component__intro-container__logo"
@@ -97,7 +125,14 @@ export default function Login() {
 					onChange={onChange}
 					value={accountInfo.email}
 					id="login-email"
-					className="form__input-text"
+					className={
+						"form__input-text" +
+						(!isEmpty(
+							reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail
+						)
+							? " form__input-text--error"
+							: "")
+					}
 				/>
 				{getBackendErrorJSX(
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail,
@@ -110,7 +145,15 @@ export default function Login() {
 					onChange={onChange}
 					value={accountInfo.password}
 					id="login-password"
-					className="form__input-text"
+					className={
+						"form__input-text" +
+						(!isEmpty(
+							reduxState[GENERAL_CONTAINER].backendErrors
+								.validationAccountPassword
+						)
+							? " form__input-text--error"
+							: "")
+					}
 				/>
 				{getBackendErrorJSX(
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword,

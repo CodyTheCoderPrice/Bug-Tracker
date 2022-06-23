@@ -12,6 +12,8 @@ body {
 	width: 100%;
 	color: v.$mode-common-strong-text-color-light;
 
+	/***Below classes are for obtaining CSS values (via classNameUtil.js) without
+	the element current being present***/
 	//=================
 	// Light/Dark mode
 	//=================

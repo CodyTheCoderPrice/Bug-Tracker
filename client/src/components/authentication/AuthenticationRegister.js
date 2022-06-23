@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Component uses container names to work with the redux state
 import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
@@ -8,7 +8,7 @@ import {
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
 import {
-	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
+	isEmpty,
 	getBackendErrorJSX,
 } from "../../utils";
 
@@ -82,7 +82,7 @@ export default function Register() {
 
 	return (
 		<div className="register-component">
-			<form className="form form--register" noValidate onSubmit={handleSubmit}>
+			<form className="form form--centered" noValidate onSubmit={handleSubmit}>
 				<h2 className="form__title">Register</h2>
 				<div className="form__pair-container">
 					<div className="form__pair-container__single-container">
@@ -94,7 +94,15 @@ export default function Register() {
 							onChange={onChange}
 							value={accountInfo.first_name}
 							id="register-first-name"
-							className="form__input-text"
+							className={
+								"form__input-text" +
+								(!isEmpty(
+									reduxState[GENERAL_CONTAINER].backendErrors
+										.validationAccountFirstName
+								)
+									? " form__input-text--error"
+									: "")
+							}
 						/>
 						{getBackendErrorJSX(
 							reduxState[GENERAL_CONTAINER].backendErrors
@@ -110,7 +118,15 @@ export default function Register() {
 							onChange={onChange}
 							value={accountInfo.last_name}
 							id="register-last-name"
-							className="form__input-text"
+							className={
+								"form__input-text" +
+								(!isEmpty(
+									reduxState[GENERAL_CONTAINER].backendErrors
+										.validationAccountLastName
+								)
+									? " form__input-text--error"
+									: "")
+							}
 						/>
 						{getBackendErrorJSX(
 							reduxState[GENERAL_CONTAINER].backendErrors
@@ -126,7 +142,14 @@ export default function Register() {
 					onChange={onChange}
 					value={accountInfo.email}
 					id="register-email"
-					className="form__input-text"
+					className={
+						"form__input-text" +
+						(!isEmpty(
+							reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail
+						)
+							? " form__input-text--error"
+							: "")
+					}
 				/>
 				{getBackendErrorJSX(
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail,
@@ -139,7 +162,15 @@ export default function Register() {
 					onChange={onChange}
 					value={accountInfo.password}
 					id="register-password"
-					className="form__input-text"
+					className={
+						"form__input-text" +
+						(!isEmpty(
+							reduxState[GENERAL_CONTAINER].backendErrors
+								.validationAccountPassword
+						)
+							? " form__input-text--error"
+							: "")
+					}
 				/>
 				{getBackendErrorJSX(
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword,

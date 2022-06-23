@@ -143,6 +143,9 @@
   height: 500px;
   width: 1000px;
 }
+.authentication-component .login-component--condensed {
+  width: 410px;
+}
 .authentication-component .register-component {
   position: fixed;
   top: 50%;
@@ -163,7 +166,14 @@
   width: 375px;
   font-family: Verdana, Geneva, sans-serif;
 }
-.authentication-component .form--register {
+.authentication-component .login-component--condensed form {
+  position: relative;
+  top: auto;
+  right: auto;
+  transform: none;
+  margin: 0px auto;
+}
+.authentication-component .form--centered {
   right: 50%;
   transform: translate(50%, -50%);
 }
@@ -189,11 +199,6 @@
   margin-top: 5px;
   font-size: 16px;
 }
-.authentication-component .form__char-counter {
-  float: right;
-  margin: 4px 2px 0px 0px;
-  font-size: 16px;
-}
 .authentication-component .form__input-text {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -211,15 +216,23 @@
 }
 .authentication-component .form__input-text:focus {
   border-color: #2ba6c5;
+  border-width: 2px;
+  padding: 11px 15px;
+}
+.authentication-component .form__input-text--error {
+  border-color: #ff0000;
+}
+.authentication-component .form__input-text--error:focus {
+  border-color: #ff0000;
 }
 .authentication-component .backend-errors {
   display: block;
   padding-left: 5px;
   color: #ff0000;
-  font-size: 14px;
+  font-size: 13px;
 }
 .authentication-component .backend-errors i {
-  padding-right: 10px;
+  padding-right: 8px;
 }
 .authentication-component .form__submit {
   margin-top: 25px;
@@ -259,9 +272,20 @@
   transform: translate(0%, -50%);
   font-family: Verdana, Geneva, sans-serif;
 }
+.authentication-component .login-component--condensed .login-component__intro-container {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  margin-bottom: 50px;
+}
 .authentication-component .login-component__intro-container__logo {
   display: block;
   width: 400px;
+  margin: 0px auto;
+}
+.authentication-component .login-component--condensed .login-component__intro-container__logo {
+  width: 250px;
 }
 .authentication-component .login-component__intro-container__description {
   display: block;
@@ -270,6 +294,9 @@
   font-size: 26px;
   font-weight: 500;
   line-height: 36px;
+}
+.authentication-component .login-component--condensed .login-component__intro-container__description {
+  display: none;
 }
 
 .home-component {
@@ -820,10 +847,10 @@ dropdown can overlap all other components
   display: block;
   padding-left: 5px;
   color: #ff0000;
-  font-size: 14px;
+  font-size: 13px;
 }
 .account-sidebar-change-theme-component .backend-errors i {
-  padding-right: 10px;
+  padding-right: 8px;
 }
 
 .account-modal-component .account-modal {
@@ -914,10 +941,10 @@ dropdown can overlap all other components
   display: block;
   padding-left: 5px;
   color: #ff0000;
-  font-size: 14px;
+  font-size: 13px;
 }
 .account-modal-component .backend-errors i {
-  padding-right: 10px;
+  padding-right: 8px;
 }
 .account-modal-component .form__submit {
   outline: none;
@@ -1090,11 +1117,11 @@ dropdown can overlap all other components
   display: block;
   padding-left: 5px;
   color: #ff0000;
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 10px;
 }
 .delete-modal-component .backend-errors i {
-  padding-right: 10px;
+  padding-right: 8px;
 }
 .delete-modal-component .centered-buttons-container {
   position: absolute;
@@ -1303,12 +1330,12 @@ dropdown can overlap all other components
   display: block;
   padding-left: 5px;
   color: #ff0000;
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 10px;
 }
 .item-view-component .backend-errors i,
 .js-get-item-view-component .backend-errors i {
-  padding-right: 10px;
+  padding-right: 8px;
 }
 .item-view-component .backend-errors--item-name,
 .js-get-item-view-component .backend-errors--item-name {
@@ -2309,11 +2336,11 @@ dropdown can overlap all other components
   display: block;
   padding-left: 5px;
   color: #ff0000;
-  font-size: 14px;
+  font-size: 13px;
   font-size: 15px;
 }
 .create-item-sidebar-component .backend-errors i {
-  padding-right: 10px;
+  padding-right: 8px;
 }
 .create-item-sidebar-component .form__label,
 .create-item-sidebar-component .form__group-container__input-container__label,
@@ -2902,6 +2929,8 @@ body {
 .js-get-app-component {
   width: 100%;
   color: black;
+  /***Below classes are for obtaining CSS values (via classNameUtil.js) without
+  the element current being present***/
 }
 .app-component .js-get-common-element-strong-text-color-dark-mode-false,
 .js-get-app-component .js-get-common-element-strong-text-color-dark-mode-false {
