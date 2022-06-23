@@ -10,8 +10,7 @@ import {
 	setWhichGeneralComponentsDisplay,
 } from "../actions";
 // Other components used by this component
-import Register from "./authentication/Register";
-import Login from "./authentication/Login";
+import Authentication from "./authentication/Authentication";
 import Home from "./home/Home";
 // Allows font awesome icons
 import "font-awesome/css/font-awesome.min.css";
@@ -87,12 +86,10 @@ function App() {
 			className="app-component"
 		>
 			{reduxState[GENERAL_CONTAINER].componentsDisplay
-				.registerComponentShouldDisplay ? (
-				<Register />
-			) : null}
-			{reduxState[GENERAL_CONTAINER].componentsDisplay
+				.registerComponentShouldDisplay ||
+			reduxState[GENERAL_CONTAINER].componentsDisplay
 				.loginComponentShouldDisplay ? (
-				<Login />
+				<Authentication />
 			) : null}
 			{reduxState[GENERAL_CONTAINER].componentsDisplay
 				.homeComponentShouldDisplay ? (

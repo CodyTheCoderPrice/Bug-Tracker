@@ -54,6 +54,7 @@ $tinted-gray-light-level-11: #868e94;
 $tinted-gray-light-level-12: #80878d;
 // Basic blues
 $basic-blue-level-1: #0000ff;
+$basic-blue-level-2: #2d2dff;
 // Baby blues
 $baby-blue-level-1: #9de0ff;
 // B'dazzled blues
@@ -224,10 +225,10 @@ $mode-common-icon-button-hover-text-color-light: $gray-dark-level-5;
 $mode-common-icon-button-hover-text-color-dark: $gray-level-1;
 $mode-common-grayed-out-text-color-light: $gray-level-4;
 $mode-common-grayed-out-text-color-dark: $gray-level-6;
-$mode-common-form-input-border-color-light: $gray-level-5;
-$mode-common-form-input-border-color-dark: black;
-$mode-common-form-input-background-color-light: $gray-light-level-5;
-$mode-common-form-input-background-color-dark: $gray-dark-level-2;
+$mode-common-form-input-border-color-light: $gray-light-level-10;
+$mode-common-form-input-border-color-dark: $gray-dark-level-10;
+$mode-common-form-input-background-color-light: $gray-light-level-2;
+$mode-common-form-input-background-color-dark: $gray-dark-level-4;
 $mode-common-top-bar-border-color-light: black;
 $mode-common-top-bar-border-color-dark: black;
 $mode-common-top-bar-background-color-light: $gray-light-level-5;
@@ -268,7 +269,7 @@ $mode-navbar-hamburger-dropdown-option-hover-background-color-light: $gray-light
 $mode-navbar-hamburger-dropdown-option-hover-background-color-dark: $gray-dark-level-5;
 $mode-navbar-hamburger-dropdown-option-selected-background-color-light: $baby-blue-level-1;
 $mode-navbar-hamburger-dropdown-option-selected-background-color-dark: $imperial-blue-level-12;
-$mode-navbar-hamburger-dropdown-option-name-text-color-light: $basic-blue-level-1;
+$mode-navbar-hamburger-dropdown-option-name-text-color-light: $basic-blue-level-2;
 $mode-navbar-hamburger-dropdown-option-name-text-color-dark: $cyan-blue-level-1;
 $mode-navbar-hamburger-dropdown-option-icon-text-color-light: $gray-dark-level-1;
 $mode-navbar-hamburger-dropdown-option-icon-text-color-dark: $gray-level-7;
@@ -458,7 +459,7 @@ $status-common-color-red: #d14242;
 $common-register-login-input-text-focus-border-color: $default-theme-common-mode-focus-border-color;
 $common-register-login-submit-button-border-background-color: $old-copper-blue-level-1;
 $common-register-login-submit-button-hover-border-background-color: $old-copper-blue-level-2;
-$common-register-login-bottom-link-text-color: $basic-blue-level-1;
+$common-register-login-bottom-link-text-color: $basic-blue-level-2;
 $common-top-bar-filter-button-active-color: $default-theme-common-mode-text-color;
 $common-completed-color: $status-common-color-green;
 // Elements colors -- Specific (i.e. used by specific component)
@@ -530,8 +531,8 @@ $item-view-pie-chart-bug-status-stats-container-width: 200px;
 // Margins
 //=========
 // Common (i.e. used by multiple components)
-$common-register-login-form-input-margin-top: 5px;
-$common-register-login-form-input-margin-bottom: 5px;
+$common-register-login-form-input-margin-top: 16px;
+$common-register-login-form-input-margin-bottom: 8px;
 $common-top-bar-filter-button-dropdown-title-margin-top: 13px;
 $common-top-bar-filter-button-dropdown-title-margin-on-one-side: 20px;
 $common-top-bar-filter-button-dropdown-checkbox-container-margin: 0px 3px;
@@ -555,6 +556,7 @@ $item-view-display-item-info-field-margin-left: 11px;
 //==============
 // Common (i.e. used by multiple components)
 $common-modal-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), -2px 2px 5px rgba(0, 0, 0, 0.1);
+$common-form-input-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.01), inset -1px 1px 1px rgba(0, 0, 0, 0.01);
 
 //==============
 // Border-width
@@ -609,11 +611,12 @@ $create-item-sidebar-padding: 6px;
 $item-view-edit-item-name-input-padding: 4px;
 
 //======
-// Text
+// Font Size
 //======
 // Common (i.e. used by multiple components)
 $common-font-size: 15px;
 $common-slightly-larger-font-size: $common-font-size + 1;
+$common-backend-errors-font-size: 14px;
 $common-navbar-button-font-size: 18px;
 $common-item-form-input-text-font-size: 13px;
 $common-top-bar-search-bar-font-size: 14px;
