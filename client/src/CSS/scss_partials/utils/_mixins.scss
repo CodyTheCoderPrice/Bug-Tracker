@@ -29,6 +29,12 @@
 	transform: translate(0%, -50%);
 }
 
+@mixin full-width-minus-nav-panel() {
+	width: -webkit-calc(100% - #{v.$common-left});
+    width:    -moz-calc(100% - #{v.$common-left});
+    width:         calc(100% - #{v.$common-left});
+}
+
 // CSS shared between both back and exit icon buttons
 @mixin back-exit-icon-buttons-shared-css() {
 	// Should be higher than all other z-index's to ensure nothing covers them

@@ -8,7 +8,7 @@ import {
 } from "./constants/containerNames";
 import {
 	SET_DISPLAY_SIZE_CONSTANTS,
-	SET_DISPLAY_SIZE_VARIABLES_WINDOW_NAVBAR,
+	SET_DISPLAY_SIZE_VARIABLES_WINDOW_AND_MENUS,
 	SET_DISPLAY_SIZE_VARIABLES_BREADCRUMB_FONT_SIZE,
 	SET_THEMES,
 	SET_SORT_CATEGORIES,
@@ -80,8 +80,8 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 };
 
 /**
- * Sets current size info of the Window and Navbar elements in 'variables'
- * property in 'SIZE_CONTAINER' of the redux state.
+ * Sets current size info of the Window, NavPanel and Navbar elements in 
+ * 'variables' property in 'SIZE_CONTAINER' of the redux state.
  *
  * Note: These sizes should be updated everytime they change. Also the purpose
  * of this info is mostly to be used to calulcate the resizing of other html 
@@ -92,19 +92,28 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
  * 		height: number,
  * 		width: number
  * 	}|null),
+ * 	navPanel: ({
+ * 		height: number,
+ * 		width: number
+ * 	}|null),
  * 	navbar: ({
  * 		height: number,
  * 		width: number
  * 	}|null)
- * }} sizes - Object containing current size info for Widnow and Navbar
+ * }} sizes - Object containing current size info for Window, NavPanel and Navbar
+ *  elements
  *
  * @example
  * // The dispatch function is from useDispatch() imported from react-redux.
  * dispatch(
- * 	setDisplaySizeVariablesWindowAndNavbar({
+ * 	setDisplaySizeVariablesWindowAndMenus({
  * 		window: {
  * 			height: 453,
  * 			width: 1536
+ * 		},
+ * 		navPanel: {
+ * 			height: 453,
+ * 			width: 250
  * 		},
  * 		navbar: {
  * 			height: 56,
@@ -113,10 +122,10 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
  * 	})
  * );
  */
-export const setDisplaySizeVariablesWindowAndNavbar = (sizes) => (dispatch) => {
+export const setDisplaySizeVariablesWindowAndMenus = (sizes) => (dispatch) => {
 	dispatch({
 		container: SIZE_CONTAINER,
-		type: SET_DISPLAY_SIZE_VARIABLES_WINDOW_NAVBAR,
+		type: SET_DISPLAY_SIZE_VARIABLES_WINDOW_AND_MENUS,
 		sizes: sizes,
 	});
 };

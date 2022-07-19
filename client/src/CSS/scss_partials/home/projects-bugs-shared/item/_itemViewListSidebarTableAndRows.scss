@@ -8,7 +8,7 @@
 		z-index: 1;
 		position: fixed;
 		top: v.$item-view-list-sidebar-top + 15;
-		left: v.$item-view-list-sidebar-border-width;
+		left: v.$common-left + v.$item-view-list-sidebar-border-width;
 		border: v.$item-view-list-sidebar-border-width solid black;
 		border-left: none;
 		background-color: v.$mode-item-view-list-sidebar-expand-minimize-button-background-color-light;
@@ -23,7 +23,7 @@
 	}
 
 	.expand-minimize-button--expanded {
-		left: v.$item-view-list-sidebar-expanded-width + v.$item-view-list-sidebar-border-width;
+		left: v.$common-left + v.$item-view-list-sidebar-expanded-width;
 	}
 
 	.expand-minimize-button__centering-container {
@@ -41,10 +41,8 @@
 		z-index: 1;
 		position: fixed;
 		top: v.$item-view-list-sidebar-top;
-		left: 0px;
-		border: v.$item-view-list-sidebar-border-width solid v.$mode-item-view-list-sidebar-border-color-light;
-		border-left: none;
-		border-bottom: none;
+		left: v.$common-left;
+		border-right: v.$item-view-list-sidebar-border-width solid v.$mode-item-view-list-sidebar-border-color-light;
 		height: 90vh;
 		width: 0px;
 		font-size: v.$common-font-size;

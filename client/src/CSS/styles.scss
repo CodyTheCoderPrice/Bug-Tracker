@@ -6,10 +6,12 @@
 @use "scss_partials/authentication/authentication";
 // scss_partials/home
 @use "scss_partials/home/home";
-// scss_partials/home/menu
-@use "scss_partials/home/menu/navbar";
-@use "scss_partials/home/menu/breadcrumb";
-@use "scss_partials/home/menu/hamburger";
+// scss_partials/home/menu/nav-panel
+@use "scss_partials/home/menu/nav-panel/navPanel";
+// scss_partials/home/menu/navbar
+@use "scss_partials/home/menu/navbar/navbar";
+@use "scss_partials/home/menu/navbar/breadcrumb";
+@use "scss_partials/home/menu/navbar/hamburger";
 // scss_partials/home/account
 @use "scss_partials/home/account/accountBlurredBackdrop";
 @use "scss_partials/home/account/accountSidebar";

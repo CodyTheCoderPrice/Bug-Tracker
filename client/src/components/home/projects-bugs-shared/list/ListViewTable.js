@@ -35,6 +35,7 @@ export default function ListViewTable(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
+			reduxState[SIZE_CONTAINER].variables.navPanel !== null &&
 			reduxState[SIZE_CONTAINER].constants.listViewTopBarComponentHeight !==
 				null
 		) {
@@ -49,7 +50,9 @@ export default function ListViewTable(props) {
 				"px";
 
 			listTableContainerElement.style.width =
-				reduxState[SIZE_CONTAINER].variables.window.width + "px";
+				reduxState[SIZE_CONTAINER].variables.window.width -
+				reduxState[SIZE_CONTAINER].variables.navPanel.width +
+				"px";
 
 			// If empty-list-message-container is present
 			if (

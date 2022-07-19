@@ -5,11 +5,11 @@
 .js-get-list-view-table-component {
 	position: fixed;
 	top: v.$list-view-top;
-	left: 0px;
+	left: v.$common-left;
 	// Height and width values were found through trial and error
 	// ...to make modal resize (using js) look less jumpy
 	height: 90vh;
-	width: 100%;
+	width: 90vw;
 	font-size: v.$common-font-size;
 	font-family: Arial, Helvetica, sans-serif;
 	overflow-y: auto;

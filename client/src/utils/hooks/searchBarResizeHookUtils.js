@@ -105,6 +105,7 @@ export function useListViewSearchBarResize(
 
 			const remainingSearchFilterSortBarWidth =
 				passedReduxState[SIZE_CONTAINER].variables.window.width -
+				passedReduxState[SIZE_CONTAINER].variables.navPanel.width -
 				regularlyUsedSizesAndStyles.newProjectsButtonContainer.width -
 				regularlyUsedSizesAndStyles.sortAndFilterContainer.width;
 			searchBarCenteringContainer.style.width =

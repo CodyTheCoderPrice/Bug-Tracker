@@ -21,7 +21,7 @@ import {
 	useListAndItemComponentsDisplayContainerCrossoverFailSafe
 } from "../../utils/hooks"
 // Other components used by this component
-import Navbar from "./menu/Navbar";
+import Menu from "./menu/Menu";
 import AccountBlurredBackdrop from "./account/AccountBlurredBackdrop";
 import AccountSidebar from "./account/AccountSidebar";
 import AccountModal from "./account/AccountModal";
@@ -257,7 +257,7 @@ export default function Home() {
 			onClick={closeDropdownsWhenOpen}
 		>
 			{/*Below component order doesn't matter due to how css was written*/}
-			<Navbar />
+			<Menu />
 			{Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
 				true
 			) > -1 ? (

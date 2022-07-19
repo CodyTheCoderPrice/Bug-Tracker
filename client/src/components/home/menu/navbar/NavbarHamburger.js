@@ -5,8 +5,8 @@ import {
 	SIZE_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
-} from "../../../actions/constants/containerNames";
-import { getElementSize, toggleHamburgerDropdown } from "../../../utils";
+} from "../../../../actions/constants/containerNames";
+import { getElementSize, toggleHamburgerDropdown } from "../../../../utils";
 // Other components used by this component
 import NavbarHamburgerButton from "./NavbarHamburgerButton";
 import NavbarHamburgerDropdown from "./NavbarHamburgerDropdown";

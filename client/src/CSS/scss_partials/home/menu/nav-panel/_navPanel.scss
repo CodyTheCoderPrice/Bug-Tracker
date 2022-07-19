@@ -1,0 +1,12 @@
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
+
+.nav-panel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: black;
+	height: 100%;
+	width: v.$nav-panel-width;
+	
+}

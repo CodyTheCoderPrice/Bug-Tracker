@@ -6,11 +6,11 @@
 	.item-content-container {
 		position: fixed;
 		top: v.$item-view-top;
-		left: 0px;
+		left: v.$common-left;
 		// Height and width values were found through trial and error
 		// ...to make modal resize (using js) look less jumpy
 		height: 90vh;
-		width: 100vw;
+		width: 90vw;
 		font-size: v.$common-font-size;
 		font-family: Arial, Helvetica, sans-serif;
 		overflow-y: auto;
@@ -18,12 +18,12 @@
 	}
 
 	.item-content-container--shifted-right {
-		left: v.$item-view-list-sidebar-expanded-width +
+		left: v.$common-left + v.$item-view-list-sidebar-expanded-width +
 			v.$item-view-list-sidebar-border-width;
 		// This width gets resized by JS. This value is chosen as a guess for
 		// ...trying to be closer to what the resize will be to create less
 		// ...of a jump
-		width: 90vw;
+		width: 80vw;
 	}
 
 	// Must be a seperate div inside .item-content-container so the padding

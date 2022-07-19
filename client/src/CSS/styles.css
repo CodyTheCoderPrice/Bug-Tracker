@@ -309,11 +309,23 @@
   width: 100%;
 }
 
-.navbar-container {
+.nav-panel {
   position: fixed;
-  height: 56px;
-  width: 100%;
   top: 0;
+  left: 0;
+  background-color: black;
+  height: 100%;
+  width: 250px;
+}
+
+.navbar-container {
+  width: -webkit-calc(100% - 250px);
+  width: -moz-calc(100% - 250px);
+  width: calc(100% - 250px);
+  position: fixed;
+  top: 0;
+  left: 250px;
+  height: 56px;
 }
 .navbar-container .navbar {
   background-color: #608d9e;
@@ -1168,10 +1180,10 @@ dropdown can overlap all other components
 .item-view-component .item-content-container,
 .js-get-item-view-component .item-content-container {
   position: fixed;
-  top: 103px;
-  left: 0px;
+  top: 104px;
+  left: 250px;
   height: 90vh;
-  width: 100vw;
+  width: 90vw;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: auto;
@@ -1179,8 +1191,8 @@ dropdown can overlap all other components
 }
 .item-view-component .item-content-container--shifted-right,
 .js-get-item-view-component .item-content-container--shifted-right {
-  left: 277px;
-  width: 90vw;
+  left: 527px;
+  width: 80vw;
 }
 .item-view-component .padding-container,
 .item-view-component .js-get-item-view-component-padding-container-element,
@@ -1824,8 +1836,8 @@ dropdown can overlap all other components
 .js-get-item-view-list-sidebar-component .expand-minimize-button {
   z-index: 1;
   position: fixed;
-  top: 118px;
-  left: 2px;
+  top: 119px;
+  left: 252px;
   border: 2px solid black;
   border-left: none;
   background-color: #e5e5e5;
@@ -1840,7 +1852,7 @@ dropdown can overlap all other components
 }
 .item-view-list-sidebar-component .expand-minimize-button--expanded,
 .js-get-item-view-list-sidebar-component .expand-minimize-button--expanded {
-  left: 277px;
+  left: 525px;
 }
 .item-view-list-sidebar-component .expand-minimize-button__centering-container,
 .js-get-item-view-list-sidebar-component .expand-minimize-button__centering-container {
@@ -1860,11 +1872,9 @@ dropdown can overlap all other components
 .js-get-item-view-list-sidebar-component .js-get-item-view-list-sidebar-component-container-element {
   z-index: 1;
   position: fixed;
-  top: 103px;
-  left: 0px;
-  border: 2px solid black;
-  border-left: none;
-  border-bottom: none;
+  top: 104px;
+  left: 250px;
+  border-right: 2px solid black;
   height: 90vh;
   width: 0px;
   font-size: 15px;
@@ -1937,15 +1947,17 @@ dropdown can overlap all other components
 
 .item-vew-top-bar-component,
 .js-get-item-vew-top-bar-component {
+  width: -webkit-calc(100% - 250px);
+  width: -moz-calc(100% - 250px);
+  width: calc(100% - 250px);
   z-index: 2;
   position: fixed;
   top: 56px;
+  left: 250px;
   border: 1px solid black;
   border-width: 1px 0 2px 0;
   background-color: #e5e5e5;
   height: 46px;
-  /* height: v.$common-top-bar-height; */
-  width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 .item-vew-top-bar-component .search-container,
@@ -2447,15 +2459,18 @@ dropdown can overlap all other components
 
 .list-view-top-bar-component,
 .js-get-list-view-top-bar-component {
+  width: -webkit-calc(100% - 250px);
+  width: -moz-calc(100% - 250px);
+  width: calc(100% - 250px);
   z-index: 1;
   position: fixed;
   top: 56px;
+  left: 250px;
   border: 1px solid black;
   border-left: none;
   border-right: none;
   background-color: #e5e5e5;
   height: 46px;
-  width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 .list-view-top-bar-component .new-item-centering-container,
@@ -2729,10 +2744,10 @@ dropdown can overlap all other components
 .list-view-table-component,
 .js-get-list-view-table-component {
   position: fixed;
-  top: 103px;
-  left: 0px;
+  top: 104px;
+  left: 250px;
   height: 90vh;
-  width: 100%;
+  width: 90vw;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: auto;

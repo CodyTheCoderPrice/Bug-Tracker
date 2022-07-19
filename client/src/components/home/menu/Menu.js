@@ -1,21 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-	GENERAL_CONTAINER,
-	SIZE_CONTAINER,
-	ACCOUNT_CONTAINER,
-	PROJECT_CONTAINER,
-	BUG_CONTAINER,
-} from "../../../actions/constants/containerNames";
 
 import {
 	setDisplaySizeConstants,
-	setDisplaySizeVariablesWindowAndNavbar,
+	setDisplaySizeVariablesWindowAndMenus,
 	setDisplaySizeVariablesBreadcrumbFontSize,
-	setWhichAccountComponentsDisplay,
-	setWhichProjectComponentsDisplay,
-	setWhichBugComponentsDisplay,
-	setWhichCommentComponentsDisplay,
 } from "../../../actions";
 
 import {
@@ -31,14 +20,13 @@ import {
 	getItemViewListSidebarComponentContainerElementWithExpandedModifierWidth,
 	getItemViewComponentPaddingContainerElementLeftPadding,
 	getItemViewComponentOuterDividingContainerElementMinWidth,
-	getCommonStandardBackgroundColorClassNameForTheme,
 } from "../../../utils";
 
 // Components
-import NavbarBreadcrumb from "./NavbarBreadcrumb";
-import NavbarHamburger from "./NavbarHamburger";
+import NavPanel from "./nav-panel/NavPanel";
+import Navbar from "./navbar/Navbar";
 
-export default function Navbar() {
+export default function Menu() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -51,7 +39,7 @@ export default function Navbar() {
 			setDisplaySizeConstants({
 				scrollbarWidth: getScrollbarWidth(),
 				navbarAccountButtonWidth: getElementSize(
-					document.getElementsByClassName("js-account-button")[0]
+					document.getElementsByClassName("js-navbar-account-button")[0]
 				).width,
 				navbarBreadcrumbComponentButtonTextElementBaseFontSize:
 					breadcrumbButtonTextElementBaseFontSize,
@@ -72,9 +60,11 @@ export default function Navbar() {
 			})
 		);
 
+		// Sets initial
 		dispatch(
-			setDisplaySizeVariablesWindowAndNavbar({
+			setDisplaySizeVariablesWindowAndMenus({
 				window: getWindowSize(),
+				navPanel: getElementSize(document.getElementsByClassName("js-nav-panel")[0]),
 				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 			})
 		);
@@ -99,92 +89,18 @@ export default function Navbar() {
 	// Declared outside of the eventListener so removing will working on cleanup
 	function displaySizeHandler() {
 		dispatch(
-			setDisplaySizeVariablesWindowAndNavbar({
+			setDisplaySizeVariablesWindowAndMenus({
 				window: getWindowSize(),
+				navPanel: getElementSize(document.getElementsByClassName("js-nav-panel")[0]),
 				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 			})
 		);
 	}
 
-	const openAccountSidebar = (e) => {
-		// Keeps onclick set on the navbar component for closing
-		// ...account components from interfering
-		e.stopPropagation();
-
-		dispatch(
-			setWhichAccountComponentsDisplay({
-				accountSidebarComponentShouldDisplay:
-					!reduxState[ACCOUNT_CONTAINER].componentsDisplay
-						.accountSidebarComponentShouldDisplay,
-			})
-		);
-		dispatch(
-			setWhichProjectComponentsDisplay({
-				...reduxState[PROJECT_CONTAINER].componentsDisplay,
-				listViewCreateItemSidbarComponentShouldDisplay: false,
-				deleteModalComponentForListViewShouldDisplay: false,
-				deleteModalComponentForItemViewShouldDisplay: false,
-			})
-		);
-		dispatch(
-			setWhichBugComponentsDisplay({
-				...reduxState[BUG_CONTAINER].componentsDisplay,
-				listViewCreateItemSidbarComponentShouldDisplay: false,
-				deleteModalComponentForListViewShouldDisplay: false,
-				deleteModalComponentForItemViewShouldDisplay: false,
-			})
-		);
-		dispatch(setWhichCommentComponentsDisplay({}));
-	};
-
-	const shouldBreadcrumbBeVisible = () => {
-		return (
-			reduxState[SIZE_CONTAINER].variables.navbar === null ||
-			reduxState[SIZE_CONTAINER].variables
-				.navbarBreadcrumbButtonTextFontSize === null ||
-			reduxState[GENERAL_CONTAINER].globalConstants
-				.navbarBreadcrumbMinimumFontSize === null ||
-			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-				null ||
-			reduxState[SIZE_CONTAINER].variables.navbarBreadcrumbButtonTextFontSize >
-				reduxState[GENERAL_CONTAINER].globalConstants
-					.navbarBreadcrumbMinimumFontSize
-		);
-	};
-
 	return (
-		<div
-			className={
-				"navbar-container" +
-				(shouldBreadcrumbBeVisible()
-					? ""
-					: " navbar-container--increased-z-index")
-			}
-		>
-			<div
-				className={
-					"navbar js-navbar" +
-					getCommonStandardBackgroundColorClassNameForTheme(
-						reduxState[ACCOUNT_CONTAINER].settings.theme_color
-					)
-				}
-			>
-				<NavbarBreadcrumb visible={shouldBreadcrumbBeVisible()} />
-				{shouldBreadcrumbBeVisible() ? null : <NavbarHamburger />}
-
-				<div
-					className="navbar__account-button js-account-button"
-					alt="Navbar button to open account sidebar"
-				>
-					<div
-						className="navbar__account-button__text"
-						onClick={openAccountSidebar}
-					>
-						<i className="fa fa-fw fa-user" alt="Icon of a user" />
-						Account
-					</div>
-				</div>
-			</div>
+		<div>
+			<NavPanel />
+			<Navbar />
 		</div>
 	);
 }

@@ -6,9 +6,9 @@ import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
 	GENERAL_CONTAINER,
-} from "../../../actions/constants/containerNames";
+} from "../../../../actions/constants/containerNames";
 
-import { setDisplaySizeVariablesBreadcrumbFontSize } from "../../../actions";
+import { setDisplaySizeVariablesBreadcrumbFontSize } from "../../../../actions";
 
 import {
 	getElementSize,
@@ -22,7 +22,7 @@ import {
 	switchToBugsItemView,
 	setTrueForOnlyProjectListViewAndCreateItemSidebar,
 	closeBugItemView,
-} from "../../../utils";
+} from "../../../../utils";
 
 export default function NavbarBreadcrumb(props) {
 	const reduxState = useSelector((state) => state);

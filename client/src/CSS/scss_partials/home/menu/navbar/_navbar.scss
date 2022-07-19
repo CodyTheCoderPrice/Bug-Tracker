@@ -1,12 +1,15 @@
-@use "../../utils/variables" as v;
-@use "../../utils/mixins" as m;
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
 
 // SCSS for classNames shared by the navbar, breadcrumb, and hamburger components
 .navbar-container {
+	@include m.full-width-minus-nav-panel();
+	
 	position: fixed;
-	height: v.$navbar-height;
-	width: 100%;
 	top: 0;
+	left: v.$common-left;
+	height: v.$navbar-height;
+	
 
 	.navbar {
 		background-color: v.$default-theme-common-standard-border-background-color;

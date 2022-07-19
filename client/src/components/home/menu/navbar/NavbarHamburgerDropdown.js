@@ -6,7 +6,7 @@ import {
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
-} from "../../../actions/constants/containerNames";
+} from "../../../../actions/constants/containerNames";
 
 import {
 	toggleHamburgerDropdown,
@@ -18,10 +18,10 @@ import {
 	switchToBugsItemView,
 	setTrueForOnlyProjectListViewAndCreateItemSidebar,
 	closeBugItemView,
-} from "../../../utils";
+} from "../../../../utils";
 
-import bendyArrowModeLight from "../../../images/bendy-arrow-for-mode-light.svg";
-import bendyArrowModeDark from "../../../images/bendy-arrow-for-mode-dark.svg";
+import bendyArrowModeLight from "../../../../images/bendy-arrow-for-mode-light.svg";
+import bendyArrowModeDark from "../../../../images/bendy-arrow-for-mode-dark.svg";
 
 export default function NavbarHamburgerDropdown() {
 	const reduxState = useSelector((state) => state);

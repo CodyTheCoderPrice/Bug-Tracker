@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleHamburgerDropdown } from "../../../utils";
+import { toggleHamburgerDropdown } from "../../../../utils";
 
 export default function NavbarHamburgerButton() {
 	const reduxState = useSelector((state) => state);

@@ -45,6 +45,7 @@ export default function ItemView(props) {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
+			reduxState[SIZE_CONTAINER].variables.navPanel !== null &&
 			reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight !==
 				null &&
 			reduxState[SIZE_CONTAINER].constants
@@ -61,18 +62,21 @@ export default function ItemView(props) {
 				reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight +
 				"px";
 
+			const baseItemViewWidth =
+				reduxState[SIZE_CONTAINER].variables.window.width -
+				reduxState[SIZE_CONTAINER].variables.navPanel.width;
+
 			if (
 				reduxState[GENERAL_CONTAINER].componentsDisplay
 					.itemViewListSidebarComponentContainerElementExpanded
 			) {
 				itemViewElement.style.width =
-					reduxState[SIZE_CONTAINER].variables.window.width -
+					baseItemViewWidth -
 					reduxState[SIZE_CONTAINER].constants
 						.itemViewListSidebarComponentContainerElementWithExpandedModifierWidth +
 					"px";
 			} else {
-				itemViewElement.style.width =
-					reduxState[SIZE_CONTAINER].variables.window.width + "px";
+				itemViewElement.style.width = baseItemViewWidth + "px";
 			}
 		}
 		// eslint-disable-next-line

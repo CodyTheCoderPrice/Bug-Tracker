@@ -3,19 +3,20 @@
 
 .item-vew-top-bar-component,
 .js-get-item-vew-top-bar-component {
+	@include m.full-width-minus-nav-panel();
+
 	// Must be more than list-sidebar so item-options-dropdown-container will
 	// ...display overtop the list-sidebar if the screen gets too small
 	z-index: 2;
 	position: fixed;
 	top: v.$common-top-bar-top;
+	left: v.$common-left;
 	border: v.$common-top-bar-border-width solid
 		v.$mode-common-top-bar-border-color-light;
 	border-width: v.$common-top-bar-border-width 0
 		v.$item-view-list-sidebar-border-width 0;
 	background-color: v.$mode-common-top-bar-background-color-light;
 	height: v.$common-top-bar-height;
-	/* height: v.$common-top-bar-height; */
-	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 
 	.search-container,

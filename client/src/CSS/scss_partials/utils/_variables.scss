@@ -505,6 +505,7 @@ $common-top-bar-filter-dropdown-content-container-width: 260px;
 $common-status-box-width: 110px;
 // Specific (i.e. used by specific component)
 $toggle-switch-width: 52px;
+$nav-panel-width: 250px;
 $navbar-account-button-width: 130px;
 $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;
@@ -661,6 +662,7 @@ $item-view-name-font-size: 28px;
 // Position
 //==========
 // Common (i.e. used by multiple components)
+$common-left: $nav-panel-width;
 $common-top-bar-top: $navbar-height;
 $common-back-exit-icon-button-top: 10px;
 $common-back-exit-icon-button-left-right: 20px;
@@ -669,7 +671,7 @@ $navbar-breadcrumb-arrow-top: -2px;
 $navbar-breadcrumb-arrow-left: -2px;
 $navbar-hamburger-button-left: 10px;
 $list-view-top: $common-top-bar-top + $common-top-bar-height +
-	$common-top-bar-border-width;
+	($common-top-bar-border-width * 2);
 $item-view-top: $list-view-top;
 $item-view-list-sidebar-top: $list-view-top;
 $item-view-top-bar-search-bar-left: 15px;

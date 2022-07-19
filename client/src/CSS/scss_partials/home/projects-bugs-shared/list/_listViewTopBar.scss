@@ -3,17 +3,19 @@
 
 .list-view-top-bar-component,
 .js-get-list-view-top-bar-component {
+	@include m.full-width-minus-nav-panel();
+
 	// Must be more than table header so filter button can overlap
 	z-index: 1;
 	position: fixed;
 	top: v.$common-top-bar-top;
+	left: v.$common-left;
 	border: v.$common-top-bar-border-width solid
 		v.$mode-common-top-bar-border-color-light;
 	border-left: none;
 	border-right: none;
 	background-color: v.$mode-common-top-bar-background-color-light;
 	height: v.$common-top-bar-height;
-	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 
 	.new-item-centering-container {
