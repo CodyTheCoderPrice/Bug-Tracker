@@ -5,16 +5,14 @@
 .js-get-item-vew-top-bar-component {
 	@include m.full-width-minus-nav-panel();
 
-	// Must be more than list-sidebar so item-options-dropdown-container will
+	// z-index must be more than list-sidebar so item-options-dropdown-container will
 	// ...display overtop the list-sidebar if the screen gets too small
 	z-index: 2;
 	position: fixed;
 	top: v.$common-top-bar-top;
 	left: v.$common-left;
-	border: v.$common-top-bar-border-width solid
+	border-bottom: v.$common-top-bar-border-width solid
 		v.$mode-common-top-bar-border-color-light;
-	border-width: v.$common-top-bar-border-width 0
-		v.$item-view-list-sidebar-border-width 0;
 	background-color: v.$mode-common-top-bar-background-color-light;
 	height: v.$common-top-bar-height;
 	font-family: Arial, Helvetica, sans-serif;
@@ -94,7 +92,7 @@
 	@mixin filterSortButton {
 		@include m.stop-text-selection();
 
-		// Must be more than item-view-top-bar-filter-dropdown-component and
+		// z-index must be more than item-view-top-bar-filter-dropdown-component and
 		// item-view-top-bar-sort-dropdown-component z-index so their top border
 		// can be covered over by the button components when with-dropdown-displayed
 		// modifier is appened to make the buttons and dropdowns look like one.
@@ -276,7 +274,7 @@
 	}
 
 	.item-view-top-bar-options-button-component {
-		// Must be more than item-view-top-bar-options-dropdown-component so the two
+		// z-index must be more than item-view-top-bar-options-dropdown-component so the two
 		// ...containers can look like one
 		z-index: 1;
 		position: absolute;

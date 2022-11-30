@@ -4,7 +4,7 @@
 .item-view-list-sidebar-component,
 .js-get-item-view-list-sidebar-component {
 	.expand-minimize-button {
-		// Must be more than the item-view in item-view.scss
+		// z-index must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
 		top: v.$item-view-list-sidebar-top + 15;
@@ -37,7 +37,7 @@
 
 	.list-sidebar-container,
 	.js-get-item-view-list-sidebar-component-container-element {
-		// Must be more than the item-view in item-view.scss
+		// z-index must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
 		top: v.$item-view-list-sidebar-top;
@@ -78,7 +78,7 @@
 	}
 
 	.list-sidebar-container__table__row__header {
-		// Must be more than table__data rows below do not overlap when scrolling
+		// z-index must be more than table__data rows below do not overlap when scrolling
 		z-index: 1;
 		position: -webkit-sticky;
 		position: sticky;

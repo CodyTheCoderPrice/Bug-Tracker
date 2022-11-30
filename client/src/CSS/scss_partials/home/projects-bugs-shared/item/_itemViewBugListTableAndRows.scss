@@ -2,7 +2,7 @@
 @use "../../../utils/mixins" as m;
 
 .item-view-bug-list-component {
-	// Must be more than the item-view in item-view.scss
+	// z-index must be more than the item-view in item-view.scss
 	z-index: 1;
 	width: 100%;
 	font-size: v.$common-font-size;

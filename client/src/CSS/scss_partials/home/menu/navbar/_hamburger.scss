@@ -42,7 +42,7 @@
 	}
 
 	.hamburger-dropdown {
-		// Must be more than blurred-backdrop
+		// z-index must be more than blurred-backdrop
 		z-index: 5;
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;

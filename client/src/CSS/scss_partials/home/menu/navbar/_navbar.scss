@@ -12,6 +12,7 @@
 	
 
 	.navbar {
+		border-bottom: v.$navbar-border-width solid v.$mode-navbar-border-color-light;
 		background-color: v.$default-theme-common-standard-border-background-color;
 		height: v.$navbar-height;
 		width: 100%;
@@ -51,6 +52,6 @@ Increases navbar z-index for when the hamburger menu is present so hamburger
 dropdown can overlap all other components
 */
 .navbar-container--increased-z-index {
-	// Must be more than listViewTopBar.scss and itemViewTopBar.scss
+	// z-index must be more than listViewTopBar.scss and itemViewTopBar.scss
 	z-index: 3;
 }

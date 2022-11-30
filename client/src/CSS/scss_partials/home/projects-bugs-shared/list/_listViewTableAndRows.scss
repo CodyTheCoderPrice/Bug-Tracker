@@ -48,7 +48,7 @@
 	}
 
 	.list-table__row__header {
-		// Must be more than table__data rows below do not overlap when scrolling
+		// z-index must be more than table__data rows below do not overlap when scrolling
 		z-index: 1;
 		position: -webkit-sticky;
 		position: sticky;

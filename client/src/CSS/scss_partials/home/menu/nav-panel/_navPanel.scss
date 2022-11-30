@@ -5,8 +5,19 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: black;
+	background-color: v.$default-theme-common-standard-border-background-color;
 	height: 100%;
 	width: v.$nav-panel-width;
 	
+	.top-container {
+		height: v.$nav-panel-top-container-height;
+		border-bottom: v.$nav-panel-top-container-border-width solid v.$mode-nav-panel-top-container-border-color-light;
+	}
+
+	.top-container__logo {
+		display: block;
+		width: v.$nav-panel-width - 100;
+		margin: 0px auto;
+		padding-top: 10px;
+	}
 }

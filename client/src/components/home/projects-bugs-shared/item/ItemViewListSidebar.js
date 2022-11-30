@@ -116,7 +116,7 @@ export default function ItemViewListSidebar(props) {
 				}
 			>
 				<table className="list-sidebar-container__table">
-					<thead className="">
+					<thead>
 						<tr className="list-sidebar-container__table__row">
 							<th
 								className={

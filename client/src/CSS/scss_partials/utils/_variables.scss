@@ -263,6 +263,8 @@ $mode-home-background-color-light: $mode-common-background-color-light;
 $mode-home-background-color-dark: $mode-common-background-color-dark;
 $mode-home-text-color-light: $mode-common-strong-text-color-light;
 $mode-home-text-color-dark: $mode-common-strong-text-color-dark;
+$mode-navbar-border-color-light: black;
+$mode-navbar-border-color-dark: black;
 $mode-navbar-hamburger-dropdown-background-color-light: $mode-common-background-color-light;
 $mode-navbar-hamburger-dropdown-background-color-dark: $mode-common-background-color-dark;
 $mode-navbar-hamburger-dropdown-option-border-color-light: $gray-level-1;
@@ -275,6 +277,8 @@ $mode-navbar-hamburger-dropdown-option-name-text-color-light: $basic-blue-level-
 $mode-navbar-hamburger-dropdown-option-name-text-color-dark: $cyan-blue-level-1;
 $mode-navbar-hamburger-dropdown-option-icon-text-color-light: $gray-dark-level-1;
 $mode-navbar-hamburger-dropdown-option-icon-text-color-dark: $gray-level-7;
+$mode-nav-panel-top-container-border-color-light: $mode-navbar-border-color-light;
+$mode-nav-panel-top-container-border-color-dark: $mode-navbar-border-color-dark;
 $mode-account-sidebar-background-color-light: $mode-common-background-color-light;
 $mode-account-sidebar-background-color-dark: $mode-common-background-color-dark;
 $mode-account-sidebar-horizontal-dividing-line-border-color-light: $gray-light-level-11;
@@ -486,6 +490,7 @@ $custom-checkbox-height: 13px;
 $navbar-height: 56px;
 $navbar-account-button-height: $navbar-height;
 $hamburger-dropdown-option-height: 42px;
+$nav-panel-top-container-height: $navbar-height;
 $account-modal-height: 390px;
 $account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
 $account-sidebar-logout-button-height: 40px;
@@ -583,6 +588,8 @@ $common-top-bar-filter-button-with-dropdown-displayed-border-width-difference: $
 $common-top-bar-search-bar-border-width: 2px;
 $common-top-bar-search-bar-focus-border-width: 3px;
 // Specific (i.e. used by specific component)
+$navbar-border-width: 1px;
+$nav-panel-top-container-border-width: $navbar-border-width;
 $navbar-breadcrumb-border-width: 2px;
 $navbar-hamburger-border-width: 3px;
 $account-sidebar-appearance-theme-button-border-width: 1px;
@@ -663,7 +670,7 @@ $item-view-name-font-size: 28px;
 //==========
 // Common (i.e. used by multiple components)
 $common-left: $nav-panel-width;
-$common-top-bar-top: $navbar-height;
+$common-top-bar-top: $navbar-height + $navbar-border-width;
 $common-back-exit-icon-button-top: 10px;
 $common-back-exit-icon-button-left-right: 20px;
 // Specific (i.e. used by specific component)
@@ -671,7 +678,7 @@ $navbar-breadcrumb-arrow-top: -2px;
 $navbar-breadcrumb-arrow-left: -2px;
 $navbar-hamburger-button-left: 10px;
 $list-view-top: $common-top-bar-top + $common-top-bar-height +
-	($common-top-bar-border-width * 2);
+	+ $common-top-bar-border-width;
 $item-view-top: $list-view-top;
 $item-view-list-sidebar-top: $list-view-top;
 $item-view-top-bar-search-bar-left: 15px;

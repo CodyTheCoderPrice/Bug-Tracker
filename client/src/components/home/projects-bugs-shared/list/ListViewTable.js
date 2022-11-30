@@ -181,7 +181,7 @@ export default function ListViewTable(props) {
 			}
 		>
 			<table className="list-table">
-				<thead className="">
+				<thead>
 					<tr className="list-table__row">
 						<th
 							className={

@@ -1,7 +1,7 @@
 @use "../../utils/variables" as v;
 
 .account-modals-blurred-backdrop-component {
-	// Must be more than listViewTopBar.scss,
+	// z-index must be more than listViewTopBar.scss,
 	// ...itemViewTopBar.scss, and itemViewSidebarTablesAndRows.scss
 	z-index: 3;
 	position: fixed;

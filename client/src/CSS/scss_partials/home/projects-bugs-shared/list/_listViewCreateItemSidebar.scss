@@ -3,7 +3,7 @@
 
 .create-item-sidebar-component {
 	.blurred-backdrop {
-		// Must be more than listViewTopBar.scss
+		// z-index must be more than listViewTopBar.scss
 		z-index: 1;
 		position: absolute;
 		top: v.$navbar-height;
@@ -14,7 +14,7 @@
 	}
 
 	.sidebar-container {
-		// Must be more than listViewTopBar.scss
+		// z-index must be more than listViewTopBar.scss
 		z-index: 1;
 		position: fixed;
 		top: v.$navbar-height;
