@@ -55,17 +55,7 @@ export default function ListViewTable(props) {
 				"px";
 
 			// If empty-list-message-container is present
-			if (
-				(props.reduxContainerName === PROJECT_CONTAINER &&
-					reduxState[props.reduxContainerName].list.length < 1) ||
-				(props.reduxContainerName === BUG_CONTAINER &&
-					reduxState[props.reduxContainerName].list.filter(
-						(item) =>
-							item.project_id ===
-							reduxState[PROJECT_CONTAINER].componentsDisplay
-								.itemViewCurrentItem.id
-					).length < 1)
-			) {
+			if (shouldEmptyListMessageDisplay()) {
 				const emptyListMessageContainer = document.getElementsByClassName(
 					"js-empty-list-message-container"
 				)[0];
@@ -102,6 +92,20 @@ export default function ListViewTable(props) {
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].variables,
 	]);
+
+	function shouldEmptyListMessageDisplay() {
+		return (
+			(props.reduxContainerName === PROJECT_CONTAINER &&
+				reduxState[props.reduxContainerName].list.length < 1) ||
+			(props.reduxContainerName === BUG_CONTAINER &&
+				reduxState[props.reduxContainerName].list.filter(
+					(item) =>
+						item.project_id ===
+						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
+							.id
+				).length < 1)
+		);
+	}
 
 	const checkAllItems = () => {
 		let allItems = [];
@@ -291,15 +295,7 @@ export default function ListViewTable(props) {
 				</tbody>
 			</table>
 			{/*If the list has no items, displays a message saying list is empty*/}
-			{(props.reduxContainerName === PROJECT_CONTAINER &&
-				reduxState[props.reduxContainerName].list.length > 0) ||
-			(props.reduxContainerName === BUG_CONTAINER &&
-				reduxState[props.reduxContainerName].list.filter(
-					(item) =>
-						item.project_id ===
-						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-							.id
-				).length > 0) ? null : (
+			{!shouldEmptyListMessageDisplay() ? null : (
 				<div className="empty-list-message-centering-container js-empty-list-message-container">
 					<div
 						className={
