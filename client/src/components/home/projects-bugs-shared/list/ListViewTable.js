@@ -72,8 +72,7 @@ export default function ListViewTable(props) {
 				emptyListMessageContainer.style.height =
 					reduxState[SIZE_CONTAINER].variables.window.height -
 					reduxState[SIZE_CONTAINER].variables.navbar.height -
-					reduxState[SIZE_CONTAINER].constants.listViewTopBarComponentHeight
-						.height -
+					reduxState[SIZE_CONTAINER].constants.listViewTopBarComponentHeight -
 					reduxState[SIZE_CONTAINER].constants
 						.listViewTableComponentRowElementHeight -
 					reduxState[SIZE_CONTAINER].constants.scrollbarWidth +
@@ -157,29 +156,7 @@ export default function ListViewTable(props) {
 	};
 
 	return (
-		<div
-			className={
-				"list-view-table-component js-list-table-container" +
-				// If a sidebar or modal is present overtop of the table
-				// ...or the emptyListMessage is present
-				(Object.values(reduxState[ACCOUNT_CONTAINER].componentsDisplay).indexOf(
-					true
-				) > -1 ||
-				reduxState[props.reduxContainerName].componentsDisplay
-					.listViewCreateItemSidbarComponentShouldDisplay === true ||
-				(props.reduxContainerName === PROJECT_CONTAINER &&
-					reduxState[props.reduxContainerName].list.length < 1) ||
-				(props.reduxContainerName === BUG_CONTAINER &&
-					reduxState[props.reduxContainerName].list.filter(
-						(item) =>
-							item.project_id ===
-							reduxState[PROJECT_CONTAINER].componentsDisplay
-								.itemViewCurrentItem.id
-					).length < 1)
-					? " list-view-table-component--no-scroll"
-					: "")
-			}
-		>
+		<div className="list-view-table-component js-list-table-container">
 			<table className="list-table">
 				<thead>
 					<tr className="list-table__row">

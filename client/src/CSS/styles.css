@@ -2920,9 +2920,11 @@ dropdown can overlap all other components
 }
 .list-view-table-component .empty-list-message-centering-container,
 .js-get-list-view-table-component .empty-list-message-centering-container {
-  position: relative;
+  top: 0;
+  left: 0;
+  position: sticky;
   height: 90%;
-  min-height: 300px;
+  min-height: 50px;
   width: 100%;
 }
 .list-view-table-component .empty-list-message-centering-container__message,
@@ -2935,11 +2937,6 @@ dropdown can overlap all other components
   text-align: center;
   font-size: 32px;
   color: #757575;
-}
-
-.list-view-table-component--no-scroll {
-  overflow-y: hidden;
-  overflow-x: hidden;
 }
 
 html,

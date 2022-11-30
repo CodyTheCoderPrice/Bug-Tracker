@@ -146,9 +146,13 @@
 	}
 
 	.empty-list-message-centering-container {
-		position: relative;
+		top: 0;
+		left: 0;
+		position: sticky;
+		// Height was found through trial and error to make element resize 
+		// ...(using js) look less jumpy
 		height: 90%;
-		min-height: 300px;
+		min-height: 50px;
 		width: 100%;
 	}
 
@@ -160,9 +164,4 @@
 		font-size: v.$list-view-empty-list-message-font-size;
 		color: v.$mode-list-view-empty-list-message-text-color-light;
 	}
-}
-
-.list-view-table-component--no-scroll {
-	overflow-y: hidden;
-	overflow-x: hidden;
 }
