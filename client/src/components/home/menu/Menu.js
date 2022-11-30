@@ -64,7 +64,9 @@ export default function Menu() {
 		dispatch(
 			setDisplaySizeVariablesWindowAndMenus({
 				window: getWindowSize(),
-				navPanel: getElementSize(document.getElementsByClassName("js-nav-panel")[0]),
+				navPanel: getElementSize(
+					document.getElementsByClassName("js-nav-panel")[0]
+				),
 				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 			})
 		);
@@ -86,16 +88,18 @@ export default function Menu() {
 		// eslint-disable-next-line
 	}, []);
 
-	// Declared outside of the eventListener so removing will working on cleanup
+	// Declared as an object outside the eventListener so removal works on cleanup
 	function displaySizeHandler() {
 		dispatch(
 			setDisplaySizeVariablesWindowAndMenus({
 				window: getWindowSize(),
-				navPanel: getElementSize(document.getElementsByClassName("js-nav-panel")[0]),
+				navPanel: getElementSize(
+					document.getElementsByClassName("js-nav-panel")[0]
+				),
 				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 			})
 		);
-	}
+	};
 
 	return (
 		<div>

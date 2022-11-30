@@ -13,24 +13,25 @@ import { useEffect } from "react";
  * useSubmitFormOnEnterPress("js-create-item-form");
  */
 export function useSubmitFormOnEnterPress(formClassName) {
+	
 	useEffect(() => {
 		document
 			.getElementsByClassName(formClassName)[0]
-			.addEventListener("keypress", submitOnEnter);
+			.addEventListener("keypress", submitOnEnterHandler);
 
 		return () => {
 			document
 				.getElementsByClassName(formClassName)[0]
-				.removeEventListener("keypress", submitOnEnter);
+				.removeEventListener("keypress", submitOnEnterHandler);
 		};
 		// eslint-disable-next-line
 	}, []);
 
-	function submitOnEnter(event) {
+	// Declared as an object outside the eventListener so removal works on cleanup
+	function submitOnEnterHandler (event) {
 		if (event.which === 13) {
-			let newEvent = document.createEvent("Event");
-			newEvent.initEvent("submit", false, true);
-			event.target.form.dispatchEvent(newEvent);
+			const submitOnEnterEvent = new CustomEvent("submit", {"bubbles":false, "cancelable":true})
+			event.target.form.dispatchEvent(submitOnEnterEvent);
 			event.preventDefault();
 		}
 	}

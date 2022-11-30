@@ -73,7 +73,7 @@ function App() {
 	 *
 	 * @param {Event} e - Event created by element's onMouseDown handler
 	 */
-	function logReduxState(e) {
+	const logReduxState = (e) => {
 		if (process.env.NODE_ENV === "development" && e.button === 1) {
 			console.log(reduxState);
 		}

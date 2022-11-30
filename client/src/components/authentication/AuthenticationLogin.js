@@ -41,11 +41,14 @@ export default function Login() {
 	});
 
 	const [windowWidth, setWindowWidth] = useState();
-	const [loginComponentBreakingPointWidth, setLoginComponentBreakingPointWidth] = useState();
-
+	const [
+		loginComponentBreakingPointWidth,
+		setLoginComponentBreakingPointWidth,
+	] = useState();
 	useEffect(() => {
 		setLoginComponentBreakingPointWidth(
-			getElementSize(document.getElementsByClassName("js-login-component")[0]).width
+			getElementSize(document.getElementsByClassName("js-login-component")[0])
+				.width
 		);
 
 		// Initializes windowWidth
@@ -63,9 +66,11 @@ export default function Login() {
 		// eslint-disable-next-line
 	}, []);
 
+	// Declared as an object outside the eventListener so removal works on cleanup
 	function windowSizeHandler() {
 		setWindowWidth(getWindowSize().width);
-	}
+	};
+
 
 	/**
 	 * Function for onChange handler of input elements. Updates accountInfo's
@@ -102,7 +107,9 @@ export default function Login() {
 		<div
 			className={
 				"login-component js-login-component" +
-				(windowWidth <= loginComponentBreakingPointWidth ? " login-component--condensed" : "")
+				(windowWidth <= loginComponentBreakingPointWidth
+					? " login-component--condensed"
+					: "")
 			}
 		>
 			<div className="login-component__intro-container">
