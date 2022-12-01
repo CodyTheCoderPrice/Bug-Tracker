@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
 	setDisplaySizeConstants,
@@ -27,7 +27,6 @@ import NavPanel from "./nav-panel/NavPanel";
 import Navbar from "./navbar/Navbar";
 
 export default function Menu() {
-	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	// Makes sure the current size of the window and navbar are stored in redux
@@ -60,16 +59,8 @@ export default function Menu() {
 			})
 		);
 
-		// Sets initial
-		dispatch(
-			setDisplaySizeVariablesWindowAndMenus({
-				window: getWindowSize(),
-				navPanel: getElementSize(
-					document.getElementsByClassName("js-nav-panel")[0]
-				),
-				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
-			})
-		);
+		// Initializes display sizes
+		displaySizeHandler();
 
 		// Since breadcrumb font resize does not happen until after app start-up
 		// or refresh, it's safe to initialize as breadcrumbButtonTextElementBaseFontSize
@@ -99,7 +90,7 @@ export default function Menu() {
 				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
 			})
 		);
-	};
+	}
 
 	return (
 		<div>

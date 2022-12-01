@@ -15,9 +15,7 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
 
-import {
-	getCommonStandardBackgroundColorClassNameForTheme,
-} from "../../../../utils";
+import { getCommonStandardBackgroundColorClassNameForTheme } from "../../../../utils";
 
 // Components
 import NavbarBreadcrumb from "./NavbarBreadcrumb";
@@ -76,34 +74,28 @@ export default function Navbar() {
 	return (
 		<div
 			className={
-				"navbar-container" +
+				"navbar-component js-navbar" +
+				getCommonStandardBackgroundColorClassNameForTheme(
+					reduxState[ACCOUNT_CONTAINER].settings.theme_color
+				) +
 				(shouldBreadcrumbBeVisible()
 					? ""
 					: " navbar-container--increased-z-index")
 			}
 		>
-			<div
-				className={
-					"navbar js-navbar" +
-					getCommonStandardBackgroundColorClassNameForTheme(
-						reduxState[ACCOUNT_CONTAINER].settings.theme_color
-					)
-				}
-			>
-				<NavbarBreadcrumb visible={shouldBreadcrumbBeVisible()} />
-				{shouldBreadcrumbBeVisible() ? null : <NavbarHamburger />}
+			<NavbarBreadcrumb visible={shouldBreadcrumbBeVisible()} />
+			{shouldBreadcrumbBeVisible() ? null : <NavbarHamburger />}
 
+			<div
+				className="navbar__account-button js-navbar-account-button"
+				alt="Navbar button to open account sidebar"
+			>
 				<div
-					className="navbar__account-button js-navbar-account-button"
-					alt="Navbar button to open account sidebar"
+					className="navbar__account-button__text"
+					onClick={openAccountSidebar}
 				>
-					<div
-						className="navbar__account-button__text"
-						onClick={openAccountSidebar}
-					>
-						<i className="fa fa-fw fa-user" alt="Icon of a user" />
-						Account
-					</div>
+					<i className="fa fa-fw fa-user" alt="Icon of a user" />
+					Account
 				</div>
 			</div>
 		</div>

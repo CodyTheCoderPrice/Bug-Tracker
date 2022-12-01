@@ -1,7 +1,6 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-// SCSS for classNames only used by the hamburger component
 .navbar-hamburger-component,
 .js-get-navbar-hamburger-component {
 	.blurred-backdrop {

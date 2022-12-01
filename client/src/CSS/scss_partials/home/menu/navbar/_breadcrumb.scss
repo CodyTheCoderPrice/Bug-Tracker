@@ -1,10 +1,11 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-// SCSS for classNames only used by the breadcrumb component
 .navbar-breadcrumb-component,
 .js-get-navbar-breadcrumb-component {
 	.invisible {
+		// using "visibility: hidden" instead of "display:none" so child elements
+		// ...can still be interacted with for measuring their size
 		visibility: hidden;
 	}
 

@@ -40,6 +40,8 @@
 		// z-index must be more than the item-view in item-view.scss
 		z-index: 1;
 		position: fixed;
+		// Made to display when list-sidebar-container is explaneded
+		display: none;
 		top: v.$item-view-list-sidebar-top;
 		left: v.$common-left;
 		border-right: v.$item-view-list-sidebar-border-width solid v.$mode-item-view-list-sidebar-border-color-light;
@@ -53,6 +55,7 @@
 
 	.list-sidebar-container--expanded,
 	.js-get-item-view-list-sidebar-component-container-element--expanded {
+		display: block;
 		width: v.$item-view-list-sidebar-expanded-width;
 	}
 
@@ -61,8 +64,8 @@
 		border-collapse: collapse;
 	}
 
-	// Used as just a row element in ItemViewListSidebar component, but used as
-	// ...the component className for ItemViewListSidebarItemRow
+	// Styles used for both a row element inside ItemViewListSidebar component 
+	// ...and the outermost element for ItemViewListSidebarItemRow component
 	.list-sidebar-container__table__row,
 	.item-view-list-sidebar-item-row-component {
 		border-bottom: 1px solid v.$mode-item-view-list-sidebar-table-row-border-color-light;

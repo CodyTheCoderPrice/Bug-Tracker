@@ -93,12 +93,6 @@
 		height: v.$item-view-bugs-stats-item-box-height;
 	}
 
-	// Used in ItemViewEditInfo to calculate description size using JS
-	.item-box--invisible {
-		position: absolute;
-		visibility: hidden;
-	}
-
 	// Located here since both display and edit components use it
 	.item-box__description {
 		display: block;

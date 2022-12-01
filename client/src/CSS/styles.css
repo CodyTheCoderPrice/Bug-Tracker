@@ -309,7 +309,7 @@
   width: 100%;
 }
 
-.nav-panel {
+.nav-panel-component {
   position: fixed;
   top: 0;
   left: 0;
@@ -317,40 +317,36 @@
   height: 100%;
   width: 250px;
 }
-.nav-panel .top-container {
+.nav-panel-component .top-container {
   height: 56px;
   border-bottom: 1px solid black;
 }
-.nav-panel .top-container__logo {
+.nav-panel-component .top-container__logo {
   display: block;
   width: 150px;
   margin: 0px auto;
   padding-top: 10px;
 }
 
-.navbar-container {
+.navbar-component {
   width: -webkit-calc(100% - 250px);
   width: -moz-calc(100% - 250px);
   width: calc(100% - 250px);
   position: fixed;
   top: 0;
   left: 250px;
-  height: 56px;
-}
-.navbar-container .navbar {
   border-bottom: 1px solid black;
   background-color: #608d9e;
   height: 56px;
-  width: 100%;
 }
-.navbar-container .navbar__account-button {
+.navbar-component .navbar__account-button {
   position: absolute;
   right: 0;
   padding-left: 40px;
   height: 56px;
   width: 130px;
 }
-.navbar-container .navbar__account-button__text {
+.navbar-component .navbar__account-button__text {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -1266,11 +1262,6 @@ dropdown can overlap all other components
 .js-get-item-view-component .item-box--bugs-stats-height {
   height: 320px;
 }
-.item-view-component .item-box--invisible,
-.js-get-item-view-component .item-box--invisible {
-  position: absolute;
-  visibility: hidden;
-}
 .item-view-component .item-box__description,
 .js-get-item-view-component .item-box__description {
   display: block;
@@ -1883,6 +1874,7 @@ dropdown can overlap all other components
 .js-get-item-view-list-sidebar-component .js-get-item-view-list-sidebar-component-container-element {
   z-index: 1;
   position: fixed;
+  display: none;
   top: 104px;
   left: 250px;
   border-right: 2px solid black;
@@ -1897,6 +1889,7 @@ dropdown can overlap all other components
 .item-view-list-sidebar-component .js-get-item-view-list-sidebar-component-container-element--expanded,
 .js-get-item-view-list-sidebar-component .list-sidebar-container--expanded,
 .js-get-item-view-list-sidebar-component .js-get-item-view-list-sidebar-component-container-element--expanded {
+  display: block;
   width: 275px;
 }
 .item-view-list-sidebar-component .list-sidebar-container__table,
