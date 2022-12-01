@@ -223,7 +223,7 @@ export default function ListViewTable(props) {
 											)
 										}
 									>
-										<span className="list-table__row__header__span">
+										<span>
 											{categoryObject.category}
 										</span>
 										<span className="list-table__row__header__sort-arrow-container">
@@ -249,7 +249,7 @@ export default function ListViewTable(props) {
 								)
 							}
 						>
-							<span className="list-table__row__header__span">
+							<span>
 								{props.reduxContainerName === PROJECT_CONTAINER
 									? "Bugs Completed"
 									: "Comments"}

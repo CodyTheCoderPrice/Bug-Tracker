@@ -6,6 +6,7 @@ const initialState = {
 	// ...They are set during a useEffect in Navbar component that calls several
 	// ...functionas to their values.
 	scrollbarWidth: null,
+	navPanelTopContainerHeight: null,
 	navbarAccountButtonWidth: null,
 	navbarBreadcrumbComponentButtonArrowElementWidth: null,
 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: null,
@@ -31,6 +32,7 @@ const initialState = {
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
+ * 	navPanelTopContainerHeight: (number|null),
  * 	navbarAccountButtonWidth: (number|null),
  * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
  * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
@@ -52,6 +54,7 @@ const initialState = {
  * data to be updated in the redux state).
  * @returns {{
  * 	scrollbarWidth: (number|null),
+ * 	navPanelTopContainerHeight: (number|null),
  * 	navbarAccountButtonWidth: (number|null),
  * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
  * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
@@ -75,6 +78,7 @@ export default function displaySizeConstantsReducer(
 		case SET_DISPLAY_SIZE_CONSTANTS:
 			return {
 				scrollbarWidth: action.sizes.scrollbarWidth,
+				navPanelTopContainerHeight: action.sizes.navPanelTopContainerHeight,
 				navbarAccountButtonWidth: action.sizes.navbarAccountButtonWidth,
 				navbarBreadcrumbComponentButtonTextElementBaseFontSize:
 					action.sizes.navbarBreadcrumbComponentButtonTextElementBaseFontSize,

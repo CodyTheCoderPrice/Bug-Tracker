@@ -18,7 +18,7 @@ import {
 	getBrighterNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme,
 	switchToProjectsListView,
 	switchToProjectsItemView,
-	SwitchToBugsListView,
+	switchToBugsListView,
 	switchToBugsItemView,
 	setTrueForOnlyProjectListViewAndCreateItemSidebar,
 	closeBugItemView,
@@ -324,7 +324,7 @@ export default function NavbarBreadcrumb(props) {
 									  ))
 							}
 							alt="Navbar breadcrumb button to open the list of bugs"
-							onClick={() => SwitchToBugsListView(reduxState, dispatch)}
+							onClick={() => switchToBugsListView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text js-breadcrumb-bug-list-button-text">
 								<i

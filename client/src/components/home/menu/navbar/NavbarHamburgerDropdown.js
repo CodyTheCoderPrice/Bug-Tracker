@@ -14,7 +14,7 @@ import {
 	getNavbarHamburgerComponentDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	switchToProjectsListView,
 	switchToProjectsItemView,
-	SwitchToBugsListView,
+	switchToBugsListView,
 	switchToBugsItemView,
 	setTrueForOnlyProjectListViewAndCreateItemSidebar,
 	closeBugItemView,
@@ -172,7 +172,7 @@ export default function NavbarHamburgerDropdown() {
 								: "")
 						}
 						alt="Navbar hamburger dropdown option to open the list of bugs"
-						onClick={() => SwitchToBugsListView(reduxState, dispatch)}
+						onClick={() => switchToBugsListView(reduxState, dispatch)}
 					>
 						<img
 							className="hamburger-dropdown__row-button__svg-arrow-option-3"

@@ -37,6 +37,9 @@ export default function Menu() {
 		dispatch(
 			setDisplaySizeConstants({
 				scrollbarWidth: getScrollbarWidth(),
+				navPanelTopContainerHeight: getElementSize(
+					document.getElementsByClassName("js-nav-panel-top-container")[0]
+				).height,
 				navbarAccountButtonWidth: getElementSize(
 					document.getElementsByClassName("js-navbar-account-button")[0]
 				).width,

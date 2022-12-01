@@ -34,6 +34,7 @@ export * from "./resetActions";
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
+ * 	navPanelTopContainerHeight: (number|null),
  * 	navbarAccountButtonWidth: (number|null),
  * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
  * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
@@ -55,6 +56,7 @@ export * from "./resetActions";
  * dispatch(
  * 	setDisplaySizeConstants({
  * 		scrollbarWidth: 17,
+ * 		navPanelTopContainerHeight: 56,
  * 		navbarAccountButtonWidth: 170,
  * 		navbarBreadcrumbComponentButtonTextElementBaseFontSize: 18,
  * 		navbarBreadcrumbComponentButtonArrowElementWidth: 20,
@@ -80,11 +82,11 @@ export const setDisplaySizeConstants = (sizes) => (dispatch) => {
 };
 
 /**
- * Sets current size info of the Window, NavPanel and Navbar elements in 
+ * Sets current size info of the Window, NavPanel and Navbar elements in
  * 'variables' property in 'SIZE_CONTAINER' of the redux state.
  *
  * Note: These sizes should be updated everytime they change. Also the purpose
- * of this info is mostly to be used to calulcate the resizing of other html 
+ * of this info is mostly to be used to calulcate the resizing of other html
  * elements, but is also sometimes used for other things.
  *
  * @param {{
@@ -135,7 +137,7 @@ export const setDisplaySizeVariablesWindowAndMenus = (sizes) => (dispatch) => {
  * (in NavbarBreadcrumb component) in 'variables' property in 'SIZE_CONTAINER' of
  * the redux state.
  *
- * Note: These sizes should be updated everytime they change. Also the purpose 
+ * Note: These sizes should be updated everytime they change. Also the purpose
  * of font size is to be used to know when the switch to the hamburger menu (e.g.
  * when breadcrumb button text element's font size gets to be too small).
  *
@@ -261,12 +263,12 @@ export const retrieveSortCategories = () => (dispatch) => {
 };
 
 /**
- * Sets Objects containing developer set data for priority/status tables (2 
- * tables for projects; 2 tables for bugs) of the database in 
- * 'priorityStatusOptions' properties in their corresponding containers (i.e. 
+ * Sets Objects containing developer set data for priority/status tables (2
+ * tables for projects; 2 tables for bugs) of the database in
+ * 'priorityStatusOptions' properties in their corresponding containers (i.e.
  * 'PROJECT_CONTAINER' and 'BUG_CONTAINER') of the redux state.
  *
- * Note: The purpose of these Objects is to be used by the app to convert 
+ * Note: The purpose of these Objects is to be used by the app to convert
  * priority/status integer values for projects/bugs to the string options they
  * represent, populate priority/status comboboxes, and dynamically know if any
  * particular option represents empty or completed.
@@ -393,12 +395,12 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 
 /**
  * Sets Object containing what went wrong during an http request (e.g. invalid
- * user inputs, server errors, ect.) in 'backendErrors' property in 
+ * user inputs, server errors, ect.) in 'backendErrors' property in
  * 'GENERAL_CONTAINER' of the redux state.
  *
- * Note: The purpose of this info is to mostly be used to be displayed to the 
- * user to let them know why an API request failed, but may also be used for 
- * security (e.g. to loggout an account if an API request is made with an 
+ * Note: The purpose of this info is to mostly be used to be displayed to the
+ * user to let them know why an API request failed, but may also be used for
+ * security (e.g. to loggout an account if an API request is made with an
  * expired jwTowken).
  *
  * @param {{
@@ -465,7 +467,7 @@ export const seBackendErrors = (backendErrors) => (dispatch) => {
  *
  * Note: The purpose of this to be used when closing a component that displays
  * backend errors, so if any backend errors are currently being displayed, they
- * do not continue to display when the user navigates back to the component 
+ * do not continue to display when the user navigates back to the component
  * later, as this may confuse the user.
  *
  * @example

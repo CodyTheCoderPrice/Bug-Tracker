@@ -126,7 +126,7 @@ export default function ItemViewListSidebar(props) {
 									)
 								}
 							>
-								<span className="list-sidebar-container__table__row__header__span">
+								<span>
 									{props.reduxContainerName === PROJECT_CONTAINER
 										? "Projects"
 										: "Bugs"}

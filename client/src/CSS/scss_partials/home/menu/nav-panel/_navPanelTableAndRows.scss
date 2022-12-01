@@ -1,0 +1,59 @@
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
+
+.nav-panel-table-component {
+	position: relative;
+	width: v.$nav-panel-width;
+	font-size: v.$common-font-size;
+	font-family: Arial, Helvetica, sans-serif;
+
+	// Styles used for both a row element inside NavPanelTable component
+	// ...and the outermost element for NavPanelTableRow component
+	.table__row,
+	.nav-panel-table-row-component {
+		padding: v.$common-list-row-padding;
+		height: v.$common-list-row-height;
+		color: v.$mode-common-weak-text-color-light;
+	}
+
+	.table__row--empty {
+		height: v.$common-list-row-height + (v.$common-list-row-height * 0.5);
+	}
+
+	.table__row__header {
+		width: v.$nav-panel-width;
+		color: v.$mode-common-strong-text-color-light;
+		text-align: left;
+	}
+
+	.table__row__header__info {
+		cursor: pointer;
+	}
+
+	.table__row__data {
+		position: relative;
+	}
+
+	.table__row__data__overflow-container {
+		@include m.dead-center();
+
+		width: v.$nav-panel-width - 25;
+		max-width: v.$nav-panel-width - 25;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.table__row__data__overflow-container--completed-color {
+		color: v.$common-completed-color;
+	}
+
+	.table__row__data__overflow-container__info {
+		cursor: pointer;
+	}
+
+	.table__row__data__overflow-container__info__completed-icon {
+		margin-right: 5px;
+		color: v.$common-completed-color;
+	}
+}
