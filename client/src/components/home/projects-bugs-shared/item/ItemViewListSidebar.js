@@ -23,7 +23,7 @@ export default function ItemViewListSidebar(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Resize list-sidebar-component height to fit window when smaller than it
+	// Resize list-sidebar-container height to fit window when smaller than it
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
@@ -31,8 +31,8 @@ export default function ItemViewListSidebar(props) {
 			reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight !==
 				null
 		) {
-			let itemViewListSidebarElement = document.getElementsByClassName(
-				"js-list-sidebar-component"
+			let itemViewListSidebarContainerElement = document.getElementsByClassName(
+				"js-list-sidebar-container"
 			)[0];
 
 			const adjustedWindowHeight =
@@ -40,7 +40,9 @@ export default function ItemViewListSidebar(props) {
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
 				reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight;
 
-			itemViewListSidebarElement.style.height = adjustedWindowHeight + "px";
+			itemViewListSidebarContainerElement.style.height = adjustedWindowHeight + "px";
+
+			console.log(itemViewListSidebarContainerElement.style.height);
 		}
 		// eslint-disable-next-line
 	}, [
@@ -66,7 +68,7 @@ export default function ItemViewListSidebar(props) {
 	};
 
 	return (
-		<div className="item-view-list-sidebar-component js-list-sidebar-component">
+		<div className="item-view-list-sidebar-component">
 			<div
 				className={
 					"expand-minimize-button" +
@@ -105,7 +107,7 @@ export default function ItemViewListSidebar(props) {
 			</div>
 			<div
 				className={
-					"list-sidebar-container" +
+					"list-sidebar-container js-list-sidebar-container" +
 					getItemViewListSidebarComponentSidebarContainerElementBorderColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					) +
@@ -148,7 +150,7 @@ export default function ItemViewListSidebar(props) {
 							);
 						})}
 						{/*Creates an empty space at the bottom*/}
-						<tr className="list-sidebar-container__table__row--empty" />
+						<tr className="list-sidebar-container__table__empty-row" />
 					</tbody>
 				</table>
 			</div>

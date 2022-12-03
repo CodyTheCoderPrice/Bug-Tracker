@@ -335,26 +335,27 @@
 
 .nav-panel-table-component {
   position: relative;
+  padding: 10px 0 0 10px;
   width: 250px;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
 .nav-panel-table-component .table__row,
 .nav-panel-table-component .nav-panel-table-row-component {
-  padding: 0px 5px;
-  height: 50px;
-  color: #272727;
+  height: 40px;
 }
-.nav-panel-table-component .table__row--empty {
-  height: 75px;
+.nav-panel-table-component .table__empty-row {
+  height: 8.3333333333px;
 }
 .nav-panel-table-component .table__row__header {
   width: 250px;
-  color: black;
   text-align: left;
 }
 .nav-panel-table-component .table__row__header__info {
   cursor: pointer;
+}
+.nav-panel-table-component .table__row__header__info i {
+  padding-right: 8px;
 }
 .nav-panel-table-component .table__row__data {
   position: relative;
@@ -370,15 +371,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.nav-panel-table-component .table__row__data__overflow-container--completed-color {
-  color: #008600;
-}
 .nav-panel-table-component .table__row__data__overflow-container__info {
   cursor: pointer;
 }
 .nav-panel-table-component .table__row__data__overflow-container__info__completed-icon {
   margin-right: 5px;
-  color: #008600;
 }
 
 .navbar-component {
@@ -1955,14 +1952,13 @@ dropdown can overlap all other components
 .js-get-item-view-list-sidebar-component .item-view-list-sidebar-item-row-component {
   border-bottom: 1px solid #919191;
   background-color: white;
-  padding: 0px 5px;
   height: 50px;
   color: #272727;
   text-align: center;
 }
-.item-view-list-sidebar-component .list-sidebar-container__table__row--empty,
-.js-get-item-view-list-sidebar-component .list-sidebar-container__table__row--empty {
-  height: 75px;
+.item-view-list-sidebar-component .list-sidebar-container__table__empty-row,
+.js-get-item-view-list-sidebar-component .list-sidebar-container__table__empty-row {
+  height: 50px;
 }
 .item-view-list-sidebar-component .list-sidebar-container__table__row__header,
 .js-get-item-view-list-sidebar-component .list-sidebar-container__table__row__header {
@@ -2832,7 +2828,6 @@ dropdown can overlap all other components
   supported by Chrome, Edge, Opera and Firefox */
   border-bottom: 1px solid #919191;
   background-color: white;
-  padding: 0px 5px;
   height: 50px;
   text-align: center;
 }
@@ -2853,14 +2848,13 @@ dropdown can overlap all other components
   supported by Chrome, Edge, Opera and Firefox */
   border-bottom: 1px solid #919191;
   background-color: white;
-  padding: 0px 5px;
   height: 50px;
   text-align: center;
   color: #272727;
 }
-.list-view-table-component .list-table__row--empty,
-.js-get-list-view-table-component .list-table__row--empty {
-  height: 75px;
+.list-view-table-component .list-table__empty-row,
+.js-get-list-view-table-component .list-table__empty-row {
+  height: 50px;
 }
 .list-view-table-component .list-table__row__header,
 .js-get-list-view-table-component .list-table__row__header {

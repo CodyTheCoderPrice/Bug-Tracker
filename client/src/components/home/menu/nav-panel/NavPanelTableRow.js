@@ -9,16 +9,7 @@ export default function NavPanelTableRow(props) {
 	return (
 		<tr className="nav-panel-table-row-component">
 			<td className="table__row__data">
-				<div
-					className={
-						"table__row__data__overflow-container" +
-						(props.item.status_id !==
-						reduxState[props.reduxContainerName].priorityStatusOptions
-							.statusCompletionId
-							? ""
-							: " table__row__data__overflow-container--completed-color")
-					}
-				>
+				<div className="table__row__data__overflow-container">
 					<span
 						className="table__row__data__overflow-container__info"
 						onClick={() =>

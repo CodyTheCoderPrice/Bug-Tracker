@@ -9,6 +9,24 @@ import {
 // Components
 import NavPanelTableRow from "./NavPanelTableRow";
 
+const getProjectsButtonText = () => {
+	return (
+		<span>
+			<i className="fa fa-folder" aria-hidden="true" alt="Icon of a folder" />
+			Projects
+		</span>
+	);
+};
+
+const getBugsButtonText = () => {
+	return (
+		<span>
+			<i className="fa fa-bug" aria-hidden="true" alt="Icon of a bug" />
+			Bugs
+		</span>
+	);
+};
+
 export default function NavPanelTable(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -19,7 +37,8 @@ export default function NavPanelTable(props) {
 				<thead>
 					<tr className="table__row">
 						<th className="table__row__header">
-							<span className="table__row__header__info"
+							<span
+								className="table__row__header__info"
 								onClick={
 									props.reduxContainerName === PROJECT_CONTAINER
 										? () => switchToProjectsListView(reduxState, dispatch)
@@ -27,8 +46,8 @@ export default function NavPanelTable(props) {
 								}
 							>
 								{props.reduxContainerName === PROJECT_CONTAINER
-									? "Projects"
-									: "Bugs"}
+									? getProjectsButtonText()
+									: getBugsButtonText()}
 							</span>
 						</th>
 					</tr>
@@ -47,7 +66,7 @@ export default function NavPanelTable(props) {
 						);
 					})}
 					{/*Creates an empty space at the bottom*/}
-					<tr className="table__row--empty" />
+					<tr className="table__empty-row" />
 				</tbody>
 			</table>
 		</div>

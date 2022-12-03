@@ -70,14 +70,13 @@
 	.item-view-list-sidebar-item-row-component {
 		border-bottom: 1px solid v.$mode-item-view-list-sidebar-table-row-border-color-light;
 		background-color: v.$mode-item-view-list-sidebar-table-row-background-color-light;
-		padding: v.$common-list-row-padding;
 		height: v.$common-list-row-height;
 		color: v.$mode-common-weak-text-color-light;
 		text-align: center;
 	}
 
-	.list-sidebar-container__table__row--empty {
-		height: v.$common-list-row-height + (v.$common-list-row-height * 0.5);
+	.list-sidebar-container__table__empty-row {
+		height: v.$common-list-row-empty-height;
 	}
 
 	.list-sidebar-container__table__row__header {

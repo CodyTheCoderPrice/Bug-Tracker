@@ -290,7 +290,7 @@ export default function ListViewTable(props) {
 								reduxState[PROJECT_CONTAINER].componentsDisplay
 									.itemViewCurrentItem.id
 						).length > 0) ? (
-						<tr className="list-table__row--empty" />
+						<tr className="list-table__empty-row" />
 					) : null}
 				</tbody>
 			</table>

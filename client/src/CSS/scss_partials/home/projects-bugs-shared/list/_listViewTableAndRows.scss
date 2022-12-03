@@ -27,7 +27,6 @@
 		
 		border-bottom: 1px solid v.$mode-list-view-table-row-border-color-light;
 		background-color: v.$mode-list-view-table-row-background-color-light;
-		padding: v.$common-list-row-padding;
 		height: v.$common-list-row-height;
 		text-align: center;
 	}
@@ -42,9 +41,8 @@
 		color: v.$mode-common-weak-text-color-light;
 	}
 
-	.list-table__row--empty {
-		height: v.$common-list-row-height +
-			(v.$common-list-row-height * 0.5);
+	.list-table__empty-row {
+		height: v.$common-list-row-empty-height;
 	}
 
 	.list-table__row__header {
