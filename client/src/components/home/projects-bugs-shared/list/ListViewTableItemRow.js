@@ -69,7 +69,7 @@ export default function ListViewTableItemRow(props) {
 		);
 
 		// Resets bug components display when a different project is opened
-		// ...to prevent erros with bug itemViewCurrentItem not belonging to project
+		// ...to prevent errors with bug itemViewCurrentItem not belonging to project
 		if (
 			props.reduxContainerName === PROJECT_CONTAINER &&
 			reduxState[props.reduxContainerName].componentsDisplay

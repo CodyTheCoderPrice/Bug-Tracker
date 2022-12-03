@@ -1,42 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-	ACCOUNT_CONTAINER,
-	BUG_CONTAINER,
-	PROJECT_CONTAINER,
-} from "../../../../actions/constants/containerNames";
-import {
-	setWhichProjectOrBugComponentsDisplay,
-	setWhichProjectComponentsDisplay,
-	setWhichBugComponentsDisplay,
-} from "../../../../actions";
+import { switchToProjectOrBugItemViewAndCurrentItem } from "../../../../utils";
 
 export default function NavPanelTableRow(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
-
-	const changeTargetItem = () => {
-		if (
-			reduxState[props.reduxContainerName].componentsDisplay
-				.itemViewCurrentItem === null ||
-			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
-				.id !== props.item.id
-		) {
-			dispatch(
-				setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
-					listViewComponentShouldDisplay: false,
-					itemViewComponentShouldDisplay: true,
-					itemViewCurrentItem: props.item,
-				})
-			);
-
-			// Resets bug components display when a different project is opened
-			// ...to prevent erros with bug itemViewCurrentItem not belonging to project
-			if (props.reduxContainerName === PROJECT_CONTAINER) {
-				dispatch(setWhichBugComponentsDisplay({}));
-			}
-		}
-	};
 
 	return (
 		<tr className="nav-panel-table-row-component">
@@ -53,7 +21,14 @@ export default function NavPanelTableRow(props) {
 				>
 					<span
 						className="table__row__data__overflow-container__info"
-						onClick={changeTargetItem}
+						onClick={() =>
+							switchToProjectOrBugItemViewAndCurrentItem(
+								reduxState,
+								dispatch,
+								props.reduxContainerName,
+								props.item
+							)
+						}
 					>
 						{props.item.status_id !==
 						reduxState[props.reduxContainerName].priorityStatusOptions

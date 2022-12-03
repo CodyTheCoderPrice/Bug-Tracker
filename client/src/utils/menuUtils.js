@@ -243,6 +243,106 @@ export function switchToBugsItemView(passedReduxState, dispatch) {
 }
 
 /**
+ * DOCUMENTATION INCOMPLETE
+ *
+ * @param {Object} passedReduxState - Current redux state from
+ * useSelector((state) => state)
+ * @param {Function} dispatch - Redux store's dispatch function from
+ * useDispatch()
+ * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} targetReduxContainerName - name of
+ * which container ('PROJECT_CONTAINER' or 'BUG_CONTAINER') the target item 
+ * belongs to.
+ * @param {({
+ * 		id: number,
+ * 		account_id: (number|undefined),
+ * 		project_id: (number,undefined),
+ * 		name: string,
+ * 		description: string,
+ * 		location: (string|undefined),
+ * 		creation_date: string,
+ * 		start_date: (string|null),targetItem
+ * 		due_date: (string|null),
+ * 		completion_date: (string|null),
+ * 		priority_id: number,
+ * 		priority_option: string,
+ * 		status_id: number,
+ * 		status_option: string,
+ * 		last_edited_timestamp: string
+ * 	}|null|undefined)} targetItem - item intended to be set as the current item 
+ * inside the target redux container
+ */
+export function switchToProjectOrBugItemViewAndCurrentItem(
+	passedReduxState,
+	dispatch,
+	targetReduxContainerName,
+	targetItem,
+) {
+	const changingCurrentItem =
+		passedReduxState[targetReduxContainerName].componentsDisplay.itemViewCurrentItem ===
+			null ||
+		passedReduxState[targetReduxContainerName].componentsDisplay.itemViewCurrentItem.id !==
+			targetItem;
+
+	// For optimization, only runs if something needs to change
+	if (
+		passedReduxState[targetReduxContainerName].componentsDisplay
+			.itemViewComponentShouldDisplay === false ||
+		changingCurrentItem ||
+		Object.values(
+			passedReduxState[ACCOUNT_CONTAINER].componentsDisplay
+		).indexOf(true) > -1
+	) {
+		switch (targetReduxContainerName) {
+			case PROJECT_CONTAINER:
+				dispatch(setWhichAccountComponentsDisplay({}));
+				dispatch(
+					setWhichProjectComponentsDisplay({
+						listViewComponentShouldDisplay: false,
+						itemViewComponentShouldDisplay: true,
+						itemViewCurrentItem: targetItem,
+					})
+				);
+				dispatch(
+					setWhichBugComponentsDisplay({
+						listViewComponentShouldDisplay: false,
+						itemViewComponentShouldDisplay: false,
+						itemViewCurrentItem: !changingCurrentItem
+							? passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
+							: // null when different project is opened to
+							  // ...prevent errors with bug itemViewCurrentItem
+							  // ...not belonging to project
+							  null,
+					})
+				);
+				dispatch(setWhichCommentComponentsDisplay({}));
+				break;
+			case BUG_CONTAINER:
+				dispatch(setWhichAccountComponentsDisplay({}));
+				dispatch(
+					setWhichProjectComponentsDisplay({
+						listViewComponentShouldDisplay: false,
+						itemViewComponentShouldDisplay: false,
+						itemViewCurrentItem:
+							passedReduxState[PROJECT_CONTAINER].componentsDisplay
+								.itemViewCurrentItem,
+					})
+				);
+				dispatch(
+					setWhichBugComponentsDisplay({
+						listViewComponentShouldDisplay: false,
+						itemViewComponentShouldDisplay: true,
+						itemViewCurrentItem: targetItem,
+					})
+				);
+				dispatch(setWhichCommentComponentsDisplay({}));
+				break;
+			default:
+				break;
+		}
+	}
+}
+
+/**
  * Sets 'listViewComponentShouldDisplay' property to true and keeps 'listViewCreateItemSidbarComponentShouldDisplay'
  * property the same in 'componentsDisplay' property's Object in
  * 'PROJECT_CONTAINER' of the redux state. Sets all other properties in
@@ -347,9 +447,9 @@ export function closeBugItemView(e, passedReduxState, dispatch) {
 }
 
 /**
- * Toggles 'navbarHamburgerDropdownComponentShouldDisplay' boolean in 
- * 'dropdownsDisplay' Object in 'GENERAL_CONTAINER' of the redux state. Also 
- * sets all booleans in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of 
+ * Toggles 'navbarHamburgerDropdownComponentShouldDisplay' boolean in
+ * 'dropdownsDisplay' Object in 'GENERAL_CONTAINER' of the redux state. Also
+ * sets all booleans in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of
  * the redux state to false.
  *
  * Note: The purpose of this is to toggle whether NavbarHamburgerButton or
