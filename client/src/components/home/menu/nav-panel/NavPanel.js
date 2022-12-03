@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import {
 	SIZE_CONTAINER,
 	ACCOUNT_CONTAINER,
@@ -14,7 +14,6 @@ import NavPanelTable from "./NavPanelTable";
 
 export default function NavPanel() {
 	const reduxState = useSelector((state) => state);
-	const dispatch = useDispatch();
 
 	// Resize list-sidebar-component height to fit window when smaller than it
 	useEffect(() => {
