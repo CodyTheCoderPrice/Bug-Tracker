@@ -15,7 +15,7 @@ import NavPanelTable from "./NavPanelTable";
 export default function NavPanel() {
 	const reduxState = useSelector((state) => state);
 
-	// Resize list-sidebar-component height to fit window when smaller than it
+	// Resize tables-container height to fit window when smaller than it
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&

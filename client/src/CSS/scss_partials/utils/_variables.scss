@@ -473,71 +473,6 @@ $common-completed-color: $status-common-color-green;
 $navbar-breadcrumb-close-icon-button-text-color: $basic-red-light-level-2;
 $navbar-hamburger-close-icon-button-text-color: $navbar-breadcrumb-close-icon-button-text-color;
 
-//==========
-// Heights
-//==========
-// Common (i.e. used by multiple components)
-$common-top-bar-height: 46px;
-$common-top-bar-button-height: 26px;
-$common-top-bar-search-bar-height: 28px;
-$common-top-bar-filter-sort-dropdown-content-container-height: 205px;
-$common-top-bar-filter-dropdown-content-container-for-bugs-height: 160px;
-$common-list-row-height: 50px;
-$common-list-row-empty-height: $common-list-row-height;
-$common-status-box-height: 27px;
-// Specific (i.e. used by specific component)
-$toggle-switch-height: 24px;
-$custom-checkbox-height: 13px;
-$nav-panel-table-row-empty-height: ($common-list-row-height / 6);
-$navbar-height: 56px;
-$navbar-account-button-height: $navbar-height;
-$hamburger-dropdown-option-height: 42px;
-$nav-panel-top-container-height: $navbar-height;
-$account-modal-height: 390px;
-$account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
-$account-sidebar-logout-button-height: 40px;
-$account-modal-edit-settings-content-container-height: $toggle-switch-height;
-$create-item-sidebar-height: 700px;
-$delete-modal-delete-button-height: 30px;
-$item-view-bugs-stats-item-box-height: 320px;
-$item-view-edit-item-name-input-height: 43px;
-$item-view-edit-item-description-info-item-box-height: 300px;
-
-//=========
-// Widths
-//=========
-// Common (i.e. used by multiple components)
-$common-top-bar-search-button-width: $common-top-bar-search-bar-height + 10;
-$common-top-bar-filter-dropdown-content-container-width: 260px;
-$common-status-box-width: 110px;
-// Specific (i.e. used by specific component)
-$toggle-switch-width: 52px;
-$nav-panel-width: 250px;
-$navbar-account-button-width: 130px;
-$navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
-$navbar-breadcrumb-button-arrow-left-width: 20px;
-$navbar-hamburger-button-width: 36px;
-$account-sidebar-width: 430px;
-$account-modal-width: 460px;
-$account-sidebar-appearance-theme-button-current-container-width: 30px;
-$account-sidebar-appearance-theme-button-arrow-container-width: 24px;
-$account-sidebar-appearance-theme-button-width: $account-sidebar-appearance-theme-button-current-container-width +
-	$account-sidebar-appearance-theme-button-arrow-container-width;
-$delete-modal-delete-button-width: 90px;
-$create-item-sidebar-width: 500px;
-$list-view-top-bar-filter-button-width: 90px;
-$list-view-table-min-width: 1100px;
-$list-view-table-item-name-width: 250px;
-$item-view-top-bar-filter-sort-button-width: 80px;
-$item-view-top-bar-sort-dropdown-content-container-width: 120px;
-$item-view-top-bar-search-bar-width: 290px;
-$item-view-top-bar-options-button-width: 36px;
-$item-view-list-sidebar-expanded-width: 275px;
-$item-view-outer-dividing-container-min-width: 560px;
-$item-view-edit-item-name-input-width: 600px;
-$item-view-edit-item-name-char-counter-container-width: 50px;
-$item-view-pie-chart-bug-status-stats-container-width: 200px;
-
 //=========
 // Margins
 //=========
@@ -636,11 +571,121 @@ $common-form-input-text-focus-padding: $common-form-input-text-focus-top-bottom-
 	$common-form-input-text-focus-left-right-padding;
 $common-top-bar-search-bar-padding: 8px;
 // Specific (i.e. used by specific component)
+$nav-panel-table-padding-left-right: 5px;
+$nav-panel-table-row-header-info-padding-left-right: 10px;
+$nav-panel-table-row-data-padding-left: $nav-panel-table-padding-left-right + $nav-panel-table-row-header-info-padding-left-right;
 $navbar-button-text-container-padding: 0 14px 0 14px;
 $account-sidebar-padding-top: 32px;
 $account-sidebar-padding-left-right: 18px;
 $create-item-sidebar-padding: 6px;
 $item-view-edit-item-name-input-padding: 4px;
+
+//==========
+// Heights
+//==========
+// Common (i.e. used by multiple components)
+$common-top-bar-height: 46px;
+$common-top-bar-button-height: 26px;
+$common-top-bar-search-bar-height: 28px;
+$common-top-bar-filter-sort-dropdown-content-container-height: 205px;
+$common-top-bar-filter-dropdown-content-container-for-bugs-height: 160px;
+$common-list-row-height: 50px;
+$common-list-row-empty-height: $common-list-row-height;
+$common-status-box-height: 27px;
+// Specific (i.e. used by specific component)
+$toggle-switch-height: 24px;
+$custom-checkbox-height: 13px;
+$nav-panel-table-row-empty-height: ($common-list-row-height / 6);
+$navbar-height: 56px;
+$navbar-breadcrumb-button-height: $navbar-height -
+	($navbar-breadcrumb-border-width * 2);
+$navbar-account-button-height: $navbar-height;
+$hamburger-dropdown-option-height: 42px;
+$nav-panel-top-container-height: $navbar-height;
+$account-modal-height: 390px;
+$account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
+$account-sidebar-logout-button-height: 40px;
+$account-modal-edit-settings-content-container-height: $toggle-switch-height;
+$create-item-sidebar-height: 700px;
+$delete-modal-delete-button-height: 30px;
+$item-view-bugs-stats-item-box-height: 320px;
+$item-view-edit-item-name-input-height: 43px;
+$item-view-edit-item-description-info-item-box-height: 300px;
+
+//=========
+// Widths
+//=========
+// Common (i.e. used by multiple components)
+$common-top-bar-search-button-width: $common-top-bar-search-bar-height + 10;
+$common-top-bar-filter-dropdown-content-container-width: 260px;
+$common-status-box-width: 110px;
+// Specific (i.e. used by specific component)
+$toggle-switch-width: 52px;
+$nav-panel-width: 250px;
+$nav-panel-table-width: $nav-panel-width;
+$nav-panel-table-row-width: $nav-panel-table-width - ($nav-panel-table-padding-left-right * 2);
+$nav-panel-table-row-data-overflow-container-width: $nav-panel-table-row-width - $nav-panel-table-row-data-padding-left;
+$navbar-account-button-width: 130px;
+$navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
+$navbar-breadcrumb-button-arrow-left-width: 20px;
+$navbar-hamburger-button-width: 36px;
+$account-sidebar-width: 430px;
+$account-modal-width: 460px;
+$account-sidebar-appearance-theme-button-current-container-width: 30px;
+$account-sidebar-appearance-theme-button-arrow-container-width: 24px;
+$account-sidebar-appearance-theme-button-width: $account-sidebar-appearance-theme-button-current-container-width +
+	$account-sidebar-appearance-theme-button-arrow-container-width;
+$delete-modal-delete-button-width: 90px;
+$create-item-sidebar-width: 500px;
+$list-view-top-bar-filter-button-width: 90px;
+$list-view-table-min-width: 1100px;
+$list-view-table-item-name-width: 250px;
+$item-view-top-bar-filter-sort-button-width: 80px;
+$item-view-top-bar-sort-dropdown-content-container-width: 120px;
+$item-view-top-bar-search-bar-width: 290px;
+$item-view-top-bar-options-button-width: 36px;
+$item-view-list-sidebar-expanded-width: 275px;
+$item-view-outer-dividing-container-min-width: 560px;
+$item-view-edit-item-name-input-width: 600px;
+$item-view-edit-item-name-char-counter-container-width: 50px;
+$item-view-pie-chart-bug-status-stats-container-width: 200px;
+
+//==========
+// Position
+//==========
+// Common (i.e. used by multiple components)
+$common-left: $nav-panel-width;
+$common-top-bar-top: $navbar-height + $navbar-border-width;
+$common-back-exit-icon-button-top: 10px;
+$common-back-exit-icon-button-left-right: 20px;
+// Specific (i.e. used by specific component)
+$navbar-breadcrumb-arrow-top: -2px;
+$navbar-breadcrumb-arrow-left: -2px;
+$navbar-hamburger-button-left: 10px;
+// Note: The value added at the end represents the margin between the hamburger button and the title
+$navbar-hamburger-title-left: $navbar-hamburger-button-left +
+	$navbar-hamburger-button-width + 6px;
+$account-sidebar-appearance-theme-button-option-height: $account-sidebar-appearance-theme-button-selected-arrow-container-height -
+	($account-sidebar-appearance-theme-button-border-width * 2);
+$account-sidebar-appearance-theme-button-option-width: $account-sidebar-appearance-theme-button-current-container-width -
+	($account-sidebar-appearance-theme-button-border-width * 2);
+$account-sidebar-appearance-theme-button-option-larger-width: $account-sidebar-appearance-theme-button-width -
+	($account-sidebar-appearance-theme-button-border-width * 2);
+$account-sidebar-appearance-theme-button-dropdown-container-top: $account-sidebar-appearance-theme-button-option-height +
+	($account-sidebar-appearance-theme-button-border-width * 2);
+$list-view-top: $common-top-bar-top + $common-top-bar-height +
+	$common-top-bar-border-width;
+$item-view-top: $list-view-top;
+$item-view-list-sidebar-top: $list-view-top;
+$item-view-top-bar-search-bar-left: 15px;
+$item-view-top-bar-filter-container-left: $item-view-top-bar-search-bar-width +
+	($item-view-top-bar-search-bar-left * 2);
+$item-view-top-bar-sort-container-left: $item-view-top-bar-filter-container-left +
+	$item-view-top-bar-filter-sort-button-width +
+	($item-view-top-bar-search-bar-left);
+$item-view-edit-item-name-centering-container-height: $item-view-edit-item-name-input-height +
+	($item-view-edit-item-name-input-border-width * 2) +
+	($item-view-edit-item-name-input-padding * 2);
 
 //======
 // Font Size
@@ -666,45 +711,7 @@ $list-view-top-bar-new-item-tutorial-font-size: 24px;
 $list-view-empty-list-message-font-size: 32px;
 $item-view-name-font-size: 28px;
 
-//==========
-// Position
-//==========
-// Common (i.e. used by multiple components)
-$common-left: $nav-panel-width;
-$common-top-bar-top: $navbar-height + $navbar-border-width;
-$common-back-exit-icon-button-top: 10px;
-$common-back-exit-icon-button-left-right: 20px;
-// Specific (i.e. used by specific component)
-$navbar-breadcrumb-arrow-top: -2px;
-$navbar-breadcrumb-arrow-left: -2px;
-$navbar-hamburger-button-left: 10px;
-$list-view-top: $common-top-bar-top + $common-top-bar-height + +
-	$common-top-bar-border-width;
-$item-view-top: $list-view-top;
-$item-view-list-sidebar-top: $list-view-top;
-$item-view-top-bar-search-bar-left: 15px;
-$item-view-top-bar-filter-container-left: $item-view-top-bar-search-bar-width +
-	($item-view-top-bar-search-bar-left * 2);
-$item-view-top-bar-sort-container-left: $item-view-top-bar-filter-container-left +
-	$item-view-top-bar-filter-sort-button-width +
-	($item-view-top-bar-search-bar-left);
-
 //===============================
 // Arithmetic (must be at bottom)
 //===============================
-$navbar-breadcrumb-button-height: $navbar-height -
-	($navbar-breadcrumb-border-width * 2);
-// The value added at the end represents the margin between the hamburger button and the title
-$navbar-hamburger-title-left: $navbar-hamburger-button-left +
-	$navbar-hamburger-button-width + 6px;
-$account-sidebar-appearance-theme-button-option-height: $account-sidebar-appearance-theme-button-selected-arrow-container-height -
-	($account-sidebar-appearance-theme-button-border-width * 2);
-$account-sidebar-appearance-theme-button-option-width: $account-sidebar-appearance-theme-button-current-container-width -
-	($account-sidebar-appearance-theme-button-border-width * 2);
-$account-sidebar-appearance-theme-button-option-larger-width: $account-sidebar-appearance-theme-button-width -
-	($account-sidebar-appearance-theme-button-border-width * 2);
-$account-sidebar-appearance-theme-button-dropdown-container-top: $account-sidebar-appearance-theme-button-option-height +
-	($account-sidebar-appearance-theme-button-border-width * 2);
-$item-view-edit-item-name-centering-container-height: $item-view-edit-item-name-input-height +
-	($item-view-edit-item-name-input-border-width * 2) +
-	($item-view-edit-item-name-input-padding * 2);
+// Currently nothing needs to be here

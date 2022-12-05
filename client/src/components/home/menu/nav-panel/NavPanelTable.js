@@ -1,7 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { PROJECT_CONTAINER } from "../../../../actions/constants/containerNames";
 import {
+	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+} from "../../../../actions/constants/containerNames";
+import {
+	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectsListView,
 	switchToBugsListView,
 	getSearchedFilteredSortedList,
@@ -33,18 +37,26 @@ export default function NavPanelTable(props) {
 
 	return (
 		<div className="nav-panel-table-component">
-			<table>
-				<thead>
-					<tr className="table__row">
+			<table className="table">
+				<thead className="table__head">
+					<tr
+						className={
+							"table__row" +
+							(reduxState[props.reduxContainerName].componentsDisplay
+								.listViewComponentShouldDisplay === false
+								? ""
+								: getCommonBrighterBackgroundColorClassNameForTheme(
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								  ))
+						}
+						onClick={
+							props.reduxContainerName === PROJECT_CONTAINER
+								? () => switchToProjectsListView(reduxState, dispatch)
+								: () => switchToBugsListView(reduxState, dispatch)
+						}
+					>
 						<th className="table__row__header">
-							<span
-								className="table__row__header__info"
-								onClick={
-									props.reduxContainerName === PROJECT_CONTAINER
-										? () => switchToProjectsListView(reduxState, dispatch)
-										: () => switchToBugsListView(reduxState, dispatch)
-								}
-							>
+							<span className="table__row__header__info">
 								{props.reduxContainerName === PROJECT_CONTAINER
 									? getProjectsButtonText()
 									: getBugsButtonText()}

@@ -335,36 +335,45 @@
 
 .nav-panel-table-component {
   position: relative;
-  padding: 10px 0 0 10px;
+  padding-top: 10px;
   width: 250px;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
+.nav-panel-table-component .table {
+  display: block;
+  padding: 0 5px;
+  width: 250px;
+}
 .nav-panel-table-component .table__row,
 .nav-panel-table-component .nav-panel-table-row-component {
   height: 40px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
 }
 .nav-panel-table-component .table__empty-row {
   height: 8.3333333333px;
+  cursor: default;
 }
 .nav-panel-table-component .table__row__header {
-  width: 250px;
+  padding: 0;
   text-align: left;
 }
 .nav-panel-table-component .table__row__header__info {
-  cursor: pointer;
+  padding: 0px 10px;
 }
 .nav-panel-table-component .table__row__header__info i {
   padding-right: 8px;
 }
 .nav-panel-table-component .table__row__data {
-  position: relative;
+  padding: 0 0 0 15px;
 }
 .nav-panel-table-component .table__row__data__overflow-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 225px;
   max-width: 225px;
   white-space: nowrap;
