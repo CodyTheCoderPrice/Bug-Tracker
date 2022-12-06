@@ -1,0 +1,46 @@
+@use "../../../utils/variables" as v;
+@use "../../../utils/mixins" as m;
+
+.nav-panel-button-list-component {
+	// Left/right paddings not placed here so rows do not extend outside container
+	padding: 10px v.$nav-panel-button-list-padding-left-right;
+	width: auto;
+	font-size: v.$common-font-size;
+	font-family: Arial, Helvetica, sans-serif;
+
+	.item, .nav-panel-button-list-sub-item-component {
+		display: flex;
+		border-radius: 5px;
+		// Padding only used by sub-items. Overwritten for main items.
+		padding-left: v.$nav-panel-button-list-sub-item-padding-left;
+		height: 40px;
+		cursor: pointer;
+		align-items: center;
+		-webkit-user-select: none; /* Safari */
+		-ms-user-select: none; /* IE 10 and IE 11 */
+		user-select: none; /* Standard syntax */
+	}
+
+	// Overwrites padding for main items
+	.item{
+		padding: 0px v.$nav-panel-button-list-main-item-padding-left-right;
+	}
+
+	.item__icon {
+		padding-right: v.$nav-panel-button-list-main-item-icon-padding-left;
+	}
+
+	.item--selected, .sub-item--selected {
+		box-shadow: v.$common-button-box-shadow;
+	}
+
+	.sub-item__ellipsis-container {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.sub-item__ellipsis-container__completed-icon {
+		margin-right: 5px;
+	}
+}

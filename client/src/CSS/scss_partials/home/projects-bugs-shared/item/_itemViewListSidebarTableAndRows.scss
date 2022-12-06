@@ -98,7 +98,7 @@
 		cursor: default;
 	}
 
-	.list-sidebar-container__table__row__data__overflow-container {
+	.list-sidebar-container__table__row__data__ellipsis-container {
 		@include m.dead-center();
 
 		width: v.$item-view-list-sidebar-expanded-width - 25;
@@ -108,11 +108,11 @@
 		text-overflow: ellipsis;
 	}
 
-	.list-sidebar-container__table__row__data__overflow-container--completed-color {
+	.list-sidebar-container__table__row__data__ellipsis-container--completed-color {
 		color: v.$common-completed-color;
 	}
 
-	.list-sidebar-container__table__row__data__overflow-container__info__completed-icon {
+	.list-sidebar-container__table__row__data__ellipsis-container__info__completed-icon {
 		margin-right: 5px;
 		color: v.$common-completed-color;
 	}

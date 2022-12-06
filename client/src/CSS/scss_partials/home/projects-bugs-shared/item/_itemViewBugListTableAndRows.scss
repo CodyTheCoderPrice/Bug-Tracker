@@ -20,7 +20,7 @@
 	}
 
 	.bug-list-table__row__data {
-		// Must be realtive so centing works for overflow-container
+		// Must be realtive so centing works for ellipsis-container
 		position: relative;
 		width: 50%;
 	}

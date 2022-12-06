@@ -106,23 +106,23 @@ export default function ItemViewListSidebarItemRow(props) {
 			<td className="list-sidebar-container__table__row__data">
 				<div
 					className={
-						"list-sidebar-container__table__row__data__overflow-container" +
+						"list-sidebar-container__table__row__data__ellipsis-container" +
 						(props.item.status_id ===
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId
-							? " list-sidebar-container__table__row__data__overflow-container--completed-color"
+							? " list-sidebar-container__table__row__data__ellipsis-container--completed-color"
 							: getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
 				>
-					<span className="list-sidebar-container__table__row__data__overflow-container__info">
+					<span className="list-sidebar-container__table__row__data__ellipsis-container__info">
 						{props.item.status_id !==
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId ? null : (
 							<i
-								className="fa fa-check list-sidebar-container__table__row__data__overflow-container__info__completed-icon"
+								className="fa fa-check list-sidebar-container__table__row__data__ellipsis-container__info__completed-icon"
 								aria-hidden="true"
 							/>
 						)}

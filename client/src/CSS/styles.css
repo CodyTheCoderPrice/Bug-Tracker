@@ -327,28 +327,25 @@
   margin: 0px auto;
   padding-top: 10px;
 }
-.nav-panel-component .tables-container {
+.nav-panel-component .button-list-container {
   height: 90vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.nav-panel-table-component {
-  position: relative;
-  padding-top: 10px;
-  width: 250px;
+.nav-panel-button-list-component {
+  padding: 10px 10px;
+  width: auto;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.nav-panel-table-component .table {
-  display: block;
-  padding: 0 5px;
-  width: 250px;
-}
-.nav-panel-table-component .table__row,
-.nav-panel-table-component .nav-panel-table-row-component {
+.nav-panel-button-list-component .item, .nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
+  display: flex;
+  border-radius: 5px;
+  padding-left: 32px;
   height: 40px;
   cursor: pointer;
+  align-items: center;
   -webkit-user-select: none;
   /* Safari */
   -ms-user-select: none;
@@ -356,34 +353,21 @@
   user-select: none;
   /* Standard syntax */
 }
-.nav-panel-table-component .table__empty-row {
-  height: 8.3333333333px;
-  cursor: default;
-}
-.nav-panel-table-component .table__row__header {
-  padding: 0;
-  text-align: left;
-}
-.nav-panel-table-component .table__row__header__info {
+.nav-panel-button-list-component .item {
   padding: 0px 10px;
 }
-.nav-panel-table-component .table__row__header__info i {
+.nav-panel-button-list-component .item__icon {
   padding-right: 8px;
 }
-.nav-panel-table-component .table__row__data {
-  padding: 0 0 0 15px;
+.nav-panel-button-list-component .item--selected, .nav-panel-button-list-component .sub-item--selected {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01), -1px 1px 1px rgba(0, 0, 0, 0.01);
 }
-.nav-panel-table-component .table__row__data__overflow-container {
-  width: 225px;
-  max-width: 225px;
+.nav-panel-button-list-component .sub-item__ellipsis-container {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.nav-panel-table-component .table__row__data__overflow-container__info {
-  cursor: pointer;
-}
-.nav-panel-table-component .table__row__data__overflow-container__info__completed-icon {
+.nav-panel-button-list-component .sub-item__ellipsis-container__completed-icon {
   margin-right: 5px;
 }
 
@@ -1985,8 +1969,8 @@ dropdown can overlap all other components
   position: relative;
   cursor: default;
 }
-.item-view-list-sidebar-component .list-sidebar-container__table__row__data__overflow-container,
-.js-get-item-view-list-sidebar-component .list-sidebar-container__table__row__data__overflow-container {
+.item-view-list-sidebar-component .list-sidebar-container__table__row__data__ellipsis-container,
+.js-get-item-view-list-sidebar-component .list-sidebar-container__table__row__data__ellipsis-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1997,12 +1981,12 @@ dropdown can overlap all other components
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.item-view-list-sidebar-component .list-sidebar-container__table__row__data__overflow-container--completed-color,
-.js-get-item-view-list-sidebar-component .list-sidebar-container__table__row__data__overflow-container--completed-color {
+.item-view-list-sidebar-component .list-sidebar-container__table__row__data__ellipsis-container--completed-color,
+.js-get-item-view-list-sidebar-component .list-sidebar-container__table__row__data__ellipsis-container--completed-color {
   color: #008600;
 }
-.item-view-list-sidebar-component .list-sidebar-container__table__row__data__overflow-container__info__completed-icon,
-.js-get-item-view-list-sidebar-component .list-sidebar-container__table__row__data__overflow-container__info__completed-icon {
+.item-view-list-sidebar-component .list-sidebar-container__table__row__data__ellipsis-container__info__completed-icon,
+.js-get-item-view-list-sidebar-component .list-sidebar-container__table__row__data__ellipsis-container__info__completed-icon {
   margin-right: 5px;
   color: #008600;
 }

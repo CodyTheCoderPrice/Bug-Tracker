@@ -10,19 +10,19 @@ import { getCommonStandardBackgroundColorClassNameForTheme } from "../../../../u
 import bugTrackerLogo from "../../../../images/bug-tracker-logo.svg";
 
 // Components
-import NavPanelTable from "./NavPanelTable";
+import NavPanelButtonList from "./NavPanelButtonList";
 
 export default function NavPanel() {
 	const reduxState = useSelector((state) => state);
 
-	// Resize tables-container height to fit window when smaller than it
+	// Resize button-list-container height to fit window when smaller than it
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].variables.window !== null &&
 			reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight !== null
 		) {
 			let tablesConatinerElement = document.getElementsByClassName(
-				"js-tables-container"
+				"js-button-list-container"
 			)[0];
 
 			const adjustedWindowHeight =
@@ -53,11 +53,11 @@ export default function NavPanel() {
 					alt="LOGO: Bug Tracker created by Cody Price"
 				/>
 			</div>
-			<div className="tables-container js-tables-container">
-				<NavPanelTable reduxContainerName={PROJECT_CONTAINER} />
+			<div className="button-list-container js-button-list-container">
+				<NavPanelButtonList reduxContainerName={PROJECT_CONTAINER} />
 				{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 				null ? null : (
-					<NavPanelTable reduxContainerName={BUG_CONTAINER} />
+					<NavPanelButtonList reduxContainerName={BUG_CONTAINER} />
 				)}
 			</div>
 		</div>

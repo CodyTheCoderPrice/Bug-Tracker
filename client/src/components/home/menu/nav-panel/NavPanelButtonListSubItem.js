@@ -6,21 +6,22 @@ import {
 	switchToProjectOrBugItemViewAndCurrentItem,
 } from "../../../../utils";
 
-export default function NavPanelTableRow(props) {
+export default function NavPanelButtonListSubItem(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	return (
-		<tr
+		<div
 			className={
-				"nav-panel-table-row-component" +
+				"nav-panel-button-list-sub-item-component" +
 				(reduxState[props.reduxContainerName].componentsDisplay
 					.itemViewComponentShouldDisplay === true &&
 				reduxState[props.reduxContainerName].componentsDisplay
 					.itemViewCurrentItem !== null &&
 				reduxState[props.reduxContainerName].componentsDisplay
 					.itemViewCurrentItem.id === props.item.id
-					? getCommonBrighterBackgroundColorClassNameForTheme(
+					? " sub-item--selected" +
+					  getCommonBrighterBackgroundColorClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 					  )
 					: "")
@@ -34,21 +35,17 @@ export default function NavPanelTableRow(props) {
 				)
 			}
 		>
-			<td className="table__row__data">
-				<div className="table__row__data__overflow-container">
-					<span className="table__row__data__overflow-container__info">
-						{props.item.status_id !==
-						reduxState[props.reduxContainerName].priorityStatusOptions
-							.statusCompletionId ? null : (
-							<i
-								className="fa fa-check table__row__data__overflow-container__info__completed-icon"
-								aria-hidden="true"
-							/>
-						)}
-						{props.item.name}
-					</span>
-				</div>
-			</td>
-		</tr>
+			<div className="sub-item__ellipsis-container">
+				{props.item.status_id !==
+				reduxState[props.reduxContainerName].priorityStatusOptions
+					.statusCompletionId ? null : (
+					<i
+						className="fa fa-check sub-item__ellipsis-container__completed-icon"
+						aria-hidden="true"
+					/>
+				)}
+				{props.item.name}
+			</div>
+		</div>
 	);
 }
