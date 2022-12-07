@@ -27,7 +27,7 @@
 	}
 
 	.item__icon {
-		padding-right: v.$nav-panel-button-list-main-item-icon-padding-left;
+		padding-right: v.$nav-panel-button-list-main-item-icon-padding-right;
 	}
 
 	.item--selected, .sub-item--selected {
@@ -40,7 +40,7 @@
 		text-overflow: ellipsis;
 	}
 
-	.sub-item__ellipsis-container__completed-icon {
+	.sub-item__ellipsis-container__icon {
 		margin-right: 5px;
 	}
 }

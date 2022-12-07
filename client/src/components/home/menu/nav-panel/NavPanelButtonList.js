@@ -21,7 +21,7 @@ const getProjectsButtonText = () => {
 				aria-hidden="true"
 				alt="Icon of a folder"
 			/>
-			All Projects
+			Projects
 		</span>
 	);
 };

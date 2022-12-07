@@ -342,7 +342,7 @@
 .nav-panel-button-list-component .item, .nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
   display: flex;
   border-radius: 5px;
-  padding-left: 32px;
+  padding-left: 34px;
   height: 40px;
   cursor: pointer;
   align-items: center;
@@ -357,7 +357,7 @@
   padding: 0px 10px;
 }
 .nav-panel-button-list-component .item__icon {
-  padding-right: 8px;
+  padding-right: 10px;
 }
 .nav-panel-button-list-component .item--selected, .nav-panel-button-list-component .sub-item--selected {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01), -1px 1px 1px rgba(0, 0, 0, 0.01);
@@ -367,7 +367,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.nav-panel-button-list-component .sub-item__ellipsis-container__completed-icon {
+.nav-panel-button-list-component .sub-item__ellipsis-container__icon {
   margin-right: 5px;
 }
 

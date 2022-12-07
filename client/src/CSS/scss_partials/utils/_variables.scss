@@ -575,9 +575,9 @@ $common-top-bar-search-bar-padding: 8px;
 // Specific (i.e. used by specific component)
 $nav-panel-button-list-padding-left-right: 10px;
 $nav-panel-button-list-main-item-padding-left-right: 10px;
-$nav-panel-button-list-main-item-icon-padding-left: 8px;
+$nav-panel-button-list-main-item-icon-padding-right: 10px;
 $nav-panel-button-list-sub-item-padding-left: $nav-panel-button-list-main-item-padding-left-right +
-	$nav-panel-button-list-main-item-icon-padding-left + 14; // 14 is the size of a main icon at the current font size
+	$nav-panel-button-list-main-item-icon-padding-right + 14; // 14 is the size of a main icon at the current font size
 $navbar-button-text-container-padding: 0 14px 0 14px;
 $account-sidebar-padding-top: 32px;
 $account-sidebar-padding-left-right: 18px;
