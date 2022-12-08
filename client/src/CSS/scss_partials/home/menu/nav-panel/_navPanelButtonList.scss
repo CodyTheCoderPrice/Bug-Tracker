@@ -12,7 +12,7 @@
 		display: flex;
 		border-radius: 5px;
 		// Padding only used by sub-items. Overwritten for main items.
-		padding-left: v.$nav-panel-button-list-sub-item-padding-left;
+		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
 		height: 40px;
 		cursor: pointer;
 		align-items: center;
