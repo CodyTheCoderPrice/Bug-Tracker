@@ -36,6 +36,9 @@ import {
 	useSidebarResize,
 	useSubmitFormOnEnterPress,
 } from "../../../../utils/hooks";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function ListViewCreateItemSidebar(props) {
 	const reduxState = useSelector((state) => state);
@@ -183,7 +186,7 @@ export default function ListViewCreateItemSidebar(props) {
 					}
 					onClick={closeCreateItemSidebar}
 				>
-					<i className="fa fa-times" aria-hidden="true" alt="Icon of an X"></i>
+					<FontAwesomeIcon icon={faXmark} aria-hidden="true" />
 				</div>
 				<div className="padded-container">
 					<h1

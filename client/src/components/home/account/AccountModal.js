@@ -8,6 +8,9 @@ import {
 	setTrueForOnlyAccountModalEditInfo,
 	setTrueForOnlyAccountSidebar,
 } from "../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faXmark } from "@fortawesome/free-solid-svg-icons";
 // Other components used by this component
 import AccountModalEditInfo from "./AccountModalEditInfo";
 import AccountModalEditEmail from "./AccountModalEditEmail";
@@ -62,11 +65,7 @@ export default function AccountModal() {
 						alt="Button to return to editing account info"
 						onClick={() => setTrueForOnlyAccountModalEditInfo(dispatch)}
 					>
-						<i
-							className="fa fa-arrow-left"
-							aria-hidden="true"
-							alt="Icon of an arrow pointing to the left"
-						/>
+						<FontAwesomeIcon icon={faArrowLeft} alt="Icon of an arrow pointing to the left"/>
 					</div>
 				) : null}
 				<div
@@ -79,7 +78,7 @@ export default function AccountModal() {
 					alt="Button to close the account modal"
 					onClick={() => setTrueForOnlyAccountSidebar(dispatch)}
 				>
-					<i className="fa fa-times" aria-hidden="true" alt="icon of an X"></i>
+					<FontAwesomeIcon icon={faXmark} alt="icon of an X"/>
 				</div>
 				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
 					.accountModalEditInfoComponentShouldDisplay ? (

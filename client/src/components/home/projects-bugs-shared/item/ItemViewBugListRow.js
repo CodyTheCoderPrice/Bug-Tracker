@@ -7,6 +7,9 @@ import {
 	getCommonStatusBackgroundColorClassName,
 	getCommonWeakElementTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function ItemViewBugListRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -46,8 +49,9 @@ export default function ItemViewBugListRow(props) {
 					{props.item.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
-						<i
-							className="fa fa-check bug-list-table__row__data__info__completed-icon"
+						<FontAwesomeIcon
+							icon={faCheck}
+							className="bug-list-table__row__data__info__completed-icon"
 							aria-hidden="true"
 						/>
 					)}

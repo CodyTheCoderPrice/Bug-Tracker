@@ -18,6 +18,9 @@ import {
 	getItemViewListSidebarItemRowComponentSelectedBackgroundColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function ItemViewListSidebarItemRow(props) {
 	const reduxState = useSelector((state) => state);
@@ -121,8 +124,9 @@ export default function ItemViewListSidebarItemRow(props) {
 						{props.item.status_id !==
 						reduxState[props.reduxContainerName].priorityStatusOptions
 							.statusCompletionId ? null : (
-							<i
-								className="fa fa-check list-sidebar-container__table__row__data__ellipsis-container__info__completed-icon"
+							<FontAwesomeIcon
+								icon={faCheck}
+								className="list-sidebar-container__table__row__data__ellipsis-container__info__completed-icon"
 								aria-hidden="true"
 							/>
 						)}

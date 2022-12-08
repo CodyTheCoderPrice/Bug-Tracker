@@ -10,16 +10,19 @@ import {
 	switchToBugsListView,
 	getSearchedFilteredSortedList,
 } from "../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolder, faBug } from "@fortawesome/free-solid-svg-icons";
 // Components
 import NavPanelButtonListSubItem from "./NavPanelButtonListSubItem";
 
 const getProjectsButtonText = () => {
 	return (
 		<span>
-			<i
-				className="fa fa-folder item__icon"
+			<FontAwesomeIcon
+				icon={faFolder}
+				className="item__icon"
 				aria-hidden="true"
-				alt="Icon of a folder"
 			/>
 			Projects
 		</span>
@@ -29,11 +32,7 @@ const getProjectsButtonText = () => {
 const getBugsButtonText = () => {
 	return (
 		<span>
-			<i
-				className="fa fa-bug item__icon "
-				aria-hidden="true"
-				alt="Icon of a bug"
-			/>
+			<FontAwesomeIcon icon={faBug} className="item__icon" aria-hidden="true" />
 			Bugs
 		</span>
 	);

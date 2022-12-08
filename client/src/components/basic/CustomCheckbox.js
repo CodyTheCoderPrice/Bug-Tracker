@@ -1,19 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { getCustomCheckboxComponentBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode } from "../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCheck} from "@fortawesome/free-solid-svg-icons";
 
 /**
  * React functional component for a custom checkbox element with border,
  * background, and text colors specific to the theme + light/dark mode.
- * 
+ *
  * Component needs several properties passed in order to work. An example of
  * those properties is below.
- * 
+ *
  * @component
  * @example
  * name = "priorityFilter"
  * value = 1
- * onChangeFunction=(e) => { 
+ * onChangeFunction=(e) => {
  * 	// Do something (i.e. update redux)
  * }
  * isChecked = !reduxState["PROJECT_CONTAINER"].searchFilterSort.priorityFilter
@@ -51,7 +54,7 @@ export default function CustomCheckbox(props) {
 				}
 			/>
 			{isChecked ? (
-				<i className="fa fa-check checkmark" aria-hidden="true" />
+				<FontAwesomeIcon icon={faCheck} className="checkmark" alt="Icon of a checkmark"/>
 			) : null}
 		</div>
 	);

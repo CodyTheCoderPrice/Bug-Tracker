@@ -38,6 +38,9 @@ import {
 	usePerserveCompletetionDate,
 	useSubmitFormOnEnterPress,
 } from "../../../../utils/hooks";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function ItemViewEditItemInfo(props) {
 	const reduxState = useSelector((state) => state);
@@ -203,8 +206,9 @@ export default function ItemViewEditItemInfo(props) {
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
 						<div className="name-centering-container__completed-icon-centering-container">
-							<i
-								className="fa fa-check name-centering-container__completed-icon-centering-container__icon"
+							<FontAwesomeIcon
+								icon={faCheck}
+								className="name-centering-container__completed-icon-centering-container__icon"
 								aria-hidden="true"
 							/>
 						</div>

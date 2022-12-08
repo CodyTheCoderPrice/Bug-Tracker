@@ -15,6 +15,12 @@ import {
 	getItemViewListSidebarComponentExpandMinimizeButtonElementBorderAndBackgroundColorClassNameForLightOrDarkMode,
 	getSearchedFilteredSortedList,
 } from "../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faChevronLeft,
+	faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import ItemViewListSidebarRow from "./ItemViewListSidebarItemRow";
@@ -40,7 +46,8 @@ export default function ItemViewListSidebar(props) {
 				reduxState[SIZE_CONTAINER].variables.navbar.height -
 				reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight;
 
-			itemViewListSidebarContainerElement.style.height = adjustedWindowHeight + "px";
+			itemViewListSidebarContainerElement.style.height =
+				adjustedWindowHeight + "px";
 
 			console.log(itemViewListSidebarContainerElement.style.height);
 		}
@@ -90,15 +97,13 @@ export default function ItemViewListSidebar(props) {
 					<div className="expand-minimize-button__centering-container__icon-container">
 						{reduxState[GENERAL_CONTAINER].componentsDisplay
 							.itemViewListSidebarComponentContainerElementExpanded ? (
-							<i
-								className="fa fa-chevron-left"
-								aria-hidden="true"
+							<FontAwesomeIcon
+								icon={faChevronLeft}
 								alt="Icon of an arrow pointing left"
 							/>
 						) : (
-							<i
-								className="fa fa-chevron-right"
-								aria-hidden="true"
+							<FontAwesomeIcon
+								icon={faChevronRight}
 								alt="Icon of an arrow pointing right"
 							/>
 						)}

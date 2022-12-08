@@ -17,6 +17,9 @@ import {
 	getAccountSidebarComponentLogoutButtonElementBorderHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../utils";
 import { useSidebarResize } from "../../../utils/hooks";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCog } from "@fortawesome/free-solid-svg-icons";
 // Other components used by this component
 import AccountSidebarEditAppearance from "./AccountSidebarEditAppearance";
 
@@ -90,11 +93,7 @@ export default function AccountSidebar() {
 					alt="Button to open account settings"
 					onClick={openOnlyEditSettingsModal}
 				>
-					<i
-						className="fa fa-cog"
-						aria-hidden="true"
-						alt="Icon of a settings cog"
-					/>
+					<FontAwesomeIcon icon={faCog} alt="Icon of a settings cog" />
 				</div>
 				<div className="padded-container">
 					<div className="account-info-container">

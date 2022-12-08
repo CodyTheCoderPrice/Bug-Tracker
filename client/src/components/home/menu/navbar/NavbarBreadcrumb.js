@@ -23,6 +23,9 @@ import {
 	setTrueForOnlyProjectListViewAndCreateItemSidebar,
 	closeBugItemView,
 } from "../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolder, faXmark, faBug } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavbarBreadcrumb(props) {
 	const reduxState = useSelector((state) => state);
@@ -177,12 +180,7 @@ export default function NavbarBreadcrumb(props) {
 					onClick={() => switchToProjectsListView(reduxState, dispatch)}
 				>
 					<div className="breadcrumb-button__text js-breadcrumb-project-list-button-text">
-						<i
-							className="fa fa-folder"
-							aria-hidden="true"
-							alt="Icon of a folder"
-						/>{" "}
-						Projects
+						<FontAwesomeIcon icon={faFolder} aria-hidden="true" /> Projects
 					</div>
 					<div
 						// Background color must be made that of the navbar
@@ -289,9 +287,9 @@ export default function NavbarBreadcrumb(props) {
 									}
 								/>
 								<div className="breadcrumb-button__end-container__border-arrow" />
-								<i
-									className="fa fa-times breadcrumb-button__end-container__close-icon-button"
-									aria-hidden="true"
+								<FontAwesomeIcon
+									icon={faXmark}
+									className="breadcrumb-button__end-container__close-icon-button"
 									alt={
 										"Icon of an X. If clicked, will close the " +
 										reduxState[PROJECT_CONTAINER].componentsDisplay
@@ -327,12 +325,7 @@ export default function NavbarBreadcrumb(props) {
 							onClick={() => switchToBugsListView(reduxState, dispatch)}
 						>
 							<div className="breadcrumb-button__text js-breadcrumb-bug-list-button-text">
-								<i
-									className="fa fa-bug"
-									aria-hidden="true"
-									alt="Icon of a bug"
-								/>{" "}
-								Bugs
+								<FontAwesomeIcon icon={faBug} aria-hidden="true" /> Bugs
 							</div>
 							<div
 								// Background-color must be made same as the navbar
@@ -437,9 +430,9 @@ export default function NavbarBreadcrumb(props) {
 												  ))
 										}
 									/>
-									<i
-										className="fa fa-times breadcrumb-button__end-container__close-icon-button"
-										aria-hidden="true"
+									<FontAwesomeIcon
+										icon={faXmark}
+										className="breadcrumb-button__end-container__close-icon-button"
 										alt={
 											"Icon of an X. If clicked, will close the " +
 											reduxState[BUG_CONTAINER].componentsDisplay

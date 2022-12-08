@@ -12,6 +12,9 @@ import {
 	getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
 	getItemViewTopBarOptionsButtonComponentWithDropdownDisplayedBorderBackgroundTextColorClassNameForLightOrDarkMode,
 } from "../../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 export default function ItemViewTopBarOptionsButton(props) {
 	const reduxState = useSelector((state) => state);
@@ -49,11 +52,7 @@ export default function ItemViewTopBarOptionsButton(props) {
 			}
 			onClick={toggleOptionsDropdown}
 		>
-			<i
-				className="fa fa-ellipsis-h item-view-top-bar-options-button-component__centered-icon"
-				aria-hidden="true"
-				alt="Icon of an ellipsis (i.e. three dots)"
-			/>
+			<FontAwesomeIcon icon={faEllipsis} aria-hidden="true" />
 		</div>
 	);
 }

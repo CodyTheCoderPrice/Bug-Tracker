@@ -25,6 +25,9 @@ import {
 	getNumberOfBugsForStatus,
 	getBugsInProjectList,
 } from "../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import CustomCheckbox from "../../../basic/CustomCheckbox";
@@ -126,8 +129,9 @@ export default function ListViewTableItemRow(props) {
 							{props.item.status_id !==
 							reduxState[props.reduxContainerName].priorityStatusOptions
 								.statusCompletionId ? null : (
-								<i
-									className="fa fa-check list-table__row__data__info__completed-icon"
+								<FontAwesomeIcon
+									icon={faCheck}
+									className="list-table__row__data__info__completed-icon"
 									aria-hidden="true"
 								/>
 							)}

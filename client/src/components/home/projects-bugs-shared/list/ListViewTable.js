@@ -19,6 +19,9 @@ import {
 	getSearchedFilteredSortedList,
 	getListViewComponentEmptyListMessageElementTextColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquare, faSquareCheck, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 // Components
 import ListTableRow from "./ListViewTableItemRow";
@@ -137,7 +140,6 @@ export default function ListViewTable(props) {
 		onclickfunction,
 		iconClassName,
 		buttonAltText,
-		iconAltText
 	) => {
 		return (
 			<div
@@ -150,11 +152,7 @@ export default function ListViewTable(props) {
 				alt={buttonAltText}
 				onClick={onclickfunction}
 			>
-				<i
-					className={"fa " + iconClassName}
-					aria-hidden="true"
-					alt={iconAltText}
-				/>
+				<FontAwesomeIcon icon={iconClassName} aria-hidden="true" />
 			</div>
 		);
 	};
@@ -180,34 +178,31 @@ export default function ListViewTable(props) {
 											props.reduxContainerName
 										).length,
 									checkAllItems,
-									"fa-check-square-o",
+									faSquareCheck,
 									"Button to check all " +
 										(props.reduxContainerName === PROJECT_CONTAINER
 											? "projects"
-											: "bugs"),
-									"Icon of a check mark inside a square"
+											: "bugs")
 								)}
 								{createMassDeleteButton(
 									reduxState[props.reduxContainerName].massDeleteList.length >
 										0,
 									uncheckAllItems,
-									"fa-square-o",
+									faSquare,
 									"Button to uncheck all " +
 										(props.reduxContainerName === PROJECT_CONTAINER
 											? "projects"
-											: "bugs"),
-									"Icon of an empty square"
+											: "bugs")
 								)}
 								{createMassDeleteButton(
 									reduxState[props.reduxContainerName].massDeleteList.length >
 										0,
 									openDeleteModalForMassItems,
-									"fa-trash-o",
+									faTrashCan,
 									"Button to delete all checked " +
 										(props.reduxContainerName === PROJECT_CONTAINER
 											? "projects"
-											: "bugs"),
-									"Icon of a trash can"
+											: "bugs")
 								)}
 							</div>
 						</th>

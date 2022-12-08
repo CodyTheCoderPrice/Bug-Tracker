@@ -12,6 +12,9 @@ import {
 	getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 export default function ItemViewTopBarFilterButton(props) {
 	const reduxState = useSelector((state) => state);
@@ -62,8 +65,7 @@ export default function ItemViewTopBarFilterButton(props) {
 						: "")
 				}
 			>
-				<i className="fa fa-filter" aria-hidden="true" alt="Icon of a filter" />{" "}
-				Filter
+				<FontAwesomeIcon icon={faFilter} arria-hidden="true" /> Filter
 			</span>
 		</div>
 	);

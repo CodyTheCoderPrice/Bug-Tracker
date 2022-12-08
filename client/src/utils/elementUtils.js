@@ -4,6 +4,9 @@ import {
 	isEmpty,
 	getCommonElementGrayedOutTextColorClassNameForLightOrDarkMode,
 } from "./index";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * If 'backendError' param isn't empty, then JSX for the backend error is returned.
@@ -28,11 +31,7 @@ export function getBackendErrorJSX(backendError, desiredClassName) {
 	} else {
 		return (
 			<span className={desiredClassName}>
-				<i
-					className="fa fa-exclamation-circle"
-					aria-hidden="true"
-					alt="Icon of an exlamation sign"
-				/>
+				<FontAwesomeIcon icon={faCircleExclamation} aria-hidden="true" />{" "}
 				{backendError}
 			</span>
 		);

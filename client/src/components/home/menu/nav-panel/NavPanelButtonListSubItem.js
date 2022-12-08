@@ -5,6 +5,8 @@ import {
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectOrBugItemViewAndCurrentItem,
 } from "../../../../utils";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavPanelButtonListSubItem(props) {
 	const reduxState = useSelector((state) => state);
@@ -38,10 +40,15 @@ export default function NavPanelButtonListSubItem(props) {
 			<div className="sub-item__ellipsis-container">
 				{props.item.status_id !==
 				reduxState[props.reduxContainerName].priorityStatusOptions
-					.statusCompletionId ? null : (
-					<i
-						className="fa fa-check sub-item__ellipsis-container__completed-icon"
-						aria-hidden="true"
+					.statusCompletionId ? (
+					<FontAwesomeIcon
+						icon={faMinus}
+						className="sub-item__ellipsis-container__icon"
+					/>
+				) : (
+					<FontAwesomeIcon
+						icon={faCheck}
+						className="sub-item__ellipsis-container__icon"
 					/>
 				)}
 				{props.item.name}

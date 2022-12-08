@@ -20,6 +20,9 @@ import {
 	getCommonTopBarComponentSearchContainerElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getItemViewTopBarComponentIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode,
 } from "../../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import ItemViewTopBarFilterButton from "./ItemViewTopBarFilterButton";
@@ -112,11 +115,7 @@ export default function ItemViewTopBar(props) {
 						onClick={updateSearchKeyWordString}
 					>
 						<span className="search-container__search-button__icon">
-							<i
-								className="fa fa-search"
-								aria-hidden="true"
-								alt="Icon of a magnifying glass"
-							/>
+							<FontAwesomeIcon icon={faSearch} aria-hidden="true" />
 						</span>
 					</div>
 				</div>
@@ -176,7 +175,7 @@ export default function ItemViewTopBar(props) {
 				}
 				onClick={closeItemView}
 			>
-				<i className="fa fa-times" aria-hidden="true" alt="Icon of an X"></i>
+				<FontAwesomeIcon icon={faXmark} aria-hidden="true" />
 			</div>
 		</div>
 	);

@@ -19,9 +19,16 @@ import {
 	setTrueForOnlyProjectListViewAndCreateItemSidebar,
 	closeBugItemView,
 } from "../../../../utils";
-
 import bendyArrowModeLight from "../../../../images/bendy-arrow-for-mode-light.svg";
 import bendyArrowModeDark from "../../../../images/bendy-arrow-for-mode-dark.svg";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faBars,
+	faFolder,
+	faXmark,
+	faBug,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function NavbarHamburgerDropdown() {
 	const reduxState = useSelector((state) => state);
@@ -80,10 +87,10 @@ export default function NavbarHamburgerDropdown() {
 				alt="Navbar hamburger dropdown option to close dropdown"
 				onClick={(e) => toggleHamburgerDropdown(e, reduxState, dispatch)}
 			>
-				<div className="hamburger-dropdown__top-space">
-					<i
-						className="fa fa-bars hamburger-dropdown__top-space__icon"
-						aria-hidden="true"
+				<div className="hamburger-dropdown__top-space" aria-hidden="true">
+					<FontAwesomeIcon
+						icon={faBars}
+						className="hamburger-dropdown__top-space__icon"
 					/>
 				</div>
 				<div
@@ -101,8 +108,9 @@ export default function NavbarHamburgerDropdown() {
 					alt="Navbar hamburger dropdown option to open the list of projects"
 					onClick={() => switchToProjectsListView(reduxState, dispatch)}
 				>
-					<i
-						className="fa fa-folder hamburger-dropdown__row-button__icon"
+					<FontAwesomeIcon
+						icon={faFolder}
+						className="hamburger-dropdown__row-button__icon"
 						aria-hidden="true"
 					/>{" "}
 					Projects
@@ -138,9 +146,9 @@ export default function NavbarHamburgerDropdown() {
 							reduxState[PROJECT_CONTAINER].componentsDisplay
 								.itemViewCurrentItem.name
 						}
-						<i
-							className="fa fa-times hamburger-dropdown__row-button__close-icon-button"
-							aria-hidden="true"
+						<FontAwesomeIcon
+							icon={faXmark}
+							className="hamburger-dropdown__row-button__close-icon-button"
 							alt={
 								"Icon of an X. If clicked, will close the " +
 								reduxState[PROJECT_CONTAINER].componentsDisplay
@@ -183,8 +191,9 @@ export default function NavbarHamburgerDropdown() {
 							}
 							alt="Arrow pointing from the button above to this button signifying this is to open a table of bugs belonging to that particular project"
 						/>
-						<i
-							className="fa fa-bug hamburger-dropdown__row-button__icon"
+						<FontAwesomeIcon
+							icon={faBug}
+							className="hamburger-dropdown__row-button__icon"
 							aria-hidden="true"
 						/>{" "}
 						Bugs
@@ -221,9 +230,9 @@ export default function NavbarHamburgerDropdown() {
 							reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
 								.name
 						}
-						<i
-							className="fa fa-times hamburger-dropdown__row-button__close-icon-button"
-							aria-hidden="true"
+						<FontAwesomeIcon
+							icon={faXmark}
+							className="hamburger-dropdown__row-button__close-icon-button"
 							alt={
 								"Icon of an X. If clicked, will close the " +
 								reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem

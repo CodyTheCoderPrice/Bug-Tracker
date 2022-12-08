@@ -12,8 +12,6 @@ import {
 // Other components used by this component
 import Authentication from "./authentication/Authentication";
 import Home from "./home/Home";
-// Allows font awesome icons
-import "font-awesome/css/font-awesome.min.css";
 // Css file is applied to all components throughout app
 import "../CSS/styles.css";
 

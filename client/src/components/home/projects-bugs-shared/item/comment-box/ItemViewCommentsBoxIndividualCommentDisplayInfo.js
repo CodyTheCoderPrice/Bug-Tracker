@@ -12,6 +12,9 @@ import {
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode,
 } from "../../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 export default function ItemViewCommentsBoxIndividualCommentDisplayInfo(props) {
 	const reduxState = useSelector((state) => state);
@@ -59,11 +62,7 @@ export default function ItemViewCommentsBoxIndividualCommentDisplayInfo(props) {
 					alt="Button to begin editing the comment above"
 					onClick={switchToEditingComment}
 				>
-					<i
-						className="fa fa-pencil-square-o"
-						aria-hidden="true"
-						alt="Icon of a pencil"
-					/>
+					<FontAwesomeIcon icon={faPenToSquare} aria-hidden="true" />
 				</div>
 				<div
 					className={
@@ -75,11 +74,7 @@ export default function ItemViewCommentsBoxIndividualCommentDisplayInfo(props) {
 					alt="Button to delete the comment above"
 					onClick={openDeleteCommentModal}
 				>
-					<i
-						className="fa fa-trash-o"
-						aria-hidden="true"
-						alt="Icon of a trash can"
-					/>
+					<FontAwesomeIcon icon={faTrashCan} aria-hidden="true"  />
 				</div>
 			</div>
 		</div>

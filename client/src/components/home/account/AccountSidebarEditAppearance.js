@@ -10,15 +10,18 @@ import {
 	getCommonStandardBackgroundColorClassNameForTheme,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 // Other components used by this component
 import ToggleSwitch from "../../basic/ToggleSwitch";
 
 /**
- * React functional component for displaying buttons used for changing the 
- * logged in account's settings for theme, as well as a toggle switch for 
- * chaning the settings for light/dark mode. 
+ * React functional component for displaying buttons used for changing the
+ * logged in account's settings for theme, as well as a toggle switch for
+ * chaning the settings for light/dark mode.
  *
- * This component should be used inside the AccountSidebar component. 
+ * This component should be used inside the AccountSidebar component.
  *
  * @component
  */
@@ -33,7 +36,7 @@ export default function AccountSidebarEditAppearance() {
 	 * 'theme_id' property to be that of this function's theme_id param
 	 *
 	 * @param {Event} e - Event created by element's onClick handler
-	 * @param {Number} theme_id - id for a theme in 'themes' property in 
+	 * @param {Number} theme_id - id for a theme in 'themes' property in
 	 * 'GENERAL_CONTAINER' of the redux state
 	 */
 	const onClickUpdateTheme = (e, theme_id) => {
@@ -87,9 +90,10 @@ export default function AccountSidebarEditAppearance() {
 				onClick={(e) => onClickUpdateTheme(e, theme_id)}
 			>
 				{reduxState[ACCOUNT_CONTAINER].settings.theme_id === theme_id ? (
-					<i
-						className="fa fa-check checkmark content-container__theme-option__selected-checkmark"
-						aria-hidden="true"
+					<FontAwesomeIcon
+						icon={faCheck}
+						className="checkmark content-container__theme-option__selected-checkmark"
+						alt="Icon of a checkmark"
 					/>
 				) : null}
 			</div>

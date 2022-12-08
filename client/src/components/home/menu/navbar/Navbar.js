@@ -16,6 +16,9 @@ import {
 } from "../../../../actions";
 
 import { getCommonStandardBackgroundColorClassNameForTheme } from "../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import NavbarBreadcrumb from "./NavbarBreadcrumb";
@@ -94,8 +97,7 @@ export default function Navbar() {
 					className="navbar__account-button__text"
 					onClick={openAccountSidebar}
 				>
-					<i className="fa fa-fw fa-user" alt="Icon of a user" />
-					Account
+					<FontAwesomeIcon icon={faUser} aria-hidden="true" /> Account
 				</div>
 			</div>
 		</div>

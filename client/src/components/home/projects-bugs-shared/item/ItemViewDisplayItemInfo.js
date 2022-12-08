@@ -15,6 +15,9 @@ import {
 	displayGrayedOutAlternativeWhenValueIsEmpty,
 	formatDateMMddYYYY,
 } from "../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function ItemViewDisplayItemInfo(props) {
 	const reduxState = useSelector((state) => state);
@@ -78,10 +81,10 @@ export default function ItemViewDisplayItemInfo(props) {
 						.itemViewCurrentItem.status_id !==
 					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? null : (
-						<i
-							className="fa fa-check name-completed-icon"
+						<FontAwesomeIcon
+							icon={faCheck}
+							className="name-completed-icon"
 							aria-hidden="true"
-							alt="Icon of a check mark"
 						/>
 					)}
 					{

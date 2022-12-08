@@ -22,6 +22,9 @@ import {
 } from "../../../../utils";
 
 import { useListViewSearchBarResize } from "../../../../utils/hooks";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // Other components used by this component
 import ListViewTopBarFilterButton from "./ListViewTopBarFilterButton";
@@ -141,11 +144,7 @@ export default function ListViewTopBar(props) {
 						onClick={updateSearchKeyWordString}
 					>
 						<span className="search-centering-container__centered-container__search-button__icon">
-							<i
-								className="fa fa-search"
-								aria-hidden="true"
-								alt="Icon of a magnifying glass"
-							/>
+							<FontAwesomeIcon icon={faSearch} aria-hidden="true" />
 						</span>
 					</div>
 				</div>

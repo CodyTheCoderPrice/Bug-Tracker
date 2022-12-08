@@ -1341,7 +1341,7 @@ body {
 		}
 
 		// For checkmark
-		& + i {
+		& + svg {
 			@if $is-light {
 				color: v.$mode-custom-checkmark-text-color-light;
 			} @else {
@@ -1350,7 +1350,7 @@ body {
 		}
 
 		// For checkmark
-		&:hover + i {
+		&:hover + svg {
 			@if $is-light {
 				color: $theme-mode-common-text-color-light;
 			} @else {

@@ -25,6 +25,9 @@ import {
 } from "../../../../../utils";
 
 import { useSubmitFormOnEnterPress } from "../../../../../utils/hooks";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 export default function ItemViewCommentsBoxIndividualCommentEditInfo(props) {
 	const reduxState = useSelector((state) => state);
@@ -154,11 +157,7 @@ export default function ItemViewCommentsBoxIndividualCommentEditInfo(props) {
 				alt="Button to delete the comment above"
 				onClick={openDeleteCommentModal}
 			>
-				<i
-					className="fa fa-trash-o"
-					aria-hidden="true"
-					alt="Icon of a trash can"
-				/>
+				<FontAwesomeIcon icon={faTrashCan}aria-hidden="true" />
 			</div>
 			<span
 				className={

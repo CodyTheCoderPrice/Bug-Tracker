@@ -9,6 +9,9 @@ import {
 import { setWhichGeneralDropdownsDisplay } from "../../../../../actions";
 
 import { getCommonTopBarComponentButtonAndDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode } from "../../../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSort } from "@fortawesome/free-solid-svg-icons";
 
 export default function ItemViewTopBarSortButton(props) {
 	const reduxState = useSelector((state) => state);
@@ -45,12 +48,7 @@ export default function ItemViewTopBarSortButton(props) {
 			onClick={toggleSortDropdown}
 		>
 			<span className={"item-view-top-bar-sort-button-component__text"}>
-				<i
-					className="fa fa-sort"
-					aria-hidden="true"
-					alt="Icon representing sorting"
-				/>{" "}
-				Sort
+				<FontAwesomeIcon icon={faSort} aria-hidden="true" /> Sort
 			</span>
 		</div>
 	);

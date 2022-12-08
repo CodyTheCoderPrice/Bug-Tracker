@@ -5,10 +5,7 @@ import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
-import {
-	clearBackendErrors,
-	updateAccountSettings,
-} from "../../../actions";
+import { clearBackendErrors, updateAccountSettings } from "../../../actions";
 import {
 	getAccountModalEditSettingsComponentCategoryContainerElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
@@ -16,20 +13,23 @@ import {
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
 	setTrueForOnlyAccountSidebar,
 } from "../../../utils";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter, faSort } from "@fortawesome/free-solid-svg-icons";
 // Other components used by this component
 import ToggleSwitch from "../../basic/ToggleSwitch";
 
 /**
- * React functional component for updating the logged in account's settings by 
- * selecting how they want projects/bugs to be filtered/sorted. Server issues 
- * will display error messages to explain what went wrong. Component includes 
- * link to return back to AccountSidebar component (as user would have used 
+ * React functional component for updating the logged in account's settings by
+ * selecting how they want projects/bugs to be filtered/sorted. Server issues
+ * will display error messages to explain what went wrong. Component includes
+ * link to return back to AccountSidebar component (as user would have used
  * that component to navigate to this one).
  *
- * The flag for displaying this component is 'accountModalEditSettingsComponentShouldDisplay' 
- * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux 
- * state. This component should be the child of the AccountModal component. 
- * This component should not be displayed along side any sibling components 
+ * The flag for displaying this component is 'accountModalEditSettingsComponentShouldDisplay'
+ * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux
+ * state. This component should be the child of the AccountModal component.
+ * This component should not be displayed along side any sibling components
  * whose name also begins with AccountModal (e.g. AccountModalEditInfo).
  *
  * @component
@@ -48,9 +48,9 @@ export default function AccountModalEditSettings() {
 	}, []);
 
 	/**
-	 * Function for onChange handler of input elements. Calls 
+	 * Function for onChange handler of input elements. Calls
 	 * updateAccountSettings action to attempt to update the account setting's
-	 * property (that of input element's name attribute) to have the value 
+	 * property (that of input element's name attribute) to have the value
 	 * selected through the input element.
 	 *
 	 * @param {Event} e - Event created by element's onChange handler
@@ -66,23 +66,21 @@ export default function AccountModalEditSettings() {
 	};
 
 	/**
-	 * To be called inside of select elements for sorting -- this function 
+	 * To be called inside of select elements for sorting -- this function
 	 * populates them by returning an option element for each category in
 	 * 'sortCategories' property of 'GENERAL_CONTAINER' of the redux state
-	 * 
+	 *
 	 * @returns {JSX} returns an option element for each category in
 	 * 'sortCategories' property of 'GENERAL_CONTAINER' of the redux state
 	 */
 	const getSortSelectOptions = () => {
-		return reduxState[GENERAL_CONTAINER].sortCategories.map(
-			(obj, idx) => {
-				return (
-					<option key={idx} value={obj.sort_id}>
-						{obj.category + (obj.marks_default ? " (default)" : "")}
-					</option>
-				);
-			}
-		);
+		return reduxState[GENERAL_CONTAINER].sortCategories.map((obj, idx) => {
+			return (
+				<option key={idx} value={obj.sort_id}>
+					{obj.category + (obj.marks_default ? " (default)" : "")}
+				</option>
+			);
+		});
 	};
 
 	return (
@@ -105,12 +103,7 @@ export default function AccountModalEditSettings() {
 						)
 					}
 				>
-					<i
-						className="fa fa-filter"
-						aria-hidden="true"
-						alt="Icon of a filter"
-					/>{" "}
-					Filter
+					<FontAwesomeIcon icon={faFilter} aria-hidden="true" /> Filter
 				</h2>
 				<div className="category-container__content-container category-container__content-container--smaller-top-margin">
 					<label className="category-container__content-container__label">
@@ -169,12 +162,7 @@ export default function AccountModalEditSettings() {
 						)
 					}
 				>
-					<i
-						className="fa fa fa-sort"
-						aria-hidden="true"
-						alt="Icon of a filter"
-					/>{" "}
-					Sort
+					<FontAwesomeIcon icon={faSort} aria-hidden="true" /> Sort
 				</h2>
 				<div className="category-container__content-container category-container__content-container--smaller-top-margin">
 					<label className="category-container__content-container__label">

@@ -342,7 +342,7 @@
 .nav-panel-button-list-component .item, .nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
   display: flex;
   border-radius: 5px;
-  padding-left: 34px;
+  padding: 0 5px 0 25px;
   height: 40px;
   cursor: pointer;
   align-items: center;
@@ -4289,12 +4289,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turkish:hover {
   border-color: #2388a1;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turkish + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turkish + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turkish + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turkish + svg {
   color: black;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turkish:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turkish:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turkish:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turkish:hover + svg {
   color: #2388a1;
 }
 .app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish,
@@ -4306,12 +4306,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish:hover {
   border-color: #5ab2d4;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish + svg {
   color: #c7d1db;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish:hover + svg {
   color: #5ab2d4;
 }
 .app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen,
@@ -4323,12 +4323,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen:hover {
   border-color: #195a8f;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen + svg {
   color: black;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen:hover + svg {
   color: #195a8f;
 }
 .app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen,
@@ -4340,12 +4340,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen:hover {
   border-color: #278de0;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen + svg {
   color: #c7d1db;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen:hover + svg {
   color: #278de0;
 }
 .app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky,
@@ -4357,12 +4357,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky:hover {
   border-color: #0091c2;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky + svg {
   color: black;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky:hover + svg {
   color: #0091c2;
 }
 .app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky,
@@ -4374,12 +4374,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky:hover {
   border-color: #20b8eb;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky + svg {
   color: #c7d1db;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky:hover + svg {
   color: #20b8eb;
 }
 .app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise,
@@ -4391,12 +4391,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise:hover {
   border-color: #04857c;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise + svg {
   color: black;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise:hover + svg {
   color: #04857c;
 }
 .app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise,
@@ -4408,12 +4408,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise:hover {
   border-color: #05c7ba;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise + svg {
   color: #c7d1db;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise:hover + svg {
   color: #05c7ba;
 }
 .app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain,
@@ -4425,12 +4425,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain:hover {
   border-color: #7e52a5;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain + svg {
   color: black;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain:hover + svg {
   color: #7e52a5;
 }
 .app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain,
@@ -4442,12 +4442,12 @@ body {
 .js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain:hover {
   border-color: #a982cc;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain + svg {
   color: #c7d1db;
 }
-.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain:hover + i,
-.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain:hover + i {
+.app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain:hover + svg,
+.js-get-app-component .js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain:hover + svg {
   color: #a982cc;
 }
 .app-component .js-get-toggle-switch-component-border-background-text-colors-mode-light-theme-blue-turkish > .toggle-switch,
