@@ -16,6 +16,7 @@ import {
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	dateToInt,
 } from "../../../../../utils";
@@ -30,7 +31,7 @@ export default function ItemViewCommentsBox() {
 	const dispatch = useDispatch();
 
 	const [commentInfo, setCommentInfo] = useState({
-		// Passing project and bug id so backend can verify the comment will 
+		// Passing project and bug id so backend can verify the comment will
 		// ...belong to a bug/project that belongs to the account
 		project_id:
 			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
@@ -56,7 +57,7 @@ export default function ItemViewCommentsBox() {
 		// eslint-disable-next-line
 	}, []);
 
-	// Resets commentInfo when the list of comments length increases (meaning 
+	// Resets commentInfo when the list of comments length increases (meaning
 	// ...comment was created) since the description should then be reset to empty
 	useEffect(() => {
 		if (reduxState[COMMENT_CONTAINER].list.length > previousCommmentsListSize) {
@@ -161,22 +162,19 @@ export default function ItemViewCommentsBox() {
 							)
 						}
 					/>
-					<span
-						className={
-							"backend-errors backend-errors--comment" +
+					{getBackendErrorsJSX(
+						[
+							reduxState[GENERAL_CONTAINER].backendErrors
+								.validationCreateCommentDescription,
+							reduxState[GENERAL_CONTAINER].backendErrors.validationComment,
+							reduxState[GENERAL_CONTAINER].backendErrors.serverItem,
+							reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+						],
+						"backend-errors" +
 							getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
-						}
-					>
-						{
-							reduxState[GENERAL_CONTAINER].backendErrors
-								.validationCreateCommentDescription
-						}
-						{reduxState[GENERAL_CONTAINER].backendErrors.validationComment}
-						{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
-						{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-					</span>
+					)}
 					<div className="create-comment-form-button-centering-container">
 						<button
 							type="submit"

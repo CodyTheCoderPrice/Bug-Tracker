@@ -5,14 +5,12 @@ import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
-import {
-	updateAccountPassword,
-	clearBackendErrors,
-} from "../../../actions";
+import { updateAccountPassword, clearBackendErrors } from "../../../actions";
 import {
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
@@ -20,16 +18,16 @@ import {
 
 /**
  * React functional component for updating the logged in account's password by
- * entering a new password and the account's password. Invalid password data 
- * (e.g. incorrect password) and/or server issues will display error messages 
+ * entering a new password and the account's password. Invalid password data
+ * (e.g. incorrect password) and/or server issues will display error messages
  * to explain what went wrong. Component includes link to return back to
- * AccountModalEditInfo component (as user would have used that component to 
+ * AccountModalEditInfo component (as user would have used that component to
  * navigate to this one).
  *
- * The flag for displaying this component is 'accountModalEditPasswordComponentShouldDisplay' 
- * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux 
- * state. This component should be the child of the AccountModal component. 
- * This component should not be displayed along side any sibling components 
+ * The flag for displaying this component is 'accountModalEditPasswordComponentShouldDisplay'
+ * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux
+ * state. This component should be the child of the AccountModal component.
+ * This component should not be displayed along side any sibling components
  * whose name also begins with AccountModal (e.g. AccountModalEditInfo).
  *
  * @component
@@ -64,7 +62,7 @@ export default function AccountModalEditPassword() {
 	};
 
 	/**
-	 * Function for onSubmit handler of form element. Calls 
+	 * Function for onSubmit handler of form element. Calls
 	 * updateAccountPassword action to attempt to update account's password
 	 * using accountInfo
 	 *
@@ -115,19 +113,14 @@ export default function AccountModalEditPassword() {
 						)
 					}
 				/>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					reduxState[GENERAL_CONTAINER].backendErrors
+						.validationAccountNewPassword,
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{
-						reduxState[GENERAL_CONTAINER].backendErrors
-							.validationAccountNewPassword
-					}
-				</span>
+				)}
 				<label
 					htmlFor="edit-account-password-modal--current-password"
 					className="form__label"
@@ -163,16 +156,13 @@ export default function AccountModalEditPassword() {
 						)
 					}
 				/>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					reduxState[GENERAL_CONTAINER].backendErrors.currentPassword,
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
-				</span>
+				)}
 				<button
 					type="submit"
 					className={
@@ -184,19 +174,18 @@ export default function AccountModalEditPassword() {
 				>
 					Update
 				</button>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					[
+						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.authorization,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+					],
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-				</span>
+				)}
 			</form>
 			<div className="modal-links-container">
 				<span

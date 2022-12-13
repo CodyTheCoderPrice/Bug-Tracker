@@ -14,6 +14,7 @@ import {
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 } from "../../../utils";
@@ -154,19 +155,14 @@ export default function AccountModalEditInfo() {
 						)
 					}
 				/>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					reduxState[GENERAL_CONTAINER].backendErrors
+						.validationAccountNewFirstName,
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{
-						reduxState[GENERAL_CONTAINER].backendErrors
-							.validationAccountNewFirstName
-					}
-				</span>
+				)}
 				<label
 					htmlFor="edit-account-info-modal--last-name"
 					className="form__label"
@@ -202,19 +198,14 @@ export default function AccountModalEditInfo() {
 						)
 					}
 				/>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					reduxState[GENERAL_CONTAINER].backendErrors
+						.validationAccountNewLastName,
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{
-						reduxState[GENERAL_CONTAINER].backendErrors
-							.validationAccountNewLastName
-					}
-				</span>
+				)}
 				<button
 					type="submit"
 					className={
@@ -226,18 +217,17 @@ export default function AccountModalEditInfo() {
 				>
 					Update
 				</button>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					[
+						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+					],
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-				</span>
+				)}
 			</form>
 			<div className="modal-links-container">
 				<span

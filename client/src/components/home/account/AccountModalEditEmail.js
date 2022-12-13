@@ -5,30 +5,28 @@ import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
-import {
-	updateAccountEmail,
-	clearBackendErrors,
-} from "../../../actions";
+import { updateAccountEmail, clearBackendErrors } from "../../../actions";
 import {
 	getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
 } from "../../../utils";
 
 /**
- * React functional component for updating the logged in account's email by 
+ * React functional component for updating the logged in account's email by
  * entering a new email and the account's password. Invalid update data (e.g.
- * incorrect password) and/or server issues will display error messages to 
- * explain what went wrong. Component includes link to return back to 
+ * incorrect password) and/or server issues will display error messages to
+ * explain what went wrong. Component includes link to return back to
  * AccountModalEditInfo component (as user would have used that component to
  * navigate to this one).
  *
  * The flag for displaying this component is 'accountModalEditEmailComponentShouldDisplay'
- * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux 
- * state. This component should be the child of the AccountModal component. 
- * This component should not be displayed along side any sibling components 
+ * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux
+ * state. This component should be the child of the AccountModal component.
+ * This component should not be displayed along side any sibling components
  * whose name also begins with AccountModal (e.g. AccountModalEditInfo).
  *
  * @component
@@ -52,10 +50,10 @@ export default function AccountModalEditEmail() {
 	}, []);
 
 	/**
-	 * Function for onChange handler of input elements. Updates accountInfo's 
-	 * property (that of input element's name attribute) to have the value 
+	 * Function for onChange handler of input elements. Updates accountInfo's
+	 * property (that of input element's name attribute) to have the value
 	 * that's been entered into the input element.
-	 * 
+	 *
 	 * @param {Event} e - Event created by element's onChange handler
 	 */
 	const onChange = (e) => {
@@ -77,7 +75,10 @@ export default function AccountModalEditEmail() {
 		<div>
 			<h1 className="title">Edit Email</h1>
 			<form className="form" noValidate onSubmit={handleSubmit}>
-				<label htmlFor="edit-account-email-modal--email" className="form__label">
+				<label
+					htmlFor="edit-account-email-modal--email"
+					className="form__label"
+				>
 					Email:{" "}
 				</label>
 				<input
@@ -95,17 +96,17 @@ export default function AccountModalEditEmail() {
 						)
 					}
 				/>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountNewEmail,
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
+				)}
+				<label
+					htmlFor="edit-account-email-modal--password"
+					className="form__label"
 				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccountNewEmail}
-				</span>
-				<label htmlFor="edit-account-email-modal--password" className="form__label">
 					Current Password:{" "}
 				</label>
 				<input
@@ -122,16 +123,13 @@ export default function AccountModalEditEmail() {
 						)
 					}
 				/>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					reduxState[GENERAL_CONTAINER].backendErrors.currentPassword,
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
-				</span>
+				)}
 				<button
 					type="submit"
 					className={
@@ -143,19 +141,18 @@ export default function AccountModalEditEmail() {
 				>
 					Update
 				</button>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					[
+						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.authorization,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+					],
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-				</span>
+				)}
 			</form>
 			<div className="modal-links-container">
 				<span

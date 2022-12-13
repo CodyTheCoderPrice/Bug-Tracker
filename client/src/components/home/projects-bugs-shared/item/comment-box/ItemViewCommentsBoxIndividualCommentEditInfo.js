@@ -20,6 +20,7 @@ import {
 	getCommonItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode,
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonItemViewComponentFormCancelButtonElementBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../../utils";
@@ -157,24 +158,21 @@ export default function ItemViewCommentsBoxIndividualCommentEditInfo(props) {
 				alt="Button to delete the comment above"
 				onClick={openDeleteCommentModal}
 			>
-				<FontAwesomeIcon icon={faTrashCan}aria-hidden="true" />
+				<FontAwesomeIcon icon={faTrashCan} aria-hidden="true" />
 			</div>
-			<span
-				className={
-					"backend-errors backend-errors--edit-comment" +
+			{getBackendErrorsJSX(
+				[
+					reduxState[GENERAL_CONTAINER].backendErrors
+						.validationEditCommentDescription,
+					reduxState[GENERAL_CONTAINER].backendErrors.validationComment,
+					reduxState[GENERAL_CONTAINER].backendErrors.serverItem,
+					reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+				],
+				"backend-errors" +
 					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
-				}
-			>
-				{
-					reduxState[GENERAL_CONTAINER].backendErrors
-						.validationEditCommentDescription
-				}
-				{reduxState[GENERAL_CONTAINER].backendErrors.validationComment}
-				{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
-				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-			</span>
+			)}
 			<div className="individual-comment-divider__form-buttons-centering-container">
 				<div className="individual-comment-divider__form-buttons-centering-container__pair-container">
 					<button

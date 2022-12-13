@@ -9,30 +9,46 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 /**
- * If 'backendError' param isn't empty, then JSX for the backend error is returned.
+ * If 'backendError' param isn't empty, then JSX for the backend error(s) is returned.
  *
- * @param {string} backendError - backend error to be returned
- * in a span tag if it is not undefined
+ * @param {string|string[]} backendErrors - backend error(s) to be returned
+ * in a span tag(s) if this param is not undefined
  * @param {string} desiredClassName - className to be assigned to the span tag
  * if the 'backendError' param isn't empty.
  * @returns {(JSX|null)} Returns either null or JSX for a backendError
  *
  * @example
- * // Returns null
- * getBackendErrorJSX(undefined);
+ * // Returns "Email required" in span tag with its className set to "red-text"
+ * getBackendErrorJSX("Email required", "red-text");
  *
  * @example
- * // Returns "Email requred" in span tag with its className set to "red-text"
- * getBackendErrorJSX("Email required", "red-text");
+ * // Returns "Email required" and "Password required" in two seperate span
+ * // ...tags with their classNames set to "error"
+ * getBackendErrorJSX(["Email required", "Password required"], "error");
+ *
+ * @example
+ * // Returns null
+ * getBackendErrorJSX(undefined);
  */
-export function getBackendErrorJSX(backendError, desiredClassName) {
-	if (isEmpty(backendError)) {
+export function getBackendErrorsJSX(backendErrors, desiredClassName) {
+	if (isEmpty(backendErrors)) {
 		return null;
+	} else if (Array.isArray(backendErrors)) {
+		return backendErrors.map((message, index) => {
+			if (!isEmpty(message)) {
+				return (
+					<span className={desiredClassName} key={index}>
+						<FontAwesomeIcon icon={faCircleExclamation} aria-hidden="true" />{" "}
+						{message}
+					</span>
+				);
+			}
+		});
 	} else {
 		return (
 			<span className={desiredClassName}>
 				<FontAwesomeIcon icon={faCircleExclamation} aria-hidden="true" />{" "}
-				{backendError}
+				{backendErrors}
 			</span>
 		);
 	}

@@ -24,6 +24,7 @@ import {
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	getCreateItemSidebarComponentLabelElementDisabledClassNameForLightOrDarkMode,
 	getCreateItemSidebarComponentInputDateElementDisabledClassNameForLightOrDarkMode,
 	getPriorityOptionsForSelect,
@@ -240,16 +241,13 @@ export default function ListViewCreateItemSidebar(props) {
 								)
 							}
 						/>
-						<span
-							className={
-								"backend-errors" +
+						{getBackendErrorsJSX(
+							reduxState[GENERAL_CONTAINER].backendErrors.validationItemName,
+							"backend-errors" +
 								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
-							}
-						>
-							{reduxState[GENERAL_CONTAINER].backendErrors.validationItemName}
-						</span>
+						)}
 						<label htmlFor="create-item-description" className="form__label">
 							Description:{" "}
 						</label>
@@ -282,19 +280,14 @@ export default function ListViewCreateItemSidebar(props) {
 								)
 							}
 						/>
-						<span
-							className={
-								"backend-errors" +
+						{getBackendErrorsJSX(
+							reduxState[GENERAL_CONTAINER].backendErrors
+								.validationItemDescription,
+							"backend-errors" +
 								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
-							}
-						>
-							{
-								reduxState[GENERAL_CONTAINER].backendErrors
-									.validationItemDescription
-							}
-						</span>
+						)}
 						{props.reduxContainerName === BUG_CONTAINER ? (
 							<div>
 								<label htmlFor="create-item-location" className="form__label">
@@ -330,19 +323,14 @@ export default function ListViewCreateItemSidebar(props) {
 										)
 									}
 								/>
-								<span
-									className={
-										"backend-errors" +
+								{getBackendErrorsJSX(
+									reduxState[GENERAL_CONTAINER].backendErrors
+										.validationItemLocation,
+									"backend-errors" +
 										getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
-									}
-								>
-									{
-										reduxState[GENERAL_CONTAINER].backendErrors
-											.validationItemLocation
-									}
-								</span>
+								)}
 							</div>
 						) : null}
 						<div className="form__group-container">
@@ -495,18 +483,17 @@ export default function ListViewCreateItemSidebar(props) {
 								? "Create Project"
 								: "Create Bug"}
 						</button>
-						<span
-							className={
-								"backend-errors" +
+						{getBackendErrorsJSX(
+							[
+								reduxState[GENERAL_CONTAINER].backendErrors.validationItem,
+								reduxState[GENERAL_CONTAINER].backendErrors.serverItem,
+								reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+							],
+							"backend-errors" +
 								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
-							}
-						>
-							{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
-							{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
-							{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-						</span>
+						)}
 					</form>
 				</div>
 			</div>

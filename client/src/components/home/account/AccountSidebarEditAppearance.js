@@ -9,6 +9,7 @@ import { updateAccountSettings } from "../../../actions";
 import {
 	getCommonStandardBackgroundColorClassNameForTheme,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 } from "../../../utils";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -122,18 +123,17 @@ export default function AccountSidebarEditAppearance() {
 					/>
 				</div>
 			</div>
-			<span
-				className={
-					"backend-errors" +
+			{getBackendErrorsJSX(
+				[
+					reduxState[GENERAL_CONTAINER].backendErrors.authorization,
+					reduxState[GENERAL_CONTAINER].backendErrors.serverSettings,
+					reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+				],
+				"backend-errors" +
 					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
-				}
-			>
-				{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
-				{reduxState[GENERAL_CONTAINER].backendErrors.serverSettings}
-				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-			</span>
+			)}
 		</div>
 	);
 }

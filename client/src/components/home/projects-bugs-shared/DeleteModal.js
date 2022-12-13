@@ -15,6 +15,7 @@ import {
 	getDeleteModalComponentModalContainerElementBackgroundColorClassNameForLightOrDarkMode,
 	getDeleteModalComponentTrapazoidElementBorderColorClassNameForLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	getDeleteModalComponentDeleteButtonElementBackgroundColorClassNameForLightOrDarkMode,
 	getDeleteModalComponentCancelButtonElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
@@ -108,19 +109,18 @@ export default function DeleteModal(props) {
 						<span className="centered-message-container__relative-container__text">
 							{getMessageText()}
 						</span>
+						{getBackendErrorsJSX(
+							[
+								reduxState[GENERAL_CONTAINER].backendErrors.server,
+								reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+							],
+							"backend-errors" +
+								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								)
+						)}
 					</div>
 				</div>
-				<span
-					className={
-						"backend-errors" +
-						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
-							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-						)
-					}
-				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.server}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-				</span>
 				<div className="centered-buttons-container">
 					<div
 						className={

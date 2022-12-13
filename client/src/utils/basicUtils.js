@@ -1,32 +1,55 @@
 /**
- * Returns true if 'value' param is null, undefined, or an empty string. 
- * Otherwise returns false.
+ * Returns true if 'value' param is null, undefined, an empty string, or an
+ * empty array. Otherwise returns false.
  *
  * @param {boolean} value - Value of any type
- * @returns {boolean} Whether the value is null, undefined, or an empty string
+ * @returns {boolean} Whether the value is null, undefined, an empty string,
+ * or an empty array
  */
 export function isEmpty(value) {
-	return value === null || value === undefined || value === "";
+	if (Array.isArray(value)) {
+		// Removes empty values from array
+		value = value.filter((el) => {
+			if (typeof el === "string") {
+				return el.trim() !== "";
+			}
+
+			if (typeof el === "number") {
+				return !Number.isNaN(el);
+			}
+
+			// eslint-disable-next-line
+			return el != (null && undefined);
+		});
+	}
+
+	return (
+		value === null ||
+		value === undefined ||
+		(typeof value === "number" && Number.isNaN(value)) ||
+		(typeof value === "string" && value.trim() === "") ||
+		(Array.isArray(value) && value.length < 1)
+	);
 }
 
 /**
  * Removes all non-digits from a String, and then coverts the String to a Number
- * and returns it. If string does not have any digits, then the number 0 is 
+ * and returns it. If string does not have any digits, then the number 0 is
  * returned.
- * 
+ *
  * @param {string} str - Any string
- * @returns {number} String param with all non-digits removed and converted to 
+ * @returns {number} String param with all non-digits removed and converted to
  * a Number. If string does not have any digits, then the number 0 is returned.
  */
- export function stripNonDigits(str) {
+export function stripNonDigits(str) {
 	return Number(str.replace(/[^\d.-]/g, ""));
 }
 
 /**
  * Capitalizes the first letter of each word inside a string then returns it
- * 
- * @param {string} str - Any string 
- * @returns {string} String param with the first letter of each word 
+ *
+ * @param {string} str - Any string
+ * @returns {string} String param with the first letter of each word
  * capitalized
  */
 export function capitalizeFistLetterOfEachWord(str) {
@@ -37,7 +60,7 @@ export function capitalizeFistLetterOfEachWord(str) {
 
 /**
  * Takes an array (of strings, numbers, or booleans) and returns a string
- * containing all 'array' param's values. If 'inQuotations' param is true, then 
+ * containing all 'array' param's values. If 'inQuotations' param is true, then
  * each array value will be placed in quotes.
  *
  * @param {(string|number|boolean)[]} array - an array of strings, numbers,

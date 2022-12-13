@@ -234,6 +234,9 @@
 .authentication-component .backend-errors i {
   padding-right: 8px;
 }
+.authentication-component .backend-errors + .backend-errors {
+  margin-top: 5px;
+}
 .authentication-component .form__submit {
   margin-top: 25px;
   margin-bottom: 5px;
@@ -914,6 +917,9 @@ dropdown can overlap all other components
 .account-sidebar-change-theme-component .backend-errors i {
   padding-right: 8px;
 }
+.account-sidebar-change-theme-component .backend-errors + .backend-errors {
+  margin-top: 5px;
+}
 
 .account-modal-component .account-modal {
   z-index: 4;
@@ -1007,6 +1013,9 @@ dropdown can overlap all other components
 }
 .account-modal-component .backend-errors i {
   padding-right: 8px;
+}
+.account-modal-component .backend-errors + .backend-errors {
+  margin-top: 5px;
 }
 .account-modal-component .form__submit {
   outline: none;
@@ -1180,10 +1189,13 @@ dropdown can overlap all other components
   padding-left: 5px;
   color: #ff0000;
   font-size: 13px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 .delete-modal-component .backend-errors i {
   padding-right: 8px;
+}
+.delete-modal-component .backend-errors + .backend-errors {
+  margin-top: 5px;
 }
 .delete-modal-component .centered-buttons-container {
   position: absolute;
@@ -1393,6 +1405,10 @@ dropdown can overlap all other components
 .item-view-component .backend-errors i,
 .js-get-item-view-component .backend-errors i {
   padding-right: 8px;
+}
+.item-view-component .backend-errors + .backend-errors,
+.js-get-item-view-component .backend-errors + .backend-errors {
+  margin-top: 5px;
 }
 .item-view-component .backend-errors--item-name,
 .js-get-item-view-component .backend-errors--item-name {
@@ -2394,10 +2410,12 @@ dropdown can overlap all other components
   padding-left: 5px;
   color: #ff0000;
   font-size: 13px;
-  font-size: 15px;
 }
 .create-item-sidebar-component .backend-errors i {
   padding-right: 8px;
+}
+.create-item-sidebar-component .backend-errors + .backend-errors {
+  margin-top: 5px;
 }
 .create-item-sidebar-component .form__label,
 .create-item-sidebar-component .form__group-container__input-container__label,

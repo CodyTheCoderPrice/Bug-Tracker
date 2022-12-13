@@ -9,7 +9,7 @@ import {
 } from "../../actions";
 import {
 	isEmpty,
-	getBackendErrorJSX,
+	getBackendErrorsJSX,
 } from "../../utils";
 
 /**
@@ -104,7 +104,7 @@ export default function Register() {
 									: "")
 							}
 						/>
-						{getBackendErrorJSX(
+						{getBackendErrorsJSX(
 							reduxState[GENERAL_CONTAINER].backendErrors
 								.validationAccountFirstName,
 							"backend-errors"
@@ -128,7 +128,7 @@ export default function Register() {
 									: "")
 							}
 						/>
-						{getBackendErrorJSX(
+						{getBackendErrorsJSX(
 							reduxState[GENERAL_CONTAINER].backendErrors
 								.validationAccountLastName,
 							"backend-errors"
@@ -151,7 +151,7 @@ export default function Register() {
 							: "")
 					}
 				/>
-				{getBackendErrorJSX(
+				{getBackendErrorsJSX(
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail,
 					"backend-errors"
 				)}
@@ -172,18 +172,21 @@ export default function Register() {
 							: "")
 					}
 				/>
-				{getBackendErrorJSX(
+				{getBackendErrorsJSX(
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword,
 					"backend-errors"
 				)}
 				<button type="submit" className="form__submit">
 					REGISTER
 				</button>
-				<span className="backend-errors">
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-				</span>
+				{getBackendErrorsJSX(
+					[
+						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+					],
+					"backend-errors"
+				)}
 				<div className="form__bottom-link-container">
 					<span>Already a Member?</span>
 					<span

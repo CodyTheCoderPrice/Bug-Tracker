@@ -10,6 +10,7 @@ import {
 	getAccountModalDeleteAccountComponentCapitalDeleteElementTextColorClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountComponentFormInputElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	getAccountModalDeleteAccountComponentFormSubmitElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
@@ -17,15 +18,15 @@ import {
 
 /**
  * React functional component for deleting the logged in account by entering
- * "DELETE" and account's password. Invalid deletion data (e.g. incorrect 
+ * "DELETE" and account's password. Invalid deletion data (e.g. incorrect
  * password) and/or server issues will display error messages to explain what
  * went wrong. Component includes link to return back to AccountModalEditInfo
  * component (as user would have used that component to navigate to this one).
  *
- * The flag for displaying this component is 'accountModalDeleteAccountComponentShouldDisplay' 
- * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux 
+ * The flag for displaying this component is 'accountModalDeleteAccountComponentShouldDisplay'
+ * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux
  * state. This component should be the child of the AccountModal component.
- * This component should not be displayed along side any sibling components 
+ * This component should not be displayed along side any sibling components
  * whose name also begins with AccountModal (e.g. AccountModalEditInfo).
  *
  * @component
@@ -60,7 +61,7 @@ export default function AccountModalDeleteAccount() {
 	};
 
 	/**
-	 * Function for onSubmit handler of form element. Calls deleteAccount 
+	 * Function for onSubmit handler of form element. Calls deleteAccount
 	 * action to attempt account deletion using accountInfo
 	 *
 	 * @param {Event} e - Event created by element's onSubmit handler
@@ -102,19 +103,14 @@ export default function AccountModalDeleteAccount() {
 						)
 					}
 				/>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					reduxState[GENERAL_CONTAINER].backendErrors
+						.validationAccountTypeOutCheck,
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{
-						reduxState[GENERAL_CONTAINER].backendErrors
-							.validationAccountTypeOutCheck
-					}
-				</span>
+				)}
 				<label htmlFor="delete-account-password" className="form__label">
 					Current Password:{" "}
 				</label>
@@ -131,16 +127,13 @@ export default function AccountModalDeleteAccount() {
 						)
 					}
 				/>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					reduxState[GENERAL_CONTAINER].backendErrors.currentPassword,
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.currentPassword}
-				</span>
+				)}
 				<button
 					type="submit"
 					className={
@@ -152,19 +145,18 @@ export default function AccountModalDeleteAccount() {
 				>
 					Delete
 				</button>
-				<span
-					className={
-						"backend-errors" +
+				{getBackendErrorsJSX(
+					[
+						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.authorization,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+					],
+					"backend-errors" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-				</span>
+				)}
 			</form>
 			<div className="modal-links-container">
 				<span

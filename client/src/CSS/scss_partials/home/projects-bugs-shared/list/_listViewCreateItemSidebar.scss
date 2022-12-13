@@ -59,8 +59,6 @@
 
 	.backend-errors {
 		@include m.backend-error();
-
-		font-size: v.$create-item-sidebar-label-font-size;
 	}
 
 	.form__label,

@@ -79,9 +79,10 @@
 	}
 
 	.backend-errors {
+		// IMPORTANT! Rework backend errors to move buttons down when appearing
 		@include m.backend-error();
 
-		margin-top: 10px;
+		margin-top: 5px;
 	}
 
 	.centered-buttons-container {

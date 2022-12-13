@@ -76,6 +76,11 @@
 	i {
 		padding-right: 8px;
 	}
+
+	// Adds spacing when multiple backend-errors appear back to back
+	+ .backend-errors {
+		margin-top: 5px;
+	}
 }
 
 @mixin common-form-submit-button() {

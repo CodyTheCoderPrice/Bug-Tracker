@@ -23,6 +23,7 @@ import {
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	getCommonWeakElementTextColorClassNameForLightOrDarkMode,
 	getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
@@ -255,16 +256,13 @@ export default function ItemViewEditItemInfo(props) {
 						</span>
 					</div>
 				</div>
-				<span
-					className={
-						"backend-errors backend-errors--item-name" +
+				{getBackendErrorsJSX(
+					reduxState[GENERAL_CONTAINER].backendErrors.validationItemName,
+					"backend-errors backend-errors--item-name" +
 						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
-					}
-				>
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationItemName}
-				</span>
+				)}
 				<div
 					className={
 						"item-creation-date" +
@@ -327,19 +325,14 @@ export default function ItemViewEditItemInfo(props) {
 								)
 							}
 						/>
-						<span
-							className={
-								"backend-errors" +
+						{getBackendErrorsJSX(
+							reduxState[GENERAL_CONTAINER].backendErrors
+								.validationItemDescription,
+							"backend-errors" +
 								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
-							}
-						>
-							{
-								reduxState[GENERAL_CONTAINER].backendErrors
-									.validationItemDescription
-							}
-						</span>
+						)}
 					</div>
 				</div>
 				<div className="outer-dividing-container outer-dividing-container--fixed-width-for-info">
@@ -399,19 +392,14 @@ export default function ItemViewEditItemInfo(props) {
 										)
 									}
 								/>
-								<span
-									className={
-										"backend-errors" +
+								{getBackendErrorsJSX(
+									reduxState[GENERAL_CONTAINER].backendErrors
+										.validationItemLocation,
+									"backend-errors" +
 										getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
-									}
-								>
-									{
-										reduxState[GENERAL_CONTAINER].backendErrors
-											.validationItemLocation
-									}
-								</span>
+								)}
 							</div>
 						) : null}
 						<div className="item-box__group">
@@ -556,18 +544,17 @@ export default function ItemViewEditItemInfo(props) {
 					</div>
 				</div>
 			</div>
-			<span
-				className={
-					"backend-errors backend-errors--edit-item" +
+			{getBackendErrorsJSX(
+				[
+					reduxState[GENERAL_CONTAINER].backendErrors.validationItem,
+					reduxState[GENERAL_CONTAINER].backendErrors.serverItem,
+					reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+				],
+				"backend-errors backend-errors--edit-item" +
 					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
-				}
-			>
-				{reduxState[GENERAL_CONTAINER].backendErrors.validationItem}
-				{reduxState[GENERAL_CONTAINER].backendErrors.serverItem}
-				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-			</span>
+			)}
 			<div className="outer-dividing-container">
 				<div className="form-buttons-outer-container">
 					<div className="form-buttons-centered-container">

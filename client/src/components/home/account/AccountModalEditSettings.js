@@ -11,6 +11,7 @@ import {
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
+	getBackendErrorsJSX,
 	setTrueForOnlyAccountSidebar,
 } from "../../../utils";
 // Font Awesome
@@ -239,18 +240,17 @@ export default function AccountModalEditSettings() {
 					</div>
 				</div>
 			</div>
-			<span
-				className={
-					"backend-errors" +
+			{getBackendErrorsJSX(
+				[
+					reduxState[GENERAL_CONTAINER].backendErrors.authorization,
+					reduxState[GENERAL_CONTAINER].backendErrors.serverSettings,
+					reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+				],
+				"backend-errors" +
 					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
-				}
-			>
-				{reduxState[GENERAL_CONTAINER].backendErrors.authorization}
-				{reduxState[GENERAL_CONTAINER].backendErrors.serverSettings}
-				{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-			</span>
+			)}
 			<div className="modal-links-container">
 				<span
 					onClick={() => setTrueForOnlyAccountSidebar(dispatch)}

@@ -11,7 +11,7 @@ import {
 	getElementSize,
 	getWindowSize,
 	isEmpty,
-	getBackendErrorJSX,
+	getBackendErrorsJSX,
 } from "../../utils";
 import bugTrackerLogo from "../../images/bug-tracker-logo.svg";
 
@@ -69,8 +69,7 @@ export default function Login() {
 	// Declared as an object outside the eventListener so removal works on cleanup
 	function windowSizeHandler() {
 		setWindowWidth(getWindowSize().width);
-	};
-
+	}
 
 	/**
 	 * Function for onChange handler of input elements. Updates accountInfo's
@@ -141,7 +140,7 @@ export default function Login() {
 							: "")
 					}
 				/>
-				{getBackendErrorJSX(
+				{getBackendErrorsJSX(
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail,
 					"backend-errors"
 				)}
@@ -162,18 +161,21 @@ export default function Login() {
 							: "")
 					}
 				/>
-				{getBackendErrorJSX(
+				{getBackendErrorsJSX(
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword,
 					"backend-errors"
 				)}
 				<button type="submit" className="form__submit">
 					LOGIN
 				</button>
-				<span className="backend-errors">
-					{reduxState[GENERAL_CONTAINER].backendErrors.validationAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverAccount}
-					{reduxState[GENERAL_CONTAINER].backendErrors.serverConnection}
-				</span>
+				{getBackendErrorsJSX(
+					[
+						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
+						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+					],
+					"backend-errors"
+				)}
 				<div className="form__bottom-link-container">
 					<span
 						className="form__bottom-link-container__link"
