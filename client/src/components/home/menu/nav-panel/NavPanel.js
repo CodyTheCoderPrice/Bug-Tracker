@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import {
 	SIZE_CONTAINER,
 	ACCOUNT_CONTAINER,
-	PROJECT_CONTAINER,
-	BUG_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 import { getCommonStandardBackgroundColorClassNameForTheme } from "../../../../utils";
 import bugTrackerLogo from "../../../../images/bug-tracker-logo.svg";
@@ -54,11 +52,7 @@ export default function NavPanel() {
 				/>
 			</div>
 			<div className="button-list-container js-button-list-container">
-				<NavPanelButtonList reduxContainerName={PROJECT_CONTAINER} />
-				{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-				null ? null : (
-					<NavPanelButtonList reduxContainerName={BUG_CONTAINER} />
-				)}
+					<NavPanelButtonList />
 			</div>
 		</div>
 	);

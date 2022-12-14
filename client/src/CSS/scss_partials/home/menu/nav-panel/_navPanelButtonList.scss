@@ -27,7 +27,8 @@
 	}
 
 	.item__icon {
-		padding-right: v.$nav-panel-button-list-main-item-icon-padding-right;
+		margin-right: v.$nav-panel-button-icon-margin-right;
+		width: v.$nav-panel-button-icon-width;
 	}
 
 	.item--selected, .sub-item--selected {
@@ -41,6 +42,7 @@
 	}
 
 	.sub-item__ellipsis-container__icon {
-		margin-right: 5px;
+		margin-right: v.$nav-panel-button-icon-margin-right;
+		width: v.$nav-panel-button-icon-width;
 	}
 }

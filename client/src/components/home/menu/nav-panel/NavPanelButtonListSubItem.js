@@ -1,12 +1,19 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames";
+import {
+	ACCOUNT_CONTAINER,
+	PROJECT_CONTAINER,
+} from "../../../../actions/constants/containerNames";
 import {
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectOrBugItemViewAndCurrentItem,
 } from "../../../../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+	faFolderOpen,
+	faMinus,
+	faCheck,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function NavPanelButtonListSubItem(props) {
 	const reduxState = useSelector((state) => state);
@@ -38,9 +45,14 @@ export default function NavPanelButtonListSubItem(props) {
 			}
 		>
 			<div className="sub-item__ellipsis-container">
-				{props.item.status_id !==
-				reduxState[props.reduxContainerName].priorityStatusOptions
-					.statusCompletionId ? (
+				{props.reduxContainerName === PROJECT_CONTAINER ? (
+					<FontAwesomeIcon
+						icon={faFolderOpen}
+						className="sub-item__ellipsis-container__icon"
+					/>
+				) : props.item.status_id !==
+				  reduxState[props.reduxContainerName].priorityStatusOptions
+						.statusCompletionId ? (
 					<FontAwesomeIcon
 						icon={faMinus}
 						className="sub-item__ellipsis-container__icon"

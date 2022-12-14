@@ -484,6 +484,7 @@ $common-top-bar-filter-button-dropdown-title-margin-on-one-side: 20px;
 $common-top-bar-filter-button-dropdown-checkbox-container-margin: 0px 3px;
 $common-top-bar-filter-button-dropdown-label-margin: 4px 3px;
 // Specific (i.e. used by specific component)
+$nav-panel-button-icon-margin-right: 10px;
 $account-sidebar-contents-margin-top-bottom: 9px;
 $account-sidebar-dividing-line-margin-top-bottom: 34px;
 $account-sidebar-dividing-line-margin-top-bottom-half: $account-sidebar-dividing-line-margin-top-bottom /
@@ -575,9 +576,8 @@ $common-top-bar-search-bar-padding: 8px;
 // Specific (i.e. used by specific component)
 $nav-panel-button-list-padding-left-right: 10px;
 $nav-panel-button-list-main-item-padding-left-right: 10px;
-$nav-panel-button-list-main-item-icon-padding-right: 10px;
 $nav-panel-button-list-sub-item-padding-left: $nav-panel-button-list-main-item-padding-left-right +
-	$nav-panel-button-list-main-item-icon-padding-right + 5; // 5 was chosen by eyeing what looked good
+	$nav-panel-button-icon-margin-right + 5; // 5 was chosen by eyeing what looked good
 $navbar-button-text-container-padding: 0 14px 0 14px;
 $account-sidebar-padding-top: 32px;
 $account-sidebar-padding-left-right: 18px;
@@ -626,6 +626,7 @@ $common-status-box-width: 110px;
 // Specific (i.e. used by specific component)
 $toggle-switch-width: 52px;
 $nav-panel-width: 250px;
+$nav-panel-button-icon-width: 15px;
 $navbar-account-button-width: 130px;
 $navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
 $navbar-breadcrumb-button-arrow-left-width: 20px;

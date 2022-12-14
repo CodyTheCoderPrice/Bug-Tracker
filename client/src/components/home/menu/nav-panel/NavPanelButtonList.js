@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
+	BUG_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 import {
 	getCommonBrighterBackgroundColorClassNameForTheme,
@@ -12,33 +13,14 @@ import {
 } from "../../../../utils";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFolder, faBug } from "@fortawesome/free-solid-svg-icons";
+import {
+	faSuitcase,
+	faBug,
+} from "@fortawesome/free-solid-svg-icons";
 // Components
 import NavPanelButtonListSubItem from "./NavPanelButtonListSubItem";
 
-const getProjectsButtonText = () => {
-	return (
-		<span>
-			<FontAwesomeIcon
-				icon={faFolder}
-				className="item__icon"
-				aria-hidden="true"
-			/>
-			Projects
-		</span>
-	);
-};
-
-const getBugsButtonText = () => {
-	return (
-		<span>
-			<FontAwesomeIcon icon={faBug} className="item__icon" aria-hidden="true" />
-			Bugs
-		</span>
-	);
-};
-
-export default function NavPanelButtonList(props) {
+export default function NavPanelButtonList() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -47,7 +29,7 @@ export default function NavPanelButtonList(props) {
 			<div
 				className={
 					"item" +
-					(reduxState[props.reduxContainerName].componentsDisplay
+					(reduxState[PROJECT_CONTAINER].componentsDisplay
 						.listViewComponentShouldDisplay === false
 						? ""
 						: " item--selected" +
@@ -55,26 +37,59 @@ export default function NavPanelButtonList(props) {
 								reduxState[ACCOUNT_CONTAINER].settings.theme_color
 						  ))
 				}
-				onClick={
-					props.reduxContainerName === PROJECT_CONTAINER
-						? () => switchToProjectsListView(reduxState, dispatch)
-						: () => switchToBugsListView(reduxState, dispatch)
-				}
+				onClick={() => switchToProjectsListView(reduxState, dispatch)}
 			>
-				{props.reduxContainerName === PROJECT_CONTAINER
-					? getProjectsButtonText()
-					: getBugsButtonText()}
+				<FontAwesomeIcon
+					icon={faSuitcase}
+					className="item__icon"
+					aria-hidden="true"
+				/>
+				Projects
 			</div>
-			{getSearchedFilteredSortedList(reduxState, props.reduxContainerName).map(
-				(item, idx) => {
-					return (
-						<NavPanelButtonListSubItem
-							key={idx}
-							item={item}
-							reduxContainerName={props.reduxContainerName}
-						/>
-					);
-				}
+			{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
+			null ? null : (
+				<div>
+					<NavPanelButtonListSubItem
+						item={
+							reduxState[PROJECT_CONTAINER].componentsDisplay
+								.itemViewCurrentItem
+						}
+						reduxContainerName={PROJECT_CONTAINER}
+					/>
+					<div
+						className={
+							"item" +
+							(reduxState[BUG_CONTAINER].componentsDisplay
+								.listViewComponentShouldDisplay === false
+								? ""
+								: " item--selected" +
+								  getCommonBrighterBackgroundColorClassNameForTheme(
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+								  ))
+						}
+						onClick={() => switchToBugsListView(reduxState, dispatch)}
+					>
+						<span>
+							<FontAwesomeIcon
+								icon={faBug}
+								className="item__icon"
+								aria-hidden="true"
+							/>
+							Bugs
+						</span>
+					</div>
+					{getSearchedFilteredSortedList(reduxState, BUG_CONTAINER).map(
+						(item, idx) => {
+							return (
+								<NavPanelButtonListSubItem
+									key={idx}
+									item={item}
+									reduxContainerName={BUG_CONTAINER}
+								/>
+							);
+						}
+					)}
+				</div>
 			)}
 		</div>
 	);
