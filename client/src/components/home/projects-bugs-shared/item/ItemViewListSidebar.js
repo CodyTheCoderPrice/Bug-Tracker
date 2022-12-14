@@ -99,12 +99,12 @@ export default function ItemViewListSidebar(props) {
 							.itemViewListSidebarComponentContainerElementExpanded ? (
 							<FontAwesomeIcon
 								icon={faChevronLeft}
-								alt="Icon of an arrow pointing left"
+								aria-hidden="true"
 							/>
 						) : (
 							<FontAwesomeIcon
 								icon={faChevronRight}
-								alt="Icon of an arrow pointing right"
+								aria-hidden="true"
 							/>
 						)}
 					</div>

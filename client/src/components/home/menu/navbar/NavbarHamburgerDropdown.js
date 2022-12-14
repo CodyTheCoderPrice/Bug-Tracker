@@ -87,10 +87,11 @@ export default function NavbarHamburgerDropdown() {
 				alt="Navbar hamburger dropdown option to close dropdown"
 				onClick={(e) => toggleHamburgerDropdown(e, reduxState, dispatch)}
 			>
-				<div className="hamburger-dropdown__top-space" aria-hidden="true">
+				<div className="hamburger-dropdown__top-space">
 					<FontAwesomeIcon
 						icon={faBars}
 						className="hamburger-dropdown__top-space__icon"
+						aria-hidden="true"
 					/>
 				</div>
 				<div

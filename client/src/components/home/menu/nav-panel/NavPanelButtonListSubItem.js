@@ -49,6 +49,7 @@ export default function NavPanelButtonListSubItem(props) {
 					<FontAwesomeIcon
 						icon={faFolderOpen}
 						className="sub-item__ellipsis-container__icon"
+						aria-hidden="true"
 					/>
 				) : props.item.status_id !==
 				  reduxState[props.reduxContainerName].priorityStatusOptions
@@ -56,11 +57,13 @@ export default function NavPanelButtonListSubItem(props) {
 					<FontAwesomeIcon
 						icon={faMinus}
 						className="sub-item__ellipsis-container__icon"
+						aria-hidden="true"
 					/>
 				) : (
 					<FontAwesomeIcon
 						icon={faCheck}
 						className="sub-item__ellipsis-container__icon"
+						aria-hidden="true"
 					/>
 				)}
 				{props.item.name}
