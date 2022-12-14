@@ -484,6 +484,7 @@ $common-top-bar-filter-button-dropdown-title-margin-on-one-side: 20px;
 $common-top-bar-filter-button-dropdown-checkbox-container-margin: 0px 3px;
 $common-top-bar-filter-button-dropdown-label-margin: 4px 3px;
 // Specific (i.e. used by specific component)
+$nav-panel-button-margin-left-right: 10px;
 $nav-panel-button-icon-margin-right: 10px;
 $account-sidebar-contents-margin-top-bottom: 9px;
 $account-sidebar-dividing-line-margin-top-bottom: 34px;
@@ -574,7 +575,6 @@ $common-form-input-text-focus-padding: $common-form-input-text-focus-top-bottom-
 	$common-form-input-text-focus-left-right-padding;
 $common-top-bar-search-bar-padding: 8px;
 // Specific (i.e. used by specific component)
-$nav-panel-button-list-padding-left-right: 10px;
 $nav-panel-button-list-main-item-padding-left-right: 10px;
 $nav-panel-button-list-sub-item-padding-left: $nav-panel-button-list-main-item-padding-left-right +
 	$nav-panel-button-icon-margin-right + 5; // 5 was chosen by eyeing what looked good

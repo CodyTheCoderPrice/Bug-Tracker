@@ -48,8 +48,6 @@ export default function ItemViewListSidebar(props) {
 
 			itemViewListSidebarContainerElement.style.height =
 				adjustedWindowHeight + "px";
-
-			console.log(itemViewListSidebarContainerElement.style.height);
 		}
 		// eslint-disable-next-line
 	}, [

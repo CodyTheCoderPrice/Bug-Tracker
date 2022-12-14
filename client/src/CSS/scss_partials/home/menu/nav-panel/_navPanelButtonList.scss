@@ -2,14 +2,49 @@
 @use "../../../utils/mixins" as m;
 
 .nav-panel-button-list-component {
-	// Left/right paddings not placed here so rows do not extend outside container
-	padding: 10px v.$nav-panel-button-list-padding-left-right;
 	width: auto;
 	font-size: v.$common-font-size;
 	font-family: Arial, Helvetica, sans-serif;
 
-	.item, .nav-panel-button-list-sub-item-component {
+	.static-container {
+		padding-top: 10px;
+	}
+
+	.over-flow-container {
+		padding-bottom: 30px;
+		// Height found by eyeing it to make resize (using js) look less jumpy
+		height: 80vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+
+		scrollbar-width: thin;
+		scrollbar-color: rgb(180, 180, 180) #ffffff00;
+
+		/* width */
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+			background: #f1f1f1;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+			background: #888;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+			background: #555;
+		}
+	}
+
+	.item,
+	.nav-panel-button-list-sub-item-component {
 		display: flex;
+		margin: 0 v.$nav-panel-button-margin-left-right;
 		border-radius: 5px;
 		// Padding only used by sub-items. Overwritten for main items.
 		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
@@ -22,7 +57,7 @@
 	}
 
 	// Overwrites padding for main items
-	.item{
+	.item {
 		padding: 0px v.$nav-panel-button-list-main-item-padding-left-right;
 	}
 
@@ -31,7 +66,8 @@
 		width: v.$nav-panel-button-icon-width;
 	}
 
-	.item--selected, .sub-item--selected {
+	.item--selected,
+	.sub-item--selected {
 		box-shadow: v.$common-button-box-shadow;
 	}
 

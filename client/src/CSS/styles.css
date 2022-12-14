@@ -330,20 +330,43 @@
   margin: 0px auto;
   padding-top: 10px;
 }
-.nav-panel-component .button-list-container {
-  height: 90vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
 
 .nav-panel-button-list-component {
-  padding: 10px 10px;
   width: auto;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.nav-panel-button-list-component .item, .nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
+.nav-panel-button-list-component .static-container {
+  padding-top: 10px;
+}
+.nav-panel-button-list-component .over-flow-container {
+  padding-bottom: 30px;
+  height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #b4b4b4 #ffffff00;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar {
+  width: 10px;
+}
+.nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.nav-panel-button-list-component .item,
+.nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
   display: flex;
+  margin: 0 10px;
   border-radius: 5px;
   padding: 0 5px 0 25px;
   height: 40px;
@@ -363,7 +386,8 @@
   margin-right: 10px;
   width: 15px;
 }
-.nav-panel-button-list-component .item--selected, .nav-panel-button-list-component .sub-item--selected {
+.nav-panel-button-list-component .item--selected,
+.nav-panel-button-list-component .sub-item--selected {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01), -1px 1px 1px rgba(0, 0, 0, 0.01);
 }
 .nav-panel-button-list-component .sub-item__ellipsis-container {

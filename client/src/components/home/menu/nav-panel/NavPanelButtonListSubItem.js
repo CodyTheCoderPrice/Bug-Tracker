@@ -7,17 +7,30 @@ import {
 import {
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectOrBugItemViewAndCurrentItem,
+	getCommonStatusTextColorClassName,
 } from "../../../../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faFolderOpen,
-	faMinus,
+	faCircle,
 	faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavPanelButtonListSubItem(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	const getStatusBoxColorClassName = () => {
+		const filteredStatusList = reduxState[
+			props.reduxContainerName
+		].priorityStatusOptions.statusList.filter(
+			(status) => status.id === props.item.status_id
+		);
+
+		return getCommonStatusTextColorClassName(
+			filteredStatusList.length > 0 ? filteredStatusList[0].color : "problem"
+		);
+	};
 
 	return (
 		<div
@@ -55,8 +68,11 @@ export default function NavPanelButtonListSubItem(props) {
 				  reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? (
 					<FontAwesomeIcon
-						icon={faMinus}
-						className="sub-item__ellipsis-container__icon"
+						icon={faCircle}
+						className={
+							"sub-item__ellipsis-container__icon" +
+							getStatusBoxColorClassName()
+						}
 						aria-hidden="true"
 					/>
 				) : (
