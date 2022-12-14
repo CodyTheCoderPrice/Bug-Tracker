@@ -7,6 +7,7 @@ const initialState = {
 	// ...functionas to their values.
 	scrollbarWidth: null,
 	navPanelTopContainerHeight: null,
+	navPanelButtonListComponentCriticalStyles: null,
 	navbarAccountButtonWidth: null,
 	navbarBreadcrumbComponentButtonArrowElementWidth: null,
 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: null,
@@ -16,8 +17,7 @@ const initialState = {
 	itemViewComponentPaddingContainerElementLeftPadding: null,
 	itemViewComponentOuterDividingContainerElementMinWidth: null,
 	itemViewTopBarComponentHeight: null,
-	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth:
-		null,
+	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth: null,
 };
 
 /**
@@ -33,6 +33,10 @@ const initialState = {
  * @param {{
  * 	scrollbarWidth: (number|null),
  * 	navPanelTopContainerHeight: (number|null),
+ * 	navPanelButtonListComponentCriticalStyles: ({
+ * 		overflowContainerWithScrollbarMarginTop: number,
+ * 		overflowContainerWithScrollbarPaddingTop: number,
+ * 		overflowContainerWithScrollbarPaddingBottom: number }|null),
  * 	navbarAccountButtonWidth: (number|null),
  * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
  * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
@@ -55,6 +59,10 @@ const initialState = {
  * @returns {{
  * 	scrollbarWidth: (number|null),
  * 	navPanelTopContainerHeight: (number|null),
+ * 	navPanelButtonListComponentCriticalStyles: ({
+ * 		overflowContainerWithScrollbarMarginTop: number,
+ * 		overflowContainerWithScrollbarPaddingTop: number,
+ * 		overflowContainerWithScrollbarPaddingBottom: number }|null),
  * 	navbarAccountButtonWidth: (number|null),
  * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
  * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
@@ -79,6 +87,8 @@ export default function displaySizeConstantsReducer(
 			return {
 				scrollbarWidth: action.sizes.scrollbarWidth,
 				navPanelTopContainerHeight: action.sizes.navPanelTopContainerHeight,
+				navPanelButtonListComponentCriticalStyles:
+					action.sizes.navPanelButtonListComponentCriticalStyles,
 				navbarAccountButtonWidth: action.sizes.navbarAccountButtonWidth,
 				navbarBreadcrumbComponentButtonTextElementBaseFontSize:
 					action.sizes.navbarBreadcrumbComponentButtonTextElementBaseFontSize,

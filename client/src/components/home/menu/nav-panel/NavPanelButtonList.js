@@ -8,8 +8,8 @@ import {
 } from "../../../../actions/constants/containerNames";
 import {
 	getElementSize,
-	getElementStyle,
-	stripNonDigits,
+	isVerticalScrollbarPresent,
+	toggleClassName,
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectsListView,
 	switchToBugsListView,
@@ -25,9 +25,8 @@ export default function NavPanelButtonList() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Optimizes useEffect by storing constant element sizes and styles
-	const [regularlyUsedSizesAndStyles, setRegularlyUsedSizesAndStyles] =
-		useState(null);
+	// Optimizes code by storing the regularly used staticContainerElement height
+	const [staticContainerHeight, setStaticContainerHeight] = useState(null);
 
 	const shouldBugButtonsDisplay =
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
@@ -42,32 +41,35 @@ export default function NavPanelButtonList() {
 				null &&
 			shouldBugButtonsDisplay
 		) {
-			let overflowContainerElement = document.getElementsByClassName(
-				"js-over-flow-container"
-			)[0];
-
-			if (regularlyUsedSizesAndStyles === null) {
+			if (staticContainerHeight === null) {
 				let staticContainerElement = document.getElementsByClassName(
 					"js-static-container"
 				)[0];
-				setRegularlyUsedSizesAndStyles({
-					staticContainerElementHeight: getElementSize(staticContainerElement)
-						.height,
-					overFlowContainerElementPaddingBottom: stripNonDigits(
-						getElementStyle(overflowContainerElement).paddingBottom
-					),
-				});
 
-				// Prevents crash since regularlyUsedSizesAndStyles will still
+				setStaticContainerHeight(getElementSize(staticContainerElement).height);
+
+				// Prevents crash since staticContainerHeight will still
 				// ...be null for remainder of this useEfffect iteration.
 				return;
 			}
 
+			let overflowContainerElement = document.getElementsByClassName(
+				"js-over-flow-container"
+			)[0];
+
 			const adjustedWindowHeight =
 				reduxState[SIZE_CONTAINER].variables.window.height -
 				reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight -
-				regularlyUsedSizesAndStyles.staticContainerElementHeight -
-				regularlyUsedSizesAndStyles.overFlowContainerElementPaddingBottom;
+				staticContainerHeight -
+				reduxState[SIZE_CONTAINER].constants
+					.navPanelButtonListComponentCriticalStyles
+					.overflowContainerWithScrollbarMarginTop -
+				reduxState[SIZE_CONTAINER].constants
+					.navPanelButtonListComponentCriticalStyles
+					.overflowContainerWithScrollbarPaddingTop -
+				reduxState[SIZE_CONTAINER].constants
+					.navPanelButtonListComponentCriticalStyles
+					.overflowContainerWithScrollbarPaddingBottom;
 
 			overflowContainerElement.style.height = adjustedWindowHeight + "px";
 		}
@@ -77,8 +79,22 @@ export default function NavPanelButtonList() {
 		reduxState[SIZE_CONTAINER].variables,
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].constants,
-		regularlyUsedSizesAndStyles,
+		staticContainerHeight,
 	]);
+
+	useEffect(() => {
+		if (shouldBugButtonsDisplay) {
+			let overflowContainerElement = document.getElementsByClassName(
+				"js-over-flow-container"
+			)[0];
+
+			toggleClassName(
+				isVerticalScrollbarPresent(overflowContainerElement),
+				overflowContainerElement,
+				"over-flow-container--scrollbar-present"
+			);
+		}
+	});
 
 	return (
 		<div className="nav-panel-button-list-component">

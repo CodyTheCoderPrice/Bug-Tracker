@@ -2,6 +2,8 @@ import {
 	getNavbarBreadcrumbComponentClassName,
 	getNavbarBreadcrumbComponentButtonTextElementClassName,
 	stripNonDigits,
+	getNavPanelButtonListComponentClassName,
+	getNavPanelButtonListComponentOverflowContainerElementWithScrollbarModifierClassName,
 	getNavbarBreadcrumbComponentButtonEndContainerArrowElementClassName,
 	getNavbarHamburgerComponentClassName,
 	getNavbarHamburgerComponentButtonContainerElementClassName,
@@ -107,6 +109,58 @@ export function getScrollbarWidth() {
 	outerElement.parentNode.removeChild(outerElement);
 
 	return scrollbarWidth;
+}
+
+/**
+ * Gets whether the passesed element has a vertical scrollbar present
+ *
+ * @returns {boolean} Does the passesed element have a vertical scrollbar present
+ */
+export function isVerticalScrollbarPresent(element) {
+	return element.scrollHeight > element.clientHeight;
+}
+
+/**
+ * Get critical styles (margin-top, padding-top, and padding-bottom) from
+ * NavPanelButtonList component's 'overflow-container' (classNames) element
+ *
+ * @returns {number} Critical styles (margin-top, padding-top, and padding-bottom) 
+ * from NavPanelButtonList component's 'overflow-container' (classNames) element
+ */
+export function getNavPanelButtonListCriticalStyles() {
+	// Creating stand-in element for NavPanelButtonList component to later append
+	// ...other stand-in elements to so CSS can work properly. using stand-in
+	// ...elements allows this function to be called when the real elements
+	// ...aren't in the DOM, and ensures real elements remain unaffected.
+	const standInNavPanelButtonListComponentElement =
+		document.createElement("div");
+	standInNavPanelButtonListComponentElement.className =
+		getNavPanelButtonListComponentClassName();
+	// Made hidden so user never sees stand-in element or its child elements
+	standInNavPanelButtonListComponentElement.visibility = "hidden";
+	document.body.appendChild(standInNavPanelButtonListComponentElement);
+
+	const standInOverflowContainerElementWithScrollbar = document.createElement("div");
+	standInOverflowContainerElementWithScrollbar.className =
+		getNavPanelButtonListComponentOverflowContainerElementWithScrollbarModifierClassName();
+	// Css requires being child of NavbarHamburger component
+	standInNavPanelButtonListComponentElement.appendChild(standInOverflowContainerElementWithScrollbar);
+	const standInOverflowContainerElementWithScrollbarStyles = getElementStyle(
+		standInOverflowContainerElementWithScrollbar
+	);
+
+	const styleObject = {
+		// Removing "px" from Strings and converting to Numbers allows for easier use
+		overflowContainerWithScrollbarMarginTop: stripNonDigits(standInOverflowContainerElementWithScrollbarStyles.marginTop),
+		overflowContainerWithScrollbarPaddingTop: stripNonDigits(standInOverflowContainerElementWithScrollbarStyles.paddingTop),
+		overflowContainerWithScrollbarPaddingBottom: stripNonDigits(standInOverflowContainerElementWithScrollbarStyles.paddingBottom),
+	};
+
+	standInNavPanelButtonListComponentElement.parentNode.removeChild(
+		standInNavPanelButtonListComponentElement
+	);
+
+	return styleObject;
 }
 
 /**
@@ -408,7 +462,7 @@ export function getItemViewTopBarComponentHeight() {
 /**
  * Get width (size not style) of ItemViewListSidebar component's 'list-sidebar-container list-sidebar-container--expanded'
  * (className with modifier) element
- * 
+ *
  *
  * @returns {number} Width of ItemViewListSidebar component's 'list-sidebar-container list-sidebar-container--expanded'
  * element

@@ -35,6 +35,10 @@ export * from "./resetActions";
  * @param {{
  * 	scrollbarWidth: (number|null),
  * 	navPanelTopContainerHeight: (number|null),
+ * 	navPanelButtonListComponentCriticalStyles: ({
+ * 		overflowContainerWithScrollbarMarginTop: number,
+ * 		overflowContainerWithScrollbarPaddingTop: number,
+ * 		overflowContainerWithScrollbarPaddingBottom: number }|null),
  * 	navbarAccountButtonWidth: (number|null),
  * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
  * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
@@ -57,6 +61,10 @@ export * from "./resetActions";
  * 	setDisplaySizeConstants({
  * 		scrollbarWidth: 17,
  * 		navPanelTopContainerHeight: 56,
+ * 		navPanelButtonListComponentCriticalStyles: {
+ * 			overflowContainerWithScrollbarMarginTop: 10,
+ * 			overflowContainerWithScrollbarPaddingTop: 10,
+ * 			overflowContainerWithScrollbarPaddingBottom: 30 },
  * 		navbarAccountButtonWidth: 170,
  * 		navbarBreadcrumbComponentButtonTextElementBaseFontSize: 18,
  * 		navbarBreadcrumbComponentButtonArrowElementWidth: 20,

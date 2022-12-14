@@ -11,6 +11,7 @@ import {
 	getWindowSize,
 	getElementSize,
 	getScrollbarWidth,
+	getNavPanelButtonListCriticalStyles,
 	getNavbarBreadcrumbComponentButtonTextElementBaseFontSize,
 	getNavbarBreadcrumbComponentButtonArrowElementWidth,
 	getNavbarHamburgerComponentCriticalStyles,
@@ -40,6 +41,8 @@ export default function Menu() {
 				navPanelTopContainerHeight: getElementSize(
 					document.getElementsByClassName("js-nav-panel-top-container")[0]
 				).height,
+				navPanelButtonListComponentCriticalStyles:
+					getNavPanelButtonListCriticalStyles(),
 				navbarAccountButtonWidth: getElementSize(
 					document.getElementsByClassName("js-navbar-account-button")[0]
 				).width,

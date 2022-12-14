@@ -1,7 +1,7 @@
 @use "../../../utils/variables" as v;
 @use "../../../utils/mixins" as m;
 
-.nav-panel-button-list-component {
+.nav-panel-button-list-component, .js-get-nav-panel-button-list-component {
 	width: auto;
 	font-size: v.$common-font-size;
 	font-family: Arial, Helvetica, sans-serif;
@@ -10,7 +10,7 @@
 		padding-top: 10px;
 	}
 
-	.over-flow-container {
+	.over-flow-container, .js-get-over-flow-container {
 		padding-bottom: 30px;
 		// Height found by eyeing it to make resize (using js) look less jumpy
 		height: 80vh;
@@ -39,6 +39,12 @@
 		::-webkit-scrollbar-thumb:hover {
 			background: #555;
 		}
+	}
+
+	.over-flow-container--scrollbar-present, .js-get-over-flow-container--scrollbar-present {
+		margin-top: 10px;
+		padding-top: 10px;
+		box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1);
 	}
 
 	.item,

@@ -62,6 +62,32 @@ export function getAppComponentClassName() {
 }
 
 /**
+ * Gets a className equivelent to the 'nav-panel-button-list-component' className
+ * used by NavPanelButtonList component.
+ *
+ * Note: This function's purpose is to have the returned className assigned to
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'nav-panel-button-list-component'
+ */
+export function getNavPanelButtonListComponentClassName() {
+	return " js-get-nav-panel-button-list-component";
+}
+
+/**
+ * Gets a className equivelent to the 'over-flow-container--scrollbar-present' className
+ * used by NavPanelButtonList component.
+ *
+ * Note: This function's purpose is to have the returned className assigned to
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'over-flow-container--scrollbar-present'
+ */
+export function getNavPanelButtonListComponentOverflowContainerElementWithScrollbarModifierClassName() {
+	return " js-get-over-flow-container js-get-over-flow-container--scrollbar-present";
+}
+
+/**
  * Gets a className equivelent to the 'navbar-breadcrumb-component' className
  * used by NavbarBreadcrumb component.
  *
