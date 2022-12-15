@@ -101,7 +101,7 @@ export default function NavPanelButtonList() {
 			<div className="static-container js-static-container">
 				<div
 					className={
-						"item" +
+						"item-button" +
 						(reduxState[PROJECT_CONTAINER].componentsDisplay
 							.listViewComponentShouldDisplay === false
 							? ""
@@ -114,7 +114,7 @@ export default function NavPanelButtonList() {
 				>
 					<FontAwesomeIcon
 						icon={faSuitcase}
-						className="item__icon"
+						className="item-button__icon"
 						aria-hidden="true"
 					/>
 					Projects
@@ -130,7 +130,7 @@ export default function NavPanelButtonList() {
 						/>
 						<div
 							className={
-								"item" +
+								"item-button" +
 								(reduxState[BUG_CONTAINER].componentsDisplay
 									.listViewComponentShouldDisplay === false
 									? ""
@@ -144,7 +144,7 @@ export default function NavPanelButtonList() {
 							<span>
 								<FontAwesomeIcon
 									icon={faBug}
-									className="item__icon"
+									className="item-button__icon"
 									aria-hidden="true"
 								/>
 								Bugs

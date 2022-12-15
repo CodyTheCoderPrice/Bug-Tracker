@@ -281,7 +281,7 @@ export function getItemViewListSidebarComponentClassName() {
  *
  * @returns {string} A className equivelent to 'list-sidebar-container--expanded'
  */
- export function getItemViewListSidebarComponentContainerElementWithExpandedModifierClassName() {
+export function getItemViewListSidebarComponentContainerElementWithExpandedModifierClassName() {
 	return " js-get-item-view-list-sidebar-component-container-element js-get-item-view-list-sidebar-component-container-element--expanded";
 }
 
@@ -289,7 +289,7 @@ export function getItemViewListSidebarComponentClassName() {
 // Light/Dark mode classNames
 //============================
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * element's strong (i.e. more distinct) text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -302,7 +302,7 @@ export function getCommonElementStrongTextColorClassNameForLightOrDarkMode(
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * element's weak (i.e. less distinct) text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -315,7 +315,7 @@ export function getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * element's 'backend-errors' (className) element's text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -331,7 +331,7 @@ export function getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMod
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * char count element's text color (when limit is reached)
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -348,7 +348,7 @@ export function getCommonCharCountElementLimitReachedTextColorClassNameForLightO
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * blurred backdrop element's background color and opacity (will be different
  * CSS depending on if the backdrop has clickToClose functionality)
  *
@@ -372,7 +372,7 @@ export function getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNam
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * icon button element's text color with hover
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -389,11 +389,11 @@ export function getCommonIconButtonElementTextColorWithHoverClassNameForLightOrD
 }
 
 /**
- * Get light/dark mode className for Common (i.e. used by multiple components)
- * element's (grayed out) text color
+ * Get light/dark mode className for Common (i.e. intended for multiple components)
+ * element's grayed out text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for common element's (grayed out)
+ * @returns {string} Light/dark mode className for common element's grayed out
  * text color
  */
 export function getCommonElementGrayedOutTextColorClassNameForLightOrDarkMode(
@@ -403,7 +403,7 @@ export function getCommonElementGrayedOutTextColorClassNameForLightOrDarkMode(
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * form input element's border, background, and text colors
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -420,7 +420,7 @@ export function getCommonElementFormInputBorderBackgroundTextColorClassNameForLi
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * ListViewTopBar component's 'list-view-top-bar-component' (className) and
  * ItemViewTopBar component's 'item-vew-top-bar-component' (className)
  * element's border and background color
@@ -441,7 +441,7 @@ export function getCommonTopBarComponentBorderAndBackgroundColorClassNameForLigh
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * ListViewTopBar/ItemViewTopBar component's button and dropdown element's
  * border, background, and text color
  *
@@ -460,7 +460,7 @@ export function getCommonTopBarComponentButtonAndDropdownElementBorderBackground
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * ItemView, ItemViewDisplayItemInfo, ItemViewEditItemInfo, and
  * ItemViewCommentBox component's 'item-box' (className) element's background
  * color
@@ -480,7 +480,7 @@ export function getCommonItemViewComponentItemBoxElementBackgroundColorClassName
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * ItemViewEditItemInfo, ItemViewCommentBox and ItemViewCommentsBoxIndividualComment
  * component's form input/textarea/select/option element's border, background,
  * and text color
@@ -500,17 +500,17 @@ export function getCommonItemViewComponentFormInputElementBorderBackgroundTextCo
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * ItemViewEditItemInfo component's 'form-buttons-centered-container__cancel-button'
  * (className) element and ItemViewCommentBoxIndividualComment component's
- * 'individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button' 
+ * 'individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button'
  * (className) element's background color with hover
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for common
  * ItemViewEditItemInfo component's 'form-buttons-centered-container__cancel-button'
  * (className) element and ItemViewCommentBoxIndividualComment component's
- * 'individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button' 
+ * 'individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button'
  * (className) element's background color with hover
  */
 export function getCommonItemViewComponentFormCancelButtonElementBackgroundColorClassNameForLightOrDarkMode(
@@ -523,16 +523,16 @@ export function getCommonItemViewComponentFormCancelButtonElementBackgroundColor
 }
 
 /**
- * Get light/dark mode className for common (i.e. used by multiple components)
+ * Get light/dark mode className for common (i.e. intended for multiple components)
  * ItemViewCommentBoxIndividualCommentDisplayInfo and ItemViewCommentBoxIndividualCommentEditInfo
  * component's'comment-icon-button' (className) element's text color with hover
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for ItemViewCommentBoxIndividualCommentDisplayInfo 
- * and ItemViewCommentBoxIndividualCommentEditInfo component's 'comment-icon-button' 
+ * @returns {string} Light/dark mode className for ItemViewCommentBoxIndividualCommentDisplayInfo
+ * and ItemViewCommentBoxIndividualCommentEditInfo component's 'comment-icon-button'
  * element's text color with hover
  */
- export function getCommonItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode(
+export function getCommonItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
@@ -970,7 +970,7 @@ export function getItemViewTopBarComponentIconButtonElementTextColorWithHoverCla
 
 /**
  * Get light/dark mode className for ItemViewTopBar component's
- * 'item-view-top-bar-options-button-component' (className) element's 
+ * 'item-view-top-bar-options-button-component' (className) element's
  * with-dropdown-displayed border, background, and text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
@@ -989,11 +989,11 @@ export function getItemViewTopBarOptionsButtonComponentWithDropdownDisplayedBord
 
 /**
  * Get light/dark mode className for ItemViewTopBarOptionsDropdown component's
- * 'item-view-top-bar-options-dropdown-component__row-button' (className) 
+ * 'item-view-top-bar-options-dropdown-component__row-button' (className)
  * element's hover background color
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for ItemViewTopBarOptionsDropdown
- * component's 'item-view-top-bar-options-dropdown-component__row-button' 
+ * component's 'item-view-top-bar-options-dropdown-component__row-button'
  * element's hover background color
  */
 export function getItemViewTopBarOptionsDropdownComponentRowButtonElementHoverBackgroundColorClassNameForLightOrDarkMode(
@@ -1178,7 +1178,7 @@ export function getItemViewEditItemInfoComponentInputCompletedDateElementDisable
 // Theme classNames
 //==================
 /**
- * Get common (i.e. used by multiple components) brighter theme className for
+ * Get common (i.e. intended for multiple components) brighter theme className for
  * border color
  *
  * @param {("blue-turkish"|
@@ -1192,7 +1192,7 @@ export function getCommonBrighterBorderColorClassNameForTheme(theme_color) {
 	return " js-get-common-brighter-border-color-theme-" + theme_color;
 }
 /**
- * Get common (i.e. used by multiple components) standard theme className for
+ * Get common (i.e. intended for multiple components) standard theme className for
  * border color
  *
  * @param {("blue-turkish"|
@@ -1207,7 +1207,7 @@ export function getCommonStandardBorderColorClassNameForTheme(theme_color) {
 }
 
 /**
- * Get common (i.e. used by multiple components) brighter theme className for
+ * Get common (i.e. intended for multiple components) brighter theme className for
  * background color
  *
  * @param {("blue-turkish"|
@@ -1221,7 +1221,7 @@ export function getCommonBrighterBackgroundColorClassNameForTheme(theme_color) {
 	return " js-get-common-brighter-background-color-theme-" + theme_color;
 }
 /**
- * Get common (i.e. used by multiple components) standard theme className for
+ * Get common (i.e. intended for multiple components) standard theme className for
  * background color
  *
  * @param {("blue-turkish"|
@@ -1236,7 +1236,7 @@ export function getCommonStandardBackgroundColorClassNameForTheme(theme_color) {
 }
 
 /**
- * Get common (i.e. used by multiple components) theme className for background
+ * Get common (i.e. intended for multiple components) theme className for background
  * color with hover (background color is brighter theme, while hover background
  * color is standard theme)
  *
@@ -1254,7 +1254,7 @@ export function getCommonBackgroundColorWithHoverClassNameForTheme(
 }
 
 /**
- * Get theme className for common (i.e. used by multiple components)
+ * Get theme className for common (i.e. intended for multiple components)
  * form submit button element's background color with hover and focus
  * (background color is brighter theme, while hover/focus background color is
  * standard theme)
@@ -1420,7 +1420,7 @@ export function getCommonFormInputElementBorderBackgroundTextColorClassNameForTh
  * 	"blue-turquoise"|
  * 	"purple-rain")} theme_color - The current theme the app is set to use
  * @returns {string} Theme with light/dark mode className for common
- * ListViewTopBar component's 'search-centering-container__centered-container' 
+ * ListViewTopBar component's 'search-centering-container__centered-container'
  * element and ItemViewTopBar component's 'search-container' element's border,
  * background, and text color
  */
@@ -1606,11 +1606,40 @@ export function getToggleSwitchComponentBorderBackgroundTextColorClassNameForThe
 	);
 }
 
+//=======================================
+// Location + Light/Dark mode classNames
+//=======================================
+/**
+ * Get location with light/dark mode className for a Common (i.e. used by 
+ * multiple components) tooltip to be added to the element bearing the returned
+ * className
+ * 
+ * Note: Set the desired content for the tooltip inside a 'data-tooltip' 
+ * attribute in the element bearing the returned className.
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @param {("top"|"right"|"bottom"|"left")} location - where the tooltip will be 
+ * located relative to the element this className is applied to
+ * @returns {string} Light/dark mode className for common tooltip element's
+ * background and text colors
+ */
+export function getCommonElementToolTipBackgroundTextColorClassNameForLocationWithLightOrDarkMode(
+	dark_mode,
+	location
+) {
+	return (
+		" js-get-common-element-tooltip-background-text-color-location-" +
+		location +
+		"-dark-mode-" +
+		dark_mode
+	);
+}
+
 //=========================
 // Status Color classNames
 //=========================
 /**
- * Get common (i.e. used by multiple components) status color className for
+ * Get common (i.e. intended for multiple components) status color className for
  * background color.
  *
  * Note: This function is used for changing the background color of status box
@@ -1631,7 +1660,7 @@ export function getCommonStatusBackgroundColorClassName(statusColor) {
 }
 
 /**
- * Get common (i.e. used by multiple components) status color className for
+ * Get common (i.e. intended for multiple components) status color className for
  * text color.
  *
  * Note: This function is used to change text color in status form select boxes,

@@ -31,8 +31,8 @@
 
 @mixin full-width-minus-nav-panel() {
 	width: -webkit-calc(100% - #{v.$common-left});
-    width:    -moz-calc(100% - #{v.$common-left});
-    width:         calc(100% - #{v.$common-left});
+	width: -moz-calc(100% - #{v.$common-left});
+	width: calc(100% - #{v.$common-left});
 }
 
 // CSS shared between both back and exit icon buttons
@@ -80,6 +80,119 @@
 	// Adds spacing when multiple backend-errors appear back to back
 	+ .backend-errors {
 		margin-top: 5px;
+	}
+}
+
+@mixin tooltip($location, $is-dark) {
+	// Located inside this mixin as it's the only place they are used
+	$after-margin: 4px;
+	$after-border-width: 8px;
+	$before-margin: $after-margin + ($after-border-width - 1);
+
+	&:before {
+		content: attr(data-tooltip);
+		z-index: 1;
+		visibility: hidden;
+		position: absolute;
+		border-radius: 5px;
+		padding: 8px 14px;
+		font-size: 12px;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		white-space: nowrap;
+
+		@if $is-dark {
+			background-color: v.$mode-common-tooltip-background-color-dark;
+			color: v.$mode-common-tooltip-text-color-dark;
+		} @else {
+			background-color: v.$mode-common-tooltip-background-color-light;
+			color: v.$mode-common-tooltip-text-color-light;
+		}
+	}
+
+	&:after {
+		content: "";
+		visibility: hidden;
+		position: absolute;
+		height: 0;
+		width: 0;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+
+		@if $is-dark {
+			border-color: v.$mode-common-tooltip-background-color-dark;
+		} @else {
+			border-color: v.$mode-common-tooltip-background-color-light;
+		}
+	}
+
+	&:hover::before,
+	&:hover::after {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	@if $location == "right" {
+		&:before,
+		&:after {
+			top: 50%;
+			left: 100%;
+			transform: translate(0, -50%);
+			margin-left: $before-margin;
+		}
+
+		&:after {
+			margin-left: $after-margin;
+			border-top: $after-border-width solid transparent;
+			border-right: $after-border-width solid;
+			border-bottom: $after-border-width solid transparent;
+		}
+	} @else if $location == "bottom" {
+		&:before,
+		&:after {
+			top: 100%;
+			left: 50%;
+			transform: translate(-50%);
+			margin-top: $before-margin;
+		}
+
+		&:after {
+			margin-top: $after-margin;
+			border-right: $after-border-width solid transparent;
+			border-bottom: $after-border-width solid;
+			border-left: $after-border-width solid transparent;
+		}
+	} @else if $location == "left" {
+		&:before,
+		&:after {
+			top: 50%;
+			right: 100%;
+			transform: translate(0, -50%);
+			margin-right: $before-margin;
+		}
+
+		&:after {
+			margin-right: $after-margin;
+			border-top: $after-border-width solid transparent;
+			border-bottom: $after-border-width solid transparent;
+			border-left: $after-border-width solid;
+		}
+	} // top
+	@else {
+		&:before,
+		&:after {
+			bottom: 100%;
+			left: 50%;
+			transform: translate(-50%);
+			margin-bottom: $before-margin;
+		}
+
+		&:after {
+			margin-bottom: $after-margin;
+			border-top: $after-border-width solid;
+			border-right: $after-border-width solid transparent;
+			border-left: $after-border-width solid transparent;
+		}
 	}
 }
 

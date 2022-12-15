@@ -17,7 +17,7 @@ body {
 	//=================
 	// Light/Dark mode
 	//=================
-	// Light/Dark mode -- Common (i.e. used by multiple components) element --
+	// Light/Dark mode -- Common (i.e. intended for multiple components) element --
 	// ...strong (i.e. more distinct) text color
 	.js-get-common-element-strong-text-color-dark-mode-false {
 		color: v.$mode-common-strong-text-color-light;
@@ -26,7 +26,7 @@ body {
 		color: v.$mode-common-strong-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) element --
+	// Light/Dark mode -- Common (i.e. intended for multiple components) element --
 	// ...weak (i.e. less distinct) text color
 	.js-get-common-element-weak-text-color-dark-mode-false {
 		color: v.$mode-common-weak-text-color-light;
@@ -35,7 +35,7 @@ body {
 		color: v.$mode-common-weak-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) 'backend-errors'
+	// Light/Dark mode -- Common (i.e. intended for multiple components) 'backend-errors'
 	// ...element -- text color
 	.js-get-common-element-backend-errors-text-color-dark-mode-false {
 		color: v.$mode-common-backend-errors-text-color-light;
@@ -44,7 +44,7 @@ body {
 		color: v.$mode-common-backend-errors-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) char-count
+	// Light/Dark mode -- Common (i.e. intended for multiple components) char-count
 	// ...element -- text color (when limit is reached)
 	.js-get-common-char-count-element-limit-reached-text-color-dark-mode-false {
 		color: v.$mode-common-char-count-limit-reached-text-color-light;
@@ -53,7 +53,7 @@ body {
 		color: v.$mode-common-char-count-limit-reached-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) blurred
+	// Light/Dark mode -- Common (i.e. intended for multiple components) blurred
 	// ...backdrop element -- background color and opacity
 	.js-get-common-blurred-backdrop-element-background-color-and-opacity-dark-mode-false {
 		background-color: v.$mode-common-blurred-backdrop-background-color-light;
@@ -64,7 +64,7 @@ body {
 		opacity: v.$mode-common-blurred-backdrop-opacity-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) blurred
+	// Light/Dark mode -- Common (i.e. intended for multiple components) blurred
 	// ...backdrop element -- background color and opacity (with click-to-close
 	// ...functionality)
 	.js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-false {
@@ -76,7 +76,7 @@ body {
 		opacity: v.$mode-common-blurred-backdrop-click-to-close-opacity-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) icon button
+	// Light/Dark mode -- Common (i.e. intended for multiple components) icon button
 	// ...element -- text color with hover
 	.js-get-common-icon-button-element-text-color-with-hover-dark-mode-false {
 		color: v.$mode-common-icon-button-text-color-light;
@@ -95,8 +95,8 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) element --
-	// ...(grayed out) text color
+	// Light/Dark mode -- Common (i.e. intended for multiple components) element --
+	// ...grayed out text color
 	.js-get-common-element-grayed-out-text-color-dark-mode-false {
 		color: v.$mode-common-grayed-out-text-color-light;
 	}
@@ -104,7 +104,7 @@ body {
 		color: v.$mode-common-grayed-out-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) form input
+	// Light/Dark mode -- Common (i.e. intended for multiple components) form input
 	// ...element -- border, background, and text color
 	.js-get-common-element-form-input-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-form-input-border-color-light;
@@ -117,7 +117,7 @@ body {
 		color: v.$mode-common-strong-text-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar
+	// Light/Dark mode -- Common (i.e. intended for multiple components) ListViewTopBar
 	// ...'list-view-top-bar-component' and ItemViewTopBar 'item-vew-top-bar-component'
 	// ...component -- border and background color
 	.js-get-common-top-bar-component-border-and-background-color-dark-mode-false {
@@ -129,7 +129,7 @@ body {
 		background-color: v.$mode-common-top-bar-background-color-dark;
 	}
 
-	// Light/Dark mode -- Common (i.e. used by multiple components) ListViewTopBar/ItemViewTopBar
+	// Light/Dark mode -- Common (i.e. intended for multiple components) ListViewTopBar/ItemViewTopBar
 	// ...component's buttons and dropdowns element-- border, background, and text color
 	.js-get-common-top-bar-component-button-and-dropdown-element-border-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-light;
@@ -142,7 +142,7 @@ body {
 		color: v.$mode-common-top-bar-button-and-dropdown-text-color-dark;
 	}
 
-	// Light/Dark mode -- common (i.e. used by multiple components) ItemView,
+	// Light/Dark mode -- common (i.e. intended for multiple components) ItemView,
 	// ...ItemViewDisplayItemInfo, ItemViewEditItemInfo, and ItemViewCommentBox
 	// ...components 'item-box' element -- background color
 	.js-get-common-item-view-component-item-box-element-background-color-dark-mode-false {
@@ -152,7 +152,7 @@ body {
 		background-color: v.$mode-common-item-view-item-box-background-color-dark;
 	}
 
-	// Light/Dark mode -- common (i.e. used by multiple components) ItemViewEditItemInfo,
+	// Light/Dark mode -- common (i.e. intended for multiple components) ItemViewEditItemInfo,
 	// ...ItemViewCommentBox and ItemViewCommentsBoxIndividualComment components form
 	// ...input/textarea/select/option elements -- border, background, and text color
 	.js-get-common-item-view-component-form-input-element-border-background-text-color-dark-mode-false {
@@ -166,7 +166,7 @@ body {
 		color: v.$mode-common-strong-text-color-dark;
 	}
 
-	// Light/Dark -- common (i.e. used by multiple components) ItemViewEditItemInfo
+	// Light/Dark -- common (i.e. intended for multiple components) ItemViewEditItemInfo
 	// ...component 'form-buttons-centered-container__cancel-button' element and
 	// ...ItemViewCommentBoxIndividualComment component
 	// ...'individual-comment-divider__form-buttons-centering-container__pair-container__cancel-button'
@@ -188,7 +188,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- common (i.e. used by multiple components) ItemViewCommentBoxIndividualCommentDisplayInfo
+	// Light/Dark mode -- common (i.e. intended for multiple components) ItemViewCommentBoxIndividualCommentDisplayInfo
 	// and ItemViewCommentBoxIndividualCommentEditInfo components 'comment-icon-button'
 	// (className) element -- text color with hover
 	.js-get-common-item-view-comment-box-individual-comment-component-icon-button-element-text-color-with-hover-mode-false {
@@ -222,68 +222,68 @@ body {
 	// Light/Dark mode -- NavbarHamburger component's 'hamburger-dropdown'
 	// ...element's -- border, background (with hover and selected), and text
 	// ...color
-	@mixin mode-hamburger-dropdown($is-light) {
-		@if $is-light {
-			background-color: v.$mode-navbar-hamburger-dropdown-background-color-light;
-		} @else {
+	@mixin mode-hamburger-dropdown($is-dark) {
+		@if $is-dark {
 			background-color: v.$mode-navbar-hamburger-dropdown-background-color-dark;
+		} @else {
+			background-color: v.$mode-navbar-hamburger-dropdown-background-color-light;
 		}
 
 		& > .hamburger-dropdown__row-button {
-			@if $is-light {
-				border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-light;
-			} @else {
+			@if $is-dark {
 				border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-dark;
+			} @else {
+				border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-light;
 			}
 
 			&:hover,
 			&:active {
-				@if $is-light {
-					background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-light;
-				} @else {
+				@if $is-dark {
 					background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-dark;
+				} @else {
+					background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-light;
 				}
 			}
 
 			& > .hamburger-dropdown__row-button__icon {
-				@if $is-light {
-					color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-light;
-				} @else {
+				@if $is-dark {
 					color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-dark;
+				} @else {
+					color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-light;
 				}
 			}
 		}
 
 		& > .hamburger-dropdown__row-button--selected {
-			@if $is-light {
-				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
-			} @else {
+			@if $is-dark {
 				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-dark;
+			} @else {
+				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
 			}
 
 			&:hover,
 			&:active {
-				@if $is-light {
-					background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
-				} @else {
+				@if $is-dark {
 					background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-dark;
+				} @else {
+					background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
 				}
 			}
 		}
 
 		& > .hamburger-dropdown__row-button--item-name {
-			@if $is-light {
-				color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-light;
-			} @else {
+			@if $is-dark {
 				color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-dark;
+			} @else {
+				color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-light;
 			}
 		}
 	}
 	.js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false {
-		@include mode-hamburger-dropdown($is-light: true);
+		@include mode-hamburger-dropdown($is-dark: false);
 	}
 	.js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true {
-		@include mode-hamburger-dropdown($is-light: false);
+		@include mode-hamburger-dropdown($is-dark: true);
 	}
 
 	// Light/Dark mode -- AccountSidebar component 'sidebar-container' element
@@ -569,7 +569,7 @@ body {
 		}
 	}
 
-	// Light/Dark mode -- ItemViewTopBarOptionsButton component -- 
+	// Light/Dark mode -- ItemViewTopBarOptionsButton component --
 	// with-dropdown-displayed border, background, and text color
 	.js-get-item-view-top-bar-options-button-component-with-dropdown-displayed-background-text-color-dark-mode-false {
 		border-color: v.$mode-common-top-bar-button-and-dropdown-border-color-light;
@@ -584,8 +584,8 @@ body {
 		color: v.$mode-item-view-top-bar-icon-button-hover-text-color-dark;
 	}
 
-	// Light/Dark mode -- ItemViewTopBarOptionsDropdown component 
-	// 'item-view-top-bar-options-dropdown-component__row-button' element -- 
+	// Light/Dark mode -- ItemViewTopBarOptionsDropdown component
+	// 'item-view-top-bar-options-dropdown-component__row-button' element --
 	// hover background color
 	.js-get-item-view-top-bar-options-button-row-button-element-hover-background-color-dark-mode-false {
 		&:hover,
@@ -716,7 +716,7 @@ body {
 	//========
 	// Themes
 	//========
-	// Theme -- Common (i.e. used by multiple components) -- border color
+	// Theme -- Common (i.e. intended for multiple components) -- border color
 	.js-get-common-brighter-border-color-theme-blue-turkish {
 		border-color: v.$theme-common-brighter-border-background-color-blue-turkish;
 	}
@@ -748,7 +748,7 @@ body {
 		border-color: v.$theme-common-standard-border-background-color-purple-rain;
 	}
 
-	// Theme -- Common (i.e. used by multiple components) -- background color
+	// Theme -- Common (i.e. intended for multiple components) -- background color
 	.js-get-common-brighter-background-color-theme-blue-turkish {
 		background-color: v.$theme-common-brighter-border-background-color-blue-turkish;
 	}
@@ -780,7 +780,7 @@ body {
 		background-color: v.$theme-common-standard-border-background-color-purple-rain;
 	}
 
-	// Theme -- Common (i.e. used by multiple components) -- background color
+	// Theme -- Common (i.e. intended for multiple components) -- background color
 	// ...with hover
 	@mixin theme-background-color-with-hover(
 		$theme-common-brighter-background-color,
@@ -824,7 +824,7 @@ body {
 		);
 	}
 
-	// Theme -- Common (i.e. used by multiple components) component form submit
+	// Theme -- Common (i.e. intended for multiple components) component form submit
 	// ...button element -- background color with hover and focus
 	@mixin theme-form-submit-button-background-color-with-hover-focus(
 		$theme-common-brighter-background-color,
@@ -905,7 +905,7 @@ body {
 	//==========================
 	// Themes + Light/Dark mode
 	//==========================
-	// Theme + Light/Dark mode -- Common (i.e. used by multiple components) --
+	// Theme + Light/Dark mode -- Common (i.e. intended for multiple components) --
 	// ...text color
 	.js-get-common-text-color-mode-light-theme-blue-turkish {
 		color: v.$theme-mode-common-blue-turkish-text-color-light;
@@ -938,7 +938,7 @@ body {
 		color: v.$theme-mode-common-purple-rain-text-color-dark;
 	}
 
-	// Theme + Light/Dark mode -- Common (i.e. used by multiple components)
+	// Theme + Light/Dark mode -- Common (i.e. intended for multiple components)
 	// ...component form input/textarea/select/option element -- focus border
 	// ...color
 	.js-get-common-form-input-focus-border-color-mode-light-theme-blue-turkish {
@@ -992,22 +992,22 @@ body {
 		}
 	}
 
-	// Theme + Light/Dark mode -- common (i.e. used by multiple components)
-	// ListViewTopBar component 'search-centering-container__centered-container' 
+	// Theme + Light/Dark mode -- common (i.e. intended for multiple components)
+	// ListViewTopBar component 'search-centering-container__centered-container'
 	// element and ItemViewTopBar component 'search-container' element -- border,
 	// background, and text color
 	@mixin theme-mode-common-top-bar-search-container(
 		$theme-border-background-color,
-		$is-light
+		$is-dark
 	) {
 		& > input {
 			border-color: $theme-border-background-color;
-			@if $is-light {
-				background-color: v.$mode-common-top-bar-search-bar-background-color-light;
-				color: v.$mode-common-top-bar-search-bar-text-color-light;
-			} @else {
+			@if $is-dark {
 				background-color: v.$mode-common-top-bar-search-bar-background-color-dark;
 				color: v.$mode-common-top-bar-search-bar-text-color-dark;
+			} @else {
+				background-color: v.$mode-common-top-bar-search-bar-background-color-light;
+				color: v.$mode-common-top-bar-search-bar-text-color-light;
 			}
 		}
 
@@ -1019,61 +1019,61 @@ body {
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-light-theme-blue-turkish {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-blue-turkish,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-dark-theme-blue-turkish {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-blue-turkish,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-light-theme-blue-queen {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-blue-queen,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-dark-theme-blue-queen {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-blue-queen,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-light-theme-blue-sky {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-blue-sky,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-dark-theme-blue-sky {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-blue-sky,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-light-theme-blue-turquoise {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-blue-turquoise,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-dark-theme-blue-turquoise {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-blue-turquoise,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-light-theme-purple-rain {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-purple-rain,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-common-top-bar-component-search-container-element-border-background-text-color-mode-dark-theme-purple-rain {
 		@include theme-mode-common-top-bar-search-container(
 			v.$theme-common-standard-border-background-color-purple-rain,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 
@@ -1115,39 +1115,39 @@ body {
 	@mixin mode-top-bar-tutorial(
 		$theme-mode-common-top-bar-new-item-tutorial-border-text-color-light,
 		$theme-mode-common-top-bar-new-item-tutorial-border-text-color-dark,
-		$is-light
+		$is-dark
 	) {
 		& > .new-item-tutorial-container__arrow-head {
-			@if $is-light {
-				border-bottom-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
-			} @else {
+			@if $is-dark {
 				border-bottom-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark;
+			} @else {
+				border-bottom-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
 			}
 		}
 
 		& > .new-item-tutorial-container__arrow-stock {
-			@if $is-light {
-				background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
-			} @else {
+			@if $is-dark {
 				background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark;
+			} @else {
+				background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
 			}
 		}
 
 		& > .new-item-tutorial-container__bend-message-centering-container {
 			&
 				> .new-item-tutorial-container__bend-message-centering-container__arrow-bend {
-				@if $is-light {
-					background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
-				} @else {
+				@if $is-dark {
 					background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-dark;
+				} @else {
+					background-color: v.$mode-common-top-bar-new-item-tutorial-arrow-background-color-light;
 				}
 			}
 
 			& > .new-item-tutorial-container__bend-message-centering-container__text {
-				@if $is-light {
-					color: $theme-mode-common-top-bar-new-item-tutorial-border-text-color-light;
-				} @else {
+				@if $is-dark {
 					color: $theme-mode-common-top-bar-new-item-tutorial-border-text-color-dark;
+				} @else {
+					color: $theme-mode-common-top-bar-new-item-tutorial-border-text-color-light;
 				}
 			}
 		}
@@ -1156,70 +1156,70 @@ body {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-blue-turkish-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-blue-turkish-new-item-tutorial-border-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-list-view-top-bar-component-new-item-tutorial-element-border-background-text-color-mode-dark-theme-blue-turkish {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-blue-turkish-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-blue-turkish-new-item-tutorial-border-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-list-view-top-bar-component-new-item-tutorial-element-border-background-text-color-mode-light-theme-blue-queen {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-blue-queen-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-blue-queen-new-item-tutorial-border-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-list-view-top-bar-component-new-item-tutorial-element-border-background-text-color-mode-dark-theme-blue-queen {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-blue-queen-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-blue-queen-new-item-tutorial-border-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-list-view-top-bar-component-new-item-tutorial-element-border-background-text-color-mode-light-theme-blue-sky {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-blue-sky-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-blue-sky-new-item-tutorial-border-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-list-view-top-bar-component-new-item-tutorial-element-border-background-text-color-mode-dark-theme-blue-sky {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-blue-sky-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-blue-sky-new-item-tutorial-border-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-list-view-top-bar-component-new-item-tutorial-element-border-background-text-color-mode-light-theme-blue-turquoise {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-blue-turquoise-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-blue-turquoise-new-item-tutorial-border-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-list-view-top-bar-component-new-item-tutorial-element-border-background-text-color-mode-dark-theme-blue-turquoise {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-blue-turquoise-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-blue-turquoise-new-item-tutorial-border-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-list-view-top-bar-component-new-item-tutorial-element-border-background-text-color-mode-light-theme-purple-rain {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-purple-rain-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-purple-rain-new-item-tutorial-border-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-list-view-top-bar-component-new-item-tutorial-element-border-background-text-color-mode-dark-theme-purple-rain {
 		@include mode-top-bar-tutorial(
 			v.$theme-mode-common-purple-rain-new-item-tutorial-border-text-color-light,
 			v.$theme-mode-common-purple-rain-new-item-tutorial-border-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 
@@ -1228,21 +1228,21 @@ body {
 	@mixin theme-mode-Item-view-form-input-for-name(
 		$theme-mode-common-focus-border-color-light,
 		$theme-mode-common-focus-border-color-dark,
-		$is-light
+		$is-dark
 	) {
 		&:focus {
-			@if $is-light {
-				border-color: $theme-mode-common-focus-border-color-light;
-			} @else {
+			@if $is-dark {
 				border-color: $theme-mode-common-focus-border-color-dark;
+			} @else {
+				border-color: $theme-mode-common-focus-border-color-light;
 			}
 		}
 
 		&:focus + .name-centering-container__char-count-centering-container {
-			@if $is-light {
-				border-color: $theme-mode-common-focus-border-color-light;
-			} @else {
+			@if $is-dark {
 				border-color: $theme-mode-common-focus-border-color-dark;
+			} @else {
+				border-color: $theme-mode-common-focus-border-color-light;
 			}
 		}
 	}
@@ -1250,70 +1250,70 @@ body {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-blue-turkish-focus-border-color-light,
 			v.$theme-mode-common-blue-turkish-focus-border-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-item-view-edit-item-info-component-form-name-input-element-focus-border-color-mode-dark-theme-blue-turkish {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-blue-turkish-focus-border-color-light,
 			v.$theme-mode-common-blue-turkish-focus-border-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-item-view-edit-item-info-component-form-name-input-element-focus-border-color-mode-light-theme-blue-queen {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-blue-queen-focus-border-color-light,
 			v.$theme-mode-common-blue-queen-focus-border-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-item-view-edit-item-info-component-form-name-input-element-focus-border-color-mode-dark-theme-blue-queen {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-blue-queen-focus-border-color-light,
 			v.$theme-mode-common-blue-queen-focus-border-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-item-view-edit-item-info-component-form-name-input-element-focus-border-color-mode-light-theme-blue-sky {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-blue-sky-focus-border-color-light,
 			v.$theme-mode-common-blue-sky-focus-border-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-item-view-edit-item-info-component-form-name-input-element-focus-border-color-mode-dark-theme-blue-sky {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-blue-sky-focus-border-color-light,
 			v.$theme-mode-common-blue-sky-focus-border-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-item-view-edit-item-info-component-form-name-input-element-focus-border-color-mode-light-theme-blue-turquoise {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-blue-turquoise-focus-border-color-light,
 			v.$theme-mode-common-blue-turquoise-focus-border-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-item-view-edit-item-info-component-form-name-input-element-focus-border-color-mode-dark-theme-blue-turquoise {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-blue-turquoise-focus-border-color-light,
 			v.$theme-mode-common-blue-turquoise-focus-border-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-item-view-edit-item-info-component-form-name-input-element-focus-border-color-mode-light-theme-purple-rain {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-purple-rain-focus-border-color-light,
 			v.$theme-mode-common-purple-rain-focus-border-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-item-view-edit-item-info-component-form-name-input-element-focus-border-color-mode-dark-theme-purple-rain {
 		@include theme-mode-Item-view-form-input-for-name(
 			v.$theme-mode-common-purple-rain-focus-border-color-light,
 			v.$theme-mode-common-purple-rain-focus-border-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 
@@ -1322,39 +1322,39 @@ body {
 	@mixin theme-mode-custom-checkbox(
 		$theme-mode-common-text-color-light,
 		$theme-mode-common-text-color-dark,
-		$is-light
+		$is-dark
 	) {
-		@if $is-light {
-			border-color: v.$mode-custom-checkbox-border-color-light;
-			background-color: v.$mode-custom-checkbox-background-color-light;
-		} @else {
+		@if $is-dark {
 			border-color: v.$mode-custom-checkbox-border-color-dark;
 			background-color: v.$mode-custom-checkbox-background-color-dark;
+		} @else {
+			border-color: v.$mode-custom-checkbox-border-color-light;
+			background-color: v.$mode-custom-checkbox-background-color-light;
 		}
 
 		&:hover {
-			@if $is-light {
-				border-color: $theme-mode-common-text-color-light;
-			} @else {
+			@if $is-dark {
 				border-color: $theme-mode-common-text-color-dark;
+			} @else {
+				border-color: $theme-mode-common-text-color-light;
 			}
 		}
 
 		// For checkmark
 		& + svg {
-			@if $is-light {
-				color: v.$mode-custom-checkmark-text-color-light;
-			} @else {
+			@if $is-dark {
 				color: v.$mode-custom-checkmark-text-color-dark;
+			} @else {
+				color: v.$mode-custom-checkmark-text-color-light;
 			}
 		}
 
 		// For checkmark
 		&:hover + svg {
-			@if $is-light {
-				color: $theme-mode-common-text-color-light;
-			} @else {
+			@if $is-dark {
 				color: $theme-mode-common-text-color-dark;
+			} @else {
+				color: $theme-mode-common-text-color-light;
 			}
 		}
 	}
@@ -1362,70 +1362,70 @@ body {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-blue-turkish-text-color-light,
 			v.$theme-mode-common-blue-turkish-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turkish {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-blue-turkish-text-color-light,
 			v.$theme-mode-common-blue-turkish-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-queen {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-blue-queen-text-color-light,
 			v.$theme-mode-common-blue-queen-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-queen {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-blue-queen-text-color-light,
 			v.$theme-mode-common-blue-queen-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-sky {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-blue-sky-text-color-light,
 			v.$theme-mode-common-blue-sky-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-sky {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-blue-sky-text-color-light,
 			v.$theme-mode-common-blue-sky-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-blue-turquoise {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-blue-turquoise-text-color-light,
 			v.$theme-mode-common-blue-turquoise-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-blue-turquoise {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-blue-turquoise-text-color-light,
 			v.$theme-mode-common-blue-turquoise-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-custom-checkbox-component-border-background-text-color-mode-light-theme-purple-rain {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-purple-rain-text-color-light,
 			v.$theme-mode-common-purple-rain-text-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-custom-checkbox-component-border-background-text-color-mode-dark-theme-purple-rain {
 		@include theme-mode-custom-checkbox(
 			v.$theme-mode-common-purple-rain-text-color-light,
 			v.$theme-mode-common-purple-rain-text-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 
@@ -1434,45 +1434,45 @@ body {
 	@mixin theme-mode-toggle-switch(
 		$theme-mode-common-toggle-switch-on-border-background-color-light,
 		$theme-mode-common-toggle-switch-on-border-background-color-dark,
-		$is-light
+		$is-dark
 	) {
 		& > .toggle-switch {
-			@if $is-light {
-				border-color: v.$mode-toggle-switch-off-border-background-color-light;
-				background-color: v.$mode-toggle-switch-off-border-background-color-light;
-				color: v.$mode-toggle-switch-off-text-color-light;
-			} @else {
+			@if $is-dark {
 				border-color: v.$mode-toggle-switch-off-border-background-color-dark;
 				background-color: v.$mode-toggle-switch-off-border-background-color-dark;
 				color: v.$mode-toggle-switch-off-text-color-dark;
+			} @else {
+				border-color: v.$mode-toggle-switch-off-border-background-color-light;
+				background-color: v.$mode-toggle-switch-off-border-background-color-light;
+				color: v.$mode-toggle-switch-off-text-color-light;
 			}
 		}
 
 		& > .invisible-checkbox:checked + .toggle-switch {
-			@if $is-light {
-				border-color: $theme-mode-common-toggle-switch-on-border-background-color-light;
-				background-color: $theme-mode-common-toggle-switch-on-border-background-color-light;
-				color: v.$mode-toggle-switch-on-text-color-light;
-			} @else {
+			@if $is-dark {
 				border-color: $theme-mode-common-toggle-switch-on-border-background-color-dark;
 				background-color: $theme-mode-common-toggle-switch-on-border-background-color-dark;
 				color: v.$mode-toggle-switch-on-text-color-dark;
+			} @else {
+				border-color: $theme-mode-common-toggle-switch-on-border-background-color-light;
+				background-color: $theme-mode-common-toggle-switch-on-border-background-color-light;
+				color: v.$mode-toggle-switch-on-text-color-light;
 			}
 		}
 
 		& > .toggle-switch > .toggle-switch__circle {
-			@if $is-light {
-				background-color: v.$mode-toggle-switch-off-circle-background-color-light;
-			} @else {
+			@if $is-dark {
 				background-color: v.$mode-toggle-switch-off-circle-background-color-dark;
+			} @else {
+				background-color: v.$mode-toggle-switch-off-circle-background-color-light;
 			}
 		}
 
 		& > .invisible-checkbox:checked + .toggle-switch > .toggle-switch__circle {
-			@if $is-light {
-				background-color: v.$mode-toggle-switch-on-circle-background-color-light;
-			} @else {
+			@if $is-dark {
 				background-color: v.$mode-toggle-switch-on-circle-background-color-dark;
+			} @else {
+				background-color: v.$mode-toggle-switch-on-circle-background-color-light;
 			}
 		}
 	}
@@ -1480,77 +1480,107 @@ body {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-toggle-switch-component-border-background-text-colors-mode-dark-theme-blue-turkish {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-toggle-switch-component-border-background-text-colors-mode-light-theme-blue-queen {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-blue-queen-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-blue-queen-toggle-switch-on-border-background-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-toggle-switch-component-border-background-text-colors-mode-dark-theme-blue-queen {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-blue-queen-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-blue-queen-toggle-switch-on-border-background-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-toggle-switch-component-border-background-text-colors-mode-light-theme-blue-sky {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-blue-sky-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-blue-sky-toggle-switch-on-border-background-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-toggle-switch-component-border-background-text-colors-mode-dark-theme-blue-sky {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-blue-sky-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-blue-sky-toggle-switch-on-border-background-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-toggle-switch-component-border-background-text-colors-mode-light-theme-blue-turquoise {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-blue-turquoise-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-blue-turquoise-toggle-switch-on-border-background-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-toggle-switch-component-border-background-text-colors-mode-dark-theme-blue-turquoise {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-blue-turquoise-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-blue-turquoise-toggle-switch-on-border-background-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
 	}
 	.js-get-toggle-switch-component-border-background-text-colors-mode-light-theme-purple-rain {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-purple-rain-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-purple-rain-toggle-switch-on-border-background-color-dark,
-			$is-light: true
+			$is-dark: false
 		);
 	}
 	.js-get-toggle-switch-component-border-background-text-colors-mode-dark-theme-purple-rain {
 		@include theme-mode-toggle-switch(
 			v.$theme-mode-common-purple-rain-toggle-switch-on-border-background-color-light,
 			v.$theme-mode-common-purple-rain-toggle-switch-on-border-background-color-dark,
-			$is-light: false
+			$is-dark: true
 		);
+	}
+
+	//============================
+	// Location + Light/Dark mode
+	//============================
+	// Location + Light/Dark mode -- Common (i.e. intended for multiple components) 
+	// ...tooltip element -- background and text colors
+	.js-get-common-element-tooltip-background-text-color-location-top-dark-mode-false {
+		@include m.tooltip($location: "top", $is-dark: false);
+	}
+	.js-get-common-element-tooltip-background-text-color-location-right-dark-mode-false {
+		@include m.tooltip($location: "right", $is-dark: false);
+	}
+	.js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-false {
+		@include m.tooltip($location: "bottom", $is-dark: false);
+	}
+	.js-get-common-element-tooltip-background-text-color-location-left-dark-mode-false {
+		@include m.tooltip($location: "left", $is-dark: false);
+	}
+	.js-get-common-element-tooltip-background-text-color-location-top-dark-mode-true {
+		@include m.tooltip($location: "top", $is-dark: true);
+	}
+	.js-get-common-element-tooltip-background-text-color-location-right-dark-mode-true {
+		@include m.tooltip($location: "right", $is-dark: true);
+	}
+	.js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-true {
+		@include m.tooltip($location: "bottom", $is-dark: true);
+	}
+	.js-get-common-element-tooltip-background-text-color-location-left-dark-mode-true {
+		@include m.tooltip($location: "left", $is-dark: true);
 	}
 
 	//===============
 	// Status colors
 	//===============
-	// Status color -- Common (i.e. used by multiple components) -- background
+	// Status color -- Common (i.e. intended for multiple components) -- background
 	// ...color
 	.js-get-common-status-background-color-gray {
 		background-color: v.$status-common-color-gray;
@@ -1571,7 +1601,7 @@ body {
 		background-color: v.$status-common-color-red;
 	}
 
-	// Status color -- Common (i.e. used by multiple components) -- text color
+	// Status color -- Common (i.e. intended for multiple components) -- text color
 	.js-get-common-status-text-color-gray {
 		color: v.$status-common-color-gray;
 	}

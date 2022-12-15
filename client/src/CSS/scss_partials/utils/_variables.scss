@@ -201,7 +201,7 @@ $raspberry-red-level-2: #d44141;
 $basic-yellow-level-1: #ffff00;
 $basic-yellow-level-2: #e2e200;
 
-// Light/Dark mode colors -- Common (i.e. used by multiple components)
+// Light/Dark mode colors -- Common (i.e. intended for multiple components)
 // Note: light/dark mode placed at end of variable name
 $mode-common-background-color-light: white;
 $mode-common-background-color-dark: $gray-dark-level-8;
@@ -225,6 +225,10 @@ $mode-common-icon-button-hover-text-color-light: $gray-dark-level-5;
 $mode-common-icon-button-hover-text-color-dark: $gray-level-1;
 $mode-common-grayed-out-text-color-light: $gray-level-4;
 $mode-common-grayed-out-text-color-dark: $gray-level-6;
+$mode-common-tooltip-background-color-light: black;
+$mode-common-tooltip-background-color-dark: black;
+$mode-common-tooltip-text-color-light: white;
+$mode-common-tooltip-text-color-dark: white;
 $mode-common-form-input-border-color-light: $gray-light-level-10;
 $mode-common-form-input-border-color-dark: $gray-dark-level-10;
 $mode-common-form-input-error-border-color-light: $mode-common-backend-errors-text-color-light;
@@ -257,7 +261,7 @@ $mode-common-item-view-individual-comment-icon-button-text-color-light: $gray-le
 $mode-common-item-view-individual-comment-icon-button-text-color-dark: $gray-level-4;
 $mode-common-item-view-individual-comment-icon-button-hover-text-color-light: $mode-common-strong-text-color-light;
 $mode-common-item-view-individual-comment-icon-button-hover-text-color-dark: $mode-common-strong-text-color-dark;
-// Light/Dark mode colors -- Specific (i.e. used by specific component)
+// Light/Dark mode colors -- Specific (i.e. intended for specific component)
 // Note: light/dark mode placed at end of variable name
 $mode-home-background-color-light: $mode-common-background-color-light;
 $mode-home-background-color-dark: $mode-common-background-color-dark;
@@ -389,7 +393,7 @@ $mode-toggle-switch-off-text-color-dark: $gray-light-level-6;
 $mode-toggle-switch-off-circle-background-color-light: $mode-toggle-switch-on-circle-background-color-light; // 'on' version of this variable is bellow with Themes + Light/Dark mode
 $mode-toggle-switch-off-circle-background-color-dark: $mode-toggle-switch-on-circle-background-color-dark; // 'on' version of this variable is bellow with Themes + Light/Dark mode
 
-// Themes colors -- Common (i.e. used by multiple components)
+// Themes colors -- Common (i.e. intended for multiple components)
 // Note: theme placed at end of variable name
 $theme-common-brighter-border-background-color-blue-turkish: $turkish-blue-level-3;
 $theme-common-standard-border-background-color-blue-turkish: $turkish-blue-level-4;
@@ -402,7 +406,7 @@ $theme-common-standard-border-background-color-blue-turquoise: $maganese-blue-le
 $theme-common-brighter-border-background-color-purple-rain: $rain-purple-light-level-4;
 $theme-common-standard-border-background-color-purple-rain: $rain-purple-level-6;
 
-// Themes + Light/Dark mode colors -- Common (i.e. used by multiple components)
+// Themes + Light/Dark mode colors -- Common (i.e. intended for multiple components)
 // Note: theme placed towards start of variable name, light/dark mode placed at the end of variable name
 $theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-light: $turkish-blue-level-2;
 $theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-dark: $lake-michigan-blue-level-6;
@@ -445,7 +449,7 @@ $theme-mode-common-purple-rain-focus-border-color-dark: $rain-purple-level-1;
 $theme-mode-common-purple-rain-text-color-light: $rain-purple-level-3;
 $theme-mode-common-purple-rain-text-color-dark: $candy-purple-level-2;
 
-// Theme (default) colors -- Common (i.e. used by multiple components)
+// Theme (default) colors -- Common (i.e. intended for multiple components)
 $default-theme-common-brighter-border-background-color: $theme-common-brighter-border-background-color-blue-turkish;
 $default-theme-common-standard-border-background-color: $theme-common-standard-border-background-color-blue-turkish;
 $default-theme-common-mode-toggle-switch-on-border-background-color: $theme-mode-common-blue-turkish-toggle-switch-on-border-background-color-light;
@@ -453,7 +457,7 @@ $default-theme-common-mode-new-item-tutorial-border-text-color: $theme-mode-comm
 $default-theme-common-mode-focus-border-color: $theme-mode-common-blue-turkish-focus-border-color-light;
 $default-theme-common-mode-text-color: $theme-mode-common-blue-turkish-text-color-light;
 
-// Status colors -- Common (i.e. used by multiple components)
+// Status colors -- Common (i.e. intended for multiple components)
 $status-common-color-gray: $gray-level-3;
 $status-common-color-blue: #568dd5;
 $status-common-color-purple: #9680ce;
@@ -461,7 +465,7 @@ $status-common-color-orange: #ff9900;
 $status-common-color-green: #008600;
 $status-common-color-red: #d14242;
 
-// Elements colors -- Common (i.e. used by multiple components)
+// Elements colors -- Common (i.e. intended for multiple components)
 $common-register-login-input-text-focus-border-color: $default-theme-common-mode-focus-border-color;
 $common-register-login-input-error-border-color: $mode-common-form-input-error-border-color-light;
 $common-register-login-submit-button-border-background-color: $old-copper-blue-level-1;
@@ -469,21 +473,21 @@ $common-register-login-submit-button-hover-border-background-color: $old-copper-
 $common-register-login-bottom-link-text-color: $basic-blue-level-2;
 $common-top-bar-filter-button-active-color: $default-theme-common-mode-text-color;
 $common-completed-color: $status-common-color-green;
-// Elements colors -- Specific (i.e. used by specific component)
+// Elements colors -- Specific (i.e. intended for specific component)
 $navbar-breadcrumb-close-icon-button-text-color: $basic-red-light-level-2;
 $navbar-hamburger-close-icon-button-text-color: $navbar-breadcrumb-close-icon-button-text-color;
 
 //=========
 // Margins
 //=========
-// Common (i.e. used by multiple components)
+// Common (i.e. intended for multiple components)
 $common-register-login-form-input-margin-top: 16px;
 $common-register-login-form-input-margin-bottom: 8px;
 $common-top-bar-filter-button-dropdown-title-margin-top: 13px;
 $common-top-bar-filter-button-dropdown-title-margin-on-one-side: 20px;
 $common-top-bar-filter-button-dropdown-checkbox-container-margin: 0px 3px;
 $common-top-bar-filter-button-dropdown-label-margin: 4px 3px;
-// Specific (i.e. used by specific component)
+// Specific (i.e. intended for specific component)
 $nav-panel-button-margin-left-right: 10px;
 $nav-panel-button-icon-margin-right: 10px;
 $account-sidebar-contents-margin-top-bottom: 9px;
@@ -502,7 +506,7 @@ $item-view-display-item-info-field-margin-left: 11px;
 //==============
 // Box-shadow
 //==============
-// Common (i.e. used by multiple components)
+// Common (i.e. intended for multiple components)
 $common-modal-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1),
 	-2px 2px 5px rgba(0, 0, 0, 0.1);
 $common-form-input-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.01),
@@ -513,7 +517,7 @@ $common-button-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01),
 //==============
 // Border-width
 //==============
-// Common (i.e. used by multiple components)
+// Common (i.e. intended for multiple components)
 $common-form-input-text-border-width: 1px;
 $common-form-input-text-focus-border-width: $common-form-input-text-border-width +
 	1;
@@ -528,7 +532,7 @@ $common-top-bar-filter-button-with-dropdown-displayed-border-width-difference: $
 	$common-top-bar-common-button-border-width;
 $common-top-bar-search-bar-border-width: 2px;
 $common-top-bar-search-bar-focus-border-width: 3px;
-// Specific (i.e. used by specific component)
+// Specific (i.e. intended for specific component)
 $navbar-border-width: 1px;
 $nav-panel-top-container-border-width: $navbar-border-width;
 $navbar-breadcrumb-border-width: 2px;
@@ -542,13 +546,13 @@ $item-view-list-sidebar-border-width: 2px;
 //==============
 // Border-radius
 //==============
-// Common (i.e. used by multiple components)
+// Common (i.e. intended for multiple components)
 $common-form-input-border-radius: 5px;
 $common-buttton-border-radius: 10px;
 $common-sidebar-border-radius: 25px;
 $common-top-bar-buttton-border-radius: 5px;
 $common-status-box-border-radius: 50px;
-// Specific (i.e. used by specific component)
+// Specific (i.e. intended for specific component)
 $navbar-breadcrumb-round-border-radius: 12px;
 $navbar-hamburger-border-radius: 10px;
 $account-modal-border-radius: 15px;
@@ -556,7 +560,7 @@ $account-modal-border-radius: 15px;
 //=========
 // Padding
 //=========
-// Common (i.e. used by multiple components)
+// Common (i.e. intended for multiple components)
 $common-form-input-text-top-bottom-padding: 12px;
 $common-form-input-text-focus-top-bottom-padding: $common-form-input-text-top-bottom-padding -
 	(
@@ -574,7 +578,7 @@ $common-form-input-text-padding: $common-form-input-text-top-bottom-padding
 $common-form-input-text-focus-padding: $common-form-input-text-focus-top-bottom-padding
 	$common-form-input-text-focus-left-right-padding;
 $common-top-bar-search-bar-padding: 8px;
-// Specific (i.e. used by specific component)
+// Specific (i.e. intended for specific component)
 $nav-panel-button-list-main-item-padding-left-right: 10px;
 $nav-panel-button-list-sub-item-padding-left: $nav-panel-button-list-main-item-padding-left-right +
 	$nav-panel-button-icon-margin-right + 5; // 5 was chosen by eyeing what looked good
@@ -587,7 +591,7 @@ $item-view-edit-item-name-input-padding: 4px;
 //==========
 // Heights
 //==========
-// Common (i.e. used by multiple components)
+// Common (i.e. intended for multiple components)
 $common-top-bar-height: 46px;
 $common-top-bar-button-height: 26px;
 $common-top-bar-search-bar-height: 28px;
@@ -596,7 +600,7 @@ $common-top-bar-filter-dropdown-content-container-for-bugs-height: 160px;
 $common-list-row-height: 50px;
 $common-list-row-empty-height: $common-list-row-height;
 $common-status-box-height: 27px;
-// Specific (i.e. used by specific component)
+// Specific (i.e. intended for specific component)
 $toggle-switch-height: 24px;
 $custom-checkbox-height: 13px;
 $nav-panel-table-row-empty-height: ($common-list-row-height / 6);
@@ -619,11 +623,11 @@ $item-view-edit-item-description-info-item-box-height: 300px;
 //=========
 // Widths
 //=========
-// Common (i.e. used by multiple components)
+// Common (i.e. intended for multiple components)
 $common-top-bar-search-button-width: $common-top-bar-search-bar-height + 10;
 $common-top-bar-filter-dropdown-content-container-width: 260px;
 $common-status-box-width: 110px;
-// Specific (i.e. used by specific component)
+// Specific (i.e. intended for specific component)
 $toggle-switch-width: 52px;
 $nav-panel-width: 250px;
 $nav-panel-button-icon-width: 15px;
@@ -655,12 +659,12 @@ $item-view-pie-chart-bug-status-stats-container-width: 200px;
 //==========
 // Position
 //==========
-// Common (i.e. used by multiple components)
+// Common (i.e. intended for multiple components)
 $common-left: $nav-panel-width;
 $common-top-bar-top: $navbar-height + $navbar-border-width;
 $common-back-exit-icon-button-top: 10px;
 $common-back-exit-icon-button-left-right: 20px;
-// Specific (i.e. used by specific component)
+// Specific (i.e. intended for specific component)
 $navbar-breadcrumb-arrow-top: -2px;
 $navbar-breadcrumb-arrow-left: -2px;
 $navbar-hamburger-button-left: 10px;
@@ -692,7 +696,7 @@ $item-view-edit-item-name-centering-container-height: $item-view-edit-item-name-
 //======
 // Font Size
 //======
-// Common (i.e. used by multiple components)
+// Common (i.e. intended for multiple components)
 $common-font-size: 15px;
 $common-slightly-larger-font-size: $common-font-size + 1;
 $common-backend-errors-font-size: 13px;

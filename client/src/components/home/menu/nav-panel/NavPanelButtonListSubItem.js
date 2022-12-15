@@ -8,6 +8,7 @@ import {
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectOrBugItemViewAndCurrentItem,
 	getCommonStatusTextColorClassName,
+	getCommonElementToolTipBackgroundTextColorClassNameForLocationWithLightOrDarkMode,
 } from "../../../../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -42,7 +43,7 @@ export default function NavPanelButtonListSubItem(props) {
 					.itemViewCurrentItem !== null &&
 				reduxState[props.reduxContainerName].componentsDisplay
 					.itemViewCurrentItem.id === props.item.id
-					? " sub-item--selected" +
+					? " sub-item-button--selected" +
 					  getCommonBrighterBackgroundColorClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 					  )
@@ -57,33 +58,47 @@ export default function NavPanelButtonListSubItem(props) {
 				)
 			}
 		>
-			<div className="sub-item__ellipsis-container">
-				{props.reduxContainerName === PROJECT_CONTAINER ? (
-					<FontAwesomeIcon
-						icon={faFolderOpen}
-						className="sub-item__ellipsis-container__icon"
-						aria-hidden="true"
-					/>
-				) : props.item.status_id !==
-				  reduxState[props.reduxContainerName].priorityStatusOptions
+			{props.reduxContainerName === PROJECT_CONTAINER ? (
+				<FontAwesomeIcon
+					icon={faFolderOpen}
+					className="sub-item-button__icon"
+					aria-hidden="true"
+				/>
+			) : (
+				<span
+					className={
+						"sub-item-button__tooltip-container" +
+						getCommonElementToolTipBackgroundTextColorClassNameForLocationWithLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+							"right"
+						)
+					}
+					data-tooltip={props.item.status_option + " (status)"}
+				>
+					{props.item.status_id !==
+					reduxState[props.reduxContainerName].priorityStatusOptions
 						.statusCompletionId ? (
-					<FontAwesomeIcon
-						icon={faCircle}
-						className={
-							"sub-item__ellipsis-container__icon" +
-							getStatusBoxColorClassName()
-						}
-						aria-hidden="true"
-					/>
-				) : (
-					<FontAwesomeIcon
-						icon={faCheck}
-						className="sub-item__ellipsis-container__icon"
-						aria-hidden="true"
-					/>
-				)}
-				{props.item.name}
-			</div>
+						<FontAwesomeIcon
+							icon={faCircle}
+							className={
+								"sub-item-button__tooltip-container__icon" +
+								getStatusBoxColorClassName()
+							}
+							aria-hidden="true"
+						/>
+					) : (
+						<FontAwesomeIcon
+							icon={faCheck}
+							className={
+								"sub-item-button__tooltip-container__icon" +
+								getStatusBoxColorClassName()
+							}
+							aria-hidden="true"
+						/>
+					)}
+				</span>
+			)}
+			<div className="sub-item-button__ellipsis-container">{props.item.name}</div>
 		</div>
 	);
 }
