@@ -1,6 +1,6 @@
 .toggle-switch-component {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 .toggle-switch-component .invisible-checkbox {
   display: none;
@@ -646,8 +646,8 @@ dropdown can overlap all other components
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  position: relative;
   display: block;
+  position: relative;
   height: 34px;
 }
 .navbar-hamburger-component .hamburger-dropdown__top-space__icon,
@@ -664,8 +664,8 @@ dropdown can overlap all other components
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  position: relative;
   display: block;
+  position: relative;
   border-top: 1px solid #a3a3a3;
   padding-left: 12px;
   height: 42px;
@@ -908,8 +908,8 @@ dropdown can overlap all other components
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  position: relative;
   display: inline-block;
+  position: relative;
   margin-right: 6px;
   border-radius: 10px;
   background-color: black;
@@ -997,8 +997,8 @@ dropdown can overlap all other components
   color: #3a3a3a;
 }
 .account-modal-component .title {
-  position: relative;
   display: block;
+  position: relative;
   padding-top: 8px;
   font-size: 150%;
   text-align: center;
@@ -1561,8 +1561,8 @@ dropdown can overlap all other components
   margin-top: 25px;
 }
 .item-view-bug-pie-chart-component .stats-container__row__status-box {
-  position: relative;
   display: inline-block;
+  position: relative;
   border-radius: 50px;
   background-color: black;
   height: 27px;
@@ -1579,8 +1579,8 @@ dropdown can overlap all other components
   text-overflow: ellipsis;
 }
 .item-view-bug-pie-chart-component .stats-container__row__stats-centering-container {
-  position: relative;
   display: inline-block;
+  position: relative;
   height: 27px;
   width: 90px;
 }
@@ -1710,8 +1710,8 @@ dropdown can overlap all other components
   font-weight: bold;
 }
 .item-view-component .item-box__group__field__centering-container {
-  position: relative;
   display: inline-block;
+  position: relative;
   height: 27px;
   width: 55px;
 }
@@ -1725,8 +1725,8 @@ dropdown can overlap all other components
   color: #272727;
 }
 .item-view-component .item-box__group__field__status-box {
-  position: relative;
   display: inline-block;
+  position: relative;
   margin-left: 11px;
   border-radius: 50px;
   background-color: black;
@@ -1965,8 +1965,8 @@ dropdown can overlap all other components
 .js-get-item-view-list-sidebar-component .list-sidebar-container,
 .js-get-item-view-list-sidebar-component .js-get-item-view-list-sidebar-component-container-element {
   z-index: 1;
-  position: fixed;
   display: none;
+  position: fixed;
   top: 104px;
   left: 250px;
   border-right: 2px solid black;
@@ -2089,8 +2089,8 @@ dropdown can overlap all other components
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  position: absolute;
   display: inline-block;
+  position: absolute;
   border-radius: 0 5px 5px 0;
   background-color: #608d9e;
   height: 28px;
@@ -2656,8 +2656,8 @@ dropdown can overlap all other components
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  position: absolute;
   display: inline-block;
+  position: absolute;
   margin-left: -1px;
   border-radius: 0 5px 5px 0;
   background-color: #608d9e;

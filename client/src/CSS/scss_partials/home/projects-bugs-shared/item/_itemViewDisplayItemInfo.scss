@@ -15,8 +15,8 @@
 	}
 
 	.item-box__group__field__centering-container {
-		position: relative;
 		display: inline-block;
+		position: relative;
 		height: v.$common-status-box-height;
 		width: 55px;
 	}
@@ -31,8 +31,8 @@
 	}
 
 	.item-box__group__field__status-box {
-		position: relative;
 		display: inline-block;
+		position: relative;
 		margin-left: v.$item-view-display-item-info-field-margin-left;
 		border-radius: v.$common-status-box-border-radius;
 		// This background color should only appear if there was a problem

@@ -99,9 +99,9 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
+		display: inline-block;
 		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
-		display: inline-block;
 		// Since a agap between searchbar and button will appear in chrome otherwise
 		margin-left: -1px;
 		//border: v.$common-top-bar-search-bar-border-width solid black;
@@ -155,8 +155,9 @@
 
 	.list-view-top-bar-filter-button-component--with-dropdown-displayed {
 		// Negative top margin because border resize moves the element
-		margin: -(v.$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference)
-			0px 0px;
+		margin: -(
+				v.$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference
+			) 0px 0px;
 		border-width: v.$common-top-bar-filter-button-with-dropdown-displayed-border-width;
 		// No bottom border so button and dropdown both look like one element
 		border-bottom: none;

@@ -57,9 +57,9 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
+		display: inline-block;
 		// Instead of relative to make sure the button always stays next to the list-search-bar
 		position: absolute;
-		display: inline-block;
 		border-radius: 0 v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius 0;
 		background-color: v.$default-theme-common-standard-border-background-color;

@@ -64,8 +64,8 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
-		position: relative;
 		display: block;
+		position: relative;
 		height: 34px;
 	}
 
@@ -82,8 +82,8 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 
-		position: relative;
 		display: block;
+		position: relative;
 		border-top: 1px solid v.$mode-navbar-hamburger-dropdown-option-border-color-light;
 		padding-left: 12px;
 		height: v.$hamburger-dropdown-option-height;

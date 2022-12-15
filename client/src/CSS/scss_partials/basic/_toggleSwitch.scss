@@ -2,8 +2,8 @@
 @use "../utils/mixins" as m;
 
 .toggle-switch-component {
-	position: relative;
 	display: inline-block;
+	position: relative;
 
 	.invisible-checkbox {
 		display: none;

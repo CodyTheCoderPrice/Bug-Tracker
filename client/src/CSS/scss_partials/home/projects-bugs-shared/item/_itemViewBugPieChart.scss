@@ -44,8 +44,8 @@
 	}
 
 	.stats-container__row__status-box {
-		position: relative;
 		display: inline-block;
+		position: relative;
 		border-radius: v.$common-status-box-border-radius;
 		// This background color should only appear if there was a problem
 		// ...assigning a different background using JS
@@ -64,8 +64,8 @@
 	}
 
 	.stats-container__row__stats-centering-container {
-		position: relative;
 		display: inline-block;
+		position: relative;
 		height: v.$common-status-box-height;
 		width: v.$item-view-pie-chart-bug-status-stats-container-width -
 			v.$common-status-box-width;

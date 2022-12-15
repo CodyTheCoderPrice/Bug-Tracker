@@ -39,9 +39,9 @@
 	.js-get-item-view-list-sidebar-component-container-element {
 		// z-index must be more than the item-view in item-view.scss
 		z-index: 1;
-		position: fixed;
 		// Made to display when list-sidebar-container is explaneded
 		display: none;
+		position: fixed;
 		top: v.$item-view-list-sidebar-top;
 		left: v.$common-left;
 		border-right: v.$item-view-list-sidebar-border-width solid v.$mode-item-view-list-sidebar-border-color-light;
