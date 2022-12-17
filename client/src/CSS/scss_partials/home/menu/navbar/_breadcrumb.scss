@@ -3,124 +3,30 @@
 
 .navbar-breadcrumb-component,
 .js-get-navbar-breadcrumb-component {
-	.invisible {
-		// using "visibility: hidden" instead of "display:none" so child elements
-		// ...can still be interacted with for measuring their size
-		visibility: hidden;
-	}
-
+	padding-left: 10px;
 	.breadcrumb-button {
 		position: relative;
 		float: left;
-		background-color: v.$default-theme-common-standard-border-background-color;
-		height: v.$navbar-height;
-		cursor: pointer;
-	}
-
-	.breadcrumb-button--right {
-		// Postion absolute instead of float right so that account button
-		// ...will always remain on screen during screen resizing
-		position: absolute;
-		right: 0;
-	}
-
-	.breadcrumb-button--breadcrumb-arrow-buffered {
-		margin-left: -(v.$navbar-breadcrumb-button-arrow-left-width);
-		padding-left: v.$navbar-breadcrumb-button-arrow-left-width;
-	}
-
-	.breadcrumb-button__text,
-	.js-get-navbar-breadcrumb-component-button-text-element {
-		@include m.stop-text-selection();
-
-		position: relative;
-		float: left;
-		// Padding instead of margin since padding is included in element
-		// ...size when resizing the breadcrumb menu
-		padding: v.$navbar-button-text-container-padding;
 		height: v.$navbar-height;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: v.$common-navbar-button-font-size;
-		color: white;
+		// Allows vertical-align: middle to work (located below)
+		line-height: v.$navbar-height;
 		text-align: center;
 		vertical-align: middle;
-		// Allows vertical-align: middle to work
-		line-height: v.$navbar-height;
 	}
 
-	.breadcrumb-button__text--item-name {
-		color: v.$basic-yellow-level-1;
-	}
-
-	.breadcrumb-button__end-container {
-		position: relative;
-		float: left;
-		height: v.$navbar-height;
-		width: v.$navbar-breadcrumb-button-arrow-left-width;
-	}
-
-	.breadcrumb-button__end-container__round-border {
-		// Should be the same as arrow below
-		z-index: 6;
-		position: absolute;
-		top: -(v.$navbar-breadcrumb-border-width);
-		left: -5px;
-		border: v.$navbar-breadcrumb-border-width solid black;
-		border-left: none;
-		border-radius: 0 v.$navbar-breadcrumb-round-border-radius v.$navbar-breadcrumb-round-border-radius 0;
-		height: v.$navbar-height;
-		width: v.$navbar-breadcrumb-button-arrow-left-width;
-	}
-
-	.breadcrumb-button__end-container__arrow,
-	.js-get-navbar-breadcrumb-component-button-end-container-arrow-element {
-		// Must have higher z-index than border-arrow below
-		z-index: 6;
-		position: absolute;
-		top: v.$navbar-breadcrumb-arrow-top;
-		left: v.$navbar-breadcrumb-arrow-left;
-		border-top: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid
-			transparent;
-		border-bottom: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid
-			transparent;
-		border-left: v.$navbar-breadcrumb-button-arrow-left-width solid gray;
-		height: 0;
-		width: 0;
-	}
-
-	.breadcrumb-button__end-container__border-arrow {
-		// Must have higher z-index of navbar-button
-		z-index: 5;
-		position: absolute;
-		top: v.$navbar-breadcrumb-arrow-top;
-		left: v.$navbar-breadcrumb-arrow-left + v.$navbar-breadcrumb-border-width;
-		border-top: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid
-			transparent;
-		border-bottom: v.$navbar-breadcrumb-button-arrow-top-bottom-width solid
-			transparent;
-		border-left: v.$navbar-breadcrumb-button-arrow-left-width solid black;
-		height: 0;
-		width: 0;
-	}
-
-	.breadcrumb-button__end-container__close-icon-button {
-		@include m.stop-text-selection();
-
-		// Must have higher z-index than both arrows above
-		z-index: 7;
-		position: absolute;
-		top: 20px;
-		left: -8px;
-
-		color: silver;
-		opacity: 0.6;
-		font-size: 18px;
+	.breadcrumb-button__text {
+		padding: v.$navbar-breadcrumb-button-text-padding-left-right;
+		color: v.$mode-navbar-button-inactive-text-color-light;
 		cursor: pointer;
+	}
 
-		&:hover,
-		&:active {
-			opacity: 1;
-			color: v.$navbar-breadcrumb-close-icon-button-text-color;
-		}
+	.breadcrumb-button__text--active {
+		color: inherit;
+	}
+	
+	.breadcrumb-button__icon {
+		color: v.$mode-navbar-button-inactive-text-color-light;
 	}
 }

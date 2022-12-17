@@ -269,18 +269,8 @@ $mode-home-text-color-light: $mode-common-strong-text-color-light;
 $mode-home-text-color-dark: $mode-common-strong-text-color-dark;
 $mode-navbar-border-color-light: black;
 $mode-navbar-border-color-dark: black;
-$mode-navbar-hamburger-dropdown-background-color-light: $mode-common-background-color-light;
-$mode-navbar-hamburger-dropdown-background-color-dark: $mode-common-background-color-dark;
-$mode-navbar-hamburger-dropdown-option-border-color-light: $gray-level-1;
-$mode-navbar-hamburger-dropdown-option-border-color-dark: $gray-level-9;
-$mode-navbar-hamburger-dropdown-option-hover-background-color-light: $gray-light-level-2;
-$mode-navbar-hamburger-dropdown-option-hover-background-color-dark: $gray-dark-level-5;
-$mode-navbar-hamburger-dropdown-option-selected-background-color-light: $baby-blue-level-1;
-$mode-navbar-hamburger-dropdown-option-selected-background-color-dark: $imperial-blue-level-12;
-$mode-navbar-hamburger-dropdown-option-name-text-color-light: $basic-blue-level-2;
-$mode-navbar-hamburger-dropdown-option-name-text-color-dark: $cyan-blue-level-1;
-$mode-navbar-hamburger-dropdown-option-icon-text-color-light: $gray-dark-level-1;
-$mode-navbar-hamburger-dropdown-option-icon-text-color-dark: $gray-level-7;
+$mode-navbar-button-inactive-text-color-light: $gray-level-2;
+$mode-navbar-button-inactive-text-color-dark: $mode-common-weak-text-color-dark;
 $mode-nav-panel-top-container-border-color-light: $mode-navbar-border-color-light;
 $mode-nav-panel-top-container-border-color-dark: $mode-navbar-border-color-dark;
 $mode-account-sidebar-background-color-light: $mode-common-background-color-light;
@@ -473,9 +463,6 @@ $common-register-login-submit-button-hover-border-background-color: $old-copper-
 $common-register-login-bottom-link-text-color: $basic-blue-level-2;
 $common-top-bar-filter-button-active-color: $default-theme-common-mode-text-color;
 $common-completed-color: $status-common-color-green;
-// Elements colors -- Specific (i.e. intended for specific component)
-$navbar-breadcrumb-close-icon-button-text-color: $basic-red-light-level-2;
-$navbar-hamburger-close-icon-button-text-color: $navbar-breadcrumb-close-icon-button-text-color;
 
 //=========
 // Margins
@@ -535,8 +522,6 @@ $common-top-bar-search-bar-focus-border-width: 3px;
 // Specific (i.e. intended for specific component)
 $navbar-border-width: 1px;
 $nav-panel-top-container-border-width: $navbar-border-width;
-$navbar-breadcrumb-border-width: 2px;
-$navbar-hamburger-border-width: 3px;
 $account-sidebar-appearance-theme-button-border-width: 1px;
 $account-modal-border-width: 3px;
 $account-modal-toggle-switch-border-width: 3px;
@@ -553,8 +538,6 @@ $common-sidebar-border-radius: 25px;
 $common-top-bar-buttton-border-radius: 5px;
 $common-status-box-border-radius: 50px;
 // Specific (i.e. intended for specific component)
-$navbar-breadcrumb-round-border-radius: 12px;
-$navbar-hamburger-border-radius: 10px;
 $account-modal-border-radius: 15px;
 
 //=========
@@ -582,7 +565,7 @@ $common-top-bar-search-bar-padding: 8px;
 $nav-panel-button-list-main-item-padding-left-right: 10px;
 $nav-panel-button-list-sub-item-padding-left: $nav-panel-button-list-main-item-padding-left-right +
 	$nav-panel-button-icon-margin-right + 5; // 5 was chosen by eyeing what looked good
-$navbar-button-text-container-padding: 0 14px 0 14px;
+$navbar-breadcrumb-button-text-padding-left-right: 0 13px 0 15px;
 $account-sidebar-padding-top: 32px;
 $account-sidebar-padding-left-right: 18px;
 $create-item-sidebar-padding: 6px;
@@ -604,11 +587,8 @@ $common-status-box-height: 27px;
 $toggle-switch-height: 24px;
 $custom-checkbox-height: 13px;
 $nav-panel-table-row-empty-height: ($common-list-row-height / 6);
-$navbar-height: 56px;
-$navbar-breadcrumb-button-height: $navbar-height -
-	($navbar-breadcrumb-border-width * 2);
+$navbar-height: 48px;
 $navbar-account-button-height: $navbar-height;
-$hamburger-dropdown-option-height: 42px;
 $nav-panel-top-container-height: $navbar-height;
 $account-modal-height: 390px;
 $account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
@@ -632,9 +612,6 @@ $toggle-switch-width: 52px;
 $nav-panel-width: 250px;
 $nav-panel-button-icon-width: 15px;
 $navbar-account-button-width: 130px;
-$navbar-breadcrumb-button-arrow-top-bottom-width: 30px;
-$navbar-breadcrumb-button-arrow-left-width: 20px;
-$navbar-hamburger-button-width: 36px;
 $account-sidebar-width: 430px;
 $account-modal-width: 460px;
 $account-sidebar-appearance-theme-button-current-container-width: 30px;
@@ -665,12 +642,6 @@ $common-top-bar-top: $navbar-height + $navbar-border-width;
 $common-back-exit-icon-button-top: 10px;
 $common-back-exit-icon-button-left-right: 20px;
 // Specific (i.e. intended for specific component)
-$navbar-breadcrumb-arrow-top: -2px;
-$navbar-breadcrumb-arrow-left: -2px;
-$navbar-hamburger-button-left: 10px;
-// Note: The value added at the end represents the margin between the hamburger button and the title
-$navbar-hamburger-title-left: $navbar-hamburger-button-left +
-	$navbar-hamburger-button-width + 6px;
 $account-sidebar-appearance-theme-button-option-height: $account-sidebar-appearance-theme-button-selected-arrow-container-height -
 	($account-sidebar-appearance-theme-button-border-width * 2);
 $account-sidebar-appearance-theme-button-option-width: $account-sidebar-appearance-theme-button-current-container-width -
@@ -700,7 +671,7 @@ $item-view-edit-item-name-centering-container-height: $item-view-edit-item-name-
 $common-font-size: 15px;
 $common-slightly-larger-font-size: $common-font-size + 1;
 $common-backend-errors-font-size: 13px;
-$common-navbar-button-font-size: 18px;
+$common-navbar-button-font-size: 15px;
 $common-item-form-input-text-font-size: 13px;
 $common-top-bar-search-bar-font-size: 14px;
 $common-top-bar-search-button-icon-font-size: 14px;

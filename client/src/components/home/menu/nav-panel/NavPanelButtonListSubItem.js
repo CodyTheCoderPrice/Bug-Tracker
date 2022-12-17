@@ -49,6 +49,7 @@ export default function NavPanelButtonListSubItem(props) {
 					  )
 					: "")
 			}
+			aria-label={props.item.name}
 			onClick={() =>
 				switchToProjectOrBugItemViewAndCurrentItem(
 					reduxState,
@@ -98,7 +99,9 @@ export default function NavPanelButtonListSubItem(props) {
 					)}
 				</span>
 			)}
-			<div className="sub-item-button__ellipsis-container">{props.item.name}</div>
+			<div className="sub-item-button__ellipsis-container">
+				{props.item.name}
+			</div>
 		</div>
 	);
 }

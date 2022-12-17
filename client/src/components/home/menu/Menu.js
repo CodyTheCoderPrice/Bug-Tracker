@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import {
 	setDisplaySizeConstants,
 	setDisplaySizeVariablesWindowAndMenus,
-	setDisplaySizeVariablesBreadcrumbFontSize,
 } from "../../../actions";
 
 import {
@@ -12,9 +11,6 @@ import {
 	getElementSize,
 	getScrollbarWidth,
 	getNavPanelButtonListCriticalStyles,
-	getNavbarBreadcrumbComponentButtonTextElementBaseFontSize,
-	getNavbarBreadcrumbComponentButtonArrowElementWidth,
-	getNavbarHamburgerComponentCriticalStyles,
 	getListViewTopBarComponentHeight,
 	getListViewTableComponentRowElementHeight,
 	getItemViewTopBarComponentHeight,
@@ -32,9 +28,6 @@ export default function Menu() {
 
 	// Makes sure the current size of the window and navbar are stored in redux
 	useEffect(() => {
-		const breadcrumbButtonTextElementBaseFontSize =
-			getNavbarBreadcrumbComponentButtonTextElementBaseFontSize();
-
 		dispatch(
 			setDisplaySizeConstants({
 				scrollbarWidth: getScrollbarWidth(),
@@ -46,12 +39,6 @@ export default function Menu() {
 				navbarAccountButtonWidth: getElementSize(
 					document.getElementsByClassName("js-navbar-account-button")[0]
 				).width,
-				navbarBreadcrumbComponentButtonTextElementBaseFontSize:
-					breadcrumbButtonTextElementBaseFontSize,
-				navbarBreadcrumbComponentButtonArrowElementWidth:
-					getNavbarBreadcrumbComponentButtonArrowElementWidth(),
-				navbarHamburgerComponentCriticalStyles:
-					getNavbarHamburgerComponentCriticalStyles(),
 				listViewTopBarComponentHeight: getListViewTopBarComponentHeight(),
 				listViewTableComponentRowElementHeight:
 					getListViewTableComponentRowElementHeight(),
@@ -67,14 +54,6 @@ export default function Menu() {
 
 		// Initializes display sizes
 		displaySizeHandler();
-
-		// Since breadcrumb font resize does not happen until after app start-up
-		// or refresh, it's safe to initialize as breadcrumbButtonTextElementBaseFontSize
-		dispatch(
-			setDisplaySizeVariablesBreadcrumbFontSize(
-				breadcrumbButtonTextElementBaseFontSize
-			)
-		);
 
 		// Adds event to update navbar size on a resize
 		window.addEventListener("resize", displaySizeHandler);

@@ -332,8 +332,6 @@
 	}
 
 	.item-view-top-bar-options-dropdown-component__row-button--first-option {
-		// Found that subtracting 3px from $navbar-hamburger-border-radius
-		// gave best results
 		border-radius: v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius 0 0;
 	}
@@ -341,8 +339,6 @@
 	.item-view-top-bar-options-dropdown-component__row-button--last-option {
 		// No bottom border since no options bellow
 		border-bottom: none;
-		// Found that subtracting 3px from $navbar-hamburger-border-radius
-		// gave best results
 		border-radius: 0 0 v.$common-top-bar-buttton-border-radius
 			v.$common-top-bar-buttton-border-radius;
 	}

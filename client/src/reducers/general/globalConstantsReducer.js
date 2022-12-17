@@ -6,9 +6,6 @@ const initialState = {
 	passwordCharLimit: 30,
 	descriptionCharLimit: 500,
 	locationCharLimit: 100,
-	// Min font size when resizing breadcrumb text. USed to know ehn to switch
-	// ...to the NavbarHamburger menu
-	navbarBreadcrumbMinimumFontSize: 12,
 };
 
 /**
@@ -27,7 +24,6 @@ const initialState = {
  * 	passwordCharLimit: number,
  * 	descriptionCharLimit: number,
  * 	locationCharLimit: number,
- * 	navbarBreadcrumbMinimumFontSize: number,
  * }} state - Current Object (in the redux state) containing constant data used 
  * globally by the app
  * @param {Object} action - Object with a 'container' property (determins where 
@@ -40,7 +36,6 @@ const initialState = {
  * 	passwordCharLimit: number,
  * 	descriptionCharLimit: number,
  * 	locationCharLimit: number,
- * 	navbarBreadcrumbMinimumFontSize: number,
  * }} Object containing constant data used globally by the app
  */
 export default function globalConstantsReducer() {

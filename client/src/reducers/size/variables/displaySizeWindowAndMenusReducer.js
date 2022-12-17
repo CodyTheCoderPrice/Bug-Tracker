@@ -18,10 +18,10 @@ const initialState = {
  * is 'navbar' containing current size info for element with 'navbar' className
  * in Navbar component.
  *
- * Note: The purpose of these three properties is to be used for both resizing
- * other elements (e.g. resizing breadcrumb buttons in NavbarBreadcrumb
- * component), as well as deciding which elements are visible (e.g. deciding if
- * NavbarBreadcrumb component should be visible). This keeps from having to
+ * Note: The purpose of the 'variables' property is to get the current CSS
+ * property sizes (that change) for specific elements to be used by JS for
+ * resizing other elements (e.g. resizing 'overflow-container' elements in 
+ * NavPanelButtonList component). This keeps from having to
  * refetch these CSS property sizes each time one of the other elements needs
  * to use them.
  *

@@ -1,13 +1,7 @@
 import {
-	getNavbarBreadcrumbComponentClassName,
-	getNavbarBreadcrumbComponentButtonTextElementClassName,
 	stripNonDigits,
 	getNavPanelButtonListComponentClassName,
 	getNavPanelButtonListComponentOverflowContainerElementWithScrollbarModifierClassName,
-	getNavbarBreadcrumbComponentButtonEndContainerArrowElementClassName,
-	getNavbarHamburgerComponentClassName,
-	getNavbarHamburgerComponentButtonContainerElementClassName,
-	getNavbarHamburgerComponentTitleElementClassName,
 	getItemViewComponentClassName,
 	getItemViewComponentPaddingcontainerElementClassName,
 	getItemViewComponentOuterDividingContainerElementClassName,
@@ -143,7 +137,7 @@ export function getNavPanelButtonListCriticalStyles() {
 	const standInOverflowContainerElementWithScrollbar = document.createElement("div");
 	standInOverflowContainerElementWithScrollbar.className =
 		getNavPanelButtonListComponentOverflowContainerElementWithScrollbarModifierClassName();
-	// Css requires being child of NavbarHamburger component
+	// Css requires being child of NavPanelButtonList component
 	standInNavPanelButtonListComponentElement.appendChild(standInOverflowContainerElementWithScrollbar);
 	const standInOverflowContainerElementWithScrollbarStyles = getElementStyle(
 		standInOverflowContainerElementWithScrollbar
@@ -158,136 +152,6 @@ export function getNavPanelButtonListCriticalStyles() {
 
 	standInNavPanelButtonListComponentElement.parentNode.removeChild(
 		standInNavPanelButtonListComponentElement
-	);
-
-	return styleObject;
-}
-
-/**
- * Get the base font size of NavbarBreadcrumb component's 'breadcrumb-button__text'
- * (className) element (i.e. what's set in breadcrumb.scss file)
- *
- * @returns {number} Base fonst size of NavbarBreadcrumb component's
- * 'breadcrumb-button__text' element
- */
-export function getNavbarBreadcrumbComponentButtonTextElementBaseFontSize() {
-	// Creating stand-in element for NavbarBreadcrumb component to later append
-	// ...other stand-in elements to so CSS can work properly. using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInBreadcrumbComponentElement = document.createElement("div");
-	standInBreadcrumbComponentElement.className =
-		getNavbarBreadcrumbComponentClassName();
-	// Made hidden so user never sees stand-in element or its child elements
-	standInBreadcrumbComponentElement.visibility = "hidden";
-	document.body.appendChild(standInBreadcrumbComponentElement);
-
-	const standInBreadcrumbButtonTextElement = document.createElement("div");
-	standInBreadcrumbButtonTextElement.className =
-		getNavbarBreadcrumbComponentButtonTextElementClassName();
-	// CSS requires being child of NavbarBreadcrumb component
-	standInBreadcrumbComponentElement.appendChild(
-		standInBreadcrumbButtonTextElement
-	);
-
-	// Removing "px" from String and converting to Number allows for easier use
-	const baseFontSize = stripNonDigits(
-		getElementStyle(standInBreadcrumbButtonTextElement).fontSize
-	);
-
-	standInBreadcrumbComponentElement.parentNode.removeChild(
-		standInBreadcrumbComponentElement
-	);
-
-	return baseFontSize;
-}
-
-/**
- * Get width of NavbarBreadcrumb component's 'breadcrumb-button__end-container__arrow'
- * (className) element
- *
- * @returns {number} Width of NavbarBreadcrumb component's
- * 'breadcrumb-button__end-container__arrow' element
- */
-export function getNavbarBreadcrumbComponentButtonArrowElementWidth() {
-	// Creating stand-in element for NavbarBreadcrumb component to later append
-	// ...other stand-in elements to so CSS can work properly. using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInBreadcrumbComponentElement = document.createElement("div");
-	standInBreadcrumbComponentElement.className =
-		getNavbarBreadcrumbComponentClassName();
-	// Made hidden so user never sees stand-in element or its child elements
-	standInBreadcrumbComponentElement.visibility = "hidden";
-	document.body.appendChild(standInBreadcrumbComponentElement);
-
-	const standInBreadcrumbButtonArrowElement = document.createElement("div");
-	standInBreadcrumbButtonArrowElement.className =
-		getNavbarBreadcrumbComponentButtonEndContainerArrowElementClassName();
-	// CSS requires being child of NavbarBreadcrumb component
-	standInBreadcrumbComponentElement.appendChild(
-		standInBreadcrumbButtonArrowElement
-	);
-
-	const arrowWidth = getElementSize(standInBreadcrumbButtonArrowElement).width;
-
-	standInBreadcrumbComponentElement.parentNode.removeChild(
-		standInBreadcrumbComponentElement
-	);
-
-	return arrowWidth;
-}
-
-/**
- * Get critical styles (left positions and base font size) from NavbarHamburger
- * component's 'hamburger-button-container' and 'hamburger-title' (classNames)
- * elements
- *
- * @returns {number} Critical styles (left positions and base font size) from
- * NavbarHamburger component's 'hamburger-button-container' and 'hamburger-title'
- * elements
- */
-export function getNavbarHamburgerComponentCriticalStyles() {
-	// Creating stand-in element for NavbarHamburger component to later append
-	// ...other stand-in elements to so CSS can work properly. using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInHamburgerComponentElement = document.createElement("div");
-	standInHamburgerComponentElement.className =
-		getNavbarHamburgerComponentClassName();
-	// Made hidden so user never sees stand-in element or its child elements
-	standInHamburgerComponentElement.visibility = "hidden";
-	document.body.appendChild(standInHamburgerComponentElement);
-
-	const standInHamburgerButtonContainerElement = document.createElement("div");
-	standInHamburgerButtonContainerElement.className =
-		getNavbarHamburgerComponentButtonContainerElementClassName();
-	// Css requires being child of NavbarHamburger component
-	standInHamburgerComponentElement.appendChild(
-		standInHamburgerButtonContainerElement
-	);
-	const hamburgerButtonElementStyles = getElementStyle(
-		standInHamburgerButtonContainerElement
-	);
-
-	const standInHamburgerTitleElement = document.createElement("div");
-	standInHamburgerTitleElement.className =
-		getNavbarHamburgerComponentTitleElementClassName();
-	// Css requires being child of NavbarHamburger component
-	standInHamburgerComponentElement.appendChild(standInHamburgerTitleElement);
-	const hamburgerTitleElementStyles = getElementStyle(
-		standInHamburgerTitleElement
-	);
-
-	const styleObject = {
-		// Removing "px" from Strings and converting to Numbers allows for easier use
-		buttonLeft: stripNonDigits(hamburgerButtonElementStyles.left),
-		titleLeft: stripNonDigits(hamburgerTitleElementStyles.left),
-		titleBaseFontSize: stripNonDigits(hamburgerTitleElementStyles.fontSize),
-	};
-
-	standInHamburgerComponentElement.parentNode.removeChild(
-		standInHamburgerComponentElement
 	);
 
 	return styleObject;

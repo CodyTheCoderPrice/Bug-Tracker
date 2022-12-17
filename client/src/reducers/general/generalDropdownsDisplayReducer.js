@@ -3,14 +3,6 @@ import { SET_WHICH_GENERAL_DROPDOWNS_DISPLAY } from "../../actions/constants/typ
 // Initial state for which general dropdowns should be displayed by the app
 const initialState = {
 	// When true:
-	//		NavbarHamburger componet should not have NavbarHamburgerButton
-	//		component display and instead have navbarHamburgerDropdown component
-	// 		display.
-	// When false:
-	//		NavbarHamburger component should have NavbarHamburgerButton component
-	// 		display and not have navbarHamburgerDropdown component display.
-	navbarHamburgerDropdownComponentShouldDisplay: false,
-	// When true:
 	//		ListViewTopBar componet should have ListViewTopBarFilterDropdown
 	// 		component display. Also ListViewTopBarFilterButton component's
 	//		'list-view-top-bar-filter-button-component' (className) element
@@ -44,7 +36,7 @@ const initialState = {
 	//		ItemViewTopBar componet should have ItemViewTopBarOptionsDropdown
 	// 		component display. Also ItemViewTopBarOptionsButton component's
 	//		'item-view-top-bar-options-button-component' (className) element
-	//		sould have the modifier className returned from 
+	//		sould have the modifier className returned from
 	//		getItemViewTopBarOptionsButtonComponentWithDropdownDisplayedBorderBackgroundTextColorClassNameForLightOrDarkMode
 	//		utils function appended.
 	// When false:
@@ -60,13 +52,12 @@ const initialState = {
  * will be set to false in 'dropdownsDisplay'.
  *
  * Note: The purpose of each boolean in 'dropdownsDisplay' Object are to be used
- * as flags for whether the dropdown components they represent should be 
+ * as flags for whether the dropdown components they represent should be
  * displayed by the app. The reason undefined properties in 'displays' prop are
  * set to false in 'dropdownsDisplay' is to allow devs to only have to pass
  * properties they wish to set to true (making life easier).
- * 
+ *
  * @param {{
- * 	navbarHamburgerDropdownComponentShouldDisplay: boolean,
  * 	listViewTopBarFilterDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarSortDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarFilterDropdownComponentShouldDisplay: boolean,
@@ -78,7 +69,6 @@ const initialState = {
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
  * @returns {{
- * 	navbarHamburgerDropdownComponentShouldDisplay: boolean,
  * 	listViewTopBarFilterDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarSortDropdownComponentShouldDisplay: boolean,
  * 	itemViewTopBarFilterDropdownComponentShouldDisplay: boolean,
@@ -93,11 +83,6 @@ export default function generalDropdownsDisplayReducer(
 	switch (action.type) {
 		case SET_WHICH_GENERAL_DROPDOWNS_DISPLAY:
 			return {
-				navbarHamburgerDropdownComponentShouldDisplay:
-					action.displays.navbarHamburgerDropdownComponentShouldDisplay !==
-					undefined
-						? action.displays.navbarHamburgerDropdownComponentShouldDisplay
-						: false,
 				listViewTopBarFilterDropdownComponentShouldDisplay:
 					action.displays.listViewTopBarFilterDropdownComponentShouldDisplay !==
 					undefined
@@ -114,8 +99,10 @@ export default function generalDropdownsDisplayReducer(
 						? action.displays.itemViewTopBarFilterDropdownComponentShouldDisplay
 						: false,
 				itemViewTopBarOptionsDropdownComponentShouldDisplay:
-					action.displays.itemViewTopBarOptionsDropdownComponentShouldDisplay !== undefined
-						? action.displays.itemViewTopBarOptionsDropdownComponentShouldDisplay
+					action.displays
+						.itemViewTopBarOptionsDropdownComponentShouldDisplay !== undefined
+						? action.displays
+								.itemViewTopBarOptionsDropdownComponentShouldDisplay
 						: false,
 			};
 		default:

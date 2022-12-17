@@ -110,6 +110,7 @@ export default function NavPanelButtonList() {
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 							  ))
 					}
+					aria-label="Projects"
 					onClick={() => switchToProjectsListView(reduxState, dispatch)}
 				>
 					<FontAwesomeIcon
@@ -139,6 +140,7 @@ export default function NavPanelButtonList() {
 											reduxState[ACCOUNT_CONTAINER].settings.theme_color
 									  ))
 							}
+							aria-label="Bugs"
 							onClick={() => switchToBugsListView(reduxState, dispatch)}
 						>
 							<span>

@@ -17,8 +17,8 @@
 
 	.top-container__logo {
 		display: block;
-		width: v.$nav-panel-width - 100;
-		margin: 0px auto;
-		padding-top: 10px;
+		height: v.$nav-panel-top-container-height;
+		width: v.$nav-panel-width - 125;
+		margin: auto auto;
 	}
 }

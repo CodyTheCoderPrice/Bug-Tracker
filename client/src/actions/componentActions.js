@@ -96,7 +96,6 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * properties they wish to set to true (making life easier).
  *
  * @param {{
- * 	navbarHamburgerDropdownComponentShouldDisplay: (boolean|undefined),
  * 	listViewTopBarFilterDropdownComponentShouldDisplay: (boolean|undefined),
  * 	itemViewTopBarSortDropdownComponentShouldDisplay: (boolean|undefined),
  * 	itemViewTopBarFilterDropdownComponentShouldDisplay: (boolean|undefined),
@@ -105,12 +104,12 @@ export const setWhichGeneralComponentsDisplay = (displays) => (dispatch) => {
  * should be displyed in the app.
  *
  * @example
- * // Sets 'navbarHamburgerDropdownComponentShouldDisplay' to true and all other
+ * // Sets 'listViewTopBarFilterDropdownComponentShouldDisplay' to true and all other
  * // booleans false in 'dropdownsDisplays'. The dispatch function is from 
  * // useDispatch() imported from react-redux.
  * dispatch(
  *		setWhichGeneralDropdownsDisplay({ 
-	 		navbarHamburgerDropdownComponentShouldDisplay: true 
+	 		listViewTopBarFilterDropdownComponentShouldDisplay: true 
 		})
  *	);
  *

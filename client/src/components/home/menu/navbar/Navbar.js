@@ -1,8 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	GENERAL_CONTAINER,
-	SIZE_CONTAINER,
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
@@ -15,14 +13,13 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
 
-import { getCommonStandardBackgroundColorClassNameForTheme } from "../../../../utils";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser as faCircleUserReg } from "@fortawesome/free-regular-svg-icons";
+import { faCircleUser as faCircleUserSolid } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import NavbarBreadcrumb from "./NavbarBreadcrumb";
-import NavbarHamburger from "./NavbarHamburger";
 
 export default function Navbar() {
 	const reduxState = useSelector((state) => state);
@@ -59,46 +56,29 @@ export default function Navbar() {
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
-	const shouldBreadcrumbBeVisible = () => {
-		return (
-			reduxState[SIZE_CONTAINER].variables.navbar === null ||
-			reduxState[SIZE_CONTAINER].variables
-				.navbarBreadcrumbButtonTextFontSize === null ||
-			reduxState[GENERAL_CONTAINER].globalConstants
-				.navbarBreadcrumbMinimumFontSize === null ||
-			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-				null ||
-			reduxState[SIZE_CONTAINER].variables.navbarBreadcrumbButtonTextFontSize >
-				reduxState[GENERAL_CONTAINER].globalConstants
-					.navbarBreadcrumbMinimumFontSize
-		);
-	};
-
 	return (
-		<div
-			className={
-				"navbar-component js-navbar" +
-				getCommonStandardBackgroundColorClassNameForTheme(
-					reduxState[ACCOUNT_CONTAINER].settings.theme_color
-				) +
-				(shouldBreadcrumbBeVisible()
-					? ""
-					: " navbar-container--increased-z-index")
-			}
-		>
-			<NavbarBreadcrumb visible={shouldBreadcrumbBeVisible()} />
-			{shouldBreadcrumbBeVisible() ? null : <NavbarHamburger />}
+		<div className="navbar-component js-navbar">
+			<NavbarBreadcrumb />
 
 			<div
 				className="navbar__account-button js-navbar-account-button"
-				alt="Navbar button to open account sidebar"
+				aria-label="Account"
+				onClick={openAccountSidebar}
 			>
-				<div
-					className="navbar__account-button__text"
-					onClick={openAccountSidebar}
-				>
-					<FontAwesomeIcon icon={faUser} aria-hidden="true" /> Account
-				</div>
+				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
+					.accountSidebarComponentShouldDisplay ? (
+					<FontAwesomeIcon
+						icon={faCircleUserSolid}
+						size="xl"
+						aria-hidden="true"
+					/>
+				) : (
+					<FontAwesomeIcon
+						icon={faCircleUserReg}
+						size="xl"
+						aria-hidden="true"
+					/>
+				)}
 			</div>
 		</div>
 	);

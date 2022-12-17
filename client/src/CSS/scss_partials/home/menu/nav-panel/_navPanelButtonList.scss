@@ -20,7 +20,7 @@
 		overflow-x: hidden;
 
 		scrollbar-width: thin;
-		scrollbar-color: rgb(180, 180, 180) #ffffff00;
+		scrollbar-color: #cdcdcd #ffffff00;
 
 		/* width */
 		::-webkit-scrollbar {
@@ -60,9 +60,6 @@
 		height: 40px;
 		cursor: pointer;
 		align-items: center;
-		-webkit-user-select: none; /* Safari */
-		-ms-user-select: none; /* IE 10 and IE 11 */
-		user-select: none; /* Standard syntax */
 	}
 
 	// Overwrites padding for main items

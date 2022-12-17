@@ -9,9 +9,6 @@ const initialState = {
 	navPanelTopContainerHeight: null,
 	navPanelButtonListComponentCriticalStyles: null,
 	navbarAccountButtonWidth: null,
-	navbarBreadcrumbComponentButtonArrowElementWidth: null,
-	navbarBreadcrumbComponentButtonTextElementBaseFontSize: null,
-	navbarHamburgerComponentCriticalStyles: null,
 	listViewTopBarComponentHeight: null,
 	listViewTableComponentRowElementHeight: null,
 	itemViewComponentPaddingContainerElementLeftPadding: null,
@@ -26,9 +23,9 @@ const initialState = {
  *
  * Note: The purpose of the 'constants' property is to get CSS property sizes
  * (that never change) for specific elements to be used by JS for resizing other
- * elements (e.g. resizing breadcrumb buttons in NavbarBreadcrumb component).
- * This keeps from having to refetch these CSS property sizes each time one of
- * the other elements needs resizing.
+ * elements (e.g. resizing 'overflow-container' elements in
+ * NavPanelButtonList component). This keeps from having to refetch these CSS
+ * property sizes each time one of the other elements needs resizing.
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
@@ -38,12 +35,6 @@ const initialState = {
  * 		overflowContainerWithScrollbarPaddingTop: number,
  * 		overflowContainerWithScrollbarPaddingBottom: number }|null),
  * 	navbarAccountButtonWidth: (number|null),
- * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
- * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
- * 	navbarHamburgerComponentCriticalStyles: ({
- * 		buttonLeft: number,
- * 		titleLeft: number,
- * 		titleBaseFontSize: number }|null),
  * 	listViewTopBarComponentHeight: (number|null),
  * 	listViewTableComponentRowElementHeight: (number|null),
  *  itemViewComponentPaddingContainerElementLeftPadding: (number|null),
@@ -64,12 +55,6 @@ const initialState = {
  * 		overflowContainerWithScrollbarPaddingTop: number,
  * 		overflowContainerWithScrollbarPaddingBottom: number }|null),
  * 	navbarAccountButtonWidth: (number|null),
- * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
- * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
- * 	navbarHamburgerComponentCriticalStyles: ({
- * 		buttonLeft: number,
- * 		titleLeft: number,
- * 		titleBaseFontSize: number }|null),
  * 	listViewTopBarComponentHeight: (number|null),
  * 	listViewTableComponentRowElementHeight: (number|null),
  * 	itemViewComponentPaddingContainerElementLeftPadding: (number|null),
@@ -90,12 +75,6 @@ export default function displaySizeConstantsReducer(
 				navPanelButtonListComponentCriticalStyles:
 					action.sizes.navPanelButtonListComponentCriticalStyles,
 				navbarAccountButtonWidth: action.sizes.navbarAccountButtonWidth,
-				navbarBreadcrumbComponentButtonTextElementBaseFontSize:
-					action.sizes.navbarBreadcrumbComponentButtonTextElementBaseFontSize,
-				navbarBreadcrumbComponentButtonArrowElementWidth:
-					action.sizes.navbarBreadcrumbComponentButtonArrowElementWidth,
-				navbarHamburgerComponentCriticalStyles:
-					action.sizes.navbarHamburgerComponentCriticalStyles,
 				listViewTopBarComponentHeight:
 					action.sizes.listViewTopBarComponentHeight,
 				listViewTableComponentRowElementHeight:

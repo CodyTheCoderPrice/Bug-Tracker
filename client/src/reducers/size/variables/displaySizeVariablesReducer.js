@@ -1,5 +1,4 @@
 import displaySizeWindowAndMenusReducer from "./displaySizeWindowAndMenusReducer";
-import displaySizeBreadcrumbFontSizeReducer from "./displaySizeBreadcrumbFontSizeReducer";
 
 import { SIZE_CONTAINER } from "../../../actions/constants/containerNames";
 import { RESET_CONTAINER } from "../../../actions/constants/types";
@@ -8,10 +7,6 @@ import { RESET_CONTAINER } from "../../../actions/constants/types";
 const initialState = {
 	// Passing undefined and {} causes reducers to return their initial state
 	...displaySizeWindowAndMenusReducer(undefined, {}),
-	navbarBreadcrumbButtonTextFontSize: displaySizeBreadcrumbFontSizeReducer(
-		undefined,
-		{}
-	),
 };
 
 /**
@@ -20,10 +15,9 @@ const initialState = {
  * 'SIZE_CONTAINER' of the redux state.
  *
  * Note: The purpose of the 'variables' property is to get the current CSS
- * property sizes (that change) for specific elements to be used by JS for both
- * resizing other elements (e.g. resizing breadcrumb buttons in NavbarBreadcrumb
- * component), as well as deciding which elements are visible (e.g. deciding if
- * NavbarBreadcrumb component should be visible). This keeps from having to
+ * property sizes (that change) for specific elements to be used by JS for
+ * resizing other elements (e.g. resizing 'overflow-container' elements in 
+ * NavPanelButtonList component). This keeps from having to
  * refetch these CSS property sizes each time one of the other elements needs
  * to use them.
  *
@@ -55,13 +49,6 @@ export default function displaySizeVariablesReducer(
 						},
 						action
 					),
-					// Must pass 'state.navbarBreadcrumbButtonTextFontSize' or
-					// ...else default return will be entire variables state
-					navbarBreadcrumbButtonTextFontSize:
-						displaySizeBreadcrumbFontSizeReducer(
-							state.navbarBreadcrumbButtonTextFontSize,
-							action
-						),
 				};
 			}
 		default:

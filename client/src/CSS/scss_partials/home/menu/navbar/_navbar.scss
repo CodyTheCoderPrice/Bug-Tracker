@@ -8,7 +8,6 @@
 	top: 0;
 	left: v.$common-left;
 	border-bottom: v.$navbar-border-width solid v.$mode-navbar-border-color-light;
-	background-color: v.$default-theme-common-standard-border-background-color;
 	height: v.$navbar-height;
 
 	.navbar__account-button {
@@ -18,33 +17,14 @@
 		right: 0;
 		// Padding instead of margin since padding is include in size to be
 		// ...used for breadcrumb font-resize
-		padding-left: 40px;
+		padding: 0 10px;
 		height: v.$navbar-account-button-height;
-		width: v.$navbar-account-button-width;
-	}
-
-	.navbar__account-button__text {
-		@include m.stop-text-selection();
-
-		position: relative;
-		margin: 0 auto 0 auto;
-		height: v.$navbar-account-button-height;
-		color: white;
 		font-family: Verdana, Geneva, sans-serif;
 		font-size: v.$common-navbar-button-font-size;
+		// Allows vertical-align: middle to work (located below)
+		line-height: v.$navbar-height;
 		text-align: center;
 		vertical-align: middle;
-		// Allows vertical-align: middle to work
-		line-height: v.$navbar-account-button-height;
 		cursor: pointer;
 	}
-}
-
-/*
-Increases navbar z-index for when the hamburger menu is present so hamburger
-dropdown can overlap all other components
-*/
-.navbar-container--increased-z-index {
-	// z-index must be more than listViewTopBar.scss and itemViewTopBar.scss
-	z-index: 3;
 }

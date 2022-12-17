@@ -88,87 +88,6 @@ export function getNavPanelButtonListComponentOverflowContainerElementWithScroll
 }
 
 /**
- * Gets a className equivelent to the 'navbar-breadcrumb-component' className
- * used by NavbarBreadcrumb component.
- *
- *
- * Note: This function's purpose is to have the returned className assigned to
- * a temporary element that's used for getting CSS values with JS.
- *
- * @returns {string} A className equivelent to 'navbar-breadcrumb-component'
- */
-export function getNavbarBreadcrumbComponentClassName() {
-	return " js-get-navbar-breadcrumb-component";
-}
-
-/**
- * Gets a className equivelent to the 'breadcrumb-button__text' className used
- * by the breadcrumb button text elements in NavbarBreadcrumb component.
- *
- * Note: This function's purpose is to have the returned className assigned to
- * a temporary element that's used for getting CSS values with JS.
- *
- * @returns {string} A className equivelent to 'breadcrumb-button__text'
- */
-export function getNavbarBreadcrumbComponentButtonTextElementClassName() {
-	return " js-get-navbar-breadcrumb-component-button-text-element";
-}
-
-/**
- * Gets a className equivelent to the 'breadcrumb-button__end-container__arrow'
- * className used by the breadcrumb button end container arrow elements in
- * NavbarBreadcrumb component.
- *
- * Note: This function's purpose is to have the returned className assigned to
- * a temporary element that's used for getting CSS values with JS.
- *
- * @returns {string} A className equivelent to
- * 'breadcrumb-button__end-container__arrow'
- */
-export function getNavbarBreadcrumbComponentButtonEndContainerArrowElementClassName() {
-	return " js-get-navbar-breadcrumb-component-button-end-container-arrow-element";
-}
-
-/**
- * Gets a className equivelent to the 'navbar-hamburger-component' className
- * used by NavbarHamburger component.
- *
- * Note: This function's purpose is to have the returned className assigned to
- * a temporary element that's used for getting CSS values with JS.
- *
- * @returns {string} A className equivelent to 'navbar-hamburger-component'
- */
-export function getNavbarHamburgerComponentClassName() {
-	return " js-get-navbar-hamburger-component";
-}
-
-/**
- * Gets a className equivelent to the 'hamburger-button-container' className
- * used by the hamburger button container elements in NavbarHamburger component.
- *
- * Note: This function's purpose is to have the returned className assigned to
- * a temporary element that's used for getting CSS values with JS.
- *
- * @returns {string} A className equivelent to 'hamburger-button-container'
- */
-export function getNavbarHamburgerComponentButtonContainerElementClassName() {
-	return " js-get-navbar-hamburger-component-button-container-element";
-}
-
-/**
- * Gets a className equivelent to the 'hamburger-title' className used by the
- * hamburger button container elements in NavbarHamburger component.
- *
- * Note: This function's purpose is to have the returned className assigned to
- * a temporary element that's used for getting CSS values with JS.
- *
- * @returns {string} A className equivelent to 'hamburger-title'
- */
-export function getNavbarHamburgerComponentTitleElementClassName() {
-	return " js-get-navbar-hamburger-component-title-element";
-}
-
-/**
  * Gets a className equivelent to the 'list-view-top-bar-component' className
  * used by ListViewTopBar component.
  *
@@ -566,25 +485,6 @@ export function getHomeComponentBackgroundColorClassNameForLightOrDarkMode(
 ) {
 	return (
 		" js-get-home-component-background-and-text-color-dark-mode-" + dark_mode
-	);
-}
-
-/**
- * Get light/dark mode className for NavbarHamburger component's
- * 'hamburger-dropdown' (className) element's border, background (with hover
- * and selected), and text color
- *
- * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for NavbarHamburger component's
- * 'hamburger-dropdown' element's border, background (with hover
- * and selected), and text color
- */
-export function getNavbarHamburgerComponentDropdownElementBorderBackgroundTextColorClassNameForLightOrDarkMode(
-	dark_mode
-) {
-	return (
-		" js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-" +
-		dark_mode
 	);
 }
 
@@ -1272,55 +1172,6 @@ export function getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocus
 ) {
 	return (
 		" js-get-common-component-form-submit-button-element-background-color-with-hover-focus-theme-" +
-		theme_color
-	);
-}
-
-/**
- * Get brighter theme className for NavbarBreadcrumb component's
- * 'breadcrumb-button__end-container__arrow' (className) element's border
- * color
- *
- * Note: This changes the entire color of the arrow since it's made entirely
- * of a border.
- *
- * @param {("blue-turkish"|
- * 	"blue-queen"|
- * 	"blue-sky"|
- * 	"blue-turquoise"|
- * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Brighter theme className forNavbarBreadcrumb component's
- * 'breadcrumb-button__end-container__arrow' element's border color
- */
-export function getBrighterNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
-	theme_color
-) {
-	return (
-		" js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-" +
-		theme_color
-	);
-}
-
-/**
- * Get standard theme className for NavbarBreadcrumb component's
- * 'breadcrumb-button__end-container__arrow' (className) element's border color
- *
- * Note: This changes the entire color of the arrow since it's made entirely
- * of a border.
- *
- * @param {("blue-turkish"|
- * 	"blue-queen"|
- * 	"blue-sky"|
- * 	"blue-turquoise"|
- * 	"purple-rain")} theme_color - The current theme the app is set to use
- * @returns {string} Standard theme className for NavbarBreadcrumb component's
- * 'breadcrumb-button__end-container__arrow' element's border color
- */
-export function getStandardNavbarBreadcrumbComponentArrowElementBorderColorClassNameForTheme(
-	theme_color
-) {
-	return (
-		" js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-" +
 		theme_color
 	);
 }

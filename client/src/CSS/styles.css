@@ -321,14 +321,14 @@
   width: 250px;
 }
 .nav-panel-component .top-container {
-  height: 56px;
+  height: 48px;
   border-bottom: 1px solid black;
 }
 .nav-panel-component .top-container__logo {
   display: block;
-  width: 150px;
-  margin: 0px auto;
-  padding-top: 10px;
+  height: 48px;
+  width: 125px;
+  margin: auto auto;
 }
 
 .nav-panel-button-list-component,
@@ -350,7 +350,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
-  scrollbar-color: #b4b4b4 #ffffff00;
+  scrollbar-color: #cdcdcd #ffffff00;
   /* width */
   /* Track */
   /* Handle */
@@ -399,12 +399,6 @@
   height: 40px;
   cursor: pointer;
   align-items: center;
-  -webkit-user-select: none;
-  /* Safari */
-  -ms-user-select: none;
-  /* IE 10 and IE 11 */
-  user-select: none;
-  /* Standard syntax */
 }
 .nav-panel-button-list-component .item-button,
 .js-get-nav-panel-button-list-component .item-button {
@@ -450,367 +444,49 @@
   top: 0;
   left: 250px;
   border-bottom: 1px solid black;
-  background-color: #608d9e;
-  height: 56px;
+  height: 48px;
 }
 .navbar-component .navbar__account-button {
   position: absolute;
   right: 0;
-  padding-left: 40px;
-  height: 56px;
-  width: 130px;
-}
-.navbar-component .navbar__account-button__text {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  position: relative;
-  margin: 0 auto 0 auto;
-  height: 56px;
-  color: white;
+  padding: 0 10px;
+  height: 48px;
   font-family: Verdana, Geneva, sans-serif;
-  font-size: 18px;
+  font-size: 15px;
+  line-height: 48px;
   text-align: center;
   vertical-align: middle;
-  line-height: 56px;
   cursor: pointer;
 }
 
-/*
-Increases navbar z-index for when the hamburger menu is present so hamburger
-dropdown can overlap all other components
-*/
-.navbar-container--increased-z-index {
-  z-index: 3;
-}
-
-.navbar-breadcrumb-component .invisible,
-.js-get-navbar-breadcrumb-component .invisible {
-  visibility: hidden;
+.navbar-breadcrumb-component,
+.js-get-navbar-breadcrumb-component {
+  padding-left: 10px;
 }
 .navbar-breadcrumb-component .breadcrumb-button,
 .js-get-navbar-breadcrumb-component .breadcrumb-button {
   position: relative;
   float: left;
-  background-color: #608d9e;
-  height: 56px;
-  cursor: pointer;
-}
-.navbar-breadcrumb-component .breadcrumb-button--right,
-.js-get-navbar-breadcrumb-component .breadcrumb-button--right {
-  position: absolute;
-  right: 0;
-}
-.navbar-breadcrumb-component .breadcrumb-button--breadcrumb-arrow-buffered,
-.js-get-navbar-breadcrumb-component .breadcrumb-button--breadcrumb-arrow-buffered {
-  margin-left: -20px;
-  padding-left: 20px;
+  height: 48px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 15px;
+  line-height: 48px;
+  text-align: center;
+  vertical-align: middle;
 }
 .navbar-breadcrumb-component .breadcrumb-button__text,
-.navbar-breadcrumb-component .js-get-navbar-breadcrumb-component-button-text-element,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__text,
-.js-get-navbar-breadcrumb-component .js-get-navbar-breadcrumb-component-button-text-element {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  position: relative;
-  float: left;
-  padding: 0 14px 0 14px;
-  height: 56px;
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 18px;
-  color: white;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 56px;
-}
-.navbar-breadcrumb-component .breadcrumb-button__text--item-name,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__text--item-name {
-  color: #ffff00;
-}
-.navbar-breadcrumb-component .breadcrumb-button__end-container,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__end-container {
-  position: relative;
-  float: left;
-  height: 56px;
-  width: 20px;
-}
-.navbar-breadcrumb-component .breadcrumb-button__end-container__round-border,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__end-container__round-border {
-  z-index: 6;
-  position: absolute;
-  top: -2px;
-  left: -5px;
-  border: 2px solid black;
-  border-left: none;
-  border-radius: 0 12px 12px 0;
-  height: 56px;
-  width: 20px;
-}
-.navbar-breadcrumb-component .breadcrumb-button__end-container__arrow,
-.navbar-breadcrumb-component .js-get-navbar-breadcrumb-component-button-end-container-arrow-element,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__end-container__arrow,
-.js-get-navbar-breadcrumb-component .js-get-navbar-breadcrumb-component-button-end-container-arrow-element {
-  z-index: 6;
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-left: 20px solid gray;
-  height: 0;
-  width: 0;
-}
-.navbar-breadcrumb-component .breadcrumb-button__end-container__border-arrow,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__end-container__border-arrow {
-  z-index: 5;
-  position: absolute;
-  top: -2px;
-  left: 0px;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-left: 20px solid black;
-  height: 0;
-  width: 0;
-}
-.navbar-breadcrumb-component .breadcrumb-button__end-container__close-icon-button,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__end-container__close-icon-button {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  z-index: 7;
-  position: absolute;
-  top: 20px;
-  left: -8px;
-  color: silver;
-  opacity: 0.6;
-  font-size: 18px;
+.js-get-navbar-breadcrumb-component .breadcrumb-button__text {
+  padding: 0 13px 0 15px;
+  color: #919191;
   cursor: pointer;
 }
-.navbar-breadcrumb-component .breadcrumb-button__end-container__close-icon-button:hover, .navbar-breadcrumb-component .breadcrumb-button__end-container__close-icon-button:active,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__end-container__close-icon-button:hover,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__end-container__close-icon-button:active {
-  opacity: 1;
-  color: #fc1e1e;
+.navbar-breadcrumb-component .breadcrumb-button__text--active,
+.js-get-navbar-breadcrumb-component .breadcrumb-button__text--active {
+  color: inherit;
 }
-
-.navbar-hamburger-component .blurred-backdrop,
-.js-get-navbar-hamburger-component .blurred-backdrop {
-  z-index: 3;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: black;
-  opacity: 0.6;
-  height: 100vh;
-  width: 100vw;
-}
-.navbar-hamburger-component .hamburger-button-container,
-.navbar-hamburger-component .js-get-navbar-hamburger-component-button-container-element,
-.js-get-navbar-hamburger-component .hamburger-button-container,
-.js-get-navbar-hamburger-component .js-get-navbar-hamburger-component-button-container-element {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: absolute;
-  top: 9px;
-  left: 10px;
-  border: 3px solid black;
-  border-radius: 10px;
-  background-color: white;
-  height: 38px;
-  width: 36px;
-  cursor: pointer;
-}
-.navbar-hamburger-component .hamburger-button-container__icon,
-.js-get-navbar-hamburger-component .hamburger-button-container__icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-  font-size: 24px;
-}
-.navbar-hamburger-component .hamburger-dropdown,
-.js-get-navbar-hamburger-component .hamburger-dropdown {
-  z-index: 5;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: absolute;
-  top: 9px;
-  left: 10px;
-  border: 3px solid black;
-  border-radius: 10px;
-  background-color: white;
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 14px;
-}
-.navbar-hamburger-component .hamburger-dropdown__top-space,
-.js-get-navbar-hamburger-component .hamburger-dropdown__top-space {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: block;
-  position: relative;
-  height: 34px;
-}
-.navbar-hamburger-component .hamburger-dropdown__top-space__icon,
-.js-get-navbar-hamburger-component .hamburger-dropdown__top-space__icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  cursor: pointer;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: block;
-  position: relative;
-  border-top: 1px solid #a3a3a3;
-  padding-left: 12px;
-  height: 42px;
-  line-height: 42px;
-  white-space: nowrap;
-  overflow: hidden;
-  cursor: pointer;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button:hover, .navbar-hamburger-component .hamburger-dropdown__row-button:active,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button:hover,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button:active {
-  background-color: #f8f8f8;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button--selected,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button--selected {
-  background-color: #9de0ff;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button--selected:hover, .navbar-hamburger-component .hamburger-dropdown__row-button--selected:active,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button--selected:hover,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button--selected:active {
-  background-color: #9de0ff;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button--item-name,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button--item-name {
-  color: #2d2dff;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button--last-option-round-bottom-border,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button--last-option-round-bottom-border {
-  border-radius: 0 0 10px 10px;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button__icon,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button__icon {
-  color: #4e4e4e;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button__svg-arrow-option-2,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button__svg-arrow-option-2 {
-  margin: 0px 6px 0px 7px;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button__svg-arrow-option-3,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button__svg-arrow-option-3 {
-  margin: 0px 6px 0px 17px;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button__svg-arrow-option-4,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button__svg-arrow-option-4 {
-  margin: 0px 6px 0px 27px;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button__close-icon-button,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button__close-icon-button {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  padding: 1px 0px 0px 5px;
-  color: #7c7c7c;
-  opacity: 0.6;
-  font-size: 17px;
-  cursor: pointer;
-}
-.navbar-hamburger-component .hamburger-dropdown__row-button__close-icon-button:hover, .navbar-hamburger-component .hamburger-dropdown__row-button__close-icon-button:active,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button__close-icon-button:hover,
-.js-get-navbar-hamburger-component .hamburger-dropdown__row-button__close-icon-button:active {
-  opacity: 1;
-  color: #fc1e1e;
-}
-.navbar-hamburger-component .hamburger-title,
-.navbar-hamburger-component .js-get-navbar-hamburger-component-title-element,
-.js-get-navbar-hamburger-component .hamburger-title,
-.js-get-navbar-hamburger-component .js-get-navbar-hamburger-component-title-element {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-  supported by Chrome, Edge, Opera and Firefox */
-  position: absolute;
-  left: 52px;
-  height: 56px;
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 18px;
-  color: white;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 56px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ". . .   ";
-  cursor: pointer;
-}
-.navbar-hamburger-component .hamburger-title--item-name,
-.js-get-navbar-hamburger-component .hamburger-title--item-name {
-  color: #ffff00;
+.navbar-breadcrumb-component .breadcrumb-button__icon,
+.js-get-navbar-breadcrumb-component .breadcrumb-button__icon {
+  color: #919191;
 }
 
 .account-modals-blurred-backdrop-component {
@@ -825,7 +501,7 @@ dropdown can overlap all other components
 }
 
 .account-modals-blurred-backdrop-component--below-navbar {
-  top: 56px;
+  top: 48px;
   opacity: 0.6;
 }
 
@@ -835,7 +511,7 @@ dropdown can overlap all other components
   box-sizing: border-box;
   z-index: 4;
   position: fixed;
-  top: 56px;
+  top: 48px;
   right: 0;
   margin-bottom: 20px;
   border: 3px solid black;
@@ -1310,7 +986,7 @@ dropdown can overlap all other components
 .item-view-component .item-content-container,
 .js-get-item-view-component .item-content-container {
   position: fixed;
-  top: 104px;
+  top: 96px;
   left: 250px;
   height: 90vh;
   width: 90vw;
@@ -1965,7 +1641,7 @@ dropdown can overlap all other components
 .js-get-item-view-list-sidebar-component .expand-minimize-button {
   z-index: 1;
   position: fixed;
-  top: 119px;
+  top: 111px;
   left: 252px;
   border: 2px solid black;
   border-left: none;
@@ -2002,7 +1678,7 @@ dropdown can overlap all other components
   z-index: 1;
   display: none;
   position: fixed;
-  top: 104px;
+  top: 96px;
   left: 250px;
   border-right: 2px solid black;
   height: 90vh;
@@ -2082,7 +1758,7 @@ dropdown can overlap all other components
   width: calc(100% - 250px);
   z-index: 2;
   position: fixed;
-  top: 57px;
+  top: 49px;
   left: 250px;
   border-bottom: 1px solid black;
   background-color: #e5e5e5;
@@ -2423,7 +2099,7 @@ dropdown can overlap all other components
 .create-item-sidebar-component .blurred-backdrop {
   z-index: 1;
   position: absolute;
-  top: 56px;
+  top: 48px;
   background-color: black;
   opacity: 0.8;
   height: 100vh;
@@ -2432,7 +2108,7 @@ dropdown can overlap all other components
 .create-item-sidebar-component .sidebar-container {
   z-index: 1;
   position: fixed;
-  top: 56px;
+  top: 48px;
   margin-bottom: 20px;
   border: 3px solid black;
   border-top: none;
@@ -2595,7 +2271,7 @@ dropdown can overlap all other components
   width: calc(100% - 250px);
   z-index: 1;
   position: fixed;
-  top: 57px;
+  top: 49px;
   left: 250px;
   border-bottom: 1px solid black;
   background-color: #e5e5e5;
@@ -2873,7 +2549,7 @@ dropdown can overlap all other components
 .list-view-table-component,
 .js-get-list-view-table-component {
   position: fixed;
-  top: 104px;
+  top: 96px;
   left: 250px;
   height: 90vh;
   width: 90vw;
@@ -3248,66 +2924,6 @@ body {
 .js-get-app-component .js-get-home-component-background-and-text-color-dark-mode-true {
   background-color: #2e2e2e;
   color: #c7d1db;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false {
-  background-color: white;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button {
-  border-color: #a3a3a3;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button:hover, .app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button:active,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button:hover,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button:active {
-  background-color: #f8f8f8;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button > .hamburger-dropdown__row-button__icon,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button > .hamburger-dropdown__row-button__icon {
-  color: #4e4e4e;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button--selected,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button--selected {
-  background-color: #9de0ff;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button--selected:hover, .app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button--selected:active,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button--selected:hover,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button--selected:active {
-  background-color: #9de0ff;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button--item-name,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false > .hamburger-dropdown__row-button--item-name {
-  color: #2d2dff;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true {
-  background-color: #2e2e2e;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button {
-  border-color: #555555;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button:hover, .app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button:active,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button:hover,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button:active {
-  background-color: #3a3a3a;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button > .hamburger-dropdown__row-button__icon,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button > .hamburger-dropdown__row-button__icon {
-  color: #636363;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button--selected,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button--selected {
-  background-color: #123f63;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button--selected:hover, .app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button--selected:active,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button--selected:hover,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button--selected:active {
-  background-color: #123f63;
-}
-.app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button--item-name,
-.js-get-app-component .js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true > .hamburger-dropdown__row-button--item-name {
-  color: #00e1ff;
 }
 .app-component .js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-false,
 .js-get-app-component .js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-false {
@@ -3855,46 +3471,6 @@ body {
 .js-get-app-component .js-get-common-component-form-submit-button-element-background-color-with-hover-focus-theme-purple-rain:active,
 .js-get-app-component .js-get-common-component-form-submit-button-element-background-color-with-hover-focus-theme-purple-rain:focus {
   background-color: #694489;
-}
-.app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turkish,
-.js-get-app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turkish {
-  border-left-color: #6ca0b4;
-}
-.app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turkish,
-.js-get-app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turkish {
-  border-left-color: #608d9e;
-}
-.app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-queen,
-.js-get-app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-queen {
-  border-left-color: #587ba0;
-}
-.app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-queen,
-.js-get-app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-queen {
-  border-left-color: #45607e;
-}
-.app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-sky,
-.js-get-app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-sky {
-  border-left-color: #1eaad8;
-}
-.app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-sky,
-.js-get-app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-sky {
-  border-left-color: #0091c2;
-}
-.app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turquoise,
-.js-get-app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turquoise {
-  border-left-color: #44bdb3;
-}
-.app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turquoise,
-.js-get-app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turquoise {
-  border-left-color: #03a89e;
-}
-.app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-purple-rain,
-.js-get-app-component .js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-purple-rain {
-  border-left-color: #8b5ab6;
-}
-.app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-purple-rain,
-.js-get-app-component .js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-purple-rain {
-  border-left-color: #694489;
 }
 .app-component .js-get-common-text-color-mode-light-theme-blue-turkish,
 .js-get-app-component .js-get-common-text-color-mode-light-theme-blue-turkish {

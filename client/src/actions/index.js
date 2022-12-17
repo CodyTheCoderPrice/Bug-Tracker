@@ -40,12 +40,6 @@ export * from "./resetActions";
  * 		overflowContainerWithScrollbarPaddingTop: number,
  * 		overflowContainerWithScrollbarPaddingBottom: number }|null),
  * 	navbarAccountButtonWidth: (number|null),
- * 	navbarBreadcrumbComponentButtonTextElementBaseFontSize: (number|null),
- * 	navbarBreadcrumbComponentButtonArrowElementWidth: (number|null),
- * 	navbarHamburgerComponentCriticalStyles: ({
- * 		buttonLeft: number,
- * 		titleLeft: number,
- * 		titleBaseFontSize: number }|null),
  * 	listViewTopBarComponentHeight: (number|null),
  * 	listViewTableComponentRowElementHeight: (number|null),
  *  itemViewComponentPaddingContainerElementLeftPadding: (number|null),
@@ -66,12 +60,6 @@ export * from "./resetActions";
  * 			overflowContainerWithScrollbarPaddingTop: 10,
  * 			overflowContainerWithScrollbarPaddingBottom: 30 },
  * 		navbarAccountButtonWidth: 170,
- * 		navbarBreadcrumbComponentButtonTextElementBaseFontSize: 18,
- * 		navbarBreadcrumbComponentButtonArrowElementWidth: 20,
- * 		navbarHamburgerComponentCriticalStyles: {
- * 			buttonLeft: 10,
- * 			titleLeft: 52,
- * 			titleBaseFontSize: 18 },
  * 		listViewTopBarComponentHeight: 48,
  * 		listViewTableComponentRowElementHeight: 50,
  * 		itemViewComponentPaddingContainerElementLeftPadding: 25,
@@ -139,31 +127,6 @@ export const setDisplaySizeVariablesWindowAndMenus = (sizes) => (dispatch) => {
 		sizes: sizes,
 	});
 };
-
-/**
- * Sets current font size of element's with breadcrumb-button__text className
- * (in NavbarBreadcrumb component) in 'variables' property in 'SIZE_CONTAINER' of
- * the redux state.
- *
- * Note: These sizes should be updated everytime they change. Also the purpose
- * of font size is to be used to know when the switch to the hamburger menu (e.g.
- * when breadcrumb button text element's font size gets to be too small).
- *
- * @param {number} fontSize - Number of current font size of the breadcrumb menu
- * button text elements
- *
- * @example
- * // The dispatch function is from useDispatch() imported from react-redux.
- * dispatch(setDisplaySizeVariablesBreadcrumbFontSize(18));
- */
-export const setDisplaySizeVariablesBreadcrumbFontSize =
-	(fontSize) => (dispatch) => {
-		dispatch({
-			container: SIZE_CONTAINER,
-			type: SET_DISPLAY_SIZE_VARIABLES_BREADCRUMB_FONT_SIZE,
-			fontSize: fontSize,
-		});
-	};
 
 /**
  * Sets themes info (from theme table in the database) in 'themes' property in

@@ -219,73 +219,6 @@ body {
 		color: v.$mode-home-text-color-dark;
 	}
 
-	// Light/Dark mode -- NavbarHamburger component's 'hamburger-dropdown'
-	// ...element's -- border, background (with hover and selected), and text
-	// ...color
-	@mixin mode-hamburger-dropdown($is-dark) {
-		@if $is-dark {
-			background-color: v.$mode-navbar-hamburger-dropdown-background-color-dark;
-		} @else {
-			background-color: v.$mode-navbar-hamburger-dropdown-background-color-light;
-		}
-
-		& > .hamburger-dropdown__row-button {
-			@if $is-dark {
-				border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-dark;
-			} @else {
-				border-color: v.$mode-navbar-hamburger-dropdown-option-border-color-light;
-			}
-
-			&:hover,
-			&:active {
-				@if $is-dark {
-					background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-dark;
-				} @else {
-					background-color: v.$mode-navbar-hamburger-dropdown-option-hover-background-color-light;
-				}
-			}
-
-			& > .hamburger-dropdown__row-button__icon {
-				@if $is-dark {
-					color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-dark;
-				} @else {
-					color: v.$mode-navbar-hamburger-dropdown-option-icon-text-color-light;
-				}
-			}
-		}
-
-		& > .hamburger-dropdown__row-button--selected {
-			@if $is-dark {
-				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-dark;
-			} @else {
-				background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
-			}
-
-			&:hover,
-			&:active {
-				@if $is-dark {
-					background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-dark;
-				} @else {
-					background-color: v.$mode-navbar-hamburger-dropdown-option-selected-background-color-light;
-				}
-			}
-		}
-
-		& > .hamburger-dropdown__row-button--item-name {
-			@if $is-dark {
-				color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-dark;
-			} @else {
-				color: v.$mode-navbar-hamburger-dropdown-option-name-text-color-light;
-			}
-		}
-	}
-	.js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-false {
-		@include mode-hamburger-dropdown($is-dark: false);
-	}
-	.js-get-navbar-hamburger-component-dropdown-element-border-background-text-color-dark-mode-true {
-		@include mode-hamburger-dropdown($is-dark: true);
-	}
-
 	// Light/Dark mode -- AccountSidebar component 'sidebar-container' element
 	// ...-- background color
 	.js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-false {
@@ -867,39 +800,6 @@ body {
 			v.$theme-common-brighter-border-background-color-purple-rain,
 			v.$theme-common-standard-border-background-color-purple-rain
 		);
-	}
-
-	// Theme -- NavbarBreadcrumb component 'breadcrumb-button__end-container__arrow'
-	// ...element -- border color
-	.js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turkish {
-		border-left-color: v.$theme-common-brighter-border-background-color-blue-turkish;
-	}
-	.js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turkish {
-		border-left-color: v.$theme-common-standard-border-background-color-blue-turkish;
-	}
-	.js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-queen {
-		border-left-color: v.$theme-common-brighter-border-background-color-blue-queen;
-	}
-	.js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-queen {
-		border-left-color: v.$theme-common-standard-border-background-color-blue-queen;
-	}
-	.js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-sky {
-		border-left-color: v.$theme-common-brighter-border-background-color-blue-sky;
-	}
-	.js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-sky {
-		border-left-color: v.$theme-common-standard-border-background-color-blue-sky;
-	}
-	.js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turquoise {
-		border-left-color: v.$theme-common-brighter-border-background-color-blue-turquoise;
-	}
-	.js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-blue-turquoise {
-		border-left-color: v.$theme-common-standard-border-background-color-blue-turquoise;
-	}
-	.js-get-brighter-navbar-breadcrumb-component-arrow-element-border-color-theme-purple-rain {
-		border-left-color: v.$theme-common-brighter-border-background-color-purple-rain;
-	}
-	.js-get-standard-navbar-breadcrumb-component-arrow-element-border-color-theme-purple-rain {
-		border-left-color: v.$theme-common-standard-border-background-color-purple-rain;
 	}
 
 	//==========================
