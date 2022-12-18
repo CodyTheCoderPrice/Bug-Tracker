@@ -243,14 +243,14 @@ export function switchToBugsItemView(passedReduxState, dispatch) {
 }
 
 /**
- * DOCUMENTATION INCOMPLETE
+ * JSDOC INCOMPLETE
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
  * @param {Function} dispatch - Redux store's dispatch function from
  * useDispatch()
  * @param {("PROJECT_CONTAINER"|"BUG_CONTAINER")} targetReduxContainerName - name of
- * which container ('PROJECT_CONTAINER' or 'BUG_CONTAINER') the target item 
+ * which container ('PROJECT_CONTAINER' or 'BUG_CONTAINER') the target item
  * belongs to.
  * @param {({
  * 		id: number,
@@ -268,20 +268,20 @@ export function switchToBugsItemView(passedReduxState, dispatch) {
  * 		status_id: number,
  * 		status_option: string,
  * 		last_edited_timestamp: string
- * 	}|null|undefined)} targetItem - item intended to be set as the current item 
+ * 	}|null|undefined)} targetItem - item intended to be set as the current item
  * inside the target redux container
  */
 export function switchToProjectOrBugItemViewAndCurrentItem(
 	passedReduxState,
 	dispatch,
 	targetReduxContainerName,
-	targetItem,
+	targetItem
 ) {
 	const changingCurrentItem =
-		passedReduxState[targetReduxContainerName].componentsDisplay.itemViewCurrentItem ===
-			null ||
-		passedReduxState[targetReduxContainerName].componentsDisplay.itemViewCurrentItem.id !==
-			targetItem.id;
+		passedReduxState[targetReduxContainerName].componentsDisplay
+			.itemViewCurrentItem === null ||
+		passedReduxState[targetReduxContainerName].componentsDisplay
+			.itemViewCurrentItem.id !== targetItem.id;
 
 	// For optimization, only runs if something needs to change
 	if (
@@ -307,7 +307,8 @@ export function switchToProjectOrBugItemViewAndCurrentItem(
 						listViewComponentShouldDisplay: false,
 						itemViewComponentShouldDisplay: false,
 						itemViewCurrentItem: !changingCurrentItem
-							? passedReduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem
+							? passedReduxState[BUG_CONTAINER].componentsDisplay
+									.itemViewCurrentItem
 							: // null when different project is opened to
 							  // ...prevent errors with bug itemViewCurrentItem
 							  // ...not belonging to project
@@ -340,4 +341,36 @@ export function switchToProjectOrBugItemViewAndCurrentItem(
 				break;
 		}
 	}
+}
+
+/**
+ * Returns text for both NavbarSoloTitle component and one of NavbarBreadcrumb 
+ * components 'breadcrumb-button__text' (className) element and NavbarSoloTitle
+ * component.
+ * 
+ * Note: The reason this simple function exists is to ensure consistence 
+ * between both components
+ *
+ * @returns {String} string containing text for both NavbarSoloTitle component 
+ * and one of NavbarBreadcrumb components 'breadcrumb-button__text' (className) 
+ * element and NavbarSoloTitle component.
+*/
+export function getProjectsText() {
+	return "Projects";
+}
+
+/**
+ * Returns text for both NavbarSoloTitle component and one of NavbarBreadcrumb 
+ * components 'breadcrumb-button__text' (className) element and NavbarSoloTitle
+ * component.
+ * 
+ * Note: The reason this simple function exists is to ensure consistence 
+ * between both components
+ *
+ * @returns {String} string containing the text for both NavbarSoloTitle component 
+ * and one of NavbarBreadcrumb components 'breadcrumb-button__text' (className) 
+ * element and NavbarSoloTitle component.
+*/
+export function getBugsText() {
+	return "Bugs";
 }

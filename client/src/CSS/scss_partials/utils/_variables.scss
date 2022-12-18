@@ -565,7 +565,10 @@ $common-top-bar-search-bar-padding: 8px;
 $nav-panel-button-list-main-item-padding-left-right: 10px;
 $nav-panel-button-list-sub-item-padding-left: $nav-panel-button-list-main-item-padding-left-right +
 	$nav-panel-button-icon-margin-right + 5; // 5 was chosen by eyeing what looked good
-$navbar-breadcrumb-button-text-padding-left-right: 0 13px 0 15px;
+$navbar-breadcrumb-padding-right: 3px;
+$navbar-breadcrumb-padding: 0 $navbar-breadcrumb-padding-right 0 25px;
+$navbar-breadcrumb-button-icon-padding: 0 15px 0 13px;
+$navbar-solo-title-padding: 0 $navbar-breadcrumb-padding-right 0 15px;
 $account-sidebar-padding-top: 32px;
 $account-sidebar-padding-left-right: 18px;
 $create-item-sidebar-padding: 6px;

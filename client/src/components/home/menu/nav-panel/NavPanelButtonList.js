@@ -36,7 +36,7 @@ export default function NavPanelButtonList() {
 	// ...enough room
 	useEffect(() => {
 		if (
-			reduxState[SIZE_CONTAINER].variables.window !== null &&
+			reduxState[SIZE_CONTAINER].variables.navPanel !== null &&
 			reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight !==
 				null &&
 			shouldBugButtonsDisplay
@@ -57,8 +57,8 @@ export default function NavPanelButtonList() {
 				"js-over-flow-container"
 			)[0];
 
-			const adjustedWindowHeight =
-				reduxState[SIZE_CONTAINER].variables.window.height -
+			const adjustedNavPanelHeight =
+				reduxState[SIZE_CONTAINER].variables.navPanel.height -
 				reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight -
 				staticContainerHeight -
 				reduxState[SIZE_CONTAINER].constants
@@ -71,7 +71,7 @@ export default function NavPanelButtonList() {
 					.navPanelButtonListComponentCriticalStyles
 					.overflowContainerWithScrollbarPaddingBottom;
 
-			overflowContainerElement.style.height = adjustedWindowHeight + "px";
+			overflowContainerElement.style.height = adjustedNavPanelHeight + "px";
 		}
 		// eslint-disable-next-line
 	}, [
@@ -143,14 +143,12 @@ export default function NavPanelButtonList() {
 							aria-label="Bugs"
 							onClick={() => switchToBugsListView(reduxState, dispatch)}
 						>
-							<span>
-								<FontAwesomeIcon
-									icon={faBug}
-									className="item-button__icon"
-									aria-hidden="true"
-								/>
-								Bugs
-							</span>
+							<FontAwesomeIcon
+								icon={faBug}
+								className="item-button__icon"
+								aria-hidden="true"
+							/>
+							Bugs
 						</div>
 					</div>
 				)}

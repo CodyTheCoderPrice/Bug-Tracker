@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+	SIZE_CONTAINER,
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
@@ -13,6 +14,8 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
 
+import { getElementSize } from "../../../../utils";
+
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser as faCircleUserReg } from "@fortawesome/free-regular-svg-icons";
@@ -20,10 +23,71 @@ import { faCircleUser as faCircleUserSolid } from "@fortawesome/free-solid-svg-i
 
 // Components
 import NavbarBreadcrumb from "./NavbarBreadcrumb";
+import NavbarSoloTitle from "./NavbarSoloTitle";
 
 export default function Navbar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	const initialState = { breadcrumb: true, soloTitle: false };
+	const [shouldComponentsBeVisible, setShouldComponentsBeVisible] = useState({
+		initialState,
+	});
+
+	// Decides whether NavbarSoloTitle and NavbarBreadcrumb components should
+	// ...display based on if there is enough space for them
+	useEffect(() => {
+		if (
+			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
+			reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth !== null
+		) {
+			const navbarBreadcrumbElement = document.getElementsByClassName(
+				"js-navbar-breadcrumb"
+			)[0];
+
+			const navbarBreadcrumbWidth = getElementSize(
+				navbarBreadcrumbElement
+			).width;
+
+			const shouldBreadcrumbBeVisible =
+				reduxState[SIZE_CONTAINER].variables.navbar.width -
+					reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth -
+					navbarBreadcrumbWidth >=
+				0;
+
+			const navbarSoloTitleElement = document.getElementsByClassName(
+				"js-navbar-solo-title"
+			)[0];
+
+			const navbarSoloTitleWidth = getElementSize(navbarSoloTitleElement).width;
+
+			const shouldSoloTitleBeVisible =
+				!shouldBreadcrumbBeVisible &&
+				reduxState[SIZE_CONTAINER].variables.navbar.width -
+					reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth -
+					navbarSoloTitleWidth >=
+					0;
+
+			setShouldComponentsBeVisible({
+				breadcrumb: shouldBreadcrumbBeVisible,
+				soloTitle: shouldSoloTitleBeVisible,
+			});
+			return;
+		}
+
+		setShouldComponentsBeVisible(initialState);
+
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[SIZE_CONTAINER].variables,
+		// eslint-disable-next-line
+		reduxState[SIZE_CONTAINER].constants,
+		// eslint-disable-next-line
+		reduxState[PROJECT_CONTAINER].componentsDisplay,
+		// eslint-disable-next-line
+		reduxState[BUG_CONTAINER].componentsDisplay,
+	]);
 
 	const openAccountSidebar = (e) => {
 		// Keeps onclick set on the navbar component for closing
@@ -58,27 +122,24 @@ export default function Navbar() {
 
 	return (
 		<div className="navbar-component js-navbar">
-			<NavbarBreadcrumb />
-
+			<NavbarBreadcrumb visible={shouldComponentsBeVisible.breadcrumb} />
+			<NavbarSoloTitle visible={shouldComponentsBeVisible.soloTitle} />
 			<div
-				className="navbar__account-button js-navbar-account-button"
+				className="navbar__padding-container js-navbar-account-button"
 				aria-label="Account"
-				onClick={openAccountSidebar}
 			>
-				{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountSidebarComponentShouldDisplay ? (
-					<FontAwesomeIcon
-						icon={faCircleUserSolid}
-						size="xl"
-						aria-hidden="true"
-					/>
-				) : (
-					<FontAwesomeIcon
-						icon={faCircleUserReg}
-						size="xl"
-						aria-hidden="true"
-					/>
-				)}
+				<FontAwesomeIcon
+					icon={
+						reduxState[ACCOUNT_CONTAINER].componentsDisplay
+							.accountSidebarComponentShouldDisplay
+							? faCircleUserSolid
+							: faCircleUserReg
+					}
+					className="navbar__padding-container__account-button"
+					size="2xl"
+					aria-hidden="true"
+					onClick={openAccountSidebar}
+				/>
 			</div>
 		</div>
 	);

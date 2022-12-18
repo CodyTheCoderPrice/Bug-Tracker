@@ -446,47 +446,62 @@
   border-bottom: 1px solid black;
   height: 48px;
 }
-.navbar-component .navbar__account-button {
-  position: absolute;
-  right: 0;
-  padding: 0 10px;
-  height: 48px;
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 15px;
-  line-height: 48px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
+.navbar-component .navbar-breadcrumb-component {
+  float: left;
+  padding: 0 3px 0 25px;
 }
-
-.navbar-breadcrumb-component,
-.js-get-navbar-breadcrumb-component {
-  padding-left: 10px;
-}
-.navbar-breadcrumb-component .breadcrumb-button,
-.js-get-navbar-breadcrumb-component .breadcrumb-button {
-  position: relative;
+.navbar-component .breadcrumb-button {
   float: left;
   height: 48px;
   font-family: Verdana, Geneva, sans-serif;
+  line-height: 48px;
+  text-align: center;
+  vertical-align: middle;
   font-size: 15px;
+}
+.navbar-component .breadcrumb-button__text {
+  color: #919191;
+  cursor: pointer;
+}
+.navbar-component .breadcrumb-button__text--active {
+  color: inherit;
+}
+.navbar-component .breadcrumb-button__icon {
+  padding: 0 15px 0 13px;
+  color: #919191;
+}
+.navbar-component .navbar-solo-title-component {
+  float: left;
+  height: 48px;
+  font-family: Verdana, Geneva, sans-serif;
+  line-height: 48px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 3px 0 15px;
+  font-size: 17px;
+}
+.navbar-component .breadcrumb--invisible,
+.navbar-component .solo-title--invisible {
+  visibility: hidden;
+  position: absolute;
+}
+.navbar-component .navbar__padding-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 10px;
+  height: 48px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
   line-height: 48px;
   text-align: center;
   vertical-align: middle;
 }
-.navbar-breadcrumb-component .breadcrumb-button__text,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__text {
-  padding: 0 13px 0 15px;
-  color: #919191;
+.navbar-component .navbar__padding-container__account-button {
   cursor: pointer;
 }
-.navbar-breadcrumb-component .breadcrumb-button__text--active,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__text--active {
-  color: inherit;
-}
-.navbar-breadcrumb-component .breadcrumb-button__icon,
-.js-get-navbar-breadcrumb-component .breadcrumb-button__icon {
-  color: #919191;
+.navbar-component .item-button__icon {
+  margin-right: 10px;
 }
 
 .account-modals-blurred-backdrop-component {

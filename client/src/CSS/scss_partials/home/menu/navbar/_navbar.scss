@@ -10,21 +10,78 @@
 	border-bottom: v.$navbar-border-width solid v.$mode-navbar-border-color-light;
 	height: v.$navbar-height;
 
-	.navbar__account-button {
-		// Postion absolute instead of float right so that account button
-		// ...will always remain on screen during screen resizing
-		position: absolute;
-		right: 0;
-		// Padding instead of margin since padding is include in size to be
-		// ...used for breadcrumb font-resize
-		padding: 0 10px;
-		height: v.$navbar-account-button-height;
+	.navbar-breadcrumb-component {
+		float: left;
+		padding: v.$navbar-breadcrumb-padding;
+	}
+
+	@mixin breadcrumbAndSoloTitleShared() {
+		float: left;
+		height: v.$navbar-height;
 		font-family: Verdana, Geneva, sans-serif;
-		font-size: v.$common-navbar-button-font-size;
 		// Allows vertical-align: middle to work (located below)
 		line-height: v.$navbar-height;
 		text-align: center;
 		vertical-align: middle;
+	}
+
+	.breadcrumb-button {
+		@include breadcrumbAndSoloTitleShared();
+
+		font-size: v.$common-navbar-button-font-size;
+	}
+
+	.breadcrumb-button__text {
+		color: v.$mode-navbar-button-inactive-text-color-light;
 		cursor: pointer;
+	}
+
+	.breadcrumb-button__text--active {
+		color: inherit;
+	}
+
+	.breadcrumb-button__icon {
+		padding: v.$navbar-breadcrumb-button-icon-padding;
+		color: v.$mode-navbar-button-inactive-text-color-light;
+	}
+
+	.navbar-solo-title-component {
+		@include breadcrumbAndSoloTitleShared();
+		padding: v.$navbar-solo-title-padding;
+		font-size: v.$common-navbar-button-font-size + 2;
+	}
+
+	.breadcrumb--invisible,
+	.solo-title--invisible {
+		// Instead of display: none so the component can still be measurued
+		visibility: hidden;
+		// So it will not interfere with any other components/buttons on the navbar
+		position: absolute;
+	}
+
+	.navbar__padding-container {
+		// Postion absolute instead of float right so that account button
+		// ...will always remain on screen during screen resizing
+		position: absolute;
+		top: 0;
+		right: 0;
+		// Padding instead of margin so it's included in the element size when
+		// ...getting navbarAccountButtonWidth via JS
+		padding-right: 10px;
+		height: v.$navbar-account-button-height;
+		font-family: Verdana, Geneva, sans-serif;
+		font-size: v.$common-navbar-button-font-size - 1;
+		// Allows vertical-align: middle to work (located below)
+		line-height: v.$navbar-height;
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	.navbar__padding-container__account-button {
+		cursor: pointer;
+	}
+
+	.item-button__icon {
+		margin-right: v.$nav-panel-button-icon-margin-right;
 	}
 }
