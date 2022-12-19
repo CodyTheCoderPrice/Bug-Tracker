@@ -456,19 +456,17 @@
   font-family: Verdana, Geneva, sans-serif;
   line-height: 48px;
   text-align: center;
-  vertical-align: middle;
+  color: #7c7c7c;
   font-size: 15px;
 }
-.navbar-component .breadcrumb-button__text {
-  color: #919191;
+.navbar-component .breadcrumb-button__title {
   cursor: pointer;
 }
-.navbar-component .breadcrumb-button__text--active {
-  color: inherit;
+.navbar-component .breadcrumb-button__title--opened {
+  color: black;
 }
 .navbar-component .breadcrumb-button__icon {
   padding: 0 15px 0 13px;
-  color: #919191;
 }
 .navbar-component .navbar-solo-title-component {
   float: left;
@@ -476,7 +474,6 @@
   font-family: Verdana, Geneva, sans-serif;
   line-height: 48px;
   text-align: center;
-  vertical-align: middle;
   padding: 0 3px 0 15px;
   font-size: 17px;
 }
@@ -485,7 +482,7 @@
   visibility: hidden;
   position: absolute;
 }
-.navbar-component .navbar__padding-container {
+.navbar-component .padding-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -497,11 +494,9 @@
   text-align: center;
   vertical-align: middle;
 }
-.navbar-component .navbar__padding-container__account-button {
+.navbar-component .padding-container__account-button {
+  color: #757575;
   cursor: pointer;
-}
-.navbar-component .item-button__icon {
-  margin-right: 10px;
 }
 
 .account-modals-blurred-backdrop-component {
@@ -2938,6 +2933,30 @@ body {
 .app-component .js-get-home-component-background-and-text-color-dark-mode-true,
 .js-get-app-component .js-get-home-component-background-and-text-color-dark-mode-true {
   background-color: #2e2e2e;
+  color: #c7d1db;
+}
+.app-component .js-get-navbar-component-account-button-element-text-color-dark-mode-false,
+.js-get-app-component .js-get-navbar-component-account-button-element-text-color-dark-mode-false {
+  color: #757575;
+}
+.app-component .js-get-navbar-component-account-button-element-text-color-dark-mode-true,
+.js-get-app-component .js-get-navbar-component-account-button-element-text-color-dark-mode-true {
+  color: #757575;
+}
+.app-component .js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-false,
+.js-get-app-component .js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-false {
+  color: #7c7c7c;
+}
+.app-component .js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-true,
+.js-get-app-component .js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-true {
+  color: #757575;
+}
+.app-component .js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-false,
+.js-get-app-component .js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-false {
+  color: black;
+}
+.app-component .js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-true,
+.js-get-app-component .js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-true {
   color: #c7d1db;
 }
 .app-component .js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-false,

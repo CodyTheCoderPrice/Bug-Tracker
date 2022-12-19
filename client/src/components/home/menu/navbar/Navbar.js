@@ -14,7 +14,10 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
 
-import { getElementSize } from "../../../../utils";
+import {
+	getElementSize,
+	getNavbarComponentAccountButtonElementTextColorClassNameForLightOrDarkMode,
+} from "../../../../utils";
 
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -125,7 +128,7 @@ export default function Navbar() {
 			<NavbarBreadcrumb visible={shouldComponentsBeVisible.breadcrumb} />
 			<NavbarSoloTitle visible={shouldComponentsBeVisible.soloTitle} />
 			<div
-				className="navbar__padding-container js-navbar-account-button"
+				className="padding-container js-navbar-account-button-container"
 				aria-label="Account"
 			>
 				<FontAwesomeIcon
@@ -135,7 +138,12 @@ export default function Navbar() {
 							? faCircleUserSolid
 							: faCircleUserReg
 					}
-					className="navbar__padding-container__account-button"
+					className={
+						"padding-container__account-button" +
+						getNavbarComponentAccountButtonElementTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
 					size="2xl"
 					aria-hidden="true"
 					onClick={openAccountSidebar}

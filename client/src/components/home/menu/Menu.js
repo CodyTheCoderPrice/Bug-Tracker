@@ -37,7 +37,7 @@ export default function Menu() {
 				navPanelButtonListComponentCriticalStyles:
 					getNavPanelButtonListCriticalStyles(),
 				navbarAccountButtonWidth: getElementSize(
-					document.getElementsByClassName("js-navbar-account-button")[0]
+					document.getElementsByClassName("js-navbar-account-button-container")[0]
 				).width,
 				listViewTopBarComponentHeight: getListViewTopBarComponentHeight(),
 				listViewTableComponentRowElementHeight:

@@ -1,6 +1,5 @@
 // Util uses container names to work with the redux state
 import {
-	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
@@ -10,9 +9,7 @@ import {
 	setWhichAccountComponentsDisplay,
 	setWhichProjectComponentsDisplay,
 	setWhichBugComponentsDisplay,
-	setProjectOrBugMassDeleteList,
 	setWhichCommentComponentsDisplay,
-	setWhichGeneralDropdownsDisplay,
 } from "../actions";
 
 /**
@@ -345,14 +342,14 @@ export function switchToProjectOrBugItemViewAndCurrentItem(
 
 /**
  * Returns text for both NavbarSoloTitle component and one of NavbarBreadcrumb 
- * components 'breadcrumb-button__text' (className) element and NavbarSoloTitle
+ * components 'breadcrumb-button__title' (className) element and NavbarSoloTitle
  * component.
  * 
  * Note: The reason this simple function exists is to ensure consistence 
  * between both components
  *
  * @returns {String} string containing text for both NavbarSoloTitle component 
- * and one of NavbarBreadcrumb components 'breadcrumb-button__text' (className) 
+ * and one of NavbarBreadcrumb components 'breadcrumb-button__title' (className) 
  * element and NavbarSoloTitle component.
 */
 export function getProjectsText() {
@@ -361,14 +358,14 @@ export function getProjectsText() {
 
 /**
  * Returns text for both NavbarSoloTitle component and one of NavbarBreadcrumb 
- * components 'breadcrumb-button__text' (className) element and NavbarSoloTitle
+ * components 'breadcrumb-button__title' (className) element and NavbarSoloTitle
  * component.
  * 
  * Note: The reason this simple function exists is to ensure consistence 
  * between both components
  *
  * @returns {String} string containing the text for both NavbarSoloTitle component 
- * and one of NavbarBreadcrumb components 'breadcrumb-button__text' (className) 
+ * and one of NavbarBreadcrumb components 'breadcrumb-button__title' (className) 
  * element and NavbarSoloTitle component.
 */
 export function getBugsText() {

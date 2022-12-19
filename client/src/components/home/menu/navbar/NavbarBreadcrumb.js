@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
+	ACCOUNT_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 
 import {
+	getNavbarBreadcrumbComponentButtonElementTextColorClassNameForLightOrDarkMode,
+	getNavbarBreadcrumbComponentButtonTitleElementOpenedTextColorClassNameForLightOrDarkMode,
 	switchToProjectsListView,
 	getProjectsText,
 	switchToProjectsItemView,
@@ -38,14 +41,24 @@ export default function NavbarBreadcrumb(props) {
 				(props.visible ? " " : " breadcrumb--invisible")
 			}
 		>
-			<div className="breadcrumb-button">
+			<div
+				className={
+					"breadcrumb-button" +
+					getNavbarBreadcrumbComponentButtonElementTextColorClassNameForLightOrDarkMode(
+						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+					)
+				}
+			>
 				<span
 					className={
-						"breadcrumb-button__text" +
+						"breadcrumb-button__title" +
 						(!reduxState[PROJECT_CONTAINER].componentsDisplay
 							.listViewComponentShouldDisplay
 							? ""
-							: " breadcrumb-button__text--active")
+							: " breadcrumb-button__title--opened" +
+							  getNavbarBreadcrumbComponentButtonTitleElementOpenedTextColorClassNameForLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+							  ))
 					}
 					aria-label="Projects"
 					onClick={() => switchToProjectsListView(reduxState, dispatch)}
@@ -55,15 +68,25 @@ export default function NavbarBreadcrumb(props) {
 			</div>
 			{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 			null ? null : (
-				<div className="breadcrumb-button">
+				<div
+					className={
+						"breadcrumb-button" +
+						getNavbarBreadcrumbComponentButtonElementTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{getDividerIcon()}
 					<span
 						className={
-							"breadcrumb-button__text" +
+							"breadcrumb-button__title" +
 							(!reduxState[PROJECT_CONTAINER].componentsDisplay
 								.itemViewComponentShouldDisplay
 								? ""
-								: " breadcrumb-button__text--active")
+								: " breadcrumb-button__title--opened" +
+								  getNavbarBreadcrumbComponentButtonTitleElementOpenedTextColorClassNameForLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								  ))
 						}
 						aria-label={
 							reduxState[PROJECT_CONTAINER].componentsDisplay
@@ -80,15 +103,25 @@ export default function NavbarBreadcrumb(props) {
 			)}
 			{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 			null ? null : (
-				<div className="breadcrumb-button">
+				<div
+					className={
+						"breadcrumb-button" +
+						getNavbarBreadcrumbComponentButtonElementTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{getDividerIcon()}
 					<span
 						className={
-							"breadcrumb-button__text" +
+							"breadcrumb-button__title" +
 							(!reduxState[BUG_CONTAINER].componentsDisplay
 								.listViewComponentShouldDisplay
 								? ""
-								: " breadcrumb-button__text--active")
+								: " breadcrumb-button__title--opened" +
+								  getNavbarBreadcrumbComponentButtonTitleElementOpenedTextColorClassNameForLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								  ))
 						}
 						aria-label="Bugs"
 						onClick={() => switchToBugsListView(reduxState, dispatch)}
@@ -101,15 +134,25 @@ export default function NavbarBreadcrumb(props) {
 				null ||
 			reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 				null ? null : (
-				<div className="breadcrumb-button">
+				<div
+					className={
+						"breadcrumb-button" +
+						getNavbarBreadcrumbComponentButtonElementTextColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						)
+					}
+				>
 					{getDividerIcon()}
 					<span
 						className={
-							"breadcrumb-button__text" +
+							"breadcrumb-button__title" +
 							(!reduxState[BUG_CONTAINER].componentsDisplay
 								.itemViewComponentShouldDisplay
 								? ""
-								: " breadcrumb-button__text--active")
+								: " breadcrumb-button__title--opened" +
+								  getNavbarBreadcrumbComponentButtonTitleElementOpenedTextColorClassNameForLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+								  ))
 						}
 						aria-label={
 							reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem

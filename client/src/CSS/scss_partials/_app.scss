@@ -219,6 +219,33 @@ body {
 		color: v.$mode-home-text-color-dark;
 	}
 
+	// Light/Dark mode -- Navbar component 'padding-container__account-button' 
+	// ...element -- text color
+	.js-get-navbar-component-account-button-element-text-color-dark-mode-false {
+		color: v.$mode-navbar-account-button-text-color-light;
+	}
+	.js-get-navbar-component-account-button-element-text-color-dark-mode-true {
+		color: v.$mode-navbar-account-button-text-color-dark;
+	}
+
+	// Light/Dark mode -- NavbarBreadcrumb component 'breadcrumb-button' element
+	// ...-- text color
+	.js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-false {
+		color: v.$mode-navbar-breadcrumb-button-text-color-light;
+	}
+	.js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-true {
+		color: v.$mode-navbar-breadcrumb-button-text-color-dark;
+	}
+
+	// Light/Dark mode -- NavbarBreadcrumb component 
+	// ...'breadcrumb-button__title--opened' element -- text color
+	.js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-false {
+		color: v.$mode-navbar-breadcrumb-button-title-opened-text-color-light;
+	}
+	.js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-true {
+		color: v.$mode-navbar-breadcrumb-button-title-opened-text-color-dark;
+	}
+
 	// Light/Dark mode -- AccountSidebar component 'sidebar-container' element
 	// ...-- background color
 	.js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-false {

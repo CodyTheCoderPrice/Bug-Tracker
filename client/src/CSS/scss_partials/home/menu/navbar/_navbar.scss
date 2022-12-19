@@ -22,27 +22,25 @@
 		// Allows vertical-align: middle to work (located below)
 		line-height: v.$navbar-height;
 		text-align: center;
-		vertical-align: middle;
 	}
 
 	.breadcrumb-button {
 		@include breadcrumbAndSoloTitleShared();
 
+		color: v.$mode-navbar-breadcrumb-button-text-color-light;
 		font-size: v.$common-navbar-button-font-size;
 	}
 
-	.breadcrumb-button__text {
-		color: v.$mode-navbar-button-inactive-text-color-light;
+	.breadcrumb-button__title {
 		cursor: pointer;
 	}
 
-	.breadcrumb-button__text--active {
-		color: inherit;
+	.breadcrumb-button__title--opened {
+		color: v.$mode-navbar-breadcrumb-button-title-opened-text-color-light;
 	}
 
 	.breadcrumb-button__icon {
 		padding: v.$navbar-breadcrumb-button-icon-padding;
-		color: v.$mode-navbar-button-inactive-text-color-light;
 	}
 
 	.navbar-solo-title-component {
@@ -59,7 +57,7 @@
 		position: absolute;
 	}
 
-	.navbar__padding-container {
+	.padding-container {
 		// Postion absolute instead of float right so that account button
 		// ...will always remain on screen during screen resizing
 		position: absolute;
@@ -77,11 +75,8 @@
 		vertical-align: middle;
 	}
 
-	.navbar__padding-container__account-button {
+	.padding-container__account-button {
+		color: v.$mode-navbar-account-button-text-color-light;
 		cursor: pointer;
-	}
-
-	.item-button__icon {
-		margin-right: v.$nav-panel-button-icon-margin-right;
 	}
 }

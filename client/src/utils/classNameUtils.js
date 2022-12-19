@@ -75,13 +75,13 @@ export function getNavPanelButtonListComponentClassName() {
 }
 
 /**
- * Gets a className equivelent to the 'over-flow-container--scrollbar-present' className
- * used by NavPanelButtonList component.
+ * Gets classNames equivelent to 'over-flow-container over-flow-container--scrollbar-present'
+ * className (with modifier) used by NavPanelButtonList component.
  *
  * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 'over-flow-container--scrollbar-present'
+ * @returns {string} classNames equivelent to 'over-flow-container over-flow-container--scrollbar-present'
  */
 export function getNavPanelButtonListComponentOverflowContainerElementWithScrollbarModifierClassName() {
 	return " js-get-over-flow-container js-get-over-flow-container--scrollbar-present";
@@ -192,13 +192,13 @@ export function getItemViewListSidebarComponentClassName() {
 }
 
 /**
- * Gets a className equivelent to the 'list-sidebar-container list-sidebar-container--expanded'
+ * Gets classNames equivelent to 'list-sidebar-container list-sidebar-container--expanded'
  * className (with modifier) used by ItemViewListSidebar component.
  *
  * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} A className equivelent to 'list-sidebar-container--expanded'
+ * @returns {string} classNames equivelent to 'list-sidebar-container list-sidebar-container--expanded'
  */
 export function getItemViewListSidebarComponentContainerElementWithExpandedModifierClassName() {
 	return " js-get-item-view-list-sidebar-component-container-element js-get-item-view-list-sidebar-component-container-element--expanded";
@@ -487,6 +487,56 @@ export function getHomeComponentBackgroundColorClassNameForLightOrDarkMode(
 		" js-get-home-component-background-and-text-color-dark-mode-" + dark_mode
 	);
 }
+/**
+ * Get light/dark mode className for Navbar components 'padding-container__account-button'
+ * (className) element's text color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for Navbar components
+ * 'padding-container__account-button' element's text color
+ */
+export function getNavbarComponentAccountButtonElementTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-navbar-component-account-button-element-text-color-dark-mode-" +
+		dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for NavbarBreadcrumb components 'breadcrumb-button'
+ * (className) element's text color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for NavbarBreadcrumb components
+ * 'breadcrumb-button' element's text color
+ */
+export function getNavbarBreadcrumbComponentButtonElementTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-" +
+		dark_mode
+	);
+}
+
+/**
+ * Get light/dark mode className for NavbarBreadcrumb components 'breadcrumb-button__title--opened'
+ * (modifier className) element's opened text color
+ *
+ * @param {boolean} dark_mode - Whether the app is in dark mode or not
+ * @returns {string} Light/dark mode className for NavbarBreadcrumb components
+ * 'breadcrumb-button__title--opened' element's opened text color
+ */
+export function getNavbarBreadcrumbComponentButtonTitleElementOpenedTextColorClassNameForLightOrDarkMode(
+	dark_mode
+) {
+	return (
+		" js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-" +
+		dark_mode
+	);
+}
 
 /**
  * Get light/dark mode className for AccountSidebar components
@@ -598,7 +648,8 @@ export function getAccountModalDeleteAccountComponentFormInputElementBorderBackg
 
 /**
  * Get light/dark mode className for AccountModalDeleteAccount component's
- * 'form__submit--delete' (className) element's background (with hover) color
+ * 'form__submit--delete' (modifier className) element's background (with hover)
+ * color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for AccountModalDeleteAccount
@@ -834,8 +885,8 @@ export function getDeleteModalComponentDeleteButtonElementBackgroundColorClassNa
 
 /**
  * Get light/dark mode className for DeleteModal component's
- * 'centered-buttons-container__button--cancel' (className) element's border,
- * background (with hover), text color
+ * 'centered-buttons-container__button--cancel' (modifier className) element's
+ * border, background (with hover), text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for DeleteModal component's
@@ -1321,8 +1372,8 @@ export function getCommonItemViewComponentFormInputElementBorderBackgroundTextCo
 
 /**
  * Get theme with light/dark mode className for ListViewTopBar Component's
- * 'new-item-centering-container__button--tutorial' (className) element's
- * border color
+ * 'new-item-centering-container__button--tutorial' (modifier className)
+ * element's border color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @param {("blue-turkish"|
@@ -1461,15 +1512,15 @@ export function getToggleSwitchComponentBorderBackgroundTextColorClassNameForThe
 // Location + Light/Dark mode classNames
 //=======================================
 /**
- * Get location with light/dark mode className for a Common (i.e. used by 
+ * Get location with light/dark mode className for a Common (i.e. used by
  * multiple components) tooltip to be added to the element bearing the returned
  * className
- * 
- * Note: Set the desired content for the tooltip inside a 'data-tooltip' 
+ *
+ * Note: Set the desired content for the tooltip inside a 'data-tooltip'
  * attribute in the element bearing the returned className.
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @param {("top"|"right"|"bottom"|"left")} location - where the tooltip will be 
+ * @param {("top"|"right"|"bottom"|"left")} location - where the tooltip will be
  * located relative to the element this className is applied to
  * @returns {string} Light/dark mode className for common tooltip element's
  * background and text colors
