@@ -124,7 +124,7 @@ export default function Navbar() {
 	};
 
 	return (
-		<div className="navbar-component js-navbar">
+		<div className="navbar-component js-navbar-component">
 			<NavbarBreadcrumb visible={shouldComponentsBeVisible.breadcrumb} />
 			<NavbarSoloTitle visible={shouldComponentsBeVisible.soloTitle} />
 			<div

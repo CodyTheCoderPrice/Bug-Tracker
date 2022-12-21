@@ -10,7 +10,7 @@ import {
 	getWindowSize,
 	getElementSize,
 	getScrollbarWidth,
-	getNavPanelButtonListCriticalStyles,
+	getNavPanelButtonListSizesAndStyles,
 	getListViewTopBarComponentHeight,
 	getListViewTableComponentRowElementHeight,
 	getItemViewTopBarComponentHeight,
@@ -34,8 +34,8 @@ export default function Menu() {
 				navPanelTopContainerHeight: getElementSize(
 					document.getElementsByClassName("js-nav-panel-top-container")[0]
 				).height,
-				navPanelButtonListComponentCriticalStyles:
-					getNavPanelButtonListCriticalStyles(),
+				navPanelButtonListComponentSizesAndStyles:
+					getNavPanelButtonListSizesAndStyles(),
 				navbarAccountButtonWidth: getElementSize(
 					document.getElementsByClassName("js-navbar-account-button-container")[0]
 				).width,
@@ -70,9 +70,9 @@ export default function Menu() {
 			setDisplaySizeVariablesWindowAndMenus({
 				window: getWindowSize(),
 				navPanel: getElementSize(
-					document.getElementsByClassName("js-nav-panel")[0]
+					document.getElementsByClassName("js-nav-panel-component")[0]
 				),
-				navbar: getElementSize(document.getElementsByClassName("js-navbar")[0]),
+				navbar: getElementSize(document.getElementsByClassName("js-navbar-component")[0]),
 			})
 		);
 	}

@@ -7,8 +7,8 @@
 	font-size: v.$common-font-size;
 	font-family: Arial, Helvetica, sans-serif;
 
-	.sub-over-flow-container,
-	.js-get-nav-panel-button-list-component-sub-over-flow-container {
+	.sub-overflow-container,
+	.js-get-nav-panel-button-list-component-sub-overflow-container {
 		overflow-y: auto;
 		overflow-x: hidden;
 
@@ -36,44 +36,55 @@
 		}
 	}
 
-	.sub-over-flow-container--scrollbar-present,
-	.js-get-nav-panel-button-list-component-sub-over-flow-container--scrollbar-present {
-		margin: 10px 0;
-		padding: 10px 0 40px 0;
-		box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1), inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
+	.sub-overflow-container--scrollbar-present,
+	.js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present {
+		margin-top: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom;
+		padding: 10px 0 20px 0;
+		box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1),
+			inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
 	}
 
-	.item-button,
-	.nav-panel-button-list-sub-item-component {
+	.sub-overflow-container--bottom-spacing,
+	.js-get-nav-panel-button-list-component-sub-overflow-container--bottom-spacing {
+		margin-bottom: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom;
+	}
+
+	@mixin buttonsShared() {
 		display: flex;
 		margin: 0 v.$nav-panel-button-margin-left-right;
 		border-radius: 5px;
-		// Padding only used by sub-items. Overwritten for main items.
-		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
 		height: 40px;
 		cursor: pointer;
 		align-items: center;
 	}
 
-	// Overwrites padding for main items
-	.item-button {
+	.nav-panel-button-list-sub-item-component {
+		@include buttonsShared();
+		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
+	}
+
+	.list-button,
+	.js-get-nav-panel-button-list-component-list-button {
+		@include buttonsShared();
 		padding: 0px v.$nav-panel-button-list-main-item-padding-left-right;
 	}
 
-	.item-button--first {
+	.list-button--top-spacing,
+	.js-get-nav-panel-button-list-component-list-button--top-spacing {
 		margin-top: 10px;
 	}
 
-	.item-button__icon {
-		margin-right: v.$nav-panel-button-icon-margin-right;
-		width: v.$nav-panel-button-icon-width;
+	.list-button--bottom-spacing,
+	.js-get-nav-panel-button-list-component-list-button--bottom-spacing {
+		margin-bottom: 20px;
 	}
 
-	.item-button--selected,
+	.list-button--selected,
 	.sub-item-button--selected {
 		box-shadow: v.$common-button-box-shadow;
 	}
 
+	.list-button__icon,
 	.sub-item-button__icon {
 		margin-right: v.$nav-panel-button-icon-margin-right;
 		width: v.$nav-panel-button-icon-width;

@@ -13,7 +13,7 @@ export default function NavPanel() {
 	return (
 		<div
 			className={
-				"nav-panel-component js-nav-panel" +
+				"nav-panel-component js-nav-panel-component" +
 				getCommonStandardBackgroundColorClassNameForTheme(
 					reduxState[ACCOUNT_CONTAINER].settings.theme_color
 				)

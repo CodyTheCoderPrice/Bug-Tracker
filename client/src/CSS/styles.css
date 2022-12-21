@@ -337,10 +337,10 @@
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.nav-panel-button-list-component .sub-over-flow-container,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container,
-.js-get-nav-panel-button-list-component .sub-over-flow-container,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container {
+.nav-panel-button-list-component .sub-overflow-container,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container,
+.js-get-nav-panel-button-list-component .sub-overflow-container,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container {
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
@@ -350,70 +350,87 @@
   /* Handle */
   /* Handle on hover */
 }
-.nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar,
-.js-get-nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar {
+.nav-panel-button-list-component .sub-overflow-container ::-webkit-scrollbar,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container ::-webkit-scrollbar,
+.js-get-nav-panel-button-list-component .sub-overflow-container ::-webkit-scrollbar,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container ::-webkit-scrollbar {
   width: 10px;
 }
-.nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-track,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-track,
-.js-get-nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-track,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-track {
+.nav-panel-button-list-component .sub-overflow-container ::-webkit-scrollbar-track,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container ::-webkit-scrollbar-track,
+.js-get-nav-panel-button-list-component .sub-overflow-container ::-webkit-scrollbar-track,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-.nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-thumb,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-thumb,
-.js-get-nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-thumb,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-thumb {
+.nav-panel-button-list-component .sub-overflow-container ::-webkit-scrollbar-thumb,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container ::-webkit-scrollbar-thumb,
+.js-get-nav-panel-button-list-component .sub-overflow-container ::-webkit-scrollbar-thumb,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container ::-webkit-scrollbar-thumb {
   background: #888;
 }
-.nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-thumb:hover,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-thumb:hover,
-.js-get-nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-thumb:hover,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-thumb:hover {
+.nav-panel-button-list-component .sub-overflow-container ::-webkit-scrollbar-thumb:hover,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container ::-webkit-scrollbar-thumb:hover,
+.js-get-nav-panel-button-list-component .sub-overflow-container ::-webkit-scrollbar-thumb:hover,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-.nav-panel-button-list-component .sub-over-flow-container--scrollbar-present,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container--scrollbar-present,
-.js-get-nav-panel-button-list-component .sub-over-flow-container--scrollbar-present,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container--scrollbar-present {
-  margin: 10px 0;
-  padding: 10px 0 40px 0;
+.nav-panel-button-list-component .sub-overflow-container--scrollbar-present,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present,
+.js-get-nav-panel-button-list-component .sub-overflow-container--scrollbar-present,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present {
+  margin-top: 10px;
+  padding: 10px 0 20px 0;
   box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1), inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
 }
-.nav-panel-button-list-component .item-button,
+.nav-panel-button-list-component .sub-overflow-container--bottom-spacing,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--bottom-spacing,
+.js-get-nav-panel-button-list-component .sub-overflow-container--bottom-spacing,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--bottom-spacing {
+  margin-bottom: 10px;
+}
 .nav-panel-button-list-component .nav-panel-button-list-sub-item-component,
-.js-get-nav-panel-button-list-component .item-button,
 .js-get-nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
   display: flex;
   margin: 0 10px;
   border-radius: 5px;
-  padding: 0 5px 0 25px;
   height: 40px;
   cursor: pointer;
   align-items: center;
+  padding: 0 5px 0 25px;
 }
-.nav-panel-button-list-component .item-button,
-.js-get-nav-panel-button-list-component .item-button {
+.nav-panel-button-list-component .list-button,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button,
+.js-get-nav-panel-button-list-component .list-button,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button {
+  display: flex;
+  margin: 0 10px;
+  border-radius: 5px;
+  height: 40px;
+  cursor: pointer;
+  align-items: center;
   padding: 0px 10px;
 }
-.nav-panel-button-list-component .item-button--first,
-.js-get-nav-panel-button-list-component .item-button--first {
+.nav-panel-button-list-component .list-button--top-spacing,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--top-spacing,
+.js-get-nav-panel-button-list-component .list-button--top-spacing,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--top-spacing {
   margin-top: 10px;
 }
-.nav-panel-button-list-component .item-button__icon,
-.js-get-nav-panel-button-list-component .item-button__icon {
-  margin-right: 10px;
-  width: 15px;
+.nav-panel-button-list-component .list-button--bottom-spacing,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--bottom-spacing,
+.js-get-nav-panel-button-list-component .list-button--bottom-spacing,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--bottom-spacing {
+  margin-bottom: 20px;
 }
-.nav-panel-button-list-component .item-button--selected,
+.nav-panel-button-list-component .list-button--selected,
 .nav-panel-button-list-component .sub-item-button--selected,
-.js-get-nav-panel-button-list-component .item-button--selected,
+.js-get-nav-panel-button-list-component .list-button--selected,
 .js-get-nav-panel-button-list-component .sub-item-button--selected {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01), -1px 1px 1px rgba(0, 0, 0, 0.01);
 }
+.nav-panel-button-list-component .list-button__icon,
 .nav-panel-button-list-component .sub-item-button__icon,
+.js-get-nav-panel-button-list-component .list-button__icon,
 .js-get-nav-panel-button-list-component .sub-item-button__icon {
   margin-right: 10px;
   width: 15px;
