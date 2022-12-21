@@ -83,8 +83,8 @@ export function getNavPanelButtonListComponentClassName() {
  *
  * @returns {string} classNames equivelent to 'over-flow-container over-flow-container--scrollbar-present'
  */
-export function getNavPanelButtonListComponentOverflowContainerElementWithScrollbarModifierClassName() {
-	return " js-get-over-flow-container js-get-over-flow-container--scrollbar-present";
+export function getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarModifierClassName() {
+	return " js-get-nav-panel-button-list-component-sub-over-flow-container js-get-nav-panel-button-list-component-sub-over-flow-container--scrollbar-present";
 }
 
 /**

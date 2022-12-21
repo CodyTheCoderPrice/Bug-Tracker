@@ -337,16 +337,10 @@
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.nav-panel-button-list-component .static-container,
-.js-get-nav-panel-button-list-component .static-container {
-  padding-top: 10px;
-}
-.nav-panel-button-list-component .over-flow-container,
-.nav-panel-button-list-component .js-get-over-flow-container,
-.js-get-nav-panel-button-list-component .over-flow-container,
-.js-get-nav-panel-button-list-component .js-get-over-flow-container {
-  padding-bottom: 30px;
-  height: 80vh;
+.nav-panel-button-list-component .sub-over-flow-container,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container,
+.js-get-nav-panel-button-list-component .sub-over-flow-container,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container {
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
@@ -356,37 +350,37 @@
   /* Handle */
   /* Handle on hover */
 }
-.nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar,
-.nav-panel-button-list-component .js-get-over-flow-container ::-webkit-scrollbar,
-.js-get-nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar,
-.js-get-nav-panel-button-list-component .js-get-over-flow-container ::-webkit-scrollbar {
+.nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar,
+.js-get-nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar {
   width: 10px;
 }
-.nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar-track,
-.nav-panel-button-list-component .js-get-over-flow-container ::-webkit-scrollbar-track,
-.js-get-nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar-track,
-.js-get-nav-panel-button-list-component .js-get-over-flow-container ::-webkit-scrollbar-track {
+.nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-track,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-track,
+.js-get-nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-track,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-.nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar-thumb,
-.nav-panel-button-list-component .js-get-over-flow-container ::-webkit-scrollbar-thumb,
-.js-get-nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar-thumb,
-.js-get-nav-panel-button-list-component .js-get-over-flow-container ::-webkit-scrollbar-thumb {
+.nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-thumb,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-thumb,
+.js-get-nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-thumb,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-thumb {
   background: #888;
 }
-.nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar-thumb:hover,
-.nav-panel-button-list-component .js-get-over-flow-container ::-webkit-scrollbar-thumb:hover,
-.js-get-nav-panel-button-list-component .over-flow-container ::-webkit-scrollbar-thumb:hover,
-.js-get-nav-panel-button-list-component .js-get-over-flow-container ::-webkit-scrollbar-thumb:hover {
+.nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-thumb:hover,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-thumb:hover,
+.js-get-nav-panel-button-list-component .sub-over-flow-container ::-webkit-scrollbar-thumb:hover,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-.nav-panel-button-list-component .over-flow-container--scrollbar-present,
-.nav-panel-button-list-component .js-get-over-flow-container--scrollbar-present,
-.js-get-nav-panel-button-list-component .over-flow-container--scrollbar-present,
-.js-get-nav-panel-button-list-component .js-get-over-flow-container--scrollbar-present {
-  margin-top: 10px;
-  padding-top: 10px;
-  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1);
+.nav-panel-button-list-component .sub-over-flow-container--scrollbar-present,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container--scrollbar-present,
+.js-get-nav-panel-button-list-component .sub-over-flow-container--scrollbar-present,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-over-flow-container--scrollbar-present {
+  margin: 10px 0;
+  padding: 10px 0 40px 0;
+  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1), inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
 }
 .nav-panel-button-list-component .item-button,
 .nav-panel-button-list-component .nav-panel-button-list-sub-item-component,
@@ -403,6 +397,10 @@
 .nav-panel-button-list-component .item-button,
 .js-get-nav-panel-button-list-component .item-button {
   padding: 0px 10px;
+}
+.nav-panel-button-list-component .item-button--first,
+.js-get-nav-panel-button-list-component .item-button--first {
+  margin-top: 10px;
 }
 .nav-panel-button-list-component .item-button__icon,
 .js-get-nav-panel-button-list-component .item-button__icon {
@@ -495,7 +493,7 @@
   vertical-align: middle;
 }
 .navbar-component .padding-container__account-button {
-  color: #757575;
+  color: #555555;
   cursor: pointer;
 }
 
@@ -2937,7 +2935,7 @@ body {
 }
 .app-component .js-get-navbar-component-account-button-element-text-color-dark-mode-false,
 .js-get-app-component .js-get-navbar-component-account-button-element-text-color-dark-mode-false {
-  color: #757575;
+  color: #555555;
 }
 .app-component .js-get-navbar-component-account-button-element-text-color-dark-mode-true,
 .js-get-app-component .js-get-navbar-component-account-button-element-text-color-dark-mode-true {

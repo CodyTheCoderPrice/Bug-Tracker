@@ -1,7 +1,7 @@
 import {
 	stripNonDigits,
 	getNavPanelButtonListComponentClassName,
-	getNavPanelButtonListComponentOverflowContainerElementWithScrollbarModifierClassName,
+	getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarModifierClassName,
 	getItemViewComponentClassName,
 	getItemViewComponentPaddingcontainerElementClassName,
 	getItemViewComponentOuterDividingContainerElementClassName,
@@ -111,14 +111,14 @@ export function getScrollbarWidth() {
  * @returns {boolean} Does the passesed element have a vertical scrollbar present
  */
 export function isVerticalScrollbarPresent(element) {
-	return element.scrollHeight > element.clientHeight;
+	return element !== undefined && element.scrollHeight > element.clientHeight;
 }
 
 /**
  * Get critical styles (margin-top, padding-top, and padding-bottom) from
  * NavPanelButtonList component's 'overflow-container' (classNames) element
  *
- * @returns {number} Critical styles (margin-top, padding-top, and padding-bottom) 
+ * @returns {number} Critical styles (margin-top, padding-top, and padding-bottom)
  * from NavPanelButtonList component's 'overflow-container' (classNames) element
  */
 export function getNavPanelButtonListCriticalStyles() {
@@ -134,20 +134,32 @@ export function getNavPanelButtonListCriticalStyles() {
 	standInNavPanelButtonListComponentElement.visibility = "hidden";
 	document.body.appendChild(standInNavPanelButtonListComponentElement);
 
-	const standInOverflowContainerElementWithScrollbar = document.createElement("div");
+	const standInOverflowContainerElementWithScrollbar =
+		document.createElement("div");
 	standInOverflowContainerElementWithScrollbar.className =
-		getNavPanelButtonListComponentOverflowContainerElementWithScrollbarModifierClassName();
+		getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarModifierClassName();
 	// Css requires being child of NavPanelButtonList component
-	standInNavPanelButtonListComponentElement.appendChild(standInOverflowContainerElementWithScrollbar);
+	standInNavPanelButtonListComponentElement.appendChild(
+		standInOverflowContainerElementWithScrollbar
+	);
 	const standInOverflowContainerElementWithScrollbarStyles = getElementStyle(
 		standInOverflowContainerElementWithScrollbar
 	);
 
 	const styleObject = {
 		// Removing "px" from Strings and converting to Numbers allows for easier use
-		overflowContainerWithScrollbarMarginTop: stripNonDigits(standInOverflowContainerElementWithScrollbarStyles.marginTop),
-		overflowContainerWithScrollbarPaddingTop: stripNonDigits(standInOverflowContainerElementWithScrollbarStyles.paddingTop),
-		overflowContainerWithScrollbarPaddingBottom: stripNonDigits(standInOverflowContainerElementWithScrollbarStyles.paddingBottom),
+		subOverflowContainerWithScrollbarMarginTop: stripNonDigits(
+			standInOverflowContainerElementWithScrollbarStyles.marginTop
+		),
+		subOverflowContainerWithScrollbarMarginBottom: stripNonDigits(
+			standInOverflowContainerElementWithScrollbarStyles.marginBottom
+		),
+		subOverflowContainerWithScrollbarPaddingTop: stripNonDigits(
+			standInOverflowContainerElementWithScrollbarStyles.paddingTop
+		),
+		subOverflowContainerWithScrollbarPaddingBottom: stripNonDigits(
+			standInOverflowContainerElementWithScrollbarStyles.paddingBottom
+		),
 	};
 
 	standInNavPanelButtonListComponentElement.parentNode.removeChild(

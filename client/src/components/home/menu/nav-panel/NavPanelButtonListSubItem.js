@@ -59,7 +59,7 @@ export default function NavPanelButtonListSubItem(props) {
 				)
 			}
 		>
-			{props.reduxContainerName === PROJECT_CONTAINER ? (
+			{props.soloProject ? (
 				<FontAwesomeIcon
 					icon={faFolderOpen}
 					className="sub-item-button__icon"
