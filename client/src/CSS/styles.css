@@ -341,6 +341,7 @@
 .nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container,
 .js-get-nav-panel-button-list-component .sub-overflow-container,
 .js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container {
+  transition: margin 0.8s ease-in-out, padding 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
@@ -380,13 +381,16 @@
 .js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present {
   margin-top: 10px;
   padding: 10px 0 20px 0;
-  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1), inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1);
+  transition: margin 0.8s ease-in-out, padding 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
 }
 .nav-panel-button-list-component .sub-overflow-container--bottom-spacing,
 .nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--bottom-spacing,
 .js-get-nav-panel-button-list-component .sub-overflow-container--bottom-spacing,
 .js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--bottom-spacing {
   margin-bottom: 10px;
+  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1), inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
+  transition: margin 0.8s ease-in-out, padding 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
 }
 .nav-panel-button-list-component .nav-panel-button-list-sub-item-component,
 .js-get-nav-panel-button-list-component .nav-panel-button-list-sub-item-component {

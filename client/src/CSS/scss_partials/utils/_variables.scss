@@ -696,6 +696,13 @@ $list-view-top-bar-new-item-tutorial-font-size: 24px;
 $list-view-empty-list-message-font-size: 32px;
 $item-view-name-font-size: 28px;
 
+//============
+// Transition
+//============
+$nav-panel-button-list-sub-overflow-container-transition: margin 0.8s
+		ease-in-out,
+	padding 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
+
 //===============================
 // Arithmetic (must be at bottom)
 //===============================
