@@ -13,6 +13,7 @@ import {
 	switchToProjectsListView,
 	switchToBugsListView,
 	getSearchedFilteredSortedList,
+	getCommonElementToolTipBackgroundTextColorClassNameForLocationWithLightOrDarkMode,
 } from "../../../../utils";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,13 +25,18 @@ export default function NavPanelButtonList() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const shouldAllProjectSubItemsDisplay =
-		reduxState[PROJECT_CONTAINER].componentsDisplay
-			.listViewComponentShouldDisplay ||
-		reduxState[PROJECT_CONTAINER].componentsDisplay
-			.itemViewComponentShouldDisplay;
+	const shouldAnyProjectSubItemsDisplay =
+		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
+		null;
 
-	const shouldBugListButtonDisplay =
+	const shouldAllProjectSubItemsDisplay =
+		shouldAnyProjectSubItemsDisplay &&
+		(reduxState[PROJECT_CONTAINER].componentsDisplay
+			.listViewComponentShouldDisplay ||
+			reduxState[PROJECT_CONTAINER].componentsDisplay
+				.itemViewComponentShouldDisplay);
+
+	const shouldBugListButtonBeClickable =
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
 		null;
 
@@ -108,8 +114,11 @@ export default function NavPanelButtonList() {
 			} else {
 				// Causes element to transition out
 				projectSubOverflowContainerElement.style.height =
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles.listButtonHeight + "px";
+					shouldAnyProjectSubItemsDisplay
+						? reduxState[SIZE_CONTAINER].constants
+								.navPanelButtonListComponentSizesAndStyles.listButtonHeight +
+						  "px"
+						: "0px";
 
 				toggleClassName(
 					false,
@@ -221,8 +230,15 @@ export default function NavPanelButtonList() {
 				/>
 				Projects
 			</div>
-			<div className="sub-overflow-container js-project-sub-overflow-container">
-				{shouldAllProjectSubItemsDisplay ? (
+			<div
+				className={
+					"sub-overflow-container js-project-sub-overflow-container" +
+					(shouldAnyProjectSubItemsDisplay
+						? " sub-overflow-container--fade-in"
+						: " sub-overflow-container--fade-out")
+				}
+			>
+				{!shouldAnyProjectSubItemsDisplay ? null : shouldAllProjectSubItemsDisplay ? (
 					<div className="js-all-project-button-list-sub-items">
 						{getSearchedFilteredSortedList(reduxState, PROJECT_CONTAINER).map(
 							(item, idx) => {
@@ -246,13 +262,10 @@ export default function NavPanelButtonList() {
 					/>
 				)}
 			</div>
-
 			<div
 				className={
 					"list-button" +
-					(shouldBugListButtonDisplay
-						? " list-button--fade-in"
-						: " list-button--fade-out") +
+					(shouldBugListButtonBeClickable ? "" : " list-button--unclickable") +
 					(shouldAllBugSubItemsDisplay ? "" : " list-button--bottom-spacing") +
 					(reduxState[BUG_CONTAINER].componentsDisplay
 						.listViewComponentShouldDisplay === false
@@ -263,18 +276,32 @@ export default function NavPanelButtonList() {
 						  ))
 				}
 				aria-label="Bugs"
-				onClick={() => switchToBugsListView(reduxState, dispatch)}
+				onClick={
+					shouldBugListButtonBeClickable
+						? () => switchToBugsListView(reduxState, dispatch)
+						: null
+				}
 			>
-				{!shouldBugListButtonDisplay ? null : (
-					<span>
-						<FontAwesomeIcon
-							icon={faBug}
-							className="list-button__icon"
-							aria-hidden="true"
-						/>
-						Bugs
-					</span>
-				)}
+				<span
+					className={
+						"list-button__tooltip-container" +
+						(shouldBugListButtonBeClickable
+							? ""
+							: " list-button--unclickable" +
+							  getCommonElementToolTipBackgroundTextColorClassNameForLocationWithLightOrDarkMode(
+									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+									"right"
+							  ))
+					}
+					data-tooltip={"No project selected"}
+				>
+					<FontAwesomeIcon
+						icon={faBug}
+						className="list-button__icon"
+						aria-hidden="true"
+					/>
+					Bugs
+				</span>
 			</div>
 			<div
 				className={

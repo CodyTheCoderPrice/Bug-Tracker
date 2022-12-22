@@ -277,6 +277,8 @@ $mode-navbar-breadcrumb-button-text-color-dark: $gray-level-5;
 $mode-navbar-breadcrumb-button-title-opened-text-color-dark: $mode-home-text-color-dark;
 $mode-nav-panel-top-container-border-color-light: $mode-navbar-border-color-light;
 $mode-nav-panel-top-container-border-color-dark: $mode-navbar-border-color-dark;
+$mode-nav-panel-button-list-bug-item-unclickable-text-color-light: $gray-dark-level-3;
+$mode-nav-panel-button-list-bug-item-unclickable-text-color-dark: $gray-dark-level-3;
 $mode-account-sidebar-background-color-light: $mode-common-background-color-light;
 $mode-account-sidebar-background-color-dark: $mode-common-background-color-dark;
 $mode-account-sidebar-horizontal-dividing-line-border-color-light: $gray-light-level-11;
@@ -567,13 +569,12 @@ $common-form-input-text-focus-padding: $common-form-input-text-focus-top-bottom-
 	$common-form-input-text-focus-left-right-padding;
 $common-top-bar-search-bar-padding: 8px;
 // Specific (i.e. intended for specific component)
+$navbar-breadcrumb-padding: 0 3px 0 25px;
+$navbar-breadcrumb-button-icon-padding: 0 15px 0 13px;
+$navbar-solo-title-padding: $navbar-breadcrumb-padding;
 $nav-panel-button-list-main-item-padding-left-right: 10px;
 $nav-panel-button-list-sub-item-padding-left: $nav-panel-button-list-main-item-padding-left-right +
 	$nav-panel-button-icon-margin-right + 5; // 5 was chosen by eyeing what looked good
-$navbar-breadcrumb-padding-right: 3px;
-$navbar-breadcrumb-padding: 0 $navbar-breadcrumb-padding-right 0 25px;
-$navbar-breadcrumb-button-icon-padding: 0 15px 0 13px;
-$navbar-solo-title-padding: 0 $navbar-breadcrumb-padding-right 0 15px;
 $account-sidebar-padding-top: 32px;
 $account-sidebar-padding-left-right: 18px;
 $create-item-sidebar-padding: 6px;
@@ -594,7 +595,6 @@ $common-status-box-height: 27px;
 // Specific (i.e. intended for specific component)
 $toggle-switch-height: 24px;
 $custom-checkbox-height: 13px;
-$nav-panel-table-row-empty-height: ($common-list-row-height / 6);
 $navbar-height: 48px;
 $navbar-account-button-height: $navbar-height;
 $nav-panel-top-container-height: $navbar-height;
@@ -617,9 +617,9 @@ $common-top-bar-filter-dropdown-content-container-width: 260px;
 $common-status-box-width: 110px;
 // Specific (i.e. intended for specific component)
 $toggle-switch-width: 52px;
+$navbar-account-button-width: 130px;
 $nav-panel-width: 250px;
 $nav-panel-button-icon-width: 15px;
-$navbar-account-button-width: 130px;
 $account-sidebar-width: 430px;
 $account-modal-width: 460px;
 $account-sidebar-appearance-theme-button-current-container-width: 30px;
@@ -679,13 +679,17 @@ $item-view-edit-item-name-centering-container-height: $item-view-edit-item-name-
 $common-font-size: 15px;
 $common-slightly-larger-font-size: $common-font-size + 1;
 $common-backend-errors-font-size: 13px;
-$common-navbar-button-font-size: 15px;
+$common-navbar-font-size: 15px;
 $common-item-form-input-text-font-size: 13px;
 $common-top-bar-search-bar-font-size: 14px;
 $common-top-bar-search-button-icon-font-size: 14px;
 $common-top-bar-button-font-size: 14px;
 $common-top-bar-filter-dropdown-content-font-size: 14px;
 $common-line-height: 20px;
+// Specific (i.e. intended for specific component)
+$nav-panel-button-list-base-font-size: $common-font-size;
+$nav-panel-button-list-item-button-font-size: $nav-panel-button-list-base-font-size +
+	1;
 $account-sidebar-account-name-font-size: 18px;
 $account-sidebar-account-info-font-size: 15px;
 $account-sidebar-appearance-label-font-size: 16px;

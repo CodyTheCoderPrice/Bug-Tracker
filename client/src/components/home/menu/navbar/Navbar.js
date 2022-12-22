@@ -32,7 +32,7 @@ export default function Navbar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const initialState = { breadcrumb: true, soloTitle: false };
+	const initialState = { breadcrumb: false, soloTitle: true };
 	const [shouldComponentsBeVisible, setShouldComponentsBeVisible] = useState({
 		initialState,
 	});
@@ -41,10 +41,12 @@ export default function Navbar() {
 	// ...display based on if there is enough space for them
 	useEffect(() => {
 		if (
+			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
+				null &&
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
 			reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth !== null
 		) {
-			const navbarBreadcrumbElement = document.getElementsByClassName(
+			let navbarBreadcrumbElement = document.getElementsByClassName(
 				"js-navbar-breadcrumb"
 			)[0];
 
@@ -58,7 +60,7 @@ export default function Navbar() {
 					navbarBreadcrumbWidth >=
 				0;
 
-			const navbarSoloTitleElement = document.getElementsByClassName(
+			let navbarSoloTitleElement = document.getElementsByClassName(
 				"js-navbar-solo-title"
 			)[0];
 

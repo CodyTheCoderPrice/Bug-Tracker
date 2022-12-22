@@ -28,7 +28,7 @@
 		@include breadcrumbAndSoloTitleShared();
 
 		color: v.$mode-navbar-breadcrumb-button-text-color-light;
-		font-size: v.$common-navbar-button-font-size;
+		font-size: v.$common-navbar-font-size;
 	}
 
 	.breadcrumb-button__title {
@@ -46,7 +46,7 @@
 	.navbar-solo-title-component {
 		@include breadcrumbAndSoloTitleShared();
 		padding: v.$navbar-solo-title-padding;
-		font-size: v.$common-navbar-button-font-size + 2;
+		font-size: v.$common-navbar-font-size;
 	}
 
 	.breadcrumb--invisible,
@@ -68,7 +68,7 @@
 		padding-right: 10px;
 		height: v.$navbar-account-button-height;
 		font-family: Verdana, Geneva, sans-serif;
-		font-size: v.$common-navbar-button-font-size - 1;
+		font-size: v.$common-navbar-font-size - 1;
 		// Allows vertical-align: middle to work (located below)
 		line-height: v.$navbar-height;
 		text-align: center;

@@ -4,21 +4,17 @@
 .nav-panel-button-list-component,
 .js-get-nav-panel-button-list-component {
 	width: auto;
-	font-size: v.$common-font-size;
+	font-size: v.$nav-panel-button-list-base-font-size;
 	font-family: Arial, Helvetica, sans-serif;
 
 	.sub-overflow-container,
 	.js-get-nav-panel-button-list-component-sub-overflow-container {
 		height: 0px;
 		overflow: hidden;
-		transition: margin
-				v.$nav-panel-button-list-transition-time ease-in-out,
-			box-shadow v.$nav-panel-button-list-transition-time
-				ease-in-out,
-			padding v.$nav-panel-button-list-transition-time
-				ease-in-out,
-			height v.$nav-panel-button-list-transition-time
-				ease-in-out;
+		transition: margin v.$nav-panel-button-list-transition-time ease-in-out,
+			box-shadow v.$nav-panel-button-list-transition-time ease-in-out,
+			padding v.$nav-panel-button-list-transition-time ease-in-out,
+			height v.$nav-panel-button-list-transition-time ease-in-out;
 	}
 
 	.sub-overflow-container--scrollbar-present,
@@ -59,24 +55,16 @@
 		margin-bottom: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom;
 	}
 
-	.sub-overflow-container--fade-in,
-	.list-button--fade-in {
-		-webkit-animation: fadein
-			v.$nav-panel-button-list-transition-time linear
+	.sub-overflow-container--fade-in {
+		-webkit-animation: fadein v.$nav-panel-button-list-transition-time linear
 			forwards;
-		animation: fadein
-			v.$nav-panel-button-list-transition-time linear
-			forwards;
+		animation: fadein v.$nav-panel-button-list-transition-time linear forwards;
 	}
 
-	.sub-overflow-container--fade-out,
-	.list-button--fade-out {
-		-webkit-animation: fadeout
-			v.$nav-panel-button-list-transition-time linear
+	.sub-overflow-container--fade-out {
+		-webkit-animation: fadeout v.$nav-panel-button-list-transition-time linear
 			forwards;
-		animation: fadeout
-			v.$nav-panel-button-list-transition-time linear
-			forwards;
+		animation: fadeout v.$nav-panel-button-list-transition-time linear forwards;
 	}
 
 	@-webkit-keyframes fadein {
@@ -128,6 +116,7 @@
 	.js-get-nav-panel-button-list-component-list-button {
 		@include buttonsShared();
 		padding: 0px v.$nav-panel-button-list-main-item-padding-left-right;
+		font-size: v.$nav-panel-button-list-item-button-font-size;
 	}
 
 	.list-button--top-spacing,
@@ -140,14 +129,27 @@
 		margin-bottom: 20px;
 	}
 
-	.nav-panel-button-list-sub-item-component {
-		@include buttonsShared();
-		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
+	.list-button--unclickable {
+		color: v.$mode-nav-panel-button-list-bug-item-unclickable-text-color-light;
+		// Helps button seem unclickable
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 	}
 
 	.list-button--selected,
 	.sub-item-button--selected {
 		box-shadow: v.$common-button-box-shadow;
+	}
+
+	.nav-panel-button-list-sub-item-component {
+		@include buttonsShared();
+		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
+	}
+
+	.list-button__tooltip-container {
+		position: relative;
 	}
 
 	.list-button__icon,

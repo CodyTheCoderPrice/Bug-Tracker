@@ -219,7 +219,7 @@ body {
 		color: v.$mode-home-text-color-dark;
 	}
 
-	// Light/Dark mode -- Navbar component 'padding-container__account-button' 
+	// Light/Dark mode -- Navbar component 'padding-container__account-button'
 	// ...element -- text color
 	.js-get-navbar-component-account-button-element-text-color-dark-mode-false {
 		color: v.$mode-navbar-account-button-text-color-light;
@@ -237,7 +237,7 @@ body {
 		color: v.$mode-navbar-breadcrumb-button-text-color-dark;
 	}
 
-	// Light/Dark mode -- NavbarBreadcrumb component 
+	// Light/Dark mode -- NavbarBreadcrumb component
 	// ...'breadcrumb-button__title--opened' element -- text color
 	.js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-false {
 		color: v.$mode-navbar-breadcrumb-button-title-opened-text-color-light;
@@ -1477,31 +1477,147 @@ body {
 	//============================
 	// Location + Light/Dark mode
 	//============================
-	// Location + Light/Dark mode -- Common (i.e. intended for multiple components) 
+	// Location + Light/Dark mode -- Common (i.e. intended for multiple components)
 	// ...tooltip element -- background and text colors
+	@mixin tooltip($location, $is-dark) {
+		// Located inside this mixin as it's the only place they are used
+		$after-margin: 4px;
+		$after-border-width: 8px;
+		$before-margin: $after-margin + ($after-border-width - 1);
+
+		&:before {
+			content: attr(data-tooltip);
+			z-index: 1;
+			visibility: hidden;
+			position: absolute;
+			border-radius: 5px;
+			padding: 8px 14px;
+			font-size: 12px;
+			opacity: 0;
+			transition: opacity 0.2s ease-in-out;
+			white-space: nowrap;
+
+			@if $is-dark {
+				background-color: v.$mode-common-tooltip-background-color-dark;
+				color: v.$mode-common-tooltip-text-color-dark;
+			} @else {
+				background-color: v.$mode-common-tooltip-background-color-light;
+				color: v.$mode-common-tooltip-text-color-light;
+			}
+		}
+
+		&:after {
+			content: "";
+			visibility: hidden;
+			position: absolute;
+			height: 0;
+			width: 0;
+			opacity: 0;
+			transition: opacity 0.2s ease-in-out;
+		}
+
+		&:hover::before,
+		&:hover::after {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		// Was previously applied to a border-color property instead of to each
+		// ...individual border, but it caused the border color to be
+		// ...overwritten by the text color of the element with the tooltip
+		$arrowBorderColor: black;
+		@if $is-dark {
+			$arrowBorderColor: v.$mode-common-tooltip-background-color-dark;
+		} @else {
+			$arrowBborderColor: v.$mode-common-tooltip-background-color-light;
+		}
+
+		@if $location == "right" {
+			&:before,
+			&:after {
+				top: 50%;
+				left: 100%;
+				transform: translate(0, -50%);
+				margin-left: $before-margin;
+			}
+
+			&:after {
+				margin-left: $after-margin;
+				border-top: $after-border-width solid transparent;
+				border-right: $after-border-width solid $arrowBorderColor;
+				border-bottom: $after-border-width solid transparent;
+			}
+		} @else if $location == "bottom" {
+			&:before,
+			&:after {
+				top: 100%;
+				left: 50%;
+				transform: translate(-50%);
+				margin-top: $before-margin;
+			}
+
+			&:after {
+				margin-top: $after-margin;
+				border-right: $after-border-width solid transparent;
+				border-bottom: $after-border-width solid $arrowBorderColor;
+				border-left: $after-border-width solid transparent;
+			}
+		} @else if $location == "left" {
+			&:before,
+			&:after {
+				top: 50%;
+				right: 100%;
+				transform: translate(0, -50%);
+				margin-right: $before-margin;
+			}
+
+			&:after {
+				margin-right: $after-margin;
+				border-top: $after-border-width solid transparent;
+				border-bottom: $after-border-width solid transparent;
+				border-left: $after-border-width solid $arrowBorderColor;
+			}
+		} // top
+		@else {
+			&:before,
+			&:after {
+				bottom: 100%;
+				left: 50%;
+				transform: translate(-50%);
+				margin-bottom: $before-margin;
+			}
+
+			&:after {
+				margin-bottom: $after-margin;
+				border-top: $after-border-width solid $arrowBorderColor;
+				border-right: $after-border-width solid transparent;
+				border-left: $after-border-width solid transparent;
+			}
+		}
+	}
 	.js-get-common-element-tooltip-background-text-color-location-top-dark-mode-false {
-		@include m.tooltip($location: "top", $is-dark: false);
+		@include tooltip($location: "top", $is-dark: false);
 	}
 	.js-get-common-element-tooltip-background-text-color-location-right-dark-mode-false {
-		@include m.tooltip($location: "right", $is-dark: false);
+		@include tooltip($location: "right", $is-dark: false);
 	}
 	.js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-false {
-		@include m.tooltip($location: "bottom", $is-dark: false);
+		@include tooltip($location: "bottom", $is-dark: false);
 	}
 	.js-get-common-element-tooltip-background-text-color-location-left-dark-mode-false {
-		@include m.tooltip($location: "left", $is-dark: false);
+		@include tooltip($location: "left", $is-dark: false);
 	}
 	.js-get-common-element-tooltip-background-text-color-location-top-dark-mode-true {
-		@include m.tooltip($location: "top", $is-dark: true);
+		@include tooltip($location: "top", $is-dark: true);
 	}
 	.js-get-common-element-tooltip-background-text-color-location-right-dark-mode-true {
-		@include m.tooltip($location: "right", $is-dark: true);
+		@include tooltip($location: "right", $is-dark: true);
 	}
 	.js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-true {
-		@include m.tooltip($location: "bottom", $is-dark: true);
+		@include tooltip($location: "bottom", $is-dark: true);
 	}
 	.js-get-common-element-tooltip-background-text-color-location-left-dark-mode-true {
-		@include m.tooltip($location: "left", $is-dark: true);
+		@include tooltip($location: "left", $is-dark: true);
 	}
 
 	//===============

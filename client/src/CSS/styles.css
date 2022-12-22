@@ -391,16 +391,12 @@
   margin-bottom: 10px;
 }
 .nav-panel-button-list-component .sub-overflow-container--fade-in,
-.nav-panel-button-list-component .list-button--fade-in,
-.js-get-nav-panel-button-list-component .sub-overflow-container--fade-in,
-.js-get-nav-panel-button-list-component .list-button--fade-in {
+.js-get-nav-panel-button-list-component .sub-overflow-container--fade-in {
   -webkit-animation: fadein 0.4s linear forwards;
   animation: fadein 0.4s linear forwards;
 }
 .nav-panel-button-list-component .sub-overflow-container--fade-out,
-.nav-panel-button-list-component .list-button--fade-out,
-.js-get-nav-panel-button-list-component .sub-overflow-container--fade-out,
-.js-get-nav-panel-button-list-component .list-button--fade-out {
+.js-get-nav-panel-button-list-component .sub-overflow-container--fade-out {
   -webkit-animation: fadeout 0.4s linear forwards;
   animation: fadeout 0.4s linear forwards;
 }
@@ -447,6 +443,7 @@
   cursor: pointer;
   align-items: center;
   padding: 0px 10px;
+  font-size: 16px;
 }
 .nav-panel-button-list-component .list-button--top-spacing,
 .nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--top-spacing,
@@ -460,6 +457,20 @@
 .js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--bottom-spacing {
   margin-bottom: 20px;
 }
+.nav-panel-button-list-component .list-button--unclickable,
+.js-get-nav-panel-button-list-component .list-button--unclickable {
+  color: #464646;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.nav-panel-button-list-component .list-button--selected,
+.nav-panel-button-list-component .sub-item-button--selected,
+.js-get-nav-panel-button-list-component .list-button--selected,
+.js-get-nav-panel-button-list-component .sub-item-button--selected {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01), -1px 1px 1px rgba(0, 0, 0, 0.01);
+}
 .nav-panel-button-list-component .nav-panel-button-list-sub-item-component,
 .js-get-nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
   display: flex;
@@ -470,11 +481,9 @@
   align-items: center;
   padding: 0 5px 0 25px;
 }
-.nav-panel-button-list-component .list-button--selected,
-.nav-panel-button-list-component .sub-item-button--selected,
-.js-get-nav-panel-button-list-component .list-button--selected,
-.js-get-nav-panel-button-list-component .sub-item-button--selected {
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01), -1px 1px 1px rgba(0, 0, 0, 0.01);
+.nav-panel-button-list-component .list-button__tooltip-container,
+.js-get-nav-panel-button-list-component .list-button__tooltip-container {
+  position: relative;
 }
 .nav-panel-button-list-component .list-button__icon,
 .nav-panel-button-list-component .sub-item-button__icon,
@@ -537,8 +546,8 @@
   font-family: Verdana, Geneva, sans-serif;
   line-height: 48px;
   text-align: center;
-  padding: 0 3px 0 15px;
-  font-size: 17px;
+  padding: 0 3px 0 25px;
+  font-size: 15px;
 }
 .navbar-component .breadcrumb--invisible,
 .navbar-component .solo-title--invisible {
@@ -4419,7 +4428,7 @@ body {
   padding: 8px 14px;
   font-size: 12px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   background-color: black;
   color: white;
@@ -4432,8 +4441,7 @@ body {
   height: 0;
   width: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-color: black;
+  transition: opacity 0.2s ease-in-out;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-false:hover::before, .app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-false:hover::after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-false:hover::before,
@@ -4452,7 +4460,7 @@ body {
 .app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-false:after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-false:after {
   margin-bottom: 4px;
-  border-top: 8px solid;
+  border-top: 8px solid black;
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
 }
@@ -4466,7 +4474,7 @@ body {
   padding: 8px 14px;
   font-size: 12px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   background-color: black;
   color: white;
@@ -4479,8 +4487,7 @@ body {
   height: 0;
   width: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-color: black;
+  transition: opacity 0.2s ease-in-out;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-right-dark-mode-false:hover::before, .app-component .js-get-common-element-tooltip-background-text-color-location-right-dark-mode-false:hover::after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-right-dark-mode-false:hover::before,
@@ -4500,7 +4507,7 @@ body {
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-right-dark-mode-false:after {
   margin-left: 4px;
   border-top: 8px solid transparent;
-  border-right: 8px solid;
+  border-right: 8px solid black;
   border-bottom: 8px solid transparent;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-false:before,
@@ -4513,7 +4520,7 @@ body {
   padding: 8px 14px;
   font-size: 12px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   background-color: black;
   color: white;
@@ -4526,8 +4533,7 @@ body {
   height: 0;
   width: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-color: black;
+  transition: opacity 0.2s ease-in-out;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-false:hover::before, .app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-false:hover::after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-false:hover::before,
@@ -4547,7 +4553,7 @@ body {
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-false:after {
   margin-top: 4px;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid;
+  border-bottom: 8px solid black;
   border-left: 8px solid transparent;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-left-dark-mode-false:before,
@@ -4560,7 +4566,7 @@ body {
   padding: 8px 14px;
   font-size: 12px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   background-color: black;
   color: white;
@@ -4573,8 +4579,7 @@ body {
   height: 0;
   width: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-color: black;
+  transition: opacity 0.2s ease-in-out;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-left-dark-mode-false:hover::before, .app-component .js-get-common-element-tooltip-background-text-color-location-left-dark-mode-false:hover::after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-left-dark-mode-false:hover::before,
@@ -4595,7 +4600,7 @@ body {
   margin-right: 4px;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-left: 8px solid;
+  border-left: 8px solid black;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-true:before,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-true:before {
@@ -4607,7 +4612,7 @@ body {
   padding: 8px 14px;
   font-size: 12px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   background-color: black;
   color: white;
@@ -4620,8 +4625,7 @@ body {
   height: 0;
   width: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-color: black;
+  transition: opacity 0.2s ease-in-out;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-true:hover::before, .app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-true:hover::after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-true:hover::before,
@@ -4640,7 +4644,7 @@ body {
 .app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-true:after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-top-dark-mode-true:after {
   margin-bottom: 4px;
-  border-top: 8px solid;
+  border-top: 8px solid black;
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
 }
@@ -4654,7 +4658,7 @@ body {
   padding: 8px 14px;
   font-size: 12px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   background-color: black;
   color: white;
@@ -4667,8 +4671,7 @@ body {
   height: 0;
   width: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-color: black;
+  transition: opacity 0.2s ease-in-out;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-right-dark-mode-true:hover::before, .app-component .js-get-common-element-tooltip-background-text-color-location-right-dark-mode-true:hover::after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-right-dark-mode-true:hover::before,
@@ -4688,7 +4691,7 @@ body {
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-right-dark-mode-true:after {
   margin-left: 4px;
   border-top: 8px solid transparent;
-  border-right: 8px solid;
+  border-right: 8px solid black;
   border-bottom: 8px solid transparent;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-true:before,
@@ -4701,7 +4704,7 @@ body {
   padding: 8px 14px;
   font-size: 12px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   background-color: black;
   color: white;
@@ -4714,8 +4717,7 @@ body {
   height: 0;
   width: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-color: black;
+  transition: opacity 0.2s ease-in-out;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-true:hover::before, .app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-true:hover::after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-true:hover::before,
@@ -4735,7 +4737,7 @@ body {
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-bottom-dark-mode-true:after {
   margin-top: 4px;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid;
+  border-bottom: 8px solid black;
   border-left: 8px solid transparent;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-left-dark-mode-true:before,
@@ -4748,7 +4750,7 @@ body {
   padding: 8px 14px;
   font-size: 12px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   background-color: black;
   color: white;
@@ -4761,8 +4763,7 @@ body {
   height: 0;
   width: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-color: black;
+  transition: opacity 0.2s ease-in-out;
 }
 .app-component .js-get-common-element-tooltip-background-text-color-location-left-dark-mode-true:hover::before, .app-component .js-get-common-element-tooltip-background-text-color-location-left-dark-mode-true:hover::after,
 .js-get-app-component .js-get-common-element-tooltip-background-text-color-location-left-dark-mode-true:hover::before,
@@ -4783,7 +4784,7 @@ body {
   margin-right: 4px;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-left: 8px solid;
+  border-left: 8px solid black;
 }
 .app-component .js-get-common-status-background-color-gray,
 .js-get-app-component .js-get-common-status-background-color-gray {

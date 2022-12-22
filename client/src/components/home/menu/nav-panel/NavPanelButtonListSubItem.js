@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	ACCOUNT_CONTAINER,
-	PROJECT_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 import {
 	getCommonBrighterBackgroundColorClassNameForTheme,
