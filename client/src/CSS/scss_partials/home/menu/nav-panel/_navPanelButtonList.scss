@@ -9,10 +9,26 @@
 
 	.sub-overflow-container,
 	.js-get-nav-panel-button-list-component-sub-overflow-container {
-		transition: v.$nav-panel-button-list-sub-overflow-container-transition;
+		height: 0px;
+		overflow: hidden;
+		transition: margin
+				v.$nav-panel-button-list-transition-time ease-in-out,
+			box-shadow v.$nav-panel-button-list-transition-time
+				ease-in-out,
+			padding v.$nav-panel-button-list-transition-time
+				ease-in-out,
+			height v.$nav-panel-button-list-transition-time
+				ease-in-out;
+	}
+
+	.sub-overflow-container--scrollbar-present,
+	.js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present {
+		margin-top: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom;
+		box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1),
+			inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
+		padding: 10px 0 20px 0;
 
 		overflow-y: auto;
-		overflow-x: hidden;
 
 		scrollbar-width: thin;
 		scrollbar-color: #cdcdcd #ffffff00;
@@ -38,22 +54,65 @@
 		}
 	}
 
-	.sub-overflow-container--scrollbar-present,
-	.js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present {
-		margin-top: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom;
-		padding: 10px 0 20px 0;
-		box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1);
-
-		transition: v.$nav-panel-button-list-sub-overflow-container-transition;
-	}
-
 	.sub-overflow-container--bottom-spacing,
 	.js-get-nav-panel-button-list-component-sub-overflow-container--bottom-spacing {
 		margin-bottom: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom;
-		box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1),
-			inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
+	}
 
-		transition: v.$nav-panel-button-list-sub-overflow-container-transition;
+	.sub-overflow-container--fade-in,
+	.list-button--fade-in {
+		-webkit-animation: fadein
+			v.$nav-panel-button-list-transition-time linear
+			forwards;
+		animation: fadein
+			v.$nav-panel-button-list-transition-time linear
+			forwards;
+	}
+
+	.sub-overflow-container--fade-out,
+	.list-button--fade-out {
+		-webkit-animation: fadeout
+			v.$nav-panel-button-list-transition-time linear
+			forwards;
+		animation: fadeout
+			v.$nav-panel-button-list-transition-time linear
+			forwards;
+	}
+
+	@-webkit-keyframes fadein {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fadein {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes fadeout {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes fadeout {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
 	}
 
 	@mixin buttonsShared() {
@@ -63,11 +122,6 @@
 		height: 40px;
 		cursor: pointer;
 		align-items: center;
-	}
-
-	.nav-panel-button-list-sub-item-component {
-		@include buttonsShared();
-		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
 	}
 
 	.list-button,
@@ -84,6 +138,11 @@
 	.list-button--bottom-spacing,
 	.js-get-nav-panel-button-list-component-list-button--bottom-spacing {
 		margin-bottom: 20px;
+	}
+
+	.nav-panel-button-list-sub-item-component {
+		@include buttonsShared();
+		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
 	}
 
 	.list-button--selected,

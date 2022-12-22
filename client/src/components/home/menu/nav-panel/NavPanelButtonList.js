@@ -8,7 +8,6 @@ import {
 } from "../../../../actions/constants/containerNames";
 import {
 	getElementSize,
-	isVerticalScrollbarPresent,
 	toggleClassName,
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectsListView,
@@ -44,16 +43,14 @@ export default function NavPanelButtonList() {
 	// ...enough room
 	useEffect(() => {
 		if (
-			(shouldAllProjectSubItemsDisplay || shouldAllBugSubItemsDisplay) &&
 			reduxState[SIZE_CONTAINER].variables.navPanel !== null &&
 			reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight !== null
 		) {
-			if (shouldAllProjectSubItemsDisplay) {
-				let projectSubOverflowContainerElement =
-					document.getElementsByClassName(
-						"js-project-sub-overflow-container"
-					)[0];
+			let projectSubOverflowContainerElement = document.getElementsByClassName(
+				"js-project-sub-overflow-container"
+			)[0];
 
+			if (shouldAllProjectSubItemsDisplay) {
 				const adjustedNavPanelHeight =
 					reduxState[SIZE_CONTAINER].variables.navPanel.height -
 					reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight -
@@ -79,27 +76,53 @@ export default function NavPanelButtonList() {
 						.navPanelButtonListComponentSizesAndStyles.listButtonHeight *
 						2;
 
-				// Resets height so natural height can be measured
-				projectSubOverflowContainerElement.style.removeProperty("height");
+				// Using different element as height will be "auto" and natural
+				// ...size can be measured
+				let allProjectButtonListSubItems = document.getElementsByClassName(
+					"js-all-project-button-list-sub-items"
+				)[0];
 
-				if (
-					adjustedNavPanelHeight <
-					getElementSize(projectSubOverflowContainerElement).height
-				) {
+				const allProjectButtonListSubItemsHeight = getElementSize(
+					allProjectButtonListSubItems
+				).height;
+
+				if (adjustedNavPanelHeight < allProjectButtonListSubItemsHeight) {
 					projectSubOverflowContainerElement.style.height =
 						adjustedNavPanelHeight + "px";
+
+					toggleClassName(
+						true,
+						projectSubOverflowContainerElement,
+						"sub-overflow-container--scrollbar-present sub-overflow-container--bottom-spacing"
+					);
+				} else {
+					projectSubOverflowContainerElement.style.height =
+						allProjectButtonListSubItemsHeight + "px";
+
+					toggleClassName(
+						false,
+						projectSubOverflowContainerElement,
+						"sub-overflow-container--scrollbar-present sub-overflow-container--bottom-spacing"
+					);
 				}
+			} else {
+				// Causes element to transition out
+				projectSubOverflowContainerElement.style.height =
+					reduxState[SIZE_CONTAINER].constants
+						.navPanelButtonListComponentSizesAndStyles.listButtonHeight + "px";
 
 				toggleClassName(
-					isVerticalScrollbarPresent(projectSubOverflowContainerElement),
+					false,
 					projectSubOverflowContainerElement,
 					"sub-overflow-container--scrollbar-present sub-overflow-container--bottom-spacing"
 				);
-			} else if (shouldAllBugSubItemsDisplay) {
-				let bugSubOverflowContainerElement = document.getElementsByClassName(
-					"js-bug-sub-overflow-container"
-				)[0];
+			}
 
+			let bugSubOverflowContainerElement = document.getElementsByClassName(
+				"js-bug-sub-overflow-container"
+			)[0];
+
+			if (shouldAllBugSubItemsDisplay) {
 				const adjustedNavPanelHeight =
 					reduxState[SIZE_CONTAINER].variables.navPanel.height -
 					reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight -
@@ -122,11 +145,40 @@ export default function NavPanelButtonList() {
 						.navPanelButtonListComponentSizesAndStyles.listButtonHeight *
 						3;
 
+				// Using different element as height will be "auto" and natural
+				// ...size can be measured
+				let allBugButtonListSubItems = document.getElementsByClassName(
+					"js-all-bug-button-list-sub-items"
+				)[0];
+
+				const allBugButtonListSubItemsHeight = getElementSize(
+					allBugButtonListSubItems
+				).height;
+
+				if (adjustedNavPanelHeight < allBugButtonListSubItemsHeight) {
+					toggleClassName(
+						true,
+						bugSubOverflowContainerElement,
+						"sub-overflow-container--scrollbar-present"
+					);
+				} else {
+					toggleClassName(
+						false,
+						bugSubOverflowContainerElement,
+						"sub-overflow-container--scrollbar-present"
+					);
+				}
+
+				// Either way, set to adjustNavPanelHeight as no other
+				// ...element's position is affect by this element
 				bugSubOverflowContainerElement.style.height =
 					adjustedNavPanelHeight + "px";
+			} else {
+				// Causes element to transition out
+				bugSubOverflowContainerElement.style.height = "0px";
 
 				toggleClassName(
-					isVerticalScrollbarPresent(bugSubOverflowContainerElement),
+					false,
 					bugSubOverflowContainerElement,
 					"sub-overflow-container--scrollbar-present"
 				);
@@ -169,71 +221,86 @@ export default function NavPanelButtonList() {
 				/>
 				Projects
 			</div>
-			{shouldAllProjectSubItemsDisplay ? (
-				<div className="sub-overflow-container js-project-sub-overflow-container">
-					{getSearchedFilteredSortedList(reduxState, PROJECT_CONTAINER).map(
-						(item, idx) => {
-							return (
-								<NavPanelButtonListSubItem
-									key={idx}
-									item={item}
-									reduxContainerName={PROJECT_CONTAINER}
-								/>
-							);
+			<div className="sub-overflow-container js-project-sub-overflow-container">
+				{shouldAllProjectSubItemsDisplay ? (
+					<div className="js-all-project-button-list-sub-items">
+						{getSearchedFilteredSortedList(reduxState, PROJECT_CONTAINER).map(
+							(item, idx) => {
+								return (
+									<NavPanelButtonListSubItem
+										key={idx}
+										item={item}
+										reduxContainerName={PROJECT_CONTAINER}
+									/>
+								);
+							}
+						)}
+					</div>
+				) : (
+					<NavPanelButtonListSubItem
+						item={
+							reduxState[PROJECT_CONTAINER].componentsDisplay
+								.itemViewCurrentItem
 						}
-					)}
-				</div>
-			) : (
-				<NavPanelButtonListSubItem
-					item={
-						reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem
-					}
-					reduxContainerName={PROJECT_CONTAINER}
-				/>
-			)}
-			{!shouldBugListButtonDisplay ? null : (
-				<div>
-					<div
-						className={
-							"list-button" +
-							(shouldAllBugSubItemsDisplay
-								? ""
-								: " list-button--bottom-spacing") +
-							(reduxState[BUG_CONTAINER].componentsDisplay
-								.listViewComponentShouldDisplay === false
-								? ""
-								: " list-button--selected" +
-								  getCommonBrighterBackgroundColorClassNameForTheme(
-										reduxState[ACCOUNT_CONTAINER].settings.theme_color
-								  ))
-						}
-						aria-label="Bugs"
-						onClick={() => switchToBugsListView(reduxState, dispatch)}
-					>
+						reduxContainerName={PROJECT_CONTAINER}
+					/>
+				)}
+			</div>
+
+			<div
+				className={
+					"list-button" +
+					(shouldBugListButtonDisplay
+						? " list-button--fade-in"
+						: " list-button--fade-out") +
+					(shouldAllBugSubItemsDisplay ? "" : " list-button--bottom-spacing") +
+					(reduxState[BUG_CONTAINER].componentsDisplay
+						.listViewComponentShouldDisplay === false
+						? ""
+						: " list-button--selected" +
+						  getCommonBrighterBackgroundColorClassNameForTheme(
+								reduxState[ACCOUNT_CONTAINER].settings.theme_color
+						  ))
+				}
+				aria-label="Bugs"
+				onClick={() => switchToBugsListView(reduxState, dispatch)}
+			>
+				{!shouldBugListButtonDisplay ? null : (
+					<span>
 						<FontAwesomeIcon
 							icon={faBug}
 							className="list-button__icon"
 							aria-hidden="true"
 						/>
 						Bugs
+					</span>
+				)}
+			</div>
+			<div
+				className={
+					"sub-overflow-container js-bug-sub-overflow-container" +
+					(shouldAllBugSubItemsDisplay
+						? " sub-overflow-container--fade-in"
+						: " sub-overflow-container--fade-out")
+				}
+			>
+				{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
+				null ? null : (
+					<div className="js-all-bug-button-list-sub-items">
+						{getSearchedFilteredSortedList(reduxState, BUG_CONTAINER).map(
+							(item, idx) => {
+								return (
+									<NavPanelButtonListSubItem
+										key={idx}
+										item={item}
+										reduxContainerName={BUG_CONTAINER}
+									/>
+								);
+							}
+						)}
 					</div>
-				</div>
-			)}
-			{!shouldAllBugSubItemsDisplay ? null : (
-				<div className="sub-overflow-container js-bug-sub-overflow-container">
-					{getSearchedFilteredSortedList(reduxState, BUG_CONTAINER).map(
-						(item, idx) => {
-							return (
-								<NavPanelButtonListSubItem
-									key={idx}
-									item={item}
-									reduxContainerName={BUG_CONTAINER}
-								/>
-							);
-						}
-					)}
-				</div>
-			)}
+				)}
+			</div>
 		</div>
 	);
 }

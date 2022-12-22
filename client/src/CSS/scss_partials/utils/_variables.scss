@@ -699,9 +699,7 @@ $item-view-name-font-size: 28px;
 //============
 // Transition
 //============
-$nav-panel-button-list-sub-overflow-container-transition: margin 0.8s
-		ease-in-out,
-	padding 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
+$nav-panel-button-list-transition-time: 0.4s;
 
 //===============================
 // Arithmetic (must be at bottom)
