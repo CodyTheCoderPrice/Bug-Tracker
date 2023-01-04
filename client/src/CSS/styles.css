@@ -2799,9 +2799,9 @@
 }
 .list-view-table-component .empty-list-message-centering-container,
 .js-get-list-view-table-component .empty-list-message-centering-container {
+  position: sticky;
   top: 0;
   left: 0;
-  position: sticky;
   height: 90%;
   min-height: 50px;
   width: 100%;

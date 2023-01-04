@@ -143,10 +143,11 @@
 		text-overflow: ellipsis;
 	}
 
+	// Centering container necesary for preventing scrollbar to appear due to overflow
 	.empty-list-message-centering-container {
+		position: sticky;
 		top: 0;
 		left: 0;
-		position: sticky;
 		// Height was found through trial and error to make element resize 
 		// ...(using js) look less jumpy
 		height: 90%;

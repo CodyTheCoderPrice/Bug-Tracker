@@ -23,9 +23,10 @@ const initialState = {
  *
  * Note: The purpose of the 'constants' property is to get CSS property sizes
  * (that never change) for specific elements to be used by JS for resizing other
- * elements (e.g. resizing 'overflow-container' elements in
- * NavPanelButtonList component). This keeps from having to refetch these CSS
- * property sizes each time one of the other elements needs resizing.
+ * elements (e.g. using listViewTopBarComponentHeight to resize the 
+ * 'list-view-table-component' element in ListViewTable component). This keeps 
+ * from having to refetch these CSS property sizes each time one of the other 
+ * elements needs resizing.
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
