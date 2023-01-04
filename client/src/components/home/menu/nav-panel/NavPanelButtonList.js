@@ -62,16 +62,16 @@ export default function NavPanelButtonList() {
 					reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
-						.listButtonWithTopSpacingMaringTop -
+						.listButtonWithTopSpacingMarginTop -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
-						.listButtonWithBottomSpacingMaringBottom -
+						.listButtonWithBottomSpacingMarginBottom -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
 						.subOverflowContainerWithScrollbarMarginTop -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarAndBottomSpacingMarginBottom -
+						.subOverflowContainerWithScrollbarMarginBottom -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
 						.subOverflowContainerWithScrollbarPaddingTop -
@@ -99,7 +99,7 @@ export default function NavPanelButtonList() {
 					toggleClassName(
 						true,
 						projectSubOverflowContainerElement,
-						"sub-overflow-container--scrollbar-present sub-overflow-container--bottom-spacing"
+						"sub-overflow-container--scrollbar-present"
 					);
 				} else {
 					projectSubOverflowContainerElement.style.height =
@@ -108,7 +108,7 @@ export default function NavPanelButtonList() {
 					toggleClassName(
 						false,
 						projectSubOverflowContainerElement,
-						"sub-overflow-container--scrollbar-present sub-overflow-container--bottom-spacing"
+						"sub-overflow-container--scrollbar-present"
 					);
 				}
 			} else {
@@ -123,7 +123,7 @@ export default function NavPanelButtonList() {
 				toggleClassName(
 					false,
 					projectSubOverflowContainerElement,
-					"sub-overflow-container--scrollbar-present sub-overflow-container--bottom-spacing"
+					"sub-overflow-container--scrollbar-present"
 				);
 			}
 
@@ -137,19 +137,19 @@ export default function NavPanelButtonList() {
 					reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
-						.listButtonWithTopSpacingMaringTop -
+						.listButtonWithTopSpacingMarginTop -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
 						.subOverflowContainerWithScrollbarMarginTop -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarMarginBottom -
+						.subOverflowContainerWithScrollbarAndForBugsMarginBottom -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
 						.subOverflowContainerWithScrollbarPaddingTop -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarPaddingBottom -
+						.subOverflowContainerWithScrollbarAndForBugsPaddingBottom -
 					reduxState[SIZE_CONTAINER].constants
 						.navPanelButtonListComponentSizesAndStyles.listButtonHeight *
 						3;
@@ -168,13 +168,13 @@ export default function NavPanelButtonList() {
 					toggleClassName(
 						true,
 						bugSubOverflowContainerElement,
-						"sub-overflow-container--scrollbar-present"
+						"sub-overflow-container--scrollbar-present sub-overflow-container--for-bugs"
 					);
 				} else {
 					toggleClassName(
 						false,
 						bugSubOverflowContainerElement,
-						"sub-overflow-container--scrollbar-present"
+						"sub-overflow-container--scrollbar-present sub-overflow-container--for-bugs"
 					);
 				}
 
@@ -189,7 +189,7 @@ export default function NavPanelButtonList() {
 				toggleClassName(
 					false,
 					bugSubOverflowContainerElement,
-					"sub-overflow-container--scrollbar-present"
+					"sub-overflow-container--scrollbar-present sub-overflow-container--for-bugs"
 				);
 			}
 		}

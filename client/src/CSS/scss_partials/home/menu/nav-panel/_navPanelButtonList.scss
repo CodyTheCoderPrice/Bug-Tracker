@@ -19,10 +19,10 @@
 
 	.sub-overflow-container--scrollbar-present,
 	.js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present {
-		margin-top: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom;
+		margin: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom 0;
 		box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1),
 			inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
-		padding: 10px 0 20px 0;
+		padding: v.$nav-panel-button-list-sub-overflow-container-padding-top-bottom 0;
 
 		overflow-y: auto;
 
@@ -50,9 +50,10 @@
 		}
 	}
 
-	.sub-overflow-container--bottom-spacing,
-	.js-get-nav-panel-button-list-component-sub-overflow-container--bottom-spacing {
-		margin-bottom: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom;
+	.sub-overflow-container--for-bugs,
+	.js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs {
+		margin-bottom: v.$nav-panel-button-list-sub-overflow-container-for-bugs-margin-bottom;
+		padding-bottom: v.$nav-panel-button-list-sub-overflow-container-for-bugs-padding-bottom;
 	}
 
 	.sub-overflow-container--fade-in {
@@ -132,6 +133,7 @@
 	.list-button--unclickable {
 		color: v.$mode-nav-panel-button-list-bug-item-unclickable-text-color-light;
 		// Helps button seem unclickable
+		cursor: default;
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;

@@ -88,16 +88,16 @@ export function getNavPanelButtonListComponentSubOverflowContainerElementWithScr
 }
 
 /**
- * Gets classNames equivelent to 'overflow-container overflow-container--scrollbar-present sub-overflow-container--bottom-spacing'
+ * Gets classNames equivelent to 'overflow-container overflow-container--scrollbar-present sub-overflow-container--for-bugs'
  * className (with modifier) used by NavPanelButtonList component.
  *
  * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} classNames equivelent to 'overflow-container overflow-container--scrollbar-present sub-overflow-container--bottom-spacing'
+ * @returns {string} classNames equivelent to 'overflow-container overflow-container--scrollbar-present sub-overflow-container--for-bugs'
  */
-export function getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarAndBottomSpacingModifierClassName() {
-	return " js-get-nav-panel-button-list-component-sub-overflow-container js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present js-get-nav-panel-button-list-component-sub-overflow-container--bottom-spacing";
+export function getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarAndForBugsModifierClassName() {
+	return " js-get-nav-panel-button-list-component-sub-overflow-container js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs";
 }
 
 /**

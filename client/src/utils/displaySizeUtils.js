@@ -2,7 +2,7 @@ import {
 	stripNonDigits,
 	getNavPanelButtonListComponentClassName,
 	getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarModifierClassName,
-	getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarAndBottomSpacingModifierClassName,
+	getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarAndForBugsModifierClassName,
 	getNavPanelButtonListComponentListButtonElementWithTopAndBottomSpacingModifierClassName,
 	getItemViewComponentClassName,
 	getItemViewComponentPaddingcontainerElementClassName,
@@ -117,10 +117,10 @@ export function isVerticalScrollbarPresent(element) {
 }
 
 /**
- * Get critical sizes and styles from NavPanelButtonList component's 
+ * Get critical sizes and styles from NavPanelButtonList component's
  * 'overflow-container' (classNames) element
  *
- * @returns {number} Critical sizes and styles from NavPanelButtonList 
+ * @returns {number} Critical sizes and styles from NavPanelButtonList
  * component's 'overflow-container' (classNames) element
  */
 export function getNavPanelButtonListSizesAndStyles() {
@@ -148,18 +148,16 @@ export function getNavPanelButtonListSizesAndStyles() {
 		standInSubOverflowContainerElementWithScrollbar
 	);
 
-	const standInSubOverflowContainerElementWithScrollbarAndBottomSpacing =
+	const standInSubOverflowContainerElementWithScrollbarAndForBugs =
 		document.createElement("div");
-	standInSubOverflowContainerElementWithScrollbarAndBottomSpacing.className =
-		getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarAndBottomSpacingModifierClassName();
+	standInSubOverflowContainerElementWithScrollbarAndForBugs.className =
+		getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarAndForBugsModifierClassName();
 	// Css requires being child of NavPanelButtonList component
 	standInNavPanelButtonListComponentElement.appendChild(
-		standInSubOverflowContainerElementWithScrollbarAndBottomSpacing
+		standInSubOverflowContainerElementWithScrollbarAndForBugs
 	);
-	const standInSubOverflowContainerElementWithScrollbarAndBottomSpacingStyles =
-		getElementStyle(
-			standInSubOverflowContainerElementWithScrollbarAndBottomSpacing
-		);
+	const standInSubOverflowContainerElementWithScrollbarAndForBugsStyles =
+		getElementStyle(standInSubOverflowContainerElementWithScrollbarAndForBugs);
 
 	const standInListButtonElementWithTopAndBottomSpacing =
 		document.createElement("div");
@@ -187,15 +185,19 @@ export function getNavPanelButtonListSizesAndStyles() {
 		subOverflowContainerWithScrollbarPaddingBottom: stripNonDigits(
 			standInSubOverflowContainerElementWithScrollbarStyles.paddingBottom
 		),
-		subOverflowContainerWithScrollbarAndBottomSpacingMarginBottom:
-			stripNonDigits(
-				standInSubOverflowContainerElementWithScrollbarAndBottomSpacingStyles.marginBottom
-			),
-		listButtonHeight: getElementSize(standInListButtonElementWithTopAndBottomSpacing).height,
-		listButtonWithTopSpacingMaringTop: stripNonDigits(
+		subOverflowContainerWithScrollbarAndForBugsMarginBottom: stripNonDigits(
+			standInSubOverflowContainerElementWithScrollbarAndForBugsStyles.marginBottom
+		),
+		subOverflowContainerWithScrollbarAndForBugsPaddingBottom: stripNonDigits(
+			standInSubOverflowContainerElementWithScrollbarAndForBugsStyles.paddingBottom
+		),
+		listButtonHeight: getElementSize(
+			standInListButtonElementWithTopAndBottomSpacing
+		).height,
+		listButtonWithTopSpacingMarginTop: stripNonDigits(
 			standInListButtonElementWithTopAndBottomSpacingStyles.marginTop
 		),
-		listButtonWithBottomSpacingMaringBottom: stripNonDigits(
+		listButtonWithBottomSpacingMarginBottom: stripNonDigits(
 			standInListButtonElementWithTopAndBottomSpacingStyles.marginBottom
 		),
 	};
