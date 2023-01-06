@@ -200,6 +200,10 @@ export default function NavPanelButtonList() {
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].constants,
 		// eslint-disable-next-line
+		reduxState[PROJECT_CONTAINER].list,
+		// eslint-disable-next-line
+		reduxState[BUG_CONTAINER].list,
+		// eslint-disable-next-line
 		reduxState[PROJECT_CONTAINER].searchFilterSort,
 		// eslint-disable-next-line
 		reduxState[BUG_CONTAINER].searchFilterSort,
