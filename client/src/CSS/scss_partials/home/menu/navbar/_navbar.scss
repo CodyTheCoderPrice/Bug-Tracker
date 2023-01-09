@@ -9,52 +9,62 @@
 	left: v.$common-left;
 	border-bottom: v.$navbar-border-width solid v.$mode-navbar-border-color-light;
 	height: v.$navbar-height;
+	font-family: Verdana, Geneva, sans-serif;
 
 	.navbar-breadcrumb-component {
 		float: left;
 		padding: v.$navbar-breadcrumb-padding;
 	}
 
-	@mixin breadcrumbAndSoloTitleShared() {
+	// shared styles between breadcrumb buttons and dividers
+	.breadcrumb-button,
+	.breadcrumb-divider {
+		@include m.set-transition(
+			width v.$navbar-breadcrumb-button-and-divider-width-transition-time ease-in-out,
+			color v.$navbar-breadcrumb-button-and-divider-text-color-transition-time ease-in-out
+		);
+
 		float: left;
 		height: v.$navbar-height;
-		font-family: Verdana, Geneva, sans-serif;
-		// Allows vertical-align: middle to work (located below)
-		line-height: v.$navbar-height;
-		text-align: center;
-	}
-
-	.breadcrumb-button {
-		@include breadcrumbAndSoloTitleShared();
-
-		color: v.$mode-navbar-breadcrumb-button-text-color-light;
+		color: v.$mode-navbar-breadcrumb-button-and-divider-text-color-light;
 		font-size: v.$common-navbar-font-size;
-	}
-
-	.breadcrumb-button__title {
+		line-height: v.$navbar-height;
+		// nowrap encase of rounding errors when changing width in JS
+		white-space: nowrap;
+		text-align: center;
 		cursor: pointer;
 	}
 
-	.breadcrumb-button__title--opened {
-		color: v.$mode-navbar-breadcrumb-button-title-opened-text-color-light;
+	// styles unique to breadcrumb dividers
+	.breadcrumb-divider {
+		padding: 0 15px 0 13px;
+		cursor: default;
 	}
 
-	.breadcrumb-button__icon {
-		padding: v.$navbar-breadcrumb-button-icon-padding;
+	@include m.set-fade-in-fade-out-rules();
+
+	.breadcrumb-button--fade-in,
+	.breadcrumb-divider--fade-in {
+		@include m.set-animation(
+			fadeIn v.$navbar-breadcrumb-button-and-divider-fade-transition-time linear forwards
+		);
 	}
 
-	.navbar-solo-title-component {
-		@include breadcrumbAndSoloTitleShared();
-		padding: v.$navbar-solo-title-padding;
-		font-size: v.$common-navbar-font-size;
+	.breadcrumb-button--fade-out,
+	.breadcrumb-divider--fade-out {
+		@include m.set-animation(
+			fadeOut v.$navbar-breadcrumb-button-and-divider-fade-transition-time linear forwards
+		);
+
+		padding: 0 0 0 0;
 	}
 
-	.breadcrumb--invisible,
-	.solo-title--invisible {
-		// Instead of display: none so the component can still be measurued
-		visibility: hidden;
-		// So it will not interfere with any other components/buttons on the navbar
-		position: absolute;
+	.breadcrumb-button--opened {
+		color: v.$mode-navbar-breadcrumb-button-opened-text-color-light;
+	}
+
+	.breadcrumb-button--cursor-default {
+		cursor: default;
 	}
 
 	.padding-container {
@@ -67,7 +77,6 @@
 		// ...getting navbarAccountButtonWidth via JS
 		padding-right: 10px;
 		height: v.$navbar-account-button-height;
-		font-family: Verdana, Geneva, sans-serif;
 		font-size: v.$common-navbar-font-size - 1;
 		// Allows vertical-align: middle to work (located below)
 		line-height: v.$navbar-height;

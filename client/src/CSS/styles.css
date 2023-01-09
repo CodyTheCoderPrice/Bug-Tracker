@@ -341,9 +341,11 @@
 .nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container,
 .js-get-nav-panel-button-list-component .sub-overflow-container,
 .js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container {
+  -moz-transition: margin 0.35s ease-in-out, box-shadow 0.35s ease-in-out, padding 0.35s ease-in-out, height 0.35s ease-in-out;
+  -webkit-transition: margin 0.35s ease-in-out, box-shadow 0.35s ease-in-out, padding 0.35s ease-in-out, height 0.35s ease-in-out;
+  transition: margin 0.35s ease-in-out, box-shadow 0.35s ease-in-out, padding 0.35s ease-in-out, height 0.35s ease-in-out;
   height: 0px;
   overflow: hidden;
-  transition: margin 0.4s ease-in-out, box-shadow 0.4s ease-in-out, padding 0.4s ease-in-out, height 0.4s ease-in-out;
 }
 .nav-panel-button-list-component .sub-overflow-container--scrollbar-present,
 .nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present,
@@ -391,47 +393,47 @@
   margin-bottom: 0px;
   padding-bottom: 20px;
 }
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .nav-panel-button-list-component .sub-overflow-container--fade-in,
 .js-get-nav-panel-button-list-component .sub-overflow-container--fade-in {
-  -webkit-animation: fadein 0.4s linear forwards;
-  animation: fadein 0.4s linear forwards;
+  -webkit-animation: fadeIn 0.35s linear forwards;
+  animation: fadeIn 0.35s linear forwards;
 }
 .nav-panel-button-list-component .sub-overflow-container--fade-out,
 .js-get-nav-panel-button-list-component .sub-overflow-container--fade-out {
-  -webkit-animation: fadeout 0.4s linear forwards;
-  animation: fadeout 0.4s linear forwards;
-}
-@-webkit-keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+  -webkit-animation: fadeOut 0.35s linear forwards;
+  animation: fadeOut 0.35s linear forwards;
 }
 .nav-panel-button-list-component .list-button,
 .nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button,
@@ -519,42 +521,78 @@
   left: 250px;
   border-bottom: 1px solid black;
   height: 48px;
+  font-family: Verdana, Geneva, sans-serif;
 }
 .navbar-component .navbar-breadcrumb-component {
   float: left;
   padding: 0 3px 0 25px;
 }
-.navbar-component .breadcrumb-button {
+.navbar-component .breadcrumb-button,
+.navbar-component .breadcrumb-divider {
+  -moz-transition: width 0.5s ease-in-out, color 0.25s ease-in-out;
+  -webkit-transition: width 0.5s ease-in-out, color 0.25s ease-in-out;
+  transition: width 0.5s ease-in-out, color 0.25s ease-in-out;
   float: left;
   height: 48px;
-  font-family: Verdana, Geneva, sans-serif;
-  line-height: 48px;
-  text-align: center;
   color: #7c7c7c;
   font-size: 15px;
-}
-.navbar-component .breadcrumb-button__title {
+  line-height: 48px;
+  white-space: nowrap;
+  text-align: center;
   cursor: pointer;
 }
-.navbar-component .breadcrumb-button__title--opened {
+.navbar-component .breadcrumb-divider {
+  padding: 0 15px 0 13px;
+  cursor: default;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.navbar-component .breadcrumb-button--fade-in,
+.navbar-component .breadcrumb-divider--fade-in {
+  -webkit-animation: fadeIn 0.5s linear forwards;
+  animation: fadeIn 0.5s linear forwards;
+}
+.navbar-component .breadcrumb-button--fade-out,
+.navbar-component .breadcrumb-divider--fade-out {
+  -webkit-animation: fadeOut 0.5s linear forwards;
+  animation: fadeOut 0.5s linear forwards;
+  padding: 0 0 0 0;
+}
+.navbar-component .breadcrumb-button--opened {
   color: black;
 }
-.navbar-component .breadcrumb-button__icon {
-  padding: 0 15px 0 13px;
-}
-.navbar-component .navbar-solo-title-component {
-  float: left;
-  height: 48px;
-  font-family: Verdana, Geneva, sans-serif;
-  line-height: 48px;
-  text-align: center;
-  padding: 0 3px 0 25px;
-  font-size: 15px;
-}
-.navbar-component .breadcrumb--invisible,
-.navbar-component .solo-title--invisible {
-  visibility: hidden;
-  position: absolute;
+.navbar-component .breadcrumb-button--cursor-default {
+  cursor: default;
 }
 .navbar-component .padding-container {
   position: absolute;
@@ -562,7 +600,6 @@
   right: 0;
   padding-right: 10px;
   height: 48px;
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 14px;
   line-height: 48px;
   text-align: center;
@@ -3017,20 +3054,20 @@ body {
 .js-get-app-component .js-get-navbar-component-account-button-element-text-color-dark-mode-true {
   color: #757575;
 }
-.app-component .js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-false,
-.js-get-app-component .js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-false {
+.app-component .js-get-navbar-breadcrumb-component-button-and-divider-element-text-color-dark-mode-false,
+.js-get-app-component .js-get-navbar-breadcrumb-component-button-and-divider-element-text-color-dark-mode-false {
   color: #7c7c7c;
 }
-.app-component .js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-true,
-.js-get-app-component .js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-true {
+.app-component .js-get-navbar-breadcrumb-component-button-and-divider-element-text-color-dark-mode-true,
+.js-get-app-component .js-get-navbar-breadcrumb-component-button-and-divider-element-text-color-dark-mode-true {
   color: #757575;
 }
-.app-component .js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-false,
-.js-get-app-component .js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-false {
+.app-component .js-get-navbar-breadcrumb-component-button-element-opened-text-color-dark-mode-false,
+.js-get-app-component .js-get-navbar-breadcrumb-component-button-element-opened-text-color-dark-mode-false {
   color: black;
 }
-.app-component .js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-true,
-.js-get-app-component .js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-true {
+.app-component .js-get-navbar-breadcrumb-component-button-element-opened-text-color-dark-mode-true,
+.js-get-app-component .js-get-navbar-breadcrumb-component-button-element-opened-text-color-dark-mode-true {
   color: #c7d1db;
 }
 .app-component .js-get-account-sidebar-component-sidebar-container-element-background-color-dark-mode-false,

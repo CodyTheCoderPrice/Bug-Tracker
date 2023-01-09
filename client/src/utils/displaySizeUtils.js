@@ -118,10 +118,10 @@ export function isVerticalScrollbarPresent(element) {
 
 /**
  * Get critical sizes and styles from NavPanelButtonList component's
- * 'overflow-container' (classNames) element
+ * 'overflow-container' (className) element
  *
  * @returns {number} Critical sizes and styles from NavPanelButtonList
- * component's 'overflow-container' (classNames) element
+ * component's 'overflow-container' (className) element
  */
 export function getNavPanelButtonListSizesAndStyles() {
 	// Creating stand-in element for NavPanelButtonList component to later append

@@ -228,22 +228,22 @@ body {
 		color: v.$mode-navbar-account-button-text-color-dark;
 	}
 
-	// Light/Dark mode -- NavbarBreadcrumb component 'breadcrumb-button' element
-	// ...-- text color
-	.js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-false {
-		color: v.$mode-navbar-breadcrumb-button-text-color-light;
+	// Light/Dark mode -- NavbarBreadcrumb component 'breadcrumb-button' and
+	// ...'breadcrumb-divider' elements -- text color
+	.js-get-navbar-breadcrumb-component-button-and-divider-element-text-color-dark-mode-false {
+		color: v.$mode-navbar-breadcrumb-button-and-divider-text-color-light;
 	}
-	.js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-true {
-		color: v.$mode-navbar-breadcrumb-button-text-color-dark;
+	.js-get-navbar-breadcrumb-component-button-and-divider-element-text-color-dark-mode-true {
+		color: v.$mode-navbar-breadcrumb-button-and-divider-text-color-dark;
 	}
 
-	// Light/Dark mode -- NavbarBreadcrumb component
-	// ...'breadcrumb-button__title--opened' element -- text color
-	.js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-false {
-		color: v.$mode-navbar-breadcrumb-button-title-opened-text-color-light;
+	// Light/Dark mode -- NavbarBreadcrumb component 'breadcrumb-button--opened'
+	// ...element -- text color
+	.js-get-navbar-breadcrumb-component-button-element-opened-text-color-dark-mode-false {
+		color: v.$mode-navbar-breadcrumb-button-opened-text-color-light;
 	}
-	.js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-true {
-		color: v.$mode-navbar-breadcrumb-button-title-opened-text-color-dark;
+	.js-get-navbar-breadcrumb-component-button-element-opened-text-color-dark-mode-true {
+		color: v.$mode-navbar-breadcrumb-button-opened-text-color-dark;
 	}
 
 	// Light/Dark mode -- AccountSidebar component 'sidebar-container' element

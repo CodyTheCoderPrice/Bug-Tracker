@@ -22,7 +22,7 @@
 		min-width: v.$list-view-table-min-width;
 	}
 
-	@mixin table-row() {
+	@mixin tableRow-shared-styles() {
 		@include m.stop-text-selection();
 		
 		border-bottom: 1px solid v.$mode-list-view-table-row-border-color-light;
@@ -33,11 +33,11 @@
 
 	.list-table__row,
 	.js-get-list-view-table-component-row-element {
-		@include table-row();
+		@include tableRow-shared-styles();
 	}
 
 	.list-view-table-item-row-component {
-		@include table-row();
+		@include tableRow-shared-styles();
 		color: v.$mode-common-weak-text-color-light;
 	}
 

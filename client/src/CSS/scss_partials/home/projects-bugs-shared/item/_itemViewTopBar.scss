@@ -88,8 +88,7 @@
 		left: v.$item-view-top-bar-sort-container-left;
 	}
 
-	// Contains CSS shared between both buttons
-	@mixin filterSortButton {
+	@mixin filter-sort-button-shared-styles {
 		@include m.stop-text-selection();
 
 		// z-index must be more than item-view-top-bar-filter-dropdown-component and
@@ -112,15 +111,14 @@
 	}
 
 	.item-view-top-bar-filter-button-component {
-		@include filterSortButton();
+		@include filter-sort-button-shared-styles();
 	}
 
 	.item-view-top-bar-sort-button-component {
-		@include filterSortButton();
+		@include filter-sort-button-shared-styles();
 	}
 
-	// Contains CSS shared between both button modifiers
-	@mixin filterSortButtonWithDropdownModifier {
+	@mixin filter-sort-button-with-dropdown-modifier-shared-styles {
 		// Negative top margin because border resize moves the element
 		margin: -(
 				v.$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference
@@ -140,15 +138,14 @@
 	}
 
 	.item-view-top-bar-filter-button-component--with-dropdown-displayed {
-		@include filterSortButtonWithDropdownModifier();
+		@include filter-sort-button-with-dropdown-modifier-shared-styles();
 	}
 
 	.item-view-top-bar-sort-button-component--with-dropdown-displayed {
-		@include filterSortButtonWithDropdownModifier();
+		@include filter-sort-button-with-dropdown-modifier-shared-styles();
 	}
 
-	// Contains CSS shared between both button texts
-	@mixin filterSortButtonText {
+	@mixin filter-sort-button-text-shared-styles {
 		// Used horizontal-center instead of dead-center since with-dropdown-displayed
 		// modifier would move the text
 		@include m.horizontal-center();
@@ -158,11 +155,11 @@
 	}
 
 	.item-view-top-bar-filter-button-component__text {
-		@include filterSortButtonText();
+		@include filter-sort-button-text-shared-styles();
 	}
 
 	.item-view-top-bar-sort-button-component__text {
-		@include filterSortButtonText();
+		@include filter-sort-button-text-shared-styles();
 	}
 
 	.item-view-top-bar-filter-button-component__text--active {
@@ -170,8 +167,7 @@
 		color: v.$common-top-bar-filter-button-active-color;
 	}
 
-	// Contains CSS shared between both dropdowns
-	@mixin filterSortDropdown {
+	@mixin filter-sort-dropdown-shared-styles {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -190,13 +186,13 @@
 	}
 
 	.item-view-top-bar-filter-dropdown-component {
-		@include filterSortDropdown();
+		@include filter-sort-dropdown-shared-styles();
 
 		width: v.$common-top-bar-filter-dropdown-content-container-width;
 	}
 
 	.item-view-top-bar-sort-dropdown-component {
-		@include filterSortDropdown();
+		@include filter-sort-dropdown-shared-styles();
 
 		width: v.$item-view-top-bar-sort-dropdown-content-container-width;
 	}

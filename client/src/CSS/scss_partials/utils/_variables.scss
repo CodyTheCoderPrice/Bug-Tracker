@@ -271,10 +271,10 @@ $mode-navbar-border-color-light: black;
 $mode-navbar-border-color-dark: black;
 $mode-navbar-account-button-text-color-light: $gray-level-9;
 $mode-navbar-account-button-text-color-dark: $gray-level-5;
-$mode-navbar-breadcrumb-button-text-color-light: $gray-level-4;
-$mode-navbar-breadcrumb-button-title-opened-text-color-light: $mode-home-text-color-light;
-$mode-navbar-breadcrumb-button-text-color-dark: $gray-level-5;
-$mode-navbar-breadcrumb-button-title-opened-text-color-dark: $mode-home-text-color-dark;
+$mode-navbar-breadcrumb-button-and-divider-text-color-light: $gray-level-4;
+$mode-navbar-breadcrumb-button-and-divider-text-color-dark: $gray-level-5;
+$mode-navbar-breadcrumb-button-opened-text-color-light: $mode-home-text-color-light;
+$mode-navbar-breadcrumb-button-opened-text-color-dark: $mode-home-text-color-dark;
 $mode-nav-panel-top-container-border-color-light: $mode-navbar-border-color-light;
 $mode-nav-panel-top-container-border-color-dark: $mode-navbar-border-color-dark;
 $mode-nav-panel-button-list-bug-item-unclickable-text-color-light: $gray-dark-level-3;
@@ -571,8 +571,6 @@ $common-form-input-text-focus-padding: $common-form-input-text-focus-top-bottom-
 $common-top-bar-search-bar-padding: 8px;
 // Specific (i.e. intended for specific component)
 $navbar-breadcrumb-padding: 0 3px 0 25px;
-$navbar-breadcrumb-button-icon-padding: 0 15px 0 13px;
-$navbar-solo-title-padding: $navbar-breadcrumb-padding;
 $nav-panel-button-list-sub-overflow-container-padding-top-bottom: 10px;
 $nav-panel-button-list-sub-overflow-container-for-bugs-padding-bottom: 20px;
 $nav-panel-button-list-main-item-padding-left-right: 10px;
@@ -706,7 +704,10 @@ $item-view-name-font-size: 28px;
 //============
 // Transition
 //============
-$nav-panel-button-list-transition-time: 0.4s;
+$navbar-breadcrumb-button-and-divider-text-color-transition-time: 0.25s;
+$navbar-breadcrumb-button-and-divider-width-transition-time: 0.5s;
+$navbar-breadcrumb-button-and-divider-fade-transition-time: $navbar-breadcrumb-button-and-divider-width-transition-time;
+$nav-panel-button-list-transition-time: 0.35s;
 
 //===============================
 // Arithmetic (must be at bottom)

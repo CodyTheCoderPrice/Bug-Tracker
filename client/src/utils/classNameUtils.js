@@ -532,34 +532,34 @@ export function getNavbarComponentAccountButtonElementTextColorClassNameForLight
 
 /**
  * Get light/dark mode className for NavbarBreadcrumb components 'breadcrumb-button'
- * (className) element's text color
+ * and 'breadcrumb-divider' (classNames) element's text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for NavbarBreadcrumb components
- * 'breadcrumb-button' element's text color
+ * 'breadcrumb-button' and 'breadcrumb-divider' element's text color
  */
-export function getNavbarBreadcrumbComponentButtonElementTextColorClassNameForLightOrDarkMode(
+export function getNavbarBreadcrumbComponentButtonAndDividerElementTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-navbar-breadcrumb-component-button-element-text-color-dark-mode-" +
+		" js-get-navbar-breadcrumb-component-button-and-divider-element-text-color-dark-mode-" +
 		dark_mode
 	);
 }
 
 /**
- * Get light/dark mode className for NavbarBreadcrumb components 'breadcrumb-button__title--opened'
+ * Get light/dark mode className for NavbarBreadcrumb components 'breadcrumb-button--opened'
  * (modifier className) element's opened text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
  * @returns {string} Light/dark mode className for NavbarBreadcrumb components
- * 'breadcrumb-button__title--opened' element's opened text color
+ * 'breadcrumb-button--opened' element's opened text color
  */
-export function getNavbarBreadcrumbComponentButtonTitleElementOpenedTextColorClassNameForLightOrDarkMode(
+export function getNavbarBreadcrumbComponentButtonElementOpenedTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-navbar-breadcrumb-component-button-title-element-opened-text-color-dark-mode-" +
+		" js-get-navbar-breadcrumb-component-button-element-opened-text-color-dark-mode-" +
 		dark_mode
 	);
 }

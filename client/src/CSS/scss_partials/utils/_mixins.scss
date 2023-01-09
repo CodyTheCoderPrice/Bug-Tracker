@@ -29,6 +29,55 @@
 	transform: translate(0%, -50%);
 }
 
+@mixin set-fade-in-fade-out-rules() {
+	@-webkit-keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+}
+
+@mixin set-transition($value...) {
+	-moz-transition: $value;
+	-webkit-transition: $value;
+	transition: $value;
+}
+
+@mixin set-animation($value...) {
+	-webkit-animation: $value;
+	animation: $value;
+}
+
 @mixin full-width-minus-nav-panel() {
 	width: -webkit-calc(100% - #{v.$common-left});
 	width: -moz-calc(100% - #{v.$common-left});

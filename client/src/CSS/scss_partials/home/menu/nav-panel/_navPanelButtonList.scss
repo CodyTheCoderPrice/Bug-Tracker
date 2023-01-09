@@ -9,12 +9,15 @@
 
 	.sub-overflow-container,
 	.js-get-nav-panel-button-list-component-sub-overflow-container {
-		height: 0px;
-		overflow: hidden;
-		transition: margin v.$nav-panel-button-list-transition-time ease-in-out,
+		@include m.set-transition(
+			margin v.$nav-panel-button-list-transition-time ease-in-out,
 			box-shadow v.$nav-panel-button-list-transition-time ease-in-out,
 			padding v.$nav-panel-button-list-transition-time ease-in-out,
-			height v.$nav-panel-button-list-transition-time ease-in-out;
+			height v.$nav-panel-button-list-transition-time ease-in-out
+		);
+
+		height: 0px;
+		overflow: hidden;
 	}
 
 	.sub-overflow-container--scrollbar-present,
@@ -22,7 +25,8 @@
 		margin: v.$nav-panel-button-list-sub-overflow-container-margin-top-bottom 0;
 		box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1),
 			inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
-		padding: v.$nav-panel-button-list-sub-overflow-container-padding-top-bottom 0;
+		padding: v.$nav-panel-button-list-sub-overflow-container-padding-top-bottom
+			0;
 
 		overflow-y: auto;
 
@@ -56,55 +60,21 @@
 		padding-bottom: v.$nav-panel-button-list-sub-overflow-container-for-bugs-padding-bottom;
 	}
 
+	@include m.set-fade-in-fade-out-rules();
+
 	.sub-overflow-container--fade-in {
-		-webkit-animation: fadein v.$nav-panel-button-list-transition-time linear
-			forwards;
-		animation: fadein v.$nav-panel-button-list-transition-time linear forwards;
+		@include m.set-animation(
+			fadeIn v.$nav-panel-button-list-transition-time linear forwards
+		);
 	}
 
 	.sub-overflow-container--fade-out {
-		-webkit-animation: fadeout v.$nav-panel-button-list-transition-time linear
-			forwards;
-		animation: fadeout v.$nav-panel-button-list-transition-time linear forwards;
+		@include m.set-animation(
+			fadeOut v.$nav-panel-button-list-transition-time linear forwards
+		);
 	}
 
-	@-webkit-keyframes fadein {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@keyframes fadein {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@-webkit-keyframes fadeout {
-		0% {
-			opacity: 1;
-		}
-		100% {
-			opacity: 0;
-		}
-	}
-
-	@keyframes fadeout {
-		0% {
-			opacity: 1;
-		}
-		100% {
-			opacity: 0;
-		}
-	}
-
-	@mixin buttonsShared() {
+	@mixin buttons-shared-styles() {
 		display: flex;
 		margin: 0 v.$nav-panel-button-margin-left-right;
 		border-radius: 5px;
@@ -115,7 +85,7 @@
 
 	.list-button,
 	.js-get-nav-panel-button-list-component-list-button {
-		@include buttonsShared();
+		@include buttons-shared-styles();
 		padding: 0px v.$nav-panel-button-list-main-item-padding-left-right;
 		font-size: v.$nav-panel-button-list-item-button-font-size;
 	}
@@ -146,7 +116,7 @@
 	}
 
 	.nav-panel-button-list-sub-item-component {
-		@include buttonsShared();
+		@include buttons-shared-styles();
 		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
 	}
 

@@ -35,14 +35,12 @@ export function getBackendErrorsJSX(backendErrors, desiredClassName) {
 		return null;
 	} else if (Array.isArray(backendErrors)) {
 		return backendErrors.map((message, index) => {
-			if (!isEmpty(message)) {
-				return (
-					<span className={desiredClassName} key={index}>
-						<FontAwesomeIcon icon={faCircleExclamation} aria-hidden="true" />{" "}
-						{message}
-					</span>
-				);
-			}
+			return isEmpty(message) ? null : (
+				<span className={desiredClassName} key={index}>
+					<FontAwesomeIcon icon={faCircleExclamation} aria-hidden="true" />{" "}
+					{message}
+				</span>
+			);
 		});
 	} else {
 		return (
