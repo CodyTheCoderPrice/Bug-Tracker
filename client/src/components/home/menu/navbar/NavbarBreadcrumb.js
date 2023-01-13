@@ -36,7 +36,6 @@ export default function NavbarBreadcrumb() {
 	});
 
 	const [breadcrumbSizes, setBreadcrumbSizes] = useState({
-		shouldUpdate: true,
 		projectListButtonWidth: 0,
 		projectItemButtonWidth: 0,
 		bugListButtonWidth: 0,
@@ -90,69 +89,65 @@ export default function NavbarBreadcrumb() {
 
 	// Updates breadcrumbSizes
 	useEffect(() => {
-		if (breadcrumbSizes.shouldUpdate) {
-			let navbarBreadcrumbElement = document.getElementsByClassName(
-				"js-navbar-breadcrumb"
-			)[0];
+		let navbarBreadcrumbElement = document.getElementsByClassName(
+			"js-navbar-breadcrumb"
+		)[0];
 
-			let navbarBreadcrumbButtonElements =
-				navbarBreadcrumbElement.querySelectorAll(".breadcrumb-button");
+		let navbarBreadcrumbButtonElements =
+			navbarBreadcrumbElement.querySelectorAll(".breadcrumb-button");
 
-			let actualBreadcrumbButtonWidths = [];
+		let actualBreadcrumbButtonWidths = [];
 
-			navbarBreadcrumbButtonElements.forEach((element, index) => {
-				actualBreadcrumbButtonWidths[index] = getElementSize(element).width;
-				element.style.width = "auto";
-			});
+		navbarBreadcrumbButtonElements.forEach((element, index) => {
+			actualBreadcrumbButtonWidths[index] = getElementSize(element).width;
+			element.style.width = "auto";
+		});
 
-			let navbarBreadcrumbDividerElements =
-				navbarBreadcrumbElement.querySelectorAll(".breadcrumb-divider");
+		let navbarBreadcrumbDividerElements =
+			navbarBreadcrumbElement.querySelectorAll(".breadcrumb-divider");
 
-			let tempCombinedDividerWidth = 0;
+		let tempCombinedDividerWidth = 0;
 
-			navbarBreadcrumbDividerElements.forEach((element) => {
-				const actualWidth = getElementSize(element).width;
-				element.style.width = "auto";
-				tempCombinedDividerWidth += getElementSize(element).width;
-				element.style.width = actualWidth;
-			});
+		navbarBreadcrumbDividerElements.forEach((element) => {
+			const actualWidth = getElementSize(element).width;
+			element.style.width = "auto";
+			tempCombinedDividerWidth += getElementSize(element).width;
+			element.style.width = actualWidth;
+		});
 
-			setBreadcrumbSizes({
-				projectListButtonWidth:
-					navbarBreadcrumbButtonElements[0] === undefined
-						? 0
-						: breadcrumbSizes.projectListButtonWidth !== 0
-						? breadcrumbSizes.projectListButtonWidth
-						: getElementSize(navbarBreadcrumbButtonElements[0]).width,
-				projectItemButtonWidth:
-					navbarBreadcrumbButtonElements[1] === undefined
-						? 0
-						: getElementSize(navbarBreadcrumbButtonElements[1]).width,
-				bugListButtonWidth:
-					navbarBreadcrumbButtonElements[2] === undefined
-						? 0
-						: breadcrumbSizes.bugListButtonWidth !== 0
-						? breadcrumbSizes.bugListButtonWidth
-						: getElementSize(navbarBreadcrumbButtonElements[2]).width,
-				bugItemButtonWidth:
-					navbarBreadcrumbButtonElements[3] === undefined
-						? 0
-						: getElementSize(navbarBreadcrumbButtonElements[3]).width,
-				dividerWidth:
-					navbarBreadcrumbDividerElements[0] === undefined
-						? 0
-						: breadcrumbSizes.dividerWidth !== 0
-						? breadcrumbSizes.projectListButtonWidth
-						: getElementSize(navbarBreadcrumbDividerElements[0]).width,
-				combinedDividerWidth: tempCombinedDividerWidth,
-			});
+		setBreadcrumbSizes({
+			projectListButtonWidth:
+				navbarBreadcrumbButtonElements[0] === undefined
+					? 0
+					: breadcrumbSizes.projectListButtonWidth !== 0
+					? breadcrumbSizes.projectListButtonWidth
+					: getElementSize(navbarBreadcrumbButtonElements[0]).width,
+			projectItemButtonWidth:
+				navbarBreadcrumbButtonElements[1] === undefined
+					? 0
+					: getElementSize(navbarBreadcrumbButtonElements[1]).width,
+			bugListButtonWidth:
+				navbarBreadcrumbButtonElements[2] === undefined
+					? 0
+					: breadcrumbSizes.bugListButtonWidth !== 0
+					? breadcrumbSizes.bugListButtonWidth
+					: getElementSize(navbarBreadcrumbButtonElements[2]).width,
+			bugItemButtonWidth:
+				navbarBreadcrumbButtonElements[3] === undefined
+					? 0
+					: getElementSize(navbarBreadcrumbButtonElements[3]).width,
+			dividerWidth:
+				navbarBreadcrumbDividerElements[0] === undefined
+					? 0
+					: breadcrumbSizes.dividerWidth !== 0
+					? breadcrumbSizes.dividerWidth
+					: getElementSize(navbarBreadcrumbDividerElements[0]).width,
+			combinedDividerWidth: tempCombinedDividerWidth,
+		});
 
-			navbarBreadcrumbButtonElements.forEach((element, index) => {
-				element.style.width = actualBreadcrumbButtonWidths[index];
-			});
-
-			return;
-		}
+		navbarBreadcrumbButtonElements.forEach((element, index) => {
+			element.style.width = actualBreadcrumbButtonWidths[index];
+		});
 
 		// eslint-disable-next-line
 	}, [
@@ -192,6 +187,7 @@ export default function NavbarBreadcrumb() {
 		reduxState[SIZE_CONTAINER].constants,
 	]);
 
+	// Creates collapsing/expanding visual effect by setting breadcrumb button/divider widths
 	useEffect(() => {
 		let navbarBreadcrumbElement = document.getElementsByClassName(
 			"js-navbar-breadcrumb"
@@ -246,7 +242,7 @@ export default function NavbarBreadcrumb() {
 			});
 		}
 		// eslint-disable-next-line
-	}, [breadcrumbStyles, canAllButtonsDisplay]);
+	}, [breadcrumbStyles, breadcrumbSizes, canAllButtonsDisplay]);
 
 	const getBreadcrumbButtonClassNames = (shouldBeOpened) => {
 		return (
