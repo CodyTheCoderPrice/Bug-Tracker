@@ -1,11 +1,34 @@
 /**
+ * Removes all instances of a className from an element
+ *
+ * @param {Element} element - The element that will have its className changed
+ * @param {string} classToBeRemoved - The className the element should not contain
+ *
+ * @example
+ * // Removes all instances of the className "button--extra-padding" from element
+ * removeAllInstancesOfClassName(
+ * 	document.getElementsByClassName("js-button")[0],
+ * 	"button--extra-padding"
+ * )
+ */
+export function removeAllInstancesOfClassName(
+	element,
+	classToBeRemoved
+) {
+	// Regex to find all instances of the className
+	const regex = new RegExp("(?:^|\\s)" + classToBeRemoved + "(?!\\S)", "g");
+	// Removes all instances of the className
+	element.className = element.className.replace(regex, "");
+}
+
+/**
  * If shouldHaveClassName param is true, then ensures element has the passed
  * className. Otherwise will make sure it doesn't. This does not affect other
  * classNames the element has.
  *
  * @param {boolean} shouldHaveClassName - Should the element have the className
  * @param {Element} element - The element that will have it's className toggled
- * @param {string} nameOfToggledClass - The className the element either should
+ * @param {string} classToBeToggled - The className the element either should
  * or shouldn't have
  *
  * @example
@@ -29,19 +52,16 @@
 export function toggleClassName(
 	shouldHaveClassName,
 	element,
-	nameOfToggledClass
+	classToBeToggled
 ) {
 	if (shouldHaveClassName) {
-		if (!element.className.includes(nameOfToggledClass)) {
-			// Space is needed for nameOfToggledClass
+		if (!element.className.includes(classToBeToggled)) {
+			// Space is needed for classToBeToggled
 			// ...to keep it from merging with other classNames
-			element.className = element.className + " " + nameOfToggledClass;
+			element.className = element.className + " " + classToBeToggled;
 		}
 	} else {
-		// Regex to find all instances of the className
-		const regex = new RegExp("(?:^|\\s)" + nameOfToggledClass + "(?!\\S)", "g");
-		// Removes all instances of the className
-		element.className = element.className.replace(regex, "");
+		removeAllInstancesOfClassName(element, classToBeToggled)
 	}
 }
 

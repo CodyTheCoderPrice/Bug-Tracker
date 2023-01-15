@@ -20,8 +20,10 @@
 	.breadcrumb-button,
 	.breadcrumb-divider {
 		@include m.set-transition(
-			width v.$navbar-breadcrumb-button-and-divider-width-transition-time ease-in-out,
-			color v.$navbar-breadcrumb-button-and-divider-text-color-transition-time ease-in-out
+			width v.$navbar-breadcrumb-button-and-divider-width-transition-time
+				ease-in-out,
+			color v.$navbar-breadcrumb-button-and-divider-text-color-transition-time
+				ease-in-out
 		);
 
 		float: left;
@@ -46,16 +48,20 @@
 	.breadcrumb-button--fade-in,
 	.breadcrumb-divider--fade-in {
 		@include m.set-animation(
-			fadeIn v.$navbar-breadcrumb-button-and-divider-fade-transition-time linear forwards
+			fadeIn v.$navbar-breadcrumb-button-and-divider-fade-transition-time linear
+				forwards
 		);
 	}
 
 	.breadcrumb-button--fade-out,
 	.breadcrumb-divider--fade-out {
 		@include m.set-animation(
-			fadeOut v.$navbar-breadcrumb-button-and-divider-fade-transition-time linear forwards
+			fadeOut v.$navbar-breadcrumb-button-and-divider-fade-transition-time
+				linear forwards
 		);
+	}
 
+	.breadcrumb-divider--zero-padding {
 		padding: 0 0 0 0;
 	}
 
