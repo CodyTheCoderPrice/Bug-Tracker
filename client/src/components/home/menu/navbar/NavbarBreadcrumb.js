@@ -125,6 +125,43 @@ export default function NavbarBreadcrumb() {
 			buttonText.projectItem !== projectItemUpdatedValue ||
 			buttonText.bugItem !== bugItemUpdatedValue
 		) {
+			const causeFadeIn = (element) => {
+				const storedClassName = element.className;
+
+				removeAllInstancesOfClassName(element, "breadcrumb-button--fade-in");
+				removeAllInstancesOfClassName(element, "breadcrumb-button--fade-out");
+
+				// Trigger DOM reflow so fade-in will re-trigger
+				void element.offsetHeight;
+
+				element.className = storedClassName.includes(
+					"breadcrumb-button--fade-in"
+				)
+					? storedClassName
+					: storedClassName + " breadcrumb-button--fade-in";
+			};
+
+			if (
+				buttonState.projectItemShouldDisplay &&
+				buttonText.projectItem !== projectItemUpdatedValue
+			) {
+				causeFadeIn(
+					document.getElementsByClassName(
+						"js-navbar-breadcrumb-button-project-item"
+					)[0]
+				);
+			}
+			if (
+				buttonState.bugItemShouldDisplay &&
+				buttonText.bugItem !== bugItemUpdatedValue
+			) {
+				causeFadeIn(
+					document.getElementsByClassName(
+						"js-navbar-breadcrumb-button-bug-item"
+					)[0]
+				);
+			}
+
 			setButtonText({
 				...buttonText,
 				projectItem: projectItemUpdatedValue,
@@ -195,10 +232,10 @@ export default function NavbarBreadcrumb() {
 		let navbarBreadcrumbButtonElements =
 			navbarBreadcrumbElement.querySelectorAll(".breadcrumb-button");
 
-		let realBreadcrumbButtonWidths = [];
+		let storedBreadcrumbButtonWidths = [];
 
 		navbarBreadcrumbButtonElements.forEach((element, index) => {
-			realBreadcrumbButtonWidths[index] = getElementSize(element).width;
+			storedBreadcrumbButtonWidths[index] = getElementSize(element).width;
 			element.style.width = "auto";
 		});
 
@@ -213,14 +250,14 @@ export default function NavbarBreadcrumb() {
 			(breadcrumbSizes.dividerWidth === null ||
 				breadcrumbSizes.dividerWidth === 0)
 		) {
-			const realDividerClassName = navbarBreadcrumbDividerElement.className;
+			const storedDividerClassName = navbarBreadcrumbDividerElement.className;
 			// Temporarily ensures divider has default padding before measuring size
 			removeAllInstancesOfClassName(
 				navbarBreadcrumbDividerElement,
 				"breadcrumb-divider--zero-padding"
 			);
 			newDividerWidth = getElementSize(navbarBreadcrumbDividerElement).width;
-			navbarBreadcrumbDividerElement.className = realDividerClassName;
+			navbarBreadcrumbDividerElement.className = storedDividerClassName;
 		}
 
 		setBreadcrumbSizes({
@@ -256,7 +293,7 @@ export default function NavbarBreadcrumb() {
 		});
 
 		navbarBreadcrumbButtonElements.forEach((element, index) => {
-			element.style.width = realBreadcrumbButtonWidths[index];
+			element.style.width = storedBreadcrumbButtonWidths[index];
 		});
 		// eslint-disable-next-line
 	}, [
@@ -487,10 +524,12 @@ export default function NavbarBreadcrumb() {
 			)}
 			{!buttonState.projectItemShouldDisplay ? null : (
 				<div
-					className={getBreadcrumbButtonClassNames(
-						buttonState.projectItemShouldLingerForFadeOut,
-						buttonState.projectItemShouldBeOpen
-					)}
+					className={
+						getBreadcrumbButtonClassNames(
+							buttonState.projectItemShouldLingerForFadeOut,
+							buttonState.projectItemShouldBeOpen
+						) + " js-navbar-breadcrumb-button-project-item"
+					}
 					aria-label={buttonText.projectItem}
 					aria-hidden={
 						buttonState.projectItemShouldLingerForFadeOut ||
@@ -548,10 +587,12 @@ export default function NavbarBreadcrumb() {
 			)}
 			{!buttonState.bugItemShouldDisplay ? null : (
 				<div
-					className={getBreadcrumbButtonClassNames(
-						buttonState.bugItemShouldLingerForFadeOut,
-						buttonState.bugItemShouldBeOpen
-					)}
+					className={
+						getBreadcrumbButtonClassNames(
+							buttonState.bugItemShouldLingerForFadeOut,
+							buttonState.bugItemShouldBeOpen
+						) + " js-navbar-breadcrumb-button-bug-item"
+					}
 					aria-label={buttonText.bugItem}
 					aria-hidden={
 						buttonState.bugItemShouldLingerForFadeOut ||
