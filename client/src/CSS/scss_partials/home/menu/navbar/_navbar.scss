@@ -80,7 +80,7 @@
 		top: 0;
 		right: 0;
 		// Padding instead of margin so it's included in the element size when
-		// ...getting navbarAccountButtonWidth via JS
+		// ...getting accountButtonWidth via JS
 		padding-right: 10px;
 		height: v.$navbar-account-button-height;
 		font-size: v.$common-navbar-font-size - 1;

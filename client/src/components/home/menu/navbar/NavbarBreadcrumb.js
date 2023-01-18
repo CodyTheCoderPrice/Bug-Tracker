@@ -73,7 +73,7 @@ export default function NavbarBreadcrumb() {
 				.itemViewComponentShouldDisplay,
 	};
 
-	const [buttonState, setbuttonState] = useState({
+	const [buttonState, setButtonState] = useState({
 		projectListShouldDisplay: buttonDisplayLogic.projectList,
 		projectListShouldLingerForFadeOut: false,
 		projectListShouldBeOpen: buttonOpenLogic.projectList,
@@ -88,17 +88,18 @@ export default function NavbarBreadcrumb() {
 		bugItemShouldBeOpen: buttonOpenLogic.bugItem,
 	});
 
-	const [breadcrumbSizes, setBreadcrumbSizes] = useState({
+	const [navbarChildSizes, setNavbarChildSizes] = useState({
 		projectListButtonWidth: null,
 		projectItemButtonWidth: null,
 		bugListButtonWidth: null,
 		bugItemButtonWidth: null,
 		dividerWidth: null,
+		accountButtonWidth: null,
 	});
 
-	const [breadcrumbStyles, setBreadcrumbStyles] = useState({
-		componentPaddingLeft: null,
-		componentPaddingRight: null,
+	const [navbarChildStyles, setNavbarChildStyles] = useState({
+		breadcrumbPaddingLeft: null,
+		breadcrumbPaddingRight: null,
 		dividerPaddingLeft: null,
 		dividerPaddingRight: null,
 	});
@@ -197,7 +198,7 @@ export default function NavbarBreadcrumb() {
 				buttonState.bugItemShouldDisplay,
 		};
 
-		setbuttonState({
+		setButtonState({
 			projectListShouldDisplay:
 				buttonDisplayLogic.projectList || newButtonLingerValues.projectList,
 			projectListShouldLingerForFadeOut: newButtonLingerValues.projectList,
@@ -223,7 +224,7 @@ export default function NavbarBreadcrumb() {
 		reduxState[BUG_CONTAINER].componentsDisplay,
 	]);
 
-	// Updates breadcrumbSizes
+	// Updates navbarChildSizes
 	useEffect(() => {
 		let navbarBreadcrumbElement = document.getElementsByClassName(
 			"js-navbar-breadcrumb"
@@ -247,8 +248,8 @@ export default function NavbarBreadcrumb() {
 
 		if (
 			navbarBreadcrumbDividerElement !== null &&
-			(breadcrumbSizes.dividerWidth === null ||
-				breadcrumbSizes.dividerWidth === 0)
+			(navbarChildSizes.dividerWidth === null ||
+				navbarChildSizes.dividerWidth === 0)
 		) {
 			const storedDividerClassName = navbarBreadcrumbDividerElement.className;
 			// Temporarily ensures divider has default padding before measuring size
@@ -260,13 +261,13 @@ export default function NavbarBreadcrumb() {
 			navbarBreadcrumbDividerElement.className = storedDividerClassName;
 		}
 
-		setBreadcrumbSizes({
+		setNavbarChildSizes({
 			projectListButtonWidth:
 				navbarBreadcrumbButtonElements[0] === undefined
 					? 0
-					: breadcrumbSizes.projectListButtonWidth !== null &&
-					  breadcrumbSizes.projectListButtonWidth !== 0
-					? breadcrumbSizes.projectListButtonWidth
+					: navbarChildSizes.projectListButtonWidth !== null &&
+					  navbarChildSizes.projectListButtonWidth !== 0
+					? navbarChildSizes.projectListButtonWidth
 					: getElementSize(navbarBreadcrumbButtonElements[0]).width,
 			projectItemButtonWidth:
 				navbarBreadcrumbButtonElements[1] === undefined
@@ -275,9 +276,9 @@ export default function NavbarBreadcrumb() {
 			bugListButtonWidth:
 				navbarBreadcrumbButtonElements[2] === undefined
 					? 0
-					: breadcrumbSizes.bugListButtonWidth !== null &&
-					  breadcrumbSizes.bugListButtonWidth !== 0
-					? breadcrumbSizes.bugListButtonWidth
+					: navbarChildSizes.bugListButtonWidth !== null &&
+					  navbarChildSizes.bugListButtonWidth !== 0
+					? navbarChildSizes.bugListButtonWidth
 					: getElementSize(navbarBreadcrumbButtonElements[2]).width,
 			bugItemButtonWidth:
 				navbarBreadcrumbButtonElements[3] === undefined
@@ -286,10 +287,18 @@ export default function NavbarBreadcrumb() {
 			dividerWidth:
 				navbarBreadcrumbDividerElement === undefined
 					? 0
-					: breadcrumbSizes.dividerWidth !== null &&
-					  breadcrumbSizes.dividerWidth !== 0
-					? breadcrumbSizes.dividerWidth
+					: navbarChildSizes.dividerWidth !== null &&
+					  navbarChildSizes.dividerWidth !== 0
+					? navbarChildSizes.dividerWidth
 					: newDividerWidth,
+			accountButtonWidth:
+				navbarChildSizes.accountButtonWidth !== null
+					? navbarChildSizes.accountButtonWidth
+					: getElementSize(
+							document.getElementsByClassName(
+								"js-navbar-account-button-container"
+							)[0]
+					  ).width,
 		});
 
 		navbarBreadcrumbButtonElements.forEach((element, index) => {
@@ -298,13 +307,10 @@ export default function NavbarBreadcrumb() {
 		// eslint-disable-next-line
 	}, [
 		buttonText,
-		// eslint-disable-next-line
-		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
-		// eslint-disable-next-line
-		reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
+		buttonState
 	]);
 
-	// Sets breadcrumbStyles
+	// Sets navbarChildStyles
 	useEffect(() => {
 		let navbarBreadcrumbElement = document.getElementsByClassName(
 			"js-navbar-breadcrumb"
@@ -324,11 +330,11 @@ export default function NavbarBreadcrumb() {
 			standInBreadcrumbDividerElement
 		);
 
-		setBreadcrumbStyles({
-			componentPaddingLeft: stripNonDigits(
+		setNavbarChildStyles({
+			breadcrumbPaddingLeft: stripNonDigits(
 				navbarBreadcrumbElementSyle.paddingLeft
 			),
-			componentPaddingRight: stripNonDigits(
+			breadcrumbPaddingRight: stripNonDigits(
 				navbarBreadcrumbElementSyle.paddingRight
 			),
 			dividerPaddingLeft: stripNonDigits(
@@ -345,56 +351,54 @@ export default function NavbarBreadcrumb() {
 		// eslint-disable-next-line
 	}, []);
 
-	// Checks if there is enough space for all breadcrumb buttons to display
+	// Updates canAllButtonsDisplay
 	useEffect(() => {
 		if (
-			breadcrumbStyles.componentPaddingLeft !== null &&
-			breadcrumbStyles.componentPaddingRight !== null &&
-			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth !== null
+			navbarChildStyles.breadcrumbPaddingLeft !== null &&
+			navbarChildStyles.breadcrumbPaddingRight !== null &&
+			navbarChildSizes.accountButtonWidth !== null &&
+			reduxState[SIZE_CONTAINER].variables.navbar !== null
 		) {
 			setCanAllButtonsDisplay(
-				breadcrumbStyles.componentPaddingLeft +
-					breadcrumbStyles.componentPaddingRight +
+				navbarChildStyles.breadcrumbPaddingLeft +
+					navbarChildStyles.breadcrumbPaddingRight +
 					(buttonDisplayLogic.projectList
-						? breadcrumbSizes.projectListButtonWidth
+						? navbarChildSizes.projectListButtonWidth
 						: 0) +
 					(buttonDisplayLogic.projectItem
-						? breadcrumbSizes.projectItemButtonWidth
+						? navbarChildSizes.projectItemButtonWidth
 						: 0) +
 					(buttonDisplayLogic.bugList
-						? breadcrumbSizes.bugListButtonWidth
+						? navbarChildSizes.bugListButtonWidth
 						: 0) +
 					(buttonDisplayLogic.bugItem
-						? breadcrumbSizes.bugItemButtonWidth
+						? navbarChildSizes.bugItemButtonWidth
 						: 0) +
-					breadcrumbSizes.dividerWidth *
+					navbarChildSizes.dividerWidth *
 						(buttonDisplayLogic.projectItem +
 							buttonDisplayLogic.bugList +
 							buttonDisplayLogic.bugItem) <
 					reduxState[SIZE_CONTAINER].variables.navbar.width -
-						reduxState[SIZE_CONTAINER].constants.navbarAccountButtonWidth
+						navbarChildSizes.accountButtonWidth
 			);
 		}
 		// eslint-disable-next-line
 	}, [
-		breadcrumbStyles,
-		breadcrumbSizes,
+		navbarChildStyles,
+		navbarChildSizes,
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].variables,
-		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER].constants,
 	]);
 
 	// Creates collapsing/expanding visual effect by setting breadcrumb button/divider widths
 	useEffect(() => {
 		if (
-			breadcrumbStyles.dividerPaddingLeft !== null &&
-			breadcrumbStyles.dividerPaddingRight !== null &&
-			breadcrumbSizes.projectListButtonWidth !== null &&
-			breadcrumbSizes.projectItemButtonWidth !== null &&
-			breadcrumbSizes.bugListButtonWidth !== null &&
-			breadcrumbSizes.bugItemButtonWidth !== null
+			navbarChildStyles.dividerPaddingLeft !== null &&
+			navbarChildStyles.dividerPaddingRight !== null &&
+			navbarChildSizes.projectListButtonWidth !== null &&
+			navbarChildSizes.projectItemButtonWidth !== null &&
+			navbarChildSizes.bugListButtonWidth !== null &&
+			navbarChildSizes.bugItemButtonWidth !== null
 		) {
 			let navbarBreadcrumbElement = document.getElementsByClassName(
 				"js-navbar-breadcrumb"
@@ -411,17 +415,17 @@ export default function NavbarBreadcrumb() {
 					switch (index) {
 						case 0:
 							element.style.width =
-								breadcrumbSizes.projectListButtonWidth + "px";
+								navbarChildSizes.projectListButtonWidth + "px";
 							break;
 						case 1:
 							element.style.width =
-								breadcrumbSizes.projectItemButtonWidth + "px";
+								navbarChildSizes.projectItemButtonWidth + "px";
 							break;
 						case 2:
-							element.style.width = breadcrumbSizes.bugListButtonWidth + "px";
+							element.style.width = navbarChildSizes.bugListButtonWidth + "px";
 							break;
 						case 3:
-							element.style.width = breadcrumbSizes.bugItemButtonWidth + "px";
+							element.style.width = navbarChildSizes.bugItemButtonWidth + "px";
 							break;
 						default:
 							break;
@@ -430,9 +434,9 @@ export default function NavbarBreadcrumb() {
 
 				navbarBreadcrumbDividerElements.forEach((element) => {
 					element.style.width =
-						breadcrumbSizes.dividerWidth -
-						breadcrumbStyles.dividerPaddingLeft -
-						breadcrumbStyles.dividerPaddingRight +
+						navbarChildSizes.dividerWidth -
+						navbarChildStyles.dividerPaddingLeft -
+						navbarChildStyles.dividerPaddingRight +
 						"px";
 				});
 			} else {
@@ -448,7 +452,7 @@ export default function NavbarBreadcrumb() {
 			}
 		}
 		// eslint-disable-next-line
-	}, [breadcrumbStyles, breadcrumbSizes, canAllButtonsDisplay]);
+	}, [navbarChildStyles, navbarChildSizes, canAllButtonsDisplay]);
 
 	const getDividerIcon = () => {
 		return <FontAwesomeIcon icon={faChevronRight} size="xs" />;
