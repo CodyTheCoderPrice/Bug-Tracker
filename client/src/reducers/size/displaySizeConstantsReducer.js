@@ -6,9 +6,6 @@ const initialState = {
 	// ...They are set during a useEffect in Navbar component that calls several
 	// ...functionas to their values.
 	scrollbarWidth: null,
-	navPanelTopContainerHeight: null,
-	navPanelButtonListComponentSizesAndStyles: null,
-	navbarAccountButtonWidth: null,
 	listViewTopBarComponentHeight: null,
 	listViewTableComponentRowElementHeight: null,
 	itemViewComponentPaddingContainerElementLeftPadding: null,
@@ -30,18 +27,6 @@ const initialState = {
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
- * 	navPanelTopContainerHeight: (number|null),
- * 	navPanelButtonListComponentSizesAndStyles: ({
- * 		subOverflowContainerWithScrollbarMarginTop: number,
- * 		subOverflowContainerWithScrollbarMarginBottom: number,
- * 		subOverflowContainerWithScrollbarPaddingTop: number,
- * 		subOverflowContainerWithScrollbarPaddingBottom: number,
- * 		subOverflowContainerWithScrollbarAndForBugsMarginBottom: number,
- * 		subOverflowContainerWithScrollbarAndForBugsPaddingBottom: number,
- * 		listButtonHeight: number,
- * 		listButtonWithTopSpacingMarginTop: number,
- * 		listButtonWithBottomSpacingMarginBottom: number }|null),
- * 	navbarAccountButtonWidth: (number|null),
  * 	listViewTopBarComponentHeight: (number|null),
  * 	listViewTableComponentRowElementHeight: (number|null),
  *  itemViewComponentPaddingContainerElementLeftPadding: (number|null),
@@ -56,18 +41,6 @@ const initialState = {
  * data to be updated in the redux state).
  * @returns {{
  * 	scrollbarWidth: (number|null),
- * 	navPanelTopContainerHeight: (number|null),
- * 	navPanelButtonListComponentSizesAndStyles: ({
- * 		subOverflowContainerWithScrollbarMarginTop: number,
- * 		subOverflowContainerWithScrollbarMarginBottom: number,
- * 		subOverflowContainerWithScrollbarPaddingTop: number,
- * 		subOverflowContainerWithScrollbarPaddingBottom: number,
- * 		subOverflowContainerWithScrollbarAndForBugsMarginBottom: number,
- * 		subOverflowContainerWithScrollbarAndForBugsPaddingBottom: number,
- * 		listButtonHeight: number,
- * 		listButtonWithTopSpacingMarginTop: number,
- * 		listButtonWithBottomSpacingMarginBottom: number }|null),
- * 	navbarAccountButtonWidth: (number|null),
  * 	listViewTopBarComponentHeight: (number|null),
  * 	listViewTableComponentRowElementHeight: (number|null),
  * 	itemViewComponentPaddingContainerElementLeftPadding: (number|null),
@@ -84,10 +57,6 @@ export default function displaySizeConstantsReducer(
 		case SET_DISPLAY_SIZE_CONSTANTS:
 			return {
 				scrollbarWidth: action.sizes.scrollbarWidth,
-				navPanelTopContainerHeight: action.sizes.navPanelTopContainerHeight,
-				navPanelButtonListComponentSizesAndStyles:
-					action.sizes.navPanelButtonListComponentSizesAndStyles,
-				navbarAccountButtonWidth: action.sizes.navbarAccountButtonWidth,
 				listViewTopBarComponentHeight:
 					action.sizes.listViewTopBarComponentHeight,
 				listViewTableComponentRowElementHeight:

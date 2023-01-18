@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	SIZE_CONTAINER,
@@ -8,6 +8,7 @@ import {
 } from "../../../../actions/constants/containerNames";
 import {
 	getElementSize,
+	getNavPanelButtonListSizesAndStyles,
 	toggleClassName,
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectsListView,
@@ -24,6 +25,20 @@ import NavPanelButtonListSubItem from "./NavPanelButtonListSubItem";
 export default function NavPanelButtonList() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	const [navPanelChildSizesAndStyles, setNavPanelChildSizesAndStyles] =
+		useState({
+			navPanelTopContainerHeight: null,
+			subOverflowContainerWithScrollbarMarginTop: null,
+			subOverflowContainerWithScrollbarMarginBottom: null,
+			subOverflowContainerWithScrollbarPaddingTop: null,
+			subOverflowContainerWithScrollbarPaddingBottom: null,
+			subOverflowContainerWithScrollbarAndForBugsMarginBottom: null,
+			subOverflowContainerWithScrollbarAndForBugsPaddingBottom: null,
+			listButtonHeight: null,
+			listButtonWithTopSpacingMarginTop: null,
+			listButtonWithBottomSpacingMarginBottom: null,
+		});
 
 	const shouldAnyProjectSubItemsDisplay =
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
@@ -45,12 +60,34 @@ export default function NavPanelButtonList() {
 			.listViewComponentShouldDisplay ||
 		reduxState[BUG_CONTAINER].componentsDisplay.itemViewComponentShouldDisplay;
 
+	// Sets navPanelChildSizesAndStyles
+	useEffect(() => {
+		setNavPanelChildSizesAndStyles({
+			navPanelTopContainerHeight: getElementSize(
+				document.getElementsByClassName("js-nav-panel-top-container")[0]
+			).height,
+			...getNavPanelButtonListSizesAndStyles(),
+		});
+	}, []);
+
 	// Resize overflow-container height to fit the nav-panel when there is not
 	// ...enough room
 	useEffect(() => {
 		if (
 			reduxState[SIZE_CONTAINER].variables.navPanel !== null &&
-			reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight !== null
+			navPanelChildSizesAndStyles.navPanelTopContainerHeight !== null &&
+			navPanelChildSizesAndStyles.listButtonWithTopSpacingMarginTop !== null &&
+			navPanelChildSizesAndStyles.listButtonWithBottomSpacingMarginBottom !==
+				null &&
+			navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarMarginTop !==
+				null &&
+			navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarMarginBottom !==
+				null &&
+			navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingTop !==
+				null &&
+			navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingBottom !==
+				null &&
+			navPanelChildSizesAndStyles.listButtonHeight !== null
 		) {
 			let projectSubOverflowContainerElement = document.getElementsByClassName(
 				"js-project-sub-overflow-container"
@@ -59,28 +96,14 @@ export default function NavPanelButtonList() {
 			if (shouldAllProjectSubItemsDisplay) {
 				const adjustedNavPanelHeight =
 					reduxState[SIZE_CONTAINER].variables.navPanel.height -
-					reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.listButtonWithTopSpacingMarginTop -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.listButtonWithBottomSpacingMarginBottom -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarMarginTop -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarMarginBottom -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarPaddingTop -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarPaddingBottom -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles.listButtonHeight *
-						2;
+					navPanelChildSizesAndStyles.navPanelTopContainerHeight -
+					navPanelChildSizesAndStyles.listButtonWithTopSpacingMarginTop -
+					navPanelChildSizesAndStyles.listButtonWithBottomSpacingMarginBottom -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarMarginTop -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarMarginBottom -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingTop -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingBottom -
+					navPanelChildSizesAndStyles.listButtonHeight * 2;
 
 				// Using different element as height will be "auto" and natural
 				// ...size can be measured
@@ -115,9 +138,7 @@ export default function NavPanelButtonList() {
 				// Causes element to transition out
 				projectSubOverflowContainerElement.style.height =
 					shouldAnyProjectSubItemsDisplay
-						? reduxState[SIZE_CONTAINER].constants
-								.navPanelButtonListComponentSizesAndStyles.listButtonHeight +
-						  "px"
+						? navPanelChildSizesAndStyles.listButtonHeight + "px"
 						: "0px";
 
 				toggleClassName(
@@ -134,25 +155,13 @@ export default function NavPanelButtonList() {
 			if (shouldAllBugSubItemsDisplay) {
 				const adjustedNavPanelHeight =
 					reduxState[SIZE_CONTAINER].variables.navPanel.height -
-					reduxState[SIZE_CONTAINER].constants.navPanelTopContainerHeight -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.listButtonWithTopSpacingMarginTop -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarMarginTop -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarAndForBugsMarginBottom -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarPaddingTop -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles
-						.subOverflowContainerWithScrollbarAndForBugsPaddingBottom -
-					reduxState[SIZE_CONTAINER].constants
-						.navPanelButtonListComponentSizesAndStyles.listButtonHeight *
-						3;
+					navPanelChildSizesAndStyles.navPanelTopContainerHeight -
+					navPanelChildSizesAndStyles.listButtonWithTopSpacingMarginTop -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarMarginTop -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarAndForBugsMarginBottom -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingTop -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarAndForBugsPaddingBottom -
+					navPanelChildSizesAndStyles.listButtonHeight * 3;
 
 				// Using different element as height will be "auto" and natural
 				// ...size can be measured
@@ -197,8 +206,7 @@ export default function NavPanelButtonList() {
 	}, [
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].variables,
-		// eslint-disable-next-line
-		reduxState[SIZE_CONTAINER].constants,
+		navPanelChildSizesAndStyles,
 		// eslint-disable-next-line
 		reduxState[PROJECT_CONTAINER].list,
 		// eslint-disable-next-line

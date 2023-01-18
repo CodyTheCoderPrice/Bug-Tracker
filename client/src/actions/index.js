@@ -33,18 +33,6 @@ export * from "./resetActions";
  *
  * @param {{
  * 	scrollbarWidth: (number|null),
- * 	navPanelTopContainerHeight: (number|null),
- * 	navPanelButtonListComponentSizesAndStyles: ({
- * 		subOverflowContainerWithScrollbarMarginTop: number,
- * 		subOverflowContainerWithScrollbarMarginBottom: number,
- * 		subOverflowContainerWithScrollbarPaddingTop: number,
- * 		subOverflowContainerWithScrollbarPaddingBottom: number,
- * 		subOverflowContainerWithScrollbarAndForBugsMarginBottom: number,
- * 		subOverflowContainerWithScrollbarAndForBugsPaddingBottom: number,
- * 		listButtonHeight: number,
- * 		listButtonWithTopSpacingMarginTop: number,
- * 		listButtonWithBottomSpacingMarginBottom: number }|null),
- * 	navbarAccountButtonWidth: (number|null),
  * 	listViewTopBarComponentHeight: (number|null),
  * 	listViewTableComponentRowElementHeight: (number|null),
  *  itemViewComponentPaddingContainerElementLeftPadding: (number|null),
@@ -59,18 +47,6 @@ export * from "./resetActions";
  * dispatch(
  * 	setDisplaySizeConstants({
  * 		scrollbarWidth: 17,
- * 		navPanelTopContainerHeight: 56,
- * 		navPanelButtonListComponentSizesAndStyles: {
- * 			subOverflowContainerWithScrollbarMarginTop: 10,
- * 			subOverflowContainerWithScrollbarMarginBottom: 10,
- * 			subOverflowContainerWithScrollbarPaddingTop: 10,
- * 			subOverflowContainerWithScrollbarPaddingBottom: 10,
- * 			subOverflowContainerWithScrollbarAndForBugsMarginBottom: 0,
- * 			subOverflowContainerWithScrollbarAndForBugsPaddingBottom: 20,
- * 			listButtonHeight: 40,
- * 			listButtonWithTopSpacingMarginTop: 10,
- * 			listButtonWithBottomSpacingMarginBottom: 30 },
- * 		navbarAccountButtonWidth: 170,
  * 		listViewTopBarComponentHeight: 48,
  * 		listViewTableComponentRowElementHeight: 50,
  * 		itemViewComponentPaddingContainerElementLeftPadding: 25,
