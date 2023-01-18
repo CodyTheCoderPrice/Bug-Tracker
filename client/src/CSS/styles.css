@@ -439,6 +439,9 @@
 .nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button,
 .js-get-nav-panel-button-list-component .list-button,
 .js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button {
+  -moz-transition: background-color 0.35s ease-in-out;
+  -webkit-transition: background-color 0.35s ease-in-out;
+  transition: background-color 0.35s ease-in-out;
   display: flex;
   margin: 0 10px;
   border-radius: 5px;
@@ -477,6 +480,9 @@
 }
 .nav-panel-button-list-component .nav-panel-button-list-sub-item-component,
 .js-get-nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
+  -moz-transition: background-color 0.35s ease-in-out;
+  -webkit-transition: background-color 0.35s ease-in-out;
+  transition: background-color 0.35s ease-in-out;
   display: flex;
   margin: 0 10px;
   border-radius: 5px;

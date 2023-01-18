@@ -75,6 +75,10 @@
 	}
 
 	@mixin buttons-shared-styles() {
+		@include m.set-transition(
+			background-color v.$nav-panel-button-list-transition-time ease-in-out
+		);
+
 		display: flex;
 		margin: 0 v.$nav-panel-button-margin-left-right;
 		border-radius: 5px;
