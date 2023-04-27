@@ -16,8 +16,15 @@
 			height v.$nav-panel-button-list-transition-time ease-in-out
 		);
 
+		// Actual height is set via JS causing a transition
 		height: 0px;
+		// Keeps text from appearing when height is 0
 		overflow: hidden;
+	}
+
+	.sub-overflow-container--for-bugs,
+	.js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs {
+		margin-bottom: 20px;
 	}
 
 	.sub-overflow-container--scrollbar-present,
@@ -54,35 +61,23 @@
 		}
 	}
 
-	.sub-overflow-container--for-bugs,
-	.js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs {
+	.sub-overflow-container--scrollbar-for-bugs,
+	.js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-for-bugs {
 		margin-bottom: v.$nav-panel-button-list-sub-overflow-container-for-bugs-margin-bottom;
 		padding-bottom: v.$nav-panel-button-list-sub-overflow-container-for-bugs-padding-bottom;
 	}
 
-	@include m.set-fade-in-fade-out-rules();
-
-	.sub-overflow-container--fade-in {
-		@include m.set-animation(
-			fadeIn v.$nav-panel-button-list-transition-time linear forwards
-		);
-	}
-
-	.sub-overflow-container--fade-out {
-		@include m.set-animation(
-			fadeOut v.$nav-panel-button-list-transition-time linear forwards
-		);
-	}
-
 	@mixin buttons-shared-styles() {
 		@include m.set-transition(
-			background-color v.$nav-panel-button-list-transition-time ease-in-out
+			background-color v.$nav-panel-button-list-transition-time ease-in-out,
+			// Only used for sub-items, but placed here to avoid setting 
+			// ...transition twice
+			height v.$nav-panel-button-list-transition-time ease-in-out
 		);
 
 		display: flex;
 		margin: 0 v.$nav-panel-button-margin-left-right;
 		border-radius: 5px;
-		height: 40px;
 		cursor: pointer;
 		align-items: center;
 	}
@@ -91,17 +86,13 @@
 	.js-get-nav-panel-button-list-component-list-button {
 		@include buttons-shared-styles();
 		padding: 0px v.$nav-panel-button-list-main-item-padding-left-right;
+		height: 40px;
 		font-size: v.$nav-panel-button-list-item-button-font-size;
 	}
 
 	.list-button--top-spacing,
 	.js-get-nav-panel-button-list-component-list-button--top-spacing {
 		margin-top: 10px;
-	}
-
-	.list-button--bottom-spacing,
-	.js-get-nav-panel-button-list-component-list-button--bottom-spacing {
-		margin-bottom: 20px;
 	}
 
 	.list-button--unclickable {
@@ -121,7 +112,24 @@
 
 	.nav-panel-button-list-sub-item-component {
 		@include buttons-shared-styles();
+
 		padding: 0 5px 0 v.$nav-panel-button-list-sub-item-padding-left;
+		// Keeps text from appearing when height is 0
+		overflow: hidden;
+	}
+
+	@include m.set-fade-in-fade-out-rules();
+
+	.nav-panel-button-list-sub-item-component--fade-in {
+		@include m.set-animation(
+			fadeIn v.$nav-panel-button-list-transition-time linear forwards
+		);
+	}
+
+	.nav-panel-button-list-sub-item-component--fade-out {
+		@include m.set-animation(
+			fadeOut v.$nav-panel-button-list-transition-time linear forwards
+		);
 	}
 
 	.list-button__tooltip-container {

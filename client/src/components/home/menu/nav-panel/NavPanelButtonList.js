@@ -29,35 +29,40 @@ export default function NavPanelButtonList() {
 	const [navPanelChildSizesAndStyles, setNavPanelChildSizesAndStyles] =
 		useState({
 			navPanelTopContainerHeight: null,
+			subOverflowContainerForBugsMarginBottom: null,
 			subOverflowContainerWithScrollbarMarginTop: null,
 			subOverflowContainerWithScrollbarMarginBottom: null,
 			subOverflowContainerWithScrollbarPaddingTop: null,
 			subOverflowContainerWithScrollbarPaddingBottom: null,
-			subOverflowContainerWithScrollbarAndForBugsMarginBottom: null,
-			subOverflowContainerWithScrollbarAndForBugsPaddingBottom: null,
+			subOverflowContainerWithScrollbarForBugsMarginBottom: null,
+			subOverflowContainerWithScrollbarForBugsPaddingBottom: null,
 			listButtonHeight: null,
 			listButtonWithTopSpacingMarginTop: null,
-			listButtonWithBottomSpacingMarginBottom: null,
 		});
+
+	const [buttonListSubItemsStatus, setButtonListSubItemsStatus] = useState({
+		projectAnyButtonsInitialHeightSetToZero: false,
+		projectAllButtonsInitialHeightSetToZero: false,
+		bugAnyButtonsInitialHeightSetToZero: false,
+		bugAllButtonsInitialHeightSetToZero: false,
+	});
 
 	const shouldAnyProjectSubItemsDisplay =
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
 		null;
 
 	const shouldAllProjectSubItemsDisplay =
-		shouldAnyProjectSubItemsDisplay &&
-		(reduxState[PROJECT_CONTAINER].componentsDisplay
-			.listViewComponentShouldDisplay ||
-			reduxState[PROJECT_CONTAINER].componentsDisplay
-				.itemViewComponentShouldDisplay);
+		reduxState[PROJECT_CONTAINER].componentsDisplay
+			.itemViewComponentShouldDisplay;
 
 	const shouldBugListButtonBeClickable =
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
 		null;
 
+	const shouldAnyBugSubItemsDisplay =
+		reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem !== null;
+
 	const shouldAllBugSubItemsDisplay =
-		reduxState[BUG_CONTAINER].componentsDisplay
-			.listViewComponentShouldDisplay ||
 		reduxState[BUG_CONTAINER].componentsDisplay.itemViewComponentShouldDisplay;
 
 	// Sets navPanelChildSizesAndStyles
@@ -70,6 +75,23 @@ export default function NavPanelButtonList() {
 		});
 	}, []);
 
+	// Updates buttonListSubItemsStatus
+	useEffect(() => {
+		// Since it will take 1 cycle to update, the sub item buttons will have
+		// ...had a chance to have their height set to zero
+		setButtonListSubItemsStatus({
+			projectAnyButtonsInitialHeightSetToZero: shouldAnyProjectSubItemsDisplay,
+			projectAllButtonsInitialHeightSetToZero: shouldAllProjectSubItemsDisplay,
+			bugAnyButtonsInitialHeightSetToZero: shouldAnyBugSubItemsDisplay,
+			bugAllButtonsInitialHeightSetToZero: shouldAllBugSubItemsDisplay,
+		});
+	}, [
+		shouldAnyProjectSubItemsDisplay,
+		shouldAllProjectSubItemsDisplay,
+		shouldAnyBugSubItemsDisplay,
+		shouldAllBugSubItemsDisplay,
+	]);
+
 	// Resize overflow-container height to fit the nav-panel when there is not
 	// ...enough room
 	useEffect(() => {
@@ -77,7 +99,7 @@ export default function NavPanelButtonList() {
 			reduxState[SIZE_CONTAINER].variables.navPanel !== null &&
 			navPanelChildSizesAndStyles.navPanelTopContainerHeight !== null &&
 			navPanelChildSizesAndStyles.listButtonWithTopSpacingMarginTop !== null &&
-			navPanelChildSizesAndStyles.listButtonWithBottomSpacingMarginBottom !==
+			navPanelChildSizesAndStyles.subOverflowContainerForBugsMarginBottom !==
 				null &&
 			navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarMarginTop !==
 				null &&
@@ -93,27 +115,27 @@ export default function NavPanelButtonList() {
 				"js-project-sub-overflow-container"
 			)[0];
 
-			if (shouldAllProjectSubItemsDisplay) {
+			if (
+				shouldAllProjectSubItemsDisplay &&
+				buttonListSubItemsStatus.projectAllButtonsInitialHeightSetToZero
+			) {
 				const adjustedNavPanelHeight =
 					reduxState[SIZE_CONTAINER].variables.navPanel.height -
 					navPanelChildSizesAndStyles.navPanelTopContainerHeight -
 					navPanelChildSizesAndStyles.listButtonWithTopSpacingMarginTop -
-					navPanelChildSizesAndStyles.listButtonWithBottomSpacingMarginBottom -
+					navPanelChildSizesAndStyles.subOverflowContainerForBugsMarginBottom -
 					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarMarginTop -
 					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarMarginBottom -
 					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingTop -
 					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingBottom -
-					navPanelChildSizesAndStyles.listButtonHeight * 2;
+					navPanelChildSizesAndStyles.listButtonHeight * 2 -
+					(shouldAnyBugSubItemsDisplay
+						? navPanelChildSizesAndStyles.listButtonHeight
+						: 0);
 
-				// Using different element as height will be "auto" and natural
-				// ...size can be measured
-				let allProjectButtonListSubItems = document.getElementsByClassName(
-					"js-all-project-button-list-sub-items"
-				)[0];
-
-				const allProjectButtonListSubItemsHeight = getElementSize(
-					allProjectButtonListSubItems
-				).height;
+				const allProjectButtonListSubItemsHeight =
+					navPanelChildSizesAndStyles.listButtonHeight *
+					projectSubOverflowContainerElement.firstElementChild.children.length;
 
 				if (adjustedNavPanelHeight < allProjectButtonListSubItemsHeight) {
 					projectSubOverflowContainerElement.style.height =
@@ -135,7 +157,6 @@ export default function NavPanelButtonList() {
 					);
 				}
 			} else {
-				// Causes element to transition out
 				projectSubOverflowContainerElement.style.height =
 					shouldAnyProjectSubItemsDisplay
 						? navPanelChildSizesAndStyles.listButtonHeight + "px"
@@ -158,32 +179,26 @@ export default function NavPanelButtonList() {
 					navPanelChildSizesAndStyles.navPanelTopContainerHeight -
 					navPanelChildSizesAndStyles.listButtonWithTopSpacingMarginTop -
 					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarMarginTop -
-					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarAndForBugsMarginBottom -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarForBugsMarginBottom -
 					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingTop -
-					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarAndForBugsPaddingBottom -
+					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarForBugsPaddingBottom -
 					navPanelChildSizesAndStyles.listButtonHeight * 3;
 
-				// Using different element as height will be "auto" and natural
-				// ...size can be measured
-				let allBugButtonListSubItems = document.getElementsByClassName(
-					"js-all-bug-button-list-sub-items"
-				)[0];
-
-				const allBugButtonListSubItemsHeight = getElementSize(
-					allBugButtonListSubItems
-				).height;
+				const allBugButtonListSubItemsHeight =
+					navPanelChildSizesAndStyles.listButtonHeight *
+					bugSubOverflowContainerElement.firstElementChild.children.length;
 
 				if (adjustedNavPanelHeight < allBugButtonListSubItemsHeight) {
 					toggleClassName(
 						true,
 						bugSubOverflowContainerElement,
-						"sub-overflow-container--scrollbar-present sub-overflow-container--for-bugs"
+						"sub-overflow-container--scrollbar-present sub-overflow-container--scrollbar-for-bugs"
 					);
 				} else {
 					toggleClassName(
 						false,
 						bugSubOverflowContainerElement,
-						"sub-overflow-container--scrollbar-present sub-overflow-container--for-bugs"
+						"sub-overflow-container--scrollbar-present sub-overflow-container--scrollbar-for-bugs"
 					);
 				}
 
@@ -192,13 +207,15 @@ export default function NavPanelButtonList() {
 				bugSubOverflowContainerElement.style.height =
 					adjustedNavPanelHeight + "px";
 			} else {
-				// Causes element to transition out
-				bugSubOverflowContainerElement.style.height = "0px";
+				bugSubOverflowContainerElement.style.height =
+					shouldAnyBugSubItemsDisplay
+						? navPanelChildSizesAndStyles.listButtonHeight + "px"
+						: "0px";
 
 				toggleClassName(
 					false,
 					bugSubOverflowContainerElement,
-					"sub-overflow-container--scrollbar-present sub-overflow-container--for-bugs"
+					"sub-overflow-container--scrollbar-present sub-overflow-container--scrollbar-for-bugs"
 				);
 			}
 		}
@@ -215,8 +232,11 @@ export default function NavPanelButtonList() {
 		reduxState[PROJECT_CONTAINER].searchFilterSort,
 		// eslint-disable-next-line
 		reduxState[BUG_CONTAINER].searchFilterSort,
+		shouldAnyProjectSubItemsDisplay,
 		shouldAllProjectSubItemsDisplay,
+		shouldAnyBugSubItemsDisplay,
 		shouldAllBugSubItemsDisplay,
+		buttonListSubItemsStatus,
 	]);
 
 	return (
@@ -243,35 +263,35 @@ export default function NavPanelButtonList() {
 				Projects
 			</div>
 			<div
-				className={
-					"sub-overflow-container js-project-sub-overflow-container" +
-					(shouldAnyProjectSubItemsDisplay
-						? " sub-overflow-container--fade-in"
-						: " sub-overflow-container--fade-out")
-				}
+				className={"sub-overflow-container js-project-sub-overflow-container"}
 			>
-				{!shouldAnyProjectSubItemsDisplay ? null : shouldAllProjectSubItemsDisplay ? (
-					<div className="js-all-project-button-list-sub-items">
+				{!shouldAnyProjectSubItemsDisplay ? null : (
+					<div>
 						{getSearchedFilteredSortedList(reduxState, PROJECT_CONTAINER).map(
 							(item, idx) => {
 								return (
 									<NavPanelButtonListSubItem
 										key={idx}
 										item={item}
+										idx={idx}
 										reduxContainerName={PROJECT_CONTAINER}
+										shouldAllSubItemsDisplay={shouldAllProjectSubItemsDisplay}
+										initialHeightSetToZero={
+											(reduxState[PROJECT_CONTAINER].componentsDisplay
+												.itemViewCurrentItem !== null &&
+												reduxState[PROJECT_CONTAINER].componentsDisplay
+													.itemViewCurrentItem.id === item.id &&
+												buttonListSubItemsStatus.projectAnyButtonsInitialHeightSetToZero) ||
+											buttonListSubItemsStatus.projectAllButtonsInitialHeightSetToZero
+										}
+										expandedHeight={
+											navPanelChildSizesAndStyles.listButtonHeight
+										}
 									/>
 								);
 							}
 						)}
 					</div>
-				) : (
-					<NavPanelButtonListSubItem
-						item={
-							reduxState[PROJECT_CONTAINER].componentsDisplay
-								.itemViewCurrentItem
-						}
-						reduxContainerName={PROJECT_CONTAINER}
-					/>
 				)}
 			</div>
 			<div
@@ -317,22 +337,31 @@ export default function NavPanelButtonList() {
 			</div>
 			<div
 				className={
-					"sub-overflow-container js-bug-sub-overflow-container" +
-					(shouldAllBugSubItemsDisplay
-						? " sub-overflow-container--fade-in"
-						: " sub-overflow-container--fade-out")
+					"sub-overflow-container sub-overflow-container--for-bugs js-bug-sub-overflow-container"
 				}
 			>
-				{reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
-				null ? null : (
-					<div className="js-all-bug-button-list-sub-items">
+				{!shouldAnyBugSubItemsDisplay ? null : (
+					<div>
 						{getSearchedFilteredSortedList(reduxState, BUG_CONTAINER).map(
 							(item, idx) => {
 								return (
 									<NavPanelButtonListSubItem
 										key={idx}
 										item={item}
+										idx={idx}
 										reduxContainerName={BUG_CONTAINER}
+										shouldAllSubItemsDisplay={shouldAllBugSubItemsDisplay}
+										initialHeightSetToZero={
+											(reduxState[BUG_CONTAINER].componentsDisplay
+												.itemViewCurrentItem !== null &&
+												reduxState[BUG_CONTAINER].componentsDisplay
+													.itemViewCurrentItem.id === item.id &&
+												buttonListSubItemsStatus.bugAnyButtonsInitialHeightSetToZero) ||
+											buttonListSubItemsStatus.bugAllButtonsInitialHeightSetToZero
+										}
+										expandedHeight={
+											navPanelChildSizesAndStyles.listButtonHeight
+										}
 									/>
 								);
 							}

@@ -46,7 +46,14 @@ export default function NavPanelButtonListSubItem(props) {
 					  getCommonBrighterBackgroundColorClassNameForTheme(
 							reduxState[ACCOUNT_CONTAINER].settings.theme_color
 					  )
-					: "")
+					: "") +
+				(props.shouldAllSubItemsDisplay ||
+				(reduxState[props.reduxContainerName].componentsDisplay
+					.itemViewCurrentItem !== null &&
+					reduxState[props.reduxContainerName].componentsDisplay
+						.itemViewCurrentItem.id === props.item.id)
+					? " nav-panel-button-list-sub-item-component--fade-in"
+					: " nav-panel-button-list-sub-item-component--fade-out")
 			}
 			aria-label={props.item.name}
 			onClick={() =>
@@ -56,6 +63,19 @@ export default function NavPanelButtonListSubItem(props) {
 					props.reduxContainerName,
 					props.item
 				)
+			}
+			/*Height set to 0 first to trigger a transititon*/
+			style={
+				props.initialHeightSetToZero &&
+				(props.shouldAllSubItemsDisplay ||
+					(reduxState[props.reduxContainerName].componentsDisplay
+						.itemViewCurrentItem !== null &&
+						reduxState[props.reduxContainerName].componentsDisplay
+							.itemViewCurrentItem.id === props.item.id))
+					? props.expandedHeight === null
+						? { height: "0" }
+						: { height: `${props.expandedHeight}px` }
+					: { height: "0" }
 			}
 		>
 			{props.soloProject ? (

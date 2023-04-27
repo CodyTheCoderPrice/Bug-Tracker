@@ -341,11 +341,17 @@
 .nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container,
 .js-get-nav-panel-button-list-component .sub-overflow-container,
 .js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container {
-  -moz-transition: margin 0.35s ease-in-out, box-shadow 0.35s ease-in-out, padding 0.35s ease-in-out, height 0.35s ease-in-out;
-  -webkit-transition: margin 0.35s ease-in-out, box-shadow 0.35s ease-in-out, padding 0.35s ease-in-out, height 0.35s ease-in-out;
-  transition: margin 0.35s ease-in-out, box-shadow 0.35s ease-in-out, padding 0.35s ease-in-out, height 0.35s ease-in-out;
+  -moz-transition: margin 0.4s ease-in-out, box-shadow 0.4s ease-in-out, padding 0.4s ease-in-out, height 0.4s ease-in-out;
+  -webkit-transition: margin 0.4s ease-in-out, box-shadow 0.4s ease-in-out, padding 0.4s ease-in-out, height 0.4s ease-in-out;
+  transition: margin 0.4s ease-in-out, box-shadow 0.4s ease-in-out, padding 0.4s ease-in-out, height 0.4s ease-in-out;
   height: 0px;
   overflow: hidden;
+}
+.nav-panel-button-list-component .sub-overflow-container--for-bugs,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs,
+.js-get-nav-panel-button-list-component .sub-overflow-container--for-bugs,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs {
+  margin-bottom: 20px;
 }
 .nav-panel-button-list-component .sub-overflow-container--scrollbar-present,
 .nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present,
@@ -386,12 +392,62 @@
 .js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-.nav-panel-button-list-component .sub-overflow-container--for-bugs,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs,
-.js-get-nav-panel-button-list-component .sub-overflow-container--for-bugs,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs {
+.nav-panel-button-list-component .sub-overflow-container--scrollbar-for-bugs,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-for-bugs,
+.js-get-nav-panel-button-list-component .sub-overflow-container--scrollbar-for-bugs,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-for-bugs {
   margin-bottom: 0px;
   padding-bottom: 20px;
+}
+.nav-panel-button-list-component .list-button,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button,
+.js-get-nav-panel-button-list-component .list-button,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button {
+  -moz-transition: background-color 0.4s ease-in-out, height 0.4s ease-in-out;
+  -webkit-transition: background-color 0.4s ease-in-out, height 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out, height 0.4s ease-in-out;
+  display: flex;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+  padding: 0px 10px;
+  height: 40px;
+  font-size: 16px;
+}
+.nav-panel-button-list-component .list-button--top-spacing,
+.nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--top-spacing,
+.js-get-nav-panel-button-list-component .list-button--top-spacing,
+.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--top-spacing {
+  margin-top: 10px;
+}
+.nav-panel-button-list-component .list-button--unclickable,
+.js-get-nav-panel-button-list-component .list-button--unclickable {
+  color: #464646;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.nav-panel-button-list-component .list-button--selected,
+.nav-panel-button-list-component .sub-item-button--selected,
+.js-get-nav-panel-button-list-component .list-button--selected,
+.js-get-nav-panel-button-list-component .sub-item-button--selected {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01), -1px 1px 1px rgba(0, 0, 0, 0.01);
+}
+.nav-panel-button-list-component .nav-panel-button-list-sub-item-component,
+.js-get-nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
+  -moz-transition: background-color 0.4s ease-in-out, height 0.4s ease-in-out;
+  -webkit-transition: background-color 0.4s ease-in-out, height 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out, height 0.4s ease-in-out;
+  display: flex;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+  padding: 0 5px 0 25px;
+  overflow: hidden;
 }
 @-webkit-keyframes fadeIn {
   0% {
@@ -425,71 +481,15 @@
     opacity: 0;
   }
 }
-.nav-panel-button-list-component .sub-overflow-container--fade-in,
-.js-get-nav-panel-button-list-component .sub-overflow-container--fade-in {
-  -webkit-animation: fadeIn 0.35s linear forwards;
-  animation: fadeIn 0.35s linear forwards;
+.nav-panel-button-list-component .nav-panel-button-list-sub-item-component--fade-in,
+.js-get-nav-panel-button-list-component .nav-panel-button-list-sub-item-component--fade-in {
+  -webkit-animation: fadeIn 0.4s linear forwards;
+  animation: fadeIn 0.4s linear forwards;
 }
-.nav-panel-button-list-component .sub-overflow-container--fade-out,
-.js-get-nav-panel-button-list-component .sub-overflow-container--fade-out {
-  -webkit-animation: fadeOut 0.35s linear forwards;
-  animation: fadeOut 0.35s linear forwards;
-}
-.nav-panel-button-list-component .list-button,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button,
-.js-get-nav-panel-button-list-component .list-button,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button {
-  -moz-transition: background-color 0.35s ease-in-out;
-  -webkit-transition: background-color 0.35s ease-in-out;
-  transition: background-color 0.35s ease-in-out;
-  display: flex;
-  margin: 0 10px;
-  border-radius: 5px;
-  height: 40px;
-  cursor: pointer;
-  align-items: center;
-  padding: 0px 10px;
-  font-size: 16px;
-}
-.nav-panel-button-list-component .list-button--top-spacing,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--top-spacing,
-.js-get-nav-panel-button-list-component .list-button--top-spacing,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--top-spacing {
-  margin-top: 10px;
-}
-.nav-panel-button-list-component .list-button--bottom-spacing,
-.nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--bottom-spacing,
-.js-get-nav-panel-button-list-component .list-button--bottom-spacing,
-.js-get-nav-panel-button-list-component .js-get-nav-panel-button-list-component-list-button--bottom-spacing {
-  margin-bottom: 20px;
-}
-.nav-panel-button-list-component .list-button--unclickable,
-.js-get-nav-panel-button-list-component .list-button--unclickable {
-  color: #464646;
-  cursor: default;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.nav-panel-button-list-component .list-button--selected,
-.nav-panel-button-list-component .sub-item-button--selected,
-.js-get-nav-panel-button-list-component .list-button--selected,
-.js-get-nav-panel-button-list-component .sub-item-button--selected {
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01), -1px 1px 1px rgba(0, 0, 0, 0.01);
-}
-.nav-panel-button-list-component .nav-panel-button-list-sub-item-component,
-.js-get-nav-panel-button-list-component .nav-panel-button-list-sub-item-component {
-  -moz-transition: background-color 0.35s ease-in-out;
-  -webkit-transition: background-color 0.35s ease-in-out;
-  transition: background-color 0.35s ease-in-out;
-  display: flex;
-  margin: 0 10px;
-  border-radius: 5px;
-  height: 40px;
-  cursor: pointer;
-  align-items: center;
-  padding: 0 5px 0 25px;
+.nav-panel-button-list-component .nav-panel-button-list-sub-item-component--fade-out,
+.js-get-nav-panel-button-list-component .nav-panel-button-list-sub-item-component--fade-out {
+  -webkit-animation: fadeOut 0.4s linear forwards;
+  animation: fadeOut 0.4s linear forwards;
 }
 .nav-panel-button-list-component .list-button__tooltip-container,
 .js-get-nav-panel-button-list-component .list-button__tooltip-container {

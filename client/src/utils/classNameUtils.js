@@ -11,10 +11,7 @@
  * 	"button--extra-padding"
  * )
  */
-export function removeAllInstancesOfClassName(
-	element,
-	classToBeRemoved
-) {
+export function removeAllInstancesOfClassName(element, classToBeRemoved) {
 	// Regex to find all instances of the className
 	const regex = new RegExp("(?:^|\\s)" + classToBeRemoved + "(?!\\S)", "g");
 	// Removes all instances of the className
@@ -61,7 +58,7 @@ export function toggleClassName(
 			element.className = element.className + " " + classToBeToggled;
 		}
 	} else {
-		removeAllInstancesOfClassName(element, classToBeToggled)
+		removeAllInstancesOfClassName(element, classToBeToggled);
 	}
 }
 
@@ -95,6 +92,19 @@ export function getNavPanelButtonListComponentClassName() {
 }
 
 /**
+ * Gets classNames equivelent to 'overflow-container overflow-container--for-bugs'
+ * className (with modifier) used by NavPanelButtonList component.
+ *
+ * Note: This function's purpose is to have the returned className assigned to
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} classNames equivelent to 'overflow-container overflow-container--for-bugs'
+ */
+export function getNavPanelButtonListComponentSubOverflowContainerElementForBugsModifierClassName() {
+	return " js-get-nav-panel-button-list-component-sub-overflow-container js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs";
+}
+
+/**
  * Gets classNames equivelent to 'overflow-container overflow-container--scrollbar-present'
  * className (with modifier) used by NavPanelButtonList component.
  *
@@ -108,29 +118,29 @@ export function getNavPanelButtonListComponentSubOverflowContainerElementWithScr
 }
 
 /**
- * Gets classNames equivelent to 'overflow-container overflow-container--scrollbar-present sub-overflow-container--for-bugs'
+ * Gets classNames equivelent to 'overflow-container overflow-container--scrollbar-present sub-overflow-container--scrollbar-for-bugs'
  * className (with modifier) used by NavPanelButtonList component.
  *
  * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} classNames equivelent to 'overflow-container overflow-container--scrollbar-present sub-overflow-container--for-bugs'
+ * @returns {string} classNames equivelent to 'overflow-container overflow-container--scrollbar-present sub-overflow-container--scrollbar-for-bugs'
  */
-export function getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarAndForBugsModifierClassName() {
-	return " js-get-nav-panel-button-list-component-sub-overflow-container js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present js-get-nav-panel-button-list-component-sub-overflow-container--for-bugs";
+export function getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarForBugsModifierClassName() {
+	return " js-get-nav-panel-button-list-component-sub-overflow-container js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-present js-get-nav-panel-button-list-component-sub-overflow-container--scrollbar-for-bugs";
 }
 
 /**
- * Gets classNames equivelent to 'list-button list-button--top-spacing list-button--bottom-spacing'
+ * Gets classNames equivelent to 'list-button list-button--top-spacing'
  * className (with modifier) used by NavPanelButtonList component.
  *
  * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} classNames equivelent to 'list-button list-button--top-spacing list-button--bottom-spacing'
+ * @returns {string} classNames equivelent to 'list-button list-button--top-spacing'
  */
-export function getNavPanelButtonListComponentListButtonElementWithTopAndBottomSpacingModifierClassName() {
-	return " js-get-nav-panel-button-list-component-list-button js-get-nav-panel-button-list-component-list-button--top-spacing js-get-nav-panel-button-list-component-list-button--bottom-spacing";
+export function getNavPanelButtonListComponentListButtonElementWithTopSpacingModifierClassName() {
+	return " js-get-nav-panel-button-list-component-list-button js-get-nav-panel-button-list-component-list-button--top-spacing";
 }
 
 /**

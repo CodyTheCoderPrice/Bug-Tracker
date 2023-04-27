@@ -1,9 +1,10 @@
 import {
 	stripNonDigits,
 	getNavPanelButtonListComponentClassName,
+	getNavPanelButtonListComponentSubOverflowContainerElementForBugsModifierClassName,
 	getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarModifierClassName,
-	getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarAndForBugsModifierClassName,
-	getNavPanelButtonListComponentListButtonElementWithTopAndBottomSpacingModifierClassName,
+	getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarForBugsModifierClassName,
+	getNavPanelButtonListComponentListButtonElementWithTopSpacingModifierClassName,
 	getItemViewComponentClassName,
 	getItemViewComponentPaddingcontainerElementClassName,
 	getItemViewComponentOuterDividingContainerElementClassName,
@@ -136,6 +137,18 @@ export function getNavPanelButtonListSizesAndStyles() {
 	standInNavPanelButtonListComponentElement.visibility = "hidden";
 	document.body.appendChild(standInNavPanelButtonListComponentElement);
 
+	const standInSubOverflowContainerElementForBugs =
+		document.createElement("div");
+	standInSubOverflowContainerElementForBugs.className =
+		getNavPanelButtonListComponentSubOverflowContainerElementForBugsModifierClassName();
+	// Css requires being child of NavPanelButtonList component
+	standInNavPanelButtonListComponentElement.appendChild(
+		standInSubOverflowContainerElementForBugs
+	);
+	const standInSubOverflowContainerElementForBugsStyles = getElementStyle(
+		standInSubOverflowContainerElementForBugs
+	);
+
 	const standInSubOverflowContainerElementWithScrollbar =
 		document.createElement("div");
 	standInSubOverflowContainerElementWithScrollbar.className =
@@ -148,21 +161,21 @@ export function getNavPanelButtonListSizesAndStyles() {
 		standInSubOverflowContainerElementWithScrollbar
 	);
 
-	const standInSubOverflowContainerElementWithScrollbarAndForBugs =
+	const standInSubOverflowContainerElementWithScrollbarForBugs =
 		document.createElement("div");
-	standInSubOverflowContainerElementWithScrollbarAndForBugs.className =
-		getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarAndForBugsModifierClassName();
+	standInSubOverflowContainerElementWithScrollbarForBugs.className =
+		getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarForBugsModifierClassName();
 	// Css requires being child of NavPanelButtonList component
 	standInNavPanelButtonListComponentElement.appendChild(
-		standInSubOverflowContainerElementWithScrollbarAndForBugs
+		standInSubOverflowContainerElementWithScrollbarForBugs
 	);
-	const standInSubOverflowContainerElementWithScrollbarAndForBugsStyles =
-		getElementStyle(standInSubOverflowContainerElementWithScrollbarAndForBugs);
+	const standInSubOverflowContainerElementWithScrollbarForBugsStyles =
+		getElementStyle(standInSubOverflowContainerElementWithScrollbarForBugs);
 
 	const standInListButtonElementWithTopAndBottomSpacing =
 		document.createElement("div");
 	standInListButtonElementWithTopAndBottomSpacing.className =
-		getNavPanelButtonListComponentListButtonElementWithTopAndBottomSpacingModifierClassName();
+		getNavPanelButtonListComponentListButtonElementWithTopSpacingModifierClassName();
 	// Css requires being child of NavPanelButtonList component
 	standInNavPanelButtonListComponentElement.appendChild(
 		standInListButtonElementWithTopAndBottomSpacing
@@ -173,6 +186,9 @@ export function getNavPanelButtonListSizesAndStyles() {
 
 	const sizeAndStyleObject = {
 		// Removing "px" from Strings and converting to Numbers allows for easier use
+		subOverflowContainerForBugsMarginBottom: stripNonDigits(
+			standInSubOverflowContainerElementForBugsStyles.marginBottom
+		),
 		subOverflowContainerWithScrollbarMarginTop: stripNonDigits(
 			standInSubOverflowContainerElementWithScrollbarStyles.marginTop
 		),
@@ -185,20 +201,17 @@ export function getNavPanelButtonListSizesAndStyles() {
 		subOverflowContainerWithScrollbarPaddingBottom: stripNonDigits(
 			standInSubOverflowContainerElementWithScrollbarStyles.paddingBottom
 		),
-		subOverflowContainerWithScrollbarAndForBugsMarginBottom: stripNonDigits(
-			standInSubOverflowContainerElementWithScrollbarAndForBugsStyles.marginBottom
+		subOverflowContainerWithScrollbarForBugsMarginBottom: stripNonDigits(
+			standInSubOverflowContainerElementWithScrollbarForBugsStyles.marginBottom
 		),
-		subOverflowContainerWithScrollbarAndForBugsPaddingBottom: stripNonDigits(
-			standInSubOverflowContainerElementWithScrollbarAndForBugsStyles.paddingBottom
+		subOverflowContainerWithScrollbarForBugsPaddingBottom: stripNonDigits(
+			standInSubOverflowContainerElementWithScrollbarForBugsStyles.paddingBottom
 		),
 		listButtonHeight: getElementSize(
 			standInListButtonElementWithTopAndBottomSpacing
 		).height,
 		listButtonWithTopSpacingMarginTop: stripNonDigits(
 			standInListButtonElementWithTopAndBottomSpacingStyles.marginTop
-		),
-		listButtonWithBottomSpacingMarginBottom: stripNonDigits(
-			standInListButtonElementWithTopAndBottomSpacingStyles.marginBottom
 		),
 	};
 
