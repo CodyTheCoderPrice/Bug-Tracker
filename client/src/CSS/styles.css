@@ -592,6 +592,7 @@
 .navbar-component .breadcrumb-divider--fade-out {
   -webkit-animation: fadeOut 0.5s linear forwards;
   animation: fadeOut 0.5s linear forwards;
+  cursor: default;
 }
 .navbar-component .breadcrumb-divider--zero-padding {
   padding: 0 0 0 0;

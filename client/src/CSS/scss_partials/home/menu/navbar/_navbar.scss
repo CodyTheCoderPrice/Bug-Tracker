@@ -59,6 +59,8 @@
 			fadeOut v.$navbar-breadcrumb-button-and-divider-fade-transition-time
 				linear forwards
 		);
+
+		cursor: default;
 	}
 
 	.breadcrumb-divider--zero-padding {
