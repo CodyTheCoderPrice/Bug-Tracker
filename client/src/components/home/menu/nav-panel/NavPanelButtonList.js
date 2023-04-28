@@ -13,8 +13,9 @@ import {
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectsListView,
 	switchToBugsListView,
-	getSearchedFilteredSortedList,
+	getSearchedFilteredSortedProjectList,
 	getCommonElementToolTipBackgroundTextColorClassNameForLocationWithLightOrDarkMode,
+	getSearchedFilteredSortedBugList,
 } from "../../../../utils";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -267,7 +268,7 @@ export default function NavPanelButtonList() {
 			>
 				{!shouldAnyProjectSubItemsDisplay ? null : (
 					<div>
-						{getSearchedFilteredSortedList(reduxState, PROJECT_CONTAINER).map(
+						{getSearchedFilteredSortedProjectList(reduxState).map(
 							(item, idx) => {
 								return (
 									<NavPanelButtonListSubItem
@@ -342,30 +343,26 @@ export default function NavPanelButtonList() {
 			>
 				{!shouldAnyBugSubItemsDisplay ? null : (
 					<div>
-						{getSearchedFilteredSortedList(reduxState, BUG_CONTAINER).map(
-							(item, idx) => {
-								return (
-									<NavPanelButtonListSubItem
-										key={idx}
-										item={item}
-										idx={idx}
-										reduxContainerName={BUG_CONTAINER}
-										shouldAllSubItemsDisplay={shouldAllBugSubItemsDisplay}
-										initialHeightSetToZero={
-											(reduxState[BUG_CONTAINER].componentsDisplay
-												.itemViewCurrentItem !== null &&
-												reduxState[BUG_CONTAINER].componentsDisplay
-													.itemViewCurrentItem.id === item.id &&
-												buttonListSubItemsStatus.bugAnyButtonsInitialHeightSetToZero) ||
-											buttonListSubItemsStatus.bugAllButtonsInitialHeightSetToZero
-										}
-										expandedHeight={
-											navPanelChildSizesAndStyles.listButtonHeight
-										}
-									/>
-								);
-							}
-						)}
+						{getSearchedFilteredSortedBugList(reduxState).map((item, idx) => {
+							return (
+								<NavPanelButtonListSubItem
+									key={idx}
+									item={item}
+									idx={idx}
+									reduxContainerName={BUG_CONTAINER}
+									shouldAllSubItemsDisplay={shouldAllBugSubItemsDisplay}
+									initialHeightSetToZero={
+										(reduxState[BUG_CONTAINER].componentsDisplay
+											.itemViewCurrentItem !== null &&
+											reduxState[BUG_CONTAINER].componentsDisplay
+												.itemViewCurrentItem.id === item.id &&
+											buttonListSubItemsStatus.bugAnyButtonsInitialHeightSetToZero) ||
+										buttonListSubItemsStatus.bugAllButtonsInitialHeightSetToZero
+									}
+									expandedHeight={navPanelChildSizesAndStyles.listButtonHeight}
+								/>
+							);
+						})}
 					</div>
 				)}
 			</div>
