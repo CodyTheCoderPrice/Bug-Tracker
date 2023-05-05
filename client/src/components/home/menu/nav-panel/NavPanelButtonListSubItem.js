@@ -1,8 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-	ACCOUNT_CONTAINER,
-} from "../../../../actions/constants/containerNames";
+import { ACCOUNT_CONTAINER } from "../../../../actions/constants/containerNames";
 import {
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectOrBugItemViewAndCurrentItem,
@@ -19,6 +17,13 @@ import {
 export default function NavPanelButtonListSubItem(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	const shouldButtonHeightBeExpanded =
+		props.shouldAllSubItemsDisplay ||
+		(reduxState[props.reduxContainerName].componentsDisplay
+			.itemViewCurrentItem !== null &&
+			reduxState[props.reduxContainerName].componentsDisplay.itemViewCurrentItem
+				.id === props.item.id);
 
 	const getStatusBoxColorClassName = () => {
 		const filteredStatusList = reduxState[
@@ -56,6 +61,7 @@ export default function NavPanelButtonListSubItem(props) {
 					: " nav-panel-button-list-sub-item-component--fade-out")
 			}
 			aria-label={props.item.name}
+			aria-hidden={!shouldButtonHeightBeExpanded}
 			onClick={() =>
 				switchToProjectOrBugItemViewAndCurrentItem(
 					reduxState,
@@ -64,14 +70,9 @@ export default function NavPanelButtonListSubItem(props) {
 					props.item
 				)
 			}
-			/*Height set to 0 first to trigger a transititon*/
+			/*Height first set to 0 to trigger a transititon*/
 			style={
-				props.initialHeightSetToZero &&
-				(props.shouldAllSubItemsDisplay ||
-					(reduxState[props.reduxContainerName].componentsDisplay
-						.itemViewCurrentItem !== null &&
-						reduxState[props.reduxContainerName].componentsDisplay
-							.itemViewCurrentItem.id === props.item.id))
+				props.initialHeightSetToZero && shouldButtonHeightBeExpanded
 					? props.expandedHeight === null
 						? { height: "0" }
 						: { height: `${props.expandedHeight}px` }

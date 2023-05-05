@@ -309,6 +309,7 @@ export default function NavPanelButtonList() {
 						  ))
 				}
 				aria-label="Bugs"
+				aria-hidden={!shouldBugListButtonBeClickable}
 				onClick={
 					shouldBugListButtonBeClickable
 						? () => switchToBugsListView(reduxState, dispatch)
