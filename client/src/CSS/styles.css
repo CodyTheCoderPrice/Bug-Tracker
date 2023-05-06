@@ -535,9 +535,9 @@
 }
 .navbar-component .breadcrumb-button,
 .navbar-component .breadcrumb-divider {
-  -moz-transition: width 0.5s ease-in-out, color 0.25s ease-in-out;
-  -webkit-transition: width 0.5s ease-in-out, color 0.25s ease-in-out;
-  transition: width 0.5s ease-in-out, color 0.25s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out, color 0.5s ease-in-out;
+  -webkit-transition: width 0.5s ease-in-out, color 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, color 0.5s ease-in-out;
   float: left;
   height: 48px;
   color: #7c7c7c;

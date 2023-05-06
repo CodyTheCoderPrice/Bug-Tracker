@@ -73,7 +73,7 @@ export default function NavbarBreadcrumb() {
 				.itemViewComponentShouldDisplay,
 	};
 
-	const [buttonState, setButtonState] = useState({
+	const [buttonStatus, setButtonStatus] = useState({
 		projectListShouldDisplay: buttonDisplayLogic.projectList,
 		projectListShouldLingerForFadeOut: false,
 		projectListShouldBeOpen: buttonOpenLogic.projectList,
@@ -87,6 +87,25 @@ export default function NavbarBreadcrumb() {
 		bugItemShouldLingerForFadeOut: false,
 		bugItemShouldBeOpen: buttonOpenLogic.bugItem,
 	});
+
+	const buttonLingerLogic = {
+		projectList:
+			!buttonStatus.projectListShouldLingerForFadeOut &&
+			!buttonDisplayLogic.projectList &&
+			buttonStatus.projectListShouldDisplay,
+		projectItem:
+			!buttonStatus.projectItemShouldLingerForFadeOut &&
+			!buttonDisplayLogic.projectItem &&
+			buttonStatus.projectItemShouldDisplay,
+		bugList:
+			!buttonStatus.bugListShouldLingerForFadeOut &&
+			!buttonDisplayLogic.bugList &&
+			buttonStatus.bugListShouldDisplay,
+		bugItem:
+			!buttonStatus.bugItemShouldLingerForFadeOut &&
+			!buttonDisplayLogic.bugItem &&
+			buttonStatus.bugItemShouldDisplay,
+	};
 
 	const [navbarChildSizes, setNavbarChildSizes] = useState({
 		projectListButtonWidth: null,
@@ -143,7 +162,7 @@ export default function NavbarBreadcrumb() {
 			};
 
 			if (
-				buttonState.projectItemShouldDisplay &&
+				buttonStatus.projectItemShouldDisplay &&
 				buttonText.projectItem !== projectItemUpdatedValue
 			) {
 				causeFadeIn(
@@ -153,7 +172,7 @@ export default function NavbarBreadcrumb() {
 				);
 			}
 			if (
-				buttonState.bugItemShouldDisplay &&
+				buttonStatus.bugItemShouldDisplay &&
 				buttonText.bugItem !== bugItemUpdatedValue
 			) {
 				causeFadeIn(
@@ -177,43 +196,24 @@ export default function NavbarBreadcrumb() {
 		reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 	]);
 
-	// Updates buttonState
+	// Updates buttonStatus
 	useEffect(() => {
-		const newButtonLingerValues = {
-			projectList:
-				!buttonState.projectListShouldLingerForFadeOut &&
-				!buttonDisplayLogic.projectList &&
-				buttonState.projectListShouldDisplay,
-			projectItem:
-				!buttonState.projectItemShouldLingerForFadeOut &&
-				!buttonDisplayLogic.projectItem &&
-				buttonState.projectItemShouldDisplay,
-			bugList:
-				!buttonState.bugListShouldLingerForFadeOut &&
-				!buttonDisplayLogic.bugList &&
-				buttonState.bugListShouldDisplay,
-			bugItem:
-				!buttonState.bugItemShouldLingerForFadeOut &&
-				!buttonDisplayLogic.bugItem &&
-				buttonState.bugItemShouldDisplay,
-		};
-
-		setButtonState({
+		setButtonStatus({
 			projectListShouldDisplay:
-				buttonDisplayLogic.projectList || newButtonLingerValues.projectList,
-			projectListShouldLingerForFadeOut: newButtonLingerValues.projectList,
+				buttonDisplayLogic.projectList || buttonLingerLogic.projectList,
+			projectListShouldLingerForFadeOut: buttonLingerLogic.projectList,
 			projectListShouldBeOpen: buttonOpenLogic.projectList,
 			projectItemShouldDisplay:
-				buttonDisplayLogic.projectItem || newButtonLingerValues.projectItem,
-			projectItemShouldLingerForFadeOut: newButtonLingerValues.projectItem,
+				buttonDisplayLogic.projectItem || buttonLingerLogic.projectItem,
+			projectItemShouldLingerForFadeOut: buttonLingerLogic.projectItem,
 			projectItemShouldBeOpen: buttonOpenLogic.projectItem,
 			bugListShouldDisplay:
-				buttonDisplayLogic.bugList || newButtonLingerValues.bugList,
-			bugListShouldLingerForFadeOut: newButtonLingerValues.bugList,
+				buttonDisplayLogic.bugList || buttonLingerLogic.bugList,
+			bugListShouldLingerForFadeOut: buttonLingerLogic.bugList,
 			bugListShouldBeOpen: buttonOpenLogic.bugList,
 			bugItemShouldDisplay:
-				buttonDisplayLogic.bugItem || newButtonLingerValues.bugItem,
-			bugItemShouldLingerForFadeOut: newButtonLingerValues.bugItem,
+				buttonDisplayLogic.bugItem || buttonLingerLogic.bugItem,
+			bugItemShouldLingerForFadeOut: buttonLingerLogic.bugItem,
 			bugItemShouldBeOpen: buttonOpenLogic.bugItem,
 		});
 		// eslint-disable-next-line
@@ -307,7 +307,7 @@ export default function NavbarBreadcrumb() {
 		// eslint-disable-next-line
 	}, [
 		buttonText,
-		buttonState
+		buttonStatus
 	]);
 
 	// Sets navbarChildStyles
@@ -495,20 +495,20 @@ export default function NavbarBreadcrumb() {
 
 	return (
 		<div className="navbar-breadcrumb-component js-navbar-breadcrumb">
-			{!buttonState.projectListShouldDisplay ? null : (
+			{!buttonStatus.projectListShouldDisplay ? null : (
 				<div
 					className={getBreadcrumbButtonClassNames(
-						buttonState.projectListShouldLingerForFadeOut,
-						buttonState.projectListShouldBeOpen
+						buttonStatus.projectListShouldLingerForFadeOut,
+						buttonStatus.projectListShouldBeOpen
 					)}
 					aria-label={buttonText.projectList}
 					aria-hidden={
-						buttonState.projectListShouldLingerForFadeOut ||
-						(!canAllButtonsDisplay && !buttonState.projectListShouldBeOpen)
+						buttonStatus.projectListShouldLingerForFadeOut ||
+						(!canAllButtonsDisplay && !buttonStatus.projectListShouldBeOpen)
 					}
 					onClick={
 						!canAllButtonsDisplay ||
-						buttonState.projectListShouldLingerForFadeOut
+						buttonStatus.projectListShouldLingerForFadeOut
 							? null
 							: () => switchToProjectsListView(reduxState, dispatch)
 					}
@@ -516,32 +516,32 @@ export default function NavbarBreadcrumb() {
 					{buttonText.projectList}
 				</div>
 			)}
-			{!buttonState.projectItemShouldDisplay ? null : (
+			{!buttonStatus.projectItemShouldDisplay ? null : (
 				<div
 					className={getBreadcrumbDividerClassNames(
-						buttonState.projectItemShouldLingerForFadeOut
+						buttonStatus.projectItemShouldLingerForFadeOut
 					)}
 					aria-hidden={true}
 				>
 					{getDividerIcon()}
 				</div>
 			)}
-			{!buttonState.projectItemShouldDisplay ? null : (
+			{!buttonStatus.projectItemShouldDisplay ? null : (
 				<div
 					className={
 						getBreadcrumbButtonClassNames(
-							buttonState.projectItemShouldLingerForFadeOut,
-							buttonState.projectItemShouldBeOpen
+							buttonStatus.projectItemShouldLingerForFadeOut,
+							buttonStatus.projectItemShouldBeOpen
 						) + " js-navbar-breadcrumb-button-project-item"
 					}
 					aria-label={buttonText.projectItem}
 					aria-hidden={
-						buttonState.projectItemShouldLingerForFadeOut ||
-						(!canAllButtonsDisplay && !buttonState.projectItemShouldBeOpen)
+						buttonStatus.projectItemShouldLingerForFadeOut ||
+						(!canAllButtonsDisplay && !buttonStatus.projectItemShouldBeOpen)
 					}
 					onClick={
 						!canAllButtonsDisplay ||
-						buttonState.projectItemShouldLingerForFadeOut
+						buttonStatus.projectItemShouldLingerForFadeOut
 							? null
 							: () => switchToProjectsItemView(reduxState, dispatch)
 					}
@@ -549,29 +549,29 @@ export default function NavbarBreadcrumb() {
 					{buttonText.projectItem}
 				</div>
 			)}
-			{!buttonState.bugListShouldDisplay ? null : (
+			{!buttonStatus.bugListShouldDisplay ? null : (
 				<div
 					className={getBreadcrumbDividerClassNames(
-						buttonState.bugListShouldLingerForFadeOut
+						buttonStatus.bugListShouldLingerForFadeOut
 					)}
 					aria-hidden={true}
 				>
 					{getDividerIcon()}
 				</div>
 			)}
-			{!buttonState.bugListShouldDisplay ? null : (
+			{!buttonStatus.bugListShouldDisplay ? null : (
 				<div
 					className={getBreadcrumbButtonClassNames(
-						buttonState.bugListShouldLingerForFadeOut,
-						buttonState.bugListShouldBeOpen
+						buttonStatus.bugListShouldLingerForFadeOut,
+						buttonStatus.bugListShouldBeOpen
 					)}
 					aria-label={buttonText.bugList}
 					aria-hidden={
-						buttonState.bugListShouldLingerForFadeOut ||
-						(!canAllButtonsDisplay && !buttonState.bugListShouldBeOpen)
+						buttonStatus.bugListShouldLingerForFadeOut ||
+						(!canAllButtonsDisplay && !buttonStatus.bugListShouldBeOpen)
 					}
 					onClick={
-						!canAllButtonsDisplay || buttonState.bugListShouldLingerForFadeOut
+						!canAllButtonsDisplay || buttonStatus.bugListShouldLingerForFadeOut
 							? null
 							: () => switchToBugsListView(reduxState, dispatch)
 					}
@@ -579,31 +579,31 @@ export default function NavbarBreadcrumb() {
 					{buttonText.bugList}
 				</div>
 			)}
-			{!buttonState.bugItemShouldDisplay ? null : (
+			{!buttonStatus.bugItemShouldDisplay ? null : (
 				<div
 					className={getBreadcrumbDividerClassNames(
-						buttonState.bugItemShouldLingerForFadeOut
+						buttonStatus.bugItemShouldLingerForFadeOut
 					)}
 					aria-hidden={true}
 				>
 					{getDividerIcon()}
 				</div>
 			)}
-			{!buttonState.bugItemShouldDisplay ? null : (
+			{!buttonStatus.bugItemShouldDisplay ? null : (
 				<div
 					className={
 						getBreadcrumbButtonClassNames(
-							buttonState.bugItemShouldLingerForFadeOut,
-							buttonState.bugItemShouldBeOpen
+							buttonStatus.bugItemShouldLingerForFadeOut,
+							buttonStatus.bugItemShouldBeOpen
 						) + " js-navbar-breadcrumb-button-bug-item"
 					}
 					aria-label={buttonText.bugItem}
 					aria-hidden={
-						buttonState.bugItemShouldLingerForFadeOut ||
-						(!canAllButtonsDisplay && !buttonState.bugItemShouldBeOpen)
+						buttonStatus.bugItemShouldLingerForFadeOut ||
+						(!canAllButtonsDisplay && !buttonStatus.bugItemShouldBeOpen)
 					}
 					onClick={
-						!canAllButtonsDisplay || buttonState.bugItemShouldLingerForFadeOut
+						!canAllButtonsDisplay || buttonStatus.bugItemShouldLingerForFadeOut
 							? null
 							: () => switchToBugsItemView(reduxState, dispatch)
 					}
