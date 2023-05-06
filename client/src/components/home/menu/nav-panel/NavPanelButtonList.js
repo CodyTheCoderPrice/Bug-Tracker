@@ -41,30 +41,29 @@ export default function NavPanelButtonList() {
 			listButtonWithTopSpacingMarginTop: null,
 		});
 
-	const [buttonListSubItemsStatus, setButtonListSubItemsStatus] = useState({
-		projectAnyButtonsInitialHeightSetToZero: false,
-		projectAllButtonsInitialHeightSetToZero: false,
-		bugAnyButtonsInitialHeightSetToZero: false,
-		bugAllButtonsInitialHeightSetToZero: false,
+	const [buttonListSubItemsInitialHeightStatus, setButtonListSubItemsInitialHeightStatus] = useState({
+		projectAnyButtonsSetToZero: false,
+		projectAllButtonsSetToZero: false,
+		bugAnyButtonsSetToZero: false,
+		bugAllButtonsSetToZero: false,
 	});
 
-	const shouldAnyProjectSubItemsDisplay =
-		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
-		null;
-
-	const shouldAllProjectSubItemsDisplay =
-		reduxState[PROJECT_CONTAINER].componentsDisplay
-			.itemViewComponentShouldDisplay;
-
-	const shouldBugListButtonBeClickable =
-		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
-		null;
-
-	const shouldAnyBugSubItemsDisplay =
-		reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem !== null;
-
-	const shouldAllBugSubItemsDisplay =
-		reduxState[BUG_CONTAINER].componentsDisplay.itemViewComponentShouldDisplay;
+	const buttonDisplayLogic = {
+		shouldAnyProjectSubItemsDisplay:
+			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
+			null,
+		shouldAllProjectSubItemsDisplay:
+			reduxState[PROJECT_CONTAINER].componentsDisplay
+				.itemViewComponentShouldDisplay,
+		shouldBugListButtonBeClickable:
+			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem !==
+			null,
+		shouldAnyBugSubItemsDisplay:
+			reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem !== null,
+		shouldAllBugSubItemsDisplay:
+			reduxState[BUG_CONTAINER].componentsDisplay
+				.itemViewComponentShouldDisplay,
+	};
 
 	// Sets navPanelChildSizesAndStyles
 	useEffect(() => {
@@ -76,21 +75,24 @@ export default function NavPanelButtonList() {
 		});
 	}, []);
 
-	// Updates buttonListSubItemsStatus
+	// Updates buttonListSubItemsInitialHeightStatus
 	useEffect(() => {
-		// Since it will take 1 cycle to update, the sub item buttons will have
-		// ...had a chance to have their height set to zero
-		setButtonListSubItemsStatus({
-			projectAnyButtonsInitialHeightSetToZero: shouldAnyProjectSubItemsDisplay,
-			projectAllButtonsInitialHeightSetToZero: shouldAllProjectSubItemsDisplay,
-			bugAnyButtonsInitialHeightSetToZero: shouldAnyBugSubItemsDisplay,
-			bugAllButtonsInitialHeightSetToZero: shouldAllBugSubItemsDisplay,
+		// Since this state will take 1 cycle to update, the sub item buttons
+		// ...will have had a chance to have their height set to zero
+		setButtonListSubItemsInitialHeightStatus({
+			projectAnyButtonsSetToZero:
+				buttonDisplayLogic.shouldAnyProjectSubItemsDisplay,
+			projectAllButtonsSetToZero:
+				buttonDisplayLogic.shouldAllProjectSubItemsDisplay,
+			bugAnyButtonsSetToZero:
+				buttonDisplayLogic.shouldAnyBugSubItemsDisplay,
+			bugAllButtonsSetToZero: buttonDisplayLogic.shouldAllBugSubItemsDisplay,
 		});
 	}, [
-		shouldAnyProjectSubItemsDisplay,
-		shouldAllProjectSubItemsDisplay,
-		shouldAnyBugSubItemsDisplay,
-		shouldAllBugSubItemsDisplay,
+		buttonDisplayLogic.shouldAnyProjectSubItemsDisplay,
+		buttonDisplayLogic.shouldAllProjectSubItemsDisplay,
+		buttonDisplayLogic.shouldAnyBugSubItemsDisplay,
+		buttonDisplayLogic.shouldAllBugSubItemsDisplay,
 	]);
 
 	// Resize overflow-container height to fit the nav-panel when there is not
@@ -117,8 +119,8 @@ export default function NavPanelButtonList() {
 			)[0];
 
 			if (
-				shouldAllProjectSubItemsDisplay &&
-				buttonListSubItemsStatus.projectAllButtonsInitialHeightSetToZero
+				buttonDisplayLogic.shouldAllProjectSubItemsDisplay &&
+				buttonListSubItemsInitialHeightStatus.projectAllButtonsSetToZero
 			) {
 				const adjustedNavPanelHeight =
 					reduxState[SIZE_CONTAINER].variables.navPanel.height -
@@ -130,7 +132,7 @@ export default function NavPanelButtonList() {
 					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingTop -
 					navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingBottom -
 					navPanelChildSizesAndStyles.listButtonHeight * 2 -
-					(shouldAnyBugSubItemsDisplay
+					(buttonDisplayLogic.shouldAnyBugSubItemsDisplay
 						? navPanelChildSizesAndStyles.listButtonHeight
 						: 0);
 
@@ -159,7 +161,7 @@ export default function NavPanelButtonList() {
 				}
 			} else {
 				projectSubOverflowContainerElement.style.height =
-					shouldAnyProjectSubItemsDisplay
+					buttonDisplayLogic.shouldAnyProjectSubItemsDisplay
 						? navPanelChildSizesAndStyles.listButtonHeight + "px"
 						: "0px";
 
@@ -174,7 +176,7 @@ export default function NavPanelButtonList() {
 				"js-bug-sub-overflow-container"
 			)[0];
 
-			if (shouldAllBugSubItemsDisplay) {
+			if (buttonDisplayLogic.shouldAllBugSubItemsDisplay) {
 				const adjustedNavPanelHeight =
 					reduxState[SIZE_CONTAINER].variables.navPanel.height -
 					navPanelChildSizesAndStyles.navPanelTopContainerHeight -
@@ -209,7 +211,7 @@ export default function NavPanelButtonList() {
 					adjustedNavPanelHeight + "px";
 			} else {
 				bugSubOverflowContainerElement.style.height =
-					shouldAnyBugSubItemsDisplay
+					buttonDisplayLogic.shouldAnyBugSubItemsDisplay
 						? navPanelChildSizesAndStyles.listButtonHeight + "px"
 						: "0px";
 
@@ -233,11 +235,11 @@ export default function NavPanelButtonList() {
 		reduxState[PROJECT_CONTAINER].searchFilterSort,
 		// eslint-disable-next-line
 		reduxState[BUG_CONTAINER].searchFilterSort,
-		shouldAnyProjectSubItemsDisplay,
-		shouldAllProjectSubItemsDisplay,
-		shouldAnyBugSubItemsDisplay,
-		shouldAllBugSubItemsDisplay,
-		buttonListSubItemsStatus,
+		buttonDisplayLogic.shouldAnyProjectSubItemsDisplay,
+		buttonDisplayLogic.shouldAllProjectSubItemsDisplay,
+		buttonDisplayLogic.shouldAnyBugSubItemsDisplay,
+		buttonDisplayLogic.shouldAllBugSubItemsDisplay,
+		buttonListSubItemsInitialHeightStatus,
 	]);
 
 	return (
@@ -266,7 +268,7 @@ export default function NavPanelButtonList() {
 			<div
 				className={"sub-overflow-container js-project-sub-overflow-container"}
 			>
-				{!shouldAnyProjectSubItemsDisplay ? null : (
+				{!buttonDisplayLogic.shouldAnyProjectSubItemsDisplay ? null : (
 					<div>
 						{getSearchedFilteredSortedProjectList(reduxState).map(
 							(item, idx) => {
@@ -276,14 +278,16 @@ export default function NavPanelButtonList() {
 										item={item}
 										idx={idx}
 										reduxContainerName={PROJECT_CONTAINER}
-										shouldAllSubItemsDisplay={shouldAllProjectSubItemsDisplay}
+										shouldAllSubItemsDisplay={
+											buttonDisplayLogic.shouldAllProjectSubItemsDisplay
+										}
 										initialHeightSetToZero={
 											(reduxState[PROJECT_CONTAINER].componentsDisplay
 												.itemViewCurrentItem !== null &&
 												reduxState[PROJECT_CONTAINER].componentsDisplay
 													.itemViewCurrentItem.id === item.id &&
-												buttonListSubItemsStatus.projectAnyButtonsInitialHeightSetToZero) ||
-											buttonListSubItemsStatus.projectAllButtonsInitialHeightSetToZero
+												buttonListSubItemsInitialHeightStatus.projectAnyButtonsSetToZero) ||
+											buttonListSubItemsInitialHeightStatus.projectAllButtonsSetToZero
 										}
 										expandedHeight={
 											navPanelChildSizesAndStyles.listButtonHeight
@@ -298,8 +302,10 @@ export default function NavPanelButtonList() {
 			<div
 				className={
 					"list-button" +
-					(shouldBugListButtonBeClickable ? "" : " list-button--unclickable") +
-					(shouldAllBugSubItemsDisplay ? "" : " list-button--bottom-spacing") +
+					(buttonDisplayLogic.shouldBugListButtonBeClickable
+						? ""
+						: " list-button--unclickable") +
+					(buttonDisplayLogic.shouldAllBugSubItemsDisplay ? "" : " list-button--bottom-spacing") +
 					(reduxState[BUG_CONTAINER].componentsDisplay
 						.listViewComponentShouldDisplay === false
 						? ""
@@ -309,9 +315,9 @@ export default function NavPanelButtonList() {
 						  ))
 				}
 				aria-label="Bugs"
-				aria-hidden={!shouldBugListButtonBeClickable}
+				aria-hidden={!buttonDisplayLogic.shouldBugListButtonBeClickable}
 				onClick={
-					shouldBugListButtonBeClickable
+					buttonDisplayLogic.shouldBugListButtonBeClickable
 						? () => switchToBugsListView(reduxState, dispatch)
 						: null
 				}
@@ -319,7 +325,7 @@ export default function NavPanelButtonList() {
 				<span
 					className={
 						"list-button__tooltip-container" +
-						(shouldBugListButtonBeClickable
+						(buttonDisplayLogic.shouldBugListButtonBeClickable
 							? ""
 							: " list-button--unclickable" +
 							  getCommonElementToolTipBackgroundTextColorClassNameForLocationWithLightOrDarkMode(
@@ -342,7 +348,7 @@ export default function NavPanelButtonList() {
 					"sub-overflow-container sub-overflow-container--for-bugs js-bug-sub-overflow-container"
 				}
 			>
-				{!shouldAnyBugSubItemsDisplay ? null : (
+				{!buttonDisplayLogic.shouldAnyBugSubItemsDisplay ? null : (
 					<div>
 						{getSearchedFilteredSortedBugList(reduxState).map((item, idx) => {
 							return (
@@ -351,14 +357,14 @@ export default function NavPanelButtonList() {
 									item={item}
 									idx={idx}
 									reduxContainerName={BUG_CONTAINER}
-									shouldAllSubItemsDisplay={shouldAllBugSubItemsDisplay}
+									shouldAllSubItemsDisplay={buttonDisplayLogic.shouldAllBugSubItemsDisplay}
 									initialHeightSetToZero={
 										(reduxState[BUG_CONTAINER].componentsDisplay
 											.itemViewCurrentItem !== null &&
 											reduxState[BUG_CONTAINER].componentsDisplay
 												.itemViewCurrentItem.id === item.id &&
-											buttonListSubItemsStatus.bugAnyButtonsInitialHeightSetToZero) ||
-										buttonListSubItemsStatus.bugAllButtonsInitialHeightSetToZero
+											buttonListSubItemsInitialHeightStatus.bugAnyButtonsSetToZero) ||
+										buttonListSubItemsInitialHeightStatus.bugAllButtonsSetToZero
 									}
 									expandedHeight={navPanelChildSizesAndStyles.listButtonHeight}
 								/>
