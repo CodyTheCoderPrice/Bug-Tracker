@@ -224,20 +224,28 @@ export function getSearchedFilteredSortedBugList(
 	passedReduxState,
 	specificProject
 ) {
-	return searchFilterSort(
-		// Spread operator makes deep copy of list so original is not affected.
-		// ...Also passes only with bugs belonging to non-filtered-out projects.
-		[...passedReduxState[BUG_CONTAINER].list].filter(
-			(item) =>
-				item.project_id ===
-				(specificProject !== undefined
-					? specificProject.id
-					: passedReduxState[PROJECT_CONTAINER].componentsDisplay
-							.itemViewCurrentItem.id)
-		),
-		// 'PROJECT_CONTAINER' & 'BUG_CONTAINER' have different searchFilterSort
-		passedReduxState[BUG_CONTAINER].searchFilterSort
-	);
+	if (
+		passedReduxState[PROJECT_CONTAINER].componentsDisplay
+			.itemViewCurrentItem === null &&
+		specificProject === undefined
+	) {
+		return [];
+	} else {
+		return searchFilterSort(
+			// Spread operator makes deep copy of list so original is not affected.
+			// ...Also passes only with bugs belonging to non-filtered-out projects.
+			[...passedReduxState[BUG_CONTAINER].list].filter(
+				(item) =>
+					item.project_id ===
+					(specificProject !== undefined
+						? specificProject.id
+						: passedReduxState[PROJECT_CONTAINER].componentsDisplay
+								.itemViewCurrentItem.id)
+			),
+			// 'PROJECT_CONTAINER' & 'BUG_CONTAINER' have different searchFilterSort
+			passedReduxState[BUG_CONTAINER].searchFilterSort
+		);
+	}
 }
 
 /**
