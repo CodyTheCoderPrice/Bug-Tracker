@@ -13,9 +13,9 @@ import {
 	getCommonBrighterBackgroundColorClassNameForTheme,
 	switchToProjectsListView,
 	switchToBugsListView,
-	getSearchedFilteredSortedProjectList,
+	getProjectListForNavPanelButtonList,
 	getCommonElementToolTipBackgroundTextColorClassNameForLocationWithLightOrDarkMode,
-	getSearchedFilteredSortedBugList,
+	getBugListForNavPanelButtonList,
 } from "../../../../utils";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,10 +27,10 @@ export default function NavPanelButtonList() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	const [buttonSubItemLists, setButtonSubItemLists] = useState({
+	/* const [buttonSubItemLists, setButtonSubItemLists] = useState({
 		projectList: getSearchedFilteredSortedProjectList(reduxState),
 		bugList: getSearchedFilteredSortedBugList(reduxState),
-	});
+	}); */
 
 	const [navPanelChildSizesAndStyles, setNavPanelChildSizesAndStyles] =
 		useState({
@@ -93,7 +93,7 @@ export default function NavPanelButtonList() {
 		bugAllButtonsSetToZero: false,
 	});
 
-	// Updates buttonSubItemLists
+	/* // Updates buttonSubItemLists
 	useEffect(() => {
 		// Keeps projectList/bugList the same when their 'sub-overflow-container'
 		// ...elements are closed so they can have their faded-out animations play
@@ -123,7 +123,7 @@ export default function NavPanelButtonList() {
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
 		// eslint-disable-next-line
 		reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
-	]);
+	]); */
 
 	// Sets navPanelChildSizesAndStyles
 	useEffect(() => {
@@ -358,7 +358,7 @@ export default function NavPanelButtonList() {
 			>
 				{!buttonListSubItemsDisplayStatus.projectItemsShouldExist ? null : (
 					<div>
-						{buttonSubItemLists.projectList.map((item, idx) => {
+						{getProjectListForNavPanelButtonList(reduxState).map((item, idx) => {
 							return (
 								<NavPanelButtonListSubItem
 									key={idx}
@@ -436,7 +436,7 @@ export default function NavPanelButtonList() {
 			>
 				{!buttonListSubItemsDisplayStatus.bugItemsShouldExist ? null : (
 					<div>
-						{buttonSubItemLists.bugList.map((item, idx) => {
+						{getBugListForNavPanelButtonList(reduxState).map((item, idx) => {
 							return (
 								<NavPanelButtonListSubItem
 									key={idx}

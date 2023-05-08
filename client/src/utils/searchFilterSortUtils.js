@@ -6,8 +6,228 @@ import {
 import { dateToInt } from "./index";
 
 /**
- * Takes an array of projects or bugs and returns it filtered to only have items
- * that fit the current searchFilterSort configuration (i.e. 'searchFilterSort'
+ * Takes an array of projects or bugs and returns it filtered according to
+ * searchKeyWordString parameter (e.g. as can be found in 'searchFilterSort'
+ * property's Object in 'PROJECT_CONTAINER' or 'BUG_CONTAINER' of the redux state)
+ *
+ * @param {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} projectsOrBugsArray - Array of projects or bugs
+ * @param {string} searchKeyWordString - string of words of which one must be
+ * present in an items name
+ * @returns {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} Array of projects or bugs and returns it filtered according to
+ * searchKeyWordString parameter
+ */
+function search(projectsOrBugsArray, searchKeyWordString) {
+	// Checks if searchKeyWordString contains more than just white spaces
+	if (/\S/.test(searchKeyWordString)) {
+		const keyWords = searchKeyWordString.toLowerCase().split(/\s+/);
+		// eslint-disable-next-line
+		return projectsOrBugsArray.filter((projectOrBug) => {
+			for (let word of keyWords) {
+				if (projectOrBug.name.toLowerCase().includes(word)) {
+					return true;
+				}
+			}
+		});
+	} else {
+		return projectsOrBugsArray;
+	}
+}
+
+/**
+ * Takes an array of projects or bugs and returns it filtered according to
+ * priorityFilter and statusFilter parameters (e.g. as can be found in 'searchFilterSort'
+ * property's Object in 'PROJECT_CONTAINER' or 'BUG_CONTAINER' of the redux state)
+ *
+ * @param {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} projectsOrBugsArray - Array of projects or bugs
+ * @param {number[]} priorityFilter - Array of priority ids to be filtered out
+ * @param {number[]} statusFilter - Array of status ids to be filtered out
+ * @returns {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} Array of projects or bugs and returns it filtered according to
+ * priorityFilter and statusFilter parameters
+ */
+function filter(projectsOrBugsArray, priorityFilter, statusFilter) {
+	return projectsOrBugsArray.filter((projectOrBug) => {
+		return (
+			// priorityFilter & statusFilter arrays include ids for
+			// ...prioirties and statuses the user wants filtered out
+			!priorityFilter.includes(projectOrBug.priority_id) &&
+			!statusFilter.includes(projectOrBug.status_id)
+		);
+	});
+}
+
+/**
+ * Takes an array of projects or bugs and returns it sorted according to
+ * sortAscending and sortId parameters (e.g. as can be found in 'searchFilterSort'
+ * property's Object in 'PROJECT_CONTAINER' or 'BUG_CONTAINER' of the redux state)
+ *
+ * @param {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} projectsOrBugsArray - Array of projects or bugs
+ * @param {boolean} sortAscending - Should list be sorted in ascending order
+ * @param {number} sortId - Id for how the list will be sorted (i.e. 1=name's case,
+ * 2=status_id, 3=priority_id, 4=creation_date, 5=start_date, 6=due_date)
+ * @returns {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} Array of projects or bugs and returns it sorted according to
+ * sortAscending and sortId parameters
+ */
+function sort(projectsOrBugsArray, sortAscending, sortId) {
+	if (sortAscending) {
+		switch (sortId) {
+			case 1:
+				return projectsOrBugsArray.sort((a, b) => {
+					return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
+				});
+			case 2:
+				return projectsOrBugsArray.sort((a, b) => {
+					return a.status_id - b.status_id;
+				});
+			case 3:
+				return projectsOrBugsArray.sort((a, b) => {
+					return a.priority_id - b.priority_id;
+				});
+			case 4:
+				return projectsOrBugsArray.sort((a, b) => {
+					return dateToInt(a.creation_date) - dateToInt(b.creation_date);
+				});
+			case 5:
+				return projectsOrBugsArray.sort((a, b) => {
+					return dateToInt(a.start_date) - dateToInt(b.start_date);
+				});
+			case 6:
+				return projectsOrBugsArray.sort((a, b) => {
+					return dateToInt(a.due_date) - dateToInt(b.due_date);
+				});
+			default:
+				return projectsOrBugsArray;
+		}
+	} else {
+		switch (sortId) {
+			case 1:
+				return projectsOrBugsArray.sort((a, b) => {
+					return b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1;
+				});
+			case 2:
+				return projectsOrBugsArray.sort((a, b) => {
+					return b.status_id - a.status_id;
+				});
+			case 3:
+				return projectsOrBugsArray.sort((a, b) => {
+					return b.priority_id - a.priority_id;
+				});
+			case 4:
+				return projectsOrBugsArray.sort((a, b) => {
+					return dateToInt(b.creation_date) - dateToInt(a.creation_date);
+				});
+			case 5:
+				return projectsOrBugsArray.sort((a, b) => {
+					return dateToInt(b.start_date) - dateToInt(a.start_date);
+				});
+			case 6:
+				return projectsOrBugsArray.sort((a, b) => {
+					return dateToInt(b.due_date) - dateToInt(a.due_date);
+				});
+			default:
+				return projectsOrBugsArray;
+		}
+	}
+}
+
+/**
+ * Takes an array of projects or bugs and returns it containing only items that
+ * fit the current searchFilterSort configuration (i.e. 'searchFilterSort'
  * property's Object in 'PROJECT_CONTAINER' or 'BUG_CONTAINER' of the redux state)
  *
  * @param {{
@@ -51,113 +271,24 @@ import { dateToInt } from "./index";
  * 	last_edited_timestamp: string,
  * 	priority_option: string,
  * 	status_option: string
- * }[]} Array of projects or bugs filtered to only have items that fit current
+ * }[]} Array of projects or bugs containing only items that fit current
  * searchFilterSort configuration
  */
 export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
-	// Function is nest so it doesn't need to have reduxSearchFilterSort as a param
-	function search(projectsOrBugsArray) {
-		// Checks if searchKeyWordString contains more than just white spaces
-		if (/\S/.test(reduxSearchFilterSort.searchKeyWordString)) {
-			const keyWords = reduxSearchFilterSort.searchKeyWordString
-				.toLowerCase()
-				.split(/\s+/);
-			// eslint-disable-next-line
-			return projectsOrBugsArray.filter((projectOrBug) => {
-				for (let word of keyWords) {
-					if (projectOrBug.name.toLowerCase().includes(word)) {
-						return true;
-					}
-				}
-			});
-		} else {
-			return projectsOrBugsArray;
-		}
-	}
-
-	// Function is nest so it doesn't need to have reduxSearchFilterSort as a param
-	function filter(projectsOrBugsArray) {
-		return projectsOrBugsArray.filter((projectOrBug) => {
-			return (
-				// priorityFilter & statusFilter arrays include ids for
-				// ...prioirties and statuses the user wants filtered out
-				!reduxSearchFilterSort.priorityFilter.includes(
-					projectOrBug.priority_id
-				) &&
-				!reduxSearchFilterSort.statusFilter.includes(projectOrBug.status_id)
-			);
-		});
-	}
-
-	// Function is nest so it doesn't need to have reduxSearchFilterSort as a param
-	function sort(projectsOrBugsArray) {
-		if (reduxSearchFilterSort.sortAscending) {
-			switch (reduxSearchFilterSort.sortId) {
-				case 1:
-					return projectsOrBugsArray.sort((a, b) => {
-						return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
-					});
-				case 2:
-					return projectsOrBugsArray.sort((a, b) => {
-						return a.status_id - b.status_id;
-					});
-				case 3:
-					return projectsOrBugsArray.sort((a, b) => {
-						return a.priority_id - b.priority_id;
-					});
-				case 4:
-					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(a.creation_date) - dateToInt(b.creation_date);
-					});
-				case 5:
-					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(a.start_date) - dateToInt(b.start_date);
-					});
-				case 6:
-					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(a.due_date) - dateToInt(b.due_date);
-					});
-				default:
-					return projectsOrBugsArray;
-			}
-		} else {
-			switch (reduxSearchFilterSort.sortId) {
-				case 1:
-					return projectsOrBugsArray.sort((a, b) => {
-						return b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1;
-					});
-				case 2:
-					return projectsOrBugsArray.sort((a, b) => {
-						return b.status_id - a.status_id;
-					});
-				case 3:
-					return projectsOrBugsArray.sort((a, b) => {
-						return b.priority_id - a.priority_id;
-					});
-				case 4:
-					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(b.creation_date) - dateToInt(a.creation_date);
-					});
-				case 5:
-					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(b.start_date) - dateToInt(a.start_date);
-					});
-				case 6:
-					return projectsOrBugsArray.sort((a, b) => {
-						return dateToInt(b.due_date) - dateToInt(a.due_date);
-					});
-				default:
-					return projectsOrBugsArray;
-			}
-		}
-	}
-
 	// The order of these functions does not matter
-	return sort(filter(search(projectsOrBugsArray)));
+	return sort(
+		filter(
+			search(projectsOrBugsArray, reduxSearchFilterSort.searchKeyWordString),
+			reduxSearchFilterSort.priorityFilter,
+			reduxSearchFilterSort.statusFilter
+		),
+		reduxSearchFilterSort.sortAscending,
+		reduxSearchFilterSort.sortId
+	);
 }
 
 /**
- * Get list of projects filtered to only have those that fit current searchFilterSort
+ * Get list of projects containing only those that fit current searchFilterSort
  * configuration (i.e. 'searchFilterSort' property's Object in 'PROJECT_CONTAINER'
  * of the redux state)
  *
@@ -166,10 +297,8 @@ export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
  * @returns {{
  * 	id: number,
  * 	account_id: (number|undefined),
- * 	project_id: (number|undefined),
  * 	name: string,
  * 	description: string,
- * 	location: (string|undefined),
  * 	priority_id: number,
  * 	status_id: number,
  * 	creation_date: string,
@@ -179,31 +308,31 @@ export function searchFilterSort(projectsOrBugsArray, reduxSearchFilterSort) {
  * 	last_edited_timestamp: string,
  * 	priority_option: string,
  * 	status_option: string
- * }[]} List of projects filtered to only have items that fit current searchFilterSort
+ * }[]} List of projects containing only items that fit current searchFilterSort
  * configuration
  */
 export function getSearchedFilteredSortedProjectList(passedReduxState) {
 	return searchFilterSort(
 		// Spread operator makes deep copy of list so original is not affected
 		[...passedReduxState[PROJECT_CONTAINER].list],
-		// 'PROJECT_CONTAINER' & 'BUG_CONTAINER' have different searchFilterSort
+		// 'PROJECT_CONTAINER' & 'BUG_CONTAINER' have different
+		// ...'searchFilterSort' objects
 		passedReduxState[PROJECT_CONTAINER].searchFilterSort
 	);
 }
 
 /**
- * Get list bugs filtered to only have items that fit current searchFilterSort
+ * Get list bugs containing only items that fit current searchFilterSort
  * configuration (i.e. 'searchFilterSort' property's Object in 'BUG_CONTAINER'
  * of the redux state)
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {Object|undefined} specificProject - The specific project from whose bug
+ * @param {(Object|undefined)} specificProject - The specific project from whose bug
  * list is to be returned. If undefined, then the bug list of the currently selected
  * project with be returned.
  * @returns {{
  * 	id: number,
- * 	account_id: (number|undefined),
  * 	project_id: (number|undefined),
  * 	name: string,
  * 	description: string,
@@ -217,7 +346,7 @@ export function getSearchedFilteredSortedProjectList(passedReduxState) {
  * 	last_edited_timestamp: string,
  * 	priority_option: string,
  * 	status_option: string
- * }[]} List of bugs filtered to only have items that fit current searchFilterSort
+ * }[]} List of bugs containing only items that fit current searchFilterSort
  * configuration
  */
 export function getSearchedFilteredSortedBugList(
@@ -233,7 +362,6 @@ export function getSearchedFilteredSortedBugList(
 	} else {
 		return searchFilterSort(
 			// Spread operator makes deep copy of list so original is not affected.
-			// ...Also passes only with bugs belonging to non-filtered-out projects.
 			[...passedReduxState[BUG_CONTAINER].list].filter(
 				(item) =>
 					item.project_id ===
@@ -242,7 +370,8 @@ export function getSearchedFilteredSortedBugList(
 						: passedReduxState[PROJECT_CONTAINER].componentsDisplay
 								.itemViewCurrentItem.id)
 			),
-			// 'PROJECT_CONTAINER' & 'BUG_CONTAINER' have different searchFilterSort
+			// 'PROJECT_CONTAINER' & 'BUG_CONTAINER' have different
+			// ...'searchFilterSort' objects
 			passedReduxState[BUG_CONTAINER].searchFilterSort
 		);
 	}
@@ -275,7 +404,7 @@ export function getSearchedFilteredSortedBugList(
  * 	last_edited_timestamp: string,
  * 	priority_option: string,
  * 	status_option: string
- * }[]} List of projects or bugs filtered to only have items that fit current
+ * }[]} List of projects or bugs containing only items that fit current
  * searchFilterSort configuration
  */
 export function getSearchedFilteredSortedList(
@@ -285,6 +414,107 @@ export function getSearchedFilteredSortedList(
 	return reduxContainerName === PROJECT_CONTAINER
 		? getSearchedFilteredSortedProjectList(passedReduxState)
 		: getSearchedFilteredSortedBugList(passedReduxState);
+}
+
+/**
+ * Get list of projects sorted ascending by status. Completed projects will be
+ * filtered out unless includeCompletedProjects param is true. This function was
+ * created with the NavPanelButtonList component in mind.
+ *
+ * @param {Object} passedReduxState - Current redux state from
+ * useSelector((state) => state)
+ * @param {(boolean|undefined)} includeCompletedProjects - Should list include
+ * projects with a status of completed. If undefined, then completed projects
+ * will be filtered out.
+ * @returns {{
+ * 	id: number,
+ * 	account_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} List of projects sorted ascending by status and comnpleted projects
+ * potentially filtered out
+ */
+export function getProjectListForNavPanelButtonList(
+	passedReduxState,
+	includeCompletedProjects
+) {
+	// The order of these functions does not matter
+	return sort(
+		filter(
+			// Spread operator makes deep copy of list so original is not affected
+			[...passedReduxState[PROJECT_CONTAINER].list],
+			[],
+			includeCompletedProjects
+				? []
+				: // 6 = completed status_id (FYI: Had to hard code this... I think)
+				  [6]
+		),
+		true,
+		// 2 = sort by status (FYI: Had to hard code this... I think)
+		2
+	);
+}
+
+/**
+ * Get list of bugs sorted ascending by status. Closed bugs will be filtered out
+ * unless includeCompletedProjects param is true. This function was created
+ * with the NavPanelButtonList component in mind.
+ *
+ * @param {Object} passedReduxState - Current redux state from
+ * useSelector((state) => state)
+ * @param {boolean} includeClosedBugs - Should the list include bugs that have
+ * a status of closed. If undefined, then closed bugs will be filtered out.
+ * @returns {{
+ * 	id: number,
+ * 	project_id: (number|undefined),
+ * 	name: string,
+ * 	description: string,
+ * 	location: (string|undefined),
+ * 	priority_id: number,
+ * 	status_id: number,
+ * 	creation_date: string,
+ * 	start_date: string,
+ * 	due_date: (string|null),
+ * 	completion_date: (string|null),
+ * 	last_edited_timestamp: string,
+ * 	priority_option: string,
+ * 	status_option: string
+ * }[]} List of bugs sorted ascending by status and closed bugs potentially
+ * filtered out
+ */
+export function getBugListForNavPanelButtonList(
+	passedReduxState,
+	includeClosedBugs
+) {
+	// The order of these functions does not matter
+	return sort(
+		filter(
+			// Spread operator makes deep copy of list so original is not affected
+			[...passedReduxState[BUG_CONTAINER].list].filter(
+				(item) =>
+					item.project_id ===
+					passedReduxState[PROJECT_CONTAINER].componentsDisplay
+						.itemViewCurrentItem.id
+			),
+			[],
+			includeClosedBugs
+				? []
+				: // 4 = closed status_id (FYI: Had to hard code this... I think)
+				  [4]
+		),
+		true,
+		// 2 = sort by status (FYI: Had to hard code this... I think)
+		2
+	);
 }
 
 /**

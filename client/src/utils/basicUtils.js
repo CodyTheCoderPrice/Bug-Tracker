@@ -2,7 +2,7 @@
  * Returns true if 'value' param is null, undefined, an empty string, or an
  * empty array. Otherwise returns false.
  *
- * @param {boolean} value - Value of any type
+ * @param {*} value - Value of any type
  * @returns {boolean} Whether the value is null, undefined, an empty string,
  * or an empty array
  */
