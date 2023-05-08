@@ -70,14 +70,14 @@ const initialState = {
  * 'componentsDisplay' is to allow devs to only have to pass properties they
  * wish to set to true (making life easier).
  *
- * @param {{
- * 	registerComponentShouldDisplay: boolean,
- * 	loginComponentShouldDisplay: boolean,
- * 	homeComponentShouldDisplay: boolean,
- * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
- * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
- * }} state - Current Object (in the redux state) for which general components
- * are being displayed by the app
+ * @param {({
+ * 	registerComponentShouldDisplay: (boolean|undefined),
+ * 	loginComponentShouldDisplay: (boolean|undefined),
+ * 	homeComponentShouldDisplay: (boolean|undefined),
+ * 	itemViewListSidebarComponentContainerElementExpanded: (boolean|undefined),
+ * 	itemViewListSidebarComponentContainerElementExpandedUserSet: (boolean|undefined)
+ * }|undefined)} state - Current Object (in the redux state) for which general 
+ * components are being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually

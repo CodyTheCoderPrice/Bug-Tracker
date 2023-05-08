@@ -37,7 +37,8 @@ const initialState = {
  * in store.js file to have properties relating to projects seperated into their
  * own Object of the redux state for organizational purposes.
  *
- * @param {Object} state - Current 'PROJECT_CONTAINER' Object in the redux state
+ * @param {(Object|undefined)} state - Current 'PROJECT_CONTAINER' Object in the
+ * redux state
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually

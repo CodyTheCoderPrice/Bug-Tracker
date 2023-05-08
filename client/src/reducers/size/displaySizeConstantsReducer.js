@@ -20,12 +20,12 @@ const initialState = {
  *
  * Note: The purpose of the 'constants' property is to get CSS property sizes
  * (that never change) for specific elements to be used by JS for resizing other
- * elements (e.g. using listViewTopBarComponentHeight to resize the 
- * 'list-view-table-component' element in ListViewTable component). This keeps 
- * from having to refetch these CSS property sizes each time one of the other 
+ * elements (e.g. using listViewTopBarComponentHeight to resize the
+ * 'list-view-table-component' element in ListViewTable component). This keeps
+ * from having to refetch these CSS property sizes each time one of the other
  * elements needs resizing.
  *
- * @param {{
+ * @param {({
  * 	scrollbarWidth: (number|null),
  * 	listViewTopBarComponentHeight: (number|null),
  * 	listViewTableComponentRowElementHeight: (number|null),
@@ -33,8 +33,8 @@ const initialState = {
  * 	itemViewComponentOuterDividingContainerElementMinWidth: (number|null),
  * 	itemViewTopBarComponentHeight: (number|null),
  * 	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth: (number|null)
- * }} state - Current Object (in the redux state) for constant html element
- * sizes
+ * }|undefined)} state - Current Object (in the redux state) for constant html
+ * element sizes
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually

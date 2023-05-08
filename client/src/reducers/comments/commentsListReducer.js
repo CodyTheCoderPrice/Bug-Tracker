@@ -15,13 +15,13 @@ const initialState = []
  * property in ItemViewCommentsBox component needs to be reset) the list of 
  * comments without constantly needing to refetch it from the database.
  * 
- * @param {{ 
+ * @param {({ 
  * 	id: number, 
  * 	bug_id: number, 
  * 	description: string,
  * 	creation_date: string, 
  * 	last_edited_timestamp: string
- * }[]} state - Current Array of Objects (in the redux state) containing 
+ * }[]|undefined)} state - Current Array of Objects (in the redux state) containing 
  * comment data belonging to the logged in account
  * @param {Object} action - Object with a 'container' property (determins where 
  * in the redux state) and 'type' property (determins what task to do there).

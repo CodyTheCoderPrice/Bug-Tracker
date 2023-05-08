@@ -25,7 +25,7 @@ const initialState = {
  * refetch these CSS property sizes each time one of the other elements needs
  * to use them.
  *
- * @param {{
+ * @param {({
  * 	window: ({
  * 		height: number,
  * 		width: number
@@ -38,8 +38,8 @@ const initialState = {
  * 		height: number,
  * 		width: number
  * 	}|null)
- * }} state - Current Object (in redux state) for variable (i.e. changing) html
- * element sizes
+ * }|undefined)} state - Current Object (in redux state) for variable (i.e. changing)
+ * html element sizes
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually

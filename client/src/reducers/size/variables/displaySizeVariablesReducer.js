@@ -16,13 +16,13 @@ const initialState = {
  *
  * Note: The purpose of the 'variables' property is to get the current CSS
  * property sizes (that change) for specific elements to be used by JS for
- * resizing other elements (e.g. resizing 'overflow-container' elements in 
+ * resizing other elements (e.g. resizing 'overflow-container' elements in
  * NavPanelButtonList component). This keeps from having to
  * refetch these CSS property sizes each time one of the other elements needs
  * to use them.
  *
- * @param {Object} state - Current Object (in the redux state) for variable
- * (changing) html element sizes
+ * @param {(Object|undefined)} state - Current Object (in the redux state) for
+ * variable (changing) html element sizes
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually

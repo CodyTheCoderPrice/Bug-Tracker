@@ -21,7 +21,7 @@ const initialState = {
  * are set to null in 'componentsDisplay' is to allow devs to only have to pass 
  * properties they wish to set to an Object (making life easier).
  * 
- * @param {{
+ * @param {({
  * 	commentBeingEdited: ({
  * 		id: number, 
  * 		bug_id: number, 
@@ -36,7 +36,7 @@ const initialState = {
  * 		creation_date: string, 
  * 		last_edited_timestamp: string 
  * 	}|null)
- * }} state - Current Object (in the redux state) guiding how comment 
+ * }|undefined)} state - Current Object (in the redux state) guiding how comment 
  * components are being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where 
  * in the redux state) and 'type' property (determins what task to do there).

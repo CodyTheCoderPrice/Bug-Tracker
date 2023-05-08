@@ -14,7 +14,7 @@ const initialState = {};
  * was used to make the request. This is so the user can be given info on what 
  * went wrong, and possibly also be given an idea of how they can fix it.
  * 
- * @param {{
+ * @param {({
  * 	server: (string|undefined),
  *  serverAccount: (string|undefined),
  * 	serverSettings: (string|undefined),
@@ -40,7 +40,7 @@ const initialState = {};
  * 	validationComment: (string|undefined),
  * 	validationCreateCommentDescription: (string|undefined),
  * 	validationEditCommentDescription: (string|undefined),
- * }} state - Current Object (in the redux state) for the backend errors 
+ * }|undefined)} state - Current Object (in the redux state) for the backend errors 
  * containing info on what went wrong during any given HTTP request
  * @param {Object} action - Object with a 'container' property (determins where 
  * in the redux state) and 'type' property (determins what task to do there).

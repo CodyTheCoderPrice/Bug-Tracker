@@ -9,24 +9,24 @@ const initialState = {
 };
 
 /**
- * Used to set 'globalConstants' property containing constant data used globally 
+ * Used to set 'globalConstants' property containing constant data used globally
  * by the app into 'GENERAL_CONTAINER' of the redux state.
- * 
+ *
  * Note: The purpose of the 'globalConstants' property is to have a single place
  * where all global constant values are located and can be pulled from. This is
- * not only for organizational puposes, but also to help ensure consistency 
- * across the app as many of these constant values should be shared between 
+ * not only for organizational puposes, but also to help ensure consistency
+ * across the app as many of these constant values should be shared between
  * components.
  *
- * @param {{
+ * @param {({
  * 	nameCharLimit: number,
  * 	passwordCharMin: number,
  * 	passwordCharLimit: number,
  * 	descriptionCharLimit: number,
  * 	locationCharLimit: number,
- * }} state - Current Object (in the redux state) containing constant data used 
- * globally by the app
- * @param {Object} action - Object with a 'container' property (determins where 
+ * }|undefined)} state - Current Object (in the redux state) containing constant
+ * data used globally by the app
+ * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).

@@ -25,8 +25,8 @@ const initialState = {}
  * 	bug_sort_id: number, 
  * 	bug_sort_ascending: boolean, 
  * 	last_edited_timestamp: string 
- * } | {})} state - Current Object (in the redux state) for the logged in 
- * account's settings data
+ * } | {} | undefined)} state - Current Object (in the redux state) for the logged
+ * in account's settings data
  * @param {Object} action - Object with a 'container' property (determins where 
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually

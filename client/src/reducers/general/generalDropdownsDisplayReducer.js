@@ -57,13 +57,13 @@ const initialState = {
  * set to false in 'dropdownsDisplay' is to allow devs to only have to pass
  * properties they wish to set to true (making life easier).
  *
- * @param {{
- * 	listViewTopBarFilterDropdownComponentShouldDisplay: boolean,
- * 	itemViewTopBarSortDropdownComponentShouldDisplay: boolean,
- * 	itemViewTopBarFilterDropdownComponentShouldDisplay: boolean,
- * 	itemViewTopBarOptionsDropdownComponentShouldDisplay: boolean
- * }} state - Current Object (in the redux state) for which general dropdown
- * components are being displayed by the app
+ * @param {({
+ * 	listViewTopBarFilterDropdownComponentShouldDisplay: (boolean|undefined),
+ * 	itemViewTopBarSortDropdownComponentShouldDisplay: (boolean|undefined),
+ * 	itemViewTopBarFilterDropdownComponentShouldDisplay: (boolean|undefined),
+ * 	itemViewTopBarOptionsDropdownComponentShouldDisplay: (boolean|undefined)
+ * }|undefined)} state - Current Object (in the redux state) for which general
+ * dropdown components are being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually

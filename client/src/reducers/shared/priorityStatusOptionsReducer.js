@@ -1,8 +1,8 @@
 import { SET_PRIORITY_STATUS } from "../../actions/constants/types";
 import { appendHexValueForColorsToStatusList } from "../../utils/colorUtils";
 
-// Initial state for either project or bug priority/status data (reducer used for 
-// ...'PROJECT_CONTAINER' and 'BUG_CONTAINER'). All values are null since they need 
+// Initial state for either project or bug priority/status data (reducer used for
+// ...'PROJECT_CONTAINER' and 'BUG_CONTAINER'). All values are null since they need
 // ...to be retrieved from the database.
 const initialState = {
 	// Priority table data from the database
@@ -19,18 +19,18 @@ const initialState = {
 
 /**
  * Used to set 'priorityStatusOptions' property containing either project or bug
- * (not both) priority/status data from priority and status tables in the 
+ * (not both) priority/status data from priority and status tables in the
  * database, into either 'PROJECT_CONTAINER' or 'BUG_CONTAINER' (reducer used for
  * both) of the redux state.
- * 
- * Note: The purpose of the 'priorityStatusOptions' property is to be used to 
+ *
+ * Note: The purpose of the 'priorityStatusOptions' property is to be used to
  * display (e.g. display all prioirty and status options in filter dropdown in
- * ListViewTopBar component) and use (e.g. use status.color to get CSS status 
+ * ListViewTopBar component) and use (e.g. use status.color to get CSS status
  * text colors for select elements in ListViewCreateItemSidebar component) the
- * priority/status data without constantly needing to refetch it from the 
+ * priority/status data without constantly needing to refetch it from the
  * database.
  *
- * @param {{
+ * @param {({
  * 	priorityList: ([
  * 		{ id: number, option: string },
  * 		{ id: number, option: string },
@@ -48,9 +48,9 @@ const initialState = {
  * 	]|null),
  * 	statusEmptyId: (number|null),
  * 	statusCompletionId: (number|null),
- * }} state - Current Object (in the redux state) for either project or bug 
- * (not both) priority/status data
- * @param {Object} action - Object with a 'container' property (determins where 
+ * }|undefined)} state - Current Object (in the redux state) for either project
+ * or bug (not both) priority/status data
+ * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
  * data to be updated in the redux state).
@@ -75,7 +75,10 @@ const initialState = {
  * }} Object containing either project or bug (not both) priority/status data
  * from priority and status tables in the database
  */
-export default function priorityStatusOptionsReducer(state = initialState, action) {
+export default function priorityStatusOptionsReducer(
+	state = initialState,
+	action
+) {
 	switch (action.type) {
 		case SET_PRIORITY_STATUS:
 			return {

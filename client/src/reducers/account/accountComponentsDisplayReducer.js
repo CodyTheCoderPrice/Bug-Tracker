@@ -4,8 +4,8 @@ import { filterObject, getStringOfAllArrayValues } from "../../utils";
 const initialState = {
 	// When 'accountSidebarComponentShouldDisplay' is true, the below must be
 	// done (along with having that component display) by the DEVELOPER in JSX:
-	// 		AccountBlurredBackdrop component's 
-	//		'account-modals-blurred-backdrop-component' (className) element 
+	// 		AccountBlurredBackdrop component's
+	//		'account-modals-blurred-backdrop-component' (className) element
 	//		should have 'account-modals-blurred-backdrop-component--below-navbar'
 	//		modifier className appended. This is so the Navbar can still be used
 	//		while AccountSidebar (which has a blurred-backdrop) is open.
@@ -23,10 +23,10 @@ const initialState = {
  * state. If any properties in 'displays' prop are undefined, then they will be
  * set to false in 'componentsDisplay'.
  *
- * Rules: The 'displays' prop should have at most only one of its boolean 
+ * Rules: The 'displays' prop should have at most only one of its boolean
  * properties as true. If the 'displays' prop does not follow the rules then a
  * fail safe will alter it to do so (in the reducer).
- * 
+ *
  * Note: The purpose of each boolean in 'componentsDisplay' Object are to be
  * used as flags for whether the components they represent should be displayed
  * by the app. The reason at most only one of these properties should be true
@@ -38,15 +38,15 @@ const initialState = {
  * set to false in 'componentsDisplay' is to allow Devs to only have to pass
  * properties they wish to set to true (making life easier).
  *
- * @param {{
+ * @param {({
  * 	accountSidebarComponentShouldDisplay: boolean,
  * 	accountModalEditInfoComponentShouldDisplay: boolean,
  * 	accountModalEditEmailComponentShouldDisplay: boolean,
  * 	accountModalEditPasswordComponentShouldDisplay: boolean,
  * 	accountModalDeleteAccountComponentShouldDisplay: boolean,
  * 	accountModalEditSettingsComponentShouldDisplay: boolean
- * }} state - Current Object (in the redux state) guiding which account components
- * are being displayed by the app
+ * }|undefined)} state - Current Object (in the redux state) guiding which account
+ * components are being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
@@ -107,7 +107,7 @@ export default function accountComponentsDisplayReducer(
 
 /**
  * Checks if 'displays' prop follows the rules stated in JsDoc of
- * accountComponentsDisplayReducer. If valid, then 'displays' is returned 
+ * accountComponentsDisplayReducer. If valid, then 'displays' is returned
  * unchanged. If invalid, then a new version that's altered to follow the rules
  * is returned instead.
  *
@@ -143,7 +143,7 @@ function getValidatedDisplays(displays) {
 	else {
 		// Invalid and therefore new displays is needed.
 		const newDisplays = { ...initialState };
-		// Keeping only one of its booleans true (Which one to keep true is 
+		// Keeping only one of its booleans true (Which one to keep true is
 		// arbitrary, but the first key is easiest to implement)
 		newDisplays[keysOfAccountComponentsSetToTrue[0]] = true;
 

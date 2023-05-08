@@ -19,57 +19,57 @@ const initialState = {
 /**
  * Uses 'displays' prop to set 'componentsDisplay' Object (to guide how list
  * and item components should display by the app) into either 'PROJECT_CONTAINER'
- * or 'BUG_CONTAINER' (reducer used for both) of the redux state. If any 
- * properties in 'displays' prop are undefined, then they will be set to false 
+ * or 'BUG_CONTAINER' (reducer used for both) of the redux state. If any
+ * properties in 'displays' prop are undefined, then they will be set to false
  * (if a boolean) or null (if an Object) in 'componentsDisplay'.
- * 
- * Rules: The 'displays' prop should have at most only one of 
- * 'listViewComponentShouldDisplay' and 'itemViewComponentShouldDisplay' 
- * booleans as true. If 'itemViewComponentShouldDisplay' is true, then 
- * 'itemViewCurrentItem' must be set to an Object containing the item to be 
+ *
+ * Rules: The 'displays' prop should have at most only one of
+ * 'listViewComponentShouldDisplay' and 'itemViewComponentShouldDisplay'
+ * booleans as true. If 'itemViewComponentShouldDisplay' is true, then
+ * 'itemViewCurrentItem' must be set to an Object containing the item to be
  * displayed. Only if 'listViewComponentShouldDisplay' is true, then at most
- * only one of 'deleteModalComponentForListViewShouldDisplay' and 
+ * only one of 'deleteModalComponentForListViewShouldDisplay' and
  * 'listViewCreateItemSidbarComponentShouldDisplay' should be true, otherwise
- * both should be false. Only if 'itemViewComponentShouldDisplay' is true, then 
- * at most only one of 'deleteModalComponentForItemViewShouldDisplay' and 
+ * both should be false. Only if 'itemViewComponentShouldDisplay' is true, then
+ * at most only one of 'deleteModalComponentForItemViewShouldDisplay' and
  * 'itemViewEditItemInfoComponentShouldDisplay' should be true, otherwise both
- * should be false. If the 'displays' prop does not follow the rules then a 
- * fail safe will alter it to do so (in the reducer). Also only one of the 
+ * should be false. If the 'displays' prop does not follow the rules then a
+ * fail safe will alter it to do so (in the reducer). Also only one of the
  * 'componentsDisplay' Objects in both 'PROJECT_CONTAINER' and 'BUG_CONTAINER'
- * of the redux state at a time should have any booleans as true. Also exactly 
+ * of the redux state at a time should have any booleans as true. Also exactly
  * one of 'listViewComponentShouldDisplay' and 'itemViewComponentShouldDisplay'
  * booleans at a time in either 'componentsDisplay' Object must be true. Fail
- * safes for these two rules take place outside the reducer via functions from 
+ * safes for these two rules take place outside the reducer via functions from
  * reduxFailSafeHookUtils.js file because the reducers are not set up to manage
  * Objects within multiple containers at once.
- * 
+ *
  * Note: The purpose of each booleans in 'componentsDisplay' Object with names
- * ending in '...ShouldDisplay' are to be used as flags for whether the 
- * components they represent should be displayed by the app. The reason there 
+ * ending in '...ShouldDisplay' are to be used as flags for whether the
+ * components they represent should be displayed by the app. The reason there
  * are rules that some booleans can only be true if another specifc boolean is
  * true is becasue of CSS dependencies (i.e. one of the components they represent
- * relies on the other to display properly) or they were designed to appear 
+ * relies on the other to display properly) or they were designed to appear
  * along side one another. The reason there are rules that some booleans are not
- * allowed to be true at the same time is either to prevent CSS issues (i.e. 
+ * allowed to be true at the same time is either to prevent CSS issues (i.e.
  * their components will break each others intended design) or because it makes
  * sense to seperate their component's functionalities (e.g. users should not be
- * able to create new items while viewing a specific item). It should be noted 
+ * able to create new items while viewing a specific item). It should be noted
  * that when 'itemViewEditItemInfoComponentShouldDisplay' is false, then
  * ItemViewDisplayItemInfo component should display instead. Also the difference
  * between how DeleteModal component works for ListView as opposed to ItemView
  * is that ListView allows for deleting multiple items at once, while ItemView
- * only allows for deleting its specific item. Also the reason undefined 
- * properties in 'displays' prop are set to false/null in 'componentsDisplay' 
- * is to allow devs to only have to pass properties they wish to set to 
+ * only allows for deleting its specific item. Also the reason undefined
+ * properties in 'displays' prop are set to false/null in 'componentsDisplay'
+ * is to allow devs to only have to pass properties they wish to set to
  * true/Object (making life easier).
  *
- * @param {{
- * 	listViewComponentShouldDisplay: boolean,
- * 	deleteModalComponentForListViewShouldDisplay: boolean,
- * 	listViewCreateItemSidbarComponentShouldDisplay: boolean,
- * 	itemViewComponentShouldDisplay: boolean,
- * 	deleteModalComponentForItemViewShouldDisplay: boolean,
- * 	itemViewEditItemInfoComponentShouldDisplay: boolean,
+ * @param {({
+ * 	listViewComponentShouldDisplay: (boolean|undefined),
+ * 	deleteModalComponentForListViewShouldDisplay: (boolean|undefined),
+ * 	listViewCreateItemSidbarComponentShouldDisplay: (boolean|undefined),
+ * 	itemViewComponentShouldDisplay: (boolean|undefined),
+ * 	deleteModalComponentForItemViewShouldDisplay: (boolean|undefined),
+ * 	itemViewEditItemInfoComponentShouldDisplay: (boolean|undefined),
  * 	itemViewCurrentItem: ({
  * 		account_id: number,
  * 		id: number,
@@ -85,10 +85,10 @@ const initialState = {
  * 		status_id: number,
  * 		status_option: string,
  * 		last_edited_timestamp: string
- * 	}|null)
- * }} state - Current Object (in the redux state) for either which project or
- * bug components (reducer used by 'PROJECT_CONTAINER' and 'BUG_CONTAINER') are
- * currently being displayed by the app
+ * 	}|null|undefined))
+ * }|undefined)} state - Current Object (in the redux state) for either which
+ * project or bug components (reducer used by 'PROJECT_CONTAINER' and 'BUG_CONTAINER')
+ * are currently being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
  * in the redux state) and 'type' property (determins what task to do there).
  * Also may have additional properties with data needed for the task (usually
