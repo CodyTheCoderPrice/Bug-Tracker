@@ -9,12 +9,15 @@ import {
 } from "../../../../actions/constants/containerNames";
 
 import {
+	setProjectOrBugMassDeleteList,
+	setWhichGeneralComponentsDisplay,
 	setWhichProjectOrBugComponentsDisplay,
 	setWhichBugComponentsDisplay,
-	setProjectOrBugMassDeleteList,
 } from "../../../../actions";
 
 import {
+	getStatusIdForCompletedProjects,
+	getStatusIdForClosedBugs,
 	formatDateMMddYYYY,
 	getAlternativeWhenValueIsEmpty,
 	getCommonStatusBackgroundColorClassName,
@@ -63,6 +66,24 @@ export default function ListViewTableItemRow(props) {
 	};
 
 	const openItemView = () => {
+		if (props.reduxContainerName === PROJECT_CONTAINER) {
+			dispatch(
+				setWhichGeneralComponentsDisplay({
+					...reduxState[GENERAL_CONTAINER].componentsDisplay,
+					navPanelButtonListComponentShouldIncludeCompletedProjects:
+						props.item.status_id === getStatusIdForCompletedProjects(),
+				})
+			);
+		} else {
+			dispatch(
+				setWhichGeneralComponentsDisplay({
+					...reduxState[GENERAL_CONTAINER].componentsDisplay,
+					navPanelButtonListComponentShouldIncludeClosedBugs:
+						props.item.status_id === getStatusIdForClosedBugs(),
+				})
+			);
+		}
+
 		dispatch(
 			setWhichProjectOrBugComponentsDisplay(props.reduxContainerName, {
 				listViewComponentShouldDisplay: false,

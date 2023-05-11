@@ -5,6 +5,7 @@ import {
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
+	GENERAL_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 import {
 	getElementSize,
@@ -27,10 +28,10 @@ export default function NavPanelButtonList() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	/* const [buttonSubItemLists, setButtonSubItemLists] = useState({
-		projectList: getSearchedFilteredSortedProjectList(reduxState),
-		bugList: getSearchedFilteredSortedBugList(reduxState),
-	}); */
+	const [buttonSubItemLists, setButtonSubItemLists] = useState({
+		projectList: getProjectListForNavPanelButtonList(reduxState),
+		bugList: getBugListForNavPanelButtonList(reduxState),
+	});
 
 	const [navPanelChildSizesAndStyles, setNavPanelChildSizesAndStyles] =
 		useState({
@@ -93,7 +94,7 @@ export default function NavPanelButtonList() {
 		bugAllButtonsSetToZero: false,
 	});
 
-	/* // Updates buttonSubItemLists
+	// Updates buttonSubItemLists
 	useEffect(() => {
 		// Keeps projectList/bugList the same when their 'sub-overflow-container'
 		// ...elements are closed so they can have their faded-out animations play
@@ -101,12 +102,12 @@ export default function NavPanelButtonList() {
 			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 			null
 				? buttonSubItemLists.projectList
-				: getSearchedFilteredSortedProjectList(reduxState);
+				: getProjectListForNavPanelButtonList(reduxState);
 
 		const bugListUpdatedValue =
 			reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem === null
 				? buttonSubItemLists.bugList
-				: getSearchedFilteredSortedBugList(reduxState);
+				: getBugListForNavPanelButtonList(reduxState);
 
 		if (
 			buttonSubItemLists.projectList !== projectListUpdatedValue ||
@@ -123,7 +124,17 @@ export default function NavPanelButtonList() {
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
 		// eslint-disable-next-line
 		reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
-	]); */
+		// eslint-disable-next-line
+		reduxState[PROJECT_CONTAINER].list,
+		// eslint-disable-next-line
+		reduxState[BUG_CONTAINER].list,
+		// eslint-disable-next-line
+		reduxState[GENERAL_CONTAINER].componentsDisplay
+			.navPanelButtonListComponentShouldIncludeCompletedProjects,
+		// eslint-disable-next-line
+		reduxState[GENERAL_CONTAINER].componentsDisplay
+			.navPanelButtonListComponentShouldIncludeClosedBugs,
+	]);
 
 	// Sets navPanelChildSizesAndStyles
 	useEffect(() => {
@@ -358,7 +369,7 @@ export default function NavPanelButtonList() {
 			>
 				{!buttonListSubItemsDisplayStatus.projectItemsShouldExist ? null : (
 					<div>
-						{getProjectListForNavPanelButtonList(reduxState).map((item, idx) => {
+						{buttonSubItemLists.projectList.map((item, idx) => {
 							return (
 								<NavPanelButtonListSubItem
 									key={idx}
@@ -436,7 +447,7 @@ export default function NavPanelButtonList() {
 			>
 				{!buttonListSubItemsDisplayStatus.bugItemsShouldExist ? null : (
 					<div>
-						{getBugListForNavPanelButtonList(reduxState).map((item, idx) => {
+						{buttonSubItemLists.bugList.map((item, idx) => {
 							return (
 								<NavPanelButtonListSubItem
 									key={idx}

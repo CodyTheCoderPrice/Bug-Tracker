@@ -2,8 +2,14 @@
 import {
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
+	GENERAL_CONTAINER,
 } from "../actions/constants/containerNames";
-import { dateToInt } from "./index";
+import {
+	dateToInt,
+	getStatusIdForCompletedProjects,
+	getStatusIdForClosedBugs,
+	getSortIdForStatus,
+} from "./index";
 
 /**
  * Takes an array of projects or bugs and returns it filtered according to
@@ -417,15 +423,13 @@ export function getSearchedFilteredSortedList(
 }
 
 /**
- * Get list of projects sorted ascending by status. Completed projects will be
- * filtered out unless includeCompletedProjects param is true. This function was
- * created with the NavPanelButtonList component in mind.
+ * Get list of projects for the NavPanelButtonList component. The list is sorted
+ * ascending by status and closed projectss will be filtered out unless
+ * 'navPanelButtonListComponentShouldIncludeCompletedProjects' property in the
+ * 'GENERAL_CONTAINER' container of the redux state is true.
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {(boolean|undefined)} includeCompletedProjects - Should list include
- * projects with a status of completed. If undefined, then completed projects
- * will be filtered out.
  * @returns {{
  * 	id: number,
  * 	account_id: (number|undefined),
@@ -443,36 +447,32 @@ export function getSearchedFilteredSortedList(
  * }[]} List of projects sorted ascending by status and comnpleted projects
  * potentially filtered out
  */
-export function getProjectListForNavPanelButtonList(
-	passedReduxState,
-	includeCompletedProjects
-) {
+export function getProjectListForNavPanelButtonList(passedReduxState) {
 	// The order of these functions does not matter
 	return sort(
 		filter(
 			// Spread operator makes deep copy of list so original is not affected
 			[...passedReduxState[PROJECT_CONTAINER].list],
+			// We don't want any priorities to be filtered out
 			[],
-			includeCompletedProjects
+			passedReduxState[GENERAL_CONTAINER].componentsDisplay
+				.navPanelButtonListComponentShouldIncludeCompletedProjects
 				? []
-				: // 6 = completed status_id (FYI: Had to hard code this... I think)
-				  [6]
+				: [getStatusIdForCompletedProjects()]
 		),
 		true,
-		// 2 = sort by status (FYI: Had to hard code this... I think)
-		2
+		getSortIdForStatus()
 	);
 }
 
 /**
- * Get list of bugs sorted ascending by status. Closed bugs will be filtered out
- * unless includeCompletedProjects param is true. This function was created
- * with the NavPanelButtonList component in mind.
+ * Get list of bugs for the NavPanelButtonList component. The list is sorted
+ * ascending by status and closed bugs will be filtered out unless
+ * 'navPanelButtonListComponentShouldIncludeClosedBugs' property in the
+ * 'GENERAL_CONTAINER' container of the redux state is true.
  *
  * @param {Object} passedReduxState - Current redux state from
  * useSelector((state) => state)
- * @param {boolean} includeClosedBugs - Should the list include bugs that have
- * a status of closed. If undefined, then closed bugs will be filtered out.
  * @returns {{
  * 	id: number,
  * 	project_id: (number|undefined),
@@ -491,30 +491,30 @@ export function getProjectListForNavPanelButtonList(
  * }[]} List of bugs sorted ascending by status and closed bugs potentially
  * filtered out
  */
-export function getBugListForNavPanelButtonList(
-	passedReduxState,
-	includeClosedBugs
-) {
-	// The order of these functions does not matter
-	return sort(
-		filter(
-			// Spread operator makes deep copy of list so original is not affected
-			[...passedReduxState[BUG_CONTAINER].list].filter(
-				(item) =>
-					item.project_id ===
-					passedReduxState[PROJECT_CONTAINER].componentsDisplay
-						.itemViewCurrentItem.id
-			),
-			[],
-			includeClosedBugs
-				? []
-				: // 4 = closed status_id (FYI: Had to hard code this... I think)
-				  [4]
-		),
-		true,
-		// 2 = sort by status (FYI: Had to hard code this... I think)
-		2
-	);
+export function getBugListForNavPanelButtonList(passedReduxState) {
+	return passedReduxState[PROJECT_CONTAINER].componentsDisplay
+		.itemViewCurrentItem === null
+		? []
+		: // The order of these functions does not matter
+		  sort(
+				filter(
+					// Spread operator makes deep copy of list so original is not affected
+					[...passedReduxState[BUG_CONTAINER].list].filter(
+						(item) =>
+							item.project_id ===
+							passedReduxState[PROJECT_CONTAINER].componentsDisplay
+								.itemViewCurrentItem.id
+					),
+					// We don't want any priorities to be filtered out
+					[],
+					passedReduxState[GENERAL_CONTAINER].componentsDisplay
+						.navPanelButtonListComponentShouldIncludeClosedBugs
+						? []
+						: [getStatusIdForClosedBugs()]
+				),
+				true,
+				getSortIdForStatus()
+		  );
 }
 
 /**

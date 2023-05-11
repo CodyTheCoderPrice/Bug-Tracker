@@ -40,7 +40,13 @@ import {
  * as their components will break each others intended CSS design, and because 
  * it makes sense to seperate their component's functionalities (e.g. registering
  * or logging-in is best done when not already logged-in and using the Home
- * component). The purpose of the 'itemViewListSidebarComponentContainerElementExpanded'
+ * component). The purpose of the 'navPanelButtonListComponentShouldIncludeCompletedProjects'
+ * and the 'navPanelButtonListComponentShouldIncludeClosedBugs' properties is to
+ * be used as flags for whether the NavPanelButtonList component's 'sub-overflow-container'
+ * (className) elements should include projects with a completed status or bugs
+ * with a closed status. They should only be set to true if the most recent
+ * project/bug  openned from a listView component is completed/closed. The
+ * purpose of the 'itemViewListSidebarComponentContainerElementExpanded'
  * property is to be used as a flag for whether the ItemViewListSidebar
  * component's 'list-sidebar-container' (className) element should be expanded.
  * The purpose of the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
@@ -58,6 +64,8 @@ import {
  * 	registerComponentShouldDisplay: (boolean|undefined),
  * 	loginComponentShouldDisplay: (boolean|undefined),
  * 	homeComponentShouldDisplay: (boolean|undefined),
+ * 	navPanelButtonListComponentShouldIncludeCompletedProjects: (boolean|undefined),
+ * 	navPanelButtonListComponentShouldIncludeClosedBugs: (boolean|undefined),
  * 	itemViewListSidebarComponentContainerElementExpanded: (boolean|undefined),
  * 	itemViewListSidebarComponentContainerElementExpandedUserSet: (boolean|undefined)
  * }} displays - Object containing properties to guide how general components

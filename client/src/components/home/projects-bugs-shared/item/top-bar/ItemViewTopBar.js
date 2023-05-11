@@ -11,6 +11,7 @@ import {
 import {
 	setProjectOrBugSearchFilterSort,
 	setWhichProjectOrBugComponentsDisplay,
+	setWhichGeneralComponentsDisplay,
 	setWhichBugComponentsDisplay,
 	setProjectOrBugMassDeleteList,
 } from "../../../../../actions";
@@ -72,8 +73,22 @@ export default function ItemViewTopBar(props) {
 
 		// Resets bug components display if project itemViewComponentShouldDisplay is closed
 		if (props.reduxContainerName === PROJECT_CONTAINER) {
+			dispatch(
+				setWhichGeneralComponentsDisplay({
+					...reduxState[GENERAL_CONTAINER].componentsDisplay,
+					navPanelButtonListComponentShouldIncludeCompletedProjects: false,
+					navPanelButtonListComponentShouldIncludeClosedBugs: false,
+				})
+			);
 			dispatch(setWhichBugComponentsDisplay({}));
 			dispatch(setProjectOrBugMassDeleteList(BUG_CONTAINER));
+		} else {
+			dispatch(
+				setWhichGeneralComponentsDisplay({
+					...reduxState[GENERAL_CONTAINER].componentsDisplay,
+					navPanelButtonListComponentShouldIncludeClosedBugs: false,
+				})
+			);
 		}
 	};
 
