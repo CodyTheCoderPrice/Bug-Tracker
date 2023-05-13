@@ -27,11 +27,7 @@ import {
  * into the app, and either 'registerComponentShouldDisplay' or
  * 'loginComponentShouldDisplay' should be true if a user is not logged in. If
  * the 'displays' prop does not follow the rules then a fail safe will alter it
- * to do so (in the reducer). Also the 'displays' prop should only have
- * 'itemViewListSidebarComponentContainerElementExpandedUserSet' set to true
- * after the user has clicked the ItemViewListSidebar component's 
- * 'expand-minimize-button' (className) element during the current session. 
- * However, a fail safe could not be figured out to ensure this rule is followed.
+ * to do so (in the reducer).
  * 
  * Note: The purpose of each booleans in 'componentsDisplay' Object with names
  * ending in '...ShouldDisplay' are to be used as flags for whether the 
@@ -45,17 +41,7 @@ import {
  * be used as flags for whether the NavPanelButtonList component's 'sub-overflow-container'
  * (className) elements should include projects with a completed status or bugs
  * with a closed status. They should only be set to true if the most recent
- * project/bug  openned from a listView component is completed/closed. The
- * purpose of the 'itemViewListSidebarComponentContainerElementExpanded'
- * property is to be used as a flag for whether the ItemViewListSidebar
- * component's 'list-sidebar-container' (className) element should be expanded.
- * The purpose of the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
- * property is to be used as a flag by the custom hook in
- * useAutoDecideIfItemViewListSidebarComponentDisplaysHookUtils.js for whether
- * the app should auto-decide if ItemViewListSidebar component's
- * 'list-sidebar-container' (className) element should be expanded based on the
- * current window size. If false it will continue to auto-decide, if true it
- * will no longer auto-decide (until turned false again through an app reset).
+ * project/bug  openned from a listView component is completed/closed.
  * The reason undefined properties in 'displays' prop are set to false in
  * 'componentsDisplay' is to allow devs to only have to pass properties they
  * wish to set to true (making life easier).
@@ -66,8 +52,6 @@ import {
  * 	homeComponentShouldDisplay: (boolean|undefined),
  * 	navPanelButtonListComponentShouldIncludeCompletedProjects: (boolean|undefined),
  * 	navPanelButtonListComponentShouldIncludeClosedBugs: (boolean|undefined),
- * 	itemViewListSidebarComponentContainerElementExpanded: (boolean|undefined),
- * 	itemViewListSidebarComponentContainerElementExpandedUserSet: (boolean|undefined)
  * }} displays - Object containing properties to guide how general components
  * should be displyed in the app.
  *

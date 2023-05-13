@@ -156,9 +156,9 @@
 	.list-view-top-bar-filter-button-component--with-dropdown-displayed {
 		// Negative top margin because border resize moves the element
 		margin: -(
-				v.$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference
+				v.$common-top-bar-button-with-dropdown-displayed-border-width-difference
 			) 0px 0px;
-		border-width: v.$common-top-bar-filter-button-with-dropdown-displayed-border-width;
+		border-width: v.$common-top-bar-button-with-dropdown-displayed-border-width;
 		// No bottom border so button and dropdown both look like one element
 		border-bottom: none;
 		border-radius: v.$common-top-bar-buttton-border-radius
@@ -166,7 +166,7 @@
 		height: 45px;
 		width: v.$list-view-top-bar-filter-button-width -
 			(
-				v.$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference *
+				v.$common-top-bar-button-with-dropdown-displayed-border-width-difference *
 					2
 			);
 	}

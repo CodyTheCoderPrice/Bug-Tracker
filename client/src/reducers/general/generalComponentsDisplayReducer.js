@@ -9,27 +9,6 @@ const initialState = {
 	homeComponentShouldDisplay: false,
 	navPanelButtonListComponentShouldIncludeCompletedProjects: false,
 	navPanelButtonListComponentShouldIncludeClosedBugs: false,
-	// The next two are in the 'GENERAL_CONTAINER' since values should be
-	// shared for both the project and bug versions of ItemViewListSidebar
-	// component (as user likely would expect them to be).
-	// When itemViewListSidebarComponentContainerElementExpanded is true the
-	// below must be done by the DEVELOPER in JSX:
-	// 	1) ItemViewListSidebar component's 'list-sidebar-container'
-	// 		(className) element should have 'list-sidebar-container--expanded'
-	// 		modifier className appended.
-	// 	2) ItemViewListSidebar component's 'expand-minimize-button'
-	// 		(className) element should have 'expand-minimize-button--expanded'
-	// 		modifier className appended.
-	// 	3) ItemView component's 'item-content-container' (className) element
-	// 		should have 'item-content-container--shifted-right' modifier
-	//		className appended.
-	// When itemViewListSidebarComponentContainerElementExpanded is false the
-	// below must be done by the DEVELOPER in JSX:
-	// 		ItemViewTopBar component's 'search-container', 'filter-components-container',
-	//		and 'sort-components-container' (classNames) elements should not be
-	//		present in that component's JSX.
-	itemViewListSidebarComponentContainerElementExpanded: false,
-	itemViewListSidebarComponentContainerElementExpandedUserSet: false,
 };
 
 /**
@@ -45,11 +24,7 @@ const initialState = {
  * into the app, and either 'registerComponentShouldDisplay' or
  * 'loginComponentShouldDisplay' should be true if a user is not logged in. If
  * the 'displays' prop does not follow the rules then a fail safe will alter it
- * to do so (in the reducer). Also the 'displays' prop should only have
- * 'itemViewListSidebarComponentContainerElementExpandedUserSet' set to true
- * after the user has clicked the ItemViewListSidebar component's
- * 'expand-minimize-button' (className) element during the current session.
- * However, a fail safe could not be figured out to ensure this rule is followed.
+ * to do so (in the reducer).
  *
  * Note: The purpose of each booleans in 'componentsDisplay' Object with names
  * ending in '...ShouldDisplay' are to be used as flags for whether the
@@ -63,17 +38,7 @@ const initialState = {
  * be used as flags for whether the NavPanelButtonList component's 'sub-overflow-container'
  * (className) elements should include projects with a completed status or bugs
  * with a closed status. They should only be set to true if the most recent
- * project/bug  openned from a listView component is completed/closed. The
- * purpose of the 'itemViewListSidebarComponentContainerElementExpanded'
- * property is to be used as a flag for whether the ItemViewListSidebar
- * component's 'list-sidebar-container' (className) element should be expanded.
- * The purpose of the 'itemViewListSidebarComponentContainerElementExpandedUserSet'
- * property is to be used as a flag by the custom hook in
- * useAutoDecideIfItemViewListSidebarComponentDisplaysHookUtils.js for whether
- * the app should auto-decide if ItemViewListSidebar component's
- * 'list-sidebar-container' (className) element should be expanded based on the
- * current window size. If false it will continue to auto-decide, if true it
- * will no longer auto-decide (until turned false again through an app reset).
+ * project/bug  openned from a listView component is completed/closed.
  * The reason undefined properties in 'displays' prop are set to false in
  * 'componentsDisplay' is to allow devs to only have to pass properties they
  * wish to set to true (making life easier).
@@ -84,8 +49,6 @@ const initialState = {
  * 	homeComponentShouldDisplay: (boolean|undefined),
  * 	navPanelButtonListComponentShouldIncludeCompletedProjects: (boolean|undefined),
  * 	navPanelButtonListComponentShouldIncludeClosedBugs: (boolean|undefined),
- * 	itemViewListSidebarComponentContainerElementExpanded: (boolean|undefined),
- * 	itemViewListSidebarComponentContainerElementExpandedUserSet: (boolean|undefined)
  * }|undefined)} state - Current Object (in the redux state) for which general
  * components are being displayed by the app
  * @param {Object} action - Object with a 'container' property (determins where
@@ -98,8 +61,6 @@ const initialState = {
  * 	homeComponentShouldDisplay: boolean,
  * 	navPanelButtonListComponentShouldIncludeCompletedProjects: boolean,
  * 	navPanelButtonListComponentShouldIncludeClosedBugs: boolean,
- * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
- * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
  * }} Object for which general components should display by the app
  */
 export default function generalComponentsDisplayReducer(
@@ -136,16 +97,6 @@ export default function generalComponentsDisplayReducer(
 					undefined
 						? validatedDisplays.navPanelButtonListComponentShouldIncludeClosedBugs
 						: state.navPanelButtonListComponentShouldIncludeClosedBugs,
-				itemViewListSidebarComponentContainerElementExpanded:
-					validatedDisplays.itemViewListSidebarComponentContainerElementExpanded !==
-					undefined
-						? validatedDisplays.itemViewListSidebarComponentContainerElementExpanded
-						: false,
-				itemViewListSidebarComponentContainerElementExpandedUserSet:
-					validatedDisplays.itemViewListSidebarComponentContainerElementExpandedUserSet !==
-					undefined
-						? validatedDisplays.itemViewListSidebarComponentContainerElementExpandedUserSet
-						: false,
 			};
 		default:
 			return state;
@@ -162,16 +113,12 @@ export default function generalComponentsDisplayReducer(
  * 	registerComponentShouldDisplay: boolean,
  * 	loginComponentShouldDisplay: boolean,
  * 	homeComponentShouldDisplay: boolean,
- * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
- * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
  * }} displays - 'action.displays' Object containing properties to guide how
  * general components should be displyed in the app.
  * @returns {{
  * 	registerComponentShouldDisplay: boolean,
  * 	loginComponentShouldDisplay: boolean,
  * 	homeComponentShouldDisplay: boolean,
- * 	itemViewListSidebarComponentContainerElementExpanded: boolean,
- * 	itemViewListSidebarComponentContainerElementExpandedUserSet: boolean
  * }} Validated 'action.displays' Object containing properties to guide how
  * general components should be displyed in the app.
  */

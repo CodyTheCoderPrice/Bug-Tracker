@@ -9,8 +9,8 @@ import { getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLig
 /**
  * React functional component of a blurred backdrop to be paired (as a 
  * sibling) with AccountSidebar and AccountModal components. The blurred 
- * backdrop is placed under (z-index) account components, but above the 
- * components underneath account components. This keeps account components 
+ * backdrop is placed under (in terms of z-axis) account components, but above
+ * the components underneath account components. This keeps account components 
  * clickable, while making components underneath them unclickable. If 
  * AccountSidebar is displayed, then clicking the blurred backdrop will close
  * all account components.

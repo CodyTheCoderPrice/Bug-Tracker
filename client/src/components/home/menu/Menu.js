@@ -13,7 +13,6 @@ import {
 	getListViewTopBarComponentHeight,
 	getListViewTableComponentRowElementHeight,
 	getItemViewTopBarComponentHeight,
-	getItemViewListSidebarComponentContainerElementWithExpandedModifierWidth,
 	getItemViewComponentPaddingContainerElementLeftPadding,
 	getItemViewComponentOuterDividingContainerElementMinWidth,
 } from "../../../utils";
@@ -38,8 +37,6 @@ export default function Menu() {
 				itemViewComponentOuterDividingContainerElementMinWidth:
 					getItemViewComponentOuterDividingContainerElementMinWidth(),
 				itemViewTopBarComponentHeight: getItemViewTopBarComponentHeight(),
-				itemViewListSidebarComponentContainerElementWithExpandedModifierWidth:
-					getItemViewListSidebarComponentContainerElementWithExpandedModifierWidth(),
 			})
 		);
 

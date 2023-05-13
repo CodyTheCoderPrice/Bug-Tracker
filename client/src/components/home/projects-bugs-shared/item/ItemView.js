@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	SIZE_CONTAINER,
-	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
@@ -22,11 +21,8 @@ import {
 	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../utils";
 
-import { useAutoDecideIfItemViewListSidebarComponentDisplays } from "../../../../utils/hooks";
-
 // Components
 import ItemViewTopBar from "./top-bar/ItemViewTopBar";
-import ItemViewListSidebar from "./ItemViewListSidebar";
 import ItemViewDisplayItemInfo from "./ItemViewDisplayItemInfo";
 import ItemViewEditItemInfo from "./ItemViewEditItemInfo";
 import DeleteModal from "../DeleteModal";
@@ -38,8 +34,6 @@ export default function ItemView(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	useAutoDecideIfItemViewListSidebarComponentDisplays(reduxState);
-
 	// Adjusts the height and width of the component to fit the screen
 	useEffect(() => {
 		if (
@@ -47,9 +41,6 @@ export default function ItemView(props) {
 			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
 			reduxState[SIZE_CONTAINER].variables.navPanel !== null &&
 			reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight !==
-				null &&
-			reduxState[SIZE_CONTAINER].constants
-				.itemViewListSidebarComponentContainerElementWithExpandedModifierWidth !==
 				null
 		) {
 			const itemViewElement = document.getElementsByClassName(
@@ -62,30 +53,16 @@ export default function ItemView(props) {
 				reduxState[SIZE_CONTAINER].constants.itemViewTopBarComponentHeight +
 				"px";
 
-			const baseItemViewWidth =
+			/* const baseItemViewWidth =
 				reduxState[SIZE_CONTAINER].variables.window.width -
 				reduxState[SIZE_CONTAINER].variables.navPanel.width;
 
-			if (
-				reduxState[GENERAL_CONTAINER].componentsDisplay
-					.itemViewListSidebarComponentContainerElementExpanded
-			) {
-				itemViewElement.style.width =
-					baseItemViewWidth -
-					reduxState[SIZE_CONTAINER].constants
-						.itemViewListSidebarComponentContainerElementWithExpandedModifierWidth +
-					"px";
-			} else {
-				itemViewElement.style.width = baseItemViewWidth + "px";
-			}
+			itemViewElement.style.width = baseItemViewWidth + "px"; */
 		}
 		// eslint-disable-next-line
 	}, [
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER],
-		// eslint-disable-next-line
-		reduxState[GENERAL_CONTAINER].componentsDisplay
-			.itemViewListSidebarComponentContainerElementExpanded,
 	]);
 
 	useEffect(() => {
@@ -173,7 +150,6 @@ export default function ItemView(props) {
 	return (
 		<div className="item-view-component">
 			<ItemViewTopBar reduxContainerName={props.reduxContainerName} />
-			<ItemViewListSidebar reduxContainerName={props.reduxContainerName} />
 			{/* Located outside item-view-component so topBar doesn't cover it */}
 			{reduxState[props.reduxContainerName].componentsDisplay
 				.deleteModalComponentForItemViewShouldDisplay ? (
@@ -198,10 +174,6 @@ export default function ItemView(props) {
 			<div
 				className={
 					"item-content-container js-item-content-container" +
-					(reduxState[GENERAL_CONTAINER].componentsDisplay
-						.itemViewListSidebarComponentContainerElementExpanded
-						? " item-content-container--shifted-right"
-						: "") +
 					getItemViewComponentItemContentContainerElementBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)

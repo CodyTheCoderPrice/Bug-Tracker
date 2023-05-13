@@ -12,8 +12,6 @@ import {
 	getListViewTableComponentClassName,
 	getListViewTableComponentRowElementClassName,
 	getItemViewTopBarComponentClassName,
-	getItemViewListSidebarComponentClassName,
-	getItemViewListSidebarComponentContainerElementWithExpandedModifierClassName,
 	toggleClassName,
 } from "../utils";
 
@@ -386,47 +384,6 @@ export function getItemViewTopBarComponentHeight() {
 	);
 
 	return height;
-}
-
-/**
- * Get width (size not style) of ItemViewListSidebar component's 'list-sidebar-container list-sidebar-container--expanded'
- * (className with modifier) element
- *
- *
- * @returns {number} Width of ItemViewListSidebar component's 'list-sidebar-container list-sidebar-container--expanded'
- * element
- */
-export function getItemViewListSidebarComponentContainerElementWithExpandedModifierWidth() {
-	// Creating stand-in element for ItemViewListSidebar component to later
-	// ...append other stand-in elements to so CSS can work properly. using
-	// ...stand-in elements allows this function to be called when the real
-	// ...elements aren't in the DOM, and ensures real elements remain unaffected.
-	const standInItemViewListSidebarComponentElement =
-		document.createElement("div");
-	standInItemViewListSidebarComponentElement.className =
-		getItemViewListSidebarComponentClassName();
-	// Made hidden so user never sees stand-in element or its child elements
-	standInItemViewListSidebarComponentElement.visibility = "hidden";
-	document.body.appendChild(standInItemViewListSidebarComponentElement);
-
-	const standInItemViewListSidebarComponentContainerElementWithExpandedModifier =
-		document.createElement("div");
-	standInItemViewListSidebarComponentContainerElementWithExpandedModifier.className =
-		getItemViewListSidebarComponentContainerElementWithExpandedModifierClassName();
-	// CSS requires being child of ItemView component
-	standInItemViewListSidebarComponentElement.appendChild(
-		standInItemViewListSidebarComponentContainerElementWithExpandedModifier
-	);
-
-	const width = getElementSize(
-		standInItemViewListSidebarComponentContainerElementWithExpandedModifier
-	).width;
-
-	standInItemViewListSidebarComponentElement.parentNode.removeChild(
-		standInItemViewListSidebarComponentElement
-	);
-
-	return width;
 }
 
 /**

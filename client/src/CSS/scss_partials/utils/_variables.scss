@@ -341,26 +341,6 @@ $mode-item-view-top-bar-icon-button-hover-text-color-light: $gray-dark-level-7;
 $mode-item-view-top-bar-icon-button-hover-text-color-dark: $gray-level-1;
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-light: $gray-light-level-4;
 $mode-item-view-top-bar-options-dropdown-row-hover-background-color-dark: $gray-dark-level-4;
-$mode-item-view-list-sidebar-border-color-light: $mode-common-top-bar-border-color-light;
-$mode-item-view-list-sidebar-border-color-dark: $mode-common-top-bar-border-color-dark;
-$mode-item-view-list-sidebar-expand-minimize-button-border-color-light: $mode-item-view-list-sidebar-border-color-light;
-$mode-item-view-list-sidebar-expand-minimize-button-border-color-dark: $mode-item-view-list-sidebar-border-color-dark;
-$mode-item-view-list-sidebar-expand-minimize-button-background-color-light: $mode-common-top-bar-background-color-light;
-$mode-item-view-list-sidebar-expand-minimize-button-background-color-dark: $mode-common-top-bar-background-color-dark;
-$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-light: $gray-light-level-8;
-$mode-item-view-list-sidebar-expand-minimize-button-hover-background-color-dark: $gray-dark-level-12;
-$mode-item-view-list-sidebar-table-row-border-color-light: $mode-list-view-table-row-border-color-light;
-$mode-item-view-list-sidebar-table-row-border-color-dark: $mode-list-view-table-row-border-color-dark;
-$mode-item-view-list-sidebar-table-row-background-color-light: $mode-list-view-table-row-background-color-light;
-$mode-item-view-list-sidebar-table-row-background-color-dark: $mode-list-view-table-row-background-color-dark;
-$mode-item-view-list-sidebar-table-row-hover-background-color-light: $mode-list-view-table-row-hover-background-color-light;
-$mode-item-view-list-sidebar-table-row-hover-background-color-dark: $mode-list-view-table-row-hover-background-color-dark;
-$mode-item-view-list-sidebar-table-row-selected-background-color-light: $mode-list-view-table-row-selected-background-color-light;
-$mode-item-view-list-sidebar-table-row-selected-background-color-dark: $mode-list-view-table-row-selected-background-color-dark;
-$mode-item-view-list-sidebar-table-row-header-box-shadow-light: $mode-list-view-table-row-header-box-shadow-light;
-$mode-item-view-list-sidebar-table-row-header-box-shadow-dark: $mode-list-view-table-row-header-box-shadow-dark;
-$mode-item-view-list-sidebar-table-row-header-background-color-light: $mode-list-view-table-row-header-background-color-light;
-$mode-item-view-list-sidebar-table-row-header-background-color-dark: $mode-list-view-table-row-header-background-color-dark;
 $mode-item-view-content-container-background-color-light: $mode-common-background-color-light;
 $mode-item-view-content-container-background-color-dark: $mode-common-background-color-dark;
 $mode-item-view-form-disabled-background-color-light: $mode-common-top-bar-background-color-light;
@@ -522,8 +502,8 @@ $common-top-bar-border-width: 1px;
 $common-top-bar-common-button-border-width: 1px;
 $common-top-bar-tutorial-button-border-width: $common-top-bar-common-button-border-width +
 	1;
-$common-top-bar-filter-button-with-dropdown-displayed-border-width: 3px;
-$common-top-bar-filter-button-with-dropdown-displayed-border-width-difference: $common-top-bar-filter-button-with-dropdown-displayed-border-width -
+$common-top-bar-button-with-dropdown-displayed-border-width: 3px;
+$common-top-bar-button-with-dropdown-displayed-border-width-difference: $common-top-bar-button-with-dropdown-displayed-border-width -
 	$common-top-bar-common-button-border-width;
 $common-top-bar-search-bar-border-width: 2px;
 $common-top-bar-search-bar-focus-border-width: 3px;
@@ -534,7 +514,6 @@ $account-sidebar-appearance-theme-button-border-width: 1px;
 $account-modal-border-width: 3px;
 $account-modal-toggle-switch-border-width: 3px;
 $item-view-edit-item-name-input-border-width: 2px;
-$item-view-list-sidebar-border-width: 2px;
 
 //==============
 // Border-radius
@@ -636,7 +615,6 @@ $item-view-top-bar-filter-sort-button-width: 80px;
 $item-view-top-bar-sort-dropdown-content-container-width: 120px;
 $item-view-top-bar-search-bar-width: 290px;
 $item-view-top-bar-options-button-width: 36px;
-$item-view-list-sidebar-expanded-width: 275px;
 $item-view-outer-dividing-container-min-width: 560px;
 $item-view-edit-item-name-input-width: 600px;
 $item-view-edit-item-name-char-counter-container-width: 50px;
@@ -662,7 +640,6 @@ $account-sidebar-appearance-theme-button-dropdown-container-top: $account-sideba
 $list-view-top: $common-top-bar-top + $common-top-bar-height +
 	$common-top-bar-border-width;
 $item-view-top: $list-view-top;
-$item-view-list-sidebar-top: $list-view-top;
 $item-view-top-bar-search-bar-left: 15px;
 $item-view-top-bar-filter-container-left: $item-view-top-bar-search-bar-width +
 	($item-view-top-bar-search-bar-left * 2);

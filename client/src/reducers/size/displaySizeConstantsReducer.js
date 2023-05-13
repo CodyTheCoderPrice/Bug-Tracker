@@ -11,7 +11,6 @@ const initialState = {
 	itemViewComponentPaddingContainerElementLeftPadding: null,
 	itemViewComponentOuterDividingContainerElementMinWidth: null,
 	itemViewTopBarComponentHeight: null,
-	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth: null,
 };
 
 /**
@@ -32,7 +31,6 @@ const initialState = {
  *  itemViewComponentPaddingContainerElementLeftPadding: (number|null),
  * 	itemViewComponentOuterDividingContainerElementMinWidth: (number|null),
  * 	itemViewTopBarComponentHeight: (number|null),
- * 	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth: (number|null)
  * }|undefined)} state - Current Object (in the redux state) for constant html
  * element sizes
  * @param {Object} action - Object with a 'container' property (determins where
@@ -46,7 +44,6 @@ const initialState = {
  * 	itemViewComponentPaddingContainerElementLeftPadding: (number|null),
  * 	itemViewComponentOuterDividingContainerElementMinWidth: (number|null),
  * 	itemViewTopBarComponentHeight: (number|null),
- * 	itemViewListSidebarComponentContainerElementWithExpandedModifierWidth: (number|null)
  * }} Object containing constant html element sizes
  */
 export default function displaySizeConstantsReducer(
@@ -67,9 +64,6 @@ export default function displaySizeConstantsReducer(
 					action.sizes.itemViewComponentOuterDividingContainerElementMinWidth,
 				itemViewTopBarComponentHeight:
 					action.sizes.itemViewTopBarComponentHeight,
-				itemViewListSidebarComponentContainerElementWithExpandedModifierWidth:
-					action.sizes
-						.itemViewListSidebarComponentContainerElementWithExpandedModifierWidth,
 			};
 		default:
 			return state;
