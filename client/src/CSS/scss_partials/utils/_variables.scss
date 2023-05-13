@@ -580,6 +580,8 @@ $navbar-account-button-height: $navbar-height;
 $nav-panel-top-container-height: $navbar-height;
 $account-modal-height: 390px;
 $account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
+$account-sidebar-appearance-theme-button-option-height: $account-sidebar-appearance-theme-button-selected-arrow-container-height -
+	($account-sidebar-appearance-theme-button-border-width * 2);
 $account-sidebar-logout-button-height: 40px;
 $account-modal-edit-settings-content-container-height: $toggle-switch-height;
 $delete-modal-delete-button-height: 30px;
@@ -628,17 +630,10 @@ $common-top-bar-top: $navbar-height + $navbar-border-width;
 $common-back-exit-icon-button-top: 10px;
 $common-back-exit-icon-button-left-right: 20px;
 // Specific (i.e. intended for specific component)
-$account-sidebar-appearance-theme-button-option-height: $account-sidebar-appearance-theme-button-selected-arrow-container-height -
-	($account-sidebar-appearance-theme-button-border-width * 2);
-$account-sidebar-appearance-theme-button-option-width: $account-sidebar-appearance-theme-button-current-container-width -
-	($account-sidebar-appearance-theme-button-border-width * 2);
-$account-sidebar-appearance-theme-button-option-larger-width: $account-sidebar-appearance-theme-button-width -
-	($account-sidebar-appearance-theme-button-border-width * 2);
 $account-sidebar-appearance-theme-button-dropdown-container-top: $account-sidebar-appearance-theme-button-option-height +
 	($account-sidebar-appearance-theme-button-border-width * 2);
 $list-view-top: $common-top-bar-top + $common-top-bar-height +
 	$common-top-bar-border-width;
-$create-item-sidebar-top: $common-top-bar-top;
 $item-view-top: $list-view-top;
 $item-view-top-bar-search-bar-left: 15px;
 $item-view-top-bar-filter-container-left: $item-view-top-bar-search-bar-width +

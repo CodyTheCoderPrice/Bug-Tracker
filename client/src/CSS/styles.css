@@ -1863,22 +1863,20 @@
 }
 
 .create-item-sidebar-component .blurred-backdrop {
-  width: -webkit-calc(100% - 250px);
-  width: -moz-calc(100% - 250px);
-  width: calc(100% - 250px);
   z-index: 1;
   position: absolute;
-  top: 48px;
-  left: 250px;
+  top: 0;
+  left: 0;
   background-color: black;
   opacity: 0.8;
   height: 100vh;
+  width: 100vw;
 }
 .create-item-sidebar-component .sidebar-container {
   z-index: 1;
   position: fixed;
-  top: 49px;
-  left: 250px;
+  top: 0;
+  left: 0;
   border-right: 3px solid black;
   background-color: white;
   height: 100vh;

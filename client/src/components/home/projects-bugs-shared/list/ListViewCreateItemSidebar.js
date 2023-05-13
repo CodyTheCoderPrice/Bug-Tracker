@@ -91,7 +91,7 @@ export default function ListViewCreateItemSidebar(props) {
 	}, []);
 
 	// Resize 'sidebar-container' element height to adjust for it's top style
-	useEffect(() => {
+	/* useEffect(() => {
 		if (reduxState[SIZE_CONTAINER].variables.window !== null) {
 			let sidebarContainerElement = document.getElementsByClassName(
 				"js-create-item-sidebar-container"
@@ -119,7 +119,7 @@ export default function ListViewCreateItemSidebar(props) {
 		// eslint-disable-next-line
 		reduxState[SIZE_CONTAINER].variables,
 		sidebarContainerElementStyleTop,
-	]);
+	]); */
 
 	const getSelectTextColorClassName = () => {
 		const filteredStatusList = reduxState[

@@ -3,24 +3,23 @@
 
 .create-item-sidebar-component {
 	.blurred-backdrop {
-		@include m.full-width-minus-nav-panel();
-
 		// z-index must be more than listViewTopBar.scss
 		z-index: 1;
 		position: absolute;
-		top: v.$navbar-height;
-		left: v.$common-left;
+		top: 0;
+		left: 0;
 		background-color: v.$mode-common-blurred-backdrop-background-color-light;
 		opacity: v.$mode-common-blurred-backdrop-opacity-light;
 		height: 100vh;
+		width: 100vw;
 	}
 
 	.sidebar-container {
 		// z-index must be more than listViewTopBar.scss
 		z-index: 1;
 		position: fixed;
-		top: v.$create-item-sidebar-top;
-		left: v.$common-left;
+		top: 0;
+		left: 0;
 		border-right: v.$common-sidebar-border-width solid black;
 		background-color: v.$mode-create-item-sidebar-background-color-light;
 		height: 100vh;
