@@ -136,8 +136,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.1), -1px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), -2px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: white;
   padding: 25px;
   height: 500px;
@@ -151,8 +151,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.1), -1px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), -2px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: white;
   padding: 25px;
   height: 500px;
@@ -205,8 +205,8 @@
   box-sizing: border-box;
   margin-top: 16px;
   margin-bottom: 8px;
-  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.01), inset -1px 1px 1px rgba(0, 0, 0, 0.01);
   outline: none;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.01), inset -1px 1px 1px rgba(0, 0, 0, 0.01);
   border: 1px solid #bfbfbf;
   border-radius: 5px;
   background: #f8f8f8;
@@ -632,7 +632,7 @@
 
 .account-modals-blurred-backdrop-component--below-navbar {
   top: 48px;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .account-sidebar-component .sidebar-container {
@@ -643,7 +643,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  border-left: 3px solid black;
+  box-shadow: -1px 2px 5px rgba(0, 0, 0, 0.05);
   background: white;
   height: 100%;
   width: 430px;
@@ -1001,7 +1001,7 @@
   width: 100vw;
 }
 .delete-modal-component .blurred-backdrop--click-to-close {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 .delete-modal-component .modal-container {
   z-index: 2;
@@ -1877,7 +1877,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  border-right: 3px solid black;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.05);
   background-color: white;
   height: 100vh;
   width: 500px;
@@ -2551,12 +2551,12 @@ body {
 .app-component .js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-false,
 .js-get-app-component .js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-false {
   background-color: black;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 .app-component .js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-true,
 .js-get-app-component .js-get-common-blurred-backdrop-element-click-to-close-background-color-and-opacity-dark-mode-true {
   background-color: black;
-  opacity: 0.4;
+  opacity: 0.6;
 }
 .app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false,
 .js-get-app-component .js-get-common-icon-button-element-text-color-with-hover-dark-mode-false {

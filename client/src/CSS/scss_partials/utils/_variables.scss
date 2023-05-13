@@ -217,8 +217,8 @@ $mode-common-blurred-backdrop-background-color-light: black;
 $mode-common-blurred-backdrop-background-color-dark: $mode-common-blurred-backdrop-background-color-light;
 $mode-common-blurred-backdrop-opacity-light: 0.8;
 $mode-common-blurred-backdrop-opacity-dark: 0.6;
-$mode-common-blurred-backdrop-click-to-close-opacity-light: 0.6;
-$mode-common-blurred-backdrop-click-to-close-opacity-dark: 0.4;
+$mode-common-blurred-backdrop-click-to-close-opacity-light: 0.8;
+$mode-common-blurred-backdrop-click-to-close-opacity-dark: 0.6;
 $mode-common-icon-button-text-color-light: $gray-level-6;
 $mode-common-icon-button-text-color-dark: $gray-level-6;
 $mode-common-icon-button-hover-text-color-light: $gray-dark-level-5;
@@ -482,12 +482,15 @@ $item-view-display-item-info-field-margin-left: 11px;
 // Box-shadow
 //==============
 // Common (i.e. intended for multiple components)
-$common-modal-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1),
-	-2px 2px 5px rgba(0, 0, 0, 0.1);
+$common-modal-box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.1),
+	-1px 2px 5px rgba(0, 0, 0, 0.1);
 $common-form-input-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.01),
 	inset -1px 1px 1px rgba(0, 0, 0, 0.01);
 $common-button-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01),
 	-1px 1px 1px rgba(0, 0, 0, 0.01);
+// Specific (i.e. intended for specific component)
+$create-item-sidebar-container-box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.05);
+$account-sidebar-container-box-shadow: -1px 2px 5px rgba(0, 0, 0, 0.05);
 
 //==============
 // Border-width
@@ -496,7 +499,6 @@ $common-button-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.01),
 $common-form-input-text-border-width: 1px;
 $common-form-input-text-focus-border-width: $common-form-input-text-border-width +
 	1;
-$common-sidebar-border-width: 3px;
 $common-modal-border-width: 3px;
 $common-top-bar-border-width: 1px;
 $common-top-bar-common-button-border-width: 1px;

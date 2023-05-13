@@ -20,7 +20,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		border-right: v.$common-sidebar-border-width solid black;
+		box-shadow: v.$create-item-sidebar-container-box-shadow;
 		background-color: v.$mode-create-item-sidebar-background-color-light;
 		height: 100vh;
 		width: v.$create-item-sidebar-width;

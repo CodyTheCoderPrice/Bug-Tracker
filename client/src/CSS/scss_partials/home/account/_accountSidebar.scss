@@ -17,7 +17,7 @@
 		position: fixed;
 		top: 0;
 		right: 0;
-		border-left: v.$common-sidebar-border-width solid black;
+		box-shadow: v.$account-sidebar-container-box-shadow;
 		background: v.$mode-account-sidebar-background-color-light;
 		height: 100%;
 		width: v.$account-sidebar-width;

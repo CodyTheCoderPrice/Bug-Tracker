@@ -24,8 +24,8 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		border-radius: 10px;
 		box-shadow: v.$common-modal-box-shadow;
+		border-radius: 10px;
 		background-color: white;
 		padding: 25px;
 		height: 500px;
@@ -41,8 +41,8 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		border-radius: 10px;
 		box-shadow: v.$common-modal-box-shadow;
+		border-radius: 10px;
 		background-color: white;
 		padding: 25px;
 		height: 500px;
@@ -106,8 +106,8 @@
 
 		margin-top: v.$common-register-login-form-input-margin-top;
 		margin-bottom: v.$common-register-login-form-input-margin-bottom;
-		box-shadow: v.$common-form-input-box-shadow;
 		outline: none;
+		box-shadow: v.$common-form-input-box-shadow;
 		border: v.$common-form-input-text-border-width solid
 			v.$mode-common-form-input-border-color-light;
 		border-radius: v.$common-form-input-border-radius;
