@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 // Easier to use than Date()
 import moment from "moment";
 import {
+	SIZE_CONTAINER,
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
@@ -16,6 +17,8 @@ import {
 } from "../../../../actions";
 
 import {
+	getElementStyle,
+	stripNonDigits,
 	getCommonStatusTextColorClassName,
 	getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getCreateItemSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode,
@@ -34,7 +37,6 @@ import {
 
 import {
 	usePerserveCompletetionDate,
-	useSidebarResize,
 	useSubmitFormOnEnterPress,
 } from "../../../../utils/hooks";
 // Font Awesome
@@ -62,6 +64,10 @@ export default function ListViewCreateItemSidebar(props) {
 		completion_date: "",
 	});
 
+	// Optimizes 'sidebar-container' element height re-sizes by storing top style
+	const [sidebarContainerElementStyleTop, setSidebarContainerElementStyleTop] =
+		useState(null);
+
 	// Custom hook perserves the completion date whenever it is disabled so it
 	// ...can be restored if reactivated
 	usePerserveCompletetionDate(
@@ -71,9 +77,6 @@ export default function ListViewCreateItemSidebar(props) {
 		reduxState,
 		props.reduxContainerName
 	);
-
-	// Custom hook resizes the sidebar so that the overflow functionality works
-	useSidebarResize(reduxState, "js-create-item-sidebar-container");
 
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnterPress("js-create-item-form");
@@ -86,6 +89,37 @@ export default function ListViewCreateItemSidebar(props) {
 		};
 		// eslint-disable-next-line
 	}, []);
+
+	// Resize 'sidebar-container' element height to adjust for it's top style
+	useEffect(() => {
+		if (reduxState[SIZE_CONTAINER].variables.window !== null) {
+			let sidebarContainerElement = document.getElementsByClassName(
+				"js-create-item-sidebar-container"
+			)[0];
+
+			if (sidebarContainerElementStyleTop === null) {
+				const sidebarContainerElementStyle = getElementStyle(
+					sidebarContainerElement
+				);
+				setSidebarContainerElementStyleTop(
+					stripNonDigits(sidebarContainerElementStyle.top)
+				);
+
+				// Prevents crash since sidebarContainerElementStyle will still
+				// ...be null for remainder of this useEfffect iteration
+				return;
+			}
+			sidebarContainerElement.style.height =
+				reduxState[SIZE_CONTAINER].variables.window.height -
+				sidebarContainerElementStyleTop +
+				"px";
+		}
+		// eslint-disable-next-line
+	}, [
+		// eslint-disable-next-line
+		reduxState[SIZE_CONTAINER].variables,
+		sidebarContainerElementStyleTop,
+	]);
 
 	const getSelectTextColorClassName = () => {
 		const filteredStatusList = reduxState[
@@ -165,10 +199,7 @@ export default function ListViewCreateItemSidebar(props) {
 					"sidebar-container js-create-item-sidebar-container" +
 					getCreateItemSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-					) +
-					(props.reduxContainerName === BUG_CONTAINER
-						? " sidebar-container--taller"
-						: "")
+					)
 				}
 			>
 				<div

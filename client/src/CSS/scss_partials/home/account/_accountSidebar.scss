@@ -15,15 +15,11 @@
 		// z-index must be more than accountBlurredBackdrop.scss
 		z-index: 4;
 		position: fixed;
-		top: v.$navbar-height;
+		top: 0;
 		right: 0;
-		// Used by JS during resize to give margin to bottom
-		margin-bottom: 20px;
-		border: v.$common-sidebar-border-width solid black;
-		border-top: none;
-		border-right: none;
+		border-left: v.$common-sidebar-border-width solid black;
 		background: v.$mode-account-sidebar-background-color-light;
-		height: 425px;
+		height: 100%;
 		width: v.$account-sidebar-width;
 		text-align: left;
 		font-family: Arial, Helvetica, sans-serif;

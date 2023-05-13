@@ -13,14 +13,11 @@ import {
 	setWhichCommentComponentsDisplay,
 } from "../../../../actions";
 
-import {
-	getNavbarComponentAccountButtonElementTextColorClassNameForLightOrDarkMode,
-} from "../../../../utils";
+import { getNavbarComponentAccountButtonElementTextColorClassNameForLightOrDarkMode } from "../../../../utils";
 
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser as faCircleUserReg } from "@fortawesome/free-regular-svg-icons";
-import { faCircleUser as faCircleUserSolid } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import NavbarBreadcrumb from "./NavbarBreadcrumb";
@@ -68,12 +65,7 @@ export default function Navbar() {
 				aria-label="Account"
 			>
 				<FontAwesomeIcon
-					icon={
-						reduxState[ACCOUNT_CONTAINER].componentsDisplay
-							.accountSidebarComponentShouldDisplay
-							? faCircleUserSolid
-							: faCircleUserReg
-					}
+					icon={faCircleUserReg}
 					className={
 						"padding-container__account-button" +
 						getNavbarComponentAccountButtonElementTextColorClassNameForLightOrDarkMode(

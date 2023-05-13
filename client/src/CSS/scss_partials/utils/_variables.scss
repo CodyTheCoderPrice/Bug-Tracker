@@ -582,7 +582,6 @@ $account-modal-height: 390px;
 $account-sidebar-appearance-theme-button-selected-arrow-container-height: 22px;
 $account-sidebar-logout-button-height: 40px;
 $account-modal-edit-settings-content-container-height: $toggle-switch-height;
-$create-item-sidebar-height: 700px;
 $delete-modal-delete-button-height: 30px;
 $item-view-bugs-stats-item-box-height: 320px;
 $item-view-edit-item-name-input-height: 43px;
@@ -639,6 +638,7 @@ $account-sidebar-appearance-theme-button-dropdown-container-top: $account-sideba
 	($account-sidebar-appearance-theme-button-border-width * 2);
 $list-view-top: $common-top-bar-top + $common-top-bar-height +
 	$common-top-bar-border-width;
+$create-item-sidebar-top: $common-top-bar-top;
 $item-view-top: $list-view-top;
 $item-view-top-bar-search-bar-left: 15px;
 $item-view-top-bar-filter-container-left: $item-view-top-bar-search-bar-width +

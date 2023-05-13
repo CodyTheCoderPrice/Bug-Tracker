@@ -5,21 +5,20 @@ import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
 import { setWhichAccountComponentsDisplay } from "../../../actions";
 import { getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode } from "../../../utils";
 
-
 /**
- * React functional component of a blurred backdrop to be paired (as a 
- * sibling) with AccountSidebar and AccountModal components. The blurred 
+ * React functional component of a blurred backdrop to be paired (as a
+ * sibling) with AccountSidebar and AccountModal components. The blurred
  * backdrop is placed under (in terms of z-axis) account components, but above
- * the components underneath account components. This keeps account components 
- * clickable, while making components underneath them unclickable. If 
+ * the components underneath account components. This keeps account components
+ * clickable, while making components underneath them unclickable. If
  * AccountSidebar is displayed, then clicking the blurred backdrop will close
  * all account components.
- * 
- * Note: There is no single flag inside 'componentsDisplay' Object in 
- * 'ACCOUNT_CONTAINER' of the redux state designated for when this component 
+ *
+ * Note: There is no single flag inside 'componentsDisplay' Object in
+ * 'ACCOUNT_CONTAINER' of the redux state designated for when this component
  * should display. Instead, this component should display if any flags inside
  * that Object are true.
- * 
+ *
  * @component
  */
 export default function AccountBlurredBackdrop() {
@@ -37,11 +36,11 @@ export default function AccountBlurredBackdrop() {
 		<div
 			className={
 				"account-modals-blurred-backdrop-component" +
-				// Lowers blurred backdrop bellow Navbar so it can still be used 
+				// Lowers blurred backdrop bellow Navbar so it can still be used
 				// while AccountSidebar is open.
-				(reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebarComponentShouldDisplay
-					? " account-modals-blurred-backdrop-component--below-navbar" +
-					  getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+				(reduxState[ACCOUNT_CONTAINER].componentsDisplay
+					.accountSidebarComponentShouldDisplay
+					? getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
 							true,
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					  )
@@ -51,12 +50,13 @@ export default function AccountBlurredBackdrop() {
 					  ))
 			}
 			onClick={
-				// Blurred backdrop for AccountSidebar will close all account 
+				// Blurred backdrop for AccountSidebar will close all account
 				// components if clicked since users likely would expect it to.
 				// Also since no account components with forms will be open while
-				// AccountSidebar is, means there is no risk of a user losing data 
+				// AccountSidebar is, means there is no risk of a user losing data
 				// they are entering by accidentally clicking the blurred backdrop.
-				reduxState[ACCOUNT_CONTAINER].componentsDisplay.accountSidebarComponentShouldDisplay
+				reduxState[ACCOUNT_CONTAINER].componentsDisplay
+					.accountSidebarComponentShouldDisplay
 					? closeAccountComponents
 					: null
 			}

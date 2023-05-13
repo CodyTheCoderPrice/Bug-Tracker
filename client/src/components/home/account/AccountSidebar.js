@@ -16,7 +16,6 @@ import {
 	getAccountSidebarComponentHorizontalDividingLineElementBorderColorClassNameForLightOrDarkMode,
 	getAccountSidebarComponentLogoutButtonElementBorderHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../utils";
-import { useSidebarResize } from "../../../utils/hooks";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
@@ -46,8 +45,6 @@ export default function AccountSidebar() {
 		};
 		// eslint-disable-next-line
 	}, []);
-
-	useSidebarResize(reduxState, "js-account-sidebar-container");
 
 	/**
 	 * Opens AccountModalEditSettings component while closing all other account

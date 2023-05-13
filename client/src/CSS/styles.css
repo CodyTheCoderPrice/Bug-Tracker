@@ -641,14 +641,11 @@
   box-sizing: border-box;
   z-index: 4;
   position: fixed;
-  top: 48px;
+  top: 0;
   right: 0;
-  margin-bottom: 20px;
-  border: 3px solid black;
-  border-top: none;
-  border-right: none;
+  border-left: 3px solid black;
   background: white;
-  height: 425px;
+  height: 100%;
   width: 430px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
@@ -1866,35 +1863,30 @@
 }
 
 .create-item-sidebar-component .blurred-backdrop {
+  width: -webkit-calc(100% - 250px);
+  width: -moz-calc(100% - 250px);
+  width: calc(100% - 250px);
   z-index: 1;
   position: absolute;
   top: 48px;
+  left: 250px;
   background-color: black;
   opacity: 0.8;
   height: 100vh;
-  width: 100vw;
 }
 .create-item-sidebar-component .sidebar-container {
   z-index: 1;
   position: fixed;
-  top: 48px;
-  margin-bottom: 20px;
-  border: 3px solid black;
-  border-top: none;
-  border-width: 2px 3px 3px 0;
+  top: 49px;
+  left: 250px;
+  border-right: 3px solid black;
   background-color: white;
-  height: 700px;
+  height: 100vh;
   width: 500px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: auto;
   overflow-x: hidden;
-}
-.create-item-sidebar-component .sidebar-container--taller {
-  height: 800px;
-}
-.create-item-sidebar-component .take-up-space {
-  height: 1000px;
 }
 .create-item-sidebar-component .exit-icon-button {
   z-index: 100;
