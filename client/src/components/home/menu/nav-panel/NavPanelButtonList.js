@@ -28,11 +28,14 @@ export default function NavPanelButtonList() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
+	// Used to perserve the content of lists after a listView component is clsoed
+	// ...so the NavPanelButtonListSubItem components can transition/fade out
 	const [buttonSubItemLists, setButtonSubItemLists] = useState({
 		projectList: getProjectListForNavPanelButtonList(reduxState),
 		bugList: getBugListForNavPanelButtonList(reduxState),
 	});
 
+	// Optimizes performance by storing regularly used size/style values
 	const [navPanelChildSizesAndStyles, setNavPanelChildSizesAndStyles] =
 		useState({
 			navPanelTopContainerHeight: null,
@@ -64,6 +67,7 @@ export default function NavPanelButtonList() {
 				.itemViewComponentShouldDisplay,
 	};
 
+	// Used for NavPanelButtonListSubItem components transition/fade out
 	const [buttonListSubItemsDisplayStatus, setButtonListSubItemsDisplayStatus] =
 		useState({
 			projectItemsShouldExist:
@@ -84,6 +88,7 @@ export default function NavPanelButtonList() {
 			!buttonDisplayLogic.shouldAnyBugSubItemsDisplay,
 	};
 
+	// Used for NavPanelButtonListSubItem components to transition in
 	const [
 		buttonListSubItemsInitialHeightStatus,
 		setButtonListSubItemsInitialHeightStatus,
@@ -96,8 +101,8 @@ export default function NavPanelButtonList() {
 
 	// Updates buttonSubItemLists
 	useEffect(() => {
-		// Keeps projectList/bugList the same when their 'sub-overflow-container'
-		// ...elements are closed so they can have their faded-out animations play
+		// Keeps projectList/bugList the same when a 'sub-overflow-container'
+		// ...element is "closing" so it can transition/faded out
 		const projectListUpdatedValue =
 			reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem ===
 			null
@@ -254,6 +259,7 @@ export default function NavPanelButtonList() {
 					);
 				}
 			} else {
+				// Sets to 0px when it shouldn't display so it will transition out
 				projectSubOverflowContainerElement.style.height =
 					buttonDisplayLogic.shouldAnyProjectSubItemsDisplay
 						? navPanelChildSizesAndStyles.listButtonHeight + "px"
@@ -307,6 +313,7 @@ export default function NavPanelButtonList() {
 				bugSubOverflowContainerElement.style.height =
 					adjustedNavPanelHeight + "px";
 			} else {
+				// Sets to 0px when it shouldn't display so it will transition out
 				bugSubOverflowContainerElement.style.height =
 					buttonDisplayLogic.shouldAnyBugSubItemsDisplay
 						? navPanelChildSizesAndStyles.listButtonHeight + "px"
