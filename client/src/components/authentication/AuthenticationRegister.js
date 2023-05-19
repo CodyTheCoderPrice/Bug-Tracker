@@ -82,10 +82,10 @@ export default function Register() {
 
 	return (
 		<div className="register-component">
-			<form className="form form--centered" noValidate onSubmit={handleSubmit}>
-				<h2 className="form__title">Register</h2>
-				<div className="form__pair-container">
-					<div className="form__pair-container__single-container">
+			<form className="modal__form" noValidate onSubmit={handleSubmit}>
+				<h2 className="modal__form__title">Register</h2>
+				<div className="modal__form__pair-container">
+					<div className="modal__form__pair-container__single-container">
 						<input
 							autoFocus
 							type="text"
@@ -95,12 +95,12 @@ export default function Register() {
 							value={accountInfo.first_name}
 							id="register-first-name"
 							className={
-								"form__input-text" +
+								"modal__form__input-text" +
 								(!isEmpty(
 									reduxState[GENERAL_CONTAINER].backendErrors
 										.validationAccountFirstName
 								)
-									? " form__input-text--error"
+									? " modal__form__input-text--error"
 									: "")
 							}
 						/>
@@ -110,7 +110,7 @@ export default function Register() {
 							"backend-errors"
 						)}
 					</div>
-					<div className="form__pair-container__single-container form__pair-container__single-container--right">
+					<div className="modal__form__pair-container__single-container modal__form__pair-container__single-container--right">
 						<input
 							type="text"
 							name="last_name"
@@ -119,12 +119,12 @@ export default function Register() {
 							value={accountInfo.last_name}
 							id="register-last-name"
 							className={
-								"form__input-text" +
+								"modal__form__input-text" +
 								(!isEmpty(
 									reduxState[GENERAL_CONTAINER].backendErrors
 										.validationAccountLastName
 								)
-									? " form__input-text--error"
+									? " modal__form__input-text--error"
 									: "")
 							}
 						/>
@@ -143,11 +143,11 @@ export default function Register() {
 					value={accountInfo.email}
 					id="register-email"
 					className={
-						"form__input-text" +
+						"modal__form__input-text" +
 						(!isEmpty(
 							reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail
 						)
-							? " form__input-text--error"
+							? " modal__form__input-text--error"
 							: "")
 					}
 				/>
@@ -163,12 +163,12 @@ export default function Register() {
 					value={accountInfo.password}
 					id="register-password"
 					className={
-						"form__input-text" +
+						"modal__form__input-text" +
 						(!isEmpty(
 							reduxState[GENERAL_CONTAINER].backendErrors
 								.validationAccountPassword
 						)
-							? " form__input-text--error"
+							? " modal__form__input-text--error"
 							: "")
 					}
 				/>
@@ -176,7 +176,7 @@ export default function Register() {
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword,
 					"backend-errors"
 				)}
-				<button type="submit" className="form__submit">
+				<button type="submit" className="modal__form__submit">
 					REGISTER
 				</button>
 				{getBackendErrorsJSX(
@@ -187,10 +187,10 @@ export default function Register() {
 					],
 					"backend-errors"
 				)}
-				<div className="form__bottom-link-container">
+				<div className="modal__form__bottom-link-container">
 					<span>Already a Member?</span>
 					<span
-						className="form__bottom-link-container__link"
+						className="modal__form__bottom-link-container__link"
 						onClick={openLogin}
 					>
 						Login

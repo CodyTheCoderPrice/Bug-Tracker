@@ -1,5 +1,7 @@
 import {
 	stripNonDigits,
+	getAuthenticationComponentClassName,
+	getAuthenticationComponentModalElementWithLoginStandardModifierClassName,
 	getNavPanelButtonListComponentClassName,
 	getNavPanelButtonListComponentSubOverflowContainerElementForBugsModifierClassName,
 	getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarModifierClassName,
@@ -116,6 +118,45 @@ export function isVerticalScrollbarPresent(element) {
 }
 
 /**
+ * Get width (size not style) of Authentication component's
+ * 'modal modal--login-standard' (className) element
+ *
+ * @returns {number} Width of Authentication component's
+ * 'modal modal--login-standard' element
+ */
+export function getAuthenticationComponentModalElementWithLoginStandardModifierWidth() {
+	// Creating stand-in element for Authentication component to later append
+	// ...other stand-in elements to so CSS can work properly. using stand-in
+	// ...elements allows this function to be called when the real elements
+	// ...aren't in the DOM, and ensures real elements remain unaffected.
+	const standInAuthenticationComponentElement = document.createElement("div");
+	standInAuthenticationComponentElement.className =
+		getAuthenticationComponentClassName();
+	// Made hidden so user never sees stand-in element or its child elements
+	standInAuthenticationComponentElement.visibility = "hidden";
+	document.body.appendChild(standInAuthenticationComponentElement);
+
+	const standInModalElementWithLoginStandardModifier =
+		document.createElement("tr");
+	standInModalElementWithLoginStandardModifier.className =
+		getAuthenticationComponentModalElementWithLoginStandardModifierClassName();
+	// CSS requires being child of ListViewTable component
+	standInAuthenticationComponentElement.appendChild(
+		standInModalElementWithLoginStandardModifier
+	);
+
+	const width = getElementSize(
+		standInModalElementWithLoginStandardModifier
+	).width;
+
+	standInAuthenticationComponentElement.parentNode.removeChild(
+		standInAuthenticationComponentElement
+	);
+
+	return width;
+}
+
+/**
  * Get critical sizes and styles from NavPanelButtonList component's
  * 'overflow-container' (className) element
  *
@@ -182,7 +223,7 @@ export function getNavPanelButtonListSizesAndStyles() {
 		standInListButtonElementWithTopAndBottomSpacing
 	);
 
-	const sizeAndStyleObject = {
+	const sizesAndStyles = {
 		// Removing "px" from Strings and converting to Numbers allows for easier use
 		subOverflowContainerForBugsMarginBottom: stripNonDigits(
 			standInSubOverflowContainerElementForBugsStyles.marginBottom
@@ -217,7 +258,7 @@ export function getNavPanelButtonListSizesAndStyles() {
 		standInNavPanelButtonListComponentElement
 	);
 
-	return sizeAndStyleObject;
+	return sizesAndStyles;
 }
 
 /**

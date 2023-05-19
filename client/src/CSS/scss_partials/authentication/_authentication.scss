@@ -1,7 +1,8 @@
 @use "../utils/variables" as v;
 @use "../utils/mixins" as m;
 
-.authentication-component {
+.authentication-component,
+.js-get-authentication-component {
 	.background {
 		position: absolute;
 		top: 0;
@@ -10,6 +11,7 @@
 		height: 100vh;
 		width: 100vw;
 	}
+
 	.background-cover {
 		position: absolute;
 		top: 0;
@@ -19,7 +21,8 @@
 		width: 100vw;
 	}
 
-	.login-component {
+	.modal,
+	.js-get-authentication-component-modal {
 		position: fixed;
 		top: 50%;
 		left: 50%;
@@ -29,76 +32,77 @@
 		background-color: white;
 		padding: 25px;
 		height: 500px;
-		width: 1000px;
 	}
 
-	.login-component--condensed {
-		width: 410px;
+	.modal--login-standard,
+	.js-get-authentication-component-modal--login-standard {
+		width: v.$login-modal-standard-width;
 	}
 
-	.register-component {
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		box-shadow: v.$common-modal-box-shadow;
-		border-radius: 10px;
-		background-color: white;
-		padding: 25px;
-		height: 500px;
-		width: 410px;
+	.modal--login-condensed {
+		width: v.$login-modal-condensed-width;
 	}
 
-	.form {
+	.modal--register {
+		width: v.$register-modal-width;
+	}
+
+	.modal__form {
+		width: 375px;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+
+	.modal.modal--login-standard .modal__form {
 		position: absolute;
 		top: 50%;
 		right: 40px;
 		transform: translate(0%, -50%);
-		width: 375px;
-		font-family: Verdana, Geneva, sans-serif;
-	}
-	.login-component--condensed form {
-		position: relative;
-		top: auto;
-		right: auto;
-		transform: none;
-		margin: 0px auto;
 	}
 
-	.form--centered {
+	@mixin modalSharedModifier() {
+		position: absolute;
+		top: 50%;
 		right: 50%;
 		transform: translate(50%, -50%);
 	}
 
-	.form__title {
+	.modal.modal--login-condensed .modal__form {
+		@include modalSharedModifier();
+	}
+
+	.modal.modal--register .modal__form {
+		@include modalSharedModifier();
+	}
+
+	.modal__form__title {
 		margin-bottom: 20px;
 		font-size: 25px;
 		font-weight: 700;
 		text-align: center;
 	}
 
-	.form__pair-container {
+	.modal__form__pair-container {
 		// Keeps other elements with float left from intruding between contents
 		display: inline-block;
 		width: 100%;
 	}
 
-	.form__pair-container__single-container {
+	.modal__form__pair-container__single-container {
 		float: left;
 		width: 46%;
 	}
 
-	.form__pair-container__single-container--right {
+	.modal__form__pair-container__single-container--right {
 		float: right;
 	}
 
-	.form__label {
+	.modal__form__label {
 		float: left;
 		margin-top: 5px;
 		font-size: v.$common-slightly-larger-font-size;
 	}
 
-	.form__input-text {
+	.modal__form__input-text {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -123,7 +127,7 @@
 		}
 	}
 
-	.form__input-text--error {
+	.modal__form__input-text--error {
 		border-color: v.$common-register-login-input-error-border-color;
 
 		&:focus {
@@ -135,7 +139,7 @@
 		@include m.backend-error();
 	}
 
-	.form__submit {
+	.modal__form__submit {
 		margin-top: 25px;
 		margin-bottom: 5px;
 		outline: none;
@@ -155,13 +159,13 @@
 		}
 	}
 
-	.form__bottom-link-container {
+	.modal__form__bottom-link-container {
 		margin-top: 40px;
 		font-size: 15px;
 		text-align: center;
 	}
 
-	.form__bottom-link-container__link {
+	.modal__form__bottom-link-container__link {
 		margin-left: 10px;
 		color: v.$common-register-login-bottom-link-text-color;
 		font-size: 16px;
@@ -174,6 +178,7 @@
 		}
 	}
 
+	// Styles specific to the AuthenticationLogin component
 	.login-component__intro-container {
 		position: absolute;
 		top: 42%;
@@ -181,21 +186,15 @@
 		transform: translate(0%, -50%);
 		font-family: Verdana, Geneva, sans-serif;
 	}
-	.login-component--condensed .login-component__intro-container {
-		position: relative;
-		top: auto;
-		left: auto;
-		transform: none;
-		margin-bottom: 50px;
+
+	.modal.modal--login-condensed .login-component__intro-container {
+		display: none;
 	}
 
 	.login-component__intro-container__logo {
 		display: block;
 		width: 400px;
 		margin: 0px auto;
-	}
-	.login-component--condensed .login-component__intro-container__logo {
-		width: 250px;
 	}
 
 	.login-component__intro-container__description {
@@ -205,8 +204,5 @@
 		font-size: 26px;
 		font-weight: 500;
 		line-height: 36px;
-	}
-	.login-component--condensed .login-component__intro-container__description {
-		display: none;
 	}
 }

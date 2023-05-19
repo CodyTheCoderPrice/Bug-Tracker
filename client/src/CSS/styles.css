@@ -115,7 +115,8 @@
   cursor: pointer;
 }
 
-.authentication-component .background {
+.authentication-component .background,
+.js-get-authentication-component .background {
   position: absolute;
   top: 0;
   left: 0;
@@ -123,7 +124,8 @@
   height: 100vh;
   width: 100vw;
 }
-.authentication-component .background-cover {
+.authentication-component .background-cover,
+.js-get-authentication-component .background-cover {
   position: absolute;
   top: 0;
   left: 0;
@@ -131,7 +133,10 @@
   height: 100vh;
   width: 100vw;
 }
-.authentication-component .login-component {
+.authentication-component .modal,
+.authentication-component .js-get-authentication-component-modal,
+.js-get-authentication-component .modal,
+.js-get-authentication-component .js-get-authentication-component-modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -141,65 +146,76 @@
   background-color: white;
   padding: 25px;
   height: 500px;
+}
+.authentication-component .modal--login-standard,
+.authentication-component .js-get-authentication-component-modal--login-standard,
+.js-get-authentication-component .modal--login-standard,
+.js-get-authentication-component .js-get-authentication-component-modal--login-standard {
   width: 1000px;
 }
-.authentication-component .login-component--condensed {
+.authentication-component .modal--login-condensed,
+.js-get-authentication-component .modal--login-condensed {
   width: 410px;
 }
-.authentication-component .register-component {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.1), -1px 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  background-color: white;
-  padding: 25px;
-  height: 500px;
+.authentication-component .modal--register,
+.js-get-authentication-component .modal--register {
   width: 410px;
 }
-.authentication-component .form {
+.authentication-component .modal__form,
+.js-get-authentication-component .modal__form {
+  width: 375px;
+  font-family: Verdana, Geneva, sans-serif;
+}
+.authentication-component .modal.modal--login-standard .modal__form,
+.js-get-authentication-component .modal.modal--login-standard .modal__form {
   position: absolute;
   top: 50%;
   right: 40px;
   transform: translate(0%, -50%);
-  width: 375px;
-  font-family: Verdana, Geneva, sans-serif;
 }
-.authentication-component .login-component--condensed form {
-  position: relative;
-  top: auto;
-  right: auto;
-  transform: none;
-  margin: 0px auto;
-}
-.authentication-component .form--centered {
+.authentication-component .modal.modal--login-condensed .modal__form,
+.js-get-authentication-component .modal.modal--login-condensed .modal__form {
+  position: absolute;
+  top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
 }
-.authentication-component .form__title {
+.authentication-component .modal.modal--register .modal__form,
+.js-get-authentication-component .modal.modal--register .modal__form {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+.authentication-component .modal__form__title,
+.js-get-authentication-component .modal__form__title {
   margin-bottom: 20px;
   font-size: 25px;
   font-weight: 700;
   text-align: center;
 }
-.authentication-component .form__pair-container {
+.authentication-component .modal__form__pair-container,
+.js-get-authentication-component .modal__form__pair-container {
   display: inline-block;
   width: 100%;
 }
-.authentication-component .form__pair-container__single-container {
+.authentication-component .modal__form__pair-container__single-container,
+.js-get-authentication-component .modal__form__pair-container__single-container {
   float: left;
   width: 46%;
 }
-.authentication-component .form__pair-container__single-container--right {
+.authentication-component .modal__form__pair-container__single-container--right,
+.js-get-authentication-component .modal__form__pair-container__single-container--right {
   float: right;
 }
-.authentication-component .form__label {
+.authentication-component .modal__form__label,
+.js-get-authentication-component .modal__form__label {
   float: left;
   margin-top: 5px;
   font-size: 16px;
 }
-.authentication-component .form__input-text {
+.authentication-component .modal__form__input-text,
+.js-get-authentication-component .modal__form__input-text {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -214,30 +230,37 @@
   width: 100%;
   font-size: 14px;
 }
-.authentication-component .form__input-text:focus {
+.authentication-component .modal__form__input-text:focus,
+.js-get-authentication-component .modal__form__input-text:focus {
   border-color: #2ba6c5;
   border-width: 2px;
   padding: 11px 15px;
 }
-.authentication-component .form__input-text--error {
+.authentication-component .modal__form__input-text--error,
+.js-get-authentication-component .modal__form__input-text--error {
   border-color: #ff0000;
 }
-.authentication-component .form__input-text--error:focus {
+.authentication-component .modal__form__input-text--error:focus,
+.js-get-authentication-component .modal__form__input-text--error:focus {
   border-color: #ff0000;
 }
-.authentication-component .backend-errors {
+.authentication-component .backend-errors,
+.js-get-authentication-component .backend-errors {
   display: block;
   padding-left: 5px;
   color: #ff0000;
   font-size: 13px;
 }
-.authentication-component .backend-errors i {
+.authentication-component .backend-errors i,
+.js-get-authentication-component .backend-errors i {
   padding-right: 8px;
 }
-.authentication-component .backend-errors + .backend-errors {
+.authentication-component .backend-errors + .backend-errors,
+.js-get-authentication-component .backend-errors + .backend-errors {
   margin-top: 5px;
 }
-.authentication-component .form__submit {
+.authentication-component .modal__form__submit,
+.js-get-authentication-component .modal__form__submit {
   margin-top: 25px;
   margin-bottom: 5px;
   outline: none;
@@ -250,56 +273,57 @@
   font-size: 18px;
   cursor: pointer;
 }
-.authentication-component .form__submit:hover, .authentication-component .form__submit:active, .authentication-component .form__submit:focus {
+.authentication-component .modal__form__submit:hover, .authentication-component .modal__form__submit:active, .authentication-component .modal__form__submit:focus,
+.js-get-authentication-component .modal__form__submit:hover,
+.js-get-authentication-component .modal__form__submit:active,
+.js-get-authentication-component .modal__form__submit:focus {
   background-color: #7aa2ac;
 }
-.authentication-component .form__bottom-link-container {
+.authentication-component .modal__form__bottom-link-container,
+.js-get-authentication-component .modal__form__bottom-link-container {
   margin-top: 40px;
   font-size: 15px;
   text-align: center;
 }
-.authentication-component .form__bottom-link-container__link {
+.authentication-component .modal__form__bottom-link-container__link,
+.js-get-authentication-component .modal__form__bottom-link-container__link {
   margin-left: 10px;
   color: #2d2dff;
   font-size: 16px;
   text-decoration: none;
   cursor: pointer;
 }
-.authentication-component .form__bottom-link-container__link:hover, .authentication-component .form__bottom-link-container__link:active {
+.authentication-component .modal__form__bottom-link-container__link:hover, .authentication-component .modal__form__bottom-link-container__link:active,
+.js-get-authentication-component .modal__form__bottom-link-container__link:hover,
+.js-get-authentication-component .modal__form__bottom-link-container__link:active {
   text-decoration: underline;
 }
-.authentication-component .login-component__intro-container {
+.authentication-component .login-component__intro-container,
+.js-get-authentication-component .login-component__intro-container {
   position: absolute;
   top: 42%;
   left: 30px;
   transform: translate(0%, -50%);
   font-family: Verdana, Geneva, sans-serif;
 }
-.authentication-component .login-component--condensed .login-component__intro-container {
-  position: relative;
-  top: auto;
-  left: auto;
-  transform: none;
-  margin-bottom: 50px;
+.authentication-component .modal.modal--login-condensed .login-component__intro-container,
+.js-get-authentication-component .modal.modal--login-condensed .login-component__intro-container {
+  display: none;
 }
-.authentication-component .login-component__intro-container__logo {
+.authentication-component .login-component__intro-container__logo,
+.js-get-authentication-component .login-component__intro-container__logo {
   display: block;
   width: 400px;
   margin: 0px auto;
 }
-.authentication-component .login-component--condensed .login-component__intro-container__logo {
-  width: 250px;
-}
-.authentication-component .login-component__intro-container__description {
+.authentication-component .login-component__intro-container__description,
+.js-get-authentication-component .login-component__intro-container__description {
   display: block;
   margin: 5px 0px 0px 16px;
   color: #636363;
   font-size: 26px;
   font-weight: 500;
   line-height: 36px;
-}
-.authentication-component .login-component--condensed .login-component__intro-container__description {
-  display: none;
 }
 
 .home-component {

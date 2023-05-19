@@ -79,6 +79,32 @@ export function getAppComponentClassName() {
 }
 
 /**
+ * Gets a className equivelent to the 'authentication-component' className used 
+ * by Authentication component.
+ *
+ * Note: This function's purpose is to have the returned className assigned to
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} A className equivelent to 'authentication-component'
+ */
+export function getAuthenticationComponentClassName() {
+	return " js-get-authentication-component";
+}
+
+/**
+ * Gets classNames equivelent to 'modal modal--login-standard'
+ * className (with modifier) used by Authentication component.
+ *
+ * Note: This function's purpose is to have the returned className assigned to
+ * a temporary element that's used for getting CSS values with JS.
+ *
+ * @returns {string} classNames equivelent to 'modal modal--login-standard'
+ */
+export function getAuthenticationComponentModalElementWithLoginStandardModifierClassName() {
+	return " js-get-authentication-component-modal js-get-authentication-component-modal--login-standard";
+}
+
+/**
  * Gets a className equivelent to the 'nav-panel-button-list-component' className
  * used by NavPanelButtonList component.
  *

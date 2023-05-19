@@ -7,12 +7,7 @@ import {
 	clearBackendErrors,
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
-import {
-	getElementSize,
-	getWindowSize,
-	isEmpty,
-	getBackendErrorsJSX,
-} from "../../utils";
+import { isEmpty, getBackendErrorsJSX } from "../../utils";
 import bugTrackerLogo from "../../images/bug-tracker-logo.svg";
 
 /**
@@ -40,36 +35,14 @@ export default function Login() {
 		password: "",
 	});
 
-	const [windowWidth, setWindowWidth] = useState();
-	const [
-		loginComponentBreakingPointWidth,
-		setLoginComponentBreakingPointWidth,
-	] = useState();
 	useEffect(() => {
-		setLoginComponentBreakingPointWidth(
-			getElementSize(document.getElementsByClassName("js-login-component")[0])
-				.width
-		);
-
-		// Initializes windowWidth
-		windowSizeHandler();
-
-		window.addEventListener("resize", windowSizeHandler);
-
 		return () => {
-			window.removeEventListener("resize", windowSizeHandler);
-
 			// Clears current backend errors when closing the component. Otherwise
 			// backend errors may presist and appear when component is re-openned.
 			dispatch(clearBackendErrors());
 		};
 		// eslint-disable-next-line
 	}, []);
-
-	// Declared as an object outside the eventListener so removal works on cleanup
-	function windowSizeHandler() {
-		setWindowWidth(getWindowSize().width);
-	}
 
 	/**
 	 * Function for onChange handler of input elements. Updates accountInfo's
@@ -103,14 +76,7 @@ export default function Login() {
 	};
 
 	return (
-		<div
-			className={
-				"login-component js-login-component" +
-				(windowWidth <= loginComponentBreakingPointWidth
-					? " login-component--condensed"
-					: "")
-			}
-		>
+		<div className={"login-component js-login-component"}>
 			<div className="login-component__intro-container">
 				<img
 					className="login-component__intro-container__logo"
@@ -121,8 +87,8 @@ export default function Login() {
 					Free online bug tracking system <br /> for your software project needs
 				</span>
 			</div>
-			<form className="form" noValidate onSubmit={handleSubmit}>
-				<h2 className="form__title">Member Login</h2>
+			<form className="modal__form" noValidate onSubmit={handleSubmit}>
+				<h2 className="modal__form__title">Member Login</h2>
 				<input
 					autoFocus
 					type="email"
@@ -132,11 +98,11 @@ export default function Login() {
 					value={accountInfo.email}
 					id="login-email"
 					className={
-						"form__input-text" +
+						"modal__form__input-text" +
 						(!isEmpty(
 							reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail
 						)
-							? " form__input-text--error"
+							? " modal__form__input-text--error"
 							: "")
 					}
 				/>
@@ -152,12 +118,12 @@ export default function Login() {
 					value={accountInfo.password}
 					id="login-password"
 					className={
-						"form__input-text" +
+						"modal__form__input-text" +
 						(!isEmpty(
 							reduxState[GENERAL_CONTAINER].backendErrors
 								.validationAccountPassword
 						)
-							? " form__input-text--error"
+							? " modal__form__input-text--error"
 							: "")
 					}
 				/>
@@ -165,7 +131,7 @@ export default function Login() {
 					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword,
 					"backend-errors"
 				)}
-				<button type="submit" className="form__submit">
+				<button type="submit" className="modal__form__submit">
 					LOGIN
 				</button>
 				{getBackendErrorsJSX(
@@ -176,9 +142,9 @@ export default function Login() {
 					],
 					"backend-errors"
 				)}
-				<div className="form__bottom-link-container">
+				<div className="modal__form__bottom-link-container">
 					<span
-						className="form__bottom-link-container__link"
+						className="modal__form__bottom-link-container__link"
 						onClick={openRegister}
 					>
 						Create account
