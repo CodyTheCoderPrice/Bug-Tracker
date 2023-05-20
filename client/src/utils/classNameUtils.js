@@ -92,16 +92,16 @@ export function getAuthenticationComponentClassName() {
 }
 
 /**
- * Gets classNames equivelent to 'modal modal--login-standard'
+ * Gets classNames equivelent to 'modal modal--expanded'
  * className (with modifier) used by Authentication component.
  *
  * Note: This function's purpose is to have the returned className assigned to
  * a temporary element that's used for getting CSS values with JS.
  *
- * @returns {string} classNames equivelent to 'modal modal--login-standard'
+ * @returns {string} classNames equivelent to 'modal modal--expanded'
  */
-export function getAuthenticationComponentModalElementWithLoginStandardModifierClassName() {
-	return " js-get-authentication-component-modal js-get-authentication-component-modal--login-standard";
+export function getAuthenticationComponentModalElementWithExpandedModifierClassName() {
+	return " js-get-authentication-component-modal js-get-authentication-component-modal--expanded";
 }
 
 /**

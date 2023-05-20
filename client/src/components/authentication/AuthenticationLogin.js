@@ -8,7 +8,6 @@ import {
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
 import { isEmpty, getBackendErrorsJSX } from "../../utils";
-import bugTrackerLogo from "../../images/bug-tracker-logo.svg";
 
 /**
  * React functional component used for logging into the app by entering an
@@ -26,7 +25,7 @@ import bugTrackerLogo from "../../images/bug-tracker-logo.svg";
  *
  * @component
  */
-export default function Login() {
+export default function Login(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
@@ -76,17 +75,7 @@ export default function Login() {
 	};
 
 	return (
-		<div className={"login-component js-login-component"}>
-			<div className="login-component__intro-container">
-				<img
-					className="login-component__intro-container__logo"
-					src={bugTrackerLogo}
-					alt="LOGO: Bug Tracker created by Cody Price"
-				/>
-				<span className="login-component__intro-container__description">
-					Free online bug tracking system <br /> for your software project needs
-				</span>
-			</div>
+		<div className="login-component js-login-component">
 			<form className="modal__form" noValidate onSubmit={handleSubmit}>
 				<h2 className="modal__form__title">Member Login</h2>
 				<input

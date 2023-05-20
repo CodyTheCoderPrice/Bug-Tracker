@@ -1,7 +1,7 @@
 import {
 	stripNonDigits,
 	getAuthenticationComponentClassName,
-	getAuthenticationComponentModalElementWithLoginStandardModifierClassName,
+	getAuthenticationComponentModalElementWithExpandedModifierClassName,
 	getNavPanelButtonListComponentClassName,
 	getNavPanelButtonListComponentSubOverflowContainerElementForBugsModifierClassName,
 	getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarModifierClassName,
@@ -119,12 +119,12 @@ export function isVerticalScrollbarPresent(element) {
 
 /**
  * Get width (size not style) of Authentication component's
- * 'modal modal--login-standard' (className) element
+ * 'modal modal--expanded' (className) element
  *
  * @returns {number} Width of Authentication component's
- * 'modal modal--login-standard' element
+ * 'modal modal--expanded' element
  */
-export function getAuthenticationComponentModalElementWithLoginStandardModifierWidth() {
+export function getAuthenticationComponentModalElementWithExpandedModifierWidth() {
 	// Creating stand-in element for Authentication component to later append
 	// ...other stand-in elements to so CSS can work properly. using stand-in
 	// ...elements allows this function to be called when the real elements
@@ -136,17 +136,17 @@ export function getAuthenticationComponentModalElementWithLoginStandardModifierW
 	standInAuthenticationComponentElement.visibility = "hidden";
 	document.body.appendChild(standInAuthenticationComponentElement);
 
-	const standInModalElementWithLoginStandardModifier =
+	const standInModalElementWithExpandedModifier =
 		document.createElement("tr");
-	standInModalElementWithLoginStandardModifier.className =
-		getAuthenticationComponentModalElementWithLoginStandardModifierClassName();
+	standInModalElementWithExpandedModifier.className =
+		getAuthenticationComponentModalElementWithExpandedModifierClassName();
 	// CSS requires being child of ListViewTable component
 	standInAuthenticationComponentElement.appendChild(
-		standInModalElementWithLoginStandardModifier
+		standInModalElementWithExpandedModifier
 	);
 
 	const width = getElementSize(
-		standInModalElementWithLoginStandardModifier
+		standInModalElementWithExpandedModifier
 	).width;
 
 	standInAuthenticationComponentElement.parentNode.removeChild(

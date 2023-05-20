@@ -121,6 +121,7 @@
   top: 0;
   left: 0;
   background-image: url(../images/BlueBackground_1920.jpg);
+  background-size: cover;
   height: 100vh;
   width: 100vw;
 }
@@ -146,46 +147,95 @@
   background-color: white;
   padding: 25px;
   height: 500px;
+  width: 410px;
+  -moz-transition: width 0.5s ease-in-out;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
 }
-.authentication-component .modal--login-standard,
-.authentication-component .js-get-authentication-component-modal--login-standard,
-.js-get-authentication-component .modal--login-standard,
-.js-get-authentication-component .js-get-authentication-component-modal--login-standard {
+.authentication-component .modal--expanded,
+.authentication-component .js-get-authentication-component-modal--expanded,
+.js-get-authentication-component .modal--expanded,
+.js-get-authentication-component .js-get-authentication-component-modal--expanded {
   width: 1000px;
 }
-.authentication-component .modal--login-condensed,
-.js-get-authentication-component .modal--login-condensed {
-  width: 410px;
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-.authentication-component .modal--register,
-.js-get-authentication-component .modal--register {
-  width: 410px;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.authentication-component .modal__intro-container,
+.js-get-authentication-component .modal__intro-container {
+  position: absolute;
+  top: 42%;
+  left: 30px;
+  transform: translate(0%, -50%);
+  font-family: Verdana, Geneva, sans-serif;
+  -webkit-animation: fadeOut 0.25s linear forwards;
+  animation: fadeOut 0.25s linear forwards;
+}
+.authentication-component .modal.modal--expanded .modal__intro-container,
+.js-get-authentication-component .modal.modal--expanded .modal__intro-container {
+  -webkit-animation: fadeIn 1s linear forwards;
+  animation: fadeIn 1s linear forwards;
+}
+.authentication-component .modal__intro-container--invisible,
+.js-get-authentication-component .modal__intro-container--invisible {
+  visibility: hidden;
+}
+.authentication-component .modal__intro-container__logo,
+.js-get-authentication-component .modal__intro-container__logo {
+  display: block;
+  width: 400px;
+  margin: 0px auto;
+}
+.authentication-component .modal__intro-container__description,
+.js-get-authentication-component .modal__intro-container__description {
+  display: block;
+  margin: 5px 0px 0px 16px;
+  color: #636363;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 36px;
+  white-space: nowrap;
 }
 .authentication-component .modal__form,
 .js-get-authentication-component .modal__form {
   width: 375px;
   font-family: Verdana, Geneva, sans-serif;
 }
-.authentication-component .modal.modal--login-standard .modal__form,
-.js-get-authentication-component .modal.modal--login-standard .modal__form {
+.authentication-component .modal .modal__form,
+.js-get-authentication-component .modal .modal__form {
   position: absolute;
   top: 50%;
-  right: 40px;
+  right: 42px;
   transform: translate(0%, -50%);
-}
-.authentication-component .modal.modal--login-condensed .modal__form,
-.js-get-authentication-component .modal.modal--login-condensed .modal__form {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-}
-.authentication-component .modal.modal--register .modal__form,
-.js-get-authentication-component .modal.modal--register .modal__form {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
 }
 .authentication-component .modal__form__title,
 .js-get-authentication-component .modal__form__title {
@@ -297,33 +347,6 @@
 .js-get-authentication-component .modal__form__bottom-link-container__link:hover,
 .js-get-authentication-component .modal__form__bottom-link-container__link:active {
   text-decoration: underline;
-}
-.authentication-component .login-component__intro-container,
-.js-get-authentication-component .login-component__intro-container {
-  position: absolute;
-  top: 42%;
-  left: 30px;
-  transform: translate(0%, -50%);
-  font-family: Verdana, Geneva, sans-serif;
-}
-.authentication-component .modal.modal--login-condensed .login-component__intro-container,
-.js-get-authentication-component .modal.modal--login-condensed .login-component__intro-container {
-  display: none;
-}
-.authentication-component .login-component__intro-container__logo,
-.js-get-authentication-component .login-component__intro-container__logo {
-  display: block;
-  width: 400px;
-  margin: 0px auto;
-}
-.authentication-component .login-component__intro-container__description,
-.js-get-authentication-component .login-component__intro-container__description {
-  display: block;
-  margin: 5px 0px 0px 16px;
-  color: #636363;
-  font-size: 26px;
-  font-weight: 500;
-  line-height: 36px;
 }
 
 .home-component {

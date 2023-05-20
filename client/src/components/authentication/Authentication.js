@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 // Component uses container names to work with the redux state
 import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
 import {
-	getAuthenticationComponentModalElementWithLoginStandardModifierWidth,
+	getAuthenticationComponentModalElementWithExpandedModifierWidth,
 	getWindowSize,
 } from "../../utils";
+import bugTrackerLogo from "../../images/bug-tracker-logo.svg";
 // Other components used by this component
 import Register from "./AuthenticationRegister";
 import Login from "./AuthenticationLogin";
@@ -30,10 +31,20 @@ function Authentication() {
 		setLoginComponentBreakingPointWidth,
 	] = useState();
 
+	const [
+		shouldIntroContainerHaveVisibility,
+		setShouldIntroContainerHaveVisibility,
+	] = useState(false);
+
+	const modalShouldBeExpand =
+		reduxState[GENERAL_CONTAINER].componentsDisplay
+			.loginComponentShouldDisplay &&
+		windowWidth > loginComponentBreakingPointWidth;
+
 	useEffect(() => {
 		setLoginComponentBreakingPointWidth(
 			// 30 is added to simulate a margin around the modal
-			getAuthenticationComponentModalElementWithLoginStandardModifierWidth() + 30
+			getAuthenticationComponentModalElementWithExpandedModifierWidth() + 30
 		);
 
 		// Initializes windowWidth
@@ -52,31 +63,51 @@ function Authentication() {
 		setWindowWidth(getWindowSize().width);
 	}
 
+	useEffect(() => {
+		if (
+			!reduxState[GENERAL_CONTAINER].componentsDisplay
+				.loginComponentShouldDisplay
+		) {
+			setShouldIntroContainerHaveVisibility(false);
+		} else if (!shouldIntroContainerHaveVisibility) {
+			setShouldIntroContainerHaveVisibility(
+				shouldIntroContainerHaveVisibility || modalShouldBeExpand
+			);
+		}
+	}, [windowWidth]);
+
 	return (
 		<div className="authentication-component">
 			<div className="background" />
 			<div className="background-cover" />
 			<div
-				className={
-					"modal" +
-					(reduxState[GENERAL_CONTAINER].componentsDisplay
-						.registerComponentShouldDisplay
-						? " modal--register"
-						: reduxState[GENERAL_CONTAINER].componentsDisplay
-								.loginComponentShouldDisplay
-						? windowWidth > loginComponentBreakingPointWidth
-							? " modal--login-standard"
-							: " modal--login-condensed"
-						: "")
-				}
+				className={"modal" + (modalShouldBeExpand ? " modal--expanded" : "")}
 			>
-				{reduxState[GENERAL_CONTAINER].componentsDisplay
-					.registerComponentShouldDisplay ? (
-					<Register />
-				) : null}
+				<div
+					className={
+						"modal__intro-container" +
+						(shouldIntroContainerHaveVisibility
+							? ""
+							: " modal__intro-container--invisible")
+					}
+				>
+					<img
+						className="modal__intro-container__logo"
+						src={bugTrackerLogo}
+						alt="LOGO: Bug Tracker created by Cody Price"
+					/>
+					<span className="modal__intro-container__description">
+						Free online bug tracking system <br /> for your software project
+						needs
+					</span>
+				</div>
 				{reduxState[GENERAL_CONTAINER].componentsDisplay
 					.loginComponentShouldDisplay ? (
 					<Login />
+				) : null}
+				{reduxState[GENERAL_CONTAINER].componentsDisplay
+					.registerComponentShouldDisplay ? (
+					<Register />
 				) : null}
 			</div>
 		</div>
