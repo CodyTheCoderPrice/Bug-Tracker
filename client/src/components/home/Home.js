@@ -17,9 +17,7 @@ import {
 	getSearchedFilteredSortedList,
 	getHomeComponentBackgroundColorClassNameForLightOrDarkMode,
 } from "../../utils";
-import {
-	useListAndItemComponentsDisplayContainerCrossoverFailSafe
-} from "../../utils/hooks"
+import { useListAndItemComponentsDisplayContainerCrossoverFailSafe } from "../../utils/hooks";
 // Other components used by this component
 import Menu from "./menu/Menu";
 import AccountBlurredBackdrop from "./account/AccountBlurredBackdrop";
@@ -263,10 +261,7 @@ export default function Home() {
 			) > -1 ? (
 				<AccountBlurredBackdrop />
 			) : null}
-			{reduxState[ACCOUNT_CONTAINER].componentsDisplay
-				.accountSidebarComponentShouldDisplay ? (
-				<AccountSidebar />
-			) : null}
+			<AccountSidebar />
 			{getShouldAccountModalDisplay() ? <AccountModal /> : null}
 			{/*Project components*/}
 			{reduxState[PROJECT_CONTAINER].componentsDisplay

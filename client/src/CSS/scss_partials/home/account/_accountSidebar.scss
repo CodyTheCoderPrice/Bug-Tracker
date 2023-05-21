@@ -26,6 +26,14 @@
 		// Gives sidebar scrolling when content goes beyond height
 		overflow-y: auto;
 		overflow-x: hidden;
+
+		@include m.set-transition(
+			width v.$account-sidebar-container-width-transition-time ease-in-out
+		);
+	}
+
+	.sidebar-container--minimized {
+		width: 0px;
 	}
 
 	.settings-icon-button {
