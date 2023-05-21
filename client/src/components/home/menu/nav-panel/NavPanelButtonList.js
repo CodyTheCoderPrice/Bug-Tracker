@@ -68,7 +68,7 @@ export default function NavPanelButtonList() {
 	};
 
 	// Used for NavPanelButtonListSubItem components transition/fade out
-	const [buttonListSubItemsDisplayStatus, setButtonListSubItemsDisplayStatus] =
+	const [buttonListSubItemsDomStatus, setButtonListSubItemsDomStatus] =
 		useState({
 			projectItemsShouldExist:
 				buttonDisplayLogic.shouldAnyProjectSubItemsDisplay,
@@ -76,17 +76,6 @@ export default function NavPanelButtonList() {
 			bugItemsShouldExist: buttonDisplayLogic.shouldAnyBugSubItemsDisplay,
 			bugItemsShouldLingerForFadeOut: false,
 		});
-
-	const buttonListSubItemsLingerLogic = {
-		projectItems:
-			buttonListSubItemsDisplayStatus.projectItemsShouldExist &&
-			!buttonListSubItemsDisplayStatus.projectItemsShouldLingerForFadeOut &&
-			!buttonDisplayLogic.shouldAnyProjectSubItemsDisplay,
-		bugItems:
-			buttonListSubItemsDisplayStatus.bugItemsShouldExist &&
-			!buttonListSubItemsDisplayStatus.bugItemsShouldLingerForFadeOut &&
-			!buttonDisplayLogic.shouldAnyBugSubItemsDisplay,
-	};
 
 	// Used for NavPanelButtonListSubItem components to transition in
 	const [
@@ -151,18 +140,26 @@ export default function NavPanelButtonList() {
 		});
 	}, []);
 
-	// Updates buttonListSubItemsDisplayStatus
+	// Updates buttonListSubItemsDomStatus
 	useEffect(() => {
-		setButtonListSubItemsDisplayStatus({
+		const projectItemsLingerLogic =
+			buttonListSubItemsDomStatus.projectItemsShouldExist &&
+			!buttonListSubItemsDomStatus.projectItemsShouldLingerForFadeOut &&
+			!buttonDisplayLogic.shouldAnyProjectSubItemsDisplay;
+
+		const bugItemsLingerLogic =
+			buttonListSubItemsDomStatus.bugItemsShouldExist &&
+			!buttonListSubItemsDomStatus.bugItemsShouldLingerForFadeOut &&
+			!buttonDisplayLogic.shouldAnyBugSubItemsDisplay;
+
+		setButtonListSubItemsDomStatus({
 			projectItemsShouldExist:
 				buttonDisplayLogic.shouldAnyProjectSubItemsDisplay ||
-				buttonListSubItemsLingerLogic.projectItems,
-			projectItemsShouldLingerForFadeOut:
-				buttonListSubItemsLingerLogic.projectItems,
+				projectItemsLingerLogic,
+			projectItemsShouldLingerForFadeOut: projectItemsLingerLogic,
 			bugItemsShouldExist:
-				buttonDisplayLogic.shouldAnyBugSubItemsDisplay ||
-				buttonListSubItemsLingerLogic.bugItems,
-			bugItemsShouldLingerForFadeOut: buttonListSubItemsLingerLogic.bugItems,
+				buttonDisplayLogic.shouldAnyBugSubItemsDisplay || bugItemsLingerLogic,
+			bugItemsShouldLingerForFadeOut: bugItemsLingerLogic,
 		});
 		// eslint-disable-next-line
 	}, [
@@ -174,8 +171,8 @@ export default function NavPanelButtonList() {
 
 	// Updates buttonListSubItemsInitialHeightStatus
 	useEffect(() => {
-		// Since this state will take 1 cycle to update, the sub item buttons
-		// ...will have had a chance to have their height set to zero
+		// Since this state takes 1 cycle to update, it gives the sub item 
+		// ...buttons enought time to first set their heights to zero
 		setButtonListSubItemsInitialHeightStatus({
 			projectAnyButtonsSetToZero:
 				buttonDisplayLogic.shouldAnyProjectSubItemsDisplay,
@@ -209,15 +206,15 @@ export default function NavPanelButtonList() {
 			navPanelChildSizesAndStyles.subOverflowContainerWithScrollbarPaddingBottom !==
 				null &&
 			navPanelChildSizesAndStyles.listButtonHeight !== null &&
-			buttonListSubItemsDisplayStatus.projectItemsShouldExist !== null &&
-			buttonListSubItemsDisplayStatus.bugItemsShouldExist !== null
+			buttonListSubItemsDomStatus.projectItemsShouldExist !== null &&
+			buttonListSubItemsDomStatus.bugItemsShouldExist !== null
 		) {
 			let projectSubOverflowContainerElement = document.getElementsByClassName(
 				"js-project-sub-overflow-container"
 			)[0];
 
 			if (
-				buttonListSubItemsDisplayStatus.projectItemsShouldExist &&
+				buttonListSubItemsDomStatus.projectItemsShouldExist &&
 				buttonDisplayLogic.shouldAllProjectSubItemsDisplay &&
 				buttonListSubItemsInitialHeightStatus.projectAllButtonsSetToZero
 			) {
@@ -277,7 +274,7 @@ export default function NavPanelButtonList() {
 			)[0];
 
 			if (
-				buttonListSubItemsDisplayStatus.bugItemsShouldExist &&
+				buttonListSubItemsDomStatus.bugItemsShouldExist &&
 				buttonDisplayLogic.shouldAllBugSubItemsDisplay
 			) {
 				const adjustedNavPanelHeight =
@@ -343,8 +340,8 @@ export default function NavPanelButtonList() {
 		buttonDisplayLogic.shouldAllProjectSubItemsDisplay,
 		buttonDisplayLogic.shouldAnyBugSubItemsDisplay,
 		buttonDisplayLogic.shouldAllBugSubItemsDisplay,
-		buttonListSubItemsDisplayStatus.projectItemsShouldExist,
-		buttonListSubItemsDisplayStatus.bugItemsShouldExist,
+		buttonListSubItemsDomStatus.projectItemsShouldExist,
+		buttonListSubItemsDomStatus.bugItemsShouldExist,
 		buttonListSubItemsInitialHeightStatus,
 	]);
 
@@ -374,7 +371,7 @@ export default function NavPanelButtonList() {
 			<div
 				className={"sub-overflow-container js-project-sub-overflow-container"}
 			>
-				{!buttonListSubItemsDisplayStatus.projectItemsShouldExist ? null : (
+				{!buttonListSubItemsDomStatus.projectItemsShouldExist ? null : (
 					<div>
 						{buttonSubItemLists.projectList.map((item, idx) => {
 							return (
@@ -452,7 +449,7 @@ export default function NavPanelButtonList() {
 					"sub-overflow-container sub-overflow-container--for-bugs js-bug-sub-overflow-container"
 				}
 			>
-				{!buttonListSubItemsDisplayStatus.bugItemsShouldExist ? null : (
+				{!buttonListSubItemsDomStatus.bugItemsShouldExist ? null : (
 					<div>
 						{buttonSubItemLists.bugList.map((item, idx) => {
 							return (

@@ -74,38 +74,19 @@ export default function NavbarBreadcrumb() {
 	};
 
 	const [buttonStatus, setButtonStatus] = useState({
-		projectListShouldExist: buttonDisplayLogic.projectList,
+		projectListShouldExistInDom: buttonDisplayLogic.projectList,
 		projectListShouldLingerForFadeOut: false,
 		projectListShouldBeOpen: buttonOpenLogic.projectList,
-		projectItemShouldExist: buttonDisplayLogic.projectItem,
+		projectItemShouldExistInDom: buttonDisplayLogic.projectItem,
 		projectItemShouldLingerForFadeOut: false,
 		projectItemShouldBeOpen: buttonOpenLogic.projectItem,
-		bugListShouldExist: buttonDisplayLogic.bugList,
+		bugListShouldExistInDom: buttonDisplayLogic.bugList,
 		bugListShouldLingerForFadeOut: false,
 		bugListShouldBeOpen: buttonOpenLogic.bugList,
-		bugItemShouldExist: buttonDisplayLogic.bugItem,
+		bugItemShouldExistInDom: buttonDisplayLogic.bugItem,
 		bugItemShouldLingerForFadeOut: false,
 		bugItemShouldBeOpen: buttonOpenLogic.bugItem,
 	});
-
-	const buttonLingerLogic = {
-		projectList:
-			buttonStatus.projectListShouldExist &&
-			!buttonStatus.projectListShouldLingerForFadeOut &&
-			!buttonDisplayLogic.projectList,
-		projectItem:
-			buttonStatus.projectItemShouldExist &&
-			!buttonStatus.projectItemShouldLingerForFadeOut &&
-			!buttonDisplayLogic.projectItem,
-		bugList:
-			buttonStatus.bugListShouldExist &&
-			!buttonStatus.bugListShouldLingerForFadeOut &&
-			!buttonDisplayLogic.bugList,
-		bugItem:
-			buttonStatus.bugItemShouldExist &&
-			!buttonStatus.bugItemShouldLingerForFadeOut &&
-			!buttonDisplayLogic.bugItem,
-	};
 
 	const [navbarChildSizes, setNavbarChildSizes] = useState({
 		projectListButtonWidth: null,
@@ -163,7 +144,7 @@ export default function NavbarBreadcrumb() {
 			};
 
 			if (
-				buttonStatus.projectItemShouldExist &&
+				buttonStatus.projectItemShouldExistInDom &&
 				buttonText.projectItem !== projectItemUpdatedValue
 			) {
 				causeFadeIn(
@@ -173,7 +154,7 @@ export default function NavbarBreadcrumb() {
 				);
 			}
 			if (
-				buttonStatus.bugItemShouldExist &&
+				buttonStatus.bugItemShouldExistInDom &&
 				buttonText.bugItem !== bugItemUpdatedValue
 			) {
 				causeFadeIn(
@@ -199,22 +180,40 @@ export default function NavbarBreadcrumb() {
 
 	// Updates buttonStatus
 	useEffect(() => {
+		const projectListLingerLogic =
+			buttonStatus.projectListShouldExistInDom &&
+			!buttonStatus.projectListShouldLingerForFadeOut &&
+			!buttonDisplayLogic.projectList;
+
+		const projectItemLingerLogic =
+			buttonStatus.projectItemShouldExistInDom &&
+			!buttonStatus.projectItemShouldLingerForFadeOut &&
+			!buttonDisplayLogic.projectItem;
+
+		const bugListLingerLogic =
+			buttonStatus.bugListShouldExistInDom &&
+			!buttonStatus.bugListShouldLingerForFadeOut &&
+			!buttonDisplayLogic.bugList;
+
+		const bugItemLingerLogic =
+			buttonStatus.bugItemShouldExistInDom &&
+			!buttonStatus.bugItemShouldLingerForFadeOut &&
+			!buttonDisplayLogic.bugItem;
+
 		setButtonStatus({
-			projectListShouldExist:
-				buttonDisplayLogic.projectList || buttonLingerLogic.projectList,
-			projectListShouldLingerForFadeOut: buttonLingerLogic.projectList,
+			projectListShouldExistInDom:
+				buttonDisplayLogic.projectList || projectListLingerLogic,
+			projectListShouldLingerForFadeOut: projectListLingerLogic,
 			projectListShouldBeOpen: buttonOpenLogic.projectList,
-			projectItemShouldExist:
-				buttonDisplayLogic.projectItem || buttonLingerLogic.projectItem,
-			projectItemShouldLingerForFadeOut: buttonLingerLogic.projectItem,
+			projectItemShouldExistInDom:
+				buttonDisplayLogic.projectItem || projectItemLingerLogic,
+			projectItemShouldLingerForFadeOut: projectItemLingerLogic,
 			projectItemShouldBeOpen: buttonOpenLogic.projectItem,
-			bugListShouldExist:
-				buttonDisplayLogic.bugList || buttonLingerLogic.bugList,
-			bugListShouldLingerForFadeOut: buttonLingerLogic.bugList,
+			bugListShouldExistInDom: buttonDisplayLogic.bugList || bugListLingerLogic,
+			bugListShouldLingerForFadeOut: bugListLingerLogic,
 			bugListShouldBeOpen: buttonOpenLogic.bugList,
-			bugItemShouldExist:
-				buttonDisplayLogic.bugItem || buttonLingerLogic.bugItem,
-			bugItemShouldLingerForFadeOut: buttonLingerLogic.bugItem,
+			bugItemShouldExistInDom: buttonDisplayLogic.bugItem || bugItemLingerLogic,
+			bugItemShouldLingerForFadeOut: bugItemLingerLogic,
 			bugItemShouldBeOpen: buttonOpenLogic.bugItem,
 		});
 		// eslint-disable-next-line
@@ -493,7 +492,7 @@ export default function NavbarBreadcrumb() {
 
 	return (
 		<div className="navbar-breadcrumb-component js-navbar-breadcrumb">
-			{!buttonStatus.projectListShouldExist ? null : (
+			{!buttonStatus.projectListShouldExistInDom ? null : (
 				<div
 					className={getBreadcrumbButtonClassNames(
 						buttonStatus.projectListShouldLingerForFadeOut,
@@ -514,7 +513,7 @@ export default function NavbarBreadcrumb() {
 					{buttonText.projectList}
 				</div>
 			)}
-			{!buttonStatus.projectItemShouldExist ? null : (
+			{!buttonStatus.projectItemShouldExistInDom ? null : (
 				<div
 					className={getBreadcrumbDividerClassNames(
 						buttonStatus.projectItemShouldLingerForFadeOut
@@ -524,7 +523,7 @@ export default function NavbarBreadcrumb() {
 					{getDividerIcon()}
 				</div>
 			)}
-			{!buttonStatus.projectItemShouldExist ? null : (
+			{!buttonStatus.projectItemShouldExistInDom ? null : (
 				<div
 					className={
 						getBreadcrumbButtonClassNames(
@@ -547,7 +546,7 @@ export default function NavbarBreadcrumb() {
 					{buttonText.projectItem}
 				</div>
 			)}
-			{!buttonStatus.bugListShouldExist ? null : (
+			{!buttonStatus.bugListShouldExistInDom ? null : (
 				<div
 					className={getBreadcrumbDividerClassNames(
 						buttonStatus.bugListShouldLingerForFadeOut
@@ -557,7 +556,7 @@ export default function NavbarBreadcrumb() {
 					{getDividerIcon()}
 				</div>
 			)}
-			{!buttonStatus.bugListShouldExist ? null : (
+			{!buttonStatus.bugListShouldExistInDom ? null : (
 				<div
 					className={getBreadcrumbButtonClassNames(
 						buttonStatus.bugListShouldLingerForFadeOut,
@@ -577,7 +576,7 @@ export default function NavbarBreadcrumb() {
 					{buttonText.bugList}
 				</div>
 			)}
-			{!buttonStatus.bugItemShouldExist ? null : (
+			{!buttonStatus.bugItemShouldExistInDom ? null : (
 				<div
 					className={getBreadcrumbDividerClassNames(
 						buttonStatus.bugItemShouldLingerForFadeOut
@@ -587,7 +586,7 @@ export default function NavbarBreadcrumb() {
 					{getDividerIcon()}
 				</div>
 			)}
-			{!buttonStatus.bugItemShouldExist ? null : (
+			{!buttonStatus.bugItemShouldExistInDom ? null : (
 				<div
 					className={
 						getBreadcrumbButtonClassNames(
