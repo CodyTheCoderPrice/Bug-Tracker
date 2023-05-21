@@ -91,15 +91,17 @@ function Authentication() {
 							: " modal__intro-container--invisible")
 					}
 				>
+					
 					<img
 						className="modal__intro-container__logo"
 						src={bugTrackerLogo}
+						title="Bug Tracker created by Cody Price"
 						alt="LOGO: Bug Tracker created by Cody Price"
 					/>
-					<span className="modal__intro-container__description">
+					<h1 className="modal__intro-container__description">
 						Free online bug tracking system <br /> for your software project
 						needs
-					</span>
+					</h1>
 				</div>
 				{reduxState[GENERAL_CONTAINER].componentsDisplay
 					.loginComponentShouldDisplay ? (
