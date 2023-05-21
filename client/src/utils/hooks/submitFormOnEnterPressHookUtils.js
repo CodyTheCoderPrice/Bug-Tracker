@@ -24,7 +24,7 @@ export function useSubmitFormOnEnterPress(formClassName) {
 				.getElementsByClassName(formClassName)[0]
 				.removeEventListener("keypress", submitOnEnterHandler);
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Declared as an object outside the eventListener so removal works on cleanup

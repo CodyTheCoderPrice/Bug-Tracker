@@ -55,7 +55,7 @@ function Authentication() {
 		return () => {
 			window.removeEventListener("resize", windowSizeHandler);
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Declared as an object outside the eventListener so removal works on cleanup
@@ -74,6 +74,7 @@ function Authentication() {
 				shouldIntroContainerHaveVisibility || modalShouldBeExpand
 			);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [windowWidth]);
 
 	return (
@@ -91,7 +92,6 @@ function Authentication() {
 							: " modal__intro-container--invisible")
 					}
 				>
-					
 					<img
 						className="modal__intro-container__logo"
 						src={bugTrackerLogo}

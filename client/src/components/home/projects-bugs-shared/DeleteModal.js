@@ -30,7 +30,7 @@ export default function DeleteModal(props) {
 		return () => {
 			dispatch(clearBackendErrors());
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const getMessageText = () => {

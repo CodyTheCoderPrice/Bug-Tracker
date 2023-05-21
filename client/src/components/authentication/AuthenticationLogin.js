@@ -40,7 +40,7 @@ export default function Login(props) {
 			// backend errors may presist and appear when component is re-openned.
 			dispatch(clearBackendErrors());
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	/**

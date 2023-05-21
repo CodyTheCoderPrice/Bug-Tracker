@@ -57,7 +57,7 @@ export default function AccountSidebar() {
 		return () => {
 			dispatch(clearBackendErrors());
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Updates siderbarContainerDomStatus
@@ -74,9 +74,9 @@ export default function AccountSidebar() {
 					.accountSidebarComponentShouldDisplay || sidebarContainerLingerLogic,
 			shouldLingerForFadeOut: sidebarContainerLingerLogic,
 		});
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[ACCOUNT_CONTAINER].componentsDisplay,
 	]);
 
@@ -89,9 +89,9 @@ export default function AccountSidebar() {
 				reduxState[ACCOUNT_CONTAINER].componentsDisplay
 					.accountSidebarComponentShouldDisplay,
 		});
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[ACCOUNT_CONTAINER].componentsDisplay,
 	]);
 

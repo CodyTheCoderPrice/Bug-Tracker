@@ -152,11 +152,11 @@ export function useListAndItemComponentsDisplayContainerCrossoverFailSafe(
 				})
 			);
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		passedReduxState[PROJECT_CONTAINER].componentsDisplay,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		passedReduxState[BUG_CONTAINER].componentsDisplay,
 	]);
 }

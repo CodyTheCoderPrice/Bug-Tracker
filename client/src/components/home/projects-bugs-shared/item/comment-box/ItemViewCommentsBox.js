@@ -54,7 +54,7 @@ export default function ItemViewCommentsBox() {
 		return () => {
 			dispatch(clearBackendErrors());
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Resets commentInfo when the list of comments length increases (meaning
@@ -72,9 +72,9 @@ export default function ItemViewCommentsBox() {
 			});
 		}
 		setPreviousCommentsListSize(reduxState[COMMENT_CONTAINER].list.length);
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[COMMENT_CONTAINER].list.length,
 	]);
 

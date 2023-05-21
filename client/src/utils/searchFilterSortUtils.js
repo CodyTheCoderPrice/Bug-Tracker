@@ -58,13 +58,14 @@ function search(projectsOrBugsArray, searchKeyWordString) {
 	// Checks if searchKeyWordString contains more than just white spaces
 	if (/\S/.test(searchKeyWordString)) {
 		const keyWords = searchKeyWordString.toLowerCase().split(/\s+/);
-		// eslint-disable-next-line
 		return projectsOrBugsArray.filter((projectOrBug) => {
 			for (let word of keyWords) {
 				if (projectOrBug.name.toLowerCase().includes(word)) {
 					return true;
 				}
 			}
+
+			return false;
 		});
 	} else {
 		return projectsOrBugsArray;

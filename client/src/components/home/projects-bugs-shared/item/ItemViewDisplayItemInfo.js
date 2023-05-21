@@ -38,9 +38,9 @@ export default function ItemViewDisplayItemInfo(props) {
 					.itemViewComponentOuterDividingContainerElementMinWidth
 			);
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[SIZE_CONTAINER].constants
 			.itemViewComponentOuterDividingContainerElementMinWidth,
 	]);

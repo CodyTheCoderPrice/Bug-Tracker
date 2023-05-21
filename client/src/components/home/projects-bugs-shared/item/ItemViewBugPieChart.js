@@ -35,11 +35,11 @@ export default function ItemViewBugPieChart() {
 
 		drawPieChart(ctx, statusList, bugsInProjectList);
 		addLabels(ctx, statusList, bugsInProjectList);
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[BUG_CONTAINER].list,
 	]);
 

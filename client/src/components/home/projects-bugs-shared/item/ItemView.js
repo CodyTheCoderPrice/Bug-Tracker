@@ -59,9 +59,9 @@ export default function ItemView(props) {
 
 			itemViewElement.style.width = baseItemViewWidth + "px"; */
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[SIZE_CONTAINER],
 	]);
 
@@ -79,9 +79,9 @@ export default function ItemView(props) {
 					.itemViewComponentOuterDividingContainerElementMinWidth
 			);
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[SIZE_CONTAINER].constants
 			.itemViewComponentOuterDividingContainerElementMinWidth,
 	]);

@@ -110,7 +110,7 @@ export default function ItemViewEditItemInfo(props) {
 		return () => {
 			dispatch(clearBackendErrors());
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const getSelectTextColorClassName = () => {
@@ -141,9 +141,9 @@ export default function ItemViewEditItemInfo(props) {
 					.itemViewComponentOuterDividingContainerElementMinWidth
 			);
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[SIZE_CONTAINER].constants
 			.itemViewComponentOuterDividingContainerElementMinWidth,
 	]);

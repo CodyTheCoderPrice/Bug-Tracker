@@ -112,20 +112,20 @@ export default function NavPanelButtonList() {
 				bugList: bugListUpdatedValue,
 			});
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[PROJECT_CONTAINER].list,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[BUG_CONTAINER].list,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[GENERAL_CONTAINER].componentsDisplay
 			.navPanelButtonListComponentShouldIncludeCompletedProjects,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[GENERAL_CONTAINER].componentsDisplay
 			.navPanelButtonListComponentShouldIncludeClosedBugs,
 	]);
@@ -161,11 +161,11 @@ export default function NavPanelButtonList() {
 				buttonDisplayLogic.shouldAnyBugSubItemsDisplay || bugItemsLingerLogic,
 			bugItemsShouldLingerForFadeOut: bugItemsLingerLogic,
 		});
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[PROJECT_CONTAINER].componentsDisplay,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[BUG_CONTAINER].componentsDisplay,
 	]);
 
@@ -323,18 +323,18 @@ export default function NavPanelButtonList() {
 				);
 			}
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[SIZE_CONTAINER].variables,
 		navPanelChildSizesAndStyles,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[PROJECT_CONTAINER].list,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[BUG_CONTAINER].list,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[PROJECT_CONTAINER].searchFilterSort,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[BUG_CONTAINER].searchFilterSort,
 		buttonDisplayLogic.shouldAnyProjectSubItemsDisplay,
 		buttonDisplayLogic.shouldAllProjectSubItemsDisplay,

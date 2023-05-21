@@ -170,11 +170,11 @@ export default function NavbarBreadcrumb() {
 				bugItem: bugItemUpdatedValue,
 			});
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[PROJECT_CONTAINER].componentsDisplay.itemViewCurrentItem,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem,
 	]);
 
@@ -216,11 +216,11 @@ export default function NavbarBreadcrumb() {
 			bugItemShouldLingerForFadeOut: bugItemLingerLogic,
 			bugItemShouldBeOpen: buttonOpenLogic.bugItem,
 		});
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[PROJECT_CONTAINER].componentsDisplay,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[BUG_CONTAINER].componentsDisplay,
 	]);
 
@@ -304,7 +304,7 @@ export default function NavbarBreadcrumb() {
 		navbarBreadcrumbButtonElements.forEach((element, index) => {
 			element.style.width = storedBreadcrumbButtonWidths[index];
 		});
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [buttonText, buttonStatus]);
 
 	// Sets navbarChildStyles
@@ -345,7 +345,7 @@ export default function NavbarBreadcrumb() {
 		// Removed stand-in element as it served its purpose
 		navbarBreadcrumbElement.removeChild(standInBreadcrumbDividerElement);
 
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Updates canAllButtonsDisplay
@@ -379,11 +379,11 @@ export default function NavbarBreadcrumb() {
 						navbarChildSizes.accountButtonWidth
 			);
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
 		navbarChildStyles,
 		navbarChildSizes,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[SIZE_CONTAINER].variables,
 	]);
 
@@ -448,7 +448,7 @@ export default function NavbarBreadcrumb() {
 				});
 			}
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [navbarChildStyles, navbarChildSizes, canAllButtonsDisplay]);
 
 	const getDividerIcon = () => {

@@ -50,7 +50,7 @@ function App() {
 				);
 			}
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Prints notes in the console that may be helpful to users/developers

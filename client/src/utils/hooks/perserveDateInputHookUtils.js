@@ -105,6 +105,6 @@ export function usePerserveCompletetionDate(
 		}
 
 		setPreviousStatusId(itemInfoState.status_id);
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [itemInfoState.status_id]);
 }

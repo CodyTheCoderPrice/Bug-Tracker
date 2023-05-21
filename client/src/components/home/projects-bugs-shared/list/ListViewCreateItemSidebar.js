@@ -80,7 +80,7 @@ export default function ListViewCreateItemSidebar(props) {
 		return () => {
 			dispatch(clearBackendErrors());
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const getSelectTextColorClassName = () => {

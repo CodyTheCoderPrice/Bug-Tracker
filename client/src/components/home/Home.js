@@ -110,11 +110,11 @@ export default function Home() {
 				})
 			);
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_projects_by_default,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[ACCOUNT_CONTAINER].settings.filter_completed_bugs_by_default,
 	]);
 
@@ -153,15 +153,15 @@ export default function Home() {
 				})
 			);
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[ACCOUNT_CONTAINER].settings.project_sort_id,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[ACCOUNT_CONTAINER].settings.project_sort_ascending,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[ACCOUNT_CONTAINER].settings.bug_sort_id,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[ACCOUNT_CONTAINER].settings.bug_sort_ascending,
 	]);
 
@@ -198,11 +198,11 @@ export default function Home() {
 
 		verifyMassDeleteList(PROJECT_CONTAINER);
 		verifyMassDeleteList(BUG_CONTAINER);
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[PROJECT_CONTAINER].searchFilterSort,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[BUG_CONTAINER].searchFilterSort,
 	]);
 

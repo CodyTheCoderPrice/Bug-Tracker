@@ -123,11 +123,11 @@ export function useListViewSearchBarResize(
 				regularlyUsedSizesAndStyles.searchButton.width +
 				"px";
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		passedReduxState[SIZE_CONTAINER].variables,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		passedReduxState[SIZE_CONTAINER].constants,
 		regularlyUsedSizesAndStyles,
 	]);

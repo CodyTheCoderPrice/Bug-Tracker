@@ -53,7 +53,7 @@ export default function ItemViewCommentsBoxIndividualCommentEditInfo(props) {
 		return () => {
 			dispatch(clearBackendErrors());
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Resets commentInfo when commentBeingEdited changes so changed
@@ -70,11 +70,11 @@ export default function ItemViewCommentsBoxIndividualCommentEditInfo(props) {
 				reduxState[BUG_CONTAINER].componentsDisplay.itemViewCurrentItem.id,
 			description: props.comment.description,
 		});
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[COMMENT_CONTAINER].componentsDisplay.commentBeingEdited,
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[COMMENT_CONTAINER].list.length,
 	]);
 

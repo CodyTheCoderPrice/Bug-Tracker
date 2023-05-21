@@ -72,9 +72,9 @@ export default function ListViewTable(props) {
 					"px";
 			}
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[SIZE_CONTAINER],
 	]);
 
@@ -90,9 +90,9 @@ export default function ListViewTable(props) {
 				).left +
 				"px";
 		}
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[SIZE_CONTAINER].variables,
 	]);
 

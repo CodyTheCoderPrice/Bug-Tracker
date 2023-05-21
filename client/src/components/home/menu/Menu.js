@@ -49,7 +49,7 @@ export default function Menu() {
 		return () => {
 			window.removeEventListener("resize", displaySizeHandler);
 		};
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Declared as an object outside the eventListener so removal works on cleanup

@@ -18,7 +18,7 @@ export function isEmpty(value) {
 				return !Number.isNaN(el);
 			}
 
-			// eslint-disable-next-line
+			// eslint-disable-next-line eqeqeq
 			return el != (null && undefined);
 		});
 	}
