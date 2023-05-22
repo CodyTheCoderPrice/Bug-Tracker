@@ -36,6 +36,8 @@
 		// The following two lines prevent the user from accessing when closed
 		// ...and stops the transition from being visible when closed
 		width: 0;
+		// Using visibility instead of 'display:none' so element remains in DOM
+		// ...allowing the transition to still work
 		visibility: hidden;
 	}
 

@@ -70,6 +70,8 @@
 	// Used to allow logo to render before the modal is exapnded so its size
 	// ...doesn't change during the fade-in
 	.modal__intro-container--invisible {
+		// Using visibility instead of 'display:none' so element remains in DOM
+		// ...allowing the transition to still work
 		visibility: hidden;
 	}
 

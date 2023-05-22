@@ -261,7 +261,12 @@ export default function Home() {
 			) > -1 ? (
 				<AccountBlurredBackdrop />
 			) : null}
-			<AccountSidebar />
+			{/*This logic is unnecessary as AccountSidebar does a similar check internally, 
+			...but keeping it here for consistency with other sidebar component*/}
+			{reduxState[ACCOUNT_CONTAINER].componentsDisplay
+				.accountSidebarComponentShouldDisplay ? (
+				<AccountSidebar />
+			) : null}
 			{getShouldAccountModalDisplay() ? <AccountModal /> : null}
 			{/*Project components*/}
 			{reduxState[PROJECT_CONTAINER].componentsDisplay

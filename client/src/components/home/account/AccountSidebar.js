@@ -16,6 +16,7 @@ import {
 	getAccountSidebarComponentHorizontalDividingLineElementBorderColorClassNameForLightOrDarkMode,
 	getAccountSidebarComponentLogoutButtonElementBorderHoverBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../utils";
+import { useSidebarContainerTransitionHookUtils } from "../../../utils/hooks";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
@@ -28,28 +29,17 @@ import AccountSidebarEditAppearance from "./AccountSidebarEditAppearance";
  * for editing account's personal info and settings, and a button to logout.
  * Also displays the AccountSidebarEditAppearance component.
  *
- * The flag for displaying this component is 'accountSidebarComponentShouldDisplay'
- * boolean in 'componentsDisplay' Object in 'ACCOUNT_CONTAINER' of the redux state.
- *
  * @component
  */
 export default function AccountSidebar() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Used for 'sidebar-container' element's transition/fade out
-	const [siderbarContainerDomStatus, setSidebarContainerDomStatus] = useState({
-		shouldExist:
+	const sidebarContainerTransitionLogic =
+		useSidebarContainerTransitionHookUtils(
 			reduxState[ACCOUNT_CONTAINER].componentsDisplay
-				.accountSidebarComponentShouldDisplay,
-		shouldLingerForFadeOut: false,
-	});
-
-	// Used for 'sidebar-container' element to transition in
-	const [
-		sidebarContainerInitialWidthSetToZero,
-		setSidebarContainerInitialWidthSetToZero,
-	] = useState(false);
+				.accountSidebarComponentShouldDisplay
+		);
 
 	// Clears current backend errors when closing the component. Otherwise the
 	// ...backend errors may presist and appear when component is re-openned.
@@ -59,42 +49,6 @@ export default function AccountSidebar() {
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
-	// Updates siderbarContainerDomStatus
-	useEffect(() => {
-		const sidebarContainerLingerLogic =
-			siderbarContainerDomStatus.shouldExist &&
-			!siderbarContainerDomStatus.shouldLingerForFadeOut &&
-			!reduxState[ACCOUNT_CONTAINER].componentsDisplay
-				.accountSidebarComponentShouldDisplay;
-
-		setSidebarContainerDomStatus({
-			shouldExist:
-				reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountSidebarComponentShouldDisplay || sidebarContainerLingerLogic,
-			shouldLingerForFadeOut: sidebarContainerLingerLogic,
-		});
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		reduxState[ACCOUNT_CONTAINER].componentsDisplay,
-	]);
-
-	// Updates sidebarContainerInitialWidthSetToZero
-	useEffect(() => {
-		// Since this state takes 1 cycle to update, it gives the 'sidebar container'
-		// ...element enought time to first set its width to zero
-		setSidebarContainerInitialWidthSetToZero(
-			siderbarContainerDomStatus.shouldExist &&
-				reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountSidebarComponentShouldDisplay
-		);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [
-		siderbarContainerDomStatus,
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		reduxState[ACCOUNT_CONTAINER].componentsDisplay,
-	]);
 
 	/**
 	 * Opens AccountModalEditSettings component while closing all other account
@@ -122,18 +76,16 @@ export default function AccountSidebar() {
 
 	return (
 		<div className="account-sidebar-component">
-			{!siderbarContainerDomStatus.shouldExist ? null : (
+			{!sidebarContainerTransitionLogic.shouldExistInDom ? null : (
 				<div
 					className={
 						"sidebar-container" +
 						getAccountSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
-						(sidebarContainerInitialWidthSetToZero &&
-						reduxState[ACCOUNT_CONTAINER].componentsDisplay
-							.accountSidebarComponentShouldDisplay
-							? ""
-							: " sidebar-container--minimized")
+						(sidebarContainerTransitionLogic.shouldBeMinimized
+							? " sidebar-container--minimized"
+							: "")
 					}
 				>
 					<div

@@ -1940,6 +1940,14 @@
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: auto;
   overflow-x: hidden;
+  -moz-transition: left 0.3s ease-in-out;
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+}
+.create-item-sidebar-component .sidebar-container--minimized {
+  left: -500px;
+  width: 0;
+  visibility: hidden;
 }
 .create-item-sidebar-component .exit-icon-button {
   z-index: 100;

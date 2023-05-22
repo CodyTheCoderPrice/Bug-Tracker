@@ -14,6 +14,10 @@
 		width: 100vw;
 	}
 
+	// This class exists instead of applying its CSS to account-sidebar-component
+	// ...so the transition animation logic could be contained within this
+	// ...component rather than its parent. Also allows blurred-backdrop to be
+	// ...contained within this component as well.
 	.sidebar-container {
 		// z-index must be more than listViewTopBar.scss
 		z-index: 1;
@@ -29,6 +33,20 @@
 		// Gives sidebar scrolling when content goes beyond height
 		overflow-y: auto;
 		overflow-x: hidden;
+
+		@include m.set-transition(
+			left v.$create-item-sidebar-container-left-transition-time ease-in-out
+		);
+	}
+
+	.sidebar-container--minimized {
+		left: v.$create-item-sidebar-width * -1;
+		// The following two lines prevent the user from accessing when closed
+		// ...and stops the transition from being visible when closed
+		width: 0;
+		// Using visibility instead of 'display:none' so element remains in DOM
+		// ...allowing the transition to still work
+		visibility: hidden;
 	}
 
 	.exit-icon-button {

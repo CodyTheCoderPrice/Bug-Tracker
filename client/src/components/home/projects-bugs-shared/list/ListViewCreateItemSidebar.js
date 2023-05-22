@@ -33,6 +33,7 @@ import {
 } from "../../../../utils";
 
 import {
+	useSidebarContainerTransitionHookUtils,
 	usePerserveCompletetionDate,
 	useSubmitFormOnEnterPress,
 } from "../../../../utils/hooks";
@@ -60,6 +61,12 @@ export default function ListViewCreateItemSidebar(props) {
 		due_date: "",
 		completion_date: "",
 	});
+
+	const sidebarContainerTransitionLogic =
+		useSidebarContainerTransitionHookUtils(
+			reduxState[props.reduxContainerName].componentsDisplay
+				.listViewCreateItemSidbarComponentShouldDisplay
+		);
 
 	// Custom hook perserves the completion date whenever it is disabled so it
 	// ...can be restored if reactivated
@@ -147,349 +154,357 @@ export default function ListViewCreateItemSidebar(props) {
 
 	return (
 		<div className="create-item-sidebar-component">
-			<div
-				className={
-					"blurred-backdrop" +
-					getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
-						false,
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-					)
-				}
-			/>
-			<div
-				className={
-					"sidebar-container js-create-item-sidebar-container" +
-					getCreateItemSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
-						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-					)
-				}
-			>
+			{!reduxState[props.reduxContainerName].componentsDisplay
+				.listViewCreateItemSidbarComponentShouldDisplay ? null : (
 				<div
 					className={
-						"exit-icon-button" +
-						getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
+						"blurred-backdrop" +
+						getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode(
+							false,
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 					}
-					alt={
-						"Button to close the new " +
-						(props.reduxContainerName === PROJECT_CONTAINER
-							? "project"
-							: "bug") +
-						" sidebar"
+				/>
+			)}
+			{!sidebarContainerTransitionLogic.shouldExistInDom ? null : (
+				<div
+					className={
+						"sidebar-container" +
+						getCreateItemSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
+							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+						) +
+						(sidebarContainerTransitionLogic.shouldBeMinimized
+							? " sidebar-container--minimized"
+							: "")
 					}
-					onClick={closeCreateItemSidebar}
 				>
-					<FontAwesomeIcon icon={faXmark} aria-hidden="true" />
-				</div>
-				<div className="padded-container">
-					<h1
+					<div
 						className={
-							"title" +
-							getCommonTextColorClassNameForThemeWithLightOrDarkMode(
-								reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-								reduxState[ACCOUNT_CONTAINER].settings.theme_color
+							"exit-icon-button" +
+							getCommonIconButtonElementTextColorWithHoverClassNameForLightOrDarkMode(
+								reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 							)
 						}
+						alt={
+							"Button to close the new " +
+							(props.reduxContainerName === PROJECT_CONTAINER
+								? "project"
+								: "bug") +
+							" sidebar"
+						}
+						onClick={closeCreateItemSidebar}
 					>
-						{props.reduxContainerName === PROJECT_CONTAINER
-							? "New Project"
-							: "New Bug"}
-					</h1>
-					<form
-						className="form js-create-item-form"
-						noValidate
-						onSubmit={handleSubmit}
-					>
-						<label htmlFor="create-item-name" className="form__label">
-							Name:{" "}
-						</label>
-						<span
+						<FontAwesomeIcon icon={faXmark} aria-hidden="true" />
+					</div>
+					<div className="padded-container">
+						<h1
 							className={
-								"form__char-counter" +
-								(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
-								itemInfo.name.length
-									? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-									  )
-									: "")
-							}
-						>
-							{itemInfo.name.length +
-								"/" +
-								reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
-						</span>
-						<input
-							autoFocus
-							type="text"
-							name="name"
-							onChange={onChange}
-							value={itemInfo.name}
-							id="create-item-name"
-							className={
-								"form__input-text" +
-								getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+								"title" +
+								getCommonTextColorClassNameForThemeWithLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-									reduxState[ACCOUNT_CONTAINER].settings.theme_color
-								)
-							}
-						/>
-						{getBackendErrorsJSX(
-							reduxState[GENERAL_CONTAINER].backendErrors.validationItemName,
-							"backend-errors" +
-								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
-						)}
-						<label htmlFor="create-item-description" className="form__label">
-							Description:{" "}
-						</label>
-						<span
-							className={
-								"form__char-counter" +
-								(reduxState[GENERAL_CONTAINER].globalConstants
-									.descriptionCharLimit < itemInfo.description.length
-									? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-									  )
-									: "")
-							}
-						>
-							{itemInfo.description.length +
-								"/" +
-								reduxState[GENERAL_CONTAINER].globalConstants
-									.descriptionCharLimit}
-						</span>
-						<textarea
-							name="description"
-							onChange={onChange}
-							value={itemInfo.description}
-							id="create-item-description"
-							className={
-								"form__textarea" +
-								getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-									reduxState[ACCOUNT_CONTAINER].settings.theme_color
-								)
-							}
-						/>
-						{getBackendErrorsJSX(
-							reduxState[GENERAL_CONTAINER].backendErrors
-								.validationItemDescription,
-							"backend-errors" +
-								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
-						)}
-						{props.reduxContainerName === BUG_CONTAINER ? (
-							<div>
-								<label htmlFor="create-item-location" className="form__label">
-									Location:{" "}
-								</label>
-								<span
-									className={
-										"form__char-counter" +
-										(reduxState[GENERAL_CONTAINER].globalConstants
-											.locationCharLimit < itemInfo.location.length
-											? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
-													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-											  )
-											: "")
-									}
-								>
-									{itemInfo.location.length +
-										"/" +
-										reduxState[GENERAL_CONTAINER].globalConstants
-											.locationCharLimit}
-								</span>
-								<input
-									type="text"
-									name="location"
-									onChange={onChange}
-									value={itemInfo.location}
-									id="create-item-location"
-									className={
-										"form__input-text" +
-										getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-											reduxState[ACCOUNT_CONTAINER].settings.theme_color
-										)
-									}
-								/>
-								{getBackendErrorsJSX(
-									reduxState[GENERAL_CONTAINER].backendErrors
-										.validationItemLocation,
-									"backend-errors" +
-										getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-										)
-								)}
-							</div>
-						) : null}
-						<div className="form__group-container">
-							<div className="form__group-container__input-container">
-								<label
-									htmlFor="create-item-start-date"
-									className="form__group-container__input-container__label"
-								>
-									Start Date:
-								</label>
-								<input
-									type="date"
-									name="start_date"
-									value={itemInfo.start_date}
-									onChange={onChange}
-									id="create-item-start-date"
-									className={
-										"form__group-container__input-container__date" +
-										getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-											reduxState[ACCOUNT_CONTAINER].settings.theme_color
-										)
-									}
-								/>
-							</div>
-							<div className="form__group-container__input-container">
-								<label
-									htmlFor="create-item-due-date"
-									className="form__group-container__input-container__label"
-								>
-									Due Date:
-								</label>
-								<input
-									type="date"
-									name="due_date"
-									alue={itemInfo.due_date}
-									onChange={onChange}
-									id="create-item-due-date"
-									className={
-										"form__group-container__input-container__date" +
-										getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-											reduxState[ACCOUNT_CONTAINER].settings.theme_color
-										)
-									}
-								/>
-							</div>
-							<div className="form__group-container__input-container">
-								<label
-									htmlFor="create-item-completion-date"
-									className={
-										"form__group-container__input-container__label" +
-										(itemInfo.status_id !==
-										reduxState[props.reduxContainerName].priorityStatusOptions
-											.statusCompletionId
-											? getCreateItemSidebarComponentLabelElementDisabledClassNameForLightOrDarkMode(
-													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-											  )
-											: "")
-									}
-								>
-									Completed on:
-								</label>
-								<input
-									type="date"
-									name="completion_date"
-									value={itemInfo.completion_date}
-									onChange={onChange}
-									id="create-item-completion-date"
-									className={
-										"form__group-container__input-container__date js-completion-date" +
-										getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-											reduxState[ACCOUNT_CONTAINER].settings.theme_color
-										) +
-										(itemInfo.status_id !==
-										reduxState[props.reduxContainerName].priorityStatusOptions
-											.statusCompletionId
-											? getCreateItemSidebarComponentInputDateElementDisabledClassNameForLightOrDarkMode(
-													reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-											  )
-											: "")
-									}
-								/>
-							</div>
-						</div>
-						<div className="form__group-container form__group-container--right">
-							<div className="form__group-container__input-container">
-								<label
-									htmlFor="create-item-priority"
-									className="form__group-container__input-container__label"
-								>
-									Priority:
-								</label>
-								<select
-									name="priority_id"
-									onChange={onChange}
-									id="create-item-priority"
-									className={
-										"form__group-container__input-container__select" +
-										getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-											reduxState[ACCOUNT_CONTAINER].settings.theme_color
-										)
-									}
-								>
-									{getPriorityOptionsForSelect(
-										reduxState,
-										props.reduxContainerName
-									)}
-								</select>
-							</div>
-							<div className="form__group-container__input-container">
-								<label
-									htmlFor="create-item-status"
-									className="form__group-container__input-container__label"
-								>
-									Status:
-								</label>
-								<select
-									name="status_id"
-									onChange={onChange}
-									id="create-item-status"
-									className={
-										"form__group-container__input-container__select js-status-select" +
-										getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
-											reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
-											reduxState[ACCOUNT_CONTAINER].settings.theme_color
-										) +
-										getSelectTextColorClassName()
-									}
-								>
-									{getStatusOptionsForSelectWithStatusColors(
-										reduxState,
-										props.reduxContainerName
-									)}
-								</select>
-							</div>
-						</div>
-						<button
-							type="submit"
-							className={
-								"form__submit" +
-								getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme(
 									reduxState[ACCOUNT_CONTAINER].settings.theme_color
 								)
 							}
 						>
 							{props.reduxContainerName === PROJECT_CONTAINER
-								? "Create Project"
-								: "Create Bug"}
-						</button>
-						{getBackendErrorsJSX(
-							[
-								reduxState[GENERAL_CONTAINER].backendErrors.validationItem,
-								reduxState[GENERAL_CONTAINER].backendErrors.serverItem,
-								reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
-							],
-							"backend-errors" +
-								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
-						)}
-					</form>
+								? "New Project"
+								: "New Bug"}
+						</h1>
+						<form
+							className="form js-create-item-form"
+							noValidate
+							onSubmit={handleSubmit}
+						>
+							<label htmlFor="create-item-name" className="form__label">
+								Name:{" "}
+							</label>
+							<span
+								className={
+									"form__char-counter" +
+									(reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit <
+									itemInfo.name.length
+										? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										  )
+										: "")
+								}
+							>
+								{itemInfo.name.length +
+									"/" +
+									reduxState[GENERAL_CONTAINER].globalConstants.nameCharLimit}
+							</span>
+							<input
+								autoFocus
+								type="text"
+								name="name"
+								onChange={onChange}
+								value={itemInfo.name}
+								id="create-item-name"
+								className={
+									"form__input-text" +
+									getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+									)
+								}
+							/>
+							{getBackendErrorsJSX(
+								reduxState[GENERAL_CONTAINER].backendErrors.validationItemName,
+								"backend-errors" +
+									getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+							)}
+							<label htmlFor="create-item-description" className="form__label">
+								Description:{" "}
+							</label>
+							<span
+								className={
+									"form__char-counter" +
+									(reduxState[GENERAL_CONTAINER].globalConstants
+										.descriptionCharLimit < itemInfo.description.length
+										? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+										  )
+										: "")
+								}
+							>
+								{itemInfo.description.length +
+									"/" +
+									reduxState[GENERAL_CONTAINER].globalConstants
+										.descriptionCharLimit}
+							</span>
+							<textarea
+								name="description"
+								onChange={onChange}
+								value={itemInfo.description}
+								id="create-item-description"
+								className={
+									"form__textarea" +
+									getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+									)
+								}
+							/>
+							{getBackendErrorsJSX(
+								reduxState[GENERAL_CONTAINER].backendErrors
+									.validationItemDescription,
+								"backend-errors" +
+									getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+							)}
+							{props.reduxContainerName === BUG_CONTAINER ? (
+								<div>
+									<label htmlFor="create-item-location" className="form__label">
+										Location:{" "}
+									</label>
+									<span
+										className={
+											"form__char-counter" +
+											(reduxState[GENERAL_CONTAINER].globalConstants
+												.locationCharLimit < itemInfo.location.length
+												? getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode(
+														reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+												  )
+												: "")
+										}
+									>
+										{itemInfo.location.length +
+											"/" +
+											reduxState[GENERAL_CONTAINER].globalConstants
+												.locationCharLimit}
+									</span>
+									<input
+										type="text"
+										name="location"
+										onChange={onChange}
+										value={itemInfo.location}
+										id="create-item-location"
+										className={
+											"form__input-text" +
+											getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
+											)
+										}
+									/>
+									{getBackendErrorsJSX(
+										reduxState[GENERAL_CONTAINER].backendErrors
+											.validationItemLocation,
+										"backend-errors" +
+											getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+											)
+									)}
+								</div>
+							) : null}
+							<div className="form__group-container">
+								<div className="form__group-container__input-container">
+									<label
+										htmlFor="create-item-start-date"
+										className="form__group-container__input-container__label"
+									>
+										Start Date:
+									</label>
+									<input
+										type="date"
+										name="start_date"
+										value={itemInfo.start_date}
+										onChange={onChange}
+										id="create-item-start-date"
+										className={
+											"form__group-container__input-container__date" +
+											getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
+											)
+										}
+									/>
+								</div>
+								<div className="form__group-container__input-container">
+									<label
+										htmlFor="create-item-due-date"
+										className="form__group-container__input-container__label"
+									>
+										Due Date:
+									</label>
+									<input
+										type="date"
+										name="due_date"
+										alue={itemInfo.due_date}
+										onChange={onChange}
+										id="create-item-due-date"
+										className={
+											"form__group-container__input-container__date" +
+											getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
+											)
+										}
+									/>
+								</div>
+								<div className="form__group-container__input-container">
+									<label
+										htmlFor="create-item-completion-date"
+										className={
+											"form__group-container__input-container__label" +
+											(itemInfo.status_id !==
+											reduxState[props.reduxContainerName].priorityStatusOptions
+												.statusCompletionId
+												? getCreateItemSidebarComponentLabelElementDisabledClassNameForLightOrDarkMode(
+														reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+												  )
+												: "")
+										}
+									>
+										Completed on:
+									</label>
+									<input
+										type="date"
+										name="completion_date"
+										value={itemInfo.completion_date}
+										onChange={onChange}
+										id="create-item-completion-date"
+										className={
+											"form__group-container__input-container__date js-completion-date" +
+											getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
+											) +
+											(itemInfo.status_id !==
+											reduxState[props.reduxContainerName].priorityStatusOptions
+												.statusCompletionId
+												? getCreateItemSidebarComponentInputDateElementDisabledClassNameForLightOrDarkMode(
+														reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+												  )
+												: "")
+										}
+									/>
+								</div>
+							</div>
+							<div className="form__group-container form__group-container--right">
+								<div className="form__group-container__input-container">
+									<label
+										htmlFor="create-item-priority"
+										className="form__group-container__input-container__label"
+									>
+										Priority:
+									</label>
+									<select
+										name="priority_id"
+										onChange={onChange}
+										id="create-item-priority"
+										className={
+											"form__group-container__input-container__select" +
+											getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
+											)
+										}
+									>
+										{getPriorityOptionsForSelect(
+											reduxState,
+											props.reduxContainerName
+										)}
+									</select>
+								</div>
+								<div className="form__group-container__input-container">
+									<label
+										htmlFor="create-item-status"
+										className="form__group-container__input-container__label"
+									>
+										Status:
+									</label>
+									<select
+										name="status_id"
+										onChange={onChange}
+										id="create-item-status"
+										className={
+											"form__group-container__input-container__select js-status-select" +
+											getCommonFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode(
+												reduxState[ACCOUNT_CONTAINER].settings.dark_mode,
+												reduxState[ACCOUNT_CONTAINER].settings.theme_color
+											) +
+											getSelectTextColorClassName()
+										}
+									>
+										{getStatusOptionsForSelectWithStatusColors(
+											reduxState,
+											props.reduxContainerName
+										)}
+									</select>
+								</div>
+							</div>
+							<button
+								type="submit"
+								className={
+									"form__submit" +
+									getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme(
+										reduxState[ACCOUNT_CONTAINER].settings.theme_color
+									)
+								}
+							>
+								{props.reduxContainerName === PROJECT_CONTAINER
+									? "Create Project"
+									: "Create Bug"}
+							</button>
+							{getBackendErrorsJSX(
+								[
+									reduxState[GENERAL_CONTAINER].backendErrors.validationItem,
+									reduxState[GENERAL_CONTAINER].backendErrors.serverItem,
+									reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+								],
+								"backend-errors" +
+									getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+										reduxState[ACCOUNT_CONTAINER].settings.dark_mode
+									)
+							)}
+						</form>
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 }

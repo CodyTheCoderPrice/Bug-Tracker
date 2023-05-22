@@ -680,6 +680,9 @@ $item-view-name-font-size: 28px;
 //============
 // Transition
 //============
+// Common (i.e. intended for multiple components)
+$sidebar-container-position-transition-time: 0.3s;
+// Specific (i.e. intended for specific component)
 $authentication-modal-width-transition-time: 0.5s;
 $authentication-intro-container-fade-in-transition-time: $authentication-modal-width-transition-time + 0.3s;
 $authentication-intro-container-fade-out-transition-time: 0.25s;
@@ -687,7 +690,8 @@ $navbar-breadcrumb-button-and-divider-text-color-transition-time: 0.5s;
 $navbar-breadcrumb-button-and-divider-width-transition-time: 0.5s;
 $navbar-breadcrumb-button-and-divider-fade-transition-time: $navbar-breadcrumb-button-and-divider-width-transition-time;
 $nav-panel-button-list-transition-time: 0.4s;
-$account-sidebar-container-right-transition-time: 0.3s;
+$account-sidebar-container-right-transition-time: $sidebar-container-position-transition-time;
+$create-item-sidebar-container-left-transition-time: $sidebar-container-position-transition-time;
 
 //===============================
 // Arithmetic (must be at bottom)
