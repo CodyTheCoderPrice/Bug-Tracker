@@ -84,13 +84,14 @@ export default function AccountSidebar() {
 	useEffect(() => {
 		// Since this state takes 1 cycle to update, it gives the 'sidebar container'
 		// ...element enought time to first set its width to zero
-		setSidebarContainerInitialWidthSetToZero({
-			projectAnyButtonsSetToZero:
+		setSidebarContainerInitialWidthSetToZero(
+			siderbarContainerDomStatus.shouldExist &&
 				reduxState[ACCOUNT_CONTAINER].componentsDisplay
-					.accountSidebarComponentShouldDisplay,
-		});
+					.accountSidebarComponentShouldDisplay
+		);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
+		siderbarContainerDomStatus,
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[ACCOUNT_CONTAINER].componentsDisplay,
 	]);
