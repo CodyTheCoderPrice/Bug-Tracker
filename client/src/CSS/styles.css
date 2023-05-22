@@ -202,8 +202,8 @@
 }
 .authentication-component .modal.modal--expanded .modal__intro-container,
 .js-get-authentication-component .modal.modal--expanded .modal__intro-container {
-  -webkit-animation: fadeIn 1s linear forwards;
-  animation: fadeIn 1s linear forwards;
+  -webkit-animation: fadeIn 0.8s linear forwards;
+  animation: fadeIn 0.8s linear forwards;
 }
 .authentication-component .modal__intro-container--invisible,
 .js-get-authentication-component .modal__intro-container--invisible {

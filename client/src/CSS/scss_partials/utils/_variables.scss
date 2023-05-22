@@ -681,8 +681,8 @@ $item-view-name-font-size: 28px;
 // Transition
 //============
 $authentication-modal-width-transition-time: 0.5s;
+$authentication-intro-container-fade-in-transition-time: $authentication-modal-width-transition-time + 0.3s;
 $authentication-intro-container-fade-out-transition-time: 0.25s;
-$authentication-intro-container-fade-in-transition-time: $authentication-modal-width-transition-time * 2;
 $navbar-breadcrumb-button-and-divider-text-color-transition-time: 0.5s;
 $navbar-breadcrumb-button-and-divider-width-transition-time: 0.5s;
 $navbar-breadcrumb-button-and-divider-fade-transition-time: $navbar-breadcrumb-button-and-divider-width-transition-time;
