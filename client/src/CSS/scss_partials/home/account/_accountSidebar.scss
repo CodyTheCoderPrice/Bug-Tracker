@@ -2,10 +2,9 @@
 @use "../../utils/mixins" as m;
 
 .account-sidebar-component {
-	// sidebar-container exists rather then apply CSS to account-sidebar-component
-	// ...to allow for a blurred-backdrop element to exist inside component.
-	// ...blurred-backdrop no longer in component as it was abstract outside of it,
-	// ...but keeping sidebar-container encase it gets moved back into component.
+	// This class exists instead of applying its CSS to account-sidebar-component
+	// ...so the transition animation logic could be contained within this 
+	// ...component rather than its parent
 	.sidebar-container {
 		// Must be border-box because the zoom on the webpage can resize the border otherwise
 		-webkit-box-sizing: border-box;
@@ -28,12 +27,16 @@
 		overflow-x: hidden;
 
 		@include m.set-transition(
-			width v.$account-sidebar-container-width-transition-time ease-in-out
+			right v.$account-sidebar-container-right-transition-time ease-in-out
 		);
 	}
 
 	.sidebar-container--minimized {
-		width: 0px;
+		right: v.$account-sidebar-width * -1;
+		// The following two lines prevent the user from accessing when closed
+		// ...and stops the transition from being visible when closed
+		width: 0;
+		visibility: hidden;
 	}
 
 	.settings-icon-button {
@@ -54,6 +57,7 @@
 	}
 
 	// Used so that the padding does not affect the size of the sidebar-container
+	// ...and mess with its transition
 	.padded-container {
 		padding: v.$account-sidebar-padding-top
 			v.$account-sidebar-padding-left-right 0px;

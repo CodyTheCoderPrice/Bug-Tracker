@@ -125,7 +125,7 @@ export default function AccountSidebar() {
 			{!siderbarContainerDomStatus.shouldExist ? null : (
 				<div
 					className={
-						"sidebar-container js-account-sidebar-container" +
+						"sidebar-container" +
 						getAccountSidebarComponentSidebarContainerElementBackgroundColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						) +
