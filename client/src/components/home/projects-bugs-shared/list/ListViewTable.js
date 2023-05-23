@@ -21,7 +21,11 @@ import {
 } from "../../../../utils";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquare, faSquareCheck, faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import {
+	faSquare,
+	faSquareCheck,
+	faTrashCan,
+} from "@fortawesome/free-regular-svg-icons";
 
 // Components
 import ListTableRow from "./ListViewTableItemRow";
@@ -139,7 +143,7 @@ export default function ListViewTable(props) {
 		shouldBeActive,
 		onclickfunction,
 		iconClassName,
-		buttonAltText,
+		buttonAltText
 	) => {
 		return (
 			<div
@@ -169,6 +173,7 @@ export default function ListViewTable(props) {
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
+							scope="col"
 						>
 							<div className="list-table__row__header__mass-delete-options-container js-mass-delete-buttons-container">
 								{createMassDeleteButton(
@@ -210,17 +215,16 @@ export default function ListViewTable(props) {
 							(categoryObject, idx) => {
 								return (
 									<th
-										key={idx}
 										className={
 											"list-table__row__header" +
 											getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
 												reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 											)
 										}
+										key={idx}
+										scope="col"
 									>
-										<span>
-											{categoryObject.category}
-										</span>
+										<span>{categoryObject.category}</span>
 										<span className="list-table__row__header__sort-arrow-container">
 											<SortArrowsButton
 												reduxContainerName={props.reduxContainerName}
@@ -243,6 +247,7 @@ export default function ListViewTable(props) {
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
+							scope="col"
 						>
 							<span>
 								{props.reduxContainerName === PROJECT_CONTAINER
@@ -257,6 +262,7 @@ export default function ListViewTable(props) {
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 							}
+							scope="col"
 						>
 							{/*Fills remaining empty space*/}
 						</th>
