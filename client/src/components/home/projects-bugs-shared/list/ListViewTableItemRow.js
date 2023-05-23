@@ -284,8 +284,6 @@ export default function ListViewTableItemRow(props) {
 						  ).length}
 				</span>
 			</td>
-			{/*Used to fill the remaining space of the screen (if needed)*/}
-			<td className={"list-table__row__data"}></td>
 		</tr>
 	);
 }

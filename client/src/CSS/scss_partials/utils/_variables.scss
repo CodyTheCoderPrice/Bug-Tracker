@@ -572,7 +572,6 @@ $common-top-bar-search-bar-height: 28px;
 $common-top-bar-filter-sort-dropdown-content-container-height: 205px;
 $common-top-bar-filter-dropdown-content-container-for-bugs-height: 160px;
 $common-list-row-height: 50px;
-$common-list-row-empty-height: $common-list-row-height;
 $common-status-box-height: 27px;
 // Specific (i.e. intended for specific component)
 $toggle-switch-height: 24px;
@@ -614,8 +613,9 @@ $account-sidebar-appearance-theme-button-width: $account-sidebar-appearance-them
 $delete-modal-delete-button-width: 90px;
 $create-item-sidebar-width: 500px;
 $list-view-top-bar-filter-button-width: 90px;
-$list-view-table-min-width: 1100px;
-$list-view-table-item-name-width: 250px;
+$list-view-table-max-width: 1500px;
+$list-view-table-min-width: 1150px;
+$list-view-table-row-data-item-name-max-width: 250px;
 $item-view-top-bar-filter-sort-button-width: 80px;
 $item-view-top-bar-sort-dropdown-content-container-width: 120px;
 $item-view-top-bar-search-bar-width: 290px;

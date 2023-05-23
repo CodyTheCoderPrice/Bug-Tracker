@@ -1,15 +1,5 @@
 @use "./variables" as v;
 
-@mixin stop-text-selection() {
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-khtml-user-select: none; /* Konqueror HTML */
-	-moz-user-select: none; /* Old versions of Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently
-							supported by Chrome, Edge, Opera and Firefox */
-}
-
 @mixin dead-center() {
 	position: absolute;
 	top: 50%;
@@ -78,10 +68,32 @@
 	animation: $value;
 }
 
+@mixin full-height-minus-value($value) {
+	height: -webkit-calc(100% - #{$value});
+	height: -moz-calc(100% - #{$value});
+	height: calc(100% - #{$value});
+}
+
+@mixin full-width-minus-value($value) {
+	width: -webkit-calc(100% - #{$value});
+	width: -moz-calc(100% - #{$value});
+	width: calc(100% - #{$value});
+}
+
 @mixin full-width-minus-nav-panel() {
 	width: -webkit-calc(100% - #{v.$common-left});
 	width: -moz-calc(100% - #{v.$common-left});
 	width: calc(100% - #{v.$common-left});
+}
+
+@mixin stop-text-selection() {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+							supported by Chrome, Edge, Opera and Firefox */
 }
 
 // CSS shared between both back and exit icon buttons

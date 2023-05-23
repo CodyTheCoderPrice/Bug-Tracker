@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 	PROJECT_CONTAINER,
 	BUG_CONTAINER,
-	SIZE_CONTAINER,
 } from "../../../../actions/constants/containerNames";
 
 import {
@@ -14,7 +13,6 @@ import {
 } from "../../../../actions";
 
 import {
-	getElementLocation,
 	getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode,
 	getSearchedFilteredSortedList,
 	getListViewComponentEmptyListMessageElementTextColorClassNameForLightOrDarkMode,
@@ -34,71 +32,6 @@ import SortArrowsButton from "../../../basic/SortArrowsButton";
 export default function ListViewTable(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
-
-	// Adjusts the height and width of the table to fit the screen
-	// ...as well as adjust the height of empty-list-message-container
-	// ...(if it is present)
-	useEffect(() => {
-		if (
-			reduxState[SIZE_CONTAINER].variables.window !== null &&
-			reduxState[SIZE_CONTAINER].variables.navbar !== null &&
-			reduxState[SIZE_CONTAINER].variables.navPanel !== null &&
-			reduxState[SIZE_CONTAINER].constants.listViewTopBarComponentHeight !==
-				null
-		) {
-			const listTableContainerElement = document.getElementsByClassName(
-				"js-list-table-container"
-			)[0];
-
-			listTableContainerElement.style.height =
-				reduxState[SIZE_CONTAINER].variables.window.height -
-				reduxState[SIZE_CONTAINER].variables.navbar.height -
-				reduxState[SIZE_CONTAINER].constants.listViewTopBarComponentHeight +
-				"px";
-
-			listTableContainerElement.style.width =
-				reduxState[SIZE_CONTAINER].variables.window.width -
-				reduxState[SIZE_CONTAINER].variables.navPanel.width +
-				"px";
-
-			// If empty-list-message-container is present
-			if (shouldEmptyListMessageDisplay()) {
-				const emptyListMessageContainer = document.getElementsByClassName(
-					"js-empty-list-message-container"
-				)[0];
-				emptyListMessageContainer.style.height =
-					reduxState[SIZE_CONTAINER].variables.window.height -
-					reduxState[SIZE_CONTAINER].variables.navbar.height -
-					reduxState[SIZE_CONTAINER].constants.listViewTopBarComponentHeight -
-					reduxState[SIZE_CONTAINER].constants
-						.listViewTableComponentRowElementHeight -
-					reduxState[SIZE_CONTAINER].constants.scrollbarWidth +
-					"px";
-			}
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		reduxState[SIZE_CONTAINER],
-	]);
-
-	// Fills remaining space in a table row after status
-	useEffect(() => {
-		if (reduxState[SIZE_CONTAINER].variables.window !== null) {
-			let remainingSpaceElement =
-				document.getElementsByClassName("js-remaining-space")[0];
-			remainingSpaceElement.style.width =
-				reduxState[SIZE_CONTAINER].variables.window.width -
-				getElementLocation(
-					document.getElementsByClassName("js-remaining-space")[0]
-				).left +
-				"px";
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		reduxState[SIZE_CONTAINER].variables,
-	]);
 
 	function shouldEmptyListMessageDisplay() {
 		return (
@@ -162,8 +95,15 @@ export default function ListViewTable(props) {
 	};
 
 	return (
-		<div className="list-view-table-component js-list-table-container">
-			<table className="list-table">
+		<div className="list-view-table-component js-list-view-table-component">
+			<table
+				className={
+					"list-table" +
+					(shouldEmptyListMessageDisplay()
+						? " list-table--empty"
+						: "")
+				}
+			>
 				<thead>
 					<tr className="list-table__row">
 						<th
@@ -255,17 +195,6 @@ export default function ListViewTable(props) {
 									: "Comments"}
 							</span>
 						</th>
-						<th
-							className={
-								"list-table__row__header js-remaining-space" +
-								getListViewTableComponentRowHeaderElementBoxShadowAndBackgroundColorClassNameForLightOrDarkMode(
-									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
-								)
-							}
-							scope="col"
-						>
-							{/*Fills remaining empty space*/}
-						</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -281,18 +210,6 @@ export default function ListViewTable(props) {
 							/>
 						);
 					})}
-					{/*If the list has items, creates an empty space at the bottom of the table*/}
-					{(props.reduxContainerName === PROJECT_CONTAINER &&
-						reduxState[props.reduxContainerName].list.length > 0) ||
-					(props.reduxContainerName === BUG_CONTAINER &&
-						reduxState[props.reduxContainerName].list.filter(
-							(item) =>
-								item.project_id ===
-								reduxState[PROJECT_CONTAINER].componentsDisplay
-									.itemViewCurrentItem.id
-						).length > 0) ? (
-						<tr className="list-table__empty-row" />
-					) : null}
 				</tbody>
 			</table>
 			{/*If the list has no items, displays a message saying list is empty*/}

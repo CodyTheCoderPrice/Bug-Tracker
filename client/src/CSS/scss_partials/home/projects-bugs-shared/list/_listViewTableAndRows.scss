@@ -3,13 +3,16 @@
 
 .list-view-table-component,
 .js-get-list-view-table-component {
+	@include m.full-height-minus-value(v.$list-view-top);
+	@include m.full-width-minus-nav-panel();
+
 	position: fixed;
 	top: v.$list-view-top;
 	left: v.$common-left;
-	// Height and width values were found through trial and error
+	/* // Height and width values were found through trial and error
 	// ...to make modal resize (using js) look less jumpy
 	height: 90vh;
-	width: 90vw;
+	width: 90vw; */
 	font-size: v.$common-font-size;
 	font-family: Arial, Helvetica, sans-serif;
 	overflow-y: auto;
@@ -19,12 +22,22 @@
 		position: relative;
 		// Allows td borders to look like they are a single line
 		border-collapse: collapse;
+		margin-bottom: 25px;
+		max-width: v.$list-view-table-max-width;
+		// Set here instead of on the component above so the vertical
+		// ...scrollbar will continue to work
 		min-width: v.$list-view-table-min-width;
+		table-layout: fixed;
+	}
+
+	.list-table--empty {
+		// 0 so empty-list-message-centering-container element is not affected
+		margin-bottom: 0px;
 	}
 
 	@mixin tableRow-shared-styles() {
 		@include m.stop-text-selection();
-		
+
 		border-bottom: 1px solid v.$mode-list-view-table-row-border-color-light;
 		background-color: v.$mode-list-view-table-row-background-color-light;
 		height: v.$common-list-row-height;
@@ -39,10 +52,6 @@
 	.list-view-table-item-row-component {
 		@include tableRow-shared-styles();
 		color: v.$mode-common-weak-text-color-light;
-	}
-
-	.list-table__empty-row {
-		height: v.$common-list-row-empty-height;
 	}
 
 	.list-table__row__header {
@@ -94,7 +103,7 @@
 	}
 
 	.list-table__row__data--name-overflow {
-		max-width: v.$list-view-table-item-name-width;
+		max-width: v.$list-view-table-row-data-item-name-max-width;
 		color: v.$default-theme-common-mode-text-color;
 		white-space: nowrap;
 		overflow: hidden;
@@ -112,7 +121,7 @@
 
 	.list-table__row__data__custom-checkbox-centered-container {
 		@include m.dead-center();
-	
+
 		height: v.$custom-checkbox-height;
 		width: v.$custom-checkbox-height;
 	}
@@ -145,20 +154,20 @@
 
 	// Centering container necesary for preventing scrollbar to appear due to overflow
 	.empty-list-message-centering-container {
+		@include m.full-height-minus-value(v.$common-list-row-height);
+		
 		position: sticky;
 		top: 0;
 		left: 0;
-		// Height was found through trial and error to make element resize 
-		// ...(using js) look less jumpy
-		height: 90%;
 		min-height: 50px;
 		width: 100%;
 	}
 
 	.empty-list-message-centering-container__message {
 		@include m.dead-center();
+		// Due to being centered, this opperates similar to margin: 0 50px
+		@include m.full-width-minus-value(100px);
 
-		width: 90%;
 		text-align: center;
 		font-size: v.$list-view-empty-list-message-font-size;
 		color: v.$mode-list-view-empty-list-message-text-color-light;
