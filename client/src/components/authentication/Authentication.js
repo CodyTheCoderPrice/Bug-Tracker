@@ -75,7 +75,11 @@ function Authentication() {
 			);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [windowWidth]);
+	}, [
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		reduxState[GENERAL_CONTAINER].componentsDisplay.loginComponentShouldDisplay,
+		windowWidth,
+	]);
 
 	return (
 		<div className="authentication-component">
