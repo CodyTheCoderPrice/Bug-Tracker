@@ -1,19 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" class="js-html">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta charset="utf-8" />
-	<link rel="icon" href="%PUBLIC_URL%/bug-icon-turkish-blue-with-white-background.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <title>Bug Tracker</title>
-  </head>
-  <body class="js-body">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<link
+			rel="icon"
+			href="%PUBLIC_URL%/bug-icon-turkish-blue-with-white-background.ico"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta
+			name="description"
+			content="Web site created using create-react-app"
+		/>
+		<title>Bug Tracker</title>
+		<!-- App loading spinner style here since styles.css won't be active 
+			...before App is rendered -->
+		<style>
+			body {
+				margin: 0px;
+			}
+
+			.app-loading-container {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				display: none;
+			}
+
+			.app-loading-container--display {
+				display: block;
+			}
+
+			.app-loading-container__spinner {
+				border: 8px solid #949494;
+				border-top: 8px solid #608d9e;
+				border-radius: 50%;
+				height: 50px;
+				width: 50px;
+				animation: spin 1.2s linear infinite;
+				box-shadow: inset 0 0 2px rgba(0,0,0,.05), 0 0 2px rgba(0,0,0,.05);
+			}
+
+			@keyframes spin {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+		</style>
+	</head>
+	<body class="js-body">
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="root"></div>
+		<!-- Loading Spinner Div -->
+		<div class="app-loading-container app-loading-container--display js-app-loading-container" >
+			<div class="app-loading-container__spinner" ></div>
+		</div>
+	</body>
 </html>

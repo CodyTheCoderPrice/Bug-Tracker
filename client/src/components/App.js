@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Component uses container names to work with the redux state
 import {
@@ -9,6 +9,7 @@ import {
 	retrieveEverythingForAccount,
 	setWhichGeneralComponentsDisplay,
 } from "../actions";
+import { removeAllInstancesOfClassName } from "../utils";
 // Other components used by this component
 import Authentication from "./authentication/Authentication";
 import Home from "./home/Home";
@@ -28,6 +29,27 @@ import "../CSS/styles.css";
 function App() {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
+
+	const [
+		appLoadingContainerElementIsNotDisplaying,
+		setAppLoadingContainerElementIsNotDisplaying,
+	] = useState(false);
+
+	// Stops the loading spinner now that the app has rendered
+	useEffect(() => {
+		const appLoadingContainerElement = document.getElementsByClassName(
+			"js-app-loading-container"
+		)[0];
+
+		if (appLoadingContainerElement !== undefined) {
+			removeAllInstancesOfClassName(
+				appLoadingContainerElement,
+				"app-loading-container--display"
+			);
+		}
+
+		setAppLoadingContainerElementIsNotDisplaying(true);
+	}, []);
 
 	// Re-fetches user data after a page refresh, and makes sure the
 	// ...appropriate child component is displayed
@@ -75,7 +97,7 @@ function App() {
 		if (process.env.NODE_ENV === "development" && e.button === 1) {
 			console.log(reduxState);
 		}
-	}
+	};
 
 	return (
 		<div
@@ -83,13 +105,15 @@ function App() {
 			// app-component className is critical for a lot of css throughout
 			className="app-component"
 		>
-			{reduxState[GENERAL_CONTAINER].componentsDisplay
-				.registerComponentShouldDisplay ||
+			{(appLoadingContainerElementIsNotDisplaying &&
+				reduxState[GENERAL_CONTAINER].componentsDisplay
+					.registerComponentShouldDisplay) ||
 			reduxState[GENERAL_CONTAINER].componentsDisplay
 				.loginComponentShouldDisplay ? (
 				<Authentication />
 			) : null}
-			{reduxState[GENERAL_CONTAINER].componentsDisplay
+			{appLoadingContainerElementIsNotDisplaying &&
+			reduxState[GENERAL_CONTAINER].componentsDisplay
 				.homeComponentShouldDisplay ? (
 				<Home />
 			) : null}
