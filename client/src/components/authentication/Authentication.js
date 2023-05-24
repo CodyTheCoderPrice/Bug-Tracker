@@ -32,8 +32,13 @@ function Authentication() {
 	] = useState();
 
 	const [
-		shouldIntroContainerHaveVisibility,
-		setShouldIntroContainerHaveVisibility,
+		modalShouldHaveTransitionAndFade,
+		setModalShouldHaveTransitionAndFade,
+	] = useState(false);
+
+	const [
+		introContainerShouldHaveVisibility,
+		setIntroContainerShouldHaveVisibility,
 	] = useState(false);
 
 	const modalShouldBeExpand =
@@ -63,15 +68,16 @@ function Authentication() {
 		setWindowWidth(getWindowSize().width);
 	}
 
+	// Updates introContainerShouldHaveVisibility
 	useEffect(() => {
 		if (
 			!reduxState[GENERAL_CONTAINER].componentsDisplay
 				.loginComponentShouldDisplay
 		) {
-			setShouldIntroContainerHaveVisibility(false);
-		} else if (!shouldIntroContainerHaveVisibility) {
-			setShouldIntroContainerHaveVisibility(
-				shouldIntroContainerHaveVisibility || modalShouldBeExpand
+			setIntroContainerShouldHaveVisibility(false);
+		} else if (!introContainerShouldHaveVisibility) {
+			setIntroContainerShouldHaveVisibility(
+				introContainerShouldHaveVisibility || modalShouldBeExpand
 			);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -81,17 +87,50 @@ function Authentication() {
 		windowWidth,
 	]);
 
+	// Updates modalShouldHaveTransitionAndFade and introContainerShouldHaveVisibility
+	useEffect(() => {
+		if (
+			!modalShouldHaveTransitionAndFade &&
+			windowWidth !== undefined &&
+			!modalShouldBeExpand
+		) {
+			setModalShouldHaveTransitionAndFade(true);
+		}
+
+		if (
+			!reduxState[GENERAL_CONTAINER].componentsDisplay
+				.loginComponentShouldDisplay
+		) {
+			setIntroContainerShouldHaveVisibility(false);
+		} else if (!introContainerShouldHaveVisibility) {
+			setIntroContainerShouldHaveVisibility(
+				introContainerShouldHaveVisibility || modalShouldBeExpand
+			);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [
+		windowWidth,
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		reduxState[GENERAL_CONTAINER].componentsDisplay.loginComponentShouldDisplay,
+	]);
+
 	return (
 		<div className="authentication-component">
 			<div className="background" />
 			<div className="background-cover" />
 			<div
-				className={"modal" + (modalShouldBeExpand ? " modal--expanded" : "")}
+				className={
+					"modal" +
+					(modalShouldBeExpand ? " modal--expanded" : "") +
+					(modalShouldHaveTransitionAndFade
+						? " modal--has-transition-and-fade"
+						: "")
+				}
 			>
 				<div
 					className={
 						"modal__intro-container" +
-						(shouldIntroContainerHaveVisibility
+						(introContainerShouldHaveVisibility
 							? ""
 							: " modal__intro-container--invisible")
 					}

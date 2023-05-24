@@ -148,15 +148,18 @@
   padding: 25px;
   height: 500px;
   width: 410px;
-  -moz-transition: width 0.5s ease-in-out;
-  -webkit-transition: width 0.5s ease-in-out;
-  transition: width 0.5s ease-in-out;
 }
 .authentication-component .modal--expanded,
 .authentication-component .js-get-authentication-component-modal--expanded,
 .js-get-authentication-component .modal--expanded,
 .js-get-authentication-component .js-get-authentication-component-modal--expanded {
   width: 1000px;
+}
+.authentication-component .modal--has-transition-and-fade,
+.js-get-authentication-component .modal--has-transition-and-fade {
+  -moz-transition: width 0.5s ease-in-out;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
 }
 @-webkit-keyframes fadeIn {
   0% {
@@ -197,11 +200,14 @@
   left: 30px;
   transform: translate(0%, -50%);
   font-family: Verdana, Geneva, sans-serif;
+}
+.authentication-component .modal--has-transition-and-fade .modal__intro-container,
+.js-get-authentication-component .modal--has-transition-and-fade .modal__intro-container {
   -webkit-animation: fadeOut 0.25s linear forwards;
   animation: fadeOut 0.25s linear forwards;
 }
-.authentication-component .modal.modal--expanded .modal__intro-container,
-.js-get-authentication-component .modal.modal--expanded .modal__intro-container {
+.authentication-component .modal.modal--expanded.modal--has-transition-and-fade .modal__intro-container,
+.js-get-authentication-component .modal.modal--expanded.modal--has-transition-and-fade .modal__intro-container {
   -webkit-animation: fadeIn 0.8s linear forwards;
   animation: fadeIn 0.8s linear forwards;
 }

@@ -34,15 +34,18 @@
 		padding: 25px;
 		height: 500px;
 		width: v.$authentication-modal-width;
-
-		@include m.set-transition(
-			width v.$authentication-modal-width-transition-time ease-in-out
-		);
 	}
 
 	.modal--expanded,
 	.js-get-authentication-component-modal--expanded {
 		width: v.$authentication-modal-expanded-width;
+	}
+
+	// NOTE: Fade rule added to intro-container classes below
+	.modal--has-transition-and-fade {
+		@include m.set-transition(
+			width v.$authentication-modal-width-transition-time ease-in-out
+		);
 	}
 
 	@include m.set-fade-in-fade-out-rules();
@@ -53,14 +56,17 @@
 		left: 30px;
 		transform: translate(0%, -50%);
 		font-family: Verdana, Geneva, sans-serif;
+	}
 
+	.modal--has-transition-and-fade .modal__intro-container {
 		@include m.set-animation(
 			fadeOut v.$authentication-intro-container-fade-out-transition-time linear
 				forwards
 		);
 	}
 
-	.modal.modal--expanded .modal__intro-container {
+	.modal.modal--expanded.modal--has-transition-and-fade
+		.modal__intro-container {
 		@include m.set-animation(
 			fadeIn v.$authentication-intro-container-fade-in-transition-time linear
 				forwards
