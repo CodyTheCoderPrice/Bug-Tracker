@@ -68,50 +68,31 @@ function Authentication() {
 		setWindowWidth(getWindowSize().width);
 	}
 
-	// Updates introContainerShouldHaveVisibility
-	useEffect(() => {
-		if (
-			!reduxState[GENERAL_CONTAINER].componentsDisplay
-				.loginComponentShouldDisplay
-		) {
-			setIntroContainerShouldHaveVisibility(false);
-		} else if (!introContainerShouldHaveVisibility) {
-			setIntroContainerShouldHaveVisibility(
-				introContainerShouldHaveVisibility || modalShouldBeExpand
-			);
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		reduxState[GENERAL_CONTAINER].componentsDisplay.loginComponentShouldDisplay,
-		windowWidth,
-	]);
-
-	// Updates modalShouldHaveTransitionAndFade and introContainerShouldHaveVisibility
+	// Updates modalShouldHaveTransitionAndFade
 	useEffect(() => {
 		if (
 			!modalShouldHaveTransitionAndFade &&
-			windowWidth !== undefined &&
-			!modalShouldBeExpand
+			loginComponentBreakingPointWidth !== undefined
 		) {
 			setModalShouldHaveTransitionAndFade(true);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [loginComponentBreakingPointWidth]);
 
+	// Updates introContainerShouldHaveVisibility
+	useEffect(() => {
 		if (
-			!reduxState[GENERAL_CONTAINER].componentsDisplay
-				.loginComponentShouldDisplay
+			reduxState[GENERAL_CONTAINER].componentsDisplay
+				.loginComponentShouldDisplay &&
+			modalShouldHaveTransitionAndFade
 		) {
-			setIntroContainerShouldHaveVisibility(false);
-		} else if (!introContainerShouldHaveVisibility) {
-			setIntroContainerShouldHaveVisibility(
-				introContainerShouldHaveVisibility || modalShouldBeExpand
-			);
+			setIntroContainerShouldHaveVisibility(true);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
-		windowWidth,
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[GENERAL_CONTAINER].componentsDisplay.loginComponentShouldDisplay,
+		modalShouldHaveTransitionAndFade,
 	]);
 
 	return (
