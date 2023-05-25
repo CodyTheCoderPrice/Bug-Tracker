@@ -31,17 +31,19 @@ function Authentication() {
 		setLoginComponentBreakingPointWidth,
 	] = useState();
 
-	const [modalState, setModalState] = useState({
-		shouldBeExpanded: null,
-		readyToActivateTransitionAndFade: false,
-		shouldHaveTransitionAndFade: false,
-	});
+	const [modalShouldBeExpanded, setModalShouldBeExpanded] = useState();
+
+	const [
+		modalShouldHaveTransitionAndFade,
+		setModalShouldHaveTransitionAndFade,
+	] = useState(false);
 
 	const [
 		introContainerShouldHaveVisibility,
 		setIntroContainerShouldHaveVisibility,
 	] = useState(false);
 
+	// Updates windowWidth and loginComponentBreakingPointWidth
 	useEffect(() => {
 		setLoginComponentBreakingPointWidth(
 			// 30 is added to simulate a margin around the modal
@@ -64,27 +66,17 @@ function Authentication() {
 		setWindowWidth(getWindowSize().width);
 	}
 
-	// Updates modalState
+	// Updates modalShouldBeExpanded
 	useEffect(() => {
 		if (
 			windowWidth !== undefined &&
 			loginComponentBreakingPointWidth !== undefined
 		) {
-			console.log(reduxState[GENERAL_CONTAINER].componentsDisplay
-				.loginComponentShouldDisplay &&
-			windowWidth > loginComponentBreakingPointWidth);
-
-			setModalState({
-				shouldBeExpanded:
-					reduxState[GENERAL_CONTAINER].componentsDisplay
-						.loginComponentShouldDisplay &&
-					windowWidth > loginComponentBreakingPointWidth,
-				// Delays setting shouldHaveTransitionAndFade true by 1 cycle
-				// ...so modal can expand (if needed) first without transition
-				readyToActivateTransitionAndFade: true,
-				shouldHaveTransitionAndFade:
-					modalState.readyToActivateTransitionAndFade,
-			});
+			setModalShouldBeExpanded(
+				reduxState[GENERAL_CONTAINER].componentsDisplay
+					.loginComponentShouldDisplay &&
+					windowWidth > loginComponentBreakingPointWidth
+			);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [
@@ -92,15 +84,24 @@ function Authentication() {
 		loginComponentBreakingPointWidth,
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[GENERAL_CONTAINER].componentsDisplay.loginComponentShouldDisplay,
-		modalState.readyToActivateTransitionAndFade,
 	]);
+
+	// Updates modalShouldHaveTransitionAndFade
+	useEffect(() => {
+		if (
+			!modalShouldHaveTransitionAndFade &&
+			modalShouldBeExpanded !== undefined
+		) {
+			setModalShouldHaveTransitionAndFade(true);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [modalShouldBeExpanded]);
 
 	// Updates introContainerShouldHaveVisibility
 	useEffect(() => {
 		if (
 			reduxState[GENERAL_CONTAINER].componentsDisplay
-				.loginComponentShouldDisplay &&
-			modalState.shouldHaveTransitionAndFade
+				.loginComponentShouldDisplay
 		) {
 			setIntroContainerShouldHaveVisibility(true);
 		}
@@ -108,7 +109,6 @@ function Authentication() {
 	}, [
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		reduxState[GENERAL_CONTAINER].componentsDisplay.loginComponentShouldDisplay,
-		modalState.shouldHaveTransitionAndFade,
 	]);
 
 	return (
@@ -118,8 +118,8 @@ function Authentication() {
 			<div
 				className={
 					"modal" +
-					(modalState.shouldBeExpanded ? " modal--expanded" : "") +
-					(modalState.shouldHaveTransitionAndFade
+					(modalShouldBeExpanded ? " modal--expanded" : "") +
+					(modalShouldHaveTransitionAndFade
 						? " modal--has-transition-and-fade"
 						: "")
 				}
