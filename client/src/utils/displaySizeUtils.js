@@ -91,6 +91,7 @@ export function getElementStyle(element) {
  */
 export function getScrollbarWidth() {
 	const outerElement = document.createElement("div");
+	// Made hidden so user never sees this element or its children
 	outerElement.style.visibility = "hidden";
 	// Adds scroll bar
 	outerElement.style.overflow = "scroll";
@@ -125,32 +126,32 @@ export function isVerticalScrollbarPresent(element) {
  * 'modal modal--expanded' element
  */
 export function getAuthenticationComponentModalElementWithExpandedModifierWidth() {
-	// Creating stand-in element for Authentication component to later append
-	// ...other stand-in elements to so CSS can work properly. using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInAuthenticationComponentElement = document.createElement("div");
-	standInAuthenticationComponentElement.className =
+	// Creating "mimic" element for Authentication component to later append
+	// ...child "mimic" elements to so CSS can work properly. Creating "mimic"
+	// ...elements allows this function to be called regardless of real elements
+	// ...being in the DOM. This also ensures the real elements are unaffected.
+	const mimicAuthenticationComponentElement = document.createElement("div");
+	mimicAuthenticationComponentElement.className =
 		getAuthenticationComponentClassName();
 	// Made hidden so user never sees stand-in element or its child elements
-	standInAuthenticationComponentElement.visibility = "hidden";
-	document.body.appendChild(standInAuthenticationComponentElement);
+	mimicAuthenticationComponentElement.visibility = "hidden";
+	document.body.appendChild(mimicAuthenticationComponentElement);
 
-	const standInModalElementWithExpandedModifier =
-		document.createElement("tr");
-	standInModalElementWithExpandedModifier.className =
+	const mimicModalElementWithExpandedModifier =
+		document.createElement("div");
+	mimicModalElementWithExpandedModifier.className =
 		getAuthenticationComponentModalElementWithExpandedModifierClassName();
 	// CSS requires being child of ListViewTable component
-	standInAuthenticationComponentElement.appendChild(
-		standInModalElementWithExpandedModifier
+	mimicAuthenticationComponentElement.appendChild(
+		mimicModalElementWithExpandedModifier
 	);
 
 	const width = getElementSize(
-		standInModalElementWithExpandedModifier
+		mimicModalElementWithExpandedModifier
 	).width;
 
-	standInAuthenticationComponentElement.parentNode.removeChild(
-		standInAuthenticationComponentElement
+	mimicAuthenticationComponentElement.parentNode.removeChild(
+		mimicAuthenticationComponentElement
 	);
 
 	return width;
@@ -164,98 +165,98 @@ export function getAuthenticationComponentModalElementWithExpandedModifierWidth(
  * component's 'overflow-container' (className) element
  */
 export function getNavPanelButtonListSizesAndStyles() {
-	// Creating stand-in element for NavPanelButtonList component to later append
-	// ...other stand-in elements to so CSS can work properly. using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInNavPanelButtonListComponentElement =
+	// Creating "mimic" element for NavPanelButtonList component to later append
+	// ...child "mimic" elements to so CSS can work properly. Creating "mimic"
+	// ...elements allows this function to be called regardless of real elements
+	// ...being in the DOM. This also ensures the real elements are unaffected.
+	const mimicNavPanelButtonListComponentElement =
 		document.createElement("div");
-	standInNavPanelButtonListComponentElement.className =
+	mimicNavPanelButtonListComponentElement.className =
 		getNavPanelButtonListComponentClassName();
 	// Made hidden so user never sees stand-in element or its child elements
-	standInNavPanelButtonListComponentElement.visibility = "hidden";
-	document.body.appendChild(standInNavPanelButtonListComponentElement);
+	mimicNavPanelButtonListComponentElement.visibility = "hidden";
+	document.body.appendChild(mimicNavPanelButtonListComponentElement);
 
-	const standInSubOverflowContainerElementForBugs =
+	const mimicSubOverflowContainerElementForBugs =
 		document.createElement("div");
-	standInSubOverflowContainerElementForBugs.className =
+	mimicSubOverflowContainerElementForBugs.className =
 		getNavPanelButtonListComponentSubOverflowContainerElementForBugsModifierClassName();
 	// Css requires being child of NavPanelButtonList component
-	standInNavPanelButtonListComponentElement.appendChild(
-		standInSubOverflowContainerElementForBugs
+	mimicNavPanelButtonListComponentElement.appendChild(
+		mimicSubOverflowContainerElementForBugs
 	);
-	const standInSubOverflowContainerElementForBugsStyles = getElementStyle(
-		standInSubOverflowContainerElementForBugs
+	const mimicSubOverflowContainerElementForBugsStyles = getElementStyle(
+		mimicSubOverflowContainerElementForBugs
 	);
 
-	const standInSubOverflowContainerElementWithScrollbar =
+	const mimicSubOverflowContainerElementWithScrollbar =
 		document.createElement("div");
-	standInSubOverflowContainerElementWithScrollbar.className =
+	mimicSubOverflowContainerElementWithScrollbar.className =
 		getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarModifierClassName();
 	// Css requires being child of NavPanelButtonList component
-	standInNavPanelButtonListComponentElement.appendChild(
-		standInSubOverflowContainerElementWithScrollbar
+	mimicNavPanelButtonListComponentElement.appendChild(
+		mimicSubOverflowContainerElementWithScrollbar
 	);
-	const standInSubOverflowContainerElementWithScrollbarStyles = getElementStyle(
-		standInSubOverflowContainerElementWithScrollbar
+	const mimicSubOverflowContainerElementWithScrollbarStyles = getElementStyle(
+		mimicSubOverflowContainerElementWithScrollbar
 	);
 
-	const standInSubOverflowContainerElementWithScrollbarForBugs =
+	const mimicSubOverflowContainerElementWithScrollbarForBugs =
 		document.createElement("div");
-	standInSubOverflowContainerElementWithScrollbarForBugs.className =
+	mimicSubOverflowContainerElementWithScrollbarForBugs.className =
 		getNavPanelButtonListComponentSubOverflowContainerElementWithScrollbarForBugsModifierClassName();
 	// Css requires being child of NavPanelButtonList component
-	standInNavPanelButtonListComponentElement.appendChild(
-		standInSubOverflowContainerElementWithScrollbarForBugs
+	mimicNavPanelButtonListComponentElement.appendChild(
+		mimicSubOverflowContainerElementWithScrollbarForBugs
 	);
-	const standInSubOverflowContainerElementWithScrollbarForBugsStyles =
-		getElementStyle(standInSubOverflowContainerElementWithScrollbarForBugs);
+	const mimicSubOverflowContainerElementWithScrollbarForBugsStyles =
+		getElementStyle(mimicSubOverflowContainerElementWithScrollbarForBugs);
 
-	const standInListButtonElementWithTopAndBottomSpacing =
+	const mimicListButtonElementWithTopAndBottomSpacing =
 		document.createElement("div");
-	standInListButtonElementWithTopAndBottomSpacing.className =
+	mimicListButtonElementWithTopAndBottomSpacing.className =
 		getNavPanelButtonListComponentListButtonElementWithTopSpacingModifierClassName();
 	// Css requires being child of NavPanelButtonList component
-	standInNavPanelButtonListComponentElement.appendChild(
-		standInListButtonElementWithTopAndBottomSpacing
+	mimicNavPanelButtonListComponentElement.appendChild(
+		mimicListButtonElementWithTopAndBottomSpacing
 	);
-	const standInListButtonElementWithTopAndBottomSpacingStyles = getElementStyle(
-		standInListButtonElementWithTopAndBottomSpacing
+	const mimicListButtonElementWithTopAndBottomSpacingStyles = getElementStyle(
+		mimicListButtonElementWithTopAndBottomSpacing
 	);
 
 	const sizesAndStyles = {
 		// Removing "px" from Strings and converting to Numbers allows for easier use
 		subOverflowContainerForBugsMarginBottom: stripNonDigits(
-			standInSubOverflowContainerElementForBugsStyles.marginBottom
+			mimicSubOverflowContainerElementForBugsStyles.marginBottom
 		),
 		subOverflowContainerWithScrollbarMarginTop: stripNonDigits(
-			standInSubOverflowContainerElementWithScrollbarStyles.marginTop
+			mimicSubOverflowContainerElementWithScrollbarStyles.marginTop
 		),
 		subOverflowContainerWithScrollbarMarginBottom: stripNonDigits(
-			standInSubOverflowContainerElementWithScrollbarStyles.marginBottom
+			mimicSubOverflowContainerElementWithScrollbarStyles.marginBottom
 		),
 		subOverflowContainerWithScrollbarPaddingTop: stripNonDigits(
-			standInSubOverflowContainerElementWithScrollbarStyles.paddingTop
+			mimicSubOverflowContainerElementWithScrollbarStyles.paddingTop
 		),
 		subOverflowContainerWithScrollbarPaddingBottom: stripNonDigits(
-			standInSubOverflowContainerElementWithScrollbarStyles.paddingBottom
+			mimicSubOverflowContainerElementWithScrollbarStyles.paddingBottom
 		),
 		subOverflowContainerWithScrollbarForBugsMarginBottom: stripNonDigits(
-			standInSubOverflowContainerElementWithScrollbarForBugsStyles.marginBottom
+			mimicSubOverflowContainerElementWithScrollbarForBugsStyles.marginBottom
 		),
 		subOverflowContainerWithScrollbarForBugsPaddingBottom: stripNonDigits(
-			standInSubOverflowContainerElementWithScrollbarForBugsStyles.paddingBottom
+			mimicSubOverflowContainerElementWithScrollbarForBugsStyles.paddingBottom
 		),
 		listButtonHeight: getElementSize(
-			standInListButtonElementWithTopAndBottomSpacing
+			mimicListButtonElementWithTopAndBottomSpacing
 		).height,
 		listButtonWithTopSpacingMarginTop: stripNonDigits(
-			standInListButtonElementWithTopAndBottomSpacingStyles.marginTop
+			mimicListButtonElementWithTopAndBottomSpacingStyles.marginTop
 		),
 	};
 
-	standInNavPanelButtonListComponentElement.parentNode.removeChild(
-		standInNavPanelButtonListComponentElement
+	mimicNavPanelButtonListComponentElement.parentNode.removeChild(
+		mimicNavPanelButtonListComponentElement
 	);
 
 	return sizesAndStyles;
@@ -267,20 +268,20 @@ export function getNavPanelButtonListSizesAndStyles() {
  * @returns {number} Height of of ListViewTopBar component
  */
 export function getListViewTopBarComponentHeight() {
-	// Creating stand-in element for ListViewTopBar component using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInListViewTopBarComponentElement = document.createElement("div");
-	standInListViewTopBarComponentElement.className =
+	// Creating "mimic" element for ListViewTopBar component. Creating "mimic"
+	// ...elements allows this function to be called regardless of real elements
+	// ...being in the DOM. This also ensures the real elements are unaffected.
+	const mimicListViewTopBarComponentElement = document.createElement("div");
+	mimicListViewTopBarComponentElement.className =
 		getListViewTopBarComponentClassName();
 	// Made hidden so user never sees stand-in element or its child elements
-	standInListViewTopBarComponentElement.visibility = "hidden";
-	document.body.appendChild(standInListViewTopBarComponentElement);
+	mimicListViewTopBarComponentElement.visibility = "hidden";
+	document.body.appendChild(mimicListViewTopBarComponentElement);
 
-	const height = getElementSize(standInListViewTopBarComponentElement).height;
+	const height = getElementSize(mimicListViewTopBarComponentElement).height;
 
-	standInListViewTopBarComponentElement.parentNode.removeChild(
-		standInListViewTopBarComponentElement
+	mimicListViewTopBarComponentElement.parentNode.removeChild(
+		mimicListViewTopBarComponentElement
 	);
 
 	return height;
@@ -294,29 +295,29 @@ export function getListViewTopBarComponentHeight() {
  * element
  */
 export function getListViewTableComponentRowElementHeight() {
-	// Creating stand-in element for ListViewTable component to later append
-	// ...other stand-in elements to so CSS can work properly. using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInListViewTableComponentElement = document.createElement("div");
-	standInListViewTableComponentElement.className =
+	// Creating "mimic" element for ListViewTable component to later append
+	// ...child "mimic" elements to so CSS can work properly. Creating "mimic"
+	// ...elements allows this function to be called regardless of real elements
+	// ...being in the DOM. This also ensures the real elements are unaffected.
+	const mimicListViewTableComponentElement = document.createElement("div");
+	mimicListViewTableComponentElement.className =
 		getListViewTableComponentClassName();
 	// Made hidden so user never sees stand-in element or its child elements
-	standInListViewTableComponentElement.visibility = "hidden";
-	document.body.appendChild(standInListViewTableComponentElement);
+	mimicListViewTableComponentElement.visibility = "hidden";
+	document.body.appendChild(mimicListViewTableComponentElement);
 
-	const standInListViewTableRowElement = document.createElement("tr");
-	standInListViewTableRowElement.className =
+	const mimicListViewTableRowElement = document.createElement("tr");
+	mimicListViewTableRowElement.className =
 		getListViewTableComponentRowElementClassName();
 	// CSS requires being child of ListViewTable component
-	standInListViewTableComponentElement.appendChild(
-		standInListViewTableRowElement
+	mimicListViewTableComponentElement.appendChild(
+		mimicListViewTableRowElement
 	);
 
-	const height = getElementSize(standInListViewTableRowElement).height;
+	const height = getElementSize(mimicListViewTableRowElement).height;
 
-	standInListViewTableComponentElement.parentNode.removeChild(
-		standInListViewTableComponentElement
+	mimicListViewTableComponentElement.parentNode.removeChild(
+		mimicListViewTableComponentElement
 	);
 
 	return height;
@@ -330,33 +331,33 @@ export function getListViewTableComponentRowElementHeight() {
  * element
  */
 export function getItemViewComponentPaddingContainerElementLeftPadding() {
-	// Creating stand-in element for ItemView component to later append
-	// ...other stand-in elements to so CSS can work properly. using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInItemViewComponentElement = document.createElement("div");
-	standInItemViewComponentElement.className = getItemViewComponentClassName();
+	// Creating "mimic" element for ItemView component to later append
+	// ...child "mimic" elements to so CSS can work properly. Creating "mimic"
+	// ...elements allows this function to be called regardless of real elements
+	// ...being in the DOM. This also ensures the real elements are unaffected.
+	const mimicItemViewComponentElement = document.createElement("div");
+	mimicItemViewComponentElement.className = getItemViewComponentClassName();
 	// Made hidden so user never sees stand-in element or its child elements
-	standInItemViewComponentElement.visibility = "hidden";
-	document.body.appendChild(standInItemViewComponentElement);
+	mimicItemViewComponentElement.visibility = "hidden";
+	document.body.appendChild(mimicItemViewComponentElement);
 
-	const standInItemViewComponentPaddingContainerElement =
+	const mimicItemViewComponentPaddingContainerElement =
 		document.createElement("div");
-	standInItemViewComponentPaddingContainerElement.className =
+	mimicItemViewComponentPaddingContainerElement.className =
 		getItemViewComponentPaddingcontainerElementClassName();
 	// CSS requires being child of ItemView component
-	standInItemViewComponentElement.appendChild(
-		standInItemViewComponentPaddingContainerElement
+	mimicItemViewComponentElement.appendChild(
+		mimicItemViewComponentPaddingContainerElement
 	);
 
 	// Removing "px" from Strings and converting to Numbers allows for easier use
 	const leftPadding = stripNonDigits(
 		// Should be same as right padding
-		getElementStyle(standInItemViewComponentPaddingContainerElement).paddingLeft
+		getElementStyle(mimicItemViewComponentPaddingContainerElement).paddingLeft
 	);
 
-	standInItemViewComponentElement.parentNode.removeChild(
-		standInItemViewComponentElement
+	mimicItemViewComponentElement.parentNode.removeChild(
+		mimicItemViewComponentElement
 	);
 
 	return leftPadding;
@@ -370,33 +371,33 @@ export function getItemViewComponentPaddingContainerElementLeftPadding() {
  * element
  */
 export function getItemViewComponentOuterDividingContainerElementMinWidth() {
-	// Creating stand-in element for ItemView component to later append
-	// ...other stand-in elements to so CSS can work properly. using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInItemViewComponentElement = document.createElement("div");
-	standInItemViewComponentElement.className = getItemViewComponentClassName();
+	// Creating "mimic" element for ItemView component to later append
+	// ...child "mimic" elements to so CSS can work properly. Creating "mimic"
+	// ...elements allows this function to be called regardless of real elements
+	// ...being in the DOM. This also ensures the real elements are unaffected.
+	const mimicItemViewComponentElement = document.createElement("div");
+	mimicItemViewComponentElement.className = getItemViewComponentClassName();
 	// Made hidden so user never sees stand-in element or its child elements
-	standInItemViewComponentElement.visibility = "hidden";
-	document.body.appendChild(standInItemViewComponentElement);
+	mimicItemViewComponentElement.visibility = "hidden";
+	document.body.appendChild(mimicItemViewComponentElement);
 
-	const standInItemViewComponentOuterDividingContainerElement =
+	const mimicItemViewComponentOuterDividingContainerElement =
 		document.createElement("div");
-	standInItemViewComponentOuterDividingContainerElement.className =
+	mimicItemViewComponentOuterDividingContainerElement.className =
 		getItemViewComponentOuterDividingContainerElementClassName();
 	// CSS requires being child of ItemView component
-	standInItemViewComponentElement.appendChild(
-		standInItemViewComponentOuterDividingContainerElement
+	mimicItemViewComponentElement.appendChild(
+		mimicItemViewComponentOuterDividingContainerElement
 	);
 
 	// Removing "px" from Strings and converting to Numbers allows for easier use
 	const minWidth = stripNonDigits(
-		getElementStyle(standInItemViewComponentOuterDividingContainerElement)
+		getElementStyle(mimicItemViewComponentOuterDividingContainerElement)
 			.minWidth
 	);
 
-	standInItemViewComponentElement.parentNode.removeChild(
-		standInItemViewComponentElement
+	mimicItemViewComponentElement.parentNode.removeChild(
+		mimicItemViewComponentElement
 	);
 
 	return minWidth;
@@ -408,20 +409,20 @@ export function getItemViewComponentOuterDividingContainerElementMinWidth() {
  * @returns {number} Height of ItemViewTopBar component
  */
 export function getItemViewTopBarComponentHeight() {
-	// Creating stand-in element for ListViewTopBar component using stand-in
-	// ...elements allows this function to be called when the real elements
-	// ...aren't in the DOM, and ensures real elements remain unaffected.
-	const standInItemViewTopBarComponentElement = document.createElement("div");
-	standInItemViewTopBarComponentElement.className =
+	// Creating "mimic" element for ItemViewTopBar component. Creating "mimic"
+	// ...elements allows this function to be called regardless of real elements
+	// ...being in the DOM. This also ensures the real elements are unaffected.
+	const mimicItemViewTopBarComponentElement = document.createElement("div");
+	mimicItemViewTopBarComponentElement.className =
 		getItemViewTopBarComponentClassName();
 	// Made hidden so user never sees stand-in element or its child elements
-	standInItemViewTopBarComponentElement.visibility = "hidden";
-	document.body.appendChild(standInItemViewTopBarComponentElement);
+	mimicItemViewTopBarComponentElement.visibility = "hidden";
+	document.body.appendChild(mimicItemViewTopBarComponentElement);
 
-	const height = getElementSize(standInItemViewTopBarComponentElement).height;
+	const height = getElementSize(mimicItemViewTopBarComponentElement).height;
 
-	standInItemViewTopBarComponentElement.parentNode.removeChild(
-		standInItemViewTopBarComponentElement
+	mimicItemViewTopBarComponentElement.parentNode.removeChild(
+		mimicItemViewTopBarComponentElement
 	);
 
 	return height;

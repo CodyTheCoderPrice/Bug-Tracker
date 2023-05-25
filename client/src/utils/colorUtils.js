@@ -106,36 +106,30 @@ function convertRbgColorStringToHexString(rbgColorValue) {
  * ]);
  */
 export function appendHexValueForColorsToStatusList(statusList) {
-	// Creating temporary stand-in app-component element to later append
-	// ...temporary status-box elements to for CSS. Using stand-in element
-	// ...ensures real element remains unaffected and function can be called
-	// ...without needing real element in the DOM. Made invisible so user
-	// ...never sees stand-in element or its child elements.
-	const invisibleTempAppElement = document.createElement("div");
-	invisibleTempAppElement.className = getAppComponentClassName();
-	invisibleTempAppElement.visibility = "hidden";
-	document.body.appendChild(invisibleTempAppElement);
+	// Creating "mimic" element for App component to later append child "mimic"
+	// ...elements to so CSS can work properly. Creating "mimic" elements allows
+	// ...this function to be called regardless of real elements being in the 
+	// ...DOM. This also ensures the real elements are unaffected.
+	const mimicAppElement = document.createElement("div");
+	mimicAppElement.className = getAppComponentClassName();
+	mimicAppElement.visibility = "hidden";
+	document.body.appendChild(mimicAppElement);
 
 	for (let i = 0; i < statusList.length; i++) {
-		// Temporary status-box element used to get background color
-		const tempStatusColorDiv = document.createElement("div");
-		tempStatusColorDiv.className = getCommonStatusBackgroundColorClassName(statusList[i].color);
-		// Css requires being child of an app-component element
-		invisibleTempAppElement.appendChild(tempStatusColorDiv);
+		const mimicStatusColorDiv = document.createElement("div");
+		mimicStatusColorDiv.className = getCommonStatusBackgroundColorClassName(statusList[i].color);
+		// CSS requires being child of APP component
+		mimicAppElement.appendChild(mimicStatusColorDiv);
 
-		// getElementStyle(tempStatusColorDiv).getPropertyValue("background-color")
-		// ...returns rbg color value, so convertRbgColorStringToHexString is used
 		const hex = convertRbgColorStringToHexString(
-			getElementStyle(tempStatusColorDiv).getPropertyValue("background-color")
+			getElementStyle(mimicStatusColorDiv).getPropertyValue("background-color")
 		);
 
 		// Appends hex color value to the status
 		statusList[i]["colorHex"] = hex;
 	}
 
-	// Removing stand-in element from DOM by removing from it's own parentNode
-	// ...(also removes all stand-in element's child elements)
-	invisibleTempAppElement.parentNode.removeChild(invisibleTempAppElement);
+	mimicAppElement.parentNode.removeChild(mimicAppElement);
 
 	return statusList;
 }

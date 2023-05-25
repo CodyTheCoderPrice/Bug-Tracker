@@ -317,14 +317,14 @@ export default function NavbarBreadcrumb() {
 			navbarBreadcrumbElement
 		);
 
-		// Creating stand-in divider element since a real one may not be in JSX
-		const standInBreadcrumbDividerElement = document.createElement("div");
-		standInBreadcrumbDividerElement.className = "breadcrumb-divider";
-		// Made hidden so user never sees stand-in element
-		standInBreadcrumbDividerElement.visibility = "hidden";
-		navbarBreadcrumbElement.appendChild(standInBreadcrumbDividerElement);
+		// Creating "mimic" divider element since a real one may not be in JSX
+		const mimicBreadcrumbDividerElement = document.createElement("div");
+		mimicBreadcrumbDividerElement.className = "breadcrumb-divider";
+		// Made hidden so user never sees "mimic" element
+		mimicBreadcrumbDividerElement.visibility = "hidden";
+		navbarBreadcrumbElement.appendChild(mimicBreadcrumbDividerElement);
 		const navbarBreadcrumbDividerElementSyle = getElementStyle(
-			standInBreadcrumbDividerElement
+			mimicBreadcrumbDividerElement
 		);
 
 		setNavbarChildStyles({
@@ -343,7 +343,7 @@ export default function NavbarBreadcrumb() {
 		});
 
 		// Removed stand-in element as it served its purpose
-		navbarBreadcrumbElement.removeChild(standInBreadcrumbDividerElement);
+		navbarBreadcrumbElement.removeChild(mimicBreadcrumbDividerElement);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
