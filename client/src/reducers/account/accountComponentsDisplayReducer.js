@@ -2,13 +2,6 @@ import { SET_WHICH_ACCOUNT_COMPONENTS_DISPLAY } from "../../actions/constants/ty
 import { filterObject, getStringOfAllArrayValues } from "../../utils";
 
 const initialState = {
-	// When 'accountSidebarComponentShouldDisplay' is true, the below must be
-	// done (along with having that component display) by the DEVELOPER in JSX:
-	// 		AccountBlurredBackdrop component's
-	//		'account-modals-blurred-backdrop-component' (className) element
-	//		should have 'account-modals-blurred-backdrop-component--below-navbar'
-	//		modifier className appended. This is so the Navbar can still be used
-	//		while AccountSidebar (which has a blurred-backdrop) is open.
 	accountSidebarComponentShouldDisplay: false,
 	accountModalEditInfoComponentShouldDisplay: false,
 	accountModalEditEmailComponentShouldDisplay: false,

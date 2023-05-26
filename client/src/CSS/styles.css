@@ -683,11 +683,6 @@
   width: 100vw;
 }
 
-.account-modals-blurred-backdrop-component--below-navbar {
-  top: 48px;
-  opacity: 0.8;
-}
-
 .account-sidebar-component .sidebar-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
