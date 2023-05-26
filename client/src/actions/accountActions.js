@@ -25,12 +25,12 @@ import {
 
 /**
  * Uses 'decodedToken' prop to set 'auth' Object (containing authentication data
- * from the backend -- i.e. is an account logged in, logged in account's id, 
+ * from the backend -- i.e. is an account logged in, logged in account's id,
  * time of login, and when authentication will expire) into 'ACCOUNT_CONTAINER'
  * of the redux state.
- * 
+ *
  * Note: Inside the 'auth' Object, the purpose of the 'isAuthenticated' boolean
- * is to be another way of telling if an account is currently logged into the 
+ * is to be another way of telling if an account is currently logged into the
  * app (can also tell by checking if jwToken is present in localStorage), and
  * the purpose of the 'decodedToken' Object is to give the frontend access to
  * the jwToken decoded (not currently used for anything, but is nice to have).
@@ -42,8 +42,8 @@ import {
  * }} decodedToken - Object containing JWT authentication info for account
  *
  * @example
- * // The dispatch function is from useDispatch() imported from react-redux.
- * // Result in 'auth' Object {
+ * // Sets 'auth' Object in 'ACCOUNT_CONTAINER' of the redux state to:
+ * // {
  * // 	isAuthenticated: true,
  * // 	decodedToken: {
  * //		account_id: 80,
@@ -68,14 +68,14 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 };
 
 /**
- * Uses 'account' prop to set 'accountInfo' Object (for containing the logged 
+ * Uses 'account' prop to set 'accountInfo' Object (for containing the logged
  * in account's data from the database) into 'ACCOUNT_CONTAINER' of the redux
  * state.
- * 
- * Note: The purpose of the 'accountInfo' Object is to be used to display 
- * (e.g. displays account name in AccountSidebar component) and use (e.g. 
- * populate text input with current account email in AccountModalEditEmail 
- * component) the logged in account's info without constantly needing to 
+ *
+ * Note: The purpose of the 'accountInfo' Object is to be used to display
+ * (e.g. displays account name in AccountSidebar component) and use (e.g.
+ * populate text input with current account email in AccountModalEditEmail
+ * component) the logged in account's info without constantly needing to
  * refetch it from the database.
  *
  * @param {{
@@ -109,12 +109,12 @@ export const setAccount = (account) => (dispatch) => {
 };
 
 /**
- * Uses 'accountSettings' prop to set 'settings' Object (containing the logged 
+ * Uses 'accountSettings' prop to set 'settings' Object (containing the logged
  * in account's settings data from the database) into 'ACCOUNT_CONTAINER' of the
  * redux state.
- * 
+ *
  * Note: The purpose of the 'settings' Object is to be used to display (e.g.
- * displays current settings in AccountModalEditSettings component) and use 
+ * displays current settings in AccountModalEditSettings component) and use
  * (e.g. functions in colorUtils use dark_mode property) the logged in account's
  * settings without constantly needing to refetch it from the database.
  *

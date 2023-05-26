@@ -1,5 +1,5 @@
 import { SET_AUTHENTICATION } from "../../actions/constants/types";
-const isEmpty = require("is-empty");
+import { isEmpty } from "../../utils";
 
 const initialState = {
 	// Set to false since no account is logged in by default
