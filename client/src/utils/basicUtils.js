@@ -1,10 +1,10 @@
 /**
- * Returns true if 'value' param is null, undefined, an empty string, or an
- * empty array. Otherwise returns false.
+ * Returns whether the 'value' param null, undefined, an empty string, or an
+ * empty array
  *
- * @param {*} value - Value of any type
- * @returns {boolean} Whether the value is null, undefined, an empty string,
- * or an empty array
+ * @param {*} value - The value to be tested
+ * @returns {boolean} Whether the 'value' param null, undefined, an empty 
+ * string, or an empty array
  */
 export function isEmpty(value) {
 	if (Array.isArray(value)) {
@@ -30,6 +30,47 @@ export function isEmpty(value) {
 		(typeof value === "string" && value.trim() === "") ||
 		(Array.isArray(value) && value.length < 1)
 	);
+}
+
+/**
+ * Returns whether any properties of the obj param are empty
+ *
+ * @param {Object} obj - The object to be tested
+ * @returns {boolean} Whether any properties of the obj param are empty
+ */
+export function areAnyObjectPropsEmpty(obj) {
+	//Check if an object
+	if (
+		typeof obj !== 'object' ||
+		Array.isArray(obj) ||
+		obj === null
+	) {
+		console.log("WARNING in function areAnyObjectPropsEmpty: param obj failed validation");
+		return true;
+	}
+
+	for (let prop in obj) {
+		if (Object.prototype.hasOwnProperty.call(obj, prop) && isEmpty(obj[prop])) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Returns all indexes from the arr param containing the value param 
+ * 
+ * @param {*[]} arr - The array to have its indexes checked
+ * @param {*} value - The value being sought for in the arr param
+ * @returns {number[]} All indexes from the arr param containing the value param 
+ */
+export function getAllIndexesContainingValueFromArray(arr, value) {
+	const indexes = [];
+    for(let i = 0; i < arr.length; i++)
+        if (arr[i] === value)
+            indexes.push(i);
+    return indexes;
 }
 
 /**

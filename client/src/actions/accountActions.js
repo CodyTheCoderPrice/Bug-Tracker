@@ -1,5 +1,6 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import { isEmpty, areAnyObjectPropsEmpty, getAllIndexesContainingValueFromArray } from "../utils";
 // Container names used to work with the redux state
 import { ACCOUNT_CONTAINER } from "./constants/containerNames";
 import {
@@ -60,6 +61,21 @@ import {
  * );
  */
 export const setAuthentication = (decodedToken) => (dispatch) => {
+	/* 
+	// Move to reducer
+	const validationRulesFailed = getAllIndexesContainingValueFromArray([
+		!isEmpty(decodedToken),
+		!areAnyObjectPropsEmpty(decodedToken),
+		typeof decodedToken.account_id === "number",
+		typeof decodedToken.iat === "number",
+		typeof decodedToken.exp === "number",
+	], false);
+
+	if (validationRulesFailed.length > 0) {
+		console.log(`WARNING! setAuthentication failed validation rule(s): ${validationRulesFailed}`);
+		return;
+	} */
+
 	dispatch({
 		container: ACCOUNT_CONTAINER,
 		type: SET_AUTHENTICATION,
