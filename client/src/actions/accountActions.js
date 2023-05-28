@@ -1,6 +1,10 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import { isEmpty, areAnyObjectPropsEmpty, getAllIndexesContainingValueFromArray } from "../utils";
+import {
+	isEmpty,
+	areAnyObjectPropsEmpty,
+	getAllIndexesContainingValueFromArray,
+} from "../utils";
 // Container names used to work with the redux state
 import { ACCOUNT_CONTAINER } from "./constants/containerNames";
 import {
@@ -61,26 +65,31 @@ import {
  * );
  */
 export const setAuthentication = (decodedToken) => (dispatch) => {
-	/* 
-	// Move to reducer
-	const validationRulesFailed = getAllIndexesContainingValueFromArray([
-		!isEmpty(decodedToken),
-		!areAnyObjectPropsEmpty(decodedToken),
-		typeof decodedToken.account_id === "number",
-		typeof decodedToken.iat === "number",
-		typeof decodedToken.exp === "number",
-	], false);
+	try {
+		const validationRulesFailed = getAllIndexesContainingValueFromArray(
+			[
+				!isEmpty(decodedToken),
+				!areAnyObjectPropsEmpty(decodedToken),
+				typeof decodedToken.account_id === "number",
+				typeof decodedToken.iat === "number",
+				typeof decodedToken.exp === "number",
+			],
+			false
+		);
 
-	if (validationRulesFailed.length > 0) {
-		console.log(`WARNING! setAuthentication failed validation rule(s): ${validationRulesFailed}`);
-		return;
-	} */
+		if (validationRulesFailed.length > 0) {
+			throw `ERROR: setAuthentication failed validation rule(s): ${validationRulesFailed}`;
+		}
 
-	dispatch({
-		container: ACCOUNT_CONTAINER,
-		type: SET_AUTHENTICATION,
-		decodedToken: decodedToken,
-	});
+		dispatch({
+			container: ACCOUNT_CONTAINER,
+			type: SET_AUTHENTICATION,
+			decodedToken: decodedToken,
+		});
+	} catch (err) {
+		// Throws instead of print since function is intended to be called by login
+		throw err;
+	}
 };
 
 /**
@@ -272,24 +281,32 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			// All data for the account was sent from the login route and will
 			// be set into redux from here so only this one HTTP call is needed
 			const decodedToken = jwt_decode(jwToken);
-			dispatch(setAuthentication(decodedToken));
-			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
-			dispatch(setAccount(account));
-			dispatch(setAccountSettings(accountSettings));
-			dispatch(setThemes(themes));
-			dispatch(setSortCategories(sortCategories));
-			dispatch(setProjects(projects));
-			dispatch(setBugs(bugs));
-			dispatch(setComments(comments));
 
-			// Login successful, so switching to the Home component to follow
-			// the rule documentated in setWhichGeneralComponentsDisplay
+			try {
+				dispatch(setAuthentication(decodedToken));
+				dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
+				dispatch(setAccount(account));
+				dispatch(setAccountSettings(accountSettings));
+				dispatch(setThemes(themes));
+				dispatch(setSortCategories(sortCategories));
+				dispatch(setProjects(projects));
+				dispatch(setBugs(bugs));
+				dispatch(setComments(comments));
+			} catch (err) {
+				console.log(err);
+				dispatch(
+					seBackendErrors({
+						loginServerData: "Login error: recieved bad data from server",
+					})
+				);
+				return;
+			}
+
 			dispatch(
 				setWhichGeneralComponentsDisplay({ homeComponentShouldDisplay: true })
 			);
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
 			dispatch(seBackendErrors(err.response.data.backendErrors));
 		});
 };

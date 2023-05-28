@@ -128,6 +128,7 @@ export default function Login(props) {
 						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
 						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
 						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+						reduxState[GENERAL_CONTAINER].backendErrors.loginServerData,
 					],
 					"backend-errors"
 				)}

@@ -40,6 +40,7 @@ const initialState = {};
  * 	validationComment: (string|undefined),
  * 	validationCreateCommentDescription: (string|undefined),
  * 	validationEditCommentDescription: (string|undefined),
+ * 	loginServerData: (string|undefined),
  * }|undefined)} state - Current Object (in the redux state) for the backend errors 
  * containing info on what went wrong during any given HTTP request
  * @param {Object} action - Object with a 'container' property (determins where 
@@ -72,6 +73,7 @@ const initialState = {};
  * 	validationComment: (string|undefined),
  * 	validationCreateCommentDescription: (string|undefined),
  * 	validationEditCommentDescription: (string|undefined),
+ * 	loginServerData: (string|undefined),
  * }} Object containing info on what went wrong during any given HTTP request
  */
 export default function backendErrorReducer(state = initialState, action) {

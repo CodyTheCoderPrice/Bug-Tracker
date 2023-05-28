@@ -385,6 +385,7 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
  * 	validationComment: (string|undefined),
  * 	validationCreateCommentDescription: (string|undefined),
  * 	validationEditCommentDescription: (string|undefined),
+ * 	loginServerData: (string|undefined),
  * }} backendErrors - Object containing info on what went wrong during an http
  * request
  *

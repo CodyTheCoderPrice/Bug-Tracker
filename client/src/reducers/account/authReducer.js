@@ -18,7 +18,7 @@ const initialState = {
  * is to be another way of telling if an account is currently logged into the
  * app (can also tell by checking if jwToken is present in localStorage), and
  * the purpose of the 'decodedToken' Object is to give the frontend access to
- * the jwToken decoded (not currently used for anything, but is nice to have).
+ * the decoded jwToken (not currently being used for anything, but kept encase).
  *
  * @param {({
  * 	isAuthenticated: Boolean,
