@@ -79,7 +79,7 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 
 		if (validationRulesFailed.length > 0) {
 			throw new Error(
-				`ERROR: setAuthentication failed validation rule(s): ${validationRulesFailed}`
+				`Failed validation rule(s): ${validationRulesFailed}`
 			);
 		}
 
@@ -295,7 +295,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 				dispatch(setBugs(bugs));
 				dispatch(setComments(comments));
 			} catch (err) {
-				console.log(err);
+				console.error(err);
 				dispatch(
 					setErrorMessages({
 						loginServerData: "Login error: recieved bad data from server",

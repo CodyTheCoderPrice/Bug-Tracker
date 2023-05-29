@@ -23,9 +23,9 @@ module.exports = async (req, res, next) => {
 		);
 
 		if (accountPassword.rowCount === 0) {
-			// returns error and next middle/function is not called
-			errorMessages.account = "Account not found";
-			return res.status(403).json({ success: false, errorMessages });
+			errorMessages.databaseAccountNotFound = "Account not found in database";
+			// Throws error so next middle/function is not called
+			throw new Error (errorMessages.databaseAccountNotFound);
 		}
 
 		const passwordMatches = await bcrypt.compare(
@@ -34,16 +34,22 @@ module.exports = async (req, res, next) => {
 		);
 
 		if (!passwordMatches) {
-			// returns error and next middle/function is not called
-			errorMessages.currentPassword = "Incorrect current password";
-			return res.status(400).json({ success: false, errorMessages });
+			errorMessages.authWrongCurrentPassword = "Incorrect current password";
+			// Throws error so next middle/function is not called
+			throw new Error (errorMessages.authWrongCurrentPassword);
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		errorMessages.authorization = "Authorization error while checking password";
+
+		// Covering all potential errors
+		if (Object.keys(errorMessages).length < 1) {
+			errorMessages.backendPasswordAuthorization =
+				"Backend error while authorizing password";
+		}
+
 		return res.status(403).json({ success: false, errorMessages });
 	}
 };

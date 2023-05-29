@@ -125,7 +125,6 @@ export default function AccountSidebarEditAppearance() {
 			</div>
 			{getErrorMessagesJSX(
 				[
-					reduxState[GENERAL_CONTAINER].errorMessages.authorization,
 					reduxState[GENERAL_CONTAINER].errorMessages.serverSettings,
 					reduxState[GENERAL_CONTAINER].errorMessages.serverConnection,
 				],

@@ -124,7 +124,11 @@ export default function AccountModalEditEmail() {
 					}
 				/>
 				{getErrorMessagesJSX(
-					reduxState[GENERAL_CONTAINER].errorMessages.currentPassword,
+					[
+						reduxState[GENERAL_CONTAINER].errorMessages.currentPassword,
+						reduxState[GENERAL_CONTAINER].errorMessages
+							.authWrongCurrentPassword,
+					],
 					"error-messages" +
 						getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
@@ -144,7 +148,8 @@ export default function AccountModalEditEmail() {
 				{getErrorMessagesJSX(
 					[
 						reduxState[GENERAL_CONTAINER].errorMessages.validationAccount,
-						reduxState[GENERAL_CONTAINER].errorMessages.authorization,
+						reduxState[GENERAL_CONTAINER].errorMessages.databaseAccountNotFound,
+						reduxState[GENERAL_CONTAINER].errorMessages.backendPasswordAuthorization,
 						reduxState[GENERAL_CONTAINER].errorMessages.serverAccount,
 						reduxState[GENERAL_CONTAINER].errorMessages.serverConnection,
 					],
