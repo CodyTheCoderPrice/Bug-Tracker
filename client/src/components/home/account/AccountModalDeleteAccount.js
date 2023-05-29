@@ -5,12 +5,12 @@ import {
 	GENERAL_CONTAINER,
 	ACCOUNT_CONTAINER,
 } from "../../../actions/constants/containerNames";
-import { deleteAccount, clearBackendErrors } from "../../../actions";
+import { deleteAccount, clearAllErrorMessages } from "../../../actions";
 import {
 	getAccountModalDeleteAccountComponentCapitalDeleteElementTextColorClassNameForLightOrDarkMode,
 	getAccountModalDeleteAccountComponentFormInputElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
-	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getBackendErrorsJSX,
+	getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode,
+	getErrorMessagesJSX,
 	getAccountModalDeleteAccountComponentFormSubmitElementBackgroundColorClassNameForLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	setTrueForOnlyAccountModalEditInfo,
@@ -40,11 +40,11 @@ export default function AccountModalDeleteAccount() {
 		currentPassword: "",
 	});
 
-	// Clears current backend errors when closing the component. Otherwise the
-	// ...backend errors may presist and appear when component is re-openned.
+	// Clears current error messages when closing the component. Otherwise the
+	// ...error messages may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
-			dispatch(clearBackendErrors());
+			dispatch(clearAllErrorMessages());
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -103,11 +103,11 @@ export default function AccountModalDeleteAccount() {
 						)
 					}
 				/>
-				{getBackendErrorsJSX(
-					reduxState[GENERAL_CONTAINER].backendErrors
+				{getErrorMessagesJSX(
+					reduxState[GENERAL_CONTAINER].errorMessages
 						.validationAccountTypeOutCheck,
-					"backend-errors" +
-						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+					"error-messages" +
+						getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 				)}
@@ -127,10 +127,10 @@ export default function AccountModalDeleteAccount() {
 						)
 					}
 				/>
-				{getBackendErrorsJSX(
-					reduxState[GENERAL_CONTAINER].backendErrors.currentPassword,
-					"backend-errors" +
-						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+				{getErrorMessagesJSX(
+					reduxState[GENERAL_CONTAINER].errorMessages.currentPassword,
+					"error-messages" +
+						getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 				)}
@@ -145,15 +145,15 @@ export default function AccountModalDeleteAccount() {
 				>
 					Delete
 				</button>
-				{getBackendErrorsJSX(
+				{getErrorMessagesJSX(
 					[
-						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
-						reduxState[GENERAL_CONTAINER].backendErrors.authorization,
-						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
-						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+						reduxState[GENERAL_CONTAINER].errorMessages.validationAccount,
+						reduxState[GENERAL_CONTAINER].errorMessages.authorization,
+						reduxState[GENERAL_CONTAINER].errorMessages.serverAccount,
+						reduxState[GENERAL_CONTAINER].errorMessages.serverConnection,
 					],
-					"backend-errors" +
-						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+					"error-messages" +
+						getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 				)}

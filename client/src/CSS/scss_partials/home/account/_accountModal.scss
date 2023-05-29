@@ -82,8 +82,8 @@
 		}
 	}
 
-	.backend-errors {
-		@include m.backend-error();
+	.error-messages {
+		@include m.error-messages();
 	}
 
 	.form__submit {

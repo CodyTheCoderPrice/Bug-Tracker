@@ -128,18 +128,18 @@
 	font-size: 26px;
 }
 
-@mixin backend-error() {
+@mixin error-messages() {
 	display: block;
 	padding-left: 5px;
-	color: v.$mode-common-backend-errors-text-color-light;
-	font-size: v.$common-backend-errors-font-size;
+	color: v.$mode-common-error-messages-text-color-light;
+	font-size: v.$common-error-messages-font-size;
 
 	i {
 		padding-right: 8px;
 	}
 
-	// Adds spacing when multiple backend-errors appear back to back
-	+ .backend-errors {
+	// Adds spacing when multiple error-messages appear back to back
+	+ .error-messages {
 		margin-top: 5px;
 	}
 }

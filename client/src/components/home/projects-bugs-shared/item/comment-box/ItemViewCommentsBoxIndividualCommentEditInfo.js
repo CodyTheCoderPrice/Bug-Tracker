@@ -10,7 +10,7 @@ import {
 
 import {
 	updateComment,
-	clearBackendErrors,
+	clearAllErrorMessages,
 	setWhichCommentComponentsDisplay,
 } from "../../../../../actions";
 
@@ -19,8 +19,8 @@ import {
 	getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonItemViewCommentBoxIndividualCommentComponentIconButtonElementTextColorClassNameForLightOrDarkMode,
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
-	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getBackendErrorsJSX,
+	getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode,
+	getErrorMessagesJSX,
 	getCommonFormSubmitButtonElementBackgroundColorWithHoverAndFocusClassNameForTheme,
 	getCommonItemViewComponentFormCancelButtonElementBackgroundColorClassNameForLightOrDarkMode,
 } from "../../../../../utils";
@@ -47,11 +47,11 @@ export default function ItemViewCommentsBoxIndividualCommentEditInfo(props) {
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnterPress("js-edit-comment-form");
 
-	// Clears current backend errors when closing the component. Otherwise the
-	// ...backend errors may presist and appear when component is re-openned.
+	// Clears current error messages when closing the component. Otherwise the
+	// ...error messages may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
-			dispatch(clearBackendErrors());
+			dispatch(clearAllErrorMessages());
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -102,7 +102,7 @@ export default function ItemViewCommentsBoxIndividualCommentEditInfo(props) {
 	};
 
 	const cancelEditingComment = () => {
-		dispatch(clearBackendErrors());
+		dispatch(clearAllErrorMessages());
 		dispatch(setWhichCommentComponentsDisplay({}));
 	};
 
@@ -160,16 +160,16 @@ export default function ItemViewCommentsBoxIndividualCommentEditInfo(props) {
 			>
 				<FontAwesomeIcon icon={faTrashCan} aria-hidden="true" />
 			</div>
-			{getBackendErrorsJSX(
+			{getErrorMessagesJSX(
 				[
-					reduxState[GENERAL_CONTAINER].backendErrors
+					reduxState[GENERAL_CONTAINER].errorMessages
 						.validationEditCommentDescription,
-					reduxState[GENERAL_CONTAINER].backendErrors.validationComment,
-					reduxState[GENERAL_CONTAINER].backendErrors.serverItem,
-					reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+					reduxState[GENERAL_CONTAINER].errorMessages.validationComment,
+					reduxState[GENERAL_CONTAINER].errorMessages.serverItem,
+					reduxState[GENERAL_CONTAINER].errorMessages.serverConnection,
 				],
-				"backend-errors" +
-					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+				"error-messages" +
+					getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 			)}

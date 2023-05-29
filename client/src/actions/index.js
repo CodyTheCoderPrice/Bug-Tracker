@@ -12,7 +12,7 @@ import {
 	SET_THEMES,
 	SET_SORT_CATEGORIES,
 	SET_PRIORITY_STATUS,
-	SET_BACKEND_ERRORS,
+	SET_ERROR_MESSAGES,
 } from "./constants/types";
 
 // Exporting redux dispatch functions from all other action files
@@ -350,14 +350,16 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 };
 
 /**
- * Sets Object containing what went wrong during an http request (e.g. invalid
- * user inputs, server errors, ect.) in 'backendErrors' property in
- * 'GENERAL_CONTAINER' of the redux state.
- *
- * Note: The purpose of this info is to mostly be used to be displayed to the
- * user to let them know why an API request failed, but may also be used for
- * security (e.g. to loggout an account if an API request is made with an
- * expired jwTowken).
+ * Used to set 'errorMessages' property containing error messages — recieved from
+ * failed HTTP requests or redux actions recieving invalid data (e.g. user enters 
+ * wrong password when logging in or invalid data is recieved from the database)
+ * — in 'GENERAL_CONTAINER' of the redux state.
+ * 
+ * Note: The purpose of the 'errorMessages' property is to be used to display
+ * error messages to the user so they can know why their attempt failed and 
+ * possibly how to fix it. These messages should be displayed in the component 
+ * from which they occured (e.g. an error message for failed login attempt should
+ * display in AuthenticationLogin component).
  *
  * @param {{
  * 	server: (string|undefined),
@@ -386,14 +388,13 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
  * 	validationCreateCommentDescription: (string|undefined),
  * 	validationEditCommentDescription: (string|undefined),
  * 	loginServerData: (string|undefined),
- * }} backendErrors - Object containing info on what went wrong during an http
- * request
+ * }} errorMessages - Object containing error messages from failed HTTP 
+ * requests or redux actions recieving invalid data
  *
  * @example
- * // Backend errors for invalid input when registering an account. The
- * // ...dispatch function is from useDispatch() imported from react-redux.
+ * // error messages for invalid input when registering an account
  * dispatch(
- * 	seBackendErrors({
+ * 	setErrorMessages({
  * 		validationAccountFirstName: "First name required",
  * 		validationAccountLastName: "Last name longer than 35 characters",
  * 		validationAccountEmail: "Email is invalid",
@@ -402,37 +403,36 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
  * );
  *
  * @example
- * // Clears backend errors. The dispatch function is from useDispatch()
- * // ...imported from react-redux.
- * dispatch(seBackendErrors({}));
+ * // Clears all error messages
+ * dispatch(setErrorMessages({}));
  */
-export const seBackendErrors = (backendErrors) => (dispatch) => {
+export const setErrorMessages = (errorMessages) => (dispatch) => {
 	dispatch({
 		container: GENERAL_CONTAINER,
-		type: SET_BACKEND_ERRORS,
+		type: SET_ERROR_MESSAGES,
 		// If undefined, then there was an issue connecting to the server
-		backendErrors:
-			backendErrors !== undefined
-				? backendErrors
+		errorMessages:
+			errorMessages !== undefined
+				? errorMessages
 				: { serverConnection: "Server connection error" },
 	});
 };
 
 /**
- * Clears info in 'backendErrors' property in 'GENERAL_CONTAINER' of the redux
- * state.
+ * Clears error messages in 'errorMessages' property in 'GENERAL_CONTAINER' of 
+ * the redux state.
  *
  * Note: The purpose of this to be used when closing a component that displays
- * backend errors, so if any backend errors are currently being displayed, they
- * do not continue to display when the user navigates back to the component
- * later, as this may confuse the user.
+ * error messages, so if any error messages are currently being displayed, they
+ * do not continue to display if the user navigates back to the component
+ * later, as the error would no longer be relevant and would confuse the user.
  *
  * @example
- * // The dispatch function is from useDispatch() imported from react-redux.
- * dispatch(clearBackendErrors());
+ * // Clears all error messages
+ * dispatch(clearAllErrorMessages());
  */
-export const clearBackendErrors = () => (dispatch) => {
-	dispatch(seBackendErrors({}));
+export const clearAllErrorMessages = () => (dispatch) => {
+	dispatch(setErrorMessages({}));
 };
 
 /**

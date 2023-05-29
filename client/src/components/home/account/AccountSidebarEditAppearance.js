@@ -8,8 +8,8 @@ import {
 import { updateAccountSettings } from "../../../actions";
 import {
 	getCommonStandardBackgroundColorClassNameForTheme,
-	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getBackendErrorsJSX,
+	getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode,
+	getErrorMessagesJSX,
 } from "../../../utils";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -123,14 +123,14 @@ export default function AccountSidebarEditAppearance() {
 					/>
 				</div>
 			</div>
-			{getBackendErrorsJSX(
+			{getErrorMessagesJSX(
 				[
-					reduxState[GENERAL_CONTAINER].backendErrors.authorization,
-					reduxState[GENERAL_CONTAINER].backendErrors.serverSettings,
-					reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+					reduxState[GENERAL_CONTAINER].errorMessages.authorization,
+					reduxState[GENERAL_CONTAINER].errorMessages.serverSettings,
+					reduxState[GENERAL_CONTAINER].errorMessages.serverConnection,
 				],
-				"backend-errors" +
-					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+				"error-messages" +
+					getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 			)}

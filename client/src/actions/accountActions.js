@@ -15,7 +15,7 @@ import {
 // Dispatch functions
 import {
 	createHeader,
-	seBackendErrors,
+	setErrorMessages,
 	resetRedux,
 	setWhichGeneralComponentsDisplay,
 	setWhichAccountComponentsDisplay,
@@ -25,7 +25,7 @@ import {
 	setProjects,
 	setBugs,
 	setComments,
-	clearBackendErrors,
+	clearAllErrorMessages,
 } from "./index";
 
 /**
@@ -78,7 +78,9 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 		);
 
 		if (validationRulesFailed.length > 0) {
-			throw `ERROR: setAuthentication failed validation rule(s): ${validationRulesFailed}`;
+			throw new Error(
+				`ERROR: setAuthentication failed validation rule(s): ${validationRulesFailed}`
+			);
 		}
 
 		dispatch({
@@ -220,8 +222,8 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
 
@@ -295,7 +297,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			} catch (err) {
 				console.log(err);
 				dispatch(
-					seBackendErrors({
+					setErrorMessages({
 						loginServerData: "Login error: recieved bad data from server",
 					})
 				);
@@ -307,7 +309,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
 
@@ -336,10 +338,10 @@ export const retrieveAccount = () => (dispatch) => {
 			dispatch(setAccount(account));
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -372,10 +374,10 @@ export const retrieveAccountSettings = () => (dispatch) => {
 			dispatch(setAccountSettings(accountSettings));
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -424,10 +426,10 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 			dispatch(setComments(comments));
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -478,10 +480,10 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -534,9 +536,9 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 		.catch((err) => {
 			// Closes the AccountModal and re-opens the AccountSidebar (so the
 			// ...user can see their updated email)
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -590,10 +592,10 @@ export const updateAccountPassword =
 				);
 			})
 			.catch((err) => {
-				// Sets backend errors for what went wrong to be displayed to user
-				dispatch(seBackendErrors(err.response.data.backendErrors));
+				// Sets error messages for what went wrong to be displayed to user
+				dispatch(setErrorMessages(err.response.data.errorMessages));
 
-				if (err.response.data.backendErrors.jwToken !== undefined) {
+				if (err.response.data.errorMessages.jwToken !== undefined) {
 					// jwToken was invalid (likely expired), so user is logged out
 					dispatch(logoutAccount());
 					console.log("Logged out user due to invalid/expired jwToken");
@@ -652,17 +654,17 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 			const { settings } = res.data;
 			dispatch(setAccountSettings(settings));
 
-			// Backend errors cleared since AccountModalEditSettings component
-			// doesn't get closed on success, meaning backend errors can remain.
+			// Error messages cleared since AccountModalEditSettings component
+			// doesn't get closed on success, meaning error messages can remain.
 			// The reason the component isn't closed is because the user may
 			// likely decide to change other settings as well
-			dispatch(clearBackendErrors());
+			dispatch(clearAllErrorMessages());
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -701,8 +703,8 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
 			dispatch(logoutAccount());
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
 
@@ -712,13 +714,12 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
  * opens the Login component).
  *
  * Note: The purpose of this dispatch function is to be used via the AccountSidebar
- * component to allow the user to willfully logout of their account. It's also
- * used by other dispatch functions to logout the currently logged in account if
- * an error is returned from the backend during an HTTP request saying their
- * jwToken has expired.
+ * component to allow the user to logout of their account. It's also used by
+ * other dispatch functions to logout the user if an error is returned from the
+ * backend during an HTTP request saying their jwToken has expired.
  *
  * @example
- * // The dispatch function is from useDispatch() imported from react-redux.
+ * // Logs out user
  * dispatch(logoutAccount());
  */
 export const logoutAccount = () => (dispatch) => {

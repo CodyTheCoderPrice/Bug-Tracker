@@ -11,7 +11,7 @@ const isEmpty = require("is-empty");
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		let { first_name, last_name } = req.body;
@@ -21,27 +21,27 @@ module.exports = (req, res, next) => {
 		last_name = !isEmpty(last_name) ? last_name : "";
 
 		if (Validator.isEmpty(first_name)) {
-			backendErrors.validationAccountNewFirstName = "First name required";
+			errorMessages.validationAccountNewFirstName = "First name required";
 		} else if (!Validator.isLength(first_name, { max: 35 })) {
-			backendErrors.validationAccountNewFirstName = "First name longer than 35 characters";
+			errorMessages.validationAccountNewFirstName = "First name longer than 35 characters";
 		}
 
 		if (Validator.isEmpty(last_name)) {
-			backendErrors.validationAccountNewLastName = "Last name required";
+			errorMessages.validationAccountNewLastName = "Last name required";
 		} else if (!Validator.isLength(last_name, { max: 35 })) {
-			backendErrors.validationAccountNewLastName = "Last name longer than 35 characters";
+			errorMessages.validationAccountNewLastName = "Last name longer than 35 characters";
 		}
 
-		if (!isEmpty(backendErrors)) {
+		if (!isEmpty(errorMessages)) {
 			// returns error and next middle/function is not called
-			return res.status(400).json({ success: false, backendErrors });
+			return res.status(400).json({ success: false, errorMessages });
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.validationAccount = "Validation Error";
-		return res.status(403).json({ success: false, backendErrors });
+		errorMessages.validationAccount = "Validation Error";
+		return res.status(403).json({ success: false, errorMessages });
 	}
 };

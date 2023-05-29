@@ -24,7 +24,6 @@ export const SET_SEARCH_FILTER_SORT = "SET_SEARCH_FILTER_SORT";
 // Mass delete
 export const SET_MASS_DELETE_LIST = "SET_MASS_DELETE_LIST";
 // Errors
-export const SET_BACKEND_ERRORS = "SET_BACKEND_ERRORS";
-// Should be used inside all container reducers for resetting them to their 
-// initial state
+export const SET_ERROR_MESSAGES = "SET_ERROR_MESSAGES";
+// Should be used in all container reducers for resetting to their initial state
 export const RESET_CONTAINER = "RESET_CONTAINER";

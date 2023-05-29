@@ -31,7 +31,7 @@ const moment = require("moment");
 // Register account
 //==================
 router.route("/register").post(validateRegisterInput, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		const { email, password, first_name, last_name } = req.body;
@@ -46,8 +46,8 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 
 		// Verify that email does not already exist
 		if (activeAccountsForEmail.rowCount > 0) {
-			backendErrors = { validationAccountEmail: "Email already in use" };
-			return res.status(400).json({ success: false, backendErrors });
+			errorMessages = { validationAccountEmail: "Email already in use" };
+			return res.status(400).json({ success: false, errorMessages });
 		}
 
 		// Generate hashed password
@@ -90,16 +90,16 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 					return res.json({ success: true, message: "Account created" });
 				} catch (err) {
 					console.error(err.message);
-					backendErrors.serverAccount =
+					errorMessages.serverAccount =
 						"Server error while registering account";
-					return res.status(500).json({ success: false, backendErrors });
+					return res.status(500).json({ success: false, errorMessages });
 				}
 			});
 		});
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverAccount = "Server error while registering account";
-		return res.status(500).json({ success: false, backendErrors });
+		errorMessages.serverAccount = "Server error while registering account";
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 
@@ -107,7 +107,7 @@ router.route("/register").post(validateRegisterInput, async (req, res) => {
 // Login account
 //===============
 router.route("/login").post(validateLoginInput, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		const { email, password } = req.body;
@@ -122,8 +122,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 
 		// Verifies email is registered
 		if (accountIdAndPassword.rowCount === 0) {
-			backendErrors = { validationAccountEmail: "Email unregistered" };
-			return res.status(401).json({ success: false, backendErrors });
+			errorMessages = { validationAccountEmail: "Email unregistered" };
+			return res.status(401).json({ success: false, errorMessages });
 		}
 
 		const passwordMatch = await bcrypt.compare(
@@ -133,8 +133,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 
 		// Verfies that password is correct
 		if (!passwordMatch) {
-			backendErrors = { validationAccountPassword: "Incorrect password" };
-			return res.status(401).json({ success: false, backendErrors });
+			errorMessages = { validationAccountPassword: "Incorrect password" };
+			return res.status(401).json({ success: false, errorMessages });
 		}
 
 		// Everything for account is pulled here so login is only one HTTP call
@@ -180,8 +180,8 @@ router.route("/login").post(validateLoginInput, async (req, res) => {
 		);
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverAccount = "Server error while logging in";
-		return res.status(500).json({ success: false, backendErrors });
+		errorMessages.serverAccount = "Server error while logging in";
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 
@@ -205,7 +205,7 @@ async function getAccount(account_id) {
 }
 
 router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -221,8 +221,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		return res.json({ success: true, account: account.rows[0] });
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverAccount = "Server error while retrieving account";
-		return res.status(500).json({ success: false, backendErrors });
+		errorMessages.serverAccount = "Server error while retrieving account";
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 
@@ -248,7 +248,7 @@ async function getAccountSettings(account_id) {
 router
 	.route("/retrieve-settings")
 	.post(tokenAuthorization, async (req, res) => {
-		let backendErrors = {};
+		let errorMessages = {};
 
 		try {
 			// Declared in the tokenAuthorization middleware
@@ -267,9 +267,9 @@ router
 			});
 		} catch (err) {
 			console.error(err.message);
-			backendErrors.serverAccount =
+			errorMessages.serverAccount =
 				"Server error while retrieving account settings";
-			return res.status(500).json({ success: false, backendErrors });
+			return res.status(500).json({ success: false, errorMessages });
 		}
 	});
 
@@ -322,7 +322,7 @@ async function getEverythingForAccount(account_id) {
 router
 	.route("/retrieve-everything")
 	.post(tokenAuthorization, async (req, res) => {
-		let backendErrors = {};
+		let errorMessages = {};
 
 		try {
 			// Declared in the tokenAuthorization middleware
@@ -354,9 +354,9 @@ router
 			});
 		} catch (err) {
 			console.error(err.message);
-			backendErrors.serverAccount =
+			errorMessages.serverAccount =
 				"Server error while retrieving everything for account";
-			return res.status(500).json({ success: false, backendErrors });
+			return res.status(500).json({ success: false, errorMessages });
 		}
 	});
 
@@ -368,7 +368,7 @@ module.exports = router;
 router
 	.route("/update-info")
 	.post(tokenAuthorization, validateInfoUpdateInput, async (req, res) => {
-		let backendErrors = {};
+		let errorMessages = {};
 
 		try {
 			// Declared in the tokenAuthorization middleware
@@ -388,8 +388,8 @@ router
 			return res.json({ success: true, account: updatedAccount.rows[0] });
 		} catch (err) {
 			console.error(err.message);
-			backendErrors.serverAccount = "Server error while updating account info";
-			return res.status(500).json({ success: false, backendErrors });
+			errorMessages.serverAccount = "Server error while updating account info";
+			return res.status(500).json({ success: false, errorMessages });
 		}
 	});
 
@@ -403,7 +403,7 @@ router
 		validateEmailUpdateInput,
 		passwordAuthentication,
 		async (req, res) => {
-			let backendErrors = {};
+			let errorMessages = {};
 
 			try {
 				// Declared in the tokenAuthorization middleware
@@ -420,8 +420,8 @@ router
 				);
 
 				if (activeAccountsForEmail.rowCount > 0) {
-					backendErrors = { validationAccountEmail: "Email already in use" };
-					return res.status(400).json({ success: false, backendErrors });
+					errorMessages = { validationAccountEmail: "Email already in use" };
+					return res.status(400).json({ success: false, errorMessages });
 				}
 
 				const updatedAccount = await pool.query(
@@ -434,9 +434,9 @@ router
 				return res.json({ success: true, account: updatedAccount.rows[0] });
 			} catch (err) {
 				console.error(err.message);
-				backendErrors.serverAccount =
+				errorMessages.serverAccount =
 					"Server error while updating account email";
-				return res.status(500).json({ success: false, backendErrors });
+				return res.status(500).json({ success: false, errorMessages });
 			}
 		}
 	);
@@ -451,7 +451,7 @@ router
 		validatePasswordUpdateInput,
 		passwordAuthentication,
 		(req, res) => {
-			let backendErrors = {};
+			let errorMessages = {};
 
 			try {
 				// Declared in the tokenAuthorization middleware
@@ -477,9 +477,9 @@ router
 				});
 			} catch (err) {
 				console.error(err.message);
-				backendErrors.serverAccount =
+				errorMessages.serverAccount =
 					"Server error while updating account password";
-				return res.status(500).json({ success: false, backendErrors });
+				return res.status(500).json({ success: false, errorMessages });
 			}
 		}
 	);
@@ -494,7 +494,7 @@ router
 		validateDeleteAccountInput,
 		passwordAuthentication,
 		async (req, res) => {
-			let backendErrors = {};
+			let errorMessages = {};
 
 			try {
 				// Declared in the tokenAuthorization middleware
@@ -509,8 +509,8 @@ router
 				return res.json({ success: true, message: "Account Deleted" });
 			} catch (err) {
 				console.error(err.message);
-				backendErrors.serverAccount = "Server error while deleting account";
-				return res.status(500).json({ success: false, backendErrors });
+				errorMessages.serverAccount = "Server error while deleting account";
+				return res.status(500).json({ success: false, errorMessages });
 			}
 		}
 	);
@@ -519,7 +519,7 @@ router
 // Update settings
 //=================
 router.route("/update-settings").post(tokenAuthorization, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -562,9 +562,9 @@ router.route("/update-settings").post(tokenAuthorization, async (req, res) => {
 		return res.json({ success: true, settings: updatedSettings.rows[0] });
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverSettings =
+		errorMessages.serverSettings =
 			"Server error while updating account settings";
-		return res.status(500).json({ success: false, backendErrors });
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 

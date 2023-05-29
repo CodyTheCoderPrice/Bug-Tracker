@@ -21,7 +21,7 @@ router
 		validateBugInput,
 		correctDatesFormat,
 		async (req, res) => {
-			let backendErrors = {};
+			let errorMessages = {};
 
 			try {
 				// Declared in the tokenAuthorization middleware
@@ -82,8 +82,8 @@ router
 				res.json({ success: true, bugs: allBugsForAccount.rows });
 			} catch (err) {
 				console.error(err.message);
-				backendErrors.serverItem = "Server error while creating bug";
-				return res.status(500).json({ success: false, backendErrors });
+				errorMessages.serverItem = "Server error while creating bug";
+				return res.status(500).json({ success: false, errorMessages });
 			}
 		}
 	);
@@ -120,7 +120,7 @@ async function getAllBugsForAccount(account_id) {
 }
 
 router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -136,8 +136,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, bugs: allBugsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverItem = "Server error while retrieving bugs";
-		return res.status(500).json({ success: false, backendErrors });
+		errorMessages.serverItem = "Server error while retrieving bugs";
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 
@@ -151,7 +151,7 @@ router
 		validateBugInput,
 		correctDatesFormat,
 		async (req, res) => {
-			let backendErrors = {};
+			let errorMessages = {};
 
 			try {
 				// Declared in the tokenAuthorization middleware
@@ -212,8 +212,8 @@ router
 				res.json({ success: true, bugs: allBugsForAccount.rows });
 			} catch (err) {
 				console.error(err.message);
-				backendErrors.serverItem = "Server error while updating bug";
-				return res.status(500).json({ success: false, backendErrors });
+				errorMessages.serverItem = "Server error while updating bug";
+				return res.status(500).json({ success: false, errorMessages });
 			}
 		}
 	);
@@ -222,7 +222,7 @@ router
 // Delete bug
 //============
 router.route("/delete").post(tokenAuthorization, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -272,8 +272,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverItem = "Server error while deleting bug";
-		return res.status(500).json({ success: false, backendErrors });
+		errorMessages.serverItem = "Server error while deleting bug";
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 
@@ -281,7 +281,7 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 // Delete multiple bugs
 //=======================
 router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -344,8 +344,8 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverItem = "Server error while deleting bug";
-		return res.status(500).json({ success: false, backendErrors });
+		errorMessages.serverItem = "Server error while deleting bug";
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 

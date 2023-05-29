@@ -10,7 +10,7 @@ const isEmpty = require("is-empty");
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		let { email, password, first_name, last_name } = req.body;
@@ -22,42 +22,42 @@ module.exports = (req, res, next) => {
 		last_name = !isEmpty(last_name) ? last_name : "";
 
 		if (Validator.isEmpty(first_name)) {
-			backendErrors.validationAccountFirstName = "First name required";
+			errorMessages.validationAccountFirstName = "First name required";
 		} else if (!Validator.isLength(first_name, { max: 35 })) {
-			backendErrors.validationAccountFirstName =
+			errorMessages.validationAccountFirstName =
 				"First name longer than 35 characters";
 		}
 
 		if (Validator.isEmpty(last_name)) {
-			backendErrors.validationAccountLastName = "Last name required";
+			errorMessages.validationAccountLastName = "Last name required";
 		} else if (!Validator.isLength(last_name, { max: 35 })) {
-			backendErrors.validationAccountLastName =
+			errorMessages.validationAccountLastName =
 				"Last name longer than 35 characters";
 		}
 
 		if (Validator.isEmpty(email)) {
-			backendErrors.validationAccountEmail = "Email required";
+			errorMessages.validationAccountEmail = "Email required";
 		} else if (!Validator.isEmail(email)) {
-			backendErrors.validationAccountEmail = "Email is invalid";
+			errorMessages.validationAccountEmail = "Email is invalid";
 		}
 
 		if (Validator.isEmpty(password)) {
-			backendErrors.validationAccountPassword = "Password required";
+			errorMessages.validationAccountPassword = "Password required";
 		} else if (!Validator.isLength(password, { min: 6, max: 30 })) {
-			backendErrors.validationAccountPassword =
+			errorMessages.validationAccountPassword =
 				"Password not between 6-30 characters";
 		}
 
-		if (!isEmpty(backendErrors)) {
+		if (!isEmpty(errorMessages)) {
 			// returns error and next middle/function is not called
-			return res.status(400).json({ success: false, backendErrors });
+			return res.status(400).json({ success: false, errorMessages });
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.validationAccount = "Validation Error";
-		return res.status(403).json({ success: false, backendErrors });
+		errorMessages.validationAccount = "Validation Error";
+		return res.status(403).json({ success: false, errorMessages });
 	}
 };

@@ -22,7 +22,7 @@ router
 		validateProjectInput,
 		correctDatesFormat,
 		async (req, res) => {
-			let backendErrors = {};
+			let errorMessages = {};
 
 			try {
 				// Declared in the tokenAuthorization middleware
@@ -72,8 +72,8 @@ router
 				res.json({ success: true, projects: allProjectsForAccount.rows });
 			} catch (err) {
 				console.error(err.message);
-				backendErrors.serverItem = "Server error while creating project";
-				return res.status(500).json({ success: false, backendErrors });
+				errorMessages.serverItem = "Server error while creating project";
+				return res.status(500).json({ success: false, errorMessages });
 			}
 		}
 	);
@@ -107,7 +107,7 @@ async function getAllProjectsForAccount(account_id) {
 }
 
 router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -123,8 +123,8 @@ router.route("/retrieve").post(tokenAuthorization, async (req, res) => {
 		res.json({ success: true, projects: allProjectsForAccount.rows });
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverItem = "Server error while retrieving projects";
-		return res.status(500).json({ success: false, backendErrors });
+		errorMessages.serverItem = "Server error while retrieving projects";
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 
@@ -138,7 +138,7 @@ router
 		validateProjectInput,
 		correctDatesFormat,
 		async (req, res) => {
-			let backendErrors = {};
+			let errorMessages = {};
 
 			try {
 				// Declared in the tokenAuthorization middleware
@@ -188,8 +188,8 @@ router
 				res.json({ success: true, projects: allProjectsForAccount.rows });
 			} catch (err) {
 				console.error(err.message);
-				backendErrors.serverItem = "Server error while updating project";
-				return res.status(500).json({ success: false, backendErrors });
+				errorMessages.serverItem = "Server error while updating project";
+				return res.status(500).json({ success: false, errorMessages });
 			}
 		}
 	);
@@ -198,7 +198,7 @@ router
 // Delete project
 //================
 router.route("/delete").post(tokenAuthorization, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -244,8 +244,8 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverItem = "Server error while deleting project";
-		return res.status(500).json({ success: false, backendErrors });
+		errorMessages.serverItem = "Server error while deleting project";
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 
@@ -253,7 +253,7 @@ router.route("/delete").post(tokenAuthorization, async (req, res) => {
 // Delete multiple projects
 //==========================
 router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware
@@ -309,8 +309,8 @@ router.route("/delete-multiple").post(tokenAuthorization, async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverItem = "Server error while deleting project";
-		return res.status(500).json({ success: false, backendErrors });
+		errorMessages.serverItem = "Server error while deleting project";
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 

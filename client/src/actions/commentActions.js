@@ -5,7 +5,7 @@ import { SET_COMMENTS } from "./constants/types";
 // Dispatch functions
 import {
 	createHeader,
-	seBackendErrors,
+	setErrorMessages,
 	logoutAccount,
 	setWhichCommentComponentsDisplay,
 } from "./index";
@@ -93,10 +93,10 @@ export const createComment = (commentInfo) => (dispatch) => {
 			dispatch(setComments(comments));
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -129,10 +129,10 @@ export const retrieveComments = () => (dispatch) => {
 			dispatch(setComments(comments));
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -180,10 +180,10 @@ export const updateComment = (commentInfo) => (dispatch) => {
 			dispatch(setWhichCommentComponentsDisplay({}));
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -270,10 +270,10 @@ export const deleteComment = (idsObject, commentBeingEdited) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");

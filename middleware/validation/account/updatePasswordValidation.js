@@ -10,7 +10,7 @@ const isEmpty = require("is-empty");
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = (req, res, next) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		let { newPassword, currentPassword } = req.body;
@@ -20,27 +20,27 @@ module.exports = (req, res, next) => {
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
 		if (Validator.isEmpty(newPassword)) {
-			backendErrors.validationAccountNewPassword = "New password required";
+			errorMessages.validationAccountNewPassword = "New password required";
 		} else if (!Validator.isLength(newPassword, { min: 6, max: 30 })) {
-			backendErrors.validationAccountNewPassword =
+			errorMessages.validationAccountNewPassword =
 				"New password not between 6-30 characters";
 		}
 
 		// Check for whether password is correct is done in the next middleware
 		if (Validator.isEmpty(currentPassword)) {
-			backendErrors.currentPassword = "Current password required";
+			errorMessages.currentPassword = "Current password required";
 		}
 
-		if (!isEmpty(backendErrors)) {
+		if (!isEmpty(errorMessages)) {
 			// returns error and next middle/function is not called
-			return res.status(400).json({ success: false, backendErrors });
+			return res.status(400).json({ success: false, errorMessages });
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.validationAccount = "Validation Error";
-		return res.status(403).json({ success: false, backendErrors });
+		errorMessages.validationAccount = "Validation Error";
+		return res.status(403).json({ success: false, errorMessages });
 	}
 };

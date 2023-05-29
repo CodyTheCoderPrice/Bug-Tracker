@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
 import {
 	loginAccount,
-	clearBackendErrors,
+	clearAllErrorMessages,
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
-import { isEmpty, getBackendErrorsJSX } from "../../utils";
+import { isEmpty, getErrorMessagesJSX } from "../../utils";
 
 /**
  * React functional component used for logging into the app by entering an
@@ -36,9 +36,9 @@ export default function Login(props) {
 
 	useEffect(() => {
 		return () => {
-			// Clears current backend errors when closing the component. Otherwise
-			// backend errors may presist and appear when component is re-openned.
-			dispatch(clearBackendErrors());
+			// Clears current error messages when closing the component. Otherwise
+			// error messages may presist and appear when component is re-openned.
+			dispatch(clearAllErrorMessages());
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -89,15 +89,18 @@ export default function Login(props) {
 					className={
 						"modal__form__input-text" +
 						(!isEmpty(
-							reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail
-						)
+							reduxState[GENERAL_CONTAINER].errorMessages.validationAccountEmail
+						) || !isEmpty(reduxState[GENERAL_CONTAINER].errorMessages.account)
 							? " modal__form__input-text--error"
 							: "")
 					}
 				/>
-				{getBackendErrorsJSX(
-					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail,
-					"backend-errors"
+				{getErrorMessagesJSX(
+					[
+						reduxState[GENERAL_CONTAINER].errorMessages.validationAccountEmail,
+						reduxState[GENERAL_CONTAINER].errorMessages.account,
+					],
+					"error-messages"
 				)}
 				<input
 					type="password"
@@ -109,28 +112,28 @@ export default function Login(props) {
 					className={
 						"modal__form__input-text" +
 						(!isEmpty(
-							reduxState[GENERAL_CONTAINER].backendErrors
+							reduxState[GENERAL_CONTAINER].errorMessages
 								.validationAccountPassword
 						)
 							? " modal__form__input-text--error"
 							: "")
 					}
 				/>
-				{getBackendErrorsJSX(
-					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword,
-					"backend-errors"
+				{getErrorMessagesJSX(
+					reduxState[GENERAL_CONTAINER].errorMessages.validationAccountPassword,
+					"error-messages"
 				)}
 				<button type="submit" className="modal__form__submit">
 					LOGIN
 				</button>
-				{getBackendErrorsJSX(
+				{getErrorMessagesJSX(
 					[
-						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
-						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
-						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
-						reduxState[GENERAL_CONTAINER].backendErrors.loginServerData,
+						reduxState[GENERAL_CONTAINER].errorMessages.validationAccount,
+						reduxState[GENERAL_CONTAINER].errorMessages.serverAccount,
+						reduxState[GENERAL_CONTAINER].errorMessages.serverConnection,
+						reduxState[GENERAL_CONTAINER].errorMessages.loginServerData,
 					],
-					"backend-errors"
+					"error-messages"
 				)}
 				<div className="modal__form__bottom-link-container">
 					<span

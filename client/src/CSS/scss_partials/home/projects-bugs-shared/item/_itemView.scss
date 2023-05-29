@@ -168,18 +168,18 @@
 		color: gray;
 	}
 
-	.backend-errors {
-		@include m.backend-error();
+	.error-messages {
+		@include m.error-messages();
 		
 		margin-top: 10px;
 	}
 
-	.backend-errors--item-name {
+	.error-messages--item-name {
 		margin: 15px 0px 11px 0px;
 		font-size: v.$common-slightly-larger-font-size;
 	}
 
-	.backend-errors--edit-item {
+	.error-messages--edit-item {
 		// So span can be placed after outer-diving-containers yet not take up
 		// ...space unless text is present the span
 		float: left;
@@ -191,11 +191,11 @@
 		text-align: center;
 	}
 
-	.backend-errors--comment {
+	.error-messages--comment {
 		margin: 5px 0 5px 0;
 	}
 
-	.backend-errors--edit-comment {
+	.error-messages--edit-comment {
 		margin: 0 0 10px 0;
 	}
 }

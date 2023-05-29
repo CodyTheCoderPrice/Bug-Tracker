@@ -11,7 +11,7 @@ import {
 import {
 	setWhichProjectOrBugComponentsDisplay,
 	updateProjectOrBug,
-	clearBackendErrors,
+	clearAllErrorMessages,
 } from "../../../../actions";
 
 import {
@@ -22,8 +22,8 @@ import {
 	getItemViewEditItemInfoComponentFormNameInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonCharCountElementLimitReachedTextColorClassNameForLightOrDarkMode,
-	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getBackendErrorsJSX,
+	getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode,
+	getErrorMessagesJSX,
 	getCommonWeakElementTextColorClassNameForLightOrDarkMode,
 	getCommonItemViewComponentFormInputElementBorderBackgroundTextColorClassNameForThemeWithLightOrDarkMode,
 	getCommonItemViewComponentItemBoxElementBackgroundColorClassNameForLightOrDarkMode,
@@ -104,11 +104,11 @@ export default function ItemViewEditItemInfo(props) {
 	// Custome hook will cause form to submit whenever the enter key is pressed
 	useSubmitFormOnEnterPress("js-edit-item-form");
 
-	// Clears current backend errors when closing the component. Otherwise the
-	// ...backend errors may presist and appear when component is re-openned.
+	// Clears current error messages when closing the component. Otherwise the
+	// ...error messages may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
-			dispatch(clearBackendErrors());
+			dispatch(clearAllErrorMessages());
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -256,10 +256,10 @@ export default function ItemViewEditItemInfo(props) {
 						</span>
 					</div>
 				</div>
-				{getBackendErrorsJSX(
-					reduxState[GENERAL_CONTAINER].backendErrors.validationItemName,
-					"backend-errors backend-errors--item-name" +
-						getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+				{getErrorMessagesJSX(
+					reduxState[GENERAL_CONTAINER].errorMessages.validationItemName,
+					"error-messages error-messages--item-name" +
+						getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 							reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 						)
 				)}
@@ -325,11 +325,11 @@ export default function ItemViewEditItemInfo(props) {
 								)
 							}
 						/>
-						{getBackendErrorsJSX(
-							reduxState[GENERAL_CONTAINER].backendErrors
+						{getErrorMessagesJSX(
+							reduxState[GENERAL_CONTAINER].errorMessages
 								.validationItemDescription,
-							"backend-errors" +
-								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+							"error-messages" +
+								getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 						)}
@@ -392,11 +392,11 @@ export default function ItemViewEditItemInfo(props) {
 										)
 									}
 								/>
-								{getBackendErrorsJSX(
-									reduxState[GENERAL_CONTAINER].backendErrors
+								{getErrorMessagesJSX(
+									reduxState[GENERAL_CONTAINER].errorMessages
 										.validationItemLocation,
-									"backend-errors" +
-										getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+									"error-messages" +
+										getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 											reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 										)
 								)}
@@ -544,14 +544,14 @@ export default function ItemViewEditItemInfo(props) {
 					</div>
 				</div>
 			</div>
-			{getBackendErrorsJSX(
+			{getErrorMessagesJSX(
 				[
-					reduxState[GENERAL_CONTAINER].backendErrors.validationItem,
-					reduxState[GENERAL_CONTAINER].backendErrors.serverItem,
-					reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+					reduxState[GENERAL_CONTAINER].errorMessages.validationItem,
+					reduxState[GENERAL_CONTAINER].errorMessages.serverItem,
+					reduxState[GENERAL_CONTAINER].errorMessages.serverConnection,
 				],
-				"backend-errors backend-errors--edit-item" +
-					getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+				"error-messages error-messages--edit-item" +
+					getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 						reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 					)
 			)}

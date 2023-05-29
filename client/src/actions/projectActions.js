@@ -5,7 +5,7 @@ import { SET_LIST } from "./constants/types";
 // Dispatch functions
 import {
 	createHeader,
-	seBackendErrors,
+	setErrorMessages,
 	logoutAccount,
 	setBugs,
 	setComments,
@@ -160,10 +160,10 @@ export const createProject =
 				);
 			})
 			.catch((err) => {
-				// sets backend errors for what went wrong to be displayed to user
-				dispatch(seBackendErrors(err.response.data.backendErrors));
+				// sets error messages for what went wrong to be displayed to user
+				dispatch(setErrorMessages(err.response.data.errorMessages));
 
-				if (err.response.data.backendErrors.jwToken !== undefined) {
+				if (err.response.data.errorMessages.jwToken !== undefined) {
 					// jwToken was invalid (likely expired), so user is logged out
 					dispatch(logoutAccount());
 					console.log("Logged out user due to invalid/expired jwToken");
@@ -189,10 +189,10 @@ export const retrieveProjects = () => (dispatch) => {
 			dispatch(setProjects(projects));
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -301,10 +301,10 @@ export const updateProject =
 				);
 			})
 			.catch((err) => {
-				// sets backend errors for what went wrong to be displayed to user
-				dispatch(seBackendErrors(err.response.data.backendErrors));
+				// sets error messages for what went wrong to be displayed to user
+				dispatch(setErrorMessages(err.response.data.errorMessages));
 
-				if (err.response.data.backendErrors.jwToken !== undefined) {
+				if (err.response.data.errorMessages.jwToken !== undefined) {
 					// jwToken was invalid (likely expired), so user is logged out
 					dispatch(logoutAccount());
 					console.log("Logged out user due to invalid/expired jwToken");
@@ -367,10 +367,10 @@ export const deleteProject = (projectId, massDeleteList) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -471,10 +471,10 @@ export const deleteMultipleProjects =
 				);
 			})
 			.catch((err) => {
-				// sets backend errors for what went wrong to be displayed to user
-				dispatch(seBackendErrors(err.response.data.backendErrors));
+				// sets error messages for what went wrong to be displayed to user
+				dispatch(setErrorMessages(err.response.data.errorMessages));
 
-				if (err.response.data.backendErrors.jwToken !== undefined) {
+				if (err.response.data.errorMessages.jwToken !== undefined) {
 					// jwToken was invalid (likely expired), so user is logged out
 					dispatch(logoutAccount());
 					console.log("Logged out user due to invalid/expired jwToken");

@@ -5,7 +5,7 @@ import { SET_LIST } from "./constants/types";
 // Dispatch functions
 import {
 	createHeader,
-	seBackendErrors,
+	setErrorMessages,
 	logoutAccount,
 	setComments,
 	setWhichBugComponentsDisplay,
@@ -175,10 +175,10 @@ export const createBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -211,10 +211,10 @@ export const retrieveBugs = () => (dispatch) => {
 			dispatch(setBugs(bugs));
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -330,10 +330,10 @@ export const updateBug = (bugInfo, bugComponentsDisplay) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -400,10 +400,10 @@ export const deleteBug = (idsObject, massDeleteList) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// Sets backend errors for what went wrong to be displayed to user
-			dispatch(seBackendErrors(err.response.data.backendErrors));
+			// Sets error messages for what went wrong to be displayed to user
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 
-			if (err.response.data.backendErrors.jwToken !== undefined) {
+			if (err.response.data.errorMessages.jwToken !== undefined) {
 				// jwToken was invalid (likely expired), so user is logged out
 				dispatch(logoutAccount());
 				console.log("Logged out user due to invalid/expired jwToken");
@@ -504,10 +504,10 @@ export const deleteMultipleBugs =
 				);
 			})
 			.catch((err) => {
-				// Sets backend errors for what went wrong to be displayed to user
-				dispatch(seBackendErrors(err.response.data.backendErrors));
+				// Sets error messages for what went wrong to be displayed to user
+				dispatch(setErrorMessages(err.response.data.errorMessages));
 
-				if (err.response.data.backendErrors.jwToken !== undefined) {
+				if (err.response.data.errorMessages.jwToken !== undefined) {
 					// jwToken was invalid (likely expired), so user is logged out
 					dispatch(logoutAccount());
 					console.log("Logged out user due to invalid/expired jwToken");

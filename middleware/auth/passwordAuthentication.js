@@ -10,7 +10,7 @@ const bcrypt = require("bcryptjs");
  * @param {Function} next - Express function to be ran after this one 
  */
 module.exports = async (req, res, next) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Declared in the tokenAuthorization middleware which was ran prior
@@ -24,8 +24,8 @@ module.exports = async (req, res, next) => {
 
 		if (accountPassword.rowCount === 0) {
 			// returns error and next middle/function is not called
-			backendErrors.account = "Account not found";
-			return res.status(403).json({ success: false, backendErrors });
+			errorMessages.account = "Account not found";
+			return res.status(403).json({ success: false, errorMessages });
 		}
 
 		const passwordMatches = await bcrypt.compare(
@@ -35,15 +35,15 @@ module.exports = async (req, res, next) => {
 
 		if (!passwordMatches) {
 			// returns error and next middle/function is not called
-			backendErrors.currentPassword = "Incorrect current password";
-			return res.status(400).json({ success: false, backendErrors });
+			errorMessages.currentPassword = "Incorrect current password";
+			return res.status(400).json({ success: false, errorMessages });
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.authorization = "Authorization error while checking password";
-		return res.status(403).json({ success: false, backendErrors });
+		errorMessages.authorization = "Authorization error while checking password";
+		return res.status(403).json({ success: false, errorMessages });
 	}
 };

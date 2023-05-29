@@ -10,7 +10,7 @@ const isEmpty = require("is-empty");
  * @param {Function} next - Express function to be ran after this one
  */
 module.exports = (req, res, next) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		let { capitalizedDeleteTypedOut, currentPassword } = req.body;
@@ -22,23 +22,23 @@ module.exports = (req, res, next) => {
 		currentPassword = !isEmpty(currentPassword) ? currentPassword : "";
 
 		if (capitalizedDeleteTypedOut !== "DELETE") {
-			backendErrors.validationAccountTypeOutCheck = "Doesn't match: DELETE";
+			errorMessages.validationAccountTypeOutCheck = "Doesn't match: DELETE";
 		}
 
 		if (Validator.isEmpty(currentPassword)) {
-			backendErrors.currentPassword = "Current password required";
+			errorMessages.currentPassword = "Current password required";
 		}
 
-		if (!isEmpty(backendErrors)) {
+		if (!isEmpty(errorMessages)) {
 			// returns error and next middle/function is not called
-			return res.status(400).json({ success: false, backendErrors });
+			return res.status(400).json({ success: false, errorMessages });
 		}
 
 		// calls next middleware/function
 		next();
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.validationAccount = "Validation Error";
-		return res.status(403).json({ success: false, backendErrors });
+		errorMessages.validationAccount = "Validation Error";
+		return res.status(403).json({ success: false, errorMessages });
 	}
 };

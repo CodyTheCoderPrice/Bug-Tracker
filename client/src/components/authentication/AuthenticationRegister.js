@@ -4,12 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { GENERAL_CONTAINER } from "../../actions/constants/containerNames";
 import {
 	registerAccount,
-	clearBackendErrors,
+	clearAllErrorMessages,
 	setWhichGeneralComponentsDisplay,
 } from "../../actions";
 import {
 	isEmpty,
-	getBackendErrorsJSX,
+	getErrorMessagesJSX,
 } from "../../utils";
 
 /**
@@ -40,11 +40,11 @@ export default function Register() {
 		password: "",
 	});
 
-	// Clears current backend errors when closing the component. Otherwise the
-	// ...backend errors may presist and appear when component is re-openned.
+	// Clears current error messages when closing the component. Otherwise the
+	// ...error messages may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
-			dispatch(clearBackendErrors());
+			dispatch(clearAllErrorMessages());
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -97,17 +97,17 @@ export default function Register() {
 							className={
 								"modal__form__input-text" +
 								(!isEmpty(
-									reduxState[GENERAL_CONTAINER].backendErrors
+									reduxState[GENERAL_CONTAINER].errorMessages
 										.validationAccountFirstName
 								)
 									? " modal__form__input-text--error"
 									: "")
 							}
 						/>
-						{getBackendErrorsJSX(
-							reduxState[GENERAL_CONTAINER].backendErrors
+						{getErrorMessagesJSX(
+							reduxState[GENERAL_CONTAINER].errorMessages
 								.validationAccountFirstName,
-							"backend-errors"
+							"error-messages"
 						)}
 					</div>
 					<div className="modal__form__pair-container__single-container modal__form__pair-container__single-container--right">
@@ -121,17 +121,17 @@ export default function Register() {
 							className={
 								"modal__form__input-text" +
 								(!isEmpty(
-									reduxState[GENERAL_CONTAINER].backendErrors
+									reduxState[GENERAL_CONTAINER].errorMessages
 										.validationAccountLastName
 								)
 									? " modal__form__input-text--error"
 									: "")
 							}
 						/>
-						{getBackendErrorsJSX(
-							reduxState[GENERAL_CONTAINER].backendErrors
+						{getErrorMessagesJSX(
+							reduxState[GENERAL_CONTAINER].errorMessages
 								.validationAccountLastName,
-							"backend-errors"
+							"error-messages"
 						)}
 					</div>
 				</div>
@@ -145,15 +145,15 @@ export default function Register() {
 					className={
 						"modal__form__input-text" +
 						(!isEmpty(
-							reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail
+							reduxState[GENERAL_CONTAINER].errorMessages.validationAccountEmail
 						)
 							? " modal__form__input-text--error"
 							: "")
 					}
 				/>
-				{getBackendErrorsJSX(
-					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountEmail,
-					"backend-errors"
+				{getErrorMessagesJSX(
+					reduxState[GENERAL_CONTAINER].errorMessages.validationAccountEmail,
+					"error-messages"
 				)}
 				<input
 					type="password"
@@ -165,27 +165,27 @@ export default function Register() {
 					className={
 						"modal__form__input-text" +
 						(!isEmpty(
-							reduxState[GENERAL_CONTAINER].backendErrors
+							reduxState[GENERAL_CONTAINER].errorMessages
 								.validationAccountPassword
 						)
 							? " modal__form__input-text--error"
 							: "")
 					}
 				/>
-				{getBackendErrorsJSX(
-					reduxState[GENERAL_CONTAINER].backendErrors.validationAccountPassword,
-					"backend-errors"
+				{getErrorMessagesJSX(
+					reduxState[GENERAL_CONTAINER].errorMessages.validationAccountPassword,
+					"error-messages"
 				)}
 				<button type="submit" className="modal__form__submit">
 					REGISTER
 				</button>
-				{getBackendErrorsJSX(
+				{getErrorMessagesJSX(
 					[
-						reduxState[GENERAL_CONTAINER].backendErrors.validationAccount,
-						reduxState[GENERAL_CONTAINER].backendErrors.serverAccount,
-						reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+						reduxState[GENERAL_CONTAINER].errorMessages.validationAccount,
+						reduxState[GENERAL_CONTAINER].errorMessages.serverAccount,
+						reduxState[GENERAL_CONTAINER].errorMessages.serverConnection,
 					],
-					"backend-errors"
+					"error-messages"
 				)}
 				<div className="modal__form__bottom-link-container">
 					<span>Already a Member?</span>

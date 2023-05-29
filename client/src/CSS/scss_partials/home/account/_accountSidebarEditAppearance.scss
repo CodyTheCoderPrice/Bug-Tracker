@@ -4,14 +4,14 @@
 .account-sidebar-change-theme-component {
 	.content-container {
 		display: inline-block;
-		// Bottom margin needed so backend-errors can be positioned half way
+		// Bottom margin needed so error-messages can be positioned half way
 		// ...between content and the dividing line
 		margin: 0 0 v.$account-sidebar-dividing-line-margin-top-bottom-half v.$account-sidebar-appearance-contents-container-margin-left-right;
 	}
 
 	.content-container--right {
 		float: right;
-		// Bottom margin needed so backend-errors can be positioned half way
+		// Bottom margin needed so error-messages can be positioned half way
 		// ...between content and the dividing line
 		margin: 0 v.$account-sidebar-appearance-contents-container-margin-left-right v.$account-sidebar-dividing-line-margin-top-bottom-half 0;
 	}
@@ -52,7 +52,7 @@
 		margin: 0 auto;
 	}
 
-	.backend-errors {
-		@include m.backend-error();
+	.error-messages {
+		@include m.error-messages();
 	}
 }

@@ -22,7 +22,7 @@ async function getThemes() {
 }
 
 router.route("/retrieve-themes").get(async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		const themes = await getThemes();
@@ -38,9 +38,9 @@ router.route("/retrieve-themes").get(async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverAccount =
+		errorMessages.serverAccount =
 			"Server error while retrieving account setting themes";
-		return res.status(500).json({ success: false, backendErrors });
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 
@@ -63,7 +63,7 @@ async function getSortCategories() {
 }
 
 router.route("/retrieve-sort-categories").get(async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		const sortCategories = await getSortCategories();
@@ -79,9 +79,9 @@ router.route("/retrieve-sort-categories").get(async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverAccount =
+		errorMessages.serverAccount =
 			"Server error while retrieving sort categories";
-		return res.status(500).json({ success: false, backendErrors });
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 
@@ -203,7 +203,7 @@ async function getPriorityStatus() {
 }
 
 router.route("/retrieve-priority-status").get(async (req, res) => {
-	let backendErrors = {};
+	let errorMessages = {};
 
 	try {
 		// Function used was abstracted above and exported to be used by other routes
@@ -220,9 +220,9 @@ router.route("/retrieve-priority-status").get(async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err.message);
-		backendErrors.serverPriorityStatus =
+		errorMessages.serverPriorityStatus =
 			"Server error while retrieving Priority/Status options";
-		return res.status(500).json({ success: false, backendErrors });
+		return res.status(500).json({ success: false, errorMessages });
 	}
 });
 

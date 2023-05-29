@@ -3,7 +3,7 @@ import { RESET_CONTAINER } from "../../actions/constants/types";
 // Other reducers used by this reducer
 import generalComponentsDisplayReducer from "./generalComponentsDisplayReducer";
 import generalDropdownsDisplayReducer from "./generalDropdownsDisplayReducer";
-import backendErrorReducer from "./backendErrorReducer";
+import errorMessageReducer from "./errorMessageReducer";
 import themesReducer from "../general/themesReducer";
 import sortCategoriesReducer from "../general/sortCategoriesReducer";
 import globalConstantsReducer from "./globalConstantsReducer";
@@ -13,7 +13,7 @@ const initialState = {
 	// Passing undefined and {} causes reducers to return their initial state
 	componentsDisplay: generalComponentsDisplayReducer(undefined, {}),
 	dropdownsDisplay: generalDropdownsDisplayReducer(undefined, {}),
-	backendErrors: backendErrorReducer(undefined, {}),
+	errorMessages: errorMessageReducer(undefined, {}),
 	themes: themesReducer(undefined, {}),
 	sortCategories: sortCategoriesReducer(undefined, {}),
 	// Passed nothing since this reducer takes no parameters
@@ -51,7 +51,7 @@ export function generalContainerReducer(state = initialState, action) {
 						state.dropdownsDisplay,
 						action
 					),
-					backendErrors: backendErrorReducer(state.backendErrors, action),
+					errorMessages: errorMessageReducer(state.errorMessages, action),
 					themes: themesReducer(state.themes, action),
 					sortCategories: sortCategoriesReducer(state.sortCategories, action),
 					// Passed nothing since this reducer takes no parameters

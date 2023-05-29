@@ -103,7 +103,7 @@
 		border-top: solid v.$mode-account-sidebar-horizontal-dividing-line-border-color-light 2px;
 	}
 
-	// Used to allow backend-errors to be positioned half way between content
+	// Used to allow error-messages to be positioned half way between content
 	// ...and the dividing line
 	.horizontal-dividing-line--half-top-margin {
 		margin-top: v.$account-sidebar-dividing-line-margin-top-bottom-half;

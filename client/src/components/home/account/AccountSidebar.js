@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 // Component uses container names to work with the redux state
 import { ACCOUNT_CONTAINER } from "../../../actions/constants/containerNames";
 import {
-	clearBackendErrors,
+	clearAllErrorMessages,
 	logoutAccount,
 	setWhichAccountComponentsDisplay,
 } from "../../../actions";
@@ -41,11 +41,11 @@ export default function AccountSidebar() {
 				.accountSidebarComponentShouldDisplay
 		);
 
-	// Clears current backend errors when closing the component. Otherwise the
-	// ...backend errors may presist and appear when component is re-openned.
+	// Clears current error messages when closing the component. Otherwise the
+	// ...error messages may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
-			dispatch(clearBackendErrors());
+			dispatch(clearAllErrorMessages());
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

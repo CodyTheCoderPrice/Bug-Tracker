@@ -300,19 +300,19 @@
 .js-get-authentication-component .modal__form__input-text--error:focus {
   border-color: #ff0000;
 }
-.authentication-component .backend-errors,
-.js-get-authentication-component .backend-errors {
+.authentication-component .error-messages,
+.js-get-authentication-component .error-messages {
   display: block;
   padding-left: 5px;
   color: #ff0000;
   font-size: 13px;
 }
-.authentication-component .backend-errors i,
-.js-get-authentication-component .backend-errors i {
+.authentication-component .error-messages i,
+.js-get-authentication-component .error-messages i {
   padding-right: 8px;
 }
-.authentication-component .backend-errors + .backend-errors,
-.js-get-authentication-component .backend-errors + .backend-errors {
+.authentication-component .error-messages + .error-messages,
+.js-get-authentication-component .error-messages + .error-messages {
   margin-top: 5px;
 }
 .authentication-component .modal__form__submit,
@@ -835,16 +835,16 @@
   width: 52px;
   margin: 0 auto;
 }
-.account-sidebar-change-theme-component .backend-errors {
+.account-sidebar-change-theme-component .error-messages {
   display: block;
   padding-left: 5px;
   color: #ff0000;
   font-size: 13px;
 }
-.account-sidebar-change-theme-component .backend-errors i {
+.account-sidebar-change-theme-component .error-messages i {
   padding-right: 8px;
 }
-.account-sidebar-change-theme-component .backend-errors + .backend-errors {
+.account-sidebar-change-theme-component .error-messages + .error-messages {
   margin-top: 5px;
 }
 
@@ -932,16 +932,16 @@
 .account-modal-component .form__input-text:focus {
   border-color: #2ba6c5;
 }
-.account-modal-component .backend-errors {
+.account-modal-component .error-messages {
   display: block;
   padding-left: 5px;
   color: #ff0000;
   font-size: 13px;
 }
-.account-modal-component .backend-errors i {
+.account-modal-component .error-messages i {
   padding-right: 8px;
 }
-.account-modal-component .backend-errors + .backend-errors {
+.account-modal-component .error-messages + .error-messages {
   margin-top: 5px;
 }
 .account-modal-component .form__submit {
@@ -1111,17 +1111,17 @@
   font-size: 16px;
   line-height: 28px;
 }
-.delete-modal-component .backend-errors {
+.delete-modal-component .error-messages {
   display: block;
   padding-left: 5px;
   color: #ff0000;
   font-size: 13px;
   margin-top: 5px;
 }
-.delete-modal-component .backend-errors i {
+.delete-modal-component .error-messages i {
   padding-right: 8px;
 }
-.delete-modal-component .backend-errors + .backend-errors {
+.delete-modal-component .error-messages + .error-messages {
   margin-top: 5px;
 }
 .delete-modal-component .centered-buttons-container {
@@ -1318,41 +1318,41 @@
   text-align: center;
   color: gray;
 }
-.item-view-component .backend-errors,
-.js-get-item-view-component .backend-errors {
+.item-view-component .error-messages,
+.js-get-item-view-component .error-messages {
   display: block;
   padding-left: 5px;
   color: #ff0000;
   font-size: 13px;
   margin-top: 10px;
 }
-.item-view-component .backend-errors i,
-.js-get-item-view-component .backend-errors i {
+.item-view-component .error-messages i,
+.js-get-item-view-component .error-messages i {
   padding-right: 8px;
 }
-.item-view-component .backend-errors + .backend-errors,
-.js-get-item-view-component .backend-errors + .backend-errors {
+.item-view-component .error-messages + .error-messages,
+.js-get-item-view-component .error-messages + .error-messages {
   margin-top: 5px;
 }
-.item-view-component .backend-errors--item-name,
-.js-get-item-view-component .backend-errors--item-name {
+.item-view-component .error-messages--item-name,
+.js-get-item-view-component .error-messages--item-name {
   margin: 15px 0px 11px 0px;
   font-size: 16px;
 }
-.item-view-component .backend-errors--edit-item,
-.js-get-item-view-component .backend-errors--edit-item {
+.item-view-component .error-messages--edit-item,
+.js-get-item-view-component .error-messages--edit-item {
   float: left;
   margin: 0px 0 0px 0;
   width: 100%;
   line-height: 30px;
   text-align: center;
 }
-.item-view-component .backend-errors--comment,
-.js-get-item-view-component .backend-errors--comment {
+.item-view-component .error-messages--comment,
+.js-get-item-view-component .error-messages--comment {
   margin: 5px 0 5px 0;
 }
-.item-view-component .backend-errors--edit-comment,
-.js-get-item-view-component .backend-errors--edit-comment {
+.item-view-component .error-messages--edit-comment,
+.js-get-item-view-component .error-messages--edit-comment {
   margin: 0 0 10px 0;
 }
 
@@ -1972,16 +1972,16 @@
   padding-top: 24px;
   font-size: 140%;
 }
-.create-item-sidebar-component .backend-errors {
+.create-item-sidebar-component .error-messages {
   display: block;
   padding-left: 5px;
   color: #ff0000;
   font-size: 13px;
 }
-.create-item-sidebar-component .backend-errors i {
+.create-item-sidebar-component .error-messages i {
   padding-right: 8px;
 }
-.create-item-sidebar-component .backend-errors + .backend-errors {
+.create-item-sidebar-component .error-messages + .error-messages {
   margin-top: 5px;
 }
 .create-item-sidebar-component .form__label,
@@ -2614,12 +2614,12 @@ body {
 .js-get-app-component .js-get-common-element-weak-text-color-dark-mode-true {
   color: #c1cad4;
 }
-.app-component .js-get-common-element-backend-errors-text-color-dark-mode-false,
-.js-get-app-component .js-get-common-element-backend-errors-text-color-dark-mode-false {
+.app-component .js-get-common-element-error-messages-text-color-dark-mode-false,
+.js-get-app-component .js-get-common-element-error-messages-text-color-dark-mode-false {
   color: #ff0000;
 }
-.app-component .js-get-common-element-backend-errors-text-color-dark-mode-true,
-.js-get-app-component .js-get-common-element-backend-errors-text-color-dark-mode-true {
+.app-component .js-get-common-element-error-messages-text-color-dark-mode-true,
+.js-get-app-component .js-get-common-element-error-messages-text-color-dark-mode-true {
   color: #e21b1b;
 }
 .app-component .js-get-common-char-count-element-limit-reached-text-color-dark-mode-false,

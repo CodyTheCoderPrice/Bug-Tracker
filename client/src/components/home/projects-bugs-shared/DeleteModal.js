@@ -8,14 +8,14 @@ import {
 	COMMENT_CONTAINER,
 } from "../../../actions/constants/containerNames";
 
-import { clearBackendErrors } from "../../../actions";
+import { clearAllErrorMessages } from "../../../actions";
 
 import {
 	getCommonBlurredBackdropElementBackgroundColorAndOpacityClassNameForLightOrDarkMode,
 	getDeleteModalComponentModalContainerElementBackgroundColorClassNameForLightOrDarkMode,
 	getDeleteModalComponentTrapazoidElementBorderColorClassNameForLightOrDarkMode,
-	getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode,
-	getBackendErrorsJSX,
+	getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode,
+	getErrorMessagesJSX,
 	getDeleteModalComponentDeleteButtonElementBackgroundColorClassNameForLightOrDarkMode,
 	getDeleteModalComponentCancelButtonElementBorderBackgroundTextColorClassNameForLightOrDarkMode,
 } from "../../../utils";
@@ -24,11 +24,11 @@ export default function DeleteModal(props) {
 	const reduxState = useSelector((state) => state);
 	const dispatch = useDispatch();
 
-	// Clears current backend errors when closing the component. Otherwise the
-	// ...backend errors may presist and appear when component is re-openned.
+	// Clears current error messages when closing the component. Otherwise the
+	// ...error messages may presist and appear when component is re-openned.
 	useEffect(() => {
 		return () => {
-			dispatch(clearBackendErrors());
+			dispatch(clearAllErrorMessages());
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -109,13 +109,14 @@ export default function DeleteModal(props) {
 						<span className="centered-message-container__relative-container__text">
 							{getMessageText()}
 						</span>
-						{getBackendErrorsJSX(
+						{getErrorMessagesJSX(
 							[
-								reduxState[GENERAL_CONTAINER].backendErrors.server,
-								reduxState[GENERAL_CONTAINER].backendErrors.serverConnection,
+								reduxState[GENERAL_CONTAINER].errorMessages.serverItem,
+								reduxState[GENERAL_CONTAINER].errorMessages.server,
+								reduxState[GENERAL_CONTAINER].errorMessages.serverConnection,
 							],
-							"backend-errors" +
-								getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+							"error-messages" +
+								getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 									reduxState[ACCOUNT_CONTAINER].settings.dark_mode
 								)
 						)}

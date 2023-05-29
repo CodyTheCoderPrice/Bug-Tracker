@@ -170,8 +170,8 @@
 		}
 	}
 
-	.backend-errors {
-		@include m.backend-error();
+	.error-messages {
+		@include m.error-messages();
 	}
 
 	.modal__form__submit {

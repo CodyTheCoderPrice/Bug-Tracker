@@ -64,8 +64,8 @@
 		font-size: 140%;
 	}
 
-	.backend-errors {
-		@include m.backend-error();
+	.error-messages {
+		@include m.error-messages();
 	}
 
 	.form__label,

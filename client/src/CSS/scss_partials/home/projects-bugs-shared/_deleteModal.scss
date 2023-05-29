@@ -78,9 +78,9 @@
 		line-height: 28px;
 	}
 
-	.backend-errors {
-		// IMPORTANT! Rework backend errors to move buttons down when appearing
-		@include m.backend-error();
+	.error-messages {
+		// IMPORTANT! Rework so error messages move buttons down when appearing
+		@include m.error-messages();
 
 		margin-top: 5px;
 	}

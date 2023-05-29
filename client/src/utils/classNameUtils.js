@@ -291,17 +291,17 @@ export function getCommonWeakElementTextColorClassNameForLightOrDarkMode(
 
 /**
  * Get light/dark mode className for common (i.e. intended for multiple components)
- * element's 'backend-errors' (className) element's text color
+ * element's 'error-messages' (className) element's text color
  *
  * @param {boolean} dark_mode - Whether the app is in dark mode or not
- * @returns {string} Light/dark mode className for common 'backend-errors'
+ * @returns {string} Light/dark mode className for common 'error-messages'
  * (className) element's text color
  */
-export function getCommonBackendErrorsElementTextColorClassNameForLightOrDarkMode(
+export function getCommonErrorMessagesElementTextColorClassNameForLightOrDarkMode(
 	dark_mode
 ) {
 	return (
-		" js-get-common-element-backend-errors-text-color-dark-mode-" + dark_mode
+		" js-get-common-element-error-messages-text-color-dark-mode-" + dark_mode
 	);
 }
 
