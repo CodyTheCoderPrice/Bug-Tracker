@@ -90,16 +90,13 @@ export default function Login(props) {
 						"modal__form__input-text" +
 						(!isEmpty(
 							reduxState[GENERAL_CONTAINER].errorMessages.validationAccountEmail
-						) || !isEmpty(reduxState[GENERAL_CONTAINER].errorMessages.account)
-							? " modal__form__input-text--error"
+						)
+							? " modal__form__input-text--error-border"
 							: "")
 					}
 				/>
 				{getErrorMessagesJSX(
-					[
-						reduxState[GENERAL_CONTAINER].errorMessages.validationAccountEmail,
-						reduxState[GENERAL_CONTAINER].errorMessages.account,
-					],
+					[reduxState[GENERAL_CONTAINER].errorMessages.validationAccountEmail],
 					"error-messages"
 				)}
 				<input
@@ -115,7 +112,7 @@ export default function Login(props) {
 							reduxState[GENERAL_CONTAINER].errorMessages
 								.validationAccountPassword
 						)
-							? " modal__form__input-text--error"
+							? " modal__form__input-text--error-border"
 							: "")
 					}
 				/>

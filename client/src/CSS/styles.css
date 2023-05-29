@@ -292,12 +292,12 @@
   border-width: 2px;
   padding: 11px 15px;
 }
-.authentication-component .modal__form__input-text--error,
-.js-get-authentication-component .modal__form__input-text--error {
+.authentication-component .modal__form__input-text--error-border,
+.js-get-authentication-component .modal__form__input-text--error-border {
   border-color: #ff0000;
 }
-.authentication-component .modal__form__input-text--error:focus,
-.js-get-authentication-component .modal__form__input-text--error:focus {
+.authentication-component .modal__form__input-text--error-border:focus,
+.js-get-authentication-component .modal__form__input-text--error-border:focus {
   border-color: #ff0000;
 }
 .authentication-component .error-messages,

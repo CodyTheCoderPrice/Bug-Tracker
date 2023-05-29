@@ -100,7 +100,7 @@ export default function Register() {
 									reduxState[GENERAL_CONTAINER].errorMessages
 										.validationAccountFirstName
 								)
-									? " modal__form__input-text--error"
+									? " modal__form__input-text--error-border"
 									: "")
 							}
 						/>
@@ -124,7 +124,7 @@ export default function Register() {
 									reduxState[GENERAL_CONTAINER].errorMessages
 										.validationAccountLastName
 								)
-									? " modal__form__input-text--error"
+									? " modal__form__input-text--error-border"
 									: "")
 							}
 						/>
@@ -147,7 +147,7 @@ export default function Register() {
 						(!isEmpty(
 							reduxState[GENERAL_CONTAINER].errorMessages.validationAccountEmail
 						)
-							? " modal__form__input-text--error"
+							? " modal__form__input-text--error-border"
 							: "")
 					}
 				/>
@@ -168,7 +168,7 @@ export default function Register() {
 							reduxState[GENERAL_CONTAINER].errorMessages
 								.validationAccountPassword
 						)
-							? " modal__form__input-text--error"
+							? " modal__form__input-text--error-border"
 							: "")
 					}
 				/>
