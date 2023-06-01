@@ -1,4 +1,5 @@
 import axios from "axios";
+import { logoutAccountDueToError} from "./accountActions"
 // Container names used to work with the redux state
 import {
 	SIZE_CONTAINER,
@@ -23,6 +24,120 @@ export * from "./commentActions";
 export * from "./componentActions";
 export * from "./switchActions";
 export * from "./resetActions";
+
+/**
+ * Used to set 'errorMessages' property containing error messages — recieved from
+ * failed HTTP requests or redux actions recieving invalid data (e.g. user enters 
+ * wrong password when logging in or invalid data is recieved from the database)
+ * — in 'GENERAL_CONTAINER' of the redux state. If the error is related to the
+ * jwToken, then the user is logged out for security purposes.
+ * 
+ * Note: The purpose of the 'errorMessages' property is to be used to display
+ * error messages to the user so they can know why their attempt failed and 
+ * possibly how to fix it. These messages should be displayed in the component 
+ * from which they occured (e.g. an error message for failed login attempt should
+ * display in AuthenticationLogin component).
+ *
+ * @param {{
+* 	server: (string|undefined),
+*  serverAccount: (string|undefined),
+* 	serverSettings: (string|undefined),
+* 	serverItem: (string|undefined),
+* 	serverPriorityStatus: (string|undefined),
+*  serverConnection: (string|undefined),
+* 	jwToken: (string|undefined),
+* 	backendPasswordAuthorization: (string|undefined),
+* 	databaseAccountNotFound: (string|undefined),
+* 	validationAccount: (string|undefined),
+* 	validationAccountFirstName: (string|undefined),
+* 	validationAccountLastName: (string|undefined),
+* 	validationAccountEmail: (string|undefined),
+* 	validationAccountPassword: (string|undefined),
+* 	validationAccountNewEmail: (string|undefined),
+* 	validationAccountNewPassword: (string|undefined),
+* 	currentPassword: (string|undefined),
+* 	authWrongCurrentPassword: (string|undefined),
+* 	validationAccountTypeOutCheck: (string|undefined),
+* 	validationItem: (string|undefined),
+* 	validationItemName: (string|undefined),
+* 	validationItemDescription: (string|undefined),
+* 	validationItemLocation: (string|undefined),
+* 	validationComment: (string|undefined),
+* 	validationCreateCommentDescription: (string|undefined),
+* 	validationEditCommentDescription: (string|undefined),
+* 	loginServerData: (string|undefined),
+* }} errorMessages - Object containing error messages from failed HTTP 
+* requests or redux actions recieving invalid data
+*
+* @example
+* // error messages for invalid input when registering an account
+* dispatch(
+* 	setErrorMessages({
+* 		validationAccountFirstName: "First name required",
+* 		validationAccountLastName: "Last name longer than 35 characters",
+* 		validationAccountEmail: "Email is invalid",
+* 		validationAccountPassword: "Password not between 6-30 characters"
+* 	})
+* );
+*
+* @example
+* // Clears all error messages
+* dispatch(setErrorMessages({}));
+*/
+export const setErrorMessages = (errorMessages) => (dispatch) => {
+   if (errorMessages.jwToken !== undefined) {
+	   // Users should not be logged in
+	   dispatch(
+		   logoutAccountDueToError(
+			   new Error(
+				   `Logged out due to: ${errorMessages.jwToken}`
+			   )
+		   )
+	   );
+   }
+   
+   dispatch({
+	   container: GENERAL_CONTAINER,
+	   type: SET_ERROR_MESSAGES,
+	   // If undefined, then there was an issue connecting to the server
+	   errorMessages:
+		   errorMessages !== undefined
+			   ? errorMessages
+			   : { serverConnection: "Server connection error" },
+   });
+};
+
+/**
+* Clears error messages in 'errorMessages' property in 'GENERAL_CONTAINER' of 
+* the redux state.
+*
+* Note: The purpose of this to be used when closing a component that displays
+* error messages, so if any error messages are currently being displayed, they
+* do not continue to display if the user navigates back to the component
+* later, as the error would no longer be relevant and would confuse the user.
+*
+* @example
+* // Clears all error messages
+* dispatch(clearAllErrorMessages());
+*/
+export const clearAllErrorMessages = () => (dispatch) => {
+   dispatch(setErrorMessages({}));
+};
+
+/**
+* Creates a header containing jwToken from localStorage (set during login)
+* so the server can both decode it to get the account_id for the call
+* as well as authenticate the call without being sent a password
+*
+* @returns {{
+* 	headers: {
+* 		jwToken: string
+* 	}
+* }} header containing jwToken from localStorage
+*/
+export const createHeader = () => {
+   return { headers: { jwToken: localStorage.jwToken } };
+};
 
 /**
  * Sets size info of multiple html elements (thats size remains constant) in
@@ -347,106 +462,4 @@ export const retrievePriorityStatusArrays = () => (dispatch) => {
 		.catch((err) => {
 			console.log(err);
 		});
-};
-
-/**
- * Used to set 'errorMessages' property containing error messages — recieved from
- * failed HTTP requests or redux actions recieving invalid data (e.g. user enters 
- * wrong password when logging in or invalid data is recieved from the database)
- * — in 'GENERAL_CONTAINER' of the redux state.
- * 
- * Note: The purpose of the 'errorMessages' property is to be used to display
- * error messages to the user so they can know why their attempt failed and 
- * possibly how to fix it. These messages should be displayed in the component 
- * from which they occured (e.g. an error message for failed login attempt should
- * display in AuthenticationLogin component).
- *
- * @param {{
- * 	server: (string|undefined),
- *  serverAccount: (string|undefined),
- * 	serverSettings: (string|undefined),
- * 	serverItem: (string|undefined),
- * 	serverPriorityStatus: (string|undefined),
- *  serverConnection: (string|undefined),
- * 	jwToken: (string|undefined),
- * 	backendPasswordAuthorization: (string|undefined),
- * 	databaseAccountNotFound: (string|undefined),
- * 	validationAccount: (string|undefined),
- * 	validationAccountFirstName: (string|undefined),
- * 	validationAccountLastName: (string|undefined),
- * 	validationAccountEmail: (string|undefined),
- * 	validationAccountPassword: (string|undefined),
- * 	validationAccountNewEmail: (string|undefined),
- * 	validationAccountNewPassword: (string|undefined),
- * 	currentPassword: (string|undefined),
- * 	authWrongCurrentPassword: (string|undefined),
- * 	validationAccountTypeOutCheck: (string|undefined),
- * 	validationItem: (string|undefined),
- * 	validationItemName: (string|undefined),
- * 	validationItemDescription: (string|undefined),
- * 	validationItemLocation: (string|undefined),
- * 	validationComment: (string|undefined),
- * 	validationCreateCommentDescription: (string|undefined),
- * 	validationEditCommentDescription: (string|undefined),
- * 	loginServerData: (string|undefined),
- * }} errorMessages - Object containing error messages from failed HTTP 
- * requests or redux actions recieving invalid data
- *
- * @example
- * // error messages for invalid input when registering an account
- * dispatch(
- * 	setErrorMessages({
- * 		validationAccountFirstName: "First name required",
- * 		validationAccountLastName: "Last name longer than 35 characters",
- * 		validationAccountEmail: "Email is invalid",
- * 		validationAccountPassword: "Password not between 6-30 characters"
- * 	})
- * );
- *
- * @example
- * // Clears all error messages
- * dispatch(setErrorMessages({}));
- */
-export const setErrorMessages = (errorMessages) => (dispatch) => {
-	dispatch({
-		container: GENERAL_CONTAINER,
-		type: SET_ERROR_MESSAGES,
-		// If undefined, then there was an issue connecting to the server
-		errorMessages:
-			errorMessages !== undefined
-				? errorMessages
-				: { serverConnection: "Server connection error" },
-	});
-};
-
-/**
- * Clears error messages in 'errorMessages' property in 'GENERAL_CONTAINER' of 
- * the redux state.
- *
- * Note: The purpose of this to be used when closing a component that displays
- * error messages, so if any error messages are currently being displayed, they
- * do not continue to display if the user navigates back to the component
- * later, as the error would no longer be relevant and would confuse the user.
- *
- * @example
- * // Clears all error messages
- * dispatch(clearAllErrorMessages());
- */
-export const clearAllErrorMessages = () => (dispatch) => {
-	dispatch(setErrorMessages({}));
-};
-
-/**
- * Creates a header containing jwToken from localStorage (set during login)
- * so the server can both decode it to get the account_id for the call
- * as well as authenticate the call without being sent a password
- *
- * @returns {{
- * 	headers: {
- * 		jwToken: string
- * 	}
- * }} header containing jwToken from localStorage
- */
-export const createHeader = () => {
-	return { headers: { jwToken: localStorage.jwToken } };
 };

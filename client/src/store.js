@@ -20,10 +20,6 @@ import {
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const initialState = {};
-
-const middleware = [thunk];
-
 // Root level persistConfig
 const rootPersistConfig = {
 	key: "root",
@@ -86,6 +82,10 @@ const rootReducer = combineReducers({
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
+
+const initialState = {};
+
+const middleware = [thunk];
 
 const store = createStore(
 	persistedReducer,

@@ -78,9 +78,7 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 		);
 
 		if (validationRulesFailed.length > 0) {
-			throw new Error(
-				`Failed validation rule(s): ${validationRulesFailed}`
-			);
+			throw new Error(`Failed validation rule(s): ${validationRulesFailed}`);
 		}
 
 		dispatch({
@@ -89,7 +87,8 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 			decodedToken: decodedToken,
 		});
 	} catch (err) {
-		// Throws instead of print since function is intended to be called by login
+		// Throws instead of console.error since function is intended to be
+		// ...called by login which has its own catch
 		throw err;
 	}
 };
@@ -340,12 +339,6 @@ export const retrieveAccount = () => (dispatch) => {
 		.catch((err) => {
 			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
-
-			if (err.response.data.errorMessages.jwToken !== undefined) {
-				// jwToken was invalid (likely expired), so user is logged out
-				dispatch(logoutAccount());
-				console.log("Logged out user due to invalid/expired jwToken");
-			}
 		});
 };
 
@@ -376,12 +369,6 @@ export const retrieveAccountSettings = () => (dispatch) => {
 		.catch((err) => {
 			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
-
-			if (err.response.data.errorMessages.jwToken !== undefined) {
-				// jwToken was invalid (likely expired), so user is logged out
-				dispatch(logoutAccount());
-				console.log("Logged out user due to invalid/expired jwToken");
-			}
 		});
 };
 
@@ -427,13 +414,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 		})
 		.catch((err) => {
 			// Sets error messages for what went wrong to be displayed to user
-			dispatch(setErrorMessages(err.response.data.errorMessages));
-
-			if (err.response.data.errorMessages.jwToken !== undefined) {
-				// jwToken was invalid (likely expired), so user is logged out
-				dispatch(logoutAccount());
-				console.log("Logged out user due to invalid/expired jwToken");
-			}
+			//dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
 
@@ -482,12 +463,6 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 		.catch((err) => {
 			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
-
-			if (err.response.data.errorMessages.jwToken !== undefined) {
-				// jwToken was invalid (likely expired), so user is logged out
-				dispatch(logoutAccount());
-				console.log("Logged out user due to invalid/expired jwToken");
-			}
 		});
 };
 
@@ -537,12 +512,6 @@ export const updateAccountEmail = (newEmailCurrentPassword) => (dispatch) => {
 			// Closes the AccountModal and re-opens the AccountSidebar (so the
 			// ...user can see their updated email)
 			dispatch(setErrorMessages(err.response.data.errorMessages));
-
-			if (err.response.data.errorMessages.jwToken !== undefined) {
-				// jwToken was invalid (likely expired), so user is logged out
-				dispatch(logoutAccount());
-				console.log("Logged out user due to invalid/expired jwToken");
-			}
 		});
 };
 
@@ -594,12 +563,6 @@ export const updateAccountPassword =
 			.catch((err) => {
 				// Sets error messages for what went wrong to be displayed to user
 				dispatch(setErrorMessages(err.response.data.errorMessages));
-
-				if (err.response.data.errorMessages.jwToken !== undefined) {
-					// jwToken was invalid (likely expired), so user is logged out
-					dispatch(logoutAccount());
-					console.log("Logged out user due to invalid/expired jwToken");
-				}
 			});
 	};
 
@@ -663,12 +626,6 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 		.catch((err) => {
 			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
-
-			if (err.response.data.errorMessages.jwToken !== undefined) {
-				// jwToken was invalid (likely expired), so user is logged out
-				dispatch(logoutAccount());
-				console.log("Logged out user due to invalid/expired jwToken");
-			}
 		});
 };
 
@@ -714,9 +671,7 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
  * opens the Login component).
  *
  * Note: The purpose of this dispatch function is to be used via the AccountSidebar
- * component to allow the user to logout of their account. It's also used by
- * other dispatch functions to logout the user if an error is returned from the
- * backend during an HTTP request saying their jwToken has expired.
+ * component to allow the user to logout of their account.
  *
  * @example
  * // Logs out user
@@ -725,4 +680,22 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
 export const logoutAccount = () => (dispatch) => {
 	localStorage.removeItem("jwToken");
 	dispatch(resetRedux());
+};
+
+/**
+ * Logs out account and reports error to console
+ *
+ * Note: The purpose of this dispatch function is to logout a user because a
+ * critical error has occured, and reports the error to the console so it can
+ * be evaulated
+ *
+ * @example
+ * // Logs out user
+ * dispatch(logoutAccount());
+ */
+export const logoutAccountDueToError = (err) => (dispatch) => {
+	dispatch(logoutAccount());
+	if (err !== undefined) {
+		console.error(err);
+	}
 };
