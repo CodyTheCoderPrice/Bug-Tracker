@@ -1,10 +1,6 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import {
-	isEmpty,
-	areAnyObjectPropsEmpty,
-	getAllIndexesContainingValueFromArray,
-} from "../utils";
+import { isAnObject, getAllIndexesContainingValueFromArray } from "../utils";
 // Container names used to work with the redux state
 import { ACCOUNT_CONTAINER } from "./constants/containerNames";
 import {
@@ -66,19 +62,21 @@ import {
  */
 export const setAuthentication = (decodedToken) => (dispatch) => {
 	try {
-		const validationRulesFailed = getAllIndexesContainingValueFromArray(
+		const failedValidationRules = getAllIndexesContainingValueFromArray(
 			[
-				!isEmpty(decodedToken),
-				!areAnyObjectPropsEmpty(decodedToken),
+				isAnObject(decodedToken),
+				decodedToken.account_id !== undefined,
 				typeof decodedToken.account_id === "number",
+				decodedToken.iat !== undefined,
 				typeof decodedToken.iat === "number",
+				decodedToken.exp !== undefined,
 				typeof decodedToken.exp === "number",
 			],
 			false
 		);
 
-		if (validationRulesFailed.length > 0) {
-			throw new Error(`Failed validation rule(s): ${validationRulesFailed}`);
+		if (failedValidationRules.length > 0) {
+			throw new Error(`Failed validation rule(s): ${failedValidationRules}`);
 		}
 
 		dispatch({
@@ -87,8 +85,8 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 			decodedToken: decodedToken,
 		});
 	} catch (err) {
-		// Throws instead of console.error since function is intended to be
-		// ...called by login which has its own catch
+		// Throws instead of using console.error since the loginAccount action
+		// (which calls this aciton) has its own catch that will log it
 		throw err;
 	}
 };
@@ -221,7 +219,6 @@ export const registerAccount = (accountInfo) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
@@ -297,7 +294,7 @@ export const loginAccount = (accountInfo) => (dispatch) => {
 				console.error(err);
 				dispatch(
 					setErrorMessages({
-						loginServerData: "Login error: recieved bad data from server",
+						loginServerData: "Login error: Recieved bad data from server",
 					})
 				);
 				return;
@@ -337,7 +334,6 @@ export const retrieveAccount = () => (dispatch) => {
 			dispatch(setAccount(account));
 		})
 		.catch((err) => {
-			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
@@ -367,7 +363,6 @@ export const retrieveAccountSettings = () => (dispatch) => {
 			dispatch(setAccountSettings(accountSettings));
 		})
 		.catch((err) => {
-			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
@@ -413,8 +408,7 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 			dispatch(setComments(comments));
 		})
 		.catch((err) => {
-			// Sets error messages for what went wrong to be displayed to user
-			//dispatch(setErrorMessages(err.response.data.errorMessages));
+			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
 
@@ -461,7 +455,6 @@ export const updateAccountInfo = (newAccountNames) => (dispatch) => {
 			);
 		})
 		.catch((err) => {
-			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
@@ -561,7 +554,6 @@ export const updateAccountPassword =
 				);
 			})
 			.catch((err) => {
-				// Sets error messages for what went wrong to be displayed to user
 				dispatch(setErrorMessages(err.response.data.errorMessages));
 			});
 	};
@@ -624,7 +616,6 @@ export const updateAccountSettings = (accountSettings) => (dispatch) => {
 			dispatch(clearAllErrorMessages());
 		})
 		.catch((err) => {
-			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };
@@ -660,7 +651,6 @@ export const deleteAccount = (deleteCheckAndCurrentPassword) => (dispatch) => {
 			dispatch(logoutAccount());
 		})
 		.catch((err) => {
-			// Sets error messages for what went wrong to be displayed to user
 			dispatch(setErrorMessages(err.response.data.errorMessages));
 		});
 };

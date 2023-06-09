@@ -1,30 +1,28 @@
 /**
- * Returns whether the 'value' param null, undefined, an empty string, or an
- * empty array
+ * Returns whether the 'value' param is undefined, NaN, an empty string, an
+ * empty array, or null (if 'acceptNull' param is false)
  *
  * @param {*} value - The value to be tested
- * @returns {boolean} Whether the 'value' param null, undefined, an empty 
- * string, or an empty array
+ * @param {boolean|undefined} [acceptNull=false] - Whether a null value should be
+ * considered not empty. Default is false.
+ * @returns {boolean} Whether the 'value' param is undefined, NaN, an empty
+ * string, an empty array, or null (if 'acceptNull' param is false)
  */
-export function isEmpty(value) {
+export function isEmpty(value, acceptNull = false) {
 	if (Array.isArray(value)) {
 		// Removes empty values from array
 		value = value.filter((el) => {
-			if (typeof el === "string") {
+			if (typeof el === "number") {
+				return !Number.isNaN(el);
+			} else if (typeof el === "string") {
 				return el.trim() !== "";
 			}
 
-			if (typeof el === "number") {
-				return !Number.isNaN(el);
-			}
-
-			// eslint-disable-next-line eqeqeq
-			return el != (null && undefined);
+			return el !== undefined && (acceptNull ? true : el !== null);
 		});
 	}
-
 	return (
-		value === null ||
+		(!acceptNull && value === null) ||
 		value === undefined ||
 		(typeof value === "number" && Number.isNaN(value)) ||
 		(typeof value === "string" && value.trim() === "") ||
@@ -33,44 +31,42 @@ export function isEmpty(value) {
 }
 
 /**
- * Returns whether any properties of the obj param are empty
+ * Returns all indexes from the arr param containing the value param
  *
- * @param {Object} obj - The object to be tested
- * @returns {boolean} Whether any properties of the obj param are empty
- */
-export function areAnyObjectPropsEmpty(obj) {
-	//Check if an object
-	if (
-		typeof obj !== 'object' ||
-		Array.isArray(obj) ||
-		obj === null
-	) {
-		console.log("WARNING in function areAnyObjectPropsEmpty: param obj failed validation");
-		return true;
-	}
-
-	for (let prop in obj) {
-		if (Object.prototype.hasOwnProperty.call(obj, prop) && isEmpty(obj[prop])) {
-			return true;
-		}
-	}
-
-	return false;
-}
-
-/**
- * Returns all indexes from the arr param containing the value param 
- * 
  * @param {*[]} arr - The array to have its indexes checked
  * @param {*} value - The value being sought for in the arr param
- * @returns {number[]} All indexes from the arr param containing the value param 
+ * @returns {number[]} All indexes from the arr param containing the value param
  */
 export function getAllIndexesContainingValueFromArray(arr, value) {
 	const indexes = [];
-    for(let i = 0; i < arr.length; i++)
-        if (arr[i] === value)
-            indexes.push(i);
-    return indexes;
+	for (let i = 0; i < arr.length; i++) if (arr[i] === value) indexes.push(i);
+	return indexes;
+}
+
+/**
+ * Returns whether the 'obj' param is an Object. Excludes arrays and null (unless
+ * 'acceptNull' param is true)
+ *
+ * @param {*} obj - Argument to test if is an Object
+ * @param {boolean|undefined} [acceptNull=false] - Whether null should be
+ * considered an Object. Default is false.
+ * @returns {boolean} Whether the 'obj' param is an Object
+ */
+export function isAnObject(obj, acceptNull = false) {
+	return (
+		typeof obj === "object" &&
+		!Array.isArray(obj) &&
+		(acceptNull ? true : obj !== null)
+	);
+}
+
+/**
+ * 
+ * @param {*[]} array 
+ * @param {string|string[]} types 
+ */
+export function areArrayElementsOfDesiredTypes(array, types) {
+
 }
 
 /**
