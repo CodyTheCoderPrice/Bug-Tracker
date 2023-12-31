@@ -1,4 +1,14 @@
 /**
+ * Returns the percise type of a value
+ *
+ * @param {*} value - The value to find the percise type of
+ * @returns {string} - The percise type of the value param
+ */
+export function getPerciseType(value) {
+	return {}.toString.call(value).slice(8, -1).toLowerCase();
+}
+
+/**
  * Returns whether the 'value' param is undefined, NaN, an empty string, an
  * empty array, or null (if 'acceptNull' param is false)
  *
@@ -12,9 +22,9 @@ export function isEmpty(value, acceptNull = false) {
 	if (Array.isArray(value)) {
 		// Removes empty values from array
 		value = value.filter((el) => {
-			if (typeof el === "number") {
+			if (getPerciseType(el) === "number" || getPerciseType(el) === "bigint") {
 				return !Number.isNaN(el);
-			} else if (typeof el === "string") {
+			} else if (getPerciseType(el) === "string") {
 				return el.trim() !== "";
 			}
 
@@ -24,49 +34,66 @@ export function isEmpty(value, acceptNull = false) {
 	return (
 		(!acceptNull && value === null) ||
 		value === undefined ||
-		(typeof value === "number" && Number.isNaN(value)) ||
-		(typeof value === "string" && value.trim() === "") ||
+		(getPerciseType(value) === "number" && Number.isNaN(value)) ||
+		(getPerciseType(value) === "string" && value.trim() === "") ||
 		(Array.isArray(value) && value.length < 1)
 	);
 }
 
 /**
- * Returns all indexes from the arr param containing the value param
+ * Whether a value is an Id (e.g. database Id)
  *
- * @param {*[]} arr - The array to have its indexes checked
- * @param {*} value - The value being sought for in the arr param
- * @returns {number[]} All indexes from the arr param containing the value param
+ * @param {Number} value - The value to be tested if is an Id
+ * @returns {Boolean} - Whether the 'value' param is an Id
  */
-export function getAllIndexesContainingValueFromArray(arr, value) {
-	const indexes = [];
-	for (let i = 0; i < arr.length; i++) if (arr[i] === value) indexes.push(i);
-	return indexes;
-}
-
-/**
- * Returns whether the 'obj' param is an Object. Excludes arrays and null (unless
- * 'acceptNull' param is true)
- *
- * @param {*} obj - Argument to test if is an Object
- * @param {boolean|undefined} [acceptNull=false] - Whether null should be
- * considered an Object. Default is false.
- * @returns {boolean} Whether the 'obj' param is an Object
- */
-export function isAnObject(obj, acceptNull = false) {
+export function isAnId(value) {
 	return (
-		typeof obj === "object" &&
-		!Array.isArray(obj) &&
-		(acceptNull ? true : obj !== null)
+		value !== undefined &&
+		getPerciseType(value) === "number" &&
+		Number.isInteger(value) &&
+		value >= 0
 	);
 }
 
 /**
- * 
- * @param {*[]} array 
- * @param {string|string[]} types 
+ * Returns all indexes from an array that contain a certain value
+ *
+ * @param {*[]} arr - The array to have its indexes checked
+ * @param {*} value - The value being sought for in the 'array' param
+ * @returns {number[]} All indexes from the 'array' param containing the
+ * 'value' param
  */
-export function areArrayElementsOfDesiredTypes(array, types) {
+export function getAllIndexesContainingValueFromArray(array, value) {
+	const indexes = [];
+	for (let i = 0; i < array.length; i++)
+		if (array[i] === value) indexes.push(i);
+	return indexes;
+}
 
+/**
+ * Checks if an array's elements are all of the desired type
+ *
+ * @param {*[]} array - Array to have its type checked
+ * @param {string} type
+ * - The type that the array's elements should be
+ * @returns {boolean} Whether the 'array' param's elements type match the
+ * 'type' param
+ */
+export function areArrayElementsOfDesiredType(array, type) {
+	try {
+		if (getPerciseType(type) !== "string") {
+			throw new Error(
+				`Param 'type' was a ${getPerciseType(type)} when it should be a String. Param 'type': ${type}`
+			);
+		}
+
+		// To avoid case issues
+		type = type.toLowerCase();
+
+		return array.every((el) => getPerciseType(el) === type);
+	} catch (err) {
+		throw err;
+	}
 }
 
 /**
@@ -134,7 +161,7 @@ export function getStringOfAllArrayValues(array, inQuotations = false) {
 export function filterObject(obj, predicateFunc) {
 	const newObject = {};
 
-	if (typeof predicateFunc === "function") {
+	if (getPerciseType(predicateFunc) === "function") {
 		for (let prop in obj) {
 			// hasOwnProperty method excludes inherited properties
 			if (obj.hasOwnProperty(prop) && predicateFunc(obj[prop], prop, obj)) {

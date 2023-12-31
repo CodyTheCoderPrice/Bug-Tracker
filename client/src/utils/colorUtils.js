@@ -1,8 +1,21 @@
 import {
+	getPerciseType,
 	getAppComponentClassName,
 	getCommonStatusBackgroundColorClassName,
 	getElementStyle,
 } from "./index";
+
+/**
+ * Whether a string is a hex value
+ *
+ * @param {string} value - String to be tested if is a hex value
+ * @returns {boolean} - Whether the 'value' param is a hex value
+ */
+export function isHex(value) {
+	return (
+		getPerciseType(value) === "string" && /^#([0-9a-f]{3}){1,2}$/i.test(value)
+	);
+}
 
 /**
  * Converts red, blue, or green of a rbg color value to its equivalent hex
@@ -64,9 +77,9 @@ function convertRbgColorStringToHexString(rbgColorValue) {
 }
 
 /**
- * Appends to each status Object in 'statusList' property's Array a 'colorHex' 
+ * Appends to each status Object in 'statusList' property's Array a 'colorHex'
  * property for the hex color value of that status's CSS bakcground color.
- * 
+ *
  * Note: The purpose of appending the 'colorHex' property is so it can be used
  * to apply the status colors to the ItemViewBugPieChart component.
  *
@@ -74,7 +87,7 @@ function convertRbgColorStringToHexString(rbgColorValue) {
  * 	id: number,
  * 	option: string,
  * 	color: string
- * }[]} statusList - 'statusList' Object in 'priorityStatusOptions' property in 
+ * }[]} statusList - 'statusList' Object in 'priorityStatusOptions' property in
  * either 'PROJECT_CONTAINER' or 'BUG_CONTAINER' of the redux state
  * @returns {{
  * 	id: number,
@@ -108,7 +121,7 @@ function convertRbgColorStringToHexString(rbgColorValue) {
 export function appendHexValueForColorsToStatusList(statusList) {
 	// Creating "mimic" element for App component to later append child "mimic"
 	// ...elements to so CSS can work properly. Creating "mimic" elements allows
-	// ...this function to be called regardless of real elements being in the 
+	// ...this function to be called regardless of real elements being in the
 	// ...DOM. This also ensures the real elements are unaffected.
 	const mimicAppElement = document.createElement("div");
 	mimicAppElement.className = getAppComponentClassName();
@@ -117,7 +130,9 @@ export function appendHexValueForColorsToStatusList(statusList) {
 
 	for (let i = 0; i < statusList.length; i++) {
 		const mimicStatusColorDiv = document.createElement("div");
-		mimicStatusColorDiv.className = getCommonStatusBackgroundColorClassName(statusList[i].color);
+		mimicStatusColorDiv.className = getCommonStatusBackgroundColorClassName(
+			statusList[i].color
+		);
 		// CSS requires being child of APP component
 		mimicAppElement.appendChild(mimicStatusColorDiv);
 

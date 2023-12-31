@@ -1,6 +1,10 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import { isAnObject, getAllIndexesContainingValueFromArray } from "../utils";
+import {
+	getAllIndexesContainingValueFromArray,
+	isAnId,
+	getPerciseType,
+} from "../utils";
 // Container names used to work with the redux state
 import { ACCOUNT_CONTAINER } from "./constants/containerNames";
 import {
@@ -64,13 +68,12 @@ export const setAuthentication = (decodedToken) => (dispatch) => {
 	try {
 		const failedValidationRules = getAllIndexesContainingValueFromArray(
 			[
-				isAnObject(decodedToken),
-				decodedToken.account_id !== undefined,
-				typeof decodedToken.account_id === "number",
+				getPerciseType(decodedToken) === "object",
+				isAnId(decodedToken.account_id),
 				decodedToken.iat !== undefined,
-				typeof decodedToken.iat === "number",
+				getPerciseType(decodedToken.iat) === "number",
 				decodedToken.exp !== undefined,
-				typeof decodedToken.exp === "number",
+				getPerciseType(decodedToken.exp) === "number",
 			],
 			false
 		);
@@ -398,14 +401,24 @@ export const retrieveEverythingForAccount = () => (dispatch) => {
 				comments,
 			} = res.data;
 
-			dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
-			dispatch(setAccount(account));
-			dispatch(setAccountSettings(accountSettings));
-			dispatch(setThemes(themes));
-			dispatch(setSortCategories(sortCategories));
-			dispatch(setProjects(projects));
-			dispatch(setBugs(bugs));
-			dispatch(setComments(comments));
+			try {
+				dispatch(setPriorityStatus(projectPriorityStatus, bugPriorityStatus));
+				dispatch(setAccount(account));
+				dispatch(setAccountSettings(accountSettings));
+				dispatch(setThemes(themes));
+				dispatch(setSortCategories(sortCategories));
+				dispatch(setProjects(projects));
+				dispatch(setBugs(bugs));
+				dispatch(setComments(comments));
+			} catch (err) {
+				console.error(err);
+				dispatch(
+					setErrorMessages({
+						loginServerData: "Server error: Recieved bad data from server",
+					})
+				);
+				return;
+			}
 		})
 		.catch((err) => {
 			dispatch(setErrorMessages(err.response.data.errorMessages));

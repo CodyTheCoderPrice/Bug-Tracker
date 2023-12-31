@@ -1,5 +1,11 @@
 import axios from "axios";
-import { isAnObject, getAllIndexesContainingValueFromArray } from "../utils";
+import {
+	getAllIndexesContainingValueFromArray,
+	getPerciseType,
+	areArrayElementsOfDesiredType,
+	isAnId,
+	isHex,
+} from "../utils";
 import { logoutAccountDueToError } from "./accountActions";
 // Container names used to work with the redux state
 import {
@@ -350,7 +356,6 @@ export const retrieveSortCategories = () => (dispatch) => {
  * 		{ id: number, option: string },
  * 		{ id: number, option: string },
  * 	],
- * 	priorityEmptyId: (number|null),
  * 	statusList: [
  * 		{ id: number, option: string, color: string },
  * 		{ id: number, option: string, color: string },
@@ -359,7 +364,6 @@ export const retrieveSortCategories = () => (dispatch) => {
  * 		{ id: number, option: string, color: string },
  * 		{ id: number, option: string, color: string },
  * 	],
- * 	statusEmptyId: (number|null),
  * 	statusCompletionId: number,
  * }} projectPriorityStatus - Object containing the developer set data in the
  * project priority/status tables of the database, to be stored in the project
@@ -371,7 +375,6 @@ export const retrieveSortCategories = () => (dispatch) => {
  * 		{ id: number, option: string },
  * 		{ id: number, option: string },
  * 	],
- * 	priorityEmptyId: (number|null),
  * 	statusList: [
  * 		{ id: number, option: string, color: string },
  * 		{ id: number, option: string, color: string },
@@ -380,7 +383,6 @@ export const retrieveSortCategories = () => (dispatch) => {
  * 		{ id: number, option: string, color: string },
  * 		{ id: number, option: string, color: string },
  * 	],
- * 	statusEmptyId: (number|null),
  * 	statusCompletionId: number,
  * }} bugPriorityStatus - Object containing the developer set data in the bug
  * priority/status tables of the database, to be stored in the bug contianer of
@@ -396,7 +398,6 @@ export const retrieveSortCategories = () => (dispatch) => {
  * 			{ id: 3, option: "Medium" },
  * 			{ id: 4, option: "High" },
  * 		],
- * 		priorityEmptyId: 1,
  * 		statusList: [
  * 			{ id: 1, option: "None", color: "gray" },
  * 			{ id: 2, option: "On Hold", color: "red" },
@@ -405,7 +406,6 @@ export const retrieveSortCategories = () => (dispatch) => {
  * 			{ id: 5, option: "Testing", color: "orange" },
  * 			{ id: 6, option: "Completed", color: "green" },
  * 		],
- * 		statusEmptyId: 1,
  * 		statusCompletionId: 6,
  * 	}, {
  * 		priorityList: [
@@ -414,14 +414,12 @@ export const retrieveSortCategories = () => (dispatch) => {
  * 			{ id: 3, option: "Medium" },
  * 			{ id: 4, option: "High" },
  * 		],
- * 		priorityEmptyId: 1,
  * 		statusList: [
  * 			{ id: 1, option: "Open", color: "blue" },
  * 			{ id: 2, option: "In Progress", color: "purple" },
  * 			{ id: 3, option: "Testing", color: "orange" },
  * 			{ id: 4, option: "Closed", color: "green" },
  * 		],
- * 		statusEmptyId: null,
  * 		statusCompletionId: 4,
  * 	})
  * );
@@ -429,12 +427,40 @@ export const retrieveSortCategories = () => (dispatch) => {
 export const setPriorityStatus =
 	(projectPriorityStatus, bugPriorityStatus) => (dispatch) => {
 		try {
+		console.log(projectPriorityStatus);
+		console.log(projectPriorityStatus.statusList[0].colorHex);
+		console.log(isHex(projectPriorityStatus.statusList[0].colorHex));
+		console.log(bugPriorityStatus);
+		
 			const failedValidationRules = getAllIndexesContainingValueFromArray(
 				[
-					isAnObject(projectPriorityStatus),
-					typeof projectPriorityStatus.statusEmptyId === "number" ||
-						projectPriorityStatus.statusEmptyId === null,
-					isAnObject(bugPriorityStatus),
+					getPerciseType(projectPriorityStatus) === "object",
+					getPerciseType(projectPriorityStatus.priorityList) === "array",
+					areArrayElementsOfDesiredType(
+						projectPriorityStatus.priorityList,
+						"object",
+					),
+					projectPriorityStatus.priorityList.every((el) => isAnId(el.id)),
+					projectPriorityStatus.priorityList.every((el) => getPerciseType(el.option) === "string"),
+					getPerciseType(projectPriorityStatus.statusList) === "array",
+					areArrayElementsOfDesiredType(
+						projectPriorityStatus.statusList,
+						"object",
+					),
+					projectPriorityStatus.statusList.every((el) => isAnId(el.id)),
+					projectPriorityStatus.statusList.every((el) => getPerciseType(el.option) === "string"),
+					projectPriorityStatus.statusList.every((el) => getPerciseType(el.color) === "string"),
+					projectPriorityStatus.statusList.every((el) => el.colorHex === undefined || isHex(el.colorHex)),
+					isAnId(projectPriorityStatus.statusCompletionId),
+
+					/*
+					
+					*********************************
+					** - Figure out colorHex issue **
+					** - Finish for bugs as well ****
+					*********************************
+					
+					*/
 				],
 				false
 			);

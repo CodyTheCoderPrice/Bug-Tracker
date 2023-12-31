@@ -7,12 +7,8 @@ import { appendHexValueForColorsToStatusList } from "../../utils/colorUtils";
 const initialState = {
 	// Priority table data from the database
 	priorityList: null,
-	// Which id in the priorityList represent empty
-	priorityEmptyId: null,
 	// Status table data from the database
 	statusList: null,
-	// Which id in the statusList represent empty
-	statusEmptyId: null,
 	// Which id in the statusList represent completion
 	statusCompletionId: null,
 };
@@ -37,7 +33,6 @@ const initialState = {
  * 		{ id: number, option: string },
  * 		{ id: number, option: string },
  * 	]|null),
- * 	priorityEmptyId: (number|null),
  * 	statusList: ([
  * 		{ id: number, option: string, color: string },
  * 		{ id: number, option: string, color: string },
@@ -46,7 +41,6 @@ const initialState = {
  * 		{ id: number, option: string, color: string },
  * 		{ id: number, option: string, color: string },
  * 	]|null),
- * 	statusEmptyId: (number|null),
  * 	statusCompletionId: (number|null),
  * }|undefined)} state - Current Object (in the redux state) for either project
  * or bug (not both) priority/status data
@@ -61,7 +55,6 @@ const initialState = {
  * 		{ id: number, option: string },
  * 		{ id: number, option: string },
  * 	]|null),
- * 	priorityEmptyId: (number|null),
  * 	statusList: ([
  * 		{ id: number, option: string, color: string },
  * 		{ id: number, option: string, color: string },
@@ -70,7 +63,6 @@ const initialState = {
  * 		{ id: number, option: string, color: string },
  * 		{ id: number, option: string, color: string },
  * 	]|null),
- * 	statusEmptyId: (number|null),
  * 	statusCompletionId: (number|null),
  * }} Object containing either project or bug (not both) priority/status data
  * from priority and status tables in the database
@@ -83,11 +75,9 @@ export default function priorityStatusOptionsReducer(
 		case SET_PRIORITY_STATUS:
 			return {
 				priorityList: action.priorityStatusInfo.priorityList,
-				priorityEmptyId: action.priorityStatusInfo.priorityEmptyId,
 				statusList: appendHexValueForColorsToStatusList(
 					action.priorityStatusInfo.statusList
 				),
-				statusEmptyId: action.priorityStatusInfo.statusEmptyId,
 				statusCompletionId: action.priorityStatusInfo.statusCompletionId,
 			};
 		default:
